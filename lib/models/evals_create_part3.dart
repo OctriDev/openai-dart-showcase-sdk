@@ -9,38 +9,67 @@ sealed class CreateEvalRequestDataSourceConfig {
   static const String constructionSurface = 'named';
   const CreateEvalRequestDataSourceConfig();
   factory CreateEvalRequestDataSourceConfig.fromJson(Object? json) {
-    try { return CreateEvalRequestDataSourceConfigCreateEvalCustomDataSourceConfig(CreateEvalCustomDataSourceConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalRequestDataSourceConfigCreateEvalLogsDataSourceConfig(CreateEvalLogsDataSourceConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalRequestDataSourceConfigCreateEvalStoredCompletionsDataSourceConfig(CreateEvalStoredCompletionsDataSourceConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"custom", "logs", "stored_completions"}.contains(json["type"])) { return UnknownCreateEvalRequestDataSourceConfig(json); }
-    throw FormatException("No variant matched for CreateEvalRequestDataSourceConfig");
+    try {
+      return CreateEvalRequestDataSourceConfigCreateEvalCustomDataSourceConfig(
+          CreateEvalCustomDataSourceConfig.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalRequestDataSourceConfigCreateEvalLogsDataSourceConfig(
+          CreateEvalLogsDataSourceConfig.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalRequestDataSourceConfigCreateEvalStoredCompletionsDataSourceConfig(
+          CreateEvalStoredCompletionsDataSourceConfig.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"custom", "logs", "stored_completions"}
+            .contains(json["type"])) {
+      return UnknownCreateEvalRequestDataSourceConfig(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateEvalRequestDataSourceConfig");
   }
   Object? toJson();
 }
 
-final class CreateEvalRequestDataSourceConfigCreateEvalCustomDataSourceConfig extends CreateEvalRequestDataSourceConfig {
+final class CreateEvalRequestDataSourceConfigCreateEvalCustomDataSourceConfig
+    extends CreateEvalRequestDataSourceConfig {
   final CreateEvalCustomDataSourceConfig value;
-  const CreateEvalRequestDataSourceConfigCreateEvalCustomDataSourceConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateEvalRequestDataSourceConfigCreateEvalCustomDataSourceConfig(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalRequestDataSourceConfigCreateEvalLogsDataSourceConfig extends CreateEvalRequestDataSourceConfig {
+final class CreateEvalRequestDataSourceConfigCreateEvalLogsDataSourceConfig
+    extends CreateEvalRequestDataSourceConfig {
   final CreateEvalLogsDataSourceConfig value;
-  const CreateEvalRequestDataSourceConfigCreateEvalLogsDataSourceConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateEvalRequestDataSourceConfigCreateEvalLogsDataSourceConfig(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalRequestDataSourceConfigCreateEvalStoredCompletionsDataSourceConfig extends CreateEvalRequestDataSourceConfig {
+final class CreateEvalRequestDataSourceConfigCreateEvalStoredCompletionsDataSourceConfig
+    extends CreateEvalRequestDataSourceConfig {
   final CreateEvalStoredCompletionsDataSourceConfig value;
-  const CreateEvalRequestDataSourceConfigCreateEvalStoredCompletionsDataSourceConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateEvalRequestDataSourceConfigCreateEvalStoredCompletionsDataSourceConfig(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateEvalRequestDataSourceConfig] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateEvalRequestDataSourceConfig extends CreateEvalRequestDataSourceConfig {
+final class UnknownCreateEvalRequestDataSourceConfig
+    extends CreateEvalRequestDataSourceConfig {
   final Map<String, dynamic> raw;
   const UnknownCreateEvalRequestDataSourceConfig(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 sealed class CreateEvalRequestTestingCriteriaItem {
@@ -48,234 +77,462 @@ sealed class CreateEvalRequestTestingCriteriaItem {
   static const String constructionSurface = 'named';
   const CreateEvalRequestTestingCriteriaItem();
   factory CreateEvalRequestTestingCriteriaItem.fromJson(Object? json) {
-    try { return CreateEvalRequestTestingCriteriaItemCreateEvalLabelModelGrader(CreateEvalLabelModelGrader.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalRequestTestingCriteriaItemEvalGraderStringCheck(EvalGraderStringCheck.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalRequestTestingCriteriaItemEvalGraderTextSimilarity(EvalGraderTextSimilarity.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalRequestTestingCriteriaItemEvalGraderPython(EvalGraderPython.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalRequestTestingCriteriaItemEvalGraderScoreModel(EvalGraderScoreModel.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"label_model", "string_check", "text_similarity", "python", "score_model"}.contains(json["type"])) { return UnknownCreateEvalRequestTestingCriteriaItem(json); }
-    throw FormatException("No variant matched for CreateEvalRequestTestingCriteriaItem");
+    try {
+      return CreateEvalRequestTestingCriteriaItemCreateEvalLabelModelGrader(
+          CreateEvalLabelModelGrader.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalRequestTestingCriteriaItemEvalGraderStringCheck(
+          EvalGraderStringCheck.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalRequestTestingCriteriaItemEvalGraderTextSimilarity(
+          EvalGraderTextSimilarity.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalRequestTestingCriteriaItemEvalGraderPython(
+          EvalGraderPython.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalRequestTestingCriteriaItemEvalGraderScoreModel(
+          EvalGraderScoreModel.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "label_model",
+          "string_check",
+          "text_similarity",
+          "python",
+          "score_model"
+        }.contains(json["type"])) {
+      return UnknownCreateEvalRequestTestingCriteriaItem(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateEvalRequestTestingCriteriaItem");
   }
   Object? toJson();
 }
 
-final class CreateEvalRequestTestingCriteriaItemCreateEvalLabelModelGrader extends CreateEvalRequestTestingCriteriaItem {
+final class CreateEvalRequestTestingCriteriaItemCreateEvalLabelModelGrader
+    extends CreateEvalRequestTestingCriteriaItem {
   final CreateEvalLabelModelGrader value;
-  const CreateEvalRequestTestingCriteriaItemCreateEvalLabelModelGrader(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateEvalRequestTestingCriteriaItemCreateEvalLabelModelGrader(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalRequestTestingCriteriaItemEvalGraderStringCheck extends CreateEvalRequestTestingCriteriaItem {
+final class CreateEvalRequestTestingCriteriaItemEvalGraderStringCheck
+    extends CreateEvalRequestTestingCriteriaItem {
   final EvalGraderStringCheck value;
   const CreateEvalRequestTestingCriteriaItemEvalGraderStringCheck(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalRequestTestingCriteriaItemEvalGraderTextSimilarity extends CreateEvalRequestTestingCriteriaItem {
+final class CreateEvalRequestTestingCriteriaItemEvalGraderTextSimilarity
+    extends CreateEvalRequestTestingCriteriaItem {
   final EvalGraderTextSimilarity value;
-  const CreateEvalRequestTestingCriteriaItemEvalGraderTextSimilarity(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateEvalRequestTestingCriteriaItemEvalGraderTextSimilarity(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalRequestTestingCriteriaItemEvalGraderPython extends CreateEvalRequestTestingCriteriaItem {
+final class CreateEvalRequestTestingCriteriaItemEvalGraderPython
+    extends CreateEvalRequestTestingCriteriaItem {
   final EvalGraderPython value;
   const CreateEvalRequestTestingCriteriaItemEvalGraderPython(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalRequestTestingCriteriaItemEvalGraderScoreModel extends CreateEvalRequestTestingCriteriaItem {
+final class CreateEvalRequestTestingCriteriaItemEvalGraderScoreModel
+    extends CreateEvalRequestTestingCriteriaItem {
   final EvalGraderScoreModel value;
   const CreateEvalRequestTestingCriteriaItemEvalGraderScoreModel(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateEvalRequestTestingCriteriaItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateEvalRequestTestingCriteriaItem extends CreateEvalRequestTestingCriteriaItem {
+final class UnknownCreateEvalRequestTestingCriteriaItem
+    extends CreateEvalRequestTestingCriteriaItem {
   final Map<String, dynamic> raw;
   const UnknownCreateEvalRequestTestingCriteriaItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Configuration options for a text response from the model. Can be plain text or structured JSON data. Learn more: - [Text inputs and outputs](https://developers.openai.com/api/docs/guides/text) - [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
 class CreateEvalResponsesRunDataSourceSamplingParamsText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An object specifying the format that the model must output. Configuring `{ "type": "json_schema" }` enables Structured Outputs, which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs). The default format is `{ "type": "text" }` with no additional options. **Not recommended for gpt-4o and newer models:** Setting to `{ "type": "json_object" }` enables the older JSON mode, which ensures the message the model generates is valid JSON. Using `json_schema` is preferred for models that support it.
   final SdkOptional<TextResponseFormatConfiguration> format;
 
-  const CreateEvalResponsesRunDataSourceSamplingParamsText({this.format = const SdkOmitted()});
+  const CreateEvalResponsesRunDataSourceSamplingParamsText(
+      {this.format = const SdkOmitted()});
 
-  CreateEvalResponsesRunDataSourceSamplingParamsText Function({SdkOptional<TextResponseFormatConfiguration> format}) get copyWith => _copyWith;
+  CreateEvalResponsesRunDataSourceSamplingParamsText Function(
+          {SdkOptional<TextResponseFormatConfiguration> format})
+      get copyWith => _copyWith;
 
-  CreateEvalResponsesRunDataSourceSamplingParamsText _copyWith({Object? format = sdkOmittedValue}) => CreateEvalResponsesRunDataSourceSamplingParamsText(
-    format: identical(format, sdkOmittedValue) ? this.format : format as SdkOptional<TextResponseFormatConfiguration>,
-  );
+  CreateEvalResponsesRunDataSourceSamplingParamsText _copyWith(
+          {Object? format = sdkOmittedValue}) =>
+      CreateEvalResponsesRunDataSourceSamplingParamsText(
+        format: identical(format, sdkOmittedValue)
+            ? this.format
+            : format as SdkOptional<TextResponseFormatConfiguration>,
+      );
 
-  factory CreateEvalResponsesRunDataSourceSamplingParamsText.fromJson(Map<String, dynamic> json) => CreateEvalResponsesRunDataSourceSamplingParamsText(
-    format: json['format'] != null ? SdkPresent((json['format'] != null ? TextResponseFormatConfiguration.fromJson(json['format']) : null)!) : const SdkOmitted(),
-  );
+  factory CreateEvalResponsesRunDataSourceSamplingParamsText.fromJson(
+          Map<String, dynamic> json) =>
+      CreateEvalResponsesRunDataSourceSamplingParamsText(
+        format: json['format'] != null
+            ? SdkPresent((json['format'] != null
+                ? TextResponseFormatConfiguration.fromJson(json['format'])
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (format) {
-      SdkPresent<TextResponseFormatConfiguration>(value: final value) => {'format': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (format) {
+          SdkPresent<TextResponseFormatConfiguration>(value: final value) => {
+              'format': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `sampling_params` wire field.
 class CreateEvalResponsesRunDataSourceSamplingParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `reasoning_effort` wire field.
   final SdkOptional<ReasoningEffort?> reasoningEffort;
+
   /// A higher temperature increases randomness in the outputs.
   final SdkOptional<double> temperature;
+
   /// The maximum number of tokens in the generated output.
   final SdkOptional<int> maxCompletionTokens;
+
   /// An alternative to temperature for nucleus sampling; 1.0 includes all tokens.
   final SdkOptional<double> topP;
+
   /// A seed value to initialize the randomness, during sampling.
   final SdkOptional<int> seed;
+
   /// An array of tools the model may call while generating a response. You can specify which tool to use by setting the `tool_choice` parameter. The two categories of tools you can provide the model are: - **Built-in tools**: Tools that are provided by OpenAI that extend the model's capabilities, like [web search](https://developers.openai.com/api/docs/guides/tools-web-search) or [file search](https://developers.openai.com/api/docs/guides/tools-file-search). Learn more about [built-in tools](https://developers.openai.com/api/docs/guides/tools). - **Function calls (custom tools)**: Functions that are defined by you, enabling the model to call your own code. Learn more about [function calling](https://developers.openai.com/api/docs/guides/function-calling).
   final SdkOptional<List<Tool>> tools;
+
   /// Configuration options for a text response from the model. Can be plain text or structured JSON data. Learn more: - [Text inputs and outputs](https://developers.openai.com/api/docs/guides/text) - [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
   final SdkOptional<CreateEvalResponsesRunDataSourceSamplingParamsText> text;
 
-  const CreateEvalResponsesRunDataSourceSamplingParams({this.reasoningEffort = const SdkOmitted(), this.temperature = const SdkOmitted(), this.maxCompletionTokens = const SdkOmitted(), this.topP = const SdkOmitted(), this.seed = const SdkOmitted(), this.tools = const SdkOmitted(), this.text = const SdkOmitted()});
+  const CreateEvalResponsesRunDataSourceSamplingParams(
+      {this.reasoningEffort = const SdkOmitted(),
+      this.temperature = const SdkOmitted(),
+      this.maxCompletionTokens = const SdkOmitted(),
+      this.topP = const SdkOmitted(),
+      this.seed = const SdkOmitted(),
+      this.tools = const SdkOmitted(),
+      this.text = const SdkOmitted()});
 
-  CreateEvalResponsesRunDataSourceSamplingParams Function({SdkOptional<ReasoningEffort?> reasoningEffort, SdkOptional<double> temperature, SdkOptional<int> maxCompletionTokens, SdkOptional<double> topP, SdkOptional<int> seed, SdkOptional<List<Tool>> tools, SdkOptional<CreateEvalResponsesRunDataSourceSamplingParamsText> text}) get copyWith => _copyWith;
+  CreateEvalResponsesRunDataSourceSamplingParams Function(
+          {SdkOptional<ReasoningEffort?> reasoningEffort,
+          SdkOptional<double> temperature,
+          SdkOptional<int> maxCompletionTokens,
+          SdkOptional<double> topP,
+          SdkOptional<int> seed,
+          SdkOptional<List<Tool>> tools,
+          SdkOptional<CreateEvalResponsesRunDataSourceSamplingParamsText> text})
+      get copyWith => _copyWith;
 
-  CreateEvalResponsesRunDataSourceSamplingParams _copyWith({Object? reasoningEffort = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? maxCompletionTokens = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? seed = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? text = sdkOmittedValue}) => CreateEvalResponsesRunDataSourceSamplingParams(
-    reasoningEffort: identical(reasoningEffort, sdkOmittedValue) ? this.reasoningEffort : reasoningEffort as SdkOptional<ReasoningEffort?>,
-    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double>,
-    maxCompletionTokens: identical(maxCompletionTokens, sdkOmittedValue) ? this.maxCompletionTokens : maxCompletionTokens as SdkOptional<int>,
-    topP: identical(topP, sdkOmittedValue) ? this.topP : topP as SdkOptional<double>,
-    seed: identical(seed, sdkOmittedValue) ? this.seed : seed as SdkOptional<int>,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<Tool>>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<CreateEvalResponsesRunDataSourceSamplingParamsText>,
-  );
+  CreateEvalResponsesRunDataSourceSamplingParams _copyWith(
+          {Object? reasoningEffort = sdkOmittedValue,
+          Object? temperature = sdkOmittedValue,
+          Object? maxCompletionTokens = sdkOmittedValue,
+          Object? topP = sdkOmittedValue,
+          Object? seed = sdkOmittedValue,
+          Object? tools = sdkOmittedValue,
+          Object? text = sdkOmittedValue}) =>
+      CreateEvalResponsesRunDataSourceSamplingParams(
+        reasoningEffort: identical(reasoningEffort, sdkOmittedValue)
+            ? this.reasoningEffort
+            : reasoningEffort as SdkOptional<ReasoningEffort?>,
+        temperature: identical(temperature, sdkOmittedValue)
+            ? this.temperature
+            : temperature as SdkOptional<double>,
+        maxCompletionTokens: identical(maxCompletionTokens, sdkOmittedValue)
+            ? this.maxCompletionTokens
+            : maxCompletionTokens as SdkOptional<int>,
+        topP: identical(topP, sdkOmittedValue)
+            ? this.topP
+            : topP as SdkOptional<double>,
+        seed: identical(seed, sdkOmittedValue)
+            ? this.seed
+            : seed as SdkOptional<int>,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as SdkOptional<List<Tool>>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<
+                CreateEvalResponsesRunDataSourceSamplingParamsText>,
+      );
 
-  factory CreateEvalResponsesRunDataSourceSamplingParams.fromJson(Map<String, dynamic> json) => CreateEvalResponsesRunDataSourceSamplingParams(
-    reasoningEffort: json.containsKey('reasoning_effort') ? SdkPresent(json['reasoning_effort'] != null ? ReasoningEffort.fromJson(json['reasoning_effort']) : null) : const SdkOmitted(),
-    temperature: json['temperature'] != null ? SdkPresent(((json['temperature'] as num?)?.toDouble())!) : const SdkOmitted(),
-    maxCompletionTokens: json['max_completion_tokens'] != null ? SdkPresent(((json['max_completion_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
-    topP: json['top_p'] != null ? SdkPresent(((json['top_p'] as num?)?.toDouble())!) : const SdkOmitted(),
-    seed: json['seed'] != null ? SdkPresent(((json['seed'] as num?)?.toInt())!) : const SdkOmitted(),
-    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => Tool.fromJson(e)).toList())!) : const SdkOmitted(),
-    text: json['text'] != null ? SdkPresent((json['text'] != null ? CreateEvalResponsesRunDataSourceSamplingParamsText.fromJson(json['text'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory CreateEvalResponsesRunDataSourceSamplingParams.fromJson(
+          Map<String, dynamic> json) =>
+      CreateEvalResponsesRunDataSourceSamplingParams(
+        reasoningEffort: json.containsKey('reasoning_effort')
+            ? SdkPresent(json['reasoning_effort'] != null
+                ? ReasoningEffort.fromJson(json['reasoning_effort'])
+                : null)
+            : const SdkOmitted(),
+        temperature: json['temperature'] != null
+            ? SdkPresent(((json['temperature'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        maxCompletionTokens: json['max_completion_tokens'] != null
+            ? SdkPresent(((json['max_completion_tokens'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        topP: json['top_p'] != null
+            ? SdkPresent(((json['top_p'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        seed: json['seed'] != null
+            ? SdkPresent(((json['seed'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        tools: json['tools'] != null
+            ? SdkPresent(((json['tools'] as List?)
+                ?.map((e) => Tool.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+        text: json['text'] != null
+            ? SdkPresent((json['text'] != null
+                ? CreateEvalResponsesRunDataSourceSamplingParamsText.fromJson(
+                    json['text'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (reasoningEffort) {
-      SdkPresent<ReasoningEffort?>(value: final value) => {'reasoning_effort': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (temperature) {
-      SdkPresent<double>(value: final value) => {'temperature': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxCompletionTokens) {
-      SdkPresent<int>(value: final value) => {'max_completion_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (topP) {
-      SdkPresent<double>(value: final value) => {'top_p': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (seed) {
-      SdkPresent<int>(value: final value) => {'seed': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tools) {
-      SdkPresent<List<Tool>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<CreateEvalResponsesRunDataSourceSamplingParamsText>(value: final value) => {'text': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (reasoningEffort) {
+          SdkPresent<ReasoningEffort?>(value: final value) => {
+              'reasoning_effort': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (temperature) {
+          SdkPresent<double>(value: final value) => {
+              'temperature': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxCompletionTokens) {
+          SdkPresent<int>(value: final value) => {
+              'max_completion_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (topP) {
+          SdkPresent<double>(value: final value) => {
+              'top_p': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (seed) {
+          SdkPresent<int>(value: final value) => {
+              'seed': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tools) {
+          SdkPresent<List<Tool>>(value: final value) => {
+              'tools': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<CreateEvalResponsesRunDataSourceSamplingParamsText>(
+            value: final value
+          ) =>
+            {
+              'text': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A ResponsesRunDataSource object describing a model sampling configuration.
 class CreateEvalResponsesRunDataSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of run data source. Always `responses`.
   final CreateEvalResponsesRunDataSourceType type_;
+
   /// Used when sampling from a model. Dictates the structure of the messages passed into the model. Can either be a reference to a prebuilt trajectory (ie, `item.input_trajectory`), or a template with variable references to the `item` namespace.
-  final SdkOptional<CreateEvalResponsesRunDataSourceInputMessages> inputMessages;
+  final SdkOptional<CreateEvalResponsesRunDataSourceInputMessages>
+      inputMessages;
+
   /// Optional object value serialized in the `sampling_params` wire field.
-  final SdkOptional<CreateEvalResponsesRunDataSourceSamplingParams> samplingParams;
+  final SdkOptional<CreateEvalResponsesRunDataSourceSamplingParams>
+      samplingParams;
+
   /// The name of the model to use for generating completions (e.g. "o3-mini").
   final SdkOptional<String> model;
+
   /// Determines what populates the `item` namespace in this run's data source.
   final CreateEvalResponsesRunDataSourceSource source;
 
-  const CreateEvalResponsesRunDataSource({required this.type_, this.inputMessages = const SdkOmitted(), this.samplingParams = const SdkOmitted(), this.model = const SdkOmitted(), required this.source});
+  const CreateEvalResponsesRunDataSource(
+      {required this.type_,
+      this.inputMessages = const SdkOmitted(),
+      this.samplingParams = const SdkOmitted(),
+      this.model = const SdkOmitted(),
+      required this.source});
 
-  CreateEvalResponsesRunDataSource Function({CreateEvalResponsesRunDataSourceType type_, SdkOptional<CreateEvalResponsesRunDataSourceInputMessages> inputMessages, SdkOptional<CreateEvalResponsesRunDataSourceSamplingParams> samplingParams, SdkOptional<String> model, CreateEvalResponsesRunDataSourceSource source}) get copyWith => _copyWith;
+  CreateEvalResponsesRunDataSource Function(
+      {CreateEvalResponsesRunDataSourceType type_,
+      SdkOptional<CreateEvalResponsesRunDataSourceInputMessages> inputMessages,
+      SdkOptional<CreateEvalResponsesRunDataSourceSamplingParams>
+          samplingParams,
+      SdkOptional<String> model,
+      CreateEvalResponsesRunDataSourceSource source}) get copyWith => _copyWith;
 
-  CreateEvalResponsesRunDataSource _copyWith({Object? type_ = sdkOmittedValue, Object? inputMessages = sdkOmittedValue, Object? samplingParams = sdkOmittedValue, Object? model = sdkOmittedValue, Object? source = sdkOmittedValue}) => CreateEvalResponsesRunDataSource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalResponsesRunDataSourceType,
-    inputMessages: identical(inputMessages, sdkOmittedValue) ? this.inputMessages : inputMessages as SdkOptional<CreateEvalResponsesRunDataSourceInputMessages>,
-    samplingParams: identical(samplingParams, sdkOmittedValue) ? this.samplingParams : samplingParams as SdkOptional<CreateEvalResponsesRunDataSourceSamplingParams>,
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
-    source: identical(source, sdkOmittedValue) ? this.source : source as CreateEvalResponsesRunDataSourceSource,
-  );
+  CreateEvalResponsesRunDataSource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? inputMessages = sdkOmittedValue,
+          Object? samplingParams = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? source = sdkOmittedValue}) =>
+      CreateEvalResponsesRunDataSource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateEvalResponsesRunDataSourceType,
+        inputMessages: identical(inputMessages, sdkOmittedValue)
+            ? this.inputMessages
+            : inputMessages
+                as SdkOptional<CreateEvalResponsesRunDataSourceInputMessages>,
+        samplingParams: identical(samplingParams, sdkOmittedValue)
+            ? this.samplingParams
+            : samplingParams
+                as SdkOptional<CreateEvalResponsesRunDataSourceSamplingParams>,
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<String>,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as CreateEvalResponsesRunDataSourceSource,
+      );
 
-  factory CreateEvalResponsesRunDataSource.fromJson(Map<String, dynamic> json) => CreateEvalResponsesRunDataSource(
-    type_: (json['type'] != null ? CreateEvalResponsesRunDataSourceType.fromJson(json['type'] as String) : null)!,
-    inputMessages: json['input_messages'] != null ? SdkPresent((json['input_messages'] != null ? CreateEvalResponsesRunDataSourceInputMessages.fromJson(json['input_messages']) : null)!) : const SdkOmitted(),
-    samplingParams: json['sampling_params'] != null ? SdkPresent((json['sampling_params'] != null ? CreateEvalResponsesRunDataSourceSamplingParams.fromJson(json['sampling_params'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
-    source: (json['source'] != null ? CreateEvalResponsesRunDataSourceSource.fromJson(json['source']) : null)!,
-  );
+  factory CreateEvalResponsesRunDataSource.fromJson(
+          Map<String, dynamic> json) =>
+      CreateEvalResponsesRunDataSource(
+        type_: (json['type'] != null
+            ? CreateEvalResponsesRunDataSourceType.fromJson(
+                json['type'] as String)
+            : null)!,
+        inputMessages: json['input_messages'] != null
+            ? SdkPresent((json['input_messages'] != null
+                ? CreateEvalResponsesRunDataSourceInputMessages.fromJson(
+                    json['input_messages'])
+                : null)!)
+            : const SdkOmitted(),
+        samplingParams: json['sampling_params'] != null
+            ? SdkPresent((json['sampling_params'] != null
+                ? CreateEvalResponsesRunDataSourceSamplingParams.fromJson(
+                    json['sampling_params'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        model: json['model'] != null
+            ? SdkPresent((json['model'] as String?)!)
+            : const SdkOmitted(),
+        source: (json['source'] != null
+            ? CreateEvalResponsesRunDataSourceSource.fromJson(json['source'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (inputMessages) {
-      SdkPresent<CreateEvalResponsesRunDataSourceInputMessages>(value: final value) => {'input_messages': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (samplingParams) {
-      SdkPresent<CreateEvalResponsesRunDataSourceSamplingParams>(value: final value) => {'sampling_params': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (model) {
-      SdkPresent<String>(value: final value) => {'model': value,},
-      _ => const <String, dynamic>{},
-    },
-    'source': source.toJson(),
-  };
+        'type': type_.toJson(),
+        ...switch (inputMessages) {
+          SdkPresent<CreateEvalResponsesRunDataSourceInputMessages>(
+            value: final value
+          ) =>
+            {
+              'input_messages': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (samplingParams) {
+          SdkPresent<CreateEvalResponsesRunDataSourceSamplingParams>(
+            value: final value
+          ) =>
+            {
+              'sampling_params': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (model) {
+          SdkPresent<String>(value: final value) => {
+              'model': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'source': source.toJson(),
+      };
 }
 
 /// Optional object value serialized in the `input_messages` wire field.
 class CreateEvalResponsesRunDataSourceInputMessagesVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of input messages. Always `template`.
   final CreateEvalResponsesRunDataSourceInputMessagesVariant0Type type_;
+
   /// A list of chat messages forming the prompt or context. May include variable references to the `item` namespace, ie {{item.name}}.
   final List<TemplateItem2> template;
 
-  const CreateEvalResponsesRunDataSourceInputMessagesVariant0({required this.type_, required this.template});
+  const CreateEvalResponsesRunDataSourceInputMessagesVariant0(
+      {required this.type_, required this.template});
 
-  CreateEvalResponsesRunDataSourceInputMessagesVariant0 Function({CreateEvalResponsesRunDataSourceInputMessagesVariant0Type type_, List<TemplateItem2> template}) get copyWith => _copyWith;
+  CreateEvalResponsesRunDataSourceInputMessagesVariant0 Function(
+      {CreateEvalResponsesRunDataSourceInputMessagesVariant0Type type_,
+      List<TemplateItem2> template}) get copyWith => _copyWith;
 
-  CreateEvalResponsesRunDataSourceInputMessagesVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? template = sdkOmittedValue}) => CreateEvalResponsesRunDataSourceInputMessagesVariant0(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalResponsesRunDataSourceInputMessagesVariant0Type,
-    template: identical(template, sdkOmittedValue) ? this.template : template as List<TemplateItem2>,
-  );
+  CreateEvalResponsesRunDataSourceInputMessagesVariant0 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? template = sdkOmittedValue}) =>
+      CreateEvalResponsesRunDataSourceInputMessagesVariant0(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_
+                as CreateEvalResponsesRunDataSourceInputMessagesVariant0Type,
+        template: identical(template, sdkOmittedValue)
+            ? this.template
+            : template as List<TemplateItem2>,
+      );
 
-  factory CreateEvalResponsesRunDataSourceInputMessagesVariant0.fromJson(Map<String, dynamic> json) => CreateEvalResponsesRunDataSourceInputMessagesVariant0(
-    type_: (json['type'] != null ? CreateEvalResponsesRunDataSourceInputMessagesVariant0Type.fromJson(json['type'] as String) : null)!,
-    template: ((json['template'] as List?)?.map((e) => TemplateItem2.fromJson(e)).toList())!,
-  );
+  factory CreateEvalResponsesRunDataSourceInputMessagesVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      CreateEvalResponsesRunDataSourceInputMessagesVariant0(
+        type_: (json['type'] != null
+            ? CreateEvalResponsesRunDataSourceInputMessagesVariant0Type
+                .fromJson(json['type'] as String)
+            : null)!,
+        template: ((json['template'] as List?)
+            ?.map((e) => TemplateItem2.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'template': template.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'template': template.map((item) => item.toJson()).toList(),
+      };
 }

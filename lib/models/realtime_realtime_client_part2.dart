@@ -8,250 +8,441 @@ part of 'realtime_realtime_client.dart';
 class RealtimeClientEventInputAudioBufferAppend {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `input_audio_buffer.append`.
   final RealtimeClientEventInputAudioBufferAppendType type_;
+
   /// Base64-encoded audio bytes. This must be in the format specified by the `input_audio_format` field in the session configuration.
   final String audio;
 
-  const RealtimeClientEventInputAudioBufferAppend({this.eventId = const SdkOmitted(), required this.type_, required this.audio});
+  const RealtimeClientEventInputAudioBufferAppend(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      required this.audio});
 
-  RealtimeClientEventInputAudioBufferAppend Function({SdkOptional<String> eventId, RealtimeClientEventInputAudioBufferAppendType type_, String audio}) get copyWith => _copyWith;
+  RealtimeClientEventInputAudioBufferAppend Function(
+      {SdkOptional<String> eventId,
+      RealtimeClientEventInputAudioBufferAppendType type_,
+      String audio}) get copyWith => _copyWith;
 
-  RealtimeClientEventInputAudioBufferAppend _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? audio = sdkOmittedValue}) => RealtimeClientEventInputAudioBufferAppend(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventInputAudioBufferAppendType,
-    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
-  );
+  RealtimeClientEventInputAudioBufferAppend _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? audio = sdkOmittedValue}) =>
+      RealtimeClientEventInputAudioBufferAppend(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeClientEventInputAudioBufferAppendType,
+        audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
+      );
 
-  factory RealtimeClientEventInputAudioBufferAppend.fromJson(Map<String, dynamic> json) => RealtimeClientEventInputAudioBufferAppend(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeClientEventInputAudioBufferAppendType.fromJson(json['type'] as String) : null)!,
-    audio: (json['audio'] as String?)!,
-  );
+  factory RealtimeClientEventInputAudioBufferAppend.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeClientEventInputAudioBufferAppend(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeClientEventInputAudioBufferAppendType.fromJson(
+                json['type'] as String)
+            : null)!,
+        audio: (json['audio'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'audio': audio,
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'audio': audio,
+      };
 }
 
 /// Send this event to clear the audio bytes in the buffer. The server will respond with an `input_audio_buffer.cleared` event.
 class RealtimeClientEventInputAudioBufferClear {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `input_audio_buffer.clear`.
   final RealtimeClientEventInputAudioBufferClearType type_;
 
-  const RealtimeClientEventInputAudioBufferClear({this.eventId = const SdkOmitted(), required this.type_});
+  const RealtimeClientEventInputAudioBufferClear(
+      {this.eventId = const SdkOmitted(), required this.type_});
 
-  RealtimeClientEventInputAudioBufferClear Function({SdkOptional<String> eventId, RealtimeClientEventInputAudioBufferClearType type_}) get copyWith => _copyWith;
+  RealtimeClientEventInputAudioBufferClear Function(
+          {SdkOptional<String> eventId,
+          RealtimeClientEventInputAudioBufferClearType type_})
+      get copyWith => _copyWith;
 
-  RealtimeClientEventInputAudioBufferClear _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeClientEventInputAudioBufferClear(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventInputAudioBufferClearType,
-  );
+  RealtimeClientEventInputAudioBufferClear _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      RealtimeClientEventInputAudioBufferClear(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeClientEventInputAudioBufferClearType,
+      );
 
-  factory RealtimeClientEventInputAudioBufferClear.fromJson(Map<String, dynamic> json) => RealtimeClientEventInputAudioBufferClear(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeClientEventInputAudioBufferClearType.fromJson(json['type'] as String) : null)!,
-  );
+  factory RealtimeClientEventInputAudioBufferClear.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeClientEventInputAudioBufferClear(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeClientEventInputAudioBufferClearType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+      };
 }
 
 /// Send this event to commit the user input audio buffer, which will create a new user message item in the conversation. This event will produce an error if the input audio buffer is empty. When in Server VAD mode, the client does not need to send this event, the server will commit the audio buffer automatically. Committing the input audio buffer will trigger input audio transcription (if enabled in session configuration), but it will not create a response from the model. The server will respond with an `input_audio_buffer.committed` event.
 class RealtimeClientEventInputAudioBufferCommit {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `input_audio_buffer.commit`.
   final RealtimeClientEventInputAudioBufferCommitType type_;
 
-  const RealtimeClientEventInputAudioBufferCommit({this.eventId = const SdkOmitted(), required this.type_});
+  const RealtimeClientEventInputAudioBufferCommit(
+      {this.eventId = const SdkOmitted(), required this.type_});
 
-  RealtimeClientEventInputAudioBufferCommit Function({SdkOptional<String> eventId, RealtimeClientEventInputAudioBufferCommitType type_}) get copyWith => _copyWith;
+  RealtimeClientEventInputAudioBufferCommit Function(
+          {SdkOptional<String> eventId,
+          RealtimeClientEventInputAudioBufferCommitType type_})
+      get copyWith => _copyWith;
 
-  RealtimeClientEventInputAudioBufferCommit _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeClientEventInputAudioBufferCommit(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventInputAudioBufferCommitType,
-  );
+  RealtimeClientEventInputAudioBufferCommit _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      RealtimeClientEventInputAudioBufferCommit(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeClientEventInputAudioBufferCommitType,
+      );
 
-  factory RealtimeClientEventInputAudioBufferCommit.fromJson(Map<String, dynamic> json) => RealtimeClientEventInputAudioBufferCommit(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeClientEventInputAudioBufferCommitType.fromJson(json['type'] as String) : null)!,
-  );
+  factory RealtimeClientEventInputAudioBufferCommit.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeClientEventInputAudioBufferCommit(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeClientEventInputAudioBufferCommitType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+      };
 }
 
 /// **WebRTC/SIP Only:** Emit to cut off the current audio response. This will trigger the server to stop generating audio and emit a `output_audio_buffer.cleared` event. This event should be preceded by a `response.cancel` client event to stop the generation of the current response. [Learn more](https://developers.openai.com/api/docs/guides/realtime-conversations#client-and-server-events-for-audio-in-webrtc).
 class RealtimeClientEventOutputAudioBufferClear {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the client event used for error handling.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `output_audio_buffer.clear`.
   final RealtimeClientEventOutputAudioBufferClearType type_;
 
-  const RealtimeClientEventOutputAudioBufferClear({this.eventId = const SdkOmitted(), required this.type_});
+  const RealtimeClientEventOutputAudioBufferClear(
+      {this.eventId = const SdkOmitted(), required this.type_});
 
-  RealtimeClientEventOutputAudioBufferClear Function({SdkOptional<String> eventId, RealtimeClientEventOutputAudioBufferClearType type_}) get copyWith => _copyWith;
+  RealtimeClientEventOutputAudioBufferClear Function(
+          {SdkOptional<String> eventId,
+          RealtimeClientEventOutputAudioBufferClearType type_})
+      get copyWith => _copyWith;
 
-  RealtimeClientEventOutputAudioBufferClear _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeClientEventOutputAudioBufferClear(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventOutputAudioBufferClearType,
-  );
+  RealtimeClientEventOutputAudioBufferClear _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      RealtimeClientEventOutputAudioBufferClear(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeClientEventOutputAudioBufferClearType,
+      );
 
-  factory RealtimeClientEventOutputAudioBufferClear.fromJson(Map<String, dynamic> json) => RealtimeClientEventOutputAudioBufferClear(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeClientEventOutputAudioBufferClearType.fromJson(json['type'] as String) : null)!,
-  );
+  factory RealtimeClientEventOutputAudioBufferClear.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeClientEventOutputAudioBufferClear(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeClientEventOutputAudioBufferClearType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+      };
 }
 
 /// Send this event to cancel an in-progress response. The server will respond with a `response.done` event with a status of `response.status=cancelled`. If there is no response to cancel, the server will respond with an error. It's safe to call `response.cancel` even if no response is in progress, an error will be returned the session will remain unaffected.
 class RealtimeClientEventResponseCancel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `response.cancel`.
   final RealtimeClientEventResponseCancelType type_;
+
   /// A specific response ID to cancel - if not provided, will cancel an in-progress response in the default conversation.
   final SdkOptional<String> responseId;
 
-  const RealtimeClientEventResponseCancel({this.eventId = const SdkOmitted(), required this.type_, this.responseId = const SdkOmitted()});
+  const RealtimeClientEventResponseCancel(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      this.responseId = const SdkOmitted()});
 
-  RealtimeClientEventResponseCancel Function({SdkOptional<String> eventId, RealtimeClientEventResponseCancelType type_, SdkOptional<String> responseId}) get copyWith => _copyWith;
+  RealtimeClientEventResponseCancel Function(
+      {SdkOptional<String> eventId,
+      RealtimeClientEventResponseCancelType type_,
+      SdkOptional<String> responseId}) get copyWith => _copyWith;
 
-  RealtimeClientEventResponseCancel _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue}) => RealtimeClientEventResponseCancel(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventResponseCancelType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as SdkOptional<String>,
-  );
+  RealtimeClientEventResponseCancel _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue}) =>
+      RealtimeClientEventResponseCancel(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeClientEventResponseCancelType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as SdkOptional<String>,
+      );
 
-  factory RealtimeClientEventResponseCancel.fromJson(Map<String, dynamic> json) => RealtimeClientEventResponseCancel(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeClientEventResponseCancelType.fromJson(json['type'] as String) : null)!,
-    responseId: json['response_id'] != null ? SdkPresent((json['response_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory RealtimeClientEventResponseCancel.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeClientEventResponseCancel(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeClientEventResponseCancelType.fromJson(
+                json['type'] as String)
+            : null)!,
+        responseId: json['response_id'] != null
+            ? SdkPresent((json['response_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    ...switch (responseId) {
-      SdkPresent<String>(value: final value) => {'response_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        ...switch (responseId) {
+          SdkPresent<String>(value: final value) => {
+              'response_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// This event instructs the server to create a Response, which means triggering model inference. When in Server VAD mode, the server will create Responses automatically. A Response will include at least one Item, and may have two, in which case the second will be a function call. These Items will be appended to the conversation history by default. The server will respond with a `response.created` event, events for Items and content created, and finally a `response.done` event to indicate the Response is complete. The `response.create` event includes inference configuration like `instructions` and `tools`. If these are set, they will override the Session's configuration for this Response only. Responses can be created out-of-band of the default Conversation, meaning that they can have arbitrary input, and it's possible to disable writing the output to the Conversation. Only one Response can write to the default Conversation at a time, but otherwise multiple Responses can be created in parallel. The `metadata` field is a good way to disambiguate multiple simultaneous Responses. Clients can set `conversation` to `none` to create a Response that does not write to the default Conversation. Arbitrary input can be provided with the `input` field, which is an array accepting raw Items and references to existing Items.
 class RealtimeClientEventResponseCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `response.create`.
   final RealtimeClientEventResponseCreateType type_;
+
   /// Create a new Realtime response with these parameters
   final SdkOptional<RealtimeResponseCreateParams> response;
 
-  const RealtimeClientEventResponseCreate({this.eventId = const SdkOmitted(), required this.type_, this.response = const SdkOmitted()});
+  const RealtimeClientEventResponseCreate(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      this.response = const SdkOmitted()});
 
-  RealtimeClientEventResponseCreate Function({SdkOptional<String> eventId, RealtimeClientEventResponseCreateType type_, SdkOptional<RealtimeResponseCreateParams> response}) get copyWith => _copyWith;
+  RealtimeClientEventResponseCreate Function(
+          {SdkOptional<String> eventId,
+          RealtimeClientEventResponseCreateType type_,
+          SdkOptional<RealtimeResponseCreateParams> response})
+      get copyWith => _copyWith;
 
-  RealtimeClientEventResponseCreate _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue}) => RealtimeClientEventResponseCreate(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventResponseCreateType,
-    response: identical(response, sdkOmittedValue) ? this.response : response as SdkOptional<RealtimeResponseCreateParams>,
-  );
+  RealtimeClientEventResponseCreate _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? response = sdkOmittedValue}) =>
+      RealtimeClientEventResponseCreate(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeClientEventResponseCreateType,
+        response: identical(response, sdkOmittedValue)
+            ? this.response
+            : response as SdkOptional<RealtimeResponseCreateParams>,
+      );
 
-  factory RealtimeClientEventResponseCreate.fromJson(Map<String, dynamic> json) => RealtimeClientEventResponseCreate(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeClientEventResponseCreateType.fromJson(json['type'] as String) : null)!,
-    response: json['response'] != null ? SdkPresent((json['response'] != null ? RealtimeResponseCreateParams.fromJson(json['response'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory RealtimeClientEventResponseCreate.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeClientEventResponseCreate(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeClientEventResponseCreateType.fromJson(
+                json['type'] as String)
+            : null)!,
+        response: json['response'] != null
+            ? SdkPresent((json['response'] != null
+                ? RealtimeResponseCreateParams.fromJson(
+                    json['response'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    ...switch (response) {
-      SdkPresent<RealtimeResponseCreateParams>(value: final value) => {'response': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        ...switch (response) {
+          SdkPresent<RealtimeResponseCreateParams>(value: final value) => {
+              'response': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Send this event to update the session’s configuration. The client may send this event at any time to update any field except for `voice` and `model`. `voice` can be updated only if there have been no other audio outputs yet. When the server receives a `session.update`, it will respond with a `session.updated` event showing the full, effective configuration. Only the fields that are present in the `session.update` are updated. To clear a field like `instructions`, pass an empty string. To clear a field like `tools`, pass an empty array. To clear a field like `turn_detection`, pass `null`. To turn off input audio noise reduction, send this Realtime event: ```json {"type":"session.update","session":{"type":"realtime","audio":{"input":{"noise_reduction":null}}}} ``` For a transcription session, use `"type":"transcription"` inside `session`. Omitting `audio.input.noise_reduction` from an update leaves its current setting unchanged.
 class RealtimeClientEventSessionUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event. This is an arbitrary string that a client may assign. It will be passed back if there is an error with the event, but the corresponding `session.updated` event will not include it.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `session.update`.
   final RealtimeClientEventSessionUpdateType type_;
+
   /// Update the Realtime session. Choose either a realtime session or a transcription session.
   final RealtimeClientEventSessionUpdateSession session;
 
-  const RealtimeClientEventSessionUpdate({this.eventId = const SdkOmitted(), required this.type_, required this.session});
+  const RealtimeClientEventSessionUpdate(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      required this.session});
 
-  RealtimeClientEventSessionUpdate Function({SdkOptional<String> eventId, RealtimeClientEventSessionUpdateType type_, RealtimeClientEventSessionUpdateSession session}) get copyWith => _copyWith;
+  RealtimeClientEventSessionUpdate Function(
+          {SdkOptional<String> eventId,
+          RealtimeClientEventSessionUpdateType type_,
+          RealtimeClientEventSessionUpdateSession session})
+      get copyWith => _copyWith;
 
-  RealtimeClientEventSessionUpdate _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeClientEventSessionUpdate(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventSessionUpdateType,
-    session: identical(session, sdkOmittedValue) ? this.session : session as RealtimeClientEventSessionUpdateSession,
-  );
+  RealtimeClientEventSessionUpdate _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? session = sdkOmittedValue}) =>
+      RealtimeClientEventSessionUpdate(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeClientEventSessionUpdateType,
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as RealtimeClientEventSessionUpdateSession,
+      );
 
-  factory RealtimeClientEventSessionUpdate.fromJson(Map<String, dynamic> json) => RealtimeClientEventSessionUpdate(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeClientEventSessionUpdateType.fromJson(json['type'] as String) : null)!,
-    session: (json['session'] != null ? RealtimeClientEventSessionUpdateSession.fromJson(json['session']) : null)!,
-  );
+  factory RealtimeClientEventSessionUpdate.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeClientEventSessionUpdate(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeClientEventSessionUpdateType.fromJson(
+                json['type'] as String)
+            : null)!,
+        session: (json['session'] != null
+            ? RealtimeClientEventSessionUpdateSession.fromJson(json['session'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'session': session.toJson(),
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'session': session.toJson(),
+      };
 }
 
 sealed class RealtimeClientEventSessionUpdateSession {
@@ -259,29 +450,50 @@ sealed class RealtimeClientEventSessionUpdateSession {
   static const String constructionSurface = 'named';
   const RealtimeClientEventSessionUpdateSession();
   factory RealtimeClientEventSessionUpdateSession.fromJson(Object? json) {
-    try { return RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(RealtimeSessionCreateRequestGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(RealtimeTranscriptionSessionCreateRequestGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"realtime", "transcription"}.contains(json["type"])) { return UnknownRealtimeClientEventSessionUpdateSession(json); }
-    throw FormatException("No variant matched for RealtimeClientEventSessionUpdateSession");
+    try {
+      return RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(
+          RealtimeSessionCreateRequestGA.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(
+          RealtimeTranscriptionSessionCreateRequestGA.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"realtime", "transcription"}.contains(json["type"])) {
+      return UnknownRealtimeClientEventSessionUpdateSession(json);
+    }
+    throw FormatException(
+        "No variant matched for RealtimeClientEventSessionUpdateSession");
   }
   Object? toJson();
 }
 
-final class RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA extends RealtimeClientEventSessionUpdateSession {
+final class RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA
+    extends RealtimeClientEventSessionUpdateSession {
   final RealtimeSessionCreateRequestGA value;
-  const RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA extends RealtimeClientEventSessionUpdateSession {
+final class RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA
+    extends RealtimeClientEventSessionUpdateSession {
   final RealtimeTranscriptionSessionCreateRequestGA value;
-  const RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeClientEventSessionUpdateSession] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeClientEventSessionUpdateSession extends RealtimeClientEventSessionUpdateSession {
+final class UnknownRealtimeClientEventSessionUpdateSession
+    extends RealtimeClientEventSessionUpdateSession {
   final Map<String, dynamic> raw;
   const UnknownRealtimeClientEventSessionUpdateSession(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

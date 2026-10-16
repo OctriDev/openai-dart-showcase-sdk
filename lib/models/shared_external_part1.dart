@@ -8,54 +8,102 @@ part of 'shared_external.dart';
 class ExternalStorageResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final ExternalStorageResponseObject object;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required `string` value serialized in the `project_id` wire field.
   final String projectId;
+
   /// Required API value serialized in the `provider` wire field.
   final ExternalStorageResponseProvider provider;
+
   /// Required `string` value serialized in the `geography` wire field.
   final String geography;
+
   /// Required enumerated value serialized in the `status` wire field.
   final ExternalStorageStatus status;
+
   /// Required `unixtime`-formatted value serialized in the `created_at` wire field.
   final int createdAt;
 
-  const ExternalStorageResponse({required this.object, required this.id, required this.projectId, required this.provider, required this.geography, required this.status, required this.createdAt});
+  const ExternalStorageResponse(
+      {required this.object,
+      required this.id,
+      required this.projectId,
+      required this.provider,
+      required this.geography,
+      required this.status,
+      required this.createdAt});
 
-  ExternalStorageResponse Function({ExternalStorageResponseObject object, String id, String projectId, ExternalStorageResponseProvider provider, String geography, ExternalStorageStatus status, int createdAt}) get copyWith => _copyWith;
+  ExternalStorageResponse Function(
+      {ExternalStorageResponseObject object,
+      String id,
+      String projectId,
+      ExternalStorageResponseProvider provider,
+      String geography,
+      ExternalStorageStatus status,
+      int createdAt}) get copyWith => _copyWith;
 
-  ExternalStorageResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? geography = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => ExternalStorageResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ExternalStorageResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as String,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as ExternalStorageResponseProvider,
-    geography: identical(geography, sdkOmittedValue) ? this.geography : geography as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as ExternalStorageStatus,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-  );
+  ExternalStorageResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue,
+          Object? provider = sdkOmittedValue,
+          Object? geography = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      ExternalStorageResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ExternalStorageResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as String,
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as ExternalStorageResponseProvider,
+        geography: identical(geography, sdkOmittedValue)
+            ? this.geography
+            : geography as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ExternalStorageStatus,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+      );
 
-  factory ExternalStorageResponse.fromJson(Map<String, dynamic> json) => ExternalStorageResponse(
-    object: (json['object'] != null ? ExternalStorageResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    projectId: (json['project_id'] as String?)!,
-    provider: (json['provider'] != null ? ExternalStorageResponseProvider.fromJson(json['provider']) : null)!,
-    geography: (json['geography'] as String?)!,
-    status: (json['status'] != null ? ExternalStorageStatus.fromJson(json['status'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-  );
+  factory ExternalStorageResponse.fromJson(Map<String, dynamic> json) =>
+      ExternalStorageResponse(
+        object: (json['object'] != null
+            ? ExternalStorageResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        projectId: (json['project_id'] as String?)!,
+        provider: (json['provider'] != null
+            ? ExternalStorageResponseProvider.fromJson(json['provider'])
+            : null)!,
+        geography: (json['geography'] as String?)!,
+        status: (json['status'] != null
+            ? ExternalStorageStatus.fromJson(json['status'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'project_id': projectId,
-    'provider': provider.toJson(),
-    'geography': geography,
-    'status': status.toJson(),
-    'created_at': createdAt,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'project_id': projectId,
+        'provider': provider.toJson(),
+        'geography': geography,
+        'status': status.toJson(),
+        'created_at': createdAt,
+      };
 }
 
 sealed class ExternalStorageResponseProvider {
@@ -63,55 +111,90 @@ sealed class ExternalStorageResponseProvider {
   static const String constructionSurface = 'named';
   const ExternalStorageResponseProvider();
   factory ExternalStorageResponseProvider.fromJson(Object? json) {
-    try { return ExternalStorageResponseProviderAwsExternalStorageProviderResponse(AwsExternalStorageProviderResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ExternalStorageResponseProviderAzureExternalStorageProviderResponse(AzureExternalStorageProviderResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ExternalStorageResponseProviderGcpExternalStorageProviderResponse(GcpExternalStorageProviderResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ExternalStorageResponseProviderOciExternalStorageProviderResponse(OciExternalStorageProviderResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"aws", "azure", "gcp", "oci"}.contains(json["type"])) { return UnknownExternalStorageResponseProvider(json); }
-    throw FormatException("No variant matched for ExternalStorageResponseProvider");
+    try {
+      return ExternalStorageResponseProviderAwsExternalStorageProviderResponse(
+          AwsExternalStorageProviderResponse.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ExternalStorageResponseProviderAzureExternalStorageProviderResponse(
+          AzureExternalStorageProviderResponse.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ExternalStorageResponseProviderGcpExternalStorageProviderResponse(
+          GcpExternalStorageProviderResponse.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ExternalStorageResponseProviderOciExternalStorageProviderResponse(
+          OciExternalStorageProviderResponse.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"aws", "azure", "gcp", "oci"}.contains(json["type"])) {
+      return UnknownExternalStorageResponseProvider(json);
+    }
+    throw FormatException(
+        "No variant matched for ExternalStorageResponseProvider");
   }
   Object? toJson();
 }
 
-final class ExternalStorageResponseProviderAwsExternalStorageProviderResponse extends ExternalStorageResponseProvider {
+final class ExternalStorageResponseProviderAwsExternalStorageProviderResponse
+    extends ExternalStorageResponseProvider {
   final AwsExternalStorageProviderResponse value;
-  const ExternalStorageResponseProviderAwsExternalStorageProviderResponse(this.value);
-  @override Object? toJson() => value.toJson();
+  const ExternalStorageResponseProviderAwsExternalStorageProviderResponse(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ExternalStorageResponseProviderAzureExternalStorageProviderResponse extends ExternalStorageResponseProvider {
+final class ExternalStorageResponseProviderAzureExternalStorageProviderResponse
+    extends ExternalStorageResponseProvider {
   final AzureExternalStorageProviderResponse value;
-  const ExternalStorageResponseProviderAzureExternalStorageProviderResponse(this.value);
-  @override Object? toJson() => value.toJson();
+  const ExternalStorageResponseProviderAzureExternalStorageProviderResponse(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ExternalStorageResponseProviderGcpExternalStorageProviderResponse extends ExternalStorageResponseProvider {
+final class ExternalStorageResponseProviderGcpExternalStorageProviderResponse
+    extends ExternalStorageResponseProvider {
   final GcpExternalStorageProviderResponse value;
-  const ExternalStorageResponseProviderGcpExternalStorageProviderResponse(this.value);
-  @override Object? toJson() => value.toJson();
+  const ExternalStorageResponseProviderGcpExternalStorageProviderResponse(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ExternalStorageResponseProviderOciExternalStorageProviderResponse extends ExternalStorageResponseProvider {
+final class ExternalStorageResponseProviderOciExternalStorageProviderResponse
+    extends ExternalStorageResponseProvider {
   final OciExternalStorageProviderResponse value;
-  const ExternalStorageResponseProviderOciExternalStorageProviderResponse(this.value);
-  @override Object? toJson() => value.toJson();
+  const ExternalStorageResponseProviderOciExternalStorageProviderResponse(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ExternalStorageResponseProvider] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownExternalStorageResponseProvider extends ExternalStorageResponseProvider {
+final class UnknownExternalStorageResponseProvider
+    extends ExternalStorageResponseProvider {
   final Map<String, dynamic> raw;
   const UnknownExternalStorageResponseProvider(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Typed representation of the `ExternalStorageStatus` API schema.
 final class ExternalStorageStatus {
-
   final String value;
 
   const ExternalStorageStatus._(this.value);
 
-  factory ExternalStorageStatus.fromJson(String value) => ExternalStorageStatus._(value);
+  factory ExternalStorageStatus.fromJson(String value) =>
+      ExternalStorageStatus._(value);
 
   static const pending = ExternalStorageStatus._('pending');
   static const validated = ExternalStorageStatus._('validated');
@@ -120,10 +203,13 @@ final class ExternalStorageStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ExternalStorageStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ExternalStorageStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

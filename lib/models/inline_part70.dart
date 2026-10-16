@@ -10,14 +10,18 @@ enum LiveSessionCreateResponseTransportVariant1Type {
 
   static LiveSessionCreateResponseTransportVariant1Type fromJson(String value) {
     switch (value) {
-      case 'sip': return LiveSessionCreateResponseTransportVariant1Type.sip;
-      default: throw ArgumentError('Unknown LiveSessionCreateResponseTransportVariant1Type: $value');
+      case 'sip':
+        return LiveSessionCreateResponseTransportVariant1Type.sip;
+      default:
+        throw ArgumentError(
+            'Unknown LiveSessionCreateResponseTransportVariant1Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSessionCreateResponseTransportVariant1Type.sip: return 'sip';
+      case LiveSessionCreateResponseTransportVariant1Type.sip:
+        return 'sip';
     }
   }
 
@@ -27,23 +31,26 @@ enum LiveSessionCreateResponseTransportVariant1Type {
 
 /// The status of the session snapshot. Always `active`, including the final snapshot in session.closed; use the event type to determine that the session has closed.
 final class LiveSessionResourceParamStatus {
-
   final String value;
 
   const LiveSessionResourceParamStatus._(this.value);
 
-  factory LiveSessionResourceParamStatus.fromJson(String value) => LiveSessionResourceParamStatus._(value);
+  factory LiveSessionResourceParamStatus.fromJson(String value) =>
+      LiveSessionResourceParamStatus._(value);
 
   static const active = LiveSessionResourceParamStatus._('active');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveSessionResourceParamStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveSessionResourceParamStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, always `session.started`.
@@ -52,14 +59,17 @@ enum LiveSessionStartedType {
 
   static LiveSessionStartedType fromJson(String value) {
     switch (value) {
-      case 'session.started': return LiveSessionStartedType.sessionStarted;
-      default: throw ArgumentError('Unknown LiveSessionStartedType: $value');
+      case 'session.started':
+        return LiveSessionStartedType.sessionStarted;
+      default:
+        throw ArgumentError('Unknown LiveSessionStartedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSessionStartedType.sessionStarted: return 'session.started';
+      case LiveSessionStartedType.sessionStarted:
+        return 'session.started';
     }
   }
 
@@ -73,14 +83,17 @@ enum LiveSessionStartEventType {
 
   static LiveSessionStartEventType fromJson(String value) {
     switch (value) {
-      case 'session.start': return LiveSessionStartEventType.sessionStart;
-      default: throw ArgumentError('Unknown LiveSessionStartEventType: $value');
+      case 'session.start':
+        return LiveSessionStartEventType.sessionStart;
+      default:
+        throw ArgumentError('Unknown LiveSessionStartEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSessionStartEventType.sessionStart: return 'session.start';
+      case LiveSessionStartEventType.sessionStart:
+        return 'session.start';
     }
   }
 
@@ -94,14 +107,17 @@ enum LiveSessionUpdatedType {
 
   static LiveSessionUpdatedType fromJson(String value) {
     switch (value) {
-      case 'session.updated': return LiveSessionUpdatedType.sessionUpdated;
-      default: throw ArgumentError('Unknown LiveSessionUpdatedType: $value');
+      case 'session.updated':
+        return LiveSessionUpdatedType.sessionUpdated;
+      default:
+        throw ArgumentError('Unknown LiveSessionUpdatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSessionUpdatedType.sessionUpdated: return 'session.updated';
+      case LiveSessionUpdatedType.sessionUpdated:
+        return 'session.updated';
     }
   }
 
@@ -115,14 +131,17 @@ enum LiveSessionUpdateParamType {
 
   static LiveSessionUpdateParamType fromJson(String value) {
     switch (value) {
-      case 'session.update': return LiveSessionUpdateParamType.sessionUpdate;
-      default: throw ArgumentError('Unknown LiveSessionUpdateParamType: $value');
+      case 'session.update':
+        return LiveSessionUpdateParamType.sessionUpdate;
+      default:
+        throw ArgumentError('Unknown LiveSessionUpdateParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSessionUpdateParamType.sessionUpdate: return 'session.update';
+      case LiveSessionUpdateParamType.sessionUpdate:
+        return 'session.update';
     }
   }
 
@@ -136,14 +155,17 @@ enum LiveSessionUsageUpdatedType {
 
   static LiveSessionUsageUpdatedType fromJson(String value) {
     switch (value) {
-      case 'session.usage.updated': return LiveSessionUsageUpdatedType.sessionUsageUpdated;
-      default: throw ArgumentError('Unknown LiveSessionUsageUpdatedType: $value');
+      case 'session.usage.updated':
+        return LiveSessionUsageUpdatedType.sessionUsageUpdated;
+      default:
+        throw ArgumentError('Unknown LiveSessionUsageUpdatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSessionUsageUpdatedType.sessionUsageUpdated: return 'session.usage.updated';
+      case LiveSessionUsageUpdatedType.sessionUsageUpdated:
+        return 'session.usage.updated';
     }
   }
 
@@ -157,14 +179,17 @@ enum LiveSIPTransportType {
 
   static LiveSIPTransportType fromJson(String value) {
     switch (value) {
-      case 'sip': return LiveSIPTransportType.sip;
-      default: throw ArgumentError('Unknown LiveSIPTransportType: $value');
+      case 'sip':
+        return LiveSIPTransportType.sip;
+      default:
+        throw ArgumentError('Unknown LiveSIPTransportType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSIPTransportType.sip: return 'sip';
+      case LiveSIPTransportType.sip:
+        return 'sip';
     }
   }
 
@@ -178,14 +203,17 @@ enum LiveSIPTransportRequestType {
 
   static LiveSIPTransportRequestType fromJson(String value) {
     switch (value) {
-      case 'sip': return LiveSIPTransportRequestType.sip;
-      default: throw ArgumentError('Unknown LiveSIPTransportRequestType: $value');
+      case 'sip':
+        return LiveSIPTransportRequestType.sip;
+      default:
+        throw ArgumentError('Unknown LiveSIPTransportRequestType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSIPTransportRequestType.sip: return 'sip';
+      case LiveSIPTransportRequestType.sip:
+        return 'sip';
     }
   }
 
@@ -195,44 +223,50 @@ enum LiveSIPTransportRequestType {
 
 /// Use `digest` for SIP Digest authentication. Handles 401 and 407 challenges.
 final class LiveSIPTrunkAuthType {
-
   final String value;
 
   const LiveSIPTrunkAuthType._(this.value);
 
-  factory LiveSIPTrunkAuthType.fromJson(String value) => LiveSIPTrunkAuthType._(value);
+  factory LiveSIPTrunkAuthType.fromJson(String value) =>
+      LiveSIPTrunkAuthType._(value);
 
   static const digest = LiveSIPTrunkAuthType._('digest');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveSIPTrunkAuthType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveSIPTrunkAuthType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Use `digest` for SIP Digest authentication. Handles 401 and 407 challenges.
 final class LiveSIPTrunkAuthRequestType {
-
   final String value;
 
   const LiveSIPTrunkAuthRequestType._(this.value);
 
-  factory LiveSIPTrunkAuthRequestType.fromJson(String value) => LiveSIPTrunkAuthRequestType._(value);
+  factory LiveSIPTrunkAuthRequestType.fromJson(String value) =>
+      LiveSIPTrunkAuthRequestType._(value);
 
   static const digest = LiveSIPTrunkAuthRequestType._('digest');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveSIPTrunkAuthRequestType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveSIPTrunkAuthRequestType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// References a skill created with the /v1/skills endpoint.
@@ -241,14 +275,17 @@ enum LiveSkillReferenceParamType {
 
   static LiveSkillReferenceParamType fromJson(String value) {
     switch (value) {
-      case 'skill_reference': return LiveSkillReferenceParamType.skillReference;
-      default: throw ArgumentError('Unknown LiveSkillReferenceParamType: $value');
+      case 'skill_reference':
+        return LiveSkillReferenceParamType.skillReference;
+      default:
+        throw ArgumentError('Unknown LiveSkillReferenceParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSkillReferenceParamType.skillReference: return 'skill_reference';
+      case LiveSkillReferenceParamType.skillReference:
+        return 'skill_reference';
     }
   }
 
@@ -262,14 +299,17 @@ enum LiveSpecificApplyPatchParamType {
 
   static LiveSpecificApplyPatchParamType fromJson(String value) {
     switch (value) {
-      case 'apply_patch': return LiveSpecificApplyPatchParamType.applyPatch;
-      default: throw ArgumentError('Unknown LiveSpecificApplyPatchParamType: $value');
+      case 'apply_patch':
+        return LiveSpecificApplyPatchParamType.applyPatch;
+      default:
+        throw ArgumentError('Unknown LiveSpecificApplyPatchParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSpecificApplyPatchParamType.applyPatch: return 'apply_patch';
+      case LiveSpecificApplyPatchParamType.applyPatch:
+        return 'apply_patch';
     }
   }
 

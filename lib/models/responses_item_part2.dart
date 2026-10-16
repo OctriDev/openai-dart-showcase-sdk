@@ -7,174 +7,203 @@ part of 'responses_item.dart';
 final class ItemResourceFileSearchToolCall extends ItemResource {
   final FileSearchToolCall value;
   const ItemResourceFileSearchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceComputerToolCall extends ItemResource {
   final ComputerToolCall value;
   const ItemResourceComputerToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceComputerToolCallOutputResource extends ItemResource {
   final ComputerToolCallOutputResource value;
   const ItemResourceComputerToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceWebSearchToolCall extends ItemResource {
   final WebSearchToolCall value;
   const ItemResourceWebSearchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceFunctionToolCallResource extends ItemResource {
   final FunctionToolCallResource value;
   const ItemResourceFunctionToolCallResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceFunctionToolCallOutputResource extends ItemResource {
   final FunctionToolCallOutputResource value;
   const ItemResourceFunctionToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceToolSearchCall extends ItemResource {
   final ToolSearchCall value;
   const ItemResourceToolSearchCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceToolSearchOutput extends ItemResource {
   final ToolSearchOutput value;
   const ItemResourceToolSearchOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceAdditionalTools extends ItemResource {
   final AdditionalTools value;
   const ItemResourceAdditionalTools(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceResponseConfigurationUpdate extends ItemResource {
   final ResponseConfigurationUpdate value;
   const ItemResourceResponseConfigurationUpdate(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceReasoningItem extends ItemResource {
   final ReasoningItem value;
   const ItemResourceReasoningItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceProgram extends ItemResource {
   final Program value;
   const ItemResourceProgram(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceProgramOutput extends ItemResource {
   final ProgramOutput value;
   const ItemResourceProgramOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceCompactionBody extends ItemResource {
   final CompactionBody value;
   const ItemResourceCompactionBody(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceImageGenToolCall extends ItemResource {
   final ImageGenToolCall value;
   const ItemResourceImageGenToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceCodeInterpreterToolCall extends ItemResource {
   final CodeInterpreterToolCall value;
   const ItemResourceCodeInterpreterToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceLocalShellToolCall extends ItemResource {
   final LocalShellToolCall value;
   const ItemResourceLocalShellToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceLocalShellToolCallOutput extends ItemResource {
   final LocalShellToolCallOutput value;
   const ItemResourceLocalShellToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceFunctionShellCall extends ItemResource {
   final FunctionShellCall value;
   const ItemResourceFunctionShellCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceFunctionShellCallOutput extends ItemResource {
   final FunctionShellCallOutput value;
   const ItemResourceFunctionShellCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceApplyPatchToolCall extends ItemResource {
   final ApplyPatchToolCall value;
   const ItemResourceApplyPatchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceApplyPatchToolCallOutput extends ItemResource {
   final ApplyPatchToolCallOutput value;
   const ItemResourceApplyPatchToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceMCPListTools extends ItemResource {
   final MCPListTools value;
   const ItemResourceMCPListTools(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceMCPApprovalRequest extends ItemResource {
   final MCPApprovalRequest value;
   const ItemResourceMCPApprovalRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceMCPApprovalResponseResource extends ItemResource {
   final MCPApprovalResponseResource value;
   const ItemResourceMCPApprovalResponseResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceMCPToolCall extends ItemResource {
   final MCPToolCall value;
   const ItemResourceMCPToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceCustomToolCallResource extends ItemResource {
   final CustomToolCallResource value;
   const ItemResourceCustomToolCallResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResourceCustomToolCallOutputResource extends ItemResource {
   final CustomToolCallOutputResource value;
   const ItemResourceCustomToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ItemResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownItemResource extends ItemResource {
   final Map<String, dynamic> raw;
   const UnknownItemResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

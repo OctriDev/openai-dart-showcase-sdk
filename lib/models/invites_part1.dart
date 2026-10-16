@@ -9,7 +9,9 @@ sealed class InviteExpiresAt {
   static const String constructionSurface = 'named';
   const InviteExpiresAt();
   factory InviteExpiresAt.fromJson(Object? json) {
-    if (json is num) { return InviteExpiresAtInt(json.toInt()); }
+    if (json is num) {
+      return InviteExpiresAtInt(json.toInt());
+    }
     throw FormatException("No variant matched for InviteExpiresAt");
   }
   Object? toJson();
@@ -18,7 +20,8 @@ sealed class InviteExpiresAt {
 final class InviteExpiresAtInt extends InviteExpiresAt {
   final int value;
   const InviteExpiresAtInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class InviteAcceptedAt {
@@ -26,7 +29,9 @@ sealed class InviteAcceptedAt {
   static const String constructionSurface = 'named';
   const InviteAcceptedAt();
   factory InviteAcceptedAt.fromJson(Object? json) {
-    if (json is num) { return InviteAcceptedAtInt(json.toInt()); }
+    if (json is num) {
+      return InviteAcceptedAtInt(json.toInt());
+    }
     throw FormatException("No variant matched for InviteAcceptedAt");
   }
   Object? toJson();
@@ -35,254 +40,429 @@ sealed class InviteAcceptedAt {
 final class InviteAcceptedAtInt extends InviteAcceptedAt {
   final int value;
   const InviteAcceptedAtInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Required object value serialized in the `projects[]` wire field.
 class InviteProjectsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Project's public ID
   final String id;
+
   /// Project membership role
   final InviteProjectsItemRole role;
 
   const InviteProjectsItem({required this.id, required this.role});
 
-  InviteProjectsItem Function({String id, InviteProjectsItemRole role}) get copyWith => _copyWith;
+  InviteProjectsItem Function({String id, InviteProjectsItemRole role})
+      get copyWith => _copyWith;
 
-  InviteProjectsItem _copyWith({Object? id = sdkOmittedValue, Object? role = sdkOmittedValue}) => InviteProjectsItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    role: identical(role, sdkOmittedValue) ? this.role : role as InviteProjectsItemRole,
-  );
+  InviteProjectsItem _copyWith(
+          {Object? id = sdkOmittedValue, Object? role = sdkOmittedValue}) =>
+      InviteProjectsItem(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as InviteProjectsItemRole,
+      );
 
-  factory InviteProjectsItem.fromJson(Map<String, dynamic> json) => InviteProjectsItem(
-    id: (json['id'] as String?)!,
-    role: (json['role'] != null ? InviteProjectsItemRole.fromJson(json['role'] as String) : null)!,
-  );
+  factory InviteProjectsItem.fromJson(Map<String, dynamic> json) =>
+      InviteProjectsItem(
+        id: (json['id'] as String?)!,
+        role: (json['role'] != null
+            ? InviteProjectsItemRole.fromJson(json['role'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'role': role.toJson(),
-  };
+        'id': id,
+        'role': role.toJson(),
+      };
 }
 
 /// Represents an individual `invite` to the organization.
 class Invite {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always `organization.invite`
   final InviteObject object;
+
   /// The identifier, which can be referenced in API endpoints
   final String id;
+
   /// The email address of the individual to whom the invite was sent
   final String email;
+
   /// `owner` or `reader`
   final InviteRole role;
+
   /// `accepted`,`expired`, or `pending`
   final InviteStatus status;
+
   /// The Unix timestamp (in seconds) of when the invite was sent.
   final int createdAt;
+
   /// The Unix timestamp (in seconds) of when the invite expires.
   final SdkOptional<int?> expiresAt;
+
   /// The Unix timestamp (in seconds) of when the invite was accepted.
   final SdkOptional<int?> acceptedAt;
+
   /// The projects that were granted membership upon acceptance of the invite.
   final List<InviteProjectsItem> projects;
 
-  const Invite({required this.object, required this.id, required this.email, required this.role, required this.status, required this.createdAt, this.expiresAt = const SdkOmitted(), this.acceptedAt = const SdkOmitted(), required this.projects});
+  const Invite(
+      {required this.object,
+      required this.id,
+      required this.email,
+      required this.role,
+      required this.status,
+      required this.createdAt,
+      this.expiresAt = const SdkOmitted(),
+      this.acceptedAt = const SdkOmitted(),
+      required this.projects});
 
-  Invite Function({InviteObject object, String id, String email, InviteRole role, InviteStatus status, int createdAt, SdkOptional<int?> expiresAt, SdkOptional<int?> acceptedAt, List<InviteProjectsItem> projects}) get copyWith => _copyWith;
+  Invite Function(
+      {InviteObject object,
+      String id,
+      String email,
+      InviteRole role,
+      InviteStatus status,
+      int createdAt,
+      SdkOptional<int?> expiresAt,
+      SdkOptional<int?> acceptedAt,
+      List<InviteProjectsItem> projects}) get copyWith => _copyWith;
 
-  Invite _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? email = sdkOmittedValue, Object? role = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? acceptedAt = sdkOmittedValue, Object? projects = sdkOmittedValue}) => Invite(
-    object: identical(object, sdkOmittedValue) ? this.object : object as InviteObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    email: identical(email, sdkOmittedValue) ? this.email : email as String,
-    role: identical(role, sdkOmittedValue) ? this.role : role as InviteRole,
-    status: identical(status, sdkOmittedValue) ? this.status : status as InviteStatus,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int?>,
-    acceptedAt: identical(acceptedAt, sdkOmittedValue) ? this.acceptedAt : acceptedAt as SdkOptional<int?>,
-    projects: identical(projects, sdkOmittedValue) ? this.projects : projects as List<InviteProjectsItem>,
-  );
+  Invite _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? email = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue,
+          Object? acceptedAt = sdkOmittedValue,
+          Object? projects = sdkOmittedValue}) =>
+      Invite(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as InviteObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        email: identical(email, sdkOmittedValue) ? this.email : email as String,
+        role: identical(role, sdkOmittedValue) ? this.role : role as InviteRole,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as InviteStatus,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<int?>,
+        acceptedAt: identical(acceptedAt, sdkOmittedValue)
+            ? this.acceptedAt
+            : acceptedAt as SdkOptional<int?>,
+        projects: identical(projects, sdkOmittedValue)
+            ? this.projects
+            : projects as List<InviteProjectsItem>,
+      );
 
   factory Invite.fromJson(Map<String, dynamic> json) => Invite(
-    object: (json['object'] != null ? InviteObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    email: (json['email'] as String?)!,
-    role: (json['role'] != null ? InviteRole.fromJson(json['role'] as String) : null)!,
-    status: (json['status'] != null ? InviteStatus.fromJson(json['status'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    expiresAt: json.containsKey('expires_at') ? SdkPresent((json['expires_at'] as num?)?.toInt()) : const SdkOmitted(),
-    acceptedAt: json.containsKey('accepted_at') ? SdkPresent((json['accepted_at'] as num?)?.toInt()) : const SdkOmitted(),
-    projects: ((json['projects'] as List?)?.map((e) => InviteProjectsItem.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+        object: (json['object'] != null
+            ? InviteObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        email: (json['email'] as String?)!,
+        role: (json['role'] != null
+            ? InviteRole.fromJson(json['role'] as String)
+            : null)!,
+        status: (json['status'] != null
+            ? InviteStatus.fromJson(json['status'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        expiresAt: json.containsKey('expires_at')
+            ? SdkPresent((json['expires_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        acceptedAt: json.containsKey('accepted_at')
+            ? SdkPresent((json['accepted_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        projects: ((json['projects'] as List?)
+            ?.map((e) => InviteProjectsItem.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'email': email,
-    'role': role.toJson(),
-    'status': status.toJson(),
-    'created_at': createdAt,
-    ...switch (expiresAt) {
-      SdkPresent<int?>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (acceptedAt) {
-      SdkPresent<int?>(value: final value) => {'accepted_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    'projects': projects.map((item) => item.toJson()).toList(),
-  };
+        'object': object.toJson(),
+        'id': id,
+        'email': email,
+        'role': role.toJson(),
+        'status': status.toJson(),
+        'created_at': createdAt,
+        ...switch (expiresAt) {
+          SdkPresent<int?>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (acceptedAt) {
+          SdkPresent<int?>(value: final value) => {
+              'accepted_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'projects': projects.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Typed representation of the `InviteDeleteResponse` API schema.
 class InviteDeleteResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always `organization.invite.deleted`
   final InviteDeleteResponseObject object;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
 
-  const InviteDeleteResponse({required this.object, required this.id, required this.deleted});
+  const InviteDeleteResponse(
+      {required this.object, required this.id, required this.deleted});
 
-  InviteDeleteResponse Function({InviteDeleteResponseObject object, String id, bool deleted}) get copyWith => _copyWith;
+  InviteDeleteResponse Function(
+      {InviteDeleteResponseObject object,
+      String id,
+      bool deleted}) get copyWith => _copyWith;
 
-  InviteDeleteResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => InviteDeleteResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as InviteDeleteResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  InviteDeleteResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      InviteDeleteResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as InviteDeleteResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory InviteDeleteResponse.fromJson(Map<String, dynamic> json) => InviteDeleteResponse(
-    object: (json['object'] != null ? InviteDeleteResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    deleted: (json['deleted'] as bool?)!,
-  );
+  factory InviteDeleteResponse.fromJson(Map<String, dynamic> json) =>
+      InviteDeleteResponse(
+        object: (json['object'] != null
+            ? InviteDeleteResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        deleted: (json['deleted'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'deleted': deleted,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'deleted': deleted,
+      };
 }
 
 /// Typed representation of the `InviteListResponse` API schema.
 class InviteListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always `list`
   final InviteListResponseObject object;
+
   /// Required array value serialized in the `data` wire field.
   final List<Invite> data;
+
   /// The first `invite_id` in the retrieved `list`
   final SdkOptional<String?> firstId;
+
   /// The last `invite_id` in the retrieved `list`
   final SdkOptional<String?> lastId;
+
   /// The `has_more` property is used for pagination to indicate there are additional results.
   final bool hasMore;
 
-  const InviteListResponse({required this.object, required this.data, this.firstId = const SdkOmitted(), this.lastId = const SdkOmitted(), required this.hasMore});
+  const InviteListResponse(
+      {required this.object,
+      required this.data,
+      this.firstId = const SdkOmitted(),
+      this.lastId = const SdkOmitted(),
+      required this.hasMore});
 
-  InviteListResponse Function({InviteListResponseObject object, List<Invite> data, SdkOptional<String?> firstId, SdkOptional<String?> lastId, bool hasMore}) get copyWith => _copyWith;
+  InviteListResponse Function(
+      {InviteListResponseObject object,
+      List<Invite> data,
+      SdkOptional<String?> firstId,
+      SdkOptional<String?> lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  InviteListResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => InviteListResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as InviteListResponseObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<Invite>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as SdkOptional<String?>,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as SdkOptional<String?>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  InviteListResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      InviteListResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as InviteListResponseObject,
+        data:
+            identical(data, sdkOmittedValue) ? this.data : data as List<Invite>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as SdkOptional<String?>,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as SdkOptional<String?>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory InviteListResponse.fromJson(Map<String, dynamic> json) => InviteListResponse(
-    object: (json['object'] != null ? InviteListResponseObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => Invite.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? SdkPresent(json['first_id'] as String?) : const SdkOmitted(),
-    lastId: json.containsKey('last_id') ? SdkPresent(json['last_id'] as String?) : const SdkOmitted(),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory InviteListResponse.fromJson(Map<String, dynamic> json) =>
+      InviteListResponse(
+        object: (json['object'] != null
+            ? InviteListResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => Invite.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? SdkPresent(json['first_id'] as String?)
+            : const SdkOmitted(),
+        lastId: json.containsKey('last_id')
+            ? SdkPresent(json['last_id'] as String?)
+            : const SdkOmitted(),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    ...switch (firstId) {
-      SdkPresent<String?>(value: final value) => {'first_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastId) {
-      SdkPresent<String?>(value: final value) => {'last_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        ...switch (firstId) {
+          SdkPresent<String?>(value: final value) => {
+              'first_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastId) {
+          SdkPresent<String?>(value: final value) => {
+              'last_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'has_more': hasMore,
+      };
 }
 
 /// Required object value serialized in the `projects[]` wire field.
 class InviteRequestProjectsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Project's public ID
   final String id;
+
   /// Project membership role
   final InviteRequestProjectsItemRole role;
 
   const InviteRequestProjectsItem({required this.id, required this.role});
 
-  InviteRequestProjectsItem Function({String id, InviteRequestProjectsItemRole role}) get copyWith => _copyWith;
+  InviteRequestProjectsItem Function(
+      {String id,
+      InviteRequestProjectsItemRole role}) get copyWith => _copyWith;
 
-  InviteRequestProjectsItem _copyWith({Object? id = sdkOmittedValue, Object? role = sdkOmittedValue}) => InviteRequestProjectsItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    role: identical(role, sdkOmittedValue) ? this.role : role as InviteRequestProjectsItemRole,
-  );
+  InviteRequestProjectsItem _copyWith(
+          {Object? id = sdkOmittedValue, Object? role = sdkOmittedValue}) =>
+      InviteRequestProjectsItem(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as InviteRequestProjectsItemRole,
+      );
 
-  factory InviteRequestProjectsItem.fromJson(Map<String, dynamic> json) => InviteRequestProjectsItem(
-    id: (json['id'] as String?)!,
-    role: (json['role'] != null ? InviteRequestProjectsItemRole.fromJson(json['role'] as String) : null)!,
-  );
+  factory InviteRequestProjectsItem.fromJson(Map<String, dynamic> json) =>
+      InviteRequestProjectsItem(
+        id: (json['id'] as String?)!,
+        role: (json['role'] != null
+            ? InviteRequestProjectsItemRole.fromJson(json['role'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'role': role.toJson(),
-  };
+        'id': id,
+        'role': role.toJson(),
+      };
 }
 
 /// Typed representation of the `InviteRequest` API schema.
 class InviteRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Send an email to this address
   final String email;
+
   /// `owner` or `reader`
   final InviteRequestRole role;
+
   /// An array of projects to which membership is granted at the same time the org invite is accepted. If omitted, the user will be invited to the default project for compatibility with legacy behavior. If empty list is passed, the user will not be invited to any projects, including the default one.
   final SdkOptional<List<InviteRequestProjectsItem>> projects;
 
-  const InviteRequest({required this.email, required this.role, this.projects = const SdkOmitted()});
+  const InviteRequest(
+      {required this.email,
+      required this.role,
+      this.projects = const SdkOmitted()});
 
-  InviteRequest Function({String email, InviteRequestRole role, SdkOptional<List<InviteRequestProjectsItem>> projects}) get copyWith => _copyWith;
+  InviteRequest Function(
+          {String email,
+          InviteRequestRole role,
+          SdkOptional<List<InviteRequestProjectsItem>> projects})
+      get copyWith => _copyWith;
 
-  InviteRequest _copyWith({Object? email = sdkOmittedValue, Object? role = sdkOmittedValue, Object? projects = sdkOmittedValue}) => InviteRequest(
-    email: identical(email, sdkOmittedValue) ? this.email : email as String,
-    role: identical(role, sdkOmittedValue) ? this.role : role as InviteRequestRole,
-    projects: identical(projects, sdkOmittedValue) ? this.projects : projects as SdkOptional<List<InviteRequestProjectsItem>>,
-  );
+  InviteRequest _copyWith(
+          {Object? email = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? projects = sdkOmittedValue}) =>
+      InviteRequest(
+        email: identical(email, sdkOmittedValue) ? this.email : email as String,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as InviteRequestRole,
+        projects: identical(projects, sdkOmittedValue)
+            ? this.projects
+            : projects as SdkOptional<List<InviteRequestProjectsItem>>,
+      );
 
   factory InviteRequest.fromJson(Map<String, dynamic> json) => InviteRequest(
-    email: (json['email'] as String?)!,
-    role: (json['role'] != null ? InviteRequestRole.fromJson(json['role'] as String) : null)!,
-    projects: json['projects'] != null ? SdkPresent(((json['projects'] as List?)?.map((e) => InviteRequestProjectsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        email: (json['email'] as String?)!,
+        role: (json['role'] != null
+            ? InviteRequestRole.fromJson(json['role'] as String)
+            : null)!,
+        projects: json['projects'] != null
+            ? SdkPresent(((json['projects'] as List?)
+                ?.map((e) => InviteRequestProjectsItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'email': email,
-    'role': role.toJson(),
-    ...switch (projects) {
-      SdkPresent<List<InviteRequestProjectsItem>>(value: final value) => {'projects': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'email': email,
+        'role': role.toJson(),
+        ...switch (projects) {
+          SdkPresent<List<InviteRequestProjectsItem>>(value: final value) => {
+              'projects': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

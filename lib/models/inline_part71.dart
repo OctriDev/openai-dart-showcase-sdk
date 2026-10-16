@@ -10,14 +10,18 @@ enum LiveSpecificCodeInterpreterParamType {
 
   static LiveSpecificCodeInterpreterParamType fromJson(String value) {
     switch (value) {
-      case 'code_interpreter': return LiveSpecificCodeInterpreterParamType.codeInterpreter;
-      default: throw ArgumentError('Unknown LiveSpecificCodeInterpreterParamType: $value');
+      case 'code_interpreter':
+        return LiveSpecificCodeInterpreterParamType.codeInterpreter;
+      default:
+        throw ArgumentError(
+            'Unknown LiveSpecificCodeInterpreterParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSpecificCodeInterpreterParamType.codeInterpreter: return 'code_interpreter';
+      case LiveSpecificCodeInterpreterParamType.codeInterpreter:
+        return 'code_interpreter';
     }
   }
 
@@ -31,14 +35,17 @@ enum LiveSpecificComputerParamType {
 
   static LiveSpecificComputerParamType fromJson(String value) {
     switch (value) {
-      case 'computer': return LiveSpecificComputerParamType.computer;
-      default: throw ArgumentError('Unknown LiveSpecificComputerParamType: $value');
+      case 'computer':
+        return LiveSpecificComputerParamType.computer;
+      default:
+        throw ArgumentError('Unknown LiveSpecificComputerParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSpecificComputerParamType.computer: return 'computer';
+      case LiveSpecificComputerParamType.computer:
+        return 'computer';
     }
   }
 
@@ -52,14 +59,17 @@ enum LiveSpecificCustomToolParamType {
 
   static LiveSpecificCustomToolParamType fromJson(String value) {
     switch (value) {
-      case 'custom': return LiveSpecificCustomToolParamType.custom;
-      default: throw ArgumentError('Unknown LiveSpecificCustomToolParamType: $value');
+      case 'custom':
+        return LiveSpecificCustomToolParamType.custom;
+      default:
+        throw ArgumentError('Unknown LiveSpecificCustomToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSpecificCustomToolParamType.custom: return 'custom';
+      case LiveSpecificCustomToolParamType.custom:
+        return 'custom';
     }
   }
 
@@ -73,14 +83,17 @@ enum LiveSpecificFileSearchParamType {
 
   static LiveSpecificFileSearchParamType fromJson(String value) {
     switch (value) {
-      case 'file_search': return LiveSpecificFileSearchParamType.fileSearch;
-      default: throw ArgumentError('Unknown LiveSpecificFileSearchParamType: $value');
+      case 'file_search':
+        return LiveSpecificFileSearchParamType.fileSearch;
+      default:
+        throw ArgumentError('Unknown LiveSpecificFileSearchParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSpecificFileSearchParamType.fileSearch: return 'file_search';
+      case LiveSpecificFileSearchParamType.fileSearch:
+        return 'file_search';
     }
   }
 
@@ -94,14 +107,18 @@ enum LiveSpecificFunctionShellParamType {
 
   static LiveSpecificFunctionShellParamType fromJson(String value) {
     switch (value) {
-      case 'shell': return LiveSpecificFunctionShellParamType.shell;
-      default: throw ArgumentError('Unknown LiveSpecificFunctionShellParamType: $value');
+      case 'shell':
+        return LiveSpecificFunctionShellParamType.shell;
+      default:
+        throw ArgumentError(
+            'Unknown LiveSpecificFunctionShellParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSpecificFunctionShellParamType.shell: return 'shell';
+      case LiveSpecificFunctionShellParamType.shell:
+        return 'shell';
     }
   }
 
@@ -115,14 +132,17 @@ enum LiveSpecificImageGenParamType {
 
   static LiveSpecificImageGenParamType fromJson(String value) {
     switch (value) {
-      case 'image_generation': return LiveSpecificImageGenParamType.imageGeneration;
-      default: throw ArgumentError('Unknown LiveSpecificImageGenParamType: $value');
+      case 'image_generation':
+        return LiveSpecificImageGenParamType.imageGeneration;
+      default:
+        throw ArgumentError('Unknown LiveSpecificImageGenParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSpecificImageGenParamType.imageGeneration: return 'image_generation';
+      case LiveSpecificImageGenParamType.imageGeneration:
+        return 'image_generation';
     }
   }
 
@@ -136,14 +156,19 @@ enum LiveSpecificProgrammaticToolCallingParamType {
 
   static LiveSpecificProgrammaticToolCallingParamType fromJson(String value) {
     switch (value) {
-      case 'programmatic_tool_calling': return LiveSpecificProgrammaticToolCallingParamType.programmaticToolCalling;
-      default: throw ArgumentError('Unknown LiveSpecificProgrammaticToolCallingParamType: $value');
+      case 'programmatic_tool_calling':
+        return LiveSpecificProgrammaticToolCallingParamType
+            .programmaticToolCalling;
+      default:
+        throw ArgumentError(
+            'Unknown LiveSpecificProgrammaticToolCallingParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSpecificProgrammaticToolCallingParamType.programmaticToolCalling: return 'programmatic_tool_calling';
+      case LiveSpecificProgrammaticToolCallingParamType.programmaticToolCalling:
+        return 'programmatic_tool_calling';
     }
   }
 
@@ -157,14 +182,17 @@ enum LiveSpecificWebSearchParamType {
 
   static LiveSpecificWebSearchParamType fromJson(String value) {
     switch (value) {
-      case 'web_search': return LiveSpecificWebSearchParamType.webSearch;
-      default: throw ArgumentError('Unknown LiveSpecificWebSearchParamType: $value');
+      case 'web_search':
+        return LiveSpecificWebSearchParamType.webSearch;
+      default:
+        throw ArgumentError('Unknown LiveSpecificWebSearchParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSpecificWebSearchParamType.webSearch: return 'web_search';
+      case LiveSpecificWebSearchParamType.webSearch:
+        return 'web_search';
     }
   }
 
@@ -178,14 +206,18 @@ enum LiveSpecificWebSearchPreviewParamType {
 
   static LiveSpecificWebSearchPreviewParamType fromJson(String value) {
     switch (value) {
-      case 'web_search_preview': return LiveSpecificWebSearchPreviewParamType.webSearchPreview;
-      default: throw ArgumentError('Unknown LiveSpecificWebSearchPreviewParamType: $value');
+      case 'web_search_preview':
+        return LiveSpecificWebSearchPreviewParamType.webSearchPreview;
+      default:
+        throw ArgumentError(
+            'Unknown LiveSpecificWebSearchPreviewParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSpecificWebSearchPreviewParamType.webSearchPreview: return 'web_search_preview';
+      case LiveSpecificWebSearchPreviewParamType.webSearchPreview:
+        return 'web_search_preview';
     }
   }
 
@@ -199,14 +231,17 @@ enum LiveThinkingAppendedType {
 
   static LiveThinkingAppendedType fromJson(String value) {
     switch (value) {
-      case 'session.thinking.appended': return LiveThinkingAppendedType.sessionThinkingAppended;
-      default: throw ArgumentError('Unknown LiveThinkingAppendedType: $value');
+      case 'session.thinking.appended':
+        return LiveThinkingAppendedType.sessionThinkingAppended;
+      default:
+        throw ArgumentError('Unknown LiveThinkingAppendedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveThinkingAppendedType.sessionThinkingAppended: return 'session.thinking.appended';
+      case LiveThinkingAppendedType.sessionThinkingAppended:
+        return 'session.thinking.appended';
     }
   }
 
@@ -220,14 +255,17 @@ enum LiveThinkingAppendParamType {
 
   static LiveThinkingAppendParamType fromJson(String value) {
     switch (value) {
-      case 'session.thinking.append': return LiveThinkingAppendParamType.sessionThinkingAppend;
-      default: throw ArgumentError('Unknown LiveThinkingAppendParamType: $value');
+      case 'session.thinking.append':
+        return LiveThinkingAppendParamType.sessionThinkingAppend;
+      default:
+        throw ArgumentError('Unknown LiveThinkingAppendParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveThinkingAppendParamType.sessionThinkingAppend: return 'session.thinking.append';
+      case LiveThinkingAppendParamType.sessionThinkingAppend:
+        return 'session.thinking.append';
     }
   }
 
@@ -241,14 +279,17 @@ enum LiveToolSearchToolInputParamType {
 
   static LiveToolSearchToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'tool_search': return LiveToolSearchToolInputParamType.toolSearch;
-      default: throw ArgumentError('Unknown LiveToolSearchToolInputParamType: $value');
+      case 'tool_search':
+        return LiveToolSearchToolInputParamType.toolSearch;
+      default:
+        throw ArgumentError('Unknown LiveToolSearchToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveToolSearchToolInputParamType.toolSearch: return 'tool_search';
+      case LiveToolSearchToolInputParamType.toolSearch:
+        return 'tool_search';
     }
   }
 
@@ -262,14 +303,17 @@ enum LiveTransportAnsweredType {
 
   static LiveTransportAnsweredType fromJson(String value) {
     switch (value) {
-      case 'transport.answered': return LiveTransportAnsweredType.transportAnswered;
-      default: throw ArgumentError('Unknown LiveTransportAnsweredType: $value');
+      case 'transport.answered':
+        return LiveTransportAnsweredType.transportAnswered;
+      default:
+        throw ArgumentError('Unknown LiveTransportAnsweredType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveTransportAnsweredType.transportAnswered: return 'transport.answered';
+      case LiveTransportAnsweredType.transportAnswered:
+        return 'transport.answered';
     }
   }
 

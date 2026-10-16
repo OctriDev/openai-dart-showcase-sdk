@@ -6,23 +6,26 @@ part of 'inline.dart';
 // Inline operation models (part 67)
 /// The history item type. Always `message`.
 final class LiveInitialUserMessageItemParamType {
-
   final String value;
 
   const LiveInitialUserMessageItemParamType._(this.value);
 
-  factory LiveInitialUserMessageItemParamType.fromJson(String value) => LiveInitialUserMessageItemParamType._(value);
+  factory LiveInitialUserMessageItemParamType.fromJson(String value) =>
+      LiveInitialUserMessageItemParamType._(value);
 
   static const message = LiveInitialUserMessageItemParamType._('message');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveInitialUserMessageItemParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveInitialUserMessageItemParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Defines an inline skill for this request.
@@ -31,14 +34,17 @@ enum LiveInlineSkillParamType {
 
   static LiveInlineSkillParamType fromJson(String value) {
     switch (value) {
-      case 'inline': return LiveInlineSkillParamType.inline;
-      default: throw ArgumentError('Unknown LiveInlineSkillParamType: $value');
+      case 'inline':
+        return LiveInlineSkillParamType.inline;
+      default:
+        throw ArgumentError('Unknown LiveInlineSkillParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInlineSkillParamType.inline: return 'inline';
+      case LiveInlineSkillParamType.inline:
+        return 'inline';
     }
   }
 
@@ -48,44 +54,51 @@ enum LiveInlineSkillParamType {
 
 /// The media type of the inline skill payload. Must be `application/zip`.
 final class LiveInlineSkillSourceParamMediaType {
-
   final String value;
 
   const LiveInlineSkillSourceParamMediaType._(this.value);
 
-  factory LiveInlineSkillSourceParamMediaType.fromJson(String value) => LiveInlineSkillSourceParamMediaType._(value);
+  factory LiveInlineSkillSourceParamMediaType.fromJson(String value) =>
+      LiveInlineSkillSourceParamMediaType._(value);
 
-  static const applicationZip = LiveInlineSkillSourceParamMediaType._('application/zip');
+  static const applicationZip =
+      LiveInlineSkillSourceParamMediaType._('application/zip');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveInlineSkillSourceParamMediaType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveInlineSkillSourceParamMediaType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the inline skill source. Must be `base64`.
 final class LiveInlineSkillSourceParamType {
-
   final String value;
 
   const LiveInlineSkillSourceParamType._(this.value);
 
-  factory LiveInlineSkillSourceParamType.fromJson(String value) => LiveInlineSkillSourceParamType._(value);
+  factory LiveInlineSkillSourceParamType.fromJson(String value) =>
+      LiveInlineSkillSourceParamType._(value);
 
   static const base64 = LiveInlineSkillSourceParamType._('base64');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveInlineSkillSourceParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveInlineSkillSourceParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, always `session.input_audio.append`.
@@ -94,14 +107,17 @@ enum LiveInputAudioAppendType {
 
   static LiveInputAudioAppendType fromJson(String value) {
     switch (value) {
-      case 'session.input_audio.append': return LiveInputAudioAppendType.sessionInputAudioAppend;
-      default: throw ArgumentError('Unknown LiveInputAudioAppendType: $value');
+      case 'session.input_audio.append':
+        return LiveInputAudioAppendType.sessionInputAudioAppend;
+      default:
+        throw ArgumentError('Unknown LiveInputAudioAppendType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInputAudioAppendType.sessionInputAudioAppend: return 'session.input_audio.append';
+      case LiveInputAudioAppendType.sessionInputAudioAppend:
+        return 'session.input_audio.append';
     }
   }
 
@@ -115,14 +131,17 @@ enum LiveInputAudioAppendEventType {
 
   static LiveInputAudioAppendEventType fromJson(String value) {
     switch (value) {
-      case 'session.input_audio.append': return LiveInputAudioAppendEventType.sessionInputAudioAppend;
-      default: throw ArgumentError('Unknown LiveInputAudioAppendEventType: $value');
+      case 'session.input_audio.append':
+        return LiveInputAudioAppendEventType.sessionInputAudioAppend;
+      default:
+        throw ArgumentError('Unknown LiveInputAudioAppendEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInputAudioAppendEventType.sessionInputAudioAppend: return 'session.input_audio.append';
+      case LiveInputAudioAppendEventType.sessionInputAudioAppend:
+        return 'session.input_audio.append';
     }
   }
 
@@ -136,14 +155,17 @@ enum LiveInputAudioMutedType {
 
   static LiveInputAudioMutedType fromJson(String value) {
     switch (value) {
-      case 'session.input_audio.muted': return LiveInputAudioMutedType.sessionInputAudioMuted;
-      default: throw ArgumentError('Unknown LiveInputAudioMutedType: $value');
+      case 'session.input_audio.muted':
+        return LiveInputAudioMutedType.sessionInputAudioMuted;
+      default:
+        throw ArgumentError('Unknown LiveInputAudioMutedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInputAudioMutedType.sessionInputAudioMuted: return 'session.input_audio.muted';
+      case LiveInputAudioMutedType.sessionInputAudioMuted:
+        return 'session.input_audio.muted';
     }
   }
 
@@ -157,14 +179,17 @@ enum LiveInputAudioMuteParamType {
 
   static LiveInputAudioMuteParamType fromJson(String value) {
     switch (value) {
-      case 'session.input_audio.mute': return LiveInputAudioMuteParamType.sessionInputAudioMute;
-      default: throw ArgumentError('Unknown LiveInputAudioMuteParamType: $value');
+      case 'session.input_audio.mute':
+        return LiveInputAudioMuteParamType.sessionInputAudioMute;
+      default:
+        throw ArgumentError('Unknown LiveInputAudioMuteParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInputAudioMuteParamType.sessionInputAudioMute: return 'session.input_audio.mute';
+      case LiveInputAudioMuteParamType.sessionInputAudioMute:
+        return 'session.input_audio.mute';
     }
   }
 
@@ -178,14 +203,17 @@ enum LiveInputAudioUnmutedType {
 
   static LiveInputAudioUnmutedType fromJson(String value) {
     switch (value) {
-      case 'session.input_audio.unmuted': return LiveInputAudioUnmutedType.sessionInputAudioUnmuted;
-      default: throw ArgumentError('Unknown LiveInputAudioUnmutedType: $value');
+      case 'session.input_audio.unmuted':
+        return LiveInputAudioUnmutedType.sessionInputAudioUnmuted;
+      default:
+        throw ArgumentError('Unknown LiveInputAudioUnmutedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInputAudioUnmutedType.sessionInputAudioUnmuted: return 'session.input_audio.unmuted';
+      case LiveInputAudioUnmutedType.sessionInputAudioUnmuted:
+        return 'session.input_audio.unmuted';
     }
   }
 
@@ -199,14 +227,17 @@ enum LiveInputAudioUnmuteParamType {
 
   static LiveInputAudioUnmuteParamType fromJson(String value) {
     switch (value) {
-      case 'session.input_audio.unmute': return LiveInputAudioUnmuteParamType.sessionInputAudioUnmute;
-      default: throw ArgumentError('Unknown LiveInputAudioUnmuteParamType: $value');
+      case 'session.input_audio.unmute':
+        return LiveInputAudioUnmuteParamType.sessionInputAudioUnmute;
+      default:
+        throw ArgumentError('Unknown LiveInputAudioUnmuteParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInputAudioUnmuteParamType.sessionInputAudioUnmute: return 'session.input_audio.unmute';
+      case LiveInputAudioUnmuteParamType.sessionInputAudioUnmute:
+        return 'session.input_audio.unmute';
     }
   }
 
@@ -220,14 +251,17 @@ enum LiveInputTranscriptDeltaType {
 
   static LiveInputTranscriptDeltaType fromJson(String value) {
     switch (value) {
-      case 'session.input_transcript.delta': return LiveInputTranscriptDeltaType.sessionInputTranscriptDelta;
-      default: throw ArgumentError('Unknown LiveInputTranscriptDeltaType: $value');
+      case 'session.input_transcript.delta':
+        return LiveInputTranscriptDeltaType.sessionInputTranscriptDelta;
+      default:
+        throw ArgumentError('Unknown LiveInputTranscriptDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInputTranscriptDeltaType.sessionInputTranscriptDelta: return 'session.input_transcript.delta';
+      case LiveInputTranscriptDeltaType.sessionInputTranscriptDelta:
+        return 'session.input_transcript.delta';
     }
   }
 
@@ -241,14 +275,17 @@ enum LiveInstructionsAppendedType {
 
   static LiveInstructionsAppendedType fromJson(String value) {
     switch (value) {
-      case 'session.instructions.appended': return LiveInstructionsAppendedType.sessionInstructionsAppended;
-      default: throw ArgumentError('Unknown LiveInstructionsAppendedType: $value');
+      case 'session.instructions.appended':
+        return LiveInstructionsAppendedType.sessionInstructionsAppended;
+      default:
+        throw ArgumentError('Unknown LiveInstructionsAppendedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInstructionsAppendedType.sessionInstructionsAppended: return 'session.instructions.appended';
+      case LiveInstructionsAppendedType.sessionInstructionsAppended:
+        return 'session.instructions.appended';
     }
   }
 
@@ -262,14 +299,17 @@ enum LiveInstructionsAppendParamType {
 
   static LiveInstructionsAppendParamType fromJson(String value) {
     switch (value) {
-      case 'session.instructions.append': return LiveInstructionsAppendParamType.sessionInstructionsAppend;
-      default: throw ArgumentError('Unknown LiveInstructionsAppendParamType: $value');
+      case 'session.instructions.append':
+        return LiveInstructionsAppendParamType.sessionInstructionsAppend;
+      default:
+        throw ArgumentError('Unknown LiveInstructionsAppendParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInstructionsAppendParamType.sessionInstructionsAppend: return 'session.instructions.append';
+      case LiveInstructionsAppendParamType.sessionInstructionsAppend:
+        return 'session.instructions.append';
     }
   }
 

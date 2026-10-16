@@ -8,130 +8,214 @@ part of 'conversations.dart';
 class ConversationResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the conversation.
   final String id;
+
   /// The object type, which is always `conversation`.
   final ConversationResourceObject object;
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final Map<String, String> metadata;
+
   /// The time at which the conversation was created, measured in seconds since the Unix epoch.
   final int createdAt;
 
-  const ConversationResource({required this.id, required this.object, required this.metadata, required this.createdAt});
+  const ConversationResource(
+      {required this.id,
+      required this.object,
+      required this.metadata,
+      required this.createdAt});
 
-  ConversationResource Function({String id, ConversationResourceObject object, Map<String, String> metadata, int createdAt}) get copyWith => _copyWith;
+  ConversationResource Function(
+      {String id,
+      ConversationResourceObject object,
+      Map<String, String> metadata,
+      int createdAt}) get copyWith => _copyWith;
 
-  ConversationResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => ConversationResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as ConversationResourceObject,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-  );
+  ConversationResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      ConversationResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ConversationResourceObject,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as Map<String, String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+      );
 
-  factory ConversationResource.fromJson(Map<String, dynamic> json) => ConversationResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? ConversationResourceObject.fromJson(json['object'] as String) : null)!,
-    metadata: (json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String)))!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-  );
+  factory ConversationResource.fromJson(Map<String, dynamic> json) =>
+      ConversationResource(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? ConversationResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        metadata: (json['metadata'] == null
+            ? null
+            : Map<String, dynamic>.from(json['metadata'] as Map)
+                .map((key, value) => MapEntry(key, value as String)))!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'metadata': metadata,
-    'created_at': createdAt,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'metadata': metadata,
+        'created_at': createdAt,
+      };
 }
 
 /// Typed representation of the `CreateConversationBody` API schema.
 class CreateConversationBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `metadata` wire field.
   final SdkOptional<Map<String, dynamic>?> metadata;
+
   /// Initial items to include in the conversation context. You may add up to 20 items at a time.
   final SdkOptional<List<InputItem>?> items;
 
-  const CreateConversationBody({this.metadata = const SdkOmitted(), this.items = const SdkOmitted()});
+  const CreateConversationBody(
+      {this.metadata = const SdkOmitted(), this.items = const SdkOmitted()});
 
-  CreateConversationBody Function({SdkOptional<Map<String, dynamic>?> metadata, SdkOptional<List<InputItem>?> items}) get copyWith => _copyWith;
+  CreateConversationBody Function(
+      {SdkOptional<Map<String, dynamic>?> metadata,
+      SdkOptional<List<InputItem>?> items}) get copyWith => _copyWith;
 
-  CreateConversationBody _copyWith({Object? metadata = sdkOmittedValue, Object? items = sdkOmittedValue}) => CreateConversationBody(
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
-    items: identical(items, sdkOmittedValue) ? this.items : items as SdkOptional<List<InputItem>?>,
-  );
+  CreateConversationBody _copyWith(
+          {Object? metadata = sdkOmittedValue,
+          Object? items = sdkOmittedValue}) =>
+      CreateConversationBody(
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, dynamic>?>,
+        items: identical(items, sdkOmittedValue)
+            ? this.items
+            : items as SdkOptional<List<InputItem>?>,
+      );
 
-  factory CreateConversationBody.fromJson(Map<String, dynamic> json) => CreateConversationBody(
-    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
-    items: json.containsKey('items') ? SdkPresent((json['items'] as List?)?.map((e) => InputItem.fromJson(e)).toList()) : const SdkOmitted(),
-  );
+  factory CreateConversationBody.fromJson(Map<String, dynamic> json) =>
+      CreateConversationBody(
+        metadata: json.containsKey('metadata')
+            ? SdkPresent(json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        items: json.containsKey('items')
+            ? SdkPresent((json['items'] as List?)
+                ?.map((e) => InputItem.fromJson(e))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (metadata) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (items) {
-      SdkPresent<List<InputItem>?>(value: final value) => {'items': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (metadata) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (items) {
+          SdkPresent<List<InputItem>?>(value: final value) => {
+              'items': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DeletedConversationResource` API schema.
 class DeletedConversationResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final DeletedConversationResourceObject object;
+
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
 
-  const DeletedConversationResource({required this.object, required this.deleted, required this.id});
+  const DeletedConversationResource(
+      {required this.object, required this.deleted, required this.id});
 
-  DeletedConversationResource Function({DeletedConversationResourceObject object, bool deleted, String id}) get copyWith => _copyWith;
+  DeletedConversationResource Function(
+      {DeletedConversationResourceObject object,
+      bool deleted,
+      String id}) get copyWith => _copyWith;
 
-  DeletedConversationResource _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? id = sdkOmittedValue}) => DeletedConversationResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as DeletedConversationResourceObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  DeletedConversationResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue,
+          Object? id = sdkOmittedValue}) =>
+      DeletedConversationResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as DeletedConversationResourceObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory DeletedConversationResource.fromJson(Map<String, dynamic> json) => DeletedConversationResource(
-    object: (json['object'] != null ? DeletedConversationResourceObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-    id: (json['id'] as String?)!,
-  );
+  factory DeletedConversationResource.fromJson(Map<String, dynamic> json) =>
+      DeletedConversationResource(
+        object: (json['object'] != null
+            ? DeletedConversationResourceObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        deleted: (json['deleted'] as bool?)!,
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'deleted': deleted,
-    'id': id,
-  };
+        'object': object.toJson(),
+        'deleted': deleted,
+        'id': id,
+      };
 }
 
 /// Typed representation of the `UpdateConversationBody` API schema.
 class UpdateConversationBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final Map<String, dynamic>? metadata;
 
   const UpdateConversationBody({required this.metadata});
 
-  UpdateConversationBody Function({Map<String, dynamic>? metadata}) get copyWith => _copyWith;
+  UpdateConversationBody Function({Map<String, dynamic>? metadata})
+      get copyWith => _copyWith;
 
-  UpdateConversationBody _copyWith({Object? metadata = sdkOmittedValue}) => UpdateConversationBody(
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, dynamic>?,
-  );
+  UpdateConversationBody _copyWith({Object? metadata = sdkOmittedValue}) =>
+      UpdateConversationBody(
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as Map<String, dynamic>?,
+      );
 
-  factory UpdateConversationBody.fromJson(Map<String, dynamic> json) => UpdateConversationBody(
-    metadata: json.containsKey('metadata') ? json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic> : throw ArgumentError.value(null, 'metadata', 'Required property is missing'),
-  );
+  factory UpdateConversationBody.fromJson(Map<String, dynamic> json) =>
+      UpdateConversationBody(
+        metadata: json.containsKey('metadata')
+            ? json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>
+            : throw ArgumentError.value(
+                null, 'metadata', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'metadata': metadata,
-  };
+        'metadata': metadata,
+      };
 }

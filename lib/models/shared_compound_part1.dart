@@ -8,29 +8,44 @@ part of 'shared_compound.dart';
 class CompoundFilter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of operation: `and` or `or`.
   final CompoundFilterType type_;
+
   /// Array of filters to combine. Items can be `ComparisonFilter` or `CompoundFilter`.
   final List<CompoundFilterFiltersItem> filters;
 
   const CompoundFilter({required this.type_, required this.filters});
 
-  CompoundFilter Function({CompoundFilterType type_, List<CompoundFilterFiltersItem> filters}) get copyWith => _copyWith;
+  CompoundFilter Function(
+      {CompoundFilterType type_,
+      List<CompoundFilterFiltersItem> filters}) get copyWith => _copyWith;
 
-  CompoundFilter _copyWith({Object? type_ = sdkOmittedValue, Object? filters = sdkOmittedValue}) => CompoundFilter(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CompoundFilterType,
-    filters: identical(filters, sdkOmittedValue) ? this.filters : filters as List<CompoundFilterFiltersItem>,
-  );
+  CompoundFilter _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? filters = sdkOmittedValue}) =>
+      CompoundFilter(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CompoundFilterType,
+        filters: identical(filters, sdkOmittedValue)
+            ? this.filters
+            : filters as List<CompoundFilterFiltersItem>,
+      );
 
   factory CompoundFilter.fromJson(Map<String, dynamic> json) => CompoundFilter(
-    type_: (json['type'] != null ? CompoundFilterType.fromJson(json['type'] as String) : null)!,
-    filters: ((json['filters'] as List?)?.map((e) => CompoundFilterFiltersItem.fromJson(e)).toList())!,
-  );
+        type_: (json['type'] != null
+            ? CompoundFilterType.fromJson(json['type'] as String)
+            : null)!,
+        filters: ((json['filters'] as List?)
+            ?.map((e) => CompoundFilterFiltersItem.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'filters': filters.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'filters': filters.map((item) => item.toJson()).toList(),
+      };
 }
 
 sealed class CompoundFilterFiltersItem {
@@ -38,29 +53,45 @@ sealed class CompoundFilterFiltersItem {
   static const String constructionSurface = 'named';
   const CompoundFilterFiltersItem();
   factory CompoundFilterFiltersItem.fromJson(Object? json) {
-    try { return CompoundFilterFiltersItemComparisonFilter(ComparisonFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CompoundFilterFiltersItemCompoundFilter(CompoundFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}.contains(json["type"])) { return UnknownCompoundFilterFiltersItem(json); }
+    try {
+      return CompoundFilterFiltersItemComparisonFilter(
+          ComparisonFilter.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CompoundFilterFiltersItemCompoundFilter(
+          CompoundFilter.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}
+            .contains(json["type"])) {
+      return UnknownCompoundFilterFiltersItem(json);
+    }
     throw FormatException("No variant matched for CompoundFilterFiltersItem");
   }
   Object? toJson();
 }
 
-final class CompoundFilterFiltersItemComparisonFilter extends CompoundFilterFiltersItem {
+final class CompoundFilterFiltersItemComparisonFilter
+    extends CompoundFilterFiltersItem {
   final ComparisonFilter value;
   const CompoundFilterFiltersItemComparisonFilter(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CompoundFilterFiltersItemCompoundFilter extends CompoundFilterFiltersItem {
+final class CompoundFilterFiltersItemCompoundFilter
+    extends CompoundFilterFiltersItem {
   final CompoundFilter value;
   const CompoundFilterFiltersItemCompoundFilter(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CompoundFilterFiltersItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownCompoundFilterFiltersItem extends CompoundFilterFiltersItem {
   final Map<String, dynamic> raw;
   const UnknownCompoundFilterFiltersItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

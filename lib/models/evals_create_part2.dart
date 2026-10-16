@@ -5,76 +5,118 @@ part of 'evals_create.dart';
 
 // evals_create domain models (part 2)
 /// A [CreateEvalCompletionsRunDataSourceSource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateEvalCompletionsRunDataSourceSource extends CreateEvalCompletionsRunDataSourceSource {
+final class UnknownCreateEvalCompletionsRunDataSourceSource
+    extends CreateEvalCompletionsRunDataSourceSource {
   final Map<String, dynamic> raw;
   const UnknownCreateEvalCompletionsRunDataSourceSource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A CustomDataSourceConfig object that defines the schema for the data source used for the evaluation runs. This schema is used to define the shape of the data that will be: - Used to define your testing criteria and - What data is required when creating a run
 class CreateEvalCustomDataSourceConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of data source. Always `custom`.
   final CreateEvalCustomDataSourceConfigType type_;
+
   /// The json schema for each row in the data source.
   final Map<String, Object?> itemSchema;
+
   /// Whether the eval should expect you to populate the sample namespace (ie, by generating responses off of your data source)
   final SdkOptional<bool> includeSampleSchema;
 
-  const CreateEvalCustomDataSourceConfig({required this.type_, required this.itemSchema, this.includeSampleSchema = const SdkOmitted()});
+  const CreateEvalCustomDataSourceConfig(
+      {required this.type_,
+      required this.itemSchema,
+      this.includeSampleSchema = const SdkOmitted()});
 
-  CreateEvalCustomDataSourceConfig Function({CreateEvalCustomDataSourceConfigType type_, Map<String, Object?> itemSchema, SdkOptional<bool> includeSampleSchema}) get copyWith => _copyWith;
+  CreateEvalCustomDataSourceConfig Function(
+      {CreateEvalCustomDataSourceConfigType type_,
+      Map<String, Object?> itemSchema,
+      SdkOptional<bool> includeSampleSchema}) get copyWith => _copyWith;
 
-  CreateEvalCustomDataSourceConfig _copyWith({Object? type_ = sdkOmittedValue, Object? itemSchema = sdkOmittedValue, Object? includeSampleSchema = sdkOmittedValue}) => CreateEvalCustomDataSourceConfig(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalCustomDataSourceConfigType,
-    itemSchema: identical(itemSchema, sdkOmittedValue) ? this.itemSchema : itemSchema as Map<String, Object?>,
-    includeSampleSchema: identical(includeSampleSchema, sdkOmittedValue) ? this.includeSampleSchema : includeSampleSchema as SdkOptional<bool>,
-  );
+  CreateEvalCustomDataSourceConfig _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? itemSchema = sdkOmittedValue,
+          Object? includeSampleSchema = sdkOmittedValue}) =>
+      CreateEvalCustomDataSourceConfig(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateEvalCustomDataSourceConfigType,
+        itemSchema: identical(itemSchema, sdkOmittedValue)
+            ? this.itemSchema
+            : itemSchema as Map<String, Object?>,
+        includeSampleSchema: identical(includeSampleSchema, sdkOmittedValue)
+            ? this.includeSampleSchema
+            : includeSampleSchema as SdkOptional<bool>,
+      );
 
-  factory CreateEvalCustomDataSourceConfig.fromJson(Map<String, dynamic> json) => CreateEvalCustomDataSourceConfig(
-    type_: (json['type'] != null ? CreateEvalCustomDataSourceConfigType.fromJson(json['type'] as String) : null)!,
-    itemSchema: (json['item_schema'] == null ? null : Map<String, dynamic>.from(json['item_schema'] as Map).map((key, value) => MapEntry(key, value)))!,
-    includeSampleSchema: json['include_sample_schema'] != null ? SdkPresent((json['include_sample_schema'] as bool?)!) : const SdkOmitted(),
-  );
+  factory CreateEvalCustomDataSourceConfig.fromJson(
+          Map<String, dynamic> json) =>
+      CreateEvalCustomDataSourceConfig(
+        type_: (json['type'] != null
+            ? CreateEvalCustomDataSourceConfigType.fromJson(
+                json['type'] as String)
+            : null)!,
+        itemSchema: (json['item_schema'] == null
+            ? null
+            : Map<String, dynamic>.from(json['item_schema'] as Map)
+                .map((key, value) => MapEntry(key, value)))!,
+        includeSampleSchema: json['include_sample_schema'] != null
+            ? SdkPresent((json['include_sample_schema'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'item_schema': itemSchema,
-    ...switch (includeSampleSchema) {
-      SdkPresent<bool>(value: final value) => {'include_sample_schema': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'item_schema': itemSchema,
+        ...switch (includeSampleSchema) {
+          SdkPresent<bool>(value: final value) => {
+              'include_sample_schema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `input[]` wire field.
 class CreateEvalItemVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The role of the message (e.g. "system", "assistant", "user").
   final String role;
+
   /// The content of the message.
   final String content;
 
   const CreateEvalItemVariant0({required this.role, required this.content});
 
-  CreateEvalItemVariant0 Function({String role, String content}) get copyWith => _copyWith;
+  CreateEvalItemVariant0 Function({String role, String content}) get copyWith =>
+      _copyWith;
 
-  CreateEvalItemVariant0 _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue}) => CreateEvalItemVariant0(
-    role: identical(role, sdkOmittedValue) ? this.role : role as String,
-    content: identical(content, sdkOmittedValue) ? this.content : content as String,
-  );
+  CreateEvalItemVariant0 _copyWith(
+          {Object? role = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      CreateEvalItemVariant0(
+        role: identical(role, sdkOmittedValue) ? this.role : role as String,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as String,
+      );
 
-  factory CreateEvalItemVariant0.fromJson(Map<String, dynamic> json) => CreateEvalItemVariant0(
-    role: (json['role'] as String?)!,
-    content: (json['content'] as String?)!,
-  );
+  factory CreateEvalItemVariant0.fromJson(Map<String, dynamic> json) =>
+      CreateEvalItemVariant0(
+        role: (json['role'] as String?)!,
+        content: (json['content'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'role': role,
-    'content': content,
-  };
+        'role': role,
+        'content': content,
+      };
 }
 
 sealed class CreateEvalItem {
@@ -82,8 +124,14 @@ sealed class CreateEvalItem {
   static const String constructionSurface = 'named';
   const CreateEvalItem();
   factory CreateEvalItem.fromJson(Object? json) {
-    try { return CreateEvalItemCreateEvalItemVariant0(CreateEvalItemVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalItemEvalItem(EvalItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return CreateEvalItemCreateEvalItemVariant0(
+          CreateEvalItemVariant0.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalItemEvalItem(
+          EvalItem.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for CreateEvalItem");
   }
   Object? toJson();
@@ -92,42 +140,61 @@ sealed class CreateEvalItem {
 final class CreateEvalItemCreateEvalItemVariant0 extends CreateEvalItem {
   final CreateEvalItemVariant0 value;
   const CreateEvalItemCreateEvalItemVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class CreateEvalItemEvalItem extends CreateEvalItem {
   final EvalItem value;
   const CreateEvalItemEvalItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A JsonlRunDataSource object with that specifies a JSONL file that matches the eval
 class CreateEvalJsonlRunDataSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of data source. Always `jsonl`.
   final CreateEvalJsonlRunDataSourceType type_;
+
   /// Determines what populates the `item` namespace in the data source.
   final CreateEvalJsonlRunDataSourceSource source;
 
-  const CreateEvalJsonlRunDataSource({required this.type_, required this.source});
+  const CreateEvalJsonlRunDataSource(
+      {required this.type_, required this.source});
 
-  CreateEvalJsonlRunDataSource Function({CreateEvalJsonlRunDataSourceType type_, CreateEvalJsonlRunDataSourceSource source}) get copyWith => _copyWith;
+  CreateEvalJsonlRunDataSource Function(
+      {CreateEvalJsonlRunDataSourceType type_,
+      CreateEvalJsonlRunDataSourceSource source}) get copyWith => _copyWith;
 
-  CreateEvalJsonlRunDataSource _copyWith({Object? type_ = sdkOmittedValue, Object? source = sdkOmittedValue}) => CreateEvalJsonlRunDataSource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalJsonlRunDataSourceType,
-    source: identical(source, sdkOmittedValue) ? this.source : source as CreateEvalJsonlRunDataSourceSource,
-  );
+  CreateEvalJsonlRunDataSource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? source = sdkOmittedValue}) =>
+      CreateEvalJsonlRunDataSource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateEvalJsonlRunDataSourceType,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as CreateEvalJsonlRunDataSourceSource,
+      );
 
-  factory CreateEvalJsonlRunDataSource.fromJson(Map<String, dynamic> json) => CreateEvalJsonlRunDataSource(
-    type_: (json['type'] != null ? CreateEvalJsonlRunDataSourceType.fromJson(json['type'] as String) : null)!,
-    source: (json['source'] != null ? CreateEvalJsonlRunDataSourceSource.fromJson(json['source']) : null)!,
-  );
+  factory CreateEvalJsonlRunDataSource.fromJson(Map<String, dynamic> json) =>
+      CreateEvalJsonlRunDataSource(
+        type_: (json['type'] != null
+            ? CreateEvalJsonlRunDataSourceType.fromJson(json['type'] as String)
+            : null)!,
+        source: (json['source'] != null
+            ? CreateEvalJsonlRunDataSourceSource.fromJson(json['source'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'source': source.toJson(),
-  };
+        'type': type_.toJson(),
+        'source': source.toJson(),
+      };
 }
 
 sealed class CreateEvalJsonlRunDataSourceSource {
@@ -135,155 +202,279 @@ sealed class CreateEvalJsonlRunDataSourceSource {
   static const String constructionSurface = 'named';
   const CreateEvalJsonlRunDataSourceSource();
   factory CreateEvalJsonlRunDataSourceSource.fromJson(Object? json) {
-    try { return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource(EvalJsonlFileContentSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource(EvalJsonlFileIdSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_content", "file_id"}.contains(json["type"])) { return UnknownCreateEvalJsonlRunDataSourceSource(json); }
-    throw FormatException("No variant matched for CreateEvalJsonlRunDataSourceSource");
+    try {
+      return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource(
+          EvalJsonlFileContentSource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource(
+          EvalJsonlFileIdSource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"file_content", "file_id"}.contains(json["type"])) {
+      return UnknownCreateEvalJsonlRunDataSourceSource(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateEvalJsonlRunDataSourceSource");
   }
   Object? toJson();
 }
 
-final class CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource extends CreateEvalJsonlRunDataSourceSource {
+final class CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource
+    extends CreateEvalJsonlRunDataSourceSource {
   final EvalJsonlFileContentSource value;
-  const CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource extends CreateEvalJsonlRunDataSourceSource {
+final class CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource
+    extends CreateEvalJsonlRunDataSourceSource {
   final EvalJsonlFileIdSource value;
   const CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateEvalJsonlRunDataSourceSource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateEvalJsonlRunDataSourceSource extends CreateEvalJsonlRunDataSourceSource {
+final class UnknownCreateEvalJsonlRunDataSourceSource
+    extends CreateEvalJsonlRunDataSourceSource {
   final Map<String, dynamic> raw;
   const UnknownCreateEvalJsonlRunDataSourceSource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A LabelModelGrader object which uses a model to assign labels to each item in the evaluation.
 class CreateEvalLabelModelGrader {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always `label_model`.
   final CreateEvalLabelModelGraderType type_;
+
   /// The name of the grader.
   final String name;
+
   /// The model to use for the evaluation. Must support structured outputs.
   final String model;
+
   /// A list of chat messages forming the prompt or context. May include variable references to the `item` namespace, ie {{item.name}}.
   final List<CreateEvalItem> input;
+
   /// The labels to classify to each item in the evaluation.
   final List<String> labels;
+
   /// The labels that indicate a passing result. Must be a subset of labels.
   final List<String> passingLabels;
 
-  const CreateEvalLabelModelGrader({required this.type_, required this.name, required this.model, required this.input, required this.labels, required this.passingLabels});
+  const CreateEvalLabelModelGrader(
+      {required this.type_,
+      required this.name,
+      required this.model,
+      required this.input,
+      required this.labels,
+      required this.passingLabels});
 
-  CreateEvalLabelModelGrader Function({CreateEvalLabelModelGraderType type_, String name, String model, List<CreateEvalItem> input, List<String> labels, List<String> passingLabels}) get copyWith => _copyWith;
+  CreateEvalLabelModelGrader Function(
+      {CreateEvalLabelModelGraderType type_,
+      String name,
+      String model,
+      List<CreateEvalItem> input,
+      List<String> labels,
+      List<String> passingLabels}) get copyWith => _copyWith;
 
-  CreateEvalLabelModelGrader _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? model = sdkOmittedValue, Object? input = sdkOmittedValue, Object? labels = sdkOmittedValue, Object? passingLabels = sdkOmittedValue}) => CreateEvalLabelModelGrader(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalLabelModelGraderType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as List<CreateEvalItem>,
-    labels: identical(labels, sdkOmittedValue) ? this.labels : labels as List<String>,
-    passingLabels: identical(passingLabels, sdkOmittedValue) ? this.passingLabels : passingLabels as List<String>,
-  );
+  CreateEvalLabelModelGrader _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? labels = sdkOmittedValue,
+          Object? passingLabels = sdkOmittedValue}) =>
+      CreateEvalLabelModelGrader(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateEvalLabelModelGraderType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as List<CreateEvalItem>,
+        labels: identical(labels, sdkOmittedValue)
+            ? this.labels
+            : labels as List<String>,
+        passingLabels: identical(passingLabels, sdkOmittedValue)
+            ? this.passingLabels
+            : passingLabels as List<String>,
+      );
 
-  factory CreateEvalLabelModelGrader.fromJson(Map<String, dynamic> json) => CreateEvalLabelModelGrader(
-    type_: (json['type'] != null ? CreateEvalLabelModelGraderType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    model: (json['model'] as String?)!,
-    input: ((json['input'] as List?)?.map((e) => CreateEvalItem.fromJson(e)).toList())!,
-    labels: ((json['labels'] as List?)?.map((e) => e as String).toList())!,
-    passingLabels: ((json['passing_labels'] as List?)?.map((e) => e as String).toList())!,
-  );
+  factory CreateEvalLabelModelGrader.fromJson(Map<String, dynamic> json) =>
+      CreateEvalLabelModelGrader(
+        type_: (json['type'] != null
+            ? CreateEvalLabelModelGraderType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        model: (json['model'] as String?)!,
+        input: ((json['input'] as List?)
+            ?.map((e) => CreateEvalItem.fromJson(e))
+            .toList())!,
+        labels: ((json['labels'] as List?)?.map((e) => e as String).toList())!,
+        passingLabels: ((json['passing_labels'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'model': model,
-    'input': input.map((item) => item.toJson()).toList(),
-    'labels': labels,
-    'passing_labels': passingLabels,
-  };
+        'type': type_.toJson(),
+        'name': name,
+        'model': model,
+        'input': input.map((item) => item.toJson()).toList(),
+        'labels': labels,
+        'passing_labels': passingLabels,
+      };
 }
 
 /// A data source config which specifies the metadata property of your logs query. This is usually metadata like `usecase=chatbot` or `prompt-version=v2`, etc.
 class CreateEvalLogsDataSourceConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of data source. Always `logs`.
   final CreateEvalLogsDataSourceConfigType type_;
+
   /// Metadata filters for the logs data source.
   final SdkOptional<Map<String, Object?>> metadata;
 
-  const CreateEvalLogsDataSourceConfig({required this.type_, this.metadata = const SdkOmitted()});
+  const CreateEvalLogsDataSourceConfig(
+      {required this.type_, this.metadata = const SdkOmitted()});
 
-  CreateEvalLogsDataSourceConfig Function({CreateEvalLogsDataSourceConfigType type_, SdkOptional<Map<String, Object?>> metadata}) get copyWith => _copyWith;
+  CreateEvalLogsDataSourceConfig Function(
+      {CreateEvalLogsDataSourceConfigType type_,
+      SdkOptional<Map<String, Object?>> metadata}) get copyWith => _copyWith;
 
-  CreateEvalLogsDataSourceConfig _copyWith({Object? type_ = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => CreateEvalLogsDataSourceConfig(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalLogsDataSourceConfigType,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, Object?>>,
-  );
+  CreateEvalLogsDataSourceConfig _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      CreateEvalLogsDataSourceConfig(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateEvalLogsDataSourceConfigType,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, Object?>>,
+      );
 
-  factory CreateEvalLogsDataSourceConfig.fromJson(Map<String, dynamic> json) => CreateEvalLogsDataSourceConfig(
-    type_: (json['type'] != null ? CreateEvalLogsDataSourceConfigType.fromJson(json['type'] as String) : null)!,
-    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-  );
+  factory CreateEvalLogsDataSourceConfig.fromJson(Map<String, dynamic> json) =>
+      CreateEvalLogsDataSourceConfig(
+        type_: (json['type'] != null
+            ? CreateEvalLogsDataSourceConfigType.fromJson(
+                json['type'] as String)
+            : null)!,
+        metadata: json['metadata'] != null
+            ? SdkPresent((json['metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (metadata) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (metadata) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CreateEvalRequest` API schema.
 class CreateEvalRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the evaluation.
   final SdkOptional<String> name;
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
+
   /// The configuration for the data source used for the evaluation runs. Dictates the schema of the data used in the evaluation.
   final CreateEvalRequestDataSourceConfig dataSourceConfig;
+
   /// A list of graders for all eval runs in this group. Graders can reference variables in the data source using double curly braces notation, like `{{item.variable_name}}`. To reference the model's output, use the `sample` namespace (ie, `{{sample.output_text}}`).
   final List<CreateEvalRequestTestingCriteriaItem> testingCriteria;
 
-  const CreateEvalRequest({this.name = const SdkOmitted(), this.metadata = const SdkOmitted(), required this.dataSourceConfig, required this.testingCriteria});
+  const CreateEvalRequest(
+      {this.name = const SdkOmitted(),
+      this.metadata = const SdkOmitted(),
+      required this.dataSourceConfig,
+      required this.testingCriteria});
 
-  CreateEvalRequest Function({SdkOptional<String> name, SdkOptional<Map<String, dynamic>?> metadata, CreateEvalRequestDataSourceConfig dataSourceConfig, List<CreateEvalRequestTestingCriteriaItem> testingCriteria}) get copyWith => _copyWith;
+  CreateEvalRequest Function(
+          {SdkOptional<String> name,
+          SdkOptional<Map<String, dynamic>?> metadata,
+          CreateEvalRequestDataSourceConfig dataSourceConfig,
+          List<CreateEvalRequestTestingCriteriaItem> testingCriteria})
+      get copyWith => _copyWith;
 
-  CreateEvalRequest _copyWith({Object? name = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? dataSourceConfig = sdkOmittedValue, Object? testingCriteria = sdkOmittedValue}) => CreateEvalRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
-    dataSourceConfig: identical(dataSourceConfig, sdkOmittedValue) ? this.dataSourceConfig : dataSourceConfig as CreateEvalRequestDataSourceConfig,
-    testingCriteria: identical(testingCriteria, sdkOmittedValue) ? this.testingCriteria : testingCriteria as List<CreateEvalRequestTestingCriteriaItem>,
-  );
+  CreateEvalRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? dataSourceConfig = sdkOmittedValue,
+          Object? testingCriteria = sdkOmittedValue}) =>
+      CreateEvalRequest(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, dynamic>?>,
+        dataSourceConfig: identical(dataSourceConfig, sdkOmittedValue)
+            ? this.dataSourceConfig
+            : dataSourceConfig as CreateEvalRequestDataSourceConfig,
+        testingCriteria: identical(testingCriteria, sdkOmittedValue)
+            ? this.testingCriteria
+            : testingCriteria as List<CreateEvalRequestTestingCriteriaItem>,
+      );
 
-  factory CreateEvalRequest.fromJson(Map<String, dynamic> json) => CreateEvalRequest(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
-    dataSourceConfig: (json['data_source_config'] != null ? CreateEvalRequestDataSourceConfig.fromJson(json['data_source_config']) : null)!,
-    testingCriteria: ((json['testing_criteria'] as List?)?.map((e) => CreateEvalRequestTestingCriteriaItem.fromJson(e)).toList())!,
-  );
+  factory CreateEvalRequest.fromJson(Map<String, dynamic> json) =>
+      CreateEvalRequest(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        metadata: json.containsKey('metadata')
+            ? SdkPresent(json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        dataSourceConfig: (json['data_source_config'] != null
+            ? CreateEvalRequestDataSourceConfig.fromJson(
+                json['data_source_config'])
+            : null)!,
+        testingCriteria: ((json['testing_criteria'] as List?)
+            ?.map((e) => CreateEvalRequestTestingCriteriaItem.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metadata) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-    'data_source_config': dataSourceConfig.toJson(),
-    'testing_criteria': testingCriteria.map((item) => item.toJson()).toList(),
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metadata) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'data_source_config': dataSourceConfig.toJson(),
+        'testing_criteria':
+            testingCriteria.map((item) => item.toJson()).toList(),
+      };
 }

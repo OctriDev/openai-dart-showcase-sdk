@@ -8,6 +8,7 @@ part of 'threads.dart';
 class ActiveStatus {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Status discriminator that is always `active`.
   final ActiveStatusType type_;
 
@@ -16,201 +17,334 @@ class ActiveStatus {
   ActiveStatus Function({ActiveStatusType type_}) get copyWith => _copyWith;
 
   ActiveStatus _copyWith({Object? type_ = sdkOmittedValue}) => ActiveStatus(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ActiveStatusType,
-  );
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ActiveStatusType,
+      );
 
   factory ActiveStatus.fromJson(Map<String, dynamic> json) => ActiveStatus(
-    type_: (json['type'] != null ? ActiveStatusType.fromJson(json['type'] as String) : null)!,
-  );
+        type_: (json['type'] != null
+            ? ActiveStatusType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Indicates that a thread has been closed.
 class ClosedStatus {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Status discriminator that is always `closed`.
   final ClosedStatusType type_;
+
   /// Required `string` value serialized in the `reason` wire field.
   final String? reason;
 
   const ClosedStatus({required this.type_, required this.reason});
 
-  ClosedStatus Function({ClosedStatusType type_, String? reason}) get copyWith => _copyWith;
+  ClosedStatus Function({ClosedStatusType type_, String? reason})
+      get copyWith => _copyWith;
 
-  ClosedStatus _copyWith({Object? type_ = sdkOmittedValue, Object? reason = sdkOmittedValue}) => ClosedStatus(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ClosedStatusType,
-    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as String?,
-  );
+  ClosedStatus _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? reason = sdkOmittedValue}) =>
+      ClosedStatus(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ClosedStatusType,
+        reason: identical(reason, sdkOmittedValue)
+            ? this.reason
+            : reason as String?,
+      );
 
   factory ClosedStatus.fromJson(Map<String, dynamic> json) => ClosedStatus(
-    type_: (json['type'] != null ? ClosedStatusType.fromJson(json['type'] as String) : null)!,
-    reason: json.containsKey('reason') ? json['reason'] as String? : throw ArgumentError.value(null, 'reason', 'Required property is missing'),
-  );
+        type_: (json['type'] != null
+            ? ClosedStatusType.fromJson(json['type'] as String)
+            : null)!,
+        reason: json.containsKey('reason')
+            ? json['reason'] as String?
+            : throw ArgumentError.value(
+                null, 'reason', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'reason': reason,
-  };
+        'type': type_.toJson(),
+        'reason': reason,
+      };
 }
 
 /// Confirmation payload returned after deleting a thread.
 class DeletedThreadResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier of the deleted thread.
   final String id;
+
   /// Type discriminator that is always `chatkit.thread.deleted`.
   final DeletedThreadResourceObject object;
+
   /// Indicates that the thread has been deleted.
   final bool deleted;
 
-  const DeletedThreadResource({required this.id, required this.object, required this.deleted});
+  const DeletedThreadResource(
+      {required this.id, required this.object, required this.deleted});
 
-  DeletedThreadResource Function({String id, DeletedThreadResourceObject object, bool deleted}) get copyWith => _copyWith;
+  DeletedThreadResource Function(
+      {String id,
+      DeletedThreadResourceObject object,
+      bool deleted}) get copyWith => _copyWith;
 
-  DeletedThreadResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeletedThreadResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as DeletedThreadResourceObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  DeletedThreadResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      DeletedThreadResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as DeletedThreadResourceObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory DeletedThreadResource.fromJson(Map<String, dynamic> json) => DeletedThreadResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? DeletedThreadResourceObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-  );
+  factory DeletedThreadResource.fromJson(Map<String, dynamic> json) =>
+      DeletedThreadResource(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? DeletedThreadResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        deleted: (json['deleted'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'deleted': deleted,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'deleted': deleted,
+      };
 }
 
 /// Indicates that a thread is locked and cannot accept new input.
 class LockedStatus {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Status discriminator that is always `locked`.
   final LockedStatusType type_;
+
   /// Required `string` value serialized in the `reason` wire field.
   final String? reason;
 
   const LockedStatus({required this.type_, required this.reason});
 
-  LockedStatus Function({LockedStatusType type_, String? reason}) get copyWith => _copyWith;
+  LockedStatus Function({LockedStatusType type_, String? reason})
+      get copyWith => _copyWith;
 
-  LockedStatus _copyWith({Object? type_ = sdkOmittedValue, Object? reason = sdkOmittedValue}) => LockedStatus(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LockedStatusType,
-    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as String?,
-  );
+  LockedStatus _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? reason = sdkOmittedValue}) =>
+      LockedStatus(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LockedStatusType,
+        reason: identical(reason, sdkOmittedValue)
+            ? this.reason
+            : reason as String?,
+      );
 
   factory LockedStatus.fromJson(Map<String, dynamic> json) => LockedStatus(
-    type_: (json['type'] != null ? LockedStatusType.fromJson(json['type'] as String) : null)!,
-    reason: json.containsKey('reason') ? json['reason'] as String? : throw ArgumentError.value(null, 'reason', 'Required property is missing'),
-  );
+        type_: (json['type'] != null
+            ? LockedStatusType.fromJson(json['type'] as String)
+            : null)!,
+        reason: json.containsKey('reason')
+            ? json['reason'] as String?
+            : throw ArgumentError.value(
+                null, 'reason', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'reason': reason,
-  };
+        'type': type_.toJson(),
+        'reason': reason,
+      };
 }
 
 /// A paginated list of ChatKit threads.
 class ThreadListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object returned, must be `list`.
   final ThreadListResourceObject object;
+
   /// A list of items
   final List<ThreadResource> data;
+
   /// Required `string` value serialized in the `first_id` wire field.
   final String? firstId;
+
   /// Required `string` value serialized in the `last_id` wire field.
   final String? lastId;
+
   /// Whether there are more items available.
   final bool hasMore;
 
-  const ThreadListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
+  const ThreadListResource(
+      {required this.object,
+      required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore});
 
-  ThreadListResource Function({ThreadListResourceObject object, List<ThreadResource> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
+  ThreadListResource Function(
+      {ThreadListResourceObject object,
+      List<ThreadResource> data,
+      String? firstId,
+      String? lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  ThreadListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ThreadListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ThreadListResourceObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<ThreadResource>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  ThreadListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      ThreadListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ThreadListResourceObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<ThreadResource>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String?,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory ThreadListResource.fromJson(Map<String, dynamic> json) => ThreadListResource(
-    object: (json['object'] != null ? ThreadListResourceObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => ThreadResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
-    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory ThreadListResource.fromJson(Map<String, dynamic> json) =>
+      ThreadListResource(
+        object: (json['object'] != null
+            ? ThreadListResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => ThreadResource.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? json['first_id'] as String?
+            : throw ArgumentError.value(
+                null, 'first_id', 'Required property is missing'),
+        lastId: json.containsKey('last_id')
+            ? json['last_id'] as String?
+            : throw ArgumentError.value(
+                null, 'last_id', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+      };
 }
 
 /// Represents a ChatKit thread and its current status.
 class ThreadResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier of the thread.
   final String id;
+
   /// Type discriminator that is always `chatkit.thread`.
   final ThreadResourceObject object;
+
   /// Unix timestamp (in seconds) for when the thread was created.
   final int createdAt;
+
   /// Required `string` value serialized in the `title` wire field.
   final String? title;
+
   /// Current status for the thread. Defaults to `active` for newly created threads.
   final ThreadResourceStatus status;
+
   /// Free-form string that identifies your end user who owns the thread.
   final String user;
 
-  const ThreadResource({required this.id, required this.object, required this.createdAt, required this.title, required this.status, required this.user});
+  const ThreadResource(
+      {required this.id,
+      required this.object,
+      required this.createdAt,
+      required this.title,
+      required this.status,
+      required this.user});
 
-  ThreadResource Function({String id, ThreadResourceObject object, int createdAt, String? title, ThreadResourceStatus status, String user}) get copyWith => _copyWith;
+  ThreadResource Function(
+      {String id,
+      ThreadResourceObject object,
+      int createdAt,
+      String? title,
+      ThreadResourceStatus status,
+      String user}) get copyWith => _copyWith;
 
-  ThreadResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? title = sdkOmittedValue, Object? status = sdkOmittedValue, Object? user = sdkOmittedValue}) => ThreadResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as ThreadResourceObject,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    title: identical(title, sdkOmittedValue) ? this.title : title as String?,
-    status: identical(status, sdkOmittedValue) ? this.status : status as ThreadResourceStatus,
-    user: identical(user, sdkOmittedValue) ? this.user : user as String,
-  );
+  ThreadResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? title = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? user = sdkOmittedValue}) =>
+      ThreadResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ThreadResourceObject,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        title:
+            identical(title, sdkOmittedValue) ? this.title : title as String?,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ThreadResourceStatus,
+        user: identical(user, sdkOmittedValue) ? this.user : user as String,
+      );
 
   factory ThreadResource.fromJson(Map<String, dynamic> json) => ThreadResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? ThreadResourceObject.fromJson(json['object'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    title: json.containsKey('title') ? json['title'] as String? : throw ArgumentError.value(null, 'title', 'Required property is missing'),
-    status: (json['status'] != null ? ThreadResourceStatus.fromJson(json['status']) : null)!,
-    user: (json['user'] as String?)!,
-  );
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? ThreadResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        title: json.containsKey('title')
+            ? json['title'] as String?
+            : throw ArgumentError.value(
+                null, 'title', 'Required property is missing'),
+        status: (json['status'] != null
+            ? ThreadResourceStatus.fromJson(json['status'])
+            : null)!,
+        user: (json['user'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'created_at': createdAt,
-    'title': title,
-    'status': status.toJson(),
-    'user': user,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'created_at': createdAt,
+        'title': title,
+        'status': status.toJson(),
+        'user': user,
+      };
 }
 
 sealed class ThreadResourceStatus {
@@ -218,10 +352,23 @@ sealed class ThreadResourceStatus {
   static const String constructionSurface = 'named';
   const ThreadResourceStatus();
   factory ThreadResourceStatus.fromJson(Object? json) {
-    try { return ThreadResourceStatusActiveStatus(ActiveStatus.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ThreadResourceStatusLockedStatus(LockedStatus.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ThreadResourceStatusClosedStatus(ClosedStatus.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"active", "locked", "closed"}.contains(json["type"])) { return UnknownThreadResourceStatus(json); }
+    try {
+      return ThreadResourceStatusActiveStatus(
+          ActiveStatus.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ThreadResourceStatusLockedStatus(
+          LockedStatus.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ThreadResourceStatusClosedStatus(
+          ClosedStatus.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"active", "locked", "closed"}.contains(json["type"])) {
+      return UnknownThreadResourceStatus(json);
+    }
     throw FormatException("No variant matched for ThreadResourceStatus");
   }
   Object? toJson();
@@ -230,24 +377,28 @@ sealed class ThreadResourceStatus {
 final class ThreadResourceStatusActiveStatus extends ThreadResourceStatus {
   final ActiveStatus value;
   const ThreadResourceStatusActiveStatus(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ThreadResourceStatusLockedStatus extends ThreadResourceStatus {
   final LockedStatus value;
   const ThreadResourceStatusLockedStatus(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ThreadResourceStatusClosedStatus extends ThreadResourceStatus {
   final ClosedStatus value;
   const ThreadResourceStatusClosedStatus(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ThreadResourceStatus] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownThreadResourceStatus extends ThreadResourceStatus {
   final Map<String, dynamic> raw;
   const UnknownThreadResourceStatus(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

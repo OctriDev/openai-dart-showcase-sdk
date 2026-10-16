@@ -10,14 +10,17 @@ enum MessageContentRefusalObjectType {
 
   static MessageContentRefusalObjectType fromJson(String value) {
     switch (value) {
-      case 'refusal': return MessageContentRefusalObjectType.refusal;
-      default: throw ArgumentError('Unknown MessageContentRefusalObjectType: $value');
+      case 'refusal':
+        return MessageContentRefusalObjectType.refusal;
+      default:
+        throw ArgumentError('Unknown MessageContentRefusalObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageContentRefusalObjectType.refusal: return 'refusal';
+      case MessageContentRefusalObjectType.refusal:
+        return 'refusal';
     }
   }
 
@@ -31,14 +34,18 @@ enum MessageContentResourceInputImageType {
 
   static MessageContentResourceInputImageType fromJson(String value) {
     switch (value) {
-      case 'input_image': return MessageContentResourceInputImageType.inputImage;
-      default: throw ArgumentError('Unknown MessageContentResourceInputImageType: $value');
+      case 'input_image':
+        return MessageContentResourceInputImageType.inputImage;
+      default:
+        throw ArgumentError(
+            'Unknown MessageContentResourceInputImageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageContentResourceInputImageType.inputImage: return 'input_image';
+      case MessageContentResourceInputImageType.inputImage:
+        return 'input_image';
     }
   }
 
@@ -52,14 +59,18 @@ enum MessageContentResourceInputTextType {
 
   static MessageContentResourceInputTextType fromJson(String value) {
     switch (value) {
-      case 'input_text': return MessageContentResourceInputTextType.inputText;
-      default: throw ArgumentError('Unknown MessageContentResourceInputTextType: $value');
+      case 'input_text':
+        return MessageContentResourceInputTextType.inputText;
+      default:
+        throw ArgumentError(
+            'Unknown MessageContentResourceInputTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageContentResourceInputTextType.inputText: return 'input_text';
+      case MessageContentResourceInputTextType.inputText:
+        return 'input_text';
     }
   }
 
@@ -73,14 +84,18 @@ enum MessageContentResourceOutputTextType {
 
   static MessageContentResourceOutputTextType fromJson(String value) {
     switch (value) {
-      case 'output_text': return MessageContentResourceOutputTextType.outputText;
-      default: throw ArgumentError('Unknown MessageContentResourceOutputTextType: $value');
+      case 'output_text':
+        return MessageContentResourceOutputTextType.outputText;
+      default:
+        throw ArgumentError(
+            'Unknown MessageContentResourceOutputTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageContentResourceOutputTextType.outputText: return 'output_text';
+      case MessageContentResourceOutputTextType.outputText:
+        return 'output_text';
     }
   }
 
@@ -92,16 +107,21 @@ enum MessageContentResourceOutputTextType {
 enum MessageContentTextAnnotationsFileCitationObjectType {
   fileCitation;
 
-  static MessageContentTextAnnotationsFileCitationObjectType fromJson(String value) {
+  static MessageContentTextAnnotationsFileCitationObjectType fromJson(
+      String value) {
     switch (value) {
-      case 'file_citation': return MessageContentTextAnnotationsFileCitationObjectType.fileCitation;
-      default: throw ArgumentError('Unknown MessageContentTextAnnotationsFileCitationObjectType: $value');
+      case 'file_citation':
+        return MessageContentTextAnnotationsFileCitationObjectType.fileCitation;
+      default:
+        throw ArgumentError(
+            'Unknown MessageContentTextAnnotationsFileCitationObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageContentTextAnnotationsFileCitationObjectType.fileCitation: return 'file_citation';
+      case MessageContentTextAnnotationsFileCitationObjectType.fileCitation:
+        return 'file_citation';
     }
   }
 
@@ -113,16 +133,21 @@ enum MessageContentTextAnnotationsFileCitationObjectType {
 enum MessageContentTextAnnotationsFilePathObjectType {
   filePath;
 
-  static MessageContentTextAnnotationsFilePathObjectType fromJson(String value) {
+  static MessageContentTextAnnotationsFilePathObjectType fromJson(
+      String value) {
     switch (value) {
-      case 'file_path': return MessageContentTextAnnotationsFilePathObjectType.filePath;
-      default: throw ArgumentError('Unknown MessageContentTextAnnotationsFilePathObjectType: $value');
+      case 'file_path':
+        return MessageContentTextAnnotationsFilePathObjectType.filePath;
+      default:
+        throw ArgumentError(
+            'Unknown MessageContentTextAnnotationsFilePathObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageContentTextAnnotationsFilePathObjectType.filePath: return 'file_path';
+      case MessageContentTextAnnotationsFilePathObjectType.filePath:
+        return 'file_path';
     }
   }
 
@@ -136,14 +161,17 @@ enum MessageContentTextObjectType {
 
   static MessageContentTextObjectType fromJson(String value) {
     switch (value) {
-      case 'text': return MessageContentTextObjectType.text;
-      default: throw ArgumentError('Unknown MessageContentTextObjectType: $value');
+      case 'text':
+        return MessageContentTextObjectType.text;
+      default:
+        throw ArgumentError('Unknown MessageContentTextObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageContentTextObjectType.text: return 'text';
+      case MessageContentTextObjectType.text:
+        return 'text';
     }
   }
 
@@ -153,25 +181,32 @@ enum MessageContentTextObjectType {
 
 /// Specifies the detail level of the image if specified by the user. `low` uses fewer tokens, you can opt in to high resolution using `high`.
 final class MessageDeltaContentImageFileObjectImageFileDetail {
-
   final String value;
 
   const MessageDeltaContentImageFileObjectImageFileDetail._(this.value);
 
-  factory MessageDeltaContentImageFileObjectImageFileDetail.fromJson(String value) => MessageDeltaContentImageFileObjectImageFileDetail._(value);
+  factory MessageDeltaContentImageFileObjectImageFileDetail.fromJson(
+          String value) =>
+      MessageDeltaContentImageFileObjectImageFileDetail._(value);
 
-  static const auto = MessageDeltaContentImageFileObjectImageFileDetail._('auto');
+  static const auto =
+      MessageDeltaContentImageFileObjectImageFileDetail._('auto');
   static const low = MessageDeltaContentImageFileObjectImageFileDetail._('low');
-  static const high = MessageDeltaContentImageFileObjectImageFileDetail._('high');
+  static const high =
+      MessageDeltaContentImageFileObjectImageFileDetail._('high');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageDeltaContentImageFileObjectImageFileDetail && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageDeltaContentImageFileObjectImageFileDetail &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `image_file`.
@@ -180,14 +215,18 @@ enum MessageDeltaContentImageFileObjectType {
 
   static MessageDeltaContentImageFileObjectType fromJson(String value) {
     switch (value) {
-      case 'image_file': return MessageDeltaContentImageFileObjectType.imageFile;
-      default: throw ArgumentError('Unknown MessageDeltaContentImageFileObjectType: $value');
+      case 'image_file':
+        return MessageDeltaContentImageFileObjectType.imageFile;
+      default:
+        throw ArgumentError(
+            'Unknown MessageDeltaContentImageFileObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageDeltaContentImageFileObjectType.imageFile: return 'image_file';
+      case MessageDeltaContentImageFileObjectType.imageFile:
+        return 'image_file';
     }
   }
 
@@ -197,12 +236,13 @@ enum MessageDeltaContentImageFileObjectType {
 
 /// Specifies the detail level of the image. `low` uses fewer tokens, you can opt in to high resolution using `high`.
 final class MessageDeltaContentImageUrlObjectImageUrlDetail {
-
   final String value;
 
   const MessageDeltaContentImageUrlObjectImageUrlDetail._(this.value);
 
-  factory MessageDeltaContentImageUrlObjectImageUrlDetail.fromJson(String value) => MessageDeltaContentImageUrlObjectImageUrlDetail._(value);
+  factory MessageDeltaContentImageUrlObjectImageUrlDetail.fromJson(
+          String value) =>
+      MessageDeltaContentImageUrlObjectImageUrlDetail._(value);
 
   static const auto = MessageDeltaContentImageUrlObjectImageUrlDetail._('auto');
   static const low = MessageDeltaContentImageUrlObjectImageUrlDetail._('low');
@@ -210,12 +250,16 @@ final class MessageDeltaContentImageUrlObjectImageUrlDetail {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageDeltaContentImageUrlObjectImageUrlDetail && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageDeltaContentImageUrlObjectImageUrlDetail &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `image_url`.
@@ -224,14 +268,18 @@ enum MessageDeltaContentImageUrlObjectType {
 
   static MessageDeltaContentImageUrlObjectType fromJson(String value) {
     switch (value) {
-      case 'image_url': return MessageDeltaContentImageUrlObjectType.imageUrl;
-      default: throw ArgumentError('Unknown MessageDeltaContentImageUrlObjectType: $value');
+      case 'image_url':
+        return MessageDeltaContentImageUrlObjectType.imageUrl;
+      default:
+        throw ArgumentError(
+            'Unknown MessageDeltaContentImageUrlObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageDeltaContentImageUrlObjectType.imageUrl: return 'image_url';
+      case MessageDeltaContentImageUrlObjectType.imageUrl:
+        return 'image_url';
     }
   }
 
@@ -245,14 +293,18 @@ enum MessageDeltaContentRefusalObjectType {
 
   static MessageDeltaContentRefusalObjectType fromJson(String value) {
     switch (value) {
-      case 'refusal': return MessageDeltaContentRefusalObjectType.refusal;
-      default: throw ArgumentError('Unknown MessageDeltaContentRefusalObjectType: $value');
+      case 'refusal':
+        return MessageDeltaContentRefusalObjectType.refusal;
+      default:
+        throw ArgumentError(
+            'Unknown MessageDeltaContentRefusalObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageDeltaContentRefusalObjectType.refusal: return 'refusal';
+      case MessageDeltaContentRefusalObjectType.refusal:
+        return 'refusal';
     }
   }
 
@@ -264,16 +316,23 @@ enum MessageDeltaContentRefusalObjectType {
 enum MessageDeltaContentTextAnnotationsFileCitationObjectType {
   fileCitation;
 
-  static MessageDeltaContentTextAnnotationsFileCitationObjectType fromJson(String value) {
+  static MessageDeltaContentTextAnnotationsFileCitationObjectType fromJson(
+      String value) {
     switch (value) {
-      case 'file_citation': return MessageDeltaContentTextAnnotationsFileCitationObjectType.fileCitation;
-      default: throw ArgumentError('Unknown MessageDeltaContentTextAnnotationsFileCitationObjectType: $value');
+      case 'file_citation':
+        return MessageDeltaContentTextAnnotationsFileCitationObjectType
+            .fileCitation;
+      default:
+        throw ArgumentError(
+            'Unknown MessageDeltaContentTextAnnotationsFileCitationObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageDeltaContentTextAnnotationsFileCitationObjectType.fileCitation: return 'file_citation';
+      case MessageDeltaContentTextAnnotationsFileCitationObjectType
+            .fileCitation:
+        return 'file_citation';
     }
   }
 

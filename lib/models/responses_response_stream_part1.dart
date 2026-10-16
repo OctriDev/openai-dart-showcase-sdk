@@ -9,265 +9,620 @@ sealed class ResponseStreamEvent {
   static const String constructionSurface = 'named';
   const ResponseStreamEvent();
   factory ResponseStreamEvent.fromJson(Object? json) {
-    try { return ResponseStreamEventResponseAudioDeltaEvent(ResponseAudioDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseAudioDoneEvent(ResponseAudioDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseAudioTranscriptDeltaEvent(ResponseAudioTranscriptDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseAudioTranscriptDoneEvent(ResponseAudioTranscriptDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseCodeInterpreterCallCodeDeltaEvent(ResponseCodeInterpreterCallCodeDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseCodeInterpreterCallCodeDoneEvent(ResponseCodeInterpreterCallCodeDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseCodeInterpreterCallCompletedEvent(ResponseCodeInterpreterCallCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseCodeInterpreterCallInProgressEvent(ResponseCodeInterpreterCallInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseCodeInterpreterCallInterpretingEvent(ResponseCodeInterpreterCallInterpretingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseCompactionCompactingStreamingEvent(ResponseCompactionCompactingStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseCompletedEvent(ResponseCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseContentPartAddedEvent(ResponseContentPartAddedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseContentPartDoneEvent(ResponseContentPartDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseCreatedEvent(ResponseCreatedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseErrorEvent(ResponseErrorEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseFileSearchCallCompletedEvent(ResponseFileSearchCallCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseFileSearchCallInProgressEvent(ResponseFileSearchCallInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseFileSearchCallSearchingEvent(ResponseFileSearchCallSearchingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseFunctionCallArgumentsDeltaEvent(ResponseFunctionCallArgumentsDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseFunctionCallArgumentsDoneEvent(ResponseFunctionCallArgumentsDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseShellCallCommandAddedStreamingEvent(ResponseShellCallCommandAddedStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseShellCallCommandDeltaStreamingEvent(ResponseShellCallCommandDeltaStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseShellCallCommandDoneStreamingEvent(ResponseShellCallCommandDoneStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseShellCallOutputContentDeltaStreamingEvent(ResponseShellCallOutputContentDeltaStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseShellCallOutputContentDoneStreamingEvent(ResponseShellCallOutputContentDoneStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseInProgressEvent(ResponseInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseFailedEvent(ResponseFailedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseIncompleteEvent(ResponseIncompleteEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseOutputItemAddedEvent(ResponseOutputItemAddedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseOutputItemDoneEvent(ResponseOutputItemDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseReasoningSummaryPartAddedEvent(ResponseReasoningSummaryPartAddedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseReasoningSummaryPartDoneEvent(ResponseReasoningSummaryPartDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseReasoningSummaryTextDeltaEvent(ResponseReasoningSummaryTextDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseReasoningSummaryTextDoneEvent(ResponseReasoningSummaryTextDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseReasoningTextDeltaEvent(ResponseReasoningTextDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseReasoningTextDoneEvent(ResponseReasoningTextDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseRefusalDeltaEvent(ResponseRefusalDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseRefusalDoneEvent(ResponseRefusalDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseTextDeltaEvent(ResponseTextDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseTextDoneEvent(ResponseTextDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseWebSearchCallCompletedEvent(ResponseWebSearchCallCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseWebSearchCallInProgressEvent(ResponseWebSearchCallInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseWebSearchCallSearchingEvent(ResponseWebSearchCallSearchingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseImageGenCallCompletedEvent(ResponseImageGenCallCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseImageGenCallGeneratingEvent(ResponseImageGenCallGeneratingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseImageGenCallInProgressEvent(ResponseImageGenCallInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseImageGenCallPartialImageEvent(ResponseImageGenCallPartialImageEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseMCPCallArgumentsDeltaEvent(ResponseMCPCallArgumentsDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseMCPCallArgumentsDoneEvent(ResponseMCPCallArgumentsDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseMCPCallCompletedEvent(ResponseMCPCallCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseMCPCallFailedEvent(ResponseMCPCallFailedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseMCPCallInProgressEvent(ResponseMCPCallInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseMCPListToolsCompletedEvent(ResponseMCPListToolsCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseMCPListToolsFailedEvent(ResponseMCPListToolsFailedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseMCPListToolsInProgressEvent(ResponseMCPListToolsInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseOutputTextAnnotationAddedEvent(ResponseOutputTextAnnotationAddedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseQueuedEvent(ResponseQueuedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseCustomToolCallInputDeltaEvent(ResponseCustomToolCallInputDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseStreamEventResponseCustomToolCallInputDoneEvent(ResponseCustomToolCallInputDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"response.audio.delta", "response.audio.done", "response.audio.transcript.delta", "response.audio.transcript.done", "response.code_interpreter_call_code.delta", "response.code_interpreter_call_code.done", "response.code_interpreter_call.completed", "response.code_interpreter_call.in_progress", "response.code_interpreter_call.interpreting", "response.compaction.compacting", "response.completed", "response.content_part.added", "response.content_part.done", "response.created", "error", "response.file_search_call.completed", "response.file_search_call.in_progress", "response.file_search_call.searching", "response.function_call_arguments.delta", "response.function_call_arguments.done", "response.shell_call_command.added", "response.shell_call_command.delta", "response.shell_call_command.done", "response.shell_call_output_content.delta", "response.shell_call_output_content.done", "response.in_progress", "response.failed", "response.incomplete", "response.output_item.added", "response.output_item.done", "response.reasoning_summary_part.added", "response.reasoning_summary_part.done", "response.reasoning_summary_text.delta", "response.reasoning_summary_text.done", "response.reasoning_text.delta", "response.reasoning_text.done", "response.refusal.delta", "response.refusal.done", "response.output_text.delta", "response.output_text.done", "response.web_search_call.completed", "response.web_search_call.in_progress", "response.web_search_call.searching", "response.image_generation_call.completed", "response.image_generation_call.generating", "response.image_generation_call.in_progress", "response.image_generation_call.partial_image", "response.mcp_call_arguments.delta", "response.mcp_call_arguments.done", "response.mcp_call.completed", "response.mcp_call.failed", "response.mcp_call.in_progress", "response.mcp_list_tools.completed", "response.mcp_list_tools.failed", "response.mcp_list_tools.in_progress", "response.output_text.annotation.added", "response.queued", "response.custom_tool_call_input.delta", "response.custom_tool_call_input.done"}.contains(json["type"])) { return UnknownResponseStreamEvent(json); }
+    try {
+      return ResponseStreamEventResponseAudioDeltaEvent(
+          ResponseAudioDeltaEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseAudioDoneEvent(
+          ResponseAudioDoneEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseAudioTranscriptDeltaEvent(
+          ResponseAudioTranscriptDeltaEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseAudioTranscriptDoneEvent(
+          ResponseAudioTranscriptDoneEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseCodeInterpreterCallCodeDeltaEvent(
+          ResponseCodeInterpreterCallCodeDeltaEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseCodeInterpreterCallCodeDoneEvent(
+          ResponseCodeInterpreterCallCodeDoneEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseCodeInterpreterCallCompletedEvent(
+          ResponseCodeInterpreterCallCompletedEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseCodeInterpreterCallInProgressEvent(
+          ResponseCodeInterpreterCallInProgressEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseCodeInterpreterCallInterpretingEvent(
+          ResponseCodeInterpreterCallInterpretingEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseCompactionCompactingStreamingEvent(
+          ResponseCompactionCompactingStreamingEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseCompletedEvent(
+          ResponseCompletedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseContentPartAddedEvent(
+          ResponseContentPartAddedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseContentPartDoneEvent(
+          ResponseContentPartDoneEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseCreatedEvent(
+          ResponseCreatedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseErrorEvent(
+          ResponseErrorEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseFileSearchCallCompletedEvent(
+          ResponseFileSearchCallCompletedEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseFileSearchCallInProgressEvent(
+          ResponseFileSearchCallInProgressEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseFileSearchCallSearchingEvent(
+          ResponseFileSearchCallSearchingEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseFunctionCallArgumentsDeltaEvent(
+          ResponseFunctionCallArgumentsDeltaEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseFunctionCallArgumentsDoneEvent(
+          ResponseFunctionCallArgumentsDoneEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseShellCallCommandAddedStreamingEvent(
+          ResponseShellCallCommandAddedStreamingEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseShellCallCommandDeltaStreamingEvent(
+          ResponseShellCallCommandDeltaStreamingEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseShellCallCommandDoneStreamingEvent(
+          ResponseShellCallCommandDoneStreamingEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseShellCallOutputContentDeltaStreamingEvent(
+          ResponseShellCallOutputContentDeltaStreamingEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseShellCallOutputContentDoneStreamingEvent(
+          ResponseShellCallOutputContentDoneStreamingEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseInProgressEvent(
+          ResponseInProgressEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseFailedEvent(
+          ResponseFailedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseIncompleteEvent(
+          ResponseIncompleteEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseOutputItemAddedEvent(
+          ResponseOutputItemAddedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseOutputItemDoneEvent(
+          ResponseOutputItemDoneEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseReasoningSummaryPartAddedEvent(
+          ResponseReasoningSummaryPartAddedEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseReasoningSummaryPartDoneEvent(
+          ResponseReasoningSummaryPartDoneEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseReasoningSummaryTextDeltaEvent(
+          ResponseReasoningSummaryTextDeltaEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseReasoningSummaryTextDoneEvent(
+          ResponseReasoningSummaryTextDoneEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseReasoningTextDeltaEvent(
+          ResponseReasoningTextDeltaEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseReasoningTextDoneEvent(
+          ResponseReasoningTextDoneEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseRefusalDeltaEvent(
+          ResponseRefusalDeltaEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseRefusalDoneEvent(
+          ResponseRefusalDoneEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseTextDeltaEvent(
+          ResponseTextDeltaEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseTextDoneEvent(
+          ResponseTextDoneEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseWebSearchCallCompletedEvent(
+          ResponseWebSearchCallCompletedEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseWebSearchCallInProgressEvent(
+          ResponseWebSearchCallInProgressEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseWebSearchCallSearchingEvent(
+          ResponseWebSearchCallSearchingEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseImageGenCallCompletedEvent(
+          ResponseImageGenCallCompletedEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseImageGenCallGeneratingEvent(
+          ResponseImageGenCallGeneratingEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseImageGenCallInProgressEvent(
+          ResponseImageGenCallInProgressEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseImageGenCallPartialImageEvent(
+          ResponseImageGenCallPartialImageEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseMCPCallArgumentsDeltaEvent(
+          ResponseMCPCallArgumentsDeltaEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseMCPCallArgumentsDoneEvent(
+          ResponseMCPCallArgumentsDoneEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseMCPCallCompletedEvent(
+          ResponseMCPCallCompletedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseMCPCallFailedEvent(
+          ResponseMCPCallFailedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseMCPCallInProgressEvent(
+          ResponseMCPCallInProgressEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseMCPListToolsCompletedEvent(
+          ResponseMCPListToolsCompletedEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseMCPListToolsFailedEvent(
+          ResponseMCPListToolsFailedEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseMCPListToolsInProgressEvent(
+          ResponseMCPListToolsInProgressEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseOutputTextAnnotationAddedEvent(
+          ResponseOutputTextAnnotationAddedEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseQueuedEvent(
+          ResponseQueuedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseCustomToolCallInputDeltaEvent(
+          ResponseCustomToolCallInputDeltaEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseStreamEventResponseCustomToolCallInputDoneEvent(
+          ResponseCustomToolCallInputDoneEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "response.audio.delta",
+          "response.audio.done",
+          "response.audio.transcript.delta",
+          "response.audio.transcript.done",
+          "response.code_interpreter_call_code.delta",
+          "response.code_interpreter_call_code.done",
+          "response.code_interpreter_call.completed",
+          "response.code_interpreter_call.in_progress",
+          "response.code_interpreter_call.interpreting",
+          "response.compaction.compacting",
+          "response.completed",
+          "response.content_part.added",
+          "response.content_part.done",
+          "response.created",
+          "error",
+          "response.file_search_call.completed",
+          "response.file_search_call.in_progress",
+          "response.file_search_call.searching",
+          "response.function_call_arguments.delta",
+          "response.function_call_arguments.done",
+          "response.shell_call_command.added",
+          "response.shell_call_command.delta",
+          "response.shell_call_command.done",
+          "response.shell_call_output_content.delta",
+          "response.shell_call_output_content.done",
+          "response.in_progress",
+          "response.failed",
+          "response.incomplete",
+          "response.output_item.added",
+          "response.output_item.done",
+          "response.reasoning_summary_part.added",
+          "response.reasoning_summary_part.done",
+          "response.reasoning_summary_text.delta",
+          "response.reasoning_summary_text.done",
+          "response.reasoning_text.delta",
+          "response.reasoning_text.done",
+          "response.refusal.delta",
+          "response.refusal.done",
+          "response.output_text.delta",
+          "response.output_text.done",
+          "response.web_search_call.completed",
+          "response.web_search_call.in_progress",
+          "response.web_search_call.searching",
+          "response.image_generation_call.completed",
+          "response.image_generation_call.generating",
+          "response.image_generation_call.in_progress",
+          "response.image_generation_call.partial_image",
+          "response.mcp_call_arguments.delta",
+          "response.mcp_call_arguments.done",
+          "response.mcp_call.completed",
+          "response.mcp_call.failed",
+          "response.mcp_call.in_progress",
+          "response.mcp_list_tools.completed",
+          "response.mcp_list_tools.failed",
+          "response.mcp_list_tools.in_progress",
+          "response.output_text.annotation.added",
+          "response.queued",
+          "response.custom_tool_call_input.delta",
+          "response.custom_tool_call_input.done"
+        }.contains(json["type"])) {
+      return UnknownResponseStreamEvent(json);
+    }
     throw FormatException("No variant matched for ResponseStreamEvent");
   }
   Object? toJson();
 }
 
-final class ResponseStreamEventResponseAudioDeltaEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseAudioDeltaEvent
+    extends ResponseStreamEvent {
   final ResponseAudioDeltaEvent value;
   const ResponseStreamEventResponseAudioDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseAudioDoneEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseAudioDoneEvent
+    extends ResponseStreamEvent {
   final ResponseAudioDoneEvent value;
   const ResponseStreamEventResponseAudioDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseAudioTranscriptDeltaEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseAudioTranscriptDeltaEvent
+    extends ResponseStreamEvent {
   final ResponseAudioTranscriptDeltaEvent value;
   const ResponseStreamEventResponseAudioTranscriptDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseAudioTranscriptDoneEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseAudioTranscriptDoneEvent
+    extends ResponseStreamEvent {
   final ResponseAudioTranscriptDoneEvent value;
   const ResponseStreamEventResponseAudioTranscriptDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseCodeInterpreterCallCodeDeltaEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseCodeInterpreterCallCodeDeltaEvent
+    extends ResponseStreamEvent {
   final ResponseCodeInterpreterCallCodeDeltaEvent value;
-  const ResponseStreamEventResponseCodeInterpreterCallCodeDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseStreamEventResponseCodeInterpreterCallCodeDeltaEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseCodeInterpreterCallCodeDoneEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseCodeInterpreterCallCodeDoneEvent
+    extends ResponseStreamEvent {
   final ResponseCodeInterpreterCallCodeDoneEvent value;
   const ResponseStreamEventResponseCodeInterpreterCallCodeDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseCodeInterpreterCallCompletedEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseCodeInterpreterCallCompletedEvent
+    extends ResponseStreamEvent {
   final ResponseCodeInterpreterCallCompletedEvent value;
-  const ResponseStreamEventResponseCodeInterpreterCallCompletedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseStreamEventResponseCodeInterpreterCallCompletedEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseCodeInterpreterCallInProgressEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseCodeInterpreterCallInProgressEvent
+    extends ResponseStreamEvent {
   final ResponseCodeInterpreterCallInProgressEvent value;
-  const ResponseStreamEventResponseCodeInterpreterCallInProgressEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseStreamEventResponseCodeInterpreterCallInProgressEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseCodeInterpreterCallInterpretingEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseCodeInterpreterCallInterpretingEvent
+    extends ResponseStreamEvent {
   final ResponseCodeInterpreterCallInterpretingEvent value;
-  const ResponseStreamEventResponseCodeInterpreterCallInterpretingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseStreamEventResponseCodeInterpreterCallInterpretingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseCompactionCompactingStreamingEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseCompactionCompactingStreamingEvent
+    extends ResponseStreamEvent {
   final ResponseCompactionCompactingStreamingEvent value;
-  const ResponseStreamEventResponseCompactionCompactingStreamingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseStreamEventResponseCompactionCompactingStreamingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseCompletedEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseCompletedEvent
+    extends ResponseStreamEvent {
   final ResponseCompletedEvent value;
   const ResponseStreamEventResponseCompletedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseContentPartAddedEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseContentPartAddedEvent
+    extends ResponseStreamEvent {
   final ResponseContentPartAddedEvent value;
   const ResponseStreamEventResponseContentPartAddedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseContentPartDoneEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseContentPartDoneEvent
+    extends ResponseStreamEvent {
   final ResponseContentPartDoneEvent value;
   const ResponseStreamEventResponseContentPartDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseCreatedEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseCreatedEvent
+    extends ResponseStreamEvent {
   final ResponseCreatedEvent value;
   const ResponseStreamEventResponseCreatedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ResponseStreamEventResponseErrorEvent extends ResponseStreamEvent {
   final ResponseErrorEvent value;
   const ResponseStreamEventResponseErrorEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseFileSearchCallCompletedEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseFileSearchCallCompletedEvent
+    extends ResponseStreamEvent {
   final ResponseFileSearchCallCompletedEvent value;
   const ResponseStreamEventResponseFileSearchCallCompletedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseFileSearchCallInProgressEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseFileSearchCallInProgressEvent
+    extends ResponseStreamEvent {
   final ResponseFileSearchCallInProgressEvent value;
   const ResponseStreamEventResponseFileSearchCallInProgressEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseFileSearchCallSearchingEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseFileSearchCallSearchingEvent
+    extends ResponseStreamEvent {
   final ResponseFileSearchCallSearchingEvent value;
   const ResponseStreamEventResponseFileSearchCallSearchingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseFunctionCallArgumentsDeltaEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseFunctionCallArgumentsDeltaEvent
+    extends ResponseStreamEvent {
   final ResponseFunctionCallArgumentsDeltaEvent value;
   const ResponseStreamEventResponseFunctionCallArgumentsDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseFunctionCallArgumentsDoneEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseFunctionCallArgumentsDoneEvent
+    extends ResponseStreamEvent {
   final ResponseFunctionCallArgumentsDoneEvent value;
   const ResponseStreamEventResponseFunctionCallArgumentsDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseShellCallCommandAddedStreamingEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseShellCallCommandAddedStreamingEvent
+    extends ResponseStreamEvent {
   final ResponseShellCallCommandAddedStreamingEvent value;
-  const ResponseStreamEventResponseShellCallCommandAddedStreamingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseStreamEventResponseShellCallCommandAddedStreamingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseShellCallCommandDeltaStreamingEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseShellCallCommandDeltaStreamingEvent
+    extends ResponseStreamEvent {
   final ResponseShellCallCommandDeltaStreamingEvent value;
-  const ResponseStreamEventResponseShellCallCommandDeltaStreamingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseStreamEventResponseShellCallCommandDeltaStreamingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseShellCallCommandDoneStreamingEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseShellCallCommandDoneStreamingEvent
+    extends ResponseStreamEvent {
   final ResponseShellCallCommandDoneStreamingEvent value;
-  const ResponseStreamEventResponseShellCallCommandDoneStreamingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseStreamEventResponseShellCallCommandDoneStreamingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseShellCallOutputContentDeltaStreamingEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseShellCallOutputContentDeltaStreamingEvent
+    extends ResponseStreamEvent {
   final ResponseShellCallOutputContentDeltaStreamingEvent value;
-  const ResponseStreamEventResponseShellCallOutputContentDeltaStreamingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseStreamEventResponseShellCallOutputContentDeltaStreamingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseShellCallOutputContentDoneStreamingEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseShellCallOutputContentDoneStreamingEvent
+    extends ResponseStreamEvent {
   final ResponseShellCallOutputContentDoneStreamingEvent value;
-  const ResponseStreamEventResponseShellCallOutputContentDoneStreamingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseStreamEventResponseShellCallOutputContentDoneStreamingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseInProgressEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseInProgressEvent
+    extends ResponseStreamEvent {
   final ResponseInProgressEvent value;
   const ResponseStreamEventResponseInProgressEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ResponseStreamEventResponseFailedEvent extends ResponseStreamEvent {
   final ResponseFailedEvent value;
   const ResponseStreamEventResponseFailedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseIncompleteEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseIncompleteEvent
+    extends ResponseStreamEvent {
   final ResponseIncompleteEvent value;
   const ResponseStreamEventResponseIncompleteEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseOutputItemAddedEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseOutputItemAddedEvent
+    extends ResponseStreamEvent {
   final ResponseOutputItemAddedEvent value;
   const ResponseStreamEventResponseOutputItemAddedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseOutputItemDoneEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseOutputItemDoneEvent
+    extends ResponseStreamEvent {
   final ResponseOutputItemDoneEvent value;
   const ResponseStreamEventResponseOutputItemDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseReasoningSummaryPartAddedEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseReasoningSummaryPartAddedEvent
+    extends ResponseStreamEvent {
   final ResponseReasoningSummaryPartAddedEvent value;
   const ResponseStreamEventResponseReasoningSummaryPartAddedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseReasoningSummaryPartDoneEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseReasoningSummaryPartDoneEvent
+    extends ResponseStreamEvent {
   final ResponseReasoningSummaryPartDoneEvent value;
   const ResponseStreamEventResponseReasoningSummaryPartDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseStreamEventResponseReasoningSummaryTextDeltaEvent extends ResponseStreamEvent {
+final class ResponseStreamEventResponseReasoningSummaryTextDeltaEvent
+    extends ResponseStreamEvent {
   final ResponseReasoningSummaryTextDeltaEvent value;
   const ResponseStreamEventResponseReasoningSummaryTextDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

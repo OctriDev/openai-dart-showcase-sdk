@@ -9,220 +9,361 @@ sealed class WebSearchActionResource {
   static const String constructionSurface = 'named';
   const WebSearchActionResource();
   factory WebSearchActionResource.fromJson(Object? json) {
-    try { return WebSearchActionResourceWebSearchActionResourceSearch(WebSearchActionResourceSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return WebSearchActionResourceWebSearchActionResourceOpenPage(WebSearchActionResourceOpenPage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return WebSearchActionResourceWebSearchActionResourceFindInPage(WebSearchActionResourceFindInPage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return WebSearchActionResourceWebSearchActionResourceOther(WebSearchActionResourceOther.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"search", "open_page", "find_in_page", "other"}.contains(json["type"])) { return UnknownWebSearchActionResource(json); }
+    try {
+      return WebSearchActionResourceWebSearchActionResourceSearch(
+          WebSearchActionResourceSearch.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return WebSearchActionResourceWebSearchActionResourceOpenPage(
+          WebSearchActionResourceOpenPage.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return WebSearchActionResourceWebSearchActionResourceFindInPage(
+          WebSearchActionResourceFindInPage.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return WebSearchActionResourceWebSearchActionResourceOther(
+          WebSearchActionResourceOther.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"search", "open_page", "find_in_page", "other"}
+            .contains(json["type"])) {
+      return UnknownWebSearchActionResource(json);
+    }
     throw FormatException("No variant matched for WebSearchActionResource");
   }
   Object? toJson();
 }
 
-final class WebSearchActionResourceWebSearchActionResourceSearch extends WebSearchActionResource {
+final class WebSearchActionResourceWebSearchActionResourceSearch
+    extends WebSearchActionResource {
   final WebSearchActionResourceSearch value;
   const WebSearchActionResourceWebSearchActionResourceSearch(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class WebSearchActionResourceWebSearchActionResourceOpenPage extends WebSearchActionResource {
+final class WebSearchActionResourceWebSearchActionResourceOpenPage
+    extends WebSearchActionResource {
   final WebSearchActionResourceOpenPage value;
   const WebSearchActionResourceWebSearchActionResourceOpenPage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class WebSearchActionResourceWebSearchActionResourceFindInPage extends WebSearchActionResource {
+final class WebSearchActionResourceWebSearchActionResourceFindInPage
+    extends WebSearchActionResource {
   final WebSearchActionResourceFindInPage value;
   const WebSearchActionResourceWebSearchActionResourceFindInPage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class WebSearchActionResourceWebSearchActionResourceOther extends WebSearchActionResource {
+final class WebSearchActionResourceWebSearchActionResourceOther
+    extends WebSearchActionResource {
   final WebSearchActionResourceOther value;
   const WebSearchActionResourceWebSearchActionResourceOther(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [WebSearchActionResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownWebSearchActionResource extends WebSearchActionResource {
   final Map<String, dynamic> raw;
   const UnknownWebSearchActionResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Finds text within a web page.
 class WebSearchActionResourceFindInPage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `find_in_page`.
   final WebSearchActionResourceFindInPageType type_;
+
   /// The URL of the page that was searched.
   final String? url;
+
   /// The text pattern that was searched for.
   final String? pattern;
 
-  const WebSearchActionResourceFindInPage({required this.type_, required this.url, required this.pattern});
+  const WebSearchActionResourceFindInPage(
+      {required this.type_, required this.url, required this.pattern});
 
-  WebSearchActionResourceFindInPage Function({WebSearchActionResourceFindInPageType type_, String? url, String? pattern}) get copyWith => _copyWith;
+  WebSearchActionResourceFindInPage Function(
+      {WebSearchActionResourceFindInPageType type_,
+      String? url,
+      String? pattern}) get copyWith => _copyWith;
 
-  WebSearchActionResourceFindInPage _copyWith({Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue, Object? pattern = sdkOmittedValue}) => WebSearchActionResourceFindInPage(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchActionResourceFindInPageType,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String?,
-    pattern: identical(pattern, sdkOmittedValue) ? this.pattern : pattern as String?,
-  );
+  WebSearchActionResourceFindInPage _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? pattern = sdkOmittedValue}) =>
+      WebSearchActionResourceFindInPage(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebSearchActionResourceFindInPageType,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String?,
+        pattern: identical(pattern, sdkOmittedValue)
+            ? this.pattern
+            : pattern as String?,
+      );
 
-  factory WebSearchActionResourceFindInPage.fromJson(Map<String, dynamic> json) => WebSearchActionResourceFindInPage(
-    type_: (json['type'] != null ? WebSearchActionResourceFindInPageType.fromJson(json['type'] as String) : null)!,
-    url: json.containsKey('url') ? json['url'] as String? : throw ArgumentError.value(null, 'url', 'Required property is missing'),
-    pattern: json.containsKey('pattern') ? json['pattern'] as String? : throw ArgumentError.value(null, 'pattern', 'Required property is missing'),
-  );
+  factory WebSearchActionResourceFindInPage.fromJson(
+          Map<String, dynamic> json) =>
+      WebSearchActionResourceFindInPage(
+        type_: (json['type'] != null
+            ? WebSearchActionResourceFindInPageType.fromJson(
+                json['type'] as String)
+            : null)!,
+        url: json.containsKey('url')
+            ? json['url'] as String?
+            : throw ArgumentError.value(
+                null, 'url', 'Required property is missing'),
+        pattern: json.containsKey('pattern')
+            ? json['pattern'] as String?
+            : throw ArgumentError.value(
+                null, 'pattern', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'url': url,
-    'pattern': pattern,
-  };
+        'type': type_.toJson(),
+        'url': url,
+        'pattern': pattern,
+      };
 }
 
 /// Opens a web page.
 class WebSearchActionResourceOpenPage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `open_page`.
   final WebSearchActionResourceOpenPageType type_;
+
   /// The URL of the page that was opened.
   final String? url;
 
-  const WebSearchActionResourceOpenPage({required this.type_, required this.url});
+  const WebSearchActionResourceOpenPage(
+      {required this.type_, required this.url});
 
-  WebSearchActionResourceOpenPage Function({WebSearchActionResourceOpenPageType type_, String? url}) get copyWith => _copyWith;
+  WebSearchActionResourceOpenPage Function(
+      {WebSearchActionResourceOpenPageType type_,
+      String? url}) get copyWith => _copyWith;
 
-  WebSearchActionResourceOpenPage _copyWith({Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) => WebSearchActionResourceOpenPage(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchActionResourceOpenPageType,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String?,
-  );
+  WebSearchActionResourceOpenPage _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) =>
+      WebSearchActionResourceOpenPage(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebSearchActionResourceOpenPageType,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String?,
+      );
 
-  factory WebSearchActionResourceOpenPage.fromJson(Map<String, dynamic> json) => WebSearchActionResourceOpenPage(
-    type_: (json['type'] != null ? WebSearchActionResourceOpenPageType.fromJson(json['type'] as String) : null)!,
-    url: json.containsKey('url') ? json['url'] as String? : throw ArgumentError.value(null, 'url', 'Required property is missing'),
-  );
+  factory WebSearchActionResourceOpenPage.fromJson(Map<String, dynamic> json) =>
+      WebSearchActionResourceOpenPage(
+        type_: (json['type'] != null
+            ? WebSearchActionResourceOpenPageType.fromJson(
+                json['type'] as String)
+            : null)!,
+        url: json.containsKey('url')
+            ? json['url'] as String?
+            : throw ArgumentError.value(
+                null, 'url', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'url': url,
-  };
+        'type': type_.toJson(),
+        'url': url,
+      };
 }
 
 /// Another web search action.
 class WebSearchActionResourceOther {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `other`.
   final WebSearchActionResourceOtherType type_;
 
   const WebSearchActionResourceOther({required this.type_});
 
-  WebSearchActionResourceOther Function({WebSearchActionResourceOtherType type_}) get copyWith => _copyWith;
+  WebSearchActionResourceOther Function(
+      {WebSearchActionResourceOtherType type_}) get copyWith => _copyWith;
 
-  WebSearchActionResourceOther _copyWith({Object? type_ = sdkOmittedValue}) => WebSearchActionResourceOther(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchActionResourceOtherType,
-  );
+  WebSearchActionResourceOther _copyWith({Object? type_ = sdkOmittedValue}) =>
+      WebSearchActionResourceOther(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebSearchActionResourceOtherType,
+      );
 
-  factory WebSearchActionResourceOther.fromJson(Map<String, dynamic> json) => WebSearchActionResourceOther(
-    type_: (json['type'] != null ? WebSearchActionResourceOtherType.fromJson(json['type'] as String) : null)!,
-  );
+  factory WebSearchActionResourceOther.fromJson(Map<String, dynamic> json) =>
+      WebSearchActionResourceOther(
+        type_: (json['type'] != null
+            ? WebSearchActionResourceOtherType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// A search query or group of search queries.
 class WebSearchActionResourceSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `search`.
   final WebSearchActionResourceSearchType type_;
+
   /// The search query, when a single query was used.
   final String? query;
+
   /// The search queries, when multiple queries were used.
   final List<String>? queries;
 
-  const WebSearchActionResourceSearch({required this.type_, required this.query, required this.queries});
+  const WebSearchActionResourceSearch(
+      {required this.type_, required this.query, required this.queries});
 
-  WebSearchActionResourceSearch Function({WebSearchActionResourceSearchType type_, String? query, List<String>? queries}) get copyWith => _copyWith;
+  WebSearchActionResourceSearch Function(
+      {WebSearchActionResourceSearchType type_,
+      String? query,
+      List<String>? queries}) get copyWith => _copyWith;
 
-  WebSearchActionResourceSearch _copyWith({Object? type_ = sdkOmittedValue, Object? query = sdkOmittedValue, Object? queries = sdkOmittedValue}) => WebSearchActionResourceSearch(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchActionResourceSearchType,
-    query: identical(query, sdkOmittedValue) ? this.query : query as String?,
-    queries: identical(queries, sdkOmittedValue) ? this.queries : queries as List<String>?,
-  );
+  WebSearchActionResourceSearch _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? query = sdkOmittedValue,
+          Object? queries = sdkOmittedValue}) =>
+      WebSearchActionResourceSearch(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebSearchActionResourceSearchType,
+        query:
+            identical(query, sdkOmittedValue) ? this.query : query as String?,
+        queries: identical(queries, sdkOmittedValue)
+            ? this.queries
+            : queries as List<String>?,
+      );
 
-  factory WebSearchActionResourceSearch.fromJson(Map<String, dynamic> json) => WebSearchActionResourceSearch(
-    type_: (json['type'] != null ? WebSearchActionResourceSearchType.fromJson(json['type'] as String) : null)!,
-    query: json.containsKey('query') ? json['query'] as String? : throw ArgumentError.value(null, 'query', 'Required property is missing'),
-    queries: json.containsKey('queries') ? (json['queries'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'queries', 'Required property is missing'),
-  );
+  factory WebSearchActionResourceSearch.fromJson(Map<String, dynamic> json) =>
+      WebSearchActionResourceSearch(
+        type_: (json['type'] != null
+            ? WebSearchActionResourceSearchType.fromJson(json['type'] as String)
+            : null)!,
+        query: json.containsKey('query')
+            ? json['query'] as String?
+            : throw ArgumentError.value(
+                null, 'query', 'Required property is missing'),
+        queries: json.containsKey('queries')
+            ? (json['queries'] as List?)?.map((e) => e as String).toList()
+            : throw ArgumentError.value(
+                null, 'queries', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'query': query,
-    'queries': queries,
-  };
+        'type': type_.toJson(),
+        'query': query,
+        'queries': queries,
+      };
 }
 
 /// A web search call produced by the agent.
 class WebSearchCallItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The item type. Always `web_search_call`.
   final WebSearchCallItemResourceType type_;
+
   /// The ID of the web search call.
   final String id;
+
   /// The ID of the turn that contains this item.
   final String turnId;
+
   /// The status of the web search call.
   final OutputItemStatusResource status;
+
   /// The action performed by the web search tool.
   final WebSearchActionResource? action;
 
-  const WebSearchCallItemResource({required this.type_, required this.id, required this.turnId, required this.status, required this.action});
+  const WebSearchCallItemResource(
+      {required this.type_,
+      required this.id,
+      required this.turnId,
+      required this.status,
+      required this.action});
 
-  WebSearchCallItemResource Function({WebSearchCallItemResourceType type_, String id, String turnId, OutputItemStatusResource status, WebSearchActionResource? action}) get copyWith => _copyWith;
+  WebSearchCallItemResource Function(
+      {WebSearchCallItemResourceType type_,
+      String id,
+      String turnId,
+      OutputItemStatusResource status,
+      WebSearchActionResource? action}) get copyWith => _copyWith;
 
-  WebSearchCallItemResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? action = sdkOmittedValue}) => WebSearchCallItemResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchCallItemResourceType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as OutputItemStatusResource,
-    action: identical(action, sdkOmittedValue) ? this.action : action as WebSearchActionResource?,
-  );
+  WebSearchCallItemResource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? action = sdkOmittedValue}) =>
+      WebSearchCallItemResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebSearchCallItemResourceType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        turnId:
+            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as OutputItemStatusResource,
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as WebSearchActionResource?,
+      );
 
-  factory WebSearchCallItemResource.fromJson(Map<String, dynamic> json) => WebSearchCallItemResource(
-    type_: (json['type'] != null ? WebSearchCallItemResourceType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    turnId: (json['turn_id'] as String?)!,
-    status: (json['status'] != null ? OutputItemStatusResource.fromJson(json['status'] as String) : null)!,
-    action: json.containsKey('action') ? json['action'] != null ? WebSearchActionResource.fromJson(json['action']) : null : throw ArgumentError.value(null, 'action', 'Required property is missing'),
-  );
+  factory WebSearchCallItemResource.fromJson(Map<String, dynamic> json) =>
+      WebSearchCallItemResource(
+        type_: (json['type'] != null
+            ? WebSearchCallItemResourceType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        turnId: (json['turn_id'] as String?)!,
+        status: (json['status'] != null
+            ? OutputItemStatusResource.fromJson(json['status'] as String)
+            : null)!,
+        action: json.containsKey('action')
+            ? json['action'] != null
+                ? WebSearchActionResource.fromJson(json['action'])
+                : null
+            : throw ArgumentError.value(
+                null, 'action', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'turn_id': turnId,
-    'status': status.toJson(),
-    'action': action?.toJson(),
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'turn_id': turnId,
+        'status': status.toJson(),
+        'action': action?.toJson(),
+      };
 }
 
 /// The amount of web search context made available to the model.
 final class WebSearchContextSizeParam {
-
   final String value;
 
   const WebSearchContextSizeParam._(this.value);
 
-  factory WebSearchContextSizeParam.fromJson(String value) => WebSearchContextSizeParam._(value);
+  factory WebSearchContextSizeParam.fromJson(String value) =>
+      WebSearchContextSizeParam._(value);
 
   static const low = WebSearchContextSizeParam._('low');
   static const medium = WebSearchContextSizeParam._('medium');
@@ -230,22 +371,25 @@ final class WebSearchContextSizeParam {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebSearchContextSizeParam && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebSearchContextSizeParam && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The amount of web search context made available to the model.
 final class WebSearchContextSizeResource {
-
   final String value;
 
   const WebSearchContextSizeResource._(this.value);
 
-  factory WebSearchContextSizeResource.fromJson(String value) => WebSearchContextSizeResource._(value);
+  factory WebSearchContextSizeResource.fromJson(String value) =>
+      WebSearchContextSizeResource._(value);
 
   static const low = WebSearchContextSizeResource._('low');
   static const medium = WebSearchContextSizeResource._('medium');
@@ -253,10 +397,13 @@ final class WebSearchContextSizeResource {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebSearchContextSizeResource && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebSearchContextSizeResource && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

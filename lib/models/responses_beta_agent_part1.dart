@@ -8,6 +8,7 @@ part of 'responses_beta_agent.dart';
 class BetaAgentTagParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The canonical name of the agent that produced this item.
   final String agentName;
 
@@ -15,69 +16,118 @@ class BetaAgentTagParam {
 
   BetaAgentTagParam Function({String agentName}) get copyWith => _copyWith;
 
-  BetaAgentTagParam _copyWith({Object? agentName = sdkOmittedValue}) => BetaAgentTagParam(
-    agentName: identical(agentName, sdkOmittedValue) ? this.agentName : agentName as String,
-  );
+  BetaAgentTagParam _copyWith({Object? agentName = sdkOmittedValue}) =>
+      BetaAgentTagParam(
+        agentName: identical(agentName, sdkOmittedValue)
+            ? this.agentName
+            : agentName as String,
+      );
 
-  factory BetaAgentTagParam.fromJson(Map<String, dynamic> json) => BetaAgentTagParam(
-    agentName: (json['agent_name'] as String?)!,
-  );
+  factory BetaAgentTagParam.fromJson(Map<String, dynamic> json) =>
+      BetaAgentTagParam(
+        agentName: (json['agent_name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'agent_name': agentName,
-  };
+        'agent_name': agentName,
+      };
 }
 
 /// Typed representation of the `BetaAgentMessage` API schema.
 class BetaAgentMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag> agent;
+
   /// The type of the item. Always `agent_message`.
   final BetaAgentMessageType type_;
+
   /// The unique ID of the agent message.
   final String id;
+
   /// The sending agent identity.
   final String author;
+
   /// The destination agent identity.
   final String recipient;
+
   /// Encrypted content sent between agents.
   final List<BetaAgentMessageContentItem> content;
 
-  const BetaAgentMessage({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.author, required this.recipient, required this.content});
+  const BetaAgentMessage(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.id,
+      required this.author,
+      required this.recipient,
+      required this.content});
 
-  BetaAgentMessage Function({SdkOptional<BetaAgentTag> agent, BetaAgentMessageType type_, String id, String author, String recipient, List<BetaAgentMessageContentItem> content}) get copyWith => _copyWith;
+  BetaAgentMessage Function(
+      {SdkOptional<BetaAgentTag> agent,
+      BetaAgentMessageType type_,
+      String id,
+      String author,
+      String recipient,
+      List<BetaAgentMessageContentItem> content}) get copyWith => _copyWith;
 
-  BetaAgentMessage _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? author = sdkOmittedValue, Object? recipient = sdkOmittedValue, Object? content = sdkOmittedValue}) => BetaAgentMessage(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaAgentMessageType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    author: identical(author, sdkOmittedValue) ? this.author : author as String,
-    recipient: identical(recipient, sdkOmittedValue) ? this.recipient : recipient as String,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<BetaAgentMessageContentItem>,
-  );
+  BetaAgentMessage _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? author = sdkOmittedValue,
+          Object? recipient = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      BetaAgentMessage(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaAgentMessageType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        author:
+            identical(author, sdkOmittedValue) ? this.author : author as String,
+        recipient: identical(recipient, sdkOmittedValue)
+            ? this.recipient
+            : recipient as String,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<BetaAgentMessageContentItem>,
+      );
 
-  factory BetaAgentMessage.fromJson(Map<String, dynamic> json) => BetaAgentMessage(
-    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaAgentMessageType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    author: (json['author'] as String?)!,
-    recipient: (json['recipient'] as String?)!,
-    content: ((json['content'] as List?)?.map((e) => BetaAgentMessageContentItem.fromJson(e)).toList())!,
-  );
+  factory BetaAgentMessage.fromJson(Map<String, dynamic> json) =>
+      BetaAgentMessage(
+        agent: json['agent'] != null
+            ? SdkPresent((json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaAgentMessageType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        author: (json['author'] as String?)!,
+        recipient: (json['recipient'] as String?)!,
+        content: ((json['content'] as List?)
+            ?.map((e) => BetaAgentMessageContentItem.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag>(value: final value) => {'agent': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'id': id,
-    'author': author,
-    'recipient': recipient,
-    'content': content.map((item) => item.toJson()).toList(),
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag>(value: final value) => {
+              'agent': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'id': id,
+        'author': author,
+        'recipient': recipient,
+        'content': content.map((item) => item.toJson()).toList(),
+      };
 }
 
 sealed class BetaAgentMessageContentItem {
@@ -85,142 +135,262 @@ sealed class BetaAgentMessageContentItem {
   static const String constructionSurface = 'named';
   const BetaAgentMessageContentItem();
   factory BetaAgentMessageContentItem.fromJson(Object? json) {
-    try { return BetaAgentMessageContentItemBetaInputTextContent(BetaInputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageContentItemBetaOutputTextContent(BetaOutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageContentItemBetaTextContent(BetaTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageContentItemBetaSummaryTextContent(BetaSummaryTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageContentItemBetaReasoningTextContent(BetaReasoningTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageContentItemBetaRefusalContent(BetaRefusalContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageContentItemBetaInputImageContent(BetaInputImageContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageContentItemBetaComputerScreenshotContent(BetaComputerScreenshotContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageContentItemBetaInputFileContent(BetaInputFileContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageContentItemBetaEncryptedContent(BetaEncryptedContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "output_text", "text", "summary_text", "reasoning_text", "refusal", "input_image", "computer_screenshot", "input_file", "encrypted_content"}.contains(json["type"])) { return UnknownBetaAgentMessageContentItem(json); }
+    try {
+      return BetaAgentMessageContentItemBetaInputTextContent(
+          BetaInputTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageContentItemBetaOutputTextContent(
+          BetaOutputTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageContentItemBetaTextContent(
+          BetaTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageContentItemBetaSummaryTextContent(
+          BetaSummaryTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageContentItemBetaReasoningTextContent(
+          BetaReasoningTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageContentItemBetaRefusalContent(
+          BetaRefusalContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageContentItemBetaInputImageContent(
+          BetaInputImageContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageContentItemBetaComputerScreenshotContent(
+          BetaComputerScreenshotContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageContentItemBetaInputFileContent(
+          BetaInputFileContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageContentItemBetaEncryptedContent(
+          BetaEncryptedContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "input_text",
+          "output_text",
+          "text",
+          "summary_text",
+          "reasoning_text",
+          "refusal",
+          "input_image",
+          "computer_screenshot",
+          "input_file",
+          "encrypted_content"
+        }.contains(json["type"])) {
+      return UnknownBetaAgentMessageContentItem(json);
+    }
     throw FormatException("No variant matched for BetaAgentMessageContentItem");
   }
   Object? toJson();
 }
 
-final class BetaAgentMessageContentItemBetaInputTextContent extends BetaAgentMessageContentItem {
+final class BetaAgentMessageContentItemBetaInputTextContent
+    extends BetaAgentMessageContentItem {
   final BetaInputTextContent value;
   const BetaAgentMessageContentItemBetaInputTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageContentItemBetaOutputTextContent extends BetaAgentMessageContentItem {
+final class BetaAgentMessageContentItemBetaOutputTextContent
+    extends BetaAgentMessageContentItem {
   final BetaOutputTextContent value;
   const BetaAgentMessageContentItemBetaOutputTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageContentItemBetaTextContent extends BetaAgentMessageContentItem {
+final class BetaAgentMessageContentItemBetaTextContent
+    extends BetaAgentMessageContentItem {
   final BetaTextContent value;
   const BetaAgentMessageContentItemBetaTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageContentItemBetaSummaryTextContent extends BetaAgentMessageContentItem {
+final class BetaAgentMessageContentItemBetaSummaryTextContent
+    extends BetaAgentMessageContentItem {
   final BetaSummaryTextContent value;
   const BetaAgentMessageContentItemBetaSummaryTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageContentItemBetaReasoningTextContent extends BetaAgentMessageContentItem {
+final class BetaAgentMessageContentItemBetaReasoningTextContent
+    extends BetaAgentMessageContentItem {
   final BetaReasoningTextContent value;
   const BetaAgentMessageContentItemBetaReasoningTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageContentItemBetaRefusalContent extends BetaAgentMessageContentItem {
+final class BetaAgentMessageContentItemBetaRefusalContent
+    extends BetaAgentMessageContentItem {
   final BetaRefusalContent value;
   const BetaAgentMessageContentItemBetaRefusalContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageContentItemBetaInputImageContent extends BetaAgentMessageContentItem {
+final class BetaAgentMessageContentItemBetaInputImageContent
+    extends BetaAgentMessageContentItem {
   final BetaInputImageContent value;
   const BetaAgentMessageContentItemBetaInputImageContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageContentItemBetaComputerScreenshotContent extends BetaAgentMessageContentItem {
+final class BetaAgentMessageContentItemBetaComputerScreenshotContent
+    extends BetaAgentMessageContentItem {
   final BetaComputerScreenshotContent value;
   const BetaAgentMessageContentItemBetaComputerScreenshotContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageContentItemBetaInputFileContent extends BetaAgentMessageContentItem {
+final class BetaAgentMessageContentItemBetaInputFileContent
+    extends BetaAgentMessageContentItem {
   final BetaInputFileContent value;
   const BetaAgentMessageContentItemBetaInputFileContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageContentItemBetaEncryptedContent extends BetaAgentMessageContentItem {
+final class BetaAgentMessageContentItemBetaEncryptedContent
+    extends BetaAgentMessageContentItem {
   final BetaEncryptedContent value;
   const BetaAgentMessageContentItemBetaEncryptedContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaAgentMessageContentItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaAgentMessageContentItem extends BetaAgentMessageContentItem {
+final class UnknownBetaAgentMessageContentItem
+    extends BetaAgentMessageContentItem {
   final Map<String, dynamic> raw;
   const UnknownBetaAgentMessageContentItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A message routed between agents.
 class BetaAgentMessageItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `agent` wire field.
   final SdkOptional<BetaAgentTagParam?> agent;
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
+
   /// The item type. Always `agent_message`.
   final BetaAgentMessageItemParamType type_;
+
   /// The sending agent identity.
   final String author;
+
   /// The destination agent identity.
   final String recipient;
+
   /// Plaintext, image, or encrypted content sent between agents.
   final List<BetaAgentMessageItemParamContentItem> content;
 
-  const BetaAgentMessageItemParam({this.agent = const SdkOmitted(), this.id = const SdkOmitted(), required this.type_, required this.author, required this.recipient, required this.content});
+  const BetaAgentMessageItemParam(
+      {this.agent = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      required this.type_,
+      required this.author,
+      required this.recipient,
+      required this.content});
 
-  BetaAgentMessageItemParam Function({SdkOptional<BetaAgentTagParam?> agent, SdkOptional<String?> id, BetaAgentMessageItemParamType type_, String author, String recipient, List<BetaAgentMessageItemParamContentItem> content}) get copyWith => _copyWith;
+  BetaAgentMessageItemParam Function(
+          {SdkOptional<BetaAgentTagParam?> agent,
+          SdkOptional<String?> id,
+          BetaAgentMessageItemParamType type_,
+          String author,
+          String recipient,
+          List<BetaAgentMessageItemParamContentItem> content})
+      get copyWith => _copyWith;
 
-  BetaAgentMessageItemParam _copyWith({Object? agent = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? author = sdkOmittedValue, Object? recipient = sdkOmittedValue, Object? content = sdkOmittedValue}) => BetaAgentMessageItemParam(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTagParam?>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaAgentMessageItemParamType,
-    author: identical(author, sdkOmittedValue) ? this.author : author as String,
-    recipient: identical(recipient, sdkOmittedValue) ? this.recipient : recipient as String,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<BetaAgentMessageItemParamContentItem>,
-  );
+  BetaAgentMessageItemParam _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? author = sdkOmittedValue,
+          Object? recipient = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      BetaAgentMessageItemParam(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTagParam?>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaAgentMessageItemParamType,
+        author:
+            identical(author, sdkOmittedValue) ? this.author : author as String,
+        recipient: identical(recipient, sdkOmittedValue)
+            ? this.recipient
+            : recipient as String,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<BetaAgentMessageItemParamContentItem>,
+      );
 
-  factory BetaAgentMessageItemParam.fromJson(Map<String, dynamic> json) => BetaAgentMessageItemParam(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTagParam.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaAgentMessageItemParamType.fromJson(json['type'] as String) : null)!,
-    author: (json['author'] as String?)!,
-    recipient: (json['recipient'] as String?)!,
-    content: ((json['content'] as List?)?.map((e) => BetaAgentMessageItemParamContentItem.fromJson(e)).toList())!,
-  );
+  factory BetaAgentMessageItemParam.fromJson(Map<String, dynamic> json) =>
+      BetaAgentMessageItemParam(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTagParam.fromJson(
+                    json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        id: json.containsKey('id')
+            ? SdkPresent(json['id'] as String?)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaAgentMessageItemParamType.fromJson(json['type'] as String)
+            : null)!,
+        author: (json['author'] as String?)!,
+        recipient: (json['recipient'] as String?)!,
+        content: ((json['content'] as List?)
+            ?.map((e) => BetaAgentMessageItemParamContentItem.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTagParam?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String?>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'author': author,
-    'recipient': recipient,
-    'content': content.map((item) => item.toJson()).toList(),
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTagParam?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String?>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'author': author,
+        'recipient': recipient,
+        'content': content.map((item) => item.toJson()).toList(),
+      };
 }
 
 sealed class BetaAgentMessageItemParamContentItem {
@@ -228,36 +398,63 @@ sealed class BetaAgentMessageItemParamContentItem {
   static const String constructionSurface = 'named';
   const BetaAgentMessageItemParamContentItem();
   factory BetaAgentMessageItemParamContentItem.fromJson(Object? json) {
-    try { return BetaAgentMessageItemParamContentItemBetaInputTextContentParam(BetaInputTextContentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(BetaInputImageContentParamAutoParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(BetaEncryptedContentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image", "encrypted_content"}.contains(json["type"])) { return UnknownBetaAgentMessageItemParamContentItem(json); }
-    throw FormatException("No variant matched for BetaAgentMessageItemParamContentItem");
+    try {
+      return BetaAgentMessageItemParamContentItemBetaInputTextContentParam(
+          BetaInputTextContentParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(
+          BetaInputImageContentParamAutoParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(
+          BetaEncryptedContentParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"input_text", "input_image", "encrypted_content"}
+            .contains(json["type"])) {
+      return UnknownBetaAgentMessageItemParamContentItem(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaAgentMessageItemParamContentItem");
   }
   Object? toJson();
 }
 
-final class BetaAgentMessageItemParamContentItemBetaInputTextContentParam extends BetaAgentMessageItemParamContentItem {
+final class BetaAgentMessageItemParamContentItemBetaInputTextContentParam
+    extends BetaAgentMessageItemParamContentItem {
   final BetaInputTextContentParam value;
-  const BetaAgentMessageItemParamContentItemBetaInputTextContentParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaAgentMessageItemParamContentItemBetaInputTextContentParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam extends BetaAgentMessageItemParamContentItem {
+final class BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam
+    extends BetaAgentMessageItemParamContentItem {
   final BetaInputImageContentParamAutoParam value;
-  const BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageItemParamContentItemBetaEncryptedContentParam extends BetaAgentMessageItemParamContentItem {
+final class BetaAgentMessageItemParamContentItemBetaEncryptedContentParam
+    extends BetaAgentMessageItemParamContentItem {
   final BetaEncryptedContentParam value;
-  const BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaAgentMessageItemParamContentItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaAgentMessageItemParamContentItem extends BetaAgentMessageItemParamContentItem {
+final class UnknownBetaAgentMessageItemParamContentItem
+    extends BetaAgentMessageItemParamContentItem {
   final Map<String, dynamic> raw;
   const UnknownBetaAgentMessageItemParamContentItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

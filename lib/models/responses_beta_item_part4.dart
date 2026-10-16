@@ -7,24 +7,30 @@ part of 'responses_beta_item.dart';
 final class BetaItemResourceBetaMCPToolCall extends BetaItemResource {
   final BetaMCPToolCall value;
   const BetaItemResourceBetaMCPToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaCustomToolCallResource extends BetaItemResource {
+final class BetaItemResourceBetaCustomToolCallResource
+    extends BetaItemResource {
   final BetaCustomToolCallResource value;
   const BetaItemResourceBetaCustomToolCallResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaCustomToolCallOutputResource extends BetaItemResource {
+final class BetaItemResourceBetaCustomToolCallOutputResource
+    extends BetaItemResource {
   final BetaCustomToolCallOutputResource value;
   const BetaItemResourceBetaCustomToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaItemResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaItemResource extends BetaItemResource {
   final Map<String, dynamic> raw;
   const UnknownBetaItemResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

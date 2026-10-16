@@ -8,270 +8,474 @@ part of 'realtime_realtime_translation.dart';
 class RealtimeTranslationSessionAudioInputTranscription {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The transcription model used for source transcript deltas.
   final String model;
 
-  const RealtimeTranslationSessionAudioInputTranscription({required this.model});
+  const RealtimeTranslationSessionAudioInputTranscription(
+      {required this.model});
 
-  RealtimeTranslationSessionAudioInputTranscription Function({String model}) get copyWith => _copyWith;
+  RealtimeTranslationSessionAudioInputTranscription Function({String model})
+      get copyWith => _copyWith;
 
-  RealtimeTranslationSessionAudioInputTranscription _copyWith({Object? model = sdkOmittedValue}) => RealtimeTranslationSessionAudioInputTranscription(
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-  );
+  RealtimeTranslationSessionAudioInputTranscription _copyWith(
+          {Object? model = sdkOmittedValue}) =>
+      RealtimeTranslationSessionAudioInputTranscription(
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+      );
 
-  factory RealtimeTranslationSessionAudioInputTranscription.fromJson(Map<String, dynamic> json) => RealtimeTranslationSessionAudioInputTranscription(
-    model: (json['model'] as String?)!,
-  );
+  factory RealtimeTranslationSessionAudioInputTranscription.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranslationSessionAudioInputTranscription(
+        model: (json['model'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'model': model,
-  };
+        'model': model,
+      };
 }
 
 /// Optional input noise reduction.
 class RealtimeTranslationSessionAudioInputNoiseReduction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of noise reduction. `near_field` is for close-talking microphones such as headphones, `far_field` is for far-field microphones such as laptop or conference room microphones.
   final NoiseReductionType type_;
 
-  const RealtimeTranslationSessionAudioInputNoiseReduction({required this.type_});
+  const RealtimeTranslationSessionAudioInputNoiseReduction(
+      {required this.type_});
 
-  RealtimeTranslationSessionAudioInputNoiseReduction Function({NoiseReductionType type_}) get copyWith => _copyWith;
+  RealtimeTranslationSessionAudioInputNoiseReduction Function(
+      {NoiseReductionType type_}) get copyWith => _copyWith;
 
-  RealtimeTranslationSessionAudioInputNoiseReduction _copyWith({Object? type_ = sdkOmittedValue}) => RealtimeTranslationSessionAudioInputNoiseReduction(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as NoiseReductionType,
-  );
+  RealtimeTranslationSessionAudioInputNoiseReduction _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      RealtimeTranslationSessionAudioInputNoiseReduction(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as NoiseReductionType,
+      );
 
-  factory RealtimeTranslationSessionAudioInputNoiseReduction.fromJson(Map<String, dynamic> json) => RealtimeTranslationSessionAudioInputNoiseReduction(
-    type_: (json['type'] != null ? NoiseReductionType.fromJson(json['type'] as String) : null)!,
-  );
+  factory RealtimeTranslationSessionAudioInputNoiseReduction.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranslationSessionAudioInputNoiseReduction(
+        type_: (json['type'] != null
+            ? NoiseReductionType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Optional object value serialized in the `input` wire field.
 class RealtimeTranslationSessionAudioInput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional source-language transcription. When configured, the server emits `session.input_transcript.delta` events. Translation itself still runs from the input audio stream.
-  final SdkOptional<RealtimeTranslationSessionAudioInputTranscription?> transcription;
+  final SdkOptional<RealtimeTranslationSessionAudioInputTranscription?>
+      transcription;
+
   /// Optional input noise reduction.
-  final SdkOptional<RealtimeTranslationSessionAudioInputNoiseReduction?> noiseReduction;
+  final SdkOptional<RealtimeTranslationSessionAudioInputNoiseReduction?>
+      noiseReduction;
 
-  const RealtimeTranslationSessionAudioInput({this.transcription = const SdkOmitted(), this.noiseReduction = const SdkOmitted()});
+  const RealtimeTranslationSessionAudioInput(
+      {this.transcription = const SdkOmitted(),
+      this.noiseReduction = const SdkOmitted()});
 
-  RealtimeTranslationSessionAudioInput Function({SdkOptional<RealtimeTranslationSessionAudioInputTranscription?> transcription, SdkOptional<RealtimeTranslationSessionAudioInputNoiseReduction?> noiseReduction}) get copyWith => _copyWith;
+  RealtimeTranslationSessionAudioInput Function(
+      {SdkOptional<RealtimeTranslationSessionAudioInputTranscription?>
+          transcription,
+      SdkOptional<RealtimeTranslationSessionAudioInputNoiseReduction?>
+          noiseReduction}) get copyWith => _copyWith;
 
-  RealtimeTranslationSessionAudioInput _copyWith({Object? transcription = sdkOmittedValue, Object? noiseReduction = sdkOmittedValue}) => RealtimeTranslationSessionAudioInput(
-    transcription: identical(transcription, sdkOmittedValue) ? this.transcription : transcription as SdkOptional<RealtimeTranslationSessionAudioInputTranscription?>,
-    noiseReduction: identical(noiseReduction, sdkOmittedValue) ? this.noiseReduction : noiseReduction as SdkOptional<RealtimeTranslationSessionAudioInputNoiseReduction?>,
-  );
+  RealtimeTranslationSessionAudioInput _copyWith(
+          {Object? transcription = sdkOmittedValue,
+          Object? noiseReduction = sdkOmittedValue}) =>
+      RealtimeTranslationSessionAudioInput(
+        transcription: identical(transcription, sdkOmittedValue)
+            ? this.transcription
+            : transcription as SdkOptional<
+                RealtimeTranslationSessionAudioInputTranscription?>,
+        noiseReduction: identical(noiseReduction, sdkOmittedValue)
+            ? this.noiseReduction
+            : noiseReduction as SdkOptional<
+                RealtimeTranslationSessionAudioInputNoiseReduction?>,
+      );
 
-  factory RealtimeTranslationSessionAudioInput.fromJson(Map<String, dynamic> json) => RealtimeTranslationSessionAudioInput(
-    transcription: json.containsKey('transcription') ? SdkPresent(json['transcription'] != null ? RealtimeTranslationSessionAudioInputTranscription.fromJson(json['transcription'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    noiseReduction: json.containsKey('noise_reduction') ? SdkPresent(json['noise_reduction'] != null ? RealtimeTranslationSessionAudioInputNoiseReduction.fromJson(json['noise_reduction'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory RealtimeTranslationSessionAudioInput.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranslationSessionAudioInput(
+        transcription: json.containsKey('transcription')
+            ? SdkPresent(json['transcription'] != null
+                ? RealtimeTranslationSessionAudioInputTranscription.fromJson(
+                    json['transcription'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        noiseReduction: json.containsKey('noise_reduction')
+            ? SdkPresent(json['noise_reduction'] != null
+                ? RealtimeTranslationSessionAudioInputNoiseReduction.fromJson(
+                    json['noise_reduction'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (transcription) {
-      SdkPresent<RealtimeTranslationSessionAudioInputTranscription?>(value: final value) => {'transcription': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (noiseReduction) {
-      SdkPresent<RealtimeTranslationSessionAudioInputNoiseReduction?>(value: final value) => {'noise_reduction': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (transcription) {
+          SdkPresent<RealtimeTranslationSessionAudioInputTranscription?>(
+            value: final value
+          ) =>
+            {
+              'transcription': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (noiseReduction) {
+          SdkPresent<RealtimeTranslationSessionAudioInputNoiseReduction?>(
+            value: final value
+          ) =>
+            {
+              'noise_reduction': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `output` wire field.
 class RealtimeTranslationSessionAudioOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Target language for translated output audio and transcript deltas.
   final SdkOptional<String> language;
 
-  const RealtimeTranslationSessionAudioOutput({this.language = const SdkOmitted()});
+  const RealtimeTranslationSessionAudioOutput(
+      {this.language = const SdkOmitted()});
 
-  RealtimeTranslationSessionAudioOutput Function({SdkOptional<String> language}) get copyWith => _copyWith;
+  RealtimeTranslationSessionAudioOutput Function({SdkOptional<String> language})
+      get copyWith => _copyWith;
 
-  RealtimeTranslationSessionAudioOutput _copyWith({Object? language = sdkOmittedValue}) => RealtimeTranslationSessionAudioOutput(
-    language: identical(language, sdkOmittedValue) ? this.language : language as SdkOptional<String>,
-  );
+  RealtimeTranslationSessionAudioOutput _copyWith(
+          {Object? language = sdkOmittedValue}) =>
+      RealtimeTranslationSessionAudioOutput(
+        language: identical(language, sdkOmittedValue)
+            ? this.language
+            : language as SdkOptional<String>,
+      );
 
-  factory RealtimeTranslationSessionAudioOutput.fromJson(Map<String, dynamic> json) => RealtimeTranslationSessionAudioOutput(
-    language: json['language'] != null ? SdkPresent((json['language'] as String?)!) : const SdkOmitted(),
-  );
+  factory RealtimeTranslationSessionAudioOutput.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranslationSessionAudioOutput(
+        language: json['language'] != null
+            ? SdkPresent((json['language'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (language) {
-      SdkPresent<String>(value: final value) => {'language': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (language) {
+          SdkPresent<String>(value: final value) => {
+              'language': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Configuration for translation input and output audio.
 class RealtimeTranslationSessionAudio {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `input` wire field.
   final SdkOptional<RealtimeTranslationSessionAudioInput> input;
+
   /// Optional object value serialized in the `output` wire field.
   final SdkOptional<RealtimeTranslationSessionAudioOutput> output;
 
-  const RealtimeTranslationSessionAudio({this.input = const SdkOmitted(), this.output = const SdkOmitted()});
+  const RealtimeTranslationSessionAudio(
+      {this.input = const SdkOmitted(), this.output = const SdkOmitted()});
 
-  RealtimeTranslationSessionAudio Function({SdkOptional<RealtimeTranslationSessionAudioInput> input, SdkOptional<RealtimeTranslationSessionAudioOutput> output}) get copyWith => _copyWith;
+  RealtimeTranslationSessionAudio Function(
+          {SdkOptional<RealtimeTranslationSessionAudioInput> input,
+          SdkOptional<RealtimeTranslationSessionAudioOutput> output})
+      get copyWith => _copyWith;
 
-  RealtimeTranslationSessionAudio _copyWith({Object? input = sdkOmittedValue, Object? output = sdkOmittedValue}) => RealtimeTranslationSessionAudio(
-    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<RealtimeTranslationSessionAudioInput>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<RealtimeTranslationSessionAudioOutput>,
-  );
+  RealtimeTranslationSessionAudio _copyWith(
+          {Object? input = sdkOmittedValue,
+          Object? output = sdkOmittedValue}) =>
+      RealtimeTranslationSessionAudio(
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as SdkOptional<RealtimeTranslationSessionAudioInput>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<RealtimeTranslationSessionAudioOutput>,
+      );
 
-  factory RealtimeTranslationSessionAudio.fromJson(Map<String, dynamic> json) => RealtimeTranslationSessionAudio(
-    input: json['input'] != null ? SdkPresent((json['input'] != null ? RealtimeTranslationSessionAudioInput.fromJson(json['input'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    output: json['output'] != null ? SdkPresent((json['output'] != null ? RealtimeTranslationSessionAudioOutput.fromJson(json['output'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory RealtimeTranslationSessionAudio.fromJson(Map<String, dynamic> json) =>
+      RealtimeTranslationSessionAudio(
+        input: json['input'] != null
+            ? SdkPresent((json['input'] != null
+                ? RealtimeTranslationSessionAudioInput.fromJson(
+                    json['input'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        output: json['output'] != null
+            ? SdkPresent((json['output'] != null
+                ? RealtimeTranslationSessionAudioOutput.fromJson(
+                    json['output'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (input) {
-      SdkPresent<RealtimeTranslationSessionAudioInput>(value: final value) => {'input': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (output) {
-      SdkPresent<RealtimeTranslationSessionAudioOutput>(value: final value) => {'output': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (input) {
+          SdkPresent<RealtimeTranslationSessionAudioInput>(
+            value: final value
+          ) =>
+            {
+              'input': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (output) {
+          SdkPresent<RealtimeTranslationSessionAudioOutput>(
+            value: final value
+          ) =>
+            {
+              'output': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A Realtime translation session. Translation sessions continuously translate input audio into the configured output language.
 class RealtimeTranslationSession {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the session that looks like `sess_1234567890abcdef`.
   final String id;
+
   /// The session type. Always `translation` for Realtime translation sessions.
   final RealtimeTranslationSessionType type_;
+
   /// Expiration timestamp for the session, in seconds since epoch.
   final int expiresAt;
+
   /// The Realtime translation model used for this session. This field is set at session creation and cannot be changed with `session.update`.
   final String model;
+
   /// Configuration for translation input and output audio.
   final RealtimeTranslationSessionAudio audio;
 
-  const RealtimeTranslationSession({required this.id, required this.type_, required this.expiresAt, required this.model, required this.audio});
+  const RealtimeTranslationSession(
+      {required this.id,
+      required this.type_,
+      required this.expiresAt,
+      required this.model,
+      required this.audio});
 
-  RealtimeTranslationSession Function({String id, RealtimeTranslationSessionType type_, int expiresAt, String model, RealtimeTranslationSessionAudio audio}) get copyWith => _copyWith;
+  RealtimeTranslationSession Function(
+      {String id,
+      RealtimeTranslationSessionType type_,
+      int expiresAt,
+      String model,
+      RealtimeTranslationSessionAudio audio}) get copyWith => _copyWith;
 
-  RealtimeTranslationSession _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? model = sdkOmittedValue, Object? audio = sdkOmittedValue}) => RealtimeTranslationSession(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTranslationSessionType,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as int,
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as RealtimeTranslationSessionAudio,
-  );
+  RealtimeTranslationSession _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? audio = sdkOmittedValue}) =>
+      RealtimeTranslationSession(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeTranslationSessionType,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as int,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        audio: identical(audio, sdkOmittedValue)
+            ? this.audio
+            : audio as RealtimeTranslationSessionAudio,
+      );
 
-  factory RealtimeTranslationSession.fromJson(Map<String, dynamic> json) => RealtimeTranslationSession(
-    id: (json['id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeTranslationSessionType.fromJson(json['type'] as String) : null)!,
-    expiresAt: ((json['expires_at'] as num?)?.toInt())!,
-    model: (json['model'] as String?)!,
-    audio: (json['audio'] != null ? RealtimeTranslationSessionAudio.fromJson(json['audio'] as Map<String, dynamic>) : null)!,
-  );
+  factory RealtimeTranslationSession.fromJson(Map<String, dynamic> json) =>
+      RealtimeTranslationSession(
+        id: (json['id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeTranslationSessionType.fromJson(json['type'] as String)
+            : null)!,
+        expiresAt: ((json['expires_at'] as num?)?.toInt())!,
+        model: (json['model'] as String?)!,
+        audio: (json['audio'] != null
+            ? RealtimeTranslationSessionAudio.fromJson(
+                json['audio'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'type': type_.toJson(),
-    'expires_at': expiresAt,
-    'model': model,
-    'audio': audio.toJson(),
-  };
+        'id': id,
+        'type': type_.toJson(),
+        'expires_at': expiresAt,
+        'model': model,
+        'audio': audio.toJson(),
+      };
 }
 
 /// Optional source-language transcription. When configured, the server emits `session.input_transcript.delta` events. Translation itself still runs from the input audio stream.
 class RealtimeTranslationSessionCreateRequestAudioInputTranscription {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The transcription model to use for source transcript deltas.
   final String model;
 
-  const RealtimeTranslationSessionCreateRequestAudioInputTranscription({required this.model});
+  const RealtimeTranslationSessionCreateRequestAudioInputTranscription(
+      {required this.model});
 
-  RealtimeTranslationSessionCreateRequestAudioInputTranscription Function({String model}) get copyWith => _copyWith;
+  RealtimeTranslationSessionCreateRequestAudioInputTranscription Function(
+      {String model}) get copyWith => _copyWith;
 
-  RealtimeTranslationSessionCreateRequestAudioInputTranscription _copyWith({Object? model = sdkOmittedValue}) => RealtimeTranslationSessionCreateRequestAudioInputTranscription(
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-  );
+  RealtimeTranslationSessionCreateRequestAudioInputTranscription _copyWith(
+          {Object? model = sdkOmittedValue}) =>
+      RealtimeTranslationSessionCreateRequestAudioInputTranscription(
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+      );
 
-  factory RealtimeTranslationSessionCreateRequestAudioInputTranscription.fromJson(Map<String, dynamic> json) => RealtimeTranslationSessionCreateRequestAudioInputTranscription(
-    model: (json['model'] as String?)!,
-  );
+  factory RealtimeTranslationSessionCreateRequestAudioInputTranscription.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranslationSessionCreateRequestAudioInputTranscription(
+        model: (json['model'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'model': model,
-  };
+        'model': model,
+      };
 }
 
 /// Optional input noise reduction. Set to `null` to disable it.
 class RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of noise reduction. `near_field` is for close-talking microphones such as headphones, `far_field` is for far-field microphones such as laptop or conference room microphones.
   final NoiseReductionType type_;
 
-  const RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction({required this.type_});
+  const RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction(
+      {required this.type_});
 
-  RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction Function({NoiseReductionType type_}) get copyWith => _copyWith;
+  RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction Function(
+      {NoiseReductionType type_}) get copyWith => _copyWith;
 
-  RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction _copyWith({Object? type_ = sdkOmittedValue}) => RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as NoiseReductionType,
-  );
+  RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as NoiseReductionType,
+      );
 
-  factory RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction.fromJson(Map<String, dynamic> json) => RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction(
-    type_: (json['type'] != null ? NoiseReductionType.fromJson(json['type'] as String) : null)!,
-  );
+  factory RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction(
+        type_: (json['type'] != null
+            ? NoiseReductionType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Optional object value serialized in the `input` wire field.
 class RealtimeTranslationSessionCreateRequestAudioInput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional source-language transcription. When configured, the server emits `session.input_transcript.delta` events. Translation itself still runs from the input audio stream.
-  final SdkOptional<RealtimeTranslationSessionCreateRequestAudioInputTranscription?> transcription;
+  final SdkOptional<
+          RealtimeTranslationSessionCreateRequestAudioInputTranscription?>
+      transcription;
+
   /// Optional input noise reduction. Set to `null` to disable it.
-  final SdkOptional<RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction?> noiseReduction;
+  final SdkOptional<
+          RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction?>
+      noiseReduction;
 
-  const RealtimeTranslationSessionCreateRequestAudioInput({this.transcription = const SdkOmitted(), this.noiseReduction = const SdkOmitted()});
+  const RealtimeTranslationSessionCreateRequestAudioInput(
+      {this.transcription = const SdkOmitted(),
+      this.noiseReduction = const SdkOmitted()});
 
-  RealtimeTranslationSessionCreateRequestAudioInput Function({SdkOptional<RealtimeTranslationSessionCreateRequestAudioInputTranscription?> transcription, SdkOptional<RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction?> noiseReduction}) get copyWith => _copyWith;
+  RealtimeTranslationSessionCreateRequestAudioInput Function(
+      {SdkOptional<
+              RealtimeTranslationSessionCreateRequestAudioInputTranscription?>
+          transcription,
+      SdkOptional<
+              RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction?>
+          noiseReduction}) get copyWith => _copyWith;
 
-  RealtimeTranslationSessionCreateRequestAudioInput _copyWith({Object? transcription = sdkOmittedValue, Object? noiseReduction = sdkOmittedValue}) => RealtimeTranslationSessionCreateRequestAudioInput(
-    transcription: identical(transcription, sdkOmittedValue) ? this.transcription : transcription as SdkOptional<RealtimeTranslationSessionCreateRequestAudioInputTranscription?>,
-    noiseReduction: identical(noiseReduction, sdkOmittedValue) ? this.noiseReduction : noiseReduction as SdkOptional<RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction?>,
-  );
+  RealtimeTranslationSessionCreateRequestAudioInput _copyWith(
+          {Object? transcription = sdkOmittedValue,
+          Object? noiseReduction = sdkOmittedValue}) =>
+      RealtimeTranslationSessionCreateRequestAudioInput(
+        transcription: identical(transcription, sdkOmittedValue)
+            ? this.transcription
+            : transcription as SdkOptional<
+                RealtimeTranslationSessionCreateRequestAudioInputTranscription?>,
+        noiseReduction: identical(noiseReduction, sdkOmittedValue)
+            ? this.noiseReduction
+            : noiseReduction as SdkOptional<
+                RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction?>,
+      );
 
-  factory RealtimeTranslationSessionCreateRequestAudioInput.fromJson(Map<String, dynamic> json) => RealtimeTranslationSessionCreateRequestAudioInput(
-    transcription: json.containsKey('transcription') ? SdkPresent(json['transcription'] != null ? RealtimeTranslationSessionCreateRequestAudioInputTranscription.fromJson(json['transcription'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    noiseReduction: json.containsKey('noise_reduction') ? SdkPresent(json['noise_reduction'] != null ? RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction.fromJson(json['noise_reduction'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory RealtimeTranslationSessionCreateRequestAudioInput.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranslationSessionCreateRequestAudioInput(
+        transcription: json.containsKey('transcription')
+            ? SdkPresent(json['transcription'] != null
+                ? RealtimeTranslationSessionCreateRequestAudioInputTranscription
+                    .fromJson(json['transcription'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        noiseReduction: json.containsKey('noise_reduction')
+            ? SdkPresent(json['noise_reduction'] != null
+                ? RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction
+                    .fromJson(json['noise_reduction'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (transcription) {
-      SdkPresent<RealtimeTranslationSessionCreateRequestAudioInputTranscription?>(value: final value) => {'transcription': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (noiseReduction) {
-      SdkPresent<RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction?>(value: final value) => {'noise_reduction': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (transcription) {
+          SdkPresent<
+                RealtimeTranslationSessionCreateRequestAudioInputTranscription?>(
+            value: final value
+          ) =>
+            {
+              'transcription': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (noiseReduction) {
+          SdkPresent<
+                RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction?>(
+            value: final value
+          ) =>
+            {
+              'noise_reduction': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

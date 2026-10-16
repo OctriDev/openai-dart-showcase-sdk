@@ -8,172 +8,337 @@ part of 'realtime_realtime_session.dart';
 class RealtimeSessionCreateResponseGAAudioInput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The format of the input audio.
   final SdkOptional<RealtimeAudioFormats> format;
+
   /// Configuration for input audio transcription, defaults to off and can be set to `null` to turn off once on. Input audio transcription is not native to the model, since the model consumes audio directly. Transcription runs asynchronously through [the /audio/transcriptions endpoint](https://developers.openai.com/api/reference/resources/audio/subresources/transcriptions/methods/create) and should be treated as guidance of input audio content rather than precisely what the model heard. The client can optionally set the language and prompt for transcription, these offer additional guidance to the transcription service.
   final SdkOptional<AudioTranscriptionResponse?> transcription;
+
   /// Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
-  final SdkOptional<RealtimeSessionCreateResponseGAAudioInputNoiseReduction?> noiseReduction;
+  final SdkOptional<RealtimeSessionCreateResponseGAAudioInputNoiseReduction?>
+      noiseReduction;
+
   /// Configuration for turn detection, ether Server VAD or Semantic VAD. This can be set to `null` to turn off, in which case the client must manually trigger model response. Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech. Semantic VAD is more advanced and uses a turn detection model (in conjunction with VAD) to semantically estimate whether the user has finished speaking, then dynamically sets a timeout based on this probability. For example, if user audio trails off with "uhhm", the model will score a low probability of turn end and wait longer for the user to continue speaking. This can be useful for more natural conversations, but may have a higher latency. For `gpt-realtime-whisper` transcription sessions, turn detection must be set to `null`; VAD is not supported.
   final SdkOptional<RealtimeTurnDetection?> turnDetection;
 
-  const RealtimeSessionCreateResponseGAAudioInput({this.format = const SdkOmitted(), this.transcription = const SdkOmitted(), this.noiseReduction = const SdkOmitted(), this.turnDetection = const SdkOmitted()});
+  const RealtimeSessionCreateResponseGAAudioInput(
+      {this.format = const SdkOmitted(),
+      this.transcription = const SdkOmitted(),
+      this.noiseReduction = const SdkOmitted(),
+      this.turnDetection = const SdkOmitted()});
 
-  RealtimeSessionCreateResponseGAAudioInput Function({SdkOptional<RealtimeAudioFormats> format, SdkOptional<AudioTranscriptionResponse?> transcription, SdkOptional<RealtimeSessionCreateResponseGAAudioInputNoiseReduction?> noiseReduction, SdkOptional<RealtimeTurnDetection?> turnDetection}) get copyWith => _copyWith;
+  RealtimeSessionCreateResponseGAAudioInput Function(
+          {SdkOptional<RealtimeAudioFormats> format,
+          SdkOptional<AudioTranscriptionResponse?> transcription,
+          SdkOptional<RealtimeSessionCreateResponseGAAudioInputNoiseReduction?>
+              noiseReduction,
+          SdkOptional<RealtimeTurnDetection?> turnDetection})
+      get copyWith => _copyWith;
 
-  RealtimeSessionCreateResponseGAAudioInput _copyWith({Object? format = sdkOmittedValue, Object? transcription = sdkOmittedValue, Object? noiseReduction = sdkOmittedValue, Object? turnDetection = sdkOmittedValue}) => RealtimeSessionCreateResponseGAAudioInput(
-    format: identical(format, sdkOmittedValue) ? this.format : format as SdkOptional<RealtimeAudioFormats>,
-    transcription: identical(transcription, sdkOmittedValue) ? this.transcription : transcription as SdkOptional<AudioTranscriptionResponse?>,
-    noiseReduction: identical(noiseReduction, sdkOmittedValue) ? this.noiseReduction : noiseReduction as SdkOptional<RealtimeSessionCreateResponseGAAudioInputNoiseReduction?>,
-    turnDetection: identical(turnDetection, sdkOmittedValue) ? this.turnDetection : turnDetection as SdkOptional<RealtimeTurnDetection?>,
-  );
+  RealtimeSessionCreateResponseGAAudioInput _copyWith(
+          {Object? format = sdkOmittedValue,
+          Object? transcription = sdkOmittedValue,
+          Object? noiseReduction = sdkOmittedValue,
+          Object? turnDetection = sdkOmittedValue}) =>
+      RealtimeSessionCreateResponseGAAudioInput(
+        format: identical(format, sdkOmittedValue)
+            ? this.format
+            : format as SdkOptional<RealtimeAudioFormats>,
+        transcription: identical(transcription, sdkOmittedValue)
+            ? this.transcription
+            : transcription as SdkOptional<AudioTranscriptionResponse?>,
+        noiseReduction: identical(noiseReduction, sdkOmittedValue)
+            ? this.noiseReduction
+            : noiseReduction as SdkOptional<
+                RealtimeSessionCreateResponseGAAudioInputNoiseReduction?>,
+        turnDetection: identical(turnDetection, sdkOmittedValue)
+            ? this.turnDetection
+            : turnDetection as SdkOptional<RealtimeTurnDetection?>,
+      );
 
-  factory RealtimeSessionCreateResponseGAAudioInput.fromJson(Map<String, dynamic> json) => RealtimeSessionCreateResponseGAAudioInput(
-    format: json['format'] != null ? SdkPresent((json['format'] != null ? RealtimeAudioFormats.fromJson(json['format']) : null)!) : const SdkOmitted(),
-    transcription: json.containsKey('transcription') ? SdkPresent(json['transcription'] != null ? AudioTranscriptionResponse.fromJson(json['transcription'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    noiseReduction: json.containsKey('noise_reduction') ? SdkPresent(json['noise_reduction'] != null ? RealtimeSessionCreateResponseGAAudioInputNoiseReduction.fromJson(json['noise_reduction'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    turnDetection: json.containsKey('turn_detection') ? SdkPresent(json['turn_detection'] != null ? RealtimeTurnDetection.fromJson(json['turn_detection']) : null) : const SdkOmitted(),
-  );
+  factory RealtimeSessionCreateResponseGAAudioInput.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeSessionCreateResponseGAAudioInput(
+        format: json['format'] != null
+            ? SdkPresent((json['format'] != null
+                ? RealtimeAudioFormats.fromJson(json['format'])
+                : null)!)
+            : const SdkOmitted(),
+        transcription: json.containsKey('transcription')
+            ? SdkPresent(json['transcription'] != null
+                ? AudioTranscriptionResponse.fromJson(
+                    json['transcription'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        noiseReduction: json.containsKey('noise_reduction')
+            ? SdkPresent(json['noise_reduction'] != null
+                ? RealtimeSessionCreateResponseGAAudioInputNoiseReduction
+                    .fromJson(json['noise_reduction'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        turnDetection: json.containsKey('turn_detection')
+            ? SdkPresent(json['turn_detection'] != null
+                ? RealtimeTurnDetection.fromJson(json['turn_detection'])
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (format) {
-      SdkPresent<RealtimeAudioFormats>(value: final value) => {'format': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (transcription) {
-      SdkPresent<AudioTranscriptionResponse?>(value: final value) => {'transcription': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (noiseReduction) {
-      SdkPresent<RealtimeSessionCreateResponseGAAudioInputNoiseReduction?>(value: final value) => {'noise_reduction': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (turnDetection) {
-      SdkPresent<RealtimeTurnDetection?>(value: final value) => {'turn_detection': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (format) {
+          SdkPresent<RealtimeAudioFormats>(value: final value) => {
+              'format': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (transcription) {
+          SdkPresent<AudioTranscriptionResponse?>(value: final value) => {
+              'transcription': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (noiseReduction) {
+          SdkPresent<RealtimeSessionCreateResponseGAAudioInputNoiseReduction?>(
+            value: final value
+          ) =>
+            {
+              'noise_reduction': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (turnDetection) {
+          SdkPresent<RealtimeTurnDetection?>(value: final value) => {
+              'turn_detection': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `output` wire field.
 class RealtimeSessionCreateResponseGAAudioOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The format of the output audio.
   final SdkOptional<RealtimeAudioFormats> format;
+
   /// The voice the model uses to respond. Voice cannot be changed during the session once the model has responded with audio at least once. Current voice options are `alloy`, `ash`, `ballad`, `coral`, `echo`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. We recommend `marin` and `cedar` for best quality.
   final SdkOptional<String> voice;
+
   /// The speed of the model's spoken response as a multiple of the original speed. 1.0 is the default speed. 0.25 is the minimum speed. 1.5 is the maximum speed. This value can only be changed in between model turns, not while a response is in progress. This parameter is a post-processing adjustment to the audio after it is generated, it's also possible to prompt the model to speak faster or slower.
   final SdkOptional<double> speed;
 
-  const RealtimeSessionCreateResponseGAAudioOutput({this.format = const SdkOmitted(), this.voice = const SdkOmitted(), this.speed = const SdkOmitted()});
+  const RealtimeSessionCreateResponseGAAudioOutput(
+      {this.format = const SdkOmitted(),
+      this.voice = const SdkOmitted(),
+      this.speed = const SdkOmitted()});
 
-  RealtimeSessionCreateResponseGAAudioOutput Function({SdkOptional<RealtimeAudioFormats> format, SdkOptional<String> voice, SdkOptional<double> speed}) get copyWith => _copyWith;
+  RealtimeSessionCreateResponseGAAudioOutput Function(
+      {SdkOptional<RealtimeAudioFormats> format,
+      SdkOptional<String> voice,
+      SdkOptional<double> speed}) get copyWith => _copyWith;
 
-  RealtimeSessionCreateResponseGAAudioOutput _copyWith({Object? format = sdkOmittedValue, Object? voice = sdkOmittedValue, Object? speed = sdkOmittedValue}) => RealtimeSessionCreateResponseGAAudioOutput(
-    format: identical(format, sdkOmittedValue) ? this.format : format as SdkOptional<RealtimeAudioFormats>,
-    voice: identical(voice, sdkOmittedValue) ? this.voice : voice as SdkOptional<String>,
-    speed: identical(speed, sdkOmittedValue) ? this.speed : speed as SdkOptional<double>,
-  );
+  RealtimeSessionCreateResponseGAAudioOutput _copyWith(
+          {Object? format = sdkOmittedValue,
+          Object? voice = sdkOmittedValue,
+          Object? speed = sdkOmittedValue}) =>
+      RealtimeSessionCreateResponseGAAudioOutput(
+        format: identical(format, sdkOmittedValue)
+            ? this.format
+            : format as SdkOptional<RealtimeAudioFormats>,
+        voice: identical(voice, sdkOmittedValue)
+            ? this.voice
+            : voice as SdkOptional<String>,
+        speed: identical(speed, sdkOmittedValue)
+            ? this.speed
+            : speed as SdkOptional<double>,
+      );
 
-  factory RealtimeSessionCreateResponseGAAudioOutput.fromJson(Map<String, dynamic> json) => RealtimeSessionCreateResponseGAAudioOutput(
-    format: json['format'] != null ? SdkPresent((json['format'] != null ? RealtimeAudioFormats.fromJson(json['format']) : null)!) : const SdkOmitted(),
-    voice: json['voice'] != null ? SdkPresent((json['voice'] as String?)!) : const SdkOmitted(),
-    speed: json['speed'] != null ? SdkPresent(((json['speed'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
+  factory RealtimeSessionCreateResponseGAAudioOutput.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeSessionCreateResponseGAAudioOutput(
+        format: json['format'] != null
+            ? SdkPresent((json['format'] != null
+                ? RealtimeAudioFormats.fromJson(json['format'])
+                : null)!)
+            : const SdkOmitted(),
+        voice: json['voice'] != null
+            ? SdkPresent((json['voice'] as String?)!)
+            : const SdkOmitted(),
+        speed: json['speed'] != null
+            ? SdkPresent(((json['speed'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (format) {
-      SdkPresent<RealtimeAudioFormats>(value: final value) => {'format': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (voice) {
-      SdkPresent<String>(value: final value) => {'voice': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (speed) {
-      SdkPresent<double>(value: final value) => {'speed': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (format) {
+          SdkPresent<RealtimeAudioFormats>(value: final value) => {
+              'format': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (voice) {
+          SdkPresent<String>(value: final value) => {
+              'voice': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (speed) {
+          SdkPresent<double>(value: final value) => {
+              'speed': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Configuration for input and output audio.
 class RealtimeSessionCreateResponseGAAudio {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `input` wire field.
   final SdkOptional<RealtimeSessionCreateResponseGAAudioInput> input;
+
   /// Optional object value serialized in the `output` wire field.
   final SdkOptional<RealtimeSessionCreateResponseGAAudioOutput> output;
 
-  const RealtimeSessionCreateResponseGAAudio({this.input = const SdkOmitted(), this.output = const SdkOmitted()});
+  const RealtimeSessionCreateResponseGAAudio(
+      {this.input = const SdkOmitted(), this.output = const SdkOmitted()});
 
-  RealtimeSessionCreateResponseGAAudio Function({SdkOptional<RealtimeSessionCreateResponseGAAudioInput> input, SdkOptional<RealtimeSessionCreateResponseGAAudioOutput> output}) get copyWith => _copyWith;
+  RealtimeSessionCreateResponseGAAudio Function(
+          {SdkOptional<RealtimeSessionCreateResponseGAAudioInput> input,
+          SdkOptional<RealtimeSessionCreateResponseGAAudioOutput> output})
+      get copyWith => _copyWith;
 
-  RealtimeSessionCreateResponseGAAudio _copyWith({Object? input = sdkOmittedValue, Object? output = sdkOmittedValue}) => RealtimeSessionCreateResponseGAAudio(
-    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<RealtimeSessionCreateResponseGAAudioInput>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<RealtimeSessionCreateResponseGAAudioOutput>,
-  );
+  RealtimeSessionCreateResponseGAAudio _copyWith(
+          {Object? input = sdkOmittedValue,
+          Object? output = sdkOmittedValue}) =>
+      RealtimeSessionCreateResponseGAAudio(
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as SdkOptional<RealtimeSessionCreateResponseGAAudioInput>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<RealtimeSessionCreateResponseGAAudioOutput>,
+      );
 
-  factory RealtimeSessionCreateResponseGAAudio.fromJson(Map<String, dynamic> json) => RealtimeSessionCreateResponseGAAudio(
-    input: json['input'] != null ? SdkPresent((json['input'] != null ? RealtimeSessionCreateResponseGAAudioInput.fromJson(json['input'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    output: json['output'] != null ? SdkPresent((json['output'] != null ? RealtimeSessionCreateResponseGAAudioOutput.fromJson(json['output'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory RealtimeSessionCreateResponseGAAudio.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeSessionCreateResponseGAAudio(
+        input: json['input'] != null
+            ? SdkPresent((json['input'] != null
+                ? RealtimeSessionCreateResponseGAAudioInput.fromJson(
+                    json['input'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        output: json['output'] != null
+            ? SdkPresent((json['output'] != null
+                ? RealtimeSessionCreateResponseGAAudioOutput.fromJson(
+                    json['output'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (input) {
-      SdkPresent<RealtimeSessionCreateResponseGAAudioInput>(value: final value) => {'input': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (output) {
-      SdkPresent<RealtimeSessionCreateResponseGAAudioOutput>(value: final value) => {'output': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (input) {
+          SdkPresent<RealtimeSessionCreateResponseGAAudioInput>(
+            value: final value
+          ) =>
+            {
+              'input': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (output) {
+          SdkPresent<RealtimeSessionCreateResponseGAAudioOutput>(
+            value: final value
+          ) =>
+            {
+              'output': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Granular configuration for tracing.
 class RealtimeSessionCreateResponseGATracingVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the workflow to attach to this trace. This is used to name the trace in the Traces Dashboard.
   final SdkOptional<String> workflowName;
+
   /// The group id to attach to this trace to enable filtering and grouping in the Traces Dashboard.
   final SdkOptional<String> groupId;
+
   /// The arbitrary metadata to attach to this trace to enable filtering in the Traces Dashboard.
   final SdkOptional<Map<String, dynamic>> metadata;
 
-  const RealtimeSessionCreateResponseGATracingVariant1({this.workflowName = const SdkOmitted(), this.groupId = const SdkOmitted(), this.metadata = const SdkOmitted()});
+  const RealtimeSessionCreateResponseGATracingVariant1(
+      {this.workflowName = const SdkOmitted(),
+      this.groupId = const SdkOmitted(),
+      this.metadata = const SdkOmitted()});
 
-  RealtimeSessionCreateResponseGATracingVariant1 Function({SdkOptional<String> workflowName, SdkOptional<String> groupId, SdkOptional<Map<String, dynamic>> metadata}) get copyWith => _copyWith;
+  RealtimeSessionCreateResponseGATracingVariant1 Function(
+      {SdkOptional<String> workflowName,
+      SdkOptional<String> groupId,
+      SdkOptional<Map<String, dynamic>> metadata}) get copyWith => _copyWith;
 
-  RealtimeSessionCreateResponseGATracingVariant1 _copyWith({Object? workflowName = sdkOmittedValue, Object? groupId = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => RealtimeSessionCreateResponseGATracingVariant1(
-    workflowName: identical(workflowName, sdkOmittedValue) ? this.workflowName : workflowName as SdkOptional<String>,
-    groupId: identical(groupId, sdkOmittedValue) ? this.groupId : groupId as SdkOptional<String>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>>,
-  );
+  RealtimeSessionCreateResponseGATracingVariant1 _copyWith(
+          {Object? workflowName = sdkOmittedValue,
+          Object? groupId = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      RealtimeSessionCreateResponseGATracingVariant1(
+        workflowName: identical(workflowName, sdkOmittedValue)
+            ? this.workflowName
+            : workflowName as SdkOptional<String>,
+        groupId: identical(groupId, sdkOmittedValue)
+            ? this.groupId
+            : groupId as SdkOptional<String>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, dynamic>>,
+      );
 
-  factory RealtimeSessionCreateResponseGATracingVariant1.fromJson(Map<String, dynamic> json) => RealtimeSessionCreateResponseGATracingVariant1(
-    workflowName: json['workflow_name'] != null ? SdkPresent((json['workflow_name'] as String?)!) : const SdkOmitted(),
-    groupId: json['group_id'] != null ? SdkPresent((json['group_id'] as String?)!) : const SdkOmitted(),
-    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+  factory RealtimeSessionCreateResponseGATracingVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeSessionCreateResponseGATracingVariant1(
+        workflowName: json['workflow_name'] != null
+            ? SdkPresent((json['workflow_name'] as String?)!)
+            : const SdkOmitted(),
+        groupId: json['group_id'] != null
+            ? SdkPresent((json['group_id'] as String?)!)
+            : const SdkOmitted(),
+        metadata: json['metadata'] != null
+            ? SdkPresent((json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (workflowName) {
-      SdkPresent<String>(value: final value) => {'workflow_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (groupId) {
-      SdkPresent<String>(value: final value) => {'group_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metadata) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (workflowName) {
+          SdkPresent<String>(value: final value) => {
+              'workflow_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (groupId) {
+          SdkPresent<String>(value: final value) => {
+              'group_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metadata) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class RealtimeSessionCreateResponseGATracing {
@@ -181,45 +346,73 @@ sealed class RealtimeSessionCreateResponseGATracing {
   static const String constructionSurface = 'named';
   const RealtimeSessionCreateResponseGATracing();
   factory RealtimeSessionCreateResponseGATracing.fromJson(Object? json) {
-    try { return RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant0(RealtimeSessionCreateResponseGATracingVariant0.fromJson(json as String)); } catch (_) {}
-    try { return RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant1(RealtimeSessionCreateResponseGATracingVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for RealtimeSessionCreateResponseGATracing");
+    try {
+      return RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant0(
+          RealtimeSessionCreateResponseGATracingVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    try {
+      return RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant1(
+          RealtimeSessionCreateResponseGATracingVariant1.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for RealtimeSessionCreateResponseGATracing");
   }
   Object? toJson();
 }
 
-final class RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant0 extends RealtimeSessionCreateResponseGATracing {
+final class RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant0
+    extends RealtimeSessionCreateResponseGATracing {
   final RealtimeSessionCreateResponseGATracingVariant0 value;
-  const RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant1 extends RealtimeSessionCreateResponseGATracing {
+final class RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant1
+    extends RealtimeSessionCreateResponseGATracing {
   final RealtimeSessionCreateResponseGATracingVariant1 value;
-  const RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeSessionCreateResponseGATracingRealtimeSessionCreateResponseGATracingVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class RealtimeSessionCreateResponseGAMaxOutputTokens {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const RealtimeSessionCreateResponseGAMaxOutputTokens();
-  factory RealtimeSessionCreateResponseGAMaxOutputTokens.fromJson(Object? json) {
-    if (json is num) { return RealtimeSessionCreateResponseGAMaxOutputTokensInt(json.toInt()); }
-    try { return RealtimeSessionCreateResponseGAMaxOutputTokensRealtimeSessionCreateResponseGAMaxOutputTokensVariant1(RealtimeSessionCreateResponseGAMaxOutputTokensVariant1.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for RealtimeSessionCreateResponseGAMaxOutputTokens");
+  factory RealtimeSessionCreateResponseGAMaxOutputTokens.fromJson(
+      Object? json) {
+    if (json is num) {
+      return RealtimeSessionCreateResponseGAMaxOutputTokensInt(json.toInt());
+    }
+    try {
+      return RealtimeSessionCreateResponseGAMaxOutputTokensRealtimeSessionCreateResponseGAMaxOutputTokensVariant1(
+          RealtimeSessionCreateResponseGAMaxOutputTokensVariant1.fromJson(
+              json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for RealtimeSessionCreateResponseGAMaxOutputTokens");
   }
   Object? toJson();
 }
 
-final class RealtimeSessionCreateResponseGAMaxOutputTokensInt extends RealtimeSessionCreateResponseGAMaxOutputTokens {
+final class RealtimeSessionCreateResponseGAMaxOutputTokensInt
+    extends RealtimeSessionCreateResponseGAMaxOutputTokens {
   final int value;
   const RealtimeSessionCreateResponseGAMaxOutputTokensInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class RealtimeSessionCreateResponseGAMaxOutputTokensRealtimeSessionCreateResponseGAMaxOutputTokensVariant1 extends RealtimeSessionCreateResponseGAMaxOutputTokens {
+final class RealtimeSessionCreateResponseGAMaxOutputTokensRealtimeSessionCreateResponseGAMaxOutputTokensVariant1
+    extends RealtimeSessionCreateResponseGAMaxOutputTokens {
   final RealtimeSessionCreateResponseGAMaxOutputTokensVariant1 value;
-  const RealtimeSessionCreateResponseGAMaxOutputTokensRealtimeSessionCreateResponseGAMaxOutputTokensVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeSessionCreateResponseGAMaxOutputTokensRealtimeSessionCreateResponseGAMaxOutputTokensVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }

@@ -4,83 +4,135 @@
 part of 'sessions.dart';
 
 // sessions domain models (part 2)
-final class WorkflowParamStateVariablesValueDouble extends WorkflowParamStateVariablesValue {
+final class WorkflowParamStateVariablesValueDouble
+    extends WorkflowParamStateVariablesValue {
   final double value;
   const WorkflowParamStateVariablesValueDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Workflow reference and overrides applied to the chat session.
 class WorkflowParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier for the workflow invoked by the session.
   final String id;
+
   /// Specific workflow version to run. Defaults to the latest deployed version.
   final SdkOptional<String> version;
+
   /// State variables forwarded to the workflow. Keys may be up to 64 characters, values must be primitive types, and the map defaults to an empty object.
   final SdkOptional<Map<String, dynamic>> stateVariables;
+
   /// Optional tracing overrides for the workflow invocation. When omitted, tracing is enabled by default.
   final SdkOptional<WorkflowTracingParam> tracing;
 
-  const WorkflowParam({required this.id, this.version = const SdkOmitted(), this.stateVariables = const SdkOmitted(), this.tracing = const SdkOmitted()});
+  const WorkflowParam(
+      {required this.id,
+      this.version = const SdkOmitted(),
+      this.stateVariables = const SdkOmitted(),
+      this.tracing = const SdkOmitted()});
 
-  WorkflowParam Function({String id, SdkOptional<String> version, SdkOptional<Map<String, dynamic>> stateVariables, SdkOptional<WorkflowTracingParam> tracing}) get copyWith => _copyWith;
+  WorkflowParam Function(
+      {String id,
+      SdkOptional<String> version,
+      SdkOptional<Map<String, dynamic>> stateVariables,
+      SdkOptional<WorkflowTracingParam> tracing}) get copyWith => _copyWith;
 
-  WorkflowParam _copyWith({Object? id = sdkOmittedValue, Object? version = sdkOmittedValue, Object? stateVariables = sdkOmittedValue, Object? tracing = sdkOmittedValue}) => WorkflowParam(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
-    stateVariables: identical(stateVariables, sdkOmittedValue) ? this.stateVariables : stateVariables as SdkOptional<Map<String, dynamic>>,
-    tracing: identical(tracing, sdkOmittedValue) ? this.tracing : tracing as SdkOptional<WorkflowTracingParam>,
-  );
+  WorkflowParam _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? version = sdkOmittedValue,
+          Object? stateVariables = sdkOmittedValue,
+          Object? tracing = sdkOmittedValue}) =>
+      WorkflowParam(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<String>,
+        stateVariables: identical(stateVariables, sdkOmittedValue)
+            ? this.stateVariables
+            : stateVariables as SdkOptional<Map<String, dynamic>>,
+        tracing: identical(tracing, sdkOmittedValue)
+            ? this.tracing
+            : tracing as SdkOptional<WorkflowTracingParam>,
+      );
 
   factory WorkflowParam.fromJson(Map<String, dynamic> json) => WorkflowParam(
-    id: (json['id'] as String?)!,
-    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
-    stateVariables: json['state_variables'] != null ? SdkPresent((json['state_variables'] == null ? null : json['state_variables'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    tracing: json['tracing'] != null ? SdkPresent((json['tracing'] != null ? WorkflowTracingParam.fromJson(json['tracing'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        id: (json['id'] as String?)!,
+        version: json['version'] != null
+            ? SdkPresent((json['version'] as String?)!)
+            : const SdkOmitted(),
+        stateVariables: json['state_variables'] != null
+            ? SdkPresent((json['state_variables'] == null
+                ? null
+                : json['state_variables'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        tracing: json['tracing'] != null
+            ? SdkPresent((json['tracing'] != null
+                ? WorkflowTracingParam.fromJson(
+                    json['tracing'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    ...switch (version) {
-      SdkPresent<String>(value: final value) => {'version': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (stateVariables) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'state_variables': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tracing) {
-      SdkPresent<WorkflowTracingParam>(value: final value) => {'tracing': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        ...switch (version) {
+          SdkPresent<String>(value: final value) => {
+              'version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (stateVariables) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'state_variables': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tracing) {
+          SdkPresent<WorkflowTracingParam>(value: final value) => {
+              'tracing': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Controls diagnostic tracing during the session.
 class WorkflowTracingParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether tracing is enabled during the session. Defaults to true.
   final SdkOptional<bool> enabled;
 
   const WorkflowTracingParam({this.enabled = const SdkOmitted()});
 
-  WorkflowTracingParam Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  WorkflowTracingParam Function({SdkOptional<bool> enabled}) get copyWith =>
+      _copyWith;
 
-  WorkflowTracingParam _copyWith({Object? enabled = sdkOmittedValue}) => WorkflowTracingParam(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  WorkflowTracingParam _copyWith({Object? enabled = sdkOmittedValue}) =>
+      WorkflowTracingParam(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory WorkflowTracingParam.fromJson(Map<String, dynamic> json) => WorkflowTracingParam(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory WorkflowTracingParam.fromJson(Map<String, dynamic> json) =>
+      WorkflowTracingParam(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

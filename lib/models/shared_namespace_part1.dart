@@ -8,39 +8,67 @@ part of 'shared_namespace.dart';
 class NamespaceToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the tool. Always `namespace`.
   final NamespaceToolParamType type_;
+
   /// The namespace name used in tool calls (for example, `crm`).
   final String name;
+
   /// A description of the namespace shown to the model.
   final String description;
+
   /// The function/custom tools available inside this namespace.
   final List<NamespaceToolParamToolsItem> tools;
 
-  const NamespaceToolParam({required this.type_, required this.name, required this.description, required this.tools});
+  const NamespaceToolParam(
+      {required this.type_,
+      required this.name,
+      required this.description,
+      required this.tools});
 
-  NamespaceToolParam Function({NamespaceToolParamType type_, String name, String description, List<NamespaceToolParamToolsItem> tools}) get copyWith => _copyWith;
+  NamespaceToolParam Function(
+      {NamespaceToolParamType type_,
+      String name,
+      String description,
+      List<NamespaceToolParamToolsItem> tools}) get copyWith => _copyWith;
 
-  NamespaceToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? tools = sdkOmittedValue}) => NamespaceToolParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as NamespaceToolParamType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<NamespaceToolParamToolsItem>,
-  );
+  NamespaceToolParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? tools = sdkOmittedValue}) =>
+      NamespaceToolParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as NamespaceToolParamType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as List<NamespaceToolParamToolsItem>,
+      );
 
-  factory NamespaceToolParam.fromJson(Map<String, dynamic> json) => NamespaceToolParam(
-    type_: (json['type'] != null ? NamespaceToolParamType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-    tools: ((json['tools'] as List?)?.map((e) => NamespaceToolParamToolsItem.fromJson(e)).toList())!,
-  );
+  factory NamespaceToolParam.fromJson(Map<String, dynamic> json) =>
+      NamespaceToolParam(
+        type_: (json['type'] != null
+            ? NamespaceToolParamType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+        tools: ((json['tools'] as List?)
+            ?.map((e) => NamespaceToolParamToolsItem.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'description': description,
-    'tools': tools.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'name': name,
+        'description': description,
+        'tools': tools.map((item) => item.toJson()).toList(),
+      };
 }
 
 sealed class NamespaceToolParamToolsItem {
@@ -48,29 +76,45 @@ sealed class NamespaceToolParamToolsItem {
   static const String constructionSurface = 'named';
   const NamespaceToolParamToolsItem();
   factory NamespaceToolParamToolsItem.fromJson(Object? json) {
-    try { return NamespaceToolParamToolsItemFunctionToolParam(FunctionToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return NamespaceToolParamToolsItemCustomToolParam(CustomToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "custom"}.contains(json["type"])) { return UnknownNamespaceToolParamToolsItem(json); }
+    try {
+      return NamespaceToolParamToolsItemFunctionToolParam(
+          FunctionToolParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return NamespaceToolParamToolsItemCustomToolParam(
+          CustomToolParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"function", "custom"}.contains(json["type"])) {
+      return UnknownNamespaceToolParamToolsItem(json);
+    }
     throw FormatException("No variant matched for NamespaceToolParamToolsItem");
   }
   Object? toJson();
 }
 
-final class NamespaceToolParamToolsItemFunctionToolParam extends NamespaceToolParamToolsItem {
+final class NamespaceToolParamToolsItemFunctionToolParam
+    extends NamespaceToolParamToolsItem {
   final FunctionToolParam value;
   const NamespaceToolParamToolsItemFunctionToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class NamespaceToolParamToolsItemCustomToolParam extends NamespaceToolParamToolsItem {
+final class NamespaceToolParamToolsItemCustomToolParam
+    extends NamespaceToolParamToolsItem {
   final CustomToolParam value;
   const NamespaceToolParamToolsItemCustomToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [NamespaceToolParamToolsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownNamespaceToolParamToolsItem extends NamespaceToolParamToolsItem {
+final class UnknownNamespaceToolParamToolsItem
+    extends NamespaceToolParamToolsItem {
   final Map<String, dynamic> raw;
   const UnknownNamespaceToolParamToolsItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

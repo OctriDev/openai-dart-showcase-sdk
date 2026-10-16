@@ -9,27 +9,41 @@ class MessageStreamEventVariant3 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final MessageStreamEventVariant3Event event;
+
   /// Represents a message within a [thread](https://developers.openai.com/api/docs/assistants/migration).
   final MessageObject data;
 
   const MessageStreamEventVariant3({required this.event, required this.data});
 
-  MessageStreamEventVariant3 Function({MessageStreamEventVariant3Event event, MessageObject data}) get copyWith => _copyWith;
+  MessageStreamEventVariant3 Function(
+      {MessageStreamEventVariant3Event event,
+      MessageObject data}) get copyWith => _copyWith;
 
-  MessageStreamEventVariant3 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => MessageStreamEventVariant3(
-    event: identical(event, sdkOmittedValue) ? this.event : event as MessageStreamEventVariant3Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as MessageObject,
-  );
+  MessageStreamEventVariant3 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      MessageStreamEventVariant3(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as MessageStreamEventVariant3Event,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as MessageObject,
+      );
 
-  factory MessageStreamEventVariant3.fromJson(Map<String, dynamic> json) => MessageStreamEventVariant3(
-    event: (json['event'] != null ? MessageStreamEventVariant3Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? MessageObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory MessageStreamEventVariant3.fromJson(Map<String, dynamic> json) =>
+      MessageStreamEventVariant3(
+        event: (json['event'] != null
+            ? MessageStreamEventVariant3Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? MessageObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when a [message](https://developers.openai.com/api/docs/assistants/migration) ends before it is completed.
@@ -37,27 +51,41 @@ class MessageStreamEventVariant4 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final MessageStreamEventVariant4Event event;
+
   /// Represents a message within a [thread](https://developers.openai.com/api/docs/assistants/migration).
   final MessageObject data;
 
   const MessageStreamEventVariant4({required this.event, required this.data});
 
-  MessageStreamEventVariant4 Function({MessageStreamEventVariant4Event event, MessageObject data}) get copyWith => _copyWith;
+  MessageStreamEventVariant4 Function(
+      {MessageStreamEventVariant4Event event,
+      MessageObject data}) get copyWith => _copyWith;
 
-  MessageStreamEventVariant4 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => MessageStreamEventVariant4(
-    event: identical(event, sdkOmittedValue) ? this.event : event as MessageStreamEventVariant4Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as MessageObject,
-  );
+  MessageStreamEventVariant4 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      MessageStreamEventVariant4(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as MessageStreamEventVariant4Event,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as MessageObject,
+      );
 
-  factory MessageStreamEventVariant4.fromJson(Map<String, dynamic> json) => MessageStreamEventVariant4(
-    event: (json['event'] != null ? MessageStreamEventVariant4Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? MessageObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory MessageStreamEventVariant4.fromJson(Map<String, dynamic> json) =>
+      MessageStreamEventVariant4(
+        event: (json['event'] != null
+            ? MessageStreamEventVariant4Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? MessageObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 sealed class MessageStreamEvent {
@@ -65,42 +93,67 @@ sealed class MessageStreamEvent {
   static const String constructionSurface = 'named';
   const MessageStreamEvent();
   factory MessageStreamEvent.fromJson(Object? json) {
-    try { return MessageStreamEventMessageStreamEventVariant0(MessageStreamEventVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageStreamEventMessageStreamEventVariant1(MessageStreamEventVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageStreamEventMessageStreamEventVariant2(MessageStreamEventVariant2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageStreamEventMessageStreamEventVariant3(MessageStreamEventVariant3.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageStreamEventMessageStreamEventVariant4(MessageStreamEventVariant4.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return MessageStreamEventMessageStreamEventVariant0(
+          MessageStreamEventVariant0.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageStreamEventMessageStreamEventVariant1(
+          MessageStreamEventVariant1.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageStreamEventMessageStreamEventVariant2(
+          MessageStreamEventVariant2.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageStreamEventMessageStreamEventVariant3(
+          MessageStreamEventVariant3.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageStreamEventMessageStreamEventVariant4(
+          MessageStreamEventVariant4.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for MessageStreamEvent");
   }
   Object? toJson();
 }
 
-final class MessageStreamEventMessageStreamEventVariant0 extends MessageStreamEvent {
+final class MessageStreamEventMessageStreamEventVariant0
+    extends MessageStreamEvent {
   final MessageStreamEventVariant0 value;
   const MessageStreamEventMessageStreamEventVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessageStreamEventMessageStreamEventVariant1 extends MessageStreamEvent {
+final class MessageStreamEventMessageStreamEventVariant1
+    extends MessageStreamEvent {
   final MessageStreamEventVariant1 value;
   const MessageStreamEventMessageStreamEventVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessageStreamEventMessageStreamEventVariant2 extends MessageStreamEvent {
+final class MessageStreamEventMessageStreamEventVariant2
+    extends MessageStreamEvent {
   final MessageStreamEventVariant2 value;
   const MessageStreamEventMessageStreamEventVariant2(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessageStreamEventMessageStreamEventVariant3 extends MessageStreamEvent {
+final class MessageStreamEventMessageStreamEventVariant3
+    extends MessageStreamEvent {
   final MessageStreamEventVariant3 value;
   const MessageStreamEventMessageStreamEventVariant3(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessageStreamEventMessageStreamEventVariant4 extends MessageStreamEvent {
+final class MessageStreamEventMessageStreamEventVariant4
+    extends MessageStreamEvent {
   final MessageStreamEventVariant4 value;
   const MessageStreamEventMessageStreamEventVariant4(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

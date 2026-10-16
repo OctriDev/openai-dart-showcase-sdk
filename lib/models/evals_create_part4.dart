@@ -8,29 +8,47 @@ part of 'evals_create.dart';
 class CreateEvalResponsesRunDataSourceInputMessagesVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of input messages. Always `item_reference`.
   final CreateEvalResponsesRunDataSourceInputMessagesVariant1Type type_;
+
   /// A reference to a variable in the `item` namespace. Ie, "item.name"
   final String itemReference;
 
-  const CreateEvalResponsesRunDataSourceInputMessagesVariant1({required this.type_, required this.itemReference});
+  const CreateEvalResponsesRunDataSourceInputMessagesVariant1(
+      {required this.type_, required this.itemReference});
 
-  CreateEvalResponsesRunDataSourceInputMessagesVariant1 Function({CreateEvalResponsesRunDataSourceInputMessagesVariant1Type type_, String itemReference}) get copyWith => _copyWith;
+  CreateEvalResponsesRunDataSourceInputMessagesVariant1 Function(
+      {CreateEvalResponsesRunDataSourceInputMessagesVariant1Type type_,
+      String itemReference}) get copyWith => _copyWith;
 
-  CreateEvalResponsesRunDataSourceInputMessagesVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? itemReference = sdkOmittedValue}) => CreateEvalResponsesRunDataSourceInputMessagesVariant1(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalResponsesRunDataSourceInputMessagesVariant1Type,
-    itemReference: identical(itemReference, sdkOmittedValue) ? this.itemReference : itemReference as String,
-  );
+  CreateEvalResponsesRunDataSourceInputMessagesVariant1 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? itemReference = sdkOmittedValue}) =>
+      CreateEvalResponsesRunDataSourceInputMessagesVariant1(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_
+                as CreateEvalResponsesRunDataSourceInputMessagesVariant1Type,
+        itemReference: identical(itemReference, sdkOmittedValue)
+            ? this.itemReference
+            : itemReference as String,
+      );
 
-  factory CreateEvalResponsesRunDataSourceInputMessagesVariant1.fromJson(Map<String, dynamic> json) => CreateEvalResponsesRunDataSourceInputMessagesVariant1(
-    type_: (json['type'] != null ? CreateEvalResponsesRunDataSourceInputMessagesVariant1Type.fromJson(json['type'] as String) : null)!,
-    itemReference: (json['item_reference'] as String?)!,
-  );
+  factory CreateEvalResponsesRunDataSourceInputMessagesVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      CreateEvalResponsesRunDataSourceInputMessagesVariant1(
+        type_: (json['type'] != null
+            ? CreateEvalResponsesRunDataSourceInputMessagesVariant1Type
+                .fromJson(json['type'] as String)
+            : null)!,
+        itemReference: (json['item_reference'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'item_reference': itemReference,
-  };
+        'type': type_.toJson(),
+        'item_reference': itemReference,
+      };
 }
 
 sealed class CreateEvalResponsesRunDataSourceInputMessages {
@@ -38,23 +56,38 @@ sealed class CreateEvalResponsesRunDataSourceInputMessages {
   static const String constructionSurface = 'named';
   const CreateEvalResponsesRunDataSourceInputMessages();
   factory CreateEvalResponsesRunDataSourceInputMessages.fromJson(Object? json) {
-    try { return CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant0(CreateEvalResponsesRunDataSourceInputMessagesVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant1(CreateEvalResponsesRunDataSourceInputMessagesVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for CreateEvalResponsesRunDataSourceInputMessages");
+    try {
+      return CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant0(
+          CreateEvalResponsesRunDataSourceInputMessagesVariant0.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant1(
+          CreateEvalResponsesRunDataSourceInputMessagesVariant1.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateEvalResponsesRunDataSourceInputMessages");
   }
   Object? toJson();
 }
 
-final class CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant0 extends CreateEvalResponsesRunDataSourceInputMessages {
+final class CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant0
+    extends CreateEvalResponsesRunDataSourceInputMessages {
   final CreateEvalResponsesRunDataSourceInputMessagesVariant0 value;
-  const CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant1 extends CreateEvalResponsesRunDataSourceInputMessages {
+final class CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant1
+    extends CreateEvalResponsesRunDataSourceInputMessages {
   final CreateEvalResponsesRunDataSourceInputMessagesVariant1 value;
-  const CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateEvalResponsesRunDataSourceInputMessagesCreateEvalResponsesRunDataSourceInputMessagesVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class CreateEvalResponsesRunDataSourceSource {
@@ -62,78 +95,134 @@ sealed class CreateEvalResponsesRunDataSourceSource {
   static const String constructionSurface = 'named';
   const CreateEvalResponsesRunDataSourceSource();
   factory CreateEvalResponsesRunDataSourceSource.fromJson(Object? json) {
-    try { return CreateEvalResponsesRunDataSourceSourceEvalJsonlFileContentSource(EvalJsonlFileContentSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalResponsesRunDataSourceSourceEvalJsonlFileIdSource(EvalJsonlFileIdSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalResponsesRunDataSourceSourceEvalResponsesSource(EvalResponsesSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_content", "file_id", "responses"}.contains(json["type"])) { return UnknownCreateEvalResponsesRunDataSourceSource(json); }
-    throw FormatException("No variant matched for CreateEvalResponsesRunDataSourceSource");
+    try {
+      return CreateEvalResponsesRunDataSourceSourceEvalJsonlFileContentSource(
+          EvalJsonlFileContentSource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalResponsesRunDataSourceSourceEvalJsonlFileIdSource(
+          EvalJsonlFileIdSource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalResponsesRunDataSourceSourceEvalResponsesSource(
+          EvalResponsesSource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"file_content", "file_id", "responses"}
+            .contains(json["type"])) {
+      return UnknownCreateEvalResponsesRunDataSourceSource(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateEvalResponsesRunDataSourceSource");
   }
   Object? toJson();
 }
 
-final class CreateEvalResponsesRunDataSourceSourceEvalJsonlFileContentSource extends CreateEvalResponsesRunDataSourceSource {
+final class CreateEvalResponsesRunDataSourceSourceEvalJsonlFileContentSource
+    extends CreateEvalResponsesRunDataSourceSource {
   final EvalJsonlFileContentSource value;
-  const CreateEvalResponsesRunDataSourceSourceEvalJsonlFileContentSource(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateEvalResponsesRunDataSourceSourceEvalJsonlFileContentSource(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalResponsesRunDataSourceSourceEvalJsonlFileIdSource extends CreateEvalResponsesRunDataSourceSource {
+final class CreateEvalResponsesRunDataSourceSourceEvalJsonlFileIdSource
+    extends CreateEvalResponsesRunDataSourceSource {
   final EvalJsonlFileIdSource value;
   const CreateEvalResponsesRunDataSourceSourceEvalJsonlFileIdSource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalResponsesRunDataSourceSourceEvalResponsesSource extends CreateEvalResponsesRunDataSourceSource {
+final class CreateEvalResponsesRunDataSourceSourceEvalResponsesSource
+    extends CreateEvalResponsesRunDataSourceSource {
   final EvalResponsesSource value;
   const CreateEvalResponsesRunDataSourceSourceEvalResponsesSource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateEvalResponsesRunDataSourceSource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateEvalResponsesRunDataSourceSource extends CreateEvalResponsesRunDataSourceSource {
+final class UnknownCreateEvalResponsesRunDataSourceSource
+    extends CreateEvalResponsesRunDataSourceSource {
   final Map<String, dynamic> raw;
   const UnknownCreateEvalResponsesRunDataSourceSource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Typed representation of the `CreateEvalRunRequest` API schema.
 class CreateEvalRunRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the run.
   final SdkOptional<String> name;
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
+
   /// Details about the run's data source.
   final CreateEvalRunRequestDataSource dataSource;
 
-  const CreateEvalRunRequest({this.name = const SdkOmitted(), this.metadata = const SdkOmitted(), required this.dataSource});
+  const CreateEvalRunRequest(
+      {this.name = const SdkOmitted(),
+      this.metadata = const SdkOmitted(),
+      required this.dataSource});
 
-  CreateEvalRunRequest Function({SdkOptional<String> name, SdkOptional<Map<String, dynamic>?> metadata, CreateEvalRunRequestDataSource dataSource}) get copyWith => _copyWith;
+  CreateEvalRunRequest Function(
+      {SdkOptional<String> name,
+      SdkOptional<Map<String, dynamic>?> metadata,
+      CreateEvalRunRequestDataSource dataSource}) get copyWith => _copyWith;
 
-  CreateEvalRunRequest _copyWith({Object? name = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? dataSource = sdkOmittedValue}) => CreateEvalRunRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
-    dataSource: identical(dataSource, sdkOmittedValue) ? this.dataSource : dataSource as CreateEvalRunRequestDataSource,
-  );
+  CreateEvalRunRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? dataSource = sdkOmittedValue}) =>
+      CreateEvalRunRequest(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, dynamic>?>,
+        dataSource: identical(dataSource, sdkOmittedValue)
+            ? this.dataSource
+            : dataSource as CreateEvalRunRequestDataSource,
+      );
 
-  factory CreateEvalRunRequest.fromJson(Map<String, dynamic> json) => CreateEvalRunRequest(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
-    dataSource: (json['data_source'] != null ? CreateEvalRunRequestDataSource.fromJson(json['data_source']) : null)!,
-  );
+  factory CreateEvalRunRequest.fromJson(Map<String, dynamic> json) =>
+      CreateEvalRunRequest(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        metadata: json.containsKey('metadata')
+            ? SdkPresent(json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        dataSource: (json['data_source'] != null
+            ? CreateEvalRunRequestDataSource.fromJson(json['data_source'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metadata) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-    'data_source': dataSource.toJson(),
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metadata) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'data_source': dataSource.toJson(),
+      };
 }
 
 sealed class CreateEvalRunRequestDataSource {
@@ -141,68 +230,118 @@ sealed class CreateEvalRunRequestDataSource {
   static const String constructionSurface = 'named';
   const CreateEvalRunRequestDataSource();
   factory CreateEvalRunRequestDataSource.fromJson(Object? json) {
-    try { return CreateEvalRunRequestDataSourceCreateEvalJsonlRunDataSource(CreateEvalJsonlRunDataSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalRunRequestDataSourceCreateEvalCompletionsRunDataSource(CreateEvalCompletionsRunDataSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalRunRequestDataSourceCreateEvalResponsesRunDataSource(CreateEvalResponsesRunDataSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"jsonl", "completions", "responses"}.contains(json["type"])) { return UnknownCreateEvalRunRequestDataSource(json); }
-    throw FormatException("No variant matched for CreateEvalRunRequestDataSource");
+    try {
+      return CreateEvalRunRequestDataSourceCreateEvalJsonlRunDataSource(
+          CreateEvalJsonlRunDataSource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalRunRequestDataSourceCreateEvalCompletionsRunDataSource(
+          CreateEvalCompletionsRunDataSource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalRunRequestDataSourceCreateEvalResponsesRunDataSource(
+          CreateEvalResponsesRunDataSource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"jsonl", "completions", "responses"}.contains(json["type"])) {
+      return UnknownCreateEvalRunRequestDataSource(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateEvalRunRequestDataSource");
   }
   Object? toJson();
 }
 
-final class CreateEvalRunRequestDataSourceCreateEvalJsonlRunDataSource extends CreateEvalRunRequestDataSource {
+final class CreateEvalRunRequestDataSourceCreateEvalJsonlRunDataSource
+    extends CreateEvalRunRequestDataSource {
   final CreateEvalJsonlRunDataSource value;
   const CreateEvalRunRequestDataSourceCreateEvalJsonlRunDataSource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalRunRequestDataSourceCreateEvalCompletionsRunDataSource extends CreateEvalRunRequestDataSource {
+final class CreateEvalRunRequestDataSourceCreateEvalCompletionsRunDataSource
+    extends CreateEvalRunRequestDataSource {
   final CreateEvalCompletionsRunDataSource value;
-  const CreateEvalRunRequestDataSourceCreateEvalCompletionsRunDataSource(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateEvalRunRequestDataSourceCreateEvalCompletionsRunDataSource(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateEvalRunRequestDataSourceCreateEvalResponsesRunDataSource extends CreateEvalRunRequestDataSource {
+final class CreateEvalRunRequestDataSourceCreateEvalResponsesRunDataSource
+    extends CreateEvalRunRequestDataSource {
   final CreateEvalResponsesRunDataSource value;
-  const CreateEvalRunRequestDataSourceCreateEvalResponsesRunDataSource(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateEvalRunRequestDataSourceCreateEvalResponsesRunDataSource(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateEvalRunRequestDataSource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateEvalRunRequestDataSource extends CreateEvalRunRequestDataSource {
+final class UnknownCreateEvalRunRequestDataSource
+    extends CreateEvalRunRequestDataSource {
   final Map<String, dynamic> raw;
   const UnknownCreateEvalRunRequestDataSource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Deprecated in favor of LogsDataSourceConfig.
 class CreateEvalStoredCompletionsDataSourceConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of data source. Always `stored_completions`.
   final CreateEvalStoredCompletionsDataSourceConfigType type_;
+
   /// Metadata filters for the stored completions data source.
   final SdkOptional<Map<String, Object?>> metadata;
 
-  const CreateEvalStoredCompletionsDataSourceConfig({required this.type_, this.metadata = const SdkOmitted()});
+  const CreateEvalStoredCompletionsDataSourceConfig(
+      {required this.type_, this.metadata = const SdkOmitted()});
 
-  CreateEvalStoredCompletionsDataSourceConfig Function({CreateEvalStoredCompletionsDataSourceConfigType type_, SdkOptional<Map<String, Object?>> metadata}) get copyWith => _copyWith;
+  CreateEvalStoredCompletionsDataSourceConfig Function(
+      {CreateEvalStoredCompletionsDataSourceConfigType type_,
+      SdkOptional<Map<String, Object?>> metadata}) get copyWith => _copyWith;
 
-  CreateEvalStoredCompletionsDataSourceConfig _copyWith({Object? type_ = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => CreateEvalStoredCompletionsDataSourceConfig(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalStoredCompletionsDataSourceConfigType,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, Object?>>,
-  );
+  CreateEvalStoredCompletionsDataSourceConfig _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      CreateEvalStoredCompletionsDataSourceConfig(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateEvalStoredCompletionsDataSourceConfigType,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, Object?>>,
+      );
 
-  factory CreateEvalStoredCompletionsDataSourceConfig.fromJson(Map<String, dynamic> json) => CreateEvalStoredCompletionsDataSourceConfig(
-    type_: (json['type'] != null ? CreateEvalStoredCompletionsDataSourceConfigType.fromJson(json['type'] as String) : null)!,
-    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-  );
+  factory CreateEvalStoredCompletionsDataSourceConfig.fromJson(
+          Map<String, dynamic> json) =>
+      CreateEvalStoredCompletionsDataSourceConfig(
+        type_: (json['type'] != null
+            ? CreateEvalStoredCompletionsDataSourceConfigType.fromJson(
+                json['type'] as String)
+            : null)!,
+        metadata: json['metadata'] != null
+            ? SdkPresent((json['metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (metadata) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (metadata) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

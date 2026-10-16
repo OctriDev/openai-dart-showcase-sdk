@@ -8,48 +8,100 @@ part of 'shared_auto.dart';
 class AutoCodeInterpreterToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `auto`.
   final AutoCodeInterpreterToolParamType type_;
+
   /// An optional list of uploaded files to make available to your code.
   final SdkOptional<List<String>> fileIds;
+
   /// Optional API value serialized in the `memory_limit` wire field.
   final SdkOptional<ContainerMemoryLimit?> memoryLimit;
+
   /// Network access policy for the container.
   final SdkOptional<AutoCodeInterpreterToolParamNetworkPolicy> networkPolicy;
 
-  const AutoCodeInterpreterToolParam({required this.type_, this.fileIds = const SdkOmitted(), this.memoryLimit = const SdkOmitted(), this.networkPolicy = const SdkOmitted()});
+  const AutoCodeInterpreterToolParam(
+      {required this.type_,
+      this.fileIds = const SdkOmitted(),
+      this.memoryLimit = const SdkOmitted(),
+      this.networkPolicy = const SdkOmitted()});
 
-  AutoCodeInterpreterToolParam Function({AutoCodeInterpreterToolParamType type_, SdkOptional<List<String>> fileIds, SdkOptional<ContainerMemoryLimit?> memoryLimit, SdkOptional<AutoCodeInterpreterToolParamNetworkPolicy> networkPolicy}) get copyWith => _copyWith;
+  AutoCodeInterpreterToolParam Function(
+          {AutoCodeInterpreterToolParamType type_,
+          SdkOptional<List<String>> fileIds,
+          SdkOptional<ContainerMemoryLimit?> memoryLimit,
+          SdkOptional<AutoCodeInterpreterToolParamNetworkPolicy> networkPolicy})
+      get copyWith => _copyWith;
 
-  AutoCodeInterpreterToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? fileIds = sdkOmittedValue, Object? memoryLimit = sdkOmittedValue, Object? networkPolicy = sdkOmittedValue}) => AutoCodeInterpreterToolParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AutoCodeInterpreterToolParamType,
-    fileIds: identical(fileIds, sdkOmittedValue) ? this.fileIds : fileIds as SdkOptional<List<String>>,
-    memoryLimit: identical(memoryLimit, sdkOmittedValue) ? this.memoryLimit : memoryLimit as SdkOptional<ContainerMemoryLimit?>,
-    networkPolicy: identical(networkPolicy, sdkOmittedValue) ? this.networkPolicy : networkPolicy as SdkOptional<AutoCodeInterpreterToolParamNetworkPolicy>,
-  );
+  AutoCodeInterpreterToolParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? fileIds = sdkOmittedValue,
+          Object? memoryLimit = sdkOmittedValue,
+          Object? networkPolicy = sdkOmittedValue}) =>
+      AutoCodeInterpreterToolParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AutoCodeInterpreterToolParamType,
+        fileIds: identical(fileIds, sdkOmittedValue)
+            ? this.fileIds
+            : fileIds as SdkOptional<List<String>>,
+        memoryLimit: identical(memoryLimit, sdkOmittedValue)
+            ? this.memoryLimit
+            : memoryLimit as SdkOptional<ContainerMemoryLimit?>,
+        networkPolicy: identical(networkPolicy, sdkOmittedValue)
+            ? this.networkPolicy
+            : networkPolicy
+                as SdkOptional<AutoCodeInterpreterToolParamNetworkPolicy>,
+      );
 
-  factory AutoCodeInterpreterToolParam.fromJson(Map<String, dynamic> json) => AutoCodeInterpreterToolParam(
-    type_: (json['type'] != null ? AutoCodeInterpreterToolParamType.fromJson(json['type'] as String) : null)!,
-    fileIds: json['file_ids'] != null ? SdkPresent(((json['file_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    memoryLimit: json.containsKey('memory_limit') ? SdkPresent(json['memory_limit'] != null ? ContainerMemoryLimit.fromJson(json['memory_limit'] as String) : null) : const SdkOmitted(),
-    networkPolicy: json['network_policy'] != null ? SdkPresent((json['network_policy'] != null ? AutoCodeInterpreterToolParamNetworkPolicy.fromJson(json['network_policy']) : null)!) : const SdkOmitted(),
-  );
+  factory AutoCodeInterpreterToolParam.fromJson(Map<String, dynamic> json) =>
+      AutoCodeInterpreterToolParam(
+        type_: (json['type'] != null
+            ? AutoCodeInterpreterToolParamType.fromJson(json['type'] as String)
+            : null)!,
+        fileIds: json['file_ids'] != null
+            ? SdkPresent(((json['file_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        memoryLimit: json.containsKey('memory_limit')
+            ? SdkPresent(json['memory_limit'] != null
+                ? ContainerMemoryLimit.fromJson(json['memory_limit'] as String)
+                : null)
+            : const SdkOmitted(),
+        networkPolicy: json['network_policy'] != null
+            ? SdkPresent((json['network_policy'] != null
+                ? AutoCodeInterpreterToolParamNetworkPolicy.fromJson(
+                    json['network_policy'])
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (fileIds) {
-      SdkPresent<List<String>>(value: final value) => {'file_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (memoryLimit) {
-      SdkPresent<ContainerMemoryLimit?>(value: final value) => {'memory_limit': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (networkPolicy) {
-      SdkPresent<AutoCodeInterpreterToolParamNetworkPolicy>(value: final value) => {'network_policy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (fileIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'file_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (memoryLimit) {
+          SdkPresent<ContainerMemoryLimit?>(value: final value) => {
+              'memory_limit': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (networkPolicy) {
+          SdkPresent<AutoCodeInterpreterToolParamNetworkPolicy>(
+            value: final value
+          ) =>
+            {
+              'network_policy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class AutoCodeInterpreterToolParamNetworkPolicy {
@@ -57,29 +109,50 @@ sealed class AutoCodeInterpreterToolParamNetworkPolicy {
   static const String constructionSurface = 'named';
   const AutoCodeInterpreterToolParamNetworkPolicy();
   factory AutoCodeInterpreterToolParamNetworkPolicy.fromJson(Object? json) {
-    try { return AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyDisabledParam(ContainerNetworkPolicyDisabledParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyAllowlistParam(ContainerNetworkPolicyAllowlistParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"disabled", "allowlist"}.contains(json["type"])) { return UnknownAutoCodeInterpreterToolParamNetworkPolicy(json); }
-    throw FormatException("No variant matched for AutoCodeInterpreterToolParamNetworkPolicy");
+    try {
+      return AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyDisabledParam(
+          ContainerNetworkPolicyDisabledParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyAllowlistParam(
+          ContainerNetworkPolicyAllowlistParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"disabled", "allowlist"}.contains(json["type"])) {
+      return UnknownAutoCodeInterpreterToolParamNetworkPolicy(json);
+    }
+    throw FormatException(
+        "No variant matched for AutoCodeInterpreterToolParamNetworkPolicy");
   }
   Object? toJson();
 }
 
-final class AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyDisabledParam extends AutoCodeInterpreterToolParamNetworkPolicy {
+final class AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyDisabledParam
+    extends AutoCodeInterpreterToolParamNetworkPolicy {
   final ContainerNetworkPolicyDisabledParam value;
-  const AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyDisabledParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyDisabledParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyAllowlistParam extends AutoCodeInterpreterToolParamNetworkPolicy {
+final class AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyAllowlistParam
+    extends AutoCodeInterpreterToolParamNetworkPolicy {
   final ContainerNetworkPolicyAllowlistParam value;
-  const AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyAllowlistParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyAllowlistParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [AutoCodeInterpreterToolParamNetworkPolicy] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownAutoCodeInterpreterToolParamNetworkPolicy extends AutoCodeInterpreterToolParamNetworkPolicy {
+final class UnknownAutoCodeInterpreterToolParamNetworkPolicy
+    extends AutoCodeInterpreterToolParamNetworkPolicy {
   final Map<String, dynamic> raw;
   const UnknownAutoCodeInterpreterToolParamNetworkPolicy(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

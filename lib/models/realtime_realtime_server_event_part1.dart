@@ -9,258 +9,584 @@ sealed class RealtimeServerEvent {
   static const String constructionSurface = 'named';
   const RealtimeServerEvent();
   factory RealtimeServerEvent.fromJson(Object? json) {
-    try { return RealtimeServerEventRealtimeServerEventConversationCreated(RealtimeServerEventConversationCreated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventConversationItemCreated(RealtimeServerEventConversationItemCreated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventConversationItemDeleted(RealtimeServerEventConversationItemDeleted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionCompleted(RealtimeServerEventConversationItemInputAudioTranscriptionCompleted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionDelta(RealtimeServerEventConversationItemInputAudioTranscriptionDelta.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionFailed(RealtimeServerEventConversationItemInputAudioTranscriptionFailed.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventConversationItemRetrieved(RealtimeServerEventConversationItemRetrieved.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventConversationItemTruncated(RealtimeServerEventConversationItemTruncated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventError(RealtimeServerEventError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventInputAudioBufferCleared(RealtimeServerEventInputAudioBufferCleared.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventInputAudioBufferCommitted(RealtimeServerEventInputAudioBufferCommitted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventInputAudioBufferDtmfEventReceived(RealtimeServerEventInputAudioBufferDtmfEventReceived.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStarted(RealtimeServerEventInputAudioBufferSpeechStarted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStopped(RealtimeServerEventInputAudioBufferSpeechStopped.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventRateLimitsUpdated(RealtimeServerEventRateLimitsUpdated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseAudioDelta(RealtimeServerEventResponseAudioDelta.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseAudioDone(RealtimeServerEventResponseAudioDone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDelta(RealtimeServerEventResponseAudioTranscriptDelta.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDone(RealtimeServerEventResponseAudioTranscriptDone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseContentPartAdded(RealtimeServerEventResponseContentPartAdded.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseContentPartDone(RealtimeServerEventResponseContentPartDone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseCreated(RealtimeServerEventResponseCreated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseDone(RealtimeServerEventResponseDone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDelta(RealtimeServerEventResponseFunctionCallArgumentsDelta.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDone(RealtimeServerEventResponseFunctionCallArgumentsDone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseOutputItemAdded(RealtimeServerEventResponseOutputItemAdded.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseOutputItemDone(RealtimeServerEventResponseOutputItemDone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseTextDelta(RealtimeServerEventResponseTextDelta.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseTextDone(RealtimeServerEventResponseTextDone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventSessionCreated(RealtimeServerEventSessionCreated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventSessionUpdated(RealtimeServerEventSessionUpdated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted(RealtimeServerEventOutputAudioBufferStarted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped(RealtimeServerEventOutputAudioBufferStopped.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared(RealtimeServerEventOutputAudioBufferCleared.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventConversationItemAdded(RealtimeServerEventConversationItemAdded.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventConversationItemDone(RealtimeServerEventConversationItemDone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventInputAudioBufferTimeoutTriggered(RealtimeServerEventInputAudioBufferTimeoutTriggered.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionSegment(RealtimeServerEventConversationItemInputAudioTranscriptionSegment.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventMCPListToolsInProgress(RealtimeServerEventMCPListToolsInProgress.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventMCPListToolsCompleted(RealtimeServerEventMCPListToolsCompleted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventMCPListToolsFailed(RealtimeServerEventMCPListToolsFailed.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDelta(RealtimeServerEventResponseMCPCallArgumentsDelta.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDone(RealtimeServerEventResponseMCPCallArgumentsDone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseMCPCallInProgress(RealtimeServerEventResponseMCPCallInProgress.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseMCPCallCompleted(RealtimeServerEventResponseMCPCallCompleted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventRealtimeServerEventResponseMCPCallFailed(RealtimeServerEventResponseMCPCallFailed.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"conversation.created", "conversation.item.created", "conversation.item.deleted", "conversation.item.input_audio_transcription.completed", "conversation.item.input_audio_transcription.delta", "conversation.item.input_audio_transcription.failed", "conversation.item.retrieved", "conversation.item.truncated", "error", "input_audio_buffer.cleared", "input_audio_buffer.committed", "input_audio_buffer.dtmf_event_received", "input_audio_buffer.speech_started", "input_audio_buffer.speech_stopped", "rate_limits.updated", "response.output_audio.delta", "response.output_audio.done", "response.output_audio_transcript.delta", "response.output_audio_transcript.done", "response.content_part.added", "response.content_part.done", "response.created", "response.done", "response.function_call_arguments.delta", "response.function_call_arguments.done", "response.output_item.added", "response.output_item.done", "response.output_text.delta", "response.output_text.done", "session.created", "session.updated", "output_audio_buffer.started", "output_audio_buffer.stopped", "output_audio_buffer.cleared", "conversation.item.added", "conversation.item.done", "input_audio_buffer.timeout_triggered", "conversation.item.input_audio_transcription.segment", "mcp_list_tools.in_progress", "mcp_list_tools.completed", "mcp_list_tools.failed", "response.mcp_call_arguments.delta", "response.mcp_call_arguments.done", "response.mcp_call.in_progress", "response.mcp_call.completed", "response.mcp_call.failed"}.contains(json["type"])) { return UnknownRealtimeServerEvent(json); }
+    try {
+      return RealtimeServerEventRealtimeServerEventConversationCreated(
+          RealtimeServerEventConversationCreated.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventConversationItemCreated(
+          RealtimeServerEventConversationItemCreated.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventConversationItemDeleted(
+          RealtimeServerEventConversationItemDeleted.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionCompleted(
+          RealtimeServerEventConversationItemInputAudioTranscriptionCompleted
+              .fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionDelta(
+          RealtimeServerEventConversationItemInputAudioTranscriptionDelta
+              .fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionFailed(
+          RealtimeServerEventConversationItemInputAudioTranscriptionFailed
+              .fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventConversationItemRetrieved(
+          RealtimeServerEventConversationItemRetrieved.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventConversationItemTruncated(
+          RealtimeServerEventConversationItemTruncated.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventError(
+          RealtimeServerEventError.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventInputAudioBufferCleared(
+          RealtimeServerEventInputAudioBufferCleared.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventInputAudioBufferCommitted(
+          RealtimeServerEventInputAudioBufferCommitted.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventInputAudioBufferDtmfEventReceived(
+          RealtimeServerEventInputAudioBufferDtmfEventReceived.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStarted(
+          RealtimeServerEventInputAudioBufferSpeechStarted.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStopped(
+          RealtimeServerEventInputAudioBufferSpeechStopped.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventRateLimitsUpdated(
+          RealtimeServerEventRateLimitsUpdated.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseAudioDelta(
+          RealtimeServerEventResponseAudioDelta.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseAudioDone(
+          RealtimeServerEventResponseAudioDone.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDelta(
+          RealtimeServerEventResponseAudioTranscriptDelta.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDone(
+          RealtimeServerEventResponseAudioTranscriptDone.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseContentPartAdded(
+          RealtimeServerEventResponseContentPartAdded.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseContentPartDone(
+          RealtimeServerEventResponseContentPartDone.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseCreated(
+          RealtimeServerEventResponseCreated.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseDone(
+          RealtimeServerEventResponseDone.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDelta(
+          RealtimeServerEventResponseFunctionCallArgumentsDelta.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDone(
+          RealtimeServerEventResponseFunctionCallArgumentsDone.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseOutputItemAdded(
+          RealtimeServerEventResponseOutputItemAdded.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseOutputItemDone(
+          RealtimeServerEventResponseOutputItemDone.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseTextDelta(
+          RealtimeServerEventResponseTextDelta.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseTextDone(
+          RealtimeServerEventResponseTextDone.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventSessionCreated(
+          RealtimeServerEventSessionCreated.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventSessionUpdated(
+          RealtimeServerEventSessionUpdated.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted(
+          RealtimeServerEventOutputAudioBufferStarted.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped(
+          RealtimeServerEventOutputAudioBufferStopped.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared(
+          RealtimeServerEventOutputAudioBufferCleared.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventConversationItemAdded(
+          RealtimeServerEventConversationItemAdded.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventConversationItemDone(
+          RealtimeServerEventConversationItemDone.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventInputAudioBufferTimeoutTriggered(
+          RealtimeServerEventInputAudioBufferTimeoutTriggered.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionSegment(
+          RealtimeServerEventConversationItemInputAudioTranscriptionSegment
+              .fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventMCPListToolsInProgress(
+          RealtimeServerEventMCPListToolsInProgress.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventMCPListToolsCompleted(
+          RealtimeServerEventMCPListToolsCompleted.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventMCPListToolsFailed(
+          RealtimeServerEventMCPListToolsFailed.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDelta(
+          RealtimeServerEventResponseMCPCallArgumentsDelta.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDone(
+          RealtimeServerEventResponseMCPCallArgumentsDone.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseMCPCallInProgress(
+          RealtimeServerEventResponseMCPCallInProgress.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseMCPCallCompleted(
+          RealtimeServerEventResponseMCPCallCompleted.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventRealtimeServerEventResponseMCPCallFailed(
+          RealtimeServerEventResponseMCPCallFailed.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "conversation.created",
+          "conversation.item.created",
+          "conversation.item.deleted",
+          "conversation.item.input_audio_transcription.completed",
+          "conversation.item.input_audio_transcription.delta",
+          "conversation.item.input_audio_transcription.failed",
+          "conversation.item.retrieved",
+          "conversation.item.truncated",
+          "error",
+          "input_audio_buffer.cleared",
+          "input_audio_buffer.committed",
+          "input_audio_buffer.dtmf_event_received",
+          "input_audio_buffer.speech_started",
+          "input_audio_buffer.speech_stopped",
+          "rate_limits.updated",
+          "response.output_audio.delta",
+          "response.output_audio.done",
+          "response.output_audio_transcript.delta",
+          "response.output_audio_transcript.done",
+          "response.content_part.added",
+          "response.content_part.done",
+          "response.created",
+          "response.done",
+          "response.function_call_arguments.delta",
+          "response.function_call_arguments.done",
+          "response.output_item.added",
+          "response.output_item.done",
+          "response.output_text.delta",
+          "response.output_text.done",
+          "session.created",
+          "session.updated",
+          "output_audio_buffer.started",
+          "output_audio_buffer.stopped",
+          "output_audio_buffer.cleared",
+          "conversation.item.added",
+          "conversation.item.done",
+          "input_audio_buffer.timeout_triggered",
+          "conversation.item.input_audio_transcription.segment",
+          "mcp_list_tools.in_progress",
+          "mcp_list_tools.completed",
+          "mcp_list_tools.failed",
+          "response.mcp_call_arguments.delta",
+          "response.mcp_call_arguments.done",
+          "response.mcp_call.in_progress",
+          "response.mcp_call.completed",
+          "response.mcp_call.failed"
+        }.contains(json["type"])) {
+      return UnknownRealtimeServerEvent(json);
+    }
     throw FormatException("No variant matched for RealtimeServerEvent");
   }
   Object? toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventConversationCreated extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventConversationCreated
+    extends RealtimeServerEvent {
   final RealtimeServerEventConversationCreated value;
   const RealtimeServerEventRealtimeServerEventConversationCreated(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventConversationItemCreated extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventConversationItemCreated
+    extends RealtimeServerEvent {
   final RealtimeServerEventConversationItemCreated value;
-  const RealtimeServerEventRealtimeServerEventConversationItemCreated(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventConversationItemCreated(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventConversationItemDeleted extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventConversationItemDeleted
+    extends RealtimeServerEvent {
   final RealtimeServerEventConversationItemDeleted value;
-  const RealtimeServerEventRealtimeServerEventConversationItemDeleted(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventConversationItemDeleted(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionCompleted extends RealtimeServerEvent {
-  final RealtimeServerEventConversationItemInputAudioTranscriptionCompleted value;
-  const RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionCompleted(this.value);
-  @override Object? toJson() => value.toJson();
+final class RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionCompleted
+    extends RealtimeServerEvent {
+  final RealtimeServerEventConversationItemInputAudioTranscriptionCompleted
+      value;
+  const RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionCompleted(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionDelta extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionDelta
+    extends RealtimeServerEvent {
   final RealtimeServerEventConversationItemInputAudioTranscriptionDelta value;
-  const RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionDelta(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionDelta(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionFailed extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionFailed
+    extends RealtimeServerEvent {
   final RealtimeServerEventConversationItemInputAudioTranscriptionFailed value;
-  const RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionFailed(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionFailed(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventConversationItemRetrieved extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventConversationItemRetrieved
+    extends RealtimeServerEvent {
   final RealtimeServerEventConversationItemRetrieved value;
-  const RealtimeServerEventRealtimeServerEventConversationItemRetrieved(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventConversationItemRetrieved(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventConversationItemTruncated extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventConversationItemTruncated
+    extends RealtimeServerEvent {
   final RealtimeServerEventConversationItemTruncated value;
-  const RealtimeServerEventRealtimeServerEventConversationItemTruncated(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventConversationItemTruncated(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventError extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventError
+    extends RealtimeServerEvent {
   final RealtimeServerEventError value;
   const RealtimeServerEventRealtimeServerEventError(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventInputAudioBufferCleared extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventInputAudioBufferCleared
+    extends RealtimeServerEvent {
   final RealtimeServerEventInputAudioBufferCleared value;
-  const RealtimeServerEventRealtimeServerEventInputAudioBufferCleared(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventInputAudioBufferCleared(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventInputAudioBufferCommitted extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventInputAudioBufferCommitted
+    extends RealtimeServerEvent {
   final RealtimeServerEventInputAudioBufferCommitted value;
-  const RealtimeServerEventRealtimeServerEventInputAudioBufferCommitted(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventInputAudioBufferCommitted(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventInputAudioBufferDtmfEventReceived extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventInputAudioBufferDtmfEventReceived
+    extends RealtimeServerEvent {
   final RealtimeServerEventInputAudioBufferDtmfEventReceived value;
-  const RealtimeServerEventRealtimeServerEventInputAudioBufferDtmfEventReceived(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventInputAudioBufferDtmfEventReceived(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStarted extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStarted
+    extends RealtimeServerEvent {
   final RealtimeServerEventInputAudioBufferSpeechStarted value;
-  const RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStarted(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStarted(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStopped extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStopped
+    extends RealtimeServerEvent {
   final RealtimeServerEventInputAudioBufferSpeechStopped value;
-  const RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStopped(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStopped(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventRateLimitsUpdated extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventRateLimitsUpdated
+    extends RealtimeServerEvent {
   final RealtimeServerEventRateLimitsUpdated value;
   const RealtimeServerEventRealtimeServerEventRateLimitsUpdated(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseAudioDelta extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseAudioDelta
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseAudioDelta value;
   const RealtimeServerEventRealtimeServerEventResponseAudioDelta(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseAudioDone extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseAudioDone
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseAudioDone value;
   const RealtimeServerEventRealtimeServerEventResponseAudioDone(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDelta extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDelta
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseAudioTranscriptDelta value;
-  const RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDelta(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDelta(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDone extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDone
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseAudioTranscriptDone value;
-  const RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDone(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDone(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseContentPartAdded extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseContentPartAdded
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseContentPartAdded value;
-  const RealtimeServerEventRealtimeServerEventResponseContentPartAdded(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseContentPartAdded(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseContentPartDone extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseContentPartDone
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseContentPartDone value;
-  const RealtimeServerEventRealtimeServerEventResponseContentPartDone(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseContentPartDone(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseCreated extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseCreated
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseCreated value;
   const RealtimeServerEventRealtimeServerEventResponseCreated(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseDone extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseDone
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseDone value;
   const RealtimeServerEventRealtimeServerEventResponseDone(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDelta extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDelta
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseFunctionCallArgumentsDelta value;
-  const RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDelta(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDelta(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDone extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDone
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseFunctionCallArgumentsDone value;
-  const RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDone(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDone(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseOutputItemAdded extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseOutputItemAdded
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseOutputItemAdded value;
-  const RealtimeServerEventRealtimeServerEventResponseOutputItemAdded(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseOutputItemAdded(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseOutputItemDone extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseOutputItemDone
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseOutputItemDone value;
-  const RealtimeServerEventRealtimeServerEventResponseOutputItemDone(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseOutputItemDone(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseTextDelta extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseTextDelta
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseTextDelta value;
   const RealtimeServerEventRealtimeServerEventResponseTextDelta(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseTextDone extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseTextDone
+    extends RealtimeServerEvent {
   final RealtimeServerEventResponseTextDone value;
   const RealtimeServerEventRealtimeServerEventResponseTextDone(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventSessionCreated extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventSessionCreated
+    extends RealtimeServerEvent {
   final RealtimeServerEventSessionCreated value;
   const RealtimeServerEventRealtimeServerEventSessionCreated(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventSessionUpdated extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventSessionUpdated
+    extends RealtimeServerEvent {
   final RealtimeServerEventSessionUpdated value;
   const RealtimeServerEventRealtimeServerEventSessionUpdated(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted
+    extends RealtimeServerEvent {
   final RealtimeServerEventOutputAudioBufferStarted value;
-  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped
+    extends RealtimeServerEvent {
   final RealtimeServerEventOutputAudioBufferStopped value;
-  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared
+    extends RealtimeServerEvent {
   final RealtimeServerEventOutputAudioBufferCleared value;
-  const RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }

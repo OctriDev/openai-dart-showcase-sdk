@@ -9,35 +9,153 @@ sealed class Item {
   static const String constructionSurface = 'named';
   const Item();
   factory Item.fromJson(Object? json) {
-    try { return ItemInputMessage(InputMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemOutputMessage(OutputMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemFileSearchToolCall(FileSearchToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemComputerToolCall(ComputerToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemComputerCallOutputItemParam(ComputerCallOutputItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemWebSearchToolCall(WebSearchToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemFunctionToolCall(FunctionToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemFunctionCallOutputItemParam(FunctionCallOutputItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemToolSearchCallItemParam(ToolSearchCallItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemToolSearchOutputItemParam(ToolSearchOutputItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemAdditionalToolsItemParam(AdditionalToolsItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemResponseConfigurationUpdateItemParam(ResponseConfigurationUpdateItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemReasoningItem(ReasoningItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemCompactionSummaryItemParam(CompactionSummaryItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemImageGenToolCall(ImageGenToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemCodeInterpreterToolCall(CodeInterpreterToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemLocalShellToolCall(LocalShellToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemLocalShellToolCallOutput(LocalShellToolCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemFunctionShellCallItemParam(FunctionShellCallItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemFunctionShellCallOutputItemParam(FunctionShellCallOutputItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemApplyPatchToolCallItemParam(ApplyPatchToolCallItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemApplyPatchToolCallOutputItemParam(ApplyPatchToolCallOutputItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemMCPListTools(MCPListTools.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemMCPApprovalRequest(MCPApprovalRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemMCPApprovalResponse(MCPApprovalResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemMCPToolCall(MCPToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemCustomToolCallOutput(CustomToolCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ItemCustomToolCall(CustomToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_search_call", "computer_call", "computer_call_output", "web_search_call", "function_call", "function_call_output", "tool_search_call", "tool_search_output", "additional_tools", "configuration_update", "reasoning", "compaction", "image_generation_call", "code_interpreter_call", "local_shell_call", "local_shell_call_output", "shell_call", "shell_call_output", "apply_patch_call", "apply_patch_call_output", "mcp_list_tools", "mcp_approval_request", "mcp_approval_response", "mcp_call", "custom_tool_call_output", "custom_tool_call"}.contains(json["type"])) { return UnknownItem(json); }
+    try {
+      return ItemInputMessage(
+          InputMessage.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemOutputMessage(
+          OutputMessage.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemFileSearchToolCall(
+          FileSearchToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemComputerToolCall(
+          ComputerToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemComputerCallOutputItemParam(
+          ComputerCallOutputItemParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemWebSearchToolCall(
+          WebSearchToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemFunctionToolCall(
+          FunctionToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemFunctionCallOutputItemParam(
+          FunctionCallOutputItemParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemToolSearchCallItemParam(
+          ToolSearchCallItemParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemToolSearchOutputItemParam(
+          ToolSearchOutputItemParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemAdditionalToolsItemParam(
+          AdditionalToolsItemParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemResponseConfigurationUpdateItemParam(
+          ResponseConfigurationUpdateItemParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemReasoningItem(
+          ReasoningItem.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemCompactionSummaryItemParam(
+          CompactionSummaryItemParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemImageGenToolCall(
+          ImageGenToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemCodeInterpreterToolCall(
+          CodeInterpreterToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemLocalShellToolCall(
+          LocalShellToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemLocalShellToolCallOutput(
+          LocalShellToolCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemFunctionShellCallItemParam(
+          FunctionShellCallItemParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemFunctionShellCallOutputItemParam(
+          FunctionShellCallOutputItemParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemApplyPatchToolCallItemParam(
+          ApplyPatchToolCallItemParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemApplyPatchToolCallOutputItemParam(
+          ApplyPatchToolCallOutputItemParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemMCPListTools(
+          MCPListTools.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemMCPApprovalRequest(
+          MCPApprovalRequest.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemMCPApprovalResponse(
+          MCPApprovalResponse.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemMCPToolCall(
+          MCPToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemCustomToolCallOutput(
+          CustomToolCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ItemCustomToolCall(
+          CustomToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "file_search_call",
+          "computer_call",
+          "computer_call_output",
+          "web_search_call",
+          "function_call",
+          "function_call_output",
+          "tool_search_call",
+          "tool_search_output",
+          "additional_tools",
+          "configuration_update",
+          "reasoning",
+          "compaction",
+          "image_generation_call",
+          "code_interpreter_call",
+          "local_shell_call",
+          "local_shell_call_output",
+          "shell_call",
+          "shell_call_output",
+          "apply_patch_call",
+          "apply_patch_call_output",
+          "mcp_list_tools",
+          "mcp_approval_request",
+          "mcp_approval_response",
+          "mcp_call",
+          "custom_tool_call_output",
+          "custom_tool_call"
+        }.contains(json["type"])) {
+      return UnknownItem(json);
+    }
     throw FormatException("No variant matched for Item");
   }
   Object? toJson();
@@ -46,176 +164,205 @@ sealed class Item {
 final class ItemInputMessage extends Item {
   final InputMessage value;
   const ItemInputMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemOutputMessage extends Item {
   final OutputMessage value;
   const ItemOutputMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemFileSearchToolCall extends Item {
   final FileSearchToolCall value;
   const ItemFileSearchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemComputerToolCall extends Item {
   final ComputerToolCall value;
   const ItemComputerToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemComputerCallOutputItemParam extends Item {
   final ComputerCallOutputItemParam value;
   const ItemComputerCallOutputItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemWebSearchToolCall extends Item {
   final WebSearchToolCall value;
   const ItemWebSearchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemFunctionToolCall extends Item {
   final FunctionToolCall value;
   const ItemFunctionToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemFunctionCallOutputItemParam extends Item {
   final FunctionCallOutputItemParam value;
   const ItemFunctionCallOutputItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemToolSearchCallItemParam extends Item {
   final ToolSearchCallItemParam value;
   const ItemToolSearchCallItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemToolSearchOutputItemParam extends Item {
   final ToolSearchOutputItemParam value;
   const ItemToolSearchOutputItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemAdditionalToolsItemParam extends Item {
   final AdditionalToolsItemParam value;
   const ItemAdditionalToolsItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemResponseConfigurationUpdateItemParam extends Item {
   final ResponseConfigurationUpdateItemParam value;
   const ItemResponseConfigurationUpdateItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemReasoningItem extends Item {
   final ReasoningItem value;
   const ItemReasoningItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemCompactionSummaryItemParam extends Item {
   final CompactionSummaryItemParam value;
   const ItemCompactionSummaryItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemImageGenToolCall extends Item {
   final ImageGenToolCall value;
   const ItemImageGenToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemCodeInterpreterToolCall extends Item {
   final CodeInterpreterToolCall value;
   const ItemCodeInterpreterToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemLocalShellToolCall extends Item {
   final LocalShellToolCall value;
   const ItemLocalShellToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemLocalShellToolCallOutput extends Item {
   final LocalShellToolCallOutput value;
   const ItemLocalShellToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemFunctionShellCallItemParam extends Item {
   final FunctionShellCallItemParam value;
   const ItemFunctionShellCallItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemFunctionShellCallOutputItemParam extends Item {
   final FunctionShellCallOutputItemParam value;
   const ItemFunctionShellCallOutputItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemApplyPatchToolCallItemParam extends Item {
   final ApplyPatchToolCallItemParam value;
   const ItemApplyPatchToolCallItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemApplyPatchToolCallOutputItemParam extends Item {
   final ApplyPatchToolCallOutputItemParam value;
   const ItemApplyPatchToolCallOutputItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemMCPListTools extends Item {
   final MCPListTools value;
   const ItemMCPListTools(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemMCPApprovalRequest extends Item {
   final MCPApprovalRequest value;
   const ItemMCPApprovalRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemMCPApprovalResponse extends Item {
   final MCPApprovalResponse value;
   const ItemMCPApprovalResponse(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemMCPToolCall extends Item {
   final MCPToolCall value;
   const ItemMCPToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemCustomToolCallOutput extends Item {
   final CustomToolCallOutput value;
   const ItemCustomToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ItemCustomToolCall extends Item {
   final CustomToolCall value;
   const ItemCustomToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [Item] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownItem extends Item {
   final Map<String, dynamic> raw;
   const UnknownItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 sealed class ItemReferenceParamType {
@@ -223,46 +370,67 @@ sealed class ItemReferenceParamType {
   static const String constructionSurface = 'named';
   const ItemReferenceParamType();
   factory ItemReferenceParamType.fromJson(Object? json) {
-    try { return ItemReferenceParamTypeItemReferenceParamTypeVariant0(ItemReferenceParamTypeVariant0.fromJson(json as String)); } catch (_) {}
+    try {
+      return ItemReferenceParamTypeItemReferenceParamTypeVariant0(
+          ItemReferenceParamTypeVariant0.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for ItemReferenceParamType");
   }
   Object? toJson();
 }
 
-final class ItemReferenceParamTypeItemReferenceParamTypeVariant0 extends ItemReferenceParamType {
+final class ItemReferenceParamTypeItemReferenceParamTypeVariant0
+    extends ItemReferenceParamType {
   final ItemReferenceParamTypeVariant0 value;
   const ItemReferenceParamTypeItemReferenceParamTypeVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// An internal identifier for an item to reference.
 class ItemReferenceParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `type` wire field.
   final SdkOptional<ItemReferenceParamTypeVariant0?> type_;
+
   /// The ID of the item to reference.
   final String id;
 
   const ItemReferenceParam({this.type_ = const SdkOmitted(), required this.id});
 
-  ItemReferenceParam Function({SdkOptional<ItemReferenceParamTypeVariant0?> type_, String id}) get copyWith => _copyWith;
+  ItemReferenceParam Function(
+      {SdkOptional<ItemReferenceParamTypeVariant0?> type_,
+      String id}) get copyWith => _copyWith;
 
-  ItemReferenceParam _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => ItemReferenceParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ItemReferenceParamTypeVariant0?>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  ItemReferenceParam _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      ItemReferenceParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ItemReferenceParamTypeVariant0?>,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory ItemReferenceParam.fromJson(Map<String, dynamic> json) => ItemReferenceParam(
-    type_: json.containsKey('type') ? SdkPresent(json['type'] != null ? ItemReferenceParamTypeVariant0.fromJson(json['type'] as String) : null) : const SdkOmitted(),
-    id: (json['id'] as String?)!,
-  );
+  factory ItemReferenceParam.fromJson(Map<String, dynamic> json) =>
+      ItemReferenceParam(
+        type_: json.containsKey('type')
+            ? SdkPresent(json['type'] != null
+                ? ItemReferenceParamTypeVariant0.fromJson(
+                    json['type'] as String)
+                : null)
+            : const SdkOmitted(),
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ItemReferenceParamTypeVariant0?>(value: final value) => {'type': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'id': id,
-  };
+        ...switch (type_) {
+          SdkPresent<ItemReferenceParamTypeVariant0?>(value: final value) => {
+              'type': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'id': id,
+      };
 }

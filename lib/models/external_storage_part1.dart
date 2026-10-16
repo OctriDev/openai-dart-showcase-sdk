@@ -8,112 +8,190 @@ part of 'external_storage.dart';
 class AwsExternalStorageProviderParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final AwsExternalStorageProviderParamsType type_;
+
   /// Required `string` value serialized in the `bucket` wire field.
   final String bucket;
+
   /// Required `string` value serialized in the `role_arn` wire field.
   final String roleArn;
 
-  const AwsExternalStorageProviderParams({required this.type_, required this.bucket, required this.roleArn});
+  const AwsExternalStorageProviderParams(
+      {required this.type_, required this.bucket, required this.roleArn});
 
-  AwsExternalStorageProviderParams Function({AwsExternalStorageProviderParamsType type_, String bucket, String roleArn}) get copyWith => _copyWith;
+  AwsExternalStorageProviderParams Function(
+      {AwsExternalStorageProviderParamsType type_,
+      String bucket,
+      String roleArn}) get copyWith => _copyWith;
 
-  AwsExternalStorageProviderParams _copyWith({Object? type_ = sdkOmittedValue, Object? bucket = sdkOmittedValue, Object? roleArn = sdkOmittedValue}) => AwsExternalStorageProviderParams(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AwsExternalStorageProviderParamsType,
-    bucket: identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
-    roleArn: identical(roleArn, sdkOmittedValue) ? this.roleArn : roleArn as String,
-  );
+  AwsExternalStorageProviderParams _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? bucket = sdkOmittedValue,
+          Object? roleArn = sdkOmittedValue}) =>
+      AwsExternalStorageProviderParams(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AwsExternalStorageProviderParamsType,
+        bucket:
+            identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
+        roleArn: identical(roleArn, sdkOmittedValue)
+            ? this.roleArn
+            : roleArn as String,
+      );
 
-  factory AwsExternalStorageProviderParams.fromJson(Map<String, dynamic> json) => AwsExternalStorageProviderParams(
-    type_: (json['type'] != null ? AwsExternalStorageProviderParamsType.fromJson(json['type'] as String) : null)!,
-    bucket: (json['bucket'] as String?)!,
-    roleArn: (json['role_arn'] as String?)!,
-  );
+  factory AwsExternalStorageProviderParams.fromJson(
+          Map<String, dynamic> json) =>
+      AwsExternalStorageProviderParams(
+        type_: (json['type'] != null
+            ? AwsExternalStorageProviderParamsType.fromJson(
+                json['type'] as String)
+            : null)!,
+        bucket: (json['bucket'] as String?)!,
+        roleArn: (json['role_arn'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'bucket': bucket,
-    'role_arn': roleArn,
-  };
+        'type': type_.toJson(),
+        'bucket': bucket,
+        'role_arn': roleArn,
+      };
 }
 
 /// Typed representation of the `AzureExternalStorageProviderParams` API schema.
 class AzureExternalStorageProviderParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final AzureExternalStorageProviderParamsType type_;
+
   /// Required `string` value serialized in the `tenant_id` wire field.
   final String tenantId;
+
   /// Required `string` value serialized in the `subscription_id` wire field.
   final String subscriptionId;
+
   /// Required `string` value serialized in the `resource_group` wire field.
   final String resourceGroup;
+
   /// Required `string` value serialized in the `account_name` wire field.
   final String accountName;
+
   /// Required `string` value serialized in the `container` wire field.
   final String container;
 
-  const AzureExternalStorageProviderParams({required this.type_, required this.tenantId, required this.subscriptionId, required this.resourceGroup, required this.accountName, required this.container});
+  const AzureExternalStorageProviderParams(
+      {required this.type_,
+      required this.tenantId,
+      required this.subscriptionId,
+      required this.resourceGroup,
+      required this.accountName,
+      required this.container});
 
-  AzureExternalStorageProviderParams Function({AzureExternalStorageProviderParamsType type_, String tenantId, String subscriptionId, String resourceGroup, String accountName, String container}) get copyWith => _copyWith;
+  AzureExternalStorageProviderParams Function(
+      {AzureExternalStorageProviderParamsType type_,
+      String tenantId,
+      String subscriptionId,
+      String resourceGroup,
+      String accountName,
+      String container}) get copyWith => _copyWith;
 
-  AzureExternalStorageProviderParams _copyWith({Object? type_ = sdkOmittedValue, Object? tenantId = sdkOmittedValue, Object? subscriptionId = sdkOmittedValue, Object? resourceGroup = sdkOmittedValue, Object? accountName = sdkOmittedValue, Object? container = sdkOmittedValue}) => AzureExternalStorageProviderParams(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AzureExternalStorageProviderParamsType,
-    tenantId: identical(tenantId, sdkOmittedValue) ? this.tenantId : tenantId as String,
-    subscriptionId: identical(subscriptionId, sdkOmittedValue) ? this.subscriptionId : subscriptionId as String,
-    resourceGroup: identical(resourceGroup, sdkOmittedValue) ? this.resourceGroup : resourceGroup as String,
-    accountName: identical(accountName, sdkOmittedValue) ? this.accountName : accountName as String,
-    container: identical(container, sdkOmittedValue) ? this.container : container as String,
-  );
+  AzureExternalStorageProviderParams _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? tenantId = sdkOmittedValue,
+          Object? subscriptionId = sdkOmittedValue,
+          Object? resourceGroup = sdkOmittedValue,
+          Object? accountName = sdkOmittedValue,
+          Object? container = sdkOmittedValue}) =>
+      AzureExternalStorageProviderParams(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AzureExternalStorageProviderParamsType,
+        tenantId: identical(tenantId, sdkOmittedValue)
+            ? this.tenantId
+            : tenantId as String,
+        subscriptionId: identical(subscriptionId, sdkOmittedValue)
+            ? this.subscriptionId
+            : subscriptionId as String,
+        resourceGroup: identical(resourceGroup, sdkOmittedValue)
+            ? this.resourceGroup
+            : resourceGroup as String,
+        accountName: identical(accountName, sdkOmittedValue)
+            ? this.accountName
+            : accountName as String,
+        container: identical(container, sdkOmittedValue)
+            ? this.container
+            : container as String,
+      );
 
-  factory AzureExternalStorageProviderParams.fromJson(Map<String, dynamic> json) => AzureExternalStorageProviderParams(
-    type_: (json['type'] != null ? AzureExternalStorageProviderParamsType.fromJson(json['type'] as String) : null)!,
-    tenantId: (json['tenant_id'] as String?)!,
-    subscriptionId: (json['subscription_id'] as String?)!,
-    resourceGroup: (json['resource_group'] as String?)!,
-    accountName: (json['account_name'] as String?)!,
-    container: (json['container'] as String?)!,
-  );
+  factory AzureExternalStorageProviderParams.fromJson(
+          Map<String, dynamic> json) =>
+      AzureExternalStorageProviderParams(
+        type_: (json['type'] != null
+            ? AzureExternalStorageProviderParamsType.fromJson(
+                json['type'] as String)
+            : null)!,
+        tenantId: (json['tenant_id'] as String?)!,
+        subscriptionId: (json['subscription_id'] as String?)!,
+        resourceGroup: (json['resource_group'] as String?)!,
+        accountName: (json['account_name'] as String?)!,
+        container: (json['container'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'tenant_id': tenantId,
-    'subscription_id': subscriptionId,
-    'resource_group': resourceGroup,
-    'account_name': accountName,
-    'container': container,
-  };
+        'type': type_.toJson(),
+        'tenant_id': tenantId,
+        'subscription_id': subscriptionId,
+        'resource_group': resourceGroup,
+        'account_name': accountName,
+        'container': container,
+      };
 }
 
 /// Typed representation of the `CreateExternalStorageBody` API schema.
 class CreateExternalStorageBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `project_id` wire field.
   final String projectId;
+
   /// Required API value serialized in the `provider` wire field.
   final CreateExternalStorageBodyProvider provider;
 
-  const CreateExternalStorageBody({required this.projectId, required this.provider});
+  const CreateExternalStorageBody(
+      {required this.projectId, required this.provider});
 
-  CreateExternalStorageBody Function({String projectId, CreateExternalStorageBodyProvider provider}) get copyWith => _copyWith;
+  CreateExternalStorageBody Function(
+      {String projectId,
+      CreateExternalStorageBodyProvider provider}) get copyWith => _copyWith;
 
-  CreateExternalStorageBody _copyWith({Object? projectId = sdkOmittedValue, Object? provider = sdkOmittedValue}) => CreateExternalStorageBody(
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as String,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as CreateExternalStorageBodyProvider,
-  );
+  CreateExternalStorageBody _copyWith(
+          {Object? projectId = sdkOmittedValue,
+          Object? provider = sdkOmittedValue}) =>
+      CreateExternalStorageBody(
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as String,
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as CreateExternalStorageBodyProvider,
+      );
 
-  factory CreateExternalStorageBody.fromJson(Map<String, dynamic> json) => CreateExternalStorageBody(
-    projectId: (json['project_id'] as String?)!,
-    provider: (json['provider'] != null ? CreateExternalStorageBodyProvider.fromJson(json['provider']) : null)!,
-  );
+  factory CreateExternalStorageBody.fromJson(Map<String, dynamic> json) =>
+      CreateExternalStorageBody(
+        projectId: (json['project_id'] as String?)!,
+        provider: (json['provider'] != null
+            ? CreateExternalStorageBodyProvider.fromJson(json['provider'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'project_id': projectId,
-    'provider': provider.toJson(),
-  };
+        'project_id': projectId,
+        'provider': provider.toJson(),
+      };
 }
 
 sealed class CreateExternalStorageBodyProvider {
@@ -121,143 +199,244 @@ sealed class CreateExternalStorageBodyProvider {
   static const String constructionSurface = 'named';
   const CreateExternalStorageBodyProvider();
   factory CreateExternalStorageBodyProvider.fromJson(Object? json) {
-    try { return CreateExternalStorageBodyProviderAwsExternalStorageProviderParams(AwsExternalStorageProviderParams.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateExternalStorageBodyProviderAzureExternalStorageProviderParams(AzureExternalStorageProviderParams.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateExternalStorageBodyProviderGcpExternalStorageProviderParams(GcpExternalStorageProviderParams.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateExternalStorageBodyProviderOciExternalStorageProviderParams(OciExternalStorageProviderParams.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"aws", "azure", "gcp", "oci"}.contains(json["type"])) { return UnknownCreateExternalStorageBodyProvider(json); }
-    throw FormatException("No variant matched for CreateExternalStorageBodyProvider");
+    try {
+      return CreateExternalStorageBodyProviderAwsExternalStorageProviderParams(
+          AwsExternalStorageProviderParams.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateExternalStorageBodyProviderAzureExternalStorageProviderParams(
+          AzureExternalStorageProviderParams.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateExternalStorageBodyProviderGcpExternalStorageProviderParams(
+          GcpExternalStorageProviderParams.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateExternalStorageBodyProviderOciExternalStorageProviderParams(
+          OciExternalStorageProviderParams.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"aws", "azure", "gcp", "oci"}.contains(json["type"])) {
+      return UnknownCreateExternalStorageBodyProvider(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateExternalStorageBodyProvider");
   }
   Object? toJson();
 }
 
-final class CreateExternalStorageBodyProviderAwsExternalStorageProviderParams extends CreateExternalStorageBodyProvider {
+final class CreateExternalStorageBodyProviderAwsExternalStorageProviderParams
+    extends CreateExternalStorageBodyProvider {
   final AwsExternalStorageProviderParams value;
-  const CreateExternalStorageBodyProviderAwsExternalStorageProviderParams(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateExternalStorageBodyProviderAwsExternalStorageProviderParams(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateExternalStorageBodyProviderAzureExternalStorageProviderParams extends CreateExternalStorageBodyProvider {
+final class CreateExternalStorageBodyProviderAzureExternalStorageProviderParams
+    extends CreateExternalStorageBodyProvider {
   final AzureExternalStorageProviderParams value;
-  const CreateExternalStorageBodyProviderAzureExternalStorageProviderParams(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateExternalStorageBodyProviderAzureExternalStorageProviderParams(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateExternalStorageBodyProviderGcpExternalStorageProviderParams extends CreateExternalStorageBodyProvider {
+final class CreateExternalStorageBodyProviderGcpExternalStorageProviderParams
+    extends CreateExternalStorageBodyProvider {
   final GcpExternalStorageProviderParams value;
-  const CreateExternalStorageBodyProviderGcpExternalStorageProviderParams(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateExternalStorageBodyProviderGcpExternalStorageProviderParams(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateExternalStorageBodyProviderOciExternalStorageProviderParams extends CreateExternalStorageBodyProvider {
+final class CreateExternalStorageBodyProviderOciExternalStorageProviderParams
+    extends CreateExternalStorageBodyProvider {
   final OciExternalStorageProviderParams value;
-  const CreateExternalStorageBodyProviderOciExternalStorageProviderParams(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateExternalStorageBodyProviderOciExternalStorageProviderParams(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateExternalStorageBodyProvider] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateExternalStorageBodyProvider extends CreateExternalStorageBodyProvider {
+final class UnknownCreateExternalStorageBodyProvider
+    extends CreateExternalStorageBodyProvider {
   final Map<String, dynamic> raw;
   const UnknownCreateExternalStorageBodyProvider(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Typed representation of the `ExternalStorageDeletedResource` API schema.
 class ExternalStorageDeletedResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final ExternalStorageDeletedResourceObject object;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
 
-  const ExternalStorageDeletedResource({required this.object, required this.id, required this.deleted});
+  const ExternalStorageDeletedResource(
+      {required this.object, required this.id, required this.deleted});
 
-  ExternalStorageDeletedResource Function({ExternalStorageDeletedResourceObject object, String id, bool deleted}) get copyWith => _copyWith;
+  ExternalStorageDeletedResource Function(
+      {ExternalStorageDeletedResourceObject object,
+      String id,
+      bool deleted}) get copyWith => _copyWith;
 
-  ExternalStorageDeletedResource _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => ExternalStorageDeletedResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ExternalStorageDeletedResourceObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  ExternalStorageDeletedResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      ExternalStorageDeletedResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ExternalStorageDeletedResourceObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory ExternalStorageDeletedResource.fromJson(Map<String, dynamic> json) => ExternalStorageDeletedResource(
-    object: (json['object'] != null ? ExternalStorageDeletedResourceObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    deleted: (json['deleted'] as bool?)!,
-  );
+  factory ExternalStorageDeletedResource.fromJson(Map<String, dynamic> json) =>
+      ExternalStorageDeletedResource(
+        object: (json['object'] != null
+            ? ExternalStorageDeletedResourceObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        deleted: (json['deleted'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'deleted': deleted,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'deleted': deleted,
+      };
 }
 
 /// Typed representation of the `ExternalStorageListResource` API schema.
 class ExternalStorageListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final ExternalStorageListResourceObject object;
+
   /// Required array value serialized in the `data` wire field.
   final List<ExternalStorageResponse> data;
+
   /// Required `string` value serialized in the `first_id` wire field.
   final String? firstId;
+
   /// Required `string` value serialized in the `last_id` wire field.
   final String? lastId;
+
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ExternalStorageListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
+  const ExternalStorageListResource(
+      {required this.object,
+      required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore});
 
-  ExternalStorageListResource Function({ExternalStorageListResourceObject object, List<ExternalStorageResponse> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
+  ExternalStorageListResource Function(
+      {ExternalStorageListResourceObject object,
+      List<ExternalStorageResponse> data,
+      String? firstId,
+      String? lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  ExternalStorageListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ExternalStorageListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ExternalStorageListResourceObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<ExternalStorageResponse>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  ExternalStorageListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      ExternalStorageListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ExternalStorageListResourceObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<ExternalStorageResponse>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String?,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory ExternalStorageListResource.fromJson(Map<String, dynamic> json) => ExternalStorageListResource(
-    object: (json['object'] != null ? ExternalStorageListResourceObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => ExternalStorageResponse.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
-    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory ExternalStorageListResource.fromJson(Map<String, dynamic> json) =>
+      ExternalStorageListResource(
+        object: (json['object'] != null
+            ? ExternalStorageListResourceObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                ExternalStorageResponse.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? json['first_id'] as String?
+            : throw ArgumentError.value(
+                null, 'first_id', 'Required property is missing'),
+        lastId: json.containsKey('last_id')
+            ? json['last_id'] as String?
+            : throw ArgumentError.value(
+                null, 'last_id', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+      };
 }
 
 /// Typed representation of the `ExternalStorageOrder` API schema.
 final class ExternalStorageOrder {
-
   final String value;
 
   const ExternalStorageOrder._(this.value);
 
-  factory ExternalStorageOrder.fromJson(String value) => ExternalStorageOrder._(value);
+  factory ExternalStorageOrder.fromJson(String value) =>
+      ExternalStorageOrder._(value);
 
   static const asc = ExternalStorageOrder._('asc');
   static const desc = ExternalStorageOrder._('desc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ExternalStorageOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ExternalStorageOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

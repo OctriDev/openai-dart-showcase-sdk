@@ -6,24 +6,27 @@ part of 'inline.dart';
 // Inline operation models (part 74)
 /// Specify a single approval policy for all tools. One of `always` or `never`. When set to `always`, all tools will require approval. When set to `never`, all tools will not require approval.
 final class MCPToolRequireApprovalVariant1 {
-
   final String value;
 
   const MCPToolRequireApprovalVariant1._(this.value);
 
-  factory MCPToolRequireApprovalVariant1.fromJson(String value) => MCPToolRequireApprovalVariant1._(value);
+  factory MCPToolRequireApprovalVariant1.fromJson(String value) =>
+      MCPToolRequireApprovalVariant1._(value);
 
   static const always = MCPToolRequireApprovalVariant1._('always');
   static const never = MCPToolRequireApprovalVariant1._('never');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MCPToolRequireApprovalVariant1 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MCPToolRequireApprovalVariant1 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the MCP tool. Always `mcp`.
@@ -32,14 +35,17 @@ enum MCPToolType {
 
   static MCPToolType fromJson(String value) {
     switch (value) {
-      case 'mcp': return MCPToolType.mcp;
-      default: throw ArgumentError('Unknown MCPToolType: $value');
+      case 'mcp':
+        return MCPToolType.mcp;
+      default:
+        throw ArgumentError('Unknown MCPToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPToolType.mcp: return 'mcp';
+      case MCPToolType.mcp:
+        return 'mcp';
     }
   }
 
@@ -53,14 +59,17 @@ enum MCPToolCallType {
 
   static MCPToolCallType fromJson(String value) {
     switch (value) {
-      case 'mcp_call': return MCPToolCallType.mcpCall;
-      default: throw ArgumentError('Unknown MCPToolCallType: $value');
+      case 'mcp_call':
+        return MCPToolCallType.mcpCall;
+      default:
+        throw ArgumentError('Unknown MCPToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPToolCallType.mcpCall: return 'mcp_call';
+      case MCPToolCallType.mcpCall:
+        return 'mcp_call';
     }
   }
 
@@ -74,14 +83,17 @@ enum MCPToolExecutionErrorType {
 
   static MCPToolExecutionErrorType fromJson(String value) {
     switch (value) {
-      case 'mcp_tool_execution_error': return MCPToolExecutionErrorType.mcpToolExecutionError;
-      default: throw ArgumentError('Unknown MCPToolExecutionErrorType: $value');
+      case 'mcp_tool_execution_error':
+        return MCPToolExecutionErrorType.mcpToolExecutionError;
+      default:
+        throw ArgumentError('Unknown MCPToolExecutionErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPToolExecutionErrorType.mcpToolExecutionError: return 'mcp_tool_execution_error';
+      case MCPToolExecutionErrorType.mcpToolExecutionError:
+        return 'mcp_tool_execution_error';
     }
   }
 
@@ -95,14 +107,17 @@ enum McpTransportConfigParamHttpType {
 
   static McpTransportConfigParamHttpType fromJson(String value) {
     switch (value) {
-      case 'http': return McpTransportConfigParamHttpType.http;
-      default: throw ArgumentError('Unknown McpTransportConfigParamHttpType: $value');
+      case 'http':
+        return McpTransportConfigParamHttpType.http;
+      default:
+        throw ArgumentError('Unknown McpTransportConfigParamHttpType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpTransportConfigParamHttpType.http: return 'http';
+      case McpTransportConfigParamHttpType.http:
+        return 'http';
     }
   }
 
@@ -116,14 +131,17 @@ enum McpTransportConfigParamStdioType {
 
   static McpTransportConfigParamStdioType fromJson(String value) {
     switch (value) {
-      case 'stdio': return McpTransportConfigParamStdioType.stdio;
-      default: throw ArgumentError('Unknown McpTransportConfigParamStdioType: $value');
+      case 'stdio':
+        return McpTransportConfigParamStdioType.stdio;
+      default:
+        throw ArgumentError('Unknown McpTransportConfigParamStdioType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpTransportConfigParamStdioType.stdio: return 'stdio';
+      case McpTransportConfigParamStdioType.stdio:
+        return 'stdio';
     }
   }
 
@@ -137,14 +155,17 @@ enum McpTransportResourceHttpType {
 
   static McpTransportResourceHttpType fromJson(String value) {
     switch (value) {
-      case 'http': return McpTransportResourceHttpType.http;
-      default: throw ArgumentError('Unknown McpTransportResourceHttpType: $value');
+      case 'http':
+        return McpTransportResourceHttpType.http;
+      default:
+        throw ArgumentError('Unknown McpTransportResourceHttpType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpTransportResourceHttpType.http: return 'http';
+      case McpTransportResourceHttpType.http:
+        return 'http';
     }
   }
 
@@ -158,14 +179,17 @@ enum McpTransportResourceStdioType {
 
   static McpTransportResourceStdioType fromJson(String value) {
     switch (value) {
-      case 'stdio': return McpTransportResourceStdioType.stdio;
-      default: throw ArgumentError('Unknown McpTransportResourceStdioType: $value');
+      case 'stdio':
+        return McpTransportResourceStdioType.stdio;
+      default:
+        throw ArgumentError('Unknown McpTransportResourceStdioType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpTransportResourceStdioType.stdio: return 'stdio';
+      case McpTransportResourceStdioType.stdio:
+        return 'stdio';
     }
   }
 
@@ -179,14 +203,17 @@ enum MessageType {
 
   static MessageType fromJson(String value) {
     switch (value) {
-      case 'message': return MessageType.message;
-      default: throw ArgumentError('Unknown MessageType: $value');
+      case 'message':
+        return MessageType.message;
+      default:
+        throw ArgumentError('Unknown MessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageType.message: return 'message';
+      case MessageType.message:
+        return 'message';
     }
   }
 
@@ -196,12 +223,12 @@ enum MessageType {
 
 /// Specifies the detail level of the image if specified by the user. `low` uses fewer tokens, you can opt in to high resolution using `high`.
 final class MessageContentImageFileObjectImageFileDetail {
-
   final String value;
 
   const MessageContentImageFileObjectImageFileDetail._(this.value);
 
-  factory MessageContentImageFileObjectImageFileDetail.fromJson(String value) => MessageContentImageFileObjectImageFileDetail._(value);
+  factory MessageContentImageFileObjectImageFileDetail.fromJson(String value) =>
+      MessageContentImageFileObjectImageFileDetail._(value);
 
   static const auto = MessageContentImageFileObjectImageFileDetail._('auto');
   static const low = MessageContentImageFileObjectImageFileDetail._('low');
@@ -209,12 +236,16 @@ final class MessageContentImageFileObjectImageFileDetail {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageContentImageFileObjectImageFileDetail && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageContentImageFileObjectImageFileDetail &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `image_file`.
@@ -223,14 +254,18 @@ enum MessageContentImageFileObjectType {
 
   static MessageContentImageFileObjectType fromJson(String value) {
     switch (value) {
-      case 'image_file': return MessageContentImageFileObjectType.imageFile;
-      default: throw ArgumentError('Unknown MessageContentImageFileObjectType: $value');
+      case 'image_file':
+        return MessageContentImageFileObjectType.imageFile;
+      default:
+        throw ArgumentError(
+            'Unknown MessageContentImageFileObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageContentImageFileObjectType.imageFile: return 'image_file';
+      case MessageContentImageFileObjectType.imageFile:
+        return 'image_file';
     }
   }
 
@@ -240,12 +275,12 @@ enum MessageContentImageFileObjectType {
 
 /// Specifies the detail level of the image. `low` uses fewer tokens, you can opt in to high resolution using `high`. Default value is `auto`
 final class MessageContentImageUrlObjectImageUrlDetail {
-
   final String value;
 
   const MessageContentImageUrlObjectImageUrlDetail._(this.value);
 
-  factory MessageContentImageUrlObjectImageUrlDetail.fromJson(String value) => MessageContentImageUrlObjectImageUrlDetail._(value);
+  factory MessageContentImageUrlObjectImageUrlDetail.fromJson(String value) =>
+      MessageContentImageUrlObjectImageUrlDetail._(value);
 
   static const auto = MessageContentImageUrlObjectImageUrlDetail._('auto');
   static const low = MessageContentImageUrlObjectImageUrlDetail._('low');
@@ -253,12 +288,16 @@ final class MessageContentImageUrlObjectImageUrlDetail {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageContentImageUrlObjectImageUrlDetail && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageContentImageUrlObjectImageUrlDetail &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the content part.
@@ -267,14 +306,17 @@ enum MessageContentImageUrlObjectType {
 
   static MessageContentImageUrlObjectType fromJson(String value) {
     switch (value) {
-      case 'image_url': return MessageContentImageUrlObjectType.imageUrl;
-      default: throw ArgumentError('Unknown MessageContentImageUrlObjectType: $value');
+      case 'image_url':
+        return MessageContentImageUrlObjectType.imageUrl;
+      default:
+        throw ArgumentError('Unknown MessageContentImageUrlObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageContentImageUrlObjectType.imageUrl: return 'image_url';
+      case MessageContentImageUrlObjectType.imageUrl:
+        return 'image_url';
     }
   }
 

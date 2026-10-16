@@ -9,27 +9,41 @@ class RunStepStreamEventVariant5 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStepStreamEventVariant5Event event;
+
   /// Represents a step in execution of a run.
   final RunStepObject data;
 
   const RunStepStreamEventVariant5({required this.event, required this.data});
 
-  RunStepStreamEventVariant5 Function({RunStepStreamEventVariant5Event event, RunStepObject data}) get copyWith => _copyWith;
+  RunStepStreamEventVariant5 Function(
+      {RunStepStreamEventVariant5Event event,
+      RunStepObject data}) get copyWith => _copyWith;
 
-  RunStepStreamEventVariant5 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStepStreamEventVariant5(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStepStreamEventVariant5Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunStepObject,
-  );
+  RunStepStreamEventVariant5 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStepStreamEventVariant5(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStepStreamEventVariant5Event,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as RunStepObject,
+      );
 
-  factory RunStepStreamEventVariant5.fromJson(Map<String, dynamic> json) => RunStepStreamEventVariant5(
-    event: (json['event'] != null ? RunStepStreamEventVariant5Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStepStreamEventVariant5.fromJson(Map<String, dynamic> json) =>
+      RunStepStreamEventVariant5(
+        event: (json['event'] != null
+            ? RunStepStreamEventVariant5Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when a [run step](https://developers.openai.com/api/docs/assistants/migration) expires.
@@ -37,27 +51,41 @@ class RunStepStreamEventVariant6 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStepStreamEventVariant6Event event;
+
   /// Represents a step in execution of a run.
   final RunStepObject data;
 
   const RunStepStreamEventVariant6({required this.event, required this.data});
 
-  RunStepStreamEventVariant6 Function({RunStepStreamEventVariant6Event event, RunStepObject data}) get copyWith => _copyWith;
+  RunStepStreamEventVariant6 Function(
+      {RunStepStreamEventVariant6Event event,
+      RunStepObject data}) get copyWith => _copyWith;
 
-  RunStepStreamEventVariant6 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStepStreamEventVariant6(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStepStreamEventVariant6Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunStepObject,
-  );
+  RunStepStreamEventVariant6 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStepStreamEventVariant6(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStepStreamEventVariant6Event,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as RunStepObject,
+      );
 
-  factory RunStepStreamEventVariant6.fromJson(Map<String, dynamic> json) => RunStepStreamEventVariant6(
-    event: (json['event'] != null ? RunStepStreamEventVariant6Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStepStreamEventVariant6.fromJson(Map<String, dynamic> json) =>
+      RunStepStreamEventVariant6(
+        event: (json['event'] != null
+            ? RunStepStreamEventVariant6Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 sealed class RunStepStreamEvent {
@@ -65,58 +93,93 @@ sealed class RunStepStreamEvent {
   static const String constructionSurface = 'named';
   const RunStepStreamEvent();
   factory RunStepStreamEvent.fromJson(Object? json) {
-    try { return RunStepStreamEventRunStepStreamEventVariant0(RunStepStreamEventVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunStepStreamEventRunStepStreamEventVariant1(RunStepStreamEventVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunStepStreamEventRunStepStreamEventVariant2(RunStepStreamEventVariant2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunStepStreamEventRunStepStreamEventVariant3(RunStepStreamEventVariant3.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunStepStreamEventRunStepStreamEventVariant4(RunStepStreamEventVariant4.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunStepStreamEventRunStepStreamEventVariant5(RunStepStreamEventVariant5.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunStepStreamEventRunStepStreamEventVariant6(RunStepStreamEventVariant6.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return RunStepStreamEventRunStepStreamEventVariant0(
+          RunStepStreamEventVariant0.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunStepStreamEventRunStepStreamEventVariant1(
+          RunStepStreamEventVariant1.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunStepStreamEventRunStepStreamEventVariant2(
+          RunStepStreamEventVariant2.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunStepStreamEventRunStepStreamEventVariant3(
+          RunStepStreamEventVariant3.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunStepStreamEventRunStepStreamEventVariant4(
+          RunStepStreamEventVariant4.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunStepStreamEventRunStepStreamEventVariant5(
+          RunStepStreamEventVariant5.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunStepStreamEventRunStepStreamEventVariant6(
+          RunStepStreamEventVariant6.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for RunStepStreamEvent");
   }
   Object? toJson();
 }
 
-final class RunStepStreamEventRunStepStreamEventVariant0 extends RunStepStreamEvent {
+final class RunStepStreamEventRunStepStreamEventVariant0
+    extends RunStepStreamEvent {
   final RunStepStreamEventVariant0 value;
   const RunStepStreamEventRunStepStreamEventVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunStepStreamEventRunStepStreamEventVariant1 extends RunStepStreamEvent {
+final class RunStepStreamEventRunStepStreamEventVariant1
+    extends RunStepStreamEvent {
   final RunStepStreamEventVariant1 value;
   const RunStepStreamEventRunStepStreamEventVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunStepStreamEventRunStepStreamEventVariant2 extends RunStepStreamEvent {
+final class RunStepStreamEventRunStepStreamEventVariant2
+    extends RunStepStreamEvent {
   final RunStepStreamEventVariant2 value;
   const RunStepStreamEventRunStepStreamEventVariant2(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunStepStreamEventRunStepStreamEventVariant3 extends RunStepStreamEvent {
+final class RunStepStreamEventRunStepStreamEventVariant3
+    extends RunStepStreamEvent {
   final RunStepStreamEventVariant3 value;
   const RunStepStreamEventRunStepStreamEventVariant3(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunStepStreamEventRunStepStreamEventVariant4 extends RunStepStreamEvent {
+final class RunStepStreamEventRunStepStreamEventVariant4
+    extends RunStepStreamEvent {
   final RunStepStreamEventVariant4 value;
   const RunStepStreamEventRunStepStreamEventVariant4(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunStepStreamEventRunStepStreamEventVariant5 extends RunStepStreamEvent {
+final class RunStepStreamEventRunStepStreamEventVariant5
+    extends RunStepStreamEvent {
   final RunStepStreamEventVariant5 value;
   const RunStepStreamEventRunStepStreamEventVariant5(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunStepStreamEventRunStepStreamEventVariant6 extends RunStepStreamEvent {
+final class RunStepStreamEventRunStepStreamEventVariant6
+    extends RunStepStreamEvent {
   final RunStepStreamEventVariant6 value;
   const RunStepStreamEventRunStepStreamEventVariant6(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Occurs when a new [run](https://developers.openai.com/api/docs/assistants/migration) is created.
@@ -124,27 +187,39 @@ class RunStreamEventVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStreamEventVariant0Event event;
+
   /// Represents an execution run on a [thread](https://developers.openai.com/api/docs/assistants/migration).
   final RunObject data;
 
   const RunStreamEventVariant0({required this.event, required this.data});
 
-  RunStreamEventVariant0 Function({RunStreamEventVariant0Event event, RunObject data}) get copyWith => _copyWith;
+  RunStreamEventVariant0 Function(
+      {RunStreamEventVariant0Event event,
+      RunObject data}) get copyWith => _copyWith;
 
-  RunStreamEventVariant0 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStreamEventVariant0(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStreamEventVariant0Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
-  );
+  RunStreamEventVariant0 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStreamEventVariant0(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStreamEventVariant0Event,
+        data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
+      );
 
-  factory RunStreamEventVariant0.fromJson(Map<String, dynamic> json) => RunStreamEventVariant0(
-    event: (json['event'] != null ? RunStreamEventVariant0Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStreamEventVariant0.fromJson(Map<String, dynamic> json) =>
+      RunStreamEventVariant0(
+        event: (json['event'] != null
+            ? RunStreamEventVariant0Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when a [run](https://developers.openai.com/api/docs/assistants/migration) moves to a `queued` status.
@@ -152,27 +227,39 @@ class RunStreamEventVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStreamEventVariant1Event event;
+
   /// Represents an execution run on a [thread](https://developers.openai.com/api/docs/assistants/migration).
   final RunObject data;
 
   const RunStreamEventVariant1({required this.event, required this.data});
 
-  RunStreamEventVariant1 Function({RunStreamEventVariant1Event event, RunObject data}) get copyWith => _copyWith;
+  RunStreamEventVariant1 Function(
+      {RunStreamEventVariant1Event event,
+      RunObject data}) get copyWith => _copyWith;
 
-  RunStreamEventVariant1 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStreamEventVariant1(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStreamEventVariant1Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
-  );
+  RunStreamEventVariant1 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStreamEventVariant1(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStreamEventVariant1Event,
+        data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
+      );
 
-  factory RunStreamEventVariant1.fromJson(Map<String, dynamic> json) => RunStreamEventVariant1(
-    event: (json['event'] != null ? RunStreamEventVariant1Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStreamEventVariant1.fromJson(Map<String, dynamic> json) =>
+      RunStreamEventVariant1(
+        event: (json['event'] != null
+            ? RunStreamEventVariant1Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when a [run](https://developers.openai.com/api/docs/assistants/migration) moves to an `in_progress` status.
@@ -180,27 +267,39 @@ class RunStreamEventVariant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStreamEventVariant2Event event;
+
   /// Represents an execution run on a [thread](https://developers.openai.com/api/docs/assistants/migration).
   final RunObject data;
 
   const RunStreamEventVariant2({required this.event, required this.data});
 
-  RunStreamEventVariant2 Function({RunStreamEventVariant2Event event, RunObject data}) get copyWith => _copyWith;
+  RunStreamEventVariant2 Function(
+      {RunStreamEventVariant2Event event,
+      RunObject data}) get copyWith => _copyWith;
 
-  RunStreamEventVariant2 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStreamEventVariant2(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStreamEventVariant2Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
-  );
+  RunStreamEventVariant2 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStreamEventVariant2(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStreamEventVariant2Event,
+        data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
+      );
 
-  factory RunStreamEventVariant2.fromJson(Map<String, dynamic> json) => RunStreamEventVariant2(
-    event: (json['event'] != null ? RunStreamEventVariant2Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStreamEventVariant2.fromJson(Map<String, dynamic> json) =>
+      RunStreamEventVariant2(
+        event: (json['event'] != null
+            ? RunStreamEventVariant2Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when a [run](https://developers.openai.com/api/docs/assistants/migration) moves to a `requires_action` status.
@@ -208,27 +307,39 @@ class RunStreamEventVariant3 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStreamEventVariant3Event event;
+
   /// Represents an execution run on a [thread](https://developers.openai.com/api/docs/assistants/migration).
   final RunObject data;
 
   const RunStreamEventVariant3({required this.event, required this.data});
 
-  RunStreamEventVariant3 Function({RunStreamEventVariant3Event event, RunObject data}) get copyWith => _copyWith;
+  RunStreamEventVariant3 Function(
+      {RunStreamEventVariant3Event event,
+      RunObject data}) get copyWith => _copyWith;
 
-  RunStreamEventVariant3 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStreamEventVariant3(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStreamEventVariant3Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
-  );
+  RunStreamEventVariant3 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStreamEventVariant3(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStreamEventVariant3Event,
+        data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
+      );
 
-  factory RunStreamEventVariant3.fromJson(Map<String, dynamic> json) => RunStreamEventVariant3(
-    event: (json['event'] != null ? RunStreamEventVariant3Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStreamEventVariant3.fromJson(Map<String, dynamic> json) =>
+      RunStreamEventVariant3(
+        event: (json['event'] != null
+            ? RunStreamEventVariant3Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when a [run](https://developers.openai.com/api/docs/assistants/migration) is completed.
@@ -236,27 +347,39 @@ class RunStreamEventVariant4 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStreamEventVariant4Event event;
+
   /// Represents an execution run on a [thread](https://developers.openai.com/api/docs/assistants/migration).
   final RunObject data;
 
   const RunStreamEventVariant4({required this.event, required this.data});
 
-  RunStreamEventVariant4 Function({RunStreamEventVariant4Event event, RunObject data}) get copyWith => _copyWith;
+  RunStreamEventVariant4 Function(
+      {RunStreamEventVariant4Event event,
+      RunObject data}) get copyWith => _copyWith;
 
-  RunStreamEventVariant4 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStreamEventVariant4(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStreamEventVariant4Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
-  );
+  RunStreamEventVariant4 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStreamEventVariant4(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStreamEventVariant4Event,
+        data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
+      );
 
-  factory RunStreamEventVariant4.fromJson(Map<String, dynamic> json) => RunStreamEventVariant4(
-    event: (json['event'] != null ? RunStreamEventVariant4Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStreamEventVariant4.fromJson(Map<String, dynamic> json) =>
+      RunStreamEventVariant4(
+        event: (json['event'] != null
+            ? RunStreamEventVariant4Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when a [run](https://developers.openai.com/api/docs/assistants/migration) ends with status `incomplete`.
@@ -264,25 +387,37 @@ class RunStreamEventVariant5 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStreamEventVariant5Event event;
+
   /// Represents an execution run on a [thread](https://developers.openai.com/api/docs/assistants/migration).
   final RunObject data;
 
   const RunStreamEventVariant5({required this.event, required this.data});
 
-  RunStreamEventVariant5 Function({RunStreamEventVariant5Event event, RunObject data}) get copyWith => _copyWith;
+  RunStreamEventVariant5 Function(
+      {RunStreamEventVariant5Event event,
+      RunObject data}) get copyWith => _copyWith;
 
-  RunStreamEventVariant5 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStreamEventVariant5(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStreamEventVariant5Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
-  );
+  RunStreamEventVariant5 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStreamEventVariant5(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStreamEventVariant5Event,
+        data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
+      );
 
-  factory RunStreamEventVariant5.fromJson(Map<String, dynamic> json) => RunStreamEventVariant5(
-    event: (json['event'] != null ? RunStreamEventVariant5Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStreamEventVariant5.fromJson(Map<String, dynamic> json) =>
+      RunStreamEventVariant5(
+        event: (json['event'] != null
+            ? RunStreamEventVariant5Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }

@@ -8,61 +8,106 @@ part of 'decisions_decision.dart';
 class DecisionInputTextPromptCacheBreakpoint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The breakpoint mode. Always `explicit`.
   final DecisionInputTextPromptCacheBreakpointMode mode;
 
   const DecisionInputTextPromptCacheBreakpoint({required this.mode});
 
-  DecisionInputTextPromptCacheBreakpoint Function({DecisionInputTextPromptCacheBreakpointMode mode}) get copyWith => _copyWith;
+  DecisionInputTextPromptCacheBreakpoint Function(
+          {DecisionInputTextPromptCacheBreakpointMode mode})
+      get copyWith => _copyWith;
 
-  DecisionInputTextPromptCacheBreakpoint _copyWith({Object? mode = sdkOmittedValue}) => DecisionInputTextPromptCacheBreakpoint(
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as DecisionInputTextPromptCacheBreakpointMode,
-  );
+  DecisionInputTextPromptCacheBreakpoint _copyWith(
+          {Object? mode = sdkOmittedValue}) =>
+      DecisionInputTextPromptCacheBreakpoint(
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as DecisionInputTextPromptCacheBreakpointMode,
+      );
 
-  factory DecisionInputTextPromptCacheBreakpoint.fromJson(Map<String, dynamic> json) => DecisionInputTextPromptCacheBreakpoint(
-    mode: (json['mode'] != null ? DecisionInputTextPromptCacheBreakpointMode.fromJson(json['mode'] as String) : null)!,
-  );
+  factory DecisionInputTextPromptCacheBreakpoint.fromJson(
+          Map<String, dynamic> json) =>
+      DecisionInputTextPromptCacheBreakpoint(
+        mode: (json['mode'] != null
+            ? DecisionInputTextPromptCacheBreakpointMode.fromJson(
+                json['mode'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'mode': mode.toJson(),
-  };
+        'mode': mode.toJson(),
+      };
 }
 
 /// Typed representation of the `DecisionInputText` API schema.
 class DecisionInputText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final DecisionInputTextType type_;
+
   /// Required `string` value serialized in the `text` wire field.
   final String text;
+
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
-  final SdkOptional<DecisionInputTextPromptCacheBreakpoint?> promptCacheBreakpoint;
+  final SdkOptional<DecisionInputTextPromptCacheBreakpoint?>
+      promptCacheBreakpoint;
 
-  const DecisionInputText({required this.type_, required this.text, this.promptCacheBreakpoint = const SdkOmitted()});
+  const DecisionInputText(
+      {required this.type_,
+      required this.text,
+      this.promptCacheBreakpoint = const SdkOmitted()});
 
-  DecisionInputText Function({DecisionInputTextType type_, String text, SdkOptional<DecisionInputTextPromptCacheBreakpoint?> promptCacheBreakpoint}) get copyWith => _copyWith;
+  DecisionInputText Function(
+      {DecisionInputTextType type_,
+      String text,
+      SdkOptional<DecisionInputTextPromptCacheBreakpoint?>
+          promptCacheBreakpoint}) get copyWith => _copyWith;
 
-  DecisionInputText _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => DecisionInputText(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DecisionInputTextType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<DecisionInputTextPromptCacheBreakpoint?>,
-  );
+  DecisionInputText _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
+      DecisionInputText(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DecisionInputTextType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
+            ? this.promptCacheBreakpoint
+            : promptCacheBreakpoint
+                as SdkOptional<DecisionInputTextPromptCacheBreakpoint?>,
+      );
 
-  factory DecisionInputText.fromJson(Map<String, dynamic> json) => DecisionInputText(
-    type_: (json['type'] != null ? DecisionInputTextType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-    promptCacheBreakpoint: json.containsKey('prompt_cache_breakpoint') ? SdkPresent(json['prompt_cache_breakpoint'] != null ? DecisionInputTextPromptCacheBreakpoint.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory DecisionInputText.fromJson(Map<String, dynamic> json) =>
+      DecisionInputText(
+        type_: (json['type'] != null
+            ? DecisionInputTextType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+        promptCacheBreakpoint: json.containsKey('prompt_cache_breakpoint')
+            ? SdkPresent(json['prompt_cache_breakpoint'] != null
+                ? DecisionInputTextPromptCacheBreakpoint.fromJson(
+                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-    ...switch (promptCacheBreakpoint) {
-      SdkPresent<DecisionInputTextPromptCacheBreakpoint?>(value: final value) => {'prompt_cache_breakpoint': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'text': text,
+        ...switch (promptCacheBreakpoint) {
+          SdkPresent<DecisionInputTextPromptCacheBreakpoint?>(
+            value: final value
+          ) =>
+            {
+              'prompt_cache_breakpoint': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class DecisionInputToolOutputContent {
@@ -70,23 +115,37 @@ sealed class DecisionInputToolOutputContent {
   static const String constructionSurface = 'named';
   const DecisionInputToolOutputContent();
   factory DecisionInputToolOutputContent.fromJson(Object? json) {
-    if (json is String) { return DecisionInputToolOutputContentString(json); }
-    if (json is List) { return DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem(json.map((e) => DecisionInputToolOutputContentPartsItem.fromJson(e)).toList().cast<DecisionInputToolOutputContentPartsItem>()); }
-    throw FormatException("No variant matched for DecisionInputToolOutputContent");
+    if (json is String) {
+      return DecisionInputToolOutputContentString(json);
+    }
+    if (json is List) {
+      return DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem(
+          json
+              .map((e) => DecisionInputToolOutputContentPartsItem.fromJson(e))
+              .toList()
+              .cast<DecisionInputToolOutputContentPartsItem>());
+    }
+    throw FormatException(
+        "No variant matched for DecisionInputToolOutputContent");
   }
   Object? toJson();
 }
 
-final class DecisionInputToolOutputContentString extends DecisionInputToolOutputContent {
+final class DecisionInputToolOutputContentString
+    extends DecisionInputToolOutputContent {
   final String value;
   const DecisionInputToolOutputContentString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem extends DecisionInputToolOutputContent {
+final class DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem
+    extends DecisionInputToolOutputContent {
   final List<DecisionInputToolOutputContentPartsItem> value;
-  const DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem(this.value);
-  @override Object? toJson() => value.map((e) => e.toJson()).toList();
+  const DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem(
+      this.value);
+  @override
+  Object? toJson() => value.map((e) => e.toJson()).toList();
 }
 
 // DecisionInputToolOutputContentParts = List<DecisionInputToolOutputContentPartsItem>
@@ -96,156 +155,286 @@ sealed class DecisionInputToolOutputContentPartsItem {
   static const String constructionSurface = 'named';
   const DecisionInputToolOutputContentPartsItem();
   factory DecisionInputToolOutputContentPartsItem.fromJson(Object? json) {
-    try { return DecisionInputToolOutputContentPartsItemDecisionInputText(DecisionInputText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DecisionInputToolOutputContentPartsItemDecisionInputImage(DecisionInputImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image"}.contains(json["type"])) { return UnknownDecisionInputToolOutputContentPartsItem(json); }
-    throw FormatException("No variant matched for DecisionInputToolOutputContentPartsItem");
+    try {
+      return DecisionInputToolOutputContentPartsItemDecisionInputText(
+          DecisionInputText.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DecisionInputToolOutputContentPartsItemDecisionInputImage(
+          DecisionInputImage.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"input_text", "input_image"}.contains(json["type"])) {
+      return UnknownDecisionInputToolOutputContentPartsItem(json);
+    }
+    throw FormatException(
+        "No variant matched for DecisionInputToolOutputContentPartsItem");
   }
   Object? toJson();
 }
 
-final class DecisionInputToolOutputContentPartsItemDecisionInputText extends DecisionInputToolOutputContentPartsItem {
+final class DecisionInputToolOutputContentPartsItemDecisionInputText
+    extends DecisionInputToolOutputContentPartsItem {
   final DecisionInputText value;
   const DecisionInputToolOutputContentPartsItemDecisionInputText(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DecisionInputToolOutputContentPartsItemDecisionInputImage extends DecisionInputToolOutputContentPartsItem {
+final class DecisionInputToolOutputContentPartsItemDecisionInputImage
+    extends DecisionInputToolOutputContentPartsItem {
   final DecisionInputImage value;
   const DecisionInputToolOutputContentPartsItemDecisionInputImage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [DecisionInputToolOutputContentPartsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownDecisionInputToolOutputContentPartsItem extends DecisionInputToolOutputContentPartsItem {
+final class UnknownDecisionInputToolOutputContentPartsItem
+    extends DecisionInputToolOutputContentPartsItem {
   final Map<String, dynamic> raw;
   const UnknownDecisionInputToolOutputContentPartsItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.
 class DecisionRequestPromptCacheOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The minimum lifetime applied to every implicit and explicit cache breakpoint written by the request. Defaults to `30m`, which is currently the only supported value. The backend may retain cache entries for longer.
   final SdkOptional<DecisionRequestPromptCacheOptionsTtl> ttl;
+
   /// Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to `implicit`. With `implicit`, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With `explicit`, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.
   final SdkOptional<DecisionRequestPromptCacheOptionsMode?> mode;
 
-  const DecisionRequestPromptCacheOptions({this.ttl = const SdkOmitted(), this.mode = const SdkOmitted()});
+  const DecisionRequestPromptCacheOptions(
+      {this.ttl = const SdkOmitted(), this.mode = const SdkOmitted()});
 
-  DecisionRequestPromptCacheOptions Function({SdkOptional<DecisionRequestPromptCacheOptionsTtl> ttl, SdkOptional<DecisionRequestPromptCacheOptionsMode?> mode}) get copyWith => _copyWith;
+  DecisionRequestPromptCacheOptions Function(
+          {SdkOptional<DecisionRequestPromptCacheOptionsTtl> ttl,
+          SdkOptional<DecisionRequestPromptCacheOptionsMode?> mode})
+      get copyWith => _copyWith;
 
-  DecisionRequestPromptCacheOptions _copyWith({Object? ttl = sdkOmittedValue, Object? mode = sdkOmittedValue}) => DecisionRequestPromptCacheOptions(
-    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as SdkOptional<DecisionRequestPromptCacheOptionsTtl>,
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as SdkOptional<DecisionRequestPromptCacheOptionsMode?>,
-  );
+  DecisionRequestPromptCacheOptions _copyWith(
+          {Object? ttl = sdkOmittedValue, Object? mode = sdkOmittedValue}) =>
+      DecisionRequestPromptCacheOptions(
+        ttl: identical(ttl, sdkOmittedValue)
+            ? this.ttl
+            : ttl as SdkOptional<DecisionRequestPromptCacheOptionsTtl>,
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as SdkOptional<DecisionRequestPromptCacheOptionsMode?>,
+      );
 
-  factory DecisionRequestPromptCacheOptions.fromJson(Map<String, dynamic> json) => DecisionRequestPromptCacheOptions(
-    ttl: json['ttl'] != null ? SdkPresent((json['ttl'] != null ? DecisionRequestPromptCacheOptionsTtl.fromJson(json['ttl'] as String) : null)!) : const SdkOmitted(),
-    mode: json.containsKey('mode') ? SdkPresent(json['mode'] != null ? DecisionRequestPromptCacheOptionsMode.fromJson(json['mode'] as String) : null) : const SdkOmitted(),
-  );
+  factory DecisionRequestPromptCacheOptions.fromJson(
+          Map<String, dynamic> json) =>
+      DecisionRequestPromptCacheOptions(
+        ttl: json['ttl'] != null
+            ? SdkPresent((json['ttl'] != null
+                ? DecisionRequestPromptCacheOptionsTtl.fromJson(
+                    json['ttl'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        mode: json.containsKey('mode')
+            ? SdkPresent(json['mode'] != null
+                ? DecisionRequestPromptCacheOptionsMode.fromJson(
+                    json['mode'] as String)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (ttl) {
-      SdkPresent<DecisionRequestPromptCacheOptionsTtl>(value: final value) => {'ttl': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mode) {
-      SdkPresent<DecisionRequestPromptCacheOptionsMode?>(value: final value) => {'mode': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (ttl) {
+          SdkPresent<DecisionRequestPromptCacheOptionsTtl>(
+            value: final value
+          ) =>
+            {
+              'ttl': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mode) {
+          SdkPresent<DecisionRequestPromptCacheOptionsMode?>(
+            value: final value
+          ) =>
+            {
+              'mode': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DecisionRequest` API schema.
 class DecisionRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The model to use. Only `gpt-6-luna` is supported.
   final String model;
+
   /// The input to evaluate for every question. Provide a text string or an ordered array of messages, function calls and outputs, or custom tool calls and outputs. Each tool output must identify a matching call by call ID. User messages and tool outputs can contain text and images; developer and system messages can contain only input text, and assistant messages can contain output text or refusals. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed per request. Files, audio, and item references are not supported.
   final DecisionInput input;
+
   /// Ask 1–200 questions about the input. Each question can be a predicate, choice, or score. Answers come back in the same order.
   final List<QuestionParam> questions;
+
   /// Opaque caller-provided end-user identifier, scoped by the verified org. Match Responses' limit; this is never the authenticated user identity.
   final SdkOptional<String?> safetyIdentifier;
+
   /// Partition prompt cache reuse by caller-provided key.
   final SdkOptional<String?> promptCacheKey;
+
   /// Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.
   final SdkOptional<DecisionRequestPromptCacheOptions?> promptCacheOptions;
 
-  const DecisionRequest({required this.model, required this.input, required this.questions, this.safetyIdentifier = const SdkOmitted(), this.promptCacheKey = const SdkOmitted(), this.promptCacheOptions = const SdkOmitted()});
+  const DecisionRequest(
+      {required this.model,
+      required this.input,
+      required this.questions,
+      this.safetyIdentifier = const SdkOmitted(),
+      this.promptCacheKey = const SdkOmitted(),
+      this.promptCacheOptions = const SdkOmitted()});
 
-  DecisionRequest Function({String model, DecisionInput input, List<QuestionParam> questions, SdkOptional<String?> safetyIdentifier, SdkOptional<String?> promptCacheKey, SdkOptional<DecisionRequestPromptCacheOptions?> promptCacheOptions}) get copyWith => _copyWith;
+  DecisionRequest Function(
+          {String model,
+          DecisionInput input,
+          List<QuestionParam> questions,
+          SdkOptional<String?> safetyIdentifier,
+          SdkOptional<String?> promptCacheKey,
+          SdkOptional<DecisionRequestPromptCacheOptions?> promptCacheOptions})
+      get copyWith => _copyWith;
 
-  DecisionRequest _copyWith({Object? model = sdkOmittedValue, Object? input = sdkOmittedValue, Object? questions = sdkOmittedValue, Object? safetyIdentifier = sdkOmittedValue, Object? promptCacheKey = sdkOmittedValue, Object? promptCacheOptions = sdkOmittedValue}) => DecisionRequest(
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as DecisionInput,
-    questions: identical(questions, sdkOmittedValue) ? this.questions : questions as List<QuestionParam>,
-    safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue) ? this.safetyIdentifier : safetyIdentifier as SdkOptional<String?>,
-    promptCacheKey: identical(promptCacheKey, sdkOmittedValue) ? this.promptCacheKey : promptCacheKey as SdkOptional<String?>,
-    promptCacheOptions: identical(promptCacheOptions, sdkOmittedValue) ? this.promptCacheOptions : promptCacheOptions as SdkOptional<DecisionRequestPromptCacheOptions?>,
-  );
+  DecisionRequest _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? questions = sdkOmittedValue,
+          Object? safetyIdentifier = sdkOmittedValue,
+          Object? promptCacheKey = sdkOmittedValue,
+          Object? promptCacheOptions = sdkOmittedValue}) =>
+      DecisionRequest(
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as DecisionInput,
+        questions: identical(questions, sdkOmittedValue)
+            ? this.questions
+            : questions as List<QuestionParam>,
+        safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue)
+            ? this.safetyIdentifier
+            : safetyIdentifier as SdkOptional<String?>,
+        promptCacheKey: identical(promptCacheKey, sdkOmittedValue)
+            ? this.promptCacheKey
+            : promptCacheKey as SdkOptional<String?>,
+        promptCacheOptions: identical(promptCacheOptions, sdkOmittedValue)
+            ? this.promptCacheOptions
+            : promptCacheOptions
+                as SdkOptional<DecisionRequestPromptCacheOptions?>,
+      );
 
-  factory DecisionRequest.fromJson(Map<String, dynamic> json) => DecisionRequest(
-    model: (json['model'] as String?)!,
-    input: (json['input'] != null ? DecisionInput.fromJson(json['input']) : null)!,
-    questions: ((json['questions'] as List?)?.map((e) => QuestionParam.fromJson(e)).toList())!,
-    safetyIdentifier: json.containsKey('safety_identifier') ? SdkPresent(json['safety_identifier'] as String?) : const SdkOmitted(),
-    promptCacheKey: json.containsKey('prompt_cache_key') ? SdkPresent(json['prompt_cache_key'] as String?) : const SdkOmitted(),
-    promptCacheOptions: json.containsKey('prompt_cache_options') ? SdkPresent(json['prompt_cache_options'] != null ? DecisionRequestPromptCacheOptions.fromJson(json['prompt_cache_options'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory DecisionRequest.fromJson(Map<String, dynamic> json) =>
+      DecisionRequest(
+        model: (json['model'] as String?)!,
+        input: (json['input'] != null
+            ? DecisionInput.fromJson(json['input'])
+            : null)!,
+        questions: ((json['questions'] as List?)
+            ?.map((e) => QuestionParam.fromJson(e))
+            .toList())!,
+        safetyIdentifier: json.containsKey('safety_identifier')
+            ? SdkPresent(json['safety_identifier'] as String?)
+            : const SdkOmitted(),
+        promptCacheKey: json.containsKey('prompt_cache_key')
+            ? SdkPresent(json['prompt_cache_key'] as String?)
+            : const SdkOmitted(),
+        promptCacheOptions: json.containsKey('prompt_cache_options')
+            ? SdkPresent(json['prompt_cache_options'] != null
+                ? DecisionRequestPromptCacheOptions.fromJson(
+                    json['prompt_cache_options'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'model': model,
-    'input': input.toJson(),
-    'questions': questions.map((item) => item.toJson()).toList(),
-    ...switch (safetyIdentifier) {
-      SdkPresent<String?>(value: final value) => {'safety_identifier': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (promptCacheKey) {
-      SdkPresent<String?>(value: final value) => {'prompt_cache_key': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (promptCacheOptions) {
-      SdkPresent<DecisionRequestPromptCacheOptions?>(value: final value) => {'prompt_cache_options': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'model': model,
+        'input': input.toJson(),
+        'questions': questions.map((item) => item.toJson()).toList(),
+        ...switch (safetyIdentifier) {
+          SdkPresent<String?>(value: final value) => {
+              'safety_identifier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (promptCacheKey) {
+          SdkPresent<String?>(value: final value) => {
+              'prompt_cache_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (promptCacheOptions) {
+          SdkPresent<DecisionRequestPromptCacheOptions?>(value: final value) =>
+            {
+              'prompt_cache_options': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DecisionResponse` API schema.
 class DecisionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The model used.
   final String model;
+
   /// Answers in question order. Any question can return a refusal instead of an answer; other questions can still receive answers. A refusal has `type: "refusal"` and the question's `name`, or `null` if it was unnamed.
   final List<AnswerResource> answers;
+
   /// Token usage for the request.
   final ResponseUsageResource usage;
 
-  const DecisionResponse({required this.model, required this.answers, required this.usage});
+  const DecisionResponse(
+      {required this.model, required this.answers, required this.usage});
 
-  DecisionResponse Function({String model, List<AnswerResource> answers, ResponseUsageResource usage}) get copyWith => _copyWith;
+  DecisionResponse Function(
+      {String model,
+      List<AnswerResource> answers,
+      ResponseUsageResource usage}) get copyWith => _copyWith;
 
-  DecisionResponse _copyWith({Object? model = sdkOmittedValue, Object? answers = sdkOmittedValue, Object? usage = sdkOmittedValue}) => DecisionResponse(
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    answers: identical(answers, sdkOmittedValue) ? this.answers : answers as List<AnswerResource>,
-    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as ResponseUsageResource,
-  );
+  DecisionResponse _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? answers = sdkOmittedValue,
+          Object? usage = sdkOmittedValue}) =>
+      DecisionResponse(
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        answers: identical(answers, sdkOmittedValue)
+            ? this.answers
+            : answers as List<AnswerResource>,
+        usage: identical(usage, sdkOmittedValue)
+            ? this.usage
+            : usage as ResponseUsageResource,
+      );
 
-  factory DecisionResponse.fromJson(Map<String, dynamic> json) => DecisionResponse(
-    model: (json['model'] as String?)!,
-    answers: ((json['answers'] as List?)?.map((e) => AnswerResource.fromJson(e)).toList())!,
-    usage: (json['usage'] != null ? ResponseUsageResource.fromJson(json['usage'] as Map<String, dynamic>) : null)!,
-  );
+  factory DecisionResponse.fromJson(Map<String, dynamic> json) =>
+      DecisionResponse(
+        model: (json['model'] as String?)!,
+        answers: ((json['answers'] as List?)
+            ?.map((e) => AnswerResource.fromJson(e))
+            .toList())!,
+        usage: (json['usage'] != null
+            ? ResponseUsageResource.fromJson(
+                json['usage'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'model': model,
-    'answers': answers.map((item) => item.toJson()).toList(),
-    'usage': usage.toJson(),
-  };
+        'model': model,
+        'answers': answers.map((item) => item.toJson()).toList(),
+        'usage': usage.toJson(),
+      };
 }

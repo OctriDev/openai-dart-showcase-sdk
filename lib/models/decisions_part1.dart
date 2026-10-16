@@ -6,12 +6,12 @@ part of 'decisions.dart';
 // decisions domain models
 /// Typed representation of the `FunctionCallStatusParam` API schema.
 final class FunctionCallStatusParam {
-
   final String value;
 
   const FunctionCallStatusParam._(this.value);
 
-  factory FunctionCallStatusParam.fromJson(String value) => FunctionCallStatusParam._(value);
+  factory FunctionCallStatusParam.fromJson(String value) =>
+      FunctionCallStatusParam._(value);
 
   static const inProgress = FunctionCallStatusParam._('in_progress');
   static const completed = FunctionCallStatusParam._('completed');
@@ -19,17 +19,19 @@ final class FunctionCallStatusParam {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FunctionCallStatusParam && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FunctionCallStatusParam && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `ImageDetailParam` API schema.
 final class ImageDetailParam {
-
   final String value;
 
   const ImageDetailParam._(this.value);
@@ -43,168 +45,267 @@ final class ImageDetailParam {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImageDetailParam && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImageDetailParam && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `InputTokensDetailsResource` API schema.
 class InputTokensDetailsResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `int64`-formatted value serialized in the `cached_tokens` wire field.
   final int cachedTokens;
+
   /// Required `int64`-formatted value serialized in the `cache_write_tokens` wire field.
   final int cacheWriteTokens;
 
-  const InputTokensDetailsResource({required this.cachedTokens, required this.cacheWriteTokens});
+  const InputTokensDetailsResource(
+      {required this.cachedTokens, required this.cacheWriteTokens});
 
-  InputTokensDetailsResource Function({int cachedTokens, int cacheWriteTokens}) get copyWith => _copyWith;
+  InputTokensDetailsResource Function({int cachedTokens, int cacheWriteTokens})
+      get copyWith => _copyWith;
 
-  InputTokensDetailsResource _copyWith({Object? cachedTokens = sdkOmittedValue, Object? cacheWriteTokens = sdkOmittedValue}) => InputTokensDetailsResource(
-    cachedTokens: identical(cachedTokens, sdkOmittedValue) ? this.cachedTokens : cachedTokens as int,
-    cacheWriteTokens: identical(cacheWriteTokens, sdkOmittedValue) ? this.cacheWriteTokens : cacheWriteTokens as int,
-  );
+  InputTokensDetailsResource _copyWith(
+          {Object? cachedTokens = sdkOmittedValue,
+          Object? cacheWriteTokens = sdkOmittedValue}) =>
+      InputTokensDetailsResource(
+        cachedTokens: identical(cachedTokens, sdkOmittedValue)
+            ? this.cachedTokens
+            : cachedTokens as int,
+        cacheWriteTokens: identical(cacheWriteTokens, sdkOmittedValue)
+            ? this.cacheWriteTokens
+            : cacheWriteTokens as int,
+      );
 
-  factory InputTokensDetailsResource.fromJson(Map<String, dynamic> json) => InputTokensDetailsResource(
-    cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
-    cacheWriteTokens: ((json['cache_write_tokens'] as num?)?.toInt())!,
-  );
+  factory InputTokensDetailsResource.fromJson(Map<String, dynamic> json) =>
+      InputTokensDetailsResource(
+        cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
+        cacheWriteTokens: ((json['cache_write_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'cached_tokens': cachedTokens,
-    'cache_write_tokens': cacheWriteTokens,
-  };
+        'cached_tokens': cachedTokens,
+        'cache_write_tokens': cacheWriteTokens,
+      };
 }
 
 /// Typed representation of the `MessagePhaseParam` API schema.
 final class MessagePhaseParam {
-
   final String value;
 
   const MessagePhaseParam._(this.value);
 
-  factory MessagePhaseParam.fromJson(String value) => MessagePhaseParam._(value);
+  factory MessagePhaseParam.fromJson(String value) =>
+      MessagePhaseParam._(value);
 
   static const commentary = MessagePhaseParam._('commentary');
   static const finalAnswer = MessagePhaseParam._('final_answer');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagePhaseParam && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagePhaseParam && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `OutputTokensDetailsResource` API schema.
 class OutputTokensDetailsResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `int64`-formatted value serialized in the `reasoning_tokens` wire field.
   final int reasoningTokens;
 
   const OutputTokensDetailsResource({required this.reasoningTokens});
 
-  OutputTokensDetailsResource Function({int reasoningTokens}) get copyWith => _copyWith;
+  OutputTokensDetailsResource Function({int reasoningTokens}) get copyWith =>
+      _copyWith;
 
-  OutputTokensDetailsResource _copyWith({Object? reasoningTokens = sdkOmittedValue}) => OutputTokensDetailsResource(
-    reasoningTokens: identical(reasoningTokens, sdkOmittedValue) ? this.reasoningTokens : reasoningTokens as int,
-  );
+  OutputTokensDetailsResource _copyWith(
+          {Object? reasoningTokens = sdkOmittedValue}) =>
+      OutputTokensDetailsResource(
+        reasoningTokens: identical(reasoningTokens, sdkOmittedValue)
+            ? this.reasoningTokens
+            : reasoningTokens as int,
+      );
 
-  factory OutputTokensDetailsResource.fromJson(Map<String, dynamic> json) => OutputTokensDetailsResource(
-    reasoningTokens: ((json['reasoning_tokens'] as num?)?.toInt())!,
-  );
+  factory OutputTokensDetailsResource.fromJson(Map<String, dynamic> json) =>
+      OutputTokensDetailsResource(
+        reasoningTokens: ((json['reasoning_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'reasoning_tokens': reasoningTokens,
-  };
+        'reasoning_tokens': reasoningTokens,
+      };
 }
 
 /// Typed representation of the `PublicDecisionsUsageResponseResource` API schema.
 class PublicDecisionsUsageResponseResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final PublicDecisionsUsageResponseResourceObject object;
+
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
+
   /// Required `string` value serialized in the `next_page` wire field.
   final String? nextPage;
+
   /// Required array value serialized in the `data` wire field.
   final List<DecisionsUsageBucket> data;
 
-  const PublicDecisionsUsageResponseResource({required this.object, required this.hasMore, required this.nextPage, required this.data});
+  const PublicDecisionsUsageResponseResource(
+      {required this.object,
+      required this.hasMore,
+      required this.nextPage,
+      required this.data});
 
-  PublicDecisionsUsageResponseResource Function({PublicDecisionsUsageResponseResourceObject object, bool hasMore, String? nextPage, List<DecisionsUsageBucket> data}) get copyWith => _copyWith;
+  PublicDecisionsUsageResponseResource Function(
+      {PublicDecisionsUsageResponseResourceObject object,
+      bool hasMore,
+      String? nextPage,
+      List<DecisionsUsageBucket> data}) get copyWith => _copyWith;
 
-  PublicDecisionsUsageResponseResource _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? nextPage = sdkOmittedValue, Object? data = sdkOmittedValue}) => PublicDecisionsUsageResponseResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as PublicDecisionsUsageResponseResourceObject,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-    nextPage: identical(nextPage, sdkOmittedValue) ? this.nextPage : nextPage as String?,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<DecisionsUsageBucket>,
-  );
+  PublicDecisionsUsageResponseResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue,
+          Object? nextPage = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      PublicDecisionsUsageResponseResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as PublicDecisionsUsageResponseResourceObject,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+        nextPage: identical(nextPage, sdkOmittedValue)
+            ? this.nextPage
+            : nextPage as String?,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<DecisionsUsageBucket>,
+      );
 
-  factory PublicDecisionsUsageResponseResource.fromJson(Map<String, dynamic> json) => PublicDecisionsUsageResponseResource(
-    object: (json['object'] != null ? PublicDecisionsUsageResponseResourceObject.fromJson(json['object'] as String) : null)!,
-    hasMore: (json['has_more'] as bool?)!,
-    nextPage: json.containsKey('next_page') ? json['next_page'] as String? : throw ArgumentError.value(null, 'next_page', 'Required property is missing'),
-    data: ((json['data'] as List?)?.map((e) => DecisionsUsageBucket.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory PublicDecisionsUsageResponseResource.fromJson(
+          Map<String, dynamic> json) =>
+      PublicDecisionsUsageResponseResource(
+        object: (json['object'] != null
+            ? PublicDecisionsUsageResponseResourceObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        hasMore: (json['has_more'] as bool?)!,
+        nextPage: json.containsKey('next_page')
+            ? json['next_page'] as String?
+            : throw ArgumentError.value(
+                null, 'next_page', 'Required property is missing'),
+        data: ((json['data'] as List?)
+            ?.map(
+                (e) => DecisionsUsageBucket.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'has_more': hasMore,
-    'next_page': nextPage,
-    'data': data.map((item) => item.toJson()).toList(),
-  };
+        'object': object.toJson(),
+        'has_more': hasMore,
+        'next_page': nextPage,
+        'data': data.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Typed representation of the `ResponseUsageResource` API schema.
 class ResponseUsageResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `int64`-formatted value serialized in the `input_tokens` wire field.
   final int inputTokens;
+
   /// Required object value serialized in the `input_tokens_details` wire field.
   final InputTokensDetailsResource inputTokensDetails;
+
   /// Required `int64`-formatted value serialized in the `output_tokens` wire field.
   final int outputTokens;
+
   /// Required object value serialized in the `output_tokens_details` wire field.
   final OutputTokensDetailsResource outputTokensDetails;
+
   /// Required `int64`-formatted value serialized in the `total_tokens` wire field.
   final int totalTokens;
 
-  const ResponseUsageResource({required this.inputTokens, required this.inputTokensDetails, required this.outputTokens, required this.outputTokensDetails, required this.totalTokens});
+  const ResponseUsageResource(
+      {required this.inputTokens,
+      required this.inputTokensDetails,
+      required this.outputTokens,
+      required this.outputTokensDetails,
+      required this.totalTokens});
 
-  ResponseUsageResource Function({int inputTokens, InputTokensDetailsResource inputTokensDetails, int outputTokens, OutputTokensDetailsResource outputTokensDetails, int totalTokens}) get copyWith => _copyWith;
+  ResponseUsageResource Function(
+      {int inputTokens,
+      InputTokensDetailsResource inputTokensDetails,
+      int outputTokens,
+      OutputTokensDetailsResource outputTokensDetails,
+      int totalTokens}) get copyWith => _copyWith;
 
-  ResponseUsageResource _copyWith({Object? inputTokens = sdkOmittedValue, Object? inputTokensDetails = sdkOmittedValue, Object? outputTokens = sdkOmittedValue, Object? outputTokensDetails = sdkOmittedValue, Object? totalTokens = sdkOmittedValue}) => ResponseUsageResource(
-    inputTokens: identical(inputTokens, sdkOmittedValue) ? this.inputTokens : inputTokens as int,
-    inputTokensDetails: identical(inputTokensDetails, sdkOmittedValue) ? this.inputTokensDetails : inputTokensDetails as InputTokensDetailsResource,
-    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as int,
-    outputTokensDetails: identical(outputTokensDetails, sdkOmittedValue) ? this.outputTokensDetails : outputTokensDetails as OutputTokensDetailsResource,
-    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
-  );
+  ResponseUsageResource _copyWith(
+          {Object? inputTokens = sdkOmittedValue,
+          Object? inputTokensDetails = sdkOmittedValue,
+          Object? outputTokens = sdkOmittedValue,
+          Object? outputTokensDetails = sdkOmittedValue,
+          Object? totalTokens = sdkOmittedValue}) =>
+      ResponseUsageResource(
+        inputTokens: identical(inputTokens, sdkOmittedValue)
+            ? this.inputTokens
+            : inputTokens as int,
+        inputTokensDetails: identical(inputTokensDetails, sdkOmittedValue)
+            ? this.inputTokensDetails
+            : inputTokensDetails as InputTokensDetailsResource,
+        outputTokens: identical(outputTokens, sdkOmittedValue)
+            ? this.outputTokens
+            : outputTokens as int,
+        outputTokensDetails: identical(outputTokensDetails, sdkOmittedValue)
+            ? this.outputTokensDetails
+            : outputTokensDetails as OutputTokensDetailsResource,
+        totalTokens: identical(totalTokens, sdkOmittedValue)
+            ? this.totalTokens
+            : totalTokens as int,
+      );
 
-  factory ResponseUsageResource.fromJson(Map<String, dynamic> json) => ResponseUsageResource(
-    inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
-    inputTokensDetails: (json['input_tokens_details'] != null ? InputTokensDetailsResource.fromJson(json['input_tokens_details'] as Map<String, dynamic>) : null)!,
-    outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
-    outputTokensDetails: (json['output_tokens_details'] != null ? OutputTokensDetailsResource.fromJson(json['output_tokens_details'] as Map<String, dynamic>) : null)!,
-    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-  );
+  factory ResponseUsageResource.fromJson(Map<String, dynamic> json) =>
+      ResponseUsageResource(
+        inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
+        inputTokensDetails: (json['input_tokens_details'] != null
+            ? InputTokensDetailsResource.fromJson(
+                json['input_tokens_details'] as Map<String, dynamic>)
+            : null)!,
+        outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
+        outputTokensDetails: (json['output_tokens_details'] != null
+            ? OutputTokensDetailsResource.fromJson(
+                json['output_tokens_details'] as Map<String, dynamic>)
+            : null)!,
+        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'input_tokens': inputTokens,
-    'input_tokens_details': inputTokensDetails.toJson(),
-    'output_tokens': outputTokens,
-    'output_tokens_details': outputTokensDetails.toJson(),
-    'total_tokens': totalTokens,
-  };
+        'input_tokens': inputTokens,
+        'input_tokens_details': inputTokensDetails.toJson(),
+        'output_tokens': outputTokens,
+        'output_tokens_details': outputTokensDetails.toJson(),
+        'total_tokens': totalTokens,
+      };
 }

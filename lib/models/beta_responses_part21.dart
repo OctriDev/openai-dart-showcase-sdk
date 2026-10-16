@@ -8,60 +8,115 @@ part of 'beta_responses.dart';
 class BetaResponsesServerEventVariant57 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The event type identifier.
   final BetaResponseCustomToolCallInputDoneEventType type_;
+
   /// The sequence number of this event.
   final int sequenceNumber;
+
   /// The index of the output this event applies to.
   final int outputIndex;
+
   /// Unique identifier for the API item associated with this event.
   final String itemId;
+
   /// The complete input data for the custom tool call.
   final String input;
+
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const BetaResponsesServerEventVariant57({this.agent = const SdkOmitted(), required this.type_, required this.sequenceNumber, required this.outputIndex, required this.itemId, required this.input, this.streamId = const SdkOmitted()});
+  const BetaResponsesServerEventVariant57(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.sequenceNumber,
+      required this.outputIndex,
+      required this.itemId,
+      required this.input,
+      this.streamId = const SdkOmitted()});
 
-  BetaResponsesServerEventVariant57 Function({SdkOptional<BetaAgentTag?> agent, BetaResponseCustomToolCallInputDoneEventType type_, int sequenceNumber, int outputIndex, String itemId, String input, SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponsesServerEventVariant57 Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseCustomToolCallInputDoneEventType type_,
+      int sequenceNumber,
+      int outputIndex,
+      String itemId,
+      String input,
+      SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponsesServerEventVariant57 _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? input = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => BetaResponsesServerEventVariant57(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseCustomToolCallInputDoneEventType,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as String,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponsesServerEventVariant57 _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue}) =>
+      BetaResponsesServerEventVariant57(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseCustomToolCallInputDoneEventType,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        input: identical(input, sdkOmittedValue) ? this.input : input as String,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponsesServerEventVariant57.fromJson(Map<String, dynamic> json) => BetaResponsesServerEventVariant57(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseCustomToolCallInputDoneEventType.fromJson(json['type'] as String) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    input: (json['input'] as String?)!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponsesServerEventVariant57.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponsesServerEventVariant57(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseCustomToolCallInputDoneEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        input: (json['input'] as String?)!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'sequence_number': sequenceNumber,
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'input': input,
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'sequence_number': sequenceNumber,
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'input': input,
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class BetaResponsesServerEvent {
@@ -69,210 +124,577 @@ sealed class BetaResponsesServerEvent {
   static const String constructionSurface = 'named';
   const BetaResponsesServerEvent();
   factory BetaResponsesServerEvent.fromJson(Object? json) {
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant0(BetaResponsesServerEventVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant1(BetaResponsesServerEventVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant2(BetaResponsesServerEventVariant2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant3(BetaResponsesServerEventVariant3.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant4(BetaResponsesServerEventVariant4.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant5(BetaResponsesServerEventVariant5.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant6(BetaResponsesServerEventVariant6.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant7(BetaResponsesServerEventVariant7.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant8(BetaResponsesServerEventVariant8.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant9(BetaResponsesServerEventVariant9.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant10(BetaResponsesServerEventVariant10.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant11(BetaResponsesServerEventVariant11.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant12(BetaResponsesServerEventVariant12.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant13(BetaResponsesServerEventVariant13.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant14(BetaResponsesServerEventVariant14.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant15(BetaResponsesServerEventVariant15.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant16(BetaResponsesServerEventVariant16.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant17(BetaResponsesServerEventVariant17.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant18(BetaResponsesServerEventVariant18.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant19(BetaResponsesServerEventVariant19.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant20(BetaResponsesServerEventVariant20.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant21(BetaResponsesServerEventVariant21.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant22(BetaResponsesServerEventVariant22.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant23(BetaResponsesServerEventVariant23.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant24(BetaResponsesServerEventVariant24.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant25(BetaResponsesServerEventVariant25.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant26(BetaResponsesServerEventVariant26.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant27(BetaResponsesServerEventVariant27.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant28(BetaResponsesServerEventVariant28.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant29(BetaResponsesServerEventVariant29.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant30(BetaResponsesServerEventVariant30.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant31(BetaResponsesServerEventVariant31.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant32(BetaResponsesServerEventVariant32.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant33(BetaResponsesServerEventVariant33.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant34(BetaResponsesServerEventVariant34.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant35(BetaResponsesServerEventVariant35.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant36(BetaResponsesServerEventVariant36.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant37(BetaResponsesServerEventVariant37.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant38(BetaResponsesServerEventVariant38.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant39(BetaResponsesServerEventVariant39.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant40(BetaResponsesServerEventVariant40.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant41(BetaResponsesServerEventVariant41.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant42(BetaResponsesServerEventVariant42.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant43(BetaResponsesServerEventVariant43.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant44(BetaResponsesServerEventVariant44.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant45(BetaResponsesServerEventVariant45.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant46(BetaResponsesServerEventVariant46.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant47(BetaResponsesServerEventVariant47.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant48(BetaResponsesServerEventVariant48.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant49(BetaResponsesServerEventVariant49.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant50(BetaResponsesServerEventVariant50.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant51(BetaResponsesServerEventVariant51.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant52(BetaResponsesServerEventVariant52.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant53(BetaResponsesServerEventVariant53.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant54(BetaResponsesServerEventVariant54.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant55(BetaResponsesServerEventVariant55.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant56(BetaResponsesServerEventVariant56.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponsesServerEventVariant57(BetaResponsesServerEventVariant57.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponseWsError(BetaResponseWsError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponseSteerAcceptedEvent(BetaResponseSteerAcceptedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponseSteerPendingEvent(BetaResponseSteerPendingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponseSteerFailedEvent(BetaResponseSteerFailedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponseInjectCreatedEvent(BetaResponseInjectCreatedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaResponsesServerEventBetaResponseInjectFailedEvent(BetaResponseInjectFailedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"error", "response.steer.accepted", "response.steer.pending", "response.steer.failed", "response.inject.created", "response.inject.failed", "response.audio.delta", "response.audio.done", "response.audio.transcript.delta", "response.audio.transcript.done", "response.code_interpreter_call_code.delta", "response.code_interpreter_call_code.done", "response.code_interpreter_call.completed", "response.code_interpreter_call.in_progress", "response.code_interpreter_call.interpreting", "response.compaction.compacting", "response.completed", "response.content_part.added", "response.content_part.done", "response.created", "response.file_search_call.completed", "response.file_search_call.in_progress", "response.file_search_call.searching", "response.function_call_arguments.delta", "response.function_call_arguments.done", "response.shell_call_command.added", "response.shell_call_command.delta", "response.shell_call_command.done", "response.shell_call_output_content.delta", "response.shell_call_output_content.done", "response.in_progress", "response.failed", "response.incomplete", "response.output_item.added", "response.output_item.done", "response.reasoning_summary_part.added", "response.reasoning_summary_part.done", "response.reasoning_summary_text.delta", "response.reasoning_summary_text.done", "response.reasoning_text.delta", "response.reasoning_text.done", "response.refusal.delta", "response.refusal.done", "response.output_text.delta", "response.output_text.done", "response.web_search_call.completed", "response.web_search_call.in_progress", "response.web_search_call.searching", "response.image_generation_call.completed", "response.image_generation_call.generating", "response.image_generation_call.in_progress", "response.image_generation_call.partial_image", "response.mcp_call_arguments.delta", "response.mcp_call_arguments.done", "response.mcp_call.completed", "response.mcp_call.failed", "response.mcp_call.in_progress", "response.mcp_list_tools.completed", "response.mcp_list_tools.failed", "response.mcp_list_tools.in_progress", "response.output_text.annotation.added", "response.queued", "response.custom_tool_call_input.delta", "response.custom_tool_call_input.done"}.contains(json["type"])) { return UnknownBetaResponsesServerEvent(json); }
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant0(
+          BetaResponsesServerEventVariant0.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant1(
+          BetaResponsesServerEventVariant1.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant2(
+          BetaResponsesServerEventVariant2.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant3(
+          BetaResponsesServerEventVariant3.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant4(
+          BetaResponsesServerEventVariant4.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant5(
+          BetaResponsesServerEventVariant5.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant6(
+          BetaResponsesServerEventVariant6.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant7(
+          BetaResponsesServerEventVariant7.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant8(
+          BetaResponsesServerEventVariant8.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant9(
+          BetaResponsesServerEventVariant9.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant10(
+          BetaResponsesServerEventVariant10.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant11(
+          BetaResponsesServerEventVariant11.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant12(
+          BetaResponsesServerEventVariant12.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant13(
+          BetaResponsesServerEventVariant13.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant14(
+          BetaResponsesServerEventVariant14.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant15(
+          BetaResponsesServerEventVariant15.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant16(
+          BetaResponsesServerEventVariant16.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant17(
+          BetaResponsesServerEventVariant17.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant18(
+          BetaResponsesServerEventVariant18.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant19(
+          BetaResponsesServerEventVariant19.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant20(
+          BetaResponsesServerEventVariant20.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant21(
+          BetaResponsesServerEventVariant21.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant22(
+          BetaResponsesServerEventVariant22.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant23(
+          BetaResponsesServerEventVariant23.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant24(
+          BetaResponsesServerEventVariant24.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant25(
+          BetaResponsesServerEventVariant25.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant26(
+          BetaResponsesServerEventVariant26.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant27(
+          BetaResponsesServerEventVariant27.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant28(
+          BetaResponsesServerEventVariant28.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant29(
+          BetaResponsesServerEventVariant29.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant30(
+          BetaResponsesServerEventVariant30.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant31(
+          BetaResponsesServerEventVariant31.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant32(
+          BetaResponsesServerEventVariant32.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant33(
+          BetaResponsesServerEventVariant33.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant34(
+          BetaResponsesServerEventVariant34.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant35(
+          BetaResponsesServerEventVariant35.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant36(
+          BetaResponsesServerEventVariant36.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant37(
+          BetaResponsesServerEventVariant37.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant38(
+          BetaResponsesServerEventVariant38.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant39(
+          BetaResponsesServerEventVariant39.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant40(
+          BetaResponsesServerEventVariant40.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant41(
+          BetaResponsesServerEventVariant41.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant42(
+          BetaResponsesServerEventVariant42.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant43(
+          BetaResponsesServerEventVariant43.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant44(
+          BetaResponsesServerEventVariant44.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant45(
+          BetaResponsesServerEventVariant45.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant46(
+          BetaResponsesServerEventVariant46.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant47(
+          BetaResponsesServerEventVariant47.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant48(
+          BetaResponsesServerEventVariant48.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant49(
+          BetaResponsesServerEventVariant49.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant50(
+          BetaResponsesServerEventVariant50.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant51(
+          BetaResponsesServerEventVariant51.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant52(
+          BetaResponsesServerEventVariant52.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant53(
+          BetaResponsesServerEventVariant53.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant54(
+          BetaResponsesServerEventVariant54.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant55(
+          BetaResponsesServerEventVariant55.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant56(
+          BetaResponsesServerEventVariant56.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponsesServerEventVariant57(
+          BetaResponsesServerEventVariant57.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponseWsError(
+          BetaResponseWsError.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponseSteerAcceptedEvent(
+          BetaResponseSteerAcceptedEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponseSteerPendingEvent(
+          BetaResponseSteerPendingEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponseSteerFailedEvent(
+          BetaResponseSteerFailedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponseInjectCreatedEvent(
+          BetaResponseInjectCreatedEvent.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaResponsesServerEventBetaResponseInjectFailedEvent(
+          BetaResponseInjectFailedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "error",
+          "response.steer.accepted",
+          "response.steer.pending",
+          "response.steer.failed",
+          "response.inject.created",
+          "response.inject.failed",
+          "response.audio.delta",
+          "response.audio.done",
+          "response.audio.transcript.delta",
+          "response.audio.transcript.done",
+          "response.code_interpreter_call_code.delta",
+          "response.code_interpreter_call_code.done",
+          "response.code_interpreter_call.completed",
+          "response.code_interpreter_call.in_progress",
+          "response.code_interpreter_call.interpreting",
+          "response.compaction.compacting",
+          "response.completed",
+          "response.content_part.added",
+          "response.content_part.done",
+          "response.created",
+          "response.file_search_call.completed",
+          "response.file_search_call.in_progress",
+          "response.file_search_call.searching",
+          "response.function_call_arguments.delta",
+          "response.function_call_arguments.done",
+          "response.shell_call_command.added",
+          "response.shell_call_command.delta",
+          "response.shell_call_command.done",
+          "response.shell_call_output_content.delta",
+          "response.shell_call_output_content.done",
+          "response.in_progress",
+          "response.failed",
+          "response.incomplete",
+          "response.output_item.added",
+          "response.output_item.done",
+          "response.reasoning_summary_part.added",
+          "response.reasoning_summary_part.done",
+          "response.reasoning_summary_text.delta",
+          "response.reasoning_summary_text.done",
+          "response.reasoning_text.delta",
+          "response.reasoning_text.done",
+          "response.refusal.delta",
+          "response.refusal.done",
+          "response.output_text.delta",
+          "response.output_text.done",
+          "response.web_search_call.completed",
+          "response.web_search_call.in_progress",
+          "response.web_search_call.searching",
+          "response.image_generation_call.completed",
+          "response.image_generation_call.generating",
+          "response.image_generation_call.in_progress",
+          "response.image_generation_call.partial_image",
+          "response.mcp_call_arguments.delta",
+          "response.mcp_call_arguments.done",
+          "response.mcp_call.completed",
+          "response.mcp_call.failed",
+          "response.mcp_call.in_progress",
+          "response.mcp_list_tools.completed",
+          "response.mcp_list_tools.failed",
+          "response.mcp_list_tools.in_progress",
+          "response.output_text.annotation.added",
+          "response.queued",
+          "response.custom_tool_call_input.delta",
+          "response.custom_tool_call_input.done"
+        }.contains(json["type"])) {
+      return UnknownBetaResponsesServerEvent(json);
+    }
     throw FormatException("No variant matched for BetaResponsesServerEvent");
   }
   Object? toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant0 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant0
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant0 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant1 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant1
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant1 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant2 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant2
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant2 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant2(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant3 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant3
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant3 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant3(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant4 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant4
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant4 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant4(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant5 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant5
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant5 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant5(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant6 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant6
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant6 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant6(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant7 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant7
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant7 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant7(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant8 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant8
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant8 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant8(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant9 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant9
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant9 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant9(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant10 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant10
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant10 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant10(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant11 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant11
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant11 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant11(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant12 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant12
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant12 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant12(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant13 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant13
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant13 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant13(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant14 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant14
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant14 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant14(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant15 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant15
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant15 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant15(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant16 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant16
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant16 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant16(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant17 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant17
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant17 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant17(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant18 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant18
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant18 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant18(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant19 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant19
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant19 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant19(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant20 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant20
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant20 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant20(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant21 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant21
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant21 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant21(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponsesServerEventVariant22 extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant22
+    extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant22 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant22(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

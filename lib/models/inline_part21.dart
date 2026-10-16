@@ -8,16 +8,23 @@ part of 'inline.dart';
 enum BetaResponseFunctionCallArgumentsDeltaEventType {
   responseFunctionCallArgumentsDelta;
 
-  static BetaResponseFunctionCallArgumentsDeltaEventType fromJson(String value) {
+  static BetaResponseFunctionCallArgumentsDeltaEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.function_call_arguments.delta': return BetaResponseFunctionCallArgumentsDeltaEventType.responseFunctionCallArgumentsDelta;
-      default: throw ArgumentError('Unknown BetaResponseFunctionCallArgumentsDeltaEventType: $value');
+      case 'response.function_call_arguments.delta':
+        return BetaResponseFunctionCallArgumentsDeltaEventType
+            .responseFunctionCallArgumentsDelta;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseFunctionCallArgumentsDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseFunctionCallArgumentsDeltaEventType.responseFunctionCallArgumentsDelta: return 'response.function_call_arguments.delta';
+      case BetaResponseFunctionCallArgumentsDeltaEventType
+            .responseFunctionCallArgumentsDelta:
+        return 'response.function_call_arguments.delta';
     }
   }
 
@@ -31,14 +38,20 @@ enum BetaResponseFunctionCallArgumentsDoneEventType {
 
   static BetaResponseFunctionCallArgumentsDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.function_call_arguments.done': return BetaResponseFunctionCallArgumentsDoneEventType.responseFunctionCallArgumentsDone;
-      default: throw ArgumentError('Unknown BetaResponseFunctionCallArgumentsDoneEventType: $value');
+      case 'response.function_call_arguments.done':
+        return BetaResponseFunctionCallArgumentsDoneEventType
+            .responseFunctionCallArgumentsDone;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseFunctionCallArgumentsDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseFunctionCallArgumentsDoneEventType.responseFunctionCallArgumentsDone: return 'response.function_call_arguments.done';
+      case BetaResponseFunctionCallArgumentsDoneEventType
+            .responseFunctionCallArgumentsDone:
+        return 'response.function_call_arguments.done';
     }
   }
 
@@ -52,14 +65,20 @@ enum BetaResponseImageGenCallCompletedEventType {
 
   static BetaResponseImageGenCallCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.image_generation_call.completed': return BetaResponseImageGenCallCompletedEventType.responseImageGenerationCallCompleted;
-      default: throw ArgumentError('Unknown BetaResponseImageGenCallCompletedEventType: $value');
+      case 'response.image_generation_call.completed':
+        return BetaResponseImageGenCallCompletedEventType
+            .responseImageGenerationCallCompleted;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseImageGenCallCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseImageGenCallCompletedEventType.responseImageGenerationCallCompleted: return 'response.image_generation_call.completed';
+      case BetaResponseImageGenCallCompletedEventType
+            .responseImageGenerationCallCompleted:
+        return 'response.image_generation_call.completed';
     }
   }
 
@@ -73,14 +92,20 @@ enum BetaResponseImageGenCallGeneratingEventType {
 
   static BetaResponseImageGenCallGeneratingEventType fromJson(String value) {
     switch (value) {
-      case 'response.image_generation_call.generating': return BetaResponseImageGenCallGeneratingEventType.responseImageGenerationCallGenerating;
-      default: throw ArgumentError('Unknown BetaResponseImageGenCallGeneratingEventType: $value');
+      case 'response.image_generation_call.generating':
+        return BetaResponseImageGenCallGeneratingEventType
+            .responseImageGenerationCallGenerating;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseImageGenCallGeneratingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseImageGenCallGeneratingEventType.responseImageGenerationCallGenerating: return 'response.image_generation_call.generating';
+      case BetaResponseImageGenCallGeneratingEventType
+            .responseImageGenerationCallGenerating:
+        return 'response.image_generation_call.generating';
     }
   }
 
@@ -94,14 +119,20 @@ enum BetaResponseImageGenCallInProgressEventType {
 
   static BetaResponseImageGenCallInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.image_generation_call.in_progress': return BetaResponseImageGenCallInProgressEventType.responseImageGenerationCallInProgress;
-      default: throw ArgumentError('Unknown BetaResponseImageGenCallInProgressEventType: $value');
+      case 'response.image_generation_call.in_progress':
+        return BetaResponseImageGenCallInProgressEventType
+            .responseImageGenerationCallInProgress;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseImageGenCallInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseImageGenCallInProgressEventType.responseImageGenerationCallInProgress: return 'response.image_generation_call.in_progress';
+      case BetaResponseImageGenCallInProgressEventType
+            .responseImageGenerationCallInProgress:
+        return 'response.image_generation_call.in_progress';
     }
   }
 
@@ -115,14 +146,20 @@ enum BetaResponseImageGenCallPartialImageEventType {
 
   static BetaResponseImageGenCallPartialImageEventType fromJson(String value) {
     switch (value) {
-      case 'response.image_generation_call.partial_image': return BetaResponseImageGenCallPartialImageEventType.responseImageGenerationCallPartialImage;
-      default: throw ArgumentError('Unknown BetaResponseImageGenCallPartialImageEventType: $value');
+      case 'response.image_generation_call.partial_image':
+        return BetaResponseImageGenCallPartialImageEventType
+            .responseImageGenerationCallPartialImage;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseImageGenCallPartialImageEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseImageGenCallPartialImageEventType.responseImageGenerationCallPartialImage: return 'response.image_generation_call.partial_image';
+      case BetaResponseImageGenCallPartialImageEventType
+            .responseImageGenerationCallPartialImage:
+        return 'response.image_generation_call.partial_image';
     }
   }
 
@@ -136,14 +173,17 @@ enum BetaResponseIncompleteEventType {
 
   static BetaResponseIncompleteEventType fromJson(String value) {
     switch (value) {
-      case 'response.incomplete': return BetaResponseIncompleteEventType.responseIncomplete;
-      default: throw ArgumentError('Unknown BetaResponseIncompleteEventType: $value');
+      case 'response.incomplete':
+        return BetaResponseIncompleteEventType.responseIncomplete;
+      default:
+        throw ArgumentError('Unknown BetaResponseIncompleteEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseIncompleteEventType.responseIncomplete: return 'response.incomplete';
+      case BetaResponseIncompleteEventType.responseIncomplete:
+        return 'response.incomplete';
     }
   }
 
@@ -157,14 +197,18 @@ enum BetaResponseInjectCreatedEventType {
 
   static BetaResponseInjectCreatedEventType fromJson(String value) {
     switch (value) {
-      case 'response.inject.created': return BetaResponseInjectCreatedEventType.responseInjectCreated;
-      default: throw ArgumentError('Unknown BetaResponseInjectCreatedEventType: $value');
+      case 'response.inject.created':
+        return BetaResponseInjectCreatedEventType.responseInjectCreated;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseInjectCreatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseInjectCreatedEventType.responseInjectCreated: return 'response.inject.created';
+      case BetaResponseInjectCreatedEventType.responseInjectCreated:
+        return 'response.inject.created';
     }
   }
 
@@ -178,14 +222,17 @@ enum BetaResponseInjectEventType {
 
   static BetaResponseInjectEventType fromJson(String value) {
     switch (value) {
-      case 'response.inject': return BetaResponseInjectEventType.responseInject;
-      default: throw ArgumentError('Unknown BetaResponseInjectEventType: $value');
+      case 'response.inject':
+        return BetaResponseInjectEventType.responseInject;
+      default:
+        throw ArgumentError('Unknown BetaResponseInjectEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseInjectEventType.responseInject: return 'response.inject';
+      case BetaResponseInjectEventType.responseInject:
+        return 'response.inject';
     }
   }
 
@@ -195,24 +242,29 @@ enum BetaResponseInjectEventType {
 
 /// A machine-readable error code.
 final class BetaResponseInjectFailedEventErrorCode {
-
   final String value;
 
   const BetaResponseInjectFailedEventErrorCode._(this.value);
 
-  factory BetaResponseInjectFailedEventErrorCode.fromJson(String value) => BetaResponseInjectFailedEventErrorCode._(value);
+  factory BetaResponseInjectFailedEventErrorCode.fromJson(String value) =>
+      BetaResponseInjectFailedEventErrorCode._(value);
 
-  static const responseAlreadyCompleted = BetaResponseInjectFailedEventErrorCode._('response_already_completed');
-  static const responseNotFound = BetaResponseInjectFailedEventErrorCode._('response_not_found');
+  static const responseAlreadyCompleted =
+      BetaResponseInjectFailedEventErrorCode._('response_already_completed');
+  static const responseNotFound =
+      BetaResponseInjectFailedEventErrorCode._('response_not_found');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaResponseInjectFailedEventErrorCode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaResponseInjectFailedEventErrorCode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event discriminator. Always `response.inject.failed`.
@@ -221,14 +273,18 @@ enum BetaResponseInjectFailedEventType {
 
   static BetaResponseInjectFailedEventType fromJson(String value) {
     switch (value) {
-      case 'response.inject.failed': return BetaResponseInjectFailedEventType.responseInjectFailed;
-      default: throw ArgumentError('Unknown BetaResponseInjectFailedEventType: $value');
+      case 'response.inject.failed':
+        return BetaResponseInjectFailedEventType.responseInjectFailed;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseInjectFailedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseInjectFailedEventType.responseInjectFailed: return 'response.inject.failed';
+      case BetaResponseInjectFailedEventType.responseInjectFailed:
+        return 'response.inject.failed';
     }
   }
 
@@ -242,14 +298,17 @@ enum BetaResponseInProgressEventType {
 
   static BetaResponseInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.in_progress': return BetaResponseInProgressEventType.responseInProgress;
-      default: throw ArgumentError('Unknown BetaResponseInProgressEventType: $value');
+      case 'response.in_progress':
+        return BetaResponseInProgressEventType.responseInProgress;
+      default:
+        throw ArgumentError('Unknown BetaResponseInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseInProgressEventType.responseInProgress: return 'response.in_progress';
+      case BetaResponseInProgressEventType.responseInProgress:
+        return 'response.in_progress';
     }
   }
 
@@ -259,21 +318,24 @@ enum BetaResponseInProgressEventType {
 
 /// The type of object returned, must be `list`.
 final class BetaResponseItemListObject {
-
   final String value;
 
   const BetaResponseItemListObject._(this.value);
 
-  factory BetaResponseItemListObject.fromJson(String value) => BetaResponseItemListObject._(value);
+  factory BetaResponseItemListObject.fromJson(String value) =>
+      BetaResponseItemListObject._(value);
 
   static const list = BetaResponseItemListObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaResponseItemListObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaResponseItemListObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

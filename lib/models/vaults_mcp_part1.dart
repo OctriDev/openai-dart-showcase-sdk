@@ -8,44 +8,85 @@ part of 'vaults_mcp.dart';
 class McpOauthRefreshResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The HTTPS OAuth token endpoint used for refresh.
   final String tokenEndpoint;
+
   /// The OAuth client ID used when requesting a new access token.
   final String clientId;
+
   /// The resource URI sent to the OAuth token endpoint during refresh, if configured.
   final String? resource;
+
   /// Space-separated OAuth scopes requested during refresh, if configured.
   final String? scope;
+
   /// How the OAuth client authenticates to the token endpoint, excluding its client secret.
   final McpOauthTokenEndpointAuthResource tokenEndpointAuth;
 
-  const McpOauthRefreshResource({required this.tokenEndpoint, required this.clientId, required this.resource, required this.scope, required this.tokenEndpointAuth});
+  const McpOauthRefreshResource(
+      {required this.tokenEndpoint,
+      required this.clientId,
+      required this.resource,
+      required this.scope,
+      required this.tokenEndpointAuth});
 
-  McpOauthRefreshResource Function({String tokenEndpoint, String clientId, String? resource, String? scope, McpOauthTokenEndpointAuthResource tokenEndpointAuth}) get copyWith => _copyWith;
+  McpOauthRefreshResource Function(
+          {String tokenEndpoint,
+          String clientId,
+          String? resource,
+          String? scope,
+          McpOauthTokenEndpointAuthResource tokenEndpointAuth})
+      get copyWith => _copyWith;
 
-  McpOauthRefreshResource _copyWith({Object? tokenEndpoint = sdkOmittedValue, Object? clientId = sdkOmittedValue, Object? resource = sdkOmittedValue, Object? scope = sdkOmittedValue, Object? tokenEndpointAuth = sdkOmittedValue}) => McpOauthRefreshResource(
-    tokenEndpoint: identical(tokenEndpoint, sdkOmittedValue) ? this.tokenEndpoint : tokenEndpoint as String,
-    clientId: identical(clientId, sdkOmittedValue) ? this.clientId : clientId as String,
-    resource: identical(resource, sdkOmittedValue) ? this.resource : resource as String?,
-    scope: identical(scope, sdkOmittedValue) ? this.scope : scope as String?,
-    tokenEndpointAuth: identical(tokenEndpointAuth, sdkOmittedValue) ? this.tokenEndpointAuth : tokenEndpointAuth as McpOauthTokenEndpointAuthResource,
-  );
+  McpOauthRefreshResource _copyWith(
+          {Object? tokenEndpoint = sdkOmittedValue,
+          Object? clientId = sdkOmittedValue,
+          Object? resource = sdkOmittedValue,
+          Object? scope = sdkOmittedValue,
+          Object? tokenEndpointAuth = sdkOmittedValue}) =>
+      McpOauthRefreshResource(
+        tokenEndpoint: identical(tokenEndpoint, sdkOmittedValue)
+            ? this.tokenEndpoint
+            : tokenEndpoint as String,
+        clientId: identical(clientId, sdkOmittedValue)
+            ? this.clientId
+            : clientId as String,
+        resource: identical(resource, sdkOmittedValue)
+            ? this.resource
+            : resource as String?,
+        scope:
+            identical(scope, sdkOmittedValue) ? this.scope : scope as String?,
+        tokenEndpointAuth: identical(tokenEndpointAuth, sdkOmittedValue)
+            ? this.tokenEndpointAuth
+            : tokenEndpointAuth as McpOauthTokenEndpointAuthResource,
+      );
 
-  factory McpOauthRefreshResource.fromJson(Map<String, dynamic> json) => McpOauthRefreshResource(
-    tokenEndpoint: (json['token_endpoint'] as String?)!,
-    clientId: (json['client_id'] as String?)!,
-    resource: json.containsKey('resource') ? json['resource'] as String? : throw ArgumentError.value(null, 'resource', 'Required property is missing'),
-    scope: json.containsKey('scope') ? json['scope'] as String? : throw ArgumentError.value(null, 'scope', 'Required property is missing'),
-    tokenEndpointAuth: (json['token_endpoint_auth'] != null ? McpOauthTokenEndpointAuthResource.fromJson(json['token_endpoint_auth']) : null)!,
-  );
+  factory McpOauthRefreshResource.fromJson(Map<String, dynamic> json) =>
+      McpOauthRefreshResource(
+        tokenEndpoint: (json['token_endpoint'] as String?)!,
+        clientId: (json['client_id'] as String?)!,
+        resource: json.containsKey('resource')
+            ? json['resource'] as String?
+            : throw ArgumentError.value(
+                null, 'resource', 'Required property is missing'),
+        scope: json.containsKey('scope')
+            ? json['scope'] as String?
+            : throw ArgumentError.value(
+                null, 'scope', 'Required property is missing'),
+        tokenEndpointAuth: (json['token_endpoint_auth'] != null
+            ? McpOauthTokenEndpointAuthResource.fromJson(
+                json['token_endpoint_auth'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'token_endpoint': tokenEndpoint,
-    'client_id': clientId,
-    'resource': resource,
-    'scope': scope,
-    'token_endpoint_auth': tokenEndpointAuth.toJson(),
-  };
+        'token_endpoint': tokenEndpoint,
+        'client_id': clientId,
+        'resource': resource,
+        'scope': scope,
+        'token_endpoint_auth': tokenEndpointAuth.toJson(),
+      };
 }
 
 sealed class McpOauthTokenEndpointAuthResource {
@@ -53,108 +94,175 @@ sealed class McpOauthTokenEndpointAuthResource {
   static const String constructionSurface = 'named';
   const McpOauthTokenEndpointAuthResource();
   factory McpOauthTokenEndpointAuthResource.fromJson(Object? json) {
-    try { return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceNone(McpOauthTokenEndpointAuthResourceNone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretBasic(McpOauthTokenEndpointAuthResourceClientSecretBasic.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretPost(McpOauthTokenEndpointAuthResourceClientSecretPost.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"none", "client_secret_basic", "client_secret_post"}.contains(json["type"])) { return UnknownMcpOauthTokenEndpointAuthResource(json); }
-    throw FormatException("No variant matched for McpOauthTokenEndpointAuthResource");
+    try {
+      return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceNone(
+          McpOauthTokenEndpointAuthResourceNone.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretBasic(
+          McpOauthTokenEndpointAuthResourceClientSecretBasic.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretPost(
+          McpOauthTokenEndpointAuthResourceClientSecretPost.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"none", "client_secret_basic", "client_secret_post"}
+            .contains(json["type"])) {
+      return UnknownMcpOauthTokenEndpointAuthResource(json);
+    }
+    throw FormatException(
+        "No variant matched for McpOauthTokenEndpointAuthResource");
   }
   Object? toJson();
 }
 
-final class McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceNone extends McpOauthTokenEndpointAuthResource {
+final class McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceNone
+    extends McpOauthTokenEndpointAuthResource {
   final McpOauthTokenEndpointAuthResourceNone value;
-  const McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceNone(this.value);
-  @override Object? toJson() => value.toJson();
+  const McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceNone(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretBasic extends McpOauthTokenEndpointAuthResource {
+final class McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretBasic
+    extends McpOauthTokenEndpointAuthResource {
   final McpOauthTokenEndpointAuthResourceClientSecretBasic value;
-  const McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretBasic(this.value);
-  @override Object? toJson() => value.toJson();
+  const McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretBasic(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretPost extends McpOauthTokenEndpointAuthResource {
+final class McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretPost
+    extends McpOauthTokenEndpointAuthResource {
   final McpOauthTokenEndpointAuthResourceClientSecretPost value;
-  const McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretPost(this.value);
-  @override Object? toJson() => value.toJson();
+  const McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretPost(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [McpOauthTokenEndpointAuthResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownMcpOauthTokenEndpointAuthResource extends McpOauthTokenEndpointAuthResource {
+final class UnknownMcpOauthTokenEndpointAuthResource
+    extends McpOauthTokenEndpointAuthResource {
   final Map<String, dynamic> raw;
   const UnknownMcpOauthTokenEndpointAuthResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Sends the client ID and secret using HTTP Basic authentication.
 class McpOauthTokenEndpointAuthResourceClientSecretBasic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `client_secret_basic`.
   final McpOauthTokenEndpointAuthResourceClientSecretBasicType type_;
 
-  const McpOauthTokenEndpointAuthResourceClientSecretBasic({required this.type_});
+  const McpOauthTokenEndpointAuthResourceClientSecretBasic(
+      {required this.type_});
 
-  McpOauthTokenEndpointAuthResourceClientSecretBasic Function({McpOauthTokenEndpointAuthResourceClientSecretBasicType type_}) get copyWith => _copyWith;
+  McpOauthTokenEndpointAuthResourceClientSecretBasic Function(
+          {McpOauthTokenEndpointAuthResourceClientSecretBasicType type_})
+      get copyWith => _copyWith;
 
-  McpOauthTokenEndpointAuthResourceClientSecretBasic _copyWith({Object? type_ = sdkOmittedValue}) => McpOauthTokenEndpointAuthResourceClientSecretBasic(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as McpOauthTokenEndpointAuthResourceClientSecretBasicType,
-  );
+  McpOauthTokenEndpointAuthResourceClientSecretBasic _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      McpOauthTokenEndpointAuthResourceClientSecretBasic(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as McpOauthTokenEndpointAuthResourceClientSecretBasicType,
+      );
 
-  factory McpOauthTokenEndpointAuthResourceClientSecretBasic.fromJson(Map<String, dynamic> json) => McpOauthTokenEndpointAuthResourceClientSecretBasic(
-    type_: (json['type'] != null ? McpOauthTokenEndpointAuthResourceClientSecretBasicType.fromJson(json['type'] as String) : null)!,
-  );
+  factory McpOauthTokenEndpointAuthResourceClientSecretBasic.fromJson(
+          Map<String, dynamic> json) =>
+      McpOauthTokenEndpointAuthResourceClientSecretBasic(
+        type_: (json['type'] != null
+            ? McpOauthTokenEndpointAuthResourceClientSecretBasicType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Sends the client ID and secret in the token request body.
 class McpOauthTokenEndpointAuthResourceClientSecretPost {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `client_secret_post`.
   final McpOauthTokenEndpointAuthResourceClientSecretPostType type_;
 
-  const McpOauthTokenEndpointAuthResourceClientSecretPost({required this.type_});
+  const McpOauthTokenEndpointAuthResourceClientSecretPost(
+      {required this.type_});
 
-  McpOauthTokenEndpointAuthResourceClientSecretPost Function({McpOauthTokenEndpointAuthResourceClientSecretPostType type_}) get copyWith => _copyWith;
+  McpOauthTokenEndpointAuthResourceClientSecretPost Function(
+          {McpOauthTokenEndpointAuthResourceClientSecretPostType type_})
+      get copyWith => _copyWith;
 
-  McpOauthTokenEndpointAuthResourceClientSecretPost _copyWith({Object? type_ = sdkOmittedValue}) => McpOauthTokenEndpointAuthResourceClientSecretPost(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as McpOauthTokenEndpointAuthResourceClientSecretPostType,
-  );
+  McpOauthTokenEndpointAuthResourceClientSecretPost _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      McpOauthTokenEndpointAuthResourceClientSecretPost(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as McpOauthTokenEndpointAuthResourceClientSecretPostType,
+      );
 
-  factory McpOauthTokenEndpointAuthResourceClientSecretPost.fromJson(Map<String, dynamic> json) => McpOauthTokenEndpointAuthResourceClientSecretPost(
-    type_: (json['type'] != null ? McpOauthTokenEndpointAuthResourceClientSecretPostType.fromJson(json['type'] as String) : null)!,
-  );
+  factory McpOauthTokenEndpointAuthResourceClientSecretPost.fromJson(
+          Map<String, dynamic> json) =>
+      McpOauthTokenEndpointAuthResourceClientSecretPost(
+        type_: (json['type'] != null
+            ? McpOauthTokenEndpointAuthResourceClientSecretPostType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Sends the client ID without a client secret.
 class McpOauthTokenEndpointAuthResourceNone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `none`.
   final McpOauthTokenEndpointAuthResourceNoneType type_;
 
   const McpOauthTokenEndpointAuthResourceNone({required this.type_});
 
-  McpOauthTokenEndpointAuthResourceNone Function({McpOauthTokenEndpointAuthResourceNoneType type_}) get copyWith => _copyWith;
+  McpOauthTokenEndpointAuthResourceNone Function(
+          {McpOauthTokenEndpointAuthResourceNoneType type_})
+      get copyWith => _copyWith;
 
-  McpOauthTokenEndpointAuthResourceNone _copyWith({Object? type_ = sdkOmittedValue}) => McpOauthTokenEndpointAuthResourceNone(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as McpOauthTokenEndpointAuthResourceNoneType,
-  );
+  McpOauthTokenEndpointAuthResourceNone _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      McpOauthTokenEndpointAuthResourceNone(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as McpOauthTokenEndpointAuthResourceNoneType,
+      );
 
-  factory McpOauthTokenEndpointAuthResourceNone.fromJson(Map<String, dynamic> json) => McpOauthTokenEndpointAuthResourceNone(
-    type_: (json['type'] != null ? McpOauthTokenEndpointAuthResourceNoneType.fromJson(json['type'] as String) : null)!,
-  );
+  factory McpOauthTokenEndpointAuthResourceNone.fromJson(
+          Map<String, dynamic> json) =>
+      McpOauthTokenEndpointAuthResourceNone(
+        type_: (json['type'] != null
+            ? McpOauthTokenEndpointAuthResourceNoneType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

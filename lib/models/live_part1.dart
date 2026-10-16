@@ -9,10 +9,23 @@ sealed class Delegation {
   static const String constructionSurface = 'named';
   const Delegation();
   factory Delegation.fromJson(Object? json) {
-    try { return DelegationLiveClientDelegationParam(LiveClientDelegationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DelegationLiveResponsesDelegationParam(LiveResponsesDelegationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DelegationLiveDecisionsDelegationParam(LiveDecisionsDelegationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"client", "responses", "decisions"}.contains(json["type"])) { return UnknownDelegation(json); }
+    try {
+      return DelegationLiveClientDelegationParam(
+          LiveClientDelegationParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DelegationLiveResponsesDelegationParam(
+          LiveResponsesDelegationParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DelegationLiveDecisionsDelegationParam(
+          LiveDecisionsDelegationParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"client", "responses", "decisions"}.contains(json["type"])) {
+      return UnknownDelegation(json);
+    }
     throw FormatException("No variant matched for Delegation");
   }
   Object? toJson();
@@ -21,26 +34,30 @@ sealed class Delegation {
 final class DelegationLiveClientDelegationParam extends Delegation {
   final LiveClientDelegationParam value;
   const DelegationLiveClientDelegationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class DelegationLiveResponsesDelegationParam extends Delegation {
   final LiveResponsesDelegationParam value;
   const DelegationLiveResponsesDelegationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class DelegationLiveDecisionsDelegationParam extends Delegation {
   final LiveDecisionsDelegationParam value;
   const DelegationLiveDecisionsDelegationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [Delegation] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownDelegation extends Delegation {
   final Map<String, dynamic> raw;
   const UnknownDelegation(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 // Input = List<LiveInitialItem>
@@ -52,8 +69,13 @@ sealed class ModelIdsLive {
   static const String constructionSurface = 'named';
   const ModelIdsLive();
   factory ModelIdsLive.fromJson(Object? json) {
-    if (json is String) { return ModelIdsLiveString(json); }
-    try { return ModelIdsLiveModelIdsLiveVariant1(ModelIdsLiveVariant1.fromJson(json as String)); } catch (_) {}
+    if (json is String) {
+      return ModelIdsLiveString(json);
+    }
+    try {
+      return ModelIdsLiveModelIdsLiveVariant1(
+          ModelIdsLiveVariant1.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for ModelIdsLive");
   }
   Object? toJson();
@@ -62,13 +84,15 @@ sealed class ModelIdsLive {
 final class ModelIdsLiveString extends ModelIdsLive {
   final String value;
   const ModelIdsLiveString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 final class ModelIdsLiveModelIdsLiveVariant1 extends ModelIdsLive {
   final ModelIdsLiveVariant1 value;
   const ModelIdsLiveModelIdsLiveVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 // PropertiesStore = bool
@@ -77,6 +101,7 @@ final class ModelIdsLiveModelIdsLiveVariant1 extends ModelIdsLive {
 class Session {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Opaque session identifier. Preserve the returned value unchanged, including its prefix.
   final String id;
 
@@ -85,16 +110,16 @@ class Session {
   Session Function({String id}) get copyWith => _copyWith;
 
   Session _copyWith({Object? id = sdkOmittedValue}) => Session(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
   factory Session.fromJson(Map<String, dynamic> json) => Session(
-    id: (json['id'] as String?)!,
-  );
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }
 
 // Store = bool

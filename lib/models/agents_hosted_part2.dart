@@ -9,58 +9,86 @@ sealed class HostedPluginResource {
   static const String constructionSurface = 'named';
   const HostedPluginResource();
   factory HostedPluginResource.fromJson(Object? json) {
-    try { return HostedPluginResourceHostedPluginResourceInline(HostedPluginResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"inline"}.contains(json["type"])) { return UnknownHostedPluginResource(json); }
+    try {
+      return HostedPluginResourceHostedPluginResourceInline(
+          HostedPluginResourceInline.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"inline"}.contains(json["type"])) {
+      return UnknownHostedPluginResource(json);
+    }
     throw FormatException("No variant matched for HostedPluginResource");
   }
   Object? toJson();
 }
 
-final class HostedPluginResourceHostedPluginResourceInline extends HostedPluginResource {
+final class HostedPluginResourceHostedPluginResourceInline
+    extends HostedPluginResource {
   final HostedPluginResourceInline value;
   const HostedPluginResourceHostedPluginResourceInline(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedPluginResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownHostedPluginResource extends HostedPluginResource {
   final Map<String, dynamic> raw;
   const UnknownHostedPluginResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A plugin installed from an inline ZIP archive.
 class HostedPluginResourceInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `inline`.
   final HostedPluginResourceInlineType type_;
+
   /// The installed plugin name.
   final String name;
+
   /// The installed plugin description.
   final String description;
 
-  const HostedPluginResourceInline({required this.type_, required this.name, required this.description});
+  const HostedPluginResourceInline(
+      {required this.type_, required this.name, required this.description});
 
-  HostedPluginResourceInline Function({HostedPluginResourceInlineType type_, String name, String description}) get copyWith => _copyWith;
+  HostedPluginResourceInline Function(
+      {HostedPluginResourceInlineType type_,
+      String name,
+      String description}) get copyWith => _copyWith;
 
-  HostedPluginResourceInline _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue}) => HostedPluginResourceInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedPluginResourceInlineType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-  );
+  HostedPluginResourceInline _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue}) =>
+      HostedPluginResourceInline(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedPluginResourceInlineType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+      );
 
-  factory HostedPluginResourceInline.fromJson(Map<String, dynamic> json) => HostedPluginResourceInline(
-    type_: (json['type'] != null ? HostedPluginResourceInlineType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-  );
+  factory HostedPluginResourceInline.fromJson(Map<String, dynamic> json) =>
+      HostedPluginResourceInline(
+        type_: (json['type'] != null
+            ? HostedPluginResourceInlineType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'description': description,
-  };
+        'type': type_.toJson(),
+        'name': name,
+        'description': description,
+      };
 }
 
 sealed class HostedSkillParam {
@@ -68,107 +96,177 @@ sealed class HostedSkillParam {
   static const String constructionSurface = 'named';
   const HostedSkillParam();
   factory HostedSkillParam.fromJson(Object? json) {
-    try { return HostedSkillParamHostedSkillParamSkillReference(HostedSkillParamSkillReference.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return HostedSkillParamHostedSkillParamInline(HostedSkillParamInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"skill_reference", "inline"}.contains(json["type"])) { return UnknownHostedSkillParam(json); }
+    try {
+      return HostedSkillParamHostedSkillParamSkillReference(
+          HostedSkillParamSkillReference.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return HostedSkillParamHostedSkillParamInline(
+          HostedSkillParamInline.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"skill_reference", "inline"}.contains(json["type"])) {
+      return UnknownHostedSkillParam(json);
+    }
     throw FormatException("No variant matched for HostedSkillParam");
   }
   Object? toJson();
 }
 
-final class HostedSkillParamHostedSkillParamSkillReference extends HostedSkillParam {
+final class HostedSkillParamHostedSkillParamSkillReference
+    extends HostedSkillParam {
   final HostedSkillParamSkillReference value;
   const HostedSkillParamHostedSkillParamSkillReference(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class HostedSkillParamHostedSkillParamInline extends HostedSkillParam {
   final HostedSkillParamInline value;
   const HostedSkillParamHostedSkillParamInline(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedSkillParam] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownHostedSkillParam extends HostedSkillParam {
   final Map<String, dynamic> raw;
   const UnknownHostedSkillParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Supplies a skill ZIP directly in the session request.
 class HostedSkillParamInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `inline`.
   final HostedSkillParamInlineType type_;
+
   /// The skill name declared in `SKILL.md`.
   final String name;
+
   /// The skill description declared in `SKILL.md`.
   final String description;
+
   /// The inline ZIP archive.
   final InlineCapabilitySourceParam source;
 
-  const HostedSkillParamInline({required this.type_, required this.name, required this.description, required this.source});
+  const HostedSkillParamInline(
+      {required this.type_,
+      required this.name,
+      required this.description,
+      required this.source});
 
-  HostedSkillParamInline Function({HostedSkillParamInlineType type_, String name, String description, InlineCapabilitySourceParam source}) get copyWith => _copyWith;
+  HostedSkillParamInline Function(
+      {HostedSkillParamInlineType type_,
+      String name,
+      String description,
+      InlineCapabilitySourceParam source}) get copyWith => _copyWith;
 
-  HostedSkillParamInline _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? source = sdkOmittedValue}) => HostedSkillParamInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedSkillParamInlineType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-    source: identical(source, sdkOmittedValue) ? this.source : source as InlineCapabilitySourceParam,
-  );
+  HostedSkillParamInline _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? source = sdkOmittedValue}) =>
+      HostedSkillParamInline(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedSkillParamInlineType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as InlineCapabilitySourceParam,
+      );
 
-  factory HostedSkillParamInline.fromJson(Map<String, dynamic> json) => HostedSkillParamInline(
-    type_: (json['type'] != null ? HostedSkillParamInlineType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-    source: (json['source'] != null ? InlineCapabilitySourceParam.fromJson(json['source']) : null)!,
-  );
+  factory HostedSkillParamInline.fromJson(Map<String, dynamic> json) =>
+      HostedSkillParamInline(
+        type_: (json['type'] != null
+            ? HostedSkillParamInlineType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+        source: (json['source'] != null
+            ? InlineCapabilitySourceParam.fromJson(json['source'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'description': description,
-    'source': source.toJson(),
-  };
+        'type': type_.toJson(),
+        'name': name,
+        'description': description,
+        'source': source.toJson(),
+      };
 }
 
 /// References a skill uploaded through the Skills API.
 class HostedSkillParamSkillReference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `skill_reference`.
   final HostedSkillParamSkillReferenceType type_;
+
   /// The ID of the skill created through `/v1/skills`.
   final String skillId;
+
   /// The skill version, a positive integer or `latest`; omission selects the default.
   final SdkOptional<String?> version;
 
-  const HostedSkillParamSkillReference({required this.type_, required this.skillId, this.version = const SdkOmitted()});
+  const HostedSkillParamSkillReference(
+      {required this.type_,
+      required this.skillId,
+      this.version = const SdkOmitted()});
 
-  HostedSkillParamSkillReference Function({HostedSkillParamSkillReferenceType type_, String skillId, SdkOptional<String?> version}) get copyWith => _copyWith;
+  HostedSkillParamSkillReference Function(
+      {HostedSkillParamSkillReferenceType type_,
+      String skillId,
+      SdkOptional<String?> version}) get copyWith => _copyWith;
 
-  HostedSkillParamSkillReference _copyWith({Object? type_ = sdkOmittedValue, Object? skillId = sdkOmittedValue, Object? version = sdkOmittedValue}) => HostedSkillParamSkillReference(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedSkillParamSkillReferenceType,
-    skillId: identical(skillId, sdkOmittedValue) ? this.skillId : skillId as String,
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String?>,
-  );
+  HostedSkillParamSkillReference _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? skillId = sdkOmittedValue,
+          Object? version = sdkOmittedValue}) =>
+      HostedSkillParamSkillReference(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedSkillParamSkillReferenceType,
+        skillId: identical(skillId, sdkOmittedValue)
+            ? this.skillId
+            : skillId as String,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<String?>,
+      );
 
-  factory HostedSkillParamSkillReference.fromJson(Map<String, dynamic> json) => HostedSkillParamSkillReference(
-    type_: (json['type'] != null ? HostedSkillParamSkillReferenceType.fromJson(json['type'] as String) : null)!,
-    skillId: (json['skill_id'] as String?)!,
-    version: json.containsKey('version') ? SdkPresent(json['version'] as String?) : const SdkOmitted(),
-  );
+  factory HostedSkillParamSkillReference.fromJson(Map<String, dynamic> json) =>
+      HostedSkillParamSkillReference(
+        type_: (json['type'] != null
+            ? HostedSkillParamSkillReferenceType.fromJson(
+                json['type'] as String)
+            : null)!,
+        skillId: (json['skill_id'] as String?)!,
+        version: json.containsKey('version')
+            ? SdkPresent(json['version'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'skill_id': skillId,
-    ...switch (version) {
-      SdkPresent<String?>(value: final value) => {'version': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'skill_id': skillId,
+        ...switch (version) {
+          SdkPresent<String?>(value: final value) => {
+              'version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class HostedSkillResource {
@@ -176,107 +274,175 @@ sealed class HostedSkillResource {
   static const String constructionSurface = 'named';
   const HostedSkillResource();
   factory HostedSkillResource.fromJson(Object? json) {
-    try { return HostedSkillResourceHostedSkillResourceSkillReference(HostedSkillResourceSkillReference.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return HostedSkillResourceHostedSkillResourceInline(HostedSkillResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"skill_reference", "inline"}.contains(json["type"])) { return UnknownHostedSkillResource(json); }
+    try {
+      return HostedSkillResourceHostedSkillResourceSkillReference(
+          HostedSkillResourceSkillReference.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return HostedSkillResourceHostedSkillResourceInline(
+          HostedSkillResourceInline.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"skill_reference", "inline"}.contains(json["type"])) {
+      return UnknownHostedSkillResource(json);
+    }
     throw FormatException("No variant matched for HostedSkillResource");
   }
   Object? toJson();
 }
 
-final class HostedSkillResourceHostedSkillResourceSkillReference extends HostedSkillResource {
+final class HostedSkillResourceHostedSkillResourceSkillReference
+    extends HostedSkillResource {
   final HostedSkillResourceSkillReference value;
   const HostedSkillResourceHostedSkillResourceSkillReference(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class HostedSkillResourceHostedSkillResourceInline extends HostedSkillResource {
+final class HostedSkillResourceHostedSkillResourceInline
+    extends HostedSkillResource {
   final HostedSkillResourceInline value;
   const HostedSkillResourceHostedSkillResourceInline(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedSkillResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownHostedSkillResource extends HostedSkillResource {
   final Map<String, dynamic> raw;
   const UnknownHostedSkillResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A skill installed from an inline ZIP archive.
 class HostedSkillResourceInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `inline`.
   final HostedSkillResourceInlineType type_;
+
   /// The installed skill name.
   final String name;
+
   /// The installed skill description.
   final String description;
 
-  const HostedSkillResourceInline({required this.type_, required this.name, required this.description});
+  const HostedSkillResourceInline(
+      {required this.type_, required this.name, required this.description});
 
-  HostedSkillResourceInline Function({HostedSkillResourceInlineType type_, String name, String description}) get copyWith => _copyWith;
+  HostedSkillResourceInline Function(
+      {HostedSkillResourceInlineType type_,
+      String name,
+      String description}) get copyWith => _copyWith;
 
-  HostedSkillResourceInline _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue}) => HostedSkillResourceInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedSkillResourceInlineType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-  );
+  HostedSkillResourceInline _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue}) =>
+      HostedSkillResourceInline(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedSkillResourceInlineType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+      );
 
-  factory HostedSkillResourceInline.fromJson(Map<String, dynamic> json) => HostedSkillResourceInline(
-    type_: (json['type'] != null ? HostedSkillResourceInlineType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-  );
+  factory HostedSkillResourceInline.fromJson(Map<String, dynamic> json) =>
+      HostedSkillResourceInline(
+        type_: (json['type'] != null
+            ? HostedSkillResourceInlineType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'description': description,
-  };
+        'type': type_.toJson(),
+        'name': name,
+        'description': description,
+      };
 }
 
 /// A skill installed from the Skills API.
 class HostedSkillResourceSkillReference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `skill_reference`.
   final HostedSkillResourceSkillReferenceType type_;
+
   /// The referenced skill ID.
   final String skillId;
+
   /// The concrete skill version installed for this session.
   final String version;
+
   /// The installed skill name.
   final String name;
+
   /// The installed skill description.
   final String description;
 
-  const HostedSkillResourceSkillReference({required this.type_, required this.skillId, required this.version, required this.name, required this.description});
+  const HostedSkillResourceSkillReference(
+      {required this.type_,
+      required this.skillId,
+      required this.version,
+      required this.name,
+      required this.description});
 
-  HostedSkillResourceSkillReference Function({HostedSkillResourceSkillReferenceType type_, String skillId, String version, String name, String description}) get copyWith => _copyWith;
+  HostedSkillResourceSkillReference Function(
+      {HostedSkillResourceSkillReferenceType type_,
+      String skillId,
+      String version,
+      String name,
+      String description}) get copyWith => _copyWith;
 
-  HostedSkillResourceSkillReference _copyWith({Object? type_ = sdkOmittedValue, Object? skillId = sdkOmittedValue, Object? version = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue}) => HostedSkillResourceSkillReference(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedSkillResourceSkillReferenceType,
-    skillId: identical(skillId, sdkOmittedValue) ? this.skillId : skillId as String,
-    version: identical(version, sdkOmittedValue) ? this.version : version as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-  );
+  HostedSkillResourceSkillReference _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? skillId = sdkOmittedValue,
+          Object? version = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue}) =>
+      HostedSkillResourceSkillReference(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedSkillResourceSkillReferenceType,
+        skillId: identical(skillId, sdkOmittedValue)
+            ? this.skillId
+            : skillId as String,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+      );
 
-  factory HostedSkillResourceSkillReference.fromJson(Map<String, dynamic> json) => HostedSkillResourceSkillReference(
-    type_: (json['type'] != null ? HostedSkillResourceSkillReferenceType.fromJson(json['type'] as String) : null)!,
-    skillId: (json['skill_id'] as String?)!,
-    version: (json['version'] as String?)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-  );
+  factory HostedSkillResourceSkillReference.fromJson(
+          Map<String, dynamic> json) =>
+      HostedSkillResourceSkillReference(
+        type_: (json['type'] != null
+            ? HostedSkillResourceSkillReferenceType.fromJson(
+                json['type'] as String)
+            : null)!,
+        skillId: (json['skill_id'] as String?)!,
+        version: (json['version'] as String?)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'skill_id': skillId,
-    'version': version,
-    'name': name,
-    'description': description,
-  };
+        'type': type_.toJson(),
+        'skill_id': skillId,
+        'version': version,
+        'name': name,
+        'description': description,
+      };
 }

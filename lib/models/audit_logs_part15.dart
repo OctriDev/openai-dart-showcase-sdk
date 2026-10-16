@@ -8,50 +8,94 @@ part of 'audit_logs.dart';
 class ListAuditLogsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final ListAuditLogsResponseObject object;
+
   /// Required array value serialized in the `data` wire field.
   final List<AuditLog> data;
+
   /// Optional `string` value serialized in the `first_id` wire field.
   final SdkOptional<String?> firstId;
+
   /// Optional `string` value serialized in the `last_id` wire field.
   final SdkOptional<String?> lastId;
+
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ListAuditLogsResponse({required this.object, required this.data, this.firstId = const SdkOmitted(), this.lastId = const SdkOmitted(), required this.hasMore});
+  const ListAuditLogsResponse(
+      {required this.object,
+      required this.data,
+      this.firstId = const SdkOmitted(),
+      this.lastId = const SdkOmitted(),
+      required this.hasMore});
 
-  ListAuditLogsResponse Function({ListAuditLogsResponseObject object, List<AuditLog> data, SdkOptional<String?> firstId, SdkOptional<String?> lastId, bool hasMore}) get copyWith => _copyWith;
+  ListAuditLogsResponse Function(
+      {ListAuditLogsResponseObject object,
+      List<AuditLog> data,
+      SdkOptional<String?> firstId,
+      SdkOptional<String?> lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  ListAuditLogsResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ListAuditLogsResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ListAuditLogsResponseObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<AuditLog>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as SdkOptional<String?>,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as SdkOptional<String?>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  ListAuditLogsResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      ListAuditLogsResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ListAuditLogsResponseObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<AuditLog>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as SdkOptional<String?>,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as SdkOptional<String?>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory ListAuditLogsResponse.fromJson(Map<String, dynamic> json) => ListAuditLogsResponse(
-    object: (json['object'] != null ? ListAuditLogsResponseObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => AuditLog.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? SdkPresent(json['first_id'] as String?) : const SdkOmitted(),
-    lastId: json.containsKey('last_id') ? SdkPresent(json['last_id'] as String?) : const SdkOmitted(),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory ListAuditLogsResponse.fromJson(Map<String, dynamic> json) =>
+      ListAuditLogsResponse(
+        object: (json['object'] != null
+            ? ListAuditLogsResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => AuditLog.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? SdkPresent(json['first_id'] as String?)
+            : const SdkOmitted(),
+        lastId: json.containsKey('last_id')
+            ? SdkPresent(json['last_id'] as String?)
+            : const SdkOmitted(),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    ...switch (firstId) {
-      SdkPresent<String?>(value: final value) => {'first_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastId) {
-      SdkPresent<String?>(value: final value) => {'last_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        ...switch (firstId) {
+          SdkPresent<String?>(value: final value) => {
+              'first_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastId) {
+          SdkPresent<String?>(value: final value) => {
+              'last_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'has_more': hasMore,
+      };
 }
 
 sealed class Provider {
@@ -59,11 +103,31 @@ sealed class Provider {
   static const String constructionSurface = 'named';
   const Provider();
   factory Provider.fromJson(Object? json) {
-    try { return ProviderAwsExternalStorageProviderResponse(AwsExternalStorageProviderResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ProviderAzureExternalStorageProviderResponse(AzureExternalStorageProviderResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ProviderGcpExternalStorageProviderResponse(GcpExternalStorageProviderResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ProviderOciExternalStorageProviderResponse(OciExternalStorageProviderResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"aws", "azure", "gcp", "oci"}.contains(json["type"])) { return UnknownProvider(json); }
+    try {
+      return ProviderAwsExternalStorageProviderResponse(
+          AwsExternalStorageProviderResponse.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ProviderAzureExternalStorageProviderResponse(
+          AzureExternalStorageProviderResponse.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ProviderGcpExternalStorageProviderResponse(
+          GcpExternalStorageProviderResponse.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ProviderOciExternalStorageProviderResponse(
+          OciExternalStorageProviderResponse.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"aws", "azure", "gcp", "oci"}.contains(json["type"])) {
+      return UnknownProvider(json);
+    }
     throw FormatException("No variant matched for Provider");
   }
   Object? toJson();
@@ -72,30 +136,35 @@ sealed class Provider {
 final class ProviderAwsExternalStorageProviderResponse extends Provider {
   final AwsExternalStorageProviderResponse value;
   const ProviderAwsExternalStorageProviderResponse(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ProviderAzureExternalStorageProviderResponse extends Provider {
   final AzureExternalStorageProviderResponse value;
   const ProviderAzureExternalStorageProviderResponse(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ProviderGcpExternalStorageProviderResponse extends Provider {
   final GcpExternalStorageProviderResponse value;
   const ProviderGcpExternalStorageProviderResponse(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ProviderOciExternalStorageProviderResponse extends Provider {
   final OciExternalStorageProviderResponse value;
   const ProviderOciExternalStorageProviderResponse(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [Provider] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownProvider extends Provider {
   final Map<String, dynamic> raw;
   const UnknownProvider(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

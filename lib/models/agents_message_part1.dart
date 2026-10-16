@@ -9,199 +9,327 @@ sealed class MessageContentResource {
   static const String constructionSurface = 'named';
   const MessageContentResource();
   factory MessageContentResource.fromJson(Object? json) {
-    try { return MessageContentResourceMessageContentResourceInputText(MessageContentResourceInputText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageContentResourceMessageContentResourceInputImage(MessageContentResourceInputImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageContentResourceMessageContentResourceOutputText(MessageContentResourceOutputText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image", "output_text"}.contains(json["type"])) { return UnknownMessageContentResource(json); }
+    try {
+      return MessageContentResourceMessageContentResourceInputText(
+          MessageContentResourceInputText.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageContentResourceMessageContentResourceInputImage(
+          MessageContentResourceInputImage.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageContentResourceMessageContentResourceOutputText(
+          MessageContentResourceOutputText.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"input_text", "input_image", "output_text"}
+            .contains(json["type"])) {
+      return UnknownMessageContentResource(json);
+    }
     throw FormatException("No variant matched for MessageContentResource");
   }
   Object? toJson();
 }
 
-final class MessageContentResourceMessageContentResourceInputText extends MessageContentResource {
+final class MessageContentResourceMessageContentResourceInputText
+    extends MessageContentResource {
   final MessageContentResourceInputText value;
   const MessageContentResourceMessageContentResourceInputText(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessageContentResourceMessageContentResourceInputImage extends MessageContentResource {
+final class MessageContentResourceMessageContentResourceInputImage
+    extends MessageContentResource {
   final MessageContentResourceInputImage value;
   const MessageContentResourceMessageContentResourceInputImage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessageContentResourceMessageContentResourceOutputText extends MessageContentResource {
+final class MessageContentResourceMessageContentResourceOutputText
+    extends MessageContentResource {
   final MessageContentResourceOutputText value;
   const MessageContentResourceMessageContentResourceOutputText(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [MessageContentResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownMessageContentResource extends MessageContentResource {
   final Map<String, dynamic> raw;
   const UnknownMessageContentResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// An image supplied by the user.
 class MessageContentResourceInputImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `input_image`.
   final MessageContentResourceInputImageType type_;
+
   /// The URL of the image supplied by the user, which may be a base64-encoded data URL.
   final String imageUrl;
 
-  const MessageContentResourceInputImage({required this.type_, required this.imageUrl});
+  const MessageContentResourceInputImage(
+      {required this.type_, required this.imageUrl});
 
-  MessageContentResourceInputImage Function({MessageContentResourceInputImageType type_, String imageUrl}) get copyWith => _copyWith;
+  MessageContentResourceInputImage Function(
+      {MessageContentResourceInputImageType type_,
+      String imageUrl}) get copyWith => _copyWith;
 
-  MessageContentResourceInputImage _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue}) => MessageContentResourceInputImage(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageContentResourceInputImageType,
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as String,
-  );
+  MessageContentResourceInputImage _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue}) =>
+      MessageContentResourceInputImage(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessageContentResourceInputImageType,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as String,
+      );
 
-  factory MessageContentResourceInputImage.fromJson(Map<String, dynamic> json) => MessageContentResourceInputImage(
-    type_: (json['type'] != null ? MessageContentResourceInputImageType.fromJson(json['type'] as String) : null)!,
-    imageUrl: (json['image_url'] as String?)!,
-  );
+  factory MessageContentResourceInputImage.fromJson(
+          Map<String, dynamic> json) =>
+      MessageContentResourceInputImage(
+        type_: (json['type'] != null
+            ? MessageContentResourceInputImageType.fromJson(
+                json['type'] as String)
+            : null)!,
+        imageUrl: (json['image_url'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'image_url': imageUrl,
-  };
+        'type': type_.toJson(),
+        'image_url': imageUrl,
+      };
 }
 
 /// Text supplied by the user.
 class MessageContentResourceInputText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `input_text`.
   final MessageContentResourceInputTextType type_;
+
   /// The text supplied by the user.
   final String text;
 
-  const MessageContentResourceInputText({required this.type_, required this.text});
+  const MessageContentResourceInputText(
+      {required this.type_, required this.text});
 
-  MessageContentResourceInputText Function({MessageContentResourceInputTextType type_, String text}) get copyWith => _copyWith;
+  MessageContentResourceInputText Function(
+      {MessageContentResourceInputTextType type_,
+      String text}) get copyWith => _copyWith;
 
-  MessageContentResourceInputText _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => MessageContentResourceInputText(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageContentResourceInputTextType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  MessageContentResourceInputText _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      MessageContentResourceInputText(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessageContentResourceInputTextType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory MessageContentResourceInputText.fromJson(Map<String, dynamic> json) => MessageContentResourceInputText(
-    type_: (json['type'] != null ? MessageContentResourceInputTextType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-  );
+  factory MessageContentResourceInputText.fromJson(Map<String, dynamic> json) =>
+      MessageContentResourceInputText(
+        type_: (json['type'] != null
+            ? MessageContentResourceInputTextType.fromJson(
+                json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-  };
+        'type': type_.toJson(),
+        'text': text,
+      };
 }
 
 /// Text produced by the assistant.
 class MessageContentResourceOutputText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `output_text`.
   final MessageContentResourceOutputTextType type_;
+
   /// The text produced by the assistant.
   final String text;
 
-  const MessageContentResourceOutputText({required this.type_, required this.text});
+  const MessageContentResourceOutputText(
+      {required this.type_, required this.text});
 
-  MessageContentResourceOutputText Function({MessageContentResourceOutputTextType type_, String text}) get copyWith => _copyWith;
+  MessageContentResourceOutputText Function(
+      {MessageContentResourceOutputTextType type_,
+      String text}) get copyWith => _copyWith;
 
-  MessageContentResourceOutputText _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => MessageContentResourceOutputText(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageContentResourceOutputTextType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  MessageContentResourceOutputText _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      MessageContentResourceOutputText(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessageContentResourceOutputTextType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory MessageContentResourceOutputText.fromJson(Map<String, dynamic> json) => MessageContentResourceOutputText(
-    type_: (json['type'] != null ? MessageContentResourceOutputTextType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-  );
+  factory MessageContentResourceOutputText.fromJson(
+          Map<String, dynamic> json) =>
+      MessageContentResourceOutputText(
+        type_: (json['type'] != null
+            ? MessageContentResourceOutputTextType.fromJson(
+                json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-  };
+        'type': type_.toJson(),
+        'text': text,
+      };
 }
 
 /// A user or assistant message recorded in a session.
 class MessageItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The item type. Always `message`.
   final MessageItemResourceType type_;
+
   /// The ID of this item, or null for legacy user messages whose ID was not recorded.
   final String? id;
+
   /// The ID of the turn that contains this item.
   final String turnId;
+
   /// The role of the message author.
   final SessionMessageRoleResource role;
+
   /// The content of the message. User messages contain input text or images; assistant messages contain output text.
   final List<MessageContentResource> content;
+
   /// The status of the message. User messages are always `completed`.
   final OutputItemStatusResource status;
+
   /// The phase of an assistant message. Null for user messages.
   final MessagePhaseResource? phase;
 
-  const MessageItemResource({required this.type_, required this.id, required this.turnId, required this.role, required this.content, required this.status, required this.phase});
+  const MessageItemResource(
+      {required this.type_,
+      required this.id,
+      required this.turnId,
+      required this.role,
+      required this.content,
+      required this.status,
+      required this.phase});
 
-  MessageItemResource Function({MessageItemResourceType type_, String? id, String turnId, SessionMessageRoleResource role, List<MessageContentResource> content, OutputItemStatusResource status, MessagePhaseResource? phase}) get copyWith => _copyWith;
+  MessageItemResource Function(
+      {MessageItemResourceType type_,
+      String? id,
+      String turnId,
+      SessionMessageRoleResource role,
+      List<MessageContentResource> content,
+      OutputItemStatusResource status,
+      MessagePhaseResource? phase}) get copyWith => _copyWith;
 
-  MessageItemResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? role = sdkOmittedValue, Object? content = sdkOmittedValue, Object? status = sdkOmittedValue, Object? phase = sdkOmittedValue}) => MessageItemResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageItemResourceType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String?,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-    role: identical(role, sdkOmittedValue) ? this.role : role as SessionMessageRoleResource,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<MessageContentResource>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as OutputItemStatusResource,
-    phase: identical(phase, sdkOmittedValue) ? this.phase : phase as MessagePhaseResource?,
-  );
+  MessageItemResource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? content = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? phase = sdkOmittedValue}) =>
+      MessageItemResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessageItemResourceType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String?,
+        turnId:
+            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as SessionMessageRoleResource,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<MessageContentResource>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as OutputItemStatusResource,
+        phase: identical(phase, sdkOmittedValue)
+            ? this.phase
+            : phase as MessagePhaseResource?,
+      );
 
-  factory MessageItemResource.fromJson(Map<String, dynamic> json) => MessageItemResource(
-    type_: (json['type'] != null ? MessageItemResourceType.fromJson(json['type'] as String) : null)!,
-    id: json.containsKey('id') ? json['id'] as String? : throw ArgumentError.value(null, 'id', 'Required property is missing'),
-    turnId: (json['turn_id'] as String?)!,
-    role: (json['role'] != null ? SessionMessageRoleResource.fromJson(json['role'] as String) : null)!,
-    content: ((json['content'] as List?)?.map((e) => MessageContentResource.fromJson(e)).toList())!,
-    status: (json['status'] != null ? OutputItemStatusResource.fromJson(json['status'] as String) : null)!,
-    phase: json.containsKey('phase') ? json['phase'] != null ? MessagePhaseResource.fromJson(json['phase'] as String) : null : throw ArgumentError.value(null, 'phase', 'Required property is missing'),
-  );
+  factory MessageItemResource.fromJson(Map<String, dynamic> json) =>
+      MessageItemResource(
+        type_: (json['type'] != null
+            ? MessageItemResourceType.fromJson(json['type'] as String)
+            : null)!,
+        id: json.containsKey('id')
+            ? json['id'] as String?
+            : throw ArgumentError.value(
+                null, 'id', 'Required property is missing'),
+        turnId: (json['turn_id'] as String?)!,
+        role: (json['role'] != null
+            ? SessionMessageRoleResource.fromJson(json['role'] as String)
+            : null)!,
+        content: ((json['content'] as List?)
+            ?.map((e) => MessageContentResource.fromJson(e))
+            .toList())!,
+        status: (json['status'] != null
+            ? OutputItemStatusResource.fromJson(json['status'] as String)
+            : null)!,
+        phase: json.containsKey('phase')
+            ? json['phase'] != null
+                ? MessagePhaseResource.fromJson(json['phase'] as String)
+                : null
+            : throw ArgumentError.value(
+                null, 'phase', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'turn_id': turnId,
-    'role': role.toJson(),
-    'content': content.map((item) => item.toJson()).toList(),
-    'status': status.toJson(),
-    'phase': phase?.toJson(),
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'turn_id': turnId,
+        'role': role.toJson(),
+        'content': content.map((item) => item.toJson()).toList(),
+        'status': status.toJson(),
+        'phase': phase?.toJson(),
+      };
 }
 
 /// The phase of an assistant message.
 final class MessagePhaseResource {
-
   final String value;
 
   const MessagePhaseResource._(this.value);
 
-  factory MessagePhaseResource.fromJson(String value) => MessagePhaseResource._(value);
+  factory MessagePhaseResource.fromJson(String value) =>
+      MessagePhaseResource._(value);
 
   static const commentary = MessagePhaseResource._('commentary');
   static const finalAnswer = MessagePhaseResource._('final_answer');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagePhaseResource && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagePhaseResource && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -8,63 +8,98 @@ part of 'responses_tool.dart';
 class ToolChoiceAllowed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Allowed tool configuration type. Always `allowed_tools`.
   final ToolChoiceAllowedType type_;
+
   /// Constrains the tools available to the model to a pre-defined set. `auto` allows the model to pick from among the allowed tools and generate a message. `required` requires the model to call one or more of the allowed tools.
   final ToolChoiceAllowedMode mode;
+
   /// A list of tool definitions that the model should be allowed to call. For the Responses API, the list of tool definitions might look like: ```json [ { "type": "function", "name": "get_weather" }, { "type": "mcp", "server_label": "deepwiki" }, { "type": "image_generation" } ] ```
   final List<Map<String, Object?>> tools;
 
-  const ToolChoiceAllowed({required this.type_, required this.mode, required this.tools});
+  const ToolChoiceAllowed(
+      {required this.type_, required this.mode, required this.tools});
 
-  ToolChoiceAllowed Function({ToolChoiceAllowedType type_, ToolChoiceAllowedMode mode, List<Map<String, Object?>> tools}) get copyWith => _copyWith;
+  ToolChoiceAllowed Function(
+      {ToolChoiceAllowedType type_,
+      ToolChoiceAllowedMode mode,
+      List<Map<String, Object?>> tools}) get copyWith => _copyWith;
 
-  ToolChoiceAllowed _copyWith({Object? type_ = sdkOmittedValue, Object? mode = sdkOmittedValue, Object? tools = sdkOmittedValue}) => ToolChoiceAllowed(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ToolChoiceAllowedType,
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as ToolChoiceAllowedMode,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<Map<String, Object?>>,
-  );
+  ToolChoiceAllowed _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? mode = sdkOmittedValue,
+          Object? tools = sdkOmittedValue}) =>
+      ToolChoiceAllowed(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ToolChoiceAllowedType,
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as ToolChoiceAllowedMode,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as List<Map<String, Object?>>,
+      );
 
-  factory ToolChoiceAllowed.fromJson(Map<String, dynamic> json) => ToolChoiceAllowed(
-    type_: (json['type'] != null ? ToolChoiceAllowedType.fromJson(json['type'] as String) : null)!,
-    mode: (json['mode'] != null ? ToolChoiceAllowedMode.fromJson(json['mode'] as String) : null)!,
-    tools: ((json['tools'] as List?)?.map((e) => Map<String, dynamic>.from(e as Map).map((key, value) => MapEntry(key, value))).toList())!,
-  );
+  factory ToolChoiceAllowed.fromJson(Map<String, dynamic> json) =>
+      ToolChoiceAllowed(
+        type_: (json['type'] != null
+            ? ToolChoiceAllowedType.fromJson(json['type'] as String)
+            : null)!,
+        mode: (json['mode'] != null
+            ? ToolChoiceAllowedMode.fromJson(json['mode'] as String)
+            : null)!,
+        tools: ((json['tools'] as List?)
+            ?.map((e) => Map<String, dynamic>.from(e as Map)
+                .map((key, value) => MapEntry(key, value)))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'mode': mode.toJson(),
-    'tools': tools,
-  };
+        'type': type_.toJson(),
+        'mode': mode.toJson(),
+        'tools': tools,
+      };
 }
 
 /// Use this option to force the model to call a specific custom tool.
 class ToolChoiceCustom {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// For custom tool calling, the type is always `custom`.
   final ToolChoiceCustomType type_;
+
   /// The name of the custom tool to call.
   final String name;
 
   const ToolChoiceCustom({required this.type_, required this.name});
 
-  ToolChoiceCustom Function({ToolChoiceCustomType type_, String name}) get copyWith => _copyWith;
+  ToolChoiceCustom Function({ToolChoiceCustomType type_, String name})
+      get copyWith => _copyWith;
 
-  ToolChoiceCustom _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) => ToolChoiceCustom(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ToolChoiceCustomType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  ToolChoiceCustom _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
+      ToolChoiceCustom(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ToolChoiceCustomType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
-  factory ToolChoiceCustom.fromJson(Map<String, dynamic> json) => ToolChoiceCustom(
-    type_: (json['type'] != null ? ToolChoiceCustomType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-  );
+  factory ToolChoiceCustom.fromJson(Map<String, dynamic> json) =>
+      ToolChoiceCustom(
+        type_: (json['type'] != null
+            ? ToolChoiceCustomType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-  };
+        'type': type_.toJson(),
+        'name': name,
+      };
 }
 
 sealed class ToolChoiceParam {
@@ -72,16 +107,64 @@ sealed class ToolChoiceParam {
   static const String constructionSurface = 'named';
   const ToolChoiceParam();
   factory ToolChoiceParam.fromJson(Object? json) {
-    try { return ToolChoiceParamToolChoiceOptions(ToolChoiceOptions.fromJson(json as String)); } catch (_) {}
-    try { return ToolChoiceParamToolChoiceAllowed(ToolChoiceAllowed.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ToolChoiceParamToolChoiceTypes(ToolChoiceTypes.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ToolChoiceParamToolChoiceFunction(ToolChoiceFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ToolChoiceParamToolChoiceMCP(ToolChoiceMCP.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ToolChoiceParamToolChoiceCustom(ToolChoiceCustom.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ToolChoiceParamSpecificProgrammaticToolCallingParam(SpecificProgrammaticToolCallingParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ToolChoiceParamSpecificApplyPatchParam(SpecificApplyPatchParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ToolChoiceParamSpecificFunctionShellParam(SpecificFunctionShellParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"allowed_tools", "file_search", "web_search_preview", "computer", "computer_use_preview", "computer_use", "web_search_preview_2025_03_11", "image_generation", "code_interpreter", "function", "mcp", "custom", "programmatic_tool_calling", "apply_patch", "shell"}.contains(json["type"])) { return UnknownToolChoiceParam(json); }
+    try {
+      return ToolChoiceParamToolChoiceOptions(
+          ToolChoiceOptions.fromJson(json as String));
+    } catch (_) {}
+    try {
+      return ToolChoiceParamToolChoiceAllowed(
+          ToolChoiceAllowed.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ToolChoiceParamToolChoiceTypes(
+          ToolChoiceTypes.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ToolChoiceParamToolChoiceFunction(
+          ToolChoiceFunction.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ToolChoiceParamToolChoiceMCP(
+          ToolChoiceMCP.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ToolChoiceParamToolChoiceCustom(
+          ToolChoiceCustom.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ToolChoiceParamSpecificProgrammaticToolCallingParam(
+          SpecificProgrammaticToolCallingParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ToolChoiceParamSpecificApplyPatchParam(
+          SpecificApplyPatchParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ToolChoiceParamSpecificFunctionShellParam(
+          SpecificFunctionShellParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "allowed_tools",
+          "file_search",
+          "web_search_preview",
+          "computer",
+          "computer_use_preview",
+          "computer_use",
+          "web_search_preview_2025_03_11",
+          "image_generation",
+          "code_interpreter",
+          "function",
+          "mcp",
+          "custom",
+          "programmatic_tool_calling",
+          "apply_patch",
+          "shell"
+        }.contains(json["type"])) {
+      return UnknownToolChoiceParam(json);
+    }
     throw FormatException("No variant matched for ToolChoiceParam");
   }
   Object? toJson();
@@ -90,84 +173,103 @@ sealed class ToolChoiceParam {
 final class ToolChoiceParamToolChoiceOptions extends ToolChoiceParam {
   final ToolChoiceOptions value;
   const ToolChoiceParamToolChoiceOptions(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolChoiceParamToolChoiceAllowed extends ToolChoiceParam {
   final ToolChoiceAllowed value;
   const ToolChoiceParamToolChoiceAllowed(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolChoiceParamToolChoiceTypes extends ToolChoiceParam {
   final ToolChoiceTypes value;
   const ToolChoiceParamToolChoiceTypes(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolChoiceParamToolChoiceFunction extends ToolChoiceParam {
   final ToolChoiceFunction value;
   const ToolChoiceParamToolChoiceFunction(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolChoiceParamToolChoiceMCP extends ToolChoiceParam {
   final ToolChoiceMCP value;
   const ToolChoiceParamToolChoiceMCP(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolChoiceParamToolChoiceCustom extends ToolChoiceParam {
   final ToolChoiceCustom value;
   const ToolChoiceParamToolChoiceCustom(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ToolChoiceParamSpecificProgrammaticToolCallingParam extends ToolChoiceParam {
+final class ToolChoiceParamSpecificProgrammaticToolCallingParam
+    extends ToolChoiceParam {
   final SpecificProgrammaticToolCallingParam value;
   const ToolChoiceParamSpecificProgrammaticToolCallingParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolChoiceParamSpecificApplyPatchParam extends ToolChoiceParam {
   final SpecificApplyPatchParam value;
   const ToolChoiceParamSpecificApplyPatchParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolChoiceParamSpecificFunctionShellParam extends ToolChoiceParam {
   final SpecificFunctionShellParam value;
   const ToolChoiceParamSpecificFunctionShellParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ToolChoiceParam] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownToolChoiceParam extends ToolChoiceParam {
   final Map<String, dynamic> raw;
   const UnknownToolChoiceParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Indicates that the model should use a built-in tool to generate a response. [Learn more about built-in tools](https://developers.openai.com/api/docs/guides/tools).
 class ToolChoiceTypes {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of hosted tool the model should to use. Learn more about [built-in tools](https://developers.openai.com/api/docs/guides/tools). Allowed values are: - `file_search` - `web_search_preview` - `computer` - `computer_use_preview` - `computer_use` - `code_interpreter` - `image_generation`
   final ToolChoiceTypesType type_;
 
   const ToolChoiceTypes({required this.type_});
 
-  ToolChoiceTypes Function({ToolChoiceTypesType type_}) get copyWith => _copyWith;
+  ToolChoiceTypes Function({ToolChoiceTypesType type_}) get copyWith =>
+      _copyWith;
 
-  ToolChoiceTypes _copyWith({Object? type_ = sdkOmittedValue}) => ToolChoiceTypes(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ToolChoiceTypesType,
-  );
+  ToolChoiceTypes _copyWith({Object? type_ = sdkOmittedValue}) =>
+      ToolChoiceTypes(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ToolChoiceTypesType,
+      );
 
-  factory ToolChoiceTypes.fromJson(Map<String, dynamic> json) => ToolChoiceTypes(
-    type_: (json['type'] != null ? ToolChoiceTypesType.fromJson(json['type'] as String) : null)!,
-  );
+  factory ToolChoiceTypes.fromJson(Map<String, dynamic> json) =>
+      ToolChoiceTypes(
+        type_: (json['type'] != null
+            ? ToolChoiceTypesType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

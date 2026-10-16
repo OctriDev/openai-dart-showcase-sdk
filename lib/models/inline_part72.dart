@@ -6,23 +6,26 @@ part of 'inline.dart';
 // Inline operation models (part 72)
 /// Required enumerated value serialized in the `type` wire field.
 final class LiveTransportCallErrorType {
-
   final String value;
 
   const LiveTransportCallErrorType._(this.value);
 
-  factory LiveTransportCallErrorType.fromJson(String value) => LiveTransportCallErrorType._(value);
+  factory LiveTransportCallErrorType.fromJson(String value) =>
+      LiveTransportCallErrorType._(value);
 
   static const callError = LiveTransportCallErrorType._('call_error');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveTransportCallErrorType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveTransportCallErrorType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -31,14 +34,17 @@ enum LiveTransportDTMFReceivedType {
 
   static LiveTransportDTMFReceivedType fromJson(String value) {
     switch (value) {
-      case 'transport.dtmf.received': return LiveTransportDTMFReceivedType.transportDtmfReceived;
-      default: throw ArgumentError('Unknown LiveTransportDTMFReceivedType: $value');
+      case 'transport.dtmf.received':
+        return LiveTransportDTMFReceivedType.transportDtmfReceived;
+      default:
+        throw ArgumentError('Unknown LiveTransportDTMFReceivedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveTransportDTMFReceivedType.transportDtmfReceived: return 'transport.dtmf.received';
+      case LiveTransportDTMFReceivedType.transportDtmfReceived:
+        return 'transport.dtmf.received';
     }
   }
 
@@ -52,14 +58,17 @@ enum LiveTransportDTMFSendType {
 
   static LiveTransportDTMFSendType fromJson(String value) {
     switch (value) {
-      case 'transport.dtmf.send': return LiveTransportDTMFSendType.transportDtmfSend;
-      default: throw ArgumentError('Unknown LiveTransportDTMFSendType: $value');
+      case 'transport.dtmf.send':
+        return LiveTransportDTMFSendType.transportDtmfSend;
+      default:
+        throw ArgumentError('Unknown LiveTransportDTMFSendType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveTransportDTMFSendType.transportDtmfSend: return 'transport.dtmf.send';
+      case LiveTransportDTMFSendType.transportDtmfSend:
+        return 'transport.dtmf.send';
     }
   }
 
@@ -73,14 +82,17 @@ enum LiveTransportFailedType {
 
   static LiveTransportFailedType fromJson(String value) {
     switch (value) {
-      case 'transport.failed': return LiveTransportFailedType.transportFailed;
-      default: throw ArgumentError('Unknown LiveTransportFailedType: $value');
+      case 'transport.failed':
+        return LiveTransportFailedType.transportFailed;
+      default:
+        throw ArgumentError('Unknown LiveTransportFailedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveTransportFailedType.transportFailed: return 'transport.failed';
+      case LiveTransportFailedType.transportFailed:
+        return 'transport.failed';
     }
   }
 
@@ -94,14 +106,17 @@ enum LiveTransportRingingType {
 
   static LiveTransportRingingType fromJson(String value) {
     switch (value) {
-      case 'transport.ringing': return LiveTransportRingingType.transportRinging;
-      default: throw ArgumentError('Unknown LiveTransportRingingType: $value');
+      case 'transport.ringing':
+        return LiveTransportRingingType.transportRinging;
+      default:
+        throw ArgumentError('Unknown LiveTransportRingingType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveTransportRingingType.transportRinging: return 'transport.ringing';
+      case LiveTransportRingingType.transportRinging:
+        return 'transport.ringing';
     }
   }
 
@@ -115,14 +130,17 @@ enum LiveWebRTCTransportType {
 
   static LiveWebRTCTransportType fromJson(String value) {
     switch (value) {
-      case 'webrtc': return LiveWebRTCTransportType.webrtc;
-      default: throw ArgumentError('Unknown LiveWebRTCTransportType: $value');
+      case 'webrtc':
+        return LiveWebRTCTransportType.webrtc;
+      default:
+        throw ArgumentError('Unknown LiveWebRTCTransportType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveWebRTCTransportType.webrtc: return 'webrtc';
+      case LiveWebRTCTransportType.webrtc:
+        return 'webrtc';
     }
   }
 
@@ -136,14 +154,17 @@ enum LiveWebSearchToolInputParamType {
 
   static LiveWebSearchToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'web_search': return LiveWebSearchToolInputParamType.webSearch;
-      default: throw ArgumentError('Unknown LiveWebSearchToolInputParamType: $value');
+      case 'web_search':
+        return LiveWebSearchToolInputParamType.webSearch;
+      default:
+        throw ArgumentError('Unknown LiveWebSearchToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveWebSearchToolInputParamType.webSearch: return 'web_search';
+      case LiveWebSearchToolInputParamType.webSearch:
+        return 'web_search';
     }
   }
 
@@ -157,14 +178,17 @@ enum LocalEnvironmentParamType {
 
   static LocalEnvironmentParamType fromJson(String value) {
     switch (value) {
-      case 'local': return LocalEnvironmentParamType.local;
-      default: throw ArgumentError('Unknown LocalEnvironmentParamType: $value');
+      case 'local':
+        return LocalEnvironmentParamType.local;
+      default:
+        throw ArgumentError('Unknown LocalEnvironmentParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LocalEnvironmentParamType.local: return 'local';
+      case LocalEnvironmentParamType.local:
+        return 'local';
     }
   }
 
@@ -178,14 +202,17 @@ enum LocalEnvironmentResourceType {
 
   static LocalEnvironmentResourceType fromJson(String value) {
     switch (value) {
-      case 'local': return LocalEnvironmentResourceType.local;
-      default: throw ArgumentError('Unknown LocalEnvironmentResourceType: $value');
+      case 'local':
+        return LocalEnvironmentResourceType.local;
+      default:
+        throw ArgumentError('Unknown LocalEnvironmentResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LocalEnvironmentResourceType.local: return 'local';
+      case LocalEnvironmentResourceType.local:
+        return 'local';
     }
   }
 
@@ -195,33 +222,36 @@ enum LocalEnvironmentResourceType {
 
 /// The type of the local shell action. Always `exec`.
 final class LocalShellExecActionType {
-
   final String value;
 
   const LocalShellExecActionType._(this.value);
 
-  factory LocalShellExecActionType.fromJson(String value) => LocalShellExecActionType._(value);
+  factory LocalShellExecActionType.fromJson(String value) =>
+      LocalShellExecActionType._(value);
 
   static const exec = LocalShellExecActionType._('exec');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LocalShellExecActionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LocalShellExecActionType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the local shell call.
 final class LocalShellToolCallStatus {
-
   final String value;
 
   const LocalShellToolCallStatus._(this.value);
 
-  factory LocalShellToolCallStatus.fromJson(String value) => LocalShellToolCallStatus._(value);
+  factory LocalShellToolCallStatus.fromJson(String value) =>
+      LocalShellToolCallStatus._(value);
 
   static const inProgress = LocalShellToolCallStatus._('in_progress');
   static const completed = LocalShellToolCallStatus._('completed');
@@ -229,12 +259,15 @@ final class LocalShellToolCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LocalShellToolCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LocalShellToolCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the local shell call. Always `local_shell_call`.
@@ -243,14 +276,17 @@ enum LocalShellToolCallType {
 
   static LocalShellToolCallType fromJson(String value) {
     switch (value) {
-      case 'local_shell_call': return LocalShellToolCallType.localShellCall;
-      default: throw ArgumentError('Unknown LocalShellToolCallType: $value');
+      case 'local_shell_call':
+        return LocalShellToolCallType.localShellCall;
+      default:
+        throw ArgumentError('Unknown LocalShellToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LocalShellToolCallType.localShellCall: return 'local_shell_call';
+      case LocalShellToolCallType.localShellCall:
+        return 'local_shell_call';
     }
   }
 
@@ -260,23 +296,29 @@ enum LocalShellToolCallType {
 
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 final class LocalShellToolCallOutputStatusVariant0 {
-
   final String value;
 
   const LocalShellToolCallOutputStatusVariant0._(this.value);
 
-  factory LocalShellToolCallOutputStatusVariant0.fromJson(String value) => LocalShellToolCallOutputStatusVariant0._(value);
+  factory LocalShellToolCallOutputStatusVariant0.fromJson(String value) =>
+      LocalShellToolCallOutputStatusVariant0._(value);
 
-  static const inProgress = LocalShellToolCallOutputStatusVariant0._('in_progress');
-  static const completed = LocalShellToolCallOutputStatusVariant0._('completed');
-  static const incomplete = LocalShellToolCallOutputStatusVariant0._('incomplete');
+  static const inProgress =
+      LocalShellToolCallOutputStatusVariant0._('in_progress');
+  static const completed =
+      LocalShellToolCallOutputStatusVariant0._('completed');
+  static const incomplete =
+      LocalShellToolCallOutputStatusVariant0._('incomplete');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LocalShellToolCallOutputStatusVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LocalShellToolCallOutputStatusVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

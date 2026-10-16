@@ -10,14 +10,18 @@ enum LiveHostedShellContainerAutoParamType {
 
   static LiveHostedShellContainerAutoParamType fromJson(String value) {
     switch (value) {
-      case 'container_auto': return LiveHostedShellContainerAutoParamType.containerAuto;
-      default: throw ArgumentError('Unknown LiveHostedShellContainerAutoParamType: $value');
+      case 'container_auto':
+        return LiveHostedShellContainerAutoParamType.containerAuto;
+      default:
+        throw ArgumentError(
+            'Unknown LiveHostedShellContainerAutoParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveHostedShellContainerAutoParamType.containerAuto: return 'container_auto';
+      case LiveHostedShellContainerAutoParamType.containerAuto:
+        return 'container_auto';
     }
   }
 
@@ -31,14 +35,18 @@ enum LiveHostedShellNetworkPolicyAllowlistParamType {
 
   static LiveHostedShellNetworkPolicyAllowlistParamType fromJson(String value) {
     switch (value) {
-      case 'allowlist': return LiveHostedShellNetworkPolicyAllowlistParamType.allowlist;
-      default: throw ArgumentError('Unknown LiveHostedShellNetworkPolicyAllowlistParamType: $value');
+      case 'allowlist':
+        return LiveHostedShellNetworkPolicyAllowlistParamType.allowlist;
+      default:
+        throw ArgumentError(
+            'Unknown LiveHostedShellNetworkPolicyAllowlistParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveHostedShellNetworkPolicyAllowlistParamType.allowlist: return 'allowlist';
+      case LiveHostedShellNetworkPolicyAllowlistParamType.allowlist:
+        return 'allowlist';
     }
   }
 
@@ -52,14 +60,18 @@ enum LiveHostedShellToolInputParamType {
 
   static LiveHostedShellToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'shell': return LiveHostedShellToolInputParamType.shell;
-      default: throw ArgumentError('Unknown LiveHostedShellToolInputParamType: $value');
+      case 'shell':
+        return LiveHostedShellToolInputParamType.shell;
+      default:
+        throw ArgumentError(
+            'Unknown LiveHostedShellToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveHostedShellToolInputParamType.shell: return 'shell';
+      case LiveHostedShellToolInputParamType.shell:
+        return 'shell';
     }
   }
 
@@ -73,14 +85,18 @@ enum LiveImageGenerationToolInputParamType {
 
   static LiveImageGenerationToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'image_generation': return LiveImageGenerationToolInputParamType.imageGeneration;
-      default: throw ArgumentError('Unknown LiveImageGenerationToolInputParamType: $value');
+      case 'image_generation':
+        return LiveImageGenerationToolInputParamType.imageGeneration;
+      default:
+        throw ArgumentError(
+            'Unknown LiveImageGenerationToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveImageGenerationToolInputParamType.imageGeneration: return 'image_generation';
+      case LiveImageGenerationToolInputParamType.imageGeneration:
+        return 'image_generation';
     }
   }
 
@@ -94,14 +110,17 @@ enum LiveInfoEventType {
 
   static LiveInfoEventType fromJson(String value) {
     switch (value) {
-      case 'info': return LiveInfoEventType.info;
-      default: throw ArgumentError('Unknown LiveInfoEventType: $value');
+      case 'info':
+        return LiveInfoEventType.info;
+      default:
+        throw ArgumentError('Unknown LiveInfoEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInfoEventType.info: return 'info';
+      case LiveInfoEventType.info:
+        return 'info';
     }
   }
 
@@ -115,14 +134,18 @@ enum LiveInitialAssistantMessageItemParamRole {
 
   static LiveInitialAssistantMessageItemParamRole fromJson(String value) {
     switch (value) {
-      case 'assistant': return LiveInitialAssistantMessageItemParamRole.assistant;
-      default: throw ArgumentError('Unknown LiveInitialAssistantMessageItemParamRole: $value');
+      case 'assistant':
+        return LiveInitialAssistantMessageItemParamRole.assistant;
+      default:
+        throw ArgumentError(
+            'Unknown LiveInitialAssistantMessageItemParamRole: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInitialAssistantMessageItemParamRole.assistant: return 'assistant';
+      case LiveInitialAssistantMessageItemParamRole.assistant:
+        return 'assistant';
     }
   }
 
@@ -132,23 +155,26 @@ enum LiveInitialAssistantMessageItemParamRole {
 
 /// The history item type. Always `message`.
 final class LiveInitialAssistantMessageItemParamType {
-
   final String value;
 
   const LiveInitialAssistantMessageItemParamType._(this.value);
 
-  factory LiveInitialAssistantMessageItemParamType.fromJson(String value) => LiveInitialAssistantMessageItemParamType._(value);
+  factory LiveInitialAssistantMessageItemParamType.fromJson(String value) =>
+      LiveInitialAssistantMessageItemParamType._(value);
 
   static const message = LiveInitialAssistantMessageItemParamType._('message');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveInitialAssistantMessageItemParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveInitialAssistantMessageItemParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The author of this history message. Always `developer`.
@@ -157,14 +183,18 @@ enum LiveInitialDeveloperMessageItemParamRole {
 
   static LiveInitialDeveloperMessageItemParamRole fromJson(String value) {
     switch (value) {
-      case 'developer': return LiveInitialDeveloperMessageItemParamRole.developer;
-      default: throw ArgumentError('Unknown LiveInitialDeveloperMessageItemParamRole: $value');
+      case 'developer':
+        return LiveInitialDeveloperMessageItemParamRole.developer;
+      default:
+        throw ArgumentError(
+            'Unknown LiveInitialDeveloperMessageItemParamRole: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInitialDeveloperMessageItemParamRole.developer: return 'developer';
+      case LiveInitialDeveloperMessageItemParamRole.developer:
+        return 'developer';
     }
   }
 
@@ -174,44 +204,51 @@ enum LiveInitialDeveloperMessageItemParamRole {
 
 /// The history item type. Always `message`.
 final class LiveInitialDeveloperMessageItemParamType {
-
   final String value;
 
   const LiveInitialDeveloperMessageItemParamType._(this.value);
 
-  factory LiveInitialDeveloperMessageItemParamType.fromJson(String value) => LiveInitialDeveloperMessageItemParamType._(value);
+  factory LiveInitialDeveloperMessageItemParamType.fromJson(String value) =>
+      LiveInitialDeveloperMessageItemParamType._(value);
 
   static const message = LiveInitialDeveloperMessageItemParamType._('message');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveInitialDeveloperMessageItemParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveInitialDeveloperMessageItemParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The text content type. Always `input_text`.
 final class LiveInitialInputTextContentPartParamType {
-
   final String value;
 
   const LiveInitialInputTextContentPartParamType._(this.value);
 
-  factory LiveInitialInputTextContentPartParamType.fromJson(String value) => LiveInitialInputTextContentPartParamType._(value);
+  factory LiveInitialInputTextContentPartParamType.fromJson(String value) =>
+      LiveInitialInputTextContentPartParamType._(value);
 
-  static const inputText = LiveInitialInputTextContentPartParamType._('input_text');
+  static const inputText =
+      LiveInitialInputTextContentPartParamType._('input_text');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveInitialInputTextContentPartParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveInitialInputTextContentPartParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The text content type. Always `output_text`.
@@ -220,14 +257,18 @@ enum LiveInitialOutputTextContentPartParamType {
 
   static LiveInitialOutputTextContentPartParamType fromJson(String value) {
     switch (value) {
-      case 'output_text': return LiveInitialOutputTextContentPartParamType.outputText;
-      default: throw ArgumentError('Unknown LiveInitialOutputTextContentPartParamType: $value');
+      case 'output_text':
+        return LiveInitialOutputTextContentPartParamType.outputText;
+      default:
+        throw ArgumentError(
+            'Unknown LiveInitialOutputTextContentPartParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInitialOutputTextContentPartParamType.outputText: return 'output_text';
+      case LiveInitialOutputTextContentPartParamType.outputText:
+        return 'output_text';
     }
   }
 
@@ -241,14 +282,18 @@ enum LiveInitialTextContentPartParamType {
 
   static LiveInitialTextContentPartParamType fromJson(String value) {
     switch (value) {
-      case 'text': return LiveInitialTextContentPartParamType.text;
-      default: throw ArgumentError('Unknown LiveInitialTextContentPartParamType: $value');
+      case 'text':
+        return LiveInitialTextContentPartParamType.text;
+      default:
+        throw ArgumentError(
+            'Unknown LiveInitialTextContentPartParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInitialTextContentPartParamType.text: return 'text';
+      case LiveInitialTextContentPartParamType.text:
+        return 'text';
     }
   }
 
@@ -262,14 +307,18 @@ enum LiveInitialUserMessageItemParamRole {
 
   static LiveInitialUserMessageItemParamRole fromJson(String value) {
     switch (value) {
-      case 'user': return LiveInitialUserMessageItemParamRole.user;
-      default: throw ArgumentError('Unknown LiveInitialUserMessageItemParamRole: $value');
+      case 'user':
+        return LiveInitialUserMessageItemParamRole.user;
+      default:
+        throw ArgumentError(
+            'Unknown LiveInitialUserMessageItemParamRole: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveInitialUserMessageItemParamRole.user: return 'user';
+      case LiveInitialUserMessageItemParamRole.user:
+        return 'user';
     }
   }
 

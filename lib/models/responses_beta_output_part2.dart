@@ -4,77 +4,142 @@
 part of 'responses_beta_output.dart';
 
 // responses_beta_output domain models (part 2)
-final class BetaOutputItemBetaCustomToolCallOutputResource extends BetaOutputItem {
+final class BetaOutputItemBetaCustomToolCallOutputResource
+    extends BetaOutputItem {
   final BetaCustomToolCallOutputResource value;
   const BetaOutputItemBetaCustomToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaOutputItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaOutputItem extends BetaOutputItem {
   final Map<String, dynamic> raw;
   const UnknownBetaOutputItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// An output message from the model.
 class BetaOutputMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The unique ID of the output message.
   final String id;
+
   /// The type of the output message. Always `message`.
   final BetaOutputMessageType type_;
+
   /// The role of the output message. Always `assistant`.
   final BetaOutputMessageRole role;
+
   /// The content of the output message.
   final List<BetaOutputMessageContent> content;
+
   /// Optional API value serialized in the `phase` wire field.
   final SdkOptional<BetaMessagePhase?> phase;
+
   /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
   final BetaOutputMessageStatus status;
 
-  const BetaOutputMessage({this.agent = const SdkOmitted(), required this.id, required this.type_, required this.role, required this.content, this.phase = const SdkOmitted(), required this.status});
+  const BetaOutputMessage(
+      {this.agent = const SdkOmitted(),
+      required this.id,
+      required this.type_,
+      required this.role,
+      required this.content,
+      this.phase = const SdkOmitted(),
+      required this.status});
 
-  BetaOutputMessage Function({SdkOptional<BetaAgentTag?> agent, String id, BetaOutputMessageType type_, BetaOutputMessageRole role, List<BetaOutputMessageContent> content, SdkOptional<BetaMessagePhase?> phase, BetaOutputMessageStatus status}) get copyWith => _copyWith;
+  BetaOutputMessage Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      String id,
+      BetaOutputMessageType type_,
+      BetaOutputMessageRole role,
+      List<BetaOutputMessageContent> content,
+      SdkOptional<BetaMessagePhase?> phase,
+      BetaOutputMessageStatus status}) get copyWith => _copyWith;
 
-  BetaOutputMessage _copyWith({Object? agent = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? role = sdkOmittedValue, Object? content = sdkOmittedValue, Object? phase = sdkOmittedValue, Object? status = sdkOmittedValue}) => BetaOutputMessage(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaOutputMessageType,
-    role: identical(role, sdkOmittedValue) ? this.role : role as BetaOutputMessageRole,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<BetaOutputMessageContent>,
-    phase: identical(phase, sdkOmittedValue) ? this.phase : phase as SdkOptional<BetaMessagePhase?>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as BetaOutputMessageStatus,
-  );
+  BetaOutputMessage _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? content = sdkOmittedValue,
+          Object? phase = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      BetaOutputMessage(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaOutputMessageType,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as BetaOutputMessageRole,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<BetaOutputMessageContent>,
+        phase: identical(phase, sdkOmittedValue)
+            ? this.phase
+            : phase as SdkOptional<BetaMessagePhase?>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as BetaOutputMessageStatus,
+      );
 
-  factory BetaOutputMessage.fromJson(Map<String, dynamic> json) => BetaOutputMessage(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    id: (json['id'] as String?)!,
-    type_: (json['type'] != null ? BetaOutputMessageType.fromJson(json['type'] as String) : null)!,
-    role: (json['role'] != null ? BetaOutputMessageRole.fromJson(json['role'] as String) : null)!,
-    content: ((json['content'] as List?)?.map((e) => BetaOutputMessageContent.fromJson(e)).toList())!,
-    phase: json.containsKey('phase') ? SdkPresent(json['phase'] != null ? BetaMessagePhase.fromJson(json['phase'] as String) : null) : const SdkOmitted(),
-    status: (json['status'] != null ? BetaOutputMessageStatus.fromJson(json['status'] as String) : null)!,
-  );
+  factory BetaOutputMessage.fromJson(Map<String, dynamic> json) =>
+      BetaOutputMessage(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        id: (json['id'] as String?)!,
+        type_: (json['type'] != null
+            ? BetaOutputMessageType.fromJson(json['type'] as String)
+            : null)!,
+        role: (json['role'] != null
+            ? BetaOutputMessageRole.fromJson(json['role'] as String)
+            : null)!,
+        content: ((json['content'] as List?)
+            ?.map((e) => BetaOutputMessageContent.fromJson(e))
+            .toList())!,
+        phase: json.containsKey('phase')
+            ? SdkPresent(json['phase'] != null
+                ? BetaMessagePhase.fromJson(json['phase'] as String)
+                : null)
+            : const SdkOmitted(),
+        status: (json['status'] != null
+            ? BetaOutputMessageStatus.fromJson(json['status'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'id': id,
-    'type': type_.toJson(),
-    'role': role.toJson(),
-    'content': content.map((item) => item.toJson()).toList(),
-    ...switch (phase) {
-      SdkPresent<BetaMessagePhase?>(value: final value) => {'phase': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'status': status.toJson(),
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'id': id,
+        'type': type_.toJson(),
+        'role': role.toJson(),
+        'content': content.map((item) => item.toJson()).toList(),
+        ...switch (phase) {
+          SdkPresent<BetaMessagePhase?>(value: final value) => {
+              'phase': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'status': status.toJson(),
+      };
 }
 
 sealed class BetaOutputMessageContent {
@@ -82,107 +147,185 @@ sealed class BetaOutputMessageContent {
   static const String constructionSurface = 'named';
   const BetaOutputMessageContent();
   factory BetaOutputMessageContent.fromJson(Object? json) {
-    try { return BetaOutputMessageContentBetaOutputTextContent(BetaOutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaOutputMessageContentBetaRefusalContent(BetaRefusalContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"output_text", "refusal"}.contains(json["type"])) { return UnknownBetaOutputMessageContent(json); }
+    try {
+      return BetaOutputMessageContentBetaOutputTextContent(
+          BetaOutputTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaOutputMessageContentBetaRefusalContent(
+          BetaRefusalContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"output_text", "refusal"}.contains(json["type"])) {
+      return UnknownBetaOutputMessageContent(json);
+    }
     throw FormatException("No variant matched for BetaOutputMessageContent");
   }
   Object? toJson();
 }
 
-final class BetaOutputMessageContentBetaOutputTextContent extends BetaOutputMessageContent {
+final class BetaOutputMessageContentBetaOutputTextContent
+    extends BetaOutputMessageContent {
   final BetaOutputTextContent value;
   const BetaOutputMessageContentBetaOutputTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaOutputMessageContentBetaRefusalContent extends BetaOutputMessageContent {
+final class BetaOutputMessageContentBetaRefusalContent
+    extends BetaOutputMessageContent {
   final BetaRefusalContent value;
   const BetaOutputMessageContentBetaRefusalContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaOutputMessageContent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaOutputMessageContent extends BetaOutputMessageContent {
   final Map<String, dynamic> raw;
   const UnknownBetaOutputMessageContent(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A text output from the model.
 class BetaOutputTextContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the output text. Always `output_text`.
   final BetaOutputTextContentType type_;
+
   /// The text output from the model.
   final String text;
+
   /// The annotations of the text output.
   final List<BetaAnnotation> annotations;
+
   /// Required array value serialized in the `logprobs` wire field.
   final List<BetaLogProb> logprobs;
 
-  const BetaOutputTextContent({required this.type_, required this.text, required this.annotations, required this.logprobs});
+  const BetaOutputTextContent(
+      {required this.type_,
+      required this.text,
+      required this.annotations,
+      required this.logprobs});
 
-  BetaOutputTextContent Function({BetaOutputTextContentType type_, String text, List<BetaAnnotation> annotations, List<BetaLogProb> logprobs}) get copyWith => _copyWith;
+  BetaOutputTextContent Function(
+      {BetaOutputTextContentType type_,
+      String text,
+      List<BetaAnnotation> annotations,
+      List<BetaLogProb> logprobs}) get copyWith => _copyWith;
 
-  BetaOutputTextContent _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? annotations = sdkOmittedValue, Object? logprobs = sdkOmittedValue}) => BetaOutputTextContent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaOutputTextContentType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    annotations: identical(annotations, sdkOmittedValue) ? this.annotations : annotations as List<BetaAnnotation>,
-    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as List<BetaLogProb>,
-  );
+  BetaOutputTextContent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? annotations = sdkOmittedValue,
+          Object? logprobs = sdkOmittedValue}) =>
+      BetaOutputTextContent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaOutputTextContentType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        annotations: identical(annotations, sdkOmittedValue)
+            ? this.annotations
+            : annotations as List<BetaAnnotation>,
+        logprobs: identical(logprobs, sdkOmittedValue)
+            ? this.logprobs
+            : logprobs as List<BetaLogProb>,
+      );
 
-  factory BetaOutputTextContent.fromJson(Map<String, dynamic> json) => BetaOutputTextContent(
-    type_: (json['type'] != null ? BetaOutputTextContentType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-    annotations: ((json['annotations'] as List?)?.map((e) => BetaAnnotation.fromJson(e)).toList())!,
-    logprobs: ((json['logprobs'] as List?)?.map((e) => BetaLogProb.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory BetaOutputTextContent.fromJson(Map<String, dynamic> json) =>
+      BetaOutputTextContent(
+        type_: (json['type'] != null
+            ? BetaOutputTextContentType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+        annotations: ((json['annotations'] as List?)
+            ?.map((e) => BetaAnnotation.fromJson(e))
+            .toList())!,
+        logprobs: ((json['logprobs'] as List?)
+            ?.map((e) => BetaLogProb.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-    'annotations': annotations.map((item) => item.toJson()).toList(),
-    'logprobs': logprobs.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'text': text,
+        'annotations': annotations.map((item) => item.toJson()).toList(),
+        'logprobs': logprobs.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Typed representation of the `BetaOutputTextContentParam` API schema.
 class BetaOutputTextContentParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The content type. Always `output_text`.
   final BetaOutputTextContentParamType type_;
+
   /// The text content.
   final String text;
+
   /// Citations associated with the text content.
-  final SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>> annotations;
+  final SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>>
+      annotations;
 
-  const BetaOutputTextContentParam({required this.type_, required this.text, this.annotations = const SdkOmitted()});
+  const BetaOutputTextContentParam(
+      {required this.type_,
+      required this.text,
+      this.annotations = const SdkOmitted()});
 
-  BetaOutputTextContentParam Function({BetaOutputTextContentParamType type_, String text, SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>> annotations}) get copyWith => _copyWith;
+  BetaOutputTextContentParam Function(
+      {BetaOutputTextContentParamType type_,
+      String text,
+      SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>>
+          annotations}) get copyWith => _copyWith;
 
-  BetaOutputTextContentParam _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? annotations = sdkOmittedValue}) => BetaOutputTextContentParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaOutputTextContentParamType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    annotations: identical(annotations, sdkOmittedValue) ? this.annotations : annotations as SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>>,
-  );
+  BetaOutputTextContentParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? annotations = sdkOmittedValue}) =>
+      BetaOutputTextContentParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaOutputTextContentParamType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        annotations: identical(annotations, sdkOmittedValue)
+            ? this.annotations
+            : annotations
+                as SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>>,
+      );
 
-  factory BetaOutputTextContentParam.fromJson(Map<String, dynamic> json) => BetaOutputTextContentParam(
-    type_: (json['type'] != null ? BetaOutputTextContentParamType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-    annotations: json['annotations'] != null ? SdkPresent(((json['annotations'] as List?)?.map((e) => BetaOutputTextContentParamAnnotationsItem.fromJson(e)).toList())!) : const SdkOmitted(),
-  );
+  factory BetaOutputTextContentParam.fromJson(Map<String, dynamic> json) =>
+      BetaOutputTextContentParam(
+        type_: (json['type'] != null
+            ? BetaOutputTextContentParamType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+        annotations: json['annotations'] != null
+            ? SdkPresent(((json['annotations'] as List?)
+                ?.map((e) =>
+                    BetaOutputTextContentParamAnnotationsItem.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-    ...switch (annotations) {
-      SdkPresent<List<BetaOutputTextContentParamAnnotationsItem>>(value: final value) => {'annotations': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'text': text,
+        ...switch (annotations) {
+          SdkPresent<List<BetaOutputTextContentParamAnnotationsItem>>(
+            value: final value
+          ) =>
+            {
+              'annotations': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class BetaOutputTextContentParamAnnotationsItem {
@@ -190,36 +333,63 @@ sealed class BetaOutputTextContentParamAnnotationsItem {
   static const String constructionSurface = 'named';
   const BetaOutputTextContentParamAnnotationsItem();
   factory BetaOutputTextContentParamAnnotationsItem.fromJson(Object? json) {
-    try { return BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(BetaFileCitationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam(BetaUrlCitationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam(BetaContainerFileCitationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_citation", "url_citation", "container_file_citation"}.contains(json["type"])) { return UnknownBetaOutputTextContentParamAnnotationsItem(json); }
-    throw FormatException("No variant matched for BetaOutputTextContentParamAnnotationsItem");
+    try {
+      return BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(
+          BetaFileCitationParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam(
+          BetaUrlCitationParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam(
+          BetaContainerFileCitationParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"file_citation", "url_citation", "container_file_citation"}
+            .contains(json["type"])) {
+      return UnknownBetaOutputTextContentParamAnnotationsItem(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaOutputTextContentParamAnnotationsItem");
   }
   Object? toJson();
 }
 
-final class BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam extends BetaOutputTextContentParamAnnotationsItem {
+final class BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam
+    extends BetaOutputTextContentParamAnnotationsItem {
   final BetaFileCitationParam value;
-  const BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam extends BetaOutputTextContentParamAnnotationsItem {
+final class BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam
+    extends BetaOutputTextContentParamAnnotationsItem {
   final BetaUrlCitationParam value;
-  const BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam extends BetaOutputTextContentParamAnnotationsItem {
+final class BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam
+    extends BetaOutputTextContentParamAnnotationsItem {
   final BetaContainerFileCitationParam value;
-  const BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaOutputTextContentParamAnnotationsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaOutputTextContentParamAnnotationsItem extends BetaOutputTextContentParamAnnotationsItem {
+final class UnknownBetaOutputTextContentParamAnnotationsItem
+    extends BetaOutputTextContentParamAnnotationsItem {
   final Map<String, dynamic> raw;
   const UnknownBetaOutputTextContentParamAnnotationsItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

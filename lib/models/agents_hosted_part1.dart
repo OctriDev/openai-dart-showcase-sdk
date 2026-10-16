@@ -9,99 +9,154 @@ sealed class HostedEnvironmentFileParam {
   static const String constructionSurface = 'named';
   const HostedEnvironmentFileParam();
   factory HostedEnvironmentFileParam.fromJson(Object? json) {
-    try { return HostedEnvironmentFileParamHostedEnvironmentFileParamFileId(HostedEnvironmentFileParamFileId.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return HostedEnvironmentFileParamHostedEnvironmentFileParamInline(HostedEnvironmentFileParamInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_id", "inline"}.contains(json["type"])) { return UnknownHostedEnvironmentFileParam(json); }
+    try {
+      return HostedEnvironmentFileParamHostedEnvironmentFileParamFileId(
+          HostedEnvironmentFileParamFileId.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return HostedEnvironmentFileParamHostedEnvironmentFileParamInline(
+          HostedEnvironmentFileParamInline.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"file_id", "inline"}.contains(json["type"])) {
+      return UnknownHostedEnvironmentFileParam(json);
+    }
     throw FormatException("No variant matched for HostedEnvironmentFileParam");
   }
   Object? toJson();
 }
 
-final class HostedEnvironmentFileParamHostedEnvironmentFileParamFileId extends HostedEnvironmentFileParam {
+final class HostedEnvironmentFileParamHostedEnvironmentFileParamFileId
+    extends HostedEnvironmentFileParam {
   final HostedEnvironmentFileParamFileId value;
   const HostedEnvironmentFileParamHostedEnvironmentFileParamFileId(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class HostedEnvironmentFileParamHostedEnvironmentFileParamInline extends HostedEnvironmentFileParam {
+final class HostedEnvironmentFileParamHostedEnvironmentFileParamInline
+    extends HostedEnvironmentFileParam {
   final HostedEnvironmentFileParamInline value;
   const HostedEnvironmentFileParamHostedEnvironmentFileParamInline(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedEnvironmentFileParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownHostedEnvironmentFileParam extends HostedEnvironmentFileParam {
+final class UnknownHostedEnvironmentFileParam
+    extends HostedEnvironmentFileParam {
   final Map<String, dynamic> raw;
   const UnknownHostedEnvironmentFileParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A file previously uploaded through the OpenAI Files API.
 class HostedEnvironmentFileParamFileId {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `file_id`.
   final HostedEnvironmentFileParamFileIdType type_;
+
   /// The ID of the uploaded file.
   final String fileId;
+
   /// The absolute destination path inside `/workspace`.
   final String path;
 
-  const HostedEnvironmentFileParamFileId({required this.type_, required this.fileId, required this.path});
+  const HostedEnvironmentFileParamFileId(
+      {required this.type_, required this.fileId, required this.path});
 
-  HostedEnvironmentFileParamFileId Function({HostedEnvironmentFileParamFileIdType type_, String fileId, String path}) get copyWith => _copyWith;
+  HostedEnvironmentFileParamFileId Function(
+      {HostedEnvironmentFileParamFileIdType type_,
+      String fileId,
+      String path}) get copyWith => _copyWith;
 
-  HostedEnvironmentFileParamFileId _copyWith({Object? type_ = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? path = sdkOmittedValue}) => HostedEnvironmentFileParamFileId(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedEnvironmentFileParamFileIdType,
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-  );
+  HostedEnvironmentFileParamFileId _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? fileId = sdkOmittedValue,
+          Object? path = sdkOmittedValue}) =>
+      HostedEnvironmentFileParamFileId(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedEnvironmentFileParamFileIdType,
+        fileId:
+            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+      );
 
-  factory HostedEnvironmentFileParamFileId.fromJson(Map<String, dynamic> json) => HostedEnvironmentFileParamFileId(
-    type_: (json['type'] != null ? HostedEnvironmentFileParamFileIdType.fromJson(json['type'] as String) : null)!,
-    fileId: (json['file_id'] as String?)!,
-    path: (json['path'] as String?)!,
-  );
+  factory HostedEnvironmentFileParamFileId.fromJson(
+          Map<String, dynamic> json) =>
+      HostedEnvironmentFileParamFileId(
+        type_: (json['type'] != null
+            ? HostedEnvironmentFileParamFileIdType.fromJson(
+                json['type'] as String)
+            : null)!,
+        fileId: (json['file_id'] as String?)!,
+        path: (json['path'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'file_id': fileId,
-    'path': path,
-  };
+        'type': type_.toJson(),
+        'file_id': fileId,
+        'path': path,
+      };
 }
 
 /// A file supplied directly as standard-base64 data.
 class HostedEnvironmentFileParamInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `inline`.
   final HostedEnvironmentFileParamInlineType type_;
+
   /// The standard-base64-encoded file contents.
   final String data;
+
   /// The absolute destination path inside `/workspace`.
   final String path;
 
-  const HostedEnvironmentFileParamInline({required this.type_, required this.data, required this.path});
+  const HostedEnvironmentFileParamInline(
+      {required this.type_, required this.data, required this.path});
 
-  HostedEnvironmentFileParamInline Function({HostedEnvironmentFileParamInlineType type_, String data, String path}) get copyWith => _copyWith;
+  HostedEnvironmentFileParamInline Function(
+      {HostedEnvironmentFileParamInlineType type_,
+      String data,
+      String path}) get copyWith => _copyWith;
 
-  HostedEnvironmentFileParamInline _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? path = sdkOmittedValue}) => HostedEnvironmentFileParamInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedEnvironmentFileParamInlineType,
-    data: identical(data, sdkOmittedValue) ? this.data : data as String,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-  );
+  HostedEnvironmentFileParamInline _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? path = sdkOmittedValue}) =>
+      HostedEnvironmentFileParamInline(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedEnvironmentFileParamInlineType,
+        data: identical(data, sdkOmittedValue) ? this.data : data as String,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+      );
 
-  factory HostedEnvironmentFileParamInline.fromJson(Map<String, dynamic> json) => HostedEnvironmentFileParamInline(
-    type_: (json['type'] != null ? HostedEnvironmentFileParamInlineType.fromJson(json['type'] as String) : null)!,
-    data: (json['data'] as String?)!,
-    path: (json['path'] as String?)!,
-  );
+  factory HostedEnvironmentFileParamInline.fromJson(
+          Map<String, dynamic> json) =>
+      HostedEnvironmentFileParamInline(
+        type_: (json['type'] != null
+            ? HostedEnvironmentFileParamInlineType.fromJson(
+                json['type'] as String)
+            : null)!,
+        data: (json['data'] as String?)!,
+        path: (json['path'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'data': data,
-    'path': path,
-  };
+        'type': type_.toJson(),
+        'data': data,
+        'path': path,
+      };
 }
 
 sealed class HostedEnvironmentFileResource {
@@ -109,114 +164,192 @@ sealed class HostedEnvironmentFileResource {
   static const String constructionSurface = 'named';
   const HostedEnvironmentFileResource();
   factory HostedEnvironmentFileResource.fromJson(Object? json) {
-    try { return HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(HostedEnvironmentFileResourceFileId.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(HostedEnvironmentFileResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_id", "inline"}.contains(json["type"])) { return UnknownHostedEnvironmentFileResource(json); }
-    throw FormatException("No variant matched for HostedEnvironmentFileResource");
+    try {
+      return HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(
+          HostedEnvironmentFileResourceFileId.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(
+          HostedEnvironmentFileResourceInline.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"file_id", "inline"}.contains(json["type"])) {
+      return UnknownHostedEnvironmentFileResource(json);
+    }
+    throw FormatException(
+        "No variant matched for HostedEnvironmentFileResource");
   }
   Object? toJson();
 }
 
-final class HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId extends HostedEnvironmentFileResource {
+final class HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId
+    extends HostedEnvironmentFileResource {
   final HostedEnvironmentFileResourceFileId value;
-  const HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(this.value);
-  @override Object? toJson() => value.toJson();
+  const HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline extends HostedEnvironmentFileResource {
+final class HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline
+    extends HostedEnvironmentFileResource {
   final HostedEnvironmentFileResourceInline value;
-  const HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(this.value);
-  @override Object? toJson() => value.toJson();
+  const HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedEnvironmentFileResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownHostedEnvironmentFileResource extends HostedEnvironmentFileResource {
+final class UnknownHostedEnvironmentFileResource
+    extends HostedEnvironmentFileResource {
   final Map<String, dynamic> raw;
   const UnknownHostedEnvironmentFileResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A file copied from the OpenAI Files API.
 class HostedEnvironmentFileResourceFileId {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `file_id`.
   final HostedEnvironmentFileResourceFileIdType type_;
+
   /// The session-scoped ID of the file in the execution environment.
   final String id;
+
   /// The ID of the uploaded file.
   final String fileId;
+
   /// The file's absolute path inside the environment.
   final String path;
+
   /// The decoded file size in bytes.
   final int sizeBytes;
 
-  const HostedEnvironmentFileResourceFileId({required this.type_, required this.id, required this.fileId, required this.path, required this.sizeBytes});
+  const HostedEnvironmentFileResourceFileId(
+      {required this.type_,
+      required this.id,
+      required this.fileId,
+      required this.path,
+      required this.sizeBytes});
 
-  HostedEnvironmentFileResourceFileId Function({HostedEnvironmentFileResourceFileIdType type_, String id, String fileId, String path, int sizeBytes}) get copyWith => _copyWith;
+  HostedEnvironmentFileResourceFileId Function(
+      {HostedEnvironmentFileResourceFileIdType type_,
+      String id,
+      String fileId,
+      String path,
+      int sizeBytes}) get copyWith => _copyWith;
 
-  HostedEnvironmentFileResourceFileId _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? path = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue}) => HostedEnvironmentFileResourceFileId(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedEnvironmentFileResourceFileIdType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as int,
-  );
+  HostedEnvironmentFileResourceFileId _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? fileId = sdkOmittedValue,
+          Object? path = sdkOmittedValue,
+          Object? sizeBytes = sdkOmittedValue}) =>
+      HostedEnvironmentFileResourceFileId(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedEnvironmentFileResourceFileIdType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        fileId:
+            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+        sizeBytes: identical(sizeBytes, sdkOmittedValue)
+            ? this.sizeBytes
+            : sizeBytes as int,
+      );
 
-  factory HostedEnvironmentFileResourceFileId.fromJson(Map<String, dynamic> json) => HostedEnvironmentFileResourceFileId(
-    type_: (json['type'] != null ? HostedEnvironmentFileResourceFileIdType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    fileId: (json['file_id'] as String?)!,
-    path: (json['path'] as String?)!,
-    sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
-  );
+  factory HostedEnvironmentFileResourceFileId.fromJson(
+          Map<String, dynamic> json) =>
+      HostedEnvironmentFileResourceFileId(
+        type_: (json['type'] != null
+            ? HostedEnvironmentFileResourceFileIdType.fromJson(
+                json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        fileId: (json['file_id'] as String?)!,
+        path: (json['path'] as String?)!,
+        sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'file_id': fileId,
-    'path': path,
-    'size_bytes': sizeBytes,
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'file_id': fileId,
+        'path': path,
+        'size_bytes': sizeBytes,
+      };
 }
 
 /// A file supplied inline when the session was created.
 class HostedEnvironmentFileResourceInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `inline`.
   final HostedEnvironmentFileResourceInlineType type_;
+
   /// The session-scoped ID of the file in the execution environment.
   final String id;
+
   /// The file's absolute path inside the environment.
   final String path;
+
   /// The decoded file size in bytes.
   final int sizeBytes;
 
-  const HostedEnvironmentFileResourceInline({required this.type_, required this.id, required this.path, required this.sizeBytes});
+  const HostedEnvironmentFileResourceInline(
+      {required this.type_,
+      required this.id,
+      required this.path,
+      required this.sizeBytes});
 
-  HostedEnvironmentFileResourceInline Function({HostedEnvironmentFileResourceInlineType type_, String id, String path, int sizeBytes}) get copyWith => _copyWith;
+  HostedEnvironmentFileResourceInline Function(
+      {HostedEnvironmentFileResourceInlineType type_,
+      String id,
+      String path,
+      int sizeBytes}) get copyWith => _copyWith;
 
-  HostedEnvironmentFileResourceInline _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? path = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue}) => HostedEnvironmentFileResourceInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedEnvironmentFileResourceInlineType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as int,
-  );
+  HostedEnvironmentFileResourceInline _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? path = sdkOmittedValue,
+          Object? sizeBytes = sdkOmittedValue}) =>
+      HostedEnvironmentFileResourceInline(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedEnvironmentFileResourceInlineType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+        sizeBytes: identical(sizeBytes, sdkOmittedValue)
+            ? this.sizeBytes
+            : sizeBytes as int,
+      );
 
-  factory HostedEnvironmentFileResourceInline.fromJson(Map<String, dynamic> json) => HostedEnvironmentFileResourceInline(
-    type_: (json['type'] != null ? HostedEnvironmentFileResourceInlineType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    path: (json['path'] as String?)!,
-    sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
-  );
+  factory HostedEnvironmentFileResourceInline.fromJson(
+          Map<String, dynamic> json) =>
+      HostedEnvironmentFileResourceInline(
+        type_: (json['type'] != null
+            ? HostedEnvironmentFileResourceInlineType.fromJson(
+                json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        path: (json['path'] as String?)!,
+        sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'path': path,
-    'size_bytes': sizeBytes,
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'path': path,
+        'size_bytes': sizeBytes,
+      };
 }
 
 sealed class HostedPluginParam {
@@ -224,8 +357,15 @@ sealed class HostedPluginParam {
   static const String constructionSurface = 'named';
   const HostedPluginParam();
   factory HostedPluginParam.fromJson(Object? json) {
-    try { return HostedPluginParamHostedPluginParamInline(HostedPluginParamInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"inline"}.contains(json["type"])) { return UnknownHostedPluginParam(json); }
+    try {
+      return HostedPluginParamHostedPluginParamInline(
+          HostedPluginParamInline.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"inline"}.contains(json["type"])) {
+      return UnknownHostedPluginParam(json);
+    }
     throw FormatException("No variant matched for HostedPluginParam");
   }
   Object? toJson();
@@ -234,51 +374,81 @@ sealed class HostedPluginParam {
 final class HostedPluginParamHostedPluginParamInline extends HostedPluginParam {
   final HostedPluginParamInline value;
   const HostedPluginParamHostedPluginParamInline(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedPluginParam] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownHostedPluginParam extends HostedPluginParam {
   final Map<String, dynamic> raw;
   const UnknownHostedPluginParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Supplies a plugin ZIP directly in the session request.
 class HostedPluginParamInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `inline`.
   final HostedPluginParamInlineType type_;
+
   /// The plugin name declared in `.codex-plugin/plugin.json`.
   final String name;
+
   /// The plugin description declared in `.codex-plugin/plugin.json`.
   final String description;
+
   /// The inline ZIP archive.
   final InlineCapabilitySourceParam source;
 
-  const HostedPluginParamInline({required this.type_, required this.name, required this.description, required this.source});
+  const HostedPluginParamInline(
+      {required this.type_,
+      required this.name,
+      required this.description,
+      required this.source});
 
-  HostedPluginParamInline Function({HostedPluginParamInlineType type_, String name, String description, InlineCapabilitySourceParam source}) get copyWith => _copyWith;
+  HostedPluginParamInline Function(
+      {HostedPluginParamInlineType type_,
+      String name,
+      String description,
+      InlineCapabilitySourceParam source}) get copyWith => _copyWith;
 
-  HostedPluginParamInline _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? source = sdkOmittedValue}) => HostedPluginParamInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedPluginParamInlineType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-    source: identical(source, sdkOmittedValue) ? this.source : source as InlineCapabilitySourceParam,
-  );
+  HostedPluginParamInline _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? source = sdkOmittedValue}) =>
+      HostedPluginParamInline(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedPluginParamInlineType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as InlineCapabilitySourceParam,
+      );
 
-  factory HostedPluginParamInline.fromJson(Map<String, dynamic> json) => HostedPluginParamInline(
-    type_: (json['type'] != null ? HostedPluginParamInlineType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-    source: (json['source'] != null ? InlineCapabilitySourceParam.fromJson(json['source']) : null)!,
-  );
+  factory HostedPluginParamInline.fromJson(Map<String, dynamic> json) =>
+      HostedPluginParamInline(
+        type_: (json['type'] != null
+            ? HostedPluginParamInlineType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+        source: (json['source'] != null
+            ? InlineCapabilitySourceParam.fromJson(json['source'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'description': description,
-    'source': source.toJson(),
-  };
+        'type': type_.toJson(),
+        'name': name,
+        'description': description,
+        'source': source.toJson(),
+      };
 }

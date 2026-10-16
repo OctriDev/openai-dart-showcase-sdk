@@ -8,29 +8,44 @@ part of 'agents_computer.dart';
 class ComputerScreenshotResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The content type. Always `computer_screenshot`.
   final ComputerScreenshotResourceType type_;
+
   /// The complete JPEG image as a base64 data URL.
   final String imageUrl;
 
-  const ComputerScreenshotResource({required this.type_, required this.imageUrl});
+  const ComputerScreenshotResource(
+      {required this.type_, required this.imageUrl});
 
-  ComputerScreenshotResource Function({ComputerScreenshotResourceType type_, String imageUrl}) get copyWith => _copyWith;
+  ComputerScreenshotResource Function(
+      {ComputerScreenshotResourceType type_,
+      String imageUrl}) get copyWith => _copyWith;
 
-  ComputerScreenshotResource _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue}) => ComputerScreenshotResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerScreenshotResourceType,
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as String,
-  );
+  ComputerScreenshotResource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue}) =>
+      ComputerScreenshotResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ComputerScreenshotResourceType,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as String,
+      );
 
-  factory ComputerScreenshotResource.fromJson(Map<String, dynamic> json) => ComputerScreenshotResource(
-    type_: (json['type'] != null ? ComputerScreenshotResourceType.fromJson(json['type'] as String) : null)!,
-    imageUrl: (json['image_url'] as String?)!,
-  );
+  factory ComputerScreenshotResource.fromJson(Map<String, dynamic> json) =>
+      ComputerScreenshotResource(
+        type_: (json['type'] != null
+            ? ComputerScreenshotResourceType.fromJson(json['type'] as String)
+            : null)!,
+        imageUrl: (json['image_url'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'image_url': imageUrl,
-  };
+        'type': type_.toJson(),
+        'image_url': imageUrl,
+      };
 }
 
 sealed class ComputerUseApprovalRequestKindResource {
@@ -38,153 +53,286 @@ sealed class ComputerUseApprovalRequestKindResource {
   static const String constructionSurface = 'named';
   const ComputerUseApprovalRequestKindResource();
   factory ComputerUseApprovalRequestKindResource.fromJson(Object? json) {
-    try { return ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserAuthentication(ComputerUseApprovalRequestKindResourceBrowserAuthentication.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserOriginAccess(ComputerUseApprovalRequestKindResourceBrowserOriginAccess.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"browser_authentication", "browser_origin_access"}.contains(json["type"])) { return UnknownComputerUseApprovalRequestKindResource(json); }
-    throw FormatException("No variant matched for ComputerUseApprovalRequestKindResource");
+    try {
+      return ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserAuthentication(
+          ComputerUseApprovalRequestKindResourceBrowserAuthentication.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserOriginAccess(
+          ComputerUseApprovalRequestKindResourceBrowserOriginAccess.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"browser_authentication", "browser_origin_access"}
+            .contains(json["type"])) {
+      return UnknownComputerUseApprovalRequestKindResource(json);
+    }
+    throw FormatException(
+        "No variant matched for ComputerUseApprovalRequestKindResource");
   }
   Object? toJson();
 }
 
-final class ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserAuthentication extends ComputerUseApprovalRequestKindResource {
+final class ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserAuthentication
+    extends ComputerUseApprovalRequestKindResource {
   final ComputerUseApprovalRequestKindResourceBrowserAuthentication value;
-  const ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserAuthentication(this.value);
-  @override Object? toJson() => value.toJson();
+  const ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserAuthentication(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserOriginAccess extends ComputerUseApprovalRequestKindResource {
+final class ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserOriginAccess
+    extends ComputerUseApprovalRequestKindResource {
   final ComputerUseApprovalRequestKindResourceBrowserOriginAccess value;
-  const ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserOriginAccess(this.value);
-  @override Object? toJson() => value.toJson();
+  const ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserOriginAccess(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ComputerUseApprovalRequestKindResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownComputerUseApprovalRequestKindResource extends ComputerUseApprovalRequestKindResource {
+final class UnknownComputerUseApprovalRequestKindResource
+    extends ComputerUseApprovalRequestKindResource {
   final Map<String, dynamic> raw;
   const UnknownComputerUseApprovalRequestKindResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A registered form awaiting the application's response.
 class ComputerUseApprovalRequestKindResourceBrowserAuthentication {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `browser_authentication`.
   final ComputerUseApprovalRequestKindResourceBrowserAuthenticationType type_;
+
   /// Why the agent needs the user to sign in.
   final String? reason;
+
   /// The registered form or frame origin where values will be entered.
   final String? credentialOrigin;
+
   /// Controls to render. All submitted values are sensitive.
   final List<BrowserAuthenticationFieldResource> fields;
+
   /// Sign-in methods. Empty for a plain form.
   final List<BrowserAuthenticationOptionResource> options;
 
-  const ComputerUseApprovalRequestKindResourceBrowserAuthentication({required this.type_, required this.reason, required this.credentialOrigin, required this.fields, required this.options});
+  const ComputerUseApprovalRequestKindResourceBrowserAuthentication(
+      {required this.type_,
+      required this.reason,
+      required this.credentialOrigin,
+      required this.fields,
+      required this.options});
 
-  ComputerUseApprovalRequestKindResourceBrowserAuthentication Function({ComputerUseApprovalRequestKindResourceBrowserAuthenticationType type_, String? reason, String? credentialOrigin, List<BrowserAuthenticationFieldResource> fields, List<BrowserAuthenticationOptionResource> options}) get copyWith => _copyWith;
+  ComputerUseApprovalRequestKindResourceBrowserAuthentication Function(
+      {ComputerUseApprovalRequestKindResourceBrowserAuthenticationType type_,
+      String? reason,
+      String? credentialOrigin,
+      List<BrowserAuthenticationFieldResource> fields,
+      List<BrowserAuthenticationOptionResource>
+          options}) get copyWith => _copyWith;
 
-  ComputerUseApprovalRequestKindResourceBrowserAuthentication _copyWith({Object? type_ = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? credentialOrigin = sdkOmittedValue, Object? fields = sdkOmittedValue, Object? options = sdkOmittedValue}) => ComputerUseApprovalRequestKindResourceBrowserAuthentication(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerUseApprovalRequestKindResourceBrowserAuthenticationType,
-    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as String?,
-    credentialOrigin: identical(credentialOrigin, sdkOmittedValue) ? this.credentialOrigin : credentialOrigin as String?,
-    fields: identical(fields, sdkOmittedValue) ? this.fields : fields as List<BrowserAuthenticationFieldResource>,
-    options: identical(options, sdkOmittedValue) ? this.options : options as List<BrowserAuthenticationOptionResource>,
-  );
+  ComputerUseApprovalRequestKindResourceBrowserAuthentication _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? reason = sdkOmittedValue,
+          Object? credentialOrigin = sdkOmittedValue,
+          Object? fields = sdkOmittedValue,
+          Object? options = sdkOmittedValue}) =>
+      ComputerUseApprovalRequestKindResourceBrowserAuthentication(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_
+                as ComputerUseApprovalRequestKindResourceBrowserAuthenticationType,
+        reason: identical(reason, sdkOmittedValue)
+            ? this.reason
+            : reason as String?,
+        credentialOrigin: identical(credentialOrigin, sdkOmittedValue)
+            ? this.credentialOrigin
+            : credentialOrigin as String?,
+        fields: identical(fields, sdkOmittedValue)
+            ? this.fields
+            : fields as List<BrowserAuthenticationFieldResource>,
+        options: identical(options, sdkOmittedValue)
+            ? this.options
+            : options as List<BrowserAuthenticationOptionResource>,
+      );
 
-  factory ComputerUseApprovalRequestKindResourceBrowserAuthentication.fromJson(Map<String, dynamic> json) => ComputerUseApprovalRequestKindResourceBrowserAuthentication(
-    type_: (json['type'] != null ? ComputerUseApprovalRequestKindResourceBrowserAuthenticationType.fromJson(json['type'] as String) : null)!,
-    reason: json.containsKey('reason') ? json['reason'] as String? : throw ArgumentError.value(null, 'reason', 'Required property is missing'),
-    credentialOrigin: json.containsKey('credential_origin') ? json['credential_origin'] as String? : throw ArgumentError.value(null, 'credential_origin', 'Required property is missing'),
-    fields: ((json['fields'] as List?)?.map((e) => BrowserAuthenticationFieldResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    options: ((json['options'] as List?)?.map((e) => BrowserAuthenticationOptionResource.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory ComputerUseApprovalRequestKindResourceBrowserAuthentication.fromJson(
+          Map<String, dynamic> json) =>
+      ComputerUseApprovalRequestKindResourceBrowserAuthentication(
+        type_: (json['type'] != null
+            ? ComputerUseApprovalRequestKindResourceBrowserAuthenticationType
+                .fromJson(json['type'] as String)
+            : null)!,
+        reason: json.containsKey('reason')
+            ? json['reason'] as String?
+            : throw ArgumentError.value(
+                null, 'reason', 'Required property is missing'),
+        credentialOrigin: json.containsKey('credential_origin')
+            ? json['credential_origin'] as String?
+            : throw ArgumentError.value(
+                null, 'credential_origin', 'Required property is missing'),
+        fields: ((json['fields'] as List?)
+            ?.map((e) => BrowserAuthenticationFieldResource.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        options: ((json['options'] as List?)
+            ?.map((e) => BrowserAuthenticationOptionResource.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'reason': reason,
-    'credential_origin': credentialOrigin,
-    'fields': fields.map((item) => item.toJson()).toList(),
-    'options': options.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'reason': reason,
+        'credential_origin': credentialOrigin,
+        'fields': fields.map((item) => item.toJson()).toList(),
+        'options': options.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// A browser origin awaiting the application's approval decision.
 class ComputerUseApprovalRequestKindResourceBrowserOriginAccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `browser_origin_access`.
   final ComputerUseApprovalRequestKindResourceBrowserOriginAccessType type_;
+
   /// The browser's explanation for this request, or null when unavailable.
   final String? reason;
+
   /// The origin the browser needs permission to access.
   final String origin;
 
-  const ComputerUseApprovalRequestKindResourceBrowserOriginAccess({required this.type_, required this.reason, required this.origin});
+  const ComputerUseApprovalRequestKindResourceBrowserOriginAccess(
+      {required this.type_, required this.reason, required this.origin});
 
-  ComputerUseApprovalRequestKindResourceBrowserOriginAccess Function({ComputerUseApprovalRequestKindResourceBrowserOriginAccessType type_, String? reason, String origin}) get copyWith => _copyWith;
+  ComputerUseApprovalRequestKindResourceBrowserOriginAccess Function(
+      {ComputerUseApprovalRequestKindResourceBrowserOriginAccessType type_,
+      String? reason,
+      String origin}) get copyWith => _copyWith;
 
-  ComputerUseApprovalRequestKindResourceBrowserOriginAccess _copyWith({Object? type_ = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? origin = sdkOmittedValue}) => ComputerUseApprovalRequestKindResourceBrowserOriginAccess(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerUseApprovalRequestKindResourceBrowserOriginAccessType,
-    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as String?,
-    origin: identical(origin, sdkOmittedValue) ? this.origin : origin as String,
-  );
+  ComputerUseApprovalRequestKindResourceBrowserOriginAccess _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? reason = sdkOmittedValue,
+          Object? origin = sdkOmittedValue}) =>
+      ComputerUseApprovalRequestKindResourceBrowserOriginAccess(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_
+                as ComputerUseApprovalRequestKindResourceBrowserOriginAccessType,
+        reason: identical(reason, sdkOmittedValue)
+            ? this.reason
+            : reason as String?,
+        origin:
+            identical(origin, sdkOmittedValue) ? this.origin : origin as String,
+      );
 
-  factory ComputerUseApprovalRequestKindResourceBrowserOriginAccess.fromJson(Map<String, dynamic> json) => ComputerUseApprovalRequestKindResourceBrowserOriginAccess(
-    type_: (json['type'] != null ? ComputerUseApprovalRequestKindResourceBrowserOriginAccessType.fromJson(json['type'] as String) : null)!,
-    reason: json.containsKey('reason') ? json['reason'] as String? : throw ArgumentError.value(null, 'reason', 'Required property is missing'),
-    origin: (json['origin'] as String?)!,
-  );
+  factory ComputerUseApprovalRequestKindResourceBrowserOriginAccess.fromJson(
+          Map<String, dynamic> json) =>
+      ComputerUseApprovalRequestKindResourceBrowserOriginAccess(
+        type_: (json['type'] != null
+            ? ComputerUseApprovalRequestKindResourceBrowserOriginAccessType
+                .fromJson(json['type'] as String)
+            : null)!,
+        reason: json.containsKey('reason')
+            ? json['reason'] as String?
+            : throw ArgumentError.value(
+                null, 'reason', 'Required property is missing'),
+        origin: (json['origin'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'reason': reason,
-    'origin': origin,
-  };
+        'type': type_.toJson(),
+        'reason': reason,
+        'origin': origin,
+      };
 }
 
 /// A credential-free record of an admitted response, not proof of completion.
 class ComputerUseApprovalRequestResultItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The stable history item ID.
   final String id;
+
   /// Required enumerated value serialized in the `type` wire field.
   final ComputerUseApprovalRequestResultItemResourceType type_;
+
   /// The ID of the turn that contains this item.
   final String turnId;
+
   /// The registered request answered by this item.
   final String requestId;
+
   /// The admitted response, without submitted credential values.
   final ComputerUseApprovalResponseKindResource response;
 
-  const ComputerUseApprovalRequestResultItemResource({required this.id, required this.type_, required this.turnId, required this.requestId, required this.response});
+  const ComputerUseApprovalRequestResultItemResource(
+      {required this.id,
+      required this.type_,
+      required this.turnId,
+      required this.requestId,
+      required this.response});
 
-  ComputerUseApprovalRequestResultItemResource Function({String id, ComputerUseApprovalRequestResultItemResourceType type_, String turnId, String requestId, ComputerUseApprovalResponseKindResource response}) get copyWith => _copyWith;
+  ComputerUseApprovalRequestResultItemResource Function(
+          {String id,
+          ComputerUseApprovalRequestResultItemResourceType type_,
+          String turnId,
+          String requestId,
+          ComputerUseApprovalResponseKindResource response})
+      get copyWith => _copyWith;
 
-  ComputerUseApprovalRequestResultItemResource _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? requestId = sdkOmittedValue, Object? response = sdkOmittedValue}) => ComputerUseApprovalRequestResultItemResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerUseApprovalRequestResultItemResourceType,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-    requestId: identical(requestId, sdkOmittedValue) ? this.requestId : requestId as String,
-    response: identical(response, sdkOmittedValue) ? this.response : response as ComputerUseApprovalResponseKindResource,
-  );
+  ComputerUseApprovalRequestResultItemResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? requestId = sdkOmittedValue,
+          Object? response = sdkOmittedValue}) =>
+      ComputerUseApprovalRequestResultItemResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ComputerUseApprovalRequestResultItemResourceType,
+        turnId:
+            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+        requestId: identical(requestId, sdkOmittedValue)
+            ? this.requestId
+            : requestId as String,
+        response: identical(response, sdkOmittedValue)
+            ? this.response
+            : response as ComputerUseApprovalResponseKindResource,
+      );
 
-  factory ComputerUseApprovalRequestResultItemResource.fromJson(Map<String, dynamic> json) => ComputerUseApprovalRequestResultItemResource(
-    id: (json['id'] as String?)!,
-    type_: (json['type'] != null ? ComputerUseApprovalRequestResultItemResourceType.fromJson(json['type'] as String) : null)!,
-    turnId: (json['turn_id'] as String?)!,
-    requestId: (json['request_id'] as String?)!,
-    response: (json['response'] != null ? ComputerUseApprovalResponseKindResource.fromJson(json['response']) : null)!,
-  );
+  factory ComputerUseApprovalRequestResultItemResource.fromJson(
+          Map<String, dynamic> json) =>
+      ComputerUseApprovalRequestResultItemResource(
+        id: (json['id'] as String?)!,
+        type_: (json['type'] != null
+            ? ComputerUseApprovalRequestResultItemResourceType.fromJson(
+                json['type'] as String)
+            : null)!,
+        turnId: (json['turn_id'] as String?)!,
+        requestId: (json['request_id'] as String?)!,
+        response: (json['response'] != null
+            ? ComputerUseApprovalResponseKindResource.fromJson(json['response'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'type': type_.toJson(),
-    'turn_id': turnId,
-    'request_id': requestId,
-    'response': response.toJson(),
-  };
+        'id': id,
+        'type': type_.toJson(),
+        'turn_id': turnId,
+        'request_id': requestId,
+        'response': response.toJson(),
+      };
 }
 
 sealed class ComputerUseApprovalResponseKindResource {
@@ -192,92 +340,179 @@ sealed class ComputerUseApprovalResponseKindResource {
   static const String constructionSurface = 'named';
   const ComputerUseApprovalResponseKindResource();
   factory ComputerUseApprovalResponseKindResource.fromJson(Object? json) {
-    try { return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["action"] is String && !const {"submit", "cancel"}.contains(json["action"])) { return UnknownComputerUseApprovalResponseKindResource(json); }
-    throw FormatException("No variant matched for ComputerUseApprovalResponseKindResource");
+    try {
+      return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
+          ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource
+              .fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
+          ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource
+              .fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["action"] is String &&
+        !const {"submit", "cancel"}.contains(json["action"])) {
+      return UnknownComputerUseApprovalResponseKindResource(json);
+    }
+    throw FormatException(
+        "No variant matched for ComputerUseApprovalResponseKindResource");
   }
   Object? toJson();
 }
 
-final class ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource extends ComputerUseApprovalResponseKindResource {
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource value;
-  const ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(this.value);
-  @override Object? toJson() => value.toJson();
+final class ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource
+    extends ComputerUseApprovalResponseKindResource {
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource
+      value;
+  const ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource extends ComputerUseApprovalResponseKindResource {
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource value;
-  const ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(this.value);
-  @override Object? toJson() => value.toJson();
+final class ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource
+    extends ComputerUseApprovalResponseKindResource {
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource
+      value;
+  const ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ComputerUseApprovalResponseKindResource] whose `action` names no branch this SDK knows, kept as received.
-final class UnknownComputerUseApprovalResponseKindResource extends ComputerUseApprovalResponseKindResource {
+final class UnknownComputerUseApprovalResponseKindResource
+    extends ComputerUseApprovalResponseKindResource {
   final Map<String, dynamic> raw;
   const UnknownComputerUseApprovalResponseKindResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Typed representation of the `ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource` API schema.
 class ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType type_;
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType
+      type_;
+
   /// Required enumerated value serialized in the `action` wire field.
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction action;
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction
+      action;
 
-  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource({required this.type_, required this.action});
+  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
+      {required this.type_, required this.action});
 
-  ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource Function({ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType type_, ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction action}) get copyWith => _copyWith;
+  ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource Function(
+      {ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType
+          type_,
+      ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction
+          action}) get copyWith => _copyWith;
 
-  ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource _copyWith({Object? type_ = sdkOmittedValue, Object? action = sdkOmittedValue}) => ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType,
-    action: identical(action, sdkOmittedValue) ? this.action : action as ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction,
-  );
+  ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource
+      _copyWith(
+              {Object? type_ = sdkOmittedValue,
+              Object? action = sdkOmittedValue}) =>
+          ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
+            type_: identical(type_, sdkOmittedValue)
+                ? this.type_
+                : type_
+                    as ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType,
+            action: identical(action, sdkOmittedValue)
+                ? this.action
+                : action
+                    as ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction,
+          );
 
-  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource.fromJson(Map<String, dynamic> json) => ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
-    type_: (json['type'] != null ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType.fromJson(json['type'] as String) : null)!,
-    action: (json['action'] != null ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction.fromJson(json['action'] as String) : null)!,
-  );
+  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource.fromJson(
+          Map<String, dynamic> json) =>
+      ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
+        type_: (json['type'] != null
+            ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType
+                .fromJson(json['type'] as String)
+            : null)!,
+        action: (json['action'] != null
+            ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction
+                .fromJson(json['action'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'action': action.toJson(),
-  };
+        'type': type_.toJson(),
+        'action': action.toJson(),
+      };
 }
 
 /// Typed representation of the `ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource` API schema.
 class ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType type_;
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType
+      type_;
+
   /// Required enumerated value serialized in the `action` wire field.
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction action;
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction
+      action;
+
   /// The chosen sign-in method, or null when no options were offered.
   final String? selectedOption;
 
-  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource({required this.type_, required this.action, required this.selectedOption});
+  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
+      {required this.type_,
+      required this.action,
+      required this.selectedOption});
 
-  ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource Function({ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType type_, ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction action, String? selectedOption}) get copyWith => _copyWith;
+  ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource Function(
+      {ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType
+          type_,
+      ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction
+          action,
+      String? selectedOption}) get copyWith => _copyWith;
 
-  ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource _copyWith({Object? type_ = sdkOmittedValue, Object? action = sdkOmittedValue, Object? selectedOption = sdkOmittedValue}) => ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType,
-    action: identical(action, sdkOmittedValue) ? this.action : action as ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction,
-    selectedOption: identical(selectedOption, sdkOmittedValue) ? this.selectedOption : selectedOption as String?,
-  );
+  ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource
+      _copyWith(
+              {Object? type_ = sdkOmittedValue,
+              Object? action = sdkOmittedValue,
+              Object? selectedOption = sdkOmittedValue}) =>
+          ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
+            type_: identical(type_, sdkOmittedValue)
+                ? this.type_
+                : type_
+                    as ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType,
+            action: identical(action, sdkOmittedValue)
+                ? this.action
+                : action
+                    as ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction,
+            selectedOption: identical(selectedOption, sdkOmittedValue)
+                ? this.selectedOption
+                : selectedOption as String?,
+          );
 
-  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource.fromJson(Map<String, dynamic> json) => ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
-    type_: (json['type'] != null ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType.fromJson(json['type'] as String) : null)!,
-    action: (json['action'] != null ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction.fromJson(json['action'] as String) : null)!,
-    selectedOption: json.containsKey('selected_option') ? json['selected_option'] as String? : throw ArgumentError.value(null, 'selected_option', 'Required property is missing'),
-  );
+  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource.fromJson(
+          Map<String, dynamic> json) =>
+      ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
+        type_: (json['type'] != null
+            ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType
+                .fromJson(json['type'] as String)
+            : null)!,
+        action: (json['action'] != null
+            ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction
+                .fromJson(json['action'] as String)
+            : null)!,
+        selectedOption: json.containsKey('selected_option')
+            ? json['selected_option'] as String?
+            : throw ArgumentError.value(
+                null, 'selected_option', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'action': action.toJson(),
-    'selected_option': selectedOption,
-  };
+        'type': type_.toJson(),
+        'action': action.toJson(),
+        'selected_option': selectedOption,
+      };
 }

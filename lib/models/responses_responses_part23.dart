@@ -8,25 +8,36 @@ part of 'responses_responses.dart';
 class ResponsesWebSocketStreamEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
   const ResponsesWebSocketStreamEvent({this.streamId = const SdkOmitted()});
 
-  ResponsesWebSocketStreamEvent Function({SdkOptional<String> streamId}) get copyWith => _copyWith;
+  ResponsesWebSocketStreamEvent Function({SdkOptional<String> streamId})
+      get copyWith => _copyWith;
 
-  ResponsesWebSocketStreamEvent _copyWith({Object? streamId = sdkOmittedValue}) => ResponsesWebSocketStreamEvent(
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  ResponsesWebSocketStreamEvent _copyWith(
+          {Object? streamId = sdkOmittedValue}) =>
+      ResponsesWebSocketStreamEvent(
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory ResponsesWebSocketStreamEvent.fromJson(Map<String, dynamic> json) => ResponsesWebSocketStreamEvent(
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory ResponsesWebSocketStreamEvent.fromJson(Map<String, dynamic> json) =>
+      ResponsesWebSocketStreamEvent(
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

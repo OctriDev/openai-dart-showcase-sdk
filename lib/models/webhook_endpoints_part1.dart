@@ -8,215 +8,383 @@ part of 'webhook_endpoints.dart';
 class DeletedWebhookEndpointResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the deleted webhook endpoint.
   final String id;
+
   /// The object type, which is always webhook_endpoint.deleted.
   final DeletedWebhookEndpointResourceObject object;
+
   /// Whether the endpoint was deleted.
   final bool deleted;
 
-  const DeletedWebhookEndpointResource({required this.id, required this.object, required this.deleted});
+  const DeletedWebhookEndpointResource(
+      {required this.id, required this.object, required this.deleted});
 
-  DeletedWebhookEndpointResource Function({String id, DeletedWebhookEndpointResourceObject object, bool deleted}) get copyWith => _copyWith;
+  DeletedWebhookEndpointResource Function(
+      {String id,
+      DeletedWebhookEndpointResourceObject object,
+      bool deleted}) get copyWith => _copyWith;
 
-  DeletedWebhookEndpointResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeletedWebhookEndpointResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as DeletedWebhookEndpointResourceObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  DeletedWebhookEndpointResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      DeletedWebhookEndpointResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as DeletedWebhookEndpointResourceObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory DeletedWebhookEndpointResource.fromJson(Map<String, dynamic> json) => DeletedWebhookEndpointResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? DeletedWebhookEndpointResourceObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-  );
+  factory DeletedWebhookEndpointResource.fromJson(Map<String, dynamic> json) =>
+      DeletedWebhookEndpointResource(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? DeletedWebhookEndpointResourceObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        deleted: (json['deleted'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'deleted': deleted,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'deleted': deleted,
+      };
 }
 
 /// Typed representation of the `PublicCreateEndpointBody` API schema.
 class PublicCreateEndpointBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A human-readable name for the webhook endpoint.
   final String name;
+
   /// The HTTPS URL that receives webhook deliveries.
   final String url;
+
   /// The event types that trigger deliveries to this endpoint.
   final List<ProjectEventTypeEnum> eventTypes;
 
-  const PublicCreateEndpointBody({required this.name, required this.url, required this.eventTypes});
+  const PublicCreateEndpointBody(
+      {required this.name, required this.url, required this.eventTypes});
 
-  PublicCreateEndpointBody Function({String name, String url, List<ProjectEventTypeEnum> eventTypes}) get copyWith => _copyWith;
+  PublicCreateEndpointBody Function(
+      {String name,
+      String url,
+      List<ProjectEventTypeEnum> eventTypes}) get copyWith => _copyWith;
 
-  PublicCreateEndpointBody _copyWith({Object? name = sdkOmittedValue, Object? url = sdkOmittedValue, Object? eventTypes = sdkOmittedValue}) => PublicCreateEndpointBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-    eventTypes: identical(eventTypes, sdkOmittedValue) ? this.eventTypes : eventTypes as List<ProjectEventTypeEnum>,
-  );
+  PublicCreateEndpointBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? eventTypes = sdkOmittedValue}) =>
+      PublicCreateEndpointBody(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+        eventTypes: identical(eventTypes, sdkOmittedValue)
+            ? this.eventTypes
+            : eventTypes as List<ProjectEventTypeEnum>,
+      );
 
-  factory PublicCreateEndpointBody.fromJson(Map<String, dynamic> json) => PublicCreateEndpointBody(
-    name: (json['name'] as String?)!,
-    url: (json['url'] as String?)!,
-    eventTypes: ((json['event_types'] as List?)?.map((e) => ProjectEventTypeEnum.fromJson(e as String)).toList())!,
-  );
+  factory PublicCreateEndpointBody.fromJson(Map<String, dynamic> json) =>
+      PublicCreateEndpointBody(
+        name: (json['name'] as String?)!,
+        url: (json['url'] as String?)!,
+        eventTypes: ((json['event_types'] as List?)
+            ?.map((e) => ProjectEventTypeEnum.fromJson(e as String))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'url': url,
-    'event_types': eventTypes.map((item) => item.toJson()).toList(),
-  };
+        'name': name,
+        'url': url,
+        'event_types': eventTypes.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Typed representation of the `PublicUpdateEndpointBody` API schema.
 class PublicUpdateEndpointBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A new human-readable name for the webhook endpoint.
   final SdkOptional<String> name;
+
   /// A new HTTPS URL that receives webhook deliveries.
   final SdkOptional<String> url;
+
   /// The complete set of event types that should trigger deliveries.
   final SdkOptional<List<ProjectEventTypeEnum>> eventTypes;
 
-  const PublicUpdateEndpointBody({this.name = const SdkOmitted(), this.url = const SdkOmitted(), this.eventTypes = const SdkOmitted()});
+  const PublicUpdateEndpointBody(
+      {this.name = const SdkOmitted(),
+      this.url = const SdkOmitted(),
+      this.eventTypes = const SdkOmitted()});
 
-  PublicUpdateEndpointBody Function({SdkOptional<String> name, SdkOptional<String> url, SdkOptional<List<ProjectEventTypeEnum>> eventTypes}) get copyWith => _copyWith;
+  PublicUpdateEndpointBody Function(
+          {SdkOptional<String> name,
+          SdkOptional<String> url,
+          SdkOptional<List<ProjectEventTypeEnum>> eventTypes})
+      get copyWith => _copyWith;
 
-  PublicUpdateEndpointBody _copyWith({Object? name = sdkOmittedValue, Object? url = sdkOmittedValue, Object? eventTypes = sdkOmittedValue}) => PublicUpdateEndpointBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    eventTypes: identical(eventTypes, sdkOmittedValue) ? this.eventTypes : eventTypes as SdkOptional<List<ProjectEventTypeEnum>>,
-  );
+  PublicUpdateEndpointBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? eventTypes = sdkOmittedValue}) =>
+      PublicUpdateEndpointBody(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        eventTypes: identical(eventTypes, sdkOmittedValue)
+            ? this.eventTypes
+            : eventTypes as SdkOptional<List<ProjectEventTypeEnum>>,
+      );
 
-  factory PublicUpdateEndpointBody.fromJson(Map<String, dynamic> json) => PublicUpdateEndpointBody(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    eventTypes: json['event_types'] != null ? SdkPresent(((json['event_types'] as List?)?.map((e) => ProjectEventTypeEnum.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory PublicUpdateEndpointBody.fromJson(Map<String, dynamic> json) =>
+      PublicUpdateEndpointBody(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        eventTypes: json['event_types'] != null
+            ? SdkPresent(((json['event_types'] as List?)
+                ?.map((e) => ProjectEventTypeEnum.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (eventTypes) {
-      SdkPresent<List<ProjectEventTypeEnum>>(value: final value) => {'event_types': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (eventTypes) {
+          SdkPresent<List<ProjectEventTypeEnum>>(value: final value) => {
+              'event_types': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `WebhookEndpointBody` API schema.
 class WebhookEndpointBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the webhook endpoint.
   final String id;
+
   /// The object type, which is always webhook_endpoint.
   final WebhookEndpointBodyObject object;
+
   /// The Unix timestamp when the endpoint was created.
   final int createdAt;
+
   /// The Unix timestamp of the last endpoint configuration or signing-secret change. Initialized at creation; tests and unchanged updates do not advance it.
   final SdkOptional<int> updatedAt;
+
   /// The human-readable name of the endpoint.
   final String name;
+
   /// The HTTPS URL that receives webhook deliveries.
   final String url;
+
   /// The event types that trigger deliveries to this endpoint.
   final List<String> eventTypes;
+
   /// Required `string` value serialized in the `signing_secret_hint` wire field.
   final String? signingSecretHint;
 
-  const WebhookEndpointBody({required this.id, required this.object, required this.createdAt, this.updatedAt = const SdkOmitted(), required this.name, required this.url, required this.eventTypes, required this.signingSecretHint});
+  const WebhookEndpointBody(
+      {required this.id,
+      required this.object,
+      required this.createdAt,
+      this.updatedAt = const SdkOmitted(),
+      required this.name,
+      required this.url,
+      required this.eventTypes,
+      required this.signingSecretHint});
 
-  WebhookEndpointBody Function({String id, WebhookEndpointBodyObject object, int createdAt, SdkOptional<int> updatedAt, String name, String url, List<String> eventTypes, String? signingSecretHint}) get copyWith => _copyWith;
+  WebhookEndpointBody Function(
+      {String id,
+      WebhookEndpointBodyObject object,
+      int createdAt,
+      SdkOptional<int> updatedAt,
+      String name,
+      String url,
+      List<String> eventTypes,
+      String? signingSecretHint}) get copyWith => _copyWith;
 
-  WebhookEndpointBody _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? name = sdkOmittedValue, Object? url = sdkOmittedValue, Object? eventTypes = sdkOmittedValue, Object? signingSecretHint = sdkOmittedValue}) => WebhookEndpointBody(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as WebhookEndpointBodyObject,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-    eventTypes: identical(eventTypes, sdkOmittedValue) ? this.eventTypes : eventTypes as List<String>,
-    signingSecretHint: identical(signingSecretHint, sdkOmittedValue) ? this.signingSecretHint : signingSecretHint as String?,
-  );
+  WebhookEndpointBody _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? eventTypes = sdkOmittedValue,
+          Object? signingSecretHint = sdkOmittedValue}) =>
+      WebhookEndpointBody(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as WebhookEndpointBodyObject,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<int>,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+        eventTypes: identical(eventTypes, sdkOmittedValue)
+            ? this.eventTypes
+            : eventTypes as List<String>,
+        signingSecretHint: identical(signingSecretHint, sdkOmittedValue)
+            ? this.signingSecretHint
+            : signingSecretHint as String?,
+      );
 
-  factory WebhookEndpointBody.fromJson(Map<String, dynamic> json) => WebhookEndpointBody(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? WebhookEndpointBodyObject.fromJson(json['object'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    name: (json['name'] as String?)!,
-    url: (json['url'] as String?)!,
-    eventTypes: ((json['event_types'] as List?)?.map((e) => e as String).toList())!,
-    signingSecretHint: json.containsKey('signing_secret_hint') ? json['signing_secret_hint'] as String? : throw ArgumentError.value(null, 'signing_secret_hint', 'Required property is missing'),
-  );
+  factory WebhookEndpointBody.fromJson(Map<String, dynamic> json) =>
+      WebhookEndpointBody(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? WebhookEndpointBodyObject.fromJson(json['object'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        name: (json['name'] as String?)!,
+        url: (json['url'] as String?)!,
+        eventTypes:
+            ((json['event_types'] as List?)?.map((e) => e as String).toList())!,
+        signingSecretHint: json.containsKey('signing_secret_hint')
+            ? json['signing_secret_hint'] as String?
+            : throw ArgumentError.value(
+                null, 'signing_secret_hint', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'created_at': createdAt,
-    ...switch (updatedAt) {
-      SdkPresent<int>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    'name': name,
-    'url': url,
-    'event_types': eventTypes,
-    'signing_secret_hint': signingSecretHint,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'created_at': createdAt,
+        ...switch (updatedAt) {
+          SdkPresent<int>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'name': name,
+        'url': url,
+        'event_types': eventTypes,
+        'signing_secret_hint': signingSecretHint,
+      };
 }
 
 /// Typed representation of the `WebhookEndpointListResource` API schema.
 class WebhookEndpointListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always list.
   final WebhookEndpointListResourceObject object;
+
   /// The webhook endpoints in this page.
   final List<WebhookEndpointBody> data;
+
   /// Required `string` value serialized in the `first_id` wire field.
   final String? firstId;
+
   /// Required `string` value serialized in the `last_id` wire field.
   final String? lastId;
+
   /// Whether more webhook endpoints are available.
   final bool hasMore;
 
-  const WebhookEndpointListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
+  const WebhookEndpointListResource(
+      {required this.object,
+      required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore});
 
-  WebhookEndpointListResource Function({WebhookEndpointListResourceObject object, List<WebhookEndpointBody> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
+  WebhookEndpointListResource Function(
+      {WebhookEndpointListResourceObject object,
+      List<WebhookEndpointBody> data,
+      String? firstId,
+      String? lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  WebhookEndpointListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => WebhookEndpointListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as WebhookEndpointListResourceObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<WebhookEndpointBody>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  WebhookEndpointListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      WebhookEndpointListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as WebhookEndpointListResourceObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<WebhookEndpointBody>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String?,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory WebhookEndpointListResource.fromJson(Map<String, dynamic> json) => WebhookEndpointListResource(
-    object: (json['object'] != null ? WebhookEndpointListResourceObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => WebhookEndpointBody.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
-    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory WebhookEndpointListResource.fromJson(Map<String, dynamic> json) =>
+      WebhookEndpointListResource(
+        object: (json['object'] != null
+            ? WebhookEndpointListResourceObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map(
+                (e) => WebhookEndpointBody.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? json['first_id'] as String?
+            : throw ArgumentError.value(
+                null, 'first_id', 'Required property is missing'),
+        lastId: json.containsKey('last_id')
+            ? json['last_id'] as String?
+            : throw ArgumentError.value(
+                null, 'last_id', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+      };
 }

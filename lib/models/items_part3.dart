@@ -7,82 +7,130 @@ part of 'items.dart';
 final class ThreadItemWidgetMessageItem extends ThreadItem {
   final WidgetMessageItem value;
   const ThreadItemWidgetMessageItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ThreadItemClientToolCallItem extends ThreadItem {
   final ClientToolCallItem value;
   const ThreadItemClientToolCallItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ThreadItemTaskItem extends ThreadItem {
   final TaskItem value;
   const ThreadItemTaskItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ThreadItemTaskGroupItem extends ThreadItem {
   final TaskGroupItem value;
   const ThreadItemTaskGroupItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ThreadItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownThreadItem extends ThreadItem {
   final Map<String, dynamic> raw;
   const UnknownThreadItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A paginated list of thread items rendered for the ChatKit API.
 class ThreadItemListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object returned, must be `list`.
   final ThreadItemListResourceObject object;
+
   /// A list of items
   final List<ThreadItem> data;
+
   /// Required `string` value serialized in the `first_id` wire field.
   final String? firstId;
+
   /// Required `string` value serialized in the `last_id` wire field.
   final String? lastId;
+
   /// Whether there are more items available.
   final bool hasMore;
 
-  const ThreadItemListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
+  const ThreadItemListResource(
+      {required this.object,
+      required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore});
 
-  ThreadItemListResource Function({ThreadItemListResourceObject object, List<ThreadItem> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
+  ThreadItemListResource Function(
+      {ThreadItemListResourceObject object,
+      List<ThreadItem> data,
+      String? firstId,
+      String? lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  ThreadItemListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ThreadItemListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ThreadItemListResourceObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<ThreadItem>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  ThreadItemListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      ThreadItemListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ThreadItemListResourceObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<ThreadItem>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String?,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory ThreadItemListResource.fromJson(Map<String, dynamic> json) => ThreadItemListResource(
-    object: (json['object'] != null ? ThreadItemListResourceObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => ThreadItem.fromJson(e)).toList())!,
-    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
-    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory ThreadItemListResource.fromJson(Map<String, dynamic> json) =>
+      ThreadItemListResource(
+        object: (json['object'] != null
+            ? ThreadItemListResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => ThreadItem.fromJson(e))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? json['first_id'] as String?
+            : throw ArgumentError.value(
+                null, 'first_id', 'Required property is missing'),
+        lastId: json.containsKey('last_id')
+            ? json['last_id'] as String?
+            : throw ArgumentError.value(
+                null, 'last_id', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+      };
 }
 
 /// Tool selection that the assistant should honor when executing the item.
 class ToolChoice {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier of the requested tool.
   final String id;
 
@@ -91,162 +139,259 @@ class ToolChoice {
   ToolChoice Function({String id}) get copyWith => _copyWith;
 
   ToolChoice _copyWith({Object? id = sdkOmittedValue}) => ToolChoice(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
   factory ToolChoice.fromJson(Map<String, dynamic> json) => ToolChoice(
-    id: (json['id'] as String?)!,
-  );
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }
 
 /// Annotation that references a URL.
 class UrlAnnotation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type discriminator that is always `url` for this annotation.
   final UrlAnnotationType type_;
+
   /// URL referenced by the annotation.
   final UrlAnnotationSource source;
 
   const UrlAnnotation({required this.type_, required this.source});
 
-  UrlAnnotation Function({UrlAnnotationType type_, UrlAnnotationSource source}) get copyWith => _copyWith;
+  UrlAnnotation Function({UrlAnnotationType type_, UrlAnnotationSource source})
+      get copyWith => _copyWith;
 
-  UrlAnnotation _copyWith({Object? type_ = sdkOmittedValue, Object? source = sdkOmittedValue}) => UrlAnnotation(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as UrlAnnotationType,
-    source: identical(source, sdkOmittedValue) ? this.source : source as UrlAnnotationSource,
-  );
+  UrlAnnotation _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? source = sdkOmittedValue}) =>
+      UrlAnnotation(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as UrlAnnotationType,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as UrlAnnotationSource,
+      );
 
   factory UrlAnnotation.fromJson(Map<String, dynamic> json) => UrlAnnotation(
-    type_: (json['type'] != null ? UrlAnnotationType.fromJson(json['type'] as String) : null)!,
-    source: (json['source'] != null ? UrlAnnotationSource.fromJson(json['source'] as Map<String, dynamic>) : null)!,
-  );
+        type_: (json['type'] != null
+            ? UrlAnnotationType.fromJson(json['type'] as String)
+            : null)!,
+        source: (json['source'] != null
+            ? UrlAnnotationSource.fromJson(
+                json['source'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'source': source.toJson(),
-  };
+        'type': type_.toJson(),
+        'source': source.toJson(),
+      };
 }
 
 /// URL backing an annotation entry.
 class UrlAnnotationSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type discriminator that is always `url`.
   final UrlAnnotationSourceType type_;
+
   /// URL referenced by the annotation.
   final String url;
 
   const UrlAnnotationSource({required this.type_, required this.url});
 
-  UrlAnnotationSource Function({UrlAnnotationSourceType type_, String url}) get copyWith => _copyWith;
+  UrlAnnotationSource Function({UrlAnnotationSourceType type_, String url})
+      get copyWith => _copyWith;
 
-  UrlAnnotationSource _copyWith({Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) => UrlAnnotationSource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as UrlAnnotationSourceType,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-  );
+  UrlAnnotationSource _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) =>
+      UrlAnnotationSource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as UrlAnnotationSourceType,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+      );
 
-  factory UrlAnnotationSource.fromJson(Map<String, dynamic> json) => UrlAnnotationSource(
-    type_: (json['type'] != null ? UrlAnnotationSourceType.fromJson(json['type'] as String) : null)!,
-    url: (json['url'] as String?)!,
-  );
+  factory UrlAnnotationSource.fromJson(Map<String, dynamic> json) =>
+      UrlAnnotationSource(
+        type_: (json['type'] != null
+            ? UrlAnnotationSourceType.fromJson(json['type'] as String)
+            : null)!,
+        url: (json['url'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'url': url,
-  };
+        'type': type_.toJson(),
+        'url': url,
+      };
 }
 
 /// Text block that a user contributed to the thread.
 class UserMessageInputText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type discriminator that is always `input_text`.
   final UserMessageInputTextType type_;
+
   /// Plain-text content supplied by the user.
   final String text;
 
   const UserMessageInputText({required this.type_, required this.text});
 
-  UserMessageInputText Function({UserMessageInputTextType type_, String text}) get copyWith => _copyWith;
+  UserMessageInputText Function({UserMessageInputTextType type_, String text})
+      get copyWith => _copyWith;
 
-  UserMessageInputText _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => UserMessageInputText(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as UserMessageInputTextType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  UserMessageInputText _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      UserMessageInputText(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as UserMessageInputTextType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory UserMessageInputText.fromJson(Map<String, dynamic> json) => UserMessageInputText(
-    type_: (json['type'] != null ? UserMessageInputTextType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-  );
+  factory UserMessageInputText.fromJson(Map<String, dynamic> json) =>
+      UserMessageInputText(
+        type_: (json['type'] != null
+            ? UserMessageInputTextType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-  };
+        'type': type_.toJson(),
+        'text': text,
+      };
 }
 
 /// User-authored messages within a thread.
 class UserMessageItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier of the thread item.
   final String id;
+
   /// Type discriminator that is always `chatkit.thread_item`.
   final UserMessageItemObject object;
+
   /// Unix timestamp (in seconds) for when the item was created.
   final int createdAt;
+
   /// Identifier of the parent thread.
   final String threadId;
+
   /// Required enumerated value serialized in the `type` wire field.
   final UserMessageItemType type_;
+
   /// Ordered content elements supplied by the user.
   final List<UserMessageItemContentItem> content;
+
   /// Attachments associated with the user message. Defaults to an empty list.
   final List<Attachment> attachments;
+
   /// Required API value serialized in the `inference_options` wire field.
   final InferenceOptions? inferenceOptions;
 
-  const UserMessageItem({required this.id, required this.object, required this.createdAt, required this.threadId, required this.type_, required this.content, required this.attachments, required this.inferenceOptions});
+  const UserMessageItem(
+      {required this.id,
+      required this.object,
+      required this.createdAt,
+      required this.threadId,
+      required this.type_,
+      required this.content,
+      required this.attachments,
+      required this.inferenceOptions});
 
-  UserMessageItem Function({String id, UserMessageItemObject object, int createdAt, String threadId, UserMessageItemType type_, List<UserMessageItemContentItem> content, List<Attachment> attachments, InferenceOptions? inferenceOptions}) get copyWith => _copyWith;
+  UserMessageItem Function(
+      {String id,
+      UserMessageItemObject object,
+      int createdAt,
+      String threadId,
+      UserMessageItemType type_,
+      List<UserMessageItemContentItem> content,
+      List<Attachment> attachments,
+      InferenceOptions? inferenceOptions}) get copyWith => _copyWith;
 
-  UserMessageItem _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? content = sdkOmittedValue, Object? attachments = sdkOmittedValue, Object? inferenceOptions = sdkOmittedValue}) => UserMessageItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as UserMessageItemObject,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as UserMessageItemType,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<UserMessageItemContentItem>,
-    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as List<Attachment>,
-    inferenceOptions: identical(inferenceOptions, sdkOmittedValue) ? this.inferenceOptions : inferenceOptions as InferenceOptions?,
-  );
+  UserMessageItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? threadId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? content = sdkOmittedValue,
+          Object? attachments = sdkOmittedValue,
+          Object? inferenceOptions = sdkOmittedValue}) =>
+      UserMessageItem(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as UserMessageItemObject,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        threadId: identical(threadId, sdkOmittedValue)
+            ? this.threadId
+            : threadId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as UserMessageItemType,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<UserMessageItemContentItem>,
+        attachments: identical(attachments, sdkOmittedValue)
+            ? this.attachments
+            : attachments as List<Attachment>,
+        inferenceOptions: identical(inferenceOptions, sdkOmittedValue)
+            ? this.inferenceOptions
+            : inferenceOptions as InferenceOptions?,
+      );
 
-  factory UserMessageItem.fromJson(Map<String, dynamic> json) => UserMessageItem(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? UserMessageItemObject.fromJson(json['object'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    threadId: (json['thread_id'] as String?)!,
-    type_: (json['type'] != null ? UserMessageItemType.fromJson(json['type'] as String) : null)!,
-    content: ((json['content'] as List?)?.map((e) => UserMessageItemContentItem.fromJson(e)).toList())!,
-    attachments: ((json['attachments'] as List?)?.map((e) => Attachment.fromJson(e as Map<String, dynamic>)).toList())!,
-    inferenceOptions: json.containsKey('inference_options') ? json['inference_options'] != null ? InferenceOptions.fromJson(json['inference_options'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'inference_options', 'Required property is missing'),
-  );
+  factory UserMessageItem.fromJson(Map<String, dynamic> json) =>
+      UserMessageItem(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? UserMessageItemObject.fromJson(json['object'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        threadId: (json['thread_id'] as String?)!,
+        type_: (json['type'] != null
+            ? UserMessageItemType.fromJson(json['type'] as String)
+            : null)!,
+        content: ((json['content'] as List?)
+            ?.map((e) => UserMessageItemContentItem.fromJson(e))
+            .toList())!,
+        attachments: ((json['attachments'] as List?)
+            ?.map((e) => Attachment.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        inferenceOptions: json.containsKey('inference_options')
+            ? json['inference_options'] != null
+                ? InferenceOptions.fromJson(
+                    json['inference_options'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'inference_options', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'created_at': createdAt,
-    'thread_id': threadId,
-    'type': type_.toJson(),
-    'content': content.map((item) => item.toJson()).toList(),
-    'attachments': attachments.map((item) => item.toJson()).toList(),
-    'inference_options': inferenceOptions?.toJson(),
-  };
+        'id': id,
+        'object': object.toJson(),
+        'created_at': createdAt,
+        'thread_id': threadId,
+        'type': type_.toJson(),
+        'content': content.map((item) => item.toJson()).toList(),
+        'attachments': attachments.map((item) => item.toJson()).toList(),
+        'inference_options': inferenceOptions?.toJson(),
+      };
 }
 
 sealed class UserMessageItemContentItem {
@@ -254,29 +399,45 @@ sealed class UserMessageItemContentItem {
   static const String constructionSurface = 'named';
   const UserMessageItemContentItem();
   factory UserMessageItemContentItem.fromJson(Object? json) {
-    try { return UserMessageItemContentItemUserMessageInputText(UserMessageInputText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return UserMessageItemContentItemUserMessageQuotedText(UserMessageQuotedText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "quoted_text"}.contains(json["type"])) { return UnknownUserMessageItemContentItem(json); }
+    try {
+      return UserMessageItemContentItemUserMessageInputText(
+          UserMessageInputText.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return UserMessageItemContentItemUserMessageQuotedText(
+          UserMessageQuotedText.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"input_text", "quoted_text"}.contains(json["type"])) {
+      return UnknownUserMessageItemContentItem(json);
+    }
     throw FormatException("No variant matched for UserMessageItemContentItem");
   }
   Object? toJson();
 }
 
-final class UserMessageItemContentItemUserMessageInputText extends UserMessageItemContentItem {
+final class UserMessageItemContentItemUserMessageInputText
+    extends UserMessageItemContentItem {
   final UserMessageInputText value;
   const UserMessageItemContentItemUserMessageInputText(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class UserMessageItemContentItemUserMessageQuotedText extends UserMessageItemContentItem {
+final class UserMessageItemContentItemUserMessageQuotedText
+    extends UserMessageItemContentItem {
   final UserMessageQuotedText value;
   const UserMessageItemContentItemUserMessageQuotedText(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [UserMessageItemContentItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownUserMessageItemContentItem extends UserMessageItemContentItem {
+final class UnknownUserMessageItemContentItem
+    extends UserMessageItemContentItem {
   final Map<String, dynamic> raw;
   const UnknownUserMessageItemContentItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

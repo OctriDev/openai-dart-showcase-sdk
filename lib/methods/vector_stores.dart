@@ -32,19 +32,28 @@ Future<ListVectorStoresResponse> listVectorStores(ClientConfig config,
   return (await sdkRequest<ListVectorStoresResponse>('GET', '/vector_stores',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listVectorStores',
-          fromJsonRaw: (value) => ListVectorStoresResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListVectorStoresResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a vector store to collect processed files for use with the `file_search` tool. Supply `file_ids` to add files at creation, and optionally set a name, description, expiration policy, chunking strategy, or metadata.
 ///
@@ -71,7 +80,8 @@ Future<VectorStoreObject> createVectorStore(ClientConfig config,
     SdkOptional<String> name = const SdkOmitted(),
     SdkOptional<String> description = const SdkOmitted(),
     SdkOptional<VectorStoreExpirationAfter> expiresAfter = const SdkOmitted(),
-    SdkOptional<CreateVectorStoreRequestChunkingStrategy> chunkingStrategy = const SdkOmitted(),
+    SdkOptional<CreateVectorStoreRequestChunkingStrategy> chunkingStrategy =
+        const SdkOmitted(),
     SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (fileIds is SdkPresent<List<String>>) {
@@ -90,12 +100,19 @@ Future<VectorStoreObject> createVectorStore(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createVectorStore',
-          fromJsonRaw: (value) => VectorStoreObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VectorStoreObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a vector store by its ID. Use this operation to inspect the store's status, file counts, usage, expiration details, and metadata.
 ///
@@ -109,12 +126,15 @@ Future<VectorStoreObject> getVectorStore(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getVectorStore',
-          fromJsonRaw: (value) => VectorStoreObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VectorStoreObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates a vector store's name, expiration policy, or metadata. Provide only the properties you want to change; omitted properties are not part of the update.
 ///
@@ -145,12 +165,21 @@ Future<VectorStoreObject> modifyVectorStore(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'modifyVectorStore',
-          fromJsonRaw: (value) => VectorStoreObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VectorStoreObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a vector store. Use this operation when you no longer need the store or its associated collection of processed files.
 ///
@@ -164,12 +193,16 @@ Future<DeleteVectorStoreResponse> deleteVectorStore(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteVectorStore',
-          fromJsonRaw: (value) => DeleteVectorStoreResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteVectorStoreResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a batch to attach files to a vector store for processing. Provide `file_ids` or `files`, and optionally set a shared chunking strategy or shared attributes when using `file_ids`. Use per-file settings in `files` when different files need different attributes or chunking strategies.
 ///
@@ -197,14 +230,15 @@ Future<DeleteVectorStoreResponse> deleteVectorStore(ClientConfig config,
 ///   structured format, and querying for objects via API or the dashboard. Keys
 ///   are strings with a maximum length of 64 characters. Values are strings with
 ///   a maximum length of 512 characters, booleans, or numbers.
-Future<VectorStoreFileBatchObject>
-    createVectorStoreFileBatch(ClientConfig config,
-        {required String vectorStoreId,
-        SdkOptional<List<String>> fileIds = const SdkOmitted(),
-        SdkOptional<List<CreateVectorStoreFileRequest>> files = const SdkOmitted(),
-        SdkOptional<ChunkingStrategyRequestParam> chunkingStrategy = const SdkOmitted(),
-        SdkOptional<Map<String, dynamic>?> attributes = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<VectorStoreFileBatchObject> createVectorStoreFileBatch(
+    ClientConfig config,
+    {required String vectorStoreId,
+    SdkOptional<List<String>> fileIds = const SdkOmitted(),
+    SdkOptional<List<CreateVectorStoreFileRequest>> files = const SdkOmitted(),
+    SdkOptional<ChunkingStrategyRequestParam> chunkingStrategy =
+        const SdkOmitted(),
+    SdkOptional<Map<String, dynamic>?> attributes = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (fileIds is SdkPresent<List<String>>) {
     validateItems('file_ids', fileIds.value, min: 1, max: 2000);
   }
@@ -223,12 +257,23 @@ Future<VectorStoreFileBatchObject>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createVectorStoreFileBatch',
-          fromJsonRaw: (value) => VectorStoreFileBatchObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectorStoreFileBatchObject.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a file batch associated with a vector store. Use the batch status and file counts to check the progress and outcome of file processing.
 ///
@@ -245,12 +290,16 @@ Future<VectorStoreFileBatchObject> getVectorStoreFileBatch(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getVectorStoreFileBatch',
-          fromJsonRaw: (value) => VectorStoreFileBatchObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectorStoreFileBatchObject.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Attempts to stop processing files in a vector store file batch as soon as possible. Check the returned batch status to see whether processing has been cancelled.
 ///
@@ -258,22 +307,27 @@ Future<VectorStoreFileBatchObject> getVectorStoreFileBatch(ClientConfig config,
 ///
 /// [vectorStoreId] The ID of the vector store that the file batch belongs to.
 /// [batchId] The ID of the file batch to cancel.
-Future<VectorStoreFileBatchObject>
-    cancelVectorStoreFileBatch(ClientConfig config,
-        {required String vectorStoreId,
-        required String batchId,
-        RequestOptions? requestOptions}) async {
+Future<VectorStoreFileBatchObject> cancelVectorStoreFileBatch(
+    ClientConfig config,
+    {required String vectorStoreId,
+    required String batchId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectorStoreFileBatchObject>('POST',
           '/vector_stores/${Uri.encodeComponent(vectorStoreId.toString())}/file_batches/${Uri.encodeComponent(batchId.toString())}/cancel',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'cancelVectorStoreFileBatch',
-          fromJsonRaw: (value) => VectorStoreFileBatchObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectorStoreFileBatchObject.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the files in a vector store file batch. Use `filter` to limit results by processing status and the cursor parameters to navigate through the batch's files.
 ///
@@ -295,34 +349,46 @@ Future<VectorStoreFileBatchObject>
 ///   before=obj_foo in order to fetch the previous page of the list.
 /// [filter] Filter by file status. One of `in_progress`, `completed`, `failed`,
 ///   `cancelled`.
-Future<ListVectorStoreFilesResponse>
-    listFilesInVectorStoreBatch(ClientConfig config,
-        {required String vectorStoreId,
-        required String batchId,
-        SdkOptional<int> limit = const SdkOmitted(),
-        SdkOptional<ListFilesInVectorStoreBatchOrder> order = const SdkOmitted(),
-        SdkOptional<String> after = const SdkOmitted(),
-        SdkOptional<String> before = const SdkOmitted(),
-        SdkOptional<ListFilesInVectorStoreBatchFilter> filter = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListVectorStoreFilesResponse> listFilesInVectorStoreBatch(
+    ClientConfig config,
+    {required String vectorStoreId,
+    required String batchId,
+    SdkOptional<int> limit = const SdkOmitted(),
+    SdkOptional<ListFilesInVectorStoreBatchOrder> order = const SdkOmitted(),
+    SdkOptional<String> after = const SdkOmitted(),
+    SdkOptional<String> before = const SdkOmitted(),
+    SdkOptional<ListFilesInVectorStoreBatchFilter> filter = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ListVectorStoreFilesResponse>('GET',
           '/vector_stores/${Uri.encodeComponent(vectorStoreId.toString())}/file_batches/${Uri.encodeComponent(batchId.toString())}/files',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true),
-            'filter': SdkQueryValue(SdkUtils.unwrapOptional(filter), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true),
+            'filter': SdkQueryValue(SdkUtils.unwrapOptional(filter),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listFilesInVectorStoreBatch',
-          fromJsonRaw: (value) => ListVectorStoreFilesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListVectorStoreFilesResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
 ///
@@ -355,20 +421,32 @@ Future<ListVectorStoreFilesResponse> listVectorStoreFiles(ClientConfig config,
           '/vector_stores/${Uri.encodeComponent(vectorStoreId.toString())}/files',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true),
-            'filter': SdkQueryValue(SdkUtils.unwrapOptional(filter), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true),
+            'filter': SdkQueryValue(SdkUtils.unwrapOptional(filter),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listVectorStoreFiles',
-          fromJsonRaw: (value) => ListVectorStoreFilesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListVectorStoreFilesResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates an attachment between a file and a vector store. Supply the file's `file_id` and optionally configure `chunking_strategy` or attach `attributes`; use file batches for multi-file ingestion. The response includes the attached file's processing status.
 ///
@@ -392,7 +470,8 @@ Future<ListVectorStoreFilesResponse> listVectorStoreFiles(ClientConfig config,
 Future<VectorStoreFileObject> createVectorStoreFile(ClientConfig config,
     {required String vectorStoreId,
     required String fileId,
-    SdkOptional<ChunkingStrategyRequestParam> chunkingStrategy = const SdkOmitted(),
+    SdkOptional<ChunkingStrategyRequestParam> chunkingStrategy =
+        const SdkOmitted(),
     SdkOptional<Map<String, dynamic>?> attributes = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectorStoreFileObject>('POST',
@@ -405,12 +484,23 @@ Future<VectorStoreFileObject> createVectorStoreFile(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createVectorStoreFile',
-          fromJsonRaw: (value) => VectorStoreFileObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VectorStoreFileObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a file attachment and its processing details from a vector store. Use `vector_store_id` and `file_id` to identify the attachment whose status and configuration you need.
 ///
@@ -427,12 +517,16 @@ Future<VectorStoreFileObject> getVectorStoreFile(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getVectorStoreFile',
-          fromJsonRaw: (value) => VectorStoreFileObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VectorStoreFileObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Deletes a file attachment from a vector store without deleting the underlying file. Use the file deletion operation separately if you also need to delete the file itself.
 ///
@@ -449,12 +543,18 @@ Future<DeleteVectorStoreFileResponse> deleteVectorStoreFile(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteVectorStoreFile',
-          fromJsonRaw: (value) => DeleteVectorStoreFileResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteVectorStoreFileResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the attributes attached to a file in a vector store. Supply `attributes` to replace the file's attribute set, or use `null` to clear it.
 ///
@@ -467,24 +567,35 @@ Future<DeleteVectorStoreFileResponse> deleteVectorStoreFile(ClientConfig config,
 ///   structured format, and querying for objects via API or the dashboard. Keys
 ///   are strings with a maximum length of 64 characters. Values are strings with
 ///   a maximum length of 512 characters, booleans, or numbers.
-Future<VectorStoreFileObject>
-    updateVectorStoreFileAttributes(ClientConfig config,
-        {required String vectorStoreId,
-        required String fileId,
-        required Map<String, dynamic>? attributes,
-        RequestOptions? requestOptions}) async {
+Future<VectorStoreFileObject> updateVectorStoreFileAttributes(
+    ClientConfig config,
+    {required String vectorStoreId,
+    required String fileId,
+    required Map<String, dynamic>? attributes,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectorStoreFileObject>('POST',
           '/vector_stores/${Uri.encodeComponent(vectorStoreId.toString())}/files/${Uri.encodeComponent(fileId.toString())}',
           config: config,
           body: {'attributes': attributes},
           decoder: SdkResponseDecoder.json,
           operationId: 'updateVectorStoreFileAttributes',
-          fromJsonRaw: (value) => VectorStoreFileObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VectorStoreFileObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves parsed content from a file attached to a vector store. Use `vector_store_id` and `file_id` to identify the file, then follow `next_page` when `has_more` indicates that additional content pages are available.
 ///
@@ -492,22 +603,27 @@ Future<VectorStoreFileObject>
 ///
 /// [vectorStoreId] The ID of the vector store.
 /// [fileId] The ID of the file within the vector store.
-Future<VectorStoreFileContentResponse>
-    retrieveVectorStoreFileContent(ClientConfig config,
-        {required String vectorStoreId,
-        required String fileId,
-        RequestOptions? requestOptions}) async {
+Future<VectorStoreFileContentResponse> retrieveVectorStoreFileContent(
+    ClientConfig config,
+    {required String vectorStoreId,
+    required String fileId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectorStoreFileContentResponse>('GET',
           '/vector_stores/${Uri.encodeComponent(vectorStoreId.toString())}/files/${Uri.encodeComponent(fileId.toString())}/content',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveVectorStoreFileContent',
-          fromJsonRaw: (value) => VectorStoreFileContentResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectorStoreFileContentResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Searches a vector store for relevant file chunks using one or more queries and optional file-attribute filters. Set `max_num_results` to control the result count and `ranking_options` to configure ranking; use `next_page` to continue when more results are available.
 ///
@@ -527,7 +643,8 @@ Future<VectorStoreSearchResultsPage> searchVectorStore(ClientConfig config,
     SdkOptional<bool> rewriteQuery = const SdkOmitted(),
     SdkOptional<int> maxNumResults = const SdkOmitted(),
     SdkOptional<VectorStoreSearchRequestFilters> filters = const SdkOmitted(),
-    SdkOptional<VectorStoreSearchRequestRankingOptions> rankingOptions = const SdkOmitted(),
+    SdkOptional<VectorStoreSearchRequestRankingOptions> rankingOptions =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (maxNumResults is SdkPresent<int>) {
     validateRange('max_num_results', maxNumResults.value, min: 1, max: 50);
@@ -545,8 +662,16 @@ Future<VectorStoreSearchResultsPage> searchVectorStore(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'searchVectorStore',
-          fromJsonRaw: (value) => VectorStoreSearchResultsPage.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectorStoreSearchResultsPage.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

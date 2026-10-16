@@ -8,42 +8,80 @@ part of 'live_live_decision.dart';
 class LiveDecisionStoredInputItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the stored Decision input item.
   final String id;
+
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<LiveDecisionStoredInputItemParamType> type_;
+
   /// The message role. Always `user`.
   final LiveDecisionStoredInputItemParamRole role;
+
   /// Required API value serialized in the `content` wire field.
   final dynamic content;
 
-  const LiveDecisionStoredInputItemParam({required this.id, this.type_ = const SdkOmitted(), required this.role, required this.content});
+  const LiveDecisionStoredInputItemParam(
+      {required this.id,
+      this.type_ = const SdkOmitted(),
+      required this.role,
+      required this.content});
 
-  LiveDecisionStoredInputItemParam Function({String id, SdkOptional<LiveDecisionStoredInputItemParamType> type_, LiveDecisionStoredInputItemParamRole role, dynamic content}) get copyWith => _copyWith;
+  LiveDecisionStoredInputItemParam Function(
+      {String id,
+      SdkOptional<LiveDecisionStoredInputItemParamType> type_,
+      LiveDecisionStoredInputItemParamRole role,
+      dynamic content}) get copyWith => _copyWith;
 
-  LiveDecisionStoredInputItemParam _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? role = sdkOmittedValue, Object? content = sdkOmittedValue}) => LiveDecisionStoredInputItemParam(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<LiveDecisionStoredInputItemParamType>,
-    role: identical(role, sdkOmittedValue) ? this.role : role as LiveDecisionStoredInputItemParamRole,
-    content: identical(content, sdkOmittedValue) ? this.content : content as dynamic,
-  );
+  LiveDecisionStoredInputItemParam _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      LiveDecisionStoredInputItemParam(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<LiveDecisionStoredInputItemParamType>,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as LiveDecisionStoredInputItemParamRole,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as dynamic,
+      );
 
-  factory LiveDecisionStoredInputItemParam.fromJson(Map<String, dynamic> json) => LiveDecisionStoredInputItemParam(
-    id: (json['id'] as String?)!,
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? LiveDecisionStoredInputItemParamType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    role: (json['role'] != null ? LiveDecisionStoredInputItemParamRole.fromJson(json['role'] as String) : null)!,
-    content: (json['content'])!,
-  );
+  factory LiveDecisionStoredInputItemParam.fromJson(
+          Map<String, dynamic> json) =>
+      LiveDecisionStoredInputItemParam(
+        id: (json['id'] as String?)!,
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? LiveDecisionStoredInputItemParamType.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        role: (json['role'] != null
+            ? LiveDecisionStoredInputItemParamRole.fromJson(
+                json['role'] as String)
+            : null)!,
+        content: (json['content'])!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    ...switch (type_) {
-      SdkPresent<LiveDecisionStoredInputItemParamType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'role': role.toJson(),
-    'content': content,
-  };
+        'id': id,
+        ...switch (type_) {
+          SdkPresent<LiveDecisionStoredInputItemParamType>(
+            value: final value
+          ) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'role': role.toJson(),
+        'content': content,
+      };
 }
 
 sealed class LiveDecisionStoredInputItemParamContentItem {
@@ -51,97 +89,169 @@ sealed class LiveDecisionStoredInputItemParamContentItem {
   static const String constructionSurface = 'named';
   const LiveDecisionStoredInputItemParamContentItem();
   factory LiveDecisionStoredInputItemParamContentItem.fromJson(Object? json) {
-    try { return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(LiveDecisionInputTextParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(LiveDecisionInputImageParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image"}.contains(json["type"])) { return UnknownLiveDecisionStoredInputItemParamContentItem(json); }
-    throw FormatException("No variant matched for LiveDecisionStoredInputItemParamContentItem");
+    try {
+      return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(
+          LiveDecisionInputTextParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(
+          LiveDecisionInputImageParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"input_text", "input_image"}.contains(json["type"])) {
+      return UnknownLiveDecisionStoredInputItemParamContentItem(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveDecisionStoredInputItemParamContentItem");
   }
   Object? toJson();
 }
 
-final class LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam extends LiveDecisionStoredInputItemParamContentItem {
+final class LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam
+    extends LiveDecisionStoredInputItemParamContentItem {
   final LiveDecisionInputTextParam value;
-  const LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam extends LiveDecisionStoredInputItemParamContentItem {
+final class LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam
+    extends LiveDecisionStoredInputItemParamContentItem {
   final LiveDecisionInputImageParam value;
-  const LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [LiveDecisionStoredInputItemParamContentItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownLiveDecisionStoredInputItemParamContentItem extends LiveDecisionStoredInputItemParamContentItem {
+final class UnknownLiveDecisionStoredInputItemParamContentItem
+    extends LiveDecisionStoredInputItemParamContentItem {
   final Map<String, dynamic> raw;
   const UnknownLiveDecisionStoredInputItemParamContentItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Typed representation of the `LiveDecisionTriggerInputParam` API schema.
 class LiveDecisionTriggerInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final LiveDecisionTriggerInputParamType type_;
+
   /// Required enumerated value serialized in the `event_type` wire field.
   final LiveDecisionTriggerInputParamEventType eventType;
+
   /// Questions evaluated using the current transcript and the session's shared Decision items.
   final LiveDecisionQuestionsInputParam decisions;
 
-  const LiveDecisionTriggerInputParam({required this.type_, required this.eventType, required this.decisions});
+  const LiveDecisionTriggerInputParam(
+      {required this.type_, required this.eventType, required this.decisions});
 
-  LiveDecisionTriggerInputParam Function({LiveDecisionTriggerInputParamType type_, LiveDecisionTriggerInputParamEventType eventType, LiveDecisionQuestionsInputParam decisions}) get copyWith => _copyWith;
+  LiveDecisionTriggerInputParam Function(
+      {LiveDecisionTriggerInputParamType type_,
+      LiveDecisionTriggerInputParamEventType eventType,
+      LiveDecisionQuestionsInputParam decisions}) get copyWith => _copyWith;
 
-  LiveDecisionTriggerInputParam _copyWith({Object? type_ = sdkOmittedValue, Object? eventType = sdkOmittedValue, Object? decisions = sdkOmittedValue}) => LiveDecisionTriggerInputParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveDecisionTriggerInputParamType,
-    eventType: identical(eventType, sdkOmittedValue) ? this.eventType : eventType as LiveDecisionTriggerInputParamEventType,
-    decisions: identical(decisions, sdkOmittedValue) ? this.decisions : decisions as LiveDecisionQuestionsInputParam,
-  );
+  LiveDecisionTriggerInputParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? eventType = sdkOmittedValue,
+          Object? decisions = sdkOmittedValue}) =>
+      LiveDecisionTriggerInputParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveDecisionTriggerInputParamType,
+        eventType: identical(eventType, sdkOmittedValue)
+            ? this.eventType
+            : eventType as LiveDecisionTriggerInputParamEventType,
+        decisions: identical(decisions, sdkOmittedValue)
+            ? this.decisions
+            : decisions as LiveDecisionQuestionsInputParam,
+      );
 
-  factory LiveDecisionTriggerInputParam.fromJson(Map<String, dynamic> json) => LiveDecisionTriggerInputParam(
-    type_: (json['type'] != null ? LiveDecisionTriggerInputParamType.fromJson(json['type'] as String) : null)!,
-    eventType: (json['event_type'] != null ? LiveDecisionTriggerInputParamEventType.fromJson(json['event_type'] as String) : null)!,
-    decisions: (json['decisions'] != null ? LiveDecisionQuestionsInputParam.fromJson(json['decisions'] as Map<String, dynamic>) : null)!,
-  );
+  factory LiveDecisionTriggerInputParam.fromJson(Map<String, dynamic> json) =>
+      LiveDecisionTriggerInputParam(
+        type_: (json['type'] != null
+            ? LiveDecisionTriggerInputParamType.fromJson(json['type'] as String)
+            : null)!,
+        eventType: (json['event_type'] != null
+            ? LiveDecisionTriggerInputParamEventType.fromJson(
+                json['event_type'] as String)
+            : null)!,
+        decisions: (json['decisions'] != null
+            ? LiveDecisionQuestionsInputParam.fromJson(
+                json['decisions'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'event_type': eventType.toJson(),
-    'decisions': decisions.toJson(),
-  };
+        'type': type_.toJson(),
+        'event_type': eventType.toJson(),
+        'decisions': decisions.toJson(),
+      };
 }
 
 /// Typed representation of the `LiveDecisionTriggerInputParam2` API schema.
 class LiveDecisionTriggerInputParam2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final LiveDecisionTriggerInputParam2Type type_;
+
   /// Required enumerated value serialized in the `event_type` wire field.
   final LiveDecisionTriggerInputParam2EventType eventType;
+
   /// Questions evaluated using the current transcript and the session's shared Decision items.
   final LiveDecisionQuestionsInputParam2 decisions;
 
-  const LiveDecisionTriggerInputParam2({required this.type_, required this.eventType, required this.decisions});
+  const LiveDecisionTriggerInputParam2(
+      {required this.type_, required this.eventType, required this.decisions});
 
-  LiveDecisionTriggerInputParam2 Function({LiveDecisionTriggerInputParam2Type type_, LiveDecisionTriggerInputParam2EventType eventType, LiveDecisionQuestionsInputParam2 decisions}) get copyWith => _copyWith;
+  LiveDecisionTriggerInputParam2 Function(
+      {LiveDecisionTriggerInputParam2Type type_,
+      LiveDecisionTriggerInputParam2EventType eventType,
+      LiveDecisionQuestionsInputParam2 decisions}) get copyWith => _copyWith;
 
-  LiveDecisionTriggerInputParam2 _copyWith({Object? type_ = sdkOmittedValue, Object? eventType = sdkOmittedValue, Object? decisions = sdkOmittedValue}) => LiveDecisionTriggerInputParam2(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveDecisionTriggerInputParam2Type,
-    eventType: identical(eventType, sdkOmittedValue) ? this.eventType : eventType as LiveDecisionTriggerInputParam2EventType,
-    decisions: identical(decisions, sdkOmittedValue) ? this.decisions : decisions as LiveDecisionQuestionsInputParam2,
-  );
+  LiveDecisionTriggerInputParam2 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? eventType = sdkOmittedValue,
+          Object? decisions = sdkOmittedValue}) =>
+      LiveDecisionTriggerInputParam2(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveDecisionTriggerInputParam2Type,
+        eventType: identical(eventType, sdkOmittedValue)
+            ? this.eventType
+            : eventType as LiveDecisionTriggerInputParam2EventType,
+        decisions: identical(decisions, sdkOmittedValue)
+            ? this.decisions
+            : decisions as LiveDecisionQuestionsInputParam2,
+      );
 
-  factory LiveDecisionTriggerInputParam2.fromJson(Map<String, dynamic> json) => LiveDecisionTriggerInputParam2(
-    type_: (json['type'] != null ? LiveDecisionTriggerInputParam2Type.fromJson(json['type'] as String) : null)!,
-    eventType: (json['event_type'] != null ? LiveDecisionTriggerInputParam2EventType.fromJson(json['event_type'] as String) : null)!,
-    decisions: (json['decisions'] != null ? LiveDecisionQuestionsInputParam2.fromJson(json['decisions'] as Map<String, dynamic>) : null)!,
-  );
+  factory LiveDecisionTriggerInputParam2.fromJson(Map<String, dynamic> json) =>
+      LiveDecisionTriggerInputParam2(
+        type_: (json['type'] != null
+            ? LiveDecisionTriggerInputParam2Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        eventType: (json['event_type'] != null
+            ? LiveDecisionTriggerInputParam2EventType.fromJson(
+                json['event_type'] as String)
+            : null)!,
+        decisions: (json['decisions'] != null
+            ? LiveDecisionQuestionsInputParam2.fromJson(
+                json['decisions'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'event_type': eventType.toJson(),
-    'decisions': decisions.toJson(),
-  };
+        'type': type_.toJson(),
+        'event_type': eventType.toJson(),
+        'decisions': decisions.toJson(),
+      };
 }

@@ -8,76 +8,125 @@ part of 'items.dart';
 class UserMessageQuotedText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type discriminator that is always `quoted_text`.
   final UserMessageQuotedTextType type_;
+
   /// Quoted text content.
   final String text;
 
   const UserMessageQuotedText({required this.type_, required this.text});
 
-  UserMessageQuotedText Function({UserMessageQuotedTextType type_, String text}) get copyWith => _copyWith;
+  UserMessageQuotedText Function({UserMessageQuotedTextType type_, String text})
+      get copyWith => _copyWith;
 
-  UserMessageQuotedText _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => UserMessageQuotedText(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as UserMessageQuotedTextType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  UserMessageQuotedText _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      UserMessageQuotedText(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as UserMessageQuotedTextType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory UserMessageQuotedText.fromJson(Map<String, dynamic> json) => UserMessageQuotedText(
-    type_: (json['type'] != null ? UserMessageQuotedTextType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-  );
+  factory UserMessageQuotedText.fromJson(Map<String, dynamic> json) =>
+      UserMessageQuotedText(
+        type_: (json['type'] != null
+            ? UserMessageQuotedTextType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-  };
+        'type': type_.toJson(),
+        'text': text,
+      };
 }
 
 /// Thread item that renders a widget payload.
 class WidgetMessageItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier of the thread item.
   final String id;
+
   /// Type discriminator that is always `chatkit.thread_item`.
   final WidgetMessageItemObject object;
+
   /// Unix timestamp (in seconds) for when the item was created.
   final int createdAt;
+
   /// Identifier of the parent thread.
   final String threadId;
+
   /// Type discriminator that is always `chatkit.widget`.
   final WidgetMessageItemType type_;
+
   /// Serialized widget payload rendered in the UI.
   final String widget;
 
-  const WidgetMessageItem({required this.id, required this.object, required this.createdAt, required this.threadId, required this.type_, required this.widget});
+  const WidgetMessageItem(
+      {required this.id,
+      required this.object,
+      required this.createdAt,
+      required this.threadId,
+      required this.type_,
+      required this.widget});
 
-  WidgetMessageItem Function({String id, WidgetMessageItemObject object, int createdAt, String threadId, WidgetMessageItemType type_, String widget}) get copyWith => _copyWith;
+  WidgetMessageItem Function(
+      {String id,
+      WidgetMessageItemObject object,
+      int createdAt,
+      String threadId,
+      WidgetMessageItemType type_,
+      String widget}) get copyWith => _copyWith;
 
-  WidgetMessageItem _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? widget = sdkOmittedValue}) => WidgetMessageItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as WidgetMessageItemObject,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WidgetMessageItemType,
-    widget: identical(widget, sdkOmittedValue) ? this.widget : widget as String,
-  );
+  WidgetMessageItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? threadId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? widget = sdkOmittedValue}) =>
+      WidgetMessageItem(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as WidgetMessageItemObject,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        threadId: identical(threadId, sdkOmittedValue)
+            ? this.threadId
+            : threadId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WidgetMessageItemType,
+        widget:
+            identical(widget, sdkOmittedValue) ? this.widget : widget as String,
+      );
 
-  factory WidgetMessageItem.fromJson(Map<String, dynamic> json) => WidgetMessageItem(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? WidgetMessageItemObject.fromJson(json['object'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    threadId: (json['thread_id'] as String?)!,
-    type_: (json['type'] != null ? WidgetMessageItemType.fromJson(json['type'] as String) : null)!,
-    widget: (json['widget'] as String?)!,
-  );
+  factory WidgetMessageItem.fromJson(Map<String, dynamic> json) =>
+      WidgetMessageItem(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? WidgetMessageItemObject.fromJson(json['object'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        threadId: (json['thread_id'] as String?)!,
+        type_: (json['type'] != null
+            ? WidgetMessageItemType.fromJson(json['type'] as String)
+            : null)!,
+        widget: (json['widget'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'created_at': createdAt,
-    'thread_id': threadId,
-    'type': type_.toJson(),
-    'widget': widget,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'created_at': createdAt,
+        'thread_id': threadId,
+        'type': type_.toJson(),
+        'widget': widget,
+      };
 }

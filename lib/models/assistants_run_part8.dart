@@ -8,99 +8,229 @@ part of 'assistants_run.dart';
 class RunStepObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The identifier of the run step, which can be referenced in API endpoints.
   final String id;
+
   /// The object type, which is always `thread.run.step`.
   final RunStepObjectObject object;
+
   /// The Unix timestamp (in seconds) for when the run step was created.
   final int createdAt;
+
   /// The ID of the [assistant](https://developers.openai.com/api/docs/assistants/migration) associated with the run step.
   final String assistantId;
+
   /// The ID of the [thread](https://developers.openai.com/api/docs/assistants/migration) that was run.
   final String threadId;
+
   /// The ID of the [run](https://developers.openai.com/api/docs/assistants/migration) that this run step is a part of.
   final String runId;
+
   /// The type of run step, which can be either `message_creation` or `tool_calls`.
   final RunStepObjectType type_;
+
   /// The status of the run step, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`.
   final RunStepObjectStatus status;
+
   /// The details of the run step.
   final RunStepObjectStepDetails stepDetails;
+
   /// The last error associated with this run step. Will be `null` if there are no errors.
   final RunStepObjectLastError? lastError;
+
   /// Required API value serialized in the `expired_at` wire field.
   final int? expiredAt;
+
   /// Required API value serialized in the `cancelled_at` wire field.
   final int? cancelledAt;
+
   /// Required API value serialized in the `failed_at` wire field.
   final int? failedAt;
+
   /// Required API value serialized in the `completed_at` wire field.
   final int? completedAt;
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final Map<String, dynamic>? metadata;
+
   /// Usage statistics related to the run step. This value will be `null` while the run step's status is `in_progress`.
   final RunStepCompletionUsage? usage;
 
-  const RunStepObject({required this.id, required this.object, required this.createdAt, required this.assistantId, required this.threadId, required this.runId, required this.type_, required this.status, required this.stepDetails, required this.lastError, required this.expiredAt, required this.cancelledAt, required this.failedAt, required this.completedAt, required this.metadata, required this.usage});
+  const RunStepObject(
+      {required this.id,
+      required this.object,
+      required this.createdAt,
+      required this.assistantId,
+      required this.threadId,
+      required this.runId,
+      required this.type_,
+      required this.status,
+      required this.stepDetails,
+      required this.lastError,
+      required this.expiredAt,
+      required this.cancelledAt,
+      required this.failedAt,
+      required this.completedAt,
+      required this.metadata,
+      required this.usage});
 
-  RunStepObject Function({String id, RunStepObjectObject object, int createdAt, String assistantId, String threadId, String runId, RunStepObjectType type_, RunStepObjectStatus status, RunStepObjectStepDetails stepDetails, RunStepObjectLastError? lastError, int? expiredAt, int? cancelledAt, int? failedAt, int? completedAt, Map<String, dynamic>? metadata, RunStepCompletionUsage? usage}) get copyWith => _copyWith;
+  RunStepObject Function(
+      {String id,
+      RunStepObjectObject object,
+      int createdAt,
+      String assistantId,
+      String threadId,
+      String runId,
+      RunStepObjectType type_,
+      RunStepObjectStatus status,
+      RunStepObjectStepDetails stepDetails,
+      RunStepObjectLastError? lastError,
+      int? expiredAt,
+      int? cancelledAt,
+      int? failedAt,
+      int? completedAt,
+      Map<String, dynamic>? metadata,
+      RunStepCompletionUsage? usage}) get copyWith => _copyWith;
 
-  RunStepObject _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? assistantId = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? runId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? status = sdkOmittedValue, Object? stepDetails = sdkOmittedValue, Object? lastError = sdkOmittedValue, Object? expiredAt = sdkOmittedValue, Object? cancelledAt = sdkOmittedValue, Object? failedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? usage = sdkOmittedValue}) => RunStepObject(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as RunStepObjectObject,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    assistantId: identical(assistantId, sdkOmittedValue) ? this.assistantId : assistantId as String,
-    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
-    runId: identical(runId, sdkOmittedValue) ? this.runId : runId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepObjectType,
-    status: identical(status, sdkOmittedValue) ? this.status : status as RunStepObjectStatus,
-    stepDetails: identical(stepDetails, sdkOmittedValue) ? this.stepDetails : stepDetails as RunStepObjectStepDetails,
-    lastError: identical(lastError, sdkOmittedValue) ? this.lastError : lastError as RunStepObjectLastError?,
-    expiredAt: identical(expiredAt, sdkOmittedValue) ? this.expiredAt : expiredAt as int?,
-    cancelledAt: identical(cancelledAt, sdkOmittedValue) ? this.cancelledAt : cancelledAt as int?,
-    failedAt: identical(failedAt, sdkOmittedValue) ? this.failedAt : failedAt as int?,
-    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as int?,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, dynamic>?,
-    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as RunStepCompletionUsage?,
-  );
+  RunStepObject _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? assistantId = sdkOmittedValue,
+          Object? threadId = sdkOmittedValue,
+          Object? runId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? stepDetails = sdkOmittedValue,
+          Object? lastError = sdkOmittedValue,
+          Object? expiredAt = sdkOmittedValue,
+          Object? cancelledAt = sdkOmittedValue,
+          Object? failedAt = sdkOmittedValue,
+          Object? completedAt = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? usage = sdkOmittedValue}) =>
+      RunStepObject(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as RunStepObjectObject,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        assistantId: identical(assistantId, sdkOmittedValue)
+            ? this.assistantId
+            : assistantId as String,
+        threadId: identical(threadId, sdkOmittedValue)
+            ? this.threadId
+            : threadId as String,
+        runId: identical(runId, sdkOmittedValue) ? this.runId : runId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RunStepObjectType,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as RunStepObjectStatus,
+        stepDetails: identical(stepDetails, sdkOmittedValue)
+            ? this.stepDetails
+            : stepDetails as RunStepObjectStepDetails,
+        lastError: identical(lastError, sdkOmittedValue)
+            ? this.lastError
+            : lastError as RunStepObjectLastError?,
+        expiredAt: identical(expiredAt, sdkOmittedValue)
+            ? this.expiredAt
+            : expiredAt as int?,
+        cancelledAt: identical(cancelledAt, sdkOmittedValue)
+            ? this.cancelledAt
+            : cancelledAt as int?,
+        failedAt: identical(failedAt, sdkOmittedValue)
+            ? this.failedAt
+            : failedAt as int?,
+        completedAt: identical(completedAt, sdkOmittedValue)
+            ? this.completedAt
+            : completedAt as int?,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as Map<String, dynamic>?,
+        usage: identical(usage, sdkOmittedValue)
+            ? this.usage
+            : usage as RunStepCompletionUsage?,
+      );
 
   factory RunStepObject.fromJson(Map<String, dynamic> json) => RunStepObject(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? RunStepObjectObject.fromJson(json['object'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    assistantId: (json['assistant_id'] as String?)!,
-    threadId: (json['thread_id'] as String?)!,
-    runId: (json['run_id'] as String?)!,
-    type_: (json['type'] != null ? RunStepObjectType.fromJson(json['type'] as String) : null)!,
-    status: (json['status'] != null ? RunStepObjectStatus.fromJson(json['status'] as String) : null)!,
-    stepDetails: (json['step_details'] != null ? RunStepObjectStepDetails.fromJson(json['step_details']) : null)!,
-    lastError: json.containsKey('last_error') ? json['last_error'] != null ? RunStepObjectLastError.fromJson(json['last_error'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'last_error', 'Required property is missing'),
-    expiredAt: json.containsKey('expired_at') ? (json['expired_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'expired_at', 'Required property is missing'),
-    cancelledAt: json.containsKey('cancelled_at') ? (json['cancelled_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'cancelled_at', 'Required property is missing'),
-    failedAt: json.containsKey('failed_at') ? (json['failed_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'failed_at', 'Required property is missing'),
-    completedAt: json.containsKey('completed_at') ? (json['completed_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'completed_at', 'Required property is missing'),
-    metadata: json.containsKey('metadata') ? json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic> : throw ArgumentError.value(null, 'metadata', 'Required property is missing'),
-    usage: json.containsKey('usage') ? json['usage'] != null ? RunStepCompletionUsage.fromJson(json['usage'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'usage', 'Required property is missing'),
-  );
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? RunStepObjectObject.fromJson(json['object'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        assistantId: (json['assistant_id'] as String?)!,
+        threadId: (json['thread_id'] as String?)!,
+        runId: (json['run_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RunStepObjectType.fromJson(json['type'] as String)
+            : null)!,
+        status: (json['status'] != null
+            ? RunStepObjectStatus.fromJson(json['status'] as String)
+            : null)!,
+        stepDetails: (json['step_details'] != null
+            ? RunStepObjectStepDetails.fromJson(json['step_details'])
+            : null)!,
+        lastError: json.containsKey('last_error')
+            ? json['last_error'] != null
+                ? RunStepObjectLastError.fromJson(
+                    json['last_error'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'last_error', 'Required property is missing'),
+        expiredAt: json.containsKey('expired_at')
+            ? (json['expired_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'expired_at', 'Required property is missing'),
+        cancelledAt: json.containsKey('cancelled_at')
+            ? (json['cancelled_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'cancelled_at', 'Required property is missing'),
+        failedAt: json.containsKey('failed_at')
+            ? (json['failed_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'failed_at', 'Required property is missing'),
+        completedAt: json.containsKey('completed_at')
+            ? (json['completed_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'completed_at', 'Required property is missing'),
+        metadata: json.containsKey('metadata')
+            ? json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>
+            : throw ArgumentError.value(
+                null, 'metadata', 'Required property is missing'),
+        usage: json.containsKey('usage')
+            ? json['usage'] != null
+                ? RunStepCompletionUsage.fromJson(
+                    json['usage'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'usage', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'created_at': createdAt,
-    'assistant_id': assistantId,
-    'thread_id': threadId,
-    'run_id': runId,
-    'type': type_.toJson(),
-    'status': status.toJson(),
-    'step_details': stepDetails.toJson(),
-    'last_error': lastError?.toJson(),
-    'expired_at': expiredAt,
-    'cancelled_at': cancelledAt,
-    'failed_at': failedAt,
-    'completed_at': completedAt,
-    'metadata': metadata,
-    'usage': usage?.toJson(),
-  };
+        'id': id,
+        'object': object.toJson(),
+        'created_at': createdAt,
+        'assistant_id': assistantId,
+        'thread_id': threadId,
+        'run_id': runId,
+        'type': type_.toJson(),
+        'status': status.toJson(),
+        'step_details': stepDetails.toJson(),
+        'last_error': lastError?.toJson(),
+        'expired_at': expiredAt,
+        'cancelled_at': cancelledAt,
+        'failed_at': failedAt,
+        'completed_at': completedAt,
+        'metadata': metadata,
+        'usage': usage?.toJson(),
+      };
 }
 
 sealed class RunStepObjectStepDetails {
@@ -108,31 +238,47 @@ sealed class RunStepObjectStepDetails {
   static const String constructionSurface = 'named';
   const RunStepObjectStepDetails();
   factory RunStepObjectStepDetails.fromJson(Object? json) {
-    try { return RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(RunStepDetailsMessageCreationObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunStepObjectStepDetailsRunStepDetailsToolCallsObject(RunStepDetailsToolCallsObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"message_creation", "tool_calls"}.contains(json["type"])) { return UnknownRunStepObjectStepDetails(json); }
+    try {
+      return RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(
+          RunStepDetailsMessageCreationObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunStepObjectStepDetailsRunStepDetailsToolCallsObject(
+          RunStepDetailsToolCallsObject.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"message_creation", "tool_calls"}.contains(json["type"])) {
+      return UnknownRunStepObjectStepDetails(json);
+    }
     throw FormatException("No variant matched for RunStepObjectStepDetails");
   }
   Object? toJson();
 }
 
-final class RunStepObjectStepDetailsRunStepDetailsMessageCreationObject extends RunStepObjectStepDetails {
+final class RunStepObjectStepDetailsRunStepDetailsMessageCreationObject
+    extends RunStepObjectStepDetails {
   final RunStepDetailsMessageCreationObject value;
   const RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunStepObjectStepDetailsRunStepDetailsToolCallsObject extends RunStepObjectStepDetails {
+final class RunStepObjectStepDetailsRunStepDetailsToolCallsObject
+    extends RunStepObjectStepDetails {
   final RunStepDetailsToolCallsObject value;
   const RunStepObjectStepDetailsRunStepDetailsToolCallsObject(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RunStepObjectStepDetails] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownRunStepObjectStepDetails extends RunStepObjectStepDetails {
   final Map<String, dynamic> raw;
   const UnknownRunStepObjectStepDetails(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Occurs when a [run step](https://developers.openai.com/api/docs/assistants/migration) is created.
@@ -140,27 +286,41 @@ class RunStepStreamEventVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStepStreamEventVariant0Event event;
+
   /// Represents a step in execution of a run.
   final RunStepObject data;
 
   const RunStepStreamEventVariant0({required this.event, required this.data});
 
-  RunStepStreamEventVariant0 Function({RunStepStreamEventVariant0Event event, RunStepObject data}) get copyWith => _copyWith;
+  RunStepStreamEventVariant0 Function(
+      {RunStepStreamEventVariant0Event event,
+      RunStepObject data}) get copyWith => _copyWith;
 
-  RunStepStreamEventVariant0 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStepStreamEventVariant0(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStepStreamEventVariant0Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunStepObject,
-  );
+  RunStepStreamEventVariant0 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStepStreamEventVariant0(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStepStreamEventVariant0Event,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as RunStepObject,
+      );
 
-  factory RunStepStreamEventVariant0.fromJson(Map<String, dynamic> json) => RunStepStreamEventVariant0(
-    event: (json['event'] != null ? RunStepStreamEventVariant0Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStepStreamEventVariant0.fromJson(Map<String, dynamic> json) =>
+      RunStepStreamEventVariant0(
+        event: (json['event'] != null
+            ? RunStepStreamEventVariant0Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when a [run step](https://developers.openai.com/api/docs/assistants/migration) moves to an `in_progress` state.
@@ -168,27 +328,41 @@ class RunStepStreamEventVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStepStreamEventVariant1Event event;
+
   /// Represents a step in execution of a run.
   final RunStepObject data;
 
   const RunStepStreamEventVariant1({required this.event, required this.data});
 
-  RunStepStreamEventVariant1 Function({RunStepStreamEventVariant1Event event, RunStepObject data}) get copyWith => _copyWith;
+  RunStepStreamEventVariant1 Function(
+      {RunStepStreamEventVariant1Event event,
+      RunStepObject data}) get copyWith => _copyWith;
 
-  RunStepStreamEventVariant1 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStepStreamEventVariant1(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStepStreamEventVariant1Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunStepObject,
-  );
+  RunStepStreamEventVariant1 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStepStreamEventVariant1(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStepStreamEventVariant1Event,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as RunStepObject,
+      );
 
-  factory RunStepStreamEventVariant1.fromJson(Map<String, dynamic> json) => RunStepStreamEventVariant1(
-    event: (json['event'] != null ? RunStepStreamEventVariant1Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStepStreamEventVariant1.fromJson(Map<String, dynamic> json) =>
+      RunStepStreamEventVariant1(
+        event: (json['event'] != null
+            ? RunStepStreamEventVariant1Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when parts of a [run step](https://developers.openai.com/api/docs/assistants/migration) are being streamed.
@@ -196,27 +370,41 @@ class RunStepStreamEventVariant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStepStreamEventVariant2Event event;
+
   /// Represents a run step delta i.e. any changed fields on a run step during streaming.
   final RunStepDeltaObject data;
 
   const RunStepStreamEventVariant2({required this.event, required this.data});
 
-  RunStepStreamEventVariant2 Function({RunStepStreamEventVariant2Event event, RunStepDeltaObject data}) get copyWith => _copyWith;
+  RunStepStreamEventVariant2 Function(
+      {RunStepStreamEventVariant2Event event,
+      RunStepDeltaObject data}) get copyWith => _copyWith;
 
-  RunStepStreamEventVariant2 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStepStreamEventVariant2(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStepStreamEventVariant2Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunStepDeltaObject,
-  );
+  RunStepStreamEventVariant2 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStepStreamEventVariant2(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStepStreamEventVariant2Event,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as RunStepDeltaObject,
+      );
 
-  factory RunStepStreamEventVariant2.fromJson(Map<String, dynamic> json) => RunStepStreamEventVariant2(
-    event: (json['event'] != null ? RunStepStreamEventVariant2Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunStepDeltaObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStepStreamEventVariant2.fromJson(Map<String, dynamic> json) =>
+      RunStepStreamEventVariant2(
+        event: (json['event'] != null
+            ? RunStepStreamEventVariant2Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunStepDeltaObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when a [run step](https://developers.openai.com/api/docs/assistants/migration) is completed.
@@ -224,27 +412,41 @@ class RunStepStreamEventVariant3 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStepStreamEventVariant3Event event;
+
   /// Represents a step in execution of a run.
   final RunStepObject data;
 
   const RunStepStreamEventVariant3({required this.event, required this.data});
 
-  RunStepStreamEventVariant3 Function({RunStepStreamEventVariant3Event event, RunStepObject data}) get copyWith => _copyWith;
+  RunStepStreamEventVariant3 Function(
+      {RunStepStreamEventVariant3Event event,
+      RunStepObject data}) get copyWith => _copyWith;
 
-  RunStepStreamEventVariant3 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStepStreamEventVariant3(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStepStreamEventVariant3Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunStepObject,
-  );
+  RunStepStreamEventVariant3 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStepStreamEventVariant3(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStepStreamEventVariant3Event,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as RunStepObject,
+      );
 
-  factory RunStepStreamEventVariant3.fromJson(Map<String, dynamic> json) => RunStepStreamEventVariant3(
-    event: (json['event'] != null ? RunStepStreamEventVariant3Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStepStreamEventVariant3.fromJson(Map<String, dynamic> json) =>
+      RunStepStreamEventVariant3(
+        event: (json['event'] != null
+            ? RunStepStreamEventVariant3Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when a [run step](https://developers.openai.com/api/docs/assistants/migration) fails.
@@ -252,25 +454,39 @@ class RunStepStreamEventVariant4 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final RunStepStreamEventVariant4Event event;
+
   /// Represents a step in execution of a run.
   final RunStepObject data;
 
   const RunStepStreamEventVariant4({required this.event, required this.data});
 
-  RunStepStreamEventVariant4 Function({RunStepStreamEventVariant4Event event, RunStepObject data}) get copyWith => _copyWith;
+  RunStepStreamEventVariant4 Function(
+      {RunStepStreamEventVariant4Event event,
+      RunStepObject data}) get copyWith => _copyWith;
 
-  RunStepStreamEventVariant4 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => RunStepStreamEventVariant4(
-    event: identical(event, sdkOmittedValue) ? this.event : event as RunStepStreamEventVariant4Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as RunStepObject,
-  );
+  RunStepStreamEventVariant4 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStepStreamEventVariant4(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStepStreamEventVariant4Event,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as RunStepObject,
+      );
 
-  factory RunStepStreamEventVariant4.fromJson(Map<String, dynamic> json) => RunStepStreamEventVariant4(
-    event: (json['event'] != null ? RunStepStreamEventVariant4Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStepStreamEventVariant4.fromJson(Map<String, dynamic> json) =>
+      RunStepStreamEventVariant4(
+        event: (json['event'] != null
+            ? RunStepStreamEventVariant4Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunStepObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }

@@ -8,157 +8,339 @@ part of 'agents_environment.dart';
 class EnvironmentParamOpenaiHosted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `openai_hosted`.
   final EnvironmentParamOpenaiHostedType type_;
+
   /// Packages to install in the environment. Defaults to empty package lists.
   final SdkOptional<EnvironmentPackagesParam?> packages;
+
   /// Ordered, confidential setup commands. Command bodies are never returned.
   final SdkOptional<List<SetupCommandParam>?> setupCommands;
+
   /// Network access policy for the environment. If omitted, the API version determines whether network access is enabled or disabled.
   final SdkOptional<NetworkPolicyParam?> network;
+
   /// Desktop provisioning. Omission or null inherits the template setting, or defaults to disabled.
   final SdkOptional<DesktopParam?> desktop;
+
   /// Environment variables made available to the agent.
   final SdkOptional<Map<String, String>?> env;
+
   /// Directories that contain capabilities exposed to the agent. Defaults to an empty list.
   final SdkOptional<List<String>?> capabilityDirectories;
+
   /// Skills referenced by ID or provided as inline ZIP archives. Defaults to an empty list.
   final SdkOptional<List<HostedSkillParam>?> skills;
+
   /// Plugins provided as inline ZIP archives. Defaults to an empty list.
   final SdkOptional<List<HostedPluginParam>?> plugins;
+
   /// Files available before the agent starts. Defaults to an empty list.
   final SdkOptional<List<HostedEnvironmentFileParam>?> files;
+
   /// An existing prewarmed environment. Cannot be combined with a template or inline configuration.
   final SdkOptional<String> environmentId;
+
   /// A reusable hosted template applied before inline session configuration. Omitted fields inherit the template; network overrides cannot broaden its policy.
   final SdkOptional<String> environmentTemplateId;
+
   /// The hosted container size. Omission selects the medium tier.
   final SdkOptional<ContainerSizeParam> containerSize;
 
-  const EnvironmentParamOpenaiHosted({required this.type_, this.packages = const SdkOmitted(), this.setupCommands = const SdkOmitted(), this.network = const SdkOmitted(), this.desktop = const SdkOmitted(), this.env = const SdkOmitted(), this.capabilityDirectories = const SdkOmitted(), this.skills = const SdkOmitted(), this.plugins = const SdkOmitted(), this.files = const SdkOmitted(), this.environmentId = const SdkOmitted(), this.environmentTemplateId = const SdkOmitted(), this.containerSize = const SdkOmitted()});
+  const EnvironmentParamOpenaiHosted(
+      {required this.type_,
+      this.packages = const SdkOmitted(),
+      this.setupCommands = const SdkOmitted(),
+      this.network = const SdkOmitted(),
+      this.desktop = const SdkOmitted(),
+      this.env = const SdkOmitted(),
+      this.capabilityDirectories = const SdkOmitted(),
+      this.skills = const SdkOmitted(),
+      this.plugins = const SdkOmitted(),
+      this.files = const SdkOmitted(),
+      this.environmentId = const SdkOmitted(),
+      this.environmentTemplateId = const SdkOmitted(),
+      this.containerSize = const SdkOmitted()});
 
-  EnvironmentParamOpenaiHosted Function({EnvironmentParamOpenaiHostedType type_, SdkOptional<EnvironmentPackagesParam?> packages, SdkOptional<List<SetupCommandParam>?> setupCommands, SdkOptional<NetworkPolicyParam?> network, SdkOptional<DesktopParam?> desktop, SdkOptional<Map<String, String>?> env, SdkOptional<List<String>?> capabilityDirectories, SdkOptional<List<HostedSkillParam>?> skills, SdkOptional<List<HostedPluginParam>?> plugins, SdkOptional<List<HostedEnvironmentFileParam>?> files, SdkOptional<String> environmentId, SdkOptional<String> environmentTemplateId, SdkOptional<ContainerSizeParam> containerSize}) get copyWith => _copyWith;
+  EnvironmentParamOpenaiHosted Function(
+      {EnvironmentParamOpenaiHostedType type_,
+      SdkOptional<EnvironmentPackagesParam?> packages,
+      SdkOptional<List<SetupCommandParam>?> setupCommands,
+      SdkOptional<NetworkPolicyParam?> network,
+      SdkOptional<DesktopParam?> desktop,
+      SdkOptional<Map<String, String>?> env,
+      SdkOptional<List<String>?> capabilityDirectories,
+      SdkOptional<List<HostedSkillParam>?> skills,
+      SdkOptional<List<HostedPluginParam>?> plugins,
+      SdkOptional<List<HostedEnvironmentFileParam>?> files,
+      SdkOptional<String> environmentId,
+      SdkOptional<String> environmentTemplateId,
+      SdkOptional<ContainerSizeParam> containerSize}) get copyWith => _copyWith;
 
-  EnvironmentParamOpenaiHosted _copyWith({Object? type_ = sdkOmittedValue, Object? packages = sdkOmittedValue, Object? setupCommands = sdkOmittedValue, Object? network = sdkOmittedValue, Object? desktop = sdkOmittedValue, Object? env = sdkOmittedValue, Object? capabilityDirectories = sdkOmittedValue, Object? skills = sdkOmittedValue, Object? plugins = sdkOmittedValue, Object? files = sdkOmittedValue, Object? environmentId = sdkOmittedValue, Object? environmentTemplateId = sdkOmittedValue, Object? containerSize = sdkOmittedValue}) => EnvironmentParamOpenaiHosted(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EnvironmentParamOpenaiHostedType,
-    packages: identical(packages, sdkOmittedValue) ? this.packages : packages as SdkOptional<EnvironmentPackagesParam?>,
-    setupCommands: identical(setupCommands, sdkOmittedValue) ? this.setupCommands : setupCommands as SdkOptional<List<SetupCommandParam>?>,
-    network: identical(network, sdkOmittedValue) ? this.network : network as SdkOptional<NetworkPolicyParam?>,
-    desktop: identical(desktop, sdkOmittedValue) ? this.desktop : desktop as SdkOptional<DesktopParam?>,
-    env: identical(env, sdkOmittedValue) ? this.env : env as SdkOptional<Map<String, String>?>,
-    capabilityDirectories: identical(capabilityDirectories, sdkOmittedValue) ? this.capabilityDirectories : capabilityDirectories as SdkOptional<List<String>?>,
-    skills: identical(skills, sdkOmittedValue) ? this.skills : skills as SdkOptional<List<HostedSkillParam>?>,
-    plugins: identical(plugins, sdkOmittedValue) ? this.plugins : plugins as SdkOptional<List<HostedPluginParam>?>,
-    files: identical(files, sdkOmittedValue) ? this.files : files as SdkOptional<List<HostedEnvironmentFileParam>?>,
-    environmentId: identical(environmentId, sdkOmittedValue) ? this.environmentId : environmentId as SdkOptional<String>,
-    environmentTemplateId: identical(environmentTemplateId, sdkOmittedValue) ? this.environmentTemplateId : environmentTemplateId as SdkOptional<String>,
-    containerSize: identical(containerSize, sdkOmittedValue) ? this.containerSize : containerSize as SdkOptional<ContainerSizeParam>,
-  );
+  EnvironmentParamOpenaiHosted _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? packages = sdkOmittedValue,
+          Object? setupCommands = sdkOmittedValue,
+          Object? network = sdkOmittedValue,
+          Object? desktop = sdkOmittedValue,
+          Object? env = sdkOmittedValue,
+          Object? capabilityDirectories = sdkOmittedValue,
+          Object? skills = sdkOmittedValue,
+          Object? plugins = sdkOmittedValue,
+          Object? files = sdkOmittedValue,
+          Object? environmentId = sdkOmittedValue,
+          Object? environmentTemplateId = sdkOmittedValue,
+          Object? containerSize = sdkOmittedValue}) =>
+      EnvironmentParamOpenaiHosted(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EnvironmentParamOpenaiHostedType,
+        packages: identical(packages, sdkOmittedValue)
+            ? this.packages
+            : packages as SdkOptional<EnvironmentPackagesParam?>,
+        setupCommands: identical(setupCommands, sdkOmittedValue)
+            ? this.setupCommands
+            : setupCommands as SdkOptional<List<SetupCommandParam>?>,
+        network: identical(network, sdkOmittedValue)
+            ? this.network
+            : network as SdkOptional<NetworkPolicyParam?>,
+        desktop: identical(desktop, sdkOmittedValue)
+            ? this.desktop
+            : desktop as SdkOptional<DesktopParam?>,
+        env: identical(env, sdkOmittedValue)
+            ? this.env
+            : env as SdkOptional<Map<String, String>?>,
+        capabilityDirectories: identical(capabilityDirectories, sdkOmittedValue)
+            ? this.capabilityDirectories
+            : capabilityDirectories as SdkOptional<List<String>?>,
+        skills: identical(skills, sdkOmittedValue)
+            ? this.skills
+            : skills as SdkOptional<List<HostedSkillParam>?>,
+        plugins: identical(plugins, sdkOmittedValue)
+            ? this.plugins
+            : plugins as SdkOptional<List<HostedPluginParam>?>,
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as SdkOptional<List<HostedEnvironmentFileParam>?>,
+        environmentId: identical(environmentId, sdkOmittedValue)
+            ? this.environmentId
+            : environmentId as SdkOptional<String>,
+        environmentTemplateId: identical(environmentTemplateId, sdkOmittedValue)
+            ? this.environmentTemplateId
+            : environmentTemplateId as SdkOptional<String>,
+        containerSize: identical(containerSize, sdkOmittedValue)
+            ? this.containerSize
+            : containerSize as SdkOptional<ContainerSizeParam>,
+      );
 
-  factory EnvironmentParamOpenaiHosted.fromJson(Map<String, dynamic> json) => EnvironmentParamOpenaiHosted(
-    type_: (json['type'] != null ? EnvironmentParamOpenaiHostedType.fromJson(json['type'] as String) : null)!,
-    packages: json.containsKey('packages') ? SdkPresent(json['packages'] != null ? EnvironmentPackagesParam.fromJson(json['packages'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    setupCommands: json.containsKey('setup_commands') ? SdkPresent((json['setup_commands'] as List?)?.map((e) => SetupCommandParam.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-    network: json.containsKey('network') ? SdkPresent(json['network'] != null ? NetworkPolicyParam.fromJson(json['network'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    desktop: json.containsKey('desktop') ? SdkPresent(json['desktop'] != null ? DesktopParam.fromJson(json['desktop'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    env: json.containsKey('env') ? SdkPresent(json['env'] == null ? null : Map<String, dynamic>.from(json['env'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
-    capabilityDirectories: json.containsKey('capability_directories') ? SdkPresent((json['capability_directories'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    skills: json.containsKey('skills') ? SdkPresent((json['skills'] as List?)?.map((e) => HostedSkillParam.fromJson(e)).toList()) : const SdkOmitted(),
-    plugins: json.containsKey('plugins') ? SdkPresent((json['plugins'] as List?)?.map((e) => HostedPluginParam.fromJson(e)).toList()) : const SdkOmitted(),
-    files: json.containsKey('files') ? SdkPresent((json['files'] as List?)?.map((e) => HostedEnvironmentFileParam.fromJson(e)).toList()) : const SdkOmitted(),
-    environmentId: json['environment_id'] != null ? SdkPresent((json['environment_id'] as String?)!) : const SdkOmitted(),
-    environmentTemplateId: json['environment_template_id'] != null ? SdkPresent((json['environment_template_id'] as String?)!) : const SdkOmitted(),
-    containerSize: json['container_size'] != null ? SdkPresent((json['container_size'] != null ? ContainerSizeParam.fromJson(json['container_size'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory EnvironmentParamOpenaiHosted.fromJson(Map<String, dynamic> json) =>
+      EnvironmentParamOpenaiHosted(
+        type_: (json['type'] != null
+            ? EnvironmentParamOpenaiHostedType.fromJson(json['type'] as String)
+            : null)!,
+        packages: json.containsKey('packages')
+            ? SdkPresent(json['packages'] != null
+                ? EnvironmentPackagesParam.fromJson(
+                    json['packages'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        setupCommands: json.containsKey('setup_commands')
+            ? SdkPresent((json['setup_commands'] as List?)
+                ?.map((e) =>
+                    SetupCommandParam.fromJson(e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+        network: json.containsKey('network')
+            ? SdkPresent(json['network'] != null
+                ? NetworkPolicyParam.fromJson(
+                    json['network'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        desktop: json.containsKey('desktop')
+            ? SdkPresent(json['desktop'] != null
+                ? DesktopParam.fromJson(json['desktop'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        env: json.containsKey('env')
+            ? SdkPresent(json['env'] == null
+                ? null
+                : Map<String, dynamic>.from(json['env'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))
+            : const SdkOmitted(),
+        capabilityDirectories: json.containsKey('capability_directories')
+            ? SdkPresent((json['capability_directories'] as List?)
+                ?.map((e) => e as String)
+                .toList())
+            : const SdkOmitted(),
+        skills: json.containsKey('skills')
+            ? SdkPresent((json['skills'] as List?)
+                ?.map((e) => HostedSkillParam.fromJson(e))
+                .toList())
+            : const SdkOmitted(),
+        plugins: json.containsKey('plugins')
+            ? SdkPresent((json['plugins'] as List?)
+                ?.map((e) => HostedPluginParam.fromJson(e))
+                .toList())
+            : const SdkOmitted(),
+        files: json.containsKey('files')
+            ? SdkPresent((json['files'] as List?)
+                ?.map((e) => HostedEnvironmentFileParam.fromJson(e))
+                .toList())
+            : const SdkOmitted(),
+        environmentId: json['environment_id'] != null
+            ? SdkPresent((json['environment_id'] as String?)!)
+            : const SdkOmitted(),
+        environmentTemplateId: json['environment_template_id'] != null
+            ? SdkPresent((json['environment_template_id'] as String?)!)
+            : const SdkOmitted(),
+        containerSize: json['container_size'] != null
+            ? SdkPresent((json['container_size'] != null
+                ? ContainerSizeParam.fromJson(json['container_size'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (packages) {
-      SdkPresent<EnvironmentPackagesParam?>(value: final value) => {'packages': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (setupCommands) {
-      SdkPresent<List<SetupCommandParam>?>(value: final value) => {'setup_commands': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (network) {
-      SdkPresent<NetworkPolicyParam?>(value: final value) => {'network': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (desktop) {
-      SdkPresent<DesktopParam?>(value: final value) => {'desktop': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (env) {
-      SdkPresent<Map<String, String>?>(value: final value) => {'env': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (capabilityDirectories) {
-      SdkPresent<List<String>?>(value: final value) => {'capability_directories': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (skills) {
-      SdkPresent<List<HostedSkillParam>?>(value: final value) => {'skills': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (plugins) {
-      SdkPresent<List<HostedPluginParam>?>(value: final value) => {'plugins': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (files) {
-      SdkPresent<List<HostedEnvironmentFileParam>?>(value: final value) => {'files': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (environmentId) {
-      SdkPresent<String>(value: final value) => {'environment_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (environmentTemplateId) {
-      SdkPresent<String>(value: final value) => {'environment_template_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (containerSize) {
-      SdkPresent<ContainerSizeParam>(value: final value) => {'container_size': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (packages) {
+          SdkPresent<EnvironmentPackagesParam?>(value: final value) => {
+              'packages': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (setupCommands) {
+          SdkPresent<List<SetupCommandParam>?>(value: final value) => {
+              'setup_commands': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (network) {
+          SdkPresent<NetworkPolicyParam?>(value: final value) => {
+              'network': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (desktop) {
+          SdkPresent<DesktopParam?>(value: final value) => {
+              'desktop': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (env) {
+          SdkPresent<Map<String, String>?>(value: final value) => {
+              'env': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (capabilityDirectories) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'capability_directories': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (skills) {
+          SdkPresent<List<HostedSkillParam>?>(value: final value) => {
+              'skills': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (plugins) {
+          SdkPresent<List<HostedPluginParam>?>(value: final value) => {
+              'plugins': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (files) {
+          SdkPresent<List<HostedEnvironmentFileParam>?>(value: final value) => {
+              'files': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (environmentId) {
+          SdkPresent<String>(value: final value) => {
+              'environment_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (environmentTemplateId) {
+          SdkPresent<String>(value: final value) => {
+              'environment_template_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (containerSize) {
+          SdkPresent<ContainerSizeParam>(value: final value) => {
+              'container_size': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An application-hosted environment configured inline.
 class EnvironmentParamSelfHosted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `self_hosted`.
   final EnvironmentParamSelfHostedType type_;
+
   /// Directories that contain capabilities exposed to the agent. Defaults to an empty list.
   final SdkOptional<List<String>?> capabilityDirectories;
+
   /// Absolute project directory inside the self-hosted environment.
   final String workspaceDirectory;
 
-  const EnvironmentParamSelfHosted({required this.type_, this.capabilityDirectories = const SdkOmitted(), required this.workspaceDirectory});
+  const EnvironmentParamSelfHosted(
+      {required this.type_,
+      this.capabilityDirectories = const SdkOmitted(),
+      required this.workspaceDirectory});
 
-  EnvironmentParamSelfHosted Function({EnvironmentParamSelfHostedType type_, SdkOptional<List<String>?> capabilityDirectories, String workspaceDirectory}) get copyWith => _copyWith;
+  EnvironmentParamSelfHosted Function(
+      {EnvironmentParamSelfHostedType type_,
+      SdkOptional<List<String>?> capabilityDirectories,
+      String workspaceDirectory}) get copyWith => _copyWith;
 
-  EnvironmentParamSelfHosted _copyWith({Object? type_ = sdkOmittedValue, Object? capabilityDirectories = sdkOmittedValue, Object? workspaceDirectory = sdkOmittedValue}) => EnvironmentParamSelfHosted(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EnvironmentParamSelfHostedType,
-    capabilityDirectories: identical(capabilityDirectories, sdkOmittedValue) ? this.capabilityDirectories : capabilityDirectories as SdkOptional<List<String>?>,
-    workspaceDirectory: identical(workspaceDirectory, sdkOmittedValue) ? this.workspaceDirectory : workspaceDirectory as String,
-  );
+  EnvironmentParamSelfHosted _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? capabilityDirectories = sdkOmittedValue,
+          Object? workspaceDirectory = sdkOmittedValue}) =>
+      EnvironmentParamSelfHosted(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EnvironmentParamSelfHostedType,
+        capabilityDirectories: identical(capabilityDirectories, sdkOmittedValue)
+            ? this.capabilityDirectories
+            : capabilityDirectories as SdkOptional<List<String>?>,
+        workspaceDirectory: identical(workspaceDirectory, sdkOmittedValue)
+            ? this.workspaceDirectory
+            : workspaceDirectory as String,
+      );
 
-  factory EnvironmentParamSelfHosted.fromJson(Map<String, dynamic> json) => EnvironmentParamSelfHosted(
-    type_: (json['type'] != null ? EnvironmentParamSelfHostedType.fromJson(json['type'] as String) : null)!,
-    capabilityDirectories: json.containsKey('capability_directories') ? SdkPresent((json['capability_directories'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    workspaceDirectory: (json['workspace_directory'] as String?)!,
-  );
+  factory EnvironmentParamSelfHosted.fromJson(Map<String, dynamic> json) =>
+      EnvironmentParamSelfHosted(
+        type_: (json['type'] != null
+            ? EnvironmentParamSelfHostedType.fromJson(json['type'] as String)
+            : null)!,
+        capabilityDirectories: json.containsKey('capability_directories')
+            ? SdkPresent((json['capability_directories'] as List?)
+                ?.map((e) => e as String)
+                .toList())
+            : const SdkOmitted(),
+        workspaceDirectory: (json['workspace_directory'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (capabilityDirectories) {
-      SdkPresent<List<String>?>(value: final value) => {'capability_directories': value,},
-      _ => const <String, dynamic>{},
-    },
-    'workspace_directory': workspaceDirectory,
-  };
+        'type': type_.toJson(),
+        ...switch (capabilityDirectories) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'capability_directories': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'workspace_directory': workspaceDirectory,
+      };
 }
 
 sealed class EnvironmentResource {
@@ -166,132 +348,248 @@ sealed class EnvironmentResource {
   static const String constructionSurface = 'named';
   const EnvironmentResource();
   factory EnvironmentResource.fromJson(Object? json) {
-    try { return EnvironmentResourceEnvironmentResourceNone(EnvironmentResourceNone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EnvironmentResourceEnvironmentResourceOpenaiHosted(EnvironmentResourceOpenaiHosted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EnvironmentResourceEnvironmentResourceSelfHosted(EnvironmentResourceSelfHosted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"none", "openai_hosted", "self_hosted"}.contains(json["type"])) { return UnknownEnvironmentResource(json); }
+    try {
+      return EnvironmentResourceEnvironmentResourceNone(
+          EnvironmentResourceNone.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EnvironmentResourceEnvironmentResourceOpenaiHosted(
+          EnvironmentResourceOpenaiHosted.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EnvironmentResourceEnvironmentResourceSelfHosted(
+          EnvironmentResourceSelfHosted.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"none", "openai_hosted", "self_hosted"}
+            .contains(json["type"])) {
+      return UnknownEnvironmentResource(json);
+    }
     throw FormatException("No variant matched for EnvironmentResource");
   }
   Object? toJson();
 }
 
-final class EnvironmentResourceEnvironmentResourceNone extends EnvironmentResource {
+final class EnvironmentResourceEnvironmentResourceNone
+    extends EnvironmentResource {
   final EnvironmentResourceNone value;
   const EnvironmentResourceEnvironmentResourceNone(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EnvironmentResourceEnvironmentResourceOpenaiHosted extends EnvironmentResource {
+final class EnvironmentResourceEnvironmentResourceOpenaiHosted
+    extends EnvironmentResource {
   final EnvironmentResourceOpenaiHosted value;
   const EnvironmentResourceEnvironmentResourceOpenaiHosted(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EnvironmentResourceEnvironmentResourceSelfHosted extends EnvironmentResource {
+final class EnvironmentResourceEnvironmentResourceSelfHosted
+    extends EnvironmentResource {
   final EnvironmentResourceSelfHosted value;
   const EnvironmentResourceEnvironmentResourceSelfHosted(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [EnvironmentResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownEnvironmentResource extends EnvironmentResource {
   final Map<String, dynamic> raw;
   const UnknownEnvironmentResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// The session talks to CCA without selecting or provisioning an execution environment.
 class EnvironmentResourceNone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `none`.
   final EnvironmentResourceNoneType type_;
 
   const EnvironmentResourceNone({required this.type_});
 
-  EnvironmentResourceNone Function({EnvironmentResourceNoneType type_}) get copyWith => _copyWith;
+  EnvironmentResourceNone Function({EnvironmentResourceNoneType type_})
+      get copyWith => _copyWith;
 
-  EnvironmentResourceNone _copyWith({Object? type_ = sdkOmittedValue}) => EnvironmentResourceNone(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EnvironmentResourceNoneType,
-  );
+  EnvironmentResourceNone _copyWith({Object? type_ = sdkOmittedValue}) =>
+      EnvironmentResourceNone(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EnvironmentResourceNoneType,
+      );
 
-  factory EnvironmentResourceNone.fromJson(Map<String, dynamic> json) => EnvironmentResourceNone(
-    type_: (json['type'] != null ? EnvironmentResourceNoneType.fromJson(json['type'] as String) : null)!,
-  );
+  factory EnvironmentResourceNone.fromJson(Map<String, dynamic> json) =>
+      EnvironmentResourceNone(
+        type_: (json['type'] != null
+            ? EnvironmentResourceNoneType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// An environment hosted by OpenAI.
 class EnvironmentResourceOpenaiHosted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `openai_hosted`.
   final EnvironmentResourceOpenaiHostedType type_;
+
   /// The public ID of the environment.
   final String id;
+
   /// The effective CPU and memory tier, or null when unknown or outside the public tiers.
   final SdkOptional<ContainerSizeResource?> containerSize;
+
   /// Packages installed in the environment.
   final EnvironmentPackagesResource packages;
+
   /// The effective network access policy for the environment.
   final NetworkPolicyResource network;
+
   /// The effective desktop configuration.
   final DesktopResource desktop;
+
   /// Directories that contain capabilities exposed to the agent.
   final List<String> capabilityDirectories;
+
   /// Skills installed in the environment, excluding their archive contents.
   final List<HostedSkillResource> skills;
+
   /// Plugins installed in the environment, excluding their archive contents.
   final List<HostedPluginResource> plugins;
+
   /// Files available in the environment, excluding their contents.
   final List<HostedEnvironmentFileResource> files;
 
-  const EnvironmentResourceOpenaiHosted({required this.type_, required this.id, this.containerSize = const SdkOmitted(), required this.packages, required this.network, required this.desktop, required this.capabilityDirectories, required this.skills, required this.plugins, required this.files});
+  const EnvironmentResourceOpenaiHosted(
+      {required this.type_,
+      required this.id,
+      this.containerSize = const SdkOmitted(),
+      required this.packages,
+      required this.network,
+      required this.desktop,
+      required this.capabilityDirectories,
+      required this.skills,
+      required this.plugins,
+      required this.files});
 
-  EnvironmentResourceOpenaiHosted Function({EnvironmentResourceOpenaiHostedType type_, String id, SdkOptional<ContainerSizeResource?> containerSize, EnvironmentPackagesResource packages, NetworkPolicyResource network, DesktopResource desktop, List<String> capabilityDirectories, List<HostedSkillResource> skills, List<HostedPluginResource> plugins, List<HostedEnvironmentFileResource> files}) get copyWith => _copyWith;
+  EnvironmentResourceOpenaiHosted Function(
+      {EnvironmentResourceOpenaiHostedType type_,
+      String id,
+      SdkOptional<ContainerSizeResource?> containerSize,
+      EnvironmentPackagesResource packages,
+      NetworkPolicyResource network,
+      DesktopResource desktop,
+      List<String> capabilityDirectories,
+      List<HostedSkillResource> skills,
+      List<HostedPluginResource> plugins,
+      List<HostedEnvironmentFileResource> files}) get copyWith => _copyWith;
 
-  EnvironmentResourceOpenaiHosted _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? containerSize = sdkOmittedValue, Object? packages = sdkOmittedValue, Object? network = sdkOmittedValue, Object? desktop = sdkOmittedValue, Object? capabilityDirectories = sdkOmittedValue, Object? skills = sdkOmittedValue, Object? plugins = sdkOmittedValue, Object? files = sdkOmittedValue}) => EnvironmentResourceOpenaiHosted(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EnvironmentResourceOpenaiHostedType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    containerSize: identical(containerSize, sdkOmittedValue) ? this.containerSize : containerSize as SdkOptional<ContainerSizeResource?>,
-    packages: identical(packages, sdkOmittedValue) ? this.packages : packages as EnvironmentPackagesResource,
-    network: identical(network, sdkOmittedValue) ? this.network : network as NetworkPolicyResource,
-    desktop: identical(desktop, sdkOmittedValue) ? this.desktop : desktop as DesktopResource,
-    capabilityDirectories: identical(capabilityDirectories, sdkOmittedValue) ? this.capabilityDirectories : capabilityDirectories as List<String>,
-    skills: identical(skills, sdkOmittedValue) ? this.skills : skills as List<HostedSkillResource>,
-    plugins: identical(plugins, sdkOmittedValue) ? this.plugins : plugins as List<HostedPluginResource>,
-    files: identical(files, sdkOmittedValue) ? this.files : files as List<HostedEnvironmentFileResource>,
-  );
+  EnvironmentResourceOpenaiHosted _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? containerSize = sdkOmittedValue,
+          Object? packages = sdkOmittedValue,
+          Object? network = sdkOmittedValue,
+          Object? desktop = sdkOmittedValue,
+          Object? capabilityDirectories = sdkOmittedValue,
+          Object? skills = sdkOmittedValue,
+          Object? plugins = sdkOmittedValue,
+          Object? files = sdkOmittedValue}) =>
+      EnvironmentResourceOpenaiHosted(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EnvironmentResourceOpenaiHostedType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        containerSize: identical(containerSize, sdkOmittedValue)
+            ? this.containerSize
+            : containerSize as SdkOptional<ContainerSizeResource?>,
+        packages: identical(packages, sdkOmittedValue)
+            ? this.packages
+            : packages as EnvironmentPackagesResource,
+        network: identical(network, sdkOmittedValue)
+            ? this.network
+            : network as NetworkPolicyResource,
+        desktop: identical(desktop, sdkOmittedValue)
+            ? this.desktop
+            : desktop as DesktopResource,
+        capabilityDirectories: identical(capabilityDirectories, sdkOmittedValue)
+            ? this.capabilityDirectories
+            : capabilityDirectories as List<String>,
+        skills: identical(skills, sdkOmittedValue)
+            ? this.skills
+            : skills as List<HostedSkillResource>,
+        plugins: identical(plugins, sdkOmittedValue)
+            ? this.plugins
+            : plugins as List<HostedPluginResource>,
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as List<HostedEnvironmentFileResource>,
+      );
 
-  factory EnvironmentResourceOpenaiHosted.fromJson(Map<String, dynamic> json) => EnvironmentResourceOpenaiHosted(
-    type_: (json['type'] != null ? EnvironmentResourceOpenaiHostedType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    containerSize: json.containsKey('container_size') ? SdkPresent(json['container_size'] != null ? ContainerSizeResource.fromJson(json['container_size'] as String) : null) : const SdkOmitted(),
-    packages: (json['packages'] != null ? EnvironmentPackagesResource.fromJson(json['packages'] as Map<String, dynamic>) : null)!,
-    network: (json['network'] != null ? NetworkPolicyResource.fromJson(json['network'] as Map<String, dynamic>) : null)!,
-    desktop: (json['desktop'] != null ? DesktopResource.fromJson(json['desktop'] as Map<String, dynamic>) : null)!,
-    capabilityDirectories: ((json['capability_directories'] as List?)?.map((e) => e as String).toList())!,
-    skills: ((json['skills'] as List?)?.map((e) => HostedSkillResource.fromJson(e)).toList())!,
-    plugins: ((json['plugins'] as List?)?.map((e) => HostedPluginResource.fromJson(e)).toList())!,
-    files: ((json['files'] as List?)?.map((e) => HostedEnvironmentFileResource.fromJson(e)).toList())!,
-  );
+  factory EnvironmentResourceOpenaiHosted.fromJson(Map<String, dynamic> json) =>
+      EnvironmentResourceOpenaiHosted(
+        type_: (json['type'] != null
+            ? EnvironmentResourceOpenaiHostedType.fromJson(
+                json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        containerSize: json.containsKey('container_size')
+            ? SdkPresent(json['container_size'] != null
+                ? ContainerSizeResource.fromJson(
+                    json['container_size'] as String)
+                : null)
+            : const SdkOmitted(),
+        packages: (json['packages'] != null
+            ? EnvironmentPackagesResource.fromJson(
+                json['packages'] as Map<String, dynamic>)
+            : null)!,
+        network: (json['network'] != null
+            ? NetworkPolicyResource.fromJson(
+                json['network'] as Map<String, dynamic>)
+            : null)!,
+        desktop: (json['desktop'] != null
+            ? DesktopResource.fromJson(json['desktop'] as Map<String, dynamic>)
+            : null)!,
+        capabilityDirectories: ((json['capability_directories'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+        skills: ((json['skills'] as List?)
+            ?.map((e) => HostedSkillResource.fromJson(e))
+            .toList())!,
+        plugins: ((json['plugins'] as List?)
+            ?.map((e) => HostedPluginResource.fromJson(e))
+            .toList())!,
+        files: ((json['files'] as List?)
+            ?.map((e) => HostedEnvironmentFileResource.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    ...switch (containerSize) {
-      SdkPresent<ContainerSizeResource?>(value: final value) => {'container_size': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'packages': packages.toJson(),
-    'network': network.toJson(),
-    'desktop': desktop.toJson(),
-    'capability_directories': capabilityDirectories,
-    'skills': skills.map((item) => item.toJson()).toList(),
-    'plugins': plugins.map((item) => item.toJson()).toList(),
-    'files': files.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'id': id,
+        ...switch (containerSize) {
+          SdkPresent<ContainerSizeResource?>(value: final value) => {
+              'container_size': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'packages': packages.toJson(),
+        'network': network.toJson(),
+        'desktop': desktop.toJson(),
+        'capability_directories': capabilityDirectories,
+        'skills': skills.map((item) => item.toJson()).toList(),
+        'plugins': plugins.map((item) => item.toJson()).toList(),
+        'files': files.map((item) => item.toJson()).toList(),
+      };
 }

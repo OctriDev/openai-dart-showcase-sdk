@@ -9,10 +9,24 @@ sealed class OutputContent {
   static const String constructionSurface = 'named';
   const OutputContent();
   factory OutputContent.fromJson(Object? json) {
-    try { return OutputContentOutputTextContent(OutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputContentRefusalContent(RefusalContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputContentReasoningTextContent(ReasoningTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"output_text", "refusal", "reasoning_text"}.contains(json["type"])) { return UnknownOutputContent(json); }
+    try {
+      return OutputContentOutputTextContent(
+          OutputTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputContentRefusalContent(
+          RefusalContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputContentReasoningTextContent(
+          ReasoningTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"output_text", "refusal", "reasoning_text"}
+            .contains(json["type"])) {
+      return UnknownOutputContent(json);
+    }
     throw FormatException("No variant matched for OutputContent");
   }
   Object? toJson();
@@ -21,26 +35,30 @@ sealed class OutputContent {
 final class OutputContentOutputTextContent extends OutputContent {
   final OutputTextContent value;
   const OutputContentOutputTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputContentRefusalContent extends OutputContent {
   final RefusalContent value;
   const OutputContentRefusalContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputContentReasoningTextContent extends OutputContent {
   final ReasoningTextContent value;
   const OutputContentReasoningTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [OutputContent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownOutputContent extends OutputContent {
   final Map<String, dynamic> raw;
   const UnknownOutputContent(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 sealed class OutputItem {
@@ -48,35 +66,153 @@ sealed class OutputItem {
   static const String constructionSurface = 'named';
   const OutputItem();
   factory OutputItem.fromJson(Object? json) {
-    try { return OutputItemOutputMessage(OutputMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemFileSearchToolCall(FileSearchToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemFunctionToolCall(FunctionToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemFunctionToolCallOutputResource(FunctionToolCallOutputResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemWebSearchToolCall(WebSearchToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemComputerToolCall(ComputerToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemComputerToolCallOutputResource(ComputerToolCallOutputResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemReasoningItem(ReasoningItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemProgram(Program.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemProgramOutput(ProgramOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemToolSearchCall(ToolSearchCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemToolSearchOutput(ToolSearchOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemAdditionalTools(AdditionalTools.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemCompactionBody(CompactionBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemImageGenToolCall(ImageGenToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemCodeInterpreterToolCall(CodeInterpreterToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemLocalShellToolCall(LocalShellToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemLocalShellToolCallOutput(LocalShellToolCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemFunctionShellCall(FunctionShellCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemFunctionShellCallOutput(FunctionShellCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemApplyPatchToolCall(ApplyPatchToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemApplyPatchToolCallOutput(ApplyPatchToolCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemMCPToolCall(MCPToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemMCPListTools(MCPListTools.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemMCPApprovalRequest(MCPApprovalRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemMCPApprovalResponseResource(MCPApprovalResponseResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemCustomToolCall(CustomToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return OutputItemCustomToolCallOutputResource(CustomToolCallOutputResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"message", "file_search_call", "function_call", "function_call_output", "web_search_call", "computer_call", "computer_call_output", "reasoning", "program", "program_output", "tool_search_call", "tool_search_output", "additional_tools", "compaction", "image_generation_call", "code_interpreter_call", "local_shell_call", "local_shell_call_output", "shell_call", "shell_call_output", "apply_patch_call", "apply_patch_call_output", "mcp_call", "mcp_list_tools", "mcp_approval_request", "mcp_approval_response", "custom_tool_call", "custom_tool_call_output"}.contains(json["type"])) { return UnknownOutputItem(json); }
+    try {
+      return OutputItemOutputMessage(
+          OutputMessage.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemFileSearchToolCall(
+          FileSearchToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemFunctionToolCall(
+          FunctionToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemFunctionToolCallOutputResource(
+          FunctionToolCallOutputResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemWebSearchToolCall(
+          WebSearchToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemComputerToolCall(
+          ComputerToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemComputerToolCallOutputResource(
+          ComputerToolCallOutputResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemReasoningItem(
+          ReasoningItem.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemProgram(Program.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemProgramOutput(
+          ProgramOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemToolSearchCall(
+          ToolSearchCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemToolSearchOutput(
+          ToolSearchOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemAdditionalTools(
+          AdditionalTools.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemCompactionBody(
+          CompactionBody.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemImageGenToolCall(
+          ImageGenToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemCodeInterpreterToolCall(
+          CodeInterpreterToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemLocalShellToolCall(
+          LocalShellToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemLocalShellToolCallOutput(
+          LocalShellToolCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemFunctionShellCall(
+          FunctionShellCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemFunctionShellCallOutput(
+          FunctionShellCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemApplyPatchToolCall(
+          ApplyPatchToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemApplyPatchToolCallOutput(
+          ApplyPatchToolCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemMCPToolCall(
+          MCPToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemMCPListTools(
+          MCPListTools.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemMCPApprovalRequest(
+          MCPApprovalRequest.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemMCPApprovalResponseResource(
+          MCPApprovalResponseResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemCustomToolCall(
+          CustomToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return OutputItemCustomToolCallOutputResource(
+          CustomToolCallOutputResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "message",
+          "file_search_call",
+          "function_call",
+          "function_call_output",
+          "web_search_call",
+          "computer_call",
+          "computer_call_output",
+          "reasoning",
+          "program",
+          "program_output",
+          "tool_search_call",
+          "tool_search_output",
+          "additional_tools",
+          "compaction",
+          "image_generation_call",
+          "code_interpreter_call",
+          "local_shell_call",
+          "local_shell_call_output",
+          "shell_call",
+          "shell_call_output",
+          "apply_patch_call",
+          "apply_patch_call_output",
+          "mcp_call",
+          "mcp_list_tools",
+          "mcp_approval_request",
+          "mcp_approval_response",
+          "custom_tool_call",
+          "custom_tool_call_output"
+        }.contains(json["type"])) {
+      return UnknownOutputItem(json);
+    }
     throw FormatException("No variant matched for OutputItem");
   }
   Object? toJson();
@@ -85,174 +221,203 @@ sealed class OutputItem {
 final class OutputItemOutputMessage extends OutputItem {
   final OutputMessage value;
   const OutputItemOutputMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemFileSearchToolCall extends OutputItem {
   final FileSearchToolCall value;
   const OutputItemFileSearchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemFunctionToolCall extends OutputItem {
   final FunctionToolCall value;
   const OutputItemFunctionToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemFunctionToolCallOutputResource extends OutputItem {
   final FunctionToolCallOutputResource value;
   const OutputItemFunctionToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemWebSearchToolCall extends OutputItem {
   final WebSearchToolCall value;
   const OutputItemWebSearchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemComputerToolCall extends OutputItem {
   final ComputerToolCall value;
   const OutputItemComputerToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemComputerToolCallOutputResource extends OutputItem {
   final ComputerToolCallOutputResource value;
   const OutputItemComputerToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemReasoningItem extends OutputItem {
   final ReasoningItem value;
   const OutputItemReasoningItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemProgram extends OutputItem {
   final Program value;
   const OutputItemProgram(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemProgramOutput extends OutputItem {
   final ProgramOutput value;
   const OutputItemProgramOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemToolSearchCall extends OutputItem {
   final ToolSearchCall value;
   const OutputItemToolSearchCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemToolSearchOutput extends OutputItem {
   final ToolSearchOutput value;
   const OutputItemToolSearchOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemAdditionalTools extends OutputItem {
   final AdditionalTools value;
   const OutputItemAdditionalTools(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemCompactionBody extends OutputItem {
   final CompactionBody value;
   const OutputItemCompactionBody(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemImageGenToolCall extends OutputItem {
   final ImageGenToolCall value;
   const OutputItemImageGenToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemCodeInterpreterToolCall extends OutputItem {
   final CodeInterpreterToolCall value;
   const OutputItemCodeInterpreterToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemLocalShellToolCall extends OutputItem {
   final LocalShellToolCall value;
   const OutputItemLocalShellToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemLocalShellToolCallOutput extends OutputItem {
   final LocalShellToolCallOutput value;
   const OutputItemLocalShellToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemFunctionShellCall extends OutputItem {
   final FunctionShellCall value;
   const OutputItemFunctionShellCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemFunctionShellCallOutput extends OutputItem {
   final FunctionShellCallOutput value;
   const OutputItemFunctionShellCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemApplyPatchToolCall extends OutputItem {
   final ApplyPatchToolCall value;
   const OutputItemApplyPatchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemApplyPatchToolCallOutput extends OutputItem {
   final ApplyPatchToolCallOutput value;
   const OutputItemApplyPatchToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemMCPToolCall extends OutputItem {
   final MCPToolCall value;
   const OutputItemMCPToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemMCPListTools extends OutputItem {
   final MCPListTools value;
   const OutputItemMCPListTools(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemMCPApprovalRequest extends OutputItem {
   final MCPApprovalRequest value;
   const OutputItemMCPApprovalRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemMCPApprovalResponseResource extends OutputItem {
   final MCPApprovalResponseResource value;
   const OutputItemMCPApprovalResponseResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemCustomToolCall extends OutputItem {
   final CustomToolCall value;
   const OutputItemCustomToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class OutputItemCustomToolCallOutputResource extends OutputItem {
   final CustomToolCallOutputResource value;
   const OutputItemCustomToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [OutputItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownOutputItem extends OutputItem {
   final Map<String, dynamic> raw;
   const UnknownOutputItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

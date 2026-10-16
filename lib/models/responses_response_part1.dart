@@ -9,16 +9,22 @@ sealed class ResponseVariant2Truncation {
   static const String constructionSurface = 'named';
   const ResponseVariant2Truncation();
   factory ResponseVariant2Truncation.fromJson(Object? json) {
-    try { return ResponseVariant2TruncationResponseVariant2TruncationVariant0(ResponseVariant2TruncationVariant0.fromJson(json as String)); } catch (_) {}
+    try {
+      return ResponseVariant2TruncationResponseVariant2TruncationVariant0(
+          ResponseVariant2TruncationVariant0.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for ResponseVariant2Truncation");
   }
   Object? toJson();
 }
 
-final class ResponseVariant2TruncationResponseVariant2TruncationVariant0 extends ResponseVariant2Truncation {
+final class ResponseVariant2TruncationResponseVariant2TruncationVariant0
+    extends ResponseVariant2Truncation {
   final ResponseVariant2TruncationVariant0 value;
-  const ResponseVariant2TruncationResponseVariant2TruncationVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseVariant2TruncationResponseVariant2TruncationVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class ResponseVariant2CompletedAt {
@@ -26,43 +32,66 @@ sealed class ResponseVariant2CompletedAt {
   static const String constructionSurface = 'named';
   const ResponseVariant2CompletedAt();
   factory ResponseVariant2CompletedAt.fromJson(Object? json) {
-    if (json is num) { return ResponseVariant2CompletedAtDouble(json.toDouble()); }
+    if (json is num) {
+      return ResponseVariant2CompletedAtDouble(json.toDouble());
+    }
     throw FormatException("No variant matched for ResponseVariant2CompletedAt");
   }
   Object? toJson();
 }
 
-final class ResponseVariant2CompletedAtDouble extends ResponseVariant2CompletedAt {
+final class ResponseVariant2CompletedAtDouble
+    extends ResponseVariant2CompletedAt {
   final double value;
   const ResponseVariant2CompletedAtDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Details about why the response is incomplete.
 class ResponseVariant2IncompleteDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The reason why the response is incomplete. `steered` means the response stopped at a safe output boundary after a WebSocket `response.steer` event. The server can then create a successor response automatically with the queued input.
   final SdkOptional<ResponseVariant2IncompleteDetailsReason> reason;
 
   const ResponseVariant2IncompleteDetails({this.reason = const SdkOmitted()});
 
-  ResponseVariant2IncompleteDetails Function({SdkOptional<ResponseVariant2IncompleteDetailsReason> reason}) get copyWith => _copyWith;
+  ResponseVariant2IncompleteDetails Function(
+          {SdkOptional<ResponseVariant2IncompleteDetailsReason> reason})
+      get copyWith => _copyWith;
 
-  ResponseVariant2IncompleteDetails _copyWith({Object? reason = sdkOmittedValue}) => ResponseVariant2IncompleteDetails(
-    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as SdkOptional<ResponseVariant2IncompleteDetailsReason>,
-  );
+  ResponseVariant2IncompleteDetails _copyWith(
+          {Object? reason = sdkOmittedValue}) =>
+      ResponseVariant2IncompleteDetails(
+        reason: identical(reason, sdkOmittedValue)
+            ? this.reason
+            : reason as SdkOptional<ResponseVariant2IncompleteDetailsReason>,
+      );
 
-  factory ResponseVariant2IncompleteDetails.fromJson(Map<String, dynamic> json) => ResponseVariant2IncompleteDetails(
-    reason: json['reason'] != null ? SdkPresent((json['reason'] != null ? ResponseVariant2IncompleteDetailsReason.fromJson(json['reason'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory ResponseVariant2IncompleteDetails.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseVariant2IncompleteDetails(
+        reason: json['reason'] != null
+            ? SdkPresent((json['reason'] != null
+                ? ResponseVariant2IncompleteDetailsReason.fromJson(
+                    json['reason'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (reason) {
-      SdkPresent<ResponseVariant2IncompleteDetailsReason>(value: final value) => {'reason': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (reason) {
+          SdkPresent<ResponseVariant2IncompleteDetailsReason>(
+            value: final value
+          ) =>
+            {
+              'reason': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class ResponseVariant2Instructions {
@@ -70,23 +99,32 @@ sealed class ResponseVariant2Instructions {
   static const String constructionSurface = 'named';
   const ResponseVariant2Instructions();
   factory ResponseVariant2Instructions.fromJson(Object? json) {
-    if (json is String) { return ResponseVariant2InstructionsString(json); }
-    try { return ResponseVariant2InstructionsInputItem(InputItem.fromJson(json)); } catch (_) {}
-    throw FormatException("No variant matched for ResponseVariant2Instructions");
+    if (json is String) {
+      return ResponseVariant2InstructionsString(json);
+    }
+    try {
+      return ResponseVariant2InstructionsInputItem(InputItem.fromJson(json));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for ResponseVariant2Instructions");
   }
   Object? toJson();
 }
 
-final class ResponseVariant2InstructionsString extends ResponseVariant2Instructions {
+final class ResponseVariant2InstructionsString
+    extends ResponseVariant2Instructions {
   final String value;
   const ResponseVariant2InstructionsString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class ResponseVariant2InstructionsInputItem extends ResponseVariant2Instructions {
+final class ResponseVariant2InstructionsInputItem
+    extends ResponseVariant2Instructions {
   final InputItem value;
   const ResponseVariant2InstructionsInputItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class ResponseVariant2OutputText {
@@ -94,14 +132,18 @@ sealed class ResponseVariant2OutputText {
   static const String constructionSurface = 'named';
   const ResponseVariant2OutputText();
   factory ResponseVariant2OutputText.fromJson(Object? json) {
-    if (json is String) { return ResponseVariant2OutputTextString(json); }
+    if (json is String) {
+      return ResponseVariant2OutputTextString(json);
+    }
     throw FormatException("No variant matched for ResponseVariant2OutputText");
   }
   Object? toJson();
 }
 
-final class ResponseVariant2OutputTextString extends ResponseVariant2OutputText {
+final class ResponseVariant2OutputTextString
+    extends ResponseVariant2OutputText {
   final String value;
   const ResponseVariant2OutputTextString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }

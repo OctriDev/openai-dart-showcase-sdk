@@ -8,69 +8,119 @@ part of 'assistants_message.dart';
 class MessageDeltaObjectDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The entity that produced the message. One of `user` or `assistant`.
   final SdkOptional<MessageDeltaObjectDeltaRole> role;
+
   /// The content of the message in array of text and/or images.
   final SdkOptional<List<MessageDeltaObjectDeltaContentItem>> content;
 
-  const MessageDeltaObjectDelta({this.role = const SdkOmitted(), this.content = const SdkOmitted()});
+  const MessageDeltaObjectDelta(
+      {this.role = const SdkOmitted(), this.content = const SdkOmitted()});
 
-  MessageDeltaObjectDelta Function({SdkOptional<MessageDeltaObjectDeltaRole> role, SdkOptional<List<MessageDeltaObjectDeltaContentItem>> content}) get copyWith => _copyWith;
+  MessageDeltaObjectDelta Function(
+          {SdkOptional<MessageDeltaObjectDeltaRole> role,
+          SdkOptional<List<MessageDeltaObjectDeltaContentItem>> content})
+      get copyWith => _copyWith;
 
-  MessageDeltaObjectDelta _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue}) => MessageDeltaObjectDelta(
-    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<MessageDeltaObjectDeltaRole>,
-    content: identical(content, sdkOmittedValue) ? this.content : content as SdkOptional<List<MessageDeltaObjectDeltaContentItem>>,
-  );
+  MessageDeltaObjectDelta _copyWith(
+          {Object? role = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      MessageDeltaObjectDelta(
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as SdkOptional<MessageDeltaObjectDeltaRole>,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as SdkOptional<List<MessageDeltaObjectDeltaContentItem>>,
+      );
 
-  factory MessageDeltaObjectDelta.fromJson(Map<String, dynamic> json) => MessageDeltaObjectDelta(
-    role: json['role'] != null ? SdkPresent((json['role'] != null ? MessageDeltaObjectDeltaRole.fromJson(json['role'] as String) : null)!) : const SdkOmitted(),
-    content: json['content'] != null ? SdkPresent(((json['content'] as List?)?.map((e) => MessageDeltaObjectDeltaContentItem.fromJson(e)).toList())!) : const SdkOmitted(),
-  );
+  factory MessageDeltaObjectDelta.fromJson(Map<String, dynamic> json) =>
+      MessageDeltaObjectDelta(
+        role: json['role'] != null
+            ? SdkPresent((json['role'] != null
+                ? MessageDeltaObjectDeltaRole.fromJson(json['role'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        content: json['content'] != null
+            ? SdkPresent(((json['content'] as List?)
+                ?.map((e) => MessageDeltaObjectDeltaContentItem.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (role) {
-      SdkPresent<MessageDeltaObjectDeltaRole>(value: final value) => {'role': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (content) {
-      SdkPresent<List<MessageDeltaObjectDeltaContentItem>>(value: final value) => {'content': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (role) {
+          SdkPresent<MessageDeltaObjectDeltaRole>(value: final value) => {
+              'role': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (content) {
+          SdkPresent<List<MessageDeltaObjectDeltaContentItem>>(
+            value: final value
+          ) =>
+            {
+              'content': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Represents a message delta i.e. any changed fields on a message during streaming.
 class MessageDeltaObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The identifier of the message, which can be referenced in API endpoints.
   final String id;
+
   /// The object type, which is always `thread.message.delta`.
   final MessageDeltaObjectObject object;
+
   /// The delta containing the fields that have changed on the Message.
   final MessageDeltaObjectDelta delta;
 
-  const MessageDeltaObject({required this.id, required this.object, required this.delta});
+  const MessageDeltaObject(
+      {required this.id, required this.object, required this.delta});
 
-  MessageDeltaObject Function({String id, MessageDeltaObjectObject object, MessageDeltaObjectDelta delta}) get copyWith => _copyWith;
+  MessageDeltaObject Function(
+      {String id,
+      MessageDeltaObjectObject object,
+      MessageDeltaObjectDelta delta}) get copyWith => _copyWith;
 
-  MessageDeltaObject _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? delta = sdkOmittedValue}) => MessageDeltaObject(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as MessageDeltaObjectObject,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as MessageDeltaObjectDelta,
-  );
+  MessageDeltaObject _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? delta = sdkOmittedValue}) =>
+      MessageDeltaObject(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as MessageDeltaObjectObject,
+        delta: identical(delta, sdkOmittedValue)
+            ? this.delta
+            : delta as MessageDeltaObjectDelta,
+      );
 
-  factory MessageDeltaObject.fromJson(Map<String, dynamic> json) => MessageDeltaObject(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? MessageDeltaObjectObject.fromJson(json['object'] as String) : null)!,
-    delta: (json['delta'] != null ? MessageDeltaObjectDelta.fromJson(json['delta'] as Map<String, dynamic>) : null)!,
-  );
+  factory MessageDeltaObject.fromJson(Map<String, dynamic> json) =>
+      MessageDeltaObject(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? MessageDeltaObjectObject.fromJson(json['object'] as String)
+            : null)!,
+        delta: (json['delta'] != null
+            ? MessageDeltaObjectDelta.fromJson(
+                json['delta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'delta': delta.toJson(),
-  };
+        'id': id,
+        'object': object.toJson(),
+        'delta': delta.toJson(),
+      };
 }
 
 sealed class MessageDeltaObjectDeltaContentItem {
@@ -78,69 +128,114 @@ sealed class MessageDeltaObjectDeltaContentItem {
   static const String constructionSurface = 'named';
   const MessageDeltaObjectDeltaContentItem();
   factory MessageDeltaObjectDeltaContentItem.fromJson(Object? json) {
-    try { return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(MessageDeltaContentImageFileObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(MessageDeltaContentTextObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(MessageDeltaContentRefusalObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject(MessageDeltaContentImageUrlObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"image_file", "text", "refusal", "image_url"}.contains(json["type"])) { return UnknownMessageDeltaObjectDeltaContentItem(json); }
-    throw FormatException("No variant matched for MessageDeltaObjectDeltaContentItem");
+    try {
+      return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(
+          MessageDeltaContentImageFileObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(
+          MessageDeltaContentTextObject.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(
+          MessageDeltaContentRefusalObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject(
+          MessageDeltaContentImageUrlObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"image_file", "text", "refusal", "image_url"}
+            .contains(json["type"])) {
+      return UnknownMessageDeltaObjectDeltaContentItem(json);
+    }
+    throw FormatException(
+        "No variant matched for MessageDeltaObjectDeltaContentItem");
   }
   Object? toJson();
 }
 
-final class MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject extends MessageDeltaObjectDeltaContentItem {
+final class MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject
+    extends MessageDeltaObjectDeltaContentItem {
   final MessageDeltaContentImageFileObject value;
-  const MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject extends MessageDeltaObjectDeltaContentItem {
+final class MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject
+    extends MessageDeltaObjectDeltaContentItem {
   final MessageDeltaContentTextObject value;
-  const MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject extends MessageDeltaObjectDeltaContentItem {
+final class MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject
+    extends MessageDeltaObjectDeltaContentItem {
   final MessageDeltaContentRefusalObject value;
-  const MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject extends MessageDeltaObjectDeltaContentItem {
+final class MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject
+    extends MessageDeltaObjectDeltaContentItem {
   final MessageDeltaContentImageUrlObject value;
-  const MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [MessageDeltaObjectDeltaContentItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownMessageDeltaObjectDeltaContentItem extends MessageDeltaObjectDeltaContentItem {
+final class UnknownMessageDeltaObjectDeltaContentItem
+    extends MessageDeltaObjectDeltaContentItem {
   final Map<String, dynamic> raw;
   const UnknownMessageDeltaObjectDeltaContentItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// On an incomplete message, details about why the message is incomplete.
 class MessageObjectIncompleteDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The reason the message is incomplete.
   final MessageObjectIncompleteDetailsReason reason;
 
   const MessageObjectIncompleteDetails({required this.reason});
 
-  MessageObjectIncompleteDetails Function({MessageObjectIncompleteDetailsReason reason}) get copyWith => _copyWith;
+  MessageObjectIncompleteDetails Function(
+      {MessageObjectIncompleteDetailsReason reason}) get copyWith => _copyWith;
 
-  MessageObjectIncompleteDetails _copyWith({Object? reason = sdkOmittedValue}) => MessageObjectIncompleteDetails(
-    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as MessageObjectIncompleteDetailsReason,
-  );
+  MessageObjectIncompleteDetails _copyWith(
+          {Object? reason = sdkOmittedValue}) =>
+      MessageObjectIncompleteDetails(
+        reason: identical(reason, sdkOmittedValue)
+            ? this.reason
+            : reason as MessageObjectIncompleteDetailsReason,
+      );
 
-  factory MessageObjectIncompleteDetails.fromJson(Map<String, dynamic> json) => MessageObjectIncompleteDetails(
-    reason: (json['reason'] != null ? MessageObjectIncompleteDetailsReason.fromJson(json['reason'] as String) : null)!,
-  );
+  factory MessageObjectIncompleteDetails.fromJson(Map<String, dynamic> json) =>
+      MessageObjectIncompleteDetails(
+        reason: (json['reason'] != null
+            ? MessageObjectIncompleteDetailsReason.fromJson(
+                json['reason'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'reason': reason.toJson(),
-  };
+        'reason': reason.toJson(),
+      };
 }
 
 sealed class MessageObjectCompletedAt {
@@ -148,7 +243,9 @@ sealed class MessageObjectCompletedAt {
   static const String constructionSurface = 'named';
   const MessageObjectCompletedAt();
   factory MessageObjectCompletedAt.fromJson(Object? json) {
-    if (json is num) { return MessageObjectCompletedAtInt(json.toInt()); }
+    if (json is num) {
+      return MessageObjectCompletedAtInt(json.toInt());
+    }
     throw FormatException("No variant matched for MessageObjectCompletedAt");
   }
   Object? toJson();
@@ -157,7 +254,8 @@ sealed class MessageObjectCompletedAt {
 final class MessageObjectCompletedAtInt extends MessageObjectCompletedAt {
   final int value;
   const MessageObjectCompletedAtInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class MessageObjectIncompleteAt {
@@ -165,7 +263,9 @@ sealed class MessageObjectIncompleteAt {
   static const String constructionSurface = 'named';
   const MessageObjectIncompleteAt();
   factory MessageObjectIncompleteAt.fromJson(Object? json) {
-    if (json is num) { return MessageObjectIncompleteAtInt(json.toInt()); }
+    if (json is num) {
+      return MessageObjectIncompleteAtInt(json.toInt());
+    }
     throw FormatException("No variant matched for MessageObjectIncompleteAt");
   }
   Object? toJson();
@@ -174,40 +274,68 @@ sealed class MessageObjectIncompleteAt {
 final class MessageObjectIncompleteAtInt extends MessageObjectIncompleteAt {
   final int value;
   const MessageObjectIncompleteAtInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Required object value serialized in the `attachments[]` wire field.
 class MessageObjectAttachmentsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the file to attach to the message.
   final SdkOptional<String> fileId;
+
   /// The tools to add this file to.
   final SdkOptional<List<MessageObjectAttachmentsItemToolsItem>> tools;
 
-  const MessageObjectAttachmentsItem({this.fileId = const SdkOmitted(), this.tools = const SdkOmitted()});
+  const MessageObjectAttachmentsItem(
+      {this.fileId = const SdkOmitted(), this.tools = const SdkOmitted()});
 
-  MessageObjectAttachmentsItem Function({SdkOptional<String> fileId, SdkOptional<List<MessageObjectAttachmentsItemToolsItem>> tools}) get copyWith => _copyWith;
+  MessageObjectAttachmentsItem Function(
+          {SdkOptional<String> fileId,
+          SdkOptional<List<MessageObjectAttachmentsItemToolsItem>> tools})
+      get copyWith => _copyWith;
 
-  MessageObjectAttachmentsItem _copyWith({Object? fileId = sdkOmittedValue, Object? tools = sdkOmittedValue}) => MessageObjectAttachmentsItem(
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<MessageObjectAttachmentsItemToolsItem>>,
-  );
+  MessageObjectAttachmentsItem _copyWith(
+          {Object? fileId = sdkOmittedValue,
+          Object? tools = sdkOmittedValue}) =>
+      MessageObjectAttachmentsItem(
+        fileId: identical(fileId, sdkOmittedValue)
+            ? this.fileId
+            : fileId as SdkOptional<String>,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as SdkOptional<List<MessageObjectAttachmentsItemToolsItem>>,
+      );
 
-  factory MessageObjectAttachmentsItem.fromJson(Map<String, dynamic> json) => MessageObjectAttachmentsItem(
-    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
-    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => MessageObjectAttachmentsItemToolsItem.fromJson(e)).toList())!) : const SdkOmitted(),
-  );
+  factory MessageObjectAttachmentsItem.fromJson(Map<String, dynamic> json) =>
+      MessageObjectAttachmentsItem(
+        fileId: json['file_id'] != null
+            ? SdkPresent((json['file_id'] as String?)!)
+            : const SdkOmitted(),
+        tools: json['tools'] != null
+            ? SdkPresent(((json['tools'] as List?)
+                ?.map((e) => MessageObjectAttachmentsItemToolsItem.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (fileId) {
-      SdkPresent<String>(value: final value) => {'file_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tools) {
-      SdkPresent<List<MessageObjectAttachmentsItemToolsItem>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (fileId) {
+          SdkPresent<String>(value: final value) => {
+              'file_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tools) {
+          SdkPresent<List<MessageObjectAttachmentsItemToolsItem>>(
+            value: final value
+          ) =>
+            {
+              'tools': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

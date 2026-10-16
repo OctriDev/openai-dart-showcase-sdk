@@ -10,14 +10,17 @@ enum InputFileContentParamType {
 
   static InputFileContentParamType fromJson(String value) {
     switch (value) {
-      case 'input_file': return InputFileContentParamType.inputFile;
-      default: throw ArgumentError('Unknown InputFileContentParamType: $value');
+      case 'input_file':
+        return InputFileContentParamType.inputFile;
+      default:
+        throw ArgumentError('Unknown InputFileContentParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputFileContentParamType.inputFile: return 'input_file';
+      case InputFileContentParamType.inputFile:
+        return 'input_file';
     }
   }
 
@@ -31,14 +34,17 @@ enum InputImageContentType {
 
   static InputImageContentType fromJson(String value) {
     switch (value) {
-      case 'input_image': return InputImageContentType.inputImage;
-      default: throw ArgumentError('Unknown InputImageContentType: $value');
+      case 'input_image':
+        return InputImageContentType.inputImage;
+      default:
+        throw ArgumentError('Unknown InputImageContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputImageContentType.inputImage: return 'input_image';
+      case InputImageContentType.inputImage:
+        return 'input_image';
     }
   }
 
@@ -52,14 +58,18 @@ enum InputImageContentParamAutoParamType {
 
   static InputImageContentParamAutoParamType fromJson(String value) {
     switch (value) {
-      case 'input_image': return InputImageContentParamAutoParamType.inputImage;
-      default: throw ArgumentError('Unknown InputImageContentParamAutoParamType: $value');
+      case 'input_image':
+        return InputImageContentParamAutoParamType.inputImage;
+      default:
+        throw ArgumentError(
+            'Unknown InputImageContentParamAutoParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputImageContentParamAutoParamType.inputImage: return 'input_image';
+      case InputImageContentParamAutoParamType.inputImage:
+        return 'input_image';
     }
   }
 
@@ -69,7 +79,6 @@ enum InputImageContentParamAutoParamType {
 
 /// The role of the message input. One of `user`, `system`, or `developer`.
 final class InputMessageRole {
-
   final String value;
 
   const InputMessageRole._(this.value);
@@ -82,22 +91,25 @@ final class InputMessageRole {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is InputMessageRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is InputMessageRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 final class InputMessageStatus {
-
   final String value;
 
   const InputMessageStatus._(this.value);
 
-  factory InputMessageStatus.fromJson(String value) => InputMessageStatus._(value);
+  factory InputMessageStatus.fromJson(String value) =>
+      InputMessageStatus._(value);
 
   static const inProgress = InputMessageStatus._('in_progress');
   static const completed = InputMessageStatus._('completed');
@@ -105,12 +117,15 @@ final class InputMessageStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is InputMessageStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is InputMessageStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the message input. Always set to `message`.
@@ -119,14 +134,17 @@ enum InputMessageType {
 
   static InputMessageType fromJson(String value) {
     switch (value) {
-      case 'message': return InputMessageType.message;
-      default: throw ArgumentError('Unknown InputMessageType: $value');
+      case 'message':
+        return InputMessageType.message;
+      default:
+        throw ArgumentError('Unknown InputMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputMessageType.message: return 'message';
+      case InputMessageType.message:
+        return 'message';
     }
   }
 
@@ -136,44 +154,50 @@ enum InputMessageType {
 
 /// The role of the message author. Always `user`.
 final class InputMessageParamRole {
-
   final String value;
 
   const InputMessageParamRole._(this.value);
 
-  factory InputMessageParamRole.fromJson(String value) => InputMessageParamRole._(value);
+  factory InputMessageParamRole.fromJson(String value) =>
+      InputMessageParamRole._(value);
 
   static const user = InputMessageParamRole._('user');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is InputMessageParamRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is InputMessageParamRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the input item. Always `message`.
 final class InputMessageParamType {
-
   final String value;
 
   const InputMessageParamType._(this.value);
 
-  factory InputMessageParamType.fromJson(String value) => InputMessageParamType._(value);
+  factory InputMessageParamType.fromJson(String value) =>
+      InputMessageParamType._(value);
 
   static const message = InputMessageParamType._('message');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is InputMessageParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is InputMessageParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the input item. Always `input_text`.
@@ -182,14 +206,17 @@ enum InputTextContentType {
 
   static InputTextContentType fromJson(String value) {
     switch (value) {
-      case 'input_text': return InputTextContentType.inputText;
-      default: throw ArgumentError('Unknown InputTextContentType: $value');
+      case 'input_text':
+        return InputTextContentType.inputText;
+      default:
+        throw ArgumentError('Unknown InputTextContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputTextContentType.inputText: return 'input_text';
+      case InputTextContentType.inputText:
+        return 'input_text';
     }
   }
 
@@ -203,14 +230,17 @@ enum InputTextContentParamType {
 
   static InputTextContentParamType fromJson(String value) {
     switch (value) {
-      case 'input_text': return InputTextContentParamType.inputText;
-      default: throw ArgumentError('Unknown InputTextContentParamType: $value');
+      case 'input_text':
+        return InputTextContentParamType.inputText;
+      default:
+        throw ArgumentError('Unknown InputTextContentParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputTextContentParamType.inputText: return 'input_text';
+      case InputTextContentParamType.inputText:
+        return 'input_text';
     }
   }
 
@@ -224,14 +254,18 @@ enum InterruptSubagentCallItemResourceType {
 
   static InterruptSubagentCallItemResourceType fromJson(String value) {
     switch (value) {
-      case 'interrupt_subagent_call': return InterruptSubagentCallItemResourceType.interruptSubagentCall;
-      default: throw ArgumentError('Unknown InterruptSubagentCallItemResourceType: $value');
+      case 'interrupt_subagent_call':
+        return InterruptSubagentCallItemResourceType.interruptSubagentCall;
+      default:
+        throw ArgumentError(
+            'Unknown InterruptSubagentCallItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InterruptSubagentCallItemResourceType.interruptSubagentCall: return 'interrupt_subagent_call';
+      case InterruptSubagentCallItemResourceType.interruptSubagentCall:
+        return 'interrupt_subagent_call';
     }
   }
 
@@ -241,7 +275,6 @@ enum InterruptSubagentCallItemResourceType {
 
 /// The object type, which is always `organization.invite`
 final class InviteObject {
-
   final String value;
 
   const InviteObject._(this.value);
@@ -252,32 +285,38 @@ final class InviteObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is InviteObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is InviteObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Project membership role
 final class InviteProjectsItemRole {
-
   final String value;
 
   const InviteProjectsItemRole._(this.value);
 
-  factory InviteProjectsItemRole.fromJson(String value) => InviteProjectsItemRole._(value);
+  factory InviteProjectsItemRole.fromJson(String value) =>
+      InviteProjectsItemRole._(value);
 
   static const member = InviteProjectsItemRole._('member');
   static const owner = InviteProjectsItemRole._('owner');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is InviteProjectsItemRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is InviteProjectsItemRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -9,16 +9,23 @@ sealed class EditImageBodyJsonParamModeration {
   static const String constructionSurface = 'named';
   const EditImageBodyJsonParamModeration();
   factory EditImageBodyJsonParamModeration.fromJson(Object? json) {
-    try { return EditImageBodyJsonParamModerationEditImageBodyJsonParamModerationVariant0(EditImageBodyJsonParamModerationVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for EditImageBodyJsonParamModeration");
+    try {
+      return EditImageBodyJsonParamModerationEditImageBodyJsonParamModerationVariant0(
+          EditImageBodyJsonParamModerationVariant0.fromJson(json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for EditImageBodyJsonParamModeration");
   }
   Object? toJson();
 }
 
-final class EditImageBodyJsonParamModerationEditImageBodyJsonParamModerationVariant0 extends EditImageBodyJsonParamModeration {
+final class EditImageBodyJsonParamModerationEditImageBodyJsonParamModerationVariant0
+    extends EditImageBodyJsonParamModeration {
   final EditImageBodyJsonParamModerationVariant0 value;
-  const EditImageBodyJsonParamModerationEditImageBodyJsonParamModerationVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const EditImageBodyJsonParamModerationEditImageBodyJsonParamModerationVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class EditImageBodyJsonParamBackground {
@@ -26,265 +33,564 @@ sealed class EditImageBodyJsonParamBackground {
   static const String constructionSurface = 'named';
   const EditImageBodyJsonParamBackground();
   factory EditImageBodyJsonParamBackground.fromJson(Object? json) {
-    try { return EditImageBodyJsonParamBackgroundEditImageBodyJsonParamBackgroundVariant0(EditImageBodyJsonParamBackgroundVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for EditImageBodyJsonParamBackground");
+    try {
+      return EditImageBodyJsonParamBackgroundEditImageBodyJsonParamBackgroundVariant0(
+          EditImageBodyJsonParamBackgroundVariant0.fromJson(json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for EditImageBodyJsonParamBackground");
   }
   Object? toJson();
 }
 
-final class EditImageBodyJsonParamBackgroundEditImageBodyJsonParamBackgroundVariant0 extends EditImageBodyJsonParamBackground {
+final class EditImageBodyJsonParamBackgroundEditImageBodyJsonParamBackgroundVariant0
+    extends EditImageBodyJsonParamBackground {
   final EditImageBodyJsonParamBackgroundVariant0 value;
-  const EditImageBodyJsonParamBackgroundEditImageBodyJsonParamBackgroundVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const EditImageBodyJsonParamBackgroundEditImageBodyJsonParamBackgroundVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// JSON request body for image edits. Use `images` (array of `ImageRefParam`) instead of multipart `image` uploads. You can reference images via external URLs, data URLs, or uploaded file IDs. JSON edits support GPT image models.
 class EditImageBodyJsonParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The GPT image model to use for image editing, including `gpt-image-2`, its dated snapshot `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and `gpt-image-2.5-flare-2026-09-08`. Defaults to `gpt-image-2.5-sunburst`.
   final SdkOptional<String?> model;
+
   /// Input image references to edit. For GPT image models, you can provide up to 16 images.
   final List<ImageRefParam> images;
+
   /// Reference an input image by either URL or uploaded file ID. Provide exactly one of `image_url` or `file_id`.
   final SdkOptional<ImageRefParam> mask;
+
   /// A text description of the desired image edit.
   final String prompt;
+
   /// The number of edited images to generate.
   final SdkOptional<int?> n;
+
   /// Output quality for GPT image models. The GPT image models support `low`, `medium`, and `high`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, also support `xhigh` and `max`. Defaults to `auto`.
   final SdkOptional<EditImageBodyJsonParamQualityVariant0?> quality;
+
   /// Control how much effort the model will exert to match the style and features, especially facial features, of input images. Supports `high` and `low` on `gpt-image-1` and `gpt-image-1.5`; `gpt-image-1-mini` supports only `low`. For `gpt-image-2`, omit this parameter. Defaults to `low` on supported models.
   final SdkOptional<EditImageBodyJsonParamInputFidelityVariant0?> inputFidelity;
+
   /// The size of the generated images. For `gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and `gpt-image-2.5-flare-2026-09-08`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model's current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing.
   final SdkOptional<String?> size;
+
   /// A stable identifier for an end user in your organization, used for safety monitoring and abuse detection. Hash a username or email address to avoid sending identifying information. A non-empty value takes precedence over the deprecated `user` parameter. If omitted, null, or empty, the API uses `user` when available. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).
   final SdkOptional<String?> safetyIdentifier;
+
   /// Deprecated: use `safety_identifier` instead. This parameter remains accepted for backward compatibility and is used when `safety_identifier` is omitted, null, or empty. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).
   final SdkOptional<String> user;
+
   /// Output image format. Supported for GPT image models.
   final SdkOptional<EditImageBodyJsonParamOutputFormatVariant0?> outputFormat;
+
   /// Compression level for `jpeg` or `webp` output.
   final SdkOptional<int?> outputCompression;
+
   /// Moderation level for GPT image models.
   final SdkOptional<EditImageBodyJsonParamModerationVariant0?> moderation;
+
   /// Set the background of the generated image output. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, support `opaque` and `transparent` backgrounds. Transparent backgrounds are available for supported GPT Image models. For `gpt-image-2` and `gpt-image-2-2026-04-21`, this support is in preview. When using `transparent`, set the output format to `png` or `webp`.
   final SdkOptional<EditImageBodyJsonParamBackgroundVariant0?> background;
+
   /// Stream partial image results as events.
   final SdkOptional<bool?> stream;
+
   /// Optional API value serialized in the `partial_images` wire field.
   final SdkOptional<PartialImages?> partialImages;
 
-  const EditImageBodyJsonParam({this.model = const SdkOmitted(), required this.images, this.mask = const SdkOmitted(), required this.prompt, this.n = const SdkOmitted(), this.quality = const SdkOmitted(), this.inputFidelity = const SdkOmitted(), this.size = const SdkOmitted(), this.safetyIdentifier = const SdkOmitted(), this.user = const SdkOmitted(), this.outputFormat = const SdkOmitted(), this.outputCompression = const SdkOmitted(), this.moderation = const SdkOmitted(), this.background = const SdkOmitted(), this.stream = const SdkOmitted(), this.partialImages = const SdkOmitted()});
+  const EditImageBodyJsonParam(
+      {this.model = const SdkOmitted(),
+      required this.images,
+      this.mask = const SdkOmitted(),
+      required this.prompt,
+      this.n = const SdkOmitted(),
+      this.quality = const SdkOmitted(),
+      this.inputFidelity = const SdkOmitted(),
+      this.size = const SdkOmitted(),
+      this.safetyIdentifier = const SdkOmitted(),
+      this.user = const SdkOmitted(),
+      this.outputFormat = const SdkOmitted(),
+      this.outputCompression = const SdkOmitted(),
+      this.moderation = const SdkOmitted(),
+      this.background = const SdkOmitted(),
+      this.stream = const SdkOmitted(),
+      this.partialImages = const SdkOmitted()});
 
-  EditImageBodyJsonParam Function({SdkOptional<String?> model, List<ImageRefParam> images, SdkOptional<ImageRefParam> mask, String prompt, SdkOptional<int?> n, SdkOptional<EditImageBodyJsonParamQualityVariant0?> quality, SdkOptional<EditImageBodyJsonParamInputFidelityVariant0?> inputFidelity, SdkOptional<String?> size, SdkOptional<String?> safetyIdentifier, SdkOptional<String> user, SdkOptional<EditImageBodyJsonParamOutputFormatVariant0?> outputFormat, SdkOptional<int?> outputCompression, SdkOptional<EditImageBodyJsonParamModerationVariant0?> moderation, SdkOptional<EditImageBodyJsonParamBackgroundVariant0?> background, SdkOptional<bool?> stream, SdkOptional<PartialImages?> partialImages}) get copyWith => _copyWith;
+  EditImageBodyJsonParam Function(
+      {SdkOptional<String?> model,
+      List<ImageRefParam> images,
+      SdkOptional<ImageRefParam> mask,
+      String prompt,
+      SdkOptional<int?> n,
+      SdkOptional<EditImageBodyJsonParamQualityVariant0?> quality,
+      SdkOptional<EditImageBodyJsonParamInputFidelityVariant0?> inputFidelity,
+      SdkOptional<String?> size,
+      SdkOptional<String?> safetyIdentifier,
+      SdkOptional<String> user,
+      SdkOptional<EditImageBodyJsonParamOutputFormatVariant0?> outputFormat,
+      SdkOptional<int?> outputCompression,
+      SdkOptional<EditImageBodyJsonParamModerationVariant0?> moderation,
+      SdkOptional<EditImageBodyJsonParamBackgroundVariant0?> background,
+      SdkOptional<bool?> stream,
+      SdkOptional<PartialImages?> partialImages}) get copyWith => _copyWith;
 
-  EditImageBodyJsonParam _copyWith({Object? model = sdkOmittedValue, Object? images = sdkOmittedValue, Object? mask = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? n = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? inputFidelity = sdkOmittedValue, Object? size = sdkOmittedValue, Object? safetyIdentifier = sdkOmittedValue, Object? user = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? outputCompression = sdkOmittedValue, Object? moderation = sdkOmittedValue, Object? background = sdkOmittedValue, Object? stream = sdkOmittedValue, Object? partialImages = sdkOmittedValue}) => EditImageBodyJsonParam(
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String?>,
-    images: identical(images, sdkOmittedValue) ? this.images : images as List<ImageRefParam>,
-    mask: identical(mask, sdkOmittedValue) ? this.mask : mask as SdkOptional<ImageRefParam>,
-    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
-    n: identical(n, sdkOmittedValue) ? this.n : n as SdkOptional<int?>,
-    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as SdkOptional<EditImageBodyJsonParamQualityVariant0?>,
-    inputFidelity: identical(inputFidelity, sdkOmittedValue) ? this.inputFidelity : inputFidelity as SdkOptional<EditImageBodyJsonParamInputFidelityVariant0?>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String?>,
-    safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue) ? this.safetyIdentifier : safetyIdentifier as SdkOptional<String?>,
-    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String>,
-    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as SdkOptional<EditImageBodyJsonParamOutputFormatVariant0?>,
-    outputCompression: identical(outputCompression, sdkOmittedValue) ? this.outputCompression : outputCompression as SdkOptional<int?>,
-    moderation: identical(moderation, sdkOmittedValue) ? this.moderation : moderation as SdkOptional<EditImageBodyJsonParamModerationVariant0?>,
-    background: identical(background, sdkOmittedValue) ? this.background : background as SdkOptional<EditImageBodyJsonParamBackgroundVariant0?>,
-    stream: identical(stream, sdkOmittedValue) ? this.stream : stream as SdkOptional<bool?>,
-    partialImages: identical(partialImages, sdkOmittedValue) ? this.partialImages : partialImages as SdkOptional<PartialImages?>,
-  );
+  EditImageBodyJsonParam _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? images = sdkOmittedValue,
+          Object? mask = sdkOmittedValue,
+          Object? prompt = sdkOmittedValue,
+          Object? n = sdkOmittedValue,
+          Object? quality = sdkOmittedValue,
+          Object? inputFidelity = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? safetyIdentifier = sdkOmittedValue,
+          Object? user = sdkOmittedValue,
+          Object? outputFormat = sdkOmittedValue,
+          Object? outputCompression = sdkOmittedValue,
+          Object? moderation = sdkOmittedValue,
+          Object? background = sdkOmittedValue,
+          Object? stream = sdkOmittedValue,
+          Object? partialImages = sdkOmittedValue}) =>
+      EditImageBodyJsonParam(
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<String?>,
+        images: identical(images, sdkOmittedValue)
+            ? this.images
+            : images as List<ImageRefParam>,
+        mask: identical(mask, sdkOmittedValue)
+            ? this.mask
+            : mask as SdkOptional<ImageRefParam>,
+        prompt:
+            identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
+        n: identical(n, sdkOmittedValue) ? this.n : n as SdkOptional<int?>,
+        quality: identical(quality, sdkOmittedValue)
+            ? this.quality
+            : quality as SdkOptional<EditImageBodyJsonParamQualityVariant0?>,
+        inputFidelity: identical(inputFidelity, sdkOmittedValue)
+            ? this.inputFidelity
+            : inputFidelity
+                as SdkOptional<EditImageBodyJsonParamInputFidelityVariant0?>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<String?>,
+        safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue)
+            ? this.safetyIdentifier
+            : safetyIdentifier as SdkOptional<String?>,
+        user: identical(user, sdkOmittedValue)
+            ? this.user
+            : user as SdkOptional<String>,
+        outputFormat: identical(outputFormat, sdkOmittedValue)
+            ? this.outputFormat
+            : outputFormat
+                as SdkOptional<EditImageBodyJsonParamOutputFormatVariant0?>,
+        outputCompression: identical(outputCompression, sdkOmittedValue)
+            ? this.outputCompression
+            : outputCompression as SdkOptional<int?>,
+        moderation: identical(moderation, sdkOmittedValue)
+            ? this.moderation
+            : moderation
+                as SdkOptional<EditImageBodyJsonParamModerationVariant0?>,
+        background: identical(background, sdkOmittedValue)
+            ? this.background
+            : background
+                as SdkOptional<EditImageBodyJsonParamBackgroundVariant0?>,
+        stream: identical(stream, sdkOmittedValue)
+            ? this.stream
+            : stream as SdkOptional<bool?>,
+        partialImages: identical(partialImages, sdkOmittedValue)
+            ? this.partialImages
+            : partialImages as SdkOptional<PartialImages?>,
+      );
 
-  factory EditImageBodyJsonParam.fromJson(Map<String, dynamic> json) => EditImageBodyJsonParam(
-    model: json.containsKey('model') ? SdkPresent(json['model'] as String?) : const SdkOmitted(),
-    images: ((json['images'] as List?)?.map((e) => ImageRefParam.fromJson(e as Map<String, dynamic>)).toList())!,
-    mask: json['mask'] != null ? SdkPresent((json['mask'] != null ? ImageRefParam.fromJson(json['mask'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    prompt: (json['prompt'] as String?)!,
-    n: json.containsKey('n') ? SdkPresent((json['n'] as num?)?.toInt()) : const SdkOmitted(),
-    quality: json.containsKey('quality') ? SdkPresent(json['quality'] != null ? EditImageBodyJsonParamQualityVariant0.fromJson(json['quality'] as String) : null) : const SdkOmitted(),
-    inputFidelity: json.containsKey('input_fidelity') ? SdkPresent(json['input_fidelity'] != null ? EditImageBodyJsonParamInputFidelityVariant0.fromJson(json['input_fidelity'] as String) : null) : const SdkOmitted(),
-    size: json.containsKey('size') ? SdkPresent(json['size'] as String?) : const SdkOmitted(),
-    safetyIdentifier: json.containsKey('safety_identifier') ? SdkPresent(json['safety_identifier'] as String?) : const SdkOmitted(),
-    user: json['user'] != null ? SdkPresent((json['user'] as String?)!) : const SdkOmitted(),
-    outputFormat: json.containsKey('output_format') ? SdkPresent(json['output_format'] != null ? EditImageBodyJsonParamOutputFormatVariant0.fromJson(json['output_format'] as String) : null) : const SdkOmitted(),
-    outputCompression: json.containsKey('output_compression') ? SdkPresent((json['output_compression'] as num?)?.toInt()) : const SdkOmitted(),
-    moderation: json.containsKey('moderation') ? SdkPresent(json['moderation'] != null ? EditImageBodyJsonParamModerationVariant0.fromJson(json['moderation'] as String) : null) : const SdkOmitted(),
-    background: json.containsKey('background') ? SdkPresent(json['background'] != null ? EditImageBodyJsonParamBackgroundVariant0.fromJson(json['background'] as String) : null) : const SdkOmitted(),
-    stream: json.containsKey('stream') ? SdkPresent(json['stream'] as bool?) : const SdkOmitted(),
-    partialImages: json.containsKey('partial_images') ? SdkPresent(json['partial_images'] != null ? PartialImages.fromJson(json['partial_images']) : null) : const SdkOmitted(),
-  );
+  factory EditImageBodyJsonParam.fromJson(Map<String, dynamic> json) =>
+      EditImageBodyJsonParam(
+        model: json.containsKey('model')
+            ? SdkPresent(json['model'] as String?)
+            : const SdkOmitted(),
+        images: ((json['images'] as List?)
+            ?.map((e) => ImageRefParam.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        mask: json['mask'] != null
+            ? SdkPresent((json['mask'] != null
+                ? ImageRefParam.fromJson(json['mask'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        prompt: (json['prompt'] as String?)!,
+        n: json.containsKey('n')
+            ? SdkPresent((json['n'] as num?)?.toInt())
+            : const SdkOmitted(),
+        quality: json.containsKey('quality')
+            ? SdkPresent(json['quality'] != null
+                ? EditImageBodyJsonParamQualityVariant0.fromJson(
+                    json['quality'] as String)
+                : null)
+            : const SdkOmitted(),
+        inputFidelity: json.containsKey('input_fidelity')
+            ? SdkPresent(json['input_fidelity'] != null
+                ? EditImageBodyJsonParamInputFidelityVariant0.fromJson(
+                    json['input_fidelity'] as String)
+                : null)
+            : const SdkOmitted(),
+        size: json.containsKey('size')
+            ? SdkPresent(json['size'] as String?)
+            : const SdkOmitted(),
+        safetyIdentifier: json.containsKey('safety_identifier')
+            ? SdkPresent(json['safety_identifier'] as String?)
+            : const SdkOmitted(),
+        user: json['user'] != null
+            ? SdkPresent((json['user'] as String?)!)
+            : const SdkOmitted(),
+        outputFormat: json.containsKey('output_format')
+            ? SdkPresent(json['output_format'] != null
+                ? EditImageBodyJsonParamOutputFormatVariant0.fromJson(
+                    json['output_format'] as String)
+                : null)
+            : const SdkOmitted(),
+        outputCompression: json.containsKey('output_compression')
+            ? SdkPresent((json['output_compression'] as num?)?.toInt())
+            : const SdkOmitted(),
+        moderation: json.containsKey('moderation')
+            ? SdkPresent(json['moderation'] != null
+                ? EditImageBodyJsonParamModerationVariant0.fromJson(
+                    json['moderation'] as String)
+                : null)
+            : const SdkOmitted(),
+        background: json.containsKey('background')
+            ? SdkPresent(json['background'] != null
+                ? EditImageBodyJsonParamBackgroundVariant0.fromJson(
+                    json['background'] as String)
+                : null)
+            : const SdkOmitted(),
+        stream: json.containsKey('stream')
+            ? SdkPresent(json['stream'] as bool?)
+            : const SdkOmitted(),
+        partialImages: json.containsKey('partial_images')
+            ? SdkPresent(json['partial_images'] != null
+                ? PartialImages.fromJson(json['partial_images'])
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (model) {
-      SdkPresent<String?>(value: final value) => {'model': value,},
-      _ => const <String, dynamic>{},
-    },
-    'images': images.map((item) => item.toJson()).toList(),
-    ...switch (mask) {
-      SdkPresent<ImageRefParam>(value: final value) => {'mask': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'prompt': prompt,
-    ...switch (n) {
-      SdkPresent<int?>(value: final value) => {'n': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (quality) {
-      SdkPresent<EditImageBodyJsonParamQualityVariant0?>(value: final value) => {'quality': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inputFidelity) {
-      SdkPresent<EditImageBodyJsonParamInputFidelityVariant0?>(value: final value) => {'input_fidelity': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<String?>(value: final value) => {'size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (safetyIdentifier) {
-      SdkPresent<String?>(value: final value) => {'safety_identifier': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (user) {
-      SdkPresent<String>(value: final value) => {'user': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputFormat) {
-      SdkPresent<EditImageBodyJsonParamOutputFormatVariant0?>(value: final value) => {'output_format': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputCompression) {
-      SdkPresent<int?>(value: final value) => {'output_compression': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (moderation) {
-      SdkPresent<EditImageBodyJsonParamModerationVariant0?>(value: final value) => {'moderation': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (background) {
-      SdkPresent<EditImageBodyJsonParamBackgroundVariant0?>(value: final value) => {'background': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (stream) {
-      SdkPresent<bool?>(value: final value) => {'stream': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (partialImages) {
-      SdkPresent<PartialImages?>(value: final value) => {'partial_images': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (model) {
+          SdkPresent<String?>(value: final value) => {
+              'model': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'images': images.map((item) => item.toJson()).toList(),
+        ...switch (mask) {
+          SdkPresent<ImageRefParam>(value: final value) => {
+              'mask': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'prompt': prompt,
+        ...switch (n) {
+          SdkPresent<int?>(value: final value) => {
+              'n': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (quality) {
+          SdkPresent<EditImageBodyJsonParamQualityVariant0?>(
+            value: final value
+          ) =>
+            {
+              'quality': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inputFidelity) {
+          SdkPresent<EditImageBodyJsonParamInputFidelityVariant0?>(
+            value: final value
+          ) =>
+            {
+              'input_fidelity': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<String?>(value: final value) => {
+              'size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (safetyIdentifier) {
+          SdkPresent<String?>(value: final value) => {
+              'safety_identifier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (user) {
+          SdkPresent<String>(value: final value) => {
+              'user': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputFormat) {
+          SdkPresent<EditImageBodyJsonParamOutputFormatVariant0?>(
+            value: final value
+          ) =>
+            {
+              'output_format': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputCompression) {
+          SdkPresent<int?>(value: final value) => {
+              'output_compression': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (moderation) {
+          SdkPresent<EditImageBodyJsonParamModerationVariant0?>(
+            value: final value
+          ) =>
+            {
+              'moderation': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (background) {
+          SdkPresent<EditImageBodyJsonParamBackgroundVariant0?>(
+            value: final value
+          ) =>
+            {
+              'background': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (stream) {
+          SdkPresent<bool?>(value: final value) => {
+              'stream': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (partialImages) {
+          SdkPresent<PartialImages?>(value: final value) => {
+              'partial_images': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Represents the content or the URL of an image generated by the OpenAI API.
 class Image {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The base64-encoded JSON of the generated image. Returned by default for GPT image models, or when `response_format` is set to `b64_json` for models that support that parameter.
   final SdkOptional<String> b64Json;
+
   /// The URL of the generated image when `response_format` is set to `url` for models that support that parameter. Unsupported for GPT image models.
   final SdkOptional<String> url;
+
   /// The revised prompt used to generate the image, for models that support prompt revision. Not returned by GPT image models.
   final SdkOptional<String> revisedPrompt;
 
-  const Image({this.b64Json = const SdkOmitted(), this.url = const SdkOmitted(), this.revisedPrompt = const SdkOmitted()});
+  const Image(
+      {this.b64Json = const SdkOmitted(),
+      this.url = const SdkOmitted(),
+      this.revisedPrompt = const SdkOmitted()});
 
-  Image Function({SdkOptional<String> b64Json, SdkOptional<String> url, SdkOptional<String> revisedPrompt}) get copyWith => _copyWith;
+  Image Function(
+      {SdkOptional<String> b64Json,
+      SdkOptional<String> url,
+      SdkOptional<String> revisedPrompt}) get copyWith => _copyWith;
 
-  Image _copyWith({Object? b64Json = sdkOmittedValue, Object? url = sdkOmittedValue, Object? revisedPrompt = sdkOmittedValue}) => Image(
-    b64Json: identical(b64Json, sdkOmittedValue) ? this.b64Json : b64Json as SdkOptional<String>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    revisedPrompt: identical(revisedPrompt, sdkOmittedValue) ? this.revisedPrompt : revisedPrompt as SdkOptional<String>,
-  );
+  Image _copyWith(
+          {Object? b64Json = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? revisedPrompt = sdkOmittedValue}) =>
+      Image(
+        b64Json: identical(b64Json, sdkOmittedValue)
+            ? this.b64Json
+            : b64Json as SdkOptional<String>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        revisedPrompt: identical(revisedPrompt, sdkOmittedValue)
+            ? this.revisedPrompt
+            : revisedPrompt as SdkOptional<String>,
+      );
 
   factory Image.fromJson(Map<String, dynamic> json) => Image(
-    b64Json: json['b64_json'] != null ? SdkPresent((json['b64_json'] as String?)!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    revisedPrompt: json['revised_prompt'] != null ? SdkPresent((json['revised_prompt'] as String?)!) : const SdkOmitted(),
-  );
+        b64Json: json['b64_json'] != null
+            ? SdkPresent((json['b64_json'] as String?)!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        revisedPrompt: json['revised_prompt'] != null
+            ? SdkPresent((json['revised_prompt'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (b64Json) {
-      SdkPresent<String>(value: final value) => {'b64_json': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (revisedPrompt) {
-      SdkPresent<String>(value: final value) => {'revised_prompt': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (b64Json) {
+          SdkPresent<String>(value: final value) => {
+              'b64_json': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (revisedPrompt) {
+          SdkPresent<String>(value: final value) => {
+              'revised_prompt': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Emitted when image editing has completed and the final image is available.
 class ImageEditCompletedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The effective safety identifier used for safety monitoring and abuse detection. This is the non-empty `safety_identifier` from the request, or the deprecated `user` value when `safety_identifier` is omitted, null, or empty.
   final SdkOptional<String?> safetyIdentifier;
+
   /// The type of the event. Always `image_edit.completed`.
   final ImageEditCompletedEventType type_;
+
   /// Base64-encoded final edited image data, suitable for rendering as an image.
   final String b64Json;
+
   /// The Unix timestamp when the event was created.
   final int createdAt;
+
   /// The image dimensions as a `WIDTHxHEIGHT` string, for example `1536x864`.
   final String size;
+
   /// The quality setting for the edited image.
   final ImageEditCompletedEventQuality quality;
+
   /// The background setting for the edited image.
   final ImageEditCompletedEventBackground background;
+
   /// The output format for the edited image.
   final ImageEditCompletedEventOutputFormat outputFormat;
+
   /// For the GPT image models only, the token usage information for the image generation.
   final ImagesUsage usage;
 
-  const ImageEditCompletedEvent({this.safetyIdentifier = const SdkOmitted(), required this.type_, required this.b64Json, required this.createdAt, required this.size, required this.quality, required this.background, required this.outputFormat, required this.usage});
+  const ImageEditCompletedEvent(
+      {this.safetyIdentifier = const SdkOmitted(),
+      required this.type_,
+      required this.b64Json,
+      required this.createdAt,
+      required this.size,
+      required this.quality,
+      required this.background,
+      required this.outputFormat,
+      required this.usage});
 
-  ImageEditCompletedEvent Function({SdkOptional<String?> safetyIdentifier, ImageEditCompletedEventType type_, String b64Json, int createdAt, String size, ImageEditCompletedEventQuality quality, ImageEditCompletedEventBackground background, ImageEditCompletedEventOutputFormat outputFormat, ImagesUsage usage}) get copyWith => _copyWith;
+  ImageEditCompletedEvent Function(
+      {SdkOptional<String?> safetyIdentifier,
+      ImageEditCompletedEventType type_,
+      String b64Json,
+      int createdAt,
+      String size,
+      ImageEditCompletedEventQuality quality,
+      ImageEditCompletedEventBackground background,
+      ImageEditCompletedEventOutputFormat outputFormat,
+      ImagesUsage usage}) get copyWith => _copyWith;
 
-  ImageEditCompletedEvent _copyWith({Object? safetyIdentifier = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? b64Json = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? size = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? background = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? usage = sdkOmittedValue}) => ImageEditCompletedEvent(
-    safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue) ? this.safetyIdentifier : safetyIdentifier as SdkOptional<String?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ImageEditCompletedEventType,
-    b64Json: identical(b64Json, sdkOmittedValue) ? this.b64Json : b64Json as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    size: identical(size, sdkOmittedValue) ? this.size : size as String,
-    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as ImageEditCompletedEventQuality,
-    background: identical(background, sdkOmittedValue) ? this.background : background as ImageEditCompletedEventBackground,
-    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as ImageEditCompletedEventOutputFormat,
-    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as ImagesUsage,
-  );
+  ImageEditCompletedEvent _copyWith(
+          {Object? safetyIdentifier = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? b64Json = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? quality = sdkOmittedValue,
+          Object? background = sdkOmittedValue,
+          Object? outputFormat = sdkOmittedValue,
+          Object? usage = sdkOmittedValue}) =>
+      ImageEditCompletedEvent(
+        safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue)
+            ? this.safetyIdentifier
+            : safetyIdentifier as SdkOptional<String?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ImageEditCompletedEventType,
+        b64Json: identical(b64Json, sdkOmittedValue)
+            ? this.b64Json
+            : b64Json as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        size: identical(size, sdkOmittedValue) ? this.size : size as String,
+        quality: identical(quality, sdkOmittedValue)
+            ? this.quality
+            : quality as ImageEditCompletedEventQuality,
+        background: identical(background, sdkOmittedValue)
+            ? this.background
+            : background as ImageEditCompletedEventBackground,
+        outputFormat: identical(outputFormat, sdkOmittedValue)
+            ? this.outputFormat
+            : outputFormat as ImageEditCompletedEventOutputFormat,
+        usage: identical(usage, sdkOmittedValue)
+            ? this.usage
+            : usage as ImagesUsage,
+      );
 
-  factory ImageEditCompletedEvent.fromJson(Map<String, dynamic> json) => ImageEditCompletedEvent(
-    safetyIdentifier: json.containsKey('safety_identifier') ? SdkPresent(json['safety_identifier'] as String?) : const SdkOmitted(),
-    type_: (json['type'] != null ? ImageEditCompletedEventType.fromJson(json['type'] as String) : null)!,
-    b64Json: (json['b64_json'] as String?)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    size: (json['size'] as String?)!,
-    quality: (json['quality'] != null ? ImageEditCompletedEventQuality.fromJson(json['quality'] as String) : null)!,
-    background: (json['background'] != null ? ImageEditCompletedEventBackground.fromJson(json['background'] as String) : null)!,
-    outputFormat: (json['output_format'] != null ? ImageEditCompletedEventOutputFormat.fromJson(json['output_format'] as String) : null)!,
-    usage: (json['usage'] != null ? ImagesUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!,
-  );
+  factory ImageEditCompletedEvent.fromJson(Map<String, dynamic> json) =>
+      ImageEditCompletedEvent(
+        safetyIdentifier: json.containsKey('safety_identifier')
+            ? SdkPresent(json['safety_identifier'] as String?)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? ImageEditCompletedEventType.fromJson(json['type'] as String)
+            : null)!,
+        b64Json: (json['b64_json'] as String?)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        size: (json['size'] as String?)!,
+        quality: (json['quality'] != null
+            ? ImageEditCompletedEventQuality.fromJson(json['quality'] as String)
+            : null)!,
+        background: (json['background'] != null
+            ? ImageEditCompletedEventBackground.fromJson(
+                json['background'] as String)
+            : null)!,
+        outputFormat: (json['output_format'] != null
+            ? ImageEditCompletedEventOutputFormat.fromJson(
+                json['output_format'] as String)
+            : null)!,
+        usage: (json['usage'] != null
+            ? ImagesUsage.fromJson(json['usage'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (safetyIdentifier) {
-      SdkPresent<String?>(value: final value) => {'safety_identifier': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'b64_json': b64Json,
-    'created_at': createdAt,
-    'size': size,
-    'quality': quality.toJson(),
-    'background': background.toJson(),
-    'output_format': outputFormat.toJson(),
-    'usage': usage.toJson(),
-  };
+        ...switch (safetyIdentifier) {
+          SdkPresent<String?>(value: final value) => {
+              'safety_identifier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'b64_json': b64Json,
+        'created_at': createdAt,
+        'size': size,
+        'quality': quality.toJson(),
+        'background': background.toJson(),
+        'output_format': outputFormat.toJson(),
+        'usage': usage.toJson(),
+      };
 }

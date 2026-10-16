@@ -8,43 +8,78 @@ part of 'realtime_realtime_session.dart';
 class RealtimeSessionCreateResponseTracingVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the workflow to attach to this trace. This is used to name the trace in the traces dashboard.
   final SdkOptional<String> workflowName;
+
   /// The group id to attach to this trace to enable filtering and grouping in the traces dashboard.
   final SdkOptional<String> groupId;
+
   /// The arbitrary metadata to attach to this trace to enable filtering in the traces dashboard.
   final SdkOptional<Map<String, dynamic>> metadata;
 
-  const RealtimeSessionCreateResponseTracingVariant1({this.workflowName = const SdkOmitted(), this.groupId = const SdkOmitted(), this.metadata = const SdkOmitted()});
+  const RealtimeSessionCreateResponseTracingVariant1(
+      {this.workflowName = const SdkOmitted(),
+      this.groupId = const SdkOmitted(),
+      this.metadata = const SdkOmitted()});
 
-  RealtimeSessionCreateResponseTracingVariant1 Function({SdkOptional<String> workflowName, SdkOptional<String> groupId, SdkOptional<Map<String, dynamic>> metadata}) get copyWith => _copyWith;
+  RealtimeSessionCreateResponseTracingVariant1 Function(
+      {SdkOptional<String> workflowName,
+      SdkOptional<String> groupId,
+      SdkOptional<Map<String, dynamic>> metadata}) get copyWith => _copyWith;
 
-  RealtimeSessionCreateResponseTracingVariant1 _copyWith({Object? workflowName = sdkOmittedValue, Object? groupId = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => RealtimeSessionCreateResponseTracingVariant1(
-    workflowName: identical(workflowName, sdkOmittedValue) ? this.workflowName : workflowName as SdkOptional<String>,
-    groupId: identical(groupId, sdkOmittedValue) ? this.groupId : groupId as SdkOptional<String>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>>,
-  );
+  RealtimeSessionCreateResponseTracingVariant1 _copyWith(
+          {Object? workflowName = sdkOmittedValue,
+          Object? groupId = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      RealtimeSessionCreateResponseTracingVariant1(
+        workflowName: identical(workflowName, sdkOmittedValue)
+            ? this.workflowName
+            : workflowName as SdkOptional<String>,
+        groupId: identical(groupId, sdkOmittedValue)
+            ? this.groupId
+            : groupId as SdkOptional<String>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, dynamic>>,
+      );
 
-  factory RealtimeSessionCreateResponseTracingVariant1.fromJson(Map<String, dynamic> json) => RealtimeSessionCreateResponseTracingVariant1(
-    workflowName: json['workflow_name'] != null ? SdkPresent((json['workflow_name'] as String?)!) : const SdkOmitted(),
-    groupId: json['group_id'] != null ? SdkPresent((json['group_id'] as String?)!) : const SdkOmitted(),
-    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+  factory RealtimeSessionCreateResponseTracingVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeSessionCreateResponseTracingVariant1(
+        workflowName: json['workflow_name'] != null
+            ? SdkPresent((json['workflow_name'] as String?)!)
+            : const SdkOmitted(),
+        groupId: json['group_id'] != null
+            ? SdkPresent((json['group_id'] as String?)!)
+            : const SdkOmitted(),
+        metadata: json['metadata'] != null
+            ? SdkPresent((json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (workflowName) {
-      SdkPresent<String>(value: final value) => {'workflow_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (groupId) {
-      SdkPresent<String>(value: final value) => {'group_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metadata) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (workflowName) {
+          SdkPresent<String>(value: final value) => {
+              'workflow_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (groupId) {
+          SdkPresent<String>(value: final value) => {
+              'group_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metadata) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class RealtimeSessionCreateResponseTracing {
@@ -52,74 +87,132 @@ sealed class RealtimeSessionCreateResponseTracing {
   static const String constructionSurface = 'named';
   const RealtimeSessionCreateResponseTracing();
   factory RealtimeSessionCreateResponseTracing.fromJson(Object? json) {
-    try { return RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant0(RealtimeSessionCreateResponseTracingVariant0.fromJson(json as String)); } catch (_) {}
-    try { return RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant1(RealtimeSessionCreateResponseTracingVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for RealtimeSessionCreateResponseTracing");
+    try {
+      return RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant0(
+          RealtimeSessionCreateResponseTracingVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    try {
+      return RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant1(
+          RealtimeSessionCreateResponseTracingVariant1.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for RealtimeSessionCreateResponseTracing");
   }
   Object? toJson();
 }
 
-final class RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant0 extends RealtimeSessionCreateResponseTracing {
+final class RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant0
+    extends RealtimeSessionCreateResponseTracing {
   final RealtimeSessionCreateResponseTracingVariant0 value;
-  const RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant1 extends RealtimeSessionCreateResponseTracing {
+final class RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant1
+    extends RealtimeSessionCreateResponseTracing {
   final RealtimeSessionCreateResponseTracingVariant1 value;
-  const RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeSessionCreateResponseTracingRealtimeSessionCreateResponseTracingVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Configuration for turn detection. Can be set to `null` to turn off. Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech.
 class RealtimeSessionCreateResponseTurnDetection {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of turn detection, only `server_vad` is currently supported.
   final SdkOptional<String> type_;
+
   /// Activation threshold for VAD (0.0 to 1.0), this defaults to 0.5. A higher threshold will require louder audio to activate the model, and thus might perform better in noisy environments.
   final SdkOptional<double> threshold;
+
   /// Amount of audio to include before the VAD detected speech (in milliseconds). Defaults to 300ms.
   final SdkOptional<int> prefixPaddingMs;
+
   /// Duration of silence to detect speech stop (in milliseconds). Defaults to 500ms. With shorter values the model will respond more quickly, but may jump in on short pauses from the user.
   final SdkOptional<int> silenceDurationMs;
 
-  const RealtimeSessionCreateResponseTurnDetection({this.type_ = const SdkOmitted(), this.threshold = const SdkOmitted(), this.prefixPaddingMs = const SdkOmitted(), this.silenceDurationMs = const SdkOmitted()});
+  const RealtimeSessionCreateResponseTurnDetection(
+      {this.type_ = const SdkOmitted(),
+      this.threshold = const SdkOmitted(),
+      this.prefixPaddingMs = const SdkOmitted(),
+      this.silenceDurationMs = const SdkOmitted()});
 
-  RealtimeSessionCreateResponseTurnDetection Function({SdkOptional<String> type_, SdkOptional<double> threshold, SdkOptional<int> prefixPaddingMs, SdkOptional<int> silenceDurationMs}) get copyWith => _copyWith;
+  RealtimeSessionCreateResponseTurnDetection Function(
+      {SdkOptional<String> type_,
+      SdkOptional<double> threshold,
+      SdkOptional<int> prefixPaddingMs,
+      SdkOptional<int> silenceDurationMs}) get copyWith => _copyWith;
 
-  RealtimeSessionCreateResponseTurnDetection _copyWith({Object? type_ = sdkOmittedValue, Object? threshold = sdkOmittedValue, Object? prefixPaddingMs = sdkOmittedValue, Object? silenceDurationMs = sdkOmittedValue}) => RealtimeSessionCreateResponseTurnDetection(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    threshold: identical(threshold, sdkOmittedValue) ? this.threshold : threshold as SdkOptional<double>,
-    prefixPaddingMs: identical(prefixPaddingMs, sdkOmittedValue) ? this.prefixPaddingMs : prefixPaddingMs as SdkOptional<int>,
-    silenceDurationMs: identical(silenceDurationMs, sdkOmittedValue) ? this.silenceDurationMs : silenceDurationMs as SdkOptional<int>,
-  );
+  RealtimeSessionCreateResponseTurnDetection _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? threshold = sdkOmittedValue,
+          Object? prefixPaddingMs = sdkOmittedValue,
+          Object? silenceDurationMs = sdkOmittedValue}) =>
+      RealtimeSessionCreateResponseTurnDetection(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        threshold: identical(threshold, sdkOmittedValue)
+            ? this.threshold
+            : threshold as SdkOptional<double>,
+        prefixPaddingMs: identical(prefixPaddingMs, sdkOmittedValue)
+            ? this.prefixPaddingMs
+            : prefixPaddingMs as SdkOptional<int>,
+        silenceDurationMs: identical(silenceDurationMs, sdkOmittedValue)
+            ? this.silenceDurationMs
+            : silenceDurationMs as SdkOptional<int>,
+      );
 
-  factory RealtimeSessionCreateResponseTurnDetection.fromJson(Map<String, dynamic> json) => RealtimeSessionCreateResponseTurnDetection(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    threshold: json['threshold'] != null ? SdkPresent(((json['threshold'] as num?)?.toDouble())!) : const SdkOmitted(),
-    prefixPaddingMs: json['prefix_padding_ms'] != null ? SdkPresent(((json['prefix_padding_ms'] as num?)?.toInt())!) : const SdkOmitted(),
-    silenceDurationMs: json['silence_duration_ms'] != null ? SdkPresent(((json['silence_duration_ms'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory RealtimeSessionCreateResponseTurnDetection.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeSessionCreateResponseTurnDetection(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        threshold: json['threshold'] != null
+            ? SdkPresent(((json['threshold'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        prefixPaddingMs: json['prefix_padding_ms'] != null
+            ? SdkPresent(((json['prefix_padding_ms'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        silenceDurationMs: json['silence_duration_ms'] != null
+            ? SdkPresent(((json['silence_duration_ms'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (threshold) {
-      SdkPresent<double>(value: final value) => {'threshold': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (prefixPaddingMs) {
-      SdkPresent<int>(value: final value) => {'prefix_padding_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (silenceDurationMs) {
-      SdkPresent<int>(value: final value) => {'silence_duration_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (threshold) {
+          SdkPresent<double>(value: final value) => {
+              'threshold': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (prefixPaddingMs) {
+          SdkPresent<int>(value: final value) => {
+              'prefix_padding_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (silenceDurationMs) {
+          SdkPresent<int>(value: final value) => {
+              'silence_duration_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class RealtimeSessionCreateResponseMaxOutputTokens {
@@ -127,171 +220,361 @@ sealed class RealtimeSessionCreateResponseMaxOutputTokens {
   static const String constructionSurface = 'named';
   const RealtimeSessionCreateResponseMaxOutputTokens();
   factory RealtimeSessionCreateResponseMaxOutputTokens.fromJson(Object? json) {
-    if (json is num) { return RealtimeSessionCreateResponseMaxOutputTokensInt(json.toInt()); }
-    try { return RealtimeSessionCreateResponseMaxOutputTokensRealtimeSessionCreateResponseMaxOutputTokensVariant1(RealtimeSessionCreateResponseMaxOutputTokensVariant1.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for RealtimeSessionCreateResponseMaxOutputTokens");
+    if (json is num) {
+      return RealtimeSessionCreateResponseMaxOutputTokensInt(json.toInt());
+    }
+    try {
+      return RealtimeSessionCreateResponseMaxOutputTokensRealtimeSessionCreateResponseMaxOutputTokensVariant1(
+          RealtimeSessionCreateResponseMaxOutputTokensVariant1.fromJson(
+              json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for RealtimeSessionCreateResponseMaxOutputTokens");
   }
   Object? toJson();
 }
 
-final class RealtimeSessionCreateResponseMaxOutputTokensInt extends RealtimeSessionCreateResponseMaxOutputTokens {
+final class RealtimeSessionCreateResponseMaxOutputTokensInt
+    extends RealtimeSessionCreateResponseMaxOutputTokens {
   final int value;
   const RealtimeSessionCreateResponseMaxOutputTokensInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class RealtimeSessionCreateResponseMaxOutputTokensRealtimeSessionCreateResponseMaxOutputTokensVariant1 extends RealtimeSessionCreateResponseMaxOutputTokens {
+final class RealtimeSessionCreateResponseMaxOutputTokensRealtimeSessionCreateResponseMaxOutputTokensVariant1
+    extends RealtimeSessionCreateResponseMaxOutputTokens {
   final RealtimeSessionCreateResponseMaxOutputTokensVariant1 value;
-  const RealtimeSessionCreateResponseMaxOutputTokensRealtimeSessionCreateResponseMaxOutputTokensVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeSessionCreateResponseMaxOutputTokensRealtimeSessionCreateResponseMaxOutputTokensVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A Realtime session configuration object.
 class RealtimeSessionCreateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the session that looks like `sess_1234567890abcdef`.
   final SdkOptional<String> id;
+
   /// The object type. Always `realtime.session`.
   final SdkOptional<String> object;
+
   /// Expiration timestamp for the session, in seconds since epoch.
   final SdkOptional<int> expiresAt;
+
   /// Additional fields to include in server outputs. - `item.input_audio_transcription.logprobs`: Include logprobs for input audio transcription.
   final SdkOptional<List<RealtimeSessionCreateResponseIncludeItem>> include;
+
   /// The Realtime model used for this session.
   final SdkOptional<String> model;
+
   /// The set of modalities the model can respond with. To disable audio, set this to ["text"].
-  final SdkOptional<List<RealtimeSessionCreateResponseOutputModalitiesItem>> outputModalities;
+  final SdkOptional<List<RealtimeSessionCreateResponseOutputModalitiesItem>>
+      outputModalities;
+
   /// The default system instructions (i.e. system message) prepended to model calls. This field allows the client to guide the model on desired responses. The model can be instructed on response content and format, (e.g. "be extremely succinct", "act friendly", "here are examples of good responses") and on audio behavior (e.g. "talk quickly", "inject emotion into your voice", "laugh frequently"). The instructions are not guaranteed to be followed by the model, but they provide guidance to the model on the desired behavior. Note that the server sets default instructions which will be used if this field is not set and are visible in the `session.created` event at the start of the session.
   final SdkOptional<String> instructions;
+
   /// Configuration for input and output audio for the session.
   final SdkOptional<RealtimeSessionCreateResponseAudio> audio;
+
   /// Configuration options for tracing. Set to null to disable tracing. Once tracing is enabled for a session, the configuration cannot be modified. `auto` will create a trace for the session with default values for the workflow name, group id, and metadata.
   final SdkOptional<dynamic> tracing;
+
   /// Configuration for turn detection. Can be set to `null` to turn off. Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech.
   final SdkOptional<RealtimeSessionCreateResponseTurnDetection?> turnDetection;
+
   /// Tools (functions) available to the model.
   final SdkOptional<List<RealtimeFunctionTool>> tools;
+
   /// How the model chooses tools. Options are `auto`, `none`, `required`, or specify a function.
   final SdkOptional<String> toolChoice;
+
   /// Maximum number of output tokens for a single assistant response, inclusive of tool calls. Provide an integer between 1 and 4096 to limit output tokens, or `inf` for the maximum available tokens for a given model. Defaults to `inf`.
   final SdkOptional<dynamic> maxOutputTokens;
 
-  const RealtimeSessionCreateResponse({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.expiresAt = const SdkOmitted(), this.include = const SdkOmitted(), this.model = const SdkOmitted(), this.outputModalities = const SdkOmitted(), this.instructions = const SdkOmitted(), this.audio = const SdkOmitted(), this.tracing = const SdkOmitted(), this.turnDetection = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.maxOutputTokens = const SdkOmitted()});
+  const RealtimeSessionCreateResponse(
+      {this.id = const SdkOmitted(),
+      this.object = const SdkOmitted(),
+      this.expiresAt = const SdkOmitted(),
+      this.include = const SdkOmitted(),
+      this.model = const SdkOmitted(),
+      this.outputModalities = const SdkOmitted(),
+      this.instructions = const SdkOmitted(),
+      this.audio = const SdkOmitted(),
+      this.tracing = const SdkOmitted(),
+      this.turnDetection = const SdkOmitted(),
+      this.tools = const SdkOmitted(),
+      this.toolChoice = const SdkOmitted(),
+      this.maxOutputTokens = const SdkOmitted()});
 
-  RealtimeSessionCreateResponse Function({SdkOptional<String> id, SdkOptional<String> object, SdkOptional<int> expiresAt, SdkOptional<List<RealtimeSessionCreateResponseIncludeItem>> include, SdkOptional<String> model, SdkOptional<List<RealtimeSessionCreateResponseOutputModalitiesItem>> outputModalities, SdkOptional<String> instructions, SdkOptional<RealtimeSessionCreateResponseAudio> audio, SdkOptional<dynamic> tracing, SdkOptional<RealtimeSessionCreateResponseTurnDetection?> turnDetection, SdkOptional<List<RealtimeFunctionTool>> tools, SdkOptional<String> toolChoice, SdkOptional<dynamic> maxOutputTokens}) get copyWith => _copyWith;
+  RealtimeSessionCreateResponse Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> object,
+      SdkOptional<int> expiresAt,
+      SdkOptional<List<RealtimeSessionCreateResponseIncludeItem>> include,
+      SdkOptional<String> model,
+      SdkOptional<List<RealtimeSessionCreateResponseOutputModalitiesItem>>
+          outputModalities,
+      SdkOptional<String> instructions,
+      SdkOptional<RealtimeSessionCreateResponseAudio> audio,
+      SdkOptional<dynamic> tracing,
+      SdkOptional<RealtimeSessionCreateResponseTurnDetection?> turnDetection,
+      SdkOptional<List<RealtimeFunctionTool>> tools,
+      SdkOptional<String> toolChoice,
+      SdkOptional<dynamic> maxOutputTokens}) get copyWith => _copyWith;
 
-  RealtimeSessionCreateResponse _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? include = sdkOmittedValue, Object? model = sdkOmittedValue, Object? outputModalities = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? audio = sdkOmittedValue, Object? tracing = sdkOmittedValue, Object? turnDetection = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? maxOutputTokens = sdkOmittedValue}) => RealtimeSessionCreateResponse(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int>,
-    include: identical(include, sdkOmittedValue) ? this.include : include as SdkOptional<List<RealtimeSessionCreateResponseIncludeItem>>,
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
-    outputModalities: identical(outputModalities, sdkOmittedValue) ? this.outputModalities : outputModalities as SdkOptional<List<RealtimeSessionCreateResponseOutputModalitiesItem>>,
-    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String>,
-    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as SdkOptional<RealtimeSessionCreateResponseAudio>,
-    tracing: identical(tracing, sdkOmittedValue) ? this.tracing : tracing as SdkOptional<dynamic>,
-    turnDetection: identical(turnDetection, sdkOmittedValue) ? this.turnDetection : turnDetection as SdkOptional<RealtimeSessionCreateResponseTurnDetection?>,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<RealtimeFunctionTool>>,
-    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<String>,
-    maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue) ? this.maxOutputTokens : maxOutputTokens as SdkOptional<dynamic>,
-  );
+  RealtimeSessionCreateResponse _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue,
+          Object? include = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? outputModalities = sdkOmittedValue,
+          Object? instructions = sdkOmittedValue,
+          Object? audio = sdkOmittedValue,
+          Object? tracing = sdkOmittedValue,
+          Object? turnDetection = sdkOmittedValue,
+          Object? tools = sdkOmittedValue,
+          Object? toolChoice = sdkOmittedValue,
+          Object? maxOutputTokens = sdkOmittedValue}) =>
+      RealtimeSessionCreateResponse(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<int>,
+        include: identical(include, sdkOmittedValue)
+            ? this.include
+            : include
+                as SdkOptional<List<RealtimeSessionCreateResponseIncludeItem>>,
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<String>,
+        outputModalities: identical(outputModalities, sdkOmittedValue)
+            ? this.outputModalities
+            : outputModalities as SdkOptional<
+                List<RealtimeSessionCreateResponseOutputModalitiesItem>>,
+        instructions: identical(instructions, sdkOmittedValue)
+            ? this.instructions
+            : instructions as SdkOptional<String>,
+        audio: identical(audio, sdkOmittedValue)
+            ? this.audio
+            : audio as SdkOptional<RealtimeSessionCreateResponseAudio>,
+        tracing: identical(tracing, sdkOmittedValue)
+            ? this.tracing
+            : tracing as SdkOptional<dynamic>,
+        turnDetection: identical(turnDetection, sdkOmittedValue)
+            ? this.turnDetection
+            : turnDetection
+                as SdkOptional<RealtimeSessionCreateResponseTurnDetection?>,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as SdkOptional<List<RealtimeFunctionTool>>,
+        toolChoice: identical(toolChoice, sdkOmittedValue)
+            ? this.toolChoice
+            : toolChoice as SdkOptional<String>,
+        maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue)
+            ? this.maxOutputTokens
+            : maxOutputTokens as SdkOptional<dynamic>,
+      );
 
-  factory RealtimeSessionCreateResponse.fromJson(Map<String, dynamic> json) => RealtimeSessionCreateResponse(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    expiresAt: json['expires_at'] != null ? SdkPresent(((json['expires_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    include: json['include'] != null ? SdkPresent(((json['include'] as List?)?.map((e) => RealtimeSessionCreateResponseIncludeItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
-    outputModalities: json['output_modalities'] != null ? SdkPresent(((json['output_modalities'] as List?)?.map((e) => RealtimeSessionCreateResponseOutputModalitiesItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-    instructions: json['instructions'] != null ? SdkPresent((json['instructions'] as String?)!) : const SdkOmitted(),
-    audio: json['audio'] != null ? SdkPresent((json['audio'] != null ? RealtimeSessionCreateResponseAudio.fromJson(json['audio'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    tracing: json['tracing'] != null ? SdkPresent((json['tracing'])!) : const SdkOmitted(),
-    turnDetection: json.containsKey('turn_detection') ? SdkPresent(json['turn_detection'] != null ? RealtimeSessionCreateResponseTurnDetection.fromJson(json['turn_detection'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => RealtimeFunctionTool.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] as String?)!) : const SdkOmitted(),
-    maxOutputTokens: json['max_output_tokens'] != null ? SdkPresent((json['max_output_tokens'])!) : const SdkOmitted(),
-  );
+  factory RealtimeSessionCreateResponse.fromJson(Map<String, dynamic> json) =>
+      RealtimeSessionCreateResponse(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        expiresAt: json['expires_at'] != null
+            ? SdkPresent(((json['expires_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        include: json['include'] != null
+            ? SdkPresent(((json['include'] as List?)
+                ?.map((e) => RealtimeSessionCreateResponseIncludeItem.fromJson(
+                    e as String))
+                .toList())!)
+            : const SdkOmitted(),
+        model: json['model'] != null
+            ? SdkPresent((json['model'] as String?)!)
+            : const SdkOmitted(),
+        outputModalities: json['output_modalities'] != null
+            ? SdkPresent(((json['output_modalities'] as List?)
+                ?.map((e) =>
+                    RealtimeSessionCreateResponseOutputModalitiesItem.fromJson(
+                        e as String))
+                .toList())!)
+            : const SdkOmitted(),
+        instructions: json['instructions'] != null
+            ? SdkPresent((json['instructions'] as String?)!)
+            : const SdkOmitted(),
+        audio: json['audio'] != null
+            ? SdkPresent((json['audio'] != null
+                ? RealtimeSessionCreateResponseAudio.fromJson(
+                    json['audio'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        tracing: json['tracing'] != null
+            ? SdkPresent((json['tracing'])!)
+            : const SdkOmitted(),
+        turnDetection: json.containsKey('turn_detection')
+            ? SdkPresent(json['turn_detection'] != null
+                ? RealtimeSessionCreateResponseTurnDetection.fromJson(
+                    json['turn_detection'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        tools: json['tools'] != null
+            ? SdkPresent(((json['tools'] as List?)
+                ?.map((e) =>
+                    RealtimeFunctionTool.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        toolChoice: json['tool_choice'] != null
+            ? SdkPresent((json['tool_choice'] as String?)!)
+            : const SdkOmitted(),
+        maxOutputTokens: json['max_output_tokens'] != null
+            ? SdkPresent((json['max_output_tokens'])!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAt) {
-      SdkPresent<int>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (include) {
-      SdkPresent<List<RealtimeSessionCreateResponseIncludeItem>>(value: final value) => {'include': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (model) {
-      SdkPresent<String>(value: final value) => {'model': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputModalities) {
-      SdkPresent<List<RealtimeSessionCreateResponseOutputModalitiesItem>>(value: final value) => {'output_modalities': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (instructions) {
-      SdkPresent<String>(value: final value) => {'instructions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (audio) {
-      SdkPresent<RealtimeSessionCreateResponseAudio>(value: final value) => {'audio': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tracing) {
-      SdkPresent<dynamic>(value: final value) => {'tracing': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (turnDetection) {
-      SdkPresent<RealtimeSessionCreateResponseTurnDetection?>(value: final value) => {'turn_detection': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tools) {
-      SdkPresent<List<RealtimeFunctionTool>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (toolChoice) {
-      SdkPresent<String>(value: final value) => {'tool_choice': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxOutputTokens) {
-      SdkPresent<dynamic>(value: final value) => {'max_output_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAt) {
+          SdkPresent<int>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (include) {
+          SdkPresent<List<RealtimeSessionCreateResponseIncludeItem>>(
+            value: final value
+          ) =>
+            {
+              'include': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (model) {
+          SdkPresent<String>(value: final value) => {
+              'model': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputModalities) {
+          SdkPresent<List<RealtimeSessionCreateResponseOutputModalitiesItem>>(
+            value: final value
+          ) =>
+            {
+              'output_modalities': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (instructions) {
+          SdkPresent<String>(value: final value) => {
+              'instructions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (audio) {
+          SdkPresent<RealtimeSessionCreateResponseAudio>(value: final value) =>
+            {
+              'audio': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tracing) {
+          SdkPresent<dynamic>(value: final value) => {
+              'tracing': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (turnDetection) {
+          SdkPresent<RealtimeSessionCreateResponseTurnDetection?>(
+            value: final value
+          ) =>
+            {
+              'turn_detection': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tools) {
+          SdkPresent<List<RealtimeFunctionTool>>(value: final value) => {
+              'tools': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (toolChoice) {
+          SdkPresent<String>(value: final value) => {
+              'tool_choice': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxOutputTokens) {
+          SdkPresent<dynamic>(value: final value) => {
+              'max_output_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
 class RealtimeSessionCreateResponseGAAudioInputNoiseReduction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of noise reduction. `near_field` is for close-talking microphones such as headphones, `far_field` is for far-field microphones such as laptop or conference room microphones.
   final SdkOptional<NoiseReductionType> type_;
 
-  const RealtimeSessionCreateResponseGAAudioInputNoiseReduction({this.type_ = const SdkOmitted()});
+  const RealtimeSessionCreateResponseGAAudioInputNoiseReduction(
+      {this.type_ = const SdkOmitted()});
 
-  RealtimeSessionCreateResponseGAAudioInputNoiseReduction Function({SdkOptional<NoiseReductionType> type_}) get copyWith => _copyWith;
+  RealtimeSessionCreateResponseGAAudioInputNoiseReduction Function(
+      {SdkOptional<NoiseReductionType> type_}) get copyWith => _copyWith;
 
-  RealtimeSessionCreateResponseGAAudioInputNoiseReduction _copyWith({Object? type_ = sdkOmittedValue}) => RealtimeSessionCreateResponseGAAudioInputNoiseReduction(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<NoiseReductionType>,
-  );
+  RealtimeSessionCreateResponseGAAudioInputNoiseReduction _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      RealtimeSessionCreateResponseGAAudioInputNoiseReduction(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<NoiseReductionType>,
+      );
 
-  factory RealtimeSessionCreateResponseGAAudioInputNoiseReduction.fromJson(Map<String, dynamic> json) => RealtimeSessionCreateResponseGAAudioInputNoiseReduction(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? NoiseReductionType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory RealtimeSessionCreateResponseGAAudioInputNoiseReduction.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeSessionCreateResponseGAAudioInputNoiseReduction(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? NoiseReductionType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<NoiseReductionType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<NoiseReductionType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

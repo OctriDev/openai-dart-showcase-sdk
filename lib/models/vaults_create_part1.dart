@@ -8,55 +8,105 @@ part of 'vaults_create.dart';
 class CreateMcpOauthRefreshParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The HTTPS OAuth token endpoint used to exchange the refresh token for a new access token.
   final String tokenEndpoint;
+
   /// The OAuth client ID used when requesting a new access token.
   final String clientId;
+
   /// The resource URI to send to the OAuth token endpoint during refresh, if required.
   final SdkOptional<String?> resource;
+
   /// Space-separated OAuth scopes to request during refresh, if required.
   final SdkOptional<String?> scope;
+
   /// The refresh token to store. This secret is never returned in credential resources.
   final String refreshToken;
+
   /// How the OAuth client authenticates to the token endpoint.
   final CreateMcpOauthTokenEndpointAuthParam tokenEndpointAuth;
 
-  const CreateMcpOauthRefreshParam({required this.tokenEndpoint, required this.clientId, this.resource = const SdkOmitted(), this.scope = const SdkOmitted(), required this.refreshToken, required this.tokenEndpointAuth});
+  const CreateMcpOauthRefreshParam(
+      {required this.tokenEndpoint,
+      required this.clientId,
+      this.resource = const SdkOmitted(),
+      this.scope = const SdkOmitted(),
+      required this.refreshToken,
+      required this.tokenEndpointAuth});
 
-  CreateMcpOauthRefreshParam Function({String tokenEndpoint, String clientId, SdkOptional<String?> resource, SdkOptional<String?> scope, String refreshToken, CreateMcpOauthTokenEndpointAuthParam tokenEndpointAuth}) get copyWith => _copyWith;
+  CreateMcpOauthRefreshParam Function(
+          {String tokenEndpoint,
+          String clientId,
+          SdkOptional<String?> resource,
+          SdkOptional<String?> scope,
+          String refreshToken,
+          CreateMcpOauthTokenEndpointAuthParam tokenEndpointAuth})
+      get copyWith => _copyWith;
 
-  CreateMcpOauthRefreshParam _copyWith({Object? tokenEndpoint = sdkOmittedValue, Object? clientId = sdkOmittedValue, Object? resource = sdkOmittedValue, Object? scope = sdkOmittedValue, Object? refreshToken = sdkOmittedValue, Object? tokenEndpointAuth = sdkOmittedValue}) => CreateMcpOauthRefreshParam(
-    tokenEndpoint: identical(tokenEndpoint, sdkOmittedValue) ? this.tokenEndpoint : tokenEndpoint as String,
-    clientId: identical(clientId, sdkOmittedValue) ? this.clientId : clientId as String,
-    resource: identical(resource, sdkOmittedValue) ? this.resource : resource as SdkOptional<String?>,
-    scope: identical(scope, sdkOmittedValue) ? this.scope : scope as SdkOptional<String?>,
-    refreshToken: identical(refreshToken, sdkOmittedValue) ? this.refreshToken : refreshToken as String,
-    tokenEndpointAuth: identical(tokenEndpointAuth, sdkOmittedValue) ? this.tokenEndpointAuth : tokenEndpointAuth as CreateMcpOauthTokenEndpointAuthParam,
-  );
+  CreateMcpOauthRefreshParam _copyWith(
+          {Object? tokenEndpoint = sdkOmittedValue,
+          Object? clientId = sdkOmittedValue,
+          Object? resource = sdkOmittedValue,
+          Object? scope = sdkOmittedValue,
+          Object? refreshToken = sdkOmittedValue,
+          Object? tokenEndpointAuth = sdkOmittedValue}) =>
+      CreateMcpOauthRefreshParam(
+        tokenEndpoint: identical(tokenEndpoint, sdkOmittedValue)
+            ? this.tokenEndpoint
+            : tokenEndpoint as String,
+        clientId: identical(clientId, sdkOmittedValue)
+            ? this.clientId
+            : clientId as String,
+        resource: identical(resource, sdkOmittedValue)
+            ? this.resource
+            : resource as SdkOptional<String?>,
+        scope: identical(scope, sdkOmittedValue)
+            ? this.scope
+            : scope as SdkOptional<String?>,
+        refreshToken: identical(refreshToken, sdkOmittedValue)
+            ? this.refreshToken
+            : refreshToken as String,
+        tokenEndpointAuth: identical(tokenEndpointAuth, sdkOmittedValue)
+            ? this.tokenEndpointAuth
+            : tokenEndpointAuth as CreateMcpOauthTokenEndpointAuthParam,
+      );
 
-  factory CreateMcpOauthRefreshParam.fromJson(Map<String, dynamic> json) => CreateMcpOauthRefreshParam(
-    tokenEndpoint: (json['token_endpoint'] as String?)!,
-    clientId: (json['client_id'] as String?)!,
-    resource: json.containsKey('resource') ? SdkPresent(json['resource'] as String?) : const SdkOmitted(),
-    scope: json.containsKey('scope') ? SdkPresent(json['scope'] as String?) : const SdkOmitted(),
-    refreshToken: (json['refresh_token'] as String?)!,
-    tokenEndpointAuth: (json['token_endpoint_auth'] != null ? CreateMcpOauthTokenEndpointAuthParam.fromJson(json['token_endpoint_auth']) : null)!,
-  );
+  factory CreateMcpOauthRefreshParam.fromJson(Map<String, dynamic> json) =>
+      CreateMcpOauthRefreshParam(
+        tokenEndpoint: (json['token_endpoint'] as String?)!,
+        clientId: (json['client_id'] as String?)!,
+        resource: json.containsKey('resource')
+            ? SdkPresent(json['resource'] as String?)
+            : const SdkOmitted(),
+        scope: json.containsKey('scope')
+            ? SdkPresent(json['scope'] as String?)
+            : const SdkOmitted(),
+        refreshToken: (json['refresh_token'] as String?)!,
+        tokenEndpointAuth: (json['token_endpoint_auth'] != null
+            ? CreateMcpOauthTokenEndpointAuthParam.fromJson(
+                json['token_endpoint_auth'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'token_endpoint': tokenEndpoint,
-    'client_id': clientId,
-    ...switch (resource) {
-      SdkPresent<String?>(value: final value) => {'resource': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scope) {
-      SdkPresent<String?>(value: final value) => {'scope': value,},
-      _ => const <String, dynamic>{},
-    },
-    'refresh_token': refreshToken,
-    'token_endpoint_auth': tokenEndpointAuth.toJson(),
-  };
+        'token_endpoint': tokenEndpoint,
+        'client_id': clientId,
+        ...switch (resource) {
+          SdkPresent<String?>(value: final value) => {
+              'resource': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scope) {
+          SdkPresent<String?>(value: final value) => {
+              'scope': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'refresh_token': refreshToken,
+        'token_endpoint_auth': tokenEndpointAuth.toJson(),
+      };
 }
 
 sealed class CreateMcpOauthTokenEndpointAuthParam {
@@ -64,120 +114,196 @@ sealed class CreateMcpOauthTokenEndpointAuthParam {
   static const String constructionSurface = 'named';
   const CreateMcpOauthTokenEndpointAuthParam();
   factory CreateMcpOauthTokenEndpointAuthParam.fromJson(Object? json) {
-    try { return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(CreateMcpOauthTokenEndpointAuthParamNone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic(CreateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost(CreateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"none", "client_secret_basic", "client_secret_post"}.contains(json["type"])) { return UnknownCreateMcpOauthTokenEndpointAuthParam(json); }
-    throw FormatException("No variant matched for CreateMcpOauthTokenEndpointAuthParam");
+    try {
+      return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(
+          CreateMcpOauthTokenEndpointAuthParamNone.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+          CreateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost(
+          CreateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"none", "client_secret_basic", "client_secret_post"}
+            .contains(json["type"])) {
+      return UnknownCreateMcpOauthTokenEndpointAuthParam(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateMcpOauthTokenEndpointAuthParam");
   }
   Object? toJson();
 }
 
-final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone extends CreateMcpOauthTokenEndpointAuthParam {
+final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone
+    extends CreateMcpOauthTokenEndpointAuthParam {
   final CreateMcpOauthTokenEndpointAuthParamNone value;
-  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic extends CreateMcpOauthTokenEndpointAuthParam {
+final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic
+    extends CreateMcpOauthTokenEndpointAuthParam {
   final CreateMcpOauthTokenEndpointAuthParamClientSecretBasic value;
-  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost extends CreateMcpOauthTokenEndpointAuthParam {
+final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost
+    extends CreateMcpOauthTokenEndpointAuthParam {
   final CreateMcpOauthTokenEndpointAuthParamClientSecretPost value;
-  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateMcpOauthTokenEndpointAuthParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateMcpOauthTokenEndpointAuthParam extends CreateMcpOauthTokenEndpointAuthParam {
+final class UnknownCreateMcpOauthTokenEndpointAuthParam
+    extends CreateMcpOauthTokenEndpointAuthParam {
   final Map<String, dynamic> raw;
   const UnknownCreateMcpOauthTokenEndpointAuthParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Sends the client ID and secret using HTTP Basic authentication.
 class CreateMcpOauthTokenEndpointAuthParamClientSecretBasic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `client_secret_basic`.
   final CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_;
+
   /// The OAuth client secret to store. Never returned in credential resources.
   final String clientSecret;
 
-  const CreateMcpOauthTokenEndpointAuthParamClientSecretBasic({required this.type_, required this.clientSecret});
+  const CreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+      {required this.type_, required this.clientSecret});
 
-  CreateMcpOauthTokenEndpointAuthParamClientSecretBasic Function({CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_, String clientSecret}) get copyWith => _copyWith;
+  CreateMcpOauthTokenEndpointAuthParamClientSecretBasic Function(
+      {CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_,
+      String clientSecret}) get copyWith => _copyWith;
 
-  CreateMcpOauthTokenEndpointAuthParamClientSecretBasic _copyWith({Object? type_ = sdkOmittedValue, Object? clientSecret = sdkOmittedValue}) => CreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType,
-    clientSecret: identical(clientSecret, sdkOmittedValue) ? this.clientSecret : clientSecret as String,
-  );
+  CreateMcpOauthTokenEndpointAuthParamClientSecretBasic _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? clientSecret = sdkOmittedValue}) =>
+      CreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_
+                as CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType,
+        clientSecret: identical(clientSecret, sdkOmittedValue)
+            ? this.clientSecret
+            : clientSecret as String,
+      );
 
-  factory CreateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(Map<String, dynamic> json) => CreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-    type_: (json['type'] != null ? CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType.fromJson(json['type'] as String) : null)!,
-    clientSecret: (json['client_secret'] as String?)!,
-  );
+  factory CreateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
+          Map<String, dynamic> json) =>
+      CreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+        type_: (json['type'] != null
+            ? CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType
+                .fromJson(json['type'] as String)
+            : null)!,
+        clientSecret: (json['client_secret'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'client_secret': clientSecret,
-  };
+        'type': type_.toJson(),
+        'client_secret': clientSecret,
+      };
 }
 
 /// Sends the client ID and secret in the token request body.
 class CreateMcpOauthTokenEndpointAuthParamClientSecretPost {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `client_secret_post`.
   final CreateMcpOauthTokenEndpointAuthParamClientSecretPostType type_;
+
   /// The OAuth client secret to store. Never returned in credential resources.
   final String clientSecret;
 
-  const CreateMcpOauthTokenEndpointAuthParamClientSecretPost({required this.type_, required this.clientSecret});
+  const CreateMcpOauthTokenEndpointAuthParamClientSecretPost(
+      {required this.type_, required this.clientSecret});
 
-  CreateMcpOauthTokenEndpointAuthParamClientSecretPost Function({CreateMcpOauthTokenEndpointAuthParamClientSecretPostType type_, String clientSecret}) get copyWith => _copyWith;
+  CreateMcpOauthTokenEndpointAuthParamClientSecretPost Function(
+      {CreateMcpOauthTokenEndpointAuthParamClientSecretPostType type_,
+      String clientSecret}) get copyWith => _copyWith;
 
-  CreateMcpOauthTokenEndpointAuthParamClientSecretPost _copyWith({Object? type_ = sdkOmittedValue, Object? clientSecret = sdkOmittedValue}) => CreateMcpOauthTokenEndpointAuthParamClientSecretPost(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateMcpOauthTokenEndpointAuthParamClientSecretPostType,
-    clientSecret: identical(clientSecret, sdkOmittedValue) ? this.clientSecret : clientSecret as String,
-  );
+  CreateMcpOauthTokenEndpointAuthParamClientSecretPost _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? clientSecret = sdkOmittedValue}) =>
+      CreateMcpOauthTokenEndpointAuthParamClientSecretPost(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateMcpOauthTokenEndpointAuthParamClientSecretPostType,
+        clientSecret: identical(clientSecret, sdkOmittedValue)
+            ? this.clientSecret
+            : clientSecret as String,
+      );
 
-  factory CreateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(Map<String, dynamic> json) => CreateMcpOauthTokenEndpointAuthParamClientSecretPost(
-    type_: (json['type'] != null ? CreateMcpOauthTokenEndpointAuthParamClientSecretPostType.fromJson(json['type'] as String) : null)!,
-    clientSecret: (json['client_secret'] as String?)!,
-  );
+  factory CreateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(
+          Map<String, dynamic> json) =>
+      CreateMcpOauthTokenEndpointAuthParamClientSecretPost(
+        type_: (json['type'] != null
+            ? CreateMcpOauthTokenEndpointAuthParamClientSecretPostType.fromJson(
+                json['type'] as String)
+            : null)!,
+        clientSecret: (json['client_secret'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'client_secret': clientSecret,
-  };
+        'type': type_.toJson(),
+        'client_secret': clientSecret,
+      };
 }
 
 /// Sends the client ID without a client secret.
 class CreateMcpOauthTokenEndpointAuthParamNone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `none`.
   final CreateMcpOauthTokenEndpointAuthParamNoneType type_;
 
   const CreateMcpOauthTokenEndpointAuthParamNone({required this.type_});
 
-  CreateMcpOauthTokenEndpointAuthParamNone Function({CreateMcpOauthTokenEndpointAuthParamNoneType type_}) get copyWith => _copyWith;
+  CreateMcpOauthTokenEndpointAuthParamNone Function(
+          {CreateMcpOauthTokenEndpointAuthParamNoneType type_})
+      get copyWith => _copyWith;
 
-  CreateMcpOauthTokenEndpointAuthParamNone _copyWith({Object? type_ = sdkOmittedValue}) => CreateMcpOauthTokenEndpointAuthParamNone(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateMcpOauthTokenEndpointAuthParamNoneType,
-  );
+  CreateMcpOauthTokenEndpointAuthParamNone _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      CreateMcpOauthTokenEndpointAuthParamNone(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateMcpOauthTokenEndpointAuthParamNoneType,
+      );
 
-  factory CreateMcpOauthTokenEndpointAuthParamNone.fromJson(Map<String, dynamic> json) => CreateMcpOauthTokenEndpointAuthParamNone(
-    type_: (json['type'] != null ? CreateMcpOauthTokenEndpointAuthParamNoneType.fromJson(json['type'] as String) : null)!,
-  );
+  factory CreateMcpOauthTokenEndpointAuthParamNone.fromJson(
+          Map<String, dynamic> json) =>
+      CreateMcpOauthTokenEndpointAuthParamNone(
+        type_: (json['type'] != null
+            ? CreateMcpOauthTokenEndpointAuthParamNoneType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 sealed class CreateVaultCredentialAuthParam {
@@ -185,75 +311,136 @@ sealed class CreateVaultCredentialAuthParam {
   static const String constructionSurface = 'named';
   const CreateVaultCredentialAuthParam();
   factory CreateVaultCredentialAuthParam.fromJson(Object? json) {
-    try { return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(CreateVaultCredentialAuthParamMcpOauth.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(CreateVaultCredentialAuthParamStaticBearer.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(CreateVaultCredentialAuthParamEnvironmentVariable.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"mcp_oauth", "static_bearer", "environment_variable"}.contains(json["type"])) { return UnknownCreateVaultCredentialAuthParam(json); }
-    throw FormatException("No variant matched for CreateVaultCredentialAuthParam");
+    try {
+      return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(
+          CreateVaultCredentialAuthParamMcpOauth.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(
+          CreateVaultCredentialAuthParamStaticBearer.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(
+          CreateVaultCredentialAuthParamEnvironmentVariable.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"mcp_oauth", "static_bearer", "environment_variable"}
+            .contains(json["type"])) {
+      return UnknownCreateVaultCredentialAuthParam(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateVaultCredentialAuthParam");
   }
   Object? toJson();
 }
 
-final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth extends CreateVaultCredentialAuthParam {
+final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth
+    extends CreateVaultCredentialAuthParam {
   final CreateVaultCredentialAuthParamMcpOauth value;
-  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer extends CreateVaultCredentialAuthParam {
+final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer
+    extends CreateVaultCredentialAuthParam {
   final CreateVaultCredentialAuthParamStaticBearer value;
-  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable extends CreateVaultCredentialAuthParam {
+final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable
+    extends CreateVaultCredentialAuthParam {
   final CreateVaultCredentialAuthParamEnvironmentVariable value;
-  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateVaultCredentialAuthParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateVaultCredentialAuthParam extends CreateVaultCredentialAuthParam {
+final class UnknownCreateVaultCredentialAuthParam
+    extends CreateVaultCredentialAuthParam {
   final Map<String, dynamic> raw;
   const UnknownCreateVaultCredentialAuthParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// An HTTP credential for OpenAI-hosted environments only. The sandbox receives an environment variable containing a placeholder, not the secret. Use the placeholder unchanged in outgoing requests. The egress proxy replaces the placeholder with the secret for allowed HTTPS destinations on ports 443 and 8443. Sandbox code cannot read the real secret or use it for local computation, such as signing a request.
 class CreateVaultCredentialAuthParamEnvironmentVariable {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `environment_variable`.
   final CreateVaultCredentialAuthParamEnvironmentVariableType type_;
+
   /// The environment variable name that receives the placeholder, such as `SERVICE_API_KEY`. Use ASCII letters, digits, and underscores, starting with a letter or underscore. Names starting with `CODEX_` and managed proxy or certificate variable names are reserved.
   final String secretName;
+
   /// The write-only secret to store. Never returned in credential resources or supplied directly to sandbox code. Must be nonempty and must not contain carriage returns, newlines, or NUL bytes.
   final String secretValue;
+
   /// The destinations where the proxy can substitute this secret. The environment network policy must also allow them.
   final VaultCredentialNetworkingParam networking;
 
-  const CreateVaultCredentialAuthParamEnvironmentVariable({required this.type_, required this.secretName, required this.secretValue, required this.networking});
+  const CreateVaultCredentialAuthParamEnvironmentVariable(
+      {required this.type_,
+      required this.secretName,
+      required this.secretValue,
+      required this.networking});
 
-  CreateVaultCredentialAuthParamEnvironmentVariable Function({CreateVaultCredentialAuthParamEnvironmentVariableType type_, String secretName, String secretValue, VaultCredentialNetworkingParam networking}) get copyWith => _copyWith;
+  CreateVaultCredentialAuthParamEnvironmentVariable Function(
+      {CreateVaultCredentialAuthParamEnvironmentVariableType type_,
+      String secretName,
+      String secretValue,
+      VaultCredentialNetworkingParam networking}) get copyWith => _copyWith;
 
-  CreateVaultCredentialAuthParamEnvironmentVariable _copyWith({Object? type_ = sdkOmittedValue, Object? secretName = sdkOmittedValue, Object? secretValue = sdkOmittedValue, Object? networking = sdkOmittedValue}) => CreateVaultCredentialAuthParamEnvironmentVariable(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateVaultCredentialAuthParamEnvironmentVariableType,
-    secretName: identical(secretName, sdkOmittedValue) ? this.secretName : secretName as String,
-    secretValue: identical(secretValue, sdkOmittedValue) ? this.secretValue : secretValue as String,
-    networking: identical(networking, sdkOmittedValue) ? this.networking : networking as VaultCredentialNetworkingParam,
-  );
+  CreateVaultCredentialAuthParamEnvironmentVariable _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? secretName = sdkOmittedValue,
+          Object? secretValue = sdkOmittedValue,
+          Object? networking = sdkOmittedValue}) =>
+      CreateVaultCredentialAuthParamEnvironmentVariable(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateVaultCredentialAuthParamEnvironmentVariableType,
+        secretName: identical(secretName, sdkOmittedValue)
+            ? this.secretName
+            : secretName as String,
+        secretValue: identical(secretValue, sdkOmittedValue)
+            ? this.secretValue
+            : secretValue as String,
+        networking: identical(networking, sdkOmittedValue)
+            ? this.networking
+            : networking as VaultCredentialNetworkingParam,
+      );
 
-  factory CreateVaultCredentialAuthParamEnvironmentVariable.fromJson(Map<String, dynamic> json) => CreateVaultCredentialAuthParamEnvironmentVariable(
-    type_: (json['type'] != null ? CreateVaultCredentialAuthParamEnvironmentVariableType.fromJson(json['type'] as String) : null)!,
-    secretName: (json['secret_name'] as String?)!,
-    secretValue: (json['secret_value'] as String?)!,
-    networking: (json['networking'] != null ? VaultCredentialNetworkingParam.fromJson(json['networking']) : null)!,
-  );
+  factory CreateVaultCredentialAuthParamEnvironmentVariable.fromJson(
+          Map<String, dynamic> json) =>
+      CreateVaultCredentialAuthParamEnvironmentVariable(
+        type_: (json['type'] != null
+            ? CreateVaultCredentialAuthParamEnvironmentVariableType.fromJson(
+                json['type'] as String)
+            : null)!,
+        secretName: (json['secret_name'] as String?)!,
+        secretValue: (json['secret_value'] as String?)!,
+        networking: (json['networking'] != null
+            ? VaultCredentialNetworkingParam.fromJson(json['networking'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'secret_name': secretName,
-    'secret_value': secretValue,
-    'networking': networking.toJson(),
-  };
+        'type': type_.toJson(),
+        'secret_name': secretName,
+        'secret_value': secretValue,
+        'networking': networking.toJson(),
+      };
 }

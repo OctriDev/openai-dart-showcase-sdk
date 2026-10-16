@@ -10,14 +10,17 @@ enum LiveLocalEnvironmentParamType {
 
   static LiveLocalEnvironmentParamType fromJson(String value) {
     switch (value) {
-      case 'local': return LiveLocalEnvironmentParamType.local;
-      default: throw ArgumentError('Unknown LiveLocalEnvironmentParamType: $value');
+      case 'local':
+        return LiveLocalEnvironmentParamType.local;
+      default:
+        throw ArgumentError('Unknown LiveLocalEnvironmentParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveLocalEnvironmentParamType.local: return 'local';
+      case LiveLocalEnvironmentParamType.local:
+        return 'local';
     }
   }
 
@@ -31,14 +34,17 @@ enum LiveMCPToolChoiceParamType {
 
   static LiveMCPToolChoiceParamType fromJson(String value) {
     switch (value) {
-      case 'mcp': return LiveMCPToolChoiceParamType.mcp;
-      default: throw ArgumentError('Unknown LiveMCPToolChoiceParamType: $value');
+      case 'mcp':
+        return LiveMCPToolChoiceParamType.mcp;
+      default:
+        throw ArgumentError('Unknown LiveMCPToolChoiceParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveMCPToolChoiceParamType.mcp: return 'mcp';
+      case LiveMCPToolChoiceParamType.mcp:
+        return 'mcp';
     }
   }
 
@@ -52,14 +58,17 @@ enum LiveMCPToolInputParamType {
 
   static LiveMCPToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'mcp': return LiveMCPToolInputParamType.mcp;
-      default: throw ArgumentError('Unknown LiveMCPToolInputParamType: $value');
+      case 'mcp':
+        return LiveMCPToolInputParamType.mcp;
+      default:
+        throw ArgumentError('Unknown LiveMCPToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveMCPToolInputParamType.mcp: return 'mcp';
+      case LiveMCPToolInputParamType.mcp:
+        return 'mcp';
     }
   }
 
@@ -73,14 +82,17 @@ enum LiveNamespaceToolInputParamType {
 
   static LiveNamespaceToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'namespace': return LiveNamespaceToolInputParamType.namespace;
-      default: throw ArgumentError('Unknown LiveNamespaceToolInputParamType: $value');
+      case 'namespace':
+        return LiveNamespaceToolInputParamType.namespace;
+      default:
+        throw ArgumentError('Unknown LiveNamespaceToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveNamespaceToolInputParamType.namespace: return 'namespace';
+      case LiveNamespaceToolInputParamType.namespace:
+        return 'namespace';
     }
   }
 
@@ -94,14 +106,17 @@ enum LiveOutputAudioDeltaType {
 
   static LiveOutputAudioDeltaType fromJson(String value) {
     switch (value) {
-      case 'session.output_audio.delta': return LiveOutputAudioDeltaType.sessionOutputAudioDelta;
-      default: throw ArgumentError('Unknown LiveOutputAudioDeltaType: $value');
+      case 'session.output_audio.delta':
+        return LiveOutputAudioDeltaType.sessionOutputAudioDelta;
+      default:
+        throw ArgumentError('Unknown LiveOutputAudioDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveOutputAudioDeltaType.sessionOutputAudioDelta: return 'session.output_audio.delta';
+      case LiveOutputAudioDeltaType.sessionOutputAudioDelta:
+        return 'session.output_audio.delta';
     }
   }
 
@@ -115,14 +130,17 @@ enum LiveOutputAudioFixturePlayedType {
 
   static LiveOutputAudioFixturePlayedType fromJson(String value) {
     switch (value) {
-      case 'session.output_audio.fixture.played': return LiveOutputAudioFixturePlayedType.sessionOutputAudioFixturePlayed;
-      default: throw ArgumentError('Unknown LiveOutputAudioFixturePlayedType: $value');
+      case 'session.output_audio.fixture.played':
+        return LiveOutputAudioFixturePlayedType.sessionOutputAudioFixturePlayed;
+      default:
+        throw ArgumentError('Unknown LiveOutputAudioFixturePlayedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveOutputAudioFixturePlayedType.sessionOutputAudioFixturePlayed: return 'session.output_audio.fixture.played';
+      case LiveOutputAudioFixturePlayedType.sessionOutputAudioFixturePlayed:
+        return 'session.output_audio.fixture.played';
     }
   }
 
@@ -136,14 +154,19 @@ enum LiveOutputAudioFixturePlayingType {
 
   static LiveOutputAudioFixturePlayingType fromJson(String value) {
     switch (value) {
-      case 'session.output_audio.fixture.playing': return LiveOutputAudioFixturePlayingType.sessionOutputAudioFixturePlaying;
-      default: throw ArgumentError('Unknown LiveOutputAudioFixturePlayingType: $value');
+      case 'session.output_audio.fixture.playing':
+        return LiveOutputAudioFixturePlayingType
+            .sessionOutputAudioFixturePlaying;
+      default:
+        throw ArgumentError(
+            'Unknown LiveOutputAudioFixturePlayingType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveOutputAudioFixturePlayingType.sessionOutputAudioFixturePlaying: return 'session.output_audio.fixture.playing';
+      case LiveOutputAudioFixturePlayingType.sessionOutputAudioFixturePlaying:
+        return 'session.output_audio.fixture.playing';
     }
   }
 
@@ -157,14 +180,19 @@ enum LiveOutputAudioFixturePlayParamType {
 
   static LiveOutputAudioFixturePlayParamType fromJson(String value) {
     switch (value) {
-      case 'session.output_audio.fixture.play': return LiveOutputAudioFixturePlayParamType.sessionOutputAudioFixturePlay;
-      default: throw ArgumentError('Unknown LiveOutputAudioFixturePlayParamType: $value');
+      case 'session.output_audio.fixture.play':
+        return LiveOutputAudioFixturePlayParamType
+            .sessionOutputAudioFixturePlay;
+      default:
+        throw ArgumentError(
+            'Unknown LiveOutputAudioFixturePlayParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveOutputAudioFixturePlayParamType.sessionOutputAudioFixturePlay: return 'session.output_audio.fixture.play';
+      case LiveOutputAudioFixturePlayParamType.sessionOutputAudioFixturePlay:
+        return 'session.output_audio.fixture.play';
     }
   }
 
@@ -178,14 +206,17 @@ enum LiveOutputTranscriptDeltaType {
 
   static LiveOutputTranscriptDeltaType fromJson(String value) {
     switch (value) {
-      case 'session.output_transcript.delta': return LiveOutputTranscriptDeltaType.sessionOutputTranscriptDelta;
-      default: throw ArgumentError('Unknown LiveOutputTranscriptDeltaType: $value');
+      case 'session.output_transcript.delta':
+        return LiveOutputTranscriptDeltaType.sessionOutputTranscriptDelta;
+      default:
+        throw ArgumentError('Unknown LiveOutputTranscriptDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveOutputTranscriptDeltaType.sessionOutputTranscriptDelta: return 'session.output_transcript.delta';
+      case LiveOutputTranscriptDeltaType.sessionOutputTranscriptDelta:
+        return 'session.output_transcript.delta';
     }
   }
 
@@ -199,14 +230,18 @@ enum LiveProgrammaticToolInputParamType {
 
   static LiveProgrammaticToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'programmatic_tool_calling': return LiveProgrammaticToolInputParamType.programmaticToolCalling;
-      default: throw ArgumentError('Unknown LiveProgrammaticToolInputParamType: $value');
+      case 'programmatic_tool_calling':
+        return LiveProgrammaticToolInputParamType.programmaticToolCalling;
+      default:
+        throw ArgumentError(
+            'Unknown LiveProgrammaticToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveProgrammaticToolInputParamType.programmaticToolCalling: return 'programmatic_tool_calling';
+      case LiveProgrammaticToolInputParamType.programmaticToolCalling:
+        return 'programmatic_tool_calling';
     }
   }
 
@@ -220,14 +255,17 @@ enum LiveResponseCreateParamType {
 
   static LiveResponseCreateParamType fromJson(String value) {
     switch (value) {
-      case 'response.create': return LiveResponseCreateParamType.responseCreate;
-      default: throw ArgumentError('Unknown LiveResponseCreateParamType: $value');
+      case 'response.create':
+        return LiveResponseCreateParamType.responseCreate;
+      default:
+        throw ArgumentError('Unknown LiveResponseCreateParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveResponseCreateParamType.responseCreate: return 'response.create';
+      case LiveResponseCreateParamType.responseCreate:
+        return 'response.create';
     }
   }
 
@@ -241,14 +279,17 @@ enum LiveResponseEventType {
 
   static LiveResponseEventType fromJson(String value) {
     switch (value) {
-      case 'response.event': return LiveResponseEventType.responseEvent;
-      default: throw ArgumentError('Unknown LiveResponseEventType: $value');
+      case 'response.event':
+        return LiveResponseEventType.responseEvent;
+      default:
+        throw ArgumentError('Unknown LiveResponseEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveResponseEventType.responseEvent: return 'response.event';
+      case LiveResponseEventType.responseEvent:
+        return 'response.event';
     }
   }
 
@@ -262,14 +303,17 @@ enum LiveResponseItemCreateParamType {
 
   static LiveResponseItemCreateParamType fromJson(String value) {
     switch (value) {
-      case 'response.item.create': return LiveResponseItemCreateParamType.responseItemCreate;
-      default: throw ArgumentError('Unknown LiveResponseItemCreateParamType: $value');
+      case 'response.item.create':
+        return LiveResponseItemCreateParamType.responseItemCreate;
+      default:
+        throw ArgumentError('Unknown LiveResponseItemCreateParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveResponseItemCreateParamType.responseItemCreate: return 'response.item.create';
+      case LiveResponseItemCreateParamType.responseItemCreate:
+        return 'response.item.create';
     }
   }
 

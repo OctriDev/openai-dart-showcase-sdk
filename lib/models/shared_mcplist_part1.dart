@@ -8,90 +8,164 @@ part of 'shared_mcplist.dart';
 class MCPListTools {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the item. Always `mcp_list_tools`.
   final MCPListToolsType type_;
+
   /// The unique ID of the list.
   final String id;
+
   /// The label of the MCP server.
   final String serverLabel;
+
   /// The tools available on the server.
   final List<MCPListToolsTool> tools;
+
   /// Optional `string` value serialized in the `error` wire field.
   final SdkOptional<String?> error;
 
-  const MCPListTools({required this.type_, required this.id, required this.serverLabel, required this.tools, this.error = const SdkOmitted()});
+  const MCPListTools(
+      {required this.type_,
+      required this.id,
+      required this.serverLabel,
+      required this.tools,
+      this.error = const SdkOmitted()});
 
-  MCPListTools Function({MCPListToolsType type_, String id, String serverLabel, List<MCPListToolsTool> tools, SdkOptional<String?> error}) get copyWith => _copyWith;
+  MCPListTools Function(
+      {MCPListToolsType type_,
+      String id,
+      String serverLabel,
+      List<MCPListToolsTool> tools,
+      SdkOptional<String?> error}) get copyWith => _copyWith;
 
-  MCPListTools _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? error = sdkOmittedValue}) => MCPListTools(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MCPListToolsType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<MCPListToolsTool>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<String?>,
-  );
+  MCPListTools _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? serverLabel = sdkOmittedValue,
+          Object? tools = sdkOmittedValue,
+          Object? error = sdkOmittedValue}) =>
+      MCPListTools(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MCPListToolsType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        serverLabel: identical(serverLabel, sdkOmittedValue)
+            ? this.serverLabel
+            : serverLabel as String,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as List<MCPListToolsTool>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as SdkOptional<String?>,
+      );
 
   factory MCPListTools.fromJson(Map<String, dynamic> json) => MCPListTools(
-    type_: (json['type'] != null ? MCPListToolsType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    serverLabel: (json['server_label'] as String?)!,
-    tools: ((json['tools'] as List?)?.map((e) => MCPListToolsTool.fromJson(e as Map<String, dynamic>)).toList())!,
-    error: json.containsKey('error') ? SdkPresent(json['error'] as String?) : const SdkOmitted(),
-  );
+        type_: (json['type'] != null
+            ? MCPListToolsType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        serverLabel: (json['server_label'] as String?)!,
+        tools: ((json['tools'] as List?)
+            ?.map((e) => MCPListToolsTool.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        error: json.containsKey('error')
+            ? SdkPresent(json['error'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'server_label': serverLabel,
-    'tools': tools.map((item) => item.toJson()).toList(),
-    ...switch (error) {
-      SdkPresent<String?>(value: final value) => {'error': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'server_label': serverLabel,
+        'tools': tools.map((item) => item.toJson()).toList(),
+        ...switch (error) {
+          SdkPresent<String?>(value: final value) => {
+              'error': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A tool available on an MCP server.
 class MCPListToolsTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the tool.
   final String name;
+
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String?> description;
+
   /// The JSON schema describing the tool's input.
   final Map<String, dynamic> inputSchema;
+
   /// Optional object value serialized in the `annotations` wire field.
   final SdkOptional<Map<String, dynamic>?> annotations;
 
-  const MCPListToolsTool({required this.name, this.description = const SdkOmitted(), required this.inputSchema, this.annotations = const SdkOmitted()});
+  const MCPListToolsTool(
+      {required this.name,
+      this.description = const SdkOmitted(),
+      required this.inputSchema,
+      this.annotations = const SdkOmitted()});
 
-  MCPListToolsTool Function({String name, SdkOptional<String?> description, Map<String, dynamic> inputSchema, SdkOptional<Map<String, dynamic>?> annotations}) get copyWith => _copyWith;
+  MCPListToolsTool Function(
+          {String name,
+          SdkOptional<String?> description,
+          Map<String, dynamic> inputSchema,
+          SdkOptional<Map<String, dynamic>?> annotations})
+      get copyWith => _copyWith;
 
-  MCPListToolsTool _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? inputSchema = sdkOmittedValue, Object? annotations = sdkOmittedValue}) => MCPListToolsTool(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    inputSchema: identical(inputSchema, sdkOmittedValue) ? this.inputSchema : inputSchema as Map<String, dynamic>,
-    annotations: identical(annotations, sdkOmittedValue) ? this.annotations : annotations as SdkOptional<Map<String, dynamic>?>,
-  );
+  MCPListToolsTool _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? inputSchema = sdkOmittedValue,
+          Object? annotations = sdkOmittedValue}) =>
+      MCPListToolsTool(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String?>,
+        inputSchema: identical(inputSchema, sdkOmittedValue)
+            ? this.inputSchema
+            : inputSchema as Map<String, dynamic>,
+        annotations: identical(annotations, sdkOmittedValue)
+            ? this.annotations
+            : annotations as SdkOptional<Map<String, dynamic>?>,
+      );
 
-  factory MCPListToolsTool.fromJson(Map<String, dynamic> json) => MCPListToolsTool(
-    name: (json['name'] as String?)!,
-    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    inputSchema: (json['input_schema'] == null ? null : json['input_schema'] as Map<String, dynamic>)!,
-    annotations: json.containsKey('annotations') ? SdkPresent(json['annotations'] == null ? null : json['annotations'] as Map<String, dynamic>) : const SdkOmitted(),
-  );
+  factory MCPListToolsTool.fromJson(Map<String, dynamic> json) =>
+      MCPListToolsTool(
+        name: (json['name'] as String?)!,
+        description: json.containsKey('description')
+            ? SdkPresent(json['description'] as String?)
+            : const SdkOmitted(),
+        inputSchema: (json['input_schema'] == null
+            ? null
+            : json['input_schema'] as Map<String, dynamic>)!,
+        annotations: json.containsKey('annotations')
+            ? SdkPresent(json['annotations'] == null
+                ? null
+                : json['annotations'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (description) {
-      SdkPresent<String?>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    'input_schema': inputSchema,
-    ...switch (annotations) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'annotations': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (description) {
+          SdkPresent<String?>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'input_schema': inputSchema,
+        ...switch (annotations) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'annotations': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

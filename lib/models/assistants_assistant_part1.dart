@@ -9,7 +9,9 @@ sealed class AssistantObjectName {
   static const String constructionSurface = 'named';
   const AssistantObjectName();
   factory AssistantObjectName.fromJson(Object? json) {
-    if (json is String) { return AssistantObjectNameString(json); }
+    if (json is String) {
+      return AssistantObjectNameString(json);
+    }
     throw FormatException("No variant matched for AssistantObjectName");
   }
   Object? toJson();
@@ -18,7 +20,8 @@ sealed class AssistantObjectName {
 final class AssistantObjectNameString extends AssistantObjectName {
   final String value;
   const AssistantObjectNameString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class AssistantObjectDescription {
@@ -26,16 +29,20 @@ sealed class AssistantObjectDescription {
   static const String constructionSurface = 'named';
   const AssistantObjectDescription();
   factory AssistantObjectDescription.fromJson(Object? json) {
-    if (json is String) { return AssistantObjectDescriptionString(json); }
+    if (json is String) {
+      return AssistantObjectDescriptionString(json);
+    }
     throw FormatException("No variant matched for AssistantObjectDescription");
   }
   Object? toJson();
 }
 
-final class AssistantObjectDescriptionString extends AssistantObjectDescription {
+final class AssistantObjectDescriptionString
+    extends AssistantObjectDescription {
   final String value;
   const AssistantObjectDescriptionString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class AssistantObjectInstructions {
@@ -43,105 +50,176 @@ sealed class AssistantObjectInstructions {
   static const String constructionSurface = 'named';
   const AssistantObjectInstructions();
   factory AssistantObjectInstructions.fromJson(Object? json) {
-    if (json is String) { return AssistantObjectInstructionsString(json); }
+    if (json is String) {
+      return AssistantObjectInstructionsString(json);
+    }
     throw FormatException("No variant matched for AssistantObjectInstructions");
   }
   Object? toJson();
 }
 
-final class AssistantObjectInstructionsString extends AssistantObjectInstructions {
+final class AssistantObjectInstructionsString
+    extends AssistantObjectInstructions {
   final String value;
   const AssistantObjectInstructionsString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Optional object value serialized in the `code_interpreter` wire field.
 class AssistantObjectToolResourcesCodeInterpreter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of [file](https://developers.openai.com/api/reference/resources/files) IDs made available to the `code_interpreter`` tool. There can be a maximum of 20 files associated with the tool.
   final SdkOptional<List<String>> fileIds;
 
-  const AssistantObjectToolResourcesCodeInterpreter({this.fileIds = const SdkOmitted()});
+  const AssistantObjectToolResourcesCodeInterpreter(
+      {this.fileIds = const SdkOmitted()});
 
-  AssistantObjectToolResourcesCodeInterpreter Function({SdkOptional<List<String>> fileIds}) get copyWith => _copyWith;
+  AssistantObjectToolResourcesCodeInterpreter Function(
+      {SdkOptional<List<String>> fileIds}) get copyWith => _copyWith;
 
-  AssistantObjectToolResourcesCodeInterpreter _copyWith({Object? fileIds = sdkOmittedValue}) => AssistantObjectToolResourcesCodeInterpreter(
-    fileIds: identical(fileIds, sdkOmittedValue) ? this.fileIds : fileIds as SdkOptional<List<String>>,
-  );
+  AssistantObjectToolResourcesCodeInterpreter _copyWith(
+          {Object? fileIds = sdkOmittedValue}) =>
+      AssistantObjectToolResourcesCodeInterpreter(
+        fileIds: identical(fileIds, sdkOmittedValue)
+            ? this.fileIds
+            : fileIds as SdkOptional<List<String>>,
+      );
 
-  factory AssistantObjectToolResourcesCodeInterpreter.fromJson(Map<String, dynamic> json) => AssistantObjectToolResourcesCodeInterpreter(
-    fileIds: json['file_ids'] != null ? SdkPresent(((json['file_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory AssistantObjectToolResourcesCodeInterpreter.fromJson(
+          Map<String, dynamic> json) =>
+      AssistantObjectToolResourcesCodeInterpreter(
+        fileIds: json['file_ids'] != null
+            ? SdkPresent(((json['file_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (fileIds) {
-      SdkPresent<List<String>>(value: final value) => {'file_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (fileIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'file_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `file_search` wire field.
 class AssistantObjectToolResourcesFileSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the [vector store](https://developers.openai.com/api/reference/resources/vector_stores) attached to this assistant. There can be a maximum of 1 vector store attached to the assistant.
   final SdkOptional<List<String>> vectorStoreIds;
 
-  const AssistantObjectToolResourcesFileSearch({this.vectorStoreIds = const SdkOmitted()});
+  const AssistantObjectToolResourcesFileSearch(
+      {this.vectorStoreIds = const SdkOmitted()});
 
-  AssistantObjectToolResourcesFileSearch Function({SdkOptional<List<String>> vectorStoreIds}) get copyWith => _copyWith;
+  AssistantObjectToolResourcesFileSearch Function(
+      {SdkOptional<List<String>> vectorStoreIds}) get copyWith => _copyWith;
 
-  AssistantObjectToolResourcesFileSearch _copyWith({Object? vectorStoreIds = sdkOmittedValue}) => AssistantObjectToolResourcesFileSearch(
-    vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue) ? this.vectorStoreIds : vectorStoreIds as SdkOptional<List<String>>,
-  );
+  AssistantObjectToolResourcesFileSearch _copyWith(
+          {Object? vectorStoreIds = sdkOmittedValue}) =>
+      AssistantObjectToolResourcesFileSearch(
+        vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue)
+            ? this.vectorStoreIds
+            : vectorStoreIds as SdkOptional<List<String>>,
+      );
 
-  factory AssistantObjectToolResourcesFileSearch.fromJson(Map<String, dynamic> json) => AssistantObjectToolResourcesFileSearch(
-    vectorStoreIds: json['vector_store_ids'] != null ? SdkPresent(((json['vector_store_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory AssistantObjectToolResourcesFileSearch.fromJson(
+          Map<String, dynamic> json) =>
+      AssistantObjectToolResourcesFileSearch(
+        vectorStoreIds: json['vector_store_ids'] != null
+            ? SdkPresent(((json['vector_store_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (vectorStoreIds) {
-      SdkPresent<List<String>>(value: final value) => {'vector_store_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (vectorStoreIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'vector_store_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A set of resources that are used by the assistant's tools. The resources are specific to the type of tool. For example, the `code_interpreter` tool requires a list of file IDs, while the `file_search` tool requires a list of vector store IDs.
 class AssistantObjectToolResources {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `code_interpreter` wire field.
-  final SdkOptional<AssistantObjectToolResourcesCodeInterpreter> codeInterpreter;
+  final SdkOptional<AssistantObjectToolResourcesCodeInterpreter>
+      codeInterpreter;
+
   /// Optional object value serialized in the `file_search` wire field.
   final SdkOptional<AssistantObjectToolResourcesFileSearch> fileSearch;
 
-  const AssistantObjectToolResources({this.codeInterpreter = const SdkOmitted(), this.fileSearch = const SdkOmitted()});
+  const AssistantObjectToolResources(
+      {this.codeInterpreter = const SdkOmitted(),
+      this.fileSearch = const SdkOmitted()});
 
-  AssistantObjectToolResources Function({SdkOptional<AssistantObjectToolResourcesCodeInterpreter> codeInterpreter, SdkOptional<AssistantObjectToolResourcesFileSearch> fileSearch}) get copyWith => _copyWith;
+  AssistantObjectToolResources Function(
+      {SdkOptional<AssistantObjectToolResourcesCodeInterpreter> codeInterpreter,
+      SdkOptional<AssistantObjectToolResourcesFileSearch>
+          fileSearch}) get copyWith => _copyWith;
 
-  AssistantObjectToolResources _copyWith({Object? codeInterpreter = sdkOmittedValue, Object? fileSearch = sdkOmittedValue}) => AssistantObjectToolResources(
-    codeInterpreter: identical(codeInterpreter, sdkOmittedValue) ? this.codeInterpreter : codeInterpreter as SdkOptional<AssistantObjectToolResourcesCodeInterpreter>,
-    fileSearch: identical(fileSearch, sdkOmittedValue) ? this.fileSearch : fileSearch as SdkOptional<AssistantObjectToolResourcesFileSearch>,
-  );
+  AssistantObjectToolResources _copyWith(
+          {Object? codeInterpreter = sdkOmittedValue,
+          Object? fileSearch = sdkOmittedValue}) =>
+      AssistantObjectToolResources(
+        codeInterpreter: identical(codeInterpreter, sdkOmittedValue)
+            ? this.codeInterpreter
+            : codeInterpreter
+                as SdkOptional<AssistantObjectToolResourcesCodeInterpreter>,
+        fileSearch: identical(fileSearch, sdkOmittedValue)
+            ? this.fileSearch
+            : fileSearch as SdkOptional<AssistantObjectToolResourcesFileSearch>,
+      );
 
-  factory AssistantObjectToolResources.fromJson(Map<String, dynamic> json) => AssistantObjectToolResources(
-    codeInterpreter: json['code_interpreter'] != null ? SdkPresent((json['code_interpreter'] != null ? AssistantObjectToolResourcesCodeInterpreter.fromJson(json['code_interpreter'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    fileSearch: json['file_search'] != null ? SdkPresent((json['file_search'] != null ? AssistantObjectToolResourcesFileSearch.fromJson(json['file_search'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AssistantObjectToolResources.fromJson(Map<String, dynamic> json) =>
+      AssistantObjectToolResources(
+        codeInterpreter: json['code_interpreter'] != null
+            ? SdkPresent((json['code_interpreter'] != null
+                ? AssistantObjectToolResourcesCodeInterpreter.fromJson(
+                    json['code_interpreter'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        fileSearch: json['file_search'] != null
+            ? SdkPresent((json['file_search'] != null
+                ? AssistantObjectToolResourcesFileSearch.fromJson(
+                    json['file_search'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (codeInterpreter) {
-      SdkPresent<AssistantObjectToolResourcesCodeInterpreter>(value: final value) => {'code_interpreter': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fileSearch) {
-      SdkPresent<AssistantObjectToolResourcesFileSearch>(value: final value) => {'file_search': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (codeInterpreter) {
+          SdkPresent<AssistantObjectToolResourcesCodeInterpreter>(
+            value: final value
+          ) =>
+            {
+              'code_interpreter': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fileSearch) {
+          SdkPresent<AssistantObjectToolResourcesFileSearch>(
+            value: final value
+          ) =>
+            {
+              'file_search': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class AssistantObjectTemperature {
@@ -149,16 +227,20 @@ sealed class AssistantObjectTemperature {
   static const String constructionSurface = 'named';
   const AssistantObjectTemperature();
   factory AssistantObjectTemperature.fromJson(Object? json) {
-    if (json is num) { return AssistantObjectTemperatureDouble(json.toDouble()); }
+    if (json is num) {
+      return AssistantObjectTemperatureDouble(json.toDouble());
+    }
     throw FormatException("No variant matched for AssistantObjectTemperature");
   }
   Object? toJson();
 }
 
-final class AssistantObjectTemperatureDouble extends AssistantObjectTemperature {
+final class AssistantObjectTemperatureDouble
+    extends AssistantObjectTemperature {
   final double value;
   const AssistantObjectTemperatureDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class AssistantObjectTopP {
@@ -166,7 +248,9 @@ sealed class AssistantObjectTopP {
   static const String constructionSurface = 'named';
   const AssistantObjectTopP();
   factory AssistantObjectTopP.fromJson(Object? json) {
-    if (json is num) { return AssistantObjectTopPDouble(json.toDouble()); }
+    if (json is num) {
+      return AssistantObjectTopPDouble(json.toDouble());
+    }
     throw FormatException("No variant matched for AssistantObjectTopP");
   }
   Object? toJson();
@@ -175,103 +259,220 @@ sealed class AssistantObjectTopP {
 final class AssistantObjectTopPDouble extends AssistantObjectTopP {
   final double value;
   const AssistantObjectTopPDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Represents an `assistant` that can call the model and use tools.
 class AssistantObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The identifier, which can be referenced in API endpoints.
   final String id;
+
   /// The object type, which is always `assistant`.
   final AssistantObjectObject object;
+
   /// The Unix timestamp (in seconds) for when the assistant was created.
   final int createdAt;
+
   /// Required API value serialized in the `name` wire field.
   final String? name;
+
   /// Required API value serialized in the `description` wire field.
   final String? description;
+
   /// ID of the model to use. You can use the [List models](https://developers.openai.com/api/reference/resources/models/methods/list) API to see all of your available models, or see our [Model overview](https://developers.openai.com/api/docs/models) for descriptions of them.
   final String model;
+
   /// Required API value serialized in the `instructions` wire field.
   final String? instructions;
+
   /// A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types `code_interpreter`, `file_search`, or `function`.
   final List<AssistantObjectToolsItem> tools;
+
   /// A set of resources that are used by the assistant's tools. The resources are specific to the type of tool. For example, the `code_interpreter` tool requires a list of file IDs, while the `file_search` tool requires a list of vector store IDs.
   final SdkOptional<AssistantObjectToolResources?> toolResources;
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final Map<String, dynamic>? metadata;
+
   /// Optional API value serialized in the `temperature` wire field.
   final SdkOptional<double?> temperature;
+
   /// Optional API value serialized in the `top_p` wire field.
   final SdkOptional<double?> topP;
+
   /// Optional API value serialized in the `response_format` wire field.
   final SdkOptional<AssistantsApiResponseFormatOption?> responseFormat;
 
-  const AssistantObject({required this.id, required this.object, required this.createdAt, required this.name, required this.description, required this.model, required this.instructions, required this.tools, this.toolResources = const SdkOmitted(), required this.metadata, this.temperature = const SdkOmitted(), this.topP = const SdkOmitted(), this.responseFormat = const SdkOmitted()});
+  const AssistantObject(
+      {required this.id,
+      required this.object,
+      required this.createdAt,
+      required this.name,
+      required this.description,
+      required this.model,
+      required this.instructions,
+      required this.tools,
+      this.toolResources = const SdkOmitted(),
+      required this.metadata,
+      this.temperature = const SdkOmitted(),
+      this.topP = const SdkOmitted(),
+      this.responseFormat = const SdkOmitted()});
 
-  AssistantObject Function({String id, AssistantObjectObject object, int createdAt, String? name, String? description, String model, String? instructions, List<AssistantObjectToolsItem> tools, SdkOptional<AssistantObjectToolResources?> toolResources, Map<String, dynamic>? metadata, SdkOptional<double?> temperature, SdkOptional<double?> topP, SdkOptional<AssistantsApiResponseFormatOption?> responseFormat}) get copyWith => _copyWith;
+  AssistantObject Function(
+          {String id,
+          AssistantObjectObject object,
+          int createdAt,
+          String? name,
+          String? description,
+          String model,
+          String? instructions,
+          List<AssistantObjectToolsItem> tools,
+          SdkOptional<AssistantObjectToolResources?> toolResources,
+          Map<String, dynamic>? metadata,
+          SdkOptional<double?> temperature,
+          SdkOptional<double?> topP,
+          SdkOptional<AssistantsApiResponseFormatOption?> responseFormat})
+      get copyWith => _copyWith;
 
-  AssistantObject _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? model = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolResources = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? responseFormat = sdkOmittedValue}) => AssistantObject(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as AssistantObjectObject,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String?,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String?,
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as String?,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<AssistantObjectToolsItem>,
-    toolResources: identical(toolResources, sdkOmittedValue) ? this.toolResources : toolResources as SdkOptional<AssistantObjectToolResources?>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, dynamic>?,
-    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double?>,
-    topP: identical(topP, sdkOmittedValue) ? this.topP : topP as SdkOptional<double?>,
-    responseFormat: identical(responseFormat, sdkOmittedValue) ? this.responseFormat : responseFormat as SdkOptional<AssistantsApiResponseFormatOption?>,
-  );
+  AssistantObject _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? instructions = sdkOmittedValue,
+          Object? tools = sdkOmittedValue,
+          Object? toolResources = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? temperature = sdkOmittedValue,
+          Object? topP = sdkOmittedValue,
+          Object? responseFormat = sdkOmittedValue}) =>
+      AssistantObject(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as AssistantObjectObject,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String?,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String?,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        instructions: identical(instructions, sdkOmittedValue)
+            ? this.instructions
+            : instructions as String?,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as List<AssistantObjectToolsItem>,
+        toolResources: identical(toolResources, sdkOmittedValue)
+            ? this.toolResources
+            : toolResources as SdkOptional<AssistantObjectToolResources?>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as Map<String, dynamic>?,
+        temperature: identical(temperature, sdkOmittedValue)
+            ? this.temperature
+            : temperature as SdkOptional<double?>,
+        topP: identical(topP, sdkOmittedValue)
+            ? this.topP
+            : topP as SdkOptional<double?>,
+        responseFormat: identical(responseFormat, sdkOmittedValue)
+            ? this.responseFormat
+            : responseFormat as SdkOptional<AssistantsApiResponseFormatOption?>,
+      );
 
-  factory AssistantObject.fromJson(Map<String, dynamic> json) => AssistantObject(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? AssistantObjectObject.fromJson(json['object'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    name: json.containsKey('name') ? json['name'] as String? : throw ArgumentError.value(null, 'name', 'Required property is missing'),
-    description: json.containsKey('description') ? json['description'] as String? : throw ArgumentError.value(null, 'description', 'Required property is missing'),
-    model: (json['model'] as String?)!,
-    instructions: json.containsKey('instructions') ? json['instructions'] as String? : throw ArgumentError.value(null, 'instructions', 'Required property is missing'),
-    tools: ((json['tools'] as List?)?.map((e) => AssistantObjectToolsItem.fromJson(e)).toList())!,
-    toolResources: json.containsKey('tool_resources') ? SdkPresent(json['tool_resources'] != null ? AssistantObjectToolResources.fromJson(json['tool_resources'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    metadata: json.containsKey('metadata') ? json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic> : throw ArgumentError.value(null, 'metadata', 'Required property is missing'),
-    temperature: json.containsKey('temperature') ? SdkPresent((json['temperature'] as num?)?.toDouble()) : const SdkOmitted(),
-    topP: json.containsKey('top_p') ? SdkPresent((json['top_p'] as num?)?.toDouble()) : const SdkOmitted(),
-    responseFormat: json.containsKey('response_format') ? SdkPresent(json['response_format'] != null ? AssistantsApiResponseFormatOption.fromJson(json['response_format']) : null) : const SdkOmitted(),
-  );
+  factory AssistantObject.fromJson(Map<String, dynamic> json) =>
+      AssistantObject(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? AssistantObjectObject.fromJson(json['object'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        name: json.containsKey('name')
+            ? json['name'] as String?
+            : throw ArgumentError.value(
+                null, 'name', 'Required property is missing'),
+        description: json.containsKey('description')
+            ? json['description'] as String?
+            : throw ArgumentError.value(
+                null, 'description', 'Required property is missing'),
+        model: (json['model'] as String?)!,
+        instructions: json.containsKey('instructions')
+            ? json['instructions'] as String?
+            : throw ArgumentError.value(
+                null, 'instructions', 'Required property is missing'),
+        tools: ((json['tools'] as List?)
+            ?.map((e) => AssistantObjectToolsItem.fromJson(e))
+            .toList())!,
+        toolResources: json.containsKey('tool_resources')
+            ? SdkPresent(json['tool_resources'] != null
+                ? AssistantObjectToolResources.fromJson(
+                    json['tool_resources'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        metadata: json.containsKey('metadata')
+            ? json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>
+            : throw ArgumentError.value(
+                null, 'metadata', 'Required property is missing'),
+        temperature: json.containsKey('temperature')
+            ? SdkPresent((json['temperature'] as num?)?.toDouble())
+            : const SdkOmitted(),
+        topP: json.containsKey('top_p')
+            ? SdkPresent((json['top_p'] as num?)?.toDouble())
+            : const SdkOmitted(),
+        responseFormat: json.containsKey('response_format')
+            ? SdkPresent(json['response_format'] != null
+                ? AssistantsApiResponseFormatOption.fromJson(
+                    json['response_format'])
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'created_at': createdAt,
-    'name': name,
-    'description': description,
-    'model': model,
-    'instructions': instructions,
-    'tools': tools.map((item) => item.toJson()).toList(),
-    ...switch (toolResources) {
-      SdkPresent<AssistantObjectToolResources?>(value: final value) => {'tool_resources': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'metadata': metadata,
-    ...switch (temperature) {
-      SdkPresent<double?>(value: final value) => {'temperature': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (topP) {
-      SdkPresent<double?>(value: final value) => {'top_p': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (responseFormat) {
-      SdkPresent<AssistantsApiResponseFormatOption?>(value: final value) => {'response_format': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        'object': object.toJson(),
+        'created_at': createdAt,
+        'name': name,
+        'description': description,
+        'model': model,
+        'instructions': instructions,
+        'tools': tools.map((item) => item.toJson()).toList(),
+        ...switch (toolResources) {
+          SdkPresent<AssistantObjectToolResources?>(value: final value) => {
+              'tool_resources': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'metadata': metadata,
+        ...switch (temperature) {
+          SdkPresent<double?>(value: final value) => {
+              'temperature': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (topP) {
+          SdkPresent<double?>(value: final value) => {
+              'top_p': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (responseFormat) {
+          SdkPresent<AssistantsApiResponseFormatOption?>(value: final value) =>
+            {
+              'response_format': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class AssistantObjectToolsItem {
@@ -279,10 +480,24 @@ sealed class AssistantObjectToolsItem {
   static const String constructionSurface = 'named';
   const AssistantObjectToolsItem();
   factory AssistantObjectToolsItem.fromJson(Object? json) {
-    try { return AssistantObjectToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AssistantObjectToolsItemAssistantToolsFileSearch(AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AssistantObjectToolsItemAssistantToolsFunction(AssistantToolsFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"code_interpreter", "file_search", "function"}.contains(json["type"])) { return UnknownAssistantObjectToolsItem(json); }
+    try {
+      return AssistantObjectToolsItemAssistantToolsCode(
+          AssistantToolsCode.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AssistantObjectToolsItemAssistantToolsFileSearch(
+          AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AssistantObjectToolsItemAssistantToolsFunction(
+          AssistantToolsFunction.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"code_interpreter", "file_search", "function"}
+            .contains(json["type"])) {
+      return UnknownAssistantObjectToolsItem(json);
+    }
     throw FormatException("No variant matched for AssistantObjectToolsItem");
   }
   Object? toJson();

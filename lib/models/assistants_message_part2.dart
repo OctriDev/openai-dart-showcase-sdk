@@ -8,58 +8,89 @@ part of 'assistants_message.dart';
 class MessageContentTextObjectText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The data that makes up the text.
   final String value;
+
   /// Required array value serialized in the `annotations` wire field.
   final List<MessageContentTextObjectTextAnnotationsItem> annotations;
 
-  const MessageContentTextObjectText({required this.value, required this.annotations});
+  const MessageContentTextObjectText(
+      {required this.value, required this.annotations});
 
-  MessageContentTextObjectText Function({String value, List<MessageContentTextObjectTextAnnotationsItem> annotations}) get copyWith => _copyWith;
+  MessageContentTextObjectText Function(
+          {String value,
+          List<MessageContentTextObjectTextAnnotationsItem> annotations})
+      get copyWith => _copyWith;
 
-  MessageContentTextObjectText _copyWith({Object? value = sdkOmittedValue, Object? annotations = sdkOmittedValue}) => MessageContentTextObjectText(
-    value: identical(value, sdkOmittedValue) ? this.value : value as String,
-    annotations: identical(annotations, sdkOmittedValue) ? this.annotations : annotations as List<MessageContentTextObjectTextAnnotationsItem>,
-  );
+  MessageContentTextObjectText _copyWith(
+          {Object? value = sdkOmittedValue,
+          Object? annotations = sdkOmittedValue}) =>
+      MessageContentTextObjectText(
+        value: identical(value, sdkOmittedValue) ? this.value : value as String,
+        annotations: identical(annotations, sdkOmittedValue)
+            ? this.annotations
+            : annotations as List<MessageContentTextObjectTextAnnotationsItem>,
+      );
 
-  factory MessageContentTextObjectText.fromJson(Map<String, dynamic> json) => MessageContentTextObjectText(
-    value: (json['value'] as String?)!,
-    annotations: ((json['annotations'] as List?)?.map((e) => MessageContentTextObjectTextAnnotationsItem.fromJson(e)).toList())!,
-  );
+  factory MessageContentTextObjectText.fromJson(Map<String, dynamic> json) =>
+      MessageContentTextObjectText(
+        value: (json['value'] as String?)!,
+        annotations: ((json['annotations'] as List?)
+            ?.map(
+                (e) => MessageContentTextObjectTextAnnotationsItem.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'value': value,
-    'annotations': annotations.map((item) => item.toJson()).toList(),
-  };
+        'value': value,
+        'annotations': annotations.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// The text content that is part of a message.
 class MessageContentTextObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `text`.
   final MessageContentTextObjectType type_;
+
   /// Required object value serialized in the `text` wire field.
   final MessageContentTextObjectText text;
 
   const MessageContentTextObject({required this.type_, required this.text});
 
-  MessageContentTextObject Function({MessageContentTextObjectType type_, MessageContentTextObjectText text}) get copyWith => _copyWith;
+  MessageContentTextObject Function(
+      {MessageContentTextObjectType type_,
+      MessageContentTextObjectText text}) get copyWith => _copyWith;
 
-  MessageContentTextObject _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => MessageContentTextObject(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageContentTextObjectType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as MessageContentTextObjectText,
-  );
+  MessageContentTextObject _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      MessageContentTextObject(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessageContentTextObjectType,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as MessageContentTextObjectText,
+      );
 
-  factory MessageContentTextObject.fromJson(Map<String, dynamic> json) => MessageContentTextObject(
-    type_: (json['type'] != null ? MessageContentTextObjectType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] != null ? MessageContentTextObjectText.fromJson(json['text'] as Map<String, dynamic>) : null)!,
-  );
+  factory MessageContentTextObject.fromJson(Map<String, dynamic> json) =>
+      MessageContentTextObject(
+        type_: (json['type'] != null
+            ? MessageContentTextObjectType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] != null
+            ? MessageContentTextObjectText.fromJson(
+                json['text'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text.toJson(),
-  };
+        'type': type_.toJson(),
+        'text': text.toJson(),
+      };
 }
 
 sealed class MessageContentTextObjectTextAnnotationsItem {
@@ -67,210 +98,384 @@ sealed class MessageContentTextObjectTextAnnotationsItem {
   static const String constructionSurface = 'named';
   const MessageContentTextObjectTextAnnotationsItem();
   factory MessageContentTextObjectTextAnnotationsItem.fromJson(Object? json) {
-    try { return MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFileCitationObject(MessageContentTextAnnotationsFileCitationObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFilePathObject(MessageContentTextAnnotationsFilePathObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_citation", "file_path"}.contains(json["type"])) { return UnknownMessageContentTextObjectTextAnnotationsItem(json); }
-    throw FormatException("No variant matched for MessageContentTextObjectTextAnnotationsItem");
+    try {
+      return MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFileCitationObject(
+          MessageContentTextAnnotationsFileCitationObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFilePathObject(
+          MessageContentTextAnnotationsFilePathObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"file_citation", "file_path"}.contains(json["type"])) {
+      return UnknownMessageContentTextObjectTextAnnotationsItem(json);
+    }
+    throw FormatException(
+        "No variant matched for MessageContentTextObjectTextAnnotationsItem");
   }
   Object? toJson();
 }
 
-final class MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFileCitationObject extends MessageContentTextObjectTextAnnotationsItem {
+final class MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFileCitationObject
+    extends MessageContentTextObjectTextAnnotationsItem {
   final MessageContentTextAnnotationsFileCitationObject value;
-  const MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFileCitationObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFileCitationObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFilePathObject extends MessageContentTextObjectTextAnnotationsItem {
+final class MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFilePathObject
+    extends MessageContentTextObjectTextAnnotationsItem {
   final MessageContentTextAnnotationsFilePathObject value;
-  const MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFilePathObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFilePathObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [MessageContentTextObjectTextAnnotationsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownMessageContentTextObjectTextAnnotationsItem extends MessageContentTextObjectTextAnnotationsItem {
+final class UnknownMessageContentTextObjectTextAnnotationsItem
+    extends MessageContentTextObjectTextAnnotationsItem {
   final Map<String, dynamic> raw;
   const UnknownMessageContentTextObjectTextAnnotationsItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Optional object value serialized in the `image_file` wire field.
 class MessageDeltaContentImageFileObjectImageFile {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The [File](https://developers.openai.com/api/reference/resources/files) ID of the image in the message content. Set `purpose="vision"` when uploading the File if you need to later display the file content.
   final SdkOptional<String> fileId;
+
   /// Specifies the detail level of the image if specified by the user. `low` uses fewer tokens, you can opt in to high resolution using `high`.
   final SdkOptional<MessageDeltaContentImageFileObjectImageFileDetail> detail;
 
-  const MessageDeltaContentImageFileObjectImageFile({this.fileId = const SdkOmitted(), this.detail = const SdkOmitted()});
+  const MessageDeltaContentImageFileObjectImageFile(
+      {this.fileId = const SdkOmitted(), this.detail = const SdkOmitted()});
 
-  MessageDeltaContentImageFileObjectImageFile Function({SdkOptional<String> fileId, SdkOptional<MessageDeltaContentImageFileObjectImageFileDetail> detail}) get copyWith => _copyWith;
+  MessageDeltaContentImageFileObjectImageFile Function(
+      {SdkOptional<String> fileId,
+      SdkOptional<MessageDeltaContentImageFileObjectImageFileDetail>
+          detail}) get copyWith => _copyWith;
 
-  MessageDeltaContentImageFileObjectImageFile _copyWith({Object? fileId = sdkOmittedValue, Object? detail = sdkOmittedValue}) => MessageDeltaContentImageFileObjectImageFile(
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
-    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as SdkOptional<MessageDeltaContentImageFileObjectImageFileDetail>,
-  );
+  MessageDeltaContentImageFileObjectImageFile _copyWith(
+          {Object? fileId = sdkOmittedValue,
+          Object? detail = sdkOmittedValue}) =>
+      MessageDeltaContentImageFileObjectImageFile(
+        fileId: identical(fileId, sdkOmittedValue)
+            ? this.fileId
+            : fileId as SdkOptional<String>,
+        detail: identical(detail, sdkOmittedValue)
+            ? this.detail
+            : detail as SdkOptional<
+                MessageDeltaContentImageFileObjectImageFileDetail>,
+      );
 
-  factory MessageDeltaContentImageFileObjectImageFile.fromJson(Map<String, dynamic> json) => MessageDeltaContentImageFileObjectImageFile(
-    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
-    detail: json['detail'] != null ? SdkPresent((json['detail'] != null ? MessageDeltaContentImageFileObjectImageFileDetail.fromJson(json['detail'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory MessageDeltaContentImageFileObjectImageFile.fromJson(
+          Map<String, dynamic> json) =>
+      MessageDeltaContentImageFileObjectImageFile(
+        fileId: json['file_id'] != null
+            ? SdkPresent((json['file_id'] as String?)!)
+            : const SdkOmitted(),
+        detail: json['detail'] != null
+            ? SdkPresent((json['detail'] != null
+                ? MessageDeltaContentImageFileObjectImageFileDetail.fromJson(
+                    json['detail'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (fileId) {
-      SdkPresent<String>(value: final value) => {'file_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (detail) {
-      SdkPresent<MessageDeltaContentImageFileObjectImageFileDetail>(value: final value) => {'detail': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (fileId) {
+          SdkPresent<String>(value: final value) => {
+              'file_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (detail) {
+          SdkPresent<MessageDeltaContentImageFileObjectImageFileDetail>(
+            value: final value
+          ) =>
+            {
+              'detail': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// References an image [File](https://developers.openai.com/api/reference/resources/files) in the content of a message.
 class MessageDeltaContentImageFileObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The index of the content part in the message.
   final int index;
+
   /// Always `image_file`.
   final MessageDeltaContentImageFileObjectType type_;
+
   /// Optional object value serialized in the `image_file` wire field.
   final SdkOptional<MessageDeltaContentImageFileObjectImageFile> imageFile;
 
-  const MessageDeltaContentImageFileObject({required this.index, required this.type_, this.imageFile = const SdkOmitted()});
+  const MessageDeltaContentImageFileObject(
+      {required this.index,
+      required this.type_,
+      this.imageFile = const SdkOmitted()});
 
-  MessageDeltaContentImageFileObject Function({int index, MessageDeltaContentImageFileObjectType type_, SdkOptional<MessageDeltaContentImageFileObjectImageFile> imageFile}) get copyWith => _copyWith;
+  MessageDeltaContentImageFileObject Function(
+          {int index,
+          MessageDeltaContentImageFileObjectType type_,
+          SdkOptional<MessageDeltaContentImageFileObjectImageFile> imageFile})
+      get copyWith => _copyWith;
 
-  MessageDeltaContentImageFileObject _copyWith({Object? index = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? imageFile = sdkOmittedValue}) => MessageDeltaContentImageFileObject(
-    index: identical(index, sdkOmittedValue) ? this.index : index as int,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageDeltaContentImageFileObjectType,
-    imageFile: identical(imageFile, sdkOmittedValue) ? this.imageFile : imageFile as SdkOptional<MessageDeltaContentImageFileObjectImageFile>,
-  );
+  MessageDeltaContentImageFileObject _copyWith(
+          {Object? index = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? imageFile = sdkOmittedValue}) =>
+      MessageDeltaContentImageFileObject(
+        index: identical(index, sdkOmittedValue) ? this.index : index as int,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessageDeltaContentImageFileObjectType,
+        imageFile: identical(imageFile, sdkOmittedValue)
+            ? this.imageFile
+            : imageFile
+                as SdkOptional<MessageDeltaContentImageFileObjectImageFile>,
+      );
 
-  factory MessageDeltaContentImageFileObject.fromJson(Map<String, dynamic> json) => MessageDeltaContentImageFileObject(
-    index: ((json['index'] as num?)?.toInt())!,
-    type_: (json['type'] != null ? MessageDeltaContentImageFileObjectType.fromJson(json['type'] as String) : null)!,
-    imageFile: json['image_file'] != null ? SdkPresent((json['image_file'] != null ? MessageDeltaContentImageFileObjectImageFile.fromJson(json['image_file'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory MessageDeltaContentImageFileObject.fromJson(
+          Map<String, dynamic> json) =>
+      MessageDeltaContentImageFileObject(
+        index: ((json['index'] as num?)?.toInt())!,
+        type_: (json['type'] != null
+            ? MessageDeltaContentImageFileObjectType.fromJson(
+                json['type'] as String)
+            : null)!,
+        imageFile: json['image_file'] != null
+            ? SdkPresent((json['image_file'] != null
+                ? MessageDeltaContentImageFileObjectImageFile.fromJson(
+                    json['image_file'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'index': index,
-    'type': type_.toJson(),
-    ...switch (imageFile) {
-      SdkPresent<MessageDeltaContentImageFileObjectImageFile>(value: final value) => {'image_file': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'index': index,
+        'type': type_.toJson(),
+        ...switch (imageFile) {
+          SdkPresent<MessageDeltaContentImageFileObjectImageFile>(
+            value: final value
+          ) =>
+            {
+              'image_file': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `image_url` wire field.
 class MessageDeltaContentImageUrlObjectImageUrl {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The URL of the image, must be a supported image types: jpeg, jpg, png, gif, webp.
   final SdkOptional<String> url;
+
   /// Specifies the detail level of the image. `low` uses fewer tokens, you can opt in to high resolution using `high`.
   final SdkOptional<MessageDeltaContentImageUrlObjectImageUrlDetail> detail;
 
-  const MessageDeltaContentImageUrlObjectImageUrl({this.url = const SdkOmitted(), this.detail = const SdkOmitted()});
+  const MessageDeltaContentImageUrlObjectImageUrl(
+      {this.url = const SdkOmitted(), this.detail = const SdkOmitted()});
 
-  MessageDeltaContentImageUrlObjectImageUrl Function({SdkOptional<String> url, SdkOptional<MessageDeltaContentImageUrlObjectImageUrlDetail> detail}) get copyWith => _copyWith;
+  MessageDeltaContentImageUrlObjectImageUrl Function(
+          {SdkOptional<String> url,
+          SdkOptional<MessageDeltaContentImageUrlObjectImageUrlDetail> detail})
+      get copyWith => _copyWith;
 
-  MessageDeltaContentImageUrlObjectImageUrl _copyWith({Object? url = sdkOmittedValue, Object? detail = sdkOmittedValue}) => MessageDeltaContentImageUrlObjectImageUrl(
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as SdkOptional<MessageDeltaContentImageUrlObjectImageUrlDetail>,
-  );
+  MessageDeltaContentImageUrlObjectImageUrl _copyWith(
+          {Object? url = sdkOmittedValue, Object? detail = sdkOmittedValue}) =>
+      MessageDeltaContentImageUrlObjectImageUrl(
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        detail: identical(detail, sdkOmittedValue)
+            ? this.detail
+            : detail
+                as SdkOptional<MessageDeltaContentImageUrlObjectImageUrlDetail>,
+      );
 
-  factory MessageDeltaContentImageUrlObjectImageUrl.fromJson(Map<String, dynamic> json) => MessageDeltaContentImageUrlObjectImageUrl(
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    detail: json['detail'] != null ? SdkPresent((json['detail'] != null ? MessageDeltaContentImageUrlObjectImageUrlDetail.fromJson(json['detail'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory MessageDeltaContentImageUrlObjectImageUrl.fromJson(
+          Map<String, dynamic> json) =>
+      MessageDeltaContentImageUrlObjectImageUrl(
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        detail: json['detail'] != null
+            ? SdkPresent((json['detail'] != null
+                ? MessageDeltaContentImageUrlObjectImageUrlDetail.fromJson(
+                    json['detail'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (detail) {
-      SdkPresent<MessageDeltaContentImageUrlObjectImageUrlDetail>(value: final value) => {'detail': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (detail) {
+          SdkPresent<MessageDeltaContentImageUrlObjectImageUrlDetail>(
+            value: final value
+          ) =>
+            {
+              'detail': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// References an image URL in the content of a message.
 class MessageDeltaContentImageUrlObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The index of the content part in the message.
   final int index;
+
   /// Always `image_url`.
   final MessageDeltaContentImageUrlObjectType type_;
+
   /// Optional object value serialized in the `image_url` wire field.
   final SdkOptional<MessageDeltaContentImageUrlObjectImageUrl> imageUrl;
 
-  const MessageDeltaContentImageUrlObject({required this.index, required this.type_, this.imageUrl = const SdkOmitted()});
+  const MessageDeltaContentImageUrlObject(
+      {required this.index,
+      required this.type_,
+      this.imageUrl = const SdkOmitted()});
 
-  MessageDeltaContentImageUrlObject Function({int index, MessageDeltaContentImageUrlObjectType type_, SdkOptional<MessageDeltaContentImageUrlObjectImageUrl> imageUrl}) get copyWith => _copyWith;
+  MessageDeltaContentImageUrlObject Function(
+          {int index,
+          MessageDeltaContentImageUrlObjectType type_,
+          SdkOptional<MessageDeltaContentImageUrlObjectImageUrl> imageUrl})
+      get copyWith => _copyWith;
 
-  MessageDeltaContentImageUrlObject _copyWith({Object? index = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue}) => MessageDeltaContentImageUrlObject(
-    index: identical(index, sdkOmittedValue) ? this.index : index as int,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageDeltaContentImageUrlObjectType,
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<MessageDeltaContentImageUrlObjectImageUrl>,
-  );
+  MessageDeltaContentImageUrlObject _copyWith(
+          {Object? index = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue}) =>
+      MessageDeltaContentImageUrlObject(
+        index: identical(index, sdkOmittedValue) ? this.index : index as int,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessageDeltaContentImageUrlObjectType,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl
+                as SdkOptional<MessageDeltaContentImageUrlObjectImageUrl>,
+      );
 
-  factory MessageDeltaContentImageUrlObject.fromJson(Map<String, dynamic> json) => MessageDeltaContentImageUrlObject(
-    index: ((json['index'] as num?)?.toInt())!,
-    type_: (json['type'] != null ? MessageDeltaContentImageUrlObjectType.fromJson(json['type'] as String) : null)!,
-    imageUrl: json['image_url'] != null ? SdkPresent((json['image_url'] != null ? MessageDeltaContentImageUrlObjectImageUrl.fromJson(json['image_url'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory MessageDeltaContentImageUrlObject.fromJson(
+          Map<String, dynamic> json) =>
+      MessageDeltaContentImageUrlObject(
+        index: ((json['index'] as num?)?.toInt())!,
+        type_: (json['type'] != null
+            ? MessageDeltaContentImageUrlObjectType.fromJson(
+                json['type'] as String)
+            : null)!,
+        imageUrl: json['image_url'] != null
+            ? SdkPresent((json['image_url'] != null
+                ? MessageDeltaContentImageUrlObjectImageUrl.fromJson(
+                    json['image_url'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'index': index,
-    'type': type_.toJson(),
-    ...switch (imageUrl) {
-      SdkPresent<MessageDeltaContentImageUrlObjectImageUrl>(value: final value) => {'image_url': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'index': index,
+        'type': type_.toJson(),
+        ...switch (imageUrl) {
+          SdkPresent<MessageDeltaContentImageUrlObjectImageUrl>(
+            value: final value
+          ) =>
+            {
+              'image_url': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The refusal content that is part of a message.
 class MessageDeltaContentRefusalObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The index of the refusal part in the message.
   final int index;
+
   /// Always `refusal`.
   final MessageDeltaContentRefusalObjectType type_;
+
   /// Optional `string` value serialized in the `refusal` wire field.
   final SdkOptional<String> refusal;
 
-  const MessageDeltaContentRefusalObject({required this.index, required this.type_, this.refusal = const SdkOmitted()});
+  const MessageDeltaContentRefusalObject(
+      {required this.index,
+      required this.type_,
+      this.refusal = const SdkOmitted()});
 
-  MessageDeltaContentRefusalObject Function({int index, MessageDeltaContentRefusalObjectType type_, SdkOptional<String> refusal}) get copyWith => _copyWith;
+  MessageDeltaContentRefusalObject Function(
+      {int index,
+      MessageDeltaContentRefusalObjectType type_,
+      SdkOptional<String> refusal}) get copyWith => _copyWith;
 
-  MessageDeltaContentRefusalObject _copyWith({Object? index = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? refusal = sdkOmittedValue}) => MessageDeltaContentRefusalObject(
-    index: identical(index, sdkOmittedValue) ? this.index : index as int,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageDeltaContentRefusalObjectType,
-    refusal: identical(refusal, sdkOmittedValue) ? this.refusal : refusal as SdkOptional<String>,
-  );
+  MessageDeltaContentRefusalObject _copyWith(
+          {Object? index = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? refusal = sdkOmittedValue}) =>
+      MessageDeltaContentRefusalObject(
+        index: identical(index, sdkOmittedValue) ? this.index : index as int,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessageDeltaContentRefusalObjectType,
+        refusal: identical(refusal, sdkOmittedValue)
+            ? this.refusal
+            : refusal as SdkOptional<String>,
+      );
 
-  factory MessageDeltaContentRefusalObject.fromJson(Map<String, dynamic> json) => MessageDeltaContentRefusalObject(
-    index: ((json['index'] as num?)?.toInt())!,
-    type_: (json['type'] != null ? MessageDeltaContentRefusalObjectType.fromJson(json['type'] as String) : null)!,
-    refusal: json['refusal'] != null ? SdkPresent((json['refusal'] as String?)!) : const SdkOmitted(),
-  );
+  factory MessageDeltaContentRefusalObject.fromJson(
+          Map<String, dynamic> json) =>
+      MessageDeltaContentRefusalObject(
+        index: ((json['index'] as num?)?.toInt())!,
+        type_: (json['type'] != null
+            ? MessageDeltaContentRefusalObjectType.fromJson(
+                json['type'] as String)
+            : null)!,
+        refusal: json['refusal'] != null
+            ? SdkPresent((json['refusal'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'index': index,
-    'type': type_.toJson(),
-    ...switch (refusal) {
-      SdkPresent<String>(value: final value) => {'refusal': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'index': index,
+        'type': type_.toJson(),
+        ...switch (refusal) {
+          SdkPresent<String>(value: final value) => {
+              'refusal': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

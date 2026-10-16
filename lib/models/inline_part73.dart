@@ -10,14 +10,17 @@ enum LocalShellToolCallOutputType {
 
   static LocalShellToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'local_shell_call_output': return LocalShellToolCallOutputType.localShellCallOutput;
-      default: throw ArgumentError('Unknown LocalShellToolCallOutputType: $value');
+      case 'local_shell_call_output':
+        return LocalShellToolCallOutputType.localShellCallOutput;
+      default:
+        throw ArgumentError('Unknown LocalShellToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LocalShellToolCallOutputType.localShellCallOutput: return 'local_shell_call_output';
+      case LocalShellToolCallOutputType.localShellCallOutput:
+        return 'local_shell_call_output';
     }
   }
 
@@ -31,14 +34,17 @@ enum LocalShellToolParamType {
 
   static LocalShellToolParamType fromJson(String value) {
     switch (value) {
-      case 'local_shell': return LocalShellToolParamType.localShell;
-      default: throw ArgumentError('Unknown LocalShellToolParamType: $value');
+      case 'local_shell':
+        return LocalShellToolParamType.localShell;
+      default:
+        throw ArgumentError('Unknown LocalShellToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LocalShellToolParamType.localShell: return 'local_shell';
+      case LocalShellToolParamType.localShell:
+        return 'local_shell';
     }
   }
 
@@ -52,14 +58,17 @@ enum LockedStatusType {
 
   static LockedStatusType fromJson(String value) {
     switch (value) {
-      case 'locked': return LockedStatusType.locked;
-      default: throw ArgumentError('Unknown LockedStatusType: $value');
+      case 'locked':
+        return LockedStatusType.locked;
+      default:
+        throw ArgumentError('Unknown LockedStatusType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LockedStatusType.locked: return 'locked';
+      case LockedStatusType.locked:
+        return 'locked';
     }
   }
 
@@ -73,14 +82,17 @@ enum MCPApprovalRequestType {
 
   static MCPApprovalRequestType fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_request': return MCPApprovalRequestType.mcpApprovalRequest;
-      default: throw ArgumentError('Unknown MCPApprovalRequestType: $value');
+      case 'mcp_approval_request':
+        return MCPApprovalRequestType.mcpApprovalRequest;
+      default:
+        throw ArgumentError('Unknown MCPApprovalRequestType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPApprovalRequestType.mcpApprovalRequest: return 'mcp_approval_request';
+      case MCPApprovalRequestType.mcpApprovalRequest:
+        return 'mcp_approval_request';
     }
   }
 
@@ -94,14 +106,17 @@ enum MCPApprovalResponseType {
 
   static MCPApprovalResponseType fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_response': return MCPApprovalResponseType.mcpApprovalResponse;
-      default: throw ArgumentError('Unknown MCPApprovalResponseType: $value');
+      case 'mcp_approval_response':
+        return MCPApprovalResponseType.mcpApprovalResponse;
+      default:
+        throw ArgumentError('Unknown MCPApprovalResponseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPApprovalResponseType.mcpApprovalResponse: return 'mcp_approval_response';
+      case MCPApprovalResponseType.mcpApprovalResponse:
+        return 'mcp_approval_response';
     }
   }
 
@@ -115,14 +130,17 @@ enum MCPApprovalResponseResourceType {
 
   static MCPApprovalResponseResourceType fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_response': return MCPApprovalResponseResourceType.mcpApprovalResponse;
-      default: throw ArgumentError('Unknown MCPApprovalResponseResourceType: $value');
+      case 'mcp_approval_response':
+        return MCPApprovalResponseResourceType.mcpApprovalResponse;
+      default:
+        throw ArgumentError('Unknown MCPApprovalResponseResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPApprovalResponseResourceType.mcpApprovalResponse: return 'mcp_approval_response';
+      case MCPApprovalResponseResourceType.mcpApprovalResponse:
+        return 'mcp_approval_response';
     }
   }
 
@@ -136,14 +154,17 @@ enum McpCallItemResourceType {
 
   static McpCallItemResourceType fromJson(String value) {
     switch (value) {
-      case 'mcp_call': return McpCallItemResourceType.mcpCall;
-      default: throw ArgumentError('Unknown McpCallItemResourceType: $value');
+      case 'mcp_call':
+        return McpCallItemResourceType.mcpCall;
+      default:
+        throw ArgumentError('Unknown McpCallItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpCallItemResourceType.mcpCall: return 'mcp_call';
+      case McpCallItemResourceType.mcpCall:
+        return 'mcp_call';
     }
   }
 
@@ -157,14 +178,17 @@ enum MCPListToolsType {
 
   static MCPListToolsType fromJson(String value) {
     switch (value) {
-      case 'mcp_list_tools': return MCPListToolsType.mcpListTools;
-      default: throw ArgumentError('Unknown MCPListToolsType: $value');
+      case 'mcp_list_tools':
+        return MCPListToolsType.mcpListTools;
+      default:
+        throw ArgumentError('Unknown MCPListToolsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPListToolsType.mcpListTools: return 'mcp_list_tools';
+      case MCPListToolsType.mcpListTools:
+        return 'mcp_list_tools';
     }
   }
 
@@ -176,16 +200,23 @@ enum MCPListToolsType {
 enum McpOauthTokenEndpointAuthResourceClientSecretBasicType {
   clientSecretBasic;
 
-  static McpOauthTokenEndpointAuthResourceClientSecretBasicType fromJson(String value) {
+  static McpOauthTokenEndpointAuthResourceClientSecretBasicType fromJson(
+      String value) {
     switch (value) {
-      case 'client_secret_basic': return McpOauthTokenEndpointAuthResourceClientSecretBasicType.clientSecretBasic;
-      default: throw ArgumentError('Unknown McpOauthTokenEndpointAuthResourceClientSecretBasicType: $value');
+      case 'client_secret_basic':
+        return McpOauthTokenEndpointAuthResourceClientSecretBasicType
+            .clientSecretBasic;
+      default:
+        throw ArgumentError(
+            'Unknown McpOauthTokenEndpointAuthResourceClientSecretBasicType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpOauthTokenEndpointAuthResourceClientSecretBasicType.clientSecretBasic: return 'client_secret_basic';
+      case McpOauthTokenEndpointAuthResourceClientSecretBasicType
+            .clientSecretBasic:
+        return 'client_secret_basic';
     }
   }
 
@@ -197,16 +228,23 @@ enum McpOauthTokenEndpointAuthResourceClientSecretBasicType {
 enum McpOauthTokenEndpointAuthResourceClientSecretPostType {
   clientSecretPost;
 
-  static McpOauthTokenEndpointAuthResourceClientSecretPostType fromJson(String value) {
+  static McpOauthTokenEndpointAuthResourceClientSecretPostType fromJson(
+      String value) {
     switch (value) {
-      case 'client_secret_post': return McpOauthTokenEndpointAuthResourceClientSecretPostType.clientSecretPost;
-      default: throw ArgumentError('Unknown McpOauthTokenEndpointAuthResourceClientSecretPostType: $value');
+      case 'client_secret_post':
+        return McpOauthTokenEndpointAuthResourceClientSecretPostType
+            .clientSecretPost;
+      default:
+        throw ArgumentError(
+            'Unknown McpOauthTokenEndpointAuthResourceClientSecretPostType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpOauthTokenEndpointAuthResourceClientSecretPostType.clientSecretPost: return 'client_secret_post';
+      case McpOauthTokenEndpointAuthResourceClientSecretPostType
+            .clientSecretPost:
+        return 'client_secret_post';
     }
   }
 
@@ -220,14 +258,18 @@ enum McpOauthTokenEndpointAuthResourceNoneType {
 
   static McpOauthTokenEndpointAuthResourceNoneType fromJson(String value) {
     switch (value) {
-      case 'none': return McpOauthTokenEndpointAuthResourceNoneType.none;
-      default: throw ArgumentError('Unknown McpOauthTokenEndpointAuthResourceNoneType: $value');
+      case 'none':
+        return McpOauthTokenEndpointAuthResourceNoneType.none;
+      default:
+        throw ArgumentError(
+            'Unknown McpOauthTokenEndpointAuthResourceNoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpOauthTokenEndpointAuthResourceNoneType.none: return 'none';
+      case McpOauthTokenEndpointAuthResourceNoneType.none:
+        return 'none';
     }
   }
 
@@ -241,14 +283,17 @@ enum MCPProtocolErrorType {
 
   static MCPProtocolErrorType fromJson(String value) {
     switch (value) {
-      case 'mcp_protocol_error': return MCPProtocolErrorType.mcpProtocolError;
-      default: throw ArgumentError('Unknown MCPProtocolErrorType: $value');
+      case 'mcp_protocol_error':
+        return MCPProtocolErrorType.mcpProtocolError;
+      default:
+        throw ArgumentError('Unknown MCPProtocolErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPProtocolErrorType.mcpProtocolError: return 'mcp_protocol_error';
+      case MCPProtocolErrorType.mcpProtocolError:
+        return 'mcp_protocol_error';
     }
   }
 
@@ -258,28 +303,37 @@ enum MCPProtocolErrorType {
 
 /// Identifier for service connectors, like those available in ChatGPT. One of `server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more about service connectors [here](https://developers.openai.com/api/docs/guides/tools-connectors-mcp#connectors). This field is deprecated for models released after September 1, 2026. Use `server_url` to connect to a remote MCP server, or `tunnel_id` to connect through a Secure MCP Tunnel. Currently supported `connector_id` values are: - Dropbox: `connector_dropbox` - Gmail: `connector_gmail` - Google Calendar: `connector_googlecalendar` - Google Drive: `connector_googledrive` - Microsoft Teams: `connector_microsoftteams` - Outlook Calendar: `connector_outlookcalendar` - Outlook Email: `connector_outlookemail` - SharePoint: `connector_sharepoint`
 final class MCPToolConnectorId {
-
   final String value;
 
   const MCPToolConnectorId._(this.value);
 
-  factory MCPToolConnectorId.fromJson(String value) => MCPToolConnectorId._(value);
+  factory MCPToolConnectorId.fromJson(String value) =>
+      MCPToolConnectorId._(value);
 
   static const connectorDropbox = MCPToolConnectorId._('connector_dropbox');
   static const connectorGmail = MCPToolConnectorId._('connector_gmail');
-  static const connectorGooglecalendar = MCPToolConnectorId._('connector_googlecalendar');
-  static const connectorGoogledrive = MCPToolConnectorId._('connector_googledrive');
-  static const connectorMicrosoftteams = MCPToolConnectorId._('connector_microsoftteams');
-  static const connectorOutlookcalendar = MCPToolConnectorId._('connector_outlookcalendar');
-  static const connectorOutlookemail = MCPToolConnectorId._('connector_outlookemail');
-  static const connectorSharepoint = MCPToolConnectorId._('connector_sharepoint');
+  static const connectorGooglecalendar =
+      MCPToolConnectorId._('connector_googlecalendar');
+  static const connectorGoogledrive =
+      MCPToolConnectorId._('connector_googledrive');
+  static const connectorMicrosoftteams =
+      MCPToolConnectorId._('connector_microsoftteams');
+  static const connectorOutlookcalendar =
+      MCPToolConnectorId._('connector_outlookcalendar');
+  static const connectorOutlookemail =
+      MCPToolConnectorId._('connector_outlookemail');
+  static const connectorSharepoint =
+      MCPToolConnectorId._('connector_sharepoint');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MCPToolConnectorId && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MCPToolConnectorId && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

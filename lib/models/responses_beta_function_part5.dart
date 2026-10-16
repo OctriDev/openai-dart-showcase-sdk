@@ -6,12 +6,12 @@ part of 'responses_beta_function.dart';
 // responses_beta_function domain models (part 5)
 /// Typed representation of the `BetaFunctionShellCallStatus` API schema.
 final class BetaFunctionShellCallStatus {
-
   final String value;
 
   const BetaFunctionShellCallStatus._(this.value);
 
-  factory BetaFunctionShellCallStatus.fromJson(String value) => BetaFunctionShellCallStatus._(value);
+  factory BetaFunctionShellCallStatus.fromJson(String value) =>
+      BetaFunctionShellCallStatus._(value);
 
   static const inProgress = BetaFunctionShellCallStatus._('in_progress');
   static const completed = BetaFunctionShellCallStatus._('completed');
@@ -19,52 +19,100 @@ final class BetaFunctionShellCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaFunctionShellCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaFunctionShellCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// A tool that allows the model to execute shell commands.
 class BetaFunctionShellToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the shell tool. Always `shell`.
   final BetaFunctionShellToolParamType type_;
+
   /// Optional API value serialized in the `environment` wire field.
   final SdkOptional<BetaFunctionShellToolParamEnvironment?> environment;
+
   /// The tool invocation context(s).
   final SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers;
 
-  const BetaFunctionShellToolParam({required this.type_, this.environment = const SdkOmitted(), this.allowedCallers = const SdkOmitted()});
+  const BetaFunctionShellToolParam(
+      {required this.type_,
+      this.environment = const SdkOmitted(),
+      this.allowedCallers = const SdkOmitted()});
 
-  BetaFunctionShellToolParam Function({BetaFunctionShellToolParamType type_, SdkOptional<BetaFunctionShellToolParamEnvironment?> environment, SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
+  BetaFunctionShellToolParam Function(
+          {BetaFunctionShellToolParamType type_,
+          SdkOptional<BetaFunctionShellToolParamEnvironment?> environment,
+          SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers})
+      get copyWith => _copyWith;
 
-  BetaFunctionShellToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue}) => BetaFunctionShellToolParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFunctionShellToolParamType,
-    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as SdkOptional<BetaFunctionShellToolParamEnvironment?>,
-    allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
-  );
+  BetaFunctionShellToolParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? environment = sdkOmittedValue,
+          Object? allowedCallers = sdkOmittedValue}) =>
+      BetaFunctionShellToolParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaFunctionShellToolParamType,
+        environment: identical(environment, sdkOmittedValue)
+            ? this.environment
+            : environment
+                as SdkOptional<BetaFunctionShellToolParamEnvironment?>,
+        allowedCallers: identical(allowedCallers, sdkOmittedValue)
+            ? this.allowedCallers
+            : allowedCallers
+                as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
+      );
 
-  factory BetaFunctionShellToolParam.fromJson(Map<String, dynamic> json) => BetaFunctionShellToolParam(
-    type_: (json['type'] != null ? BetaFunctionShellToolParamType.fromJson(json['type'] as String) : null)!,
-    environment: json.containsKey('environment') ? SdkPresent(json['environment'] != null ? BetaFunctionShellToolParamEnvironment.fromJson(json['environment']) : null) : const SdkOmitted(),
-    allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => BetaCallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
-  );
+  factory BetaFunctionShellToolParam.fromJson(Map<String, dynamic> json) =>
+      BetaFunctionShellToolParam(
+        type_: (json['type'] != null
+            ? BetaFunctionShellToolParamType.fromJson(json['type'] as String)
+            : null)!,
+        environment: json.containsKey('environment')
+            ? SdkPresent(json['environment'] != null
+                ? BetaFunctionShellToolParamEnvironment.fromJson(
+                    json['environment'])
+                : null)
+            : const SdkOmitted(),
+        allowedCallers: json.containsKey('allowed_callers')
+            ? SdkPresent((json['allowed_callers'] as List?)
+                ?.map(
+                    (e) => BetaCallableToolAllowedCaller.fromJson(e as String))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (environment) {
-      SdkPresent<BetaFunctionShellToolParamEnvironment?>(value: final value) => {'environment': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowedCallers) {
-      SdkPresent<List<BetaCallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (environment) {
+          SdkPresent<BetaFunctionShellToolParamEnvironment?>(
+            value: final value
+          ) =>
+            {
+              'environment': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowedCallers) {
+          SdkPresent<List<BetaCallableToolAllowedCaller>?>(
+            value: final value
+          ) =>
+            {
+              'allowed_callers': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class BetaFunctionShellToolParamEnvironment {
@@ -72,202 +120,411 @@ sealed class BetaFunctionShellToolParamEnvironment {
   static const String constructionSurface = 'named';
   const BetaFunctionShellToolParamEnvironment();
   factory BetaFunctionShellToolParamEnvironment.fromJson(Object? json) {
-    try { return BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam(BetaContainerAutoParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(BetaLocalEnvironmentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(BetaContainerReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"container_auto", "local", "container_reference"}.contains(json["type"])) { return UnknownBetaFunctionShellToolParamEnvironment(json); }
-    throw FormatException("No variant matched for BetaFunctionShellToolParamEnvironment");
+    try {
+      return BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam(
+          BetaContainerAutoParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(
+          BetaLocalEnvironmentParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(
+          BetaContainerReferenceParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"container_auto", "local", "container_reference"}
+            .contains(json["type"])) {
+      return UnknownBetaFunctionShellToolParamEnvironment(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaFunctionShellToolParamEnvironment");
   }
   Object? toJson();
 }
 
-final class BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam extends BetaFunctionShellToolParamEnvironment {
+final class BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam
+    extends BetaFunctionShellToolParamEnvironment {
   final BetaContainerAutoParam value;
   const BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam extends BetaFunctionShellToolParamEnvironment {
+final class BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam
+    extends BetaFunctionShellToolParamEnvironment {
   final BetaLocalEnvironmentParam value;
-  const BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam extends BetaFunctionShellToolParamEnvironment {
+final class BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam
+    extends BetaFunctionShellToolParamEnvironment {
   final BetaContainerReferenceParam value;
-  const BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaFunctionShellToolParamEnvironment] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaFunctionShellToolParamEnvironment extends BetaFunctionShellToolParamEnvironment {
+final class UnknownBetaFunctionShellToolParamEnvironment
+    extends BetaFunctionShellToolParamEnvironment {
   final Map<String, dynamic> raw;
   const UnknownBetaFunctionShellToolParamEnvironment(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Defines a function in your own code the model can choose to call. Learn more about [function calling](https://developers.openai.com/api/docs/guides/function-calling).
 class BetaFunctionTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the function tool. Always `function`.
   final BetaFunctionToolType type_;
+
   /// The name of the function to call.
   final String name;
+
   /// Optional `boolean` value serialized in the `async` wire field.
   final SdkOptional<bool> async_;
+
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String?> description;
+
   /// A JSON schema object describing the parameters of the function.
   final Map<String, dynamic>? parameters;
+
   /// A JSON schema object describing the JSON value encoded in string outputs for this function.
   final SdkOptional<Map<String, dynamic>?> outputSchema;
+
   /// Required `boolean` value serialized in the `strict` wire field.
   final bool? strict;
+
   /// Whether this function is deferred and loaded via tool search.
   final SdkOptional<bool> deferLoading;
+
   /// The tool invocation context(s).
   final SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers;
 
-  const BetaFunctionTool({required this.type_, required this.name, this.async_ = const SdkOmitted(), this.description = const SdkOmitted(), required this.parameters, this.outputSchema = const SdkOmitted(), required this.strict, this.deferLoading = const SdkOmitted(), this.allowedCallers = const SdkOmitted()});
+  const BetaFunctionTool(
+      {required this.type_,
+      required this.name,
+      this.async_ = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      required this.parameters,
+      this.outputSchema = const SdkOmitted(),
+      required this.strict,
+      this.deferLoading = const SdkOmitted(),
+      this.allowedCallers = const SdkOmitted()});
 
-  BetaFunctionTool Function({BetaFunctionToolType type_, String name, SdkOptional<bool> async_, SdkOptional<String?> description, Map<String, dynamic>? parameters, SdkOptional<Map<String, dynamic>?> outputSchema, bool? strict, SdkOptional<bool> deferLoading, SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
+  BetaFunctionTool Function(
+          {BetaFunctionToolType type_,
+          String name,
+          SdkOptional<bool> async_,
+          SdkOptional<String?> description,
+          Map<String, dynamic>? parameters,
+          SdkOptional<Map<String, dynamic>?> outputSchema,
+          bool? strict,
+          SdkOptional<bool> deferLoading,
+          SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers})
+      get copyWith => _copyWith;
 
-  BetaFunctionTool _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? async_ = sdkOmittedValue, Object? description = sdkOmittedValue, Object? parameters = sdkOmittedValue, Object? outputSchema = sdkOmittedValue, Object? strict = sdkOmittedValue, Object? deferLoading = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue}) => BetaFunctionTool(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFunctionToolType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    async_: identical(async_, sdkOmittedValue) ? this.async_ : async_ as SdkOptional<bool>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as Map<String, dynamic>?,
-    outputSchema: identical(outputSchema, sdkOmittedValue) ? this.outputSchema : outputSchema as SdkOptional<Map<String, dynamic>?>,
-    strict: identical(strict, sdkOmittedValue) ? this.strict : strict as bool?,
-    deferLoading: identical(deferLoading, sdkOmittedValue) ? this.deferLoading : deferLoading as SdkOptional<bool>,
-    allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
-  );
+  BetaFunctionTool _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? async_ = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? parameters = sdkOmittedValue,
+          Object? outputSchema = sdkOmittedValue,
+          Object? strict = sdkOmittedValue,
+          Object? deferLoading = sdkOmittedValue,
+          Object? allowedCallers = sdkOmittedValue}) =>
+      BetaFunctionTool(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaFunctionToolType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        async_: identical(async_, sdkOmittedValue)
+            ? this.async_
+            : async_ as SdkOptional<bool>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String?>,
+        parameters: identical(parameters, sdkOmittedValue)
+            ? this.parameters
+            : parameters as Map<String, dynamic>?,
+        outputSchema: identical(outputSchema, sdkOmittedValue)
+            ? this.outputSchema
+            : outputSchema as SdkOptional<Map<String, dynamic>?>,
+        strict:
+            identical(strict, sdkOmittedValue) ? this.strict : strict as bool?,
+        deferLoading: identical(deferLoading, sdkOmittedValue)
+            ? this.deferLoading
+            : deferLoading as SdkOptional<bool>,
+        allowedCallers: identical(allowedCallers, sdkOmittedValue)
+            ? this.allowedCallers
+            : allowedCallers
+                as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
+      );
 
-  factory BetaFunctionTool.fromJson(Map<String, dynamic> json) => BetaFunctionTool(
-    type_: (json['type'] != null ? BetaFunctionToolType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    async_: json['async'] != null ? SdkPresent((json['async'] as bool?)!) : const SdkOmitted(),
-    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    parameters: json.containsKey('parameters') ? json['parameters'] == null ? null : json['parameters'] as Map<String, dynamic> : throw ArgumentError.value(null, 'parameters', 'Required property is missing'),
-    outputSchema: json.containsKey('output_schema') ? SdkPresent(json['output_schema'] == null ? null : json['output_schema'] as Map<String, dynamic>) : const SdkOmitted(),
-    strict: json.containsKey('strict') ? json['strict'] as bool? : throw ArgumentError.value(null, 'strict', 'Required property is missing'),
-    deferLoading: json['defer_loading'] != null ? SdkPresent((json['defer_loading'] as bool?)!) : const SdkOmitted(),
-    allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => BetaCallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
-  );
+  factory BetaFunctionTool.fromJson(Map<String, dynamic> json) =>
+      BetaFunctionTool(
+        type_: (json['type'] != null
+            ? BetaFunctionToolType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        async_: json['async'] != null
+            ? SdkPresent((json['async'] as bool?)!)
+            : const SdkOmitted(),
+        description: json.containsKey('description')
+            ? SdkPresent(json['description'] as String?)
+            : const SdkOmitted(),
+        parameters: json.containsKey('parameters')
+            ? json['parameters'] == null
+                ? null
+                : json['parameters'] as Map<String, dynamic>
+            : throw ArgumentError.value(
+                null, 'parameters', 'Required property is missing'),
+        outputSchema: json.containsKey('output_schema')
+            ? SdkPresent(json['output_schema'] == null
+                ? null
+                : json['output_schema'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        strict: json.containsKey('strict')
+            ? json['strict'] as bool?
+            : throw ArgumentError.value(
+                null, 'strict', 'Required property is missing'),
+        deferLoading: json['defer_loading'] != null
+            ? SdkPresent((json['defer_loading'] as bool?)!)
+            : const SdkOmitted(),
+        allowedCallers: json.containsKey('allowed_callers')
+            ? SdkPresent((json['allowed_callers'] as List?)
+                ?.map(
+                    (e) => BetaCallableToolAllowedCaller.fromJson(e as String))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    ...switch (async_) {
-      SdkPresent<bool>(value: final value) => {'async': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String?>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    'parameters': parameters,
-    ...switch (outputSchema) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'output_schema': value,},
-      _ => const <String, dynamic>{},
-    },
-    'strict': strict,
-    ...switch (deferLoading) {
-      SdkPresent<bool>(value: final value) => {'defer_loading': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowedCallers) {
-      SdkPresent<List<BetaCallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'name': name,
+        ...switch (async_) {
+          SdkPresent<bool>(value: final value) => {
+              'async': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String?>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'parameters': parameters,
+        ...switch (outputSchema) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'output_schema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'strict': strict,
+        ...switch (deferLoading) {
+          SdkPresent<bool>(value: final value) => {
+              'defer_loading': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowedCallers) {
+          SdkPresent<List<BetaCallableToolAllowedCaller>?>(
+            value: final value
+          ) =>
+            {
+              'allowed_callers': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A tool call to run a function. See the [function calling guide](https://developers.openai.com/api/docs/guides/function-calling) for more information.
 class BetaFunctionToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The unique ID of the function tool call.
   final SdkOptional<String> id;
+
   /// The type of the function tool call. Always `function_call`.
   final BetaFunctionToolCallType type_;
+
   /// The unique ID of the function tool call generated by the model.
   final String callId;
+
   /// Optional API value serialized in the `caller` wire field.
   final SdkOptional<BetaToolCallCaller?> caller;
+
   /// The namespace of the function to run.
   final SdkOptional<String> namespace;
+
   /// The name of the function to run.
   final String name;
+
   /// A JSON string of the arguments to pass to the function.
   final String arguments;
+
   /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final SdkOptional<BetaFunctionToolCallStatus> status;
+
   /// Whether the function tool call runs asynchronously.
   final SdkOptional<bool> async_;
 
-  const BetaFunctionToolCall({this.agent = const SdkOmitted(), this.id = const SdkOmitted(), required this.type_, required this.callId, this.caller = const SdkOmitted(), this.namespace = const SdkOmitted(), required this.name, required this.arguments, this.status = const SdkOmitted(), this.async_ = const SdkOmitted()});
+  const BetaFunctionToolCall(
+      {this.agent = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      required this.type_,
+      required this.callId,
+      this.caller = const SdkOmitted(),
+      this.namespace = const SdkOmitted(),
+      required this.name,
+      required this.arguments,
+      this.status = const SdkOmitted(),
+      this.async_ = const SdkOmitted()});
 
-  BetaFunctionToolCall Function({SdkOptional<BetaAgentTag?> agent, SdkOptional<String> id, BetaFunctionToolCallType type_, String callId, SdkOptional<BetaToolCallCaller?> caller, SdkOptional<String> namespace, String name, String arguments, SdkOptional<BetaFunctionToolCallStatus> status, SdkOptional<bool> async_}) get copyWith => _copyWith;
+  BetaFunctionToolCall Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      SdkOptional<String> id,
+      BetaFunctionToolCallType type_,
+      String callId,
+      SdkOptional<BetaToolCallCaller?> caller,
+      SdkOptional<String> namespace,
+      String name,
+      String arguments,
+      SdkOptional<BetaFunctionToolCallStatus> status,
+      SdkOptional<bool> async_}) get copyWith => _copyWith;
 
-  BetaFunctionToolCall _copyWith({Object? agent = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? caller = sdkOmittedValue, Object? namespace = sdkOmittedValue, Object? name = sdkOmittedValue, Object? arguments = sdkOmittedValue, Object? status = sdkOmittedValue, Object? async_ = sdkOmittedValue}) => BetaFunctionToolCall(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFunctionToolCallType,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    caller: identical(caller, sdkOmittedValue) ? this.caller : caller as SdkOptional<BetaToolCallCaller?>,
-    namespace: identical(namespace, sdkOmittedValue) ? this.namespace : namespace as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<BetaFunctionToolCallStatus>,
-    async_: identical(async_, sdkOmittedValue) ? this.async_ : async_ as SdkOptional<bool>,
-  );
+  BetaFunctionToolCall _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? caller = sdkOmittedValue,
+          Object? namespace = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? arguments = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? async_ = sdkOmittedValue}) =>
+      BetaFunctionToolCall(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaFunctionToolCallType,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        caller: identical(caller, sdkOmittedValue)
+            ? this.caller
+            : caller as SdkOptional<BetaToolCallCaller?>,
+        namespace: identical(namespace, sdkOmittedValue)
+            ? this.namespace
+            : namespace as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        arguments: identical(arguments, sdkOmittedValue)
+            ? this.arguments
+            : arguments as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<BetaFunctionToolCallStatus>,
+        async_: identical(async_, sdkOmittedValue)
+            ? this.async_
+            : async_ as SdkOptional<bool>,
+      );
 
-  factory BetaFunctionToolCall.fromJson(Map<String, dynamic> json) => BetaFunctionToolCall(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaFunctionToolCallType.fromJson(json['type'] as String) : null)!,
-    callId: (json['call_id'] as String?)!,
-    caller: json.containsKey('caller') ? SdkPresent(json['caller'] != null ? BetaToolCallCaller.fromJson(json['caller']) : null) : const SdkOmitted(),
-    namespace: json['namespace'] != null ? SdkPresent((json['namespace'] as String?)!) : const SdkOmitted(),
-    name: (json['name'] as String?)!,
-    arguments: (json['arguments'] as String?)!,
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? BetaFunctionToolCallStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    async_: json['async'] != null ? SdkPresent((json['async'] as bool?)!) : const SdkOmitted(),
-  );
+  factory BetaFunctionToolCall.fromJson(Map<String, dynamic> json) =>
+      BetaFunctionToolCall(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaFunctionToolCallType.fromJson(json['type'] as String)
+            : null)!,
+        callId: (json['call_id'] as String?)!,
+        caller: json.containsKey('caller')
+            ? SdkPresent(json['caller'] != null
+                ? BetaToolCallCaller.fromJson(json['caller'])
+                : null)
+            : const SdkOmitted(),
+        namespace: json['namespace'] != null
+            ? SdkPresent((json['namespace'] as String?)!)
+            : const SdkOmitted(),
+        name: (json['name'] as String?)!,
+        arguments: (json['arguments'] as String?)!,
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? BetaFunctionToolCallStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        async_: json['async'] != null
+            ? SdkPresent((json['async'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'call_id': callId,
-    ...switch (caller) {
-      SdkPresent<BetaToolCallCaller?>(value: final value) => {'caller': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (namespace) {
-      SdkPresent<String>(value: final value) => {'namespace': value,},
-      _ => const <String, dynamic>{},
-    },
-    'name': name,
-    'arguments': arguments,
-    ...switch (status) {
-      SdkPresent<BetaFunctionToolCallStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (async_) {
-      SdkPresent<bool>(value: final value) => {'async': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'call_id': callId,
+        ...switch (caller) {
+          SdkPresent<BetaToolCallCaller?>(value: final value) => {
+              'caller': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (namespace) {
+          SdkPresent<String>(value: final value) => {
+              'namespace': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'name': name,
+        'arguments': arguments,
+        ...switch (status) {
+          SdkPresent<BetaFunctionToolCallStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (async_) {
+          SdkPresent<bool>(value: final value) => {
+              'async': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

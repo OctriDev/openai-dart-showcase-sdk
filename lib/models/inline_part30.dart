@@ -5,24 +5,27 @@ part of 'inline.dart';
 
 // Inline operation models (part 30)
 final class ChatCompletionModalitiesItem {
-
   final String value;
 
   const ChatCompletionModalitiesItem._(this.value);
 
-  factory ChatCompletionModalitiesItem.fromJson(String value) => ChatCompletionModalitiesItem._(value);
+  factory ChatCompletionModalitiesItem.fromJson(String value) =>
+      ChatCompletionModalitiesItem._(value);
 
   static const text = ChatCompletionModalitiesItem._('text');
   static const audio = ChatCompletionModalitiesItem._('audio');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionModalitiesItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionModalitiesItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `error`.
@@ -31,14 +34,18 @@ enum ChatCompletionModerationErrorType {
 
   static ChatCompletionModerationErrorType fromJson(String value) {
     switch (value) {
-      case 'error': return ChatCompletionModerationErrorType.error;
-      default: throw ArgumentError('Unknown ChatCompletionModerationErrorType: $value');
+      case 'error':
+        return ChatCompletionModerationErrorType.error;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionModerationErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionModerationErrorType.error: return 'error';
+      case ChatCompletionModerationErrorType.error:
+        return 'error';
     }
   }
 
@@ -52,14 +59,18 @@ enum ChatCompletionModerationResultsType {
 
   static ChatCompletionModerationResultsType fromJson(String value) {
     switch (value) {
-      case 'moderation_results': return ChatCompletionModerationResultsType.moderationResults;
-      default: throw ArgumentError('Unknown ChatCompletionModerationResultsType: $value');
+      case 'moderation_results':
+        return ChatCompletionModerationResultsType.moderationResults;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionModerationResultsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionModerationResultsType.moderationResults: return 'moderation_results';
+      case ChatCompletionModerationResultsType.moderationResults:
+        return 'moderation_results';
     }
   }
 
@@ -73,14 +84,18 @@ enum ChatCompletionNamedToolChoiceType {
 
   static ChatCompletionNamedToolChoiceType fromJson(String value) {
     switch (value) {
-      case 'function': return ChatCompletionNamedToolChoiceType.function_;
-      default: throw ArgumentError('Unknown ChatCompletionNamedToolChoiceType: $value');
+      case 'function':
+        return ChatCompletionNamedToolChoiceType.function_;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionNamedToolChoiceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionNamedToolChoiceType.function_: return 'function';
+      case ChatCompletionNamedToolChoiceType.function_:
+        return 'function';
     }
   }
 
@@ -94,14 +109,18 @@ enum ChatCompletionNamedToolChoiceCustomType {
 
   static ChatCompletionNamedToolChoiceCustomType fromJson(String value) {
     switch (value) {
-      case 'custom': return ChatCompletionNamedToolChoiceCustomType.custom;
-      default: throw ArgumentError('Unknown ChatCompletionNamedToolChoiceCustomType: $value');
+      case 'custom':
+        return ChatCompletionNamedToolChoiceCustomType.custom;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionNamedToolChoiceCustomType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionNamedToolChoiceCustomType.custom: return 'custom';
+      case ChatCompletionNamedToolChoiceCustomType.custom:
+        return 'custom';
     }
   }
 
@@ -115,14 +134,18 @@ enum ChatCompletionRequestAssistantMessageRole {
 
   static ChatCompletionRequestAssistantMessageRole fromJson(String value) {
     switch (value) {
-      case 'assistant': return ChatCompletionRequestAssistantMessageRole.assistant;
-      default: throw ArgumentError('Unknown ChatCompletionRequestAssistantMessageRole: $value');
+      case 'assistant':
+        return ChatCompletionRequestAssistantMessageRole.assistant;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionRequestAssistantMessageRole: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionRequestAssistantMessageRole.assistant: return 'assistant';
+      case ChatCompletionRequestAssistantMessageRole.assistant:
+        return 'assistant';
     }
   }
 
@@ -136,14 +159,18 @@ enum ChatCompletionRequestDeveloperMessageRole {
 
   static ChatCompletionRequestDeveloperMessageRole fromJson(String value) {
     switch (value) {
-      case 'developer': return ChatCompletionRequestDeveloperMessageRole.developer;
-      default: throw ArgumentError('Unknown ChatCompletionRequestDeveloperMessageRole: $value');
+      case 'developer':
+        return ChatCompletionRequestDeveloperMessageRole.developer;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionRequestDeveloperMessageRole: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionRequestDeveloperMessageRole.developer: return 'developer';
+      case ChatCompletionRequestDeveloperMessageRole.developer:
+        return 'developer';
     }
   }
 
@@ -157,14 +184,18 @@ enum ChatCompletionRequestFunctionMessageRole {
 
   static ChatCompletionRequestFunctionMessageRole fromJson(String value) {
     switch (value) {
-      case 'function': return ChatCompletionRequestFunctionMessageRole.function_;
-      default: throw ArgumentError('Unknown ChatCompletionRequestFunctionMessageRole: $value');
+      case 'function':
+        return ChatCompletionRequestFunctionMessageRole.function_;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionRequestFunctionMessageRole: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionRequestFunctionMessageRole.function_: return 'function';
+      case ChatCompletionRequestFunctionMessageRole.function_:
+        return 'function';
     }
   }
 
@@ -174,40 +205,53 @@ enum ChatCompletionRequestFunctionMessageRole {
 
 /// The format of the encoded audio data. Currently supports "wav" and "mp3".
 final class ChatCompletionRequestMessageContentPartAudioInputAudioFormat {
-
   final String value;
 
-  const ChatCompletionRequestMessageContentPartAudioInputAudioFormat._(this.value);
+  const ChatCompletionRequestMessageContentPartAudioInputAudioFormat._(
+      this.value);
 
-  factory ChatCompletionRequestMessageContentPartAudioInputAudioFormat.fromJson(String value) => ChatCompletionRequestMessageContentPartAudioInputAudioFormat._(value);
+  factory ChatCompletionRequestMessageContentPartAudioInputAudioFormat.fromJson(
+          String value) =>
+      ChatCompletionRequestMessageContentPartAudioInputAudioFormat._(value);
 
-  static const wav = ChatCompletionRequestMessageContentPartAudioInputAudioFormat._('wav');
-  static const mp3 = ChatCompletionRequestMessageContentPartAudioInputAudioFormat._('mp3');
+  static const wav =
+      ChatCompletionRequestMessageContentPartAudioInputAudioFormat._('wav');
+  static const mp3 =
+      ChatCompletionRequestMessageContentPartAudioInputAudioFormat._('mp3');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionRequestMessageContentPartAudioInputAudioFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionRequestMessageContentPartAudioInputAudioFormat &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the content part. Always `input_audio`.
 enum ChatCompletionRequestMessageContentPartAudioType {
   inputAudio;
 
-  static ChatCompletionRequestMessageContentPartAudioType fromJson(String value) {
+  static ChatCompletionRequestMessageContentPartAudioType fromJson(
+      String value) {
     switch (value) {
-      case 'input_audio': return ChatCompletionRequestMessageContentPartAudioType.inputAudio;
-      default: throw ArgumentError('Unknown ChatCompletionRequestMessageContentPartAudioType: $value');
+      case 'input_audio':
+        return ChatCompletionRequestMessageContentPartAudioType.inputAudio;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionRequestMessageContentPartAudioType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionRequestMessageContentPartAudioType.inputAudio: return 'input_audio';
+      case ChatCompletionRequestMessageContentPartAudioType.inputAudio:
+        return 'input_audio';
     }
   }
 
@@ -219,16 +263,21 @@ enum ChatCompletionRequestMessageContentPartAudioType {
 enum ChatCompletionRequestMessageContentPartFileType {
   file;
 
-  static ChatCompletionRequestMessageContentPartFileType fromJson(String value) {
+  static ChatCompletionRequestMessageContentPartFileType fromJson(
+      String value) {
     switch (value) {
-      case 'file': return ChatCompletionRequestMessageContentPartFileType.file;
-      default: throw ArgumentError('Unknown ChatCompletionRequestMessageContentPartFileType: $value');
+      case 'file':
+        return ChatCompletionRequestMessageContentPartFileType.file;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionRequestMessageContentPartFileType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionRequestMessageContentPartFileType.file: return 'file';
+      case ChatCompletionRequestMessageContentPartFileType.file:
+        return 'file';
     }
   }
 
@@ -238,42 +287,57 @@ enum ChatCompletionRequestMessageContentPartFileType {
 
 /// Specifies the detail level of the image. Learn more in the [Vision guide](https://developers.openai.com/api/docs/guides/images-vision#choose-an-image-detail-level).
 final class ChatCompletionRequestMessageContentPartImageImageUrlDetail {
-
   final String value;
 
-  const ChatCompletionRequestMessageContentPartImageImageUrlDetail._(this.value);
+  const ChatCompletionRequestMessageContentPartImageImageUrlDetail._(
+      this.value);
 
-  factory ChatCompletionRequestMessageContentPartImageImageUrlDetail.fromJson(String value) => ChatCompletionRequestMessageContentPartImageImageUrlDetail._(value);
+  factory ChatCompletionRequestMessageContentPartImageImageUrlDetail.fromJson(
+          String value) =>
+      ChatCompletionRequestMessageContentPartImageImageUrlDetail._(value);
 
-  static const auto = ChatCompletionRequestMessageContentPartImageImageUrlDetail._('auto');
-  static const low = ChatCompletionRequestMessageContentPartImageImageUrlDetail._('low');
-  static const high = ChatCompletionRequestMessageContentPartImageImageUrlDetail._('high');
-  static const original = ChatCompletionRequestMessageContentPartImageImageUrlDetail._('original');
+  static const auto =
+      ChatCompletionRequestMessageContentPartImageImageUrlDetail._('auto');
+  static const low =
+      ChatCompletionRequestMessageContentPartImageImageUrlDetail._('low');
+  static const high =
+      ChatCompletionRequestMessageContentPartImageImageUrlDetail._('high');
+  static const original =
+      ChatCompletionRequestMessageContentPartImageImageUrlDetail._('original');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionRequestMessageContentPartImageImageUrlDetail && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionRequestMessageContentPartImageImageUrlDetail &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the content part.
 enum ChatCompletionRequestMessageContentPartImageType {
   imageUrl;
 
-  static ChatCompletionRequestMessageContentPartImageType fromJson(String value) {
+  static ChatCompletionRequestMessageContentPartImageType fromJson(
+      String value) {
     switch (value) {
-      case 'image_url': return ChatCompletionRequestMessageContentPartImageType.imageUrl;
-      default: throw ArgumentError('Unknown ChatCompletionRequestMessageContentPartImageType: $value');
+      case 'image_url':
+        return ChatCompletionRequestMessageContentPartImageType.imageUrl;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionRequestMessageContentPartImageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionRequestMessageContentPartImageType.imageUrl: return 'image_url';
+      case ChatCompletionRequestMessageContentPartImageType.imageUrl:
+        return 'image_url';
     }
   }
 
