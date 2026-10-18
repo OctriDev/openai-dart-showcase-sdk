@@ -49,6 +49,11 @@ sealed class FunctionShellToolParamEnvironment {
   static const String constructionSurface = 'named';
   const FunctionShellToolParamEnvironment();
   factory FunctionShellToolParamEnvironment.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ContainerAutoParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellToolParamEnvironmentContainerAutoParam(value); } } catch (_) {}
+      try { final value = LocalEnvironmentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellToolParamEnvironmentLocalEnvironmentParam(value); } } catch (_) {}
+      try { final value = ContainerReferenceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellToolParamEnvironmentContainerReferenceParam(value); } } catch (_) {}
+    }
     try { return FunctionShellToolParamEnvironmentContainerAutoParam(ContainerAutoParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return FunctionShellToolParamEnvironmentLocalEnvironmentParam(LocalEnvironmentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return FunctionShellToolParamEnvironmentContainerReferenceParam(ContainerReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}

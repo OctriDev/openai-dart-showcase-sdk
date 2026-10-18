@@ -259,6 +259,10 @@ sealed class RealtimeClientEventSessionUpdateSession {
   static const String constructionSurface = 'named';
   const RealtimeClientEventSessionUpdateSession();
   factory RealtimeClientEventSessionUpdateSession.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RealtimeSessionCreateRequestGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(value); } } catch (_) {}
+      try { final value = RealtimeTranscriptionSessionCreateRequestGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(value); } } catch (_) {}
+    }
     try { return RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(RealtimeSessionCreateRequestGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(RealtimeTranscriptionSessionCreateRequestGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"realtime", "transcription"}.contains(json["type"])) { return UnknownRealtimeClientEventSessionUpdateSession(json); }

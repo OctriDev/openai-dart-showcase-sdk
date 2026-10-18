@@ -61,6 +61,17 @@ sealed class MessageContentItem {
   static const String constructionSurface = 'named';
   const MessageContentItem();
   factory MessageContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = InputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemInputTextContent(value); } } catch (_) {}
+      try { final value = OutputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemOutputTextContent(value); } } catch (_) {}
+      try { final value = TextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemTextContent(value); } } catch (_) {}
+      try { final value = SummaryTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemSummaryTextContent(value); } } catch (_) {}
+      try { final value = ReasoningTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemReasoningTextContent(value); } } catch (_) {}
+      try { final value = RefusalContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemRefusalContent(value); } } catch (_) {}
+      try { final value = InputImageContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemInputImageContent(value); } } catch (_) {}
+      try { final value = ComputerScreenshotContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemComputerScreenshotContent(value); } } catch (_) {}
+      try { final value = InputFileContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemInputFileContent(value); } } catch (_) {}
+    }
     try { return MessageContentItemInputTextContent(InputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return MessageContentItemOutputTextContent(OutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return MessageContentItemTextContent(TextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}

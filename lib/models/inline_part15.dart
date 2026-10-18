@@ -116,28 +116,6 @@ final class BetaMCPToolConnectorId {
 
 }
 
-/// Specify a single approval policy for all tools. One of `always` or `never`. When set to `always`, all tools will require approval. When set to `never`, all tools will not require approval.
-final class BetaMCPToolRequireApprovalVariant1 {
-
-  final String value;
-
-  const BetaMCPToolRequireApprovalVariant1._(this.value);
-
-  factory BetaMCPToolRequireApprovalVariant1.fromJson(String value) => BetaMCPToolRequireApprovalVariant1._(value);
-
-  static const always = BetaMCPToolRequireApprovalVariant1._('always');
-  static const never = BetaMCPToolRequireApprovalVariant1._('never');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is BetaMCPToolRequireApprovalVariant1 && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
 /// The type of the MCP tool. Always `mcp`.
 enum BetaMCPToolType {
   mcp;
@@ -199,6 +177,28 @@ enum BetaMCPToolExecutionErrorType {
 
   @override
   String toString() => toJson();
+}
+
+/// Specify a single approval policy for all tools. One of `always` or `never`. When set to `always`, all tools will require approval. When set to `never`, all tools will not require approval.
+final class BetaMCPToolRequireApprovalVariant1 {
+
+  final String value;
+
+  const BetaMCPToolRequireApprovalVariant1._(this.value);
+
+  factory BetaMCPToolRequireApprovalVariant1.fromJson(String value) => BetaMCPToolRequireApprovalVariant1._(value);
+
+  static const always = BetaMCPToolRequireApprovalVariant1._('always');
+  static const never = BetaMCPToolRequireApprovalVariant1._('never');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is BetaMCPToolRequireApprovalVariant1 && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the message. Always set to `message`.

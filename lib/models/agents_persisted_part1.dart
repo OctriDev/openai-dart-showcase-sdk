@@ -9,6 +9,14 @@ sealed class PersistedAgentToolConfigParam {
   static const String constructionSurface = 'named';
   const PersistedAgentToolConfigParam();
   factory PersistedAgentToolConfigParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = PersistedAgentToolConfigParamFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamFunction(value); } } catch (_) {}
+      try { final value = PersistedAgentToolConfigParamToolSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamToolSearch(value); } } catch (_) {}
+      try { final value = PersistedAgentToolConfigParamProgrammaticToolCalling.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamProgrammaticToolCalling(value); } } catch (_) {}
+      try { final value = PersistedAgentToolConfigParamMcp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamMcp(value); } } catch (_) {}
+      try { final value = PersistedAgentToolConfigParamWebSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamWebSearch(value); } } catch (_) {}
+      try { final value = PersistedAgentToolConfigParamComputerUse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamComputerUse(value); } } catch (_) {}
+    }
     try { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamFunction(PersistedAgentToolConfigParamFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamToolSearch(PersistedAgentToolConfigParamToolSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamProgrammaticToolCalling(PersistedAgentToolConfigParamProgrammaticToolCalling.fromJson(json as Map<String, dynamic>)); } catch (_) {}

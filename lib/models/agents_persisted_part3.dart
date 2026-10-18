@@ -77,6 +77,10 @@ sealed class PersistedMcpTransportConfigParam {
   static const String constructionSurface = 'named';
   const PersistedMcpTransportConfigParam();
   factory PersistedMcpTransportConfigParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = PersistedMcpTransportConfigParamHttp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp(value); } } catch (_) {}
+      try { final value = PersistedMcpTransportConfigParamStdio.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamStdio(value); } } catch (_) {}
+    }
     try { return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp(PersistedMcpTransportConfigParamHttp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamStdio(PersistedMcpTransportConfigParamStdio.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"http", "stdio"}.contains(json["type"])) { return UnknownPersistedMcpTransportConfigParam(json); }
@@ -196,6 +200,10 @@ sealed class PersistedMcpTransportResource {
   static const String constructionSurface = 'named';
   const PersistedMcpTransportResource();
   factory PersistedMcpTransportResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = PersistedMcpTransportResourceHttp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedMcpTransportResourcePersistedMcpTransportResourceHttp(value); } } catch (_) {}
+      try { final value = PersistedMcpTransportResourceStdio.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedMcpTransportResourcePersistedMcpTransportResourceStdio(value); } } catch (_) {}
+    }
     try { return PersistedMcpTransportResourcePersistedMcpTransportResourceHttp(PersistedMcpTransportResourceHttp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return PersistedMcpTransportResourcePersistedMcpTransportResourceStdio(PersistedMcpTransportResourceStdio.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"http", "stdio"}.contains(json["type"])) { return UnknownPersistedMcpTransportResource(json); }

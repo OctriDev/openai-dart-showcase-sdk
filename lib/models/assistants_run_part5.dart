@@ -86,6 +86,11 @@ sealed class RunStepDeltaStepDetailsToolCallsObjectToolCallsItem {
   static const String constructionSurface = 'named';
   const RunStepDeltaStepDetailsToolCallsObjectToolCallsItem();
   factory RunStepDeltaStepDetailsToolCallsObjectToolCallsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RunStepDeltaStepDetailsToolCallsCodeObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDeltaStepDetailsToolCallsObjectToolCallsItemRunStepDeltaStepDetailsToolCallsCodeObject(value); } } catch (_) {}
+      try { final value = RunStepDeltaStepDetailsToolCallsFileSearchObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDeltaStepDetailsToolCallsObjectToolCallsItemRunStepDeltaStepDetailsToolCallsFileSearchObject(value); } } catch (_) {}
+      try { final value = RunStepDeltaStepDetailsToolCallsFunctionObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDeltaStepDetailsToolCallsObjectToolCallsItemRunStepDeltaStepDetailsToolCallsFunctionObject(value); } } catch (_) {}
+    }
     try { return RunStepDeltaStepDetailsToolCallsObjectToolCallsItemRunStepDeltaStepDetailsToolCallsCodeObject(RunStepDeltaStepDetailsToolCallsCodeObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunStepDeltaStepDetailsToolCallsObjectToolCallsItemRunStepDeltaStepDetailsToolCallsFileSearchObject(RunStepDeltaStepDetailsToolCallsFileSearchObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunStepDeltaStepDetailsToolCallsObjectToolCallsItemRunStepDeltaStepDetailsToolCallsFunctionObject(RunStepDeltaStepDetailsToolCallsFunctionObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -241,6 +246,10 @@ sealed class RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
   static const String constructionSurface = 'named';
   const RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem();
   factory RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RunStepDetailsToolCallsCodeOutputLogsObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject(value); } } catch (_) {}
+      try { final value = RunStepDetailsToolCallsCodeOutputImageObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputImageObject(value); } } catch (_) {}
+    }
     try { return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject(RunStepDetailsToolCallsCodeOutputLogsObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputImageObject(RunStepDetailsToolCallsCodeOutputImageObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"logs", "image"}.contains(json["type"])) { return UnknownRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem(json); }

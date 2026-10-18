@@ -13,3 +13,4 @@ import 'inline.dart';
 part 'agents_environment_part1.dart';
 part 'agents_environment_part2.dart';
 part 'agents_environment_part3.dart';
+part 'agents_environment_part4.dart';

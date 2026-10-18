@@ -195,6 +195,10 @@ sealed class CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunki
   static const String constructionSurface = 'named';
   const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy();
   factory CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(value); } } catch (_) {}
+      try { final value = CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(value); } } catch (_) {}
+    }
     try { return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy");
@@ -219,6 +223,11 @@ sealed class CreateAssistantRequestToolsItem {
   static const String constructionSurface = 'named';
   const CreateAssistantRequestToolsItem();
   factory CreateAssistantRequestToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = AssistantToolsCode.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateAssistantRequestToolsItemAssistantToolsCode(value); } } catch (_) {}
+      try { final value = AssistantToolsFileSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateAssistantRequestToolsItemAssistantToolsFileSearch(value); } } catch (_) {}
+      try { final value = AssistantToolsFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateAssistantRequestToolsItemAssistantToolsFunction(value); } } catch (_) {}
+    }
     try { return CreateAssistantRequestToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateAssistantRequestToolsItemAssistantToolsFileSearch(AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateAssistantRequestToolsItemAssistantToolsFunction(AssistantToolsFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}

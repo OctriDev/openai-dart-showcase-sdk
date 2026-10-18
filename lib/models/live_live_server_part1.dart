@@ -12,6 +12,35 @@ sealed class LiveServerEvent2 {
   static const String constructionSurface = 'named';
   const LiveServerEvent2();
   factory LiveServerEvent2.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = LiveSessionStarted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveSessionStarted(value); } } catch (_) {}
+      try { final value = LiveSessionUpdated.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveSessionUpdated(value); } } catch (_) {}
+      try { final value = LiveInputAudioMuted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveInputAudioMuted(value); } } catch (_) {}
+      try { final value = LiveInputAudioUnmuted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveInputAudioUnmuted(value); } } catch (_) {}
+      try { final value = LiveOutputAudioFixturePlaying.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveOutputAudioFixturePlaying(value); } } catch (_) {}
+      try { final value = LiveOutputAudioFixturePlayed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveOutputAudioFixturePlayed(value); } } catch (_) {}
+      try { final value = LiveInstructionsAppended.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveInstructionsAppended(value); } } catch (_) {}
+      try { final value = LiveThinkingAppended.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveThinkingAppended(value); } } catch (_) {}
+      try { final value = LiveCommentaryAppended.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveCommentaryAppended(value); } } catch (_) {}
+      try { final value = LiveInputAudioAppend.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveInputAudioAppend(value); } } catch (_) {}
+      try { final value = LiveOutputAudioDelta.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveOutputAudioDelta(value); } } catch (_) {}
+      try { final value = LiveInputTranscriptDelta.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveInputTranscriptDelta(value); } } catch (_) {}
+      try { final value = LiveOutputTranscriptDelta.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveOutputTranscriptDelta(value); } } catch (_) {}
+      try { final value = LiveDelegationCreated.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveDelegationCreated(value); } } catch (_) {}
+      try { final value = LiveDecisionEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveDecisionEvent(value); } } catch (_) {}
+      try { final value = LiveDecisionItemCreated.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveDecisionItemCreated(value); } } catch (_) {}
+      try { final value = LiveDecisionItemDeleted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveDecisionItemDeleted(value); } } catch (_) {}
+      try { final value = LiveResponseEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveResponseEvent(value); } } catch (_) {}
+      try { final value = LiveSessionUsageUpdated.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveSessionUsageUpdated(value); } } catch (_) {}
+      try { final value = LiveSessionClosed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveSessionClosed(value); } } catch (_) {}
+      try { final value = LiveErrorEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveErrorEvent(value); } } catch (_) {}
+      try { final value = LiveInfoEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveInfoEvent(value); } } catch (_) {}
+      try { final value = LiveTransportDTMFReceived.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveTransportDTMFReceived(value); } } catch (_) {}
+      try { final value = LiveTransportDTMFSend.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveTransportDTMFSend(value); } } catch (_) {}
+      try { final value = LiveTransportRinging.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveTransportRinging(value); } } catch (_) {}
+      try { final value = LiveTransportAnswered.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveTransportAnswered(value); } } catch (_) {}
+      try { final value = LiveTransportFailed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveServerEvent2LiveTransportFailed(value); } } catch (_) {}
+    }
     try { return LiveServerEvent2LiveSessionStarted(LiveSessionStarted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return LiveServerEvent2LiveSessionUpdated(LiveSessionUpdated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return LiveServerEvent2LiveInputAudioMuted(LiveInputAudioMuted.fromJson(json as Map<String, dynamic>)); } catch (_) {}

@@ -85,6 +85,18 @@ sealed class BetaAgentMessageContentItem {
   static const String constructionSurface = 'named';
   const BetaAgentMessageContentItem();
   factory BetaAgentMessageContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaInputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageContentItemBetaInputTextContent(value); } } catch (_) {}
+      try { final value = BetaOutputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageContentItemBetaOutputTextContent(value); } } catch (_) {}
+      try { final value = BetaTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageContentItemBetaTextContent(value); } } catch (_) {}
+      try { final value = BetaSummaryTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageContentItemBetaSummaryTextContent(value); } } catch (_) {}
+      try { final value = BetaReasoningTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageContentItemBetaReasoningTextContent(value); } } catch (_) {}
+      try { final value = BetaRefusalContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageContentItemBetaRefusalContent(value); } } catch (_) {}
+      try { final value = BetaInputImageContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageContentItemBetaInputImageContent(value); } } catch (_) {}
+      try { final value = BetaComputerScreenshotContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageContentItemBetaComputerScreenshotContent(value); } } catch (_) {}
+      try { final value = BetaInputFileContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageContentItemBetaInputFileContent(value); } } catch (_) {}
+      try { final value = BetaEncryptedContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageContentItemBetaEncryptedContent(value); } } catch (_) {}
+    }
     try { return BetaAgentMessageContentItemBetaInputTextContent(BetaInputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaAgentMessageContentItemBetaOutputTextContent(BetaOutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaAgentMessageContentItemBetaTextContent(BetaTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -228,6 +240,11 @@ sealed class BetaAgentMessageItemParamContentItem {
   static const String constructionSurface = 'named';
   const BetaAgentMessageItemParamContentItem();
   factory BetaAgentMessageItemParamContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaInputTextContentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageItemParamContentItemBetaInputTextContentParam(value); } } catch (_) {}
+      try { final value = BetaInputImageContentParamAutoParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(value); } } catch (_) {}
+      try { final value = BetaEncryptedContentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(value); } } catch (_) {}
+    }
     try { return BetaAgentMessageItemParamContentItemBetaInputTextContentParam(BetaInputTextContentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(BetaInputImageContentParamAutoParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(BetaEncryptedContentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}

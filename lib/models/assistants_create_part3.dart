@@ -89,6 +89,10 @@ sealed class CreateMessageRequestAttachmentsItemToolsItem {
   static const String constructionSurface = 'named';
   const CreateMessageRequestAttachmentsItemToolsItem();
   factory CreateMessageRequestAttachmentsItemToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = AssistantToolsCode.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateMessageRequestAttachmentsItemToolsItemAssistantToolsCode(value); } } catch (_) {}
+      try { final value = AssistantToolsFileSearchTypeOnly.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateMessageRequestAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly(value); } } catch (_) {}
+    }
     try { return CreateMessageRequestAttachmentsItemToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateMessageRequestAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly(AssistantToolsFileSearchTypeOnly.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"code_interpreter", "file_search"}.contains(json["type"])) { return UnknownCreateMessageRequestAttachmentsItemToolsItem(json); }
@@ -121,6 +125,11 @@ sealed class CreateMessageRequestContentItem {
   static const String constructionSurface = 'named';
   const CreateMessageRequestContentItem();
   factory CreateMessageRequestContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = MessageContentImageFileObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateMessageRequestContentItemMessageContentImageFileObject(value); } } catch (_) {}
+      try { final value = MessageContentImageUrlObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateMessageRequestContentItemMessageContentImageUrlObject(value); } } catch (_) {}
+      try { final value = MessageRequestContentTextObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateMessageRequestContentItemMessageRequestContentTextObject(value); } } catch (_) {}
+    }
     try { return CreateMessageRequestContentItemMessageContentImageFileObject(MessageContentImageFileObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateMessageRequestContentItemMessageContentImageUrlObject(MessageContentImageUrlObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateMessageRequestContentItemMessageRequestContentTextObject(MessageRequestContentTextObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}

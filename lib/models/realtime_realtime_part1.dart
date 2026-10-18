@@ -98,6 +98,11 @@ sealed class RealtimeAudioFormats {
   static const String constructionSurface = 'named';
   const RealtimeAudioFormats();
   factory RealtimeAudioFormats.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RealtimeAudioFormatsVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeAudioFormatsRealtimeAudioFormatsVariant0(value); } } catch (_) {}
+      try { final value = RealtimeAudioFormatsVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeAudioFormatsRealtimeAudioFormatsVariant1(value); } } catch (_) {}
+      try { final value = RealtimeAudioFormatsVariant2.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeAudioFormatsRealtimeAudioFormatsVariant2(value); } } catch (_) {}
+    }
     try { return RealtimeAudioFormatsRealtimeAudioFormatsVariant0(RealtimeAudioFormatsVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RealtimeAudioFormatsRealtimeAudioFormatsVariant1(RealtimeAudioFormatsVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RealtimeAudioFormatsRealtimeAudioFormatsVariant2(RealtimeAudioFormatsVariant2.fromJson(json as Map<String, dynamic>)); } catch (_) {}

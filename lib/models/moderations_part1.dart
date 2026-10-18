@@ -154,6 +154,10 @@ sealed class CreateModerationRequestInputItem {
   static const String constructionSurface = 'named';
   const CreateModerationRequestInputItem();
   factory CreateModerationRequestInputItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = CreateModerationRequestInputItemVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant0(value); } } catch (_) {}
+      try { final value = CreateModerationRequestInputItemVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant1(value); } } catch (_) {}
+    }
     try { return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant0(CreateModerationRequestInputItemVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant1(CreateModerationRequestInputItemVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for CreateModerationRequestInputItem");

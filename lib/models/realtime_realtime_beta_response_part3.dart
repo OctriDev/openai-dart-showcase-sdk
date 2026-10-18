@@ -124,6 +124,10 @@ sealed class RealtimeBetaResponseCreateParamsToolChoice {
   static const String constructionSurface = 'named';
   const RealtimeBetaResponseCreateParamsToolChoice();
   factory RealtimeBetaResponseCreateParamsToolChoice.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ToolChoiceFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceFunction(value); } } catch (_) {}
+      try { final value = ToolChoiceMCP.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceMCP(value); } } catch (_) {}
+    }
     try { return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceOptions(ToolChoiceOptions.fromJson(json as String)); } catch (_) {}
     try { return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceFunction(ToolChoiceFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceMCP(ToolChoiceMCP.fromJson(json as Map<String, dynamic>)); } catch (_) {}

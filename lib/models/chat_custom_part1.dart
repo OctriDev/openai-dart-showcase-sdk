@@ -160,6 +160,10 @@ sealed class CustomToolChatCompletionsCustomFormat {
   static const String constructionSurface = 'named';
   const CustomToolChatCompletionsCustomFormat();
   factory CustomToolChatCompletionsCustomFormat.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = CustomToolChatCompletionsCustomFormatVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant0(value); } } catch (_) {}
+      try { final value = CustomToolChatCompletionsCustomFormatVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant1(value); } } catch (_) {}
+    }
     try { return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant0(CustomToolChatCompletionsCustomFormatVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant1(CustomToolChatCompletionsCustomFormatVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for CustomToolChatCompletionsCustomFormat");

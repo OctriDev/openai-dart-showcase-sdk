@@ -65,6 +65,10 @@ sealed class BetaContainerAutoParamNetworkPolicy {
   static const String constructionSurface = 'named';
   const BetaContainerAutoParamNetworkPolicy();
   factory BetaContainerAutoParamNetworkPolicy.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaContainerNetworkPolicyDisabledParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam(value); } } catch (_) {}
+      try { final value = BetaContainerNetworkPolicyAllowlistParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyAllowlistParam(value); } } catch (_) {}
+    }
     try { return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam(BetaContainerNetworkPolicyDisabledParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyAllowlistParam(BetaContainerNetworkPolicyAllowlistParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"disabled", "allowlist"}.contains(json["type"])) { return UnknownBetaContainerAutoParamNetworkPolicy(json); }
@@ -97,6 +101,10 @@ sealed class BetaContainerAutoParamSkillsItem {
   static const String constructionSurface = 'named';
   const BetaContainerAutoParamSkillsItem();
   factory BetaContainerAutoParamSkillsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaSkillReferenceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaContainerAutoParamSkillsItemBetaSkillReferenceParam(value); } } catch (_) {}
+      try { final value = BetaInlineSkillParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaContainerAutoParamSkillsItemBetaInlineSkillParam(value); } } catch (_) {}
+    }
     try { return BetaContainerAutoParamSkillsItemBetaSkillReferenceParam(BetaSkillReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaContainerAutoParamSkillsItemBetaInlineSkillParam(BetaInlineSkillParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"skill_reference", "inline"}.contains(json["type"])) { return UnknownBetaContainerAutoParamSkillsItem(json); }

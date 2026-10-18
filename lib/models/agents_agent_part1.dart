@@ -9,6 +9,10 @@ sealed class AgentContentResource {
   static const String constructionSurface = 'named';
   const AgentContentResource();
   factory AgentContentResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = OutputTextResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentContentResourceOutputTextResource(value); } } catch (_) {}
+      try { final value = EncryptedContentResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentContentResourceEncryptedContentResource(value); } } catch (_) {}
+    }
     try { return AgentContentResourceOutputTextResource(OutputTextResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return AgentContentResourceEncryptedContentResource(EncryptedContentResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"output_text", "encrypted_content"}.contains(json["type"])) { return UnknownAgentContentResource(json); }
@@ -178,6 +182,22 @@ sealed class AgentOutputItemResource {
   static const String constructionSurface = 'named';
   const AgentOutputItemResource();
   factory AgentOutputItemResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = AssistantMessageItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceAssistantMessageItemResource(value); } } catch (_) {}
+      try { final value = ReasoningItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceReasoningItemResource(value); } } catch (_) {}
+      try { final value = FunctionCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceFunctionCallItemResource(value); } } catch (_) {}
+      try { final value = McpCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceMcpCallItemResource(value); } } catch (_) {}
+      try { final value = ComputerUseCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceComputerUseCallItemResource(value); } } catch (_) {}
+      try { final value = BrowserAuthenticationRequestItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceBrowserAuthenticationRequestItemResource(value); } } catch (_) {}
+      try { final value = WebSearchCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceWebSearchCallItemResource(value); } } catch (_) {}
+      try { final value = CommandExecutionItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceCommandExecutionItemResource(value); } } catch (_) {}
+      try { final value = CreateSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceCreateSubagentCallItemResource(value); } } catch (_) {}
+      try { final value = SendSubagentInputCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceSendSubagentInputCallItemResource(value); } } catch (_) {}
+      try { final value = ResumeSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceResumeSubagentCallItemResource(value); } } catch (_) {}
+      try { final value = WaitForSubagentsCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceWaitForSubagentsCallItemResource(value); } } catch (_) {}
+      try { final value = InterruptSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceInterruptSubagentCallItemResource(value); } } catch (_) {}
+      try { final value = CloseSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceCloseSubagentCallItemResource(value); } } catch (_) {}
+    }
     try { return AgentOutputItemResourceAssistantMessageItemResource(AssistantMessageItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return AgentOutputItemResourceReasoningItemResource(ReasoningItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return AgentOutputItemResourceFunctionCallItemResource(FunctionCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -261,23 +281,5 @@ final class AgentOutputItemResourceSendSubagentInputCallItemResource extends Age
 final class AgentOutputItemResourceResumeSubagentCallItemResource extends AgentOutputItemResource {
   final ResumeSubagentCallItemResource value;
   const AgentOutputItemResourceResumeSubagentCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class AgentOutputItemResourceWaitForSubagentsCallItemResource extends AgentOutputItemResource {
-  final WaitForSubagentsCallItemResource value;
-  const AgentOutputItemResourceWaitForSubagentsCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class AgentOutputItemResourceInterruptSubagentCallItemResource extends AgentOutputItemResource {
-  final InterruptSubagentCallItemResource value;
-  const AgentOutputItemResourceInterruptSubagentCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class AgentOutputItemResourceCloseSubagentCallItemResource extends AgentOutputItemResource {
-  final CloseSubagentCallItemResource value;
-  const AgentOutputItemResourceCloseSubagentCallItemResource(this.value);
   @override Object? toJson() => value.toJson();
 }

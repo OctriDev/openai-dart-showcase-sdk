@@ -79,6 +79,10 @@ sealed class VectorStoreFileObjectChunkingStrategy {
   static const String constructionSurface = 'named';
   const VectorStoreFileObjectChunkingStrategy();
   factory VectorStoreFileObjectChunkingStrategy.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = StaticChunkingStrategyResponseParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VectorStoreFileObjectChunkingStrategyStaticChunkingStrategyResponseParam(value); } } catch (_) {}
+      try { final value = OtherChunkingStrategyResponseParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VectorStoreFileObjectChunkingStrategyOtherChunkingStrategyResponseParam(value); } } catch (_) {}
+    }
     try { return VectorStoreFileObjectChunkingStrategyStaticChunkingStrategyResponseParam(StaticChunkingStrategyResponseParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return VectorStoreFileObjectChunkingStrategyOtherChunkingStrategyResponseParam(OtherChunkingStrategyResponseParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"static", "other"}.contains(json["type"])) { return UnknownVectorStoreFileObjectChunkingStrategy(json); }

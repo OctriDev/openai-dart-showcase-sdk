@@ -4,6 +4,23 @@
 part of 'images.dart';
 
 // images domain models (part 5)
+sealed class ImageGenStreamEvent {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const ImageGenStreamEvent();
+  factory ImageGenStreamEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ImageGenPartialImageEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ImageGenStreamEventImageGenPartialImageEvent(value); } } catch (_) {}
+      try { final value = ImageGenCompletedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ImageGenStreamEventImageGenCompletedEvent(value); } } catch (_) {}
+    }
+    try { return ImageGenStreamEventImageGenPartialImageEvent(ImageGenPartialImageEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ImageGenStreamEventImageGenCompletedEvent(ImageGenCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"image_generation.partial_image", "image_generation.completed"}.contains(json["type"])) { return UnknownImageGenStreamEvent(json); }
+    throw FormatException("No variant matched for ImageGenStreamEvent");
+  }
+  Object? toJson();
+}
+
 final class ImageGenStreamEventImageGenPartialImageEvent extends ImageGenStreamEvent {
   final ImageGenPartialImageEvent value;
   const ImageGenStreamEventImageGenPartialImageEvent(this.value);

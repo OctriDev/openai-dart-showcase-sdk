@@ -258,6 +258,10 @@ sealed class ResponseSteerInputItem {
   static const String constructionSurface = 'named';
   const ResponseSteerInputItem();
   factory ResponseSteerInputItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = UserMessageItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponseSteerInputItemUserMessageItemParam(value); } } catch (_) {}
+      try { final value = FunctionCallOutputItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponseSteerInputItemFunctionCallOutputItemParam(value); } } catch (_) {}
+    }
     try { return ResponseSteerInputItemUserMessageItemParam(UserMessageItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ResponseSteerInputItemFunctionCallOutputItemParam(FunctionCallOutputItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"message", "function_call_output"}.contains(json["type"])) { return UnknownResponseSteerInputItem(json); }

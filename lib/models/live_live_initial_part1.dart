@@ -62,6 +62,10 @@ sealed class LiveInitialAssistantMessageItemParamContentItem {
   static const String constructionSurface = 'named';
   const LiveInitialAssistantMessageItemParamContentItem();
   factory LiveInitialAssistantMessageItemParamContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = LiveInitialTextContentPartParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveInitialAssistantMessageItemParamContentItemLiveInitialTextContentPartParam(value); } } catch (_) {}
+      try { final value = LiveInitialOutputTextContentPartParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveInitialAssistantMessageItemParamContentItemLiveInitialOutputTextContentPartParam(value); } } catch (_) {}
+    }
     try { return LiveInitialAssistantMessageItemParamContentItemLiveInitialTextContentPartParam(LiveInitialTextContentPartParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return LiveInitialAssistantMessageItemParamContentItemLiveInitialOutputTextContentPartParam(LiveInitialOutputTextContentPartParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "output_text"}.contains(json["type"])) { return UnknownLiveInitialAssistantMessageItemParamContentItem(json); }
@@ -179,6 +183,11 @@ sealed class LiveInitialItem {
   static const String constructionSurface = 'named';
   const LiveInitialItem();
   factory LiveInitialItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = LiveInitialDeveloperMessageItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveInitialItemLiveInitialDeveloperMessageItemParam(value); } } catch (_) {}
+      try { final value = LiveInitialUserMessageItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveInitialItemLiveInitialUserMessageItemParam(value); } } catch (_) {}
+      try { final value = LiveInitialAssistantMessageItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveInitialItemLiveInitialAssistantMessageItemParam(value); } } catch (_) {}
+    }
     try { return LiveInitialItemLiveInitialDeveloperMessageItemParam(LiveInitialDeveloperMessageItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return LiveInitialItemLiveInitialUserMessageItemParam(LiveInitialUserMessageItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return LiveInitialItemLiveInitialAssistantMessageItemParam(LiveInitialAssistantMessageItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -262,28 +271,4 @@ class LiveInitialOutputTextContentPartParam {
     'type': type_.toJson(),
     'text': text,
   };
-}
-
-sealed class LiveInitialSessionAudioOutputParamVoice {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const LiveInitialSessionAudioOutputParamVoice();
-  factory LiveInitialSessionAudioOutputParamVoice.fromJson(Object? json) {
-    if (json is String) { return LiveInitialSessionAudioOutputParamVoiceString(json); }
-    try { return LiveInitialSessionAudioOutputParamVoiceLiveCustomVoiceParam(LiveCustomVoiceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for LiveInitialSessionAudioOutputParamVoice");
-  }
-  Object? toJson();
-}
-
-final class LiveInitialSessionAudioOutputParamVoiceString extends LiveInitialSessionAudioOutputParamVoice {
-  final String value;
-  const LiveInitialSessionAudioOutputParamVoiceString(this.value);
-  @override Object? toJson() => value;
-}
-
-final class LiveInitialSessionAudioOutputParamVoiceLiveCustomVoiceParam extends LiveInitialSessionAudioOutputParamVoice {
-  final LiveCustomVoiceParam value;
-  const LiveInitialSessionAudioOutputParamVoiceLiveCustomVoiceParam(this.value);
-  @override Object? toJson() => value.toJson();
 }

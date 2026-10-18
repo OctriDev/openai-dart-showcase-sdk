@@ -33,6 +33,10 @@ sealed class ChunkingStrategyRequestParam {
   static const String constructionSurface = 'named';
   const ChunkingStrategyRequestParam();
   factory ChunkingStrategyRequestParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = AutoChunkingStrategyRequestParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam(value); } } catch (_) {}
+      try { final value = StaticChunkingStrategyRequestParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChunkingStrategyRequestParamStaticChunkingStrategyRequestParam(value); } } catch (_) {}
+    }
     try { return ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam(AutoChunkingStrategyRequestParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ChunkingStrategyRequestParamStaticChunkingStrategyRequestParam(StaticChunkingStrategyRequestParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"auto", "static"}.contains(json["type"])) { return UnknownChunkingStrategyRequestParam(json); }
@@ -223,6 +227,10 @@ sealed class CreateVectorStoreRequestChunkingStrategy {
   static const String constructionSurface = 'named';
   const CreateVectorStoreRequestChunkingStrategy();
   factory CreateVectorStoreRequestChunkingStrategy.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = AutoChunkingStrategyRequestParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam(value); } } catch (_) {}
+      try { final value = StaticChunkingStrategyRequestParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateVectorStoreRequestChunkingStrategyStaticChunkingStrategyRequestParam(value); } } catch (_) {}
+    }
     try { return CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam(AutoChunkingStrategyRequestParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateVectorStoreRequestChunkingStrategyStaticChunkingStrategyRequestParam(StaticChunkingStrategyRequestParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"auto", "static"}.contains(json["type"])) { return UnknownCreateVectorStoreRequestChunkingStrategy(json); }

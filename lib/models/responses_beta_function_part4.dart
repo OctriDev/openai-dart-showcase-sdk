@@ -175,6 +175,10 @@ sealed class BetaFunctionShellCallOutputOutcomeParam {
   static const String constructionSurface = 'named';
   const BetaFunctionShellCallOutputOutcomeParam();
   factory BetaFunctionShellCallOutputOutcomeParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaFunctionShellCallOutputTimeoutOutcomeParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellCallOutputOutcomeParamBetaFunctionShellCallOutputTimeoutOutcomeParam(value); } } catch (_) {}
+      try { final value = BetaFunctionShellCallOutputExitOutcomeParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellCallOutputOutcomeParamBetaFunctionShellCallOutputExitOutcomeParam(value); } } catch (_) {}
+    }
     try { return BetaFunctionShellCallOutputOutcomeParamBetaFunctionShellCallOutputTimeoutOutcomeParam(BetaFunctionShellCallOutputTimeoutOutcomeParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaFunctionShellCallOutputOutcomeParamBetaFunctionShellCallOutputExitOutcomeParam(BetaFunctionShellCallOutputExitOutcomeParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"timeout", "exit"}.contains(json["type"])) { return UnknownBetaFunctionShellCallOutputOutcomeParam(json); }

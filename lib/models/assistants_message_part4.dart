@@ -78,6 +78,12 @@ sealed class MessageDeltaObjectDeltaContentItem {
   static const String constructionSurface = 'named';
   const MessageDeltaObjectDeltaContentItem();
   factory MessageDeltaObjectDeltaContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = MessageDeltaContentImageFileObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(value); } } catch (_) {}
+      try { final value = MessageDeltaContentTextObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(value); } } catch (_) {}
+      try { final value = MessageDeltaContentRefusalObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(value); } } catch (_) {}
+      try { final value = MessageDeltaContentImageUrlObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject(value); } } catch (_) {}
+    }
     try { return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(MessageDeltaContentImageFileObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(MessageDeltaContentTextObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(MessageDeltaContentRefusalObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}

@@ -7,7 +7,6 @@ import 'chat.dart';
 import 'chat_chat_completion.dart';
 import 'chat_chat_completion_moderation.dart';
 import 'chat_chat_completion_request.dart';
-import 'chat_response.dart';
 import 'chat_web.dart';
 import 'inline.dart';
 import 'shared.dart';
@@ -15,6 +14,7 @@ import 'shared_chat.dart';
 import 'shared_moderation.dart';
 import 'shared_prompt.dart';
 import 'shared_reasoning.dart';
+import 'shared_response.dart';
 import 'shared_voice.dart';
 
 part 'chat_create_part1.dart';

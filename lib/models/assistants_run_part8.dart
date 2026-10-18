@@ -108,6 +108,10 @@ sealed class RunStepObjectStepDetails {
   static const String constructionSurface = 'named';
   const RunStepObjectStepDetails();
   factory RunStepObjectStepDetails.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RunStepDetailsMessageCreationObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(value); } } catch (_) {}
+      try { final value = RunStepDetailsToolCallsObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepObjectStepDetailsRunStepDetailsToolCallsObject(value); } } catch (_) {}
+    }
     try { return RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(RunStepDetailsMessageCreationObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunStepObjectStepDetailsRunStepDetailsToolCallsObject(RunStepDetailsToolCallsObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"message_creation", "tool_calls"}.contains(json["type"])) { return UnknownRunStepObjectStepDetails(json); }

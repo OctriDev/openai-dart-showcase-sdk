@@ -100,6 +100,10 @@ sealed class VectorStoreSearchRequestFilters {
   static const String constructionSurface = 'named';
   const VectorStoreSearchRequestFilters();
   factory VectorStoreSearchRequestFilters.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ComparisonFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VectorStoreSearchRequestFiltersComparisonFilter(value); } } catch (_) {}
+      try { final value = CompoundFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VectorStoreSearchRequestFiltersCompoundFilter(value); } } catch (_) {}
+    }
     try { return VectorStoreSearchRequestFiltersComparisonFilter(ComparisonFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return VectorStoreSearchRequestFiltersCompoundFilter(CompoundFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}.contains(json["type"])) { return UnknownVectorStoreSearchRequestFilters(json); }

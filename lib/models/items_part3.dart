@@ -4,6 +4,18 @@
 part of 'items.dart';
 
 // items domain models (part 3)
+final class ThreadItemUserMessageItem extends ThreadItem {
+  final UserMessageItem value;
+  const ThreadItemUserMessageItem(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ThreadItemAssistantMessageItem extends ThreadItem {
+  final AssistantMessageItem value;
+  const ThreadItemAssistantMessageItem(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
 final class ThreadItemWidgetMessageItem extends ThreadItem {
   final WidgetMessageItem value;
   const ThreadItemWidgetMessageItem(this.value);
@@ -254,6 +266,10 @@ sealed class UserMessageItemContentItem {
   static const String constructionSurface = 'named';
   const UserMessageItemContentItem();
   factory UserMessageItemContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = UserMessageInputText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UserMessageItemContentItemUserMessageInputText(value); } } catch (_) {}
+      try { final value = UserMessageQuotedText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UserMessageItemContentItemUserMessageQuotedText(value); } } catch (_) {}
+    }
     try { return UserMessageItemContentItemUserMessageInputText(UserMessageInputText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return UserMessageItemContentItemUserMessageQuotedText(UserMessageQuotedText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "quoted_text"}.contains(json["type"])) { return UnknownUserMessageItemContentItem(json); }
@@ -272,11 +288,4 @@ final class UserMessageItemContentItemUserMessageQuotedText extends UserMessageI
   final UserMessageQuotedText value;
   const UserMessageItemContentItemUserMessageQuotedText(this.value);
   @override Object? toJson() => value.toJson();
-}
-
-/// A [UserMessageItemContentItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownUserMessageItemContentItem extends UserMessageItemContentItem {
-  final Map<String, dynamic> raw;
-  const UnknownUserMessageItemContentItem(this.raw);
-  @override Object? toJson() => raw;
 }

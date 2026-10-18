@@ -4,7 +4,6 @@
 // evals_create domain model library.
 import '../sdk_utils.dart';
 import 'evals_eval.dart';
-import 'evals_template.dart';
 import 'inline.dart';
 import 'shared_chat.dart';
 import 'shared_eval.dart';
@@ -17,3 +16,4 @@ part 'evals_create_part1.dart';
 part 'evals_create_part2.dart';
 part 'evals_create_part3.dart';
 part 'evals_create_part4.dart';
+part 'evals_create_part5.dart';

@@ -4,6 +4,40 @@
 part of 'realtime_realtime_server_event.dart';
 
 // realtime_realtime_server_event domain models (part 6)
+/// Returned when listing MCP tools has failed for an item.
+class RealtimeServerEventMCPListToolsFailed {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The unique ID of the server event.
+  final String eventId;
+  /// The event type, must be `mcp_list_tools.failed`.
+  final RealtimeServerEventMCPListToolsFailedType type_;
+  /// The ID of the MCP list tools item.
+  final String itemId;
+
+  const RealtimeServerEventMCPListToolsFailed({required this.eventId, required this.type_, required this.itemId});
+
+  RealtimeServerEventMCPListToolsFailed Function({String eventId, RealtimeServerEventMCPListToolsFailedType type_, String itemId}) get copyWith => _copyWith;
+
+  RealtimeServerEventMCPListToolsFailed _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeServerEventMCPListToolsFailed(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventMCPListToolsFailedType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+  );
+
+  factory RealtimeServerEventMCPListToolsFailed.fromJson(Map<String, dynamic> json) => RealtimeServerEventMCPListToolsFailed(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeServerEventMCPListToolsFailedType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'item_id': itemId,
+  };
+}
+
 /// Returned when listing MCP tools is in progress for an item.
 class RealtimeServerEventMCPListToolsInProgress {
   /// This model is constructed from named fields in one call.
@@ -222,59 +256,5 @@ class RealtimeServerEventRateLimitsUpdated {
     'event_id': eventId,
     'type': type_.toJson(),
     'rate_limits': rateLimits.map((item) => item.toJson()).toList(),
-  };
-}
-
-/// Returned when the model-generated audio is updated.
-class RealtimeServerEventResponseAudioDelta {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The unique ID of the server event.
-  final String eventId;
-  /// The event type, must be `response.output_audio.delta`.
-  final RealtimeServerEventResponseAudioDeltaType type_;
-  /// The ID of the response.
-  final String responseId;
-  /// The ID of the item.
-  final String itemId;
-  /// The index of the output item in the response.
-  final int outputIndex;
-  /// The index of the content part in the item's content array.
-  final int contentIndex;
-  /// Base64-encoded audio data delta.
-  final String delta;
-
-  const RealtimeServerEventResponseAudioDelta({required this.eventId, required this.type_, required this.responseId, required this.itemId, required this.outputIndex, required this.contentIndex, required this.delta});
-
-  RealtimeServerEventResponseAudioDelta Function({String eventId, RealtimeServerEventResponseAudioDeltaType type_, String responseId, String itemId, int outputIndex, int contentIndex, String delta}) get copyWith => _copyWith;
-
-  RealtimeServerEventResponseAudioDelta _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? delta = sdkOmittedValue}) => RealtimeServerEventResponseAudioDelta(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventResponseAudioDeltaType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-  );
-
-  factory RealtimeServerEventResponseAudioDelta.fromJson(Map<String, dynamic> json) => RealtimeServerEventResponseAudioDelta(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventResponseAudioDeltaType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    contentIndex: ((json['content_index'] as num?)?.toInt())!,
-    delta: (json['delta'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'content_index': contentIndex,
-    'delta': delta,
   };
 }

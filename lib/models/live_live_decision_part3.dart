@@ -83,6 +83,11 @@ sealed class LiveDecisionQuestion {
   static const String constructionSurface = 'named';
   const LiveDecisionQuestion();
   factory LiveDecisionQuestion.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = LiveDecisionChoiceQuestionParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveDecisionQuestionLiveDecisionChoiceQuestionParam(value); } } catch (_) {}
+      try { final value = LiveDecisionPredicateQuestionParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveDecisionQuestionLiveDecisionPredicateQuestionParam(value); } } catch (_) {}
+      try { final value = LiveDecisionScoreQuestionParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveDecisionQuestionLiveDecisionScoreQuestionParam(value); } } catch (_) {}
+    }
     try { return LiveDecisionQuestionLiveDecisionChoiceQuestionParam(LiveDecisionChoiceQuestionParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return LiveDecisionQuestionLiveDecisionPredicateQuestionParam(LiveDecisionPredicateQuestionParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return LiveDecisionQuestionLiveDecisionScoreQuestionParam(LiveDecisionScoreQuestionParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}

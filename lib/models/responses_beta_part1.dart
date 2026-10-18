@@ -9,6 +9,12 @@ sealed class BetaAnnotation {
   static const String constructionSurface = 'named';
   const BetaAnnotation();
   factory BetaAnnotation.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaFileCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaFileCitationBody(value); } } catch (_) {}
+      try { final value = BetaUrlCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaUrlCitationBody(value); } } catch (_) {}
+      try { final value = BetaContainerFileCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaContainerFileCitationBody(value); } } catch (_) {}
+      try { final value = BetaFilePath.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaFilePath(value); } } catch (_) {}
+    }
     try { return BetaAnnotationBetaFileCitationBody(BetaFileCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaAnnotationBetaUrlCitationBody(BetaUrlCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaAnnotationBetaContainerFileCitationBody(BetaContainerFileCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}

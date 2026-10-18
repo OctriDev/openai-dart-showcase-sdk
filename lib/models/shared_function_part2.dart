@@ -4,6 +4,29 @@
 part of 'shared_function.dart';
 
 // shared_function domain models (part 2)
+/// Typed representation of the `FunctionCallOutputStatusEnum` API schema.
+final class FunctionCallOutputStatusEnum {
+
+  final String value;
+
+  const FunctionCallOutputStatusEnum._(this.value);
+
+  factory FunctionCallOutputStatusEnum.fromJson(String value) => FunctionCallOutputStatusEnum._(value);
+
+  static const inProgress = FunctionCallOutputStatusEnum._('in_progress');
+  static const completed = FunctionCallOutputStatusEnum._('completed');
+  static const incomplete = FunctionCallOutputStatusEnum._('incomplete');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is FunctionCallOutputStatusEnum && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
 /// Typed representation of the `FunctionCallStatus` API schema.
 final class FunctionCallStatus {
 
@@ -239,6 +262,10 @@ sealed class FunctionShellCallEnvironment {
   static const String constructionSurface = 'named';
   const FunctionShellCallEnvironment();
   factory FunctionShellCallEnvironment.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = LocalEnvironmentResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallEnvironmentLocalEnvironmentResource(value); } } catch (_) {}
+      try { final value = ContainerReferenceResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallEnvironmentContainerReferenceResource(value); } } catch (_) {}
+    }
     try { return FunctionShellCallEnvironmentLocalEnvironmentResource(LocalEnvironmentResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return FunctionShellCallEnvironmentContainerReferenceResource(ContainerReferenceResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"local", "container_reference"}.contains(json["type"])) { return UnknownFunctionShellCallEnvironment(json); }

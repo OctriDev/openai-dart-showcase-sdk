@@ -62,30 +62,6 @@ class CodeInterpreterOutputLogs {
   };
 }
 
-sealed class CodeInterpreterToolContainer {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const CodeInterpreterToolContainer();
-  factory CodeInterpreterToolContainer.fromJson(Object? json) {
-    if (json is String) { return CodeInterpreterToolContainerString(json); }
-    try { return CodeInterpreterToolContainerAutoCodeInterpreterToolParam(AutoCodeInterpreterToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for CodeInterpreterToolContainer");
-  }
-  Object? toJson();
-}
-
-final class CodeInterpreterToolContainerString extends CodeInterpreterToolContainer {
-  final String value;
-  const CodeInterpreterToolContainerString(this.value);
-  @override Object? toJson() => value;
-}
-
-final class CodeInterpreterToolContainerAutoCodeInterpreterToolParam extends CodeInterpreterToolContainer {
-  final AutoCodeInterpreterToolParam value;
-  const CodeInterpreterToolContainerAutoCodeInterpreterToolParam(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
 /// A tool that runs Python code to help generate a response to a prompt.
 class CodeInterpreterTool {
   /// This model is constructed from named fields in one call.
@@ -93,29 +69,29 @@ class CodeInterpreterTool {
   /// The type of the code interpreter tool. Always `code_interpreter`.
   final CodeInterpreterToolType type_;
   /// The code interpreter container. Can be a container ID or an object that specifies uploaded file IDs to make available to your code, along with an optional `memory_limit` setting.
-  final dynamic container;
+  final CodeInterpreterToolContainer container;
   /// The tool invocation context(s).
   final SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers;
 
   const CodeInterpreterTool({required this.type_, required this.container, this.allowedCallers = const SdkOmitted()});
 
-  CodeInterpreterTool Function({CodeInterpreterToolType type_, dynamic container, SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
+  CodeInterpreterTool Function({CodeInterpreterToolType type_, CodeInterpreterToolContainer container, SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
 
   CodeInterpreterTool _copyWith({Object? type_ = sdkOmittedValue, Object? container = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue}) => CodeInterpreterTool(
     type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CodeInterpreterToolType,
-    container: identical(container, sdkOmittedValue) ? this.container : container as dynamic,
+    container: identical(container, sdkOmittedValue) ? this.container : container as CodeInterpreterToolContainer,
     allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<CallableToolAllowedCaller>?>,
   );
 
   factory CodeInterpreterTool.fromJson(Map<String, dynamic> json) => CodeInterpreterTool(
     type_: (json['type'] != null ? CodeInterpreterToolType.fromJson(json['type'] as String) : null)!,
-    container: (SdkUtils.unionBranch(json['container'], [AutoCodeInterpreterToolParam.fromJson]))!,
+    container: (json['container'] != null ? CodeInterpreterToolContainer.fromJson(json['container']) : null)!,
     allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => CallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
   );
 
   Map<String, dynamic> toJson() => {
     'type': type_.toJson(),
-    'container': container,
+    'container': container.toJson(),
     ...switch (allowedCallers) {
       SdkPresent<List<CallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
       _ => const <String, dynamic>{},
@@ -177,6 +153,10 @@ sealed class CodeInterpreterToolCallOutputsItem {
   static const String constructionSurface = 'named';
   const CodeInterpreterToolCallOutputsItem();
   factory CodeInterpreterToolCallOutputsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = CodeInterpreterOutputLogs.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CodeInterpreterToolCallOutputsItemCodeInterpreterOutputLogs(value); } } catch (_) {}
+      try { final value = CodeInterpreterOutputImage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CodeInterpreterToolCallOutputsItemCodeInterpreterOutputImage(value); } } catch (_) {}
+    }
     try { return CodeInterpreterToolCallOutputsItemCodeInterpreterOutputLogs(CodeInterpreterOutputLogs.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CodeInterpreterToolCallOutputsItemCodeInterpreterOutputImage(CodeInterpreterOutputImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"logs", "image"}.contains(json["type"])) { return UnknownCodeInterpreterToolCallOutputsItem(json); }
@@ -202,4 +182,28 @@ final class UnknownCodeInterpreterToolCallOutputsItem extends CodeInterpreterToo
   final Map<String, dynamic> raw;
   const UnknownCodeInterpreterToolCallOutputsItem(this.raw);
   @override Object? toJson() => raw;
+}
+
+sealed class CodeInterpreterToolContainer {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const CodeInterpreterToolContainer();
+  factory CodeInterpreterToolContainer.fromJson(Object? json) {
+    if (json is String) { return CodeInterpreterToolContainerString(json); }
+    try { return CodeInterpreterToolContainerAutoCodeInterpreterToolParam(AutoCodeInterpreterToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for CodeInterpreterToolContainer");
+  }
+  Object? toJson();
+}
+
+final class CodeInterpreterToolContainerString extends CodeInterpreterToolContainer {
+  final String value;
+  const CodeInterpreterToolContainerString(this.value);
+  @override Object? toJson() => value;
+}
+
+final class CodeInterpreterToolContainerAutoCodeInterpreterToolParam extends CodeInterpreterToolContainer {
+  final AutoCodeInterpreterToolParam value;
+  const CodeInterpreterToolContainerAutoCodeInterpreterToolParam(this.value);
+  @override Object? toJson() => value.toJson();
 }

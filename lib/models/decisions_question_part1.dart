@@ -9,6 +9,11 @@ sealed class QuestionParam {
   static const String constructionSurface = 'named';
   const QuestionParam();
   factory QuestionParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = QuestionParamPredicate.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return QuestionParamQuestionParamPredicate(value); } } catch (_) {}
+      try { final value = QuestionParamChoice.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return QuestionParamQuestionParamChoice(value); } } catch (_) {}
+      try { final value = QuestionParamScore.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return QuestionParamQuestionParamScore(value); } } catch (_) {}
+    }
     try { return QuestionParamQuestionParamPredicate(QuestionParamPredicate.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return QuestionParamQuestionParamChoice(QuestionParamChoice.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return QuestionParamQuestionParamScore(QuestionParamScore.fromJson(json as Map<String, dynamic>)); } catch (_) {}

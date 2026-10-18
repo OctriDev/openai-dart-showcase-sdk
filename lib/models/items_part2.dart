@@ -72,6 +72,10 @@ sealed class ResponseOutputTextAnnotationsItem {
   static const String constructionSurface = 'named';
   const ResponseOutputTextAnnotationsItem();
   factory ResponseOutputTextAnnotationsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = FileAnnotation.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponseOutputTextAnnotationsItemFileAnnotation(value); } } catch (_) {}
+      try { final value = UrlAnnotation.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponseOutputTextAnnotationsItemUrlAnnotation(value); } } catch (_) {}
+    }
     try { return ResponseOutputTextAnnotationsItemFileAnnotation(FileAnnotation.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ResponseOutputTextAnnotationsItemUrlAnnotation(UrlAnnotation.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"file", "url"}.contains(json["type"])) { return UnknownResponseOutputTextAnnotationsItem(json); }
@@ -268,6 +272,14 @@ sealed class ThreadItem {
   static const String constructionSurface = 'named';
   const ThreadItem();
   factory ThreadItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = UserMessageItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemUserMessageItem(value); } } catch (_) {}
+      try { final value = AssistantMessageItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemAssistantMessageItem(value); } } catch (_) {}
+      try { final value = WidgetMessageItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemWidgetMessageItem(value); } } catch (_) {}
+      try { final value = ClientToolCallItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemClientToolCallItem(value); } } catch (_) {}
+      try { final value = TaskItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemTaskItem(value); } } catch (_) {}
+      try { final value = TaskGroupItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemTaskGroupItem(value); } } catch (_) {}
+    }
     try { return ThreadItemUserMessageItem(UserMessageItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ThreadItemAssistantMessageItem(AssistantMessageItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ThreadItemWidgetMessageItem(WidgetMessageItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -278,16 +290,4 @@ sealed class ThreadItem {
     throw FormatException("No variant matched for ThreadItem");
   }
   Object? toJson();
-}
-
-final class ThreadItemUserMessageItem extends ThreadItem {
-  final UserMessageItem value;
-  const ThreadItemUserMessageItem(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class ThreadItemAssistantMessageItem extends ThreadItem {
-  final AssistantMessageItem value;
-  const ThreadItemAssistantMessageItem(this.value);
-  @override Object? toJson() => value.toJson();
 }

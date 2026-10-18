@@ -124,6 +124,11 @@ sealed class ApplyPatchToolCallOperation {
   static const String constructionSurface = 'named';
   const ApplyPatchToolCallOperation();
   factory ApplyPatchToolCallOperation.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ApplyPatchCreateFileOperation.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ApplyPatchToolCallOperationApplyPatchCreateFileOperation(value); } } catch (_) {}
+      try { final value = ApplyPatchDeleteFileOperation.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ApplyPatchToolCallOperationApplyPatchDeleteFileOperation(value); } } catch (_) {}
+      try { final value = ApplyPatchUpdateFileOperation.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ApplyPatchToolCallOperationApplyPatchUpdateFileOperation(value); } } catch (_) {}
+    }
     try { return ApplyPatchToolCallOperationApplyPatchCreateFileOperation(ApplyPatchCreateFileOperation.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ApplyPatchToolCallOperationApplyPatchDeleteFileOperation(ApplyPatchDeleteFileOperation.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ApplyPatchToolCallOperationApplyPatchUpdateFileOperation(ApplyPatchUpdateFileOperation.fromJson(json as Map<String, dynamic>)); } catch (_) {}

@@ -62,30 +62,6 @@ class BetaCodeInterpreterOutputLogs {
   };
 }
 
-sealed class BetaCodeInterpreterToolContainer {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const BetaCodeInterpreterToolContainer();
-  factory BetaCodeInterpreterToolContainer.fromJson(Object? json) {
-    if (json is String) { return BetaCodeInterpreterToolContainerString(json); }
-    try { return BetaCodeInterpreterToolContainerBetaAutoCodeInterpreterToolParam(BetaAutoCodeInterpreterToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for BetaCodeInterpreterToolContainer");
-  }
-  Object? toJson();
-}
-
-final class BetaCodeInterpreterToolContainerString extends BetaCodeInterpreterToolContainer {
-  final String value;
-  const BetaCodeInterpreterToolContainerString(this.value);
-  @override Object? toJson() => value;
-}
-
-final class BetaCodeInterpreterToolContainerBetaAutoCodeInterpreterToolParam extends BetaCodeInterpreterToolContainer {
-  final BetaAutoCodeInterpreterToolParam value;
-  const BetaCodeInterpreterToolContainerBetaAutoCodeInterpreterToolParam(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
 /// A tool that runs Python code to help generate a response to a prompt.
 class BetaCodeInterpreterTool {
   /// This model is constructed from named fields in one call.
@@ -93,29 +69,29 @@ class BetaCodeInterpreterTool {
   /// The type of the code interpreter tool. Always `code_interpreter`.
   final BetaCodeInterpreterToolType type_;
   /// The code interpreter container. Can be a container ID or an object that specifies uploaded file IDs to make available to your code, along with an optional `memory_limit` setting.
-  final dynamic container;
+  final BetaCodeInterpreterToolContainer container;
   /// The tool invocation context(s).
   final SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers;
 
   const BetaCodeInterpreterTool({required this.type_, required this.container, this.allowedCallers = const SdkOmitted()});
 
-  BetaCodeInterpreterTool Function({BetaCodeInterpreterToolType type_, dynamic container, SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
+  BetaCodeInterpreterTool Function({BetaCodeInterpreterToolType type_, BetaCodeInterpreterToolContainer container, SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
 
   BetaCodeInterpreterTool _copyWith({Object? type_ = sdkOmittedValue, Object? container = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue}) => BetaCodeInterpreterTool(
     type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaCodeInterpreterToolType,
-    container: identical(container, sdkOmittedValue) ? this.container : container as dynamic,
+    container: identical(container, sdkOmittedValue) ? this.container : container as BetaCodeInterpreterToolContainer,
     allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
   );
 
   factory BetaCodeInterpreterTool.fromJson(Map<String, dynamic> json) => BetaCodeInterpreterTool(
     type_: (json['type'] != null ? BetaCodeInterpreterToolType.fromJson(json['type'] as String) : null)!,
-    container: (SdkUtils.unionBranch(json['container'], [BetaAutoCodeInterpreterToolParam.fromJson]))!,
+    container: (json['container'] != null ? BetaCodeInterpreterToolContainer.fromJson(json['container']) : null)!,
     allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => BetaCallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
   );
 
   Map<String, dynamic> toJson() => {
     'type': type_.toJson(),
-    'container': container,
+    'container': container.toJson(),
     ...switch (allowedCallers) {
       SdkPresent<List<BetaCallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
       _ => const <String, dynamic>{},
@@ -185,6 +161,10 @@ sealed class BetaCodeInterpreterToolCallOutputsItem {
   static const String constructionSurface = 'named';
   const BetaCodeInterpreterToolCallOutputsItem();
   factory BetaCodeInterpreterToolCallOutputsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaCodeInterpreterOutputLogs.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaCodeInterpreterToolCallOutputsItemBetaCodeInterpreterOutputLogs(value); } } catch (_) {}
+      try { final value = BetaCodeInterpreterOutputImage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaCodeInterpreterToolCallOutputsItemBetaCodeInterpreterOutputImage(value); } } catch (_) {}
+    }
     try { return BetaCodeInterpreterToolCallOutputsItemBetaCodeInterpreterOutputLogs(BetaCodeInterpreterOutputLogs.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaCodeInterpreterToolCallOutputsItemBetaCodeInterpreterOutputImage(BetaCodeInterpreterOutputImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"logs", "image"}.contains(json["type"])) { return UnknownBetaCodeInterpreterToolCallOutputsItem(json); }
@@ -210,4 +190,28 @@ final class UnknownBetaCodeInterpreterToolCallOutputsItem extends BetaCodeInterp
   final Map<String, dynamic> raw;
   const UnknownBetaCodeInterpreterToolCallOutputsItem(this.raw);
   @override Object? toJson() => raw;
+}
+
+sealed class BetaCodeInterpreterToolContainer {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const BetaCodeInterpreterToolContainer();
+  factory BetaCodeInterpreterToolContainer.fromJson(Object? json) {
+    if (json is String) { return BetaCodeInterpreterToolContainerString(json); }
+    try { return BetaCodeInterpreterToolContainerBetaAutoCodeInterpreterToolParam(BetaAutoCodeInterpreterToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for BetaCodeInterpreterToolContainer");
+  }
+  Object? toJson();
+}
+
+final class BetaCodeInterpreterToolContainerString extends BetaCodeInterpreterToolContainer {
+  final String value;
+  const BetaCodeInterpreterToolContainerString(this.value);
+  @override Object? toJson() => value;
+}
+
+final class BetaCodeInterpreterToolContainerBetaAutoCodeInterpreterToolParam extends BetaCodeInterpreterToolContainer {
+  final BetaAutoCodeInterpreterToolParam value;
+  const BetaCodeInterpreterToolContainerBetaAutoCodeInterpreterToolParam(this.value);
+  @override Object? toJson() => value.toJson();
 }

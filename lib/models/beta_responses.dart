@@ -62,3 +62,4 @@ part 'beta_responses_part21.dart';
 part 'beta_responses_part22.dart';
 part 'beta_responses_part23.dart';
 part 'beta_responses_part24.dart';
+part 'beta_responses_part25.dart';

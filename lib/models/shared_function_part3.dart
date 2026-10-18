@@ -75,6 +75,10 @@ sealed class FunctionShellCallItemParamEnvironment {
   static const String constructionSurface = 'named';
   const FunctionShellCallItemParamEnvironment();
   factory FunctionShellCallItemParamEnvironment.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = LocalEnvironmentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallItemParamEnvironmentLocalEnvironmentParam(value); } } catch (_) {}
+      try { final value = ContainerReferenceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallItemParamEnvironmentContainerReferenceParam(value); } } catch (_) {}
+    }
     try { return FunctionShellCallItemParamEnvironmentLocalEnvironmentParam(LocalEnvironmentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return FunctionShellCallItemParamEnvironmentContainerReferenceParam(ContainerReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"local", "container_reference"}.contains(json["type"])) { return UnknownFunctionShellCallItemParamEnvironment(json); }
@@ -237,6 +241,10 @@ sealed class FunctionShellCallOutputContentOutcome {
   static const String constructionSurface = 'named';
   const FunctionShellCallOutputContentOutcome();
   factory FunctionShellCallOutputContentOutcome.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = FunctionShellCallOutputTimeoutOutcome.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallOutputContentOutcomeFunctionShellCallOutputTimeoutOutcome(value); } } catch (_) {}
+      try { final value = FunctionShellCallOutputExitOutcome.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallOutputContentOutcomeFunctionShellCallOutputExitOutcome(value); } } catch (_) {}
+    }
     try { return FunctionShellCallOutputContentOutcomeFunctionShellCallOutputTimeoutOutcome(FunctionShellCallOutputTimeoutOutcome.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return FunctionShellCallOutputContentOutcomeFunctionShellCallOutputExitOutcome(FunctionShellCallOutputExitOutcome.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"timeout", "exit"}.contains(json["type"])) { return UnknownFunctionShellCallOutputContentOutcome(json); }

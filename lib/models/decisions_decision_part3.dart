@@ -96,6 +96,10 @@ sealed class DecisionInputToolOutputContentPartsItem {
   static const String constructionSurface = 'named';
   const DecisionInputToolOutputContentPartsItem();
   factory DecisionInputToolOutputContentPartsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = DecisionInputText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DecisionInputToolOutputContentPartsItemDecisionInputText(value); } } catch (_) {}
+      try { final value = DecisionInputImage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DecisionInputToolOutputContentPartsItemDecisionInputImage(value); } } catch (_) {}
+    }
     try { return DecisionInputToolOutputContentPartsItemDecisionInputText(DecisionInputText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return DecisionInputToolOutputContentPartsItemDecisionInputImage(DecisionInputImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image"}.contains(json["type"])) { return UnknownDecisionInputToolOutputContentPartsItem(json); }

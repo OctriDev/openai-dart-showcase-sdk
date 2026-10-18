@@ -4,23 +4,50 @@
 part of 'inline.dart';
 
 // Inline operation models (part 74)
-/// Specify a single approval policy for all tools. One of `always` or `never`. When set to `always`, all tools will require approval. When set to `never`, all tools will not require approval.
-final class MCPToolRequireApprovalVariant1 {
+/// Required enumerated value serialized in the `type` wire field.
+enum MCPProtocolErrorType {
+  mcpProtocolError;
+
+  static MCPProtocolErrorType fromJson(String value) {
+    switch (value) {
+      case 'mcp_protocol_error': return MCPProtocolErrorType.mcpProtocolError;
+      default: throw ArgumentError('Unknown MCPProtocolErrorType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case MCPProtocolErrorType.mcpProtocolError: return 'mcp_protocol_error';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// Identifier for service connectors, like those available in ChatGPT. One of `server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more about service connectors [here](https://developers.openai.com/api/docs/guides/tools-connectors-mcp#connectors). This field is deprecated for models released after September 1, 2026. Use `server_url` to connect to a remote MCP server, or `tunnel_id` to connect through a Secure MCP Tunnel. Currently supported `connector_id` values are: - Dropbox: `connector_dropbox` - Gmail: `connector_gmail` - Google Calendar: `connector_googlecalendar` - Google Drive: `connector_googledrive` - Microsoft Teams: `connector_microsoftteams` - Outlook Calendar: `connector_outlookcalendar` - Outlook Email: `connector_outlookemail` - SharePoint: `connector_sharepoint`
+final class MCPToolConnectorId {
 
   final String value;
 
-  const MCPToolRequireApprovalVariant1._(this.value);
+  const MCPToolConnectorId._(this.value);
 
-  factory MCPToolRequireApprovalVariant1.fromJson(String value) => MCPToolRequireApprovalVariant1._(value);
+  factory MCPToolConnectorId.fromJson(String value) => MCPToolConnectorId._(value);
 
-  static const always = MCPToolRequireApprovalVariant1._('always');
-  static const never = MCPToolRequireApprovalVariant1._('never');
+  static const connectorDropbox = MCPToolConnectorId._('connector_dropbox');
+  static const connectorGmail = MCPToolConnectorId._('connector_gmail');
+  static const connectorGooglecalendar = MCPToolConnectorId._('connector_googlecalendar');
+  static const connectorGoogledrive = MCPToolConnectorId._('connector_googledrive');
+  static const connectorMicrosoftteams = MCPToolConnectorId._('connector_microsoftteams');
+  static const connectorOutlookcalendar = MCPToolConnectorId._('connector_outlookcalendar');
+  static const connectorOutlookemail = MCPToolConnectorId._('connector_outlookemail');
+  static const connectorSharepoint = MCPToolConnectorId._('connector_sharepoint');
 
   String toJson() => value;
 
   @override String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MCPToolRequireApprovalVariant1 && other.value == value;
+  @override bool operator ==(Object other) => other is MCPToolConnectorId && other.value == value;
 
   @override int get hashCode => value.hashCode;
 
@@ -87,6 +114,28 @@ enum MCPToolExecutionErrorType {
 
   @override
   String toString() => toJson();
+}
+
+/// Specify a single approval policy for all tools. One of `always` or `never`. When set to `always`, all tools will require approval. When set to `never`, all tools will not require approval.
+final class MCPToolRequireApprovalVariant1 {
+
+  final String value;
+
+  const MCPToolRequireApprovalVariant1._(this.value);
+
+  factory MCPToolRequireApprovalVariant1.fromJson(String value) => MCPToolRequireApprovalVariant1._(value);
+
+  static const always = MCPToolRequireApprovalVariant1._('always');
+  static const never = MCPToolRequireApprovalVariant1._('never');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is MCPToolRequireApprovalVariant1 && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object. Always `http`.
@@ -231,50 +280,6 @@ enum MessageContentImageFileObjectType {
   String toJson() {
     switch (this) {
       case MessageContentImageFileObjectType.imageFile: return 'image_file';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// Specifies the detail level of the image. `low` uses fewer tokens, you can opt in to high resolution using `high`. Default value is `auto`
-final class MessageContentImageUrlObjectImageUrlDetail {
-
-  final String value;
-
-  const MessageContentImageUrlObjectImageUrlDetail._(this.value);
-
-  factory MessageContentImageUrlObjectImageUrlDetail.fromJson(String value) => MessageContentImageUrlObjectImageUrlDetail._(value);
-
-  static const auto = MessageContentImageUrlObjectImageUrlDetail._('auto');
-  static const low = MessageContentImageUrlObjectImageUrlDetail._('low');
-  static const high = MessageContentImageUrlObjectImageUrlDetail._('high');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is MessageContentImageUrlObjectImageUrlDetail && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// The type of the content part.
-enum MessageContentImageUrlObjectType {
-  imageUrl;
-
-  static MessageContentImageUrlObjectType fromJson(String value) {
-    switch (value) {
-      case 'image_url': return MessageContentImageUrlObjectType.imageUrl;
-      default: throw ArgumentError('Unknown MessageContentImageUrlObjectType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case MessageContentImageUrlObjectType.imageUrl: return 'image_url';
     }
   }
 

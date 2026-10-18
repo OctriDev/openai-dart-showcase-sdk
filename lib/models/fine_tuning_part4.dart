@@ -116,6 +116,13 @@ sealed class FineTuneReinforcementMethodGrader {
   static const String constructionSurface = 'named';
   const FineTuneReinforcementMethodGrader();
   factory FineTuneReinforcementMethodGrader.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = GraderStringCheck.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FineTuneReinforcementMethodGraderGraderStringCheck(value); } } catch (_) {}
+      try { final value = GraderTextSimilarity.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FineTuneReinforcementMethodGraderGraderTextSimilarity(value); } } catch (_) {}
+      try { final value = GraderPython.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FineTuneReinforcementMethodGraderGraderPython(value); } } catch (_) {}
+      try { final value = GraderScoreModel.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FineTuneReinforcementMethodGraderGraderScoreModel(value); } } catch (_) {}
+      try { final value = GraderMulti.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FineTuneReinforcementMethodGraderGraderMulti(value); } } catch (_) {}
+    }
     try { return FineTuneReinforcementMethodGraderGraderStringCheck(GraderStringCheck.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return FineTuneReinforcementMethodGraderGraderTextSimilarity(GraderTextSimilarity.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return FineTuneReinforcementMethodGraderGraderPython(GraderPython.fromJson(json as Map<String, dynamic>)); } catch (_) {}

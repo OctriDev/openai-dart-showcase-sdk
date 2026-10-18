@@ -4,6 +4,49 @@
 part of 'audio.dart';
 
 // audio domain models (part 6)
+/// Required object value serialized in the `logprobs[]` wire field.
+class TranscriptTextDoneEventLogprobsItem {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The token that was used to generate the log probability.
+  final SdkOptional<String> token;
+  /// The log probability of the token.
+  final SdkOptional<double> logprob;
+  /// The bytes that were used to generate the log probability.
+  final SdkOptional<List<int>> bytes;
+
+  const TranscriptTextDoneEventLogprobsItem({this.token = const SdkOmitted(), this.logprob = const SdkOmitted(), this.bytes = const SdkOmitted()});
+
+  TranscriptTextDoneEventLogprobsItem Function({SdkOptional<String> token, SdkOptional<double> logprob, SdkOptional<List<int>> bytes}) get copyWith => _copyWith;
+
+  TranscriptTextDoneEventLogprobsItem _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? bytes = sdkOmittedValue}) => TranscriptTextDoneEventLogprobsItem(
+    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as SdkOptional<double>,
+    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as SdkOptional<List<int>>,
+  );
+
+  factory TranscriptTextDoneEventLogprobsItem.fromJson(Map<String, dynamic> json) => TranscriptTextDoneEventLogprobsItem(
+    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
+    logprob: json['logprob'] != null ? SdkPresent(((json['logprob'] as num?)?.toDouble())!) : const SdkOmitted(),
+    bytes: json['bytes'] != null ? SdkPresent(((json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    ...switch (token) {
+      SdkPresent<String>(value: final value) => {'token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logprob) {
+      SdkPresent<double>(value: final value) => {'logprob': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (bytes) {
+      SdkPresent<List<int>>(value: final value) => {'bytes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
+}
+
 /// Emitted when the transcription is complete. Contains the complete transcription text. Only emitted when you [create a transcription](https://developers.openai.com/api/reference/resources/audio/subresources/transcriptions/methods/create) with the `Stream` parameter set to `true`.
 class TranscriptTextDoneEvent {
   /// This model is constructed from named fields in one call.
@@ -238,53 +281,5 @@ class UpdateVoiceConsentRequest {
 
   Map<String, dynamic> toJson() => {
     'name': name,
-  };
-}
-
-/// Typed representation of the `VadConfig` API schema.
-class VadConfig {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// Must be set to `server_vad` to enable manual chunking using server side VAD.
-  final VadConfigType type_;
-  /// Amount of audio to include before the VAD detected speech (in milliseconds).
-  final SdkOptional<int> prefixPaddingMs;
-  /// Duration of silence to detect speech stop (in milliseconds). With shorter values the model will respond more quickly, but may jump in on short pauses from the user.
-  final SdkOptional<int> silenceDurationMs;
-  /// Sensitivity threshold (0.0 to 1.0) for voice activity detection. A higher threshold will require louder audio to activate the model, and thus might perform better in noisy environments.
-  final SdkOptional<double> threshold;
-
-  const VadConfig({required this.type_, this.prefixPaddingMs = const SdkOmitted(), this.silenceDurationMs = const SdkOmitted(), this.threshold = const SdkOmitted()});
-
-  VadConfig Function({VadConfigType type_, SdkOptional<int> prefixPaddingMs, SdkOptional<int> silenceDurationMs, SdkOptional<double> threshold}) get copyWith => _copyWith;
-
-  VadConfig _copyWith({Object? type_ = sdkOmittedValue, Object? prefixPaddingMs = sdkOmittedValue, Object? silenceDurationMs = sdkOmittedValue, Object? threshold = sdkOmittedValue}) => VadConfig(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VadConfigType,
-    prefixPaddingMs: identical(prefixPaddingMs, sdkOmittedValue) ? this.prefixPaddingMs : prefixPaddingMs as SdkOptional<int>,
-    silenceDurationMs: identical(silenceDurationMs, sdkOmittedValue) ? this.silenceDurationMs : silenceDurationMs as SdkOptional<int>,
-    threshold: identical(threshold, sdkOmittedValue) ? this.threshold : threshold as SdkOptional<double>,
-  );
-
-  factory VadConfig.fromJson(Map<String, dynamic> json) => VadConfig(
-    type_: (json['type'] != null ? VadConfigType.fromJson(json['type'] as String) : null)!,
-    prefixPaddingMs: json['prefix_padding_ms'] != null ? SdkPresent(((json['prefix_padding_ms'] as num?)?.toInt())!) : const SdkOmitted(),
-    silenceDurationMs: json['silence_duration_ms'] != null ? SdkPresent(((json['silence_duration_ms'] as num?)?.toInt())!) : const SdkOmitted(),
-    threshold: json['threshold'] != null ? SdkPresent(((json['threshold'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (prefixPaddingMs) {
-      SdkPresent<int>(value: final value) => {'prefix_padding_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (silenceDurationMs) {
-      SdkPresent<int>(value: final value) => {'silence_duration_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (threshold) {
-      SdkPresent<double>(value: final value) => {'threshold': value,},
-      _ => const <String, dynamic>{},
-    },
   };
 }

@@ -9,6 +9,17 @@ sealed class RealtimeConversationItem {
   static const String constructionSurface = 'named';
   const RealtimeConversationItem();
   factory RealtimeConversationItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RealtimeConversationItemMessageSystem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeConversationItemMessageSystem(value); } } catch (_) {}
+      try { final value = RealtimeConversationItemMessageUser.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeConversationItemMessageUser(value); } } catch (_) {}
+      try { final value = RealtimeConversationItemMessageAssistant.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeConversationItemMessageAssistant(value); } } catch (_) {}
+      try { final value = RealtimeConversationItemFunctionCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeConversationItemFunctionCall(value); } } catch (_) {}
+      try { final value = RealtimeConversationItemFunctionCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeConversationItemFunctionCallOutput(value); } } catch (_) {}
+      try { final value = RealtimeMCPApprovalResponse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeMCPApprovalResponse(value); } } catch (_) {}
+      try { final value = RealtimeMCPListTools.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeMCPListTools(value); } } catch (_) {}
+      try { final value = RealtimeMCPToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeMCPToolCall(value); } } catch (_) {}
+      try { final value = RealtimeMCPApprovalRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeMCPApprovalRequest(value); } } catch (_) {}
+    }
     try { return RealtimeConversationItemRealtimeConversationItemMessageSystem(RealtimeConversationItemMessageSystem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RealtimeConversationItemRealtimeConversationItemMessageUser(RealtimeConversationItemMessageUser.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RealtimeConversationItemRealtimeConversationItemMessageAssistant(RealtimeConversationItemMessageAssistant.fromJson(json as Map<String, dynamic>)); } catch (_) {}

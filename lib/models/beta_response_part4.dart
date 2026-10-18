@@ -4,6 +4,13 @@
 part of 'beta_response.dart';
 
 // beta_response domain models (part 4)
+/// A [BetaResponseSteerRequiredInput] whose `type` names no branch this SDK knows, kept as received.
+final class UnknownBetaResponseSteerRequiredInput extends BetaResponseSteerRequiredInput {
+  final Map<String, dynamic> raw;
+  const UnknownBetaResponseSteerRequiredInput(this.raw);
+  @override Object? toJson() => raw;
+}
+
 /// Emitted when an error occurs while processing a Responses WebSocket request.
 class BetaResponseWsError {
   /// This model is constructed from named fields in one call.

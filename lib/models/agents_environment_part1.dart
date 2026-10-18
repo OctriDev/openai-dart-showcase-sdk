@@ -185,6 +185,11 @@ sealed class EnvironmentParam {
   static const String constructionSurface = 'named';
   const EnvironmentParam();
   factory EnvironmentParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = EnvironmentParamNone.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnvironmentParamEnvironmentParamNone(value); } } catch (_) {}
+      try { final value = EnvironmentParamOpenaiHosted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnvironmentParamEnvironmentParamOpenaiHosted(value); } } catch (_) {}
+      try { final value = EnvironmentParamSelfHosted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnvironmentParamEnvironmentParamSelfHosted(value); } } catch (_) {}
+    }
     try { return EnvironmentParamEnvironmentParamNone(EnvironmentParamNone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return EnvironmentParamEnvironmentParamOpenaiHosted(EnvironmentParamOpenaiHosted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return EnvironmentParamEnvironmentParamSelfHosted(EnvironmentParamSelfHosted.fromJson(json as Map<String, dynamic>)); } catch (_) {}

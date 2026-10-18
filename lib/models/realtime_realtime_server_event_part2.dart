@@ -4,6 +4,42 @@
 part of 'realtime_realtime_server_event.dart';
 
 // realtime_realtime_server_event domain models (part 2)
+final class RealtimeServerEventRealtimeServerEventResponseTextDone extends RealtimeServerEvent {
+  final RealtimeServerEventResponseTextDone value;
+  const RealtimeServerEventRealtimeServerEventResponseTextDone(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class RealtimeServerEventRealtimeServerEventSessionCreated extends RealtimeServerEvent {
+  final RealtimeServerEventSessionCreated value;
+  const RealtimeServerEventRealtimeServerEventSessionCreated(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class RealtimeServerEventRealtimeServerEventSessionUpdated extends RealtimeServerEvent {
+  final RealtimeServerEventSessionUpdated value;
+  const RealtimeServerEventRealtimeServerEventSessionUpdated(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted extends RealtimeServerEvent {
+  final RealtimeServerEventOutputAudioBufferStarted value;
+  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped extends RealtimeServerEvent {
+  final RealtimeServerEventOutputAudioBufferStopped value;
+  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared extends RealtimeServerEvent {
+  final RealtimeServerEventOutputAudioBufferCleared value;
+  const RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
 final class RealtimeServerEventRealtimeServerEventConversationItemAdded extends RealtimeServerEvent {
   final RealtimeServerEventConversationItemAdded value;
   const RealtimeServerEventRealtimeServerEventConversationItemAdded(this.value);
@@ -233,39 +269,5 @@ class RealtimeServerEventConversationItemCreated {
       _ => const <String, dynamic>{},
     },
     'item': item.toJson(),
-  };
-}
-
-/// Returned when an item in the conversation is deleted by the client with a `conversation.item.delete` event. This event is used to synchronize the server's understanding of the conversation history with the client's view.
-class RealtimeServerEventConversationItemDeleted {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The unique ID of the server event.
-  final String eventId;
-  /// The event type, must be `conversation.item.deleted`.
-  final RealtimeServerEventConversationItemDeletedType type_;
-  /// The ID of the item that was deleted.
-  final String itemId;
-
-  const RealtimeServerEventConversationItemDeleted({required this.eventId, required this.type_, required this.itemId});
-
-  RealtimeServerEventConversationItemDeleted Function({String eventId, RealtimeServerEventConversationItemDeletedType type_, String itemId}) get copyWith => _copyWith;
-
-  RealtimeServerEventConversationItemDeleted _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeServerEventConversationItemDeleted(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventConversationItemDeletedType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
-
-  factory RealtimeServerEventConversationItemDeleted.fromJson(Map<String, dynamic> json) => RealtimeServerEventConversationItemDeleted(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventConversationItemDeletedType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'item_id': itemId,
   };
 }

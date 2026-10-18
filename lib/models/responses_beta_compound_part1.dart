@@ -38,6 +38,10 @@ sealed class BetaCompoundFilterFiltersItem {
   static const String constructionSurface = 'named';
   const BetaCompoundFilterFiltersItem();
   factory BetaCompoundFilterFiltersItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaComparisonFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaCompoundFilterFiltersItemBetaComparisonFilter(value); } } catch (_) {}
+      try { final value = BetaCompoundFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaCompoundFilterFiltersItemBetaCompoundFilter(value); } } catch (_) {}
+    }
     try { return BetaCompoundFilterFiltersItemBetaComparisonFilter(BetaComparisonFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaCompoundFilterFiltersItemBetaCompoundFilter(BetaCompoundFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}.contains(json["type"])) { return UnknownBetaCompoundFilterFiltersItem(json); }

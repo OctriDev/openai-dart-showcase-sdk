@@ -201,6 +201,10 @@ sealed class ChatCompletionMessageToolCallsItem {
   static const String constructionSurface = 'named';
   const ChatCompletionMessageToolCallsItem();
   factory ChatCompletionMessageToolCallsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ChatCompletionMessageToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionMessageToolCallsItemChatCompletionMessageToolCall(value); } } catch (_) {}
+      try { final value = ChatCompletionMessageCustomToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionMessageToolCallsItemChatCompletionMessageCustomToolCall(value); } } catch (_) {}
+    }
     try { return ChatCompletionMessageToolCallsItemChatCompletionMessageToolCall(ChatCompletionMessageToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ChatCompletionMessageToolCallsItemChatCompletionMessageCustomToolCall(ChatCompletionMessageCustomToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "custom"}.contains(json["type"])) { return UnknownChatCompletionMessageToolCallsItem(json); }

@@ -4,6 +4,55 @@
 part of 'audio.dart';
 
 // audio domain models (part 5)
+/// A segment of diarized transcript text with speaker metadata.
+class TranscriptionDiarizedSegment {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The type of the segment. Always `transcript.text.segment`.
+  final TranscriptionDiarizedSegmentType type_;
+  /// Unique identifier for the segment.
+  final String id;
+  /// Start timestamp of the segment in seconds.
+  final double start;
+  /// End timestamp of the segment in seconds.
+  final double end;
+  /// Transcript text for this segment.
+  final String text;
+  /// Speaker label for this segment. When known speakers are provided, the label matches `known_speaker_names[]`. Otherwise speakers are labeled sequentially using capital letters (`A`, `B`, ...).
+  final String speaker;
+
+  const TranscriptionDiarizedSegment({required this.type_, required this.id, required this.start, required this.end, required this.text, required this.speaker});
+
+  TranscriptionDiarizedSegment Function({TranscriptionDiarizedSegmentType type_, String id, double start, double end, String text, String speaker}) get copyWith => _copyWith;
+
+  TranscriptionDiarizedSegment _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? start = sdkOmittedValue, Object? end = sdkOmittedValue, Object? text = sdkOmittedValue, Object? speaker = sdkOmittedValue}) => TranscriptionDiarizedSegment(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TranscriptionDiarizedSegmentType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    start: identical(start, sdkOmittedValue) ? this.start : start as double,
+    end: identical(end, sdkOmittedValue) ? this.end : end as double,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+    speaker: identical(speaker, sdkOmittedValue) ? this.speaker : speaker as String,
+  );
+
+  factory TranscriptionDiarizedSegment.fromJson(Map<String, dynamic> json) => TranscriptionDiarizedSegment(
+    type_: (json['type'] != null ? TranscriptionDiarizedSegmentType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    start: ((json['start'] as num?)?.toDouble())!,
+    end: ((json['end'] as num?)?.toDouble())!,
+    text: (json['text'] as String?)!,
+    speaker: (json['speaker'] as String?)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'type': type_.toJson(),
+    'id': id,
+    'start': start,
+    'end': end,
+    'text': text,
+    'speaker': speaker,
+  };
+}
+
 /// Typed representation of the `TranscriptionInclude` API schema.
 final class TranscriptionInclude {
 
@@ -235,49 +284,6 @@ class TranscriptTextDeltaEvent {
     },
     ...switch (segmentId) {
       SdkPresent<String>(value: final value) => {'segment_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-/// Required object value serialized in the `logprobs[]` wire field.
-class TranscriptTextDoneEventLogprobsItem {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The token that was used to generate the log probability.
-  final SdkOptional<String> token;
-  /// The log probability of the token.
-  final SdkOptional<double> logprob;
-  /// The bytes that were used to generate the log probability.
-  final SdkOptional<List<int>> bytes;
-
-  const TranscriptTextDoneEventLogprobsItem({this.token = const SdkOmitted(), this.logprob = const SdkOmitted(), this.bytes = const SdkOmitted()});
-
-  TranscriptTextDoneEventLogprobsItem Function({SdkOptional<String> token, SdkOptional<double> logprob, SdkOptional<List<int>> bytes}) get copyWith => _copyWith;
-
-  TranscriptTextDoneEventLogprobsItem _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? bytes = sdkOmittedValue}) => TranscriptTextDoneEventLogprobsItem(
-    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
-    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as SdkOptional<double>,
-    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as SdkOptional<List<int>>,
-  );
-
-  factory TranscriptTextDoneEventLogprobsItem.fromJson(Map<String, dynamic> json) => TranscriptTextDoneEventLogprobsItem(
-    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
-    logprob: json['logprob'] != null ? SdkPresent(((json['logprob'] as num?)?.toDouble())!) : const SdkOmitted(),
-    bytes: json['bytes'] != null ? SdkPresent(((json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (token) {
-      SdkPresent<String>(value: final value) => {'token': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (logprob) {
-      SdkPresent<double>(value: final value) => {'logprob': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (bytes) {
-      SdkPresent<List<int>>(value: final value) => {'bytes': value,},
       _ => const <String, dynamic>{},
     },
   };

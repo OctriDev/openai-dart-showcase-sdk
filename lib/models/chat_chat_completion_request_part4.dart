@@ -9,6 +9,12 @@ sealed class ChatCompletionRequestUserMessageContentPart {
   static const String constructionSurface = 'named';
   const ChatCompletionRequestUserMessageContentPart();
   factory ChatCompletionRequestUserMessageContentPart.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ChatCompletionRequestMessageContentPartText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartText(value); } } catch (_) {}
+      try { final value = ChatCompletionRequestMessageContentPartImage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartImage(value); } } catch (_) {}
+      try { final value = ChatCompletionRequestMessageContentPartAudio.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartAudio(value); } } catch (_) {}
+      try { final value = ChatCompletionRequestMessageContentPartFile.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartFile(value); } } catch (_) {}
+    }
     try { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartText(ChatCompletionRequestMessageContentPartText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartImage(ChatCompletionRequestMessageContentPartImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartAudio(ChatCompletionRequestMessageContentPartAudio.fromJson(json as Map<String, dynamic>)); } catch (_) {}

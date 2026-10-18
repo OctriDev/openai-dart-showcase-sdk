@@ -83,6 +83,11 @@ sealed class UserMessageItemParamContentItem {
   static const String constructionSurface = 'named';
   const UserMessageItemParamContentItem();
   factory UserMessageItemParamContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = InputTextContentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UserMessageItemParamContentItemInputTextContentParam(value); } } catch (_) {}
+      try { final value = InputImageContentParamAutoParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UserMessageItemParamContentItemInputImageContentParamAutoParam(value); } } catch (_) {}
+      try { final value = InputFileContentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UserMessageItemParamContentItemInputFileContentParam(value); } } catch (_) {}
+    }
     try { return UserMessageItemParamContentItemInputTextContentParam(InputTextContentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return UserMessageItemParamContentItemInputImageContentParamAutoParam(InputImageContentParamAutoParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return UserMessageItemParamContentItemInputFileContentParam(InputFileContentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}

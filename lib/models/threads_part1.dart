@@ -218,6 +218,11 @@ sealed class ThreadResourceStatus {
   static const String constructionSurface = 'named';
   const ThreadResourceStatus();
   factory ThreadResourceStatus.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ActiveStatus.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadResourceStatusActiveStatus(value); } } catch (_) {}
+      try { final value = LockedStatus.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadResourceStatusLockedStatus(value); } } catch (_) {}
+      try { final value = ClosedStatus.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadResourceStatusClosedStatus(value); } } catch (_) {}
+    }
     try { return ThreadResourceStatusActiveStatus(ActiveStatus.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ThreadResourceStatusLockedStatus(LockedStatus.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ThreadResourceStatusClosedStatus(ClosedStatus.fromJson(json as Map<String, dynamic>)); } catch (_) {}

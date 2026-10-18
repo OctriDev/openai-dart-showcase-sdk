@@ -136,6 +136,10 @@ sealed class RealtimeResponseCreateParamsToolChoice {
   static const String constructionSurface = 'named';
   const RealtimeResponseCreateParamsToolChoice();
   factory RealtimeResponseCreateParamsToolChoice.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ToolChoiceFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(value); } } catch (_) {}
+      try { final value = ToolChoiceMCP.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(value); } } catch (_) {}
+    }
     try { return RealtimeResponseCreateParamsToolChoiceToolChoiceOptions(ToolChoiceOptions.fromJson(json as String)); } catch (_) {}
     try { return RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(ToolChoiceFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(ToolChoiceMCP.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -175,6 +179,10 @@ sealed class RealtimeResponseCreateParamsToolsItem {
   static const String constructionSurface = 'named';
   const RealtimeResponseCreateParamsToolsItem();
   factory RealtimeResponseCreateParamsToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RealtimeFunctionTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(value); } } catch (_) {}
+      try { final value = MCPTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolsItemMCPTool(value); } } catch (_) {}
+    }
     try { return RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(RealtimeFunctionTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RealtimeResponseCreateParamsToolsItemMCPTool(MCPTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for RealtimeResponseCreateParamsToolsItem");

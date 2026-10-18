@@ -190,6 +190,11 @@ sealed class BetaWebSearchToolCallAction {
   static const String constructionSurface = 'named';
   const BetaWebSearchToolCallAction();
   factory BetaWebSearchToolCallAction.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaWebSearchActionSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaWebSearchToolCallActionBetaWebSearchActionSearch(value); } } catch (_) {}
+      try { final value = BetaWebSearchActionOpenPage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaWebSearchToolCallActionBetaWebSearchActionOpenPage(value); } } catch (_) {}
+      try { final value = BetaWebSearchActionFind.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaWebSearchToolCallActionBetaWebSearchActionFind(value); } } catch (_) {}
+    }
     try { return BetaWebSearchToolCallActionBetaWebSearchActionSearch(BetaWebSearchActionSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaWebSearchToolCallActionBetaWebSearchActionOpenPage(BetaWebSearchActionOpenPage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaWebSearchToolCallActionBetaWebSearchActionFind(BetaWebSearchActionFind.fromJson(json as Map<String, dynamic>)); } catch (_) {}

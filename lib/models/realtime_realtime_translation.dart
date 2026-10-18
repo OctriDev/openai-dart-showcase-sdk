@@ -11,3 +11,4 @@ part 'realtime_realtime_translation_part1.dart';
 part 'realtime_realtime_translation_part2.dart';
 part 'realtime_realtime_translation_part3.dart';
 part 'realtime_realtime_translation_part4.dart';
+part 'realtime_realtime_translation_part5.dart';

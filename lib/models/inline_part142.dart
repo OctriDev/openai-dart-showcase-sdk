@@ -4,6 +4,44 @@
 part of 'inline.dart';
 
 // Inline operation models (part 142)
+/// The request body: one of the values the operation accepts, each sent as its media type.
+class CreateImageEditBody {
+  const CreateImageEditBody._(this.value, this.mediaType);
+
+  /// Sent as `application/json`.
+  CreateImageEditBody.editImageBodyJsonParam(EditImageBodyJsonParam value)
+    : this._(value, 'application/json');
+
+  /// Sent as `multipart/form-data`.
+  CreateImageEditBody.createImageEditRequest(CreateImageEditRequest value)
+    : this._(SdkFormValue(value, const {'image', 'mask'}), 'multipart/form-data');
+
+  /// The value sent, in its wire form.
+  final Object value;
+
+  /// The media type the value is sent as.
+  final String mediaType;
+}
+
+/// The request body: one of the values the operation accepts, each sent as its media type.
+class CreateImageEditStreamBody {
+  const CreateImageEditStreamBody._(this.value, this.mediaType);
+
+  /// Sent as `application/json`.
+  CreateImageEditStreamBody.editImageBodyJsonParam(EditImageBodyJsonParam value)
+    : this._(value, 'application/json');
+
+  /// Sent as `multipart/form-data`.
+  CreateImageEditStreamBody.createImageEditRequest(CreateImageEditRequest value)
+    : this._(SdkFormValue(value, const {'image', 'mask'}), 'multipart/form-data');
+
+  /// The value sent, in its wire form.
+  final Object value;
+
+  /// The media type the value is sent as.
+  final String mediaType;
+}
+
 class CreateAdminApiKeysRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -248,48 +286,4 @@ class CreateVideoExtendBody {
 
   /// The media type the value is sent as.
   final String mediaType;
-}
-
-/// A page of Agents API resources, with IDs for retrieving additional pages.
-class ListAgentSessionSubagentsResponse {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The object type, which is always `list`.
-  final ListAgentSessionSubagentsResponseObject object;
-  /// The resources returned in this page, in the requested sort order.
-  final List<SubagentResource> data;
-  /// The ID of the first resource in `data`, or `null` if the page is empty.
-  final String? firstId;
-  /// The ID of the last resource in `data`, or `null` if the page is empty. Pass this as `after` with the same order and filters.
-  final String? lastId;
-  /// Whether there are more resources to retrieve after this page.
-  final bool hasMore;
-
-  const ListAgentSessionSubagentsResponse({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
-
-  ListAgentSessionSubagentsResponse Function({ListAgentSessionSubagentsResponseObject object, List<SubagentResource> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
-
-  ListAgentSessionSubagentsResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ListAgentSessionSubagentsResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ListAgentSessionSubagentsResponseObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<SubagentResource>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
-
-  factory ListAgentSessionSubagentsResponse.fromJson(Map<String, dynamic> json) => ListAgentSessionSubagentsResponse(
-    object: (json['object'] != null ? ListAgentSessionSubagentsResponseObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => SubagentResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
-    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
 }

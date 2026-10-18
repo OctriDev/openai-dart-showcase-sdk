@@ -48,6 +48,10 @@ sealed class BetaNamespaceToolParamToolsItem {
   static const String constructionSurface = 'named';
   const BetaNamespaceToolParamToolsItem();
   factory BetaNamespaceToolParamToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaFunctionToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaNamespaceToolParamToolsItemBetaFunctionToolParam(value); } } catch (_) {}
+      try { final value = BetaCustomToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaNamespaceToolParamToolsItemBetaCustomToolParam(value); } } catch (_) {}
+    }
     try { return BetaNamespaceToolParamToolsItemBetaFunctionToolParam(BetaFunctionToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaNamespaceToolParamToolsItemBetaCustomToolParam(BetaCustomToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "custom"}.contains(json["type"])) { return UnknownBetaNamespaceToolParamToolsItem(json); }

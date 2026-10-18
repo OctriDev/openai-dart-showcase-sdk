@@ -4,6 +4,35 @@
 part of 'realtime_realtime_server_event.dart';
 
 // realtime_realtime_server_event domain models (part 5)
+/// Returned when the input audio buffer is cleared by the client with a `input_audio_buffer.clear` event.
+class RealtimeServerEventInputAudioBufferCleared {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The unique ID of the server event.
+  final String eventId;
+  /// The event type, must be `input_audio_buffer.cleared`.
+  final RealtimeServerEventInputAudioBufferClearedType type_;
+
+  const RealtimeServerEventInputAudioBufferCleared({required this.eventId, required this.type_});
+
+  RealtimeServerEventInputAudioBufferCleared Function({String eventId, RealtimeServerEventInputAudioBufferClearedType type_}) get copyWith => _copyWith;
+
+  RealtimeServerEventInputAudioBufferCleared _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeServerEventInputAudioBufferCleared(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventInputAudioBufferClearedType,
+  );
+
+  factory RealtimeServerEventInputAudioBufferCleared.fromJson(Map<String, dynamic> json) => RealtimeServerEventInputAudioBufferCleared(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeServerEventInputAudioBufferClearedType.fromJson(json['type'] as String) : null)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'event_id': eventId,
+    'type': type_.toJson(),
+  };
+}
+
 /// Returned when an input audio buffer is committed, either by the client or automatically in server VAD mode. The `item_id` property is the ID of the user message item that will be created, thus a `conversation.item.created` event will also be sent to the client.
 class RealtimeServerEventInputAudioBufferCommitted {
   /// This model is constructed from named fields in one call.
@@ -226,40 +255,6 @@ class RealtimeServerEventMCPListToolsCompleted {
   factory RealtimeServerEventMCPListToolsCompleted.fromJson(Map<String, dynamic> json) => RealtimeServerEventMCPListToolsCompleted(
     eventId: (json['event_id'] as String?)!,
     type_: (json['type'] != null ? RealtimeServerEventMCPListToolsCompletedType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'item_id': itemId,
-  };
-}
-
-/// Returned when listing MCP tools has failed for an item.
-class RealtimeServerEventMCPListToolsFailed {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The unique ID of the server event.
-  final String eventId;
-  /// The event type, must be `mcp_list_tools.failed`.
-  final RealtimeServerEventMCPListToolsFailedType type_;
-  /// The ID of the MCP list tools item.
-  final String itemId;
-
-  const RealtimeServerEventMCPListToolsFailed({required this.eventId, required this.type_, required this.itemId});
-
-  RealtimeServerEventMCPListToolsFailed Function({String eventId, RealtimeServerEventMCPListToolsFailedType type_, String itemId}) get copyWith => _copyWith;
-
-  RealtimeServerEventMCPListToolsFailed _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeServerEventMCPListToolsFailed(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventMCPListToolsFailedType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
-
-  factory RealtimeServerEventMCPListToolsFailed.fromJson(Map<String, dynamic> json) => RealtimeServerEventMCPListToolsFailed(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventMCPListToolsFailedType.fromJson(json['type'] as String) : null)!,
     itemId: (json['item_id'] as String?)!,
   );
 

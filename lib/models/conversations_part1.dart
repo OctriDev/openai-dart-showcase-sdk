@@ -9,6 +9,37 @@ sealed class ConversationItem {
   static const String constructionSurface = 'named';
   const ConversationItem();
   factory ConversationItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = Message.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemMessage(value); } } catch (_) {}
+      try { final value = FunctionToolCallResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemFunctionToolCallResource(value); } } catch (_) {}
+      try { final value = FunctionToolCallOutputResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemFunctionToolCallOutputResource(value); } } catch (_) {}
+      try { final value = FileSearchToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemFileSearchToolCall(value); } } catch (_) {}
+      try { final value = WebSearchToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemWebSearchToolCall(value); } } catch (_) {}
+      try { final value = ImageGenToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemImageGenToolCall(value); } } catch (_) {}
+      try { final value = ComputerToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemComputerToolCall(value); } } catch (_) {}
+      try { final value = ComputerToolCallOutputResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemComputerToolCallOutputResource(value); } } catch (_) {}
+      try { final value = ToolSearchCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemToolSearchCall(value); } } catch (_) {}
+      try { final value = ToolSearchOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemToolSearchOutput(value); } } catch (_) {}
+      try { final value = AdditionalTools.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemAdditionalTools(value); } } catch (_) {}
+      try { final value = ResponseConfigurationUpdate.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemResponseConfigurationUpdate(value); } } catch (_) {}
+      try { final value = ReasoningItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemReasoningItem(value); } } catch (_) {}
+      try { final value = Program.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemProgram(value); } } catch (_) {}
+      try { final value = ProgramOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemProgramOutput(value); } } catch (_) {}
+      try { final value = CompactionBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemCompactionBody(value); } } catch (_) {}
+      try { final value = CodeInterpreterToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemCodeInterpreterToolCall(value); } } catch (_) {}
+      try { final value = LocalShellToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemLocalShellToolCall(value); } } catch (_) {}
+      try { final value = LocalShellToolCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemLocalShellToolCallOutput(value); } } catch (_) {}
+      try { final value = FunctionShellCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemFunctionShellCall(value); } } catch (_) {}
+      try { final value = FunctionShellCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemFunctionShellCallOutput(value); } } catch (_) {}
+      try { final value = ApplyPatchToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemApplyPatchToolCall(value); } } catch (_) {}
+      try { final value = ApplyPatchToolCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemApplyPatchToolCallOutput(value); } } catch (_) {}
+      try { final value = MCPListTools.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemMCPListTools(value); } } catch (_) {}
+      try { final value = MCPApprovalRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemMCPApprovalRequest(value); } } catch (_) {}
+      try { final value = MCPApprovalResponseResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemMCPApprovalResponseResource(value); } } catch (_) {}
+      try { final value = MCPToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemMCPToolCall(value); } } catch (_) {}
+      try { final value = CustomToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemCustomToolCall(value); } } catch (_) {}
+      try { final value = CustomToolCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemCustomToolCallOutput(value); } } catch (_) {}
+    }
     try { return ConversationItemMessage(Message.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ConversationItemFunctionToolCallResource(FunctionToolCallResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ConversationItemFunctionToolCallOutputResource(FunctionToolCallOutputResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -223,48 +254,4 @@ final class UnknownConversationItem extends ConversationItem {
   final Map<String, dynamic> raw;
   const UnknownConversationItem(this.raw);
   @override Object? toJson() => raw;
-}
-
-/// A list of Conversation items.
-class ConversationItemList {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The type of object returned, must be `list`.
-  final ConversationItemListObject object;
-  /// A list of conversation items.
-  final List<ConversationItem> data;
-  /// Whether there are more items available.
-  final bool hasMore;
-  /// The ID of the first item in the list.
-  final String firstId;
-  /// The ID of the last item in the list.
-  final String lastId;
-
-  const ConversationItemList({required this.object, required this.data, required this.hasMore, required this.firstId, required this.lastId});
-
-  ConversationItemList Function({ConversationItemListObject object, List<ConversationItem> data, bool hasMore, String firstId, String lastId}) get copyWith => _copyWith;
-
-  ConversationItemList _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue}) => ConversationItemList(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ConversationItemListObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<ConversationItem>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
-  );
-
-  factory ConversationItemList.fromJson(Map<String, dynamic> json) => ConversationItemList(
-    object: (json['object'] != null ? ConversationItemListObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => ConversationItem.fromJson(e)).toList())!,
-    hasMore: (json['has_more'] as bool?)!,
-    firstId: (json['first_id'] as String?)!,
-    lastId: (json['last_id'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'has_more': hasMore,
-    'first_id': firstId,
-    'last_id': lastId,
-  };
 }

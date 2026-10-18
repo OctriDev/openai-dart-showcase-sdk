@@ -9,6 +9,10 @@ sealed class InputContentParam {
   static const String constructionSurface = 'named';
   const InputContentParam();
   factory InputContentParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = InputContentParamInputText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return InputContentParamInputContentParamInputText(value); } } catch (_) {}
+      try { final value = InputContentParamInputImage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return InputContentParamInputContentParamInputImage(value); } } catch (_) {}
+    }
     try { return InputContentParamInputContentParamInputText(InputContentParamInputText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return InputContentParamInputContentParamInputImage(InputContentParamInputImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image"}.contains(json["type"])) { return UnknownInputContentParam(json); }
@@ -99,6 +103,10 @@ sealed class InputContentResource {
   static const String constructionSurface = 'named';
   const InputContentResource();
   factory InputContentResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = InputContentResourceInputText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return InputContentResourceInputContentResourceInputText(value); } } catch (_) {}
+      try { final value = InputContentResourceInputImage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return InputContentResourceInputContentResourceInputImage(value); } } catch (_) {}
+    }
     try { return InputContentResourceInputContentResourceInputText(InputContentResourceInputText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return InputContentResourceInputContentResourceInputImage(InputContentResourceInputImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image"}.contains(json["type"])) { return UnknownInputContentResource(json); }

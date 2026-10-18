@@ -4,6 +4,50 @@
 part of 'realtime_realtime_server_event.dart';
 
 // realtime_realtime_server_event domain models (part 4)
+/// Returned when input audio transcription is configured, and a transcription request for a user message failed. These events are separate from other `error` events so that the client can identify the related Item.
+class RealtimeServerEventConversationItemInputAudioTranscriptionFailed {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The unique ID of the server event.
+  final String eventId;
+  /// The event type, must be `conversation.item.input_audio_transcription.failed`.
+  final RealtimeServerEventConversationItemInputAudioTranscriptionFailedType type_;
+  /// The ID of the user message item.
+  final String itemId;
+  /// The index of the content part containing the audio.
+  final int contentIndex;
+  /// Details of the transcription error.
+  final RealtimeServerEventConversationItemInputAudioTranscriptionFailedError error;
+
+  const RealtimeServerEventConversationItemInputAudioTranscriptionFailed({required this.eventId, required this.type_, required this.itemId, required this.contentIndex, required this.error});
+
+  RealtimeServerEventConversationItemInputAudioTranscriptionFailed Function({String eventId, RealtimeServerEventConversationItemInputAudioTranscriptionFailedType type_, String itemId, int contentIndex, RealtimeServerEventConversationItemInputAudioTranscriptionFailedError error}) get copyWith => _copyWith;
+
+  RealtimeServerEventConversationItemInputAudioTranscriptionFailed _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? error = sdkOmittedValue}) => RealtimeServerEventConversationItemInputAudioTranscriptionFailed(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventConversationItemInputAudioTranscriptionFailedType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
+    error: identical(error, sdkOmittedValue) ? this.error : error as RealtimeServerEventConversationItemInputAudioTranscriptionFailedError,
+  );
+
+  factory RealtimeServerEventConversationItemInputAudioTranscriptionFailed.fromJson(Map<String, dynamic> json) => RealtimeServerEventConversationItemInputAudioTranscriptionFailed(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeServerEventConversationItemInputAudioTranscriptionFailedType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    contentIndex: ((json['content_index'] as num?)?.toInt())!,
+    error: (json['error'] != null ? RealtimeServerEventConversationItemInputAudioTranscriptionFailedError.fromJson(json['error'] as Map<String, dynamic>) : null)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'content_index': contentIndex,
+    'error': error.toJson(),
+  };
+}
+
 /// Returned when an input audio transcription segment is identified for an item.
 class RealtimeServerEventConversationItemInputAudioTranscriptionSegment {
   /// This model is constructed from named fields in one call.
@@ -230,34 +274,5 @@ class RealtimeServerEventError {
     'event_id': eventId,
     'type': type_.toJson(),
     'error': error.toJson(),
-  };
-}
-
-/// Returned when the input audio buffer is cleared by the client with a `input_audio_buffer.clear` event.
-class RealtimeServerEventInputAudioBufferCleared {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The unique ID of the server event.
-  final String eventId;
-  /// The event type, must be `input_audio_buffer.cleared`.
-  final RealtimeServerEventInputAudioBufferClearedType type_;
-
-  const RealtimeServerEventInputAudioBufferCleared({required this.eventId, required this.type_});
-
-  RealtimeServerEventInputAudioBufferCleared Function({String eventId, RealtimeServerEventInputAudioBufferClearedType type_}) get copyWith => _copyWith;
-
-  RealtimeServerEventInputAudioBufferCleared _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeServerEventInputAudioBufferCleared(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventInputAudioBufferClearedType,
-  );
-
-  factory RealtimeServerEventInputAudioBufferCleared.fromJson(Map<String, dynamic> json) => RealtimeServerEventInputAudioBufferCleared(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventInputAudioBufferClearedType.fromJson(json['type'] as String) : null)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
   };
 }

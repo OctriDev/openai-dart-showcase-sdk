@@ -69,6 +69,18 @@ sealed class BetaMessageContentItem {
   static const String constructionSurface = 'named';
   const BetaMessageContentItem();
   factory BetaMessageContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaInputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaInputTextContent(value); } } catch (_) {}
+      try { final value = BetaOutputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaOutputTextContent(value); } } catch (_) {}
+      try { final value = BetaTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaTextContent(value); } } catch (_) {}
+      try { final value = BetaSummaryTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaSummaryTextContent(value); } } catch (_) {}
+      try { final value = BetaReasoningTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaReasoningTextContent(value); } } catch (_) {}
+      try { final value = BetaRefusalContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaRefusalContent(value); } } catch (_) {}
+      try { final value = BetaInputImageContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaInputImageContent(value); } } catch (_) {}
+      try { final value = BetaComputerScreenshotContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaComputerScreenshotContent(value); } } catch (_) {}
+      try { final value = BetaInputFileContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaInputFileContent(value); } } catch (_) {}
+      try { final value = BetaEncryptedContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaEncryptedContent(value); } } catch (_) {}
+    }
     try { return BetaMessageContentItemBetaInputTextContent(BetaInputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaMessageContentItemBetaOutputTextContent(BetaOutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaMessageContentItemBetaTextContent(BetaTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}

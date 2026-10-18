@@ -98,6 +98,10 @@ sealed class MessageObjectAttachmentsItemToolsItem {
   static const String constructionSurface = 'named';
   const MessageObjectAttachmentsItemToolsItem();
   factory MessageObjectAttachmentsItemToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = AssistantToolsCode.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageObjectAttachmentsItemToolsItemAssistantToolsCode(value); } } catch (_) {}
+      try { final value = AssistantToolsFileSearchTypeOnly.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageObjectAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly(value); } } catch (_) {}
+    }
     try { return MessageObjectAttachmentsItemToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return MessageObjectAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly(AssistantToolsFileSearchTypeOnly.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"code_interpreter", "file_search"}.contains(json["type"])) { return UnknownMessageObjectAttachmentsItemToolsItem(json); }
@@ -130,6 +134,12 @@ sealed class MessageObjectContentItem {
   static const String constructionSurface = 'named';
   const MessageObjectContentItem();
   factory MessageObjectContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = MessageContentImageFileObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageObjectContentItemMessageContentImageFileObject(value); } } catch (_) {}
+      try { final value = MessageContentImageUrlObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageObjectContentItemMessageContentImageUrlObject(value); } } catch (_) {}
+      try { final value = MessageContentTextObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageObjectContentItemMessageContentTextObject(value); } } catch (_) {}
+      try { final value = MessageContentRefusalObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageObjectContentItemMessageContentRefusalObject(value); } } catch (_) {}
+    }
     try { return MessageObjectContentItemMessageContentImageFileObject(MessageContentImageFileObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return MessageObjectContentItemMessageContentImageUrlObject(MessageContentImageUrlObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return MessageObjectContentItemMessageContentTextObject(MessageContentTextObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -248,34 +258,6 @@ class MessageStreamEventVariant1 {
   factory MessageStreamEventVariant1.fromJson(Map<String, dynamic> json) => MessageStreamEventVariant1(
     event: (json['event'] != null ? MessageStreamEventVariant1Event.fromJson(json['event'] as String) : null)!,
     data: (json['data'] != null ? MessageObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
-}
-
-/// Occurs when parts of a [Message](https://developers.openai.com/api/docs/assistants/migration) are being streamed.
-class MessageStreamEventVariant2 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  final MessageStreamEventVariant2Event event;
-  /// Represents a message delta i.e. any changed fields on a message during streaming.
-  final MessageDeltaObject data;
-
-  const MessageStreamEventVariant2({required this.event, required this.data});
-
-  MessageStreamEventVariant2 Function({MessageStreamEventVariant2Event event, MessageDeltaObject data}) get copyWith => _copyWith;
-
-  MessageStreamEventVariant2 _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => MessageStreamEventVariant2(
-    event: identical(event, sdkOmittedValue) ? this.event : event as MessageStreamEventVariant2Event,
-    data: identical(data, sdkOmittedValue) ? this.data : data as MessageDeltaObject,
-  );
-
-  factory MessageStreamEventVariant2.fromJson(Map<String, dynamic> json) => MessageStreamEventVariant2(
-    event: (json['event'] != null ? MessageStreamEventVariant2Event.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? MessageDeltaObject.fromJson(json['data'] as Map<String, dynamic>) : null)!,
   );
 
   Map<String, dynamic> toJson() => {

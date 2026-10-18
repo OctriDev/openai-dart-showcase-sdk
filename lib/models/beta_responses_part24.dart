@@ -4,6 +4,108 @@
 part of 'beta_responses.dart';
 
 // beta_responses domain models (part 24)
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallSearchingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseFileSearchCallSearchingEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallSearchingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseFunctionCallArgumentsDeltaEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseFunctionCallArgumentsDoneEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandAddedStreamingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseShellCallCommandAddedStreamingEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandAddedStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDeltaStreamingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseShellCallCommandDeltaStreamingEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDeltaStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDoneStreamingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseShellCallCommandDoneStreamingEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDoneStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDeltaStreamingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseShellCallOutputContentDeltaStreamingEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDeltaStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDoneStreamingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseShellCallOutputContentDoneStreamingEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDoneStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseInProgressEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseInProgressEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseInProgressEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFailedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseFailedEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFailedEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseIncompleteEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseIncompleteEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseIncompleteEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemAddedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseOutputItemAddedEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemAddedEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseOutputItemDoneEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartAddedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseReasoningSummaryPartAddedEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartAddedEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseReasoningSummaryPartDoneEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseReasoningSummaryTextDeltaEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
+  final BetaResponseReasoningSummaryTextDoneEvent value;
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
 final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseReasoningTextDeltaEvent value;
   const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDeltaEvent(this.value);
@@ -159,57 +261,4 @@ final class UnknownBetaResponsesWebSocketStreamEventVariant0 extends BetaRespons
   final Map<String, dynamic> raw;
   const UnknownBetaResponsesWebSocketStreamEventVariant0(this.raw);
   @override Object? toJson() => raw;
-}
-
-class BetaResponsesWebSocketStreamEventVariant1 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
-  final SdkOptional<String> streamId;
-
-  const BetaResponsesWebSocketStreamEventVariant1({this.streamId = const SdkOmitted()});
-
-  BetaResponsesWebSocketStreamEventVariant1 Function({SdkOptional<String> streamId}) get copyWith => _copyWith;
-
-  BetaResponsesWebSocketStreamEventVariant1 _copyWith({Object? streamId = sdkOmittedValue}) => BetaResponsesWebSocketStreamEventVariant1(
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
-
-  factory BetaResponsesWebSocketStreamEventVariant1.fromJson(Map<String, dynamic> json) => BetaResponsesWebSocketStreamEventVariant1(
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-/// Typed representation of the `BetaResponsesWebSocketStreamEvent` API schema.
-class BetaResponsesWebSocketStreamEvent {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
-  final SdkOptional<String> streamId;
-
-  const BetaResponsesWebSocketStreamEvent({this.streamId = const SdkOmitted()});
-
-  BetaResponsesWebSocketStreamEvent Function({SdkOptional<String> streamId}) get copyWith => _copyWith;
-
-  BetaResponsesWebSocketStreamEvent _copyWith({Object? streamId = sdkOmittedValue}) => BetaResponsesWebSocketStreamEvent(
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
-
-  factory BetaResponsesWebSocketStreamEvent.fromJson(Map<String, dynamic> json) => BetaResponsesWebSocketStreamEvent(
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
 }

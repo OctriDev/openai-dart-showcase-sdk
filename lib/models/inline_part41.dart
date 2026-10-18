@@ -249,23 +249,23 @@ final class CreateSpeechRequestStreamFormat {
 }
 
 /// Required enumerated value serialized in the `voice` wire field.
-final class CreateSpeechRequestVoiceVariant0Variant1 {
+final class CreateSpeechRequestVoiceVariant1 {
 
   final String value;
 
-  const CreateSpeechRequestVoiceVariant0Variant1._(this.value);
+  const CreateSpeechRequestVoiceVariant1._(this.value);
 
-  factory CreateSpeechRequestVoiceVariant0Variant1.fromJson(String value) => CreateSpeechRequestVoiceVariant0Variant1._(value);
+  factory CreateSpeechRequestVoiceVariant1.fromJson(String value) => CreateSpeechRequestVoiceVariant1._(value);
 
-  static const fable = CreateSpeechRequestVoiceVariant0Variant1._('fable');
-  static const onyx = CreateSpeechRequestVoiceVariant0Variant1._('onyx');
-  static const nova = CreateSpeechRequestVoiceVariant0Variant1._('nova');
+  static const fable = CreateSpeechRequestVoiceVariant1._('fable');
+  static const onyx = CreateSpeechRequestVoiceVariant1._('onyx');
+  static const nova = CreateSpeechRequestVoiceVariant1._('nova');
 
   String toJson() => value;
 
   @override String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateSpeechRequestVoiceVariant0Variant1 && other.value == value;
+  @override bool operator ==(Object other) => other is CreateSpeechRequestVoiceVariant1 && other.value == value;
 
   @override int get hashCode => value.hashCode;
 

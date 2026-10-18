@@ -4,6 +4,58 @@
 part of 'audio.dart';
 
 // audio domain models (part 4)
+sealed class CreateTranslationResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const CreateTranslationResponse();
+  factory CreateTranslationResponse.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = CreateTranslationResponseJson.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateTranslationResponseCreateTranslationResponseJson(value); } } catch (_) {}
+      try { final value = CreateTranslationResponseVerboseJson.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateTranslationResponseCreateTranslationResponseVerboseJson(value); } } catch (_) {}
+    }
+    try { return CreateTranslationResponseCreateTranslationResponseJson(CreateTranslationResponseJson.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateTranslationResponseCreateTranslationResponseVerboseJson(CreateTranslationResponseVerboseJson.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for CreateTranslationResponse");
+  }
+  Object? toJson();
+}
+
+final class CreateTranslationResponseCreateTranslationResponseJson extends CreateTranslationResponse {
+  final CreateTranslationResponseJson value;
+  const CreateTranslationResponseCreateTranslationResponseJson(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class CreateTranslationResponseCreateTranslationResponseVerboseJson extends CreateTranslationResponse {
+  final CreateTranslationResponseVerboseJson value;
+  const CreateTranslationResponseCreateTranslationResponseVerboseJson(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+/// Typed representation of the `CreateTranslationResponseJson` API schema.
+class CreateTranslationResponseJson {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// Required `string` value serialized in the `text` wire field.
+  final String text;
+
+  const CreateTranslationResponseJson({required this.text});
+
+  CreateTranslationResponseJson Function({String text}) get copyWith => _copyWith;
+
+  CreateTranslationResponseJson _copyWith({Object? text = sdkOmittedValue}) => CreateTranslationResponseJson(
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
+
+  factory CreateTranslationResponseJson.fromJson(Map<String, dynamic> json) => CreateTranslationResponseJson(
+    text: (json['text'] as String?)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'text': text,
+  };
+}
+
 /// Typed representation of the `CreateTranslationResponseVerboseJson` API schema.
 class CreateTranslationResponseVerboseJson {
   /// This model is constructed from named fields in one call.
@@ -236,54 +288,5 @@ class SpeechAudioDoneEvent {
   Map<String, dynamic> toJson() => {
     'type': type_.toJson(),
     'usage': usage.toJson(),
-  };
-}
-
-/// A segment of diarized transcript text with speaker metadata.
-class TranscriptionDiarizedSegment {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The type of the segment. Always `transcript.text.segment`.
-  final TranscriptionDiarizedSegmentType type_;
-  /// Unique identifier for the segment.
-  final String id;
-  /// Start timestamp of the segment in seconds.
-  final double start;
-  /// End timestamp of the segment in seconds.
-  final double end;
-  /// Transcript text for this segment.
-  final String text;
-  /// Speaker label for this segment. When known speakers are provided, the label matches `known_speaker_names[]`. Otherwise speakers are labeled sequentially using capital letters (`A`, `B`, ...).
-  final String speaker;
-
-  const TranscriptionDiarizedSegment({required this.type_, required this.id, required this.start, required this.end, required this.text, required this.speaker});
-
-  TranscriptionDiarizedSegment Function({TranscriptionDiarizedSegmentType type_, String id, double start, double end, String text, String speaker}) get copyWith => _copyWith;
-
-  TranscriptionDiarizedSegment _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? start = sdkOmittedValue, Object? end = sdkOmittedValue, Object? text = sdkOmittedValue, Object? speaker = sdkOmittedValue}) => TranscriptionDiarizedSegment(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TranscriptionDiarizedSegmentType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    start: identical(start, sdkOmittedValue) ? this.start : start as double,
-    end: identical(end, sdkOmittedValue) ? this.end : end as double,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    speaker: identical(speaker, sdkOmittedValue) ? this.speaker : speaker as String,
-  );
-
-  factory TranscriptionDiarizedSegment.fromJson(Map<String, dynamic> json) => TranscriptionDiarizedSegment(
-    type_: (json['type'] != null ? TranscriptionDiarizedSegmentType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    start: ((json['start'] as num?)?.toDouble())!,
-    end: ((json['end'] as num?)?.toDouble())!,
-    text: (json['text'] as String?)!,
-    speaker: (json['speaker'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'start': start,
-    'end': end,
-    'text': text,
-    'speaker': speaker,
   };
 }

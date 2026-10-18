@@ -4,6 +4,18 @@
 part of 'realtime_realtime_translation.dart';
 
 // realtime_realtime_translation domain models (part 2)
+final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionCreated extends RealtimeTranslationServerEvent {
+  final RealtimeTranslationServerEventSessionCreated value;
+  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionCreated(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionUpdated extends RealtimeTranslationServerEvent {
+  final RealtimeTranslationServerEventSessionUpdated value;
+  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionUpdated(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
 final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionClosed extends RealtimeTranslationServerEvent {
   final RealtimeTranslationServerEventSessionClosed value;
   const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionClosed(this.value);
@@ -245,39 +257,5 @@ class RealtimeTranslationServerEventSessionOutputTranscriptDelta {
       SdkPresent<int?>(value: final value) => {'elapsed_ms': value,},
       _ => const <String, dynamic>{},
     },
-  };
-}
-
-/// Returned when a translation session is updated with a `session.update` event, unless there is an error.
-class RealtimeTranslationServerEventSessionUpdated {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The unique ID of the server event.
-  final String eventId;
-  /// The event type, must be `session.updated`.
-  final RealtimeTranslationServerEventSessionUpdatedType type_;
-  /// The translation session configuration.
-  final RealtimeTranslationSession session;
-
-  const RealtimeTranslationServerEventSessionUpdated({required this.eventId, required this.type_, required this.session});
-
-  RealtimeTranslationServerEventSessionUpdated Function({String eventId, RealtimeTranslationServerEventSessionUpdatedType type_, RealtimeTranslationSession session}) get copyWith => _copyWith;
-
-  RealtimeTranslationServerEventSessionUpdated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeTranslationServerEventSessionUpdated(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTranslationServerEventSessionUpdatedType,
-    session: identical(session, sdkOmittedValue) ? this.session : session as RealtimeTranslationSession,
-  );
-
-  factory RealtimeTranslationServerEventSessionUpdated.fromJson(Map<String, dynamic> json) => RealtimeTranslationServerEventSessionUpdated(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeTranslationServerEventSessionUpdatedType.fromJson(json['type'] as String) : null)!,
-    session: (json['session'] != null ? RealtimeTranslationSession.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'session': session.toJson(),
   };
 }

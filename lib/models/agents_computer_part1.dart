@@ -38,6 +38,10 @@ sealed class ComputerUseApprovalRequestKindResource {
   static const String constructionSurface = 'named';
   const ComputerUseApprovalRequestKindResource();
   factory ComputerUseApprovalRequestKindResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ComputerUseApprovalRequestKindResourceBrowserAuthentication.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserAuthentication(value); } } catch (_) {}
+      try { final value = ComputerUseApprovalRequestKindResourceBrowserOriginAccess.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserOriginAccess(value); } } catch (_) {}
+    }
     try { return ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserAuthentication(ComputerUseApprovalRequestKindResourceBrowserAuthentication.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserOriginAccess(ComputerUseApprovalRequestKindResourceBrowserOriginAccess.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"browser_authentication", "browser_origin_access"}.contains(json["type"])) { return UnknownComputerUseApprovalRequestKindResource(json); }
@@ -192,6 +196,10 @@ sealed class ComputerUseApprovalResponseKindResource {
   static const String constructionSurface = 'named';
   const ComputerUseApprovalResponseKindResource();
   factory ComputerUseApprovalResponseKindResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(value); } } catch (_) {}
+      try { final value = ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(value); } } catch (_) {}
+    }
     try { return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["action"] is String && !const {"submit", "cancel"}.contains(json["action"])) { return UnknownComputerUseApprovalResponseKindResource(json); }

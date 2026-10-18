@@ -4,11 +4,59 @@
 part of 'agents_hosted.dart';
 
 // agents_hosted domain models (part 3)
+/// A skill installed from the Skills API.
+class HostedSkillResourceSkillReference {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The type of the object. Always `skill_reference`.
+  final HostedSkillResourceSkillReferenceType type_;
+  /// The referenced skill ID.
+  final String skillId;
+  /// The concrete skill version installed for this session.
+  final String version;
+  /// The installed skill name.
+  final String name;
+  /// The installed skill description.
+  final String description;
+
+  const HostedSkillResourceSkillReference({required this.type_, required this.skillId, required this.version, required this.name, required this.description});
+
+  HostedSkillResourceSkillReference Function({HostedSkillResourceSkillReferenceType type_, String skillId, String version, String name, String description}) get copyWith => _copyWith;
+
+  HostedSkillResourceSkillReference _copyWith({Object? type_ = sdkOmittedValue, Object? skillId = sdkOmittedValue, Object? version = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue}) => HostedSkillResourceSkillReference(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedSkillResourceSkillReferenceType,
+    skillId: identical(skillId, sdkOmittedValue) ? this.skillId : skillId as String,
+    version: identical(version, sdkOmittedValue) ? this.version : version as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as String,
+  );
+
+  factory HostedSkillResourceSkillReference.fromJson(Map<String, dynamic> json) => HostedSkillResourceSkillReference(
+    type_: (json['type'] != null ? HostedSkillResourceSkillReferenceType.fromJson(json['type'] as String) : null)!,
+    skillId: (json['skill_id'] as String?)!,
+    version: (json['version'] as String?)!,
+    name: (json['name'] as String?)!,
+    description: (json['description'] as String?)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'type': type_.toJson(),
+    'skill_id': skillId,
+    'version': version,
+    'name': name,
+    'description': description,
+  };
+}
+
 sealed class HostedTemplateFileResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const HostedTemplateFileResource();
   factory HostedTemplateFileResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = HostedTemplateFileResourceFileId.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateFileResourceHostedTemplateFileResourceFileId(value); } } catch (_) {}
+      try { final value = HostedTemplateFileResourceInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateFileResourceHostedTemplateFileResourceInline(value); } } catch (_) {}
+    }
     try { return HostedTemplateFileResourceHostedTemplateFileResourceFileId(HostedTemplateFileResourceFileId.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return HostedTemplateFileResourceHostedTemplateFileResourceInline(HostedTemplateFileResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"file_id", "inline"}.contains(json["type"])) { return UnknownHostedTemplateFileResource(json); }
@@ -109,6 +157,10 @@ sealed class HostedTemplateSkillResource {
   static const String constructionSurface = 'named';
   const HostedTemplateSkillResource();
   factory HostedTemplateSkillResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = HostedTemplateSkillResourceSkillReference.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(value); } } catch (_) {}
+      try { final value = HostedTemplateSkillResourceInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateSkillResourceHostedTemplateSkillResourceInline(value); } } catch (_) {}
+    }
     try { return HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(HostedTemplateSkillResourceSkillReference.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return HostedTemplateSkillResourceHostedTemplateSkillResourceInline(HostedTemplateSkillResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"skill_reference", "inline"}.contains(json["type"])) { return UnknownHostedTemplateSkillResource(json); }

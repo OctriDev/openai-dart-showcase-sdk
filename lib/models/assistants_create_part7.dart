@@ -169,6 +169,10 @@ sealed class CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingS
   static const String constructionSurface = 'named';
   const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy();
   factory CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(value); } } catch (_) {}
+      try { final value = CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(value); } } catch (_) {}
+    }
     try { return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy");

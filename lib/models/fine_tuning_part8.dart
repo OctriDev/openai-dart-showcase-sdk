@@ -164,6 +164,13 @@ sealed class RunGraderRequestGrader {
   static const String constructionSurface = 'named';
   const RunGraderRequestGrader();
   factory RunGraderRequestGrader.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = GraderStringCheck.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunGraderRequestGraderGraderStringCheck(value); } } catch (_) {}
+      try { final value = GraderTextSimilarity.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunGraderRequestGraderGraderTextSimilarity(value); } } catch (_) {}
+      try { final value = GraderPython.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunGraderRequestGraderGraderPython(value); } } catch (_) {}
+      try { final value = GraderScoreModel.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunGraderRequestGraderGraderScoreModel(value); } } catch (_) {}
+      try { final value = GraderMulti.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunGraderRequestGraderGraderMulti(value); } } catch (_) {}
+    }
     try { return RunGraderRequestGraderGraderStringCheck(GraderStringCheck.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunGraderRequestGraderGraderTextSimilarity(GraderTextSimilarity.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunGraderRequestGraderGraderPython(GraderPython.fromJson(json as Map<String, dynamic>)); } catch (_) {}

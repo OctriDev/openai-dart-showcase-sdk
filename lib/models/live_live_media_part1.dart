@@ -36,7 +36,7 @@ class LiveMediaSessionCreateParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   /// The Live model. Required in the session configuration for every transport; do not pass it as a URL query parameter.
-  final ModelIdsLive model;
+  final String model;
   /// Optional `string` value serialized in the `instructions` wire field.
   final SdkOptional<String?> instructions;
   /// Startup audio configuration. WebRTC and SIP negotiate their audio format on the media transport.
@@ -54,10 +54,10 @@ class LiveMediaSessionCreateParams {
 
   const LiveMediaSessionCreateParams({required this.model, this.instructions = const SdkOmitted(), this.audio = const SdkOmitted(), this.delegation = const SdkOmitted(), this.triggers = const SdkOmitted(), this.store = const SdkOmitted(), this.input = const SdkOmitted(), this.client = const SdkOmitted()});
 
-  LiveMediaSessionCreateParams Function({ModelIdsLive model, SdkOptional<String?> instructions, SdkOptional<LiveMediaSessionAudioParam> audio, SdkOptional<Delegation?> delegation, SdkOptional<List<LiveDecisionTriggerInputParam>> triggers, SdkOptional<bool> store, SdkOptional<List<LiveInitialItem>> input, SdkOptional<LiveClientConfigParam> client}) get copyWith => _copyWith;
+  LiveMediaSessionCreateParams Function({String model, SdkOptional<String?> instructions, SdkOptional<LiveMediaSessionAudioParam> audio, SdkOptional<Delegation?> delegation, SdkOptional<List<LiveDecisionTriggerInputParam>> triggers, SdkOptional<bool> store, SdkOptional<List<LiveInitialItem>> input, SdkOptional<LiveClientConfigParam> client}) get copyWith => _copyWith;
 
   LiveMediaSessionCreateParams _copyWith({Object? model = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? audio = sdkOmittedValue, Object? delegation = sdkOmittedValue, Object? triggers = sdkOmittedValue, Object? store = sdkOmittedValue, Object? input = sdkOmittedValue, Object? client = sdkOmittedValue}) => LiveMediaSessionCreateParams(
-    model: identical(model, sdkOmittedValue) ? this.model : model as ModelIdsLive,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
     instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String?>,
     audio: identical(audio, sdkOmittedValue) ? this.audio : audio as SdkOptional<LiveMediaSessionAudioParam>,
     delegation: identical(delegation, sdkOmittedValue) ? this.delegation : delegation as SdkOptional<Delegation?>,
@@ -68,7 +68,7 @@ class LiveMediaSessionCreateParams {
   );
 
   factory LiveMediaSessionCreateParams.fromJson(Map<String, dynamic> json) => LiveMediaSessionCreateParams(
-    model: (json['model'] != null ? ModelIdsLive.fromJson(json['model']) : null)!,
+    model: (json['model'] as String?)!,
     instructions: json.containsKey('instructions') ? SdkPresent(json['instructions'] as String?) : const SdkOmitted(),
     audio: json['audio'] != null ? SdkPresent((json['audio'] != null ? LiveMediaSessionAudioParam.fromJson(json['audio'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
     delegation: json.containsKey('delegation') ? SdkPresent(json['delegation'] != null ? Delegation.fromJson(json['delegation']) : null) : const SdkOmitted(),
@@ -79,7 +79,7 @@ class LiveMediaSessionCreateParams {
   );
 
   Map<String, dynamic> toJson() => {
-    'model': model.toJson(),
+    'model': model,
     ...switch (instructions) {
       SdkPresent<String?>(value: final value) => {'instructions': value,},
       _ => const <String, dynamic>{},

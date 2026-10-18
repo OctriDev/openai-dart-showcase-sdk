@@ -4,6 +4,48 @@
 part of 'inline.dart';
 
 // Inline operation models (part 69)
+/// The event type, always `response.event`.
+enum LiveResponseEventType {
+  responseEvent;
+
+  static LiveResponseEventType fromJson(String value) {
+    switch (value) {
+      case 'response.event': return LiveResponseEventType.responseEvent;
+      default: throw ArgumentError('Unknown LiveResponseEventType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveResponseEventType.responseEvent: return 'response.event';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// The Live client event type. Always `response.item.create`.
+enum LiveResponseItemCreateParamType {
+  responseItemCreate;
+
+  static LiveResponseItemCreateParamType fromJson(String value) {
+    switch (value) {
+      case 'response.item.create': return LiveResponseItemCreateParamType.responseItemCreate;
+      default: throw ArgumentError('Unknown LiveResponseItemCreateParamType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveResponseItemCreateParamType.responseItemCreate: return 'response.item.create';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
 /// The delegation owner. Always `responses` for tasks handled by the Responses API.
 enum LiveResponsesDelegationParamType {
   responses;
@@ -234,46 +276,4 @@ final class LiveSessionClosedReasonVariant4 {
 
   @override int get hashCode => value.hashCode;
 
-}
-
-/// The event type, always `session.closed`.
-enum LiveSessionClosedType {
-  sessionClosed;
-
-  static LiveSessionClosedType fromJson(String value) {
-    switch (value) {
-      case 'session.closed': return LiveSessionClosedType.sessionClosed;
-      default: throw ArgumentError('Unknown LiveSessionClosedType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveSessionClosedType.sessionClosed: return 'session.closed';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// The Live client event type. Always `session.close`.
-enum LiveSessionCloseParamType {
-  sessionClose;
-
-  static LiveSessionCloseParamType fromJson(String value) {
-    switch (value) {
-      case 'session.close': return LiveSessionCloseParamType.sessionClose;
-      default: throw ArgumentError('Unknown LiveSessionCloseParamType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveSessionCloseParamType.sessionClose: return 'session.close';
-    }
-  }
-
-  @override
-  String toString() => toJson();
 }

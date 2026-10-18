@@ -46,6 +46,51 @@ Future<ListVectorStoresResponse> listVectorStores(ClientConfig config,
 }
 
 
+
+/// Lists vector stores, which are collections of processed files that you can use with the `file_search` tool. Use the cursor parameters to move forward or backward through the results, and set `order` to control sorting by creation time.
+///
+/// Returns a list of vector stores.
+///
+/// [limit] A limit on the number of objects to be returned. Limit can range
+///   between 1 and 100, and the default is 20.
+/// [order] Sort order by the `created_at` timestamp of the objects. `asc` for
+///   ascending order and `desc` for descending order.
+/// [after] A cursor for use in pagination. `after` is an object ID that defines
+///   your place in the list. For instance, if you make a list request and receive
+///   100 objects, ending with obj_foo, your subsequent call can include
+///   after=obj_foo in order to fetch the next page of the list.
+/// [before] A cursor for use in pagination. `before` is an object ID that
+///   defines your place in the list. For instance, if you make a list request and
+///   receive 100 objects, starting with obj_foo, your subsequent call can include
+///   before=obj_foo in order to fetch the previous page of the list.
+Stream<VectorStoreObject> listVectorStoresPaginated(ClientConfig config, {int? limit, ListVectorStoresOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+  var sdkCursor = after;
+  while (true) {
+    final sdkPage = await listVectorStores(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListVectorStoresOrder>() : SdkPresent<ListVectorStoresOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkItems = sdkPage.data;
+    if (sdkItems.isEmpty) return;
+    for (final sdkItem in sdkItems) { yield sdkItem; }
+    if (sdkPage.hasMore != true) return;
+    final sdkNext = sdkPage.lastId;
+    sdkCursor = sdkNext;
+  }
+}
+
+Stream<SdkPage<ListVectorStoresResponse, VectorStoreObject>> listVectorStoresPages(ClientConfig config, {int? limit, ListVectorStoresOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+  var sdkCursor = after;
+  while (true) {
+    final sdkPage = await listVectorStores(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListVectorStoresOrder>() : SdkPresent<ListVectorStoresOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkItems = sdkPage.data;
+    if (sdkItems.isEmpty) return;
+    final sdkNext = sdkPage.lastId;
+    final sdkHasMore = sdkPage.hasMore == true;
+    yield SdkPage(data: sdkPage, items: sdkItems, hasMore: sdkHasMore);
+    if (!sdkHasMore) return;
+    sdkCursor = sdkNext;
+  }
+}
+
+
 /// Creates a vector store to collect processed files for use with the `file_search` tool. Supply `file_ids` to add files at creation, and optionally set a name, description, expiration policy, chunking strategy, or metadata.
 ///
 /// Create a vector store.
@@ -324,6 +369,55 @@ Future<ListVectorStoreFilesResponse>
 }
 
 
+
+/// Lists the files in a vector store file batch. Use `filter` to limit results by processing status and the cursor parameters to navigate through the batch's files.
+///
+/// Returns a list of vector store files in a batch.
+///
+/// [vectorStoreId] The ID of the vector store that the files belong to.
+/// [batchId] The ID of the file batch that the files belong to.
+/// [limit] A limit on the number of objects to be returned. Limit can range
+///   between 1 and 100, and the default is 20.
+/// [order] Sort order by the `created_at` timestamp of the objects. `asc` for
+///   ascending order and `desc` for descending order.
+/// [after] A cursor for use in pagination. `after` is an object ID that defines
+///   your place in the list. For instance, if you make a list request and receive
+///   100 objects, ending with obj_foo, your subsequent call can include
+///   after=obj_foo in order to fetch the next page of the list.
+/// [before] A cursor for use in pagination. `before` is an object ID that
+///   defines your place in the list. For instance, if you make a list request and
+///   receive 100 objects, starting with obj_foo, your subsequent call can include
+///   before=obj_foo in order to fetch the previous page of the list.
+/// [filter] Filter by file status. One of `in_progress`, `completed`, `failed`,
+///   `cancelled`.
+Stream<VectorStoreFileObject> listFilesInVectorStoreBatchPaginated(ClientConfig config, {required String vectorStoreId, required String batchId, int? limit, ListFilesInVectorStoreBatchOrder? order, String? after, String? before, ListFilesInVectorStoreBatchFilter? filter, RequestOptions? requestOptions}) async* {
+  var sdkCursor = after;
+  while (true) {
+    final sdkPage = await listFilesInVectorStoreBatch(config, vectorStoreId: vectorStoreId, batchId: batchId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListFilesInVectorStoreBatchOrder>() : SdkPresent<ListFilesInVectorStoreBatchOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), filter: filter == null ? const SdkOmitted<ListFilesInVectorStoreBatchFilter>() : SdkPresent<ListFilesInVectorStoreBatchFilter>(filter), requestOptions: requestOptions);
+    final sdkItems = sdkPage.data;
+    if (sdkItems.isEmpty) return;
+    for (final sdkItem in sdkItems) { yield sdkItem; }
+    if (sdkPage.hasMore != true) return;
+    final sdkNext = sdkPage.lastId;
+    sdkCursor = sdkNext;
+  }
+}
+
+Stream<SdkPage<ListVectorStoreFilesResponse, VectorStoreFileObject>> listFilesInVectorStoreBatchPages(ClientConfig config, {required String vectorStoreId, required String batchId, int? limit, ListFilesInVectorStoreBatchOrder? order, String? after, String? before, ListFilesInVectorStoreBatchFilter? filter, RequestOptions? requestOptions}) async* {
+  var sdkCursor = after;
+  while (true) {
+    final sdkPage = await listFilesInVectorStoreBatch(config, vectorStoreId: vectorStoreId, batchId: batchId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListFilesInVectorStoreBatchOrder>() : SdkPresent<ListFilesInVectorStoreBatchOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), filter: filter == null ? const SdkOmitted<ListFilesInVectorStoreBatchFilter>() : SdkPresent<ListFilesInVectorStoreBatchFilter>(filter), requestOptions: requestOptions);
+    final sdkItems = sdkPage.data;
+    if (sdkItems.isEmpty) return;
+    final sdkNext = sdkPage.lastId;
+    final sdkHasMore = sdkPage.hasMore == true;
+    yield SdkPage(data: sdkPage, items: sdkItems, hasMore: sdkHasMore);
+    if (!sdkHasMore) return;
+    sdkCursor = sdkNext;
+  }
+}
+
+
 /// Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
 ///
 /// Returns a list of vector store files.
@@ -367,6 +461,54 @@ Future<ListVectorStoreFilesResponse> listVectorStoreFiles(ClientConfig config,
           options: requestOptions,
           errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
+}
+
+
+
+/// Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
+///
+/// Returns a list of vector store files.
+///
+/// [vectorStoreId] The ID of the vector store that the files belong to.
+/// [limit] A limit on the number of objects to be returned. Limit can range
+///   between 1 and 100, and the default is 20.
+/// [order] Sort order by the `created_at` timestamp of the objects. `asc` for
+///   ascending order and `desc` for descending order.
+/// [after] A cursor for use in pagination. `after` is an object ID that defines
+///   your place in the list. For instance, if you make a list request and receive
+///   100 objects, ending with obj_foo, your subsequent call can include
+///   after=obj_foo in order to fetch the next page of the list.
+/// [before] A cursor for use in pagination. `before` is an object ID that
+///   defines your place in the list. For instance, if you make a list request and
+///   receive 100 objects, starting with obj_foo, your subsequent call can include
+///   before=obj_foo in order to fetch the previous page of the list.
+/// [filter] Filter by file status. One of `in_progress`, `completed`, `failed`,
+///   `cancelled`.
+Stream<VectorStoreFileObject> listVectorStoreFilesPaginated(ClientConfig config, {required String vectorStoreId, int? limit, ListVectorStoreFilesOrder? order, String? after, String? before, ListVectorStoreFilesFilter? filter, RequestOptions? requestOptions}) async* {
+  var sdkCursor = after;
+  while (true) {
+    final sdkPage = await listVectorStoreFiles(config, vectorStoreId: vectorStoreId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListVectorStoreFilesOrder>() : SdkPresent<ListVectorStoreFilesOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), filter: filter == null ? const SdkOmitted<ListVectorStoreFilesFilter>() : SdkPresent<ListVectorStoreFilesFilter>(filter), requestOptions: requestOptions);
+    final sdkItems = sdkPage.data;
+    if (sdkItems.isEmpty) return;
+    for (final sdkItem in sdkItems) { yield sdkItem; }
+    if (sdkPage.hasMore != true) return;
+    final sdkNext = sdkPage.lastId;
+    sdkCursor = sdkNext;
+  }
+}
+
+Stream<SdkPage<ListVectorStoreFilesResponse, VectorStoreFileObject>> listVectorStoreFilesPages(ClientConfig config, {required String vectorStoreId, int? limit, ListVectorStoreFilesOrder? order, String? after, String? before, ListVectorStoreFilesFilter? filter, RequestOptions? requestOptions}) async* {
+  var sdkCursor = after;
+  while (true) {
+    final sdkPage = await listVectorStoreFiles(config, vectorStoreId: vectorStoreId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListVectorStoreFilesOrder>() : SdkPresent<ListVectorStoreFilesOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), filter: filter == null ? const SdkOmitted<ListVectorStoreFilesFilter>() : SdkPresent<ListVectorStoreFilesFilter>(filter), requestOptions: requestOptions);
+    final sdkItems = sdkPage.data;
+    if (sdkItems.isEmpty) return;
+    final sdkNext = sdkPage.lastId;
+    final sdkHasMore = sdkPage.hasMore == true;
+    yield SdkPage(data: sdkPage, items: sdkItems, hasMore: sdkHasMore);
+    if (!sdkHasMore) return;
+    sdkCursor = sdkNext;
+  }
 }
 
 

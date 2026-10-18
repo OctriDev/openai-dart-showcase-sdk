@@ -242,6 +242,10 @@ sealed class Filters {
   static const String constructionSurface = 'named';
   const Filters();
   factory Filters.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ComparisonFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FiltersComparisonFilter(value); } } catch (_) {}
+      try { final value = CompoundFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FiltersCompoundFilter(value); } } catch (_) {}
+    }
     try { return FiltersComparisonFilter(ComparisonFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return FiltersCompoundFilter(CompoundFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}.contains(json["type"])) { return UnknownFilters(json); }

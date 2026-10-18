@@ -4,6 +4,43 @@
 part of 'responses_beta_prompt.dart';
 
 // responses_beta_prompt domain models (part 2)
+/// The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
+class BetaPromptCacheOptions {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The minimum lifetime applied to each cache breakpoint.
+  final BetaPromptCacheTTLEnum ttl;
+  /// Whether implicit prompt-cache breakpoints were enabled.
+  final BetaPromptCacheModeEnum mode;
+  /// Optional `string` value serialized in the `comparison_response_id` wire field.
+  final SdkOptional<String?> comparisonResponseId;
+
+  const BetaPromptCacheOptions({required this.ttl, required this.mode, this.comparisonResponseId = const SdkOmitted()});
+
+  BetaPromptCacheOptions Function({BetaPromptCacheTTLEnum ttl, BetaPromptCacheModeEnum mode, SdkOptional<String?> comparisonResponseId}) get copyWith => _copyWith;
+
+  BetaPromptCacheOptions _copyWith({Object? ttl = sdkOmittedValue, Object? mode = sdkOmittedValue, Object? comparisonResponseId = sdkOmittedValue}) => BetaPromptCacheOptions(
+    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as BetaPromptCacheTTLEnum,
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as BetaPromptCacheModeEnum,
+    comparisonResponseId: identical(comparisonResponseId, sdkOmittedValue) ? this.comparisonResponseId : comparisonResponseId as SdkOptional<String?>,
+  );
+
+  factory BetaPromptCacheOptions.fromJson(Map<String, dynamic> json) => BetaPromptCacheOptions(
+    ttl: (json['ttl'] != null ? BetaPromptCacheTTLEnum.fromJson(json['ttl'] as String) : null)!,
+    mode: (json['mode'] != null ? BetaPromptCacheModeEnum.fromJson(json['mode'] as String) : null)!,
+    comparisonResponseId: json.containsKey('comparison_response_id') ? SdkPresent(json['comparison_response_id'] as String?) : const SdkOmitted(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    'ttl': ttl.toJson(),
+    'mode': mode.toJson(),
+    ...switch (comparisonResponseId) {
+      SdkPresent<String?>(value: final value) => {'comparison_response_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
+}
+
 /// Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.
 class BetaPromptCacheOptionsParam {
   /// This model is constructed from named fields in one call.

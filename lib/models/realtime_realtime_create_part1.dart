@@ -79,6 +79,10 @@ sealed class RealtimeCreateClientSecretRequestSession {
   static const String constructionSurface = 'named';
   const RealtimeCreateClientSecretRequestSession();
   factory RealtimeCreateClientSecretRequestSession.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RealtimeSessionCreateRequestGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA(value); } } catch (_) {}
+      try { final value = RealtimeTranscriptionSessionCreateRequestGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeCreateClientSecretRequestSessionRealtimeTranscriptionSessionCreateRequestGA(value); } } catch (_) {}
+    }
     try { return RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA(RealtimeSessionCreateRequestGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RealtimeCreateClientSecretRequestSessionRealtimeTranscriptionSessionCreateRequestGA(RealtimeTranscriptionSessionCreateRequestGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"realtime", "transcription"}.contains(json["type"])) { return UnknownRealtimeCreateClientSecretRequestSession(json); }
@@ -145,6 +149,10 @@ sealed class RealtimeCreateClientSecretResponseSession {
   static const String constructionSurface = 'named';
   const RealtimeCreateClientSecretResponseSession();
   factory RealtimeCreateClientSecretResponseSession.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RealtimeSessionCreateResponseGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA(value); } } catch (_) {}
+      try { final value = RealtimeTranscriptionSessionCreateResponseGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeCreateClientSecretResponseSessionRealtimeTranscriptionSessionCreateResponseGA(value); } } catch (_) {}
+    }
     try { return RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA(RealtimeSessionCreateResponseGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RealtimeCreateClientSecretResponseSessionRealtimeTranscriptionSessionCreateResponseGA(RealtimeTranscriptionSessionCreateResponseGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"realtime", "transcription"}.contains(json["type"])) { return UnknownRealtimeCreateClientSecretResponseSession(json); }

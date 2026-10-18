@@ -9,6 +9,12 @@ sealed class AnswerResource {
   static const String constructionSurface = 'named';
   const AnswerResource();
   factory AnswerResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = AnswerResourcePredicate.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AnswerResourceAnswerResourcePredicate(value); } } catch (_) {}
+      try { final value = AnswerResourceChoice.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AnswerResourceAnswerResourceChoice(value); } } catch (_) {}
+      try { final value = AnswerResourceScore.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AnswerResourceAnswerResourceScore(value); } } catch (_) {}
+      try { final value = AnswerResourceRefusal.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AnswerResourceAnswerResourceRefusal(value); } } catch (_) {}
+    }
     try { return AnswerResourceAnswerResourcePredicate(AnswerResourcePredicate.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return AnswerResourceAnswerResourceChoice(AnswerResourceChoice.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return AnswerResourceAnswerResourceScore(AnswerResourceScore.fromJson(json as Map<String, dynamic>)); } catch (_) {}

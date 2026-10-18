@@ -9,6 +9,11 @@ sealed class AssistantsApiResponseFormatOption {
   static const String constructionSurface = 'named';
   const AssistantsApiResponseFormatOption();
   factory AssistantsApiResponseFormatOption.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ResponseFormatText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AssistantsApiResponseFormatOptionResponseFormatText(value); } } catch (_) {}
+      try { final value = ResponseFormatJsonObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AssistantsApiResponseFormatOptionResponseFormatJsonObject(value); } } catch (_) {}
+      try { final value = ResponseFormatJsonSchema.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AssistantsApiResponseFormatOptionResponseFormatJsonSchema(value); } } catch (_) {}
+    }
     try { return AssistantsApiResponseFormatOptionAssistantsApiResponseFormatOptionVariant0(AssistantsApiResponseFormatOptionVariant0.fromJson(json as String)); } catch (_) {}
     try { return AssistantsApiResponseFormatOptionResponseFormatText(ResponseFormatText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return AssistantsApiResponseFormatOptionResponseFormatJsonObject(ResponseFormatJsonObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}

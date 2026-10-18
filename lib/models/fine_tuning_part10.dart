@@ -4,6 +4,12 @@
 part of 'fine_tuning.dart';
 
 // fine_tuning domain models (part 10)
+final class ValidateGraderRequestGraderGraderScoreModel extends ValidateGraderRequestGrader {
+  final GraderScoreModel value;
+  const ValidateGraderRequestGraderGraderScoreModel(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
 final class ValidateGraderRequestGraderGraderMulti extends ValidateGraderRequestGrader {
   final GraderMulti value;
   const ValidateGraderRequestGraderGraderMulti(this.value);
@@ -49,6 +55,13 @@ sealed class ValidateGraderResponseGrader {
   static const String constructionSurface = 'named';
   const ValidateGraderResponseGrader();
   factory ValidateGraderResponseGrader.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = GraderStringCheck.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ValidateGraderResponseGraderGraderStringCheck(value); } } catch (_) {}
+      try { final value = GraderTextSimilarity.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ValidateGraderResponseGraderGraderTextSimilarity(value); } } catch (_) {}
+      try { final value = GraderPython.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ValidateGraderResponseGraderGraderPython(value); } } catch (_) {}
+      try { final value = GraderScoreModel.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ValidateGraderResponseGraderGraderScoreModel(value); } } catch (_) {}
+      try { final value = GraderMulti.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ValidateGraderResponseGraderGraderMulti(value); } } catch (_) {}
+    }
     try { return ValidateGraderResponseGraderGraderStringCheck(GraderStringCheck.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ValidateGraderResponseGraderGraderTextSimilarity(GraderTextSimilarity.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ValidateGraderResponseGraderGraderPython(GraderPython.fromJson(json as Map<String, dynamic>)); } catch (_) {}

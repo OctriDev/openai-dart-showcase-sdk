@@ -72,6 +72,10 @@ sealed class ChatCompletionModerationInput {
   static const String constructionSurface = 'named';
   const ChatCompletionModerationInput();
   factory ChatCompletionModerationInput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ChatCompletionModerationResults.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionModerationInputChatCompletionModerationResults(value); } } catch (_) {}
+      try { final value = ChatCompletionModerationError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionModerationInputChatCompletionModerationError(value); } } catch (_) {}
+    }
     try { return ChatCompletionModerationInputChatCompletionModerationResults(ChatCompletionModerationResults.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ChatCompletionModerationInputChatCompletionModerationError(ChatCompletionModerationError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"moderation_results", "error"}.contains(json["type"])) { return UnknownChatCompletionModerationInput(json); }
@@ -104,6 +108,10 @@ sealed class ChatCompletionModerationOutput {
   static const String constructionSurface = 'named';
   const ChatCompletionModerationOutput();
   factory ChatCompletionModerationOutput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ChatCompletionModerationResults.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionModerationOutputChatCompletionModerationResults(value); } } catch (_) {}
+      try { final value = ChatCompletionModerationError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionModerationOutputChatCompletionModerationError(value); } } catch (_) {}
+    }
     try { return ChatCompletionModerationOutputChatCompletionModerationResults(ChatCompletionModerationResults.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ChatCompletionModerationOutputChatCompletionModerationError(ChatCompletionModerationError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"moderation_results", "error"}.contains(json["type"])) { return UnknownChatCompletionModerationOutput(json); }

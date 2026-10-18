@@ -29,11 +29,11 @@ class RealtimeSession {
   /// Configuration for turn detection, ether Server VAD or Semantic VAD. This can be set to `null` to turn off, in which case the client must manually trigger model response. Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech. Semantic VAD is more advanced and uses a turn detection model (in conjunction with VAD) to semantically estimate whether the user has finished speaking, then dynamically sets a timeout based on this probability. For example, if user audio trails off with "uhhm", the model will score a low probability of turn end and wait longer for the user to continue speaking. This can be useful for more natural conversations, but may have a higher latency. For `gpt-realtime-whisper` transcription sessions, turn detection must be set to `null`; VAD is not supported.
   final SdkOptional<RealtimeTurnDetection?> turnDetection;
   /// Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
-  final SdkOptional<dynamic> inputAudioNoiseReduction;
+  final SdkOptional<RealtimeSessionInputAudioNoiseReduction> inputAudioNoiseReduction;
   /// The speed of the model's spoken response. 1.0 is the default speed. 0.25 is the minimum speed. 1.5 is the maximum speed. This value can only be changed in between model turns, not while a response is in progress.
   final SdkOptional<double> speed;
   /// Configuration options for tracing. Set to null to disable tracing. Once tracing is enabled for a session, the configuration cannot be modified. `auto` will create a trace for the session with default values for the workflow name, group id, and metadata.
-  final SdkOptional<dynamic> tracing;
+  final SdkOptional<RealtimeSessionTracing?> tracing;
   /// Tools (functions) available to the model.
   final SdkOptional<List<RealtimeFunctionTool>> tools;
   /// How the model chooses tools. Options are `auto`, `none`, `required`, or specify a function.
@@ -51,7 +51,7 @@ class RealtimeSession {
 
   const RealtimeSession({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.modalities = const SdkOmitted(), this.model = const SdkOmitted(), this.instructions = const SdkOmitted(), this.voice = const SdkOmitted(), this.inputAudioFormat = const SdkOmitted(), this.outputAudioFormat = const SdkOmitted(), this.inputAudioTranscription = const SdkOmitted(), this.turnDetection = const SdkOmitted(), this.inputAudioNoiseReduction = const SdkOmitted(), this.speed = const SdkOmitted(), this.tracing = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.temperature = const SdkOmitted(), this.maxResponseOutputTokens = const SdkOmitted(), this.expiresAt = const SdkOmitted(), this.prompt = const SdkOmitted(), this.include = const SdkOmitted()});
 
-  RealtimeSession Function({SdkOptional<String> id, SdkOptional<RealtimeSessionObject> object, SdkOptional<List<RealtimeSessionModalitiesItem>> modalities, SdkOptional<String> model, SdkOptional<String> instructions, SdkOptional<String> voice, SdkOptional<RealtimeSessionInputAudioFormat> inputAudioFormat, SdkOptional<RealtimeSessionOutputAudioFormat> outputAudioFormat, SdkOptional<AudioTranscriptionResponse?> inputAudioTranscription, SdkOptional<RealtimeTurnDetection?> turnDetection, SdkOptional<dynamic> inputAudioNoiseReduction, SdkOptional<double> speed, SdkOptional<dynamic> tracing, SdkOptional<List<RealtimeFunctionTool>> tools, SdkOptional<String> toolChoice, SdkOptional<double> temperature, SdkOptional<dynamic> maxResponseOutputTokens, SdkOptional<int> expiresAt, SdkOptional<Prompt?> prompt, SdkOptional<List<RealtimeSessionIncludeItem>?> include}) get copyWith => _copyWith;
+  RealtimeSession Function({SdkOptional<String> id, SdkOptional<RealtimeSessionObject> object, SdkOptional<List<RealtimeSessionModalitiesItem>> modalities, SdkOptional<String> model, SdkOptional<String> instructions, SdkOptional<String> voice, SdkOptional<RealtimeSessionInputAudioFormat> inputAudioFormat, SdkOptional<RealtimeSessionOutputAudioFormat> outputAudioFormat, SdkOptional<AudioTranscriptionResponse?> inputAudioTranscription, SdkOptional<RealtimeTurnDetection?> turnDetection, SdkOptional<RealtimeSessionInputAudioNoiseReduction> inputAudioNoiseReduction, SdkOptional<double> speed, SdkOptional<RealtimeSessionTracing?> tracing, SdkOptional<List<RealtimeFunctionTool>> tools, SdkOptional<String> toolChoice, SdkOptional<double> temperature, SdkOptional<dynamic> maxResponseOutputTokens, SdkOptional<int> expiresAt, SdkOptional<Prompt?> prompt, SdkOptional<List<RealtimeSessionIncludeItem>?> include}) get copyWith => _copyWith;
 
   RealtimeSession _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? modalities = sdkOmittedValue, Object? model = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? voice = sdkOmittedValue, Object? inputAudioFormat = sdkOmittedValue, Object? outputAudioFormat = sdkOmittedValue, Object? inputAudioTranscription = sdkOmittedValue, Object? turnDetection = sdkOmittedValue, Object? inputAudioNoiseReduction = sdkOmittedValue, Object? speed = sdkOmittedValue, Object? tracing = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? maxResponseOutputTokens = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? include = sdkOmittedValue}) => RealtimeSession(
     id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
@@ -64,9 +64,9 @@ class RealtimeSession {
     outputAudioFormat: identical(outputAudioFormat, sdkOmittedValue) ? this.outputAudioFormat : outputAudioFormat as SdkOptional<RealtimeSessionOutputAudioFormat>,
     inputAudioTranscription: identical(inputAudioTranscription, sdkOmittedValue) ? this.inputAudioTranscription : inputAudioTranscription as SdkOptional<AudioTranscriptionResponse?>,
     turnDetection: identical(turnDetection, sdkOmittedValue) ? this.turnDetection : turnDetection as SdkOptional<RealtimeTurnDetection?>,
-    inputAudioNoiseReduction: identical(inputAudioNoiseReduction, sdkOmittedValue) ? this.inputAudioNoiseReduction : inputAudioNoiseReduction as SdkOptional<dynamic>,
+    inputAudioNoiseReduction: identical(inputAudioNoiseReduction, sdkOmittedValue) ? this.inputAudioNoiseReduction : inputAudioNoiseReduction as SdkOptional<RealtimeSessionInputAudioNoiseReduction>,
     speed: identical(speed, sdkOmittedValue) ? this.speed : speed as SdkOptional<double>,
-    tracing: identical(tracing, sdkOmittedValue) ? this.tracing : tracing as SdkOptional<dynamic>,
+    tracing: identical(tracing, sdkOmittedValue) ? this.tracing : tracing as SdkOptional<RealtimeSessionTracing?>,
     tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<RealtimeFunctionTool>>,
     toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<String>,
     temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double>,
@@ -87,9 +87,9 @@ class RealtimeSession {
     outputAudioFormat: json['output_audio_format'] != null ? SdkPresent((json['output_audio_format'] != null ? RealtimeSessionOutputAudioFormat.fromJson(json['output_audio_format'] as String) : null)!) : const SdkOmitted(),
     inputAudioTranscription: json.containsKey('input_audio_transcription') ? SdkPresent(json['input_audio_transcription'] != null ? AudioTranscriptionResponse.fromJson(json['input_audio_transcription'] as Map<String, dynamic>) : null) : const SdkOmitted(),
     turnDetection: json.containsKey('turn_detection') ? SdkPresent(json['turn_detection'] != null ? RealtimeTurnDetection.fromJson(json['turn_detection']) : null) : const SdkOmitted(),
-    inputAudioNoiseReduction: json['input_audio_noise_reduction'] != null ? SdkPresent((json['input_audio_noise_reduction'])!) : const SdkOmitted(),
+    inputAudioNoiseReduction: json['input_audio_noise_reduction'] != null ? SdkPresent((json['input_audio_noise_reduction'] != null ? RealtimeSessionInputAudioNoiseReduction.fromJson(json['input_audio_noise_reduction'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
     speed: json['speed'] != null ? SdkPresent(((json['speed'] as num?)?.toDouble())!) : const SdkOmitted(),
-    tracing: json.containsKey('tracing') ? SdkPresent(json['tracing']) : const SdkOmitted(),
+    tracing: json.containsKey('tracing') ? SdkPresent(json['tracing'] != null ? RealtimeSessionTracing.fromJson(json['tracing']) : null) : const SdkOmitted(),
     tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => RealtimeFunctionTool.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
     toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] as String?)!) : const SdkOmitted(),
     temperature: json['temperature'] != null ? SdkPresent(((json['temperature'] as num?)?.toDouble())!) : const SdkOmitted(),
@@ -141,7 +141,7 @@ class RealtimeSession {
       _ => const <String, dynamic>{},
     },
     ...switch (inputAudioNoiseReduction) {
-      SdkPresent<dynamic>(value: final value) => {'input_audio_noise_reduction': value,},
+      SdkPresent<RealtimeSessionInputAudioNoiseReduction>(value: final value) => {'input_audio_noise_reduction': value.toJson(),},
       _ => const <String, dynamic>{},
     },
     ...switch (speed) {
@@ -149,7 +149,7 @@ class RealtimeSession {
       _ => const <String, dynamic>{},
     },
     ...switch (tracing) {
-      SdkPresent<dynamic>(value: final value) => {'tracing': value,},
+      SdkPresent<RealtimeSessionTracing?>(value: final value) => {'tracing': value?.toJson(),},
       _ => const <String, dynamic>{},
     },
     ...switch (tools) {

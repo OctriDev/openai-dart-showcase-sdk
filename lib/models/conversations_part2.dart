@@ -4,6 +4,50 @@
 part of 'conversations.dart';
 
 // conversations domain models (part 2)
+/// A list of Conversation items.
+class ConversationItemList {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The type of object returned, must be `list`.
+  final ConversationItemListObject object;
+  /// A list of conversation items.
+  final List<ConversationItem> data;
+  /// Whether there are more items available.
+  final bool hasMore;
+  /// The ID of the first item in the list.
+  final String firstId;
+  /// The ID of the last item in the list.
+  final String lastId;
+
+  const ConversationItemList({required this.object, required this.data, required this.hasMore, required this.firstId, required this.lastId});
+
+  ConversationItemList Function({ConversationItemListObject object, List<ConversationItem> data, bool hasMore, String firstId, String lastId}) get copyWith => _copyWith;
+
+  ConversationItemList _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue}) => ConversationItemList(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ConversationItemListObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<ConversationItem>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
+  );
+
+  factory ConversationItemList.fromJson(Map<String, dynamic> json) => ConversationItemList(
+    object: (json['object'] != null ? ConversationItemListObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => ConversationItem.fromJson(e)).toList())!,
+    hasMore: (json['has_more'] as bool?)!,
+    firstId: (json['first_id'] as String?)!,
+    lastId: (json['last_id'] as String?)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    'has_more': hasMore,
+    'first_id': firstId,
+    'last_id': lastId,
+  };
+}
+
 /// Typed representation of the `ConversationResource` API schema.
 class ConversationResource {
   /// This model is constructed from named fields in one call.

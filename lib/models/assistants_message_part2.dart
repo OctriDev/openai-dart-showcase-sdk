@@ -67,6 +67,10 @@ sealed class MessageContentTextObjectTextAnnotationsItem {
   static const String constructionSurface = 'named';
   const MessageContentTextObjectTextAnnotationsItem();
   factory MessageContentTextObjectTextAnnotationsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = MessageContentTextAnnotationsFileCitationObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFileCitationObject(value); } } catch (_) {}
+      try { final value = MessageContentTextAnnotationsFilePathObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFilePathObject(value); } } catch (_) {}
+    }
     try { return MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFileCitationObject(MessageContentTextAnnotationsFileCitationObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFilePathObject(MessageContentTextAnnotationsFilePathObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"file_citation", "file_path"}.contains(json["type"])) { return UnknownMessageContentTextObjectTextAnnotationsItem(json); }

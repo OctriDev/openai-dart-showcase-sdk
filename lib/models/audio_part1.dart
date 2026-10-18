@@ -30,61 +30,6 @@ final class AudioResponseFormat {
 
 }
 
-/// Custom voice reference.
-class CreateSpeechRequestVoiceVariant1 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The custom voice ID, e.g. `voice_1234`.
-  final String id;
-
-  const CreateSpeechRequestVoiceVariant1({required this.id});
-
-  CreateSpeechRequestVoiceVariant1 Function({String id}) get copyWith => _copyWith;
-
-  CreateSpeechRequestVoiceVariant1 _copyWith({Object? id = sdkOmittedValue}) => CreateSpeechRequestVoiceVariant1(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
-
-  factory CreateSpeechRequestVoiceVariant1.fromJson(Map<String, dynamic> json) => CreateSpeechRequestVoiceVariant1(
-    id: (json['id'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'id': id,
-  };
-}
-
-sealed class CreateSpeechRequestVoice {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const CreateSpeechRequestVoice();
-  factory CreateSpeechRequestVoice.fromJson(Object? json) {
-    if (json is String) { return CreateSpeechRequestVoiceString(json); }
-    try { return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant0Variant1(CreateSpeechRequestVoiceVariant0Variant1.fromJson(json as String)); } catch (_) {}
-    try { return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1(CreateSpeechRequestVoiceVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for CreateSpeechRequestVoice");
-  }
-  Object? toJson();
-}
-
-final class CreateSpeechRequestVoiceString extends CreateSpeechRequestVoice {
-  final String value;
-  const CreateSpeechRequestVoiceString(this.value);
-  @override Object? toJson() => value;
-}
-
-final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant0Variant1 extends CreateSpeechRequestVoice {
-  final CreateSpeechRequestVoiceVariant0Variant1 value;
-  const CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant0Variant1(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1 extends CreateSpeechRequestVoice {
-  final CreateSpeechRequestVoiceVariant1 value;
-  const CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
 /// Typed representation of the `CreateSpeechRequest` API schema.
 class CreateSpeechRequest {
   /// This model is constructed from named fields in one call.
@@ -96,7 +41,7 @@ class CreateSpeechRequest {
   /// Control the voice of your generated audio with additional instructions. Does not work with `tts-1` or `tts-1-hd`.
   final SdkOptional<String> instructions;
   /// The voice to use when generating the audio. Supported built-in voices are `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. You may also provide a custom voice object with an `id`, for example `{ "id": "voice_1234" }`. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples.
-  final dynamic voice;
+  final CreateSpeechRequestVoice voice;
   /// The format to audio in. Supported formats are `mp3`, `opus`, `aac`, `flac`, `wav`, and `pcm`.
   final SdkOptional<CreateSpeechRequestResponseFormat> responseFormat;
   /// The speed of the generated audio. Select a value from `0.25` to `4.0`. `1.0` is the default.
@@ -106,13 +51,13 @@ class CreateSpeechRequest {
 
   const CreateSpeechRequest({required this.model, required this.input, this.instructions = const SdkOmitted(), required this.voice, this.responseFormat = const SdkOmitted(), this.speed = const SdkOmitted(), this.streamFormat = const SdkOmitted()});
 
-  CreateSpeechRequest Function({String model, String input, SdkOptional<String> instructions, dynamic voice, SdkOptional<CreateSpeechRequestResponseFormat> responseFormat, SdkOptional<double> speed, SdkOptional<CreateSpeechRequestStreamFormat> streamFormat}) get copyWith => _copyWith;
+  CreateSpeechRequest Function({String model, String input, SdkOptional<String> instructions, CreateSpeechRequestVoice voice, SdkOptional<CreateSpeechRequestResponseFormat> responseFormat, SdkOptional<double> speed, SdkOptional<CreateSpeechRequestStreamFormat> streamFormat}) get copyWith => _copyWith;
 
   CreateSpeechRequest _copyWith({Object? model = sdkOmittedValue, Object? input = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? voice = sdkOmittedValue, Object? responseFormat = sdkOmittedValue, Object? speed = sdkOmittedValue, Object? streamFormat = sdkOmittedValue}) => CreateSpeechRequest(
     model: identical(model, sdkOmittedValue) ? this.model : model as String,
     input: identical(input, sdkOmittedValue) ? this.input : input as String,
     instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String>,
-    voice: identical(voice, sdkOmittedValue) ? this.voice : voice as dynamic,
+    voice: identical(voice, sdkOmittedValue) ? this.voice : voice as CreateSpeechRequestVoice,
     responseFormat: identical(responseFormat, sdkOmittedValue) ? this.responseFormat : responseFormat as SdkOptional<CreateSpeechRequestResponseFormat>,
     speed: identical(speed, sdkOmittedValue) ? this.speed : speed as SdkOptional<double>,
     streamFormat: identical(streamFormat, sdkOmittedValue) ? this.streamFormat : streamFormat as SdkOptional<CreateSpeechRequestStreamFormat>,
@@ -122,7 +67,7 @@ class CreateSpeechRequest {
     model: (json['model'] as String?)!,
     input: (json['input'] as String?)!,
     instructions: json['instructions'] != null ? SdkPresent((json['instructions'] as String?)!) : const SdkOmitted(),
-    voice: (json['voice'])!,
+    voice: (json['voice'] != null ? CreateSpeechRequestVoice.fromJson(json['voice']) : null)!,
     responseFormat: json['response_format'] != null ? SdkPresent((json['response_format'] != null ? CreateSpeechRequestResponseFormat.fromJson(json['response_format'] as String) : null)!) : const SdkOmitted(),
     speed: json['speed'] != null ? SdkPresent(((json['speed'] as num?)?.toDouble())!) : const SdkOmitted(),
     streamFormat: json['stream_format'] != null ? SdkPresent((json['stream_format'] != null ? CreateSpeechRequestStreamFormat.fromJson(json['stream_format'] as String) : null)!) : const SdkOmitted(),
@@ -135,7 +80,7 @@ class CreateSpeechRequest {
       SdkPresent<String>(value: final value) => {'instructions': value,},
       _ => const <String, dynamic>{},
     },
-    'voice': voice,
+    'voice': voice.toJson(),
     ...switch (responseFormat) {
       SdkPresent<CreateSpeechRequestResponseFormat>(value: final value) => {'response_format': value.toJson(),},
       _ => const <String, dynamic>{},
@@ -151,11 +96,70 @@ class CreateSpeechRequest {
   };
 }
 
+/// Custom voice reference.
+class CreateSpeechRequestVoiceVariant2 {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The custom voice ID, e.g. `voice_1234`.
+  final String id;
+
+  const CreateSpeechRequestVoiceVariant2({required this.id});
+
+  CreateSpeechRequestVoiceVariant2 Function({String id}) get copyWith => _copyWith;
+
+  CreateSpeechRequestVoiceVariant2 _copyWith({Object? id = sdkOmittedValue}) => CreateSpeechRequestVoiceVariant2(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
+
+  factory CreateSpeechRequestVoiceVariant2.fromJson(Map<String, dynamic> json) => CreateSpeechRequestVoiceVariant2(
+    id: (json['id'] as String?)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'id': id,
+  };
+}
+
+sealed class CreateSpeechRequestVoice {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const CreateSpeechRequestVoice();
+  factory CreateSpeechRequestVoice.fromJson(Object? json) {
+    if (json is String) { return CreateSpeechRequestVoiceString(json); }
+    try { return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1(CreateSpeechRequestVoiceVariant1.fromJson(json as String)); } catch (_) {}
+    try { return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant2(CreateSpeechRequestVoiceVariant2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for CreateSpeechRequestVoice");
+  }
+  Object? toJson();
+}
+
+final class CreateSpeechRequestVoiceString extends CreateSpeechRequestVoice {
+  final String value;
+  const CreateSpeechRequestVoiceString(this.value);
+  @override Object? toJson() => value;
+}
+
+final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1 extends CreateSpeechRequestVoice {
+  final CreateSpeechRequestVoiceVariant1 value;
+  const CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant2 extends CreateSpeechRequestVoice {
+  final CreateSpeechRequestVoiceVariant2 value;
+  const CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant2(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
 sealed class CreateSpeechResponseStreamEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const CreateSpeechResponseStreamEvent();
   factory CreateSpeechResponseStreamEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = SpeechAudioDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateSpeechResponseStreamEventSpeechAudioDeltaEvent(value); } } catch (_) {}
+      try { final value = SpeechAudioDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateSpeechResponseStreamEventSpeechAudioDoneEvent(value); } } catch (_) {}
+    }
     try { return CreateSpeechResponseStreamEventSpeechAudioDeltaEvent(SpeechAudioDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateSpeechResponseStreamEventSpeechAudioDoneEvent(SpeechAudioDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"speech.audio.delta", "speech.audio.done"}.contains(json["type"])) { return UnknownCreateSpeechResponseStreamEvent(json); }
@@ -181,28 +185,4 @@ final class UnknownCreateSpeechResponseStreamEvent extends CreateSpeechResponseS
   final Map<String, dynamic> raw;
   const UnknownCreateSpeechResponseStreamEvent(this.raw);
   @override Object? toJson() => raw;
-}
-
-sealed class CreateTranscriptionRequestChunkingStrategy {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const CreateTranscriptionRequestChunkingStrategy();
-  factory CreateTranscriptionRequestChunkingStrategy.fromJson(Object? json) {
-    try { return CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0(CreateTranscriptionRequestChunkingStrategyVariant0.fromJson(json as String)); } catch (_) {}
-    try { return CreateTranscriptionRequestChunkingStrategyVadConfig(VadConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for CreateTranscriptionRequestChunkingStrategy");
-  }
-  Object? toJson();
-}
-
-final class CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0 extends CreateTranscriptionRequestChunkingStrategy {
-  final CreateTranscriptionRequestChunkingStrategyVariant0 value;
-  const CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class CreateTranscriptionRequestChunkingStrategyVadConfig extends CreateTranscriptionRequestChunkingStrategy {
-  final VadConfig value;
-  const CreateTranscriptionRequestChunkingStrategyVadConfig(this.value);
-  @override Object? toJson() => value.toJson();
 }

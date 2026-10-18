@@ -4,6 +4,48 @@
 part of 'inline.dart';
 
 // Inline operation models (part 71)
+/// References a skill created with the /v1/skills endpoint.
+enum LiveSkillReferenceParamType {
+  skillReference;
+
+  static LiveSkillReferenceParamType fromJson(String value) {
+    switch (value) {
+      case 'skill_reference': return LiveSkillReferenceParamType.skillReference;
+      default: throw ArgumentError('Unknown LiveSkillReferenceParamType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveSkillReferenceParamType.skillReference: return 'skill_reference';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// The tool to call. Always `apply_patch`.
+enum LiveSpecificApplyPatchParamType {
+  applyPatch;
+
+  static LiveSpecificApplyPatchParamType fromJson(String value) {
+    switch (value) {
+      case 'apply_patch': return LiveSpecificApplyPatchParamType.applyPatch;
+      default: throw ArgumentError('Unknown LiveSpecificApplyPatchParamType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveSpecificApplyPatchParamType.applyPatch: return 'apply_patch';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
 /// The tool to call. Always `code_interpreter`.
 enum LiveSpecificCodeInterpreterParamType {
   codeInterpreter;
@@ -228,48 +270,6 @@ enum LiveThinkingAppendParamType {
   String toJson() {
     switch (this) {
       case LiveThinkingAppendParamType.sessionThinkingAppend: return 'session.thinking.append';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// Required enumerated value serialized in the `type` wire field.
-enum LiveToolSearchToolInputParamType {
-  toolSearch;
-
-  static LiveToolSearchToolInputParamType fromJson(String value) {
-    switch (value) {
-      case 'tool_search': return LiveToolSearchToolInputParamType.toolSearch;
-      default: throw ArgumentError('Unknown LiveToolSearchToolInputParamType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveToolSearchToolInputParamType.toolSearch: return 'tool_search';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// Required enumerated value serialized in the `type` wire field.
-enum LiveTransportAnsweredType {
-  transportAnswered;
-
-  static LiveTransportAnsweredType fromJson(String value) {
-    switch (value) {
-      case 'transport.answered': return LiveTransportAnsweredType.transportAnswered;
-      default: throw ArgumentError('Unknown LiveTransportAnsweredType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveTransportAnsweredType.transportAnswered: return 'transport.answered';
     }
   }
 

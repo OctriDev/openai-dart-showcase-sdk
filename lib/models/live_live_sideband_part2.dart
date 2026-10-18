@@ -4,6 +4,36 @@
 part of 'live_live_sideband.dart';
 
 // live_live_sideband domain models (part 2)
+final class LiveSidebandServerEventLiveOutputAudioFixturePlaying extends LiveSidebandServerEvent {
+  final LiveOutputAudioFixturePlaying value;
+  const LiveSidebandServerEventLiveOutputAudioFixturePlaying(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class LiveSidebandServerEventLiveOutputAudioFixturePlayed extends LiveSidebandServerEvent {
+  final LiveOutputAudioFixturePlayed value;
+  const LiveSidebandServerEventLiveOutputAudioFixturePlayed(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class LiveSidebandServerEventLiveInstructionsAppended extends LiveSidebandServerEvent {
+  final LiveInstructionsAppended value;
+  const LiveSidebandServerEventLiveInstructionsAppended(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class LiveSidebandServerEventLiveThinkingAppended extends LiveSidebandServerEvent {
+  final LiveThinkingAppended value;
+  const LiveSidebandServerEventLiveThinkingAppended(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class LiveSidebandServerEventLiveCommentaryAppended extends LiveSidebandServerEvent {
+  final LiveCommentaryAppended value;
+  const LiveSidebandServerEventLiveCommentaryAppended(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
 final class LiveSidebandServerEventLiveInputTranscriptDelta extends LiveSidebandServerEvent {
   final LiveInputTranscriptDelta value;
   const LiveSidebandServerEventLiveInputTranscriptDelta(this.value);

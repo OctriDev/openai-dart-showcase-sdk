@@ -6,6 +6,7 @@ import '../sdk_utils.dart';
 import 'agents_subagent.dart';
 import 'images.dart';
 import 'realtime_realtime_call.dart';
+import 'shared_input.dart';
 import 'videos.dart';
 
 part 'inline_part1.dart';
@@ -150,3 +151,4 @@ part 'inline_part139.dart';
 part 'inline_part140.dart';
 part 'inline_part141.dart';
 part 'inline_part142.dart';
+part 'inline_part143.dart';

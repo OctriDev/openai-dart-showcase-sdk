@@ -28,65 +28,6 @@ final class BetaMCPToolAllowedToolsBetaMCPToolFilter extends BetaMCPToolAllowedT
   @override Object? toJson() => value.toJson();
 }
 
-/// Specify which of the MCP server's tools require approval. Can be `always`, `never`, or a filter object associated with tools that require approval.
-class BetaMCPToolRequireApprovalVariant0 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// A filter object to specify which tools are allowed.
-  final SdkOptional<BetaMCPToolFilter> always;
-  /// A filter object to specify which tools are allowed.
-  final SdkOptional<BetaMCPToolFilter> never;
-
-  const BetaMCPToolRequireApprovalVariant0({this.always = const SdkOmitted(), this.never = const SdkOmitted()});
-
-  BetaMCPToolRequireApprovalVariant0 Function({SdkOptional<BetaMCPToolFilter> always, SdkOptional<BetaMCPToolFilter> never}) get copyWith => _copyWith;
-
-  BetaMCPToolRequireApprovalVariant0 _copyWith({Object? always = sdkOmittedValue, Object? never = sdkOmittedValue}) => BetaMCPToolRequireApprovalVariant0(
-    always: identical(always, sdkOmittedValue) ? this.always : always as SdkOptional<BetaMCPToolFilter>,
-    never: identical(never, sdkOmittedValue) ? this.never : never as SdkOptional<BetaMCPToolFilter>,
-  );
-
-  factory BetaMCPToolRequireApprovalVariant0.fromJson(Map<String, dynamic> json) => BetaMCPToolRequireApprovalVariant0(
-    always: json['always'] != null ? SdkPresent((json['always'] != null ? BetaMCPToolFilter.fromJson(json['always'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    never: json['never'] != null ? SdkPresent((json['never'] != null ? BetaMCPToolFilter.fromJson(json['never'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (always) {
-      SdkPresent<BetaMCPToolFilter>(value: final value) => {'always': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (never) {
-      SdkPresent<BetaMCPToolFilter>(value: final value) => {'never': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-sealed class BetaMCPToolRequireApproval {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const BetaMCPToolRequireApproval();
-  factory BetaMCPToolRequireApproval.fromJson(Object? json) {
-    try { return BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0(BetaMCPToolRequireApprovalVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1(BetaMCPToolRequireApprovalVariant1.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for BetaMCPToolRequireApproval");
-  }
-  Object? toJson();
-}
-
-final class BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0 extends BetaMCPToolRequireApproval {
-  final BetaMCPToolRequireApprovalVariant0 value;
-  const BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1 extends BetaMCPToolRequireApproval {
-  final BetaMCPToolRequireApprovalVariant1 value;
-  const BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
 /// Give the model access to additional tools via remote Model Context Protocol (MCP) servers. [Learn more about MCP](https://developers.openai.com/api/docs/guides/tools-connectors-mcp).
 class BetaMCPTool {
   /// This model is constructed from named fields in one call.
@@ -112,13 +53,13 @@ class BetaMCPTool {
   /// The tool invocation context(s).
   final SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers;
   /// Specify which of the MCP server's tools require approval.
-  final SdkOptional<dynamic> requireApproval;
+  final SdkOptional<BetaMCPToolRequireApproval?> requireApproval;
   /// Whether this MCP tool is deferred and discovered via tool search.
   final SdkOptional<bool> deferLoading;
 
   const BetaMCPTool({required this.type_, required this.serverLabel, this.serverUrl = const SdkOmitted(), this.connectorId = const SdkOmitted(), this.tunnelId = const SdkOmitted(), this.authorization = const SdkOmitted(), this.serverDescription = const SdkOmitted(), this.headers = const SdkOmitted(), this.allowedTools = const SdkOmitted(), this.allowedCallers = const SdkOmitted(), this.requireApproval = const SdkOmitted(), this.deferLoading = const SdkOmitted()});
 
-  BetaMCPTool Function({BetaMCPToolType type_, String serverLabel, SdkOptional<String> serverUrl, SdkOptional<BetaMCPToolConnectorId> connectorId, SdkOptional<String> tunnelId, SdkOptional<String> authorization, SdkOptional<String> serverDescription, SdkOptional<Map<String, String>?> headers, SdkOptional<dynamic> allowedTools, SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers, SdkOptional<dynamic> requireApproval, SdkOptional<bool> deferLoading}) get copyWith => _copyWith;
+  BetaMCPTool Function({BetaMCPToolType type_, String serverLabel, SdkOptional<String> serverUrl, SdkOptional<BetaMCPToolConnectorId> connectorId, SdkOptional<String> tunnelId, SdkOptional<String> authorization, SdkOptional<String> serverDescription, SdkOptional<Map<String, String>?> headers, SdkOptional<dynamic> allowedTools, SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers, SdkOptional<BetaMCPToolRequireApproval?> requireApproval, SdkOptional<bool> deferLoading}) get copyWith => _copyWith;
 
   BetaMCPTool _copyWith({Object? type_ = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? serverUrl = sdkOmittedValue, Object? connectorId = sdkOmittedValue, Object? tunnelId = sdkOmittedValue, Object? authorization = sdkOmittedValue, Object? serverDescription = sdkOmittedValue, Object? headers = sdkOmittedValue, Object? allowedTools = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue, Object? requireApproval = sdkOmittedValue, Object? deferLoading = sdkOmittedValue}) => BetaMCPTool(
     type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaMCPToolType,
@@ -131,7 +72,7 @@ class BetaMCPTool {
     headers: identical(headers, sdkOmittedValue) ? this.headers : headers as SdkOptional<Map<String, String>?>,
     allowedTools: identical(allowedTools, sdkOmittedValue) ? this.allowedTools : allowedTools as SdkOptional<dynamic>,
     allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
-    requireApproval: identical(requireApproval, sdkOmittedValue) ? this.requireApproval : requireApproval as SdkOptional<dynamic>,
+    requireApproval: identical(requireApproval, sdkOmittedValue) ? this.requireApproval : requireApproval as SdkOptional<BetaMCPToolRequireApproval?>,
     deferLoading: identical(deferLoading, sdkOmittedValue) ? this.deferLoading : deferLoading as SdkOptional<bool>,
   );
 
@@ -146,7 +87,7 @@ class BetaMCPTool {
     headers: json.containsKey('headers') ? SdkPresent(json['headers'] == null ? null : Map<String, dynamic>.from(json['headers'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
     allowedTools: json.containsKey('allowed_tools') ? SdkPresent(SdkUtils.unionBranch(json['allowed_tools'], [BetaMCPToolFilter.fromJson])) : const SdkOmitted(),
     allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => BetaCallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
-    requireApproval: json.containsKey('require_approval') ? SdkPresent(json['require_approval']) : const SdkOmitted(),
+    requireApproval: json.containsKey('require_approval') ? SdkPresent(json['require_approval'] != null ? BetaMCPToolRequireApproval.fromJson(json['require_approval']) : null) : const SdkOmitted(),
     deferLoading: json['defer_loading'] != null ? SdkPresent((json['defer_loading'] as bool?)!) : const SdkOmitted(),
   );
 
@@ -186,7 +127,7 @@ class BetaMCPTool {
       _ => const <String, dynamic>{},
     },
     ...switch (requireApproval) {
-      SdkPresent<dynamic>(value: final value) => {'require_approval': value,},
+      SdkPresent<BetaMCPToolRequireApproval?>(value: final value) => {'require_approval': value?.toJson(),},
       _ => const <String, dynamic>{},
     },
     ...switch (deferLoading) {
@@ -285,6 +226,11 @@ sealed class BetaMCPToolCallError {
   static const String constructionSurface = 'named';
   const BetaMCPToolCallError();
   factory BetaMCPToolCallError.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaMCPProtocolError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMCPToolCallErrorBetaMCPProtocolError(value); } } catch (_) {}
+      try { final value = BetaMCPToolExecutionError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMCPToolCallErrorBetaMCPToolExecutionError(value); } } catch (_) {}
+      try { final value = BetaHTTPError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMCPToolCallErrorBetaHTTPError(value); } } catch (_) {}
+    }
     try { return BetaMCPToolCallErrorBetaMCPProtocolError(BetaMCPProtocolError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaMCPToolCallErrorBetaMCPToolExecutionError(BetaMCPToolExecutionError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaMCPToolCallErrorBetaHTTPError(BetaHTTPError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -292,4 +238,54 @@ sealed class BetaMCPToolCallError {
     throw FormatException("No variant matched for BetaMCPToolCallError");
   }
   Object? toJson();
+}
+
+final class BetaMCPToolCallErrorBetaMCPProtocolError extends BetaMCPToolCallError {
+  final BetaMCPProtocolError value;
+  const BetaMCPToolCallErrorBetaMCPProtocolError(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaMCPToolCallErrorBetaMCPToolExecutionError extends BetaMCPToolCallError {
+  final BetaMCPToolExecutionError value;
+  const BetaMCPToolCallErrorBetaMCPToolExecutionError(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaMCPToolCallErrorBetaHTTPError extends BetaMCPToolCallError {
+  final BetaHTTPError value;
+  const BetaMCPToolCallErrorBetaHTTPError(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+/// A [BetaMCPToolCallError] whose `type` names no branch this SDK knows, kept as received.
+final class UnknownBetaMCPToolCallError extends BetaMCPToolCallError {
+  final Map<String, dynamic> raw;
+  const UnknownBetaMCPToolCallError(this.raw);
+  @override Object? toJson() => raw;
+}
+
+/// Typed representation of the `BetaMCPToolCallStatus` API schema.
+final class BetaMCPToolCallStatus {
+
+  final String value;
+
+  const BetaMCPToolCallStatus._(this.value);
+
+  factory BetaMCPToolCallStatus.fromJson(String value) => BetaMCPToolCallStatus._(value);
+
+  static const inProgress = BetaMCPToolCallStatus._('in_progress');
+  static const completed = BetaMCPToolCallStatus._('completed');
+  static const incomplete = BetaMCPToolCallStatus._('incomplete');
+  static const calling = BetaMCPToolCallStatus._('calling');
+  static const failed = BetaMCPToolCallStatus._('failed');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is BetaMCPToolCallStatus && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
 }

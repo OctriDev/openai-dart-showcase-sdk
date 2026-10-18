@@ -9,6 +9,24 @@ sealed class Tool {
   static const String constructionSurface = 'named';
   const Tool();
   factory Tool.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = FunctionTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolFunctionTool(value); } } catch (_) {}
+      try { final value = FileSearchTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolFileSearchTool(value); } } catch (_) {}
+      try { final value = ComputerTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolComputerTool(value); } } catch (_) {}
+      try { final value = ComputerUsePreviewTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolComputerUsePreviewTool(value); } } catch (_) {}
+      try { final value = WebSearchTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolWebSearchTool(value); } } catch (_) {}
+      try { final value = MCPTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolMCPTool(value); } } catch (_) {}
+      try { final value = CodeInterpreterTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolCodeInterpreterTool(value); } } catch (_) {}
+      try { final value = ProgrammaticToolCallingParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolProgrammaticToolCallingParam(value); } } catch (_) {}
+      try { final value = ImageGenTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolImageGenTool(value); } } catch (_) {}
+      try { final value = LocalShellToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolLocalShellToolParam(value); } } catch (_) {}
+      try { final value = FunctionShellToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolFunctionShellToolParam(value); } } catch (_) {}
+      try { final value = CustomToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolCustomToolParam(value); } } catch (_) {}
+      try { final value = NamespaceToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolNamespaceToolParam(value); } } catch (_) {}
+      try { final value = ToolSearchToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolToolSearchToolParam(value); } } catch (_) {}
+      try { final value = WebSearchPreviewTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolWebSearchPreviewTool(value); } } catch (_) {}
+      try { final value = ApplyPatchToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolApplyPatchToolParam(value); } } catch (_) {}
+    }
     try { return ToolFunctionTool(FunctionTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ToolFileSearchTool(FileSearchTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ToolComputerTool(ComputerTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -139,6 +157,10 @@ sealed class ToolCallCaller {
   static const String constructionSurface = 'named';
   const ToolCallCaller();
   factory ToolCallCaller.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = DirectToolCallCaller.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolCallCallerDirectToolCallCaller(value); } } catch (_) {}
+      try { final value = ProgramToolCallCaller.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolCallCallerProgramToolCallCaller(value); } } catch (_) {}
+    }
     try { return ToolCallCallerDirectToolCallCaller(DirectToolCallCaller.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ToolCallCallerProgramToolCallCaller(ProgramToolCallCaller.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"direct", "program"}.contains(json["type"])) { return UnknownToolCallCaller(json); }
@@ -171,6 +193,10 @@ sealed class ToolCallCallerParam {
   static const String constructionSurface = 'named';
   const ToolCallCallerParam();
   factory ToolCallCallerParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = DirectToolCallCallerParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolCallCallerParamDirectToolCallCallerParam(value); } } catch (_) {}
+      try { final value = ProgramToolCallCallerParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolCallCallerParamProgramToolCallCallerParam(value); } } catch (_) {}
+    }
     try { return ToolCallCallerParamDirectToolCallCallerParam(DirectToolCallCallerParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ToolCallCallerParamProgramToolCallCallerParam(ProgramToolCallCallerParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"direct", "program"}.contains(json["type"])) { return UnknownToolCallCallerParam(json); }
@@ -224,42 +250,5 @@ class ToolChoiceFunction {
   Map<String, dynamic> toJson() => {
     'type': type_.toJson(),
     'name': name,
-  };
-}
-
-/// Use this option to force the model to call a specific tool on a remote MCP server.
-class ToolChoiceMCP {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// For MCP tools, the type is always `mcp`.
-  final ToolChoiceMCPType type_;
-  /// The label of the MCP server to use.
-  final String serverLabel;
-  /// Optional `string` value serialized in the `name` wire field.
-  final SdkOptional<String?> name;
-
-  const ToolChoiceMCP({required this.type_, required this.serverLabel, this.name = const SdkOmitted()});
-
-  ToolChoiceMCP Function({ToolChoiceMCPType type_, String serverLabel, SdkOptional<String?> name}) get copyWith => _copyWith;
-
-  ToolChoiceMCP _copyWith({Object? type_ = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? name = sdkOmittedValue}) => ToolChoiceMCP(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ToolChoiceMCPType,
-    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
-  );
-
-  factory ToolChoiceMCP.fromJson(Map<String, dynamic> json) => ToolChoiceMCP(
-    type_: (json['type'] != null ? ToolChoiceMCPType.fromJson(json['type'] as String) : null)!,
-    serverLabel: (json['server_label'] as String?)!,
-    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'server_label': serverLabel,
-    ...switch (name) {
-      SdkPresent<String?>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
   };
 }

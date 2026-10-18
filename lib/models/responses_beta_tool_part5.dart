@@ -4,6 +4,109 @@
 part of 'responses_beta_tool.dart';
 
 // responses_beta_tool domain models (part 5)
+final class BetaToolSearchOutputToolBetaFunctionTool extends BetaToolSearchOutputTool {
+  final BetaFunctionTool value;
+  const BetaToolSearchOutputToolBetaFunctionTool(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaFileSearchTool extends BetaToolSearchOutputTool {
+  final BetaFileSearchTool value;
+  const BetaToolSearchOutputToolBetaFileSearchTool(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaComputerTool extends BetaToolSearchOutputTool {
+  final BetaComputerTool value;
+  const BetaToolSearchOutputToolBetaComputerTool(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaComputerUsePreviewTool extends BetaToolSearchOutputTool {
+  final BetaComputerUsePreviewTool value;
+  const BetaToolSearchOutputToolBetaComputerUsePreviewTool(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaWebSearchTool extends BetaToolSearchOutputTool {
+  final BetaWebSearchTool value;
+  const BetaToolSearchOutputToolBetaWebSearchTool(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaMCPTool extends BetaToolSearchOutputTool {
+  final BetaMCPTool value;
+  const BetaToolSearchOutputToolBetaMCPTool(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaCodeInterpreterTool extends BetaToolSearchOutputTool {
+  final BetaCodeInterpreterTool value;
+  const BetaToolSearchOutputToolBetaCodeInterpreterTool(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaProgrammaticToolCallingParam extends BetaToolSearchOutputTool {
+  final BetaProgrammaticToolCallingParam value;
+  const BetaToolSearchOutputToolBetaProgrammaticToolCallingParam(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaImageGenTool extends BetaToolSearchOutputTool {
+  final BetaImageGenTool value;
+  const BetaToolSearchOutputToolBetaImageGenTool(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaLocalShellToolParam extends BetaToolSearchOutputTool {
+  final BetaLocalShellToolParam value;
+  const BetaToolSearchOutputToolBetaLocalShellToolParam(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaFunctionShellToolParam extends BetaToolSearchOutputTool {
+  final BetaFunctionShellToolParam value;
+  const BetaToolSearchOutputToolBetaFunctionShellToolParam(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaCustomToolParam extends BetaToolSearchOutputTool {
+  final BetaCustomToolParam value;
+  const BetaToolSearchOutputToolBetaCustomToolParam(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaToolSearchOutputNamespaceToolParam extends BetaToolSearchOutputTool {
+  final BetaToolSearchOutputNamespaceToolParam value;
+  const BetaToolSearchOutputToolBetaToolSearchOutputNamespaceToolParam(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaToolSearchToolParam extends BetaToolSearchOutputTool {
+  final BetaToolSearchToolParam value;
+  const BetaToolSearchOutputToolBetaToolSearchToolParam(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaWebSearchPreviewTool extends BetaToolSearchOutputTool {
+  final BetaWebSearchPreviewTool value;
+  const BetaToolSearchOutputToolBetaWebSearchPreviewTool(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaToolSearchOutputToolBetaApplyPatchToolParam extends BetaToolSearchOutputTool {
+  final BetaApplyPatchToolParam value;
+  const BetaToolSearchOutputToolBetaApplyPatchToolParam(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+/// A [BetaToolSearchOutputTool] whose `type` names no branch this SDK knows, kept as received.
+final class UnknownBetaToolSearchOutputTool extends BetaToolSearchOutputTool {
+  final Map<String, dynamic> raw;
+  const UnknownBetaToolSearchOutputTool(this.raw);
+  @override Object? toJson() => raw;
+}
+
 /// Hosted or BYOT tool search configuration for deferred tools.
 class BetaToolSearchToolParam {
   /// This model is constructed from named fields in one call.

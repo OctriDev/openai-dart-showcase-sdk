@@ -222,6 +222,15 @@ sealed class BetaResponseSteerRequiredInput {
   static const String constructionSurface = 'named';
   const BetaResponseSteerRequiredInput();
   factory BetaResponseSteerRequiredInput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaResponseSteerRequiredInputVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant0(value); } } catch (_) {}
+      try { final value = BetaResponseSteerRequiredInputVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant1(value); } } catch (_) {}
+      try { final value = BetaResponseSteerRequiredInputVariant2.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant2(value); } } catch (_) {}
+      try { final value = BetaResponseSteerRequiredInputVariant3.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant3(value); } } catch (_) {}
+      try { final value = BetaResponseSteerRequiredInputVariant4.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant4(value); } } catch (_) {}
+      try { final value = BetaResponseSteerRequiredInputVariant5.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant5(value); } } catch (_) {}
+      try { final value = BetaResponseSteerRequiredInputVariant6.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant6(value); } } catch (_) {}
+    }
     try { return BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant0(BetaResponseSteerRequiredInputVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant1(BetaResponseSteerRequiredInputVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant2(BetaResponseSteerRequiredInputVariant2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -275,11 +284,4 @@ final class BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant6
   final BetaResponseSteerRequiredInputVariant6 value;
   const BetaResponseSteerRequiredInputBetaResponseSteerRequiredInputVariant6(this.value);
   @override Object? toJson() => value.toJson();
-}
-
-/// A [BetaResponseSteerRequiredInput] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaResponseSteerRequiredInput extends BetaResponseSteerRequiredInput {
-  final Map<String, dynamic> raw;
-  const UnknownBetaResponseSteerRequiredInput(this.raw);
-  @override Object? toJson() => raw;
 }

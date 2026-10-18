@@ -9,6 +9,41 @@ sealed class SessionEvent {
   static const String constructionSurface = 'named';
   const SessionEvent();
   factory SessionEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = SessionEventError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventError(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionEnvironmentReady.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionEnvironmentReady(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionEnvironmentSuspended.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionEnvironmentSuspended(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionEnvironmentExpired.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionEnvironmentExpired(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionEnvironmentReset.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionEnvironmentReset(value); } } catch (_) {}
+      try { final value = SessionEventAgentOutputCommandExecutionOutputDelta.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentOutputCommandExecutionOutputDelta(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionCreated.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionCreated(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnCreated.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnCreated(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnInProgress.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnInProgress(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnCompleted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnCompleted(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnFailed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnFailed(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnCancelled.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnCancelled(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnItemAdded.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnItemAdded(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionIdle.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionIdle(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionInProgress.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionInProgress(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionRequiresAction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionRequiresAction(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionFailed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionFailed(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionEnvironmentPending.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionEnvironmentPending(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionEnvironmentConnected.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionEnvironmentConnected(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionEnvironmentDisconnected.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionEnvironmentDisconnected(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionEnvironmentFailed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionEnvironmentFailed(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionSubagentCreated.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionSubagentCreated(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionSubagentActive.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionSubagentActive(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionSubagentClosed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionSubagentClosed(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnItemDone.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnItemDone(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnContentPartAdded.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnContentPartAdded(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnContentPartDone.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnContentPartDone(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnOutputTextDelta.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnOutputTextDelta(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnOutputTextDone.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnOutputTextDone(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnReasoningSummaryPartAdded.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnReasoningSummaryPartAdded(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnReasoningSummaryPartDone.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnReasoningSummaryPartDone(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnReasoningSummaryTextDelta.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnReasoningSummaryTextDelta(value); } } catch (_) {}
+      try { final value = SessionEventAgentSessionTurnReasoningSummaryTextDone.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionEventSessionEventAgentSessionTurnReasoningSummaryTextDone(value); } } catch (_) {}
+    }
     try { return SessionEventSessionEventError(SessionEventError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return SessionEventSessionEventAgentSessionEnvironmentReady(SessionEventAgentSessionEnvironmentReady.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return SessionEventSessionEventAgentSessionEnvironmentSuspended(SessionEventAgentSessionEnvironmentSuspended.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -232,23 +267,4 @@ final class SessionEventSessionEventAgentSessionTurnReasoningSummaryPartDone ext
   final SessionEventAgentSessionTurnReasoningSummaryPartDone value;
   const SessionEventSessionEventAgentSessionTurnReasoningSummaryPartDone(this.value);
   @override Object? toJson() => value.toJson();
-}
-
-final class SessionEventSessionEventAgentSessionTurnReasoningSummaryTextDelta extends SessionEvent {
-  final SessionEventAgentSessionTurnReasoningSummaryTextDelta value;
-  const SessionEventSessionEventAgentSessionTurnReasoningSummaryTextDelta(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class SessionEventSessionEventAgentSessionTurnReasoningSummaryTextDone extends SessionEvent {
-  final SessionEventAgentSessionTurnReasoningSummaryTextDone value;
-  const SessionEventSessionEventAgentSessionTurnReasoningSummaryTextDone(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-/// A [SessionEvent] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownSessionEvent extends SessionEvent {
-  final Map<String, dynamic> raw;
-  const UnknownSessionEvent(this.raw);
-  @override Object? toJson() => raw;
 }

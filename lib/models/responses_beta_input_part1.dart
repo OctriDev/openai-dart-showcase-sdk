@@ -9,6 +9,11 @@ sealed class BetaInputContent {
   static const String constructionSurface = 'named';
   const BetaInputContent();
   factory BetaInputContent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaInputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaInputContentBetaInputTextContent(value); } } catch (_) {}
+      try { final value = BetaInputImageContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaInputContentBetaInputImageContent(value); } } catch (_) {}
+      try { final value = BetaInputFileContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaInputContentBetaInputFileContent(value); } } catch (_) {}
+    }
     try { return BetaInputContentBetaInputTextContent(BetaInputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaInputContentBetaInputImageContent(BetaInputImageContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaInputContentBetaInputFileContent(BetaInputFileContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}

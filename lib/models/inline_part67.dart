@@ -4,6 +4,48 @@
 part of 'inline.dart';
 
 // Inline operation models (part 67)
+/// The text content type. Always `text`.
+enum LiveInitialTextContentPartParamType {
+  text;
+
+  static LiveInitialTextContentPartParamType fromJson(String value) {
+    switch (value) {
+      case 'text': return LiveInitialTextContentPartParamType.text;
+      default: throw ArgumentError('Unknown LiveInitialTextContentPartParamType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveInitialTextContentPartParamType.text: return 'text';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// The author of this history message. Always `user`.
+enum LiveInitialUserMessageItemParamRole {
+  user;
+
+  static LiveInitialUserMessageItemParamRole fromJson(String value) {
+    switch (value) {
+      case 'user': return LiveInitialUserMessageItemParamRole.user;
+      default: throw ArgumentError('Unknown LiveInitialUserMessageItemParamRole: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveInitialUserMessageItemParamRole.user: return 'user';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
 /// The history item type. Always `message`.
 final class LiveInitialUserMessageItemParamType {
 
@@ -228,48 +270,6 @@ enum LiveInputTranscriptDeltaType {
   String toJson() {
     switch (this) {
       case LiveInputTranscriptDeltaType.sessionInputTranscriptDelta: return 'session.input_transcript.delta';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// The event type, always `session.instructions.appended`.
-enum LiveInstructionsAppendedType {
-  sessionInstructionsAppended;
-
-  static LiveInstructionsAppendedType fromJson(String value) {
-    switch (value) {
-      case 'session.instructions.appended': return LiveInstructionsAppendedType.sessionInstructionsAppended;
-      default: throw ArgumentError('Unknown LiveInstructionsAppendedType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveInstructionsAppendedType.sessionInstructionsAppended: return 'session.instructions.appended';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// The Live client event type. Always `session.instructions.append`.
-enum LiveInstructionsAppendParamType {
-  sessionInstructionsAppend;
-
-  static LiveInstructionsAppendParamType fromJson(String value) {
-    switch (value) {
-      case 'session.instructions.append': return LiveInstructionsAppendParamType.sessionInstructionsAppend;
-      default: throw ArgumentError('Unknown LiveInstructionsAppendParamType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveInstructionsAppendParamType.sessionInstructionsAppend: return 'session.instructions.append';
     }
   }
 

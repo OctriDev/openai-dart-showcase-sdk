@@ -4,6 +4,76 @@
 part of 'realtime_realtime_server_event.dart';
 
 // realtime_realtime_server_event domain models (part 11)
+/// Returned when a session is updated with a `session.update` event, unless there is an error.
+class RealtimeServerEventSessionUpdated {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The unique ID of the server event.
+  final String eventId;
+  /// The event type, must be `session.updated`.
+  final RealtimeServerEventSessionUpdatedType type_;
+  /// The session configuration.
+  final RealtimeServerEventSessionUpdatedSession session;
+
+  const RealtimeServerEventSessionUpdated({required this.eventId, required this.type_, required this.session});
+
+  RealtimeServerEventSessionUpdated Function({String eventId, RealtimeServerEventSessionUpdatedType type_, RealtimeServerEventSessionUpdatedSession session}) get copyWith => _copyWith;
+
+  RealtimeServerEventSessionUpdated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeServerEventSessionUpdated(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventSessionUpdatedType,
+    session: identical(session, sdkOmittedValue) ? this.session : session as RealtimeServerEventSessionUpdatedSession,
+  );
+
+  factory RealtimeServerEventSessionUpdated.fromJson(Map<String, dynamic> json) => RealtimeServerEventSessionUpdated(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeServerEventSessionUpdatedType.fromJson(json['type'] as String) : null)!,
+    session: (json['session'] != null ? RealtimeServerEventSessionUpdatedSession.fromJson(json['session']) : null)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'session': session.toJson(),
+  };
+}
+
+sealed class RealtimeServerEventSessionUpdatedSession {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const RealtimeServerEventSessionUpdatedSession();
+  factory RealtimeServerEventSessionUpdatedSession.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RealtimeSessionCreateResponseGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeServerEventSessionUpdatedSessionRealtimeSessionCreateResponseGA(value); } } catch (_) {}
+      try { final value = RealtimeTranscriptionSessionCreateResponseGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeServerEventSessionUpdatedSessionRealtimeTranscriptionSessionCreateResponseGA(value); } } catch (_) {}
+    }
+    try { return RealtimeServerEventSessionUpdatedSessionRealtimeSessionCreateResponseGA(RealtimeSessionCreateResponseGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RealtimeServerEventSessionUpdatedSessionRealtimeTranscriptionSessionCreateResponseGA(RealtimeTranscriptionSessionCreateResponseGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"realtime", "transcription"}.contains(json["type"])) { return UnknownRealtimeServerEventSessionUpdatedSession(json); }
+    throw FormatException("No variant matched for RealtimeServerEventSessionUpdatedSession");
+  }
+  Object? toJson();
+}
+
+final class RealtimeServerEventSessionUpdatedSessionRealtimeSessionCreateResponseGA extends RealtimeServerEventSessionUpdatedSession {
+  final RealtimeSessionCreateResponseGA value;
+  const RealtimeServerEventSessionUpdatedSessionRealtimeSessionCreateResponseGA(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class RealtimeServerEventSessionUpdatedSessionRealtimeTranscriptionSessionCreateResponseGA extends RealtimeServerEventSessionUpdatedSession {
+  final RealtimeTranscriptionSessionCreateResponseGA value;
+  const RealtimeServerEventSessionUpdatedSessionRealtimeTranscriptionSessionCreateResponseGA(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+/// A [RealtimeServerEventSessionUpdatedSession] whose `type` names no branch this SDK knows, kept as received.
+final class UnknownRealtimeServerEventSessionUpdatedSession extends RealtimeServerEventSessionUpdatedSession {
+  final Map<String, dynamic> raw;
+  const UnknownRealtimeServerEventSessionUpdatedSession(this.raw);
+  @override Object? toJson() => raw;
+}
+
 /// Returned when a transcription session is updated with a `transcription_session.update` event, unless there is an error.
 class RealtimeServerEventTranscriptionSessionUpdated {
   /// This model is constructed from named fields in one call.

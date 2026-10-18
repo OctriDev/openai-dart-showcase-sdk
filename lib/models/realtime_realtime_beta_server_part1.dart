@@ -150,6 +150,10 @@ sealed class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompl
   static const String constructionSurface = 'named';
   const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage();
   factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = TranscriptTextUsageTokens.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(value); } } catch (_) {}
+      try { final value = TranscriptTextUsageDuration.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(value); } } catch (_) {}
+    }
     try { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(TranscriptTextUsageDuration.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"tokens", "duration"}.contains(json["type"])) { return UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage(json); }

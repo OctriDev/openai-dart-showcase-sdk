@@ -88,27 +88,6 @@ enum CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyV
   String toString() => toJson();
 }
 
-/// Automatically set chunking parameters based on the audio. Must be set to `"auto"`.
-final class CreateTranscriptionRequestChunkingStrategyVariant0 {
-
-  final String value;
-
-  const CreateTranscriptionRequestChunkingStrategyVariant0._(this.value);
-
-  factory CreateTranscriptionRequestChunkingStrategyVariant0.fromJson(String value) => CreateTranscriptionRequestChunkingStrategyVariant0._(value);
-
-  static const auto = CreateTranscriptionRequestChunkingStrategyVariant0._('auto');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is CreateTranscriptionRequestChunkingStrategyVariant0 && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
 /// Required enumerated value serialized in the `timestamp_granularities[]` wire field.
 final class CreateTranscriptionRequestTimestampGranularitiesItem {
 
@@ -126,6 +105,27 @@ final class CreateTranscriptionRequestTimestampGranularitiesItem {
   @override String toString() => value.toString();
 
   @override bool operator ==(Object other) => other is CreateTranscriptionRequestTimestampGranularitiesItem && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// Automatically set chunking parameters based on the audio. Must be set to `"auto"`.
+final class CreateTranscriptionRequestChunkingStrategyVariant0 {
+
+  final String value;
+
+  const CreateTranscriptionRequestChunkingStrategyVariant0._(this.value);
+
+  factory CreateTranscriptionRequestChunkingStrategyVariant0.fromJson(String value) => CreateTranscriptionRequestChunkingStrategyVariant0._(value);
+
+  static const auto = CreateTranscriptionRequestChunkingStrategyVariant0._('auto');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is CreateTranscriptionRequestChunkingStrategyVariant0 && other.value == value;
 
   @override int get hashCode => value.hashCode;
 

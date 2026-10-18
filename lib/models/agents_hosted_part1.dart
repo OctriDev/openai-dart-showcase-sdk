@@ -9,6 +9,10 @@ sealed class HostedEnvironmentFileParam {
   static const String constructionSurface = 'named';
   const HostedEnvironmentFileParam();
   factory HostedEnvironmentFileParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = HostedEnvironmentFileParamFileId.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedEnvironmentFileParamHostedEnvironmentFileParamFileId(value); } } catch (_) {}
+      try { final value = HostedEnvironmentFileParamInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedEnvironmentFileParamHostedEnvironmentFileParamInline(value); } } catch (_) {}
+    }
     try { return HostedEnvironmentFileParamHostedEnvironmentFileParamFileId(HostedEnvironmentFileParamFileId.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return HostedEnvironmentFileParamHostedEnvironmentFileParamInline(HostedEnvironmentFileParamInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"file_id", "inline"}.contains(json["type"])) { return UnknownHostedEnvironmentFileParam(json); }
@@ -109,6 +113,10 @@ sealed class HostedEnvironmentFileResource {
   static const String constructionSurface = 'named';
   const HostedEnvironmentFileResource();
   factory HostedEnvironmentFileResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = HostedEnvironmentFileResourceFileId.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(value); } } catch (_) {}
+      try { final value = HostedEnvironmentFileResourceInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(value); } } catch (_) {}
+    }
     try { return HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(HostedEnvironmentFileResourceFileId.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(HostedEnvironmentFileResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"file_id", "inline"}.contains(json["type"])) { return UnknownHostedEnvironmentFileResource(json); }
@@ -242,43 +250,4 @@ final class UnknownHostedPluginParam extends HostedPluginParam {
   final Map<String, dynamic> raw;
   const UnknownHostedPluginParam(this.raw);
   @override Object? toJson() => raw;
-}
-
-/// Supplies a plugin ZIP directly in the session request.
-class HostedPluginParamInline {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The type of the object. Always `inline`.
-  final HostedPluginParamInlineType type_;
-  /// The plugin name declared in `.codex-plugin/plugin.json`.
-  final String name;
-  /// The plugin description declared in `.codex-plugin/plugin.json`.
-  final String description;
-  /// The inline ZIP archive.
-  final InlineCapabilitySourceParam source;
-
-  const HostedPluginParamInline({required this.type_, required this.name, required this.description, required this.source});
-
-  HostedPluginParamInline Function({HostedPluginParamInlineType type_, String name, String description, InlineCapabilitySourceParam source}) get copyWith => _copyWith;
-
-  HostedPluginParamInline _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? source = sdkOmittedValue}) => HostedPluginParamInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedPluginParamInlineType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-    source: identical(source, sdkOmittedValue) ? this.source : source as InlineCapabilitySourceParam,
-  );
-
-  factory HostedPluginParamInline.fromJson(Map<String, dynamic> json) => HostedPluginParamInline(
-    type_: (json['type'] != null ? HostedPluginParamInlineType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-    source: (json['source'] != null ? InlineCapabilitySourceParam.fromJson(json['source']) : null)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'description': description,
-    'source': source.toJson(),
-  };
 }

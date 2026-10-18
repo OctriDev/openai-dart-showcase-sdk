@@ -87,6 +87,19 @@ sealed class UsageTimeBucketResultsItem {
   static const String constructionSurface = 'named';
   const UsageTimeBucketResultsItem();
   factory UsageTimeBucketResultsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = UsageCompletionsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageCompletionsResult(value); } } catch (_) {}
+      try { final value = UsageEmbeddingsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageEmbeddingsResult(value); } } catch (_) {}
+      try { final value = UsageModerationsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageModerationsResult(value); } } catch (_) {}
+      try { final value = UsageImagesResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageImagesResult(value); } } catch (_) {}
+      try { final value = UsageAudioSpeechesResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageAudioSpeechesResult(value); } } catch (_) {}
+      try { final value = UsageAudioTranscriptionsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageAudioTranscriptionsResult(value); } } catch (_) {}
+      try { final value = UsageVectorStoresResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageVectorStoresResult(value); } } catch (_) {}
+      try { final value = UsageCodeInterpreterSessionsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageCodeInterpreterSessionsResult(value); } } catch (_) {}
+      try { final value = UsageFileSearchCallsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageFileSearchCallsResult(value); } } catch (_) {}
+      try { final value = UsageWebSearchCallsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageWebSearchCallsResult(value); } } catch (_) {}
+      try { final value = CostsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemCostsResult(value); } } catch (_) {}
+    }
     try { return UsageTimeBucketResultsItemUsageCompletionsResult(UsageCompletionsResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return UsageTimeBucketResultsItemUsageEmbeddingsResult(UsageEmbeddingsResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return UsageTimeBucketResultsItemUsageModerationsResult(UsageModerationsResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}

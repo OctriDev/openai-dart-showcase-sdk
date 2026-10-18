@@ -34,7 +34,7 @@ import '../types.dart';
 Future<List<int>> createSpeech(ClientConfig config,
     {required String model,
     required String input,
-    required dynamic voice,
+    required CreateSpeechRequestVoice voice,
     SdkOptional<String> instructions = const SdkOmitted(),
     SdkOptional<CreateSpeechRequestResponseFormat> responseFormat = const SdkOmitted(),
     SdkOptional<double> speed = const SdkOmitted(),
@@ -91,7 +91,7 @@ Future<List<int>> createSpeech(ClientConfig config,
 ///   `4.0`. `1.0` is the default.
 /// [streamFormat] The format to stream the audio in. Supported formats are
 ///   `sse` and `audio`. `sse` is not supported for `tts-1` or `tts-1-hd`.
-Stream<CreateSpeechResponseStreamEvent> createSpeechStream(ClientConfig config, {required String model, required String input, required dynamic voice, SdkOptional<String> instructions = const SdkOmitted(), SdkOptional<CreateSpeechRequestResponseFormat> responseFormat = const SdkOmitted(), SdkOptional<double> speed = const SdkOmitted(), SdkOptional<CreateSpeechRequestStreamFormat> streamFormat = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<CreateSpeechResponseStreamEvent> createSpeechStream(ClientConfig config, {required String model, required String input, required CreateSpeechRequestVoice voice, SdkOptional<String> instructions = const SdkOmitted(), SdkOptional<CreateSpeechRequestResponseFormat> responseFormat = const SdkOmitted(), SdkOptional<double> speed = const SdkOmitted(), SdkOptional<CreateSpeechRequestStreamFormat> streamFormat = const SdkOmitted(), RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/audio/speech',
@@ -181,7 +181,7 @@ Stream<CreateSpeechResponseStreamEvent> createSpeechStream(ClientConfig config, 
 ///   URLs)) that contain known speaker references matching
 ///   `known_speaker_names[]`. Each sample must be between 2 and 10 seconds, and
 ///   can use any of the same input audio formats supported by `file`.
-Future<dynamic> createTranscription(ClientConfig config,
+Future<CreateTranscriptionResponse> createTranscription(ClientConfig config,
     {required SdkUploadFile file,
     required String model,
     SdkOptional<String> language = const SdkOmitted(),
@@ -193,7 +193,7 @@ Future<dynamic> createTranscription(ClientConfig config,
     SdkOptional<List<TranscriptionInclude>> include = const SdkOmitted(),
     SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>> timestampGranularities = const SdkOmitted(),
     SdkOptional<bool?> stream = const SdkOmitted(),
-    SdkOptional<dynamic> chunkingStrategy = const SdkOmitted(),
+    SdkOptional<CreateTranscriptionRequestChunkingStrategy?> chunkingStrategy = const SdkOmitted(),
     SdkOptional<List<String>> knownSpeakerNames = const SdkOmitted(),
     SdkOptional<List<String>> knownSpeakerReferences = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -207,7 +207,8 @@ Future<dynamic> createTranscription(ClientConfig config,
     validateItems('known_speaker_references', knownSpeakerReferences.value, max: 4);
   }
 
-  return (await sdkRequest<dynamic>('POST', '/audio/transcriptions',
+  return (await sdkRequest<CreateTranscriptionResponse>(
+          'POST', '/audio/transcriptions',
           config: config,
           body: {
             'file': file,
@@ -228,7 +229,7 @@ Future<dynamic> createTranscription(ClientConfig config,
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'createTranscription',
-          fromJsonRaw: (value) => value,
+          fromJsonRaw: (value) => CreateTranscriptionResponse.fromJson(value),
           options: requestOptions,
           errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '413': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '502': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -300,7 +301,7 @@ Future<dynamic> createTranscription(ClientConfig config,
 ///   URLs)) that contain known speaker references matching
 ///   `known_speaker_names[]`. Each sample must be between 2 and 10 seconds, and
 ///   can use any of the same input audio formats supported by `file`.
-Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(ClientConfig config, {required SdkUploadFile file, required String model, required bool? stream, SdkOptional<String> language = const SdkOmitted(), SdkOptional<List<String>> languages = const SdkOmitted(), SdkOptional<List<String>> keywords = const SdkOmitted(), SdkOptional<String> prompt = const SdkOmitted(), SdkOptional<AudioResponseFormat> responseFormat = const SdkOmitted(), SdkOptional<double> temperature = const SdkOmitted(), SdkOptional<List<TranscriptionInclude>> include = const SdkOmitted(), SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>> timestampGranularities = const SdkOmitted(), SdkOptional<dynamic> chunkingStrategy = const SdkOmitted(), SdkOptional<List<String>> knownSpeakerNames = const SdkOmitted(), SdkOptional<List<String>> knownSpeakerReferences = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(ClientConfig config, {required SdkUploadFile file, required String model, required bool? stream, SdkOptional<String> language = const SdkOmitted(), SdkOptional<List<String>> languages = const SdkOmitted(), SdkOptional<List<String>> keywords = const SdkOmitted(), SdkOptional<String> prompt = const SdkOmitted(), SdkOptional<AudioResponseFormat> responseFormat = const SdkOmitted(), SdkOptional<double> temperature = const SdkOmitted(), SdkOptional<List<TranscriptionInclude>> include = const SdkOmitted(), SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>> timestampGranularities = const SdkOmitted(), SdkOptional<CreateTranscriptionRequestChunkingStrategy?> chunkingStrategy = const SdkOmitted(), SdkOptional<List<String>> knownSpeakerNames = const SdkOmitted(), SdkOptional<List<String>> knownSpeakerReferences = const SdkOmitted(), RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/audio/transcriptions',
@@ -354,14 +355,15 @@ Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(ClientC
 ///   it more focused and deterministic. If set to 0, the model will use [log
 ///   probability](https://en.wikipedia.org/wiki/Log_probability) to automatically
 ///   increase the temperature until certain thresholds are hit.
-Future<dynamic> createTranslation(ClientConfig config,
+Future<CreateTranslationResponse> createTranslation(ClientConfig config,
     {required SdkUploadFile file,
     required String model,
     SdkOptional<String> prompt = const SdkOmitted(),
     SdkOptional<CreateTranslationRequestResponseFormat> responseFormat = const SdkOmitted(),
     SdkOptional<double> temperature = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
-  return (await sdkRequest<dynamic>('POST', '/audio/translations',
+  return (await sdkRequest<CreateTranslationResponse>(
+          'POST', '/audio/translations',
           config: config,
           body: {
             'file': file,
@@ -373,7 +375,7 @@ Future<dynamic> createTranslation(ClientConfig config,
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'createTranslation',
-          fromJsonRaw: (value) => value,
+          fromJsonRaw: (value) => CreateTranslationResponse.fromJson(value),
           options: requestOptions,
           errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '413': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '502': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;

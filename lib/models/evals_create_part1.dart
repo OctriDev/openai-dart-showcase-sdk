@@ -139,25 +139,25 @@ class CreateEvalCompletionsRunDataSourceInputMessagesVariant0 {
   /// The type of input messages. Always `template`.
   final CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type type_;
   /// A list of chat messages forming the prompt or context. May include variable references to the `item` namespace, ie {{item.name}}.
-  final List<TemplateItem> template;
+  final List<dynamic> template;
 
   const CreateEvalCompletionsRunDataSourceInputMessagesVariant0({required this.type_, required this.template});
 
-  CreateEvalCompletionsRunDataSourceInputMessagesVariant0 Function({CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type type_, List<TemplateItem> template}) get copyWith => _copyWith;
+  CreateEvalCompletionsRunDataSourceInputMessagesVariant0 Function({CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type type_, List<dynamic> template}) get copyWith => _copyWith;
 
   CreateEvalCompletionsRunDataSourceInputMessagesVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? template = sdkOmittedValue}) => CreateEvalCompletionsRunDataSourceInputMessagesVariant0(
     type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type,
-    template: identical(template, sdkOmittedValue) ? this.template : template as List<TemplateItem>,
+    template: identical(template, sdkOmittedValue) ? this.template : template as List<dynamic>,
   );
 
   factory CreateEvalCompletionsRunDataSourceInputMessagesVariant0.fromJson(Map<String, dynamic> json) => CreateEvalCompletionsRunDataSourceInputMessagesVariant0(
     type_: (json['type'] != null ? CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type.fromJson(json['type'] as String) : null)!,
-    template: ((json['template'] as List?)?.map((e) => TemplateItem.fromJson(e)).toList())!,
+    template: ((json['template'] as List?)?.map((e) => e).toList())!,
   );
 
   Map<String, dynamic> toJson() => {
     'type': type_.toJson(),
-    'template': template.map((item) => item.toJson()).toList(),
+    'template': template,
   };
 }
 
@@ -195,6 +195,10 @@ sealed class CreateEvalCompletionsRunDataSourceInputMessages {
   static const String constructionSurface = 'named';
   const CreateEvalCompletionsRunDataSourceInputMessages();
   factory CreateEvalCompletionsRunDataSourceInputMessages.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = CreateEvalCompletionsRunDataSourceInputMessagesVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant0(value); } } catch (_) {}
+      try { final value = CreateEvalCompletionsRunDataSourceInputMessagesVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant1(value); } } catch (_) {}
+    }
     try { return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant0(CreateEvalCompletionsRunDataSourceInputMessagesVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant1(CreateEvalCompletionsRunDataSourceInputMessagesVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for CreateEvalCompletionsRunDataSourceInputMessages");
@@ -219,6 +223,11 @@ sealed class CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormat {
   static const String constructionSurface = 'named';
   const CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormat();
   factory CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormat.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ResponseFormatText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormatResponseFormatText(value); } } catch (_) {}
+      try { final value = ResponseFormatJsonSchema.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormatResponseFormatJsonSchema(value); } } catch (_) {}
+      try { final value = ResponseFormatJsonObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormatResponseFormatJsonObject(value); } } catch (_) {}
+    }
     try { return CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormatResponseFormatText(ResponseFormatText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormatResponseFormatJsonSchema(ResponseFormatJsonSchema.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormatResponseFormatJsonObject(ResponseFormatJsonObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -258,6 +267,11 @@ sealed class CreateEvalCompletionsRunDataSourceSource {
   static const String constructionSurface = 'named';
   const CreateEvalCompletionsRunDataSourceSource();
   factory CreateEvalCompletionsRunDataSourceSource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = EvalJsonlFileContentSource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource(value); } } catch (_) {}
+      try { final value = EvalJsonlFileIdSource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource(value); } } catch (_) {}
+      try { final value = EvalStoredCompletionsSource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource(value); } } catch (_) {}
+    }
     try { return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource(EvalJsonlFileContentSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource(EvalJsonlFileIdSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource(EvalStoredCompletionsSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -270,17 +284,5 @@ sealed class CreateEvalCompletionsRunDataSourceSource {
 final class CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource extends CreateEvalCompletionsRunDataSourceSource {
   final EvalJsonlFileContentSource value;
   const CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource extends CreateEvalCompletionsRunDataSourceSource {
-  final EvalJsonlFileIdSource value;
-  const CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource extends CreateEvalCompletionsRunDataSourceSource {
-  final EvalStoredCompletionsSource value;
-  const CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource(this.value);
   @override Object? toJson() => value.toJson();
 }

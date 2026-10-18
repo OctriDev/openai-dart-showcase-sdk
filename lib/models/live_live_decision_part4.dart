@@ -51,6 +51,10 @@ sealed class LiveDecisionStoredInputItemParamContentItem {
   static const String constructionSurface = 'named';
   const LiveDecisionStoredInputItemParamContentItem();
   factory LiveDecisionStoredInputItemParamContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = LiveDecisionInputTextParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(value); } } catch (_) {}
+      try { final value = LiveDecisionInputImageParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(value); } } catch (_) {}
+    }
     try { return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(LiveDecisionInputTextParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(LiveDecisionInputImageParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image"}.contains(json["type"])) { return UnknownLiveDecisionStoredInputItemParamContentItem(json); }

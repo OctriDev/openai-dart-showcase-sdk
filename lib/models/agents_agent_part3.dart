@@ -195,6 +195,13 @@ sealed class AgentToolResource {
   static const String constructionSurface = 'named';
   const AgentToolResource();
   factory AgentToolResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = AgentToolResourceFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolResourceAgentToolResourceFunction(value); } } catch (_) {}
+      try { final value = AgentToolResourceProgrammaticToolCalling.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolResourceAgentToolResourceProgrammaticToolCalling(value); } } catch (_) {}
+      try { final value = AgentToolResourceMcp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolResourceAgentToolResourceMcp(value); } } catch (_) {}
+      try { final value = AgentToolResourceWebSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolResourceAgentToolResourceWebSearch(value); } } catch (_) {}
+      try { final value = AgentToolResourceComputerUse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolResourceAgentToolResourceComputerUse(value); } } catch (_) {}
+    }
     try { return AgentToolResourceAgentToolResourceFunction(AgentToolResourceFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return AgentToolResourceAgentToolResourceProgrammaticToolCalling(AgentToolResourceProgrammaticToolCalling.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return AgentToolResourceAgentToolResourceMcp(AgentToolResourceMcp.fromJson(json as Map<String, dynamic>)); } catch (_) {}

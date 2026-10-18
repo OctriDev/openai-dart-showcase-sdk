@@ -38,6 +38,10 @@ sealed class CompoundFilterFiltersItem {
   static const String constructionSurface = 'named';
   const CompoundFilterFiltersItem();
   factory CompoundFilterFiltersItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ComparisonFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CompoundFilterFiltersItemComparisonFilter(value); } } catch (_) {}
+      try { final value = CompoundFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CompoundFilterFiltersItemCompoundFilter(value); } } catch (_) {}
+    }
     try { return CompoundFilterFiltersItemComparisonFilter(ComparisonFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CompoundFilterFiltersItemCompoundFilter(CompoundFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}.contains(json["type"])) { return UnknownCompoundFilterFiltersItem(json); }

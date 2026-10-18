@@ -4,6 +4,13 @@
 part of 'items.dart';
 
 // items domain models (part 4)
+/// A [UserMessageItemContentItem] whose `type` names no branch this SDK knows, kept as received.
+final class UnknownUserMessageItemContentItem extends UserMessageItemContentItem {
+  final Map<String, dynamic> raw;
+  const UnknownUserMessageItemContentItem(this.raw);
+  @override Object? toJson() => raw;
+}
+
 /// Quoted snippet that the user referenced in their message.
 class UserMessageQuotedText {
   /// This model is constructed from named fields in one call.

@@ -33,6 +33,11 @@ sealed class LiveAudioFormat {
   static const String constructionSurface = 'named';
   const LiveAudioFormat();
   factory LiveAudioFormat.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = LiveSessionAudioFormatPCMParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveAudioFormatLiveSessionAudioFormatPCMParam(value); } } catch (_) {}
+      try { final value = LiveSessionAudioFormatPCMUParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveAudioFormatLiveSessionAudioFormatPCMUParam(value); } } catch (_) {}
+      try { final value = LiveSessionAudioFormatPCMAParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveAudioFormatLiveSessionAudioFormatPCMAParam(value); } } catch (_) {}
+    }
     try { return LiveAudioFormatLiveSessionAudioFormatPCMParam(LiveSessionAudioFormatPCMParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return LiveAudioFormatLiveSessionAudioFormatPCMUParam(LiveSessionAudioFormatPCMUParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return LiveAudioFormatLiveSessionAudioFormatPCMAParam(LiveSessionAudioFormatPCMAParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}

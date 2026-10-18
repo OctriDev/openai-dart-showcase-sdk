@@ -272,6 +272,10 @@ sealed class BetaCustomToolParamFormat {
   static const String constructionSurface = 'named';
   const BetaCustomToolParamFormat();
   factory BetaCustomToolParamFormat.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaCustomTextFormatParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaCustomToolParamFormatBetaCustomTextFormatParam(value); } } catch (_) {}
+      try { final value = BetaCustomGrammarFormatParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaCustomToolParamFormatBetaCustomGrammarFormatParam(value); } } catch (_) {}
+    }
     try { return BetaCustomToolParamFormatBetaCustomTextFormatParam(BetaCustomTextFormatParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaCustomToolParamFormatBetaCustomGrammarFormatParam(BetaCustomGrammarFormatParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "grammar"}.contains(json["type"])) { return UnknownBetaCustomToolParamFormat(json); }

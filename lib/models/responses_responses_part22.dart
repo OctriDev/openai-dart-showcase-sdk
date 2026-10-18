@@ -4,6 +4,114 @@
 part of 'responses_responses.dart';
 
 // responses_responses domain models (part 22)
+final class ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCodeDeltaEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseCodeInterpreterCallCodeDeltaEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCodeDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCodeDoneEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseCodeInterpreterCallCodeDoneEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCodeDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCompletedEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseCodeInterpreterCallCompletedEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCompletedEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallInProgressEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseCodeInterpreterCallInProgressEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallInProgressEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallInterpretingEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseCodeInterpreterCallInterpretingEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallInterpretingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseCompactionCompactingStreamingEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseCompactionCompactingStreamingEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseCompactionCompactingStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseCompletedEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseCompletedEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseCompletedEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseContentPartAddedEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseContentPartAddedEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseContentPartAddedEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseContentPartDoneEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseContentPartDoneEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseContentPartDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseCreatedEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseCreatedEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseCreatedEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallCompletedEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseFileSearchCallCompletedEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallCompletedEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallInProgressEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseFileSearchCallInProgressEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallInProgressEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallSearchingEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseFileSearchCallSearchingEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallSearchingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseFunctionCallArgumentsDeltaEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseFunctionCallArgumentsDeltaEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseFunctionCallArgumentsDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseFunctionCallArgumentsDoneEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseFunctionCallArgumentsDoneEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseFunctionCallArgumentsDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandAddedStreamingEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseShellCallCommandAddedStreamingEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandAddedStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandDeltaStreamingEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseShellCallCommandDeltaStreamingEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandDeltaStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandDoneStreamingEvent extends ResponsesWebSocketStreamEventVariant0 {
+  final ResponseShellCallCommandDoneStreamingEvent value;
+  const ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandDoneStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
 final class ResponsesWebSocketStreamEventVariant0ResponseShellCallOutputContentDeltaStreamingEvent extends ResponsesWebSocketStreamEventVariant0 {
   final ResponseShellCallOutputContentDeltaStreamingEvent value;
   const ResponsesWebSocketStreamEventVariant0ResponseShellCallOutputContentDeltaStreamingEvent(this.value);
@@ -152,103 +260,4 @@ final class ResponsesWebSocketStreamEventVariant0ResponseMCPCallArgumentsDeltaEv
   final ResponseMCPCallArgumentsDeltaEvent value;
   const ResponsesWebSocketStreamEventVariant0ResponseMCPCallArgumentsDeltaEvent(this.value);
   @override Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseMCPCallArgumentsDoneEvent extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseMCPCallArgumentsDoneEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseMCPCallArgumentsDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseMCPCallCompletedEvent extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseMCPCallCompletedEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseMCPCallCompletedEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseMCPCallFailedEvent extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseMCPCallFailedEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseMCPCallFailedEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseMCPCallInProgressEvent extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseMCPCallInProgressEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseMCPCallInProgressEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseMCPListToolsCompletedEvent extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseMCPListToolsCompletedEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseMCPListToolsCompletedEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseMCPListToolsFailedEvent extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseMCPListToolsFailedEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseMCPListToolsFailedEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseMCPListToolsInProgressEvent extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseMCPListToolsInProgressEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseMCPListToolsInProgressEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseOutputTextAnnotationAddedEvent extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseOutputTextAnnotationAddedEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseOutputTextAnnotationAddedEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseQueuedEvent extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseQueuedEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseQueuedEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseCustomToolCallInputDeltaEvent extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseCustomToolCallInputDeltaEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseCustomToolCallInputDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseCustomToolCallInputDoneEvent extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseCustomToolCallInputDoneEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseCustomToolCallInputDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-/// A [ResponsesWebSocketStreamEventVariant0] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownResponsesWebSocketStreamEventVariant0 extends ResponsesWebSocketStreamEventVariant0 {
-  final Map<String, dynamic> raw;
-  const UnknownResponsesWebSocketStreamEventVariant0(this.raw);
-  @override Object? toJson() => raw;
-}
-
-class ResponsesWebSocketStreamEventVariant1 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
-  final SdkOptional<String> streamId;
-
-  const ResponsesWebSocketStreamEventVariant1({this.streamId = const SdkOmitted()});
-
-  ResponsesWebSocketStreamEventVariant1 Function({SdkOptional<String> streamId}) get copyWith => _copyWith;
-
-  ResponsesWebSocketStreamEventVariant1 _copyWith({Object? streamId = sdkOmittedValue}) => ResponsesWebSocketStreamEventVariant1(
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
-
-  factory ResponsesWebSocketStreamEventVariant1.fromJson(Map<String, dynamic> json) => ResponsesWebSocketStreamEventVariant1(
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
 }

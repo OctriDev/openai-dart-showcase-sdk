@@ -9,6 +9,10 @@ sealed class TextFormatParam {
   static const String constructionSurface = 'named';
   const TextFormatParam();
   factory TextFormatParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = TextFormatParamText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return TextFormatParamTextFormatParamText(value); } } catch (_) {}
+      try { final value = TextFormatParamJsonSchema.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return TextFormatParamTextFormatParamJsonSchema(value); } } catch (_) {}
+    }
     try { return TextFormatParamTextFormatParamText(TextFormatParamText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return TextFormatParamTextFormatParamJsonSchema(TextFormatParamJsonSchema.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "json_schema"}.contains(json["type"])) { return UnknownTextFormatParam(json); }
@@ -94,6 +98,10 @@ sealed class TextFormatResource {
   static const String constructionSurface = 'named';
   const TextFormatResource();
   factory TextFormatResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = TextFormatResourceText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return TextFormatResourceTextFormatResourceText(value); } } catch (_) {}
+      try { final value = TextFormatResourceJsonSchema.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return TextFormatResourceTextFormatResourceJsonSchema(value); } } catch (_) {}
+    }
     try { return TextFormatResourceTextFormatResourceText(TextFormatResourceText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return TextFormatResourceTextFormatResourceJsonSchema(TextFormatResourceJsonSchema.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "json_schema"}.contains(json["type"])) { return UnknownTextFormatResource(json); }

@@ -158,6 +158,10 @@ sealed class ChatCompletionRequestAssistantMessageContentPart {
   static const String constructionSurface = 'named';
   const ChatCompletionRequestAssistantMessageContentPart();
   factory ChatCompletionRequestAssistantMessageContentPart.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ChatCompletionRequestMessageContentPartText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText(value); } } catch (_) {}
+      try { final value = ChatCompletionRequestMessageContentPartRefusal.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartRefusal(value); } } catch (_) {}
+    }
     try { return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText(ChatCompletionRequestMessageContentPartText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartRefusal(ChatCompletionRequestMessageContentPartRefusal.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "refusal"}.contains(json["type"])) { return UnknownChatCompletionRequestAssistantMessageContentPart(json); }

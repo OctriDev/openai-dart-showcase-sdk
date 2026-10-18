@@ -53,6 +53,11 @@ sealed class McpOauthTokenEndpointAuthResource {
   static const String constructionSurface = 'named';
   const McpOauthTokenEndpointAuthResource();
   factory McpOauthTokenEndpointAuthResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = McpOauthTokenEndpointAuthResourceNone.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceNone(value); } } catch (_) {}
+      try { final value = McpOauthTokenEndpointAuthResourceClientSecretBasic.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretBasic(value); } } catch (_) {}
+      try { final value = McpOauthTokenEndpointAuthResourceClientSecretPost.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretPost(value); } } catch (_) {}
+    }
     try { return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceNone(McpOauthTokenEndpointAuthResourceNone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretBasic(McpOauthTokenEndpointAuthResourceClientSecretBasic.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return McpOauthTokenEndpointAuthResourceMcpOauthTokenEndpointAuthResourceClientSecretPost(McpOauthTokenEndpointAuthResourceClientSecretPost.fromJson(json as Map<String, dynamic>)); } catch (_) {}

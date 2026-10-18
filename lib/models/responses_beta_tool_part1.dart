@@ -9,6 +9,24 @@ sealed class BetaTool {
   static const String constructionSurface = 'named';
   const BetaTool();
   factory BetaTool.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaFunctionTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaFunctionTool(value); } } catch (_) {}
+      try { final value = BetaFileSearchTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaFileSearchTool(value); } } catch (_) {}
+      try { final value = BetaComputerTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaComputerTool(value); } } catch (_) {}
+      try { final value = BetaComputerUsePreviewTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaComputerUsePreviewTool(value); } } catch (_) {}
+      try { final value = BetaWebSearchTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaWebSearchTool(value); } } catch (_) {}
+      try { final value = BetaMCPTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaMCPTool(value); } } catch (_) {}
+      try { final value = BetaCodeInterpreterTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaCodeInterpreterTool(value); } } catch (_) {}
+      try { final value = BetaProgrammaticToolCallingParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaProgrammaticToolCallingParam(value); } } catch (_) {}
+      try { final value = BetaImageGenTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaImageGenTool(value); } } catch (_) {}
+      try { final value = BetaLocalShellToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaLocalShellToolParam(value); } } catch (_) {}
+      try { final value = BetaFunctionShellToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaFunctionShellToolParam(value); } } catch (_) {}
+      try { final value = BetaCustomToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaCustomToolParam(value); } } catch (_) {}
+      try { final value = BetaNamespaceToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaNamespaceToolParam(value); } } catch (_) {}
+      try { final value = BetaToolSearchToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaToolSearchToolParam(value); } } catch (_) {}
+      try { final value = BetaWebSearchPreviewTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaWebSearchPreviewTool(value); } } catch (_) {}
+      try { final value = BetaApplyPatchToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaApplyPatchToolParam(value); } } catch (_) {}
+    }
     try { return BetaToolBetaFunctionTool(BetaFunctionTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaToolBetaFileSearchTool(BetaFileSearchTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaToolBetaComputerTool(BetaComputerTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -139,6 +157,10 @@ sealed class BetaToolCallCaller {
   static const String constructionSurface = 'named';
   const BetaToolCallCaller();
   factory BetaToolCallCaller.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaDirectToolCallCaller.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolCallCallerBetaDirectToolCallCaller(value); } } catch (_) {}
+      try { final value = BetaProgramToolCallCaller.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolCallCallerBetaProgramToolCallCaller(value); } } catch (_) {}
+    }
     try { return BetaToolCallCallerBetaDirectToolCallCaller(BetaDirectToolCallCaller.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaToolCallCallerBetaProgramToolCallCaller(BetaProgramToolCallCaller.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"direct", "program"}.contains(json["type"])) { return UnknownBetaToolCallCaller(json); }
@@ -171,6 +193,10 @@ sealed class BetaToolCallCallerParam {
   static const String constructionSurface = 'named';
   const BetaToolCallCallerParam();
   factory BetaToolCallCallerParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaDirectToolCallCallerParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolCallCallerParamBetaDirectToolCallCallerParam(value); } } catch (_) {}
+      try { final value = BetaProgramToolCallCallerParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolCallCallerParamBetaProgramToolCallCallerParam(value); } } catch (_) {}
+    }
     try { return BetaToolCallCallerParamBetaDirectToolCallCallerParam(BetaDirectToolCallCallerParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaToolCallCallerParamBetaProgramToolCallCallerParam(BetaProgramToolCallCallerParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"direct", "program"}.contains(json["type"])) { return UnknownBetaToolCallCallerParam(json); }
@@ -229,34 +255,5 @@ class BetaToolChoiceAllowed {
     'type': type_.toJson(),
     'mode': mode.toJson(),
     'tools': tools,
-  };
-}
-
-/// Use this option to force the model to call a specific custom tool.
-class BetaToolChoiceCustom {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// For custom tool calling, the type is always `custom`.
-  final BetaToolChoiceCustomType type_;
-  /// The name of the custom tool to call.
-  final String name;
-
-  const BetaToolChoiceCustom({required this.type_, required this.name});
-
-  BetaToolChoiceCustom Function({BetaToolChoiceCustomType type_, String name}) get copyWith => _copyWith;
-
-  BetaToolChoiceCustom _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) => BetaToolChoiceCustom(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaToolChoiceCustomType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
-
-  factory BetaToolChoiceCustom.fromJson(Map<String, dynamic> json) => BetaToolChoiceCustom(
-    type_: (json['type'] != null ? BetaToolChoiceCustomType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
   };
 }

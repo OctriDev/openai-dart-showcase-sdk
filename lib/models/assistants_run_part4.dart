@@ -54,6 +54,10 @@ sealed class RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsIte
   static const String constructionSurface = 'named';
   const RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem();
   factory RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(value); } } catch (_) {}
+      try { final value = RunStepDeltaStepDetailsToolCallsCodeOutputImageObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputImageObject(value); } } catch (_) {}
+    }
     try { return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputImageObject(RunStepDeltaStepDetailsToolCallsCodeOutputImageObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"logs", "image"}.contains(json["type"])) { return UnknownRunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem(json); }

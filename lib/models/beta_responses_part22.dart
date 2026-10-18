@@ -4,6 +4,60 @@
 part of 'beta_responses.dart';
 
 // beta_responses domain models (part 22)
+final class BetaResponsesServerEventBetaResponsesServerEventVariant14 extends BetaResponsesServerEvent {
+  final BetaResponsesServerEventVariant14 value;
+  const BetaResponsesServerEventBetaResponsesServerEventVariant14(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesServerEventBetaResponsesServerEventVariant15 extends BetaResponsesServerEvent {
+  final BetaResponsesServerEventVariant15 value;
+  const BetaResponsesServerEventBetaResponsesServerEventVariant15(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesServerEventBetaResponsesServerEventVariant16 extends BetaResponsesServerEvent {
+  final BetaResponsesServerEventVariant16 value;
+  const BetaResponsesServerEventBetaResponsesServerEventVariant16(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesServerEventBetaResponsesServerEventVariant17 extends BetaResponsesServerEvent {
+  final BetaResponsesServerEventVariant17 value;
+  const BetaResponsesServerEventBetaResponsesServerEventVariant17(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesServerEventBetaResponsesServerEventVariant18 extends BetaResponsesServerEvent {
+  final BetaResponsesServerEventVariant18 value;
+  const BetaResponsesServerEventBetaResponsesServerEventVariant18(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesServerEventBetaResponsesServerEventVariant19 extends BetaResponsesServerEvent {
+  final BetaResponsesServerEventVariant19 value;
+  const BetaResponsesServerEventBetaResponsesServerEventVariant19(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesServerEventBetaResponsesServerEventVariant20 extends BetaResponsesServerEvent {
+  final BetaResponsesServerEventVariant20 value;
+  const BetaResponsesServerEventBetaResponsesServerEventVariant20(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesServerEventBetaResponsesServerEventVariant21 extends BetaResponsesServerEvent {
+  final BetaResponsesServerEventVariant21 value;
+  const BetaResponsesServerEventBetaResponsesServerEventVariant21(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
+final class BetaResponsesServerEventBetaResponsesServerEventVariant22 extends BetaResponsesServerEvent {
+  final BetaResponsesServerEventVariant22 value;
+  const BetaResponsesServerEventBetaResponsesServerEventVariant22(this.value);
+  @override Object? toJson() => value.toJson();
+}
+
 final class BetaResponsesServerEventBetaResponsesServerEventVariant23 extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant23 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant23(this.value);
@@ -206,53 +260,4 @@ final class BetaResponsesServerEventBetaResponsesServerEventVariant56 extends Be
   final BetaResponsesServerEventVariant56 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant56(this.value);
   @override Object? toJson() => value.toJson();
-}
-
-final class BetaResponsesServerEventBetaResponsesServerEventVariant57 extends BetaResponsesServerEvent {
-  final BetaResponsesServerEventVariant57 value;
-  const BetaResponsesServerEventBetaResponsesServerEventVariant57(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class BetaResponsesServerEventBetaResponseWsError extends BetaResponsesServerEvent {
-  final BetaResponseWsError value;
-  const BetaResponsesServerEventBetaResponseWsError(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class BetaResponsesServerEventBetaResponseSteerAcceptedEvent extends BetaResponsesServerEvent {
-  final BetaResponseSteerAcceptedEvent value;
-  const BetaResponsesServerEventBetaResponseSteerAcceptedEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class BetaResponsesServerEventBetaResponseSteerPendingEvent extends BetaResponsesServerEvent {
-  final BetaResponseSteerPendingEvent value;
-  const BetaResponsesServerEventBetaResponseSteerPendingEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class BetaResponsesServerEventBetaResponseSteerFailedEvent extends BetaResponsesServerEvent {
-  final BetaResponseSteerFailedEvent value;
-  const BetaResponsesServerEventBetaResponseSteerFailedEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class BetaResponsesServerEventBetaResponseInjectCreatedEvent extends BetaResponsesServerEvent {
-  final BetaResponseInjectCreatedEvent value;
-  const BetaResponsesServerEventBetaResponseInjectCreatedEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-final class BetaResponsesServerEventBetaResponseInjectFailedEvent extends BetaResponsesServerEvent {
-  final BetaResponseInjectFailedEvent value;
-  const BetaResponsesServerEventBetaResponseInjectFailedEvent(this.value);
-  @override Object? toJson() => value.toJson();
-}
-
-/// A [BetaResponsesServerEvent] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaResponsesServerEvent extends BetaResponsesServerEvent {
-  final Map<String, dynamic> raw;
-  const UnknownBetaResponsesServerEvent(this.raw);
-  @override Object? toJson() => raw;
 }

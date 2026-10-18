@@ -72,6 +72,11 @@ sealed class BetaFunctionShellToolParamEnvironment {
   static const String constructionSurface = 'named';
   const BetaFunctionShellToolParamEnvironment();
   factory BetaFunctionShellToolParamEnvironment.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaContainerAutoParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam(value); } } catch (_) {}
+      try { final value = BetaLocalEnvironmentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(value); } } catch (_) {}
+      try { final value = BetaContainerReferenceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(value); } } catch (_) {}
+    }
     try { return BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam(BetaContainerAutoParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(BetaLocalEnvironmentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(BetaContainerReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}

@@ -121,6 +121,12 @@ sealed class BetaPromptCacheDiagnostics {
   static const String constructionSurface = 'named';
   const BetaPromptCacheDiagnostics();
   factory BetaPromptCacheDiagnostics.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = BetaPromptCacheMissDiagnosticsBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaPromptCacheDiagnosticsBetaPromptCacheMissDiagnosticsBody(value); } } catch (_) {}
+      try { final value = BetaPromptCacheHitDiagnosticsBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaPromptCacheDiagnosticsBetaPromptCacheHitDiagnosticsBody(value); } } catch (_) {}
+      try { final value = BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaPromptCacheDiagnosticsBetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(value); } } catch (_) {}
+      try { final value = BetaPromptCacheUnavailableDiagnosticsBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaPromptCacheDiagnosticsBetaPromptCacheUnavailableDiagnosticsBody(value); } } catch (_) {}
+    }
     try { return BetaPromptCacheDiagnosticsBetaPromptCacheMissDiagnosticsBody(BetaPromptCacheMissDiagnosticsBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaPromptCacheDiagnosticsBetaPromptCacheHitDiagnosticsBody(BetaPromptCacheHitDiagnosticsBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return BetaPromptCacheDiagnosticsBetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -248,41 +254,4 @@ final class BetaPromptCacheModeEnum {
 
   @override int get hashCode => value.hashCode;
 
-}
-
-/// The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
-class BetaPromptCacheOptions {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The minimum lifetime applied to each cache breakpoint.
-  final BetaPromptCacheTTLEnum ttl;
-  /// Whether implicit prompt-cache breakpoints were enabled.
-  final BetaPromptCacheModeEnum mode;
-  /// Optional `string` value serialized in the `comparison_response_id` wire field.
-  final SdkOptional<String?> comparisonResponseId;
-
-  const BetaPromptCacheOptions({required this.ttl, required this.mode, this.comparisonResponseId = const SdkOmitted()});
-
-  BetaPromptCacheOptions Function({BetaPromptCacheTTLEnum ttl, BetaPromptCacheModeEnum mode, SdkOptional<String?> comparisonResponseId}) get copyWith => _copyWith;
-
-  BetaPromptCacheOptions _copyWith({Object? ttl = sdkOmittedValue, Object? mode = sdkOmittedValue, Object? comparisonResponseId = sdkOmittedValue}) => BetaPromptCacheOptions(
-    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as BetaPromptCacheTTLEnum,
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as BetaPromptCacheModeEnum,
-    comparisonResponseId: identical(comparisonResponseId, sdkOmittedValue) ? this.comparisonResponseId : comparisonResponseId as SdkOptional<String?>,
-  );
-
-  factory BetaPromptCacheOptions.fromJson(Map<String, dynamic> json) => BetaPromptCacheOptions(
-    ttl: (json['ttl'] != null ? BetaPromptCacheTTLEnum.fromJson(json['ttl'] as String) : null)!,
-    mode: (json['mode'] != null ? BetaPromptCacheModeEnum.fromJson(json['mode'] as String) : null)!,
-    comparisonResponseId: json.containsKey('comparison_response_id') ? SdkPresent(json['comparison_response_id'] as String?) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    'ttl': ttl.toJson(),
-    'mode': mode.toJson(),
-    ...switch (comparisonResponseId) {
-      SdkPresent<String?>(value: final value) => {'comparison_response_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
 }

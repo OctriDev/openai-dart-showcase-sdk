@@ -265,6 +265,10 @@ sealed class MessageDeltaContentTextObjectTextAnnotationsItem {
   static const String constructionSurface = 'named';
   const MessageDeltaContentTextObjectTextAnnotationsItem();
   factory MessageDeltaContentTextObjectTextAnnotationsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = MessageDeltaContentTextAnnotationsFileCitationObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject(value); } } catch (_) {}
+      try { final value = MessageDeltaContentTextAnnotationsFilePathObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFilePathObject(value); } } catch (_) {}
+    }
     try { return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject(MessageDeltaContentTextAnnotationsFileCitationObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFilePathObject(MessageDeltaContentTextAnnotationsFilePathObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"file_citation", "file_path"}.contains(json["type"])) { return UnknownMessageDeltaContentTextObjectTextAnnotationsItem(json); }

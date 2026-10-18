@@ -72,6 +72,11 @@ sealed class RunStepDetailsToolCallsObjectToolCallsItem {
   static const String constructionSurface = 'named';
   const RunStepDetailsToolCallsObjectToolCallsItem();
   factory RunStepDetailsToolCallsObjectToolCallsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RunStepDetailsToolCallsCodeObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsCodeObject(value); } } catch (_) {}
+      try { final value = RunStepDetailsToolCallsFileSearchObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFileSearchObject(value); } } catch (_) {}
+      try { final value = RunStepDetailsToolCallsFunctionObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFunctionObject(value); } } catch (_) {}
+    }
     try { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsCodeObject(RunStepDetailsToolCallsCodeObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFileSearchObject(RunStepDetailsToolCallsFileSearchObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFunctionObject(RunStepDetailsToolCallsFunctionObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}

@@ -73,6 +73,12 @@ sealed class EvalItemContentItem {
   const EvalItemContentItem();
   factory EvalItemContentItem.fromJson(Object? json) {
     if (json is String) { return EvalItemContentItemString(json); }
+    if (json is Map<String, dynamic>) {
+      try { final value = InputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalItemContentItemInputTextContent(value); } } catch (_) {}
+      try { final value = EvalItemContentOutputText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalItemContentItemEvalItemContentOutputText(value); } } catch (_) {}
+      try { final value = EvalItemInputImage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalItemContentItemEvalItemInputImage(value); } } catch (_) {}
+      try { final value = InputAudio.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalItemContentItemInputAudio(value); } } catch (_) {}
+    }
     try { return EvalItemContentItemInputTextContent(InputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return EvalItemContentItemEvalItemContentOutputText(EvalItemContentOutputText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return EvalItemContentItemEvalItemInputImage(EvalItemInputImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}

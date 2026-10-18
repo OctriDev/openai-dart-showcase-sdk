@@ -9,6 +9,10 @@ sealed class ResponsesClientEvent {
   static const String constructionSurface = 'named';
   const ResponsesClientEvent();
   factory ResponsesClientEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ResponsesClientEventResponseCreate.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesClientEventResponsesClientEventResponseCreate(value); } } catch (_) {}
+      try { final value = ResponseSteerEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesClientEventResponseSteerEvent(value); } } catch (_) {}
+    }
     try { return ResponsesClientEventResponsesClientEventResponseCreate(ResponsesClientEventResponseCreate.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ResponsesClientEventResponseSteerEvent(ResponseSteerEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"response.create", "response.steer"}.contains(json["type"])) { return UnknownResponsesClientEvent(json); }

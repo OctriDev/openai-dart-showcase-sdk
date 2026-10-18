@@ -9,6 +9,11 @@ sealed class CreateRunRequestToolsItem {
   static const String constructionSurface = 'named';
   const CreateRunRequestToolsItem();
   factory CreateRunRequestToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = AssistantToolsCode.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateRunRequestToolsItemAssistantToolsCode(value); } } catch (_) {}
+      try { final value = AssistantToolsFileSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateRunRequestToolsItemAssistantToolsFileSearch(value); } } catch (_) {}
+      try { final value = AssistantToolsFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateRunRequestToolsItemAssistantToolsFunction(value); } } catch (_) {}
+    }
     try { return CreateRunRequestToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateRunRequestToolsItemAssistantToolsFileSearch(AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return CreateRunRequestToolsItemAssistantToolsFunction(AssistantToolsFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}

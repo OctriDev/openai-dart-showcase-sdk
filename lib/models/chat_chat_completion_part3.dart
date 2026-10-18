@@ -48,6 +48,11 @@ sealed class ChatCompletionToolChoiceOption {
   static const String constructionSurface = 'named';
   const ChatCompletionToolChoiceOption();
   factory ChatCompletionToolChoiceOption.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ChatCompletionAllowedToolsChoice.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionToolChoiceOptionChatCompletionAllowedToolsChoice(value); } } catch (_) {}
+      try { final value = ChatCompletionNamedToolChoice.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionToolChoiceOptionChatCompletionNamedToolChoice(value); } } catch (_) {}
+      try { final value = ChatCompletionNamedToolChoiceCustom.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionToolChoiceOptionChatCompletionNamedToolChoiceCustom(value); } } catch (_) {}
+    }
     try { return ChatCompletionToolChoiceOptionChatCompletionToolChoiceOptionVariant0(ChatCompletionToolChoiceOptionVariant0.fromJson(json as String)); } catch (_) {}
     try { return ChatCompletionToolChoiceOptionChatCompletionAllowedToolsChoice(ChatCompletionAllowedToolsChoice.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ChatCompletionToolChoiceOptionChatCompletionNamedToolChoice(ChatCompletionNamedToolChoice.fromJson(json as Map<String, dynamic>)); } catch (_) {}

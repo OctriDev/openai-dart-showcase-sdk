@@ -9,6 +9,12 @@ sealed class WebSearchActionResource {
   static const String constructionSurface = 'named';
   const WebSearchActionResource();
   factory WebSearchActionResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = WebSearchActionResourceSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchActionResourceWebSearchActionResourceSearch(value); } } catch (_) {}
+      try { final value = WebSearchActionResourceOpenPage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchActionResourceWebSearchActionResourceOpenPage(value); } } catch (_) {}
+      try { final value = WebSearchActionResourceFindInPage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchActionResourceWebSearchActionResourceFindInPage(value); } } catch (_) {}
+      try { final value = WebSearchActionResourceOther.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchActionResourceWebSearchActionResourceOther(value); } } catch (_) {}
+    }
     try { return WebSearchActionResourceWebSearchActionResourceSearch(WebSearchActionResourceSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return WebSearchActionResourceWebSearchActionResourceOpenPage(WebSearchActionResourceOpenPage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return WebSearchActionResourceWebSearchActionResourceFindInPage(WebSearchActionResourceFindInPage.fromJson(json as Map<String, dynamic>)); } catch (_) {}

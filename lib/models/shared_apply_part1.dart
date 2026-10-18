@@ -223,6 +223,11 @@ sealed class ApplyPatchOperationParam {
   static const String constructionSurface = 'named';
   const ApplyPatchOperationParam();
   factory ApplyPatchOperationParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = ApplyPatchCreateFileOperationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ApplyPatchOperationParamApplyPatchCreateFileOperationParam(value); } } catch (_) {}
+      try { final value = ApplyPatchDeleteFileOperationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ApplyPatchOperationParamApplyPatchDeleteFileOperationParam(value); } } catch (_) {}
+      try { final value = ApplyPatchUpdateFileOperationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ApplyPatchOperationParamApplyPatchUpdateFileOperationParam(value); } } catch (_) {}
+    }
     try { return ApplyPatchOperationParamApplyPatchCreateFileOperationParam(ApplyPatchCreateFileOperationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ApplyPatchOperationParamApplyPatchDeleteFileOperationParam(ApplyPatchDeleteFileOperationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ApplyPatchOperationParamApplyPatchUpdateFileOperationParam(ApplyPatchUpdateFileOperationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}

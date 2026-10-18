@@ -63,6 +63,12 @@ sealed class ExternalStorageResponseProvider {
   static const String constructionSurface = 'named';
   const ExternalStorageResponseProvider();
   factory ExternalStorageResponseProvider.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = AwsExternalStorageProviderResponse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ExternalStorageResponseProviderAwsExternalStorageProviderResponse(value); } } catch (_) {}
+      try { final value = AzureExternalStorageProviderResponse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ExternalStorageResponseProviderAzureExternalStorageProviderResponse(value); } } catch (_) {}
+      try { final value = GcpExternalStorageProviderResponse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ExternalStorageResponseProviderGcpExternalStorageProviderResponse(value); } } catch (_) {}
+      try { final value = OciExternalStorageProviderResponse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ExternalStorageResponseProviderOciExternalStorageProviderResponse(value); } } catch (_) {}
+    }
     try { return ExternalStorageResponseProviderAwsExternalStorageProviderResponse(AwsExternalStorageProviderResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ExternalStorageResponseProviderAzureExternalStorageProviderResponse(AzureExternalStorageProviderResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ExternalStorageResponseProviderGcpExternalStorageProviderResponse(GcpExternalStorageProviderResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}

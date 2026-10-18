@@ -4,6 +4,23 @@
 part of 'vaults_vault.dart';
 
 // vaults_vault domain models (part 2)
+sealed class VaultCredentialNetworkingResource {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const VaultCredentialNetworkingResource();
+  factory VaultCredentialNetworkingResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = VaultCredentialNetworkingResourceUnrestricted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted(value); } } catch (_) {}
+      try { final value = VaultCredentialNetworkingResourceLimited.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceLimited(value); } } catch (_) {}
+    }
+    try { return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted(VaultCredentialNetworkingResourceUnrestricted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceLimited(VaultCredentialNetworkingResourceLimited.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"unrestricted", "limited"}.contains(json["type"])) { return UnknownVaultCredentialNetworkingResource(json); }
+    throw FormatException("No variant matched for VaultCredentialNetworkingResource");
+  }
+  Object? toJson();
+}
+
 final class VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted extends VaultCredentialNetworkingResource {
   final VaultCredentialNetworkingResourceUnrestricted value;
   const VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted(this.value);

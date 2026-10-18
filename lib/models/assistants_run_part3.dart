@@ -9,6 +9,11 @@ sealed class RunObjectToolsItem {
   static const String constructionSurface = 'named';
   const RunObjectToolsItem();
   factory RunObjectToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = AssistantToolsCode.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunObjectToolsItemAssistantToolsCode(value); } } catch (_) {}
+      try { final value = AssistantToolsFileSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunObjectToolsItemAssistantToolsFileSearch(value); } } catch (_) {}
+      try { final value = AssistantToolsFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunObjectToolsItemAssistantToolsFunction(value); } } catch (_) {}
+    }
     try { return RunObjectToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunObjectToolsItemAssistantToolsFileSearch(AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunObjectToolsItemAssistantToolsFunction(AssistantToolsFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -143,6 +148,10 @@ sealed class RunStepDeltaObjectDeltaStepDetails {
   static const String constructionSurface = 'named';
   const RunStepDeltaObjectDeltaStepDetails();
   factory RunStepDeltaObjectDeltaStepDetails.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = RunStepDeltaStepDetailsMessageCreationObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject(value); } } catch (_) {}
+      try { final value = RunStepDeltaStepDetailsToolCallsObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsToolCallsObject(value); } } catch (_) {}
+    }
     try { return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject(RunStepDeltaStepDetailsMessageCreationObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsToolCallsObject(RunStepDeltaStepDetailsToolCallsObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["type"] is String && !const {"message_creation", "tool_calls"}.contains(json["type"])) { return UnknownRunStepDeltaObjectDeltaStepDetails(json); }
