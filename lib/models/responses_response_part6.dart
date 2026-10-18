@@ -8,42 +8,79 @@ part of 'responses_response.dart';
 class ResponseUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of input tokens.
   final int inputTokens;
+
   /// A detailed breakdown of the input tokens.
   final ResponseUsageInputTokensDetails inputTokensDetails;
+
   /// The number of output tokens.
   final int outputTokens;
+
   /// A detailed breakdown of the output tokens.
   final ResponseUsageOutputTokensDetails outputTokensDetails;
+
   /// The total number of tokens used.
   final int totalTokens;
 
-  const ResponseUsage({required this.inputTokens, required this.inputTokensDetails, required this.outputTokens, required this.outputTokensDetails, required this.totalTokens});
+  const ResponseUsage(
+      {required this.inputTokens,
+      required this.inputTokensDetails,
+      required this.outputTokens,
+      required this.outputTokensDetails,
+      required this.totalTokens});
 
-  ResponseUsage Function({int inputTokens, ResponseUsageInputTokensDetails inputTokensDetails, int outputTokens, ResponseUsageOutputTokensDetails outputTokensDetails, int totalTokens}) get copyWith => _copyWith;
+  ResponseUsage Function(
+      {int inputTokens,
+      ResponseUsageInputTokensDetails inputTokensDetails,
+      int outputTokens,
+      ResponseUsageOutputTokensDetails outputTokensDetails,
+      int totalTokens}) get copyWith => _copyWith;
 
-  ResponseUsage _copyWith({Object? inputTokens = sdkOmittedValue, Object? inputTokensDetails = sdkOmittedValue, Object? outputTokens = sdkOmittedValue, Object? outputTokensDetails = sdkOmittedValue, Object? totalTokens = sdkOmittedValue}) => ResponseUsage(
-    inputTokens: identical(inputTokens, sdkOmittedValue) ? this.inputTokens : inputTokens as int,
-    inputTokensDetails: identical(inputTokensDetails, sdkOmittedValue) ? this.inputTokensDetails : inputTokensDetails as ResponseUsageInputTokensDetails,
-    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as int,
-    outputTokensDetails: identical(outputTokensDetails, sdkOmittedValue) ? this.outputTokensDetails : outputTokensDetails as ResponseUsageOutputTokensDetails,
-    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
-  );
+  ResponseUsage _copyWith(
+          {Object? inputTokens = sdkOmittedValue,
+          Object? inputTokensDetails = sdkOmittedValue,
+          Object? outputTokens = sdkOmittedValue,
+          Object? outputTokensDetails = sdkOmittedValue,
+          Object? totalTokens = sdkOmittedValue}) =>
+      ResponseUsage(
+        inputTokens: identical(inputTokens, sdkOmittedValue)
+            ? this.inputTokens
+            : inputTokens as int,
+        inputTokensDetails: identical(inputTokensDetails, sdkOmittedValue)
+            ? this.inputTokensDetails
+            : inputTokensDetails as ResponseUsageInputTokensDetails,
+        outputTokens: identical(outputTokens, sdkOmittedValue)
+            ? this.outputTokens
+            : outputTokens as int,
+        outputTokensDetails: identical(outputTokensDetails, sdkOmittedValue)
+            ? this.outputTokensDetails
+            : outputTokensDetails as ResponseUsageOutputTokensDetails,
+        totalTokens: identical(totalTokens, sdkOmittedValue)
+            ? this.totalTokens
+            : totalTokens as int,
+      );
 
   factory ResponseUsage.fromJson(Map<String, dynamic> json) => ResponseUsage(
-    inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
-    inputTokensDetails: (json['input_tokens_details'] != null ? ResponseUsageInputTokensDetails.fromJson(json['input_tokens_details'] as Map<String, dynamic>) : null)!,
-    outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
-    outputTokensDetails: (json['output_tokens_details'] != null ? ResponseUsageOutputTokensDetails.fromJson(json['output_tokens_details'] as Map<String, dynamic>) : null)!,
-    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-  );
+        inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
+        inputTokensDetails: (json['input_tokens_details'] != null
+            ? ResponseUsageInputTokensDetails.fromJson(
+                json['input_tokens_details'] as Map<String, dynamic>)
+            : null)!,
+        outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
+        outputTokensDetails: (json['output_tokens_details'] != null
+            ? ResponseUsageOutputTokensDetails.fromJson(
+                json['output_tokens_details'] as Map<String, dynamic>)
+            : null)!,
+        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'input_tokens': inputTokens,
-    'input_tokens_details': inputTokensDetails.toJson(),
-    'output_tokens': outputTokens,
-    'output_tokens_details': outputTokensDetails.toJson(),
-    'total_tokens': totalTokens,
-  };
+        'input_tokens': inputTokens,
+        'input_tokens_details': inputTokensDetails.toJson(),
+        'output_tokens': outputTokens,
+        'output_tokens_details': outputTokensDetails.toJson(),
+        'total_tokens': totalTokens,
+      };
 }

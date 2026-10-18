@@ -6,24 +6,27 @@ part of 'inline.dart';
 // Inline operation models (part 19)
 /// The truncation strategy to use for the model response. - `auto`: If the input to this Response exceeds the model's context window size, the model will truncate the response to fit the context window by dropping items from the beginning of the conversation. - `disabled` (default): If the input size will exceed the context window size for a model, the request will fail with a 400 error.
 final class BetaResponseVariant2TruncationVariant0 {
-
   final String value;
 
   const BetaResponseVariant2TruncationVariant0._(this.value);
 
-  factory BetaResponseVariant2TruncationVariant0.fromJson(String value) => BetaResponseVariant2TruncationVariant0._(value);
+  factory BetaResponseVariant2TruncationVariant0.fromJson(String value) =>
+      BetaResponseVariant2TruncationVariant0._(value);
 
   static const auto = BetaResponseVariant2TruncationVariant0._('auto');
   static const disabled = BetaResponseVariant2TruncationVariant0._('disabled');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaResponseVariant2TruncationVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaResponseVariant2TruncationVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the event. Always `response.audio.delta`.
@@ -32,14 +35,17 @@ enum BetaResponseAudioDeltaEventType {
 
   static BetaResponseAudioDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.audio.delta': return BetaResponseAudioDeltaEventType.responseAudioDelta;
-      default: throw ArgumentError('Unknown BetaResponseAudioDeltaEventType: $value');
+      case 'response.audio.delta':
+        return BetaResponseAudioDeltaEventType.responseAudioDelta;
+      default:
+        throw ArgumentError('Unknown BetaResponseAudioDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseAudioDeltaEventType.responseAudioDelta: return 'response.audio.delta';
+      case BetaResponseAudioDeltaEventType.responseAudioDelta:
+        return 'response.audio.delta';
     }
   }
 
@@ -53,14 +59,17 @@ enum BetaResponseAudioDoneEventType {
 
   static BetaResponseAudioDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.audio.done': return BetaResponseAudioDoneEventType.responseAudioDone;
-      default: throw ArgumentError('Unknown BetaResponseAudioDoneEventType: $value');
+      case 'response.audio.done':
+        return BetaResponseAudioDoneEventType.responseAudioDone;
+      default:
+        throw ArgumentError('Unknown BetaResponseAudioDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseAudioDoneEventType.responseAudioDone: return 'response.audio.done';
+      case BetaResponseAudioDoneEventType.responseAudioDone:
+        return 'response.audio.done';
     }
   }
 
@@ -74,14 +83,20 @@ enum BetaResponseAudioTranscriptDeltaEventType {
 
   static BetaResponseAudioTranscriptDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.audio.transcript.delta': return BetaResponseAudioTranscriptDeltaEventType.responseAudioTranscriptDelta;
-      default: throw ArgumentError('Unknown BetaResponseAudioTranscriptDeltaEventType: $value');
+      case 'response.audio.transcript.delta':
+        return BetaResponseAudioTranscriptDeltaEventType
+            .responseAudioTranscriptDelta;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseAudioTranscriptDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseAudioTranscriptDeltaEventType.responseAudioTranscriptDelta: return 'response.audio.transcript.delta';
+      case BetaResponseAudioTranscriptDeltaEventType
+            .responseAudioTranscriptDelta:
+        return 'response.audio.transcript.delta';
     }
   }
 
@@ -95,14 +110,19 @@ enum BetaResponseAudioTranscriptDoneEventType {
 
   static BetaResponseAudioTranscriptDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.audio.transcript.done': return BetaResponseAudioTranscriptDoneEventType.responseAudioTranscriptDone;
-      default: throw ArgumentError('Unknown BetaResponseAudioTranscriptDoneEventType: $value');
+      case 'response.audio.transcript.done':
+        return BetaResponseAudioTranscriptDoneEventType
+            .responseAudioTranscriptDone;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseAudioTranscriptDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseAudioTranscriptDoneEventType.responseAudioTranscriptDone: return 'response.audio.transcript.done';
+      case BetaResponseAudioTranscriptDoneEventType.responseAudioTranscriptDone:
+        return 'response.audio.transcript.done';
     }
   }
 
@@ -114,16 +134,23 @@ enum BetaResponseAudioTranscriptDoneEventType {
 enum BetaResponseCodeInterpreterCallCodeDeltaEventType {
   responseCodeInterpreterCallCodeDelta;
 
-  static BetaResponseCodeInterpreterCallCodeDeltaEventType fromJson(String value) {
+  static BetaResponseCodeInterpreterCallCodeDeltaEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.code_interpreter_call_code.delta': return BetaResponseCodeInterpreterCallCodeDeltaEventType.responseCodeInterpreterCallCodeDelta;
-      default: throw ArgumentError('Unknown BetaResponseCodeInterpreterCallCodeDeltaEventType: $value');
+      case 'response.code_interpreter_call_code.delta':
+        return BetaResponseCodeInterpreterCallCodeDeltaEventType
+            .responseCodeInterpreterCallCodeDelta;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseCodeInterpreterCallCodeDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseCodeInterpreterCallCodeDeltaEventType.responseCodeInterpreterCallCodeDelta: return 'response.code_interpreter_call_code.delta';
+      case BetaResponseCodeInterpreterCallCodeDeltaEventType
+            .responseCodeInterpreterCallCodeDelta:
+        return 'response.code_interpreter_call_code.delta';
     }
   }
 
@@ -135,16 +162,23 @@ enum BetaResponseCodeInterpreterCallCodeDeltaEventType {
 enum BetaResponseCodeInterpreterCallCodeDoneEventType {
   responseCodeInterpreterCallCodeDone;
 
-  static BetaResponseCodeInterpreterCallCodeDoneEventType fromJson(String value) {
+  static BetaResponseCodeInterpreterCallCodeDoneEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.code_interpreter_call_code.done': return BetaResponseCodeInterpreterCallCodeDoneEventType.responseCodeInterpreterCallCodeDone;
-      default: throw ArgumentError('Unknown BetaResponseCodeInterpreterCallCodeDoneEventType: $value');
+      case 'response.code_interpreter_call_code.done':
+        return BetaResponseCodeInterpreterCallCodeDoneEventType
+            .responseCodeInterpreterCallCodeDone;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseCodeInterpreterCallCodeDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseCodeInterpreterCallCodeDoneEventType.responseCodeInterpreterCallCodeDone: return 'response.code_interpreter_call_code.done';
+      case BetaResponseCodeInterpreterCallCodeDoneEventType
+            .responseCodeInterpreterCallCodeDone:
+        return 'response.code_interpreter_call_code.done';
     }
   }
 
@@ -156,16 +190,23 @@ enum BetaResponseCodeInterpreterCallCodeDoneEventType {
 enum BetaResponseCodeInterpreterCallCompletedEventType {
   responseCodeInterpreterCallCompleted;
 
-  static BetaResponseCodeInterpreterCallCompletedEventType fromJson(String value) {
+  static BetaResponseCodeInterpreterCallCompletedEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.code_interpreter_call.completed': return BetaResponseCodeInterpreterCallCompletedEventType.responseCodeInterpreterCallCompleted;
-      default: throw ArgumentError('Unknown BetaResponseCodeInterpreterCallCompletedEventType: $value');
+      case 'response.code_interpreter_call.completed':
+        return BetaResponseCodeInterpreterCallCompletedEventType
+            .responseCodeInterpreterCallCompleted;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseCodeInterpreterCallCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseCodeInterpreterCallCompletedEventType.responseCodeInterpreterCallCompleted: return 'response.code_interpreter_call.completed';
+      case BetaResponseCodeInterpreterCallCompletedEventType
+            .responseCodeInterpreterCallCompleted:
+        return 'response.code_interpreter_call.completed';
     }
   }
 
@@ -177,16 +218,23 @@ enum BetaResponseCodeInterpreterCallCompletedEventType {
 enum BetaResponseCodeInterpreterCallInProgressEventType {
   responseCodeInterpreterCallInProgress;
 
-  static BetaResponseCodeInterpreterCallInProgressEventType fromJson(String value) {
+  static BetaResponseCodeInterpreterCallInProgressEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.code_interpreter_call.in_progress': return BetaResponseCodeInterpreterCallInProgressEventType.responseCodeInterpreterCallInProgress;
-      default: throw ArgumentError('Unknown BetaResponseCodeInterpreterCallInProgressEventType: $value');
+      case 'response.code_interpreter_call.in_progress':
+        return BetaResponseCodeInterpreterCallInProgressEventType
+            .responseCodeInterpreterCallInProgress;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseCodeInterpreterCallInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseCodeInterpreterCallInProgressEventType.responseCodeInterpreterCallInProgress: return 'response.code_interpreter_call.in_progress';
+      case BetaResponseCodeInterpreterCallInProgressEventType
+            .responseCodeInterpreterCallInProgress:
+        return 'response.code_interpreter_call.in_progress';
     }
   }
 
@@ -198,16 +246,23 @@ enum BetaResponseCodeInterpreterCallInProgressEventType {
 enum BetaResponseCodeInterpreterCallInterpretingEventType {
   responseCodeInterpreterCallInterpreting;
 
-  static BetaResponseCodeInterpreterCallInterpretingEventType fromJson(String value) {
+  static BetaResponseCodeInterpreterCallInterpretingEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.code_interpreter_call.interpreting': return BetaResponseCodeInterpreterCallInterpretingEventType.responseCodeInterpreterCallInterpreting;
-      default: throw ArgumentError('Unknown BetaResponseCodeInterpreterCallInterpretingEventType: $value');
+      case 'response.code_interpreter_call.interpreting':
+        return BetaResponseCodeInterpreterCallInterpretingEventType
+            .responseCodeInterpreterCallInterpreting;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseCodeInterpreterCallInterpretingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseCodeInterpreterCallInterpretingEventType.responseCodeInterpreterCallInterpreting: return 'response.code_interpreter_call.interpreting';
+      case BetaResponseCodeInterpreterCallInterpretingEventType
+            .responseCodeInterpreterCallInterpreting:
+        return 'response.code_interpreter_call.interpreting';
     }
   }
 
@@ -219,16 +274,23 @@ enum BetaResponseCodeInterpreterCallInterpretingEventType {
 enum BetaResponseCompactionCompactingStreamingEventType {
   responseCompactionCompacting;
 
-  static BetaResponseCompactionCompactingStreamingEventType fromJson(String value) {
+  static BetaResponseCompactionCompactingStreamingEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.compaction.compacting': return BetaResponseCompactionCompactingStreamingEventType.responseCompactionCompacting;
-      default: throw ArgumentError('Unknown BetaResponseCompactionCompactingStreamingEventType: $value');
+      case 'response.compaction.compacting':
+        return BetaResponseCompactionCompactingStreamingEventType
+            .responseCompactionCompacting;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseCompactionCompactingStreamingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseCompactionCompactingStreamingEventType.responseCompactionCompacting: return 'response.compaction.compacting';
+      case BetaResponseCompactionCompactingStreamingEventType
+            .responseCompactionCompacting:
+        return 'response.compaction.compacting';
     }
   }
 
@@ -242,14 +304,17 @@ enum BetaResponseCompletedEventType {
 
   static BetaResponseCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.completed': return BetaResponseCompletedEventType.responseCompleted;
-      default: throw ArgumentError('Unknown BetaResponseCompletedEventType: $value');
+      case 'response.completed':
+        return BetaResponseCompletedEventType.responseCompleted;
+      default:
+        throw ArgumentError('Unknown BetaResponseCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseCompletedEventType.responseCompleted: return 'response.completed';
+      case BetaResponseCompletedEventType.responseCompleted:
+        return 'response.completed';
     }
   }
 
@@ -263,14 +328,18 @@ enum BetaResponseConfigurationUpdateType {
 
   static BetaResponseConfigurationUpdateType fromJson(String value) {
     switch (value) {
-      case 'configuration_update': return BetaResponseConfigurationUpdateType.configurationUpdate;
-      default: throw ArgumentError('Unknown BetaResponseConfigurationUpdateType: $value');
+      case 'configuration_update':
+        return BetaResponseConfigurationUpdateType.configurationUpdate;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseConfigurationUpdateType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseConfigurationUpdateType.configurationUpdate: return 'configuration_update';
+      case BetaResponseConfigurationUpdateType.configurationUpdate:
+        return 'configuration_update';
     }
   }
 

@@ -6,107 +6,130 @@ part of 'inline.dart';
 // Inline operation models (part 79)
 /// The object type, which is always `organization.spend_alert`.
 final class OrganizationSpendAlertObject {
-
   final String value;
 
   const OrganizationSpendAlertObject._(this.value);
 
-  factory OrganizationSpendAlertObject.fromJson(String value) => OrganizationSpendAlertObject._(value);
+  factory OrganizationSpendAlertObject.fromJson(String value) =>
+      OrganizationSpendAlertObject._(value);
 
-  static const organizationSpendAlert = OrganizationSpendAlertObject._('organization.spend_alert');
+  static const organizationSpendAlert =
+      OrganizationSpendAlertObject._('organization.spend_alert');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationSpendAlertObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationSpendAlertObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `organization.spend_alert.deleted`.
 final class OrganizationSpendAlertDeletedResourceObject {
-
   final String value;
 
   const OrganizationSpendAlertDeletedResourceObject._(this.value);
 
-  factory OrganizationSpendAlertDeletedResourceObject.fromJson(String value) => OrganizationSpendAlertDeletedResourceObject._(value);
+  factory OrganizationSpendAlertDeletedResourceObject.fromJson(String value) =>
+      OrganizationSpendAlertDeletedResourceObject._(value);
 
-  static const organizationSpendAlertDeleted = OrganizationSpendAlertDeletedResourceObject._('organization.spend_alert.deleted');
+  static const organizationSpendAlertDeleted =
+      OrganizationSpendAlertDeletedResourceObject._(
+          'organization.spend_alert.deleted');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationSpendAlertDeletedResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationSpendAlertDeletedResourceObject &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `list`.
 final class OrganizationSpendAlertListResourceObject {
-
   final String value;
 
   const OrganizationSpendAlertListResourceObject._(this.value);
 
-  factory OrganizationSpendAlertListResourceObject.fromJson(String value) => OrganizationSpendAlertListResourceObject._(value);
+  factory OrganizationSpendAlertListResourceObject.fromJson(String value) =>
+      OrganizationSpendAlertListResourceObject._(value);
 
   static const list = OrganizationSpendAlertListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationSpendAlertListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationSpendAlertListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `organization.spend_limit.deleted`.
 final class OrganizationSpendLimitDeletedResourceObject {
-
   final String value;
 
   const OrganizationSpendLimitDeletedResourceObject._(this.value);
 
-  factory OrganizationSpendLimitDeletedResourceObject.fromJson(String value) => OrganizationSpendLimitDeletedResourceObject._(value);
+  factory OrganizationSpendLimitDeletedResourceObject.fromJson(String value) =>
+      OrganizationSpendLimitDeletedResourceObject._(value);
 
-  static const organizationSpendLimitDeleted = OrganizationSpendLimitDeletedResourceObject._('organization.spend_limit.deleted');
+  static const organizationSpendLimitDeleted =
+      OrganizationSpendLimitDeletedResourceObject._(
+          'organization.spend_limit.deleted');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationSpendLimitDeletedResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationSpendLimitDeletedResourceObject &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `organization.spend_limit`.
 final class OrganizationSpendLimitResourceObject {
-
   final String value;
 
   const OrganizationSpendLimitResourceObject._(this.value);
 
-  factory OrganizationSpendLimitResourceObject.fromJson(String value) => OrganizationSpendLimitResourceObject._(value);
+  factory OrganizationSpendLimitResourceObject.fromJson(String value) =>
+      OrganizationSpendLimitResourceObject._(value);
 
-  static const organizationSpendLimit = OrganizationSpendLimitResourceObject._('organization.spend_limit');
+  static const organizationSpendLimit =
+      OrganizationSpendLimitResourceObject._('organization.spend_limit');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationSpendLimitResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationSpendLimitResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `other`.
@@ -115,14 +138,18 @@ enum OtherChunkingStrategyResponseParamType {
 
   static OtherChunkingStrategyResponseParamType fromJson(String value) {
     switch (value) {
-      case 'other': return OtherChunkingStrategyResponseParamType.other;
-      default: throw ArgumentError('Unknown OtherChunkingStrategyResponseParamType: $value');
+      case 'other':
+        return OtherChunkingStrategyResponseParamType.other;
+      default:
+        throw ArgumentError(
+            'Unknown OtherChunkingStrategyResponseParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case OtherChunkingStrategyResponseParamType.other: return 'other';
+      case OtherChunkingStrategyResponseParamType.other:
+        return 'other';
     }
   }
 
@@ -132,7 +159,6 @@ enum OtherChunkingStrategyResponseParamType {
 
 /// The type of the output audio. Always `output_audio`.
 final class OutputAudioType {
-
   final String value;
 
   const OutputAudioType._(this.value);
@@ -143,43 +169,49 @@ final class OutputAudioType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OutputAudioType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OutputAudioType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The role of the output message. Always `assistant`.
 final class OutputMessageRole {
-
   final String value;
 
   const OutputMessageRole._(this.value);
 
-  factory OutputMessageRole.fromJson(String value) => OutputMessageRole._(value);
+  factory OutputMessageRole.fromJson(String value) =>
+      OutputMessageRole._(value);
 
   static const assistant = OutputMessageRole._('assistant');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OutputMessageRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OutputMessageRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
 final class OutputMessageStatus {
-
   final String value;
 
   const OutputMessageStatus._(this.value);
 
-  factory OutputMessageStatus.fromJson(String value) => OutputMessageStatus._(value);
+  factory OutputMessageStatus.fromJson(String value) =>
+      OutputMessageStatus._(value);
 
   static const inProgress = OutputMessageStatus._('in_progress');
   static const completed = OutputMessageStatus._('completed');
@@ -187,12 +219,15 @@ final class OutputMessageStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OutputMessageStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OutputMessageStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the output message. Always `message`.
@@ -201,14 +236,17 @@ enum OutputMessageType {
 
   static OutputMessageType fromJson(String value) {
     switch (value) {
-      case 'message': return OutputMessageType.message;
-      default: throw ArgumentError('Unknown OutputMessageType: $value');
+      case 'message':
+        return OutputMessageType.message;
+      default:
+        throw ArgumentError('Unknown OutputMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case OutputMessageType.message: return 'message';
+      case OutputMessageType.message:
+        return 'message';
     }
   }
 
@@ -222,14 +260,17 @@ enum OutputTextContentType {
 
   static OutputTextContentType fromJson(String value) {
     switch (value) {
-      case 'output_text': return OutputTextContentType.outputText;
-      default: throw ArgumentError('Unknown OutputTextContentType: $value');
+      case 'output_text':
+        return OutputTextContentType.outputText;
+      default:
+        throw ArgumentError('Unknown OutputTextContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case OutputTextContentType.outputText: return 'output_text';
+      case OutputTextContentType.outputText:
+        return 'output_text';
     }
   }
 
@@ -243,14 +284,17 @@ enum OutputTextResourceType {
 
   static OutputTextResourceType fromJson(String value) {
     switch (value) {
-      case 'output_text': return OutputTextResourceType.outputText;
-      default: throw ArgumentError('Unknown OutputTextResourceType: $value');
+      case 'output_text':
+        return OutputTextResourceType.outputText;
+      default:
+        throw ArgumentError('Unknown OutputTextResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case OutputTextResourceType.outputText: return 'output_text';
+      case OutputTextResourceType.outputText:
+        return 'output_text';
     }
   }
 
@@ -264,14 +308,18 @@ enum PersistedAgentToolConfigParamComputerUseType {
 
   static PersistedAgentToolConfigParamComputerUseType fromJson(String value) {
     switch (value) {
-      case 'computer_use': return PersistedAgentToolConfigParamComputerUseType.computerUse;
-      default: throw ArgumentError('Unknown PersistedAgentToolConfigParamComputerUseType: $value');
+      case 'computer_use':
+        return PersistedAgentToolConfigParamComputerUseType.computerUse;
+      default:
+        throw ArgumentError(
+            'Unknown PersistedAgentToolConfigParamComputerUseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolConfigParamComputerUseType.computerUse: return 'computer_use';
+      case PersistedAgentToolConfigParamComputerUseType.computerUse:
+        return 'computer_use';
     }
   }
 

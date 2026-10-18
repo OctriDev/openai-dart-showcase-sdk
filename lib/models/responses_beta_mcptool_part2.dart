@@ -8,99 +8,168 @@ part of 'responses_beta_mcptool.dart';
 class BetaMCPToolExecutionError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final BetaMCPToolExecutionErrorType type_;
+
   /// Required API value serialized in the `content` wire field.
   final dynamic content;
 
   const BetaMCPToolExecutionError({required this.type_, required this.content});
 
-  BetaMCPToolExecutionError Function({BetaMCPToolExecutionErrorType type_, dynamic content}) get copyWith => _copyWith;
+  BetaMCPToolExecutionError Function(
+      {BetaMCPToolExecutionErrorType type_,
+      dynamic content}) get copyWith => _copyWith;
 
-  BetaMCPToolExecutionError _copyWith({Object? type_ = sdkOmittedValue, Object? content = sdkOmittedValue}) => BetaMCPToolExecutionError(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaMCPToolExecutionErrorType,
-    content: identical(content, sdkOmittedValue) ? this.content : content as dynamic,
-  );
+  BetaMCPToolExecutionError _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      BetaMCPToolExecutionError(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaMCPToolExecutionErrorType,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as dynamic,
+      );
 
-  factory BetaMCPToolExecutionError.fromJson(Map<String, dynamic> json) => BetaMCPToolExecutionError(
-    type_: (json['type'] != null ? BetaMCPToolExecutionErrorType.fromJson(json['type'] as String) : null)!,
-    content: json.containsKey('content') ? json['content'] : throw ArgumentError.value(null, 'content', 'Required property is missing'),
-  );
+  factory BetaMCPToolExecutionError.fromJson(Map<String, dynamic> json) =>
+      BetaMCPToolExecutionError(
+        type_: (json['type'] != null
+            ? BetaMCPToolExecutionErrorType.fromJson(json['type'] as String)
+            : null)!,
+        content: json.containsKey('content')
+            ? json['content']
+            : throw ArgumentError.value(
+                null, 'content', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'content': content,
-  };
+        'type': type_.toJson(),
+        'content': content,
+      };
 }
 
 /// A filter object to specify which tools are allowed.
 class BetaMCPToolFilter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// List of allowed tool names.
   final SdkOptional<List<String>> toolNames;
+
   /// Indicates whether or not a tool modifies data or is read-only. If an MCP server is [annotated with `readOnlyHint`](https://modelcontextprotocol.io/specification/2025-06-18/schema#toolannotations-readonlyhint), it will match this filter.
   final SdkOptional<bool> readOnly;
 
-  const BetaMCPToolFilter({this.toolNames = const SdkOmitted(), this.readOnly = const SdkOmitted()});
+  const BetaMCPToolFilter(
+      {this.toolNames = const SdkOmitted(),
+      this.readOnly = const SdkOmitted()});
 
-  BetaMCPToolFilter Function({SdkOptional<List<String>> toolNames, SdkOptional<bool> readOnly}) get copyWith => _copyWith;
+  BetaMCPToolFilter Function(
+      {SdkOptional<List<String>> toolNames,
+      SdkOptional<bool> readOnly}) get copyWith => _copyWith;
 
-  BetaMCPToolFilter _copyWith({Object? toolNames = sdkOmittedValue, Object? readOnly = sdkOmittedValue}) => BetaMCPToolFilter(
-    toolNames: identical(toolNames, sdkOmittedValue) ? this.toolNames : toolNames as SdkOptional<List<String>>,
-    readOnly: identical(readOnly, sdkOmittedValue) ? this.readOnly : readOnly as SdkOptional<bool>,
-  );
+  BetaMCPToolFilter _copyWith(
+          {Object? toolNames = sdkOmittedValue,
+          Object? readOnly = sdkOmittedValue}) =>
+      BetaMCPToolFilter(
+        toolNames: identical(toolNames, sdkOmittedValue)
+            ? this.toolNames
+            : toolNames as SdkOptional<List<String>>,
+        readOnly: identical(readOnly, sdkOmittedValue)
+            ? this.readOnly
+            : readOnly as SdkOptional<bool>,
+      );
 
-  factory BetaMCPToolFilter.fromJson(Map<String, dynamic> json) => BetaMCPToolFilter(
-    toolNames: json['tool_names'] != null ? SdkPresent(((json['tool_names'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    readOnly: json['read_only'] != null ? SdkPresent((json['read_only'] as bool?)!) : const SdkOmitted(),
-  );
+  factory BetaMCPToolFilter.fromJson(Map<String, dynamic> json) =>
+      BetaMCPToolFilter(
+        toolNames: json['tool_names'] != null
+            ? SdkPresent(((json['tool_names'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        readOnly: json['read_only'] != null
+            ? SdkPresent((json['read_only'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (toolNames) {
-      SdkPresent<List<String>>(value: final value) => {'tool_names': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (readOnly) {
-      SdkPresent<bool>(value: final value) => {'read_only': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (toolNames) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tool_names': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (readOnly) {
+          SdkPresent<bool>(value: final value) => {
+              'read_only': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Specify which of the MCP server's tools require approval. Can be `always`, `never`, or a filter object associated with tools that require approval.
 class BetaMCPToolRequireApprovalVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A filter object to specify which tools are allowed.
   final SdkOptional<BetaMCPToolFilter> always;
+
   /// A filter object to specify which tools are allowed.
   final SdkOptional<BetaMCPToolFilter> never;
 
-  const BetaMCPToolRequireApprovalVariant0({this.always = const SdkOmitted(), this.never = const SdkOmitted()});
+  const BetaMCPToolRequireApprovalVariant0(
+      {this.always = const SdkOmitted(), this.never = const SdkOmitted()});
 
-  BetaMCPToolRequireApprovalVariant0 Function({SdkOptional<BetaMCPToolFilter> always, SdkOptional<BetaMCPToolFilter> never}) get copyWith => _copyWith;
+  BetaMCPToolRequireApprovalVariant0 Function(
+      {SdkOptional<BetaMCPToolFilter> always,
+      SdkOptional<BetaMCPToolFilter> never}) get copyWith => _copyWith;
 
-  BetaMCPToolRequireApprovalVariant0 _copyWith({Object? always = sdkOmittedValue, Object? never = sdkOmittedValue}) => BetaMCPToolRequireApprovalVariant0(
-    always: identical(always, sdkOmittedValue) ? this.always : always as SdkOptional<BetaMCPToolFilter>,
-    never: identical(never, sdkOmittedValue) ? this.never : never as SdkOptional<BetaMCPToolFilter>,
-  );
+  BetaMCPToolRequireApprovalVariant0 _copyWith(
+          {Object? always = sdkOmittedValue,
+          Object? never = sdkOmittedValue}) =>
+      BetaMCPToolRequireApprovalVariant0(
+        always: identical(always, sdkOmittedValue)
+            ? this.always
+            : always as SdkOptional<BetaMCPToolFilter>,
+        never: identical(never, sdkOmittedValue)
+            ? this.never
+            : never as SdkOptional<BetaMCPToolFilter>,
+      );
 
-  factory BetaMCPToolRequireApprovalVariant0.fromJson(Map<String, dynamic> json) => BetaMCPToolRequireApprovalVariant0(
-    always: json['always'] != null ? SdkPresent((json['always'] != null ? BetaMCPToolFilter.fromJson(json['always'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    never: json['never'] != null ? SdkPresent((json['never'] != null ? BetaMCPToolFilter.fromJson(json['never'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory BetaMCPToolRequireApprovalVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      BetaMCPToolRequireApprovalVariant0(
+        always: json['always'] != null
+            ? SdkPresent((json['always'] != null
+                ? BetaMCPToolFilter.fromJson(
+                    json['always'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        never: json['never'] != null
+            ? SdkPresent((json['never'] != null
+                ? BetaMCPToolFilter.fromJson(
+                    json['never'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (always) {
-      SdkPresent<BetaMCPToolFilter>(value: final value) => {'always': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (never) {
-      SdkPresent<BetaMCPToolFilter>(value: final value) => {'never': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (always) {
+          SdkPresent<BetaMCPToolFilter>(value: final value) => {
+              'always': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (never) {
+          SdkPresent<BetaMCPToolFilter>(value: final value) => {
+              'never': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class BetaMCPToolRequireApproval {
@@ -108,21 +177,34 @@ sealed class BetaMCPToolRequireApproval {
   static const String constructionSurface = 'named';
   const BetaMCPToolRequireApproval();
   factory BetaMCPToolRequireApproval.fromJson(Object? json) {
-    try { return BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0(BetaMCPToolRequireApprovalVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1(BetaMCPToolRequireApprovalVariant1.fromJson(json as String)); } catch (_) {}
+    try {
+      return BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0(
+          BetaMCPToolRequireApprovalVariant0.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1(
+          BetaMCPToolRequireApprovalVariant1.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for BetaMCPToolRequireApproval");
   }
   Object? toJson();
 }
 
-final class BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0 extends BetaMCPToolRequireApproval {
+final class BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0
+    extends BetaMCPToolRequireApproval {
   final BetaMCPToolRequireApprovalVariant0 value;
-  const BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1 extends BetaMCPToolRequireApproval {
+final class BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1
+    extends BetaMCPToolRequireApproval {
   final BetaMCPToolRequireApprovalVariant1 value;
-  const BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }

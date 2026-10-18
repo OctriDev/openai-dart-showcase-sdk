@@ -8,278 +8,522 @@ part of 'containers.dart';
 class ContainerListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object returned, must be 'list'.
   final ContainerListResourceObject object;
+
   /// A list of containers.
   final List<ContainerResource> data;
+
   /// The ID of the first container in the list.
   final String firstId;
+
   /// The ID of the last container in the list.
   final String lastId;
+
   /// Whether there are more containers available.
   final bool hasMore;
 
-  const ContainerListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
+  const ContainerListResource(
+      {required this.object,
+      required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore});
 
-  ContainerListResource Function({ContainerListResourceObject object, List<ContainerResource> data, String firstId, String lastId, bool hasMore}) get copyWith => _copyWith;
+  ContainerListResource Function(
+      {ContainerListResourceObject object,
+      List<ContainerResource> data,
+      String firstId,
+      String lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  ContainerListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ContainerListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ContainerListResourceObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<ContainerResource>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  ContainerListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      ContainerListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ContainerListResourceObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<ContainerResource>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String,
+        lastId:
+            identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory ContainerListResource.fromJson(Map<String, dynamic> json) => ContainerListResource(
-    object: (json['object'] != null ? ContainerListResourceObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => ContainerResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: (json['first_id'] as String?)!,
-    lastId: (json['last_id'] as String?)!,
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory ContainerListResource.fromJson(Map<String, dynamic> json) =>
+      ContainerListResource(
+        object: (json['object'] != null
+            ? ContainerListResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => ContainerResource.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: (json['first_id'] as String?)!,
+        lastId: (json['last_id'] as String?)!,
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+      };
 }
 
 /// The container will expire after this time period. The anchor is the reference point for the expiration. The minutes is the number of minutes after the anchor before the container expires.
 class ContainerResourceExpiresAfter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The reference point for the expiration.
   final SdkOptional<ContainerResourceExpiresAfterAnchor> anchor;
+
   /// The number of minutes after the anchor before the container expires.
   final SdkOptional<int> minutes;
 
-  const ContainerResourceExpiresAfter({this.anchor = const SdkOmitted(), this.minutes = const SdkOmitted()});
+  const ContainerResourceExpiresAfter(
+      {this.anchor = const SdkOmitted(), this.minutes = const SdkOmitted()});
 
-  ContainerResourceExpiresAfter Function({SdkOptional<ContainerResourceExpiresAfterAnchor> anchor, SdkOptional<int> minutes}) get copyWith => _copyWith;
+  ContainerResourceExpiresAfter Function(
+      {SdkOptional<ContainerResourceExpiresAfterAnchor> anchor,
+      SdkOptional<int> minutes}) get copyWith => _copyWith;
 
-  ContainerResourceExpiresAfter _copyWith({Object? anchor = sdkOmittedValue, Object? minutes = sdkOmittedValue}) => ContainerResourceExpiresAfter(
-    anchor: identical(anchor, sdkOmittedValue) ? this.anchor : anchor as SdkOptional<ContainerResourceExpiresAfterAnchor>,
-    minutes: identical(minutes, sdkOmittedValue) ? this.minutes : minutes as SdkOptional<int>,
-  );
+  ContainerResourceExpiresAfter _copyWith(
+          {Object? anchor = sdkOmittedValue,
+          Object? minutes = sdkOmittedValue}) =>
+      ContainerResourceExpiresAfter(
+        anchor: identical(anchor, sdkOmittedValue)
+            ? this.anchor
+            : anchor as SdkOptional<ContainerResourceExpiresAfterAnchor>,
+        minutes: identical(minutes, sdkOmittedValue)
+            ? this.minutes
+            : minutes as SdkOptional<int>,
+      );
 
-  factory ContainerResourceExpiresAfter.fromJson(Map<String, dynamic> json) => ContainerResourceExpiresAfter(
-    anchor: json['anchor'] != null ? SdkPresent((json['anchor'] != null ? ContainerResourceExpiresAfterAnchor.fromJson(json['anchor'] as String) : null)!) : const SdkOmitted(),
-    minutes: json['minutes'] != null ? SdkPresent(((json['minutes'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ContainerResourceExpiresAfter.fromJson(Map<String, dynamic> json) =>
+      ContainerResourceExpiresAfter(
+        anchor: json['anchor'] != null
+            ? SdkPresent((json['anchor'] != null
+                ? ContainerResourceExpiresAfterAnchor.fromJson(
+                    json['anchor'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        minutes: json['minutes'] != null
+            ? SdkPresent(((json['minutes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (anchor) {
-      SdkPresent<ContainerResourceExpiresAfterAnchor>(value: final value) => {'anchor': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (minutes) {
-      SdkPresent<int>(value: final value) => {'minutes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (anchor) {
+          SdkPresent<ContainerResourceExpiresAfterAnchor>(value: final value) =>
+            {
+              'anchor': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (minutes) {
+          SdkPresent<int>(value: final value) => {
+              'minutes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Network access policy for the container.
 class ContainerResourceNetworkPolicy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The network policy mode.
   final ContainerResourceNetworkPolicyType type_;
+
   /// Allowed outbound domains when `type` is `allowlist`.
   final SdkOptional<List<String>> allowedDomains;
 
-  const ContainerResourceNetworkPolicy({required this.type_, this.allowedDomains = const SdkOmitted()});
+  const ContainerResourceNetworkPolicy(
+      {required this.type_, this.allowedDomains = const SdkOmitted()});
 
-  ContainerResourceNetworkPolicy Function({ContainerResourceNetworkPolicyType type_, SdkOptional<List<String>> allowedDomains}) get copyWith => _copyWith;
+  ContainerResourceNetworkPolicy Function(
+      {ContainerResourceNetworkPolicyType type_,
+      SdkOptional<List<String>> allowedDomains}) get copyWith => _copyWith;
 
-  ContainerResourceNetworkPolicy _copyWith({Object? type_ = sdkOmittedValue, Object? allowedDomains = sdkOmittedValue}) => ContainerResourceNetworkPolicy(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContainerResourceNetworkPolicyType,
-    allowedDomains: identical(allowedDomains, sdkOmittedValue) ? this.allowedDomains : allowedDomains as SdkOptional<List<String>>,
-  );
+  ContainerResourceNetworkPolicy _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? allowedDomains = sdkOmittedValue}) =>
+      ContainerResourceNetworkPolicy(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ContainerResourceNetworkPolicyType,
+        allowedDomains: identical(allowedDomains, sdkOmittedValue)
+            ? this.allowedDomains
+            : allowedDomains as SdkOptional<List<String>>,
+      );
 
-  factory ContainerResourceNetworkPolicy.fromJson(Map<String, dynamic> json) => ContainerResourceNetworkPolicy(
-    type_: (json['type'] != null ? ContainerResourceNetworkPolicyType.fromJson(json['type'] as String) : null)!,
-    allowedDomains: json['allowed_domains'] != null ? SdkPresent(((json['allowed_domains'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory ContainerResourceNetworkPolicy.fromJson(Map<String, dynamic> json) =>
+      ContainerResourceNetworkPolicy(
+        type_: (json['type'] != null
+            ? ContainerResourceNetworkPolicyType.fromJson(
+                json['type'] as String)
+            : null)!,
+        allowedDomains: json['allowed_domains'] != null
+            ? SdkPresent(((json['allowed_domains'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (allowedDomains) {
-      SdkPresent<List<String>>(value: final value) => {'allowed_domains': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (allowedDomains) {
+          SdkPresent<List<String>>(value: final value) => {
+              'allowed_domains': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ContainerResource` API schema.
 class ContainerResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the container.
   final String id;
+
   /// The type of this object.
   final String object;
+
   /// Name of the container.
   final String name;
+
   /// Unix timestamp (in seconds) when the container was created.
   final int createdAt;
+
   /// Status of the container (e.g., active, deleted).
   final String status;
+
   /// Unix timestamp (in seconds) when the container was last active.
   final SdkOptional<int> lastActiveAt;
+
   /// The container will expire after this time period. The anchor is the reference point for the expiration. The minutes is the number of minutes after the anchor before the container expires.
   final SdkOptional<ContainerResourceExpiresAfter> expiresAfter;
+
   /// The memory limit configured for the container.
   final SdkOptional<ContainerResourceMemoryLimit> memoryLimit;
+
   /// Network access policy for the container.
   final SdkOptional<ContainerResourceNetworkPolicy> networkPolicy;
 
-  const ContainerResource({required this.id, required this.object, required this.name, required this.createdAt, required this.status, this.lastActiveAt = const SdkOmitted(), this.expiresAfter = const SdkOmitted(), this.memoryLimit = const SdkOmitted(), this.networkPolicy = const SdkOmitted()});
+  const ContainerResource(
+      {required this.id,
+      required this.object,
+      required this.name,
+      required this.createdAt,
+      required this.status,
+      this.lastActiveAt = const SdkOmitted(),
+      this.expiresAfter = const SdkOmitted(),
+      this.memoryLimit = const SdkOmitted(),
+      this.networkPolicy = const SdkOmitted()});
 
-  ContainerResource Function({String id, String object, String name, int createdAt, String status, SdkOptional<int> lastActiveAt, SdkOptional<ContainerResourceExpiresAfter> expiresAfter, SdkOptional<ContainerResourceMemoryLimit> memoryLimit, SdkOptional<ContainerResourceNetworkPolicy> networkPolicy}) get copyWith => _copyWith;
+  ContainerResource Function(
+          {String id,
+          String object,
+          String name,
+          int createdAt,
+          String status,
+          SdkOptional<int> lastActiveAt,
+          SdkOptional<ContainerResourceExpiresAfter> expiresAfter,
+          SdkOptional<ContainerResourceMemoryLimit> memoryLimit,
+          SdkOptional<ContainerResourceNetworkPolicy> networkPolicy})
+      get copyWith => _copyWith;
 
-  ContainerResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? lastActiveAt = sdkOmittedValue, Object? expiresAfter = sdkOmittedValue, Object? memoryLimit = sdkOmittedValue, Object? networkPolicy = sdkOmittedValue}) => ContainerResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    status: identical(status, sdkOmittedValue) ? this.status : status as String,
-    lastActiveAt: identical(lastActiveAt, sdkOmittedValue) ? this.lastActiveAt : lastActiveAt as SdkOptional<int>,
-    expiresAfter: identical(expiresAfter, sdkOmittedValue) ? this.expiresAfter : expiresAfter as SdkOptional<ContainerResourceExpiresAfter>,
-    memoryLimit: identical(memoryLimit, sdkOmittedValue) ? this.memoryLimit : memoryLimit as SdkOptional<ContainerResourceMemoryLimit>,
-    networkPolicy: identical(networkPolicy, sdkOmittedValue) ? this.networkPolicy : networkPolicy as SdkOptional<ContainerResourceNetworkPolicy>,
-  );
+  ContainerResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? lastActiveAt = sdkOmittedValue,
+          Object? expiresAfter = sdkOmittedValue,
+          Object? memoryLimit = sdkOmittedValue,
+          Object? networkPolicy = sdkOmittedValue}) =>
+      ContainerResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        status:
+            identical(status, sdkOmittedValue) ? this.status : status as String,
+        lastActiveAt: identical(lastActiveAt, sdkOmittedValue)
+            ? this.lastActiveAt
+            : lastActiveAt as SdkOptional<int>,
+        expiresAfter: identical(expiresAfter, sdkOmittedValue)
+            ? this.expiresAfter
+            : expiresAfter as SdkOptional<ContainerResourceExpiresAfter>,
+        memoryLimit: identical(memoryLimit, sdkOmittedValue)
+            ? this.memoryLimit
+            : memoryLimit as SdkOptional<ContainerResourceMemoryLimit>,
+        networkPolicy: identical(networkPolicy, sdkOmittedValue)
+            ? this.networkPolicy
+            : networkPolicy as SdkOptional<ContainerResourceNetworkPolicy>,
+      );
 
-  factory ContainerResource.fromJson(Map<String, dynamic> json) => ContainerResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] as String?)!,
-    name: (json['name'] as String?)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    status: (json['status'] as String?)!,
-    lastActiveAt: json['last_active_at'] != null ? SdkPresent(((json['last_active_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    expiresAfter: json['expires_after'] != null ? SdkPresent((json['expires_after'] != null ? ContainerResourceExpiresAfter.fromJson(json['expires_after'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    memoryLimit: json['memory_limit'] != null ? SdkPresent((json['memory_limit'] != null ? ContainerResourceMemoryLimit.fromJson(json['memory_limit'] as String) : null)!) : const SdkOmitted(),
-    networkPolicy: json['network_policy'] != null ? SdkPresent((json['network_policy'] != null ? ContainerResourceNetworkPolicy.fromJson(json['network_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ContainerResource.fromJson(Map<String, dynamic> json) =>
+      ContainerResource(
+        id: (json['id'] as String?)!,
+        object: (json['object'] as String?)!,
+        name: (json['name'] as String?)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        status: (json['status'] as String?)!,
+        lastActiveAt: json['last_active_at'] != null
+            ? SdkPresent(((json['last_active_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        expiresAfter: json['expires_after'] != null
+            ? SdkPresent((json['expires_after'] != null
+                ? ContainerResourceExpiresAfter.fromJson(
+                    json['expires_after'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        memoryLimit: json['memory_limit'] != null
+            ? SdkPresent((json['memory_limit'] != null
+                ? ContainerResourceMemoryLimit.fromJson(
+                    json['memory_limit'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        networkPolicy: json['network_policy'] != null
+            ? SdkPresent((json['network_policy'] != null
+                ? ContainerResourceNetworkPolicy.fromJson(
+                    json['network_policy'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object,
-    'name': name,
-    'created_at': createdAt,
-    'status': status,
-    ...switch (lastActiveAt) {
-      SdkPresent<int>(value: final value) => {'last_active_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAfter) {
-      SdkPresent<ContainerResourceExpiresAfter>(value: final value) => {'expires_after': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (memoryLimit) {
-      SdkPresent<ContainerResourceMemoryLimit>(value: final value) => {'memory_limit': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (networkPolicy) {
-      SdkPresent<ContainerResourceNetworkPolicy>(value: final value) => {'network_policy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        'object': object,
+        'name': name,
+        'created_at': createdAt,
+        'status': status,
+        ...switch (lastActiveAt) {
+          SdkPresent<int>(value: final value) => {
+              'last_active_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAfter) {
+          SdkPresent<ContainerResourceExpiresAfter>(value: final value) => {
+              'expires_after': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (memoryLimit) {
+          SdkPresent<ContainerResourceMemoryLimit>(value: final value) => {
+              'memory_limit': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (networkPolicy) {
+          SdkPresent<ContainerResourceNetworkPolicy>(value: final value) => {
+              'network_policy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Container expiration time in seconds relative to the 'anchor' time.
 class CreateContainerBodyExpiresAfter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Time anchor for the expiration time. Currently only 'last_active_at' is supported.
   final CreateContainerBodyExpiresAfterAnchor anchor;
+
   /// Required `integer` value serialized in the `minutes` wire field.
   final int minutes;
 
-  const CreateContainerBodyExpiresAfter({required this.anchor, required this.minutes});
+  const CreateContainerBodyExpiresAfter(
+      {required this.anchor, required this.minutes});
 
-  CreateContainerBodyExpiresAfter Function({CreateContainerBodyExpiresAfterAnchor anchor, int minutes}) get copyWith => _copyWith;
+  CreateContainerBodyExpiresAfter Function(
+      {CreateContainerBodyExpiresAfterAnchor anchor,
+      int minutes}) get copyWith => _copyWith;
 
-  CreateContainerBodyExpiresAfter _copyWith({Object? anchor = sdkOmittedValue, Object? minutes = sdkOmittedValue}) => CreateContainerBodyExpiresAfter(
-    anchor: identical(anchor, sdkOmittedValue) ? this.anchor : anchor as CreateContainerBodyExpiresAfterAnchor,
-    minutes: identical(minutes, sdkOmittedValue) ? this.minutes : minutes as int,
-  );
+  CreateContainerBodyExpiresAfter _copyWith(
+          {Object? anchor = sdkOmittedValue,
+          Object? minutes = sdkOmittedValue}) =>
+      CreateContainerBodyExpiresAfter(
+        anchor: identical(anchor, sdkOmittedValue)
+            ? this.anchor
+            : anchor as CreateContainerBodyExpiresAfterAnchor,
+        minutes:
+            identical(minutes, sdkOmittedValue) ? this.minutes : minutes as int,
+      );
 
-  factory CreateContainerBodyExpiresAfter.fromJson(Map<String, dynamic> json) => CreateContainerBodyExpiresAfter(
-    anchor: (json['anchor'] != null ? CreateContainerBodyExpiresAfterAnchor.fromJson(json['anchor'] as String) : null)!,
-    minutes: ((json['minutes'] as num?)?.toInt())!,
-  );
+  factory CreateContainerBodyExpiresAfter.fromJson(Map<String, dynamic> json) =>
+      CreateContainerBodyExpiresAfter(
+        anchor: (json['anchor'] != null
+            ? CreateContainerBodyExpiresAfterAnchor.fromJson(
+                json['anchor'] as String)
+            : null)!,
+        minutes: ((json['minutes'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'anchor': anchor.toJson(),
-    'minutes': minutes,
-  };
+        'anchor': anchor.toJson(),
+        'minutes': minutes,
+      };
 }
 
 /// Typed representation of the `CreateContainerBody` API schema.
 class CreateContainerBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Name of the container to create.
   final String name;
+
   /// IDs of files to copy to the container.
   final SdkOptional<List<String>> fileIds;
+
   /// Container expiration time in seconds relative to the 'anchor' time.
   final SdkOptional<CreateContainerBodyExpiresAfter> expiresAfter;
+
   /// An optional list of skills referenced by id or inline data.
   final SdkOptional<List<CreateContainerBodySkillsItem>> skills;
+
   /// Optional memory limit for the container. Defaults to "1g".
   final SdkOptional<CreateContainerBodyMemoryLimit> memoryLimit;
+
   /// Network access policy for the container.
   final SdkOptional<CreateContainerBodyNetworkPolicy> networkPolicy;
 
-  const CreateContainerBody({required this.name, this.fileIds = const SdkOmitted(), this.expiresAfter = const SdkOmitted(), this.skills = const SdkOmitted(), this.memoryLimit = const SdkOmitted(), this.networkPolicy = const SdkOmitted()});
+  const CreateContainerBody(
+      {required this.name,
+      this.fileIds = const SdkOmitted(),
+      this.expiresAfter = const SdkOmitted(),
+      this.skills = const SdkOmitted(),
+      this.memoryLimit = const SdkOmitted(),
+      this.networkPolicy = const SdkOmitted()});
 
-  CreateContainerBody Function({String name, SdkOptional<List<String>> fileIds, SdkOptional<CreateContainerBodyExpiresAfter> expiresAfter, SdkOptional<List<CreateContainerBodySkillsItem>> skills, SdkOptional<CreateContainerBodyMemoryLimit> memoryLimit, SdkOptional<CreateContainerBodyNetworkPolicy> networkPolicy}) get copyWith => _copyWith;
+  CreateContainerBody Function(
+          {String name,
+          SdkOptional<List<String>> fileIds,
+          SdkOptional<CreateContainerBodyExpiresAfter> expiresAfter,
+          SdkOptional<List<CreateContainerBodySkillsItem>> skills,
+          SdkOptional<CreateContainerBodyMemoryLimit> memoryLimit,
+          SdkOptional<CreateContainerBodyNetworkPolicy> networkPolicy})
+      get copyWith => _copyWith;
 
-  CreateContainerBody _copyWith({Object? name = sdkOmittedValue, Object? fileIds = sdkOmittedValue, Object? expiresAfter = sdkOmittedValue, Object? skills = sdkOmittedValue, Object? memoryLimit = sdkOmittedValue, Object? networkPolicy = sdkOmittedValue}) => CreateContainerBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    fileIds: identical(fileIds, sdkOmittedValue) ? this.fileIds : fileIds as SdkOptional<List<String>>,
-    expiresAfter: identical(expiresAfter, sdkOmittedValue) ? this.expiresAfter : expiresAfter as SdkOptional<CreateContainerBodyExpiresAfter>,
-    skills: identical(skills, sdkOmittedValue) ? this.skills : skills as SdkOptional<List<CreateContainerBodySkillsItem>>,
-    memoryLimit: identical(memoryLimit, sdkOmittedValue) ? this.memoryLimit : memoryLimit as SdkOptional<CreateContainerBodyMemoryLimit>,
-    networkPolicy: identical(networkPolicy, sdkOmittedValue) ? this.networkPolicy : networkPolicy as SdkOptional<CreateContainerBodyNetworkPolicy>,
-  );
+  CreateContainerBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? fileIds = sdkOmittedValue,
+          Object? expiresAfter = sdkOmittedValue,
+          Object? skills = sdkOmittedValue,
+          Object? memoryLimit = sdkOmittedValue,
+          Object? networkPolicy = sdkOmittedValue}) =>
+      CreateContainerBody(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        fileIds: identical(fileIds, sdkOmittedValue)
+            ? this.fileIds
+            : fileIds as SdkOptional<List<String>>,
+        expiresAfter: identical(expiresAfter, sdkOmittedValue)
+            ? this.expiresAfter
+            : expiresAfter as SdkOptional<CreateContainerBodyExpiresAfter>,
+        skills: identical(skills, sdkOmittedValue)
+            ? this.skills
+            : skills as SdkOptional<List<CreateContainerBodySkillsItem>>,
+        memoryLimit: identical(memoryLimit, sdkOmittedValue)
+            ? this.memoryLimit
+            : memoryLimit as SdkOptional<CreateContainerBodyMemoryLimit>,
+        networkPolicy: identical(networkPolicy, sdkOmittedValue)
+            ? this.networkPolicy
+            : networkPolicy as SdkOptional<CreateContainerBodyNetworkPolicy>,
+      );
 
-  factory CreateContainerBody.fromJson(Map<String, dynamic> json) => CreateContainerBody(
-    name: (json['name'] as String?)!,
-    fileIds: json['file_ids'] != null ? SdkPresent(((json['file_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    expiresAfter: json['expires_after'] != null ? SdkPresent((json['expires_after'] != null ? CreateContainerBodyExpiresAfter.fromJson(json['expires_after'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    skills: json['skills'] != null ? SdkPresent(((json['skills'] as List?)?.map((e) => CreateContainerBodySkillsItem.fromJson(e)).toList())!) : const SdkOmitted(),
-    memoryLimit: json['memory_limit'] != null ? SdkPresent((json['memory_limit'] != null ? CreateContainerBodyMemoryLimit.fromJson(json['memory_limit'] as String) : null)!) : const SdkOmitted(),
-    networkPolicy: json['network_policy'] != null ? SdkPresent((json['network_policy'] != null ? CreateContainerBodyNetworkPolicy.fromJson(json['network_policy']) : null)!) : const SdkOmitted(),
-  );
+  factory CreateContainerBody.fromJson(Map<String, dynamic> json) =>
+      CreateContainerBody(
+        name: (json['name'] as String?)!,
+        fileIds: json['file_ids'] != null
+            ? SdkPresent(((json['file_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        expiresAfter: json['expires_after'] != null
+            ? SdkPresent((json['expires_after'] != null
+                ? CreateContainerBodyExpiresAfter.fromJson(
+                    json['expires_after'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        skills: json['skills'] != null
+            ? SdkPresent(((json['skills'] as List?)
+                ?.map((e) => CreateContainerBodySkillsItem.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+        memoryLimit: json['memory_limit'] != null
+            ? SdkPresent((json['memory_limit'] != null
+                ? CreateContainerBodyMemoryLimit.fromJson(
+                    json['memory_limit'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        networkPolicy: json['network_policy'] != null
+            ? SdkPresent((json['network_policy'] != null
+                ? CreateContainerBodyNetworkPolicy.fromJson(
+                    json['network_policy'])
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (fileIds) {
-      SdkPresent<List<String>>(value: final value) => {'file_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAfter) {
-      SdkPresent<CreateContainerBodyExpiresAfter>(value: final value) => {'expires_after': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (skills) {
-      SdkPresent<List<CreateContainerBodySkillsItem>>(value: final value) => {'skills': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (memoryLimit) {
-      SdkPresent<CreateContainerBodyMemoryLimit>(value: final value) => {'memory_limit': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (networkPolicy) {
-      SdkPresent<CreateContainerBodyNetworkPolicy>(value: final value) => {'network_policy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (fileIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'file_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAfter) {
+          SdkPresent<CreateContainerBodyExpiresAfter>(value: final value) => {
+              'expires_after': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (skills) {
+          SdkPresent<List<CreateContainerBodySkillsItem>>(value: final value) =>
+            {
+              'skills': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (memoryLimit) {
+          SdkPresent<CreateContainerBodyMemoryLimit>(value: final value) => {
+              'memory_limit': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (networkPolicy) {
+          SdkPresent<CreateContainerBodyNetworkPolicy>(value: final value) => {
+              'network_policy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

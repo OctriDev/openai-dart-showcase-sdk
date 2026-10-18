@@ -36,7 +36,8 @@ import '../types.dart';
 Future<CreateEmbeddingResponse> createEmbedding(ClientConfig config,
     {required dynamic input,
     required String model,
-    SdkOptional<CreateEmbeddingRequestEncodingFormat> encodingFormat = const SdkOmitted(),
+    SdkOptional<CreateEmbeddingRequestEncodingFormat> encodingFormat =
+        const SdkOmitted(),
     SdkOptional<int> dimensions = const SdkOmitted(),
     SdkOptional<String> user = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -55,8 +56,20 @@ Future<CreateEmbeddingResponse> createEmbedding(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createEmbedding',
-          fromJsonRaw: (value) => CreateEmbeddingResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateEmbeddingResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

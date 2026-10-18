@@ -8,44 +8,78 @@ part of 'agents_hosted.dart';
 class HostedSkillResourceSkillReference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `skill_reference`.
   final HostedSkillResourceSkillReferenceType type_;
+
   /// The referenced skill ID.
   final String skillId;
+
   /// The concrete skill version installed for this session.
   final String version;
+
   /// The installed skill name.
   final String name;
+
   /// The installed skill description.
   final String description;
 
-  const HostedSkillResourceSkillReference({required this.type_, required this.skillId, required this.version, required this.name, required this.description});
+  const HostedSkillResourceSkillReference(
+      {required this.type_,
+      required this.skillId,
+      required this.version,
+      required this.name,
+      required this.description});
 
-  HostedSkillResourceSkillReference Function({HostedSkillResourceSkillReferenceType type_, String skillId, String version, String name, String description}) get copyWith => _copyWith;
+  HostedSkillResourceSkillReference Function(
+      {HostedSkillResourceSkillReferenceType type_,
+      String skillId,
+      String version,
+      String name,
+      String description}) get copyWith => _copyWith;
 
-  HostedSkillResourceSkillReference _copyWith({Object? type_ = sdkOmittedValue, Object? skillId = sdkOmittedValue, Object? version = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue}) => HostedSkillResourceSkillReference(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedSkillResourceSkillReferenceType,
-    skillId: identical(skillId, sdkOmittedValue) ? this.skillId : skillId as String,
-    version: identical(version, sdkOmittedValue) ? this.version : version as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-  );
+  HostedSkillResourceSkillReference _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? skillId = sdkOmittedValue,
+          Object? version = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue}) =>
+      HostedSkillResourceSkillReference(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedSkillResourceSkillReferenceType,
+        skillId: identical(skillId, sdkOmittedValue)
+            ? this.skillId
+            : skillId as String,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+      );
 
-  factory HostedSkillResourceSkillReference.fromJson(Map<String, dynamic> json) => HostedSkillResourceSkillReference(
-    type_: (json['type'] != null ? HostedSkillResourceSkillReferenceType.fromJson(json['type'] as String) : null)!,
-    skillId: (json['skill_id'] as String?)!,
-    version: (json['version'] as String?)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-  );
+  factory HostedSkillResourceSkillReference.fromJson(
+          Map<String, dynamic> json) =>
+      HostedSkillResourceSkillReference(
+        type_: (json['type'] != null
+            ? HostedSkillResourceSkillReferenceType.fromJson(
+                json['type'] as String)
+            : null)!,
+        skillId: (json['skill_id'] as String?)!,
+        version: (json['version'] as String?)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'skill_id': skillId,
-    'version': version,
-    'name': name,
-    'description': description,
-  };
+        'type': type_.toJson(),
+        'skill_id': skillId,
+        'version': version,
+        'name': name,
+        'description': description,
+      };
 }
 
 sealed class HostedTemplateFileResource {
@@ -54,102 +88,171 @@ sealed class HostedTemplateFileResource {
   const HostedTemplateFileResource();
   factory HostedTemplateFileResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = HostedTemplateFileResourceFileId.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateFileResourceHostedTemplateFileResourceFileId(value); } } catch (_) {}
-      try { final value = HostedTemplateFileResourceInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateFileResourceHostedTemplateFileResourceInline(value); } } catch (_) {}
+      try {
+        final value = HostedTemplateFileResourceFileId.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return HostedTemplateFileResourceHostedTemplateFileResourceFileId(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = HostedTemplateFileResourceInline.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return HostedTemplateFileResourceHostedTemplateFileResourceInline(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return HostedTemplateFileResourceHostedTemplateFileResourceFileId(HostedTemplateFileResourceFileId.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return HostedTemplateFileResourceHostedTemplateFileResourceInline(HostedTemplateFileResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_id", "inline"}.contains(json["type"])) { return UnknownHostedTemplateFileResource(json); }
+    try {
+      return HostedTemplateFileResourceHostedTemplateFileResourceFileId(
+          HostedTemplateFileResourceFileId.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return HostedTemplateFileResourceHostedTemplateFileResourceInline(
+          HostedTemplateFileResourceInline.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"file_id", "inline"}.contains(json["type"])) {
+      return UnknownHostedTemplateFileResource(json);
+    }
     throw FormatException("No variant matched for HostedTemplateFileResource");
   }
   Object? toJson();
 }
 
-final class HostedTemplateFileResourceHostedTemplateFileResourceFileId extends HostedTemplateFileResource {
+final class HostedTemplateFileResourceHostedTemplateFileResourceFileId
+    extends HostedTemplateFileResource {
   final HostedTemplateFileResourceFileId value;
   const HostedTemplateFileResourceHostedTemplateFileResourceFileId(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class HostedTemplateFileResourceHostedTemplateFileResourceInline extends HostedTemplateFileResource {
+final class HostedTemplateFileResourceHostedTemplateFileResourceInline
+    extends HostedTemplateFileResource {
   final HostedTemplateFileResourceInline value;
   const HostedTemplateFileResourceHostedTemplateFileResourceInline(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedTemplateFileResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownHostedTemplateFileResource extends HostedTemplateFileResource {
+final class UnknownHostedTemplateFileResource
+    extends HostedTemplateFileResource {
   final Map<String, dynamic> raw;
   const UnknownHostedTemplateFileResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A project-scoped Files API reference resolved separately for each session.
 class HostedTemplateFileResourceFileId {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `file_id`.
   final HostedTemplateFileResourceFileIdType type_;
+
   /// The ID of the uploaded file.
   final String fileId;
+
   /// The file's absolute path inside the environment.
   final String path;
 
-  const HostedTemplateFileResourceFileId({required this.type_, required this.fileId, required this.path});
+  const HostedTemplateFileResourceFileId(
+      {required this.type_, required this.fileId, required this.path});
 
-  HostedTemplateFileResourceFileId Function({HostedTemplateFileResourceFileIdType type_, String fileId, String path}) get copyWith => _copyWith;
+  HostedTemplateFileResourceFileId Function(
+      {HostedTemplateFileResourceFileIdType type_,
+      String fileId,
+      String path}) get copyWith => _copyWith;
 
-  HostedTemplateFileResourceFileId _copyWith({Object? type_ = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? path = sdkOmittedValue}) => HostedTemplateFileResourceFileId(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedTemplateFileResourceFileIdType,
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-  );
+  HostedTemplateFileResourceFileId _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? fileId = sdkOmittedValue,
+          Object? path = sdkOmittedValue}) =>
+      HostedTemplateFileResourceFileId(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedTemplateFileResourceFileIdType,
+        fileId:
+            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+      );
 
-  factory HostedTemplateFileResourceFileId.fromJson(Map<String, dynamic> json) => HostedTemplateFileResourceFileId(
-    type_: (json['type'] != null ? HostedTemplateFileResourceFileIdType.fromJson(json['type'] as String) : null)!,
-    fileId: (json['file_id'] as String?)!,
-    path: (json['path'] as String?)!,
-  );
+  factory HostedTemplateFileResourceFileId.fromJson(
+          Map<String, dynamic> json) =>
+      HostedTemplateFileResourceFileId(
+        type_: (json['type'] != null
+            ? HostedTemplateFileResourceFileIdType.fromJson(
+                json['type'] as String)
+            : null)!,
+        fileId: (json['file_id'] as String?)!,
+        path: (json['path'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'file_id': fileId,
-    'path': path,
-  };
+        'type': type_.toJson(),
+        'file_id': fileId,
+        'path': path,
+      };
 }
 
 /// Metadata for confidential inline file contents.
 class HostedTemplateFileResourceInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `inline`.
   final HostedTemplateFileResourceInlineType type_;
+
   /// The file's absolute path inside the environment.
   final String path;
+
   /// The decoded size of the inline file in bytes.
   final int sizeBytes;
 
-  const HostedTemplateFileResourceInline({required this.type_, required this.path, required this.sizeBytes});
+  const HostedTemplateFileResourceInline(
+      {required this.type_, required this.path, required this.sizeBytes});
 
-  HostedTemplateFileResourceInline Function({HostedTemplateFileResourceInlineType type_, String path, int sizeBytes}) get copyWith => _copyWith;
+  HostedTemplateFileResourceInline Function(
+      {HostedTemplateFileResourceInlineType type_,
+      String path,
+      int sizeBytes}) get copyWith => _copyWith;
 
-  HostedTemplateFileResourceInline _copyWith({Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue}) => HostedTemplateFileResourceInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedTemplateFileResourceInlineType,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as int,
-  );
+  HostedTemplateFileResourceInline _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? path = sdkOmittedValue,
+          Object? sizeBytes = sdkOmittedValue}) =>
+      HostedTemplateFileResourceInline(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedTemplateFileResourceInlineType,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+        sizeBytes: identical(sizeBytes, sdkOmittedValue)
+            ? this.sizeBytes
+            : sizeBytes as int,
+      );
 
-  factory HostedTemplateFileResourceInline.fromJson(Map<String, dynamic> json) => HostedTemplateFileResourceInline(
-    type_: (json['type'] != null ? HostedTemplateFileResourceInlineType.fromJson(json['type'] as String) : null)!,
-    path: (json['path'] as String?)!,
-    sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
-  );
+  factory HostedTemplateFileResourceInline.fromJson(
+          Map<String, dynamic> json) =>
+      HostedTemplateFileResourceInline(
+        type_: (json['type'] != null
+            ? HostedTemplateFileResourceInlineType.fromJson(
+                json['type'] as String)
+            : null)!,
+        path: (json['path'] as String?)!,
+        sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'path': path,
-    'size_bytes': sizeBytes,
-  };
+        'type': type_.toJson(),
+        'path': path,
+        'size_bytes': sizeBytes,
+      };
 }
 
 sealed class HostedTemplateSkillResource {
@@ -158,100 +261,177 @@ sealed class HostedTemplateSkillResource {
   const HostedTemplateSkillResource();
   factory HostedTemplateSkillResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = HostedTemplateSkillResourceSkillReference.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(value); } } catch (_) {}
-      try { final value = HostedTemplateSkillResourceInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateSkillResourceHostedTemplateSkillResourceInline(value); } } catch (_) {}
+      try {
+        final value = HostedTemplateSkillResourceSkillReference.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = HostedTemplateSkillResourceInline.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return HostedTemplateSkillResourceHostedTemplateSkillResourceInline(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(HostedTemplateSkillResourceSkillReference.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return HostedTemplateSkillResourceHostedTemplateSkillResourceInline(HostedTemplateSkillResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"skill_reference", "inline"}.contains(json["type"])) { return UnknownHostedTemplateSkillResource(json); }
+    try {
+      return HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(
+          HostedTemplateSkillResourceSkillReference.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return HostedTemplateSkillResourceHostedTemplateSkillResourceInline(
+          HostedTemplateSkillResourceInline.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"skill_reference", "inline"}.contains(json["type"])) {
+      return UnknownHostedTemplateSkillResource(json);
+    }
     throw FormatException("No variant matched for HostedTemplateSkillResource");
   }
   Object? toJson();
 }
 
-final class HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference extends HostedTemplateSkillResource {
+final class HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference
+    extends HostedTemplateSkillResource {
   final HostedTemplateSkillResourceSkillReference value;
-  const HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(this.value);
-  @override Object? toJson() => value.toJson();
+  const HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class HostedTemplateSkillResourceHostedTemplateSkillResourceInline extends HostedTemplateSkillResource {
+final class HostedTemplateSkillResourceHostedTemplateSkillResourceInline
+    extends HostedTemplateSkillResource {
   final HostedTemplateSkillResourceInline value;
-  const HostedTemplateSkillResourceHostedTemplateSkillResourceInline(this.value);
-  @override Object? toJson() => value.toJson();
+  const HostedTemplateSkillResourceHostedTemplateSkillResourceInline(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedTemplateSkillResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownHostedTemplateSkillResource extends HostedTemplateSkillResource {
+final class UnknownHostedTemplateSkillResource
+    extends HostedTemplateSkillResource {
   final Map<String, dynamic> raw;
   const UnknownHostedTemplateSkillResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Safe metadata for an inline skill archive.
 class HostedTemplateSkillResourceInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `inline`.
   final HostedTemplateSkillResourceInlineType type_;
+
   /// The skill name declared in `SKILL.md`.
   final String name;
+
   /// The skill description declared in `SKILL.md`.
   final String description;
 
-  const HostedTemplateSkillResourceInline({required this.type_, required this.name, required this.description});
+  const HostedTemplateSkillResourceInline(
+      {required this.type_, required this.name, required this.description});
 
-  HostedTemplateSkillResourceInline Function({HostedTemplateSkillResourceInlineType type_, String name, String description}) get copyWith => _copyWith;
+  HostedTemplateSkillResourceInline Function(
+      {HostedTemplateSkillResourceInlineType type_,
+      String name,
+      String description}) get copyWith => _copyWith;
 
-  HostedTemplateSkillResourceInline _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue}) => HostedTemplateSkillResourceInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedTemplateSkillResourceInlineType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-  );
+  HostedTemplateSkillResourceInline _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue}) =>
+      HostedTemplateSkillResourceInline(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedTemplateSkillResourceInlineType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+      );
 
-  factory HostedTemplateSkillResourceInline.fromJson(Map<String, dynamic> json) => HostedTemplateSkillResourceInline(
-    type_: (json['type'] != null ? HostedTemplateSkillResourceInlineType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-  );
+  factory HostedTemplateSkillResourceInline.fromJson(
+          Map<String, dynamic> json) =>
+      HostedTemplateSkillResourceInline(
+        type_: (json['type'] != null
+            ? HostedTemplateSkillResourceInlineType.fromJson(
+                json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'description': description,
-  };
+        'type': type_.toJson(),
+        'name': name,
+        'description': description,
+      };
 }
 
 /// A skill resolved afresh from the Skills API whenever a session starts.
 class HostedTemplateSkillResourceSkillReference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `skill_reference`.
   final HostedTemplateSkillResourceSkillReferenceType type_;
+
   /// The referenced skill ID.
   final String skillId;
+
   /// The requested version selector, including `latest`.
   final String? version;
 
-  const HostedTemplateSkillResourceSkillReference({required this.type_, required this.skillId, required this.version});
+  const HostedTemplateSkillResourceSkillReference(
+      {required this.type_, required this.skillId, required this.version});
 
-  HostedTemplateSkillResourceSkillReference Function({HostedTemplateSkillResourceSkillReferenceType type_, String skillId, String? version}) get copyWith => _copyWith;
+  HostedTemplateSkillResourceSkillReference Function(
+      {HostedTemplateSkillResourceSkillReferenceType type_,
+      String skillId,
+      String? version}) get copyWith => _copyWith;
 
-  HostedTemplateSkillResourceSkillReference _copyWith({Object? type_ = sdkOmittedValue, Object? skillId = sdkOmittedValue, Object? version = sdkOmittedValue}) => HostedTemplateSkillResourceSkillReference(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedTemplateSkillResourceSkillReferenceType,
-    skillId: identical(skillId, sdkOmittedValue) ? this.skillId : skillId as String,
-    version: identical(version, sdkOmittedValue) ? this.version : version as String?,
-  );
+  HostedTemplateSkillResourceSkillReference _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? skillId = sdkOmittedValue,
+          Object? version = sdkOmittedValue}) =>
+      HostedTemplateSkillResourceSkillReference(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedTemplateSkillResourceSkillReferenceType,
+        skillId: identical(skillId, sdkOmittedValue)
+            ? this.skillId
+            : skillId as String,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as String?,
+      );
 
-  factory HostedTemplateSkillResourceSkillReference.fromJson(Map<String, dynamic> json) => HostedTemplateSkillResourceSkillReference(
-    type_: (json['type'] != null ? HostedTemplateSkillResourceSkillReferenceType.fromJson(json['type'] as String) : null)!,
-    skillId: (json['skill_id'] as String?)!,
-    version: json.containsKey('version') ? json['version'] as String? : throw ArgumentError.value(null, 'version', 'Required property is missing'),
-  );
+  factory HostedTemplateSkillResourceSkillReference.fromJson(
+          Map<String, dynamic> json) =>
+      HostedTemplateSkillResourceSkillReference(
+        type_: (json['type'] != null
+            ? HostedTemplateSkillResourceSkillReferenceType.fromJson(
+                json['type'] as String)
+            : null)!,
+        skillId: (json['skill_id'] as String?)!,
+        version: json.containsKey('version')
+            ? json['version'] as String?
+            : throw ArgumentError.value(
+                null, 'version', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'skill_id': skillId,
-    'version': version,
-  };
+        'type': type_.toJson(),
+        'skill_id': skillId,
+        'version': version,
+      };
 }

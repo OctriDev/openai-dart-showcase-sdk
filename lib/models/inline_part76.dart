@@ -10,14 +10,18 @@ enum MessageDeltaContentRefusalObjectType {
 
   static MessageDeltaContentRefusalObjectType fromJson(String value) {
     switch (value) {
-      case 'refusal': return MessageDeltaContentRefusalObjectType.refusal;
-      default: throw ArgumentError('Unknown MessageDeltaContentRefusalObjectType: $value');
+      case 'refusal':
+        return MessageDeltaContentRefusalObjectType.refusal;
+      default:
+        throw ArgumentError(
+            'Unknown MessageDeltaContentRefusalObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageDeltaContentRefusalObjectType.refusal: return 'refusal';
+      case MessageDeltaContentRefusalObjectType.refusal:
+        return 'refusal';
     }
   }
 
@@ -29,16 +33,23 @@ enum MessageDeltaContentRefusalObjectType {
 enum MessageDeltaContentTextAnnotationsFileCitationObjectType {
   fileCitation;
 
-  static MessageDeltaContentTextAnnotationsFileCitationObjectType fromJson(String value) {
+  static MessageDeltaContentTextAnnotationsFileCitationObjectType fromJson(
+      String value) {
     switch (value) {
-      case 'file_citation': return MessageDeltaContentTextAnnotationsFileCitationObjectType.fileCitation;
-      default: throw ArgumentError('Unknown MessageDeltaContentTextAnnotationsFileCitationObjectType: $value');
+      case 'file_citation':
+        return MessageDeltaContentTextAnnotationsFileCitationObjectType
+            .fileCitation;
+      default:
+        throw ArgumentError(
+            'Unknown MessageDeltaContentTextAnnotationsFileCitationObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageDeltaContentTextAnnotationsFileCitationObjectType.fileCitation: return 'file_citation';
+      case MessageDeltaContentTextAnnotationsFileCitationObjectType
+            .fileCitation:
+        return 'file_citation';
     }
   }
 
@@ -50,16 +61,21 @@ enum MessageDeltaContentTextAnnotationsFileCitationObjectType {
 enum MessageDeltaContentTextAnnotationsFilePathObjectType {
   filePath;
 
-  static MessageDeltaContentTextAnnotationsFilePathObjectType fromJson(String value) {
+  static MessageDeltaContentTextAnnotationsFilePathObjectType fromJson(
+      String value) {
     switch (value) {
-      case 'file_path': return MessageDeltaContentTextAnnotationsFilePathObjectType.filePath;
-      default: throw ArgumentError('Unknown MessageDeltaContentTextAnnotationsFilePathObjectType: $value');
+      case 'file_path':
+        return MessageDeltaContentTextAnnotationsFilePathObjectType.filePath;
+      default:
+        throw ArgumentError(
+            'Unknown MessageDeltaContentTextAnnotationsFilePathObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageDeltaContentTextAnnotationsFilePathObjectType.filePath: return 'file_path';
+      case MessageDeltaContentTextAnnotationsFilePathObjectType.filePath:
+        return 'file_path';
     }
   }
 
@@ -73,14 +89,18 @@ enum MessageDeltaContentTextObjectType {
 
   static MessageDeltaContentTextObjectType fromJson(String value) {
     switch (value) {
-      case 'text': return MessageDeltaContentTextObjectType.text;
-      default: throw ArgumentError('Unknown MessageDeltaContentTextObjectType: $value');
+      case 'text':
+        return MessageDeltaContentTextObjectType.text;
+      default:
+        throw ArgumentError(
+            'Unknown MessageDeltaContentTextObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageDeltaContentTextObjectType.text: return 'text';
+      case MessageDeltaContentTextObjectType.text:
+        return 'text';
     }
   }
 
@@ -90,45 +110,52 @@ enum MessageDeltaContentTextObjectType {
 
 /// The entity that produced the message. One of `user` or `assistant`.
 final class MessageDeltaObjectDeltaRole {
-
   final String value;
 
   const MessageDeltaObjectDeltaRole._(this.value);
 
-  factory MessageDeltaObjectDeltaRole.fromJson(String value) => MessageDeltaObjectDeltaRole._(value);
+  factory MessageDeltaObjectDeltaRole.fromJson(String value) =>
+      MessageDeltaObjectDeltaRole._(value);
 
   static const user = MessageDeltaObjectDeltaRole._('user');
   static const assistant = MessageDeltaObjectDeltaRole._('assistant');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageDeltaObjectDeltaRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageDeltaObjectDeltaRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `thread.message.delta`.
 final class MessageDeltaObjectObject {
-
   final String value;
 
   const MessageDeltaObjectObject._(this.value);
 
-  factory MessageDeltaObjectObject.fromJson(String value) => MessageDeltaObjectObject._(value);
+  factory MessageDeltaObjectObject.fromJson(String value) =>
+      MessageDeltaObjectObject._(value);
 
-  static const threadMessageDelta = MessageDeltaObjectObject._('thread.message.delta');
+  static const threadMessageDelta =
+      MessageDeltaObjectObject._('thread.message.delta');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageDeltaObjectObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageDeltaObjectObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The item type. Always `message`.
@@ -137,14 +164,17 @@ enum MessageItemResourceType {
 
   static MessageItemResourceType fromJson(String value) {
     switch (value) {
-      case 'message': return MessageItemResourceType.message;
-      default: throw ArgumentError('Unknown MessageItemResourceType: $value');
+      case 'message':
+        return MessageItemResourceType.message;
+      default:
+        throw ArgumentError('Unknown MessageItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageItemResourceType.message: return 'message';
+      case MessageItemResourceType.message:
+        return 'message';
     }
   }
 
@@ -154,80 +184,92 @@ enum MessageItemResourceType {
 
 /// The reason the message is incomplete.
 final class MessageObjectIncompleteDetailsReason {
-
   final String value;
 
   const MessageObjectIncompleteDetailsReason._(this.value);
 
-  factory MessageObjectIncompleteDetailsReason.fromJson(String value) => MessageObjectIncompleteDetailsReason._(value);
+  factory MessageObjectIncompleteDetailsReason.fromJson(String value) =>
+      MessageObjectIncompleteDetailsReason._(value);
 
-  static const contentFilter = MessageObjectIncompleteDetailsReason._('content_filter');
+  static const contentFilter =
+      MessageObjectIncompleteDetailsReason._('content_filter');
   static const maxTokens = MessageObjectIncompleteDetailsReason._('max_tokens');
-  static const runCancelled = MessageObjectIncompleteDetailsReason._('run_cancelled');
-  static const runExpired = MessageObjectIncompleteDetailsReason._('run_expired');
+  static const runCancelled =
+      MessageObjectIncompleteDetailsReason._('run_cancelled');
+  static const runExpired =
+      MessageObjectIncompleteDetailsReason._('run_expired');
   static const runFailed = MessageObjectIncompleteDetailsReason._('run_failed');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageObjectIncompleteDetailsReason && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageObjectIncompleteDetailsReason && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `thread.message`.
 final class MessageObjectObject {
-
   final String value;
 
   const MessageObjectObject._(this.value);
 
-  factory MessageObjectObject.fromJson(String value) => MessageObjectObject._(value);
+  factory MessageObjectObject.fromJson(String value) =>
+      MessageObjectObject._(value);
 
   static const threadMessage = MessageObjectObject._('thread.message');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageObjectObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageObjectObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The entity that produced the message. One of `user` or `assistant`.
 final class MessageObjectRole {
-
   final String value;
 
   const MessageObjectRole._(this.value);
 
-  factory MessageObjectRole.fromJson(String value) => MessageObjectRole._(value);
+  factory MessageObjectRole.fromJson(String value) =>
+      MessageObjectRole._(value);
 
   static const user = MessageObjectRole._('user');
   static const assistant = MessageObjectRole._('assistant');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageObjectRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageObjectRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the message, which can be either `in_progress`, `incomplete`, or `completed`.
 final class MessageObjectStatus {
-
   final String value;
 
   const MessageObjectStatus._(this.value);
 
-  factory MessageObjectStatus.fromJson(String value) => MessageObjectStatus._(value);
+  factory MessageObjectStatus.fromJson(String value) =>
+      MessageObjectStatus._(value);
 
   static const inProgress = MessageObjectStatus._('in_progress');
   static const incomplete = MessageObjectStatus._('incomplete');
@@ -235,12 +277,15 @@ final class MessageObjectStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageObjectStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageObjectStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `text`.
@@ -249,14 +294,18 @@ enum MessageRequestContentTextObjectType {
 
   static MessageRequestContentTextObjectType fromJson(String value) {
     switch (value) {
-      case 'text': return MessageRequestContentTextObjectType.text;
-      default: throw ArgumentError('Unknown MessageRequestContentTextObjectType: $value');
+      case 'text':
+        return MessageRequestContentTextObjectType.text;
+      default:
+        throw ArgumentError(
+            'Unknown MessageRequestContentTextObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageRequestContentTextObjectType.text: return 'text';
+      case MessageRequestContentTextObjectType.text:
+        return 'text';
     }
   }
 
@@ -269,14 +318,17 @@ enum MessageStreamEventVariant0Event {
 
   static MessageStreamEventVariant0Event fromJson(String value) {
     switch (value) {
-      case 'thread.message.created': return MessageStreamEventVariant0Event.threadMessageCreated;
-      default: throw ArgumentError('Unknown MessageStreamEventVariant0Event: $value');
+      case 'thread.message.created':
+        return MessageStreamEventVariant0Event.threadMessageCreated;
+      default:
+        throw ArgumentError('Unknown MessageStreamEventVariant0Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageStreamEventVariant0Event.threadMessageCreated: return 'thread.message.created';
+      case MessageStreamEventVariant0Event.threadMessageCreated:
+        return 'thread.message.created';
     }
   }
 

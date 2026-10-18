@@ -8,39 +8,70 @@ part of 'chat_chat_completion.dart';
 class ChatCompletionTokenLogprob {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The token.
   final String token;
+
   /// The log probability of this token, if it is within the top 20 most likely tokens. Otherwise, the value `-9999.0` is used to signify that the token is very unlikely.
   final double logprob;
+
   /// A list of integers representing the UTF-8 bytes representation of the token. Useful in instances where characters are represented by multiple tokens and their byte representations must be combined to generate the correct text representation. Can be `null` if there is no bytes representation for the token.
   final List<int>? bytes;
+
   /// List of the most likely tokens and their log probability, at this token position. The number of entries may be fewer than the requested `top_logprobs`.
   final List<ChatCompletionTokenLogprobTopLogprobsItem> topLogprobs;
 
-  const ChatCompletionTokenLogprob({required this.token, required this.logprob, required this.bytes, required this.topLogprobs});
+  const ChatCompletionTokenLogprob(
+      {required this.token,
+      required this.logprob,
+      required this.bytes,
+      required this.topLogprobs});
 
-  ChatCompletionTokenLogprob Function({String token, double logprob, List<int>? bytes, List<ChatCompletionTokenLogprobTopLogprobsItem> topLogprobs}) get copyWith => _copyWith;
+  ChatCompletionTokenLogprob Function(
+          {String token,
+          double logprob,
+          List<int>? bytes,
+          List<ChatCompletionTokenLogprobTopLogprobsItem> topLogprobs})
+      get copyWith => _copyWith;
 
-  ChatCompletionTokenLogprob _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? bytes = sdkOmittedValue, Object? topLogprobs = sdkOmittedValue}) => ChatCompletionTokenLogprob(
-    token: identical(token, sdkOmittedValue) ? this.token : token as String,
-    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as double,
-    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as List<int>?,
-    topLogprobs: identical(topLogprobs, sdkOmittedValue) ? this.topLogprobs : topLogprobs as List<ChatCompletionTokenLogprobTopLogprobsItem>,
-  );
+  ChatCompletionTokenLogprob _copyWith(
+          {Object? token = sdkOmittedValue,
+          Object? logprob = sdkOmittedValue,
+          Object? bytes = sdkOmittedValue,
+          Object? topLogprobs = sdkOmittedValue}) =>
+      ChatCompletionTokenLogprob(
+        token: identical(token, sdkOmittedValue) ? this.token : token as String,
+        logprob: identical(logprob, sdkOmittedValue)
+            ? this.logprob
+            : logprob as double,
+        bytes: identical(bytes, sdkOmittedValue)
+            ? this.bytes
+            : bytes as List<int>?,
+        topLogprobs: identical(topLogprobs, sdkOmittedValue)
+            ? this.topLogprobs
+            : topLogprobs as List<ChatCompletionTokenLogprobTopLogprobsItem>,
+      );
 
-  factory ChatCompletionTokenLogprob.fromJson(Map<String, dynamic> json) => ChatCompletionTokenLogprob(
-    token: (json['token'] as String?)!,
-    logprob: ((json['logprob'] as num?)?.toDouble())!,
-    bytes: json.containsKey('bytes') ? (json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList() : throw ArgumentError.value(null, 'bytes', 'Required property is missing'),
-    topLogprobs: ((json['top_logprobs'] as List?)?.map((e) => ChatCompletionTokenLogprobTopLogprobsItem.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory ChatCompletionTokenLogprob.fromJson(Map<String, dynamic> json) =>
+      ChatCompletionTokenLogprob(
+        token: (json['token'] as String?)!,
+        logprob: ((json['logprob'] as num?)?.toDouble())!,
+        bytes: json.containsKey('bytes')
+            ? (json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList()
+            : throw ArgumentError.value(
+                null, 'bytes', 'Required property is missing'),
+        topLogprobs: ((json['top_logprobs'] as List?)
+            ?.map((e) => ChatCompletionTokenLogprobTopLogprobsItem.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'token': token,
-    'logprob': logprob,
-    'bytes': bytes,
-    'top_logprobs': topLogprobs.map((item) => item.toJson()).toList(),
-  };
+        'token': token,
+        'logprob': logprob,
+        'bytes': bytes,
+        'top_logprobs': topLogprobs.map((item) => item.toJson()).toList(),
+      };
 }
 
 sealed class ChatCompletionToolChoiceOption {
@@ -49,47 +80,97 @@ sealed class ChatCompletionToolChoiceOption {
   const ChatCompletionToolChoiceOption();
   factory ChatCompletionToolChoiceOption.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ChatCompletionAllowedToolsChoice.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionToolChoiceOptionChatCompletionAllowedToolsChoice(value); } } catch (_) {}
-      try { final value = ChatCompletionNamedToolChoice.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionToolChoiceOptionChatCompletionNamedToolChoice(value); } } catch (_) {}
-      try { final value = ChatCompletionNamedToolChoiceCustom.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionToolChoiceOptionChatCompletionNamedToolChoiceCustom(value); } } catch (_) {}
+      try {
+        final value = ChatCompletionAllowedToolsChoice.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionToolChoiceOptionChatCompletionAllowedToolsChoice(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionNamedToolChoice.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionToolChoiceOptionChatCompletionNamedToolChoice(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionNamedToolChoiceCustom.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionToolChoiceOptionChatCompletionNamedToolChoiceCustom(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return ChatCompletionToolChoiceOptionChatCompletionToolChoiceOptionVariant0(ChatCompletionToolChoiceOptionVariant0.fromJson(json as String)); } catch (_) {}
-    try { return ChatCompletionToolChoiceOptionChatCompletionAllowedToolsChoice(ChatCompletionAllowedToolsChoice.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ChatCompletionToolChoiceOptionChatCompletionNamedToolChoice(ChatCompletionNamedToolChoice.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ChatCompletionToolChoiceOptionChatCompletionNamedToolChoiceCustom(ChatCompletionNamedToolChoiceCustom.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"allowed_tools", "function", "custom"}.contains(json["type"])) { return UnknownChatCompletionToolChoiceOption(json); }
-    throw FormatException("No variant matched for ChatCompletionToolChoiceOption");
+    try {
+      return ChatCompletionToolChoiceOptionChatCompletionToolChoiceOptionVariant0(
+          ChatCompletionToolChoiceOptionVariant0.fromJson(json as String));
+    } catch (_) {}
+    try {
+      return ChatCompletionToolChoiceOptionChatCompletionAllowedToolsChoice(
+          ChatCompletionAllowedToolsChoice.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ChatCompletionToolChoiceOptionChatCompletionNamedToolChoice(
+          ChatCompletionNamedToolChoice.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ChatCompletionToolChoiceOptionChatCompletionNamedToolChoiceCustom(
+          ChatCompletionNamedToolChoiceCustom.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"allowed_tools", "function", "custom"}.contains(json["type"])) {
+      return UnknownChatCompletionToolChoiceOption(json);
+    }
+    throw FormatException(
+        "No variant matched for ChatCompletionToolChoiceOption");
   }
   Object? toJson();
 }
 
-final class ChatCompletionToolChoiceOptionChatCompletionToolChoiceOptionVariant0 extends ChatCompletionToolChoiceOption {
+final class ChatCompletionToolChoiceOptionChatCompletionToolChoiceOptionVariant0
+    extends ChatCompletionToolChoiceOption {
   final ChatCompletionToolChoiceOptionVariant0 value;
-  const ChatCompletionToolChoiceOptionChatCompletionToolChoiceOptionVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionToolChoiceOptionChatCompletionToolChoiceOptionVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionToolChoiceOptionChatCompletionAllowedToolsChoice extends ChatCompletionToolChoiceOption {
+final class ChatCompletionToolChoiceOptionChatCompletionAllowedToolsChoice
+    extends ChatCompletionToolChoiceOption {
   final ChatCompletionAllowedToolsChoice value;
-  const ChatCompletionToolChoiceOptionChatCompletionAllowedToolsChoice(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionToolChoiceOptionChatCompletionAllowedToolsChoice(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionToolChoiceOptionChatCompletionNamedToolChoice extends ChatCompletionToolChoiceOption {
+final class ChatCompletionToolChoiceOptionChatCompletionNamedToolChoice
+    extends ChatCompletionToolChoiceOption {
   final ChatCompletionNamedToolChoice value;
   const ChatCompletionToolChoiceOptionChatCompletionNamedToolChoice(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionToolChoiceOptionChatCompletionNamedToolChoiceCustom extends ChatCompletionToolChoiceOption {
+final class ChatCompletionToolChoiceOptionChatCompletionNamedToolChoiceCustom
+    extends ChatCompletionToolChoiceOption {
   final ChatCompletionNamedToolChoiceCustom value;
-  const ChatCompletionToolChoiceOptionChatCompletionNamedToolChoiceCustom(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionToolChoiceOptionChatCompletionNamedToolChoiceCustom(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ChatCompletionToolChoiceOption] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownChatCompletionToolChoiceOption extends ChatCompletionToolChoiceOption {
+final class UnknownChatCompletionToolChoiceOption
+    extends ChatCompletionToolChoiceOption {
   final Map<String, dynamic> raw;
   const UnknownChatCompletionToolChoiceOption(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

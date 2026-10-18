@@ -8,53 +8,111 @@ part of 'responses_beta_file.dart';
 class BetaFileSearchToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The unique ID of the file search tool call.
   final String id;
+
   /// The type of the file search tool call. Always `file_search_call`.
   final BetaFileSearchToolCallType type_;
+
   /// The status of the file search tool call. One of `in_progress`, `searching`, `incomplete` or `failed`,
   final BetaFileSearchToolCallStatus status;
+
   /// The queries used to search for files.
   final List<String> queries;
+
   /// The results of the file search tool call.
   final SdkOptional<List<BetaFileSearchToolCallResultsItem>?> results;
 
-  const BetaFileSearchToolCall({this.agent = const SdkOmitted(), required this.id, required this.type_, required this.status, required this.queries, this.results = const SdkOmitted()});
+  const BetaFileSearchToolCall(
+      {this.agent = const SdkOmitted(),
+      required this.id,
+      required this.type_,
+      required this.status,
+      required this.queries,
+      this.results = const SdkOmitted()});
 
-  BetaFileSearchToolCall Function({SdkOptional<BetaAgentTag?> agent, String id, BetaFileSearchToolCallType type_, BetaFileSearchToolCallStatus status, List<String> queries, SdkOptional<List<BetaFileSearchToolCallResultsItem>?> results}) get copyWith => _copyWith;
+  BetaFileSearchToolCall Function(
+          {SdkOptional<BetaAgentTag?> agent,
+          String id,
+          BetaFileSearchToolCallType type_,
+          BetaFileSearchToolCallStatus status,
+          List<String> queries,
+          SdkOptional<List<BetaFileSearchToolCallResultsItem>?> results})
+      get copyWith => _copyWith;
 
-  BetaFileSearchToolCall _copyWith({Object? agent = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? status = sdkOmittedValue, Object? queries = sdkOmittedValue, Object? results = sdkOmittedValue}) => BetaFileSearchToolCall(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFileSearchToolCallType,
-    status: identical(status, sdkOmittedValue) ? this.status : status as BetaFileSearchToolCallStatus,
-    queries: identical(queries, sdkOmittedValue) ? this.queries : queries as List<String>,
-    results: identical(results, sdkOmittedValue) ? this.results : results as SdkOptional<List<BetaFileSearchToolCallResultsItem>?>,
-  );
+  BetaFileSearchToolCall _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? queries = sdkOmittedValue,
+          Object? results = sdkOmittedValue}) =>
+      BetaFileSearchToolCall(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaFileSearchToolCallType,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as BetaFileSearchToolCallStatus,
+        queries: identical(queries, sdkOmittedValue)
+            ? this.queries
+            : queries as List<String>,
+        results: identical(results, sdkOmittedValue)
+            ? this.results
+            : results as SdkOptional<List<BetaFileSearchToolCallResultsItem>?>,
+      );
 
-  factory BetaFileSearchToolCall.fromJson(Map<String, dynamic> json) => BetaFileSearchToolCall(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    id: (json['id'] as String?)!,
-    type_: (json['type'] != null ? BetaFileSearchToolCallType.fromJson(json['type'] as String) : null)!,
-    status: (json['status'] != null ? BetaFileSearchToolCallStatus.fromJson(json['status'] as String) : null)!,
-    queries: ((json['queries'] as List?)?.map((e) => e as String).toList())!,
-    results: json.containsKey('results') ? SdkPresent((json['results'] as List?)?.map((e) => BetaFileSearchToolCallResultsItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory BetaFileSearchToolCall.fromJson(Map<String, dynamic> json) =>
+      BetaFileSearchToolCall(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        id: (json['id'] as String?)!,
+        type_: (json['type'] != null
+            ? BetaFileSearchToolCallType.fromJson(json['type'] as String)
+            : null)!,
+        status: (json['status'] != null
+            ? BetaFileSearchToolCallStatus.fromJson(json['status'] as String)
+            : null)!,
+        queries:
+            ((json['queries'] as List?)?.map((e) => e as String).toList())!,
+        results: json.containsKey('results')
+            ? SdkPresent((json['results'] as List?)
+                ?.map((e) => BetaFileSearchToolCallResultsItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'id': id,
-    'type': type_.toJson(),
-    'status': status.toJson(),
-    'queries': queries,
-    ...switch (results) {
-      SdkPresent<List<BetaFileSearchToolCallResultsItem>?>(value: final value) => {'results': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'id': id,
+        'type': type_.toJson(),
+        'status': status.toJson(),
+        'queries': queries,
+        ...switch (results) {
+          SdkPresent<List<BetaFileSearchToolCallResultsItem>?>(
+            value: final value
+          ) =>
+            {
+              'results': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

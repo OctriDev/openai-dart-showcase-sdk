@@ -10,34 +10,67 @@ sealed class CreateContainerBodyNetworkPolicy {
   const CreateContainerBodyNetworkPolicy();
   factory CreateContainerBodyNetworkPolicy.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ContainerNetworkPolicyDisabledParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateContainerBodyNetworkPolicyContainerNetworkPolicyDisabledParam(value); } } catch (_) {}
-      try { final value = ContainerNetworkPolicyAllowlistParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateContainerBodyNetworkPolicyContainerNetworkPolicyAllowlistParam(value); } } catch (_) {}
+      try {
+        final value = ContainerNetworkPolicyDisabledParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateContainerBodyNetworkPolicyContainerNetworkPolicyDisabledParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ContainerNetworkPolicyAllowlistParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateContainerBodyNetworkPolicyContainerNetworkPolicyAllowlistParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return CreateContainerBodyNetworkPolicyContainerNetworkPolicyDisabledParam(ContainerNetworkPolicyDisabledParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateContainerBodyNetworkPolicyContainerNetworkPolicyAllowlistParam(ContainerNetworkPolicyAllowlistParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"disabled", "allowlist"}.contains(json["type"])) { return UnknownCreateContainerBodyNetworkPolicy(json); }
-    throw FormatException("No variant matched for CreateContainerBodyNetworkPolicy");
+    try {
+      return CreateContainerBodyNetworkPolicyContainerNetworkPolicyDisabledParam(
+          ContainerNetworkPolicyDisabledParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateContainerBodyNetworkPolicyContainerNetworkPolicyAllowlistParam(
+          ContainerNetworkPolicyAllowlistParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"disabled", "allowlist"}.contains(json["type"])) {
+      return UnknownCreateContainerBodyNetworkPolicy(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateContainerBodyNetworkPolicy");
   }
   Object? toJson();
 }
 
-final class CreateContainerBodyNetworkPolicyContainerNetworkPolicyDisabledParam extends CreateContainerBodyNetworkPolicy {
+final class CreateContainerBodyNetworkPolicyContainerNetworkPolicyDisabledParam
+    extends CreateContainerBodyNetworkPolicy {
   final ContainerNetworkPolicyDisabledParam value;
-  const CreateContainerBodyNetworkPolicyContainerNetworkPolicyDisabledParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateContainerBodyNetworkPolicyContainerNetworkPolicyDisabledParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateContainerBodyNetworkPolicyContainerNetworkPolicyAllowlistParam extends CreateContainerBodyNetworkPolicy {
+final class CreateContainerBodyNetworkPolicyContainerNetworkPolicyAllowlistParam
+    extends CreateContainerBodyNetworkPolicy {
   final ContainerNetworkPolicyAllowlistParam value;
-  const CreateContainerBodyNetworkPolicyContainerNetworkPolicyAllowlistParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateContainerBodyNetworkPolicyContainerNetworkPolicyAllowlistParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateContainerBodyNetworkPolicy] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateContainerBodyNetworkPolicy extends CreateContainerBodyNetworkPolicy {
+final class UnknownCreateContainerBodyNetworkPolicy
+    extends CreateContainerBodyNetworkPolicy {
   final Map<String, dynamic> raw;
   const UnknownCreateContainerBodyNetworkPolicy(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 sealed class CreateContainerBodySkillsItem {
@@ -46,32 +79,59 @@ sealed class CreateContainerBodySkillsItem {
   const CreateContainerBodySkillsItem();
   factory CreateContainerBodySkillsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = SkillReferenceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateContainerBodySkillsItemSkillReferenceParam(value); } } catch (_) {}
-      try { final value = InlineSkillParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateContainerBodySkillsItemInlineSkillParam(value); } } catch (_) {}
+      try {
+        final value = SkillReferenceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateContainerBodySkillsItemSkillReferenceParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InlineSkillParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateContainerBodySkillsItemInlineSkillParam(value);
+        }
+      } catch (_) {}
     }
-    try { return CreateContainerBodySkillsItemSkillReferenceParam(SkillReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateContainerBodySkillsItemInlineSkillParam(InlineSkillParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"skill_reference", "inline"}.contains(json["type"])) { return UnknownCreateContainerBodySkillsItem(json); }
-    throw FormatException("No variant matched for CreateContainerBodySkillsItem");
+    try {
+      return CreateContainerBodySkillsItemSkillReferenceParam(
+          SkillReferenceParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateContainerBodySkillsItemInlineSkillParam(
+          InlineSkillParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"skill_reference", "inline"}.contains(json["type"])) {
+      return UnknownCreateContainerBodySkillsItem(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateContainerBodySkillsItem");
   }
   Object? toJson();
 }
 
-final class CreateContainerBodySkillsItemSkillReferenceParam extends CreateContainerBodySkillsItem {
+final class CreateContainerBodySkillsItemSkillReferenceParam
+    extends CreateContainerBodySkillsItem {
   final SkillReferenceParam value;
   const CreateContainerBodySkillsItemSkillReferenceParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateContainerBodySkillsItemInlineSkillParam extends CreateContainerBodySkillsItem {
+final class CreateContainerBodySkillsItemInlineSkillParam
+    extends CreateContainerBodySkillsItem {
   final InlineSkillParam value;
   const CreateContainerBodySkillsItemInlineSkillParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateContainerBodySkillsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateContainerBodySkillsItem extends CreateContainerBodySkillsItem {
+final class UnknownCreateContainerBodySkillsItem
+    extends CreateContainerBodySkillsItem {
   final Map<String, dynamic> raw;
   const UnknownCreateContainerBodySkillsItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

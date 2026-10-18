@@ -6,66 +6,79 @@ part of 'inline.dart';
 // Inline operation models (part 65)
 /// Required enumerated value serialized in the `type` wire field.
 final class LiveDecisionTriggerInputParamType {
-
   final String value;
 
   const LiveDecisionTriggerInputParamType._(this.value);
 
-  factory LiveDecisionTriggerInputParamType.fromJson(String value) => LiveDecisionTriggerInputParamType._(value);
+  factory LiveDecisionTriggerInputParamType.fromJson(String value) =>
+      LiveDecisionTriggerInputParamType._(value);
 
   static const decisions = LiveDecisionTriggerInputParamType._('decisions');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveDecisionTriggerInputParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveDecisionTriggerInputParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `event_type` wire field.
 final class LiveDecisionTriggerInputParam2EventType {
-
   final String value;
 
   const LiveDecisionTriggerInputParam2EventType._(this.value);
 
-  factory LiveDecisionTriggerInputParam2EventType.fromJson(String value) => LiveDecisionTriggerInputParam2EventType._(value);
+  factory LiveDecisionTriggerInputParam2EventType.fromJson(String value) =>
+      LiveDecisionTriggerInputParam2EventType._(value);
 
-  static const sessionInputTranscriptDelta = LiveDecisionTriggerInputParam2EventType._('session.input_transcript.delta');
-  static const sessionOutputTranscriptDelta = LiveDecisionTriggerInputParam2EventType._('session.output_transcript.delta');
+  static const sessionInputTranscriptDelta =
+      LiveDecisionTriggerInputParam2EventType._(
+          'session.input_transcript.delta');
+  static const sessionOutputTranscriptDelta =
+      LiveDecisionTriggerInputParam2EventType._(
+          'session.output_transcript.delta');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveDecisionTriggerInputParam2EventType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveDecisionTriggerInputParam2EventType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 final class LiveDecisionTriggerInputParam2Type {
-
   final String value;
 
   const LiveDecisionTriggerInputParam2Type._(this.value);
 
-  factory LiveDecisionTriggerInputParam2Type.fromJson(String value) => LiveDecisionTriggerInputParam2Type._(value);
+  factory LiveDecisionTriggerInputParam2Type.fromJson(String value) =>
+      LiveDecisionTriggerInputParam2Type._(value);
 
   static const decisions = LiveDecisionTriggerInputParam2Type._('decisions');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveDecisionTriggerInputParam2Type && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveDecisionTriggerInputParam2Type && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, always `session.delegation.created`.
@@ -74,14 +87,17 @@ enum LiveDelegationCreatedType {
 
   static LiveDelegationCreatedType fromJson(String value) {
     switch (value) {
-      case 'session.delegation.created': return LiveDelegationCreatedType.sessionDelegationCreated;
-      default: throw ArgumentError('Unknown LiveDelegationCreatedType: $value');
+      case 'session.delegation.created':
+        return LiveDelegationCreatedType.sessionDelegationCreated;
+      default:
+        throw ArgumentError('Unknown LiveDelegationCreatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDelegationCreatedType.sessionDelegationCreated: return 'session.delegation.created';
+      case LiveDelegationCreatedType.sessionDelegationCreated:
+        return 'session.delegation.created';
     }
   }
 
@@ -91,86 +107,98 @@ enum LiveDelegationCreatedType {
 
 /// Required enumerated value serialized in the `target` wire field.
 final class LiveDelegationItemTargetVariant0 {
-
   final String value;
 
   const LiveDelegationItemTargetVariant0._(this.value);
 
-  factory LiveDelegationItemTargetVariant0.fromJson(String value) => LiveDelegationItemTargetVariant0._(value);
+  factory LiveDelegationItemTargetVariant0.fromJson(String value) =>
+      LiveDelegationItemTargetVariant0._(value);
 
   static const client = LiveDelegationItemTargetVariant0._('client');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveDelegationItemTargetVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveDelegationItemTargetVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `target` wire field.
 final class LiveDelegationItemTargetVariant1 {
-
   final String value;
 
   const LiveDelegationItemTargetVariant1._(this.value);
 
-  factory LiveDelegationItemTargetVariant1.fromJson(String value) => LiveDelegationItemTargetVariant1._(value);
+  factory LiveDelegationItemTargetVariant1.fromJson(String value) =>
+      LiveDelegationItemTargetVariant1._(value);
 
   static const responses = LiveDelegationItemTargetVariant1._('responses');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveDelegationItemTargetVariant1 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveDelegationItemTargetVariant1 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `target` wire field.
 final class LiveDelegationItemTargetVariant2 {
-
   final String value;
 
   const LiveDelegationItemTargetVariant2._(this.value);
 
-  factory LiveDelegationItemTargetVariant2.fromJson(String value) => LiveDelegationItemTargetVariant2._(value);
+  factory LiveDelegationItemTargetVariant2.fromJson(String value) =>
+      LiveDelegationItemTargetVariant2._(value);
 
   static const decisions = LiveDelegationItemTargetVariant2._('decisions');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveDelegationItemTargetVariant2 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveDelegationItemTargetVariant2 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, always `delegation`.
 final class LiveDelegationItemType {
-
   final String value;
 
   const LiveDelegationItemType._(this.value);
 
-  factory LiveDelegationItemType.fromJson(String value) => LiveDelegationItemType._(value);
+  factory LiveDelegationItemType.fromJson(String value) =>
+      LiveDelegationItemType._(value);
 
   static const delegation = LiveDelegationItemType._('delegation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveDelegationItemType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveDelegationItemType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, always `error`.
@@ -179,14 +207,17 @@ enum LiveErrorEventType {
 
   static LiveErrorEventType fromJson(String value) {
     switch (value) {
-      case 'error': return LiveErrorEventType.error;
-      default: throw ArgumentError('Unknown LiveErrorEventType: $value');
+      case 'error':
+        return LiveErrorEventType.error;
+      default:
+        throw ArgumentError('Unknown LiveErrorEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveErrorEventType.error: return 'error';
+      case LiveErrorEventType.error:
+        return 'error';
     }
   }
 
@@ -200,14 +231,17 @@ enum LiveFileSearchToolInputParamType {
 
   static LiveFileSearchToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'file_search': return LiveFileSearchToolInputParamType.fileSearch;
-      default: throw ArgumentError('Unknown LiveFileSearchToolInputParamType: $value');
+      case 'file_search':
+        return LiveFileSearchToolInputParamType.fileSearch;
+      default:
+        throw ArgumentError('Unknown LiveFileSearchToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveFileSearchToolInputParamType.fileSearch: return 'file_search';
+      case LiveFileSearchToolInputParamType.fileSearch:
+        return 'file_search';
     }
   }
 
@@ -221,14 +255,17 @@ enum LiveForkSessionStartEventType {
 
   static LiveForkSessionStartEventType fromJson(String value) {
     switch (value) {
-      case 'session.start': return LiveForkSessionStartEventType.sessionStart;
-      default: throw ArgumentError('Unknown LiveForkSessionStartEventType: $value');
+      case 'session.start':
+        return LiveForkSessionStartEventType.sessionStart;
+      default:
+        throw ArgumentError('Unknown LiveForkSessionStartEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveForkSessionStartEventType.sessionStart: return 'session.start';
+      case LiveForkSessionStartEventType.sessionStart:
+        return 'session.start';
     }
   }
 
@@ -242,14 +279,17 @@ enum LiveFunctionToolChoiceParamType {
 
   static LiveFunctionToolChoiceParamType fromJson(String value) {
     switch (value) {
-      case 'function': return LiveFunctionToolChoiceParamType.function_;
-      default: throw ArgumentError('Unknown LiveFunctionToolChoiceParamType: $value');
+      case 'function':
+        return LiveFunctionToolChoiceParamType.function_;
+      default:
+        throw ArgumentError('Unknown LiveFunctionToolChoiceParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveFunctionToolChoiceParamType.function_: return 'function';
+      case LiveFunctionToolChoiceParamType.function_:
+        return 'function';
     }
   }
 
@@ -263,14 +303,17 @@ enum LiveFunctionToolInputParamType {
 
   static LiveFunctionToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'function': return LiveFunctionToolInputParamType.function_;
-      default: throw ArgumentError('Unknown LiveFunctionToolInputParamType: $value');
+      case 'function':
+        return LiveFunctionToolInputParamType.function_;
+      default:
+        throw ArgumentError('Unknown LiveFunctionToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveFunctionToolInputParamType.function_: return 'function';
+      case LiveFunctionToolInputParamType.function_:
+        return 'function';
     }
   }
 

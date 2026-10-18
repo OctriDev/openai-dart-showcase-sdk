@@ -6,12 +6,12 @@ part of 'responses.dart';
 // responses domain models (part 3)
 /// Typed representation of the `CyberAccessProgramEnum` API schema.
 final class CyberAccessProgramEnum {
-
   final String value;
 
   const CyberAccessProgramEnum._(this.value);
 
-  factory CyberAccessProgramEnum.fromJson(String value) => CyberAccessProgramEnum._(value);
+  factory CyberAccessProgramEnum.fromJson(String value) =>
+      CyberAccessProgramEnum._(value);
 
   static const standard = CyberAccessProgramEnum._('standard');
   static const daybreakBlue = CyberAccessProgramEnum._('daybreak_blue');
@@ -19,12 +19,15 @@ final class CyberAccessProgramEnum {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CyberAccessProgramEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CyberAccessProgramEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 // PersonalityEnum = String
@@ -33,42 +36,62 @@ final class CyberAccessProgramEnum {
 class ShellCallOutputDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The stdout delta that was emitted.
   final SdkOptional<String> stdout;
+
   /// The stderr delta that was emitted.
   final SdkOptional<String> stderr;
 
-  const ShellCallOutputDelta({this.stdout = const SdkOmitted(), this.stderr = const SdkOmitted()});
+  const ShellCallOutputDelta(
+      {this.stdout = const SdkOmitted(), this.stderr = const SdkOmitted()});
 
-  ShellCallOutputDelta Function({SdkOptional<String> stdout, SdkOptional<String> stderr}) get copyWith => _copyWith;
+  ShellCallOutputDelta Function(
+      {SdkOptional<String> stdout,
+      SdkOptional<String> stderr}) get copyWith => _copyWith;
 
-  ShellCallOutputDelta _copyWith({Object? stdout = sdkOmittedValue, Object? stderr = sdkOmittedValue}) => ShellCallOutputDelta(
-    stdout: identical(stdout, sdkOmittedValue) ? this.stdout : stdout as SdkOptional<String>,
-    stderr: identical(stderr, sdkOmittedValue) ? this.stderr : stderr as SdkOptional<String>,
-  );
+  ShellCallOutputDelta _copyWith(
+          {Object? stdout = sdkOmittedValue,
+          Object? stderr = sdkOmittedValue}) =>
+      ShellCallOutputDelta(
+        stdout: identical(stdout, sdkOmittedValue)
+            ? this.stdout
+            : stdout as SdkOptional<String>,
+        stderr: identical(stderr, sdkOmittedValue)
+            ? this.stderr
+            : stderr as SdkOptional<String>,
+      );
 
-  factory ShellCallOutputDelta.fromJson(Map<String, dynamic> json) => ShellCallOutputDelta(
-    stdout: json['stdout'] != null ? SdkPresent((json['stdout'] as String?)!) : const SdkOmitted(),
-    stderr: json['stderr'] != null ? SdkPresent((json['stderr'] as String?)!) : const SdkOmitted(),
-  );
+  factory ShellCallOutputDelta.fromJson(Map<String, dynamic> json) =>
+      ShellCallOutputDelta(
+        stdout: json['stdout'] != null
+            ? SdkPresent((json['stdout'] as String?)!)
+            : const SdkOmitted(),
+        stderr: json['stderr'] != null
+            ? SdkPresent((json['stderr'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (stdout) {
-      SdkPresent<String>(value: final value) => {'stdout': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (stderr) {
-      SdkPresent<String>(value: final value) => {'stderr': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (stdout) {
+          SdkPresent<String>(value: final value) => {
+              'stdout': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (stderr) {
+          SdkPresent<String>(value: final value) => {
+              'stderr': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 // ToolsArray = List<Tool>
 
 /// Typed representation of the `TruncationEnum` API schema.
 final class TruncationEnum {
-
   final String value;
 
   const TruncationEnum._(this.value);
@@ -80,10 +103,13 @@ final class TruncationEnum {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TruncationEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TruncationEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

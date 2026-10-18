@@ -6,12 +6,12 @@ part of 'live_live_container.dart';
 // live_live_container domain models
 /// Typed representation of the `LiveContainerMemoryLimit` API schema.
 final class LiveContainerMemoryLimit {
-
   final String value;
 
   const LiveContainerMemoryLimit._(this.value);
 
-  factory LiveContainerMemoryLimit.fromJson(String value) => LiveContainerMemoryLimit._(value);
+  factory LiveContainerMemoryLimit.fromJson(String value) =>
+      LiveContainerMemoryLimit._(value);
 
   static const v1g = LiveContainerMemoryLimit._('1g');
   static const v4g = LiveContainerMemoryLimit._('4g');
@@ -20,63 +20,93 @@ final class LiveContainerMemoryLimit {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveContainerMemoryLimit && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveContainerMemoryLimit && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `LiveContainerNetworkPolicyDisabledParam` API schema.
 class LiveContainerNetworkPolicyDisabledParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Disable outbound network access. Always `disabled`.
   final LiveContainerNetworkPolicyDisabledParamType type_;
 
   const LiveContainerNetworkPolicyDisabledParam({required this.type_});
 
-  LiveContainerNetworkPolicyDisabledParam Function({LiveContainerNetworkPolicyDisabledParamType type_}) get copyWith => _copyWith;
+  LiveContainerNetworkPolicyDisabledParam Function(
+          {LiveContainerNetworkPolicyDisabledParamType type_})
+      get copyWith => _copyWith;
 
-  LiveContainerNetworkPolicyDisabledParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveContainerNetworkPolicyDisabledParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveContainerNetworkPolicyDisabledParamType,
-  );
+  LiveContainerNetworkPolicyDisabledParam _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      LiveContainerNetworkPolicyDisabledParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveContainerNetworkPolicyDisabledParamType,
+      );
 
-  factory LiveContainerNetworkPolicyDisabledParam.fromJson(Map<String, dynamic> json) => LiveContainerNetworkPolicyDisabledParam(
-    type_: (json['type'] != null ? LiveContainerNetworkPolicyDisabledParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory LiveContainerNetworkPolicyDisabledParam.fromJson(
+          Map<String, dynamic> json) =>
+      LiveContainerNetworkPolicyDisabledParam(
+        type_: (json['type'] != null
+            ? LiveContainerNetworkPolicyDisabledParamType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `LiveContainerReferenceParam` API schema.
 class LiveContainerReferenceParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// References a container created with the /v1/containers endpoint
   final LiveContainerReferenceParamType type_;
+
   /// The ID of the referenced container.
   final String containerId;
 
-  const LiveContainerReferenceParam({required this.type_, required this.containerId});
+  const LiveContainerReferenceParam(
+      {required this.type_, required this.containerId});
 
-  LiveContainerReferenceParam Function({LiveContainerReferenceParamType type_, String containerId}) get copyWith => _copyWith;
+  LiveContainerReferenceParam Function(
+      {LiveContainerReferenceParamType type_,
+      String containerId}) get copyWith => _copyWith;
 
-  LiveContainerReferenceParam _copyWith({Object? type_ = sdkOmittedValue, Object? containerId = sdkOmittedValue}) => LiveContainerReferenceParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveContainerReferenceParamType,
-    containerId: identical(containerId, sdkOmittedValue) ? this.containerId : containerId as String,
-  );
+  LiveContainerReferenceParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? containerId = sdkOmittedValue}) =>
+      LiveContainerReferenceParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveContainerReferenceParamType,
+        containerId: identical(containerId, sdkOmittedValue)
+            ? this.containerId
+            : containerId as String,
+      );
 
-  factory LiveContainerReferenceParam.fromJson(Map<String, dynamic> json) => LiveContainerReferenceParam(
-    type_: (json['type'] != null ? LiveContainerReferenceParamType.fromJson(json['type'] as String) : null)!,
-    containerId: (json['container_id'] as String?)!,
-  );
+  factory LiveContainerReferenceParam.fromJson(Map<String, dynamic> json) =>
+      LiveContainerReferenceParam(
+        type_: (json['type'] != null
+            ? LiveContainerReferenceParamType.fromJson(json['type'] as String)
+            : null)!,
+        containerId: (json['container_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'container_id': containerId,
-  };
+        'type': type_.toJson(),
+        'container_id': containerId,
+      };
 }

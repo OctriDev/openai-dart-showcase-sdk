@@ -41,12 +41,17 @@ Future<Upload> createUpload(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createUpload',
-          fromJsonRaw: (value) => Upload.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Upload.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Cancels a pending upload so that no more parts can be added. Use this operation when you no longer intend to complete the upload; the returned upload object has status `cancelled`.
 ///
@@ -60,12 +65,17 @@ Future<Upload> cancelUpload(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'cancelUpload',
-          fromJsonRaw: (value) => Upload.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Upload.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Completes an upload by assembling its parts into a file that can be used on the platform. Supply the ordered part IDs and optionally an MD5 checksum; the total uploaded bytes must match the byte count specified when creating the upload. No more parts can be added after completion.
 ///
@@ -86,12 +96,23 @@ Future<Upload> completeUpload(ClientConfig config,
           body: {'part_ids': partIds, 'md5': SdkUtils.unwrapOptional(md5)},
           decoder: SdkResponseDecoder.json,
           operationId: 'completeUpload',
-          fromJsonRaw: (value) => Upload.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Upload.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '410': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Adds a chunk of file bytes as a part of an existing upload. Send the chunk in the `data` field; each part can be at most 64 MB, and the upload can contain up to 8 GB in total. You can add parts in parallel and specify their order when you complete the upload.
 ///
@@ -110,8 +131,20 @@ Future<UploadPart> addUploadPart(ClientConfig config,
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'addUploadPart',
-          fromJsonRaw: (value) => UploadPart.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              UploadPart.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '410': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

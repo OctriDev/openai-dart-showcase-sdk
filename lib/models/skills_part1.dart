@@ -8,6 +8,7 @@ part of 'skills.dart';
 class CreateSkillBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Skill files to upload (directory upload) or a single zip file.
   final List<List<int>> files;
 
@@ -15,242 +16,402 @@ class CreateSkillBody {
 
   CreateSkillBody Function({List<List<int>> files}) get copyWith => _copyWith;
 
-  CreateSkillBody _copyWith({Object? files = sdkOmittedValue}) => CreateSkillBody(
-    files: identical(files, sdkOmittedValue) ? this.files : files as List<List<int>>,
-  );
+  CreateSkillBody _copyWith({Object? files = sdkOmittedValue}) =>
+      CreateSkillBody(
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as List<List<int>>,
+      );
 
-  factory CreateSkillBody.fromJson(Map<String, dynamic> json) => CreateSkillBody(
-    files: ((json['files'] as List?)?.map((e) => base64Decode(e as String)).toList())!,
-  );
+  factory CreateSkillBody.fromJson(Map<String, dynamic> json) =>
+      CreateSkillBody(
+        files: ((json['files'] as List?)
+            ?.map((e) => base64Decode(e as String))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'files': files.map(base64Encode).toList(),
-  };
+        'files': files.map(base64Encode).toList(),
+      };
 }
 
 /// Uploads a new immutable version of a skill.
 class CreateSkillVersionBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Skill files to upload (directory upload) or a single zip file.
   final List<List<int>> files;
+
   /// Whether to set this version as the default.
   final SdkOptional<bool> default_;
 
-  const CreateSkillVersionBody({required this.files, this.default_ = const SdkOmitted()});
+  const CreateSkillVersionBody(
+      {required this.files, this.default_ = const SdkOmitted()});
 
-  CreateSkillVersionBody Function({List<List<int>> files, SdkOptional<bool> default_}) get copyWith => _copyWith;
+  CreateSkillVersionBody Function(
+      {List<List<int>> files,
+      SdkOptional<bool> default_}) get copyWith => _copyWith;
 
-  CreateSkillVersionBody _copyWith({Object? files = sdkOmittedValue, Object? default_ = sdkOmittedValue}) => CreateSkillVersionBody(
-    files: identical(files, sdkOmittedValue) ? this.files : files as List<List<int>>,
-    default_: identical(default_, sdkOmittedValue) ? this.default_ : default_ as SdkOptional<bool>,
-  );
+  CreateSkillVersionBody _copyWith(
+          {Object? files = sdkOmittedValue,
+          Object? default_ = sdkOmittedValue}) =>
+      CreateSkillVersionBody(
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as List<List<int>>,
+        default_: identical(default_, sdkOmittedValue)
+            ? this.default_
+            : default_ as SdkOptional<bool>,
+      );
 
-  factory CreateSkillVersionBody.fromJson(Map<String, dynamic> json) => CreateSkillVersionBody(
-    files: ((json['files'] as List?)?.map((e) => base64Decode(e as String)).toList())!,
-    default_: json['default'] != null ? SdkPresent((json['default'] as bool?)!) : const SdkOmitted(),
-  );
+  factory CreateSkillVersionBody.fromJson(Map<String, dynamic> json) =>
+      CreateSkillVersionBody(
+        files: ((json['files'] as List?)
+            ?.map((e) => base64Decode(e as String))
+            .toList())!,
+        default_: json['default'] != null
+            ? SdkPresent((json['default'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'files': files.map(base64Encode).toList(),
-    ...switch (default_) {
-      SdkPresent<bool>(value: final value) => {'default': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'files': files.map(base64Encode).toList(),
+        ...switch (default_) {
+          SdkPresent<bool>(value: final value) => {
+              'default': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DeletedSkillResource` API schema.
 class DeletedSkillResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final DeletedSkillResourceObject object;
+
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
 
-  const DeletedSkillResource({required this.object, required this.deleted, required this.id});
+  const DeletedSkillResource(
+      {required this.object, required this.deleted, required this.id});
 
-  DeletedSkillResource Function({DeletedSkillResourceObject object, bool deleted, String id}) get copyWith => _copyWith;
+  DeletedSkillResource Function(
+      {DeletedSkillResourceObject object,
+      bool deleted,
+      String id}) get copyWith => _copyWith;
 
-  DeletedSkillResource _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? id = sdkOmittedValue}) => DeletedSkillResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as DeletedSkillResourceObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  DeletedSkillResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue,
+          Object? id = sdkOmittedValue}) =>
+      DeletedSkillResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as DeletedSkillResourceObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory DeletedSkillResource.fromJson(Map<String, dynamic> json) => DeletedSkillResource(
-    object: (json['object'] != null ? DeletedSkillResourceObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-    id: (json['id'] as String?)!,
-  );
+  factory DeletedSkillResource.fromJson(Map<String, dynamic> json) =>
+      DeletedSkillResource(
+        object: (json['object'] != null
+            ? DeletedSkillResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        deleted: (json['deleted'] as bool?)!,
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'deleted': deleted,
-    'id': id,
-  };
+        'object': object.toJson(),
+        'deleted': deleted,
+        'id': id,
+      };
 }
 
 /// Typed representation of the `DeletedSkillVersionResource` API schema.
 class DeletedSkillVersionResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final DeletedSkillVersionResourceObject object;
+
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// The deleted skill version.
   final String version;
 
-  const DeletedSkillVersionResource({required this.object, required this.deleted, required this.id, required this.version});
+  const DeletedSkillVersionResource(
+      {required this.object,
+      required this.deleted,
+      required this.id,
+      required this.version});
 
-  DeletedSkillVersionResource Function({DeletedSkillVersionResourceObject object, bool deleted, String id, String version}) get copyWith => _copyWith;
+  DeletedSkillVersionResource Function(
+      {DeletedSkillVersionResourceObject object,
+      bool deleted,
+      String id,
+      String version}) get copyWith => _copyWith;
 
-  DeletedSkillVersionResource _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? id = sdkOmittedValue, Object? version = sdkOmittedValue}) => DeletedSkillVersionResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as DeletedSkillVersionResourceObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    version: identical(version, sdkOmittedValue) ? this.version : version as String,
-  );
+  DeletedSkillVersionResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? version = sdkOmittedValue}) =>
+      DeletedSkillVersionResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as DeletedSkillVersionResourceObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as String,
+      );
 
-  factory DeletedSkillVersionResource.fromJson(Map<String, dynamic> json) => DeletedSkillVersionResource(
-    object: (json['object'] != null ? DeletedSkillVersionResourceObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-    id: (json['id'] as String?)!,
-    version: (json['version'] as String?)!,
-  );
+  factory DeletedSkillVersionResource.fromJson(Map<String, dynamic> json) =>
+      DeletedSkillVersionResource(
+        object: (json['object'] != null
+            ? DeletedSkillVersionResourceObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        deleted: (json['deleted'] as bool?)!,
+        id: (json['id'] as String?)!,
+        version: (json['version'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'deleted': deleted,
-    'id': id,
-    'version': version,
-  };
+        'object': object.toJson(),
+        'deleted': deleted,
+        'id': id,
+        'version': version,
+      };
 }
 
 /// Updates the default version pointer for a skill.
 class SetDefaultSkillVersionBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The skill version number to set as default.
   final String defaultVersion;
 
   const SetDefaultSkillVersionBody({required this.defaultVersion});
 
-  SetDefaultSkillVersionBody Function({String defaultVersion}) get copyWith => _copyWith;
+  SetDefaultSkillVersionBody Function({String defaultVersion}) get copyWith =>
+      _copyWith;
 
-  SetDefaultSkillVersionBody _copyWith({Object? defaultVersion = sdkOmittedValue}) => SetDefaultSkillVersionBody(
-    defaultVersion: identical(defaultVersion, sdkOmittedValue) ? this.defaultVersion : defaultVersion as String,
-  );
+  SetDefaultSkillVersionBody _copyWith(
+          {Object? defaultVersion = sdkOmittedValue}) =>
+      SetDefaultSkillVersionBody(
+        defaultVersion: identical(defaultVersion, sdkOmittedValue)
+            ? this.defaultVersion
+            : defaultVersion as String,
+      );
 
-  factory SetDefaultSkillVersionBody.fromJson(Map<String, dynamic> json) => SetDefaultSkillVersionBody(
-    defaultVersion: (json['default_version'] as String?)!,
-  );
+  factory SetDefaultSkillVersionBody.fromJson(Map<String, dynamic> json) =>
+      SetDefaultSkillVersionBody(
+        defaultVersion: (json['default_version'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'default_version': defaultVersion,
-  };
+        'default_version': defaultVersion,
+      };
 }
 
 /// Typed representation of the `SkillListResource` API schema.
 class SkillListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object returned, must be `list`.
   final SkillListResourceObject object;
+
   /// A list of items
   final List<SkillResource> data;
+
   /// Required `string` value serialized in the `first_id` wire field.
   final String? firstId;
+
   /// Required `string` value serialized in the `last_id` wire field.
   final String? lastId;
+
   /// Whether there are more items available.
   final bool hasMore;
 
-  const SkillListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
+  const SkillListResource(
+      {required this.object,
+      required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore});
 
-  SkillListResource Function({SkillListResourceObject object, List<SkillResource> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
+  SkillListResource Function(
+      {SkillListResourceObject object,
+      List<SkillResource> data,
+      String? firstId,
+      String? lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  SkillListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => SkillListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SkillListResourceObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<SkillResource>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  SkillListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      SkillListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SkillListResourceObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<SkillResource>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String?,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory SkillListResource.fromJson(Map<String, dynamic> json) => SkillListResource(
-    object: (json['object'] != null ? SkillListResourceObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => SkillResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
-    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory SkillListResource.fromJson(Map<String, dynamic> json) =>
+      SkillListResource(
+        object: (json['object'] != null
+            ? SkillListResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => SkillResource.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? json['first_id'] as String?
+            : throw ArgumentError.value(
+                null, 'first_id', 'Required property is missing'),
+        lastId: json.containsKey('last_id')
+            ? json['last_id'] as String?
+            : throw ArgumentError.value(
+                null, 'last_id', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+      };
 }
 
 /// Typed representation of the `SkillResource` API schema.
 class SkillResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the skill.
   final String id;
+
   /// The object type, which is `skill`.
   final SkillResourceObject object;
+
   /// Name of the skill.
   final String name;
+
   /// Description of the skill.
   final String description;
+
   /// Unix timestamp (seconds) for when the skill was created.
   final int createdAt;
+
   /// Default version for the skill.
   final String defaultVersion;
+
   /// Latest version for the skill.
   final String latestVersion;
 
-  const SkillResource({required this.id, required this.object, required this.name, required this.description, required this.createdAt, required this.defaultVersion, required this.latestVersion});
+  const SkillResource(
+      {required this.id,
+      required this.object,
+      required this.name,
+      required this.description,
+      required this.createdAt,
+      required this.defaultVersion,
+      required this.latestVersion});
 
-  SkillResource Function({String id, SkillResourceObject object, String name, String description, int createdAt, String defaultVersion, String latestVersion}) get copyWith => _copyWith;
+  SkillResource Function(
+      {String id,
+      SkillResourceObject object,
+      String name,
+      String description,
+      int createdAt,
+      String defaultVersion,
+      String latestVersion}) get copyWith => _copyWith;
 
-  SkillResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? defaultVersion = sdkOmittedValue, Object? latestVersion = sdkOmittedValue}) => SkillResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SkillResourceObject,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    defaultVersion: identical(defaultVersion, sdkOmittedValue) ? this.defaultVersion : defaultVersion as String,
-    latestVersion: identical(latestVersion, sdkOmittedValue) ? this.latestVersion : latestVersion as String,
-  );
+  SkillResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? defaultVersion = sdkOmittedValue,
+          Object? latestVersion = sdkOmittedValue}) =>
+      SkillResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SkillResourceObject,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        defaultVersion: identical(defaultVersion, sdkOmittedValue)
+            ? this.defaultVersion
+            : defaultVersion as String,
+        latestVersion: identical(latestVersion, sdkOmittedValue)
+            ? this.latestVersion
+            : latestVersion as String,
+      );
 
   factory SkillResource.fromJson(Map<String, dynamic> json) => SkillResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? SkillResourceObject.fromJson(json['object'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    defaultVersion: (json['default_version'] as String?)!,
-    latestVersion: (json['latest_version'] as String?)!,
-  );
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? SkillResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        defaultVersion: (json['default_version'] as String?)!,
+        latestVersion: (json['latest_version'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'name': name,
-    'description': description,
-    'created_at': createdAt,
-    'default_version': defaultVersion,
-    'latest_version': latestVersion,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'name': name,
+        'description': description,
+        'created_at': createdAt,
+        'default_version': defaultVersion,
+        'latest_version': latestVersion,
+      };
 }
