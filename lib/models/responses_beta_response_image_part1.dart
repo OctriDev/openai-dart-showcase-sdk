@@ -8,444 +8,228 @@ part of 'responses_beta_response_image.dart';
 class BetaResponseImageGenCallCompletedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the event. Always 'response.image_generation_call.completed'.
   final BetaResponseImageGenCallCompletedEventType type_;
-
   /// The index of the output item in the response's output array.
   final int outputIndex;
-
   /// The sequence number of this event.
   final int sequenceNumber;
-
   /// The unique identifier of the image generation item being processed.
   final String itemId;
 
-  const BetaResponseImageGenCallCompletedEvent(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.outputIndex,
-      required this.sequenceNumber,
-      required this.itemId});
+  const BetaResponseImageGenCallCompletedEvent({this.agent = const SdkOmitted(), required this.type_, required this.outputIndex, required this.sequenceNumber, required this.itemId});
 
-  BetaResponseImageGenCallCompletedEvent Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaResponseImageGenCallCompletedEventType type_,
-      int outputIndex,
-      int sequenceNumber,
-      String itemId}) get copyWith => _copyWith;
+  BetaResponseImageGenCallCompletedEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseImageGenCallCompletedEventType type_, int outputIndex, int sequenceNumber, String itemId}) get copyWith => _copyWith;
 
-  BetaResponseImageGenCallCompletedEvent _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue}) =>
-      BetaResponseImageGenCallCompletedEvent(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseImageGenCallCompletedEventType,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-      );
+  BetaResponseImageGenCallCompletedEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => BetaResponseImageGenCallCompletedEvent(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseImageGenCallCompletedEventType,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+  );
 
-  factory BetaResponseImageGenCallCompletedEvent.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseImageGenCallCompletedEvent(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaResponseImageGenCallCompletedEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        itemId: (json['item_id'] as String?)!,
-      );
+  factory BetaResponseImageGenCallCompletedEvent.fromJson(Map<String, dynamic> json) => BetaResponseImageGenCallCompletedEvent(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaResponseImageGenCallCompletedEventType.fromJson(json['type'] as String) : null)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    itemId: (json['item_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'output_index': outputIndex,
-        'sequence_number': sequenceNumber,
-        'item_id': itemId,
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'output_index': outputIndex,
+    'sequence_number': sequenceNumber,
+    'item_id': itemId,
+  };
 }
 
 /// Emitted when an image generation tool call is actively generating an image (intermediate state).
 class BetaResponseImageGenCallGeneratingEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the event. Always 'response.image_generation_call.generating'.
   final BetaResponseImageGenCallGeneratingEventType type_;
-
   /// The index of the output item in the response's output array.
   final int outputIndex;
-
   /// The unique identifier of the image generation item being processed.
   final String itemId;
-
   /// The sequence number of the image generation item being processed.
   final int sequenceNumber;
 
-  const BetaResponseImageGenCallGeneratingEvent(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.outputIndex,
-      required this.itemId,
-      required this.sequenceNumber});
+  const BetaResponseImageGenCallGeneratingEvent({this.agent = const SdkOmitted(), required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber});
 
-  BetaResponseImageGenCallGeneratingEvent Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaResponseImageGenCallGeneratingEventType type_,
-      int outputIndex,
-      String itemId,
-      int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseImageGenCallGeneratingEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseImageGenCallGeneratingEventType type_, int outputIndex, String itemId, int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseImageGenCallGeneratingEvent _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue}) =>
-      BetaResponseImageGenCallGeneratingEvent(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseImageGenCallGeneratingEventType,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-      );
+  BetaResponseImageGenCallGeneratingEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseImageGenCallGeneratingEvent(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseImageGenCallGeneratingEventType,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+  );
 
-  factory BetaResponseImageGenCallGeneratingEvent.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseImageGenCallGeneratingEvent(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaResponseImageGenCallGeneratingEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        itemId: (json['item_id'] as String?)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-      );
+  factory BetaResponseImageGenCallGeneratingEvent.fromJson(Map<String, dynamic> json) => BetaResponseImageGenCallGeneratingEvent(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaResponseImageGenCallGeneratingEventType.fromJson(json['type'] as String) : null)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    itemId: (json['item_id'] as String?)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'output_index': outputIndex,
-        'item_id': itemId,
-        'sequence_number': sequenceNumber,
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'output_index': outputIndex,
+    'item_id': itemId,
+    'sequence_number': sequenceNumber,
+  };
 }
 
 /// Emitted when an image generation tool call is in progress.
 class BetaResponseImageGenCallInProgressEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the event. Always 'response.image_generation_call.in_progress'.
   final BetaResponseImageGenCallInProgressEventType type_;
-
   /// The index of the output item in the response's output array.
   final int outputIndex;
-
   /// The unique identifier of the image generation item being processed.
   final String itemId;
-
   /// The sequence number of the image generation item being processed.
   final int sequenceNumber;
 
-  const BetaResponseImageGenCallInProgressEvent(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.outputIndex,
-      required this.itemId,
-      required this.sequenceNumber});
+  const BetaResponseImageGenCallInProgressEvent({this.agent = const SdkOmitted(), required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber});
 
-  BetaResponseImageGenCallInProgressEvent Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaResponseImageGenCallInProgressEventType type_,
-      int outputIndex,
-      String itemId,
-      int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseImageGenCallInProgressEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseImageGenCallInProgressEventType type_, int outputIndex, String itemId, int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseImageGenCallInProgressEvent _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue}) =>
-      BetaResponseImageGenCallInProgressEvent(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseImageGenCallInProgressEventType,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-      );
+  BetaResponseImageGenCallInProgressEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseImageGenCallInProgressEvent(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseImageGenCallInProgressEventType,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+  );
 
-  factory BetaResponseImageGenCallInProgressEvent.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseImageGenCallInProgressEvent(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaResponseImageGenCallInProgressEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        itemId: (json['item_id'] as String?)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-      );
+  factory BetaResponseImageGenCallInProgressEvent.fromJson(Map<String, dynamic> json) => BetaResponseImageGenCallInProgressEvent(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaResponseImageGenCallInProgressEventType.fromJson(json['type'] as String) : null)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    itemId: (json['item_id'] as String?)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'output_index': outputIndex,
-        'item_id': itemId,
-        'sequence_number': sequenceNumber,
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'output_index': outputIndex,
+    'item_id': itemId,
+    'sequence_number': sequenceNumber,
+  };
 }
 
 /// Emitted when a partial image is available during image generation streaming.
 class BetaResponseImageGenCallPartialImageEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the event. Always 'response.image_generation_call.partial_image'.
   final BetaResponseImageGenCallPartialImageEventType type_;
-
   /// The index of the output item in the response's output array.
   final int outputIndex;
-
   /// The unique identifier of the image generation item being processed.
   final String itemId;
-
   /// The sequence number of the image generation item being processed.
   final int sequenceNumber;
-
   /// 0-based index for the partial image (backend is 1-based, but this is 0-based for the user).
   final int partialImageIndex;
-
   /// Base64-encoded partial image data, suitable for rendering as an image.
   final String partialImageB64;
-
   /// The image size that was used.
   final SdkOptional<String> size;
-
   /// The image quality that was used.
   final SdkOptional<String> quality;
-
   /// The background setting that was used.
   final SdkOptional<String> background;
-
   /// The output format that was used.
   final SdkOptional<String> outputFormat;
 
-  const BetaResponseImageGenCallPartialImageEvent(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.outputIndex,
-      required this.itemId,
-      required this.sequenceNumber,
-      required this.partialImageIndex,
-      required this.partialImageB64,
-      this.size = const SdkOmitted(),
-      this.quality = const SdkOmitted(),
-      this.background = const SdkOmitted(),
-      this.outputFormat = const SdkOmitted()});
+  const BetaResponseImageGenCallPartialImageEvent({this.agent = const SdkOmitted(), required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber, required this.partialImageIndex, required this.partialImageB64, this.size = const SdkOmitted(), this.quality = const SdkOmitted(), this.background = const SdkOmitted(), this.outputFormat = const SdkOmitted()});
 
-  BetaResponseImageGenCallPartialImageEvent Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaResponseImageGenCallPartialImageEventType type_,
-      int outputIndex,
-      String itemId,
-      int sequenceNumber,
-      int partialImageIndex,
-      String partialImageB64,
-      SdkOptional<String> size,
-      SdkOptional<String> quality,
-      SdkOptional<String> background,
-      SdkOptional<String> outputFormat}) get copyWith => _copyWith;
+  BetaResponseImageGenCallPartialImageEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseImageGenCallPartialImageEventType type_, int outputIndex, String itemId, int sequenceNumber, int partialImageIndex, String partialImageB64, SdkOptional<String> size, SdkOptional<String> quality, SdkOptional<String> background, SdkOptional<String> outputFormat}) get copyWith => _copyWith;
 
-  BetaResponseImageGenCallPartialImageEvent _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? partialImageIndex = sdkOmittedValue,
-          Object? partialImageB64 = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? quality = sdkOmittedValue,
-          Object? background = sdkOmittedValue,
-          Object? outputFormat = sdkOmittedValue}) =>
-      BetaResponseImageGenCallPartialImageEvent(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseImageGenCallPartialImageEventType,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        partialImageIndex: identical(partialImageIndex, sdkOmittedValue)
-            ? this.partialImageIndex
-            : partialImageIndex as int,
-        partialImageB64: identical(partialImageB64, sdkOmittedValue)
-            ? this.partialImageB64
-            : partialImageB64 as String,
-        size: identical(size, sdkOmittedValue)
-            ? this.size
-            : size as SdkOptional<String>,
-        quality: identical(quality, sdkOmittedValue)
-            ? this.quality
-            : quality as SdkOptional<String>,
-        background: identical(background, sdkOmittedValue)
-            ? this.background
-            : background as SdkOptional<String>,
-        outputFormat: identical(outputFormat, sdkOmittedValue)
-            ? this.outputFormat
-            : outputFormat as SdkOptional<String>,
-      );
+  BetaResponseImageGenCallPartialImageEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? partialImageIndex = sdkOmittedValue, Object? partialImageB64 = sdkOmittedValue, Object? size = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? background = sdkOmittedValue, Object? outputFormat = sdkOmittedValue}) => BetaResponseImageGenCallPartialImageEvent(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseImageGenCallPartialImageEventType,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    partialImageIndex: identical(partialImageIndex, sdkOmittedValue) ? this.partialImageIndex : partialImageIndex as int,
+    partialImageB64: identical(partialImageB64, sdkOmittedValue) ? this.partialImageB64 : partialImageB64 as String,
+    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String>,
+    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as SdkOptional<String>,
+    background: identical(background, sdkOmittedValue) ? this.background : background as SdkOptional<String>,
+    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as SdkOptional<String>,
+  );
 
-  factory BetaResponseImageGenCallPartialImageEvent.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseImageGenCallPartialImageEvent(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaResponseImageGenCallPartialImageEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        itemId: (json['item_id'] as String?)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        partialImageIndex: ((json['partial_image_index'] as num?)?.toInt())!,
-        partialImageB64: (json['partial_image_b64'] as String?)!,
-        size: json['size'] != null
-            ? SdkPresent((json['size'] as String?)!)
-            : const SdkOmitted(),
-        quality: json['quality'] != null
-            ? SdkPresent((json['quality'] as String?)!)
-            : const SdkOmitted(),
-        background: json['background'] != null
-            ? SdkPresent((json['background'] as String?)!)
-            : const SdkOmitted(),
-        outputFormat: json['output_format'] != null
-            ? SdkPresent((json['output_format'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory BetaResponseImageGenCallPartialImageEvent.fromJson(Map<String, dynamic> json) => BetaResponseImageGenCallPartialImageEvent(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaResponseImageGenCallPartialImageEventType.fromJson(json['type'] as String) : null)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    itemId: (json['item_id'] as String?)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    partialImageIndex: ((json['partial_image_index'] as num?)?.toInt())!,
+    partialImageB64: (json['partial_image_b64'] as String?)!,
+    size: json['size'] != null ? SdkPresent((json['size'] as String?)!) : const SdkOmitted(),
+    quality: json['quality'] != null ? SdkPresent((json['quality'] as String?)!) : const SdkOmitted(),
+    background: json['background'] != null ? SdkPresent((json['background'] as String?)!) : const SdkOmitted(),
+    outputFormat: json['output_format'] != null ? SdkPresent((json['output_format'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'output_index': outputIndex,
-        'item_id': itemId,
-        'sequence_number': sequenceNumber,
-        'partial_image_index': partialImageIndex,
-        'partial_image_b64': partialImageB64,
-        ...switch (size) {
-          SdkPresent<String>(value: final value) => {
-              'size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (quality) {
-          SdkPresent<String>(value: final value) => {
-              'quality': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (background) {
-          SdkPresent<String>(value: final value) => {
-              'background': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputFormat) {
-          SdkPresent<String>(value: final value) => {
-              'output_format': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'output_index': outputIndex,
+    'item_id': itemId,
+    'sequence_number': sequenceNumber,
+    'partial_image_index': partialImageIndex,
+    'partial_image_b64': partialImageB64,
+    ...switch (size) {
+      SdkPresent<String>(value: final value) => {'size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (quality) {
+      SdkPresent<String>(value: final value) => {'quality': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (background) {
+      SdkPresent<String>(value: final value) => {'background': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputFormat) {
+      SdkPresent<String>(value: final value) => {'output_format': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

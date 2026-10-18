@@ -10,112 +10,26 @@ sealed class ComputerAction {
   const ComputerAction();
   factory ComputerAction.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ClickParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ComputerActionClickParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = DoubleClickAction.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ComputerActionDoubleClickAction(value);
-        }
-      } catch (_) {}
-      try {
-        final value = DragParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ComputerActionDragParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = KeyPressAction.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ComputerActionKeyPressAction(value);
-        }
-      } catch (_) {}
-      try {
-        final value = MoveParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ComputerActionMoveParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ScreenshotParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ComputerActionScreenshotParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ScrollParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ComputerActionScrollParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = TypeParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ComputerActionTypeParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = WaitParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ComputerActionWaitParam(value);
-        }
-      } catch (_) {}
+      try { final value = ClickParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerActionClickParam(value); } } catch (_) {}
+      try { final value = DoubleClickAction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerActionDoubleClickAction(value); } } catch (_) {}
+      try { final value = DragParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerActionDragParam(value); } } catch (_) {}
+      try { final value = KeyPressAction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerActionKeyPressAction(value); } } catch (_) {}
+      try { final value = MoveParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerActionMoveParam(value); } } catch (_) {}
+      try { final value = ScreenshotParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerActionScreenshotParam(value); } } catch (_) {}
+      try { final value = ScrollParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerActionScrollParam(value); } } catch (_) {}
+      try { final value = TypeParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerActionTypeParam(value); } } catch (_) {}
+      try { final value = WaitParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerActionWaitParam(value); } } catch (_) {}
     }
-    try {
-      return ComputerActionClickParam(
-          ClickParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ComputerActionDoubleClickAction(
-          DoubleClickAction.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ComputerActionDragParam(
-          DragParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ComputerActionKeyPressAction(
-          KeyPressAction.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ComputerActionMoveParam(
-          MoveParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ComputerActionScreenshotParam(
-          ScreenshotParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ComputerActionScrollParam(
-          ScrollParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ComputerActionTypeParam(
-          TypeParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ComputerActionWaitParam(
-          WaitParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "click",
-          "double_click",
-          "drag",
-          "keypress",
-          "move",
-          "screenshot",
-          "scroll",
-          "type",
-          "wait"
-        }.contains(json["type"])) {
-      return UnknownComputerAction(json);
-    }
+    try { return ComputerActionClickParam(ClickParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ComputerActionDoubleClickAction(DoubleClickAction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ComputerActionDragParam(DragParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ComputerActionKeyPressAction(KeyPressAction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ComputerActionMoveParam(MoveParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ComputerActionScreenshotParam(ScreenshotParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ComputerActionScrollParam(ScrollParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ComputerActionTypeParam(TypeParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ComputerActionWaitParam(WaitParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"click", "double_click", "drag", "keypress", "move", "screenshot", "scroll", "type", "wait"}.contains(json["type"])) { return UnknownComputerAction(json); }
     throw FormatException("No variant matched for ComputerAction");
   }
   Object? toJson();
@@ -124,72 +38,62 @@ sealed class ComputerAction {
 final class ComputerActionClickParam extends ComputerAction {
   final ClickParam value;
   const ComputerActionClickParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ComputerActionDoubleClickAction extends ComputerAction {
   final DoubleClickAction value;
   const ComputerActionDoubleClickAction(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ComputerActionDragParam extends ComputerAction {
   final DragParam value;
   const ComputerActionDragParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ComputerActionKeyPressAction extends ComputerAction {
   final KeyPressAction value;
   const ComputerActionKeyPressAction(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ComputerActionMoveParam extends ComputerAction {
   final MoveParam value;
   const ComputerActionMoveParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ComputerActionScreenshotParam extends ComputerAction {
   final ScreenshotParam value;
   const ComputerActionScreenshotParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ComputerActionScrollParam extends ComputerAction {
   final ScrollParam value;
   const ComputerActionScrollParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ComputerActionTypeParam extends ComputerAction {
   final TypeParam value;
   const ComputerActionTypeParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ComputerActionWaitParam extends ComputerAction {
   final WaitParam value;
   const ComputerActionWaitParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ComputerAction] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownComputerAction extends ComputerAction {
   final Map<String, dynamic> raw;
   const UnknownComputerAction(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 // ComputerActionList = List<ComputerAction>
@@ -198,132 +102,68 @@ final class UnknownComputerAction extends ComputerAction {
 class ComputerCallOutputItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
-
   /// The ID of the computer tool call that produced the output.
   final String callId;
-
   /// The type of the computer tool call output. Always `computer_call_output`.
   final ComputerCallOutputItemParamType type_;
-
   /// A computer screenshot image used with the computer use tool.
   final ComputerScreenshotImage output;
-
   /// The safety checks reported by the API that have been acknowledged by the developer.
-  final SdkOptional<List<ComputerCallSafetyCheckParam>?>
-      acknowledgedSafetyChecks;
-
+  final SdkOptional<List<ComputerCallSafetyCheckParam>?> acknowledgedSafetyChecks;
   /// Optional API value serialized in the `status` wire field.
   final SdkOptional<FunctionCallItemStatus?> status;
 
-  const ComputerCallOutputItemParam(
-      {this.id = const SdkOmitted(),
-      required this.callId,
-      required this.type_,
-      required this.output,
-      this.acknowledgedSafetyChecks = const SdkOmitted(),
-      this.status = const SdkOmitted()});
+  const ComputerCallOutputItemParam({this.id = const SdkOmitted(), required this.callId, required this.type_, required this.output, this.acknowledgedSafetyChecks = const SdkOmitted(), this.status = const SdkOmitted()});
 
-  ComputerCallOutputItemParam Function(
-      {SdkOptional<String?> id,
-      String callId,
-      ComputerCallOutputItemParamType type_,
-      ComputerScreenshotImage output,
-      SdkOptional<List<ComputerCallSafetyCheckParam>?> acknowledgedSafetyChecks,
-      SdkOptional<FunctionCallItemStatus?> status}) get copyWith => _copyWith;
+  ComputerCallOutputItemParam Function({SdkOptional<String?> id, String callId, ComputerCallOutputItemParamType type_, ComputerScreenshotImage output, SdkOptional<List<ComputerCallSafetyCheckParam>?> acknowledgedSafetyChecks, SdkOptional<FunctionCallItemStatus?> status}) get copyWith => _copyWith;
 
-  ComputerCallOutputItemParam _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? acknowledgedSafetyChecks = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      ComputerCallOutputItemParam(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String?>,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ComputerCallOutputItemParamType,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as ComputerScreenshotImage,
-        acknowledgedSafetyChecks:
-            identical(acknowledgedSafetyChecks, sdkOmittedValue)
-                ? this.acknowledgedSafetyChecks
-                : acknowledgedSafetyChecks
-                    as SdkOptional<List<ComputerCallSafetyCheckParam>?>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<FunctionCallItemStatus?>,
-      );
+  ComputerCallOutputItemParam _copyWith({Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? output = sdkOmittedValue, Object? acknowledgedSafetyChecks = sdkOmittedValue, Object? status = sdkOmittedValue}) => ComputerCallOutputItemParam(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerCallOutputItemParamType,
+    output: identical(output, sdkOmittedValue) ? this.output : output as ComputerScreenshotImage,
+    acknowledgedSafetyChecks: identical(acknowledgedSafetyChecks, sdkOmittedValue) ? this.acknowledgedSafetyChecks : acknowledgedSafetyChecks as SdkOptional<List<ComputerCallSafetyCheckParam>?>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<FunctionCallItemStatus?>,
+  );
 
-  factory ComputerCallOutputItemParam.fromJson(Map<String, dynamic> json) =>
-      ComputerCallOutputItemParam(
-        id: json.containsKey('id')
-            ? SdkPresent(json['id'] as String?)
-            : const SdkOmitted(),
-        callId: (json['call_id'] as String?)!,
-        type_: (json['type'] != null
-            ? ComputerCallOutputItemParamType.fromJson(json['type'] as String)
-            : null)!,
-        output: (json['output'] != null
-            ? ComputerScreenshotImage.fromJson(
-                json['output'] as Map<String, dynamic>)
-            : null)!,
-        acknowledgedSafetyChecks: json.containsKey('acknowledged_safety_checks')
-            ? SdkPresent((json['acknowledged_safety_checks'] as List?)
-                ?.map((e) => ComputerCallSafetyCheckParam.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        status: json.containsKey('status')
-            ? SdkPresent(json['status'] != null
-                ? FunctionCallItemStatus.fromJson(json['status'] as String)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory ComputerCallOutputItemParam.fromJson(Map<String, dynamic> json) => ComputerCallOutputItemParam(
+    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
+    callId: (json['call_id'] as String?)!,
+    type_: (json['type'] != null ? ComputerCallOutputItemParamType.fromJson(json['type'] as String) : null)!,
+    output: (json['output'] != null ? ComputerScreenshotImage.fromJson(json['output'] as Map<String, dynamic>) : null)!,
+    acknowledgedSafetyChecks: json.containsKey('acknowledged_safety_checks') ? SdkPresent((json['acknowledged_safety_checks'] as List?)?.map((e) => ComputerCallSafetyCheckParam.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    status: json.containsKey('status') ? SdkPresent(json['status'] != null ? FunctionCallItemStatus.fromJson(json['status'] as String) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String?>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'call_id': callId,
-        'type': type_.toJson(),
-        'output': output.toJson(),
-        ...switch (acknowledgedSafetyChecks) {
-          SdkPresent<List<ComputerCallSafetyCheckParam>?>(value: final value) =>
-            {
-              'acknowledged_safety_checks':
-                  value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<FunctionCallItemStatus?>(value: final value) => {
-              'status': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String?>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'call_id': callId,
+    'type': type_.toJson(),
+    'output': output.toJson(),
+    ...switch (acknowledgedSafetyChecks) {
+      SdkPresent<List<ComputerCallSafetyCheckParam>?>(value: final value) => {'acknowledged_safety_checks': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<FunctionCallItemStatus?>(value: final value) => {'status': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ComputerCallOutputStatus` API schema.
 final class ComputerCallOutputStatus {
+
   final String value;
 
   const ComputerCallOutputStatus._(this.value);
 
-  factory ComputerCallOutputStatus.fromJson(String value) =>
-      ComputerCallOutputStatus._(value);
+  factory ComputerCallOutputStatus.fromJson(String value) => ComputerCallOutputStatus._(value);
 
   static const completed = ComputerCallOutputStatus._('completed');
   static const incomplete = ComputerCallOutputStatus._('incomplete');
@@ -331,91 +171,62 @@ final class ComputerCallOutputStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ComputerCallOutputStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ComputerCallOutputStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A pending safety check for the computer call.
 class ComputerCallSafetyCheckParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the pending safety check.
   final String id;
-
   /// Optional `string` value serialized in the `code` wire field.
   final SdkOptional<String?> code;
-
   /// Optional `string` value serialized in the `message` wire field.
   final SdkOptional<String?> message;
 
-  const ComputerCallSafetyCheckParam(
-      {required this.id,
-      this.code = const SdkOmitted(),
-      this.message = const SdkOmitted()});
+  const ComputerCallSafetyCheckParam({required this.id, this.code = const SdkOmitted(), this.message = const SdkOmitted()});
 
-  ComputerCallSafetyCheckParam Function(
-      {String id,
-      SdkOptional<String?> code,
-      SdkOptional<String?> message}) get copyWith => _copyWith;
+  ComputerCallSafetyCheckParam Function({String id, SdkOptional<String?> code, SdkOptional<String?> message}) get copyWith => _copyWith;
 
-  ComputerCallSafetyCheckParam _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      ComputerCallSafetyCheckParam(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        code: identical(code, sdkOmittedValue)
-            ? this.code
-            : code as SdkOptional<String?>,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as SdkOptional<String?>,
-      );
+  ComputerCallSafetyCheckParam _copyWith({Object? id = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => ComputerCallSafetyCheckParam(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    code: identical(code, sdkOmittedValue) ? this.code : code as SdkOptional<String?>,
+    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String?>,
+  );
 
-  factory ComputerCallSafetyCheckParam.fromJson(Map<String, dynamic> json) =>
-      ComputerCallSafetyCheckParam(
-        id: (json['id'] as String?)!,
-        code: json.containsKey('code')
-            ? SdkPresent(json['code'] as String?)
-            : const SdkOmitted(),
-        message: json.containsKey('message')
-            ? SdkPresent(json['message'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ComputerCallSafetyCheckParam.fromJson(Map<String, dynamic> json) => ComputerCallSafetyCheckParam(
+    id: (json['id'] as String?)!,
+    code: json.containsKey('code') ? SdkPresent(json['code'] as String?) : const SdkOmitted(),
+    message: json.containsKey('message') ? SdkPresent(json['message'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        ...switch (code) {
-          SdkPresent<String?>(value: final value) => {
-              'code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (message) {
-          SdkPresent<String?>(value: final value) => {
-              'message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    ...switch (code) {
+      SdkPresent<String?>(value: final value) => {'code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (message) {
+      SdkPresent<String?>(value: final value) => {'message': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ComputerEnvironment` API schema.
 final class ComputerEnvironment {
+
   final String value;
 
   const ComputerEnvironment._(this.value);
 
-  factory ComputerEnvironment.fromJson(String value) =>
-      ComputerEnvironment._(value);
+  factory ComputerEnvironment.fromJson(String value) => ComputerEnvironment._(value);
 
   static const windows = ComputerEnvironment._('windows');
   static const mac = ComputerEnvironment._('mac');
@@ -425,15 +236,12 @@ final class ComputerEnvironment {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ComputerEnvironment && other.value == value;
+  @override bool operator ==(Object other) => other is ComputerEnvironment && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 sealed class ComputerScreenshotContentImageUrl {
@@ -441,19 +249,14 @@ sealed class ComputerScreenshotContentImageUrl {
   static const String constructionSurface = 'named';
   const ComputerScreenshotContentImageUrl();
   factory ComputerScreenshotContentImageUrl.fromJson(Object? json) {
-    if (json is String) {
-      return ComputerScreenshotContentImageUrlString(json);
-    }
-    throw FormatException(
-        "No variant matched for ComputerScreenshotContentImageUrl");
+    if (json is String) { return ComputerScreenshotContentImageUrlString(json); }
+    throw FormatException("No variant matched for ComputerScreenshotContentImageUrl");
   }
   Object? toJson();
 }
 
-final class ComputerScreenshotContentImageUrlString
-    extends ComputerScreenshotContentImageUrl {
+final class ComputerScreenshotContentImageUrlString extends ComputerScreenshotContentImageUrl {
   final String value;
   const ComputerScreenshotContentImageUrlString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }

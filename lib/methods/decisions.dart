@@ -40,16 +40,14 @@ Future<DecisionResponse> createDecision(ClientConfig config,
     required List<QuestionParam> questions,
     SdkOptional<String?> safetyIdentifier = const SdkOmitted(),
     SdkOptional<String?> promptCacheKey = const SdkOmitted(),
-    SdkOptional<DecisionRequestPromptCacheOptions?> promptCacheOptions =
-        const SdkOmitted(),
+    SdkOptional<DecisionRequestPromptCacheOptions?> promptCacheOptions = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   validateLength('model', model, min: 0, max: 1048576);
   validateItems('questions', questions, min: 1, max: 200);
   if (safetyIdentifier is SdkPresent<String?>) {
     final safetyIdentifierValue = safetyIdentifier.value;
     if (safetyIdentifierValue != null) {
-      validateLength('safety_identifier', safetyIdentifierValue,
-          min: 0, max: 128);
+      validateLength('safety_identifier', safetyIdentifierValue, min: 0, max: 128);
     }
   }
   if (promptCacheKey is SdkPresent<String?>) {
@@ -71,8 +69,7 @@ Future<DecisionResponse> createDecision(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createDecision',
-          fromJsonRaw: (value) =>
-              DecisionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DecisionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

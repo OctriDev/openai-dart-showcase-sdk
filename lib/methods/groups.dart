@@ -30,30 +30,19 @@ Future<GroupListResource> listGroups(ClientConfig config,
   return (await sdkRequest<GroupListResource>('GET', '/organization/groups',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listGroups',
-          fromJsonRaw: (value) =>
-              GroupListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GroupListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists groups in the organization, with controls for page size, cursor position, and sort order. Use `after` with a group ID from the previous page to continue through the results.
 ///
@@ -66,27 +55,13 @@ Future<GroupListResource> listGroups(ClientConfig config,
 ///   100 objects, ending with group_abc, your subsequent call can include
 ///   `after=group_abc` in order to fetch the next page of the list.
 /// [order] Specifies the sort order of the returned groups.
-Stream<GroupResponse> listGroupsPaginated(ClientConfig config,
-    {int? limit,
-    String? after,
-    ListGroupsOrder? order,
-    RequestOptions? requestOptions}) async* {
+Stream<GroupResponse> listGroupsPaginated(ClientConfig config, {int? limit, String? after, ListGroupsOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listGroups(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListGroupsOrder>()
-            : SdkPresent<ListGroupsOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listGroups(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListGroupsOrder>() : SdkPresent<ListGroupsOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.next;
     if (sdkNext == null) return;
@@ -94,23 +69,10 @@ Stream<GroupResponse> listGroupsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<GroupListResource, GroupResponse>> listGroupsPages(
-    ClientConfig config,
-    {int? limit,
-    String? after,
-    ListGroupsOrder? order,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<GroupListResource, GroupResponse>> listGroupsPages(ClientConfig config, {int? limit, String? after, ListGroupsOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listGroups(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListGroupsOrder>()
-            : SdkPresent<ListGroupsOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listGroups(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListGroupsOrder>() : SdkPresent<ListGroupsOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.next;
@@ -120,6 +82,7 @@ Stream<SdkPage<GroupListResource, GroupResponse>> listGroupsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Creates a new group in the organization. Provide a human-readable `name` between 1 and 255 characters; the response includes the group's generated ID and management details.
 ///
@@ -135,25 +98,12 @@ Future<GroupResponse> createGroup(ClientConfig config,
           body: {'name': name},
           decoder: SdkResponseDecoder.json,
           operationId: 'createGroup',
-          fromJsonRaw: (value) =>
-              GroupResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GroupResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '422': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a group from the organization by its ID. Use `group_id` to identify the group whose name, creation time, management status, and type you need.
 ///
@@ -167,19 +117,12 @@ Future<GroupResponse> retrieveGroup(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveGroup',
-          fromJsonRaw: (value) =>
-              GroupResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GroupResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates a group's display name in the organization. Supply `name` as a string between 1 and 255 characters. The response includes the group's identifier, updated name, creation timestamp, and SCIM management status.
 ///
@@ -199,23 +142,12 @@ Future<GroupResourceWithSuccess> updateGroup(ClientConfig config,
           body: {'name': name},
           decoder: SdkResponseDecoder.json,
           operationId: 'updateGroup',
-          fromJsonRaw: (value) =>
-              GroupResourceWithSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GroupResourceWithSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a group from the organization. Use the group's identifier to select which group to remove. The response confirms the deleted group by its identifier and deletion status.
 ///
@@ -229,15 +161,8 @@ Future<GroupDeletedResource> deleteGroup(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteGroup',
-          fromJsonRaw: (value) =>
-              GroupDeletedResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GroupDeletedResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

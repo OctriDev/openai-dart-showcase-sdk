@@ -10,18 +10,14 @@ enum PersistedAgentToolConfigParamFunctionType {
 
   static PersistedAgentToolConfigParamFunctionType fromJson(String value) {
     switch (value) {
-      case 'function':
-        return PersistedAgentToolConfigParamFunctionType.function_;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedAgentToolConfigParamFunctionType: $value');
+      case 'function': return PersistedAgentToolConfigParamFunctionType.function_;
+      default: throw ArgumentError('Unknown PersistedAgentToolConfigParamFunctionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolConfigParamFunctionType.function_:
-        return 'function';
+      case PersistedAgentToolConfigParamFunctionType.function_: return 'function';
     }
   }
 
@@ -35,18 +31,14 @@ enum PersistedAgentToolConfigParamMcpType {
 
   static PersistedAgentToolConfigParamMcpType fromJson(String value) {
     switch (value) {
-      case 'mcp':
-        return PersistedAgentToolConfigParamMcpType.mcp;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedAgentToolConfigParamMcpType: $value');
+      case 'mcp': return PersistedAgentToolConfigParamMcpType.mcp;
+      default: throw ArgumentError('Unknown PersistedAgentToolConfigParamMcpType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolConfigParamMcpType.mcp:
-        return 'mcp';
+      case PersistedAgentToolConfigParamMcpType.mcp: return 'mcp';
     }
   }
 
@@ -58,23 +50,16 @@ enum PersistedAgentToolConfigParamMcpType {
 enum PersistedAgentToolConfigParamProgrammaticToolCallingType {
   programmaticToolCalling;
 
-  static PersistedAgentToolConfigParamProgrammaticToolCallingType fromJson(
-      String value) {
+  static PersistedAgentToolConfigParamProgrammaticToolCallingType fromJson(String value) {
     switch (value) {
-      case 'programmatic_tool_calling':
-        return PersistedAgentToolConfigParamProgrammaticToolCallingType
-            .programmaticToolCalling;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedAgentToolConfigParamProgrammaticToolCallingType: $value');
+      case 'programmatic_tool_calling': return PersistedAgentToolConfigParamProgrammaticToolCallingType.programmaticToolCalling;
+      default: throw ArgumentError('Unknown PersistedAgentToolConfigParamProgrammaticToolCallingType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolConfigParamProgrammaticToolCallingType
-            .programmaticToolCalling:
-        return 'programmatic_tool_calling';
+      case PersistedAgentToolConfigParamProgrammaticToolCallingType.programmaticToolCalling: return 'programmatic_tool_calling';
     }
   }
 
@@ -88,18 +73,14 @@ enum PersistedAgentToolConfigParamToolSearchType {
 
   static PersistedAgentToolConfigParamToolSearchType fromJson(String value) {
     switch (value) {
-      case 'tool_search':
-        return PersistedAgentToolConfigParamToolSearchType.toolSearch;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedAgentToolConfigParamToolSearchType: $value');
+      case 'tool_search': return PersistedAgentToolConfigParamToolSearchType.toolSearch;
+      default: throw ArgumentError('Unknown PersistedAgentToolConfigParamToolSearchType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolConfigParamToolSearchType.toolSearch:
-        return 'tool_search';
+      case PersistedAgentToolConfigParamToolSearchType.toolSearch: return 'tool_search';
     }
   }
 
@@ -113,18 +94,14 @@ enum PersistedAgentToolConfigParamWebSearchType {
 
   static PersistedAgentToolConfigParamWebSearchType fromJson(String value) {
     switch (value) {
-      case 'web_search':
-        return PersistedAgentToolConfigParamWebSearchType.webSearch;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedAgentToolConfigParamWebSearchType: $value');
+      case 'web_search': return PersistedAgentToolConfigParamWebSearchType.webSearch;
+      default: throw ArgumentError('Unknown PersistedAgentToolConfigParamWebSearchType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolConfigParamWebSearchType.webSearch:
-        return 'web_search';
+      case PersistedAgentToolConfigParamWebSearchType.webSearch: return 'web_search';
     }
   }
 
@@ -138,18 +115,14 @@ enum PersistedAgentToolResourceComputerUseType {
 
   static PersistedAgentToolResourceComputerUseType fromJson(String value) {
     switch (value) {
-      case 'computer_use':
-        return PersistedAgentToolResourceComputerUseType.computerUse;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedAgentToolResourceComputerUseType: $value');
+      case 'computer_use': return PersistedAgentToolResourceComputerUseType.computerUse;
+      default: throw ArgumentError('Unknown PersistedAgentToolResourceComputerUseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolResourceComputerUseType.computerUse:
-        return 'computer_use';
+      case PersistedAgentToolResourceComputerUseType.computerUse: return 'computer_use';
     }
   }
 
@@ -163,18 +136,14 @@ enum PersistedAgentToolResourceFunctionType {
 
   static PersistedAgentToolResourceFunctionType fromJson(String value) {
     switch (value) {
-      case 'function':
-        return PersistedAgentToolResourceFunctionType.function_;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedAgentToolResourceFunctionType: $value');
+      case 'function': return PersistedAgentToolResourceFunctionType.function_;
+      default: throw ArgumentError('Unknown PersistedAgentToolResourceFunctionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolResourceFunctionType.function_:
-        return 'function';
+      case PersistedAgentToolResourceFunctionType.function_: return 'function';
     }
   }
 
@@ -188,18 +157,14 @@ enum PersistedAgentToolResourceMcpType {
 
   static PersistedAgentToolResourceMcpType fromJson(String value) {
     switch (value) {
-      case 'mcp':
-        return PersistedAgentToolResourceMcpType.mcp;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedAgentToolResourceMcpType: $value');
+      case 'mcp': return PersistedAgentToolResourceMcpType.mcp;
+      default: throw ArgumentError('Unknown PersistedAgentToolResourceMcpType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolResourceMcpType.mcp:
-        return 'mcp';
+      case PersistedAgentToolResourceMcpType.mcp: return 'mcp';
     }
   }
 
@@ -211,23 +176,16 @@ enum PersistedAgentToolResourceMcpType {
 enum PersistedAgentToolResourceProgrammaticToolCallingType {
   programmaticToolCalling;
 
-  static PersistedAgentToolResourceProgrammaticToolCallingType fromJson(
-      String value) {
+  static PersistedAgentToolResourceProgrammaticToolCallingType fromJson(String value) {
     switch (value) {
-      case 'programmatic_tool_calling':
-        return PersistedAgentToolResourceProgrammaticToolCallingType
-            .programmaticToolCalling;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedAgentToolResourceProgrammaticToolCallingType: $value');
+      case 'programmatic_tool_calling': return PersistedAgentToolResourceProgrammaticToolCallingType.programmaticToolCalling;
+      default: throw ArgumentError('Unknown PersistedAgentToolResourceProgrammaticToolCallingType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolResourceProgrammaticToolCallingType
-            .programmaticToolCalling:
-        return 'programmatic_tool_calling';
+      case PersistedAgentToolResourceProgrammaticToolCallingType.programmaticToolCalling: return 'programmatic_tool_calling';
     }
   }
 
@@ -241,18 +199,14 @@ enum PersistedAgentToolResourceToolSearchType {
 
   static PersistedAgentToolResourceToolSearchType fromJson(String value) {
     switch (value) {
-      case 'tool_search':
-        return PersistedAgentToolResourceToolSearchType.toolSearch;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedAgentToolResourceToolSearchType: $value');
+      case 'tool_search': return PersistedAgentToolResourceToolSearchType.toolSearch;
+      default: throw ArgumentError('Unknown PersistedAgentToolResourceToolSearchType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolResourceToolSearchType.toolSearch:
-        return 'tool_search';
+      case PersistedAgentToolResourceToolSearchType.toolSearch: return 'tool_search';
     }
   }
 
@@ -266,18 +220,14 @@ enum PersistedAgentToolResourceWebSearchType {
 
   static PersistedAgentToolResourceWebSearchType fromJson(String value) {
     switch (value) {
-      case 'web_search':
-        return PersistedAgentToolResourceWebSearchType.webSearch;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedAgentToolResourceWebSearchType: $value');
+      case 'web_search': return PersistedAgentToolResourceWebSearchType.webSearch;
+      default: throw ArgumentError('Unknown PersistedAgentToolResourceWebSearchType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedAgentToolResourceWebSearchType.webSearch:
-        return 'web_search';
+      case PersistedAgentToolResourceWebSearchType.webSearch: return 'web_search';
     }
   }
 
@@ -291,18 +241,14 @@ enum PersistedMcpTransportConfigParamHttpType {
 
   static PersistedMcpTransportConfigParamHttpType fromJson(String value) {
     switch (value) {
-      case 'http':
-        return PersistedMcpTransportConfigParamHttpType.http;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedMcpTransportConfigParamHttpType: $value');
+      case 'http': return PersistedMcpTransportConfigParamHttpType.http;
+      default: throw ArgumentError('Unknown PersistedMcpTransportConfigParamHttpType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedMcpTransportConfigParamHttpType.http:
-        return 'http';
+      case PersistedMcpTransportConfigParamHttpType.http: return 'http';
     }
   }
 
@@ -316,18 +262,14 @@ enum PersistedMcpTransportConfigParamStdioType {
 
   static PersistedMcpTransportConfigParamStdioType fromJson(String value) {
     switch (value) {
-      case 'stdio':
-        return PersistedMcpTransportConfigParamStdioType.stdio;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedMcpTransportConfigParamStdioType: $value');
+      case 'stdio': return PersistedMcpTransportConfigParamStdioType.stdio;
+      default: throw ArgumentError('Unknown PersistedMcpTransportConfigParamStdioType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedMcpTransportConfigParamStdioType.stdio:
-        return 'stdio';
+      case PersistedMcpTransportConfigParamStdioType.stdio: return 'stdio';
     }
   }
 

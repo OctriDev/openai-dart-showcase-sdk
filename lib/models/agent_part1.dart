@@ -8,7 +8,6 @@ part of 'agent.dart';
 class AgentEnvironmentEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the environment.
   final String id;
 
@@ -16,17 +15,15 @@ class AgentEnvironmentEvent {
 
   AgentEnvironmentEvent Function({String id}) get copyWith => _copyWith;
 
-  AgentEnvironmentEvent _copyWith({Object? id = sdkOmittedValue}) =>
-      AgentEnvironmentEvent(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  AgentEnvironmentEvent _copyWith({Object? id = sdkOmittedValue}) => AgentEnvironmentEvent(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory AgentEnvironmentEvent.fromJson(Map<String, dynamic> json) =>
-      AgentEnvironmentEvent(
-        id: (json['id'] as String?)!,
-      );
+  factory AgentEnvironmentEvent.fromJson(Map<String, dynamic> json) => AgentEnvironmentEvent(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }

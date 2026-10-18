@@ -4,460 +4,258 @@
 part of 'realtime_realtime_translation.dart';
 
 // realtime_realtime_translation domain models (part 2)
-final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionCreated
-    extends RealtimeTranslationServerEvent {
+final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionCreated extends RealtimeTranslationServerEvent {
   final RealtimeTranslationServerEventSessionCreated value;
-  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionCreated(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionCreated(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionUpdated
-    extends RealtimeTranslationServerEvent {
+final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionUpdated extends RealtimeTranslationServerEvent {
   final RealtimeTranslationServerEventSessionUpdated value;
-  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionUpdated(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionUpdated(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionClosed
-    extends RealtimeTranslationServerEvent {
+final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionClosed extends RealtimeTranslationServerEvent {
   final RealtimeTranslationServerEventSessionClosed value;
-  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionClosed(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionClosed(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionInputTranscriptDelta
-    extends RealtimeTranslationServerEvent {
+final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionInputTranscriptDelta extends RealtimeTranslationServerEvent {
   final RealtimeTranslationServerEventSessionInputTranscriptDelta value;
-  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionInputTranscriptDelta(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionInputTranscriptDelta(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionOutputTranscriptDelta
-    extends RealtimeTranslationServerEvent {
+final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionOutputTranscriptDelta extends RealtimeTranslationServerEvent {
   final RealtimeTranslationServerEventSessionOutputTranscriptDelta value;
-  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionOutputTranscriptDelta(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionOutputTranscriptDelta(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionOutputAudioDelta
-    extends RealtimeTranslationServerEvent {
+final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionOutputAudioDelta extends RealtimeTranslationServerEvent {
   final RealtimeTranslationServerEventSessionOutputAudioDelta value;
-  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionOutputAudioDelta(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionOutputAudioDelta(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeTranslationServerEvent] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeTranslationServerEvent
-    extends RealtimeTranslationServerEvent {
+final class UnknownRealtimeTranslationServerEvent extends RealtimeTranslationServerEvent {
   final Map<String, dynamic> raw;
   const UnknownRealtimeTranslationServerEvent(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Returned when a realtime translation session is closed.
 class RealtimeTranslationServerEventSessionClosed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `session.closed`.
   final RealtimeTranslationServerEventSessionClosedType type_;
 
-  const RealtimeTranslationServerEventSessionClosed(
-      {required this.eventId, required this.type_});
+  const RealtimeTranslationServerEventSessionClosed({required this.eventId, required this.type_});
 
-  RealtimeTranslationServerEventSessionClosed Function(
-          {String eventId,
-          RealtimeTranslationServerEventSessionClosedType type_})
-      get copyWith => _copyWith;
+  RealtimeTranslationServerEventSessionClosed Function({String eventId, RealtimeTranslationServerEventSessionClosedType type_}) get copyWith => _copyWith;
 
-  RealtimeTranslationServerEventSessionClosed _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      RealtimeTranslationServerEventSessionClosed(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeTranslationServerEventSessionClosedType,
-      );
+  RealtimeTranslationServerEventSessionClosed _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeTranslationServerEventSessionClosed(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTranslationServerEventSessionClosedType,
+  );
 
-  factory RealtimeTranslationServerEventSessionClosed.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeTranslationServerEventSessionClosed(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeTranslationServerEventSessionClosedType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory RealtimeTranslationServerEventSessionClosed.fromJson(Map<String, dynamic> json) => RealtimeTranslationServerEventSessionClosed(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeTranslationServerEventSessionClosedType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+  };
 }
 
 /// Returned when a translation session is created. Emitted automatically when a new connection is established as the first server event. This event contains the default translation session configuration.
 class RealtimeTranslationServerEventSessionCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `session.created`.
   final RealtimeTranslationServerEventSessionCreatedType type_;
-
   /// The translation session configuration.
   final RealtimeTranslationSession session;
 
-  const RealtimeTranslationServerEventSessionCreated(
-      {required this.eventId, required this.type_, required this.session});
+  const RealtimeTranslationServerEventSessionCreated({required this.eventId, required this.type_, required this.session});
 
-  RealtimeTranslationServerEventSessionCreated Function(
-      {String eventId,
-      RealtimeTranslationServerEventSessionCreatedType type_,
-      RealtimeTranslationSession session}) get copyWith => _copyWith;
+  RealtimeTranslationServerEventSessionCreated Function({String eventId, RealtimeTranslationServerEventSessionCreatedType type_, RealtimeTranslationSession session}) get copyWith => _copyWith;
 
-  RealtimeTranslationServerEventSessionCreated _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? session = sdkOmittedValue}) =>
-      RealtimeTranslationServerEventSessionCreated(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeTranslationServerEventSessionCreatedType,
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as RealtimeTranslationSession,
-      );
+  RealtimeTranslationServerEventSessionCreated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeTranslationServerEventSessionCreated(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTranslationServerEventSessionCreatedType,
+    session: identical(session, sdkOmittedValue) ? this.session : session as RealtimeTranslationSession,
+  );
 
-  factory RealtimeTranslationServerEventSessionCreated.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeTranslationServerEventSessionCreated(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeTranslationServerEventSessionCreatedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        session: (json['session'] != null
-            ? RealtimeTranslationSession.fromJson(
-                json['session'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory RealtimeTranslationServerEventSessionCreated.fromJson(Map<String, dynamic> json) => RealtimeTranslationServerEventSessionCreated(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeTranslationServerEventSessionCreatedType.fromJson(json['type'] as String) : null)!,
+    session: (json['session'] != null ? RealtimeTranslationSession.fromJson(json['session'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'session': session.toJson(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'session': session.toJson(),
+  };
 }
 
 /// Returned when optional source-language transcript text is available. This event is emitted only when `audio.input.transcription` is configured. Transcript deltas are append-only text fragments. Clients should not insert unconditional spaces between deltas.
 class RealtimeTranslationServerEventSessionInputTranscriptDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `session.input_transcript.delta`.
   final RealtimeTranslationServerEventSessionInputTranscriptDeltaType type_;
-
   /// Append-only source-language transcript text.
   final String delta;
-
   /// Optional `integer` value serialized in the `elapsed_ms` wire field.
   final SdkOptional<int?> elapsedMs;
 
-  const RealtimeTranslationServerEventSessionInputTranscriptDelta(
-      {required this.eventId,
-      required this.type_,
-      required this.delta,
-      this.elapsedMs = const SdkOmitted()});
+  const RealtimeTranslationServerEventSessionInputTranscriptDelta({required this.eventId, required this.type_, required this.delta, this.elapsedMs = const SdkOmitted()});
 
-  RealtimeTranslationServerEventSessionInputTranscriptDelta Function(
-      {String eventId,
-      RealtimeTranslationServerEventSessionInputTranscriptDeltaType type_,
-      String delta,
-      SdkOptional<int?> elapsedMs}) get copyWith => _copyWith;
+  RealtimeTranslationServerEventSessionInputTranscriptDelta Function({String eventId, RealtimeTranslationServerEventSessionInputTranscriptDeltaType type_, String delta, SdkOptional<int?> elapsedMs}) get copyWith => _copyWith;
 
-  RealtimeTranslationServerEventSessionInputTranscriptDelta _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? elapsedMs = sdkOmittedValue}) =>
-      RealtimeTranslationServerEventSessionInputTranscriptDelta(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as RealtimeTranslationServerEventSessionInputTranscriptDeltaType,
-        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-        elapsedMs: identical(elapsedMs, sdkOmittedValue)
-            ? this.elapsedMs
-            : elapsedMs as SdkOptional<int?>,
-      );
+  RealtimeTranslationServerEventSessionInputTranscriptDelta _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? elapsedMs = sdkOmittedValue}) => RealtimeTranslationServerEventSessionInputTranscriptDelta(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTranslationServerEventSessionInputTranscriptDeltaType,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+    elapsedMs: identical(elapsedMs, sdkOmittedValue) ? this.elapsedMs : elapsedMs as SdkOptional<int?>,
+  );
 
-  factory RealtimeTranslationServerEventSessionInputTranscriptDelta.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeTranslationServerEventSessionInputTranscriptDelta(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeTranslationServerEventSessionInputTranscriptDeltaType
-                .fromJson(json['type'] as String)
-            : null)!,
-        delta: (json['delta'] as String?)!,
-        elapsedMs: json.containsKey('elapsed_ms')
-            ? SdkPresent((json['elapsed_ms'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory RealtimeTranslationServerEventSessionInputTranscriptDelta.fromJson(Map<String, dynamic> json) => RealtimeTranslationServerEventSessionInputTranscriptDelta(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeTranslationServerEventSessionInputTranscriptDeltaType.fromJson(json['type'] as String) : null)!,
+    delta: (json['delta'] as String?)!,
+    elapsedMs: json.containsKey('elapsed_ms') ? SdkPresent((json['elapsed_ms'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'delta': delta,
-        ...switch (elapsedMs) {
-          SdkPresent<int?>(value: final value) => {
-              'elapsed_ms': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'delta': delta,
+    ...switch (elapsedMs) {
+      SdkPresent<int?>(value: final value) => {'elapsed_ms': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Returned when translated output audio is available. The `delta` contains a PCM16 audio chunk whose length can vary. Clients should decode and queue the complete delta instead of assuming a fixed byte or sample count.
 class RealtimeTranslationServerEventSessionOutputAudioDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `session.output_audio.delta`.
   final RealtimeTranslationServerEventSessionOutputAudioDeltaType type_;
-
   /// Base64-encoded translated audio data.
   final String delta;
-
   /// Sample rate of the audio delta.
   final SdkOptional<int> sampleRate;
-
   /// Number of audio channels.
   final SdkOptional<int> channels;
-
   /// Audio encoding for `delta`.
-  final SdkOptional<RealtimeTranslationServerEventSessionOutputAudioDeltaFormat>
-      format;
-
+  final SdkOptional<RealtimeTranslationServerEventSessionOutputAudioDeltaFormat> format;
   /// Optional `integer` value serialized in the `elapsed_ms` wire field.
   final SdkOptional<int?> elapsedMs;
 
-  const RealtimeTranslationServerEventSessionOutputAudioDelta(
-      {required this.eventId,
-      required this.type_,
-      required this.delta,
-      this.sampleRate = const SdkOmitted(),
-      this.channels = const SdkOmitted(),
-      this.format = const SdkOmitted(),
-      this.elapsedMs = const SdkOmitted()});
+  const RealtimeTranslationServerEventSessionOutputAudioDelta({required this.eventId, required this.type_, required this.delta, this.sampleRate = const SdkOmitted(), this.channels = const SdkOmitted(), this.format = const SdkOmitted(), this.elapsedMs = const SdkOmitted()});
 
-  RealtimeTranslationServerEventSessionOutputAudioDelta Function(
-      {String eventId,
-      RealtimeTranslationServerEventSessionOutputAudioDeltaType type_,
-      String delta,
-      SdkOptional<int> sampleRate,
-      SdkOptional<int> channels,
-      SdkOptional<RealtimeTranslationServerEventSessionOutputAudioDeltaFormat>
-          format,
-      SdkOptional<int?> elapsedMs}) get copyWith => _copyWith;
+  RealtimeTranslationServerEventSessionOutputAudioDelta Function({String eventId, RealtimeTranslationServerEventSessionOutputAudioDeltaType type_, String delta, SdkOptional<int> sampleRate, SdkOptional<int> channels, SdkOptional<RealtimeTranslationServerEventSessionOutputAudioDeltaFormat> format, SdkOptional<int?> elapsedMs}) get copyWith => _copyWith;
 
-  RealtimeTranslationServerEventSessionOutputAudioDelta _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? sampleRate = sdkOmittedValue,
-          Object? channels = sdkOmittedValue,
-          Object? format = sdkOmittedValue,
-          Object? elapsedMs = sdkOmittedValue}) =>
-      RealtimeTranslationServerEventSessionOutputAudioDelta(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as RealtimeTranslationServerEventSessionOutputAudioDeltaType,
-        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-        sampleRate: identical(sampleRate, sdkOmittedValue)
-            ? this.sampleRate
-            : sampleRate as SdkOptional<int>,
-        channels: identical(channels, sdkOmittedValue)
-            ? this.channels
-            : channels as SdkOptional<int>,
-        format: identical(format, sdkOmittedValue)
-            ? this.format
-            : format as SdkOptional<
-                RealtimeTranslationServerEventSessionOutputAudioDeltaFormat>,
-        elapsedMs: identical(elapsedMs, sdkOmittedValue)
-            ? this.elapsedMs
-            : elapsedMs as SdkOptional<int?>,
-      );
+  RealtimeTranslationServerEventSessionOutputAudioDelta _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? sampleRate = sdkOmittedValue, Object? channels = sdkOmittedValue, Object? format = sdkOmittedValue, Object? elapsedMs = sdkOmittedValue}) => RealtimeTranslationServerEventSessionOutputAudioDelta(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTranslationServerEventSessionOutputAudioDeltaType,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+    sampleRate: identical(sampleRate, sdkOmittedValue) ? this.sampleRate : sampleRate as SdkOptional<int>,
+    channels: identical(channels, sdkOmittedValue) ? this.channels : channels as SdkOptional<int>,
+    format: identical(format, sdkOmittedValue) ? this.format : format as SdkOptional<RealtimeTranslationServerEventSessionOutputAudioDeltaFormat>,
+    elapsedMs: identical(elapsedMs, sdkOmittedValue) ? this.elapsedMs : elapsedMs as SdkOptional<int?>,
+  );
 
-  factory RealtimeTranslationServerEventSessionOutputAudioDelta.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeTranslationServerEventSessionOutputAudioDelta(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeTranslationServerEventSessionOutputAudioDeltaType
-                .fromJson(json['type'] as String)
-            : null)!,
-        delta: (json['delta'] as String?)!,
-        sampleRate: json['sample_rate'] != null
-            ? SdkPresent(((json['sample_rate'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        channels: json['channels'] != null
-            ? SdkPresent(((json['channels'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        format: json['format'] != null
-            ? SdkPresent((json['format'] != null
-                ? RealtimeTranslationServerEventSessionOutputAudioDeltaFormat
-                    .fromJson(json['format'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        elapsedMs: json.containsKey('elapsed_ms')
-            ? SdkPresent((json['elapsed_ms'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory RealtimeTranslationServerEventSessionOutputAudioDelta.fromJson(Map<String, dynamic> json) => RealtimeTranslationServerEventSessionOutputAudioDelta(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeTranslationServerEventSessionOutputAudioDeltaType.fromJson(json['type'] as String) : null)!,
+    delta: (json['delta'] as String?)!,
+    sampleRate: json['sample_rate'] != null ? SdkPresent(((json['sample_rate'] as num?)?.toInt())!) : const SdkOmitted(),
+    channels: json['channels'] != null ? SdkPresent(((json['channels'] as num?)?.toInt())!) : const SdkOmitted(),
+    format: json['format'] != null ? SdkPresent((json['format'] != null ? RealtimeTranslationServerEventSessionOutputAudioDeltaFormat.fromJson(json['format'] as String) : null)!) : const SdkOmitted(),
+    elapsedMs: json.containsKey('elapsed_ms') ? SdkPresent((json['elapsed_ms'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'delta': delta,
-        ...switch (sampleRate) {
-          SdkPresent<int>(value: final value) => {
-              'sample_rate': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (channels) {
-          SdkPresent<int>(value: final value) => {
-              'channels': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (format) {
-          SdkPresent<
-                RealtimeTranslationServerEventSessionOutputAudioDeltaFormat>(
-            value: final value
-          ) =>
-            {
-              'format': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (elapsedMs) {
-          SdkPresent<int?>(value: final value) => {
-              'elapsed_ms': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'delta': delta,
+    ...switch (sampleRate) {
+      SdkPresent<int>(value: final value) => {'sample_rate': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (channels) {
+      SdkPresent<int>(value: final value) => {'channels': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (format) {
+      SdkPresent<RealtimeTranslationServerEventSessionOutputAudioDeltaFormat>(value: final value) => {'format': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (elapsedMs) {
+      SdkPresent<int?>(value: final value) => {'elapsed_ms': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Returned when translated transcript text is available. Transcript deltas are append-only text fragments. Clients should not insert unconditional spaces between deltas.
 class RealtimeTranslationServerEventSessionOutputTranscriptDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `session.output_transcript.delta`.
   final RealtimeTranslationServerEventSessionOutputTranscriptDeltaType type_;
-
   /// Append-only transcript text for the translated output audio.
   final String delta;
-
   /// Optional `integer` value serialized in the `elapsed_ms` wire field.
   final SdkOptional<int?> elapsedMs;
 
-  const RealtimeTranslationServerEventSessionOutputTranscriptDelta(
-      {required this.eventId,
-      required this.type_,
-      required this.delta,
-      this.elapsedMs = const SdkOmitted()});
+  const RealtimeTranslationServerEventSessionOutputTranscriptDelta({required this.eventId, required this.type_, required this.delta, this.elapsedMs = const SdkOmitted()});
 
-  RealtimeTranslationServerEventSessionOutputTranscriptDelta Function(
-      {String eventId,
-      RealtimeTranslationServerEventSessionOutputTranscriptDeltaType type_,
-      String delta,
-      SdkOptional<int?> elapsedMs}) get copyWith => _copyWith;
+  RealtimeTranslationServerEventSessionOutputTranscriptDelta Function({String eventId, RealtimeTranslationServerEventSessionOutputTranscriptDeltaType type_, String delta, SdkOptional<int?> elapsedMs}) get copyWith => _copyWith;
 
-  RealtimeTranslationServerEventSessionOutputTranscriptDelta _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? elapsedMs = sdkOmittedValue}) =>
-      RealtimeTranslationServerEventSessionOutputTranscriptDelta(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as RealtimeTranslationServerEventSessionOutputTranscriptDeltaType,
-        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-        elapsedMs: identical(elapsedMs, sdkOmittedValue)
-            ? this.elapsedMs
-            : elapsedMs as SdkOptional<int?>,
-      );
+  RealtimeTranslationServerEventSessionOutputTranscriptDelta _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? elapsedMs = sdkOmittedValue}) => RealtimeTranslationServerEventSessionOutputTranscriptDelta(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTranslationServerEventSessionOutputTranscriptDeltaType,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+    elapsedMs: identical(elapsedMs, sdkOmittedValue) ? this.elapsedMs : elapsedMs as SdkOptional<int?>,
+  );
 
-  factory RealtimeTranslationServerEventSessionOutputTranscriptDelta.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeTranslationServerEventSessionOutputTranscriptDelta(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeTranslationServerEventSessionOutputTranscriptDeltaType
-                .fromJson(json['type'] as String)
-            : null)!,
-        delta: (json['delta'] as String?)!,
-        elapsedMs: json.containsKey('elapsed_ms')
-            ? SdkPresent((json['elapsed_ms'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory RealtimeTranslationServerEventSessionOutputTranscriptDelta.fromJson(Map<String, dynamic> json) => RealtimeTranslationServerEventSessionOutputTranscriptDelta(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeTranslationServerEventSessionOutputTranscriptDeltaType.fromJson(json['type'] as String) : null)!,
+    delta: (json['delta'] as String?)!,
+    elapsedMs: json.containsKey('elapsed_ms') ? SdkPresent((json['elapsed_ms'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'delta': delta,
-        ...switch (elapsedMs) {
-          SdkPresent<int?>(value: final value) => {
-              'elapsed_ms': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'delta': delta,
+    ...switch (elapsedMs) {
+      SdkPresent<int?>(value: final value) => {'elapsed_ms': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

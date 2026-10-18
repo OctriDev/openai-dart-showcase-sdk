@@ -111,8 +111,7 @@ Future<CreateCompletionResponse> createCompletion(ClientConfig config,
     SdkOptional<int?> seed = const SdkOmitted(),
     SdkOptional<StopConfiguration?> stop = const SdkOmitted(),
     SdkOptional<bool?> stream = const SdkOmitted(),
-    SdkOptional<ChatCompletionStreamOptions?> streamOptions =
-        const SdkOmitted(),
+    SdkOptional<ChatCompletionStreamOptions?> streamOptions = const SdkOmitted(),
     SdkOptional<String?> suffix = const SdkOmitted(),
     SdkOptional<double?> temperature = const SdkOmitted(),
     SdkOptional<double?> topP = const SdkOmitted(),
@@ -127,8 +126,7 @@ Future<CreateCompletionResponse> createCompletion(ClientConfig config,
   if (frequencyPenalty is SdkPresent<double?>) {
     final frequencyPenaltyValue = frequencyPenalty.value;
     if (frequencyPenaltyValue != null) {
-      validateRange('frequency_penalty', frequencyPenaltyValue,
-          min: -2, max: 2);
+      validateRange('frequency_penalty', frequencyPenaltyValue, min: -2, max: 2);
     }
   }
   if (logprobs is SdkPresent<int?>) {
@@ -192,25 +190,12 @@ Future<CreateCompletionResponse> createCompletion(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createCompletion',
-          fromJsonRaw: (value) =>
-              CreateCompletionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateCompletionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a completion from a prompt using the specified model and generation parameters. Supply `model` and `prompt`; use `stream` to receive partial results as server-sent events instead of a single response. The response contains generated text choices and usage statistics.
 ///
@@ -302,67 +287,39 @@ Future<CreateCompletionResponse> createCompletion(ClientConfig config,
 ///   to monitor and detect abuse. [Learn
 ///   more](https://developers.openai.com/api/docs/guides/safety-best-practices#im
 ///   plement-safety-identifiers).
-Stream<CreateCompletionResponse> createCompletionStream(ClientConfig config,
-    {required String model,
-    required dynamic prompt,
-    required bool? stream,
-    SdkOptional<int?> bestOf = const SdkOmitted(),
-    SdkOptional<bool?> echo = const SdkOmitted(),
-    SdkOptional<double?> frequencyPenalty = const SdkOmitted(),
-    SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
-    SdkOptional<int?> logprobs = const SdkOmitted(),
-    SdkOptional<int?> maxTokens = const SdkOmitted(),
-    SdkOptional<int?> n = const SdkOmitted(),
-    SdkOptional<double?> presencePenalty = const SdkOmitted(),
-    SdkOptional<int?> seed = const SdkOmitted(),
-    SdkOptional<StopConfiguration?> stop = const SdkOmitted(),
-    SdkOptional<ChatCompletionStreamOptions?> streamOptions =
-        const SdkOmitted(),
-    SdkOptional<String?> suffix = const SdkOmitted(),
-    SdkOptional<double?> temperature = const SdkOmitted(),
-    SdkOptional<double?> topP = const SdkOmitted(),
-    SdkOptional<String> user = const SdkOmitted(),
-    RequestOptions? requestOptions}) async* {
+Stream<CreateCompletionResponse> createCompletionStream(ClientConfig config, {required String model, required dynamic prompt, required bool? stream, SdkOptional<int?> bestOf = const SdkOmitted(), SdkOptional<bool?> echo = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<int?> logprobs = const SdkOmitted(), SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<StopConfiguration?> stop = const SdkOmitted(), SdkOptional<ChatCompletionStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<String?> suffix = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/completions',
     config: config,
     body: {
-      'model': model,
-      'prompt': prompt,
-      'stream': stream,
-      'best_of': SdkUtils.unwrapOptional(bestOf),
-      'echo': SdkUtils.unwrapOptional(echo),
-      'frequency_penalty': SdkUtils.unwrapOptional(frequencyPenalty),
-      'logit_bias': SdkUtils.unwrapOptional(logitBias),
-      'logprobs': SdkUtils.unwrapOptional(logprobs),
-      'max_tokens': SdkUtils.unwrapOptional(maxTokens),
-      'n': SdkUtils.unwrapOptional(n),
-      'presence_penalty': SdkUtils.unwrapOptional(presencePenalty),
-      'seed': SdkUtils.unwrapOptional(seed),
-      'stop': SdkUtils.unwrapOptional(stop),
-      'stream_options': SdkUtils.unwrapOptional(streamOptions),
-      'suffix': SdkUtils.unwrapOptional(suffix),
-      'temperature': SdkUtils.unwrapOptional(temperature),
-      'top_p': SdkUtils.unwrapOptional(topP),
-      'user': SdkUtils.unwrapOptional(user),
-    },
+    'model': model,
+    'prompt': prompt,
+    'stream': stream,
+    'best_of': SdkUtils.unwrapOptional(bestOf),
+    'echo': SdkUtils.unwrapOptional(echo),
+    'frequency_penalty': SdkUtils.unwrapOptional(frequencyPenalty),
+    'logit_bias': SdkUtils.unwrapOptional(logitBias),
+    'logprobs': SdkUtils.unwrapOptional(logprobs),
+    'max_tokens': SdkUtils.unwrapOptional(maxTokens),
+    'n': SdkUtils.unwrapOptional(n),
+    'presence_penalty': SdkUtils.unwrapOptional(presencePenalty),
+    'seed': SdkUtils.unwrapOptional(seed),
+    'stop': SdkUtils.unwrapOptional(stop),
+    'stream_options': SdkUtils.unwrapOptional(streamOptions),
+    'suffix': SdkUtils.unwrapOptional(suffix),
+    'temperature': SdkUtils.unwrapOptional(temperature),
+    'top_p': SdkUtils.unwrapOptional(topP),
+    'user': SdkUtils.unwrapOptional(user),
+  },
     operationId: 'createCompletionStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {
-      '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-    },
+    errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
   )) {
     if (event.data == '[DONE]') return;
-    yield sdkDecode(() =>
-        CreateCompletionResponse.fromJson(event.data as Map<String, dynamic>));
+    yield sdkDecode(() => CreateCompletionResponse.fromJson(event.data as Map<String, dynamic>));
   }
 }

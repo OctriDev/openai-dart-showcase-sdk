@@ -7,129 +7,71 @@ part of 'webhook_agent_environment_failed.dart';
 class WebhookAgentEnvironmentFailedVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type. Always `agent.environment.failed`.
   final WebhookAgentEnvironmentFailedVariant1Type type_;
-
   /// Identifies the environment whose lifecycle changed.
   final AgentEnvironmentEvent data;
 
-  const WebhookAgentEnvironmentFailedVariant1(
-      {required this.type_, required this.data});
+  const WebhookAgentEnvironmentFailedVariant1({required this.type_, required this.data});
 
-  WebhookAgentEnvironmentFailedVariant1 Function(
-      {WebhookAgentEnvironmentFailedVariant1Type type_,
-      AgentEnvironmentEvent data}) get copyWith => _copyWith;
+  WebhookAgentEnvironmentFailedVariant1 Function({WebhookAgentEnvironmentFailedVariant1Type type_, AgentEnvironmentEvent data}) get copyWith => _copyWith;
 
-  WebhookAgentEnvironmentFailedVariant1 _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
-      WebhookAgentEnvironmentFailedVariant1(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebhookAgentEnvironmentFailedVariant1Type,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as AgentEnvironmentEvent,
-      );
+  WebhookAgentEnvironmentFailedVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => WebhookAgentEnvironmentFailedVariant1(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookAgentEnvironmentFailedVariant1Type,
+    data: identical(data, sdkOmittedValue) ? this.data : data as AgentEnvironmentEvent,
+  );
 
-  factory WebhookAgentEnvironmentFailedVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      WebhookAgentEnvironmentFailedVariant1(
-        type_: (json['type'] != null
-            ? WebhookAgentEnvironmentFailedVariant1Type.fromJson(
-                json['type'] as String)
-            : null)!,
-        data: (json['data'] != null
-            ? AgentEnvironmentEvent.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory WebhookAgentEnvironmentFailedVariant1.fromJson(Map<String, dynamic> json) => WebhookAgentEnvironmentFailedVariant1(
+    type_: (json['type'] != null ? WebhookAgentEnvironmentFailedVariant1Type.fromJson(json['type'] as String) : null)!,
+    data: (json['data'] != null ? AgentEnvironmentEvent.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'data': data.toJson(),
+  };
 }
 
 /// Sent when setup fails for a prewarmed OpenAI-hosted environment before it is attached to a session.
 class WebhookAgentEnvironmentFailed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the event.
   final String id;
-
   /// The object type. Always `event`.
   final WebhookAgentSessionEnvelopeObject object;
-
   /// The Unix timestamp, in seconds, when the event was created.
   final int createdAt;
-
   /// The event type. Always `agent.environment.failed`.
   final WebhookAgentEnvironmentFailedVariant1Type type_;
-
   /// Identifies the environment whose lifecycle changed.
   final AgentEnvironmentEvent data;
 
-  const WebhookAgentEnvironmentFailed(
-      {required this.id,
-      required this.object,
-      required this.createdAt,
-      required this.type_,
-      required this.data});
+  const WebhookAgentEnvironmentFailed({required this.id, required this.object, required this.createdAt, required this.type_, required this.data});
 
-  WebhookAgentEnvironmentFailed Function(
-      {String id,
-      WebhookAgentSessionEnvelopeObject object,
-      int createdAt,
-      WebhookAgentEnvironmentFailedVariant1Type type_,
-      AgentEnvironmentEvent data}) get copyWith => _copyWith;
+  WebhookAgentEnvironmentFailed Function({String id, WebhookAgentSessionEnvelopeObject object, int createdAt, WebhookAgentEnvironmentFailedVariant1Type type_, AgentEnvironmentEvent data}) get copyWith => _copyWith;
 
-  WebhookAgentEnvironmentFailed _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      WebhookAgentEnvironmentFailed(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as WebhookAgentSessionEnvelopeObject,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebhookAgentEnvironmentFailedVariant1Type,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as AgentEnvironmentEvent,
-      );
+  WebhookAgentEnvironmentFailed _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => WebhookAgentEnvironmentFailed(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as WebhookAgentSessionEnvelopeObject,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookAgentEnvironmentFailedVariant1Type,
+    data: identical(data, sdkOmittedValue) ? this.data : data as AgentEnvironmentEvent,
+  );
 
-  factory WebhookAgentEnvironmentFailed.fromJson(Map<String, dynamic> json) =>
-      WebhookAgentEnvironmentFailed(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? WebhookAgentSessionEnvelopeObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        type_: (json['type'] != null
-            ? WebhookAgentEnvironmentFailedVariant1Type.fromJson(
-                json['type'] as String)
-            : null)!,
-        data: (json['data'] != null
-            ? AgentEnvironmentEvent.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory WebhookAgentEnvironmentFailed.fromJson(Map<String, dynamic> json) => WebhookAgentEnvironmentFailed(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? WebhookAgentSessionEnvelopeObject.fromJson(json['object'] as String) : null)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    type_: (json['type'] != null ? WebhookAgentEnvironmentFailedVariant1Type.fromJson(json['type'] as String) : null)!,
+    data: (json['data'] != null ? AgentEnvironmentEvent.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'created_at': createdAt,
-        'type': type_.toJson(),
-        'data': data.toJson(),
-      };
+    'id': id,
+    'object': object.toJson(),
+    'created_at': createdAt,
+    'type': type_.toJson(),
+    'data': data.toJson(),
+  };
 }

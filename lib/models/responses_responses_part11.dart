@@ -8,465 +8,255 @@ part of 'responses_responses.dart';
 class ResponsesServerEventVariant29 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `response.reasoning_summary_part.added`.
   final ResponseReasoningSummaryPartAddedEventType type_;
-
   /// The ID of the item this summary part is associated with.
   final String itemId;
-
   /// The index of the output item this summary part is associated with.
   final int outputIndex;
-
   /// The index of the summary part within the reasoning summary.
   final int summaryIndex;
-
   /// The sequence number of this event.
   final int sequenceNumber;
-
   /// The summary part that was added.
   final ResponseReasoningSummaryPartAddedEventPart part_;
-
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const ResponsesServerEventVariant29(
-      {required this.type_,
-      required this.itemId,
-      required this.outputIndex,
-      required this.summaryIndex,
-      required this.sequenceNumber,
-      required this.part_,
-      this.streamId = const SdkOmitted()});
+  const ResponsesServerEventVariant29({required this.type_, required this.itemId, required this.outputIndex, required this.summaryIndex, required this.sequenceNumber, required this.part_, this.streamId = const SdkOmitted()});
 
-  ResponsesServerEventVariant29 Function(
-      {ResponseReasoningSummaryPartAddedEventType type_,
-      String itemId,
-      int outputIndex,
-      int summaryIndex,
-      int sequenceNumber,
-      ResponseReasoningSummaryPartAddedEventPart part_,
-      SdkOptional<String> streamId}) get copyWith => _copyWith;
+  ResponsesServerEventVariant29 Function({ResponseReasoningSummaryPartAddedEventType type_, String itemId, int outputIndex, int summaryIndex, int sequenceNumber, ResponseReasoningSummaryPartAddedEventPart part_, SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  ResponsesServerEventVariant29 _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? summaryIndex = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? part_ = sdkOmittedValue,
-          Object? streamId = sdkOmittedValue}) =>
-      ResponsesServerEventVariant29(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseReasoningSummaryPartAddedEventType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        summaryIndex: identical(summaryIndex, sdkOmittedValue)
-            ? this.summaryIndex
-            : summaryIndex as int,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        part_: identical(part_, sdkOmittedValue)
-            ? this.part_
-            : part_ as ResponseReasoningSummaryPartAddedEventPart,
-        streamId: identical(streamId, sdkOmittedValue)
-            ? this.streamId
-            : streamId as SdkOptional<String>,
-      );
+  ResponsesServerEventVariant29 _copyWith({Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? summaryIndex = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? part_ = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => ResponsesServerEventVariant29(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseReasoningSummaryPartAddedEventType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    summaryIndex: identical(summaryIndex, sdkOmittedValue) ? this.summaryIndex : summaryIndex as int,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    part_: identical(part_, sdkOmittedValue) ? this.part_ : part_ as ResponseReasoningSummaryPartAddedEventPart,
+    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
+  );
 
-  factory ResponsesServerEventVariant29.fromJson(Map<String, dynamic> json) =>
-      ResponsesServerEventVariant29(
-        type_: (json['type'] != null
-            ? ResponseReasoningSummaryPartAddedEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        part_: (json['part'] != null
-            ? ResponseReasoningSummaryPartAddedEventPart.fromJson(
-                json['part'] as Map<String, dynamic>)
-            : null)!,
-        streamId: json['stream_id'] != null
-            ? SdkPresent((json['stream_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ResponsesServerEventVariant29.fromJson(Map<String, dynamic> json) => ResponsesServerEventVariant29(
+    type_: (json['type'] != null ? ResponseReasoningSummaryPartAddedEventType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    part_: (json['part'] != null ? ResponseReasoningSummaryPartAddedEventPart.fromJson(json['part'] as Map<String, dynamic>) : null)!,
+    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'summary_index': summaryIndex,
-        'sequence_number': sequenceNumber,
-        'part': part_.toJson(),
-        ...switch (streamId) {
-          SdkPresent<String>(value: final value) => {
-              'stream_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'summary_index': summaryIndex,
+    'sequence_number': sequenceNumber,
+    'part': part_.toJson(),
+    ...switch (streamId) {
+      SdkPresent<String>(value: final value) => {'stream_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class ResponsesServerEventVariant30Variant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const ResponsesServerEventVariant30Variant1(
-      {this.streamId = const SdkOmitted()});
+  const ResponsesServerEventVariant30Variant1({this.streamId = const SdkOmitted()});
 
-  ResponsesServerEventVariant30Variant1 Function({SdkOptional<String> streamId})
-      get copyWith => _copyWith;
+  ResponsesServerEventVariant30Variant1 Function({SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  ResponsesServerEventVariant30Variant1 _copyWith(
-          {Object? streamId = sdkOmittedValue}) =>
-      ResponsesServerEventVariant30Variant1(
-        streamId: identical(streamId, sdkOmittedValue)
-            ? this.streamId
-            : streamId as SdkOptional<String>,
-      );
+  ResponsesServerEventVariant30Variant1 _copyWith({Object? streamId = sdkOmittedValue}) => ResponsesServerEventVariant30Variant1(
+    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
+  );
 
-  factory ResponsesServerEventVariant30Variant1.fromJson(
-          Map<String, dynamic> json) =>
-      ResponsesServerEventVariant30Variant1(
-        streamId: json['stream_id'] != null
-            ? SdkPresent((json['stream_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ResponsesServerEventVariant30Variant1.fromJson(Map<String, dynamic> json) => ResponsesServerEventVariant30Variant1(
+    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (streamId) {
-          SdkPresent<String>(value: final value) => {
-              'stream_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (streamId) {
+      SdkPresent<String>(value: final value) => {'stream_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Emitted when a reasoning summary part is completed.
 class ResponsesServerEventVariant30 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `response.reasoning_summary_part.done`.
   final ResponseReasoningSummaryPartDoneEventType type_;
-
   /// The ID of the item this summary part is associated with.
   final String itemId;
-
   /// The index of the output item this summary part is associated with.
   final int outputIndex;
-
   /// The index of the summary part within the reasoning summary.
   final int summaryIndex;
-
   /// The completion status of the summary part. Omitted when the part completed normally and set to `incomplete` when generation was interrupted.
   final SdkOptional<ResponseReasoningSummaryPartDoneEventStatus> status;
-
   /// The sequence number of this event.
   final int sequenceNumber;
-
   /// The completed summary part.
   final ResponseReasoningSummaryPartDoneEventPart part_;
-
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const ResponsesServerEventVariant30(
-      {required this.type_,
-      required this.itemId,
-      required this.outputIndex,
-      required this.summaryIndex,
-      this.status = const SdkOmitted(),
-      required this.sequenceNumber,
-      required this.part_,
-      this.streamId = const SdkOmitted()});
+  const ResponsesServerEventVariant30({required this.type_, required this.itemId, required this.outputIndex, required this.summaryIndex, this.status = const SdkOmitted(), required this.sequenceNumber, required this.part_, this.streamId = const SdkOmitted()});
 
-  ResponsesServerEventVariant30 Function(
-      {ResponseReasoningSummaryPartDoneEventType type_,
-      String itemId,
-      int outputIndex,
-      int summaryIndex,
-      SdkOptional<ResponseReasoningSummaryPartDoneEventStatus> status,
-      int sequenceNumber,
-      ResponseReasoningSummaryPartDoneEventPart part_,
-      SdkOptional<String> streamId}) get copyWith => _copyWith;
+  ResponsesServerEventVariant30 Function({ResponseReasoningSummaryPartDoneEventType type_, String itemId, int outputIndex, int summaryIndex, SdkOptional<ResponseReasoningSummaryPartDoneEventStatus> status, int sequenceNumber, ResponseReasoningSummaryPartDoneEventPart part_, SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  ResponsesServerEventVariant30 _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? summaryIndex = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? part_ = sdkOmittedValue,
-          Object? streamId = sdkOmittedValue}) =>
-      ResponsesServerEventVariant30(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseReasoningSummaryPartDoneEventType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        summaryIndex: identical(summaryIndex, sdkOmittedValue)
-            ? this.summaryIndex
-            : summaryIndex as int,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status
-                as SdkOptional<ResponseReasoningSummaryPartDoneEventStatus>,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        part_: identical(part_, sdkOmittedValue)
-            ? this.part_
-            : part_ as ResponseReasoningSummaryPartDoneEventPart,
-        streamId: identical(streamId, sdkOmittedValue)
-            ? this.streamId
-            : streamId as SdkOptional<String>,
-      );
+  ResponsesServerEventVariant30 _copyWith({Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? summaryIndex = sdkOmittedValue, Object? status = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? part_ = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => ResponsesServerEventVariant30(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseReasoningSummaryPartDoneEventType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    summaryIndex: identical(summaryIndex, sdkOmittedValue) ? this.summaryIndex : summaryIndex as int,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ResponseReasoningSummaryPartDoneEventStatus>,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    part_: identical(part_, sdkOmittedValue) ? this.part_ : part_ as ResponseReasoningSummaryPartDoneEventPart,
+    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
+  );
 
-  factory ResponsesServerEventVariant30.fromJson(Map<String, dynamic> json) =>
-      ResponsesServerEventVariant30(
-        type_: (json['type'] != null
-            ? ResponseReasoningSummaryPartDoneEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ResponseReasoningSummaryPartDoneEventStatus.fromJson(
-                    json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        part_: (json['part'] != null
-            ? ResponseReasoningSummaryPartDoneEventPart.fromJson(
-                json['part'] as Map<String, dynamic>)
-            : null)!,
-        streamId: json['stream_id'] != null
-            ? SdkPresent((json['stream_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ResponsesServerEventVariant30.fromJson(Map<String, dynamic> json) => ResponsesServerEventVariant30(
+    type_: (json['type'] != null ? ResponseReasoningSummaryPartDoneEventType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ResponseReasoningSummaryPartDoneEventStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    part_: (json['part'] != null ? ResponseReasoningSummaryPartDoneEventPart.fromJson(json['part'] as Map<String, dynamic>) : null)!,
+    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'summary_index': summaryIndex,
-        ...switch (status) {
-          SdkPresent<ResponseReasoningSummaryPartDoneEventStatus>(
-            value: final value
-          ) =>
-            {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'sequence_number': sequenceNumber,
-        'part': part_.toJson(),
-        ...switch (streamId) {
-          SdkPresent<String>(value: final value) => {
-              'stream_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'summary_index': summaryIndex,
+    ...switch (status) {
+      SdkPresent<ResponseReasoningSummaryPartDoneEventStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'sequence_number': sequenceNumber,
+    'part': part_.toJson(),
+    ...switch (streamId) {
+      SdkPresent<String>(value: final value) => {'stream_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class ResponsesServerEventVariant31Variant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const ResponsesServerEventVariant31Variant1(
-      {this.streamId = const SdkOmitted()});
+  const ResponsesServerEventVariant31Variant1({this.streamId = const SdkOmitted()});
 
-  ResponsesServerEventVariant31Variant1 Function({SdkOptional<String> streamId})
-      get copyWith => _copyWith;
+  ResponsesServerEventVariant31Variant1 Function({SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  ResponsesServerEventVariant31Variant1 _copyWith(
-          {Object? streamId = sdkOmittedValue}) =>
-      ResponsesServerEventVariant31Variant1(
-        streamId: identical(streamId, sdkOmittedValue)
-            ? this.streamId
-            : streamId as SdkOptional<String>,
-      );
+  ResponsesServerEventVariant31Variant1 _copyWith({Object? streamId = sdkOmittedValue}) => ResponsesServerEventVariant31Variant1(
+    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
+  );
 
-  factory ResponsesServerEventVariant31Variant1.fromJson(
-          Map<String, dynamic> json) =>
-      ResponsesServerEventVariant31Variant1(
-        streamId: json['stream_id'] != null
-            ? SdkPresent((json['stream_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ResponsesServerEventVariant31Variant1.fromJson(Map<String, dynamic> json) => ResponsesServerEventVariant31Variant1(
+    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (streamId) {
-          SdkPresent<String>(value: final value) => {
-              'stream_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (streamId) {
+      SdkPresent<String>(value: final value) => {'stream_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Emitted when a delta is added to a reasoning summary text.
 class ResponsesServerEventVariant31 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `response.reasoning_summary_text.delta`.
   final ResponseReasoningSummaryTextDeltaEventType type_;
-
   /// The ID of the item this summary text delta is associated with.
   final String itemId;
-
   /// The index of the output item this summary text delta is associated with.
   final int outputIndex;
-
   /// The index of the summary part within the reasoning summary.
   final int summaryIndex;
-
   /// The text delta that was added to the summary.
   final String delta;
-
   /// The sequence number of this event.
   final int sequenceNumber;
-
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const ResponsesServerEventVariant31(
-      {required this.type_,
-      required this.itemId,
-      required this.outputIndex,
-      required this.summaryIndex,
-      required this.delta,
-      required this.sequenceNumber,
-      this.streamId = const SdkOmitted()});
+  const ResponsesServerEventVariant31({required this.type_, required this.itemId, required this.outputIndex, required this.summaryIndex, required this.delta, required this.sequenceNumber, this.streamId = const SdkOmitted()});
 
-  ResponsesServerEventVariant31 Function(
-      {ResponseReasoningSummaryTextDeltaEventType type_,
-      String itemId,
-      int outputIndex,
-      int summaryIndex,
-      String delta,
-      int sequenceNumber,
-      SdkOptional<String> streamId}) get copyWith => _copyWith;
+  ResponsesServerEventVariant31 Function({ResponseReasoningSummaryTextDeltaEventType type_, String itemId, int outputIndex, int summaryIndex, String delta, int sequenceNumber, SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  ResponsesServerEventVariant31 _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? summaryIndex = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? streamId = sdkOmittedValue}) =>
-      ResponsesServerEventVariant31(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseReasoningSummaryTextDeltaEventType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        summaryIndex: identical(summaryIndex, sdkOmittedValue)
-            ? this.summaryIndex
-            : summaryIndex as int,
-        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        streamId: identical(streamId, sdkOmittedValue)
-            ? this.streamId
-            : streamId as SdkOptional<String>,
-      );
+  ResponsesServerEventVariant31 _copyWith({Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? summaryIndex = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => ResponsesServerEventVariant31(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseReasoningSummaryTextDeltaEventType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    summaryIndex: identical(summaryIndex, sdkOmittedValue) ? this.summaryIndex : summaryIndex as int,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
+  );
 
-  factory ResponsesServerEventVariant31.fromJson(Map<String, dynamic> json) =>
-      ResponsesServerEventVariant31(
-        type_: (json['type'] != null
-            ? ResponseReasoningSummaryTextDeltaEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
-        delta: (json['delta'] as String?)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        streamId: json['stream_id'] != null
-            ? SdkPresent((json['stream_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ResponsesServerEventVariant31.fromJson(Map<String, dynamic> json) => ResponsesServerEventVariant31(
+    type_: (json['type'] != null ? ResponseReasoningSummaryTextDeltaEventType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
+    delta: (json['delta'] as String?)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'summary_index': summaryIndex,
-        'delta': delta,
-        'sequence_number': sequenceNumber,
-        ...switch (streamId) {
-          SdkPresent<String>(value: final value) => {
-              'stream_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'summary_index': summaryIndex,
+    'delta': delta,
+    'sequence_number': sequenceNumber,
+    ...switch (streamId) {
+      SdkPresent<String>(value: final value) => {'stream_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class ResponsesServerEventVariant32Variant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const ResponsesServerEventVariant32Variant1(
-      {this.streamId = const SdkOmitted()});
+  const ResponsesServerEventVariant32Variant1({this.streamId = const SdkOmitted()});
 
-  ResponsesServerEventVariant32Variant1 Function({SdkOptional<String> streamId})
-      get copyWith => _copyWith;
+  ResponsesServerEventVariant32Variant1 Function({SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  ResponsesServerEventVariant32Variant1 _copyWith(
-          {Object? streamId = sdkOmittedValue}) =>
-      ResponsesServerEventVariant32Variant1(
-        streamId: identical(streamId, sdkOmittedValue)
-            ? this.streamId
-            : streamId as SdkOptional<String>,
-      );
+  ResponsesServerEventVariant32Variant1 _copyWith({Object? streamId = sdkOmittedValue}) => ResponsesServerEventVariant32Variant1(
+    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
+  );
 
-  factory ResponsesServerEventVariant32Variant1.fromJson(
-          Map<String, dynamic> json) =>
-      ResponsesServerEventVariant32Variant1(
-        streamId: json['stream_id'] != null
-            ? SdkPresent((json['stream_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ResponsesServerEventVariant32Variant1.fromJson(Map<String, dynamic> json) => ResponsesServerEventVariant32Variant1(
+    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (streamId) {
-          SdkPresent<String>(value: final value) => {
-              'stream_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (streamId) {
+      SdkPresent<String>(value: final value) => {'stream_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

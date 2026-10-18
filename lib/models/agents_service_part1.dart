@@ -6,6 +6,7 @@ part of 'agents_service.dart';
 // agents_service domain models
 /// The service tier used for model requests.
 final class ServiceTierParam {
+
   final String value;
 
   const ServiceTierParam._(this.value);
@@ -20,25 +21,22 @@ final class ServiceTierParam {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ServiceTierParam && other.value == value;
+  @override bool operator ==(Object other) => other is ServiceTierParam && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The service-tier policy configured for an agent.
 final class ServiceTierResource {
+
   final String value;
 
   const ServiceTierResource._(this.value);
 
-  factory ServiceTierResource.fromJson(String value) =>
-      ServiceTierResource._(value);
+  factory ServiceTierResource.fromJson(String value) => ServiceTierResource._(value);
 
   static const auto = ServiceTierResource._('auto');
   static const default_ = ServiceTierResource._('default');
@@ -49,13 +47,10 @@ final class ServiceTierResource {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ServiceTierResource && other.value == value;
+  @override bool operator ==(Object other) => other is ServiceTierResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

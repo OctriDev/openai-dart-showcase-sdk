@@ -6,6 +6,7 @@ part of 'assistants_file.dart';
 // assistants_file domain models
 /// The ranker to use for the file search. If not specified will use the `auto` ranker.
 final class FileSearchRanker {
+
   final String value;
 
   const FileSearchRanker._(this.value);
@@ -17,64 +18,42 @@ final class FileSearchRanker {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is FileSearchRanker && other.value == value;
+  @override bool operator ==(Object other) => other is FileSearchRanker && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0. See the [file search tool documentation](https://developers.openai.com/api/docs/guides/tools-file-search#retrieval-customization) for more information.
 class FileSearchRankingOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ranker to use for the file search. If not specified will use the `auto` ranker.
   final SdkOptional<FileSearchRanker> ranker;
-
   /// The score threshold for the file search. All values must be a floating point number between 0 and 1.
   final double scoreThreshold;
 
-  const FileSearchRankingOptions(
-      {this.ranker = const SdkOmitted(), required this.scoreThreshold});
+  const FileSearchRankingOptions({this.ranker = const SdkOmitted(), required this.scoreThreshold});
 
-  FileSearchRankingOptions Function(
-      {SdkOptional<FileSearchRanker> ranker,
-      double scoreThreshold}) get copyWith => _copyWith;
+  FileSearchRankingOptions Function({SdkOptional<FileSearchRanker> ranker, double scoreThreshold}) get copyWith => _copyWith;
 
-  FileSearchRankingOptions _copyWith(
-          {Object? ranker = sdkOmittedValue,
-          Object? scoreThreshold = sdkOmittedValue}) =>
-      FileSearchRankingOptions(
-        ranker: identical(ranker, sdkOmittedValue)
-            ? this.ranker
-            : ranker as SdkOptional<FileSearchRanker>,
-        scoreThreshold: identical(scoreThreshold, sdkOmittedValue)
-            ? this.scoreThreshold
-            : scoreThreshold as double,
-      );
+  FileSearchRankingOptions _copyWith({Object? ranker = sdkOmittedValue, Object? scoreThreshold = sdkOmittedValue}) => FileSearchRankingOptions(
+    ranker: identical(ranker, sdkOmittedValue) ? this.ranker : ranker as SdkOptional<FileSearchRanker>,
+    scoreThreshold: identical(scoreThreshold, sdkOmittedValue) ? this.scoreThreshold : scoreThreshold as double,
+  );
 
-  factory FileSearchRankingOptions.fromJson(Map<String, dynamic> json) =>
-      FileSearchRankingOptions(
-        ranker: json['ranker'] != null
-            ? SdkPresent((json['ranker'] != null
-                ? FileSearchRanker.fromJson(json['ranker'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        scoreThreshold: ((json['score_threshold'] as num?)?.toDouble())!,
-      );
+  factory FileSearchRankingOptions.fromJson(Map<String, dynamic> json) => FileSearchRankingOptions(
+    ranker: json['ranker'] != null ? SdkPresent((json['ranker'] != null ? FileSearchRanker.fromJson(json['ranker'] as String) : null)!) : const SdkOmitted(),
+    scoreThreshold: ((json['score_threshold'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (ranker) {
-          SdkPresent<FileSearchRanker>(value: final value) => {
-              'ranker': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'score_threshold': scoreThreshold,
-      };
+    ...switch (ranker) {
+      SdkPresent<FileSearchRanker>(value: final value) => {'ranker': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'score_threshold': scoreThreshold,
+  };
 }

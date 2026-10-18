@@ -8,7 +8,6 @@ part of 'hosted_tools.dart';
 class HostedToolPermission {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether the hosted tool is enabled for the project.
   final bool enabled;
 
@@ -16,28 +15,23 @@ class HostedToolPermission {
 
   HostedToolPermission Function({bool enabled}) get copyWith => _copyWith;
 
-  HostedToolPermission _copyWith({Object? enabled = sdkOmittedValue}) =>
-      HostedToolPermission(
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as bool,
-      );
+  HostedToolPermission _copyWith({Object? enabled = sdkOmittedValue}) => HostedToolPermission(
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
+  );
 
-  factory HostedToolPermission.fromJson(Map<String, dynamic> json) =>
-      HostedToolPermission(
-        enabled: (json['enabled'] as bool?)!,
-      );
+  factory HostedToolPermission.fromJson(Map<String, dynamic> json) => HostedToolPermission(
+    enabled: (json['enabled'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'enabled': enabled,
-      };
+    'enabled': enabled,
+  };
 }
 
 /// Typed representation of the `HostedToolPermissionUpdate` API schema.
 class HostedToolPermissionUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether to enable the hosted tool for the project.
   final bool enabled;
 
@@ -45,237 +39,118 @@ class HostedToolPermissionUpdate {
 
   HostedToolPermissionUpdate Function({bool enabled}) get copyWith => _copyWith;
 
-  HostedToolPermissionUpdate _copyWith({Object? enabled = sdkOmittedValue}) =>
-      HostedToolPermissionUpdate(
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as bool,
-      );
+  HostedToolPermissionUpdate _copyWith({Object? enabled = sdkOmittedValue}) => HostedToolPermissionUpdate(
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
+  );
 
-  factory HostedToolPermissionUpdate.fromJson(Map<String, dynamic> json) =>
-      HostedToolPermissionUpdate(
-        enabled: (json['enabled'] as bool?)!,
-      );
+  factory HostedToolPermissionUpdate.fromJson(Map<String, dynamic> json) => HostedToolPermissionUpdate(
+    enabled: (json['enabled'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'enabled': enabled,
-      };
+    'enabled': enabled,
+  };
 }
 
 /// Represents hosted tool permissions for a project.
 class ProjectHostedToolPermissions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Permission state for a single hosted tool on a project.
   final HostedToolPermission fileSearch;
-
   /// Permission state for a single hosted tool on a project.
   final HostedToolPermission webSearch;
-
   /// Permission state for a single hosted tool on a project.
   final HostedToolPermission imageGeneration;
-
   /// Permission state for a single hosted tool on a project.
   final HostedToolPermission mcp;
-
   /// Permission state for a single hosted tool on a project.
   final HostedToolPermission codeInterpreter;
 
-  const ProjectHostedToolPermissions(
-      {required this.fileSearch,
-      required this.webSearch,
-      required this.imageGeneration,
-      required this.mcp,
-      required this.codeInterpreter});
+  const ProjectHostedToolPermissions({required this.fileSearch, required this.webSearch, required this.imageGeneration, required this.mcp, required this.codeInterpreter});
 
-  ProjectHostedToolPermissions Function(
-      {HostedToolPermission fileSearch,
-      HostedToolPermission webSearch,
-      HostedToolPermission imageGeneration,
-      HostedToolPermission mcp,
-      HostedToolPermission codeInterpreter}) get copyWith => _copyWith;
+  ProjectHostedToolPermissions Function({HostedToolPermission fileSearch, HostedToolPermission webSearch, HostedToolPermission imageGeneration, HostedToolPermission mcp, HostedToolPermission codeInterpreter}) get copyWith => _copyWith;
 
-  ProjectHostedToolPermissions _copyWith(
-          {Object? fileSearch = sdkOmittedValue,
-          Object? webSearch = sdkOmittedValue,
-          Object? imageGeneration = sdkOmittedValue,
-          Object? mcp = sdkOmittedValue,
-          Object? codeInterpreter = sdkOmittedValue}) =>
-      ProjectHostedToolPermissions(
-        fileSearch: identical(fileSearch, sdkOmittedValue)
-            ? this.fileSearch
-            : fileSearch as HostedToolPermission,
-        webSearch: identical(webSearch, sdkOmittedValue)
-            ? this.webSearch
-            : webSearch as HostedToolPermission,
-        imageGeneration: identical(imageGeneration, sdkOmittedValue)
-            ? this.imageGeneration
-            : imageGeneration as HostedToolPermission,
-        mcp: identical(mcp, sdkOmittedValue)
-            ? this.mcp
-            : mcp as HostedToolPermission,
-        codeInterpreter: identical(codeInterpreter, sdkOmittedValue)
-            ? this.codeInterpreter
-            : codeInterpreter as HostedToolPermission,
-      );
+  ProjectHostedToolPermissions _copyWith({Object? fileSearch = sdkOmittedValue, Object? webSearch = sdkOmittedValue, Object? imageGeneration = sdkOmittedValue, Object? mcp = sdkOmittedValue, Object? codeInterpreter = sdkOmittedValue}) => ProjectHostedToolPermissions(
+    fileSearch: identical(fileSearch, sdkOmittedValue) ? this.fileSearch : fileSearch as HostedToolPermission,
+    webSearch: identical(webSearch, sdkOmittedValue) ? this.webSearch : webSearch as HostedToolPermission,
+    imageGeneration: identical(imageGeneration, sdkOmittedValue) ? this.imageGeneration : imageGeneration as HostedToolPermission,
+    mcp: identical(mcp, sdkOmittedValue) ? this.mcp : mcp as HostedToolPermission,
+    codeInterpreter: identical(codeInterpreter, sdkOmittedValue) ? this.codeInterpreter : codeInterpreter as HostedToolPermission,
+  );
 
-  factory ProjectHostedToolPermissions.fromJson(Map<String, dynamic> json) =>
-      ProjectHostedToolPermissions(
-        fileSearch: (json['file_search'] != null
-            ? HostedToolPermission.fromJson(
-                json['file_search'] as Map<String, dynamic>)
-            : null)!,
-        webSearch: (json['web_search'] != null
-            ? HostedToolPermission.fromJson(
-                json['web_search'] as Map<String, dynamic>)
-            : null)!,
-        imageGeneration: (json['image_generation'] != null
-            ? HostedToolPermission.fromJson(
-                json['image_generation'] as Map<String, dynamic>)
-            : null)!,
-        mcp: (json['mcp'] != null
-            ? HostedToolPermission.fromJson(json['mcp'] as Map<String, dynamic>)
-            : null)!,
-        codeInterpreter: (json['code_interpreter'] != null
-            ? HostedToolPermission.fromJson(
-                json['code_interpreter'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ProjectHostedToolPermissions.fromJson(Map<String, dynamic> json) => ProjectHostedToolPermissions(
+    fileSearch: (json['file_search'] != null ? HostedToolPermission.fromJson(json['file_search'] as Map<String, dynamic>) : null)!,
+    webSearch: (json['web_search'] != null ? HostedToolPermission.fromJson(json['web_search'] as Map<String, dynamic>) : null)!,
+    imageGeneration: (json['image_generation'] != null ? HostedToolPermission.fromJson(json['image_generation'] as Map<String, dynamic>) : null)!,
+    mcp: (json['mcp'] != null ? HostedToolPermission.fromJson(json['mcp'] as Map<String, dynamic>) : null)!,
+    codeInterpreter: (json['code_interpreter'] != null ? HostedToolPermission.fromJson(json['code_interpreter'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'file_search': fileSearch.toJson(),
-        'web_search': webSearch.toJson(),
-        'image_generation': imageGeneration.toJson(),
-        'mcp': mcp.toJson(),
-        'code_interpreter': codeInterpreter.toJson(),
-      };
+    'file_search': fileSearch.toJson(),
+    'web_search': webSearch.toJson(),
+    'image_generation': imageGeneration.toJson(),
+    'mcp': mcp.toJson(),
+    'code_interpreter': codeInterpreter.toJson(),
+  };
 }
 
 /// Typed representation of the `ProjectHostedToolPermissionsUpdateRequest` API schema.
 class ProjectHostedToolPermissionsUpdateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The file search permission update.
   final SdkOptional<HostedToolPermissionUpdate?> fileSearch;
-
   /// The web search permission update.
   final SdkOptional<HostedToolPermissionUpdate?> webSearch;
-
   /// The image generation permission update.
   final SdkOptional<HostedToolPermissionUpdate?> imageGeneration;
-
   /// The MCP permission update.
   final SdkOptional<HostedToolPermissionUpdate?> mcp;
-
   /// The code interpreter permission update.
   final SdkOptional<HostedToolPermissionUpdate?> codeInterpreter;
 
-  const ProjectHostedToolPermissionsUpdateRequest(
-      {this.fileSearch = const SdkOmitted(),
-      this.webSearch = const SdkOmitted(),
-      this.imageGeneration = const SdkOmitted(),
-      this.mcp = const SdkOmitted(),
-      this.codeInterpreter = const SdkOmitted()});
+  const ProjectHostedToolPermissionsUpdateRequest({this.fileSearch = const SdkOmitted(), this.webSearch = const SdkOmitted(), this.imageGeneration = const SdkOmitted(), this.mcp = const SdkOmitted(), this.codeInterpreter = const SdkOmitted()});
 
-  ProjectHostedToolPermissionsUpdateRequest Function(
-          {SdkOptional<HostedToolPermissionUpdate?> fileSearch,
-          SdkOptional<HostedToolPermissionUpdate?> webSearch,
-          SdkOptional<HostedToolPermissionUpdate?> imageGeneration,
-          SdkOptional<HostedToolPermissionUpdate?> mcp,
-          SdkOptional<HostedToolPermissionUpdate?> codeInterpreter})
-      get copyWith => _copyWith;
+  ProjectHostedToolPermissionsUpdateRequest Function({SdkOptional<HostedToolPermissionUpdate?> fileSearch, SdkOptional<HostedToolPermissionUpdate?> webSearch, SdkOptional<HostedToolPermissionUpdate?> imageGeneration, SdkOptional<HostedToolPermissionUpdate?> mcp, SdkOptional<HostedToolPermissionUpdate?> codeInterpreter}) get copyWith => _copyWith;
 
-  ProjectHostedToolPermissionsUpdateRequest _copyWith(
-          {Object? fileSearch = sdkOmittedValue,
-          Object? webSearch = sdkOmittedValue,
-          Object? imageGeneration = sdkOmittedValue,
-          Object? mcp = sdkOmittedValue,
-          Object? codeInterpreter = sdkOmittedValue}) =>
-      ProjectHostedToolPermissionsUpdateRequest(
-        fileSearch: identical(fileSearch, sdkOmittedValue)
-            ? this.fileSearch
-            : fileSearch as SdkOptional<HostedToolPermissionUpdate?>,
-        webSearch: identical(webSearch, sdkOmittedValue)
-            ? this.webSearch
-            : webSearch as SdkOptional<HostedToolPermissionUpdate?>,
-        imageGeneration: identical(imageGeneration, sdkOmittedValue)
-            ? this.imageGeneration
-            : imageGeneration as SdkOptional<HostedToolPermissionUpdate?>,
-        mcp: identical(mcp, sdkOmittedValue)
-            ? this.mcp
-            : mcp as SdkOptional<HostedToolPermissionUpdate?>,
-        codeInterpreter: identical(codeInterpreter, sdkOmittedValue)
-            ? this.codeInterpreter
-            : codeInterpreter as SdkOptional<HostedToolPermissionUpdate?>,
-      );
+  ProjectHostedToolPermissionsUpdateRequest _copyWith({Object? fileSearch = sdkOmittedValue, Object? webSearch = sdkOmittedValue, Object? imageGeneration = sdkOmittedValue, Object? mcp = sdkOmittedValue, Object? codeInterpreter = sdkOmittedValue}) => ProjectHostedToolPermissionsUpdateRequest(
+    fileSearch: identical(fileSearch, sdkOmittedValue) ? this.fileSearch : fileSearch as SdkOptional<HostedToolPermissionUpdate?>,
+    webSearch: identical(webSearch, sdkOmittedValue) ? this.webSearch : webSearch as SdkOptional<HostedToolPermissionUpdate?>,
+    imageGeneration: identical(imageGeneration, sdkOmittedValue) ? this.imageGeneration : imageGeneration as SdkOptional<HostedToolPermissionUpdate?>,
+    mcp: identical(mcp, sdkOmittedValue) ? this.mcp : mcp as SdkOptional<HostedToolPermissionUpdate?>,
+    codeInterpreter: identical(codeInterpreter, sdkOmittedValue) ? this.codeInterpreter : codeInterpreter as SdkOptional<HostedToolPermissionUpdate?>,
+  );
 
-  factory ProjectHostedToolPermissionsUpdateRequest.fromJson(
-          Map<String, dynamic> json) =>
-      ProjectHostedToolPermissionsUpdateRequest(
-        fileSearch: json.containsKey('file_search')
-            ? SdkPresent(json['file_search'] != null
-                ? HostedToolPermissionUpdate.fromJson(
-                    json['file_search'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        webSearch: json.containsKey('web_search')
-            ? SdkPresent(json['web_search'] != null
-                ? HostedToolPermissionUpdate.fromJson(
-                    json['web_search'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        imageGeneration: json.containsKey('image_generation')
-            ? SdkPresent(json['image_generation'] != null
-                ? HostedToolPermissionUpdate.fromJson(
-                    json['image_generation'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        mcp: json.containsKey('mcp')
-            ? SdkPresent(json['mcp'] != null
-                ? HostedToolPermissionUpdate.fromJson(
-                    json['mcp'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        codeInterpreter: json.containsKey('code_interpreter')
-            ? SdkPresent(json['code_interpreter'] != null
-                ? HostedToolPermissionUpdate.fromJson(
-                    json['code_interpreter'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory ProjectHostedToolPermissionsUpdateRequest.fromJson(Map<String, dynamic> json) => ProjectHostedToolPermissionsUpdateRequest(
+    fileSearch: json.containsKey('file_search') ? SdkPresent(json['file_search'] != null ? HostedToolPermissionUpdate.fromJson(json['file_search'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    webSearch: json.containsKey('web_search') ? SdkPresent(json['web_search'] != null ? HostedToolPermissionUpdate.fromJson(json['web_search'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    imageGeneration: json.containsKey('image_generation') ? SdkPresent(json['image_generation'] != null ? HostedToolPermissionUpdate.fromJson(json['image_generation'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    mcp: json.containsKey('mcp') ? SdkPresent(json['mcp'] != null ? HostedToolPermissionUpdate.fromJson(json['mcp'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    codeInterpreter: json.containsKey('code_interpreter') ? SdkPresent(json['code_interpreter'] != null ? HostedToolPermissionUpdate.fromJson(json['code_interpreter'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (fileSearch) {
-          SdkPresent<HostedToolPermissionUpdate?>(value: final value) => {
-              'file_search': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (webSearch) {
-          SdkPresent<HostedToolPermissionUpdate?>(value: final value) => {
-              'web_search': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (imageGeneration) {
-          SdkPresent<HostedToolPermissionUpdate?>(value: final value) => {
-              'image_generation': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (mcp) {
-          SdkPresent<HostedToolPermissionUpdate?>(value: final value) => {
-              'mcp': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (codeInterpreter) {
-          SdkPresent<HostedToolPermissionUpdate?>(value: final value) => {
-              'code_interpreter': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (fileSearch) {
+      SdkPresent<HostedToolPermissionUpdate?>(value: final value) => {'file_search': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (webSearch) {
+      SdkPresent<HostedToolPermissionUpdate?>(value: final value) => {'web_search': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (imageGeneration) {
+      SdkPresent<HostedToolPermissionUpdate?>(value: final value) => {'image_generation': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (mcp) {
+      SdkPresent<HostedToolPermissionUpdate?>(value: final value) => {'mcp': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (codeInterpreter) {
+      SdkPresent<HostedToolPermissionUpdate?>(value: final value) => {'code_interpreter': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

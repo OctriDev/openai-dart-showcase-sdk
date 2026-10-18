@@ -6,304 +6,208 @@ part of 'inline.dart';
 // Inline operation models (part 41)
 /// Required enumerated value serialized in the `illicit/violent[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem
-          ._(value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem
-          ._('text');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem._('text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `self-harm[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem
-          ._(value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem
-          ._('text');
-  static const image =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem
-          ._('image');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem._('text');
+  static const image = CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem._('image');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `self-harm/instructions[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem
-          ._(value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem
-          ._('text');
-  static const image =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem
-          ._('image');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem._('text');
+  static const image = CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem._('image');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `self-harm/intent[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem
-          ._(value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem
-          ._('text');
-  static const image =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem
-          ._('image');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem._('text');
+  static const image = CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem._('image');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `sexual[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem._(
-          value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem._(
-          'text');
-  static const image =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem._(
-          'image');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem._('text');
+  static const image = CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem._('image');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `sexual/minors[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem
-          ._(value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem
-          ._('text');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem._('text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `violence[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem
-          ._(value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem
-          ._('text');
-  static const image =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem
-          ._('image');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem._('text');
+  static const image = CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem._('image');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `violence/graphic[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem
-          ._(value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem
-          ._('text');
-  static const image =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem
-          ._('image');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem._('text');
+  static const image = CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem._('image');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The truncation strategy to use for the model response. - `auto`: If the input to this Response exceeds the model's context window size, the model will truncate the response to fit the context window by dropping items from the beginning of the conversation. - `disabled` (default): If the input size will exceed the context window size for a model, the request will fail with a 400 error.
 final class CreateResponseVariant2TruncationVariant0 {
+
   final String value;
 
   const CreateResponseVariant2TruncationVariant0._(this.value);
 
-  factory CreateResponseVariant2TruncationVariant0.fromJson(String value) =>
-      CreateResponseVariant2TruncationVariant0._(value);
+  factory CreateResponseVariant2TruncationVariant0.fromJson(String value) => CreateResponseVariant2TruncationVariant0._(value);
 
   static const auto = CreateResponseVariant2TruncationVariant0._('auto');
-  static const disabled =
-      CreateResponseVariant2TruncationVariant0._('disabled');
+  static const disabled = CreateResponseVariant2TruncationVariant0._('disabled');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateResponseVariant2TruncationVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is CreateResponseVariant2TruncationVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The format to audio in. Supported formats are `mp3`, `opus`, `aac`, `flac`, `wav`, and `pcm`.
 final class CreateSpeechRequestResponseFormat {
+
   final String value;
 
   const CreateSpeechRequestResponseFormat._(this.value);
 
-  factory CreateSpeechRequestResponseFormat.fromJson(String value) =>
-      CreateSpeechRequestResponseFormat._(value);
+  factory CreateSpeechRequestResponseFormat.fromJson(String value) => CreateSpeechRequestResponseFormat._(value);
 
   static const mp3 = CreateSpeechRequestResponseFormat._('mp3');
   static const opus = CreateSpeechRequestResponseFormat._('opus');
@@ -314,50 +218,44 @@ final class CreateSpeechRequestResponseFormat {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateSpeechRequestResponseFormat && other.value == value;
+  @override bool operator ==(Object other) => other is CreateSpeechRequestResponseFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The format to stream the audio in. Supported formats are `sse` and `audio`. `sse` is not supported for `tts-1` or `tts-1-hd`.
 final class CreateSpeechRequestStreamFormat {
+
   final String value;
 
   const CreateSpeechRequestStreamFormat._(this.value);
 
-  factory CreateSpeechRequestStreamFormat.fromJson(String value) =>
-      CreateSpeechRequestStreamFormat._(value);
+  factory CreateSpeechRequestStreamFormat.fromJson(String value) => CreateSpeechRequestStreamFormat._(value);
 
   static const sse = CreateSpeechRequestStreamFormat._('sse');
   static const audio = CreateSpeechRequestStreamFormat._('audio');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateSpeechRequestStreamFormat && other.value == value;
+  @override bool operator ==(Object other) => other is CreateSpeechRequestStreamFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `voice` wire field.
 final class CreateSpeechRequestVoiceVariant1 {
+
   final String value;
 
   const CreateSpeechRequestVoiceVariant1._(this.value);
 
-  factory CreateSpeechRequestVoiceVariant1.fromJson(String value) =>
-      CreateSpeechRequestVoiceVariant1._(value);
+  factory CreateSpeechRequestVoiceVariant1.fromJson(String value) => CreateSpeechRequestVoiceVariant1._(value);
 
   static const fable = CreateSpeechRequestVoiceVariant1._('fable');
   static const onyx = CreateSpeechRequestVoiceVariant1._('onyx');
@@ -365,37 +263,31 @@ final class CreateSpeechRequestVoiceVariant1 {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateSpeechRequestVoiceVariant1 && other.value == value;
+  @override bool operator ==(Object other) => other is CreateSpeechRequestVoiceVariant1 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The currency for the threshold amount.
 final class CreateSpendAlertBodyCurrency {
+
   final String value;
 
   const CreateSpendAlertBodyCurrency._(this.value);
 
-  factory CreateSpendAlertBodyCurrency.fromJson(String value) =>
-      CreateSpendAlertBodyCurrency._(value);
+  factory CreateSpendAlertBodyCurrency.fromJson(String value) => CreateSpendAlertBodyCurrency._(value);
 
   static const usd = CreateSpendAlertBodyCurrency._('USD');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateSpendAlertBodyCurrency && other.value == value;
+  @override bool operator ==(Object other) => other is CreateSpendAlertBodyCurrency && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

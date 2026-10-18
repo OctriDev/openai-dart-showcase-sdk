@@ -7,125 +7,69 @@ part of 'webhook_agent_session_created.dart';
 class WebhookAgentSessionCreatedVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type. Always `agent.session.created`.
   final WebhookAgentSessionCreatedVariant1Type type_;
   final AgentSessionCreatedPayloadResource data;
 
-  const WebhookAgentSessionCreatedVariant1(
-      {required this.type_, required this.data});
+  const WebhookAgentSessionCreatedVariant1({required this.type_, required this.data});
 
-  WebhookAgentSessionCreatedVariant1 Function(
-      {WebhookAgentSessionCreatedVariant1Type type_,
-      AgentSessionCreatedPayloadResource data}) get copyWith => _copyWith;
+  WebhookAgentSessionCreatedVariant1 Function({WebhookAgentSessionCreatedVariant1Type type_, AgentSessionCreatedPayloadResource data}) get copyWith => _copyWith;
 
-  WebhookAgentSessionCreatedVariant1 _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
-      WebhookAgentSessionCreatedVariant1(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebhookAgentSessionCreatedVariant1Type,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as AgentSessionCreatedPayloadResource,
-      );
+  WebhookAgentSessionCreatedVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => WebhookAgentSessionCreatedVariant1(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookAgentSessionCreatedVariant1Type,
+    data: identical(data, sdkOmittedValue) ? this.data : data as AgentSessionCreatedPayloadResource,
+  );
 
-  factory WebhookAgentSessionCreatedVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      WebhookAgentSessionCreatedVariant1(
-        type_: (json['type'] != null
-            ? WebhookAgentSessionCreatedVariant1Type.fromJson(
-                json['type'] as String)
-            : null)!,
-        data: (json['data'] != null
-            ? AgentSessionCreatedPayloadResource.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory WebhookAgentSessionCreatedVariant1.fromJson(Map<String, dynamic> json) => WebhookAgentSessionCreatedVariant1(
+    type_: (json['type'] != null ? WebhookAgentSessionCreatedVariant1Type.fromJson(json['type'] as String) : null)!,
+    data: (json['data'] != null ? AgentSessionCreatedPayloadResource.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'data': data.toJson(),
+  };
 }
 
 /// Sent when an agent session is created.
 class WebhookAgentSessionCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the event.
   final String id;
-
   /// The object type. Always `event`.
   final WebhookAgentSessionEnvelopeObject object;
-
   /// The Unix timestamp, in seconds, when the event was created.
   final int createdAt;
-
   /// The event type. Always `agent.session.created`.
   final WebhookAgentSessionCreatedVariant1Type type_;
   final AgentSessionCreatedPayloadResource data;
 
-  const WebhookAgentSessionCreated(
-      {required this.id,
-      required this.object,
-      required this.createdAt,
-      required this.type_,
-      required this.data});
+  const WebhookAgentSessionCreated({required this.id, required this.object, required this.createdAt, required this.type_, required this.data});
 
-  WebhookAgentSessionCreated Function(
-      {String id,
-      WebhookAgentSessionEnvelopeObject object,
-      int createdAt,
-      WebhookAgentSessionCreatedVariant1Type type_,
-      AgentSessionCreatedPayloadResource data}) get copyWith => _copyWith;
+  WebhookAgentSessionCreated Function({String id, WebhookAgentSessionEnvelopeObject object, int createdAt, WebhookAgentSessionCreatedVariant1Type type_, AgentSessionCreatedPayloadResource data}) get copyWith => _copyWith;
 
-  WebhookAgentSessionCreated _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      WebhookAgentSessionCreated(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as WebhookAgentSessionEnvelopeObject,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebhookAgentSessionCreatedVariant1Type,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as AgentSessionCreatedPayloadResource,
-      );
+  WebhookAgentSessionCreated _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => WebhookAgentSessionCreated(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as WebhookAgentSessionEnvelopeObject,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookAgentSessionCreatedVariant1Type,
+    data: identical(data, sdkOmittedValue) ? this.data : data as AgentSessionCreatedPayloadResource,
+  );
 
-  factory WebhookAgentSessionCreated.fromJson(Map<String, dynamic> json) =>
-      WebhookAgentSessionCreated(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? WebhookAgentSessionEnvelopeObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        type_: (json['type'] != null
-            ? WebhookAgentSessionCreatedVariant1Type.fromJson(
-                json['type'] as String)
-            : null)!,
-        data: (json['data'] != null
-            ? AgentSessionCreatedPayloadResource.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory WebhookAgentSessionCreated.fromJson(Map<String, dynamic> json) => WebhookAgentSessionCreated(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? WebhookAgentSessionEnvelopeObject.fromJson(json['object'] as String) : null)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    type_: (json['type'] != null ? WebhookAgentSessionCreatedVariant1Type.fromJson(json['type'] as String) : null)!,
+    data: (json['data'] != null ? AgentSessionCreatedPayloadResource.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'created_at': createdAt,
-        'type': type_.toJson(),
-        'data': data.toJson(),
-      };
+    'id': id,
+    'object': object.toJson(),
+    'created_at': createdAt,
+    'type': type_.toJson(),
+    'data': data.toJson(),
+  };
 }

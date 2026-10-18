@@ -10,19 +10,14 @@ enum ResponseMCPCallArgumentsDoneEventType {
 
   static ResponseMCPCallArgumentsDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call_arguments.done':
-        return ResponseMCPCallArgumentsDoneEventType
-            .responseMcpCallArgumentsDone;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseMCPCallArgumentsDoneEventType: $value');
+      case 'response.mcp_call_arguments.done': return ResponseMCPCallArgumentsDoneEventType.responseMcpCallArgumentsDone;
+      default: throw ArgumentError('Unknown ResponseMCPCallArgumentsDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseMCPCallArgumentsDoneEventType.responseMcpCallArgumentsDone:
-        return 'response.mcp_call_arguments.done';
+      case ResponseMCPCallArgumentsDoneEventType.responseMcpCallArgumentsDone: return 'response.mcp_call_arguments.done';
     }
   }
 
@@ -36,18 +31,14 @@ enum ResponseMCPCallCompletedEventType {
 
   static ResponseMCPCallCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call.completed':
-        return ResponseMCPCallCompletedEventType.responseMcpCallCompleted;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseMCPCallCompletedEventType: $value');
+      case 'response.mcp_call.completed': return ResponseMCPCallCompletedEventType.responseMcpCallCompleted;
+      default: throw ArgumentError('Unknown ResponseMCPCallCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseMCPCallCompletedEventType.responseMcpCallCompleted:
-        return 'response.mcp_call.completed';
+      case ResponseMCPCallCompletedEventType.responseMcpCallCompleted: return 'response.mcp_call.completed';
     }
   }
 
@@ -61,17 +52,14 @@ enum ResponseMCPCallFailedEventType {
 
   static ResponseMCPCallFailedEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call.failed':
-        return ResponseMCPCallFailedEventType.responseMcpCallFailed;
-      default:
-        throw ArgumentError('Unknown ResponseMCPCallFailedEventType: $value');
+      case 'response.mcp_call.failed': return ResponseMCPCallFailedEventType.responseMcpCallFailed;
+      default: throw ArgumentError('Unknown ResponseMCPCallFailedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseMCPCallFailedEventType.responseMcpCallFailed:
-        return 'response.mcp_call.failed';
+      case ResponseMCPCallFailedEventType.responseMcpCallFailed: return 'response.mcp_call.failed';
     }
   }
 
@@ -85,18 +73,14 @@ enum ResponseMCPCallInProgressEventType {
 
   static ResponseMCPCallInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call.in_progress':
-        return ResponseMCPCallInProgressEventType.responseMcpCallInProgress;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseMCPCallInProgressEventType: $value');
+      case 'response.mcp_call.in_progress': return ResponseMCPCallInProgressEventType.responseMcpCallInProgress;
+      default: throw ArgumentError('Unknown ResponseMCPCallInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseMCPCallInProgressEventType.responseMcpCallInProgress:
-        return 'response.mcp_call.in_progress';
+      case ResponseMCPCallInProgressEventType.responseMcpCallInProgress: return 'response.mcp_call.in_progress';
     }
   }
 
@@ -110,19 +94,14 @@ enum ResponseMCPListToolsCompletedEventType {
 
   static ResponseMCPListToolsCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_list_tools.completed':
-        return ResponseMCPListToolsCompletedEventType
-            .responseMcpListToolsCompleted;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseMCPListToolsCompletedEventType: $value');
+      case 'response.mcp_list_tools.completed': return ResponseMCPListToolsCompletedEventType.responseMcpListToolsCompleted;
+      default: throw ArgumentError('Unknown ResponseMCPListToolsCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseMCPListToolsCompletedEventType.responseMcpListToolsCompleted:
-        return 'response.mcp_list_tools.completed';
+      case ResponseMCPListToolsCompletedEventType.responseMcpListToolsCompleted: return 'response.mcp_list_tools.completed';
     }
   }
 
@@ -136,18 +115,14 @@ enum ResponseMCPListToolsFailedEventType {
 
   static ResponseMCPListToolsFailedEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_list_tools.failed':
-        return ResponseMCPListToolsFailedEventType.responseMcpListToolsFailed;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseMCPListToolsFailedEventType: $value');
+      case 'response.mcp_list_tools.failed': return ResponseMCPListToolsFailedEventType.responseMcpListToolsFailed;
+      default: throw ArgumentError('Unknown ResponseMCPListToolsFailedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseMCPListToolsFailedEventType.responseMcpListToolsFailed:
-        return 'response.mcp_list_tools.failed';
+      case ResponseMCPListToolsFailedEventType.responseMcpListToolsFailed: return 'response.mcp_list_tools.failed';
     }
   }
 
@@ -161,20 +136,14 @@ enum ResponseMCPListToolsInProgressEventType {
 
   static ResponseMCPListToolsInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_list_tools.in_progress':
-        return ResponseMCPListToolsInProgressEventType
-            .responseMcpListToolsInProgress;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseMCPListToolsInProgressEventType: $value');
+      case 'response.mcp_list_tools.in_progress': return ResponseMCPListToolsInProgressEventType.responseMcpListToolsInProgress;
+      default: throw ArgumentError('Unknown ResponseMCPListToolsInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseMCPListToolsInProgressEventType
-            .responseMcpListToolsInProgress:
-        return 'response.mcp_list_tools.in_progress';
+      case ResponseMCPListToolsInProgressEventType.responseMcpListToolsInProgress: return 'response.mcp_list_tools.in_progress';
     }
   }
 
@@ -183,27 +152,24 @@ enum ResponseMCPListToolsInProgressEventType {
 }
 
 final class ResponseModalitiesItem {
+
   final String value;
 
   const ResponseModalitiesItem._(this.value);
 
-  factory ResponseModalitiesItem.fromJson(String value) =>
-      ResponseModalitiesItem._(value);
+  factory ResponseModalitiesItem.fromJson(String value) => ResponseModalitiesItem._(value);
 
   static const text = ResponseModalitiesItem._('text');
   static const audio = ResponseModalitiesItem._('audio');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResponseModalitiesItem && other.value == value;
+  @override bool operator ==(Object other) => other is ResponseModalitiesItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always `response.output_item.added`.
@@ -212,17 +178,14 @@ enum ResponseOutputItemAddedEventType {
 
   static ResponseOutputItemAddedEventType fromJson(String value) {
     switch (value) {
-      case 'response.output_item.added':
-        return ResponseOutputItemAddedEventType.responseOutputItemAdded;
-      default:
-        throw ArgumentError('Unknown ResponseOutputItemAddedEventType: $value');
+      case 'response.output_item.added': return ResponseOutputItemAddedEventType.responseOutputItemAdded;
+      default: throw ArgumentError('Unknown ResponseOutputItemAddedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseOutputItemAddedEventType.responseOutputItemAdded:
-        return 'response.output_item.added';
+      case ResponseOutputItemAddedEventType.responseOutputItemAdded: return 'response.output_item.added';
     }
   }
 
@@ -236,17 +199,14 @@ enum ResponseOutputItemDoneEventType {
 
   static ResponseOutputItemDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.output_item.done':
-        return ResponseOutputItemDoneEventType.responseOutputItemDone;
-      default:
-        throw ArgumentError('Unknown ResponseOutputItemDoneEventType: $value');
+      case 'response.output_item.done': return ResponseOutputItemDoneEventType.responseOutputItemDone;
+      default: throw ArgumentError('Unknown ResponseOutputItemDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseOutputItemDoneEventType.responseOutputItemDone:
-        return 'response.output_item.done';
+      case ResponseOutputItemDoneEventType.responseOutputItemDone: return 'response.output_item.done';
     }
   }
 
@@ -256,26 +216,23 @@ enum ResponseOutputItemDoneEventType {
 
 /// Type discriminator that is always `output_text`.
 final class ResponseOutputTextType {
+
   final String value;
 
   const ResponseOutputTextType._(this.value);
 
-  factory ResponseOutputTextType.fromJson(String value) =>
-      ResponseOutputTextType._(value);
+  factory ResponseOutputTextType.fromJson(String value) => ResponseOutputTextType._(value);
 
   static const outputText = ResponseOutputTextType._('output_text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResponseOutputTextType && other.value == value;
+  @override bool operator ==(Object other) => other is ResponseOutputTextType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always 'response.output_text.annotation.added'.
@@ -284,20 +241,14 @@ enum ResponseOutputTextAnnotationAddedEventType {
 
   static ResponseOutputTextAnnotationAddedEventType fromJson(String value) {
     switch (value) {
-      case 'response.output_text.annotation.added':
-        return ResponseOutputTextAnnotationAddedEventType
-            .responseOutputTextAnnotationAdded;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseOutputTextAnnotationAddedEventType: $value');
+      case 'response.output_text.annotation.added': return ResponseOutputTextAnnotationAddedEventType.responseOutputTextAnnotationAdded;
+      default: throw ArgumentError('Unknown ResponseOutputTextAnnotationAddedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseOutputTextAnnotationAddedEventType
-            .responseOutputTextAnnotationAdded:
-        return 'response.output_text.annotation.added';
+      case ResponseOutputTextAnnotationAddedEventType.responseOutputTextAnnotationAdded: return 'response.output_text.annotation.added';
     }
   }
 
@@ -311,17 +262,14 @@ enum ResponseQueuedEventType {
 
   static ResponseQueuedEventType fromJson(String value) {
     switch (value) {
-      case 'response.queued':
-        return ResponseQueuedEventType.responseQueued;
-      default:
-        throw ArgumentError('Unknown ResponseQueuedEventType: $value');
+      case 'response.queued': return ResponseQueuedEventType.responseQueued;
+      default: throw ArgumentError('Unknown ResponseQueuedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseQueuedEventType.responseQueued:
-        return 'response.queued';
+      case ResponseQueuedEventType.responseQueued: return 'response.queued';
     }
   }
 

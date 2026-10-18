@@ -21,23 +21,12 @@ Future<LiveSessionCreateResponse> createLive(ClientConfig config,
           body: {'session': session, 'transport': transport},
           decoder: SdkResponseDecoder.json,
           operationId: 'createLive',
-          fromJsonRaw: (value) =>
-              LiveSessionCreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => LiveSessionCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '413': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '504': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '413': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '504': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Accept an incoming SIP call. Supply session with type live, the model, and startup configuration. Before accepting calls, follow the [Live prompting guide](https://developers.openai.com/api/docs/guides/live-prompting) to write frontend conversation instructions and a separate backend prompt. SIP media format is negotiated; omit audio.format.
 ///
@@ -57,20 +46,10 @@ Future<void> acceptLiveSession(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'acceptLiveSession',
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Fork a stored Live session onto a new WebRTC connection.
 ///
@@ -94,21 +73,12 @@ Future<LiveCreateResponse> forkLiveSession(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'forkLiveSession',
-          fromJsonRaw: (value) =>
-              LiveCreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => LiveCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '413': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '413': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Ends a SIP call associated with a Live session by submitting a hangup request. Use the opaque `session_id` returned when the session was created or supplied in an incoming-call webhook, preserving its prefix and value unchanged. A 200 response confirms that the hangup request was accepted.
 ///
@@ -125,11 +95,10 @@ Future<void> hangupLiveSession(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'hangupLiveSession',
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Transfer a SIP call to another destination. Supply a nonblank target_uri for the SIP Refer-To header.
 ///
@@ -152,14 +121,10 @@ Future<void> referLiveSession(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'referLiveSession',
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Reject an incoming SIP call. Send a required SIP rejection status_code between 300 and 699.
 ///
@@ -181,16 +146,10 @@ Future<void> rejectLiveSession(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'rejectLiveSession',
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Downloads the stored audio recording for a Live session. Use the `session_id` returned when the session started with storage enabled. The recording is a stereo WAV file, with input audio in the left channel and output audio in the right channel.
 ///
@@ -208,12 +167,6 @@ Future<List<int>> downloadLiveRecording(ClientConfig config,
           decoder: SdkResponseDecoder.bytes,
           operationId: 'downloadLiveRecording',
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

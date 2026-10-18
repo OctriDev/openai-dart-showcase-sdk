@@ -8,159 +8,104 @@ part of 'data_retention.dart';
 class OrganizationDataRetention {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `organization.data_retention`.
   final OrganizationDataRetentionObject object;
-
   /// The configured organization data retention type.
   final OrganizationDataRetentionType type_;
 
   const OrganizationDataRetention({required this.object, required this.type_});
 
-  OrganizationDataRetention Function(
-      {OrganizationDataRetentionObject object,
-      OrganizationDataRetentionType type_}) get copyWith => _copyWith;
+  OrganizationDataRetention Function({OrganizationDataRetentionObject object, OrganizationDataRetentionType type_}) get copyWith => _copyWith;
 
-  OrganizationDataRetention _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      OrganizationDataRetention(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as OrganizationDataRetentionObject,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as OrganizationDataRetentionType,
-      );
+  OrganizationDataRetention _copyWith({Object? object = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => OrganizationDataRetention(
+    object: identical(object, sdkOmittedValue) ? this.object : object as OrganizationDataRetentionObject,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as OrganizationDataRetentionType,
+  );
 
-  factory OrganizationDataRetention.fromJson(Map<String, dynamic> json) =>
-      OrganizationDataRetention(
-        object: (json['object'] != null
-            ? OrganizationDataRetentionObject.fromJson(json['object'] as String)
-            : null)!,
-        type_: (json['type'] != null
-            ? OrganizationDataRetentionType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory OrganizationDataRetention.fromJson(Map<String, dynamic> json) => OrganizationDataRetention(
+    object: (json['object'] != null ? OrganizationDataRetentionObject.fromJson(json['object'] as String) : null)!,
+    type_: (json['type'] != null ? OrganizationDataRetentionType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'type': type_.toJson(),
-      };
+    'object': object.toJson(),
+    'type': type_.toJson(),
+  };
 }
 
 /// Represents a project's data retention control setting.
 class ProjectDataRetention {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `project.data_retention`.
   final ProjectDataRetentionObject object;
-
   /// The configured project data retention type.
   final ProjectDataRetentionType type_;
 
   const ProjectDataRetention({required this.object, required this.type_});
 
-  ProjectDataRetention Function(
-      {ProjectDataRetentionObject object,
-      ProjectDataRetentionType type_}) get copyWith => _copyWith;
+  ProjectDataRetention Function({ProjectDataRetentionObject object, ProjectDataRetentionType type_}) get copyWith => _copyWith;
 
-  ProjectDataRetention _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      ProjectDataRetention(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ProjectDataRetentionObject,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ProjectDataRetentionType,
-      );
+  ProjectDataRetention _copyWith({Object? object = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => ProjectDataRetention(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectDataRetentionObject,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ProjectDataRetentionType,
+  );
 
-  factory ProjectDataRetention.fromJson(Map<String, dynamic> json) =>
-      ProjectDataRetention(
-        object: (json['object'] != null
-            ? ProjectDataRetentionObject.fromJson(json['object'] as String)
-            : null)!,
-        type_: (json['type'] != null
-            ? ProjectDataRetentionType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory ProjectDataRetention.fromJson(Map<String, dynamic> json) => ProjectDataRetention(
+    object: (json['object'] != null ? ProjectDataRetentionObject.fromJson(json['object'] as String) : null)!,
+    type_: (json['type'] != null ? ProjectDataRetentionType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'type': type_.toJson(),
-      };
+    'object': object.toJson(),
+    'type': type_.toJson(),
+  };
 }
 
 /// Parameters for updating organization data retention controls.
 class UpdateOrganizationDataRetentionBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The desired organization data retention type.
   final UpdateOrganizationDataRetentionBodyRetentionType retentionType;
 
   const UpdateOrganizationDataRetentionBody({required this.retentionType});
 
-  UpdateOrganizationDataRetentionBody Function(
-          {UpdateOrganizationDataRetentionBodyRetentionType retentionType})
-      get copyWith => _copyWith;
+  UpdateOrganizationDataRetentionBody Function({UpdateOrganizationDataRetentionBodyRetentionType retentionType}) get copyWith => _copyWith;
 
-  UpdateOrganizationDataRetentionBody _copyWith(
-          {Object? retentionType = sdkOmittedValue}) =>
-      UpdateOrganizationDataRetentionBody(
-        retentionType: identical(retentionType, sdkOmittedValue)
-            ? this.retentionType
-            : retentionType as UpdateOrganizationDataRetentionBodyRetentionType,
-      );
+  UpdateOrganizationDataRetentionBody _copyWith({Object? retentionType = sdkOmittedValue}) => UpdateOrganizationDataRetentionBody(
+    retentionType: identical(retentionType, sdkOmittedValue) ? this.retentionType : retentionType as UpdateOrganizationDataRetentionBodyRetentionType,
+  );
 
-  factory UpdateOrganizationDataRetentionBody.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateOrganizationDataRetentionBody(
-        retentionType: (json['retention_type'] != null
-            ? UpdateOrganizationDataRetentionBodyRetentionType.fromJson(
-                json['retention_type'] as String)
-            : null)!,
-      );
+  factory UpdateOrganizationDataRetentionBody.fromJson(Map<String, dynamic> json) => UpdateOrganizationDataRetentionBody(
+    retentionType: (json['retention_type'] != null ? UpdateOrganizationDataRetentionBodyRetentionType.fromJson(json['retention_type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'retention_type': retentionType.toJson(),
-      };
+    'retention_type': retentionType.toJson(),
+  };
 }
 
 /// Parameters for updating project data retention controls.
 class UpdateProjectDataRetentionBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The desired project data retention type.
   final UpdateProjectDataRetentionBodyRetentionType retentionType;
 
   const UpdateProjectDataRetentionBody({required this.retentionType});
 
-  UpdateProjectDataRetentionBody Function(
-          {UpdateProjectDataRetentionBodyRetentionType retentionType})
-      get copyWith => _copyWith;
+  UpdateProjectDataRetentionBody Function({UpdateProjectDataRetentionBodyRetentionType retentionType}) get copyWith => _copyWith;
 
-  UpdateProjectDataRetentionBody _copyWith(
-          {Object? retentionType = sdkOmittedValue}) =>
-      UpdateProjectDataRetentionBody(
-        retentionType: identical(retentionType, sdkOmittedValue)
-            ? this.retentionType
-            : retentionType as UpdateProjectDataRetentionBodyRetentionType,
-      );
+  UpdateProjectDataRetentionBody _copyWith({Object? retentionType = sdkOmittedValue}) => UpdateProjectDataRetentionBody(
+    retentionType: identical(retentionType, sdkOmittedValue) ? this.retentionType : retentionType as UpdateProjectDataRetentionBodyRetentionType,
+  );
 
-  factory UpdateProjectDataRetentionBody.fromJson(Map<String, dynamic> json) =>
-      UpdateProjectDataRetentionBody(
-        retentionType: (json['retention_type'] != null
-            ? UpdateProjectDataRetentionBodyRetentionType.fromJson(
-                json['retention_type'] as String)
-            : null)!,
-      );
+  factory UpdateProjectDataRetentionBody.fromJson(Map<String, dynamic> json) => UpdateProjectDataRetentionBody(
+    retentionType: (json['retention_type'] != null ? UpdateProjectDataRetentionBodyRetentionType.fromJson(json['retention_type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'retention_type': retentionType.toJson(),
-      };
+    'retention_type': retentionType.toJson(),
+  };
 }

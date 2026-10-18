@@ -6,6 +6,7 @@ part of 'inline.dart';
 // Inline operation models (part 61)
 /// `owner` or `reader`
 final class InviteRole {
+
   final String value;
 
   const InviteRole._(this.value);
@@ -17,18 +18,17 @@ final class InviteRole {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is InviteRole && other.value == value;
+  @override bool operator ==(Object other) => other is InviteRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// `accepted`,`expired`, or `pending`
 final class InviteStatus {
+
   final String value;
 
   const InviteStatus._(this.value);
@@ -41,139 +41,119 @@ final class InviteStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InviteStatus && other.value == value;
+  @override bool operator ==(Object other) => other is InviteStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `organization.invite.deleted`
 final class InviteDeleteResponseObject {
+
   final String value;
 
   const InviteDeleteResponseObject._(this.value);
 
-  factory InviteDeleteResponseObject.fromJson(String value) =>
-      InviteDeleteResponseObject._(value);
+  factory InviteDeleteResponseObject.fromJson(String value) => InviteDeleteResponseObject._(value);
 
-  static const organizationInviteDeleted =
-      InviteDeleteResponseObject._('organization.invite.deleted');
+  static const organizationInviteDeleted = InviteDeleteResponseObject._('organization.invite.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InviteDeleteResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is InviteDeleteResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `list`
 final class InviteListResponseObject {
+
   final String value;
 
   const InviteListResponseObject._(this.value);
 
-  factory InviteListResponseObject.fromJson(String value) =>
-      InviteListResponseObject._(value);
+  factory InviteListResponseObject.fromJson(String value) => InviteListResponseObject._(value);
 
   static const list = InviteListResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InviteListResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is InviteListResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Project membership role
 final class InviteRequestProjectsItemRole {
+
   final String value;
 
   const InviteRequestProjectsItemRole._(this.value);
 
-  factory InviteRequestProjectsItemRole.fromJson(String value) =>
-      InviteRequestProjectsItemRole._(value);
+  factory InviteRequestProjectsItemRole.fromJson(String value) => InviteRequestProjectsItemRole._(value);
 
   static const member = InviteRequestProjectsItemRole._('member');
   static const owner = InviteRequestProjectsItemRole._('owner');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InviteRequestProjectsItemRole && other.value == value;
+  @override bool operator ==(Object other) => other is InviteRequestProjectsItemRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// `owner` or `reader`
 final class InviteRequestRole {
+
   final String value;
 
   const InviteRequestRole._(this.value);
 
-  factory InviteRequestRole.fromJson(String value) =>
-      InviteRequestRole._(value);
+  factory InviteRequestRole.fromJson(String value) => InviteRequestRole._(value);
 
   static const reader = InviteRequestRole._('reader');
   static const owner = InviteRequestRole._('owner');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InviteRequestRole && other.value == value;
+  @override bool operator ==(Object other) => other is InviteRequestRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of item to reference. Always `item_reference`.
 final class ItemReferenceParamTypeVariant0 {
+
   final String value;
 
   const ItemReferenceParamTypeVariant0._(this.value);
 
-  factory ItemReferenceParamTypeVariant0.fromJson(String value) =>
-      ItemReferenceParamTypeVariant0._(value);
+  factory ItemReferenceParamTypeVariant0.fromJson(String value) => ItemReferenceParamTypeVariant0._(value);
 
-  static const itemReference =
-      ItemReferenceParamTypeVariant0._('item_reference');
+  static const itemReference = ItemReferenceParamTypeVariant0._('item_reference');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ItemReferenceParamTypeVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is ItemReferenceParamTypeVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Specifies the event type. For a keypress action, this property is always set to `keypress`.
@@ -182,17 +162,14 @@ enum KeyPressActionType {
 
   static KeyPressActionType fromJson(String value) {
     switch (value) {
-      case 'keypress':
-        return KeyPressActionType.keypress;
-      default:
-        throw ArgumentError('Unknown KeyPressActionType: $value');
+      case 'keypress': return KeyPressActionType.keypress;
+      default: throw ArgumentError('Unknown KeyPressActionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case KeyPressActionType.keypress:
-        return 'keypress';
+      case KeyPressActionType.keypress: return 'keypress';
     }
   }
 
@@ -202,124 +179,105 @@ enum KeyPressActionType {
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ListAuditLogsResponseObject {
+
   final String value;
 
   const ListAuditLogsResponseObject._(this.value);
 
-  factory ListAuditLogsResponseObject.fromJson(String value) =>
-      ListAuditLogsResponseObject._(value);
+  factory ListAuditLogsResponseObject.fromJson(String value) => ListAuditLogsResponseObject._(value);
 
   static const list = ListAuditLogsResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListAuditLogsResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is ListAuditLogsResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ListBatchesResponseObject {
+
   final String value;
 
   const ListBatchesResponseObject._(this.value);
 
-  factory ListBatchesResponseObject.fromJson(String value) =>
-      ListBatchesResponseObject._(value);
+  factory ListBatchesResponseObject.fromJson(String value) => ListBatchesResponseObject._(value);
 
   static const list = ListBatchesResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListBatchesResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is ListBatchesResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ListCertificatesResponseObject {
+
   final String value;
 
   const ListCertificatesResponseObject._(this.value);
 
-  factory ListCertificatesResponseObject.fromJson(String value) =>
-      ListCertificatesResponseObject._(value);
+  factory ListCertificatesResponseObject.fromJson(String value) => ListCertificatesResponseObject._(value);
 
   static const list = ListCertificatesResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListCertificatesResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is ListCertificatesResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ListFineTuningCheckpointPermissionResponseObject {
+
   final String value;
 
   const ListFineTuningCheckpointPermissionResponseObject._(this.value);
 
-  factory ListFineTuningCheckpointPermissionResponseObject.fromJson(
-          String value) =>
-      ListFineTuningCheckpointPermissionResponseObject._(value);
+  factory ListFineTuningCheckpointPermissionResponseObject.fromJson(String value) => ListFineTuningCheckpointPermissionResponseObject._(value);
 
-  static const list =
-      ListFineTuningCheckpointPermissionResponseObject._('list');
+  static const list = ListFineTuningCheckpointPermissionResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListFineTuningCheckpointPermissionResponseObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ListFineTuningCheckpointPermissionResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ListFineTuningJobCheckpointsResponseObject {
+
   final String value;
 
   const ListFineTuningJobCheckpointsResponseObject._(this.value);
 
-  factory ListFineTuningJobCheckpointsResponseObject.fromJson(String value) =>
-      ListFineTuningJobCheckpointsResponseObject._(value);
+  factory ListFineTuningJobCheckpointsResponseObject.fromJson(String value) => ListFineTuningJobCheckpointsResponseObject._(value);
 
   static const list = ListFineTuningJobCheckpointsResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListFineTuningJobCheckpointsResponseObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ListFineTuningJobCheckpointsResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

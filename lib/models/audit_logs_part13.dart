@@ -8,333 +8,189 @@ part of 'audit_logs.dart';
 class AuditLogActor {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of actor. Is either `session` or `api_key`.
   final SdkOptional<AuditLogActorType> type_;
-
   /// The session in which the audit logged action was performed.
   final SdkOptional<AuditLogActorSession> session;
-
   /// The API Key used to perform the audit logged action.
   final SdkOptional<AuditLogActorApiKey> apiKey;
 
-  const AuditLogActor(
-      {this.type_ = const SdkOmitted(),
-      this.session = const SdkOmitted(),
-      this.apiKey = const SdkOmitted()});
+  const AuditLogActor({this.type_ = const SdkOmitted(), this.session = const SdkOmitted(), this.apiKey = const SdkOmitted()});
 
-  AuditLogActor Function(
-      {SdkOptional<AuditLogActorType> type_,
-      SdkOptional<AuditLogActorSession> session,
-      SdkOptional<AuditLogActorApiKey> apiKey}) get copyWith => _copyWith;
+  AuditLogActor Function({SdkOptional<AuditLogActorType> type_, SdkOptional<AuditLogActorSession> session, SdkOptional<AuditLogActorApiKey> apiKey}) get copyWith => _copyWith;
 
-  AuditLogActor _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? session = sdkOmittedValue,
-          Object? apiKey = sdkOmittedValue}) =>
-      AuditLogActor(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<AuditLogActorType>,
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as SdkOptional<AuditLogActorSession>,
-        apiKey: identical(apiKey, sdkOmittedValue)
-            ? this.apiKey
-            : apiKey as SdkOptional<AuditLogActorApiKey>,
-      );
+  AuditLogActor _copyWith({Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue, Object? apiKey = sdkOmittedValue}) => AuditLogActor(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<AuditLogActorType>,
+    session: identical(session, sdkOmittedValue) ? this.session : session as SdkOptional<AuditLogActorSession>,
+    apiKey: identical(apiKey, sdkOmittedValue) ? this.apiKey : apiKey as SdkOptional<AuditLogActorApiKey>,
+  );
 
   factory AuditLogActor.fromJson(Map<String, dynamic> json) => AuditLogActor(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? AuditLogActorType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        session: json['session'] != null
-            ? SdkPresent((json['session'] != null
-                ? AuditLogActorSession.fromJson(
-                    json['session'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        apiKey: json['api_key'] != null
-            ? SdkPresent((json['api_key'] != null
-                ? AuditLogActorApiKey.fromJson(
-                    json['api_key'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? AuditLogActorType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    session: json['session'] != null ? SdkPresent((json['session'] != null ? AuditLogActorSession.fromJson(json['session'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    apiKey: json['api_key'] != null ? SdkPresent((json['api_key'] != null ? AuditLogActorApiKey.fromJson(json['api_key'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<AuditLogActorType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (session) {
-          SdkPresent<AuditLogActorSession>(value: final value) => {
-              'session': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (apiKey) {
-          SdkPresent<AuditLogActorApiKey>(value: final value) => {
-              'api_key': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<AuditLogActorType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (session) {
+      SdkPresent<AuditLogActorSession>(value: final value) => {'session': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (apiKey) {
+      SdkPresent<AuditLogActorApiKey>(value: final value) => {'api_key': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The API Key used to perform the audit logged action.
 class AuditLogActorApiKey {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The tracking id of the API key.
   final SdkOptional<String> id;
-
   /// The type of API key. Can be either `user` or `service_account`.
   final SdkOptional<AuditLogActorApiKeyType> type_;
-
   /// The user who performed the audit logged action.
   final SdkOptional<AuditLogActorUser> user;
-
   /// The service account that performed the audit logged action.
   final SdkOptional<AuditLogActorServiceAccount> serviceAccount;
 
-  const AuditLogActorApiKey(
-      {this.id = const SdkOmitted(),
-      this.type_ = const SdkOmitted(),
-      this.user = const SdkOmitted(),
-      this.serviceAccount = const SdkOmitted()});
+  const AuditLogActorApiKey({this.id = const SdkOmitted(), this.type_ = const SdkOmitted(), this.user = const SdkOmitted(), this.serviceAccount = const SdkOmitted()});
 
-  AuditLogActorApiKey Function(
-          {SdkOptional<String> id,
-          SdkOptional<AuditLogActorApiKeyType> type_,
-          SdkOptional<AuditLogActorUser> user,
-          SdkOptional<AuditLogActorServiceAccount> serviceAccount})
-      get copyWith => _copyWith;
+  AuditLogActorApiKey Function({SdkOptional<String> id, SdkOptional<AuditLogActorApiKeyType> type_, SdkOptional<AuditLogActorUser> user, SdkOptional<AuditLogActorServiceAccount> serviceAccount}) get copyWith => _copyWith;
 
-  AuditLogActorApiKey _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? user = sdkOmittedValue,
-          Object? serviceAccount = sdkOmittedValue}) =>
-      AuditLogActorApiKey(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<AuditLogActorApiKeyType>,
-        user: identical(user, sdkOmittedValue)
-            ? this.user
-            : user as SdkOptional<AuditLogActorUser>,
-        serviceAccount: identical(serviceAccount, sdkOmittedValue)
-            ? this.serviceAccount
-            : serviceAccount as SdkOptional<AuditLogActorServiceAccount>,
-      );
+  AuditLogActorApiKey _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? user = sdkOmittedValue, Object? serviceAccount = sdkOmittedValue}) => AuditLogActorApiKey(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<AuditLogActorApiKeyType>,
+    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<AuditLogActorUser>,
+    serviceAccount: identical(serviceAccount, sdkOmittedValue) ? this.serviceAccount : serviceAccount as SdkOptional<AuditLogActorServiceAccount>,
+  );
 
-  factory AuditLogActorApiKey.fromJson(Map<String, dynamic> json) =>
-      AuditLogActorApiKey(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? AuditLogActorApiKeyType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        user: json['user'] != null
-            ? SdkPresent((json['user'] != null
-                ? AuditLogActorUser.fromJson(
-                    json['user'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        serviceAccount: json['service_account'] != null
-            ? SdkPresent((json['service_account'] != null
-                ? AuditLogActorServiceAccount.fromJson(
-                    json['service_account'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AuditLogActorApiKey.fromJson(Map<String, dynamic> json) => AuditLogActorApiKey(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? AuditLogActorApiKeyType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    user: json['user'] != null ? SdkPresent((json['user'] != null ? AuditLogActorUser.fromJson(json['user'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    serviceAccount: json['service_account'] != null ? SdkPresent((json['service_account'] != null ? AuditLogActorServiceAccount.fromJson(json['service_account'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<AuditLogActorApiKeyType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (user) {
-          SdkPresent<AuditLogActorUser>(value: final value) => {
-              'user': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serviceAccount) {
-          SdkPresent<AuditLogActorServiceAccount>(value: final value) => {
-              'service_account': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<AuditLogActorApiKeyType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (user) {
+      SdkPresent<AuditLogActorUser>(value: final value) => {'user': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serviceAccount) {
+      SdkPresent<AuditLogActorServiceAccount>(value: final value) => {'service_account': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The service account that performed the audit logged action.
 class AuditLogActorServiceAccount {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The service account id.
   final SdkOptional<String> id;
 
   const AuditLogActorServiceAccount({this.id = const SdkOmitted()});
 
-  AuditLogActorServiceAccount Function({SdkOptional<String> id}) get copyWith =>
-      _copyWith;
+  AuditLogActorServiceAccount Function({SdkOptional<String> id}) get copyWith => _copyWith;
 
-  AuditLogActorServiceAccount _copyWith({Object? id = sdkOmittedValue}) =>
-      AuditLogActorServiceAccount(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  AuditLogActorServiceAccount _copyWith({Object? id = sdkOmittedValue}) => AuditLogActorServiceAccount(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory AuditLogActorServiceAccount.fromJson(Map<String, dynamic> json) =>
-      AuditLogActorServiceAccount(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AuditLogActorServiceAccount.fromJson(Map<String, dynamic> json) => AuditLogActorServiceAccount(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The session in which the audit logged action was performed.
 class AuditLogActorSession {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The user who performed the audit logged action.
   final SdkOptional<AuditLogActorUser> user;
-
   /// The IP address from which the action was performed.
   final SdkOptional<String> ipAddress;
 
-  const AuditLogActorSession(
-      {this.user = const SdkOmitted(), this.ipAddress = const SdkOmitted()});
+  const AuditLogActorSession({this.user = const SdkOmitted(), this.ipAddress = const SdkOmitted()});
 
-  AuditLogActorSession Function(
-      {SdkOptional<AuditLogActorUser> user,
-      SdkOptional<String> ipAddress}) get copyWith => _copyWith;
+  AuditLogActorSession Function({SdkOptional<AuditLogActorUser> user, SdkOptional<String> ipAddress}) get copyWith => _copyWith;
 
-  AuditLogActorSession _copyWith(
-          {Object? user = sdkOmittedValue,
-          Object? ipAddress = sdkOmittedValue}) =>
-      AuditLogActorSession(
-        user: identical(user, sdkOmittedValue)
-            ? this.user
-            : user as SdkOptional<AuditLogActorUser>,
-        ipAddress: identical(ipAddress, sdkOmittedValue)
-            ? this.ipAddress
-            : ipAddress as SdkOptional<String>,
-      );
+  AuditLogActorSession _copyWith({Object? user = sdkOmittedValue, Object? ipAddress = sdkOmittedValue}) => AuditLogActorSession(
+    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<AuditLogActorUser>,
+    ipAddress: identical(ipAddress, sdkOmittedValue) ? this.ipAddress : ipAddress as SdkOptional<String>,
+  );
 
-  factory AuditLogActorSession.fromJson(Map<String, dynamic> json) =>
-      AuditLogActorSession(
-        user: json['user'] != null
-            ? SdkPresent((json['user'] != null
-                ? AuditLogActorUser.fromJson(
-                    json['user'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        ipAddress: json['ip_address'] != null
-            ? SdkPresent((json['ip_address'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AuditLogActorSession.fromJson(Map<String, dynamic> json) => AuditLogActorSession(
+    user: json['user'] != null ? SdkPresent((json['user'] != null ? AuditLogActorUser.fromJson(json['user'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    ipAddress: json['ip_address'] != null ? SdkPresent((json['ip_address'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (user) {
-          SdkPresent<AuditLogActorUser>(value: final value) => {
-              'user': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ipAddress) {
-          SdkPresent<String>(value: final value) => {
-              'ip_address': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (user) {
+      SdkPresent<AuditLogActorUser>(value: final value) => {'user': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ipAddress) {
+      SdkPresent<String>(value: final value) => {'ip_address': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The user who performed the audit logged action.
 class AuditLogActorUser {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The user id.
   final SdkOptional<String> id;
-
   /// The user email.
   final SdkOptional<String> email;
 
-  const AuditLogActorUser(
-      {this.id = const SdkOmitted(), this.email = const SdkOmitted()});
+  const AuditLogActorUser({this.id = const SdkOmitted(), this.email = const SdkOmitted()});
 
-  AuditLogActorUser Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> email}) get copyWith => _copyWith;
+  AuditLogActorUser Function({SdkOptional<String> id, SdkOptional<String> email}) get copyWith => _copyWith;
 
-  AuditLogActorUser _copyWith(
-          {Object? id = sdkOmittedValue, Object? email = sdkOmittedValue}) =>
-      AuditLogActorUser(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String>,
-      );
+  AuditLogActorUser _copyWith({Object? id = sdkOmittedValue, Object? email = sdkOmittedValue}) => AuditLogActorUser(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
+  );
 
-  factory AuditLogActorUser.fromJson(Map<String, dynamic> json) =>
-      AuditLogActorUser(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        email: json['email'] != null
-            ? SdkPresent((json['email'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AuditLogActorUser.fromJson(Map<String, dynamic> json) => AuditLogActorUser(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<String>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<String>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

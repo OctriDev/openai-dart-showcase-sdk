@@ -18,14 +18,14 @@ import '../types.dart';
 ///   the previous response to fetch the next page.
 /// [before] Cursor for pagination. Provide the ID of the first spend alert from
 ///   the previous response to fetch the previous page.
-Future<ProjectSpendAlertListResource> listProjectSpendAlerts(
-    ClientConfig config,
-    {required String projectId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<ListProjectSpendAlertsOrder> order = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<String> before = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ProjectSpendAlertListResource>
+    listProjectSpendAlerts(ClientConfig config,
+        {required String projectId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<ListProjectSpendAlertsOrder> order = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        SdkOptional<String> before = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 0, max: 100);
   }
@@ -34,30 +34,20 @@ Future<ProjectSpendAlertListResource> listProjectSpendAlerts(
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/spend_alerts',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listProjectSpendAlerts',
-          fromJsonRaw: (value) => ProjectSpendAlertListResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectSpendAlertListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists spend alerts configured for a project, with cursor-based pagination. Use `limit` to set the page size, `order` to choose the sort direction, and `after` or `before` to move through the results.
 ///
@@ -70,33 +60,13 @@ Future<ProjectSpendAlertListResource> listProjectSpendAlerts(
 ///   the previous response to fetch the next page.
 /// [before] Cursor for pagination. Provide the ID of the first spend alert from
 ///   the previous response to fetch the previous page.
-Stream<ProjectSpendAlert> listProjectSpendAlertsPaginated(ClientConfig config,
-    {required String projectId,
-    int? limit,
-    ListProjectSpendAlertsOrder? order,
-    String? after,
-    String? before,
-    RequestOptions? requestOptions}) async* {
+Stream<ProjectSpendAlert> listProjectSpendAlertsPaginated(ClientConfig config, {required String projectId, int? limit, ListProjectSpendAlertsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectSpendAlerts(config,
-        projectId: projectId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListProjectSpendAlertsOrder>()
-            : SdkPresent<ListProjectSpendAlertsOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        before: before == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(before),
-        requestOptions: requestOptions);
+    final sdkPage = await listProjectSpendAlerts(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListProjectSpendAlertsOrder>() : SdkPresent<ListProjectSpendAlertsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -104,29 +74,10 @@ Stream<ProjectSpendAlert> listProjectSpendAlertsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<ProjectSpendAlertListResource, ProjectSpendAlert>>
-    listProjectSpendAlertsPages(ClientConfig config,
-        {required String projectId,
-        int? limit,
-        ListProjectSpendAlertsOrder? order,
-        String? after,
-        String? before,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ProjectSpendAlertListResource, ProjectSpendAlert>> listProjectSpendAlertsPages(ClientConfig config, {required String projectId, int? limit, ListProjectSpendAlertsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectSpendAlerts(config,
-        projectId: projectId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListProjectSpendAlertsOrder>()
-            : SdkPresent<ListProjectSpendAlertsOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        before: before == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(before),
-        requestOptions: requestOptions);
+    final sdkPage = await listProjectSpendAlerts(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListProjectSpendAlertsOrder>() : SdkPresent<ListProjectSpendAlertsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -136,6 +87,7 @@ Stream<SdkPage<ProjectSpendAlertListResource, ProjectSpendAlert>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Creates a spend alert for a project to notify recipients when spending reaches a threshold. Provide the threshold in cents, the currency and evaluation interval, and email notification settings.
 ///
@@ -166,19 +118,12 @@ Future<ProjectSpendAlert> createProjectSpendAlert(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createProjectSpendAlert',
-          fromJsonRaw: (value) =>
-              ProjectSpendAlert.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectSpendAlert.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a spend alert configured for a project. Use the project and alert identifiers to inspect its threshold, currency, evaluation interval, and notification channel.
 ///
@@ -195,17 +140,12 @@ Future<ProjectSpendAlert> retrieveProjectSpendAlert(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveProjectSpendAlert',
-          fromJsonRaw: (value) =>
-              ProjectSpendAlert.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectSpendAlert.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates a spend alert configured for a project. Provide the alert's threshold, currency, evaluation interval, and notification channel in the request body.
 ///
@@ -238,19 +178,12 @@ Future<ProjectSpendAlert> updateProjectSpendAlert(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateProjectSpendAlert',
-          fromJsonRaw: (value) =>
-              ProjectSpendAlert.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectSpendAlert.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a spend alert from a project. Use the project and alert identifiers to select the alert to remove, then check the deletion confirmation in the response.
 ///
@@ -258,27 +191,22 @@ Future<ProjectSpendAlert> updateProjectSpendAlert(ClientConfig config,
 ///
 /// [projectId] The ID of the project to update.
 /// [alertId] The ID of the spend alert to delete.
-Future<ProjectSpendAlertDeletedResource> deleteProjectSpendAlert(
-    ClientConfig config,
-    {required String projectId,
-    required String alertId,
-    RequestOptions? requestOptions}) async {
+Future<ProjectSpendAlertDeletedResource>
+    deleteProjectSpendAlert(ClientConfig config,
+        {required String projectId,
+        required String alertId,
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectSpendAlertDeletedResource>('DELETE',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/spend_alerts/${Uri.encodeComponent(alertId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteProjectSpendAlert',
-          fromJsonRaw: (value) => ProjectSpendAlertDeletedResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectSpendAlertDeletedResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists spend alerts configured for the organization. Use `limit` and `order` to control the result page, and use `after` or `before` to navigate from a spend alert in a previous response. The response includes cursor IDs and a `has_more` flag for pagination.
 ///
@@ -290,13 +218,13 @@ Future<ProjectSpendAlertDeletedResource> deleteProjectSpendAlert(
 ///   the previous response to fetch the next page.
 /// [before] Cursor for pagination. Provide the ID of the first spend alert from
 ///   the previous response to fetch the previous page.
-Future<OrganizationSpendAlertListResource> listOrganizationSpendAlerts(
-    ClientConfig config,
-    {SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<ListOrganizationSpendAlertsOrder> order = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<String> before = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<OrganizationSpendAlertListResource>
+    listOrganizationSpendAlerts(ClientConfig config,
+        {SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<ListOrganizationSpendAlertsOrder> order = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        SdkOptional<String> before = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 0, max: 100);
   }
@@ -305,30 +233,20 @@ Future<OrganizationSpendAlertListResource> listOrganizationSpendAlerts(
           'GET', '/organization/spend_alerts',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listOrganizationSpendAlerts',
-          fromJsonRaw: (value) => OrganizationSpendAlertListResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationSpendAlertListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists spend alerts configured for the organization. Use `limit` and `order` to control the result page, and use `after` or `before` to navigate from a spend alert in a previous response. The response includes cursor IDs and a `has_more` flag for pagination.
 ///
@@ -340,32 +258,13 @@ Future<OrganizationSpendAlertListResource> listOrganizationSpendAlerts(
 ///   the previous response to fetch the next page.
 /// [before] Cursor for pagination. Provide the ID of the first spend alert from
 ///   the previous response to fetch the previous page.
-Stream<OrganizationSpendAlert> listOrganizationSpendAlertsPaginated(
-    ClientConfig config,
-    {int? limit,
-    ListOrganizationSpendAlertsOrder? order,
-    String? after,
-    String? before,
-    RequestOptions? requestOptions}) async* {
+Stream<OrganizationSpendAlert> listOrganizationSpendAlertsPaginated(ClientConfig config, {int? limit, ListOrganizationSpendAlertsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listOrganizationSpendAlerts(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrganizationSpendAlertsOrder>()
-            : SdkPresent<ListOrganizationSpendAlertsOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        before: before == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(before),
-        requestOptions: requestOptions);
+    final sdkPage = await listOrganizationSpendAlerts(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrganizationSpendAlertsOrder>() : SdkPresent<ListOrganizationSpendAlertsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -373,27 +272,10 @@ Stream<OrganizationSpendAlert> listOrganizationSpendAlertsPaginated(
   }
 }
 
-Stream<SdkPage<OrganizationSpendAlertListResource, OrganizationSpendAlert>>
-    listOrganizationSpendAlertsPages(ClientConfig config,
-        {int? limit,
-        ListOrganizationSpendAlertsOrder? order,
-        String? after,
-        String? before,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<OrganizationSpendAlertListResource, OrganizationSpendAlert>> listOrganizationSpendAlertsPages(ClientConfig config, {int? limit, ListOrganizationSpendAlertsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listOrganizationSpendAlerts(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrganizationSpendAlertsOrder>()
-            : SdkPresent<ListOrganizationSpendAlertsOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        before: before == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(before),
-        requestOptions: requestOptions);
+    final sdkPage = await listOrganizationSpendAlerts(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrganizationSpendAlertsOrder>() : SdkPresent<ListOrganizationSpendAlertsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -403,6 +285,7 @@ Stream<SdkPage<OrganizationSpendAlertListResource, OrganizationSpendAlert>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Creates a spend alert at the organization level. Set `threshold_amount` in cents and configure the monthly evaluation interval and email notification recipients. The response includes the created alert and its identifier.
 ///
@@ -431,42 +314,31 @@ Future<OrganizationSpendAlert> createOrganizationSpendAlert(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createOrganizationSpendAlert',
-          fromJsonRaw: (value) =>
-              OrganizationSpendAlert.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationSpendAlert.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a spend alert configured at the organization level. Use `alert_id` to identify the alert whose threshold and notification settings you want to view.
 ///
 /// Retrieves an organization spend alert.
 ///
 /// [alertId] The ID of the spend alert to retrieve.
-Future<OrganizationSpendAlert> retrieveOrganizationSpendAlert(
-    ClientConfig config,
-    {required String alertId,
-    RequestOptions? requestOptions}) async {
+Future<OrganizationSpendAlert> retrieveOrganizationSpendAlert(ClientConfig config,
+    {required String alertId, RequestOptions? requestOptions}) async {
   return (await sdkRequest<OrganizationSpendAlert>('GET',
           '/organization/spend_alerts/${Uri.encodeComponent(alertId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveOrganizationSpendAlert',
-          fromJsonRaw: (value) =>
-              OrganizationSpendAlert.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationSpendAlert.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates a spend alert configured at the organization level. Provide the threshold, currency, evaluation interval, and email notification settings for the alert. The response contains the updated alert configuration.
 ///
@@ -497,42 +369,27 @@ Future<OrganizationSpendAlert> updateOrganizationSpendAlert(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateOrganizationSpendAlert',
-          fromJsonRaw: (value) =>
-              OrganizationSpendAlert.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationSpendAlert.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a spend alert configured at the organization level. Use `alert_id` to identify the alert to remove; the response confirms whether it was deleted.
 ///
 /// Deletes an organization spend alert.
 ///
 /// [alertId] The ID of the spend alert to delete.
-Future<OrganizationSpendAlertDeletedResource> deleteOrganizationSpendAlert(
-    ClientConfig config,
-    {required String alertId,
-    RequestOptions? requestOptions}) async {
+Future<OrganizationSpendAlertDeletedResource> deleteOrganizationSpendAlert(ClientConfig config,
+    {required String alertId, RequestOptions? requestOptions}) async {
   return (await sdkRequest<OrganizationSpendAlertDeletedResource>('DELETE',
           '/organization/spend_alerts/${Uri.encodeComponent(alertId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteOrganizationSpendAlert',
-          fromJsonRaw: (value) =>
-              OrganizationSpendAlertDeletedResource.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationSpendAlertDeletedResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

@@ -8,171 +8,112 @@ part of 'responses_beta_prompt.dart';
 class BetaPrompt {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier of the prompt template to use.
   final String id;
-
   /// Optional `string` value serialized in the `version` wire field.
   final SdkOptional<String?> version;
-
   /// Optional map of values to substitute in for variables in your prompt. The substitution values can either be strings, or other Response input types like images or files.
   final SdkOptional<Map<String, dynamic>?> variables;
 
-  const BetaPrompt(
-      {required this.id,
-      this.version = const SdkOmitted(),
-      this.variables = const SdkOmitted()});
+  const BetaPrompt({required this.id, this.version = const SdkOmitted(), this.variables = const SdkOmitted()});
 
-  BetaPrompt Function(
-      {String id,
-      SdkOptional<String?> version,
-      SdkOptional<Map<String, dynamic>?> variables}) get copyWith => _copyWith;
+  BetaPrompt Function({String id, SdkOptional<String?> version, SdkOptional<Map<String, dynamic>?> variables}) get copyWith => _copyWith;
 
-  BetaPrompt _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? version = sdkOmittedValue,
-          Object? variables = sdkOmittedValue}) =>
-      BetaPrompt(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String?>,
-        variables: identical(variables, sdkOmittedValue)
-            ? this.variables
-            : variables as SdkOptional<Map<String, dynamic>?>,
-      );
+  BetaPrompt _copyWith({Object? id = sdkOmittedValue, Object? version = sdkOmittedValue, Object? variables = sdkOmittedValue}) => BetaPrompt(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String?>,
+    variables: identical(variables, sdkOmittedValue) ? this.variables : variables as SdkOptional<Map<String, dynamic>?>,
+  );
 
   factory BetaPrompt.fromJson(Map<String, dynamic> json) => BetaPrompt(
-        id: (json['id'] as String?)!,
-        version: json.containsKey('version')
-            ? SdkPresent(json['version'] as String?)
-            : const SdkOmitted(),
-        variables: json.containsKey('variables')
-            ? SdkPresent(json['variables'] == null
-                ? null
-                : json['variables'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+    id: (json['id'] as String?)!,
+    version: json.containsKey('version') ? SdkPresent(json['version'] as String?) : const SdkOmitted(),
+    variables: json.containsKey('variables') ? SdkPresent(json['variables'] == null ? null : json['variables'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        ...switch (version) {
-          SdkPresent<String?>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (variables) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'variables': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    ...switch (version) {
+      SdkPresent<String?>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (variables) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'variables': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 class BetaPromptCacheBreakpointConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The breakpoint mode. Always `explicit`.
   final BetaPromptCacheBreakpointConfigMode mode;
 
   const BetaPromptCacheBreakpointConfig({required this.mode});
 
-  BetaPromptCacheBreakpointConfig Function(
-      {BetaPromptCacheBreakpointConfigMode mode}) get copyWith => _copyWith;
+  BetaPromptCacheBreakpointConfig Function({BetaPromptCacheBreakpointConfigMode mode}) get copyWith => _copyWith;
 
-  BetaPromptCacheBreakpointConfig _copyWith({Object? mode = sdkOmittedValue}) =>
-      BetaPromptCacheBreakpointConfig(
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as BetaPromptCacheBreakpointConfigMode,
-      );
+  BetaPromptCacheBreakpointConfig _copyWith({Object? mode = sdkOmittedValue}) => BetaPromptCacheBreakpointConfig(
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as BetaPromptCacheBreakpointConfigMode,
+  );
 
-  factory BetaPromptCacheBreakpointConfig.fromJson(Map<String, dynamic> json) =>
-      BetaPromptCacheBreakpointConfig(
-        mode: (json['mode'] != null
-            ? BetaPromptCacheBreakpointConfigMode.fromJson(
-                json['mode'] as String)
-            : null)!,
-      );
+  factory BetaPromptCacheBreakpointConfig.fromJson(Map<String, dynamic> json) => BetaPromptCacheBreakpointConfig(
+    mode: (json['mode'] != null ? BetaPromptCacheBreakpointConfigMode.fromJson(json['mode'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'mode': mode.toJson(),
-      };
+    'mode': mode.toJson(),
+  };
 }
 
 /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 class BetaPromptCacheBreakpointParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The breakpoint mode. Always `explicit`.
   final BetaPromptCacheBreakpointParamMode mode;
 
   const BetaPromptCacheBreakpointParam({required this.mode});
 
-  BetaPromptCacheBreakpointParam Function(
-      {BetaPromptCacheBreakpointParamMode mode}) get copyWith => _copyWith;
+  BetaPromptCacheBreakpointParam Function({BetaPromptCacheBreakpointParamMode mode}) get copyWith => _copyWith;
 
-  BetaPromptCacheBreakpointParam _copyWith({Object? mode = sdkOmittedValue}) =>
-      BetaPromptCacheBreakpointParam(
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as BetaPromptCacheBreakpointParamMode,
-      );
+  BetaPromptCacheBreakpointParam _copyWith({Object? mode = sdkOmittedValue}) => BetaPromptCacheBreakpointParam(
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as BetaPromptCacheBreakpointParamMode,
+  );
 
-  factory BetaPromptCacheBreakpointParam.fromJson(Map<String, dynamic> json) =>
-      BetaPromptCacheBreakpointParam(
-        mode: (json['mode'] != null
-            ? BetaPromptCacheBreakpointParamMode.fromJson(
-                json['mode'] as String)
-            : null)!,
-      );
+  factory BetaPromptCacheBreakpointParam.fromJson(Map<String, dynamic> json) => BetaPromptCacheBreakpointParam(
+    mode: (json['mode'] != null ? BetaPromptCacheBreakpointParamMode.fromJson(json['mode'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'mode': mode.toJson(),
-      };
+    'mode': mode.toJson(),
+  };
 }
 
 /// Typed representation of the `BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody` API schema.
 class BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType type_;
 
-  const BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(
-      {required this.type_});
+  const BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody({required this.type_});
 
-  BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody Function(
-          {BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType type_})
-      get copyWith => _copyWith;
+  BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody Function({BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType type_}) get copyWith => _copyWith;
 
-  BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType,
-      );
+  BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody _copyWith({Object? type_ = sdkOmittedValue}) => BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType,
+  );
 
-  factory BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody.fromJson(
-          Map<String, dynamic> json) =>
-      BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(
-        type_: (json['type'] != null
-            ? BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType
-                .fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody.fromJson(Map<String, dynamic> json) => BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(
+    type_: (json['type'] != null ? BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 sealed class BetaPromptCacheDiagnostics {
@@ -181,252 +122,136 @@ sealed class BetaPromptCacheDiagnostics {
   const BetaPromptCacheDiagnostics();
   factory BetaPromptCacheDiagnostics.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaPromptCacheMissDiagnosticsBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaPromptCacheDiagnosticsBetaPromptCacheMissDiagnosticsBody(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaPromptCacheHitDiagnosticsBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaPromptCacheDiagnosticsBetaPromptCacheHitDiagnosticsBody(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody.fromJson(
-                json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaPromptCacheDiagnosticsBetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaPromptCacheUnavailableDiagnosticsBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaPromptCacheDiagnosticsBetaPromptCacheUnavailableDiagnosticsBody(
-              value);
-        }
-      } catch (_) {}
+      try { final value = BetaPromptCacheMissDiagnosticsBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaPromptCacheDiagnosticsBetaPromptCacheMissDiagnosticsBody(value); } } catch (_) {}
+      try { final value = BetaPromptCacheHitDiagnosticsBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaPromptCacheDiagnosticsBetaPromptCacheHitDiagnosticsBody(value); } } catch (_) {}
+      try { final value = BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaPromptCacheDiagnosticsBetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(value); } } catch (_) {}
+      try { final value = BetaPromptCacheUnavailableDiagnosticsBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaPromptCacheDiagnosticsBetaPromptCacheUnavailableDiagnosticsBody(value); } } catch (_) {}
     }
-    try {
-      return BetaPromptCacheDiagnosticsBetaPromptCacheMissDiagnosticsBody(
-          BetaPromptCacheMissDiagnosticsBody.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaPromptCacheDiagnosticsBetaPromptCacheHitDiagnosticsBody(
-          BetaPromptCacheHitDiagnosticsBody.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaPromptCacheDiagnosticsBetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(
-          BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaPromptCacheDiagnosticsBetaPromptCacheUnavailableDiagnosticsBody(
-          BetaPromptCacheUnavailableDiagnosticsBody.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "cache_miss",
-          "cache_hit",
-          "comparison_response_not_found",
-          "unavailable"
-        }.contains(json["type"])) {
-      return UnknownBetaPromptCacheDiagnostics(json);
-    }
+    try { return BetaPromptCacheDiagnosticsBetaPromptCacheMissDiagnosticsBody(BetaPromptCacheMissDiagnosticsBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaPromptCacheDiagnosticsBetaPromptCacheHitDiagnosticsBody(BetaPromptCacheHitDiagnosticsBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaPromptCacheDiagnosticsBetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaPromptCacheDiagnosticsBetaPromptCacheUnavailableDiagnosticsBody(BetaPromptCacheUnavailableDiagnosticsBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"cache_miss", "cache_hit", "comparison_response_not_found", "unavailable"}.contains(json["type"])) { return UnknownBetaPromptCacheDiagnostics(json); }
     throw FormatException("No variant matched for BetaPromptCacheDiagnostics");
   }
   Object? toJson();
 }
 
-final class BetaPromptCacheDiagnosticsBetaPromptCacheMissDiagnosticsBody
-    extends BetaPromptCacheDiagnostics {
+final class BetaPromptCacheDiagnosticsBetaPromptCacheMissDiagnosticsBody extends BetaPromptCacheDiagnostics {
   final BetaPromptCacheMissDiagnosticsBody value;
-  const BetaPromptCacheDiagnosticsBetaPromptCacheMissDiagnosticsBody(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaPromptCacheDiagnosticsBetaPromptCacheMissDiagnosticsBody(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaPromptCacheDiagnosticsBetaPromptCacheHitDiagnosticsBody
-    extends BetaPromptCacheDiagnostics {
+final class BetaPromptCacheDiagnosticsBetaPromptCacheHitDiagnosticsBody extends BetaPromptCacheDiagnostics {
   final BetaPromptCacheHitDiagnosticsBody value;
   const BetaPromptCacheDiagnosticsBetaPromptCacheHitDiagnosticsBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaPromptCacheDiagnosticsBetaPromptCacheComparisonResponseNotFoundDiagnosticsBody
-    extends BetaPromptCacheDiagnostics {
+final class BetaPromptCacheDiagnosticsBetaPromptCacheComparisonResponseNotFoundDiagnosticsBody extends BetaPromptCacheDiagnostics {
   final BetaPromptCacheComparisonResponseNotFoundDiagnosticsBody value;
-  const BetaPromptCacheDiagnosticsBetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaPromptCacheDiagnosticsBetaPromptCacheComparisonResponseNotFoundDiagnosticsBody(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaPromptCacheDiagnosticsBetaPromptCacheUnavailableDiagnosticsBody
-    extends BetaPromptCacheDiagnostics {
+final class BetaPromptCacheDiagnosticsBetaPromptCacheUnavailableDiagnosticsBody extends BetaPromptCacheDiagnostics {
   final BetaPromptCacheUnavailableDiagnosticsBody value;
-  const BetaPromptCacheDiagnosticsBetaPromptCacheUnavailableDiagnosticsBody(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaPromptCacheDiagnosticsBetaPromptCacheUnavailableDiagnosticsBody(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaPromptCacheDiagnostics] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaPromptCacheDiagnostics
-    extends BetaPromptCacheDiagnostics {
+final class UnknownBetaPromptCacheDiagnostics extends BetaPromptCacheDiagnostics {
   final Map<String, dynamic> raw;
   const UnknownBetaPromptCacheDiagnostics(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Typed representation of the `BetaPromptCacheHitDiagnosticsBody` API schema.
 class BetaPromptCacheHitDiagnosticsBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final BetaPromptCacheHitDiagnosticsBodyType type_;
 
   const BetaPromptCacheHitDiagnosticsBody({required this.type_});
 
-  BetaPromptCacheHitDiagnosticsBody Function(
-      {BetaPromptCacheHitDiagnosticsBodyType type_}) get copyWith => _copyWith;
+  BetaPromptCacheHitDiagnosticsBody Function({BetaPromptCacheHitDiagnosticsBodyType type_}) get copyWith => _copyWith;
 
-  BetaPromptCacheHitDiagnosticsBody _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      BetaPromptCacheHitDiagnosticsBody(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaPromptCacheHitDiagnosticsBodyType,
-      );
+  BetaPromptCacheHitDiagnosticsBody _copyWith({Object? type_ = sdkOmittedValue}) => BetaPromptCacheHitDiagnosticsBody(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaPromptCacheHitDiagnosticsBodyType,
+  );
 
-  factory BetaPromptCacheHitDiagnosticsBody.fromJson(
-          Map<String, dynamic> json) =>
-      BetaPromptCacheHitDiagnosticsBody(
-        type_: (json['type'] != null
-            ? BetaPromptCacheHitDiagnosticsBodyType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory BetaPromptCacheHitDiagnosticsBody.fromJson(Map<String, dynamic> json) => BetaPromptCacheHitDiagnosticsBody(
+    type_: (json['type'] != null ? BetaPromptCacheHitDiagnosticsBodyType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `BetaPromptCacheMissDiagnosticsBody` API schema.
 class BetaPromptCacheMissDiagnosticsBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final BetaPromptCacheMissDiagnosticsBodyType type_;
-
   /// The reason prompt cache reuse did not occur.
   final BetaCacheMissReasonTypeEnum reason;
-
   /// The estimated number of input tokens affected after the first detected divergence.
   final int cacheMissedTokens;
-
   /// The raw token count of the reusable prefix in the compared response.
   final SdkOptional<int> comparisonReusableTokens;
 
-  const BetaPromptCacheMissDiagnosticsBody(
-      {required this.type_,
-      required this.reason,
-      required this.cacheMissedTokens,
-      this.comparisonReusableTokens = const SdkOmitted()});
+  const BetaPromptCacheMissDiagnosticsBody({required this.type_, required this.reason, required this.cacheMissedTokens, this.comparisonReusableTokens = const SdkOmitted()});
 
-  BetaPromptCacheMissDiagnosticsBody Function(
-      {BetaPromptCacheMissDiagnosticsBodyType type_,
-      BetaCacheMissReasonTypeEnum reason,
-      int cacheMissedTokens,
-      SdkOptional<int> comparisonReusableTokens}) get copyWith => _copyWith;
+  BetaPromptCacheMissDiagnosticsBody Function({BetaPromptCacheMissDiagnosticsBodyType type_, BetaCacheMissReasonTypeEnum reason, int cacheMissedTokens, SdkOptional<int> comparisonReusableTokens}) get copyWith => _copyWith;
 
-  BetaPromptCacheMissDiagnosticsBody _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? reason = sdkOmittedValue,
-          Object? cacheMissedTokens = sdkOmittedValue,
-          Object? comparisonReusableTokens = sdkOmittedValue}) =>
-      BetaPromptCacheMissDiagnosticsBody(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaPromptCacheMissDiagnosticsBodyType,
-        reason: identical(reason, sdkOmittedValue)
-            ? this.reason
-            : reason as BetaCacheMissReasonTypeEnum,
-        cacheMissedTokens: identical(cacheMissedTokens, sdkOmittedValue)
-            ? this.cacheMissedTokens
-            : cacheMissedTokens as int,
-        comparisonReusableTokens:
-            identical(comparisonReusableTokens, sdkOmittedValue)
-                ? this.comparisonReusableTokens
-                : comparisonReusableTokens as SdkOptional<int>,
-      );
+  BetaPromptCacheMissDiagnosticsBody _copyWith({Object? type_ = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? cacheMissedTokens = sdkOmittedValue, Object? comparisonReusableTokens = sdkOmittedValue}) => BetaPromptCacheMissDiagnosticsBody(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaPromptCacheMissDiagnosticsBodyType,
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as BetaCacheMissReasonTypeEnum,
+    cacheMissedTokens: identical(cacheMissedTokens, sdkOmittedValue) ? this.cacheMissedTokens : cacheMissedTokens as int,
+    comparisonReusableTokens: identical(comparisonReusableTokens, sdkOmittedValue) ? this.comparisonReusableTokens : comparisonReusableTokens as SdkOptional<int>,
+  );
 
-  factory BetaPromptCacheMissDiagnosticsBody.fromJson(
-          Map<String, dynamic> json) =>
-      BetaPromptCacheMissDiagnosticsBody(
-        type_: (json['type'] != null
-            ? BetaPromptCacheMissDiagnosticsBodyType.fromJson(
-                json['type'] as String)
-            : null)!,
-        reason: (json['reason'] != null
-            ? BetaCacheMissReasonTypeEnum.fromJson(json['reason'] as String)
-            : null)!,
-        cacheMissedTokens: ((json['cache_missed_tokens'] as num?)?.toInt())!,
-        comparisonReusableTokens: json['comparison_reusable_tokens'] != null
-            ? SdkPresent(
-                ((json['comparison_reusable_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory BetaPromptCacheMissDiagnosticsBody.fromJson(Map<String, dynamic> json) => BetaPromptCacheMissDiagnosticsBody(
+    type_: (json['type'] != null ? BetaPromptCacheMissDiagnosticsBodyType.fromJson(json['type'] as String) : null)!,
+    reason: (json['reason'] != null ? BetaCacheMissReasonTypeEnum.fromJson(json['reason'] as String) : null)!,
+    cacheMissedTokens: ((json['cache_missed_tokens'] as num?)?.toInt())!,
+    comparisonReusableTokens: json['comparison_reusable_tokens'] != null ? SdkPresent(((json['comparison_reusable_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'reason': reason.toJson(),
-        'cache_missed_tokens': cacheMissedTokens,
-        ...switch (comparisonReusableTokens) {
-          SdkPresent<int>(value: final value) => {
-              'comparison_reusable_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'reason': reason.toJson(),
+    'cache_missed_tokens': cacheMissedTokens,
+    ...switch (comparisonReusableTokens) {
+      SdkPresent<int>(value: final value) => {'comparison_reusable_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BetaPromptCacheModeEnum` API schema.
 final class BetaPromptCacheModeEnum {
+
   final String value;
 
   const BetaPromptCacheModeEnum._(this.value);
 
-  factory BetaPromptCacheModeEnum.fromJson(String value) =>
-      BetaPromptCacheModeEnum._(value);
+  factory BetaPromptCacheModeEnum.fromJson(String value) => BetaPromptCacheModeEnum._(value);
 
   static const implicit = BetaPromptCacheModeEnum._('implicit');
   static const explicit = BetaPromptCacheModeEnum._('explicit');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaPromptCacheModeEnum && other.value == value;
+  @override bool operator ==(Object other) => other is BetaPromptCacheModeEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

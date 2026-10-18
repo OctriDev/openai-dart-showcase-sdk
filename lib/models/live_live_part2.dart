@@ -8,435 +8,270 @@ part of 'live_live.dart';
 class LiveErrorEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the Live server event.
   final String eventId;
-
   /// The event_id of the client command associated with this server event, when supplied.
   final SdkOptional<String> clientEventId;
-
   /// The event type, always `error`.
   final LiveErrorEventType type_;
-
   /// Details of the Live error and the client command that caused it, when known.
   final LiveLiveError error;
 
-  const LiveErrorEvent(
-      {required this.eventId,
-      this.clientEventId = const SdkOmitted(),
-      required this.type_,
-      required this.error});
+  const LiveErrorEvent({required this.eventId, this.clientEventId = const SdkOmitted(), required this.type_, required this.error});
 
-  LiveErrorEvent Function(
-      {String eventId,
-      SdkOptional<String> clientEventId,
-      LiveErrorEventType type_,
-      LiveLiveError error}) get copyWith => _copyWith;
+  LiveErrorEvent Function({String eventId, SdkOptional<String> clientEventId, LiveErrorEventType type_, LiveLiveError error}) get copyWith => _copyWith;
 
-  LiveErrorEvent _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? clientEventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? error = sdkOmittedValue}) =>
-      LiveErrorEvent(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        clientEventId: identical(clientEventId, sdkOmittedValue)
-            ? this.clientEventId
-            : clientEventId as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveErrorEventType,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as LiveLiveError,
-      );
+  LiveErrorEvent _copyWith({Object? eventId = sdkOmittedValue, Object? clientEventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? error = sdkOmittedValue}) => LiveErrorEvent(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    clientEventId: identical(clientEventId, sdkOmittedValue) ? this.clientEventId : clientEventId as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveErrorEventType,
+    error: identical(error, sdkOmittedValue) ? this.error : error as LiveLiveError,
+  );
 
   factory LiveErrorEvent.fromJson(Map<String, dynamic> json) => LiveErrorEvent(
-        eventId: (json['event_id'] as String?)!,
-        clientEventId: json['client_event_id'] != null
-            ? SdkPresent((json['client_event_id'] as String?)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? LiveErrorEventType.fromJson(json['type'] as String)
-            : null)!,
-        error: (json['error'] != null
-            ? LiveLiveError.fromJson(json['error'] as Map<String, dynamic>)
-            : null)!,
-      );
+    eventId: (json['event_id'] as String?)!,
+    clientEventId: json['client_event_id'] != null ? SdkPresent((json['client_event_id'] as String?)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? LiveErrorEventType.fromJson(json['type'] as String) : null)!,
+    error: (json['error'] != null ? LiveLiveError.fromJson(json['error'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        ...switch (clientEventId) {
-          SdkPresent<String>(value: final value) => {
-              'client_event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'error': error.toJson(),
-      };
+    'event_id': eventId,
+    ...switch (clientEventId) {
+      SdkPresent<String>(value: final value) => {'client_event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'error': error.toJson(),
+  };
 }
 
 /// Typed representation of the `LiveFileSearchToolInputParam` API schema.
 class LiveFileSearchToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveFileSearchToolInputParamType type_;
 
   const LiveFileSearchToolInputParam({required this.type_});
 
-  LiveFileSearchToolInputParam Function(
-      {LiveFileSearchToolInputParamType type_}) get copyWith => _copyWith;
+  LiveFileSearchToolInputParam Function({LiveFileSearchToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveFileSearchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      LiveFileSearchToolInputParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveFileSearchToolInputParamType,
-      );
+  LiveFileSearchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveFileSearchToolInputParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveFileSearchToolInputParamType,
+  );
 
-  factory LiveFileSearchToolInputParam.fromJson(Map<String, dynamic> json) =>
-      LiveFileSearchToolInputParam(
-        type_: (json['type'] != null
-            ? LiveFileSearchToolInputParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory LiveFileSearchToolInputParam.fromJson(Map<String, dynamic> json) => LiveFileSearchToolInputParam(
+    type_: (json['type'] != null ? LiveFileSearchToolInputParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `LiveImageGenerationToolInputParam` API schema.
 class LiveImageGenerationToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveImageGenerationToolInputParamType type_;
 
   const LiveImageGenerationToolInputParam({required this.type_});
 
-  LiveImageGenerationToolInputParam Function(
-      {LiveImageGenerationToolInputParamType type_}) get copyWith => _copyWith;
+  LiveImageGenerationToolInputParam Function({LiveImageGenerationToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveImageGenerationToolInputParam _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      LiveImageGenerationToolInputParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveImageGenerationToolInputParamType,
-      );
+  LiveImageGenerationToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveImageGenerationToolInputParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveImageGenerationToolInputParamType,
+  );
 
-  factory LiveImageGenerationToolInputParam.fromJson(
-          Map<String, dynamic> json) =>
-      LiveImageGenerationToolInputParam(
-        type_: (json['type'] != null
-            ? LiveImageGenerationToolInputParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory LiveImageGenerationToolInputParam.fromJson(Map<String, dynamic> json) => LiveImageGenerationToolInputParam(
+    type_: (json['type'] != null ? LiveImageGenerationToolInputParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// An informational notice about the Live session, such as the event permissions applied to a frontend data channel.
 class LiveInfoEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the Live server event.
   final String eventId;
-
   /// The event_id of the client command associated with this server event, when supplied.
   final SdkOptional<String> clientEventId;
-
   /// The event type, always `info`.
   final LiveInfoEventType type_;
-
   /// A machine-readable code for the notice, such as `data_channel_permissions`.
   final String code;
-
   /// A human-readable explanation of the Live session notice.
   final String message;
 
-  const LiveInfoEvent(
-      {required this.eventId,
-      this.clientEventId = const SdkOmitted(),
-      required this.type_,
-      required this.code,
-      required this.message});
+  const LiveInfoEvent({required this.eventId, this.clientEventId = const SdkOmitted(), required this.type_, required this.code, required this.message});
 
-  LiveInfoEvent Function(
-      {String eventId,
-      SdkOptional<String> clientEventId,
-      LiveInfoEventType type_,
-      String code,
-      String message}) get copyWith => _copyWith;
+  LiveInfoEvent Function({String eventId, SdkOptional<String> clientEventId, LiveInfoEventType type_, String code, String message}) get copyWith => _copyWith;
 
-  LiveInfoEvent _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? clientEventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      LiveInfoEvent(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        clientEventId: identical(clientEventId, sdkOmittedValue)
-            ? this.clientEventId
-            : clientEventId as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveInfoEventType,
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  LiveInfoEvent _copyWith({Object? eventId = sdkOmittedValue, Object? clientEventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => LiveInfoEvent(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    clientEventId: identical(clientEventId, sdkOmittedValue) ? this.clientEventId : clientEventId as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveInfoEventType,
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
   factory LiveInfoEvent.fromJson(Map<String, dynamic> json) => LiveInfoEvent(
-        eventId: (json['event_id'] as String?)!,
-        clientEventId: json['client_event_id'] != null
-            ? SdkPresent((json['client_event_id'] as String?)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? LiveInfoEventType.fromJson(json['type'] as String)
-            : null)!,
-        code: (json['code'] as String?)!,
-        message: (json['message'] as String?)!,
-      );
+    eventId: (json['event_id'] as String?)!,
+    clientEventId: json['client_event_id'] != null ? SdkPresent((json['client_event_id'] as String?)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? LiveInfoEventType.fromJson(json['type'] as String) : null)!,
+    code: (json['code'] as String?)!,
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        ...switch (clientEventId) {
-          SdkPresent<String>(value: final value) => {
-              'client_event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'code': code,
-        'message': message,
-      };
+    'event_id': eventId,
+    ...switch (clientEventId) {
+      SdkPresent<String>(value: final value) => {'client_event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'code': code,
+    'message': message,
+  };
 }
 
 /// Details of an error encountered by the Live session, including the affected parameter or client command when available.
 class LiveLiveError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The category of error, such as `invalid_request_error` for an invalid Live client command.
   final String type_;
-
   /// A machine-readable code identifying the Live error, such as `unknown_parameter`.
   final String code;
-
   /// A human-readable explanation of the Live error.
   final String message;
-
   /// The parameter that caused the error, when applicable, such as `session.voice`.
   final SdkOptional<String> param;
-
   /// The event_id of the client command that caused the error, when supplied.
   final SdkOptional<String> clientEventId;
 
-  const LiveLiveError(
-      {required this.type_,
-      required this.code,
-      required this.message,
-      this.param = const SdkOmitted(),
-      this.clientEventId = const SdkOmitted()});
+  const LiveLiveError({required this.type_, required this.code, required this.message, this.param = const SdkOmitted(), this.clientEventId = const SdkOmitted()});
 
-  LiveLiveError Function(
-      {String type_,
-      String code,
-      String message,
-      SdkOptional<String> param,
-      SdkOptional<String> clientEventId}) get copyWith => _copyWith;
+  LiveLiveError Function({String type_, String code, String message, SdkOptional<String> param, SdkOptional<String> clientEventId}) get copyWith => _copyWith;
 
-  LiveLiveError _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? param = sdkOmittedValue,
-          Object? clientEventId = sdkOmittedValue}) =>
-      LiveLiveError(
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-        param: identical(param, sdkOmittedValue)
-            ? this.param
-            : param as SdkOptional<String>,
-        clientEventId: identical(clientEventId, sdkOmittedValue)
-            ? this.clientEventId
-            : clientEventId as SdkOptional<String>,
-      );
+  LiveLiveError _copyWith({Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue, Object? param = sdkOmittedValue, Object? clientEventId = sdkOmittedValue}) => LiveLiveError(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+    param: identical(param, sdkOmittedValue) ? this.param : param as SdkOptional<String>,
+    clientEventId: identical(clientEventId, sdkOmittedValue) ? this.clientEventId : clientEventId as SdkOptional<String>,
+  );
 
   factory LiveLiveError.fromJson(Map<String, dynamic> json) => LiveLiveError(
-        type_: (json['type'] as String?)!,
-        code: (json['code'] as String?)!,
-        message: (json['message'] as String?)!,
-        param: json['param'] != null
-            ? SdkPresent((json['param'] as String?)!)
-            : const SdkOmitted(),
-        clientEventId: json['client_event_id'] != null
-            ? SdkPresent((json['client_event_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: (json['type'] as String?)!,
+    code: (json['code'] as String?)!,
+    message: (json['message'] as String?)!,
+    param: json['param'] != null ? SdkPresent((json['param'] as String?)!) : const SdkOmitted(),
+    clientEventId: json['client_event_id'] != null ? SdkPresent((json['client_event_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_,
-        'code': code,
-        'message': message,
-        ...switch (param) {
-          SdkPresent<String>(value: final value) => {
-              'param': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clientEventId) {
-          SdkPresent<String>(value: final value) => {
-              'client_event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_,
+    'code': code,
+    'message': message,
+    ...switch (param) {
+      SdkPresent<String>(value: final value) => {'param': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clientEventId) {
+      SdkPresent<String>(value: final value) => {'client_event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `LiveNamespaceToolInputParam` API schema.
 class LiveNamespaceToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveNamespaceToolInputParamType type_;
 
   const LiveNamespaceToolInputParam({required this.type_});
 
-  LiveNamespaceToolInputParam Function({LiveNamespaceToolInputParamType type_})
-      get copyWith => _copyWith;
+  LiveNamespaceToolInputParam Function({LiveNamespaceToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveNamespaceToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      LiveNamespaceToolInputParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveNamespaceToolInputParamType,
-      );
+  LiveNamespaceToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveNamespaceToolInputParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveNamespaceToolInputParamType,
+  );
 
-  factory LiveNamespaceToolInputParam.fromJson(Map<String, dynamic> json) =>
-      LiveNamespaceToolInputParam(
-        type_: (json['type'] != null
-            ? LiveNamespaceToolInputParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory LiveNamespaceToolInputParam.fromJson(Map<String, dynamic> json) => LiveNamespaceToolInputParam(
+    type_: (json['type'] != null ? LiveNamespaceToolInputParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `LiveProgrammaticToolInputParam` API schema.
 class LiveProgrammaticToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveProgrammaticToolInputParamType type_;
 
   const LiveProgrammaticToolInputParam({required this.type_});
 
-  LiveProgrammaticToolInputParam Function(
-      {LiveProgrammaticToolInputParamType type_}) get copyWith => _copyWith;
+  LiveProgrammaticToolInputParam Function({LiveProgrammaticToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveProgrammaticToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      LiveProgrammaticToolInputParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveProgrammaticToolInputParamType,
-      );
+  LiveProgrammaticToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveProgrammaticToolInputParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveProgrammaticToolInputParamType,
+  );
 
-  factory LiveProgrammaticToolInputParam.fromJson(Map<String, dynamic> json) =>
-      LiveProgrammaticToolInputParam(
-        type_: (json['type'] != null
-            ? LiveProgrammaticToolInputParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory LiveProgrammaticToolInputParam.fromJson(Map<String, dynamic> json) => LiveProgrammaticToolInputParam(
+    type_: (json['type'] != null ? LiveProgrammaticToolInputParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `LiveSkillReferenceParam` API schema.
 class LiveSkillReferenceParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// References a skill created with the /v1/skills endpoint.
   final LiveSkillReferenceParamType type_;
-
   /// The ID of the referenced skill.
   final String skillId;
-
   /// Optional `string` value serialized in the `version` wire field.
   final SdkOptional<String?> version;
 
-  const LiveSkillReferenceParam(
-      {required this.type_,
-      required this.skillId,
-      this.version = const SdkOmitted()});
+  const LiveSkillReferenceParam({required this.type_, required this.skillId, this.version = const SdkOmitted()});
 
-  LiveSkillReferenceParam Function(
-      {LiveSkillReferenceParamType type_,
-      String skillId,
-      SdkOptional<String?> version}) get copyWith => _copyWith;
+  LiveSkillReferenceParam Function({LiveSkillReferenceParamType type_, String skillId, SdkOptional<String?> version}) get copyWith => _copyWith;
 
-  LiveSkillReferenceParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? skillId = sdkOmittedValue,
-          Object? version = sdkOmittedValue}) =>
-      LiveSkillReferenceParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveSkillReferenceParamType,
-        skillId: identical(skillId, sdkOmittedValue)
-            ? this.skillId
-            : skillId as String,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String?>,
-      );
+  LiveSkillReferenceParam _copyWith({Object? type_ = sdkOmittedValue, Object? skillId = sdkOmittedValue, Object? version = sdkOmittedValue}) => LiveSkillReferenceParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSkillReferenceParamType,
+    skillId: identical(skillId, sdkOmittedValue) ? this.skillId : skillId as String,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String?>,
+  );
 
-  factory LiveSkillReferenceParam.fromJson(Map<String, dynamic> json) =>
-      LiveSkillReferenceParam(
-        type_: (json['type'] != null
-            ? LiveSkillReferenceParamType.fromJson(json['type'] as String)
-            : null)!,
-        skillId: (json['skill_id'] as String?)!,
-        version: json.containsKey('version')
-            ? SdkPresent(json['version'] as String?)
-            : const SdkOmitted(),
-      );
+  factory LiveSkillReferenceParam.fromJson(Map<String, dynamic> json) => LiveSkillReferenceParam(
+    type_: (json['type'] != null ? LiveSkillReferenceParamType.fromJson(json['type'] as String) : null)!,
+    skillId: (json['skill_id'] as String?)!,
+    version: json.containsKey('version') ? SdkPresent(json['version'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'skill_id': skillId,
-        ...switch (version) {
-          SdkPresent<String?>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'skill_id': skillId,
+    ...switch (version) {
+      SdkPresent<String?>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

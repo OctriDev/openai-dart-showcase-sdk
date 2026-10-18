@@ -6,322 +6,273 @@ part of 'inline.dart';
 // Inline operation models (part 45)
 /// The object type, must be `certificate.deleted`.
 final class DeleteCertificateResponseObject {
+
   final String value;
 
   const DeleteCertificateResponseObject._(this.value);
 
-  factory DeleteCertificateResponseObject.fromJson(String value) =>
-      DeleteCertificateResponseObject._(value);
+  factory DeleteCertificateResponseObject.fromJson(String value) => DeleteCertificateResponseObject._(value);
 
-  static const certificateDeleted =
-      DeleteCertificateResponseObject._('certificate.deleted');
+  static const certificateDeleted = DeleteCertificateResponseObject._('certificate.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeleteCertificateResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeleteCertificateResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type. Always `agent.deleted`.
 final class DeletedAgentResourceObject {
+
   final String value;
 
   const DeletedAgentResourceObject._(this.value);
 
-  factory DeletedAgentResourceObject.fromJson(String value) =>
-      DeletedAgentResourceObject._(value);
+  factory DeletedAgentResourceObject.fromJson(String value) => DeletedAgentResourceObject._(value);
 
   static const agentDeleted = DeletedAgentResourceObject._('agent.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedAgentResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedAgentResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class DeletedConversationResourceObject {
+
   final String value;
 
   const DeletedConversationResourceObject._(this.value);
 
-  factory DeletedConversationResourceObject.fromJson(String value) =>
-      DeletedConversationResourceObject._(value);
+  factory DeletedConversationResourceObject.fromJson(String value) => DeletedConversationResourceObject._(value);
 
-  static const conversationDeleted =
-      DeletedConversationResourceObject._('conversation.deleted');
+  static const conversationDeleted = DeletedConversationResourceObject._('conversation.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedConversationResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedConversationResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type. Always `agent.environment.template.deleted`.
 final class DeletedEnvironmentTemplateResourceObject {
+
   final String value;
 
   const DeletedEnvironmentTemplateResourceObject._(this.value);
 
-  factory DeletedEnvironmentTemplateResourceObject.fromJson(String value) =>
-      DeletedEnvironmentTemplateResourceObject._(value);
+  factory DeletedEnvironmentTemplateResourceObject.fromJson(String value) => DeletedEnvironmentTemplateResourceObject._(value);
 
-  static const agentEnvironmentTemplateDeleted =
-      DeletedEnvironmentTemplateResourceObject._(
-          'agent.environment.template.deleted');
+  static const agentEnvironmentTemplateDeleted = DeletedEnvironmentTemplateResourceObject._('agent.environment.template.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedEnvironmentTemplateResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedEnvironmentTemplateResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type. Always `agent.session.artifact.deleted`.
 final class DeletedSessionArtifactResourceObject {
+
   final String value;
 
   const DeletedSessionArtifactResourceObject._(this.value);
 
-  factory DeletedSessionArtifactResourceObject.fromJson(String value) =>
-      DeletedSessionArtifactResourceObject._(value);
+  factory DeletedSessionArtifactResourceObject.fromJson(String value) => DeletedSessionArtifactResourceObject._(value);
 
-  static const agentSessionArtifactDeleted =
-      DeletedSessionArtifactResourceObject._('agent.session.artifact.deleted');
+  static const agentSessionArtifactDeleted = DeletedSessionArtifactResourceObject._('agent.session.artifact.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedSessionArtifactResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedSessionArtifactResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type. Always `agent.session.deleted`.
 final class DeletedSessionResourceObject {
+
   final String value;
 
   const DeletedSessionResourceObject._(this.value);
 
-  factory DeletedSessionResourceObject.fromJson(String value) =>
-      DeletedSessionResourceObject._(value);
+  factory DeletedSessionResourceObject.fromJson(String value) => DeletedSessionResourceObject._(value);
 
-  static const agentSessionDeleted =
-      DeletedSessionResourceObject._('agent.session.deleted');
+  static const agentSessionDeleted = DeletedSessionResourceObject._('agent.session.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedSessionResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedSessionResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class DeletedSkillResourceObject {
+
   final String value;
 
   const DeletedSkillResourceObject._(this.value);
 
-  factory DeletedSkillResourceObject.fromJson(String value) =>
-      DeletedSkillResourceObject._(value);
+  factory DeletedSkillResourceObject.fromJson(String value) => DeletedSkillResourceObject._(value);
 
   static const skillDeleted = DeletedSkillResourceObject._('skill.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedSkillResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedSkillResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class DeletedSkillVersionResourceObject {
+
   final String value;
 
   const DeletedSkillVersionResourceObject._(this.value);
 
-  factory DeletedSkillVersionResourceObject.fromJson(String value) =>
-      DeletedSkillVersionResourceObject._(value);
+  factory DeletedSkillVersionResourceObject.fromJson(String value) => DeletedSkillVersionResourceObject._(value);
 
-  static const skillVersionDeleted =
-      DeletedSkillVersionResourceObject._('skill.version.deleted');
+  static const skillVersionDeleted = DeletedSkillVersionResourceObject._('skill.version.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedSkillVersionResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedSkillVersionResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Type discriminator that is always `chatkit.thread.deleted`.
 final class DeletedThreadResourceObject {
+
   final String value;
 
   const DeletedThreadResourceObject._(this.value);
 
-  factory DeletedThreadResourceObject.fromJson(String value) =>
-      DeletedThreadResourceObject._(value);
+  factory DeletedThreadResourceObject.fromJson(String value) => DeletedThreadResourceObject._(value);
 
-  static const chatkitThreadDeleted =
-      DeletedThreadResourceObject._('chatkit.thread.deleted');
+  static const chatkitThreadDeleted = DeletedThreadResourceObject._('chatkit.thread.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedThreadResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedThreadResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type. Always `vault.credential.deleted`.
 final class DeletedVaultCredentialResourceObject {
+
   final String value;
 
   const DeletedVaultCredentialResourceObject._(this.value);
 
-  factory DeletedVaultCredentialResourceObject.fromJson(String value) =>
-      DeletedVaultCredentialResourceObject._(value);
+  factory DeletedVaultCredentialResourceObject.fromJson(String value) => DeletedVaultCredentialResourceObject._(value);
 
-  static const vaultCredentialDeleted =
-      DeletedVaultCredentialResourceObject._('vault.credential.deleted');
+  static const vaultCredentialDeleted = DeletedVaultCredentialResourceObject._('vault.credential.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedVaultCredentialResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedVaultCredentialResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type. Always `vault.deleted`.
 final class DeletedVaultResourceObject {
+
   final String value;
 
   const DeletedVaultResourceObject._(this.value);
 
-  factory DeletedVaultResourceObject.fromJson(String value) =>
-      DeletedVaultResourceObject._(value);
+  factory DeletedVaultResourceObject.fromJson(String value) => DeletedVaultResourceObject._(value);
 
   static const vaultDeleted = DeletedVaultResourceObject._('vault.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedVaultResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedVaultResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type that signals the deletion response.
 final class DeletedVideoResourceObject {
+
   final String value;
 
   const DeletedVideoResourceObject._(this.value);
 
-  factory DeletedVideoResourceObject.fromJson(String value) =>
-      DeletedVideoResourceObject._(value);
+  factory DeletedVideoResourceObject.fromJson(String value) => DeletedVideoResourceObject._(value);
 
   static const videoDeleted = DeletedVideoResourceObject._('video.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedVideoResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedVideoResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always webhook_endpoint.deleted.
 final class DeletedWebhookEndpointResourceObject {
+
   final String value;
 
   const DeletedWebhookEndpointResourceObject._(this.value);
 
-  factory DeletedWebhookEndpointResourceObject.fromJson(String value) =>
-      DeletedWebhookEndpointResourceObject._(value);
+  factory DeletedWebhookEndpointResourceObject.fromJson(String value) => DeletedWebhookEndpointResourceObject._(value);
 
-  static const webhookEndpointDeleted =
-      DeletedWebhookEndpointResourceObject._('webhook_endpoint.deleted');
+  static const webhookEndpointDeleted = DeletedWebhookEndpointResourceObject._('webhook_endpoint.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletedWebhookEndpointResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeletedWebhookEndpointResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

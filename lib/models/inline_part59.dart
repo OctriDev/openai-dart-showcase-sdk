@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models (part 59)
 /// The quality of the image generated. One of `low`, `medium`, `high`, `xhigh`, or `max`.
 final class ImagesResponseQuality {
+
   final String value;
 
   const ImagesResponseQuality._(this.value);
 
-  factory ImagesResponseQuality.fromJson(String value) =>
-      ImagesResponseQuality._(value);
+  factory ImagesResponseQuality.fromJson(String value) => ImagesResponseQuality._(value);
 
   static const low = ImagesResponseQuality._('low');
   static const medium = ImagesResponseQuality._('medium');
@@ -21,41 +21,33 @@ final class ImagesResponseQuality {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImagesResponseQuality && other.value == value;
+  @override bool operator ==(Object other) => other is ImagesResponseQuality && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The archive media type, always `application/zip`.
 final class InlineCapabilitySourceParamBase64MediaType {
+
   final String value;
 
   const InlineCapabilitySourceParamBase64MediaType._(this.value);
 
-  factory InlineCapabilitySourceParamBase64MediaType.fromJson(String value) =>
-      InlineCapabilitySourceParamBase64MediaType._(value);
+  factory InlineCapabilitySourceParamBase64MediaType.fromJson(String value) => InlineCapabilitySourceParamBase64MediaType._(value);
 
-  static const applicationZip =
-      InlineCapabilitySourceParamBase64MediaType._('application/zip');
+  static const applicationZip = InlineCapabilitySourceParamBase64MediaType._('application/zip');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InlineCapabilitySourceParamBase64MediaType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is InlineCapabilitySourceParamBase64MediaType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object. Always `base64`.
@@ -64,18 +56,14 @@ enum InlineCapabilitySourceParamBase64Type {
 
   static InlineCapabilitySourceParamBase64Type fromJson(String value) {
     switch (value) {
-      case 'base64':
-        return InlineCapabilitySourceParamBase64Type.base64;
-      default:
-        throw ArgumentError(
-            'Unknown InlineCapabilitySourceParamBase64Type: $value');
+      case 'base64': return InlineCapabilitySourceParamBase64Type.base64;
+      default: throw ArgumentError('Unknown InlineCapabilitySourceParamBase64Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InlineCapabilitySourceParamBase64Type.base64:
-        return 'base64';
+      case InlineCapabilitySourceParamBase64Type.base64: return 'base64';
     }
   }
 
@@ -89,17 +77,14 @@ enum InlineSkillParamType {
 
   static InlineSkillParamType fromJson(String value) {
     switch (value) {
-      case 'inline':
-        return InlineSkillParamType.inline;
-      default:
-        throw ArgumentError('Unknown InlineSkillParamType: $value');
+      case 'inline': return InlineSkillParamType.inline;
+      default: throw ArgumentError('Unknown InlineSkillParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InlineSkillParamType.inline:
-        return 'inline';
+      case InlineSkillParamType.inline: return 'inline';
     }
   }
 
@@ -109,76 +94,66 @@ enum InlineSkillParamType {
 
 /// The media type of the inline skill payload. Must be `application/zip`.
 final class InlineSkillSourceParamMediaType {
+
   final String value;
 
   const InlineSkillSourceParamMediaType._(this.value);
 
-  factory InlineSkillSourceParamMediaType.fromJson(String value) =>
-      InlineSkillSourceParamMediaType._(value);
+  factory InlineSkillSourceParamMediaType.fromJson(String value) => InlineSkillSourceParamMediaType._(value);
 
-  static const applicationZip =
-      InlineSkillSourceParamMediaType._('application/zip');
+  static const applicationZip = InlineSkillSourceParamMediaType._('application/zip');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InlineSkillSourceParamMediaType && other.value == value;
+  @override bool operator ==(Object other) => other is InlineSkillSourceParamMediaType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the inline skill source. Must be `base64`.
 final class InlineSkillSourceParamType {
+
   final String value;
 
   const InlineSkillSourceParamType._(this.value);
 
-  factory InlineSkillSourceParamType.fromJson(String value) =>
-      InlineSkillSourceParamType._(value);
+  factory InlineSkillSourceParamType.fromJson(String value) => InlineSkillSourceParamType._(value);
 
   static const base64 = InlineSkillSourceParamType._('base64');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InlineSkillSourceParamType && other.value == value;
+  @override bool operator ==(Object other) => other is InlineSkillSourceParamType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The format of the audio data. Currently supported formats are `mp3` and `wav`.
 final class InputAudioInputAudioFormat {
+
   final String value;
 
   const InputAudioInputAudioFormat._(this.value);
 
-  factory InputAudioInputAudioFormat.fromJson(String value) =>
-      InputAudioInputAudioFormat._(value);
+  factory InputAudioInputAudioFormat.fromJson(String value) => InputAudioInputAudioFormat._(value);
 
   static const mp3 = InputAudioInputAudioFormat._('mp3');
   static const wav = InputAudioInputAudioFormat._('wav');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InputAudioInputAudioFormat && other.value == value;
+  @override bool operator ==(Object other) => other is InputAudioInputAudioFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the input item. Always `input_audio`.
@@ -187,17 +162,14 @@ enum InputAudioType {
 
   static InputAudioType fromJson(String value) {
     switch (value) {
-      case 'input_audio':
-        return InputAudioType.inputAudio;
-      default:
-        throw ArgumentError('Unknown InputAudioType: $value');
+      case 'input_audio': return InputAudioType.inputAudio;
+      default: throw ArgumentError('Unknown InputAudioType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputAudioType.inputAudio:
-        return 'input_audio';
+      case InputAudioType.inputAudio: return 'input_audio';
     }
   }
 
@@ -211,17 +183,14 @@ enum InputContentParamInputImageType {
 
   static InputContentParamInputImageType fromJson(String value) {
     switch (value) {
-      case 'input_image':
-        return InputContentParamInputImageType.inputImage;
-      default:
-        throw ArgumentError('Unknown InputContentParamInputImageType: $value');
+      case 'input_image': return InputContentParamInputImageType.inputImage;
+      default: throw ArgumentError('Unknown InputContentParamInputImageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputContentParamInputImageType.inputImage:
-        return 'input_image';
+      case InputContentParamInputImageType.inputImage: return 'input_image';
     }
   }
 
@@ -235,17 +204,14 @@ enum InputContentParamInputTextType {
 
   static InputContentParamInputTextType fromJson(String value) {
     switch (value) {
-      case 'input_text':
-        return InputContentParamInputTextType.inputText;
-      default:
-        throw ArgumentError('Unknown InputContentParamInputTextType: $value');
+      case 'input_text': return InputContentParamInputTextType.inputText;
+      default: throw ArgumentError('Unknown InputContentParamInputTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputContentParamInputTextType.inputText:
-        return 'input_text';
+      case InputContentParamInputTextType.inputText: return 'input_text';
     }
   }
 
@@ -259,18 +225,14 @@ enum InputContentResourceInputImageType {
 
   static InputContentResourceInputImageType fromJson(String value) {
     switch (value) {
-      case 'input_image':
-        return InputContentResourceInputImageType.inputImage;
-      default:
-        throw ArgumentError(
-            'Unknown InputContentResourceInputImageType: $value');
+      case 'input_image': return InputContentResourceInputImageType.inputImage;
+      default: throw ArgumentError('Unknown InputContentResourceInputImageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputContentResourceInputImageType.inputImage:
-        return 'input_image';
+      case InputContentResourceInputImageType.inputImage: return 'input_image';
     }
   }
 
@@ -284,18 +246,14 @@ enum InputContentResourceInputTextType {
 
   static InputContentResourceInputTextType fromJson(String value) {
     switch (value) {
-      case 'input_text':
-        return InputContentResourceInputTextType.inputText;
-      default:
-        throw ArgumentError(
-            'Unknown InputContentResourceInputTextType: $value');
+      case 'input_text': return InputContentResourceInputTextType.inputText;
+      default: throw ArgumentError('Unknown InputContentResourceInputTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputContentResourceInputTextType.inputText:
-        return 'input_text';
+      case InputContentResourceInputTextType.inputText: return 'input_text';
     }
   }
 
@@ -309,17 +267,14 @@ enum InputFileContentType {
 
   static InputFileContentType fromJson(String value) {
     switch (value) {
-      case 'input_file':
-        return InputFileContentType.inputFile;
-      default:
-        throw ArgumentError('Unknown InputFileContentType: $value');
+      case 'input_file': return InputFileContentType.inputFile;
+      default: throw ArgumentError('Unknown InputFileContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InputFileContentType.inputFile:
-        return 'input_file';
+      case InputFileContentType.inputFile: return 'input_file';
     }
   }
 

@@ -8,281 +8,180 @@ part of 'agent_session.dart';
 class AgentSessionActionRequiredPayloadResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the session.
   final String id;
-
   /// The action type. Retrieve the session for action details.
   final AgentSessionRequiredActionPayloadResource requiredAction;
 
-  const AgentSessionActionRequiredPayloadResource(
-      {required this.id, required this.requiredAction});
+  const AgentSessionActionRequiredPayloadResource({required this.id, required this.requiredAction});
 
-  AgentSessionActionRequiredPayloadResource Function(
-          {String id, AgentSessionRequiredActionPayloadResource requiredAction})
-      get copyWith => _copyWith;
+  AgentSessionActionRequiredPayloadResource Function({String id, AgentSessionRequiredActionPayloadResource requiredAction}) get copyWith => _copyWith;
 
-  AgentSessionActionRequiredPayloadResource _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? requiredAction = sdkOmittedValue}) =>
-      AgentSessionActionRequiredPayloadResource(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        requiredAction: identical(requiredAction, sdkOmittedValue)
-            ? this.requiredAction
-            : requiredAction as AgentSessionRequiredActionPayloadResource,
-      );
+  AgentSessionActionRequiredPayloadResource _copyWith({Object? id = sdkOmittedValue, Object? requiredAction = sdkOmittedValue}) => AgentSessionActionRequiredPayloadResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    requiredAction: identical(requiredAction, sdkOmittedValue) ? this.requiredAction : requiredAction as AgentSessionRequiredActionPayloadResource,
+  );
 
-  factory AgentSessionActionRequiredPayloadResource.fromJson(
-          Map<String, dynamic> json) =>
-      AgentSessionActionRequiredPayloadResource(
-        id: (json['id'] as String?)!,
-        requiredAction: (json['required_action'] != null
-            ? AgentSessionRequiredActionPayloadResource.fromJson(
-                json['required_action'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AgentSessionActionRequiredPayloadResource.fromJson(Map<String, dynamic> json) => AgentSessionActionRequiredPayloadResource(
+    id: (json['id'] as String?)!,
+    requiredAction: (json['required_action'] != null ? AgentSessionRequiredActionPayloadResource.fromJson(json['required_action'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'required_action': requiredAction.toJson(),
-      };
+    'id': id,
+    'required_action': requiredAction.toJson(),
+  };
 }
 
 /// Typed representation of the `AgentSessionConnectPayloadResource` API schema.
 class AgentSessionConnectPayloadResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The URL used to connect the self-hosted environment.
   final String remoteUrl;
 
   const AgentSessionConnectPayloadResource({required this.remoteUrl});
 
-  AgentSessionConnectPayloadResource Function({String remoteUrl})
-      get copyWith => _copyWith;
+  AgentSessionConnectPayloadResource Function({String remoteUrl}) get copyWith => _copyWith;
 
-  AgentSessionConnectPayloadResource _copyWith(
-          {Object? remoteUrl = sdkOmittedValue}) =>
-      AgentSessionConnectPayloadResource(
-        remoteUrl: identical(remoteUrl, sdkOmittedValue)
-            ? this.remoteUrl
-            : remoteUrl as String,
-      );
+  AgentSessionConnectPayloadResource _copyWith({Object? remoteUrl = sdkOmittedValue}) => AgentSessionConnectPayloadResource(
+    remoteUrl: identical(remoteUrl, sdkOmittedValue) ? this.remoteUrl : remoteUrl as String,
+  );
 
-  factory AgentSessionConnectPayloadResource.fromJson(
-          Map<String, dynamic> json) =>
-      AgentSessionConnectPayloadResource(
-        remoteUrl: (json['remote_url'] as String?)!,
-      );
+  factory AgentSessionConnectPayloadResource.fromJson(Map<String, dynamic> json) => AgentSessionConnectPayloadResource(
+    remoteUrl: (json['remote_url'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'remote_url': remoteUrl,
-      };
+    'remote_url': remoteUrl,
+  };
 }
 
 /// Typed representation of the `AgentSessionCreatedPayloadResource` API schema.
 class AgentSessionCreatedPayloadResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the session.
   final String id;
-
   /// The ID of the environment, when one exists.
   final SdkOptional<String> environmentId;
-
   /// The environment type: `none`, `openai_hosted`, or `self_hosted`.
   final String environmentType;
-
   /// Optional object value serialized in the `connect` wire field.
   final SdkOptional<AgentSessionConnectPayloadResource> connect;
 
-  const AgentSessionCreatedPayloadResource(
-      {required this.id,
-      this.environmentId = const SdkOmitted(),
-      required this.environmentType,
-      this.connect = const SdkOmitted()});
+  const AgentSessionCreatedPayloadResource({required this.id, this.environmentId = const SdkOmitted(), required this.environmentType, this.connect = const SdkOmitted()});
 
-  AgentSessionCreatedPayloadResource Function(
-          {String id,
-          SdkOptional<String> environmentId,
-          String environmentType,
-          SdkOptional<AgentSessionConnectPayloadResource> connect})
-      get copyWith => _copyWith;
+  AgentSessionCreatedPayloadResource Function({String id, SdkOptional<String> environmentId, String environmentType, SdkOptional<AgentSessionConnectPayloadResource> connect}) get copyWith => _copyWith;
 
-  AgentSessionCreatedPayloadResource _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? environmentId = sdkOmittedValue,
-          Object? environmentType = sdkOmittedValue,
-          Object? connect = sdkOmittedValue}) =>
-      AgentSessionCreatedPayloadResource(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        environmentId: identical(environmentId, sdkOmittedValue)
-            ? this.environmentId
-            : environmentId as SdkOptional<String>,
-        environmentType: identical(environmentType, sdkOmittedValue)
-            ? this.environmentType
-            : environmentType as String,
-        connect: identical(connect, sdkOmittedValue)
-            ? this.connect
-            : connect as SdkOptional<AgentSessionConnectPayloadResource>,
-      );
+  AgentSessionCreatedPayloadResource _copyWith({Object? id = sdkOmittedValue, Object? environmentId = sdkOmittedValue, Object? environmentType = sdkOmittedValue, Object? connect = sdkOmittedValue}) => AgentSessionCreatedPayloadResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    environmentId: identical(environmentId, sdkOmittedValue) ? this.environmentId : environmentId as SdkOptional<String>,
+    environmentType: identical(environmentType, sdkOmittedValue) ? this.environmentType : environmentType as String,
+    connect: identical(connect, sdkOmittedValue) ? this.connect : connect as SdkOptional<AgentSessionConnectPayloadResource>,
+  );
 
-  factory AgentSessionCreatedPayloadResource.fromJson(
-          Map<String, dynamic> json) =>
-      AgentSessionCreatedPayloadResource(
-        id: (json['id'] as String?)!,
-        environmentId: json['environment_id'] != null
-            ? SdkPresent((json['environment_id'] as String?)!)
-            : const SdkOmitted(),
-        environmentType: (json['environment_type'] as String?)!,
-        connect: json['connect'] != null
-            ? SdkPresent((json['connect'] != null
-                ? AgentSessionConnectPayloadResource.fromJson(
-                    json['connect'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AgentSessionCreatedPayloadResource.fromJson(Map<String, dynamic> json) => AgentSessionCreatedPayloadResource(
+    id: (json['id'] as String?)!,
+    environmentId: json['environment_id'] != null ? SdkPresent((json['environment_id'] as String?)!) : const SdkOmitted(),
+    environmentType: (json['environment_type'] as String?)!,
+    connect: json['connect'] != null ? SdkPresent((json['connect'] != null ? AgentSessionConnectPayloadResource.fromJson(json['connect'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        ...switch (environmentId) {
-          SdkPresent<String>(value: final value) => {
-              'environment_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'environment_type': environmentType,
-        ...switch (connect) {
-          SdkPresent<AgentSessionConnectPayloadResource>(value: final value) =>
-            {
-              'connect': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    ...switch (environmentId) {
+      SdkPresent<String>(value: final value) => {'environment_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'environment_type': environmentType,
+    ...switch (connect) {
+      SdkPresent<AgentSessionConnectPayloadResource>(value: final value) => {'connect': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AgentSessionEnvironmentPayloadResource` API schema.
 class AgentSessionEnvironmentPayloadResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the session.
   final String id;
-
   /// The ID of the environment, when one exists.
   final SdkOptional<String> environmentId;
-
   /// The environment type: `none`, `openai_hosted`, or `self_hosted`.
   final String environmentType;
 
-  const AgentSessionEnvironmentPayloadResource(
-      {required this.id,
-      this.environmentId = const SdkOmitted(),
-      required this.environmentType});
+  const AgentSessionEnvironmentPayloadResource({required this.id, this.environmentId = const SdkOmitted(), required this.environmentType});
 
-  AgentSessionEnvironmentPayloadResource Function(
-      {String id,
-      SdkOptional<String> environmentId,
-      String environmentType}) get copyWith => _copyWith;
+  AgentSessionEnvironmentPayloadResource Function({String id, SdkOptional<String> environmentId, String environmentType}) get copyWith => _copyWith;
 
-  AgentSessionEnvironmentPayloadResource _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? environmentId = sdkOmittedValue,
-          Object? environmentType = sdkOmittedValue}) =>
-      AgentSessionEnvironmentPayloadResource(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        environmentId: identical(environmentId, sdkOmittedValue)
-            ? this.environmentId
-            : environmentId as SdkOptional<String>,
-        environmentType: identical(environmentType, sdkOmittedValue)
-            ? this.environmentType
-            : environmentType as String,
-      );
+  AgentSessionEnvironmentPayloadResource _copyWith({Object? id = sdkOmittedValue, Object? environmentId = sdkOmittedValue, Object? environmentType = sdkOmittedValue}) => AgentSessionEnvironmentPayloadResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    environmentId: identical(environmentId, sdkOmittedValue) ? this.environmentId : environmentId as SdkOptional<String>,
+    environmentType: identical(environmentType, sdkOmittedValue) ? this.environmentType : environmentType as String,
+  );
 
-  factory AgentSessionEnvironmentPayloadResource.fromJson(
-          Map<String, dynamic> json) =>
-      AgentSessionEnvironmentPayloadResource(
-        id: (json['id'] as String?)!,
-        environmentId: json['environment_id'] != null
-            ? SdkPresent((json['environment_id'] as String?)!)
-            : const SdkOmitted(),
-        environmentType: (json['environment_type'] as String?)!,
-      );
+  factory AgentSessionEnvironmentPayloadResource.fromJson(Map<String, dynamic> json) => AgentSessionEnvironmentPayloadResource(
+    id: (json['id'] as String?)!,
+    environmentId: json['environment_id'] != null ? SdkPresent((json['environment_id'] as String?)!) : const SdkOmitted(),
+    environmentType: (json['environment_type'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        ...switch (environmentId) {
-          SdkPresent<String>(value: final value) => {
-              'environment_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'environment_type': environmentType,
-      };
+    'id': id,
+    ...switch (environmentId) {
+      SdkPresent<String>(value: final value) => {'environment_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'environment_type': environmentType,
+  };
 }
 
 /// Typed representation of the `AgentSessionRequiredActionPayloadResource` API schema.
 class AgentSessionRequiredActionPayloadResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final AgentSessionRequiredActionTypeResource type_;
 
   const AgentSessionRequiredActionPayloadResource({required this.type_});
 
-  AgentSessionRequiredActionPayloadResource Function(
-      {AgentSessionRequiredActionTypeResource type_}) get copyWith => _copyWith;
+  AgentSessionRequiredActionPayloadResource Function({AgentSessionRequiredActionTypeResource type_}) get copyWith => _copyWith;
 
-  AgentSessionRequiredActionPayloadResource _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      AgentSessionRequiredActionPayloadResource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AgentSessionRequiredActionTypeResource,
-      );
+  AgentSessionRequiredActionPayloadResource _copyWith({Object? type_ = sdkOmittedValue}) => AgentSessionRequiredActionPayloadResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentSessionRequiredActionTypeResource,
+  );
 
-  factory AgentSessionRequiredActionPayloadResource.fromJson(
-          Map<String, dynamic> json) =>
-      AgentSessionRequiredActionPayloadResource(
-        type_: (json['type'] != null
-            ? AgentSessionRequiredActionTypeResource.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory AgentSessionRequiredActionPayloadResource.fromJson(Map<String, dynamic> json) => AgentSessionRequiredActionPayloadResource(
+    type_: (json['type'] != null ? AgentSessionRequiredActionTypeResource.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `AgentSessionRequiredActionTypeResource` API schema.
 final class AgentSessionRequiredActionTypeResource {
+
   final String value;
 
   const AgentSessionRequiredActionTypeResource._(this.value);
 
-  factory AgentSessionRequiredActionTypeResource.fromJson(String value) =>
-      AgentSessionRequiredActionTypeResource._(value);
+  factory AgentSessionRequiredActionTypeResource.fromJson(String value) => AgentSessionRequiredActionTypeResource._(value);
 
-  static const computerUseApprovalRequest =
-      AgentSessionRequiredActionTypeResource._('computer_use_approval_request');
-  static const functionCall =
-      AgentSessionRequiredActionTypeResource._('function_call');
-  static const environmentConnection =
-      AgentSessionRequiredActionTypeResource._('environment_connection');
+  static const computerUseApprovalRequest = AgentSessionRequiredActionTypeResource._('computer_use_approval_request');
+  static const functionCall = AgentSessionRequiredActionTypeResource._('function_call');
+  static const environmentConnection = AgentSessionRequiredActionTypeResource._('environment_connection');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AgentSessionRequiredActionTypeResource && other.value == value;
+  @override bool operator ==(Object other) => other is AgentSessionRequiredActionTypeResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

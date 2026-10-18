@@ -6,144 +6,113 @@ part of 'inline.dart';
 // Inline operation models (part 93)
 /// The detail level of the image (for `input_image`). `auto` will default to `high`.
 final class RealtimeConversationItemMessageUserContentItemDetail {
+
   final String value;
 
   const RealtimeConversationItemMessageUserContentItemDetail._(this.value);
 
-  factory RealtimeConversationItemMessageUserContentItemDetail.fromJson(
-          String value) =>
-      RealtimeConversationItemMessageUserContentItemDetail._(value);
+  factory RealtimeConversationItemMessageUserContentItemDetail.fromJson(String value) => RealtimeConversationItemMessageUserContentItemDetail._(value);
 
-  static const auto =
-      RealtimeConversationItemMessageUserContentItemDetail._('auto');
-  static const low =
-      RealtimeConversationItemMessageUserContentItemDetail._('low');
-  static const high =
-      RealtimeConversationItemMessageUserContentItemDetail._('high');
+  static const auto = RealtimeConversationItemMessageUserContentItemDetail._('auto');
+  static const low = RealtimeConversationItemMessageUserContentItemDetail._('low');
+  static const high = RealtimeConversationItemMessageUserContentItemDetail._('high');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageUserContentItemDetail &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageUserContentItemDetail && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The content type (`input_text`, `input_audio`, or `input_image`).
 final class RealtimeConversationItemMessageUserContentItemType {
+
   final String value;
 
   const RealtimeConversationItemMessageUserContentItemType._(this.value);
 
-  factory RealtimeConversationItemMessageUserContentItemType.fromJson(
-          String value) =>
-      RealtimeConversationItemMessageUserContentItemType._(value);
+  factory RealtimeConversationItemMessageUserContentItemType.fromJson(String value) => RealtimeConversationItemMessageUserContentItemType._(value);
 
-  static const inputText =
-      RealtimeConversationItemMessageUserContentItemType._('input_text');
-  static const inputAudio =
-      RealtimeConversationItemMessageUserContentItemType._('input_audio');
-  static const inputImage =
-      RealtimeConversationItemMessageUserContentItemType._('input_image');
+  static const inputText = RealtimeConversationItemMessageUserContentItemType._('input_text');
+  static const inputAudio = RealtimeConversationItemMessageUserContentItemType._('input_audio');
+  static const inputImage = RealtimeConversationItemMessageUserContentItemType._('input_image');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageUserContentItemType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageUserContentItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Identifier for the API object being returned - always `realtime.item`. Optional when creating a new item.
 final class RealtimeConversationItemMessageUserObject {
+
   final String value;
 
   const RealtimeConversationItemMessageUserObject._(this.value);
 
-  factory RealtimeConversationItemMessageUserObject.fromJson(String value) =>
-      RealtimeConversationItemMessageUserObject._(value);
+  factory RealtimeConversationItemMessageUserObject.fromJson(String value) => RealtimeConversationItemMessageUserObject._(value);
 
-  static const realtimeItem =
-      RealtimeConversationItemMessageUserObject._('realtime.item');
+  static const realtimeItem = RealtimeConversationItemMessageUserObject._('realtime.item');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageUserObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageUserObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The role of the message sender. Always `user`.
 final class RealtimeConversationItemMessageUserRole {
+
   final String value;
 
   const RealtimeConversationItemMessageUserRole._(this.value);
 
-  factory RealtimeConversationItemMessageUserRole.fromJson(String value) =>
-      RealtimeConversationItemMessageUserRole._(value);
+  factory RealtimeConversationItemMessageUserRole.fromJson(String value) => RealtimeConversationItemMessageUserRole._(value);
 
   static const user = RealtimeConversationItemMessageUserRole._('user');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageUserRole && other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageUserRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the item. Has no effect on the conversation.
 final class RealtimeConversationItemMessageUserStatus {
+
   final String value;
 
   const RealtimeConversationItemMessageUserStatus._(this.value);
 
-  factory RealtimeConversationItemMessageUserStatus.fromJson(String value) =>
-      RealtimeConversationItemMessageUserStatus._(value);
+  factory RealtimeConversationItemMessageUserStatus.fromJson(String value) => RealtimeConversationItemMessageUserStatus._(value);
 
-  static const completed =
-      RealtimeConversationItemMessageUserStatus._('completed');
-  static const incomplete =
-      RealtimeConversationItemMessageUserStatus._('incomplete');
-  static const inProgress =
-      RealtimeConversationItemMessageUserStatus._('in_progress');
+  static const completed = RealtimeConversationItemMessageUserStatus._('completed');
+  static const incomplete = RealtimeConversationItemMessageUserStatus._('incomplete');
+  static const inProgress = RealtimeConversationItemMessageUserStatus._('in_progress');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageUserStatus &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageUserStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the item. Always `message`.
@@ -152,18 +121,14 @@ enum RealtimeConversationItemMessageUserType {
 
   static RealtimeConversationItemMessageUserType fromJson(String value) {
     switch (value) {
-      case 'message':
-        return RealtimeConversationItemMessageUserType.message;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeConversationItemMessageUserType: $value');
+      case 'message': return RealtimeConversationItemMessageUserType.message;
+      default: throw ArgumentError('Unknown RealtimeConversationItemMessageUserType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeConversationItemMessageUserType.message:
-        return 'message';
+      case RealtimeConversationItemMessageUserType.message: return 'message';
     }
   }
 
@@ -173,175 +138,137 @@ enum RealtimeConversationItemMessageUserType {
 
 /// The content type (`input_text`, `input_audio`, `item_reference`, `text`).
 final class RealtimeConversationItemWithReferenceContentItemType {
+
   final String value;
 
   const RealtimeConversationItemWithReferenceContentItemType._(this.value);
 
-  factory RealtimeConversationItemWithReferenceContentItemType.fromJson(
-          String value) =>
-      RealtimeConversationItemWithReferenceContentItemType._(value);
+  factory RealtimeConversationItemWithReferenceContentItemType.fromJson(String value) => RealtimeConversationItemWithReferenceContentItemType._(value);
 
-  static const inputAudio =
-      RealtimeConversationItemWithReferenceContentItemType._('input_audio');
-  static const inputText =
-      RealtimeConversationItemWithReferenceContentItemType._('input_text');
-  static const itemReference =
-      RealtimeConversationItemWithReferenceContentItemType._('item_reference');
-  static const text =
-      RealtimeConversationItemWithReferenceContentItemType._('text');
+  static const inputAudio = RealtimeConversationItemWithReferenceContentItemType._('input_audio');
+  static const inputText = RealtimeConversationItemWithReferenceContentItemType._('input_text');
+  static const itemReference = RealtimeConversationItemWithReferenceContentItemType._('item_reference');
+  static const text = RealtimeConversationItemWithReferenceContentItemType._('text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemWithReferenceContentItemType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemWithReferenceContentItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Identifier for the API object being returned - always `realtime.item`.
 final class RealtimeConversationItemWithReferenceObject {
+
   final String value;
 
   const RealtimeConversationItemWithReferenceObject._(this.value);
 
-  factory RealtimeConversationItemWithReferenceObject.fromJson(String value) =>
-      RealtimeConversationItemWithReferenceObject._(value);
+  factory RealtimeConversationItemWithReferenceObject.fromJson(String value) => RealtimeConversationItemWithReferenceObject._(value);
 
-  static const realtimeItem =
-      RealtimeConversationItemWithReferenceObject._('realtime.item');
+  static const realtimeItem = RealtimeConversationItemWithReferenceObject._('realtime.item');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemWithReferenceObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemWithReferenceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The role of the message sender (`user`, `assistant`, `system`), only applicable for `message` items.
 final class RealtimeConversationItemWithReferenceRole {
+
   final String value;
 
   const RealtimeConversationItemWithReferenceRole._(this.value);
 
-  factory RealtimeConversationItemWithReferenceRole.fromJson(String value) =>
-      RealtimeConversationItemWithReferenceRole._(value);
+  factory RealtimeConversationItemWithReferenceRole.fromJson(String value) => RealtimeConversationItemWithReferenceRole._(value);
 
   static const user = RealtimeConversationItemWithReferenceRole._('user');
-  static const assistant =
-      RealtimeConversationItemWithReferenceRole._('assistant');
+  static const assistant = RealtimeConversationItemWithReferenceRole._('assistant');
   static const system = RealtimeConversationItemWithReferenceRole._('system');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemWithReferenceRole &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemWithReferenceRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the item (`completed`, `incomplete`, `in_progress`). These have no effect on the conversation, but are accepted for consistency with the `conversation.item.created` event.
 final class RealtimeConversationItemWithReferenceStatus {
+
   final String value;
 
   const RealtimeConversationItemWithReferenceStatus._(this.value);
 
-  factory RealtimeConversationItemWithReferenceStatus.fromJson(String value) =>
-      RealtimeConversationItemWithReferenceStatus._(value);
+  factory RealtimeConversationItemWithReferenceStatus.fromJson(String value) => RealtimeConversationItemWithReferenceStatus._(value);
 
-  static const completed =
-      RealtimeConversationItemWithReferenceStatus._('completed');
-  static const incomplete =
-      RealtimeConversationItemWithReferenceStatus._('incomplete');
-  static const inProgress =
-      RealtimeConversationItemWithReferenceStatus._('in_progress');
+  static const completed = RealtimeConversationItemWithReferenceStatus._('completed');
+  static const incomplete = RealtimeConversationItemWithReferenceStatus._('incomplete');
+  static const inProgress = RealtimeConversationItemWithReferenceStatus._('in_progress');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemWithReferenceStatus &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemWithReferenceStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the item (`message`, `function_call`, `function_call_output`, `item_reference`).
 final class RealtimeConversationItemWithReferenceType {
+
   final String value;
 
   const RealtimeConversationItemWithReferenceType._(this.value);
 
-  factory RealtimeConversationItemWithReferenceType.fromJson(String value) =>
-      RealtimeConversationItemWithReferenceType._(value);
+  factory RealtimeConversationItemWithReferenceType.fromJson(String value) => RealtimeConversationItemWithReferenceType._(value);
 
   static const message = RealtimeConversationItemWithReferenceType._('message');
-  static const functionCall =
-      RealtimeConversationItemWithReferenceType._('function_call');
-  static const functionCallOutput =
-      RealtimeConversationItemWithReferenceType._('function_call_output');
+  static const functionCall = RealtimeConversationItemWithReferenceType._('function_call');
+  static const functionCallOutput = RealtimeConversationItemWithReferenceType._('function_call_output');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemWithReferenceType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemWithReferenceType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The anchor point for the client secret expiration, meaning that `seconds` will be added to the `created_at` time of the client secret to produce an expiration timestamp. Only `created_at` is currently supported.
 final class RealtimeCreateClientSecretRequestExpiresAfterAnchor {
+
   final String value;
 
   const RealtimeCreateClientSecretRequestExpiresAfterAnchor._(this.value);
 
-  factory RealtimeCreateClientSecretRequestExpiresAfterAnchor.fromJson(
-          String value) =>
-      RealtimeCreateClientSecretRequestExpiresAfterAnchor._(value);
+  factory RealtimeCreateClientSecretRequestExpiresAfterAnchor.fromJson(String value) => RealtimeCreateClientSecretRequestExpiresAfterAnchor._(value);
 
-  static const createdAt =
-      RealtimeCreateClientSecretRequestExpiresAfterAnchor._('created_at');
+  static const createdAt = RealtimeCreateClientSecretRequestExpiresAfterAnchor._('created_at');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeCreateClientSecretRequestExpiresAfterAnchor &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeCreateClientSecretRequestExpiresAfterAnchor && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the tool, i.e. `function`.
@@ -350,17 +277,14 @@ enum RealtimeFunctionToolType {
 
   static RealtimeFunctionToolType fromJson(String value) {
     switch (value) {
-      case 'function':
-        return RealtimeFunctionToolType.function_;
-      default:
-        throw ArgumentError('Unknown RealtimeFunctionToolType: $value');
+      case 'function': return RealtimeFunctionToolType.function_;
+      default: throw ArgumentError('Unknown RealtimeFunctionToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeFunctionToolType.function_:
-        return 'function';
+      case RealtimeFunctionToolType.function_: return 'function';
     }
   }
 

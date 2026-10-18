@@ -10,17 +10,14 @@ enum ActiveStatusType {
 
   static ActiveStatusType fromJson(String value) {
     switch (value) {
-      case 'active':
-        return ActiveStatusType.active;
-      default:
-        throw ArgumentError('Unknown ActiveStatusType: $value');
+      case 'active': return ActiveStatusType.active;
+      default: throw ArgumentError('Unknown ActiveStatusType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ActiveStatusType.active:
-        return 'active';
+      case ActiveStatusType.active: return 'active';
     }
   }
 
@@ -34,17 +31,14 @@ enum AdditionalToolsType {
 
   static AdditionalToolsType fromJson(String value) {
     switch (value) {
-      case 'additional_tools':
-        return AdditionalToolsType.additionalTools;
-      default:
-        throw ArgumentError('Unknown AdditionalToolsType: $value');
+      case 'additional_tools': return AdditionalToolsType.additionalTools;
+      default: throw ArgumentError('Unknown AdditionalToolsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AdditionalToolsType.additionalTools:
-        return 'additional_tools';
+      case AdditionalToolsType.additionalTools: return 'additional_tools';
     }
   }
 
@@ -54,26 +48,23 @@ enum AdditionalToolsType {
 
 /// The role that provided the additional tools. Only `developer` is supported.
 final class AdditionalToolsItemParamRole {
+
   final String value;
 
   const AdditionalToolsItemParamRole._(this.value);
 
-  factory AdditionalToolsItemParamRole.fromJson(String value) =>
-      AdditionalToolsItemParamRole._(value);
+  factory AdditionalToolsItemParamRole.fromJson(String value) => AdditionalToolsItemParamRole._(value);
 
   static const developer = AdditionalToolsItemParamRole._('developer');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AdditionalToolsItemParamRole && other.value == value;
+  @override bool operator ==(Object other) => other is AdditionalToolsItemParamRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The item type. Always `additional_tools`.
@@ -82,17 +73,14 @@ enum AdditionalToolsItemParamType {
 
   static AdditionalToolsItemParamType fromJson(String value) {
     switch (value) {
-      case 'additional_tools':
-        return AdditionalToolsItemParamType.additionalTools;
-      default:
-        throw ArgumentError('Unknown AdditionalToolsItemParamType: $value');
+      case 'additional_tools': return AdditionalToolsItemParamType.additionalTools;
+      default: throw ArgumentError('Unknown AdditionalToolsItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AdditionalToolsItemParamType.additionalTools:
-        return 'additional_tools';
+      case AdditionalToolsItemParamType.additionalTools: return 'additional_tools';
     }
   }
 
@@ -102,75 +90,65 @@ enum AdditionalToolsItemParamType {
 
 /// The object type, which is always `organization.admin_api_key`
 final class AdminApiKeyObject {
+
   final String value;
 
   const AdminApiKeyObject._(this.value);
 
-  factory AdminApiKeyObject.fromJson(String value) =>
-      AdminApiKeyObject._(value);
+  factory AdminApiKeyObject.fromJson(String value) => AdminApiKeyObject._(value);
 
-  static const organizationAdminApiKey =
-      AdminApiKeyObject._('organization.admin_api_key');
+  static const organizationAdminApiKey = AdminApiKeyObject._('organization.admin_api_key');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AdminApiKeyObject && other.value == value;
+  @override bool operator ==(Object other) => other is AdminApiKeyObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `list`.
 final class AgentEnvironmentListResourceObject {
+
   final String value;
 
   const AgentEnvironmentListResourceObject._(this.value);
 
-  factory AgentEnvironmentListResourceObject.fromJson(String value) =>
-      AgentEnvironmentListResourceObject._(value);
+  factory AgentEnvironmentListResourceObject.fromJson(String value) => AgentEnvironmentListResourceObject._(value);
 
   static const list = AgentEnvironmentListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AgentEnvironmentListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is AgentEnvironmentListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `list`.
 final class AgentListResourceObject {
+
   final String value;
 
   const AgentListResourceObject._(this.value);
 
-  factory AgentListResourceObject.fromJson(String value) =>
-      AgentListResourceObject._(value);
+  factory AgentListResourceObject.fromJson(String value) => AgentListResourceObject._(value);
 
   static const list = AgentListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AgentListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is AgentListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The item type. Always `agent_message`.
@@ -179,17 +157,14 @@ enum AgentMessageItemResourceType {
 
   static AgentMessageItemResourceType fromJson(String value) {
     switch (value) {
-      case 'agent_message':
-        return AgentMessageItemResourceType.agentMessage;
-      default:
-        throw ArgumentError('Unknown AgentMessageItemResourceType: $value');
+      case 'agent_message': return AgentMessageItemResourceType.agentMessage;
+      default: throw ArgumentError('Unknown AgentMessageItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentMessageItemResourceType.agentMessage:
-        return 'agent_message';
+      case AgentMessageItemResourceType.agentMessage: return 'agent_message';
     }
   }
 
@@ -199,26 +174,23 @@ enum AgentMessageItemResourceType {
 
 /// The object type. Always `agent`.
 final class AgentResourceObject {
+
   final String value;
 
   const AgentResourceObject._(this.value);
 
-  factory AgentResourceObject.fromJson(String value) =>
-      AgentResourceObject._(value);
+  factory AgentResourceObject.fromJson(String value) => AgentResourceObject._(value);
 
   static const agent = AgentResourceObject._('agent');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AgentResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is AgentResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object. Always `computer_use`.
@@ -227,18 +199,14 @@ enum AgentToolConfigParamComputerUseType {
 
   static AgentToolConfigParamComputerUseType fromJson(String value) {
     switch (value) {
-      case 'computer_use':
-        return AgentToolConfigParamComputerUseType.computerUse;
-      default:
-        throw ArgumentError(
-            'Unknown AgentToolConfigParamComputerUseType: $value');
+      case 'computer_use': return AgentToolConfigParamComputerUseType.computerUse;
+      default: throw ArgumentError('Unknown AgentToolConfigParamComputerUseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentToolConfigParamComputerUseType.computerUse:
-        return 'computer_use';
+      case AgentToolConfigParamComputerUseType.computerUse: return 'computer_use';
     }
   }
 
@@ -252,17 +220,14 @@ enum AgentToolConfigParamFunctionType {
 
   static AgentToolConfigParamFunctionType fromJson(String value) {
     switch (value) {
-      case 'function':
-        return AgentToolConfigParamFunctionType.function_;
-      default:
-        throw ArgumentError('Unknown AgentToolConfigParamFunctionType: $value');
+      case 'function': return AgentToolConfigParamFunctionType.function_;
+      default: throw ArgumentError('Unknown AgentToolConfigParamFunctionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentToolConfigParamFunctionType.function_:
-        return 'function';
+      case AgentToolConfigParamFunctionType.function_: return 'function';
     }
   }
 
@@ -276,17 +241,14 @@ enum AgentToolConfigParamMcpType {
 
   static AgentToolConfigParamMcpType fromJson(String value) {
     switch (value) {
-      case 'mcp':
-        return AgentToolConfigParamMcpType.mcp;
-      default:
-        throw ArgumentError('Unknown AgentToolConfigParamMcpType: $value');
+      case 'mcp': return AgentToolConfigParamMcpType.mcp;
+      default: throw ArgumentError('Unknown AgentToolConfigParamMcpType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentToolConfigParamMcpType.mcp:
-        return 'mcp';
+      case AgentToolConfigParamMcpType.mcp: return 'mcp';
     }
   }
 
@@ -298,23 +260,16 @@ enum AgentToolConfigParamMcpType {
 enum AgentToolConfigParamProgrammaticToolCallingType {
   programmaticToolCalling;
 
-  static AgentToolConfigParamProgrammaticToolCallingType fromJson(
-      String value) {
+  static AgentToolConfigParamProgrammaticToolCallingType fromJson(String value) {
     switch (value) {
-      case 'programmatic_tool_calling':
-        return AgentToolConfigParamProgrammaticToolCallingType
-            .programmaticToolCalling;
-      default:
-        throw ArgumentError(
-            'Unknown AgentToolConfigParamProgrammaticToolCallingType: $value');
+      case 'programmatic_tool_calling': return AgentToolConfigParamProgrammaticToolCallingType.programmaticToolCalling;
+      default: throw ArgumentError('Unknown AgentToolConfigParamProgrammaticToolCallingType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentToolConfigParamProgrammaticToolCallingType
-            .programmaticToolCalling:
-        return 'programmatic_tool_calling';
+      case AgentToolConfigParamProgrammaticToolCallingType.programmaticToolCalling: return 'programmatic_tool_calling';
     }
   }
 

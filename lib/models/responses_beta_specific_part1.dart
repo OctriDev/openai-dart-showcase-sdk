@@ -8,99 +8,70 @@ part of 'responses_beta_specific.dart';
 class BetaSpecificApplyPatchParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The tool to call. Always `apply_patch`.
   final BetaSpecificApplyPatchParamType type_;
 
   const BetaSpecificApplyPatchParam({required this.type_});
 
-  BetaSpecificApplyPatchParam Function({BetaSpecificApplyPatchParamType type_})
-      get copyWith => _copyWith;
+  BetaSpecificApplyPatchParam Function({BetaSpecificApplyPatchParamType type_}) get copyWith => _copyWith;
 
-  BetaSpecificApplyPatchParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      BetaSpecificApplyPatchParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaSpecificApplyPatchParamType,
-      );
+  BetaSpecificApplyPatchParam _copyWith({Object? type_ = sdkOmittedValue}) => BetaSpecificApplyPatchParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaSpecificApplyPatchParamType,
+  );
 
-  factory BetaSpecificApplyPatchParam.fromJson(Map<String, dynamic> json) =>
-      BetaSpecificApplyPatchParam(
-        type_: (json['type'] != null
-            ? BetaSpecificApplyPatchParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory BetaSpecificApplyPatchParam.fromJson(Map<String, dynamic> json) => BetaSpecificApplyPatchParam(
+    type_: (json['type'] != null ? BetaSpecificApplyPatchParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Forces the model to call the shell tool when a tool call is required.
 class BetaSpecificFunctionShellParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The tool to call. Always `shell`.
   final BetaSpecificFunctionShellParamType type_;
 
   const BetaSpecificFunctionShellParam({required this.type_});
 
-  BetaSpecificFunctionShellParam Function(
-      {BetaSpecificFunctionShellParamType type_}) get copyWith => _copyWith;
+  BetaSpecificFunctionShellParam Function({BetaSpecificFunctionShellParamType type_}) get copyWith => _copyWith;
 
-  BetaSpecificFunctionShellParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      BetaSpecificFunctionShellParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaSpecificFunctionShellParamType,
-      );
+  BetaSpecificFunctionShellParam _copyWith({Object? type_ = sdkOmittedValue}) => BetaSpecificFunctionShellParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaSpecificFunctionShellParamType,
+  );
 
-  factory BetaSpecificFunctionShellParam.fromJson(Map<String, dynamic> json) =>
-      BetaSpecificFunctionShellParam(
-        type_: (json['type'] != null
-            ? BetaSpecificFunctionShellParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory BetaSpecificFunctionShellParam.fromJson(Map<String, dynamic> json) => BetaSpecificFunctionShellParam(
+    type_: (json['type'] != null ? BetaSpecificFunctionShellParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `BetaSpecificProgrammaticToolCallingParam` API schema.
 class BetaSpecificProgrammaticToolCallingParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The tool to call. Always `programmatic_tool_calling`.
   final BetaSpecificProgrammaticToolCallingParamType type_;
 
   const BetaSpecificProgrammaticToolCallingParam({required this.type_});
 
-  BetaSpecificProgrammaticToolCallingParam Function(
-          {BetaSpecificProgrammaticToolCallingParamType type_})
-      get copyWith => _copyWith;
+  BetaSpecificProgrammaticToolCallingParam Function({BetaSpecificProgrammaticToolCallingParamType type_}) get copyWith => _copyWith;
 
-  BetaSpecificProgrammaticToolCallingParam _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      BetaSpecificProgrammaticToolCallingParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaSpecificProgrammaticToolCallingParamType,
-      );
+  BetaSpecificProgrammaticToolCallingParam _copyWith({Object? type_ = sdkOmittedValue}) => BetaSpecificProgrammaticToolCallingParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaSpecificProgrammaticToolCallingParamType,
+  );
 
-  factory BetaSpecificProgrammaticToolCallingParam.fromJson(
-          Map<String, dynamic> json) =>
-      BetaSpecificProgrammaticToolCallingParam(
-        type_: (json['type'] != null
-            ? BetaSpecificProgrammaticToolCallingParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory BetaSpecificProgrammaticToolCallingParam.fromJson(Map<String, dynamic> json) => BetaSpecificProgrammaticToolCallingParam(
+    type_: (json['type'] != null ? BetaSpecificProgrammaticToolCallingParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

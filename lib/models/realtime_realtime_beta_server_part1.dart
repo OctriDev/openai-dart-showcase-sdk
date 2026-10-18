@@ -8,557 +8,284 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventConversationItemCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `conversation.item.created`.
   final RealtimeBetaServerEventConversationItemCreatedType type_;
-
   /// Optional `string` value serialized in the `previous_item_id` wire field.
   final SdkOptional<String?> previousItemId;
-
   /// A single item within a Realtime conversation.
   final RealtimeConversationItem item;
 
-  const RealtimeBetaServerEventConversationItemCreated(
-      {required this.eventId,
-      required this.type_,
-      this.previousItemId = const SdkOmitted(),
-      required this.item});
+  const RealtimeBetaServerEventConversationItemCreated({required this.eventId, required this.type_, this.previousItemId = const SdkOmitted(), required this.item});
 
-  RealtimeBetaServerEventConversationItemCreated Function(
-      {String eventId,
-      RealtimeBetaServerEventConversationItemCreatedType type_,
-      SdkOptional<String?> previousItemId,
-      RealtimeConversationItem item}) get copyWith => _copyWith;
+  RealtimeBetaServerEventConversationItemCreated Function({String eventId, RealtimeBetaServerEventConversationItemCreatedType type_, SdkOptional<String?> previousItemId, RealtimeConversationItem item}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventConversationItemCreated _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? previousItemId = sdkOmittedValue,
-          Object? item = sdkOmittedValue}) =>
-      RealtimeBetaServerEventConversationItemCreated(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventConversationItemCreatedType,
-        previousItemId: identical(previousItemId, sdkOmittedValue)
-            ? this.previousItemId
-            : previousItemId as SdkOptional<String?>,
-        item: identical(item, sdkOmittedValue)
-            ? this.item
-            : item as RealtimeConversationItem,
-      );
+  RealtimeBetaServerEventConversationItemCreated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? previousItemId = sdkOmittedValue, Object? item = sdkOmittedValue}) => RealtimeBetaServerEventConversationItemCreated(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventConversationItemCreatedType,
+    previousItemId: identical(previousItemId, sdkOmittedValue) ? this.previousItemId : previousItemId as SdkOptional<String?>,
+    item: identical(item, sdkOmittedValue) ? this.item : item as RealtimeConversationItem,
+  );
 
-  factory RealtimeBetaServerEventConversationItemCreated.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventConversationItemCreated(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventConversationItemCreatedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        previousItemId: json.containsKey('previous_item_id')
-            ? SdkPresent(json['previous_item_id'] as String?)
-            : const SdkOmitted(),
-        item: (json['item'] != null
-            ? RealtimeConversationItem.fromJson(json['item'])
-            : null)!,
-      );
+  factory RealtimeBetaServerEventConversationItemCreated.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventConversationItemCreated(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventConversationItemCreatedType.fromJson(json['type'] as String) : null)!,
+    previousItemId: json.containsKey('previous_item_id') ? SdkPresent(json['previous_item_id'] as String?) : const SdkOmitted(),
+    item: (json['item'] != null ? RealtimeConversationItem.fromJson(json['item']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        ...switch (previousItemId) {
-          SdkPresent<String?>(value: final value) => {
-              'previous_item_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'item': item.toJson(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    ...switch (previousItemId) {
+      SdkPresent<String?>(value: final value) => {'previous_item_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'item': item.toJson(),
+  };
 }
 
 /// Returned when an item in the conversation is deleted by the client with a `conversation.item.delete` event. This event is used to synchronize the server's understanding of the conversation history with the client's view.
 class RealtimeBetaServerEventConversationItemDeleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `conversation.item.deleted`.
   final RealtimeBetaServerEventConversationItemDeletedType type_;
-
   /// The ID of the item that was deleted.
   final String itemId;
 
-  const RealtimeBetaServerEventConversationItemDeleted(
-      {required this.eventId, required this.type_, required this.itemId});
+  const RealtimeBetaServerEventConversationItemDeleted({required this.eventId, required this.type_, required this.itemId});
 
-  RealtimeBetaServerEventConversationItemDeleted Function(
-      {String eventId,
-      RealtimeBetaServerEventConversationItemDeletedType type_,
-      String itemId}) get copyWith => _copyWith;
+  RealtimeBetaServerEventConversationItemDeleted Function({String eventId, RealtimeBetaServerEventConversationItemDeletedType type_, String itemId}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventConversationItemDeleted _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue}) =>
-      RealtimeBetaServerEventConversationItemDeleted(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventConversationItemDeletedType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-      );
+  RealtimeBetaServerEventConversationItemDeleted _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeBetaServerEventConversationItemDeleted(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventConversationItemDeletedType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+  );
 
-  factory RealtimeBetaServerEventConversationItemDeleted.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventConversationItemDeleted(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventConversationItemDeletedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-      );
+  factory RealtimeBetaServerEventConversationItemDeleted.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventConversationItemDeleted(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventConversationItemDeletedType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'item_id': itemId,
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'item_id': itemId,
+  };
 }
 
 /// This event is the output of audio transcription for user audio written to the user audio buffer. Transcription begins when the input audio buffer is committed by the client or server (in `server_vad` mode). Transcription runs asynchronously with Response creation, so this event may come before or after the Response events. Realtime API models accept audio natively, and thus input transcription is a separate process run on a separate ASR (Automatic Speech Recognition) model. The transcript may diverge somewhat from the model's interpretation, and should be treated as a rough guide.
 class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `conversation.item.input_audio_transcription.completed`.
-  final RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedType
-      type_;
-
+  final RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedType type_;
   /// The ID of the user message item containing the audio.
   final String itemId;
-
   /// The index of the content part containing the audio.
   final int contentIndex;
-
   /// The transcribed text.
   final String transcript;
-
   /// The languages detected in the audio. Returned by `gpt-transcribe`. An empty array indicates that no language could be reliably detected.
   final SdkOptional<List<TranscriptionLanguage>> languages;
-
   /// The log probabilities of the transcription.
   final SdkOptional<List<LogProbProperties>?> logprobs;
-
   /// Usage statistics for the transcription.
-  final RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage
-      usage;
+  final RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage usage;
 
-  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted(
-      {required this.eventId,
-      required this.type_,
-      required this.itemId,
-      required this.contentIndex,
-      required this.transcript,
-      this.languages = const SdkOmitted(),
-      this.logprobs = const SdkOmitted(),
-      required this.usage});
+  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted({required this.eventId, required this.type_, required this.itemId, required this.contentIndex, required this.transcript, this.languages = const SdkOmitted(), this.logprobs = const SdkOmitted(), required this.usage});
 
-  RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted Function(
-      {String eventId,
-      RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedType
-          type_,
-      String itemId,
-      int contentIndex,
-      String transcript,
-      SdkOptional<List<TranscriptionLanguage>> languages,
-      SdkOptional<List<LogProbProperties>?> logprobs,
-      RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage
-          usage}) get copyWith => _copyWith;
+  RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted Function({String eventId, RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedType type_, String itemId, int contentIndex, String transcript, SdkOptional<List<TranscriptionLanguage>> languages, SdkOptional<List<LogProbProperties>?> logprobs, RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage usage}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted
-      _copyWith(
-              {Object? eventId = sdkOmittedValue,
-              Object? type_ = sdkOmittedValue,
-              Object? itemId = sdkOmittedValue,
-              Object? contentIndex = sdkOmittedValue,
-              Object? transcript = sdkOmittedValue,
-              Object? languages = sdkOmittedValue,
-              Object? logprobs = sdkOmittedValue,
-              Object? usage = sdkOmittedValue}) =>
-          RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted(
-            eventId: identical(eventId, sdkOmittedValue)
-                ? this.eventId
-                : eventId as String,
-            type_: identical(type_, sdkOmittedValue)
-                ? this.type_
-                : type_
-                    as RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedType,
-            itemId: identical(itemId, sdkOmittedValue)
-                ? this.itemId
-                : itemId as String,
-            contentIndex: identical(contentIndex, sdkOmittedValue)
-                ? this.contentIndex
-                : contentIndex as int,
-            transcript: identical(transcript, sdkOmittedValue)
-                ? this.transcript
-                : transcript as String,
-            languages: identical(languages, sdkOmittedValue)
-                ? this.languages
-                : languages as SdkOptional<List<TranscriptionLanguage>>,
-            logprobs: identical(logprobs, sdkOmittedValue)
-                ? this.logprobs
-                : logprobs as SdkOptional<List<LogProbProperties>?>,
-            usage: identical(usage, sdkOmittedValue)
-                ? this.usage
-                : usage
-                    as RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage,
-          );
+  RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? transcript = sdkOmittedValue, Object? languages = sdkOmittedValue, Object? logprobs = sdkOmittedValue, Object? usage = sdkOmittedValue}) => RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
+    transcript: identical(transcript, sdkOmittedValue) ? this.transcript : transcript as String,
+    languages: identical(languages, sdkOmittedValue) ? this.languages : languages as SdkOptional<List<TranscriptionLanguage>>,
+    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as SdkOptional<List<LogProbProperties>?>,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage,
+  );
 
-  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedType
-                .fromJson(json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        contentIndex: ((json['content_index'] as num?)?.toInt())!,
-        transcript: (json['transcript'] as String?)!,
-        languages: json['languages'] != null
-            ? SdkPresent(((json['languages'] as List?)
-                ?.map((e) =>
-                    TranscriptionLanguage.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        logprobs: json.containsKey('logprobs')
-            ? SdkPresent((json['logprobs'] as List?)
-                ?.map((e) =>
-                    LogProbProperties.fromJson(e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        usage: (json['usage'] != null
-            ? RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage
-                .fromJson(json['usage'])
-            : null)!,
-      );
+  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompleted(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    contentIndex: ((json['content_index'] as num?)?.toInt())!,
+    transcript: (json['transcript'] as String?)!,
+    languages: json['languages'] != null ? SdkPresent(((json['languages'] as List?)?.map((e) => TranscriptionLanguage.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    logprobs: json.containsKey('logprobs') ? SdkPresent((json['logprobs'] as List?)?.map((e) => LogProbProperties.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    usage: (json['usage'] != null ? RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage.fromJson(json['usage']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'item_id': itemId,
-        'content_index': contentIndex,
-        'transcript': transcript,
-        ...switch (languages) {
-          SdkPresent<List<TranscriptionLanguage>>(value: final value) => {
-              'languages': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logprobs) {
-          SdkPresent<List<LogProbProperties>?>(value: final value) => {
-              'logprobs': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'usage': usage.toJson(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'content_index': contentIndex,
+    'transcript': transcript,
+    ...switch (languages) {
+      SdkPresent<List<TranscriptionLanguage>>(value: final value) => {'languages': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logprobs) {
+      SdkPresent<List<LogProbProperties>?>(value: final value) => {'logprobs': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    'usage': usage.toJson(),
+  };
 }
 
 sealed class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage();
-  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage.fromJson(
-      Object? json) {
+  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = TranscriptTextUsageTokens.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = TranscriptTextUsageDuration.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(
-              value);
-        }
-      } catch (_) {}
+      try { final value = TranscriptTextUsageTokens.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(value); } } catch (_) {}
+      try { final value = TranscriptTextUsageDuration.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(value); } } catch (_) {}
     }
-    try {
-      return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(
-          TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(
-          TranscriptTextUsageDuration.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"tokens", "duration"}.contains(json["type"])) {
-      return UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage(
-          json);
-    }
-    throw FormatException(
-        "No variant matched for RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage");
+    try { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(TranscriptTextUsageDuration.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"tokens", "duration"}.contains(json["type"])) { return UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage(json); }
+    throw FormatException("No variant matched for RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage");
   }
   Object? toJson();
 }
 
-final class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens
-    extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
+final class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
   final TranscriptTextUsageTokens value;
-  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration
-    extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
+final class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
   final TranscriptTextUsageDuration value;
-  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage
-    extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
+final class UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
   final Map<String, dynamic> raw;
-  const UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage(
-      this.raw);
-  @override
-  Object? toJson() => raw;
+  const UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage(this.raw);
+  @override Object? toJson() => raw;
 }
 
 /// Returned when the text value of an input audio transcription content part is updated.
 class RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `conversation.item.input_audio_transcription.delta`.
-  final RealtimeBetaServerEventConversationItemInputAudioTranscriptionDeltaType
-      type_;
-
+  final RealtimeBetaServerEventConversationItemInputAudioTranscriptionDeltaType type_;
   /// The ID of the item.
   final String itemId;
-
   /// The index of the content part in the item's content array.
   final SdkOptional<int> contentIndex;
-
   /// The text delta.
   final SdkOptional<String> delta;
-
   /// The log probabilities of the transcription.
   final SdkOptional<List<LogProbProperties>?> logprobs;
 
-  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta(
-      {required this.eventId,
-      required this.type_,
-      required this.itemId,
-      this.contentIndex = const SdkOmitted(),
-      this.delta = const SdkOmitted(),
-      this.logprobs = const SdkOmitted()});
+  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta({required this.eventId, required this.type_, required this.itemId, this.contentIndex = const SdkOmitted(), this.delta = const SdkOmitted(), this.logprobs = const SdkOmitted()});
 
-  RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta Function(
-      {String eventId,
-      RealtimeBetaServerEventConversationItemInputAudioTranscriptionDeltaType
-          type_,
-      String itemId,
-      SdkOptional<int> contentIndex,
-      SdkOptional<String> delta,
-      SdkOptional<List<LogProbProperties>?>
-          logprobs}) get copyWith => _copyWith;
+  RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta Function({String eventId, RealtimeBetaServerEventConversationItemInputAudioTranscriptionDeltaType type_, String itemId, SdkOptional<int> contentIndex, SdkOptional<String> delta, SdkOptional<List<LogProbProperties>?> logprobs}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? contentIndex = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? logprobs = sdkOmittedValue}) =>
-      RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as RealtimeBetaServerEventConversationItemInputAudioTranscriptionDeltaType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        contentIndex: identical(contentIndex, sdkOmittedValue)
-            ? this.contentIndex
-            : contentIndex as SdkOptional<int>,
-        delta: identical(delta, sdkOmittedValue)
-            ? this.delta
-            : delta as SdkOptional<String>,
-        logprobs: identical(logprobs, sdkOmittedValue)
-            ? this.logprobs
-            : logprobs as SdkOptional<List<LogProbProperties>?>,
-      );
+  RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? logprobs = sdkOmittedValue}) => RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventConversationItemInputAudioTranscriptionDeltaType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as SdkOptional<int>,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as SdkOptional<String>,
+    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as SdkOptional<List<LogProbProperties>?>,
+  );
 
-  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventConversationItemInputAudioTranscriptionDeltaType
-                .fromJson(json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        contentIndex: json['content_index'] != null
-            ? SdkPresent(((json['content_index'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        delta: json['delta'] != null
-            ? SdkPresent((json['delta'] as String?)!)
-            : const SdkOmitted(),
-        logprobs: json.containsKey('logprobs')
-            ? SdkPresent((json['logprobs'] as List?)
-                ?.map((e) =>
-                    LogProbProperties.fromJson(e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-      );
+  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventConversationItemInputAudioTranscriptionDelta(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventConversationItemInputAudioTranscriptionDeltaType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    contentIndex: json['content_index'] != null ? SdkPresent(((json['content_index'] as num?)?.toInt())!) : const SdkOmitted(),
+    delta: json['delta'] != null ? SdkPresent((json['delta'] as String?)!) : const SdkOmitted(),
+    logprobs: json.containsKey('logprobs') ? SdkPresent((json['logprobs'] as List?)?.map((e) => LogProbProperties.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'item_id': itemId,
-        ...switch (contentIndex) {
-          SdkPresent<int>(value: final value) => {
-              'content_index': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (delta) {
-          SdkPresent<String>(value: final value) => {
-              'delta': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logprobs) {
-          SdkPresent<List<LogProbProperties>?>(value: final value) => {
-              'logprobs': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'item_id': itemId,
+    ...switch (contentIndex) {
+      SdkPresent<int>(value: final value) => {'content_index': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (delta) {
+      SdkPresent<String>(value: final value) => {'delta': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logprobs) {
+      SdkPresent<List<LogProbProperties>?>(value: final value) => {'logprobs': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Details of the transcription error.
 class RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of error.
   final SdkOptional<String> type_;
-
   /// Error code, if any.
   final SdkOptional<String> code;
-
   /// A human-readable error message.
   final SdkOptional<String> message;
-
   /// Parameter related to the error, if any.
   final SdkOptional<String> param;
 
-  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError(
-      {this.type_ = const SdkOmitted(),
-      this.code = const SdkOmitted(),
-      this.message = const SdkOmitted(),
-      this.param = const SdkOmitted()});
+  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError({this.type_ = const SdkOmitted(), this.code = const SdkOmitted(), this.message = const SdkOmitted(), this.param = const SdkOmitted()});
 
-  RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> code,
-      SdkOptional<String> message,
-      SdkOptional<String> param}) get copyWith => _copyWith;
+  RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError Function({SdkOptional<String> type_, SdkOptional<String> code, SdkOptional<String> message, SdkOptional<String> param}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError
-      _copyWith(
-              {Object? type_ = sdkOmittedValue,
-              Object? code = sdkOmittedValue,
-              Object? message = sdkOmittedValue,
-              Object? param = sdkOmittedValue}) =>
-          RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError(
-            type_: identical(type_, sdkOmittedValue)
-                ? this.type_
-                : type_ as SdkOptional<String>,
-            code: identical(code, sdkOmittedValue)
-                ? this.code
-                : code as SdkOptional<String>,
-            message: identical(message, sdkOmittedValue)
-                ? this.message
-                : message as SdkOptional<String>,
-            param: identical(param, sdkOmittedValue)
-                ? this.param
-                : param as SdkOptional<String>,
-          );
+  RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError _copyWith({Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue, Object? param = sdkOmittedValue}) => RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    code: identical(code, sdkOmittedValue) ? this.code : code as SdkOptional<String>,
+    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
+    param: identical(param, sdkOmittedValue) ? this.param : param as SdkOptional<String>,
+  );
 
-  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        code: json['code'] != null
-            ? SdkPresent((json['code'] as String?)!)
-            : const SdkOmitted(),
-        message: json['message'] != null
-            ? SdkPresent((json['message'] as String?)!)
-            : const SdkOmitted(),
-        param: json['param'] != null
-            ? SdkPresent((json['param'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventConversationItemInputAudioTranscriptionFailedError(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    code: json['code'] != null ? SdkPresent((json['code'] as String?)!) : const SdkOmitted(),
+    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
+    param: json['param'] != null ? SdkPresent((json['param'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (code) {
-          SdkPresent<String>(value: final value) => {
-              'code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (message) {
-          SdkPresent<String>(value: final value) => {
-              'message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (param) {
-          SdkPresent<String>(value: final value) => {
-              'param': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (code) {
+      SdkPresent<String>(value: final value) => {'code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (message) {
+      SdkPresent<String>(value: final value) => {'message': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (param) {
+      SdkPresent<String>(value: final value) => {'param': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

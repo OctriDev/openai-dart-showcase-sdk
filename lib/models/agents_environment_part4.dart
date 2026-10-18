@@ -6,25 +6,22 @@ part of 'agents_environment.dart';
 // agents_environment domain models (part 4)
 /// The kind of execution environment.
 final class EnvironmentTypeResource {
+
   final String value;
 
   const EnvironmentTypeResource._(this.value);
 
-  factory EnvironmentTypeResource.fromJson(String value) =>
-      EnvironmentTypeResource._(value);
+  factory EnvironmentTypeResource.fromJson(String value) => EnvironmentTypeResource._(value);
 
   static const openaiHosted = EnvironmentTypeResource._('openai_hosted');
   static const selfHosted = EnvironmentTypeResource._('self_hosted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is EnvironmentTypeResource && other.value == value;
+  @override bool operator ==(Object other) => other is EnvironmentTypeResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

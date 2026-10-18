@@ -8,249 +8,133 @@ part of 'responses_beta_compaction.dart';
 class BetaCompactionBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag> agent;
-
   /// The type of the item. Always `compaction`.
   final BetaCompactionBodyType type_;
-
   /// The unique ID of the compaction item.
   final String id;
-
   /// The encrypted content that was produced by compaction.
   final String encryptedContent;
-
   /// The identifier of the actor that created the item.
   final SdkOptional<String> createdBy;
 
-  const BetaCompactionBody(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.id,
-      required this.encryptedContent,
-      this.createdBy = const SdkOmitted()});
+  const BetaCompactionBody({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.encryptedContent, this.createdBy = const SdkOmitted()});
 
-  BetaCompactionBody Function(
-      {SdkOptional<BetaAgentTag> agent,
-      BetaCompactionBodyType type_,
-      String id,
-      String encryptedContent,
-      SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  BetaCompactionBody Function({SdkOptional<BetaAgentTag> agent, BetaCompactionBodyType type_, String id, String encryptedContent, SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  BetaCompactionBody _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? encryptedContent = sdkOmittedValue,
-          Object? createdBy = sdkOmittedValue}) =>
-      BetaCompactionBody(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaCompactionBodyType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        encryptedContent: identical(encryptedContent, sdkOmittedValue)
-            ? this.encryptedContent
-            : encryptedContent as String,
-        createdBy: identical(createdBy, sdkOmittedValue)
-            ? this.createdBy
-            : createdBy as SdkOptional<String>,
-      );
+  BetaCompactionBody _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? encryptedContent = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => BetaCompactionBody(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaCompactionBodyType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    encryptedContent: identical(encryptedContent, sdkOmittedValue) ? this.encryptedContent : encryptedContent as String,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
+  );
 
-  factory BetaCompactionBody.fromJson(Map<String, dynamic> json) =>
-      BetaCompactionBody(
-        agent: json['agent'] != null
-            ? SdkPresent((json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaCompactionBodyType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        encryptedContent: (json['encrypted_content'] as String?)!,
-        createdBy: json['created_by'] != null
-            ? SdkPresent((json['created_by'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory BetaCompactionBody.fromJson(Map<String, dynamic> json) => BetaCompactionBody(
+    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaCompactionBodyType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    encryptedContent: (json['encrypted_content'] as String?)!,
+    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag>(value: final value) => {
-              'agent': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'id': id,
-        'encrypted_content': encryptedContent,
-        ...switch (createdBy) {
-          SdkPresent<String>(value: final value) => {
-              'created_by': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag>(value: final value) => {'agent': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'id': id,
+    'encrypted_content': encryptedContent,
+    ...switch (createdBy) {
+      SdkPresent<String>(value: final value) => {'created_by': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A compaction item generated by the [`v1/responses/compact` API](https://developers.openai.com/api/reference/resources/responses/methods/compact).
 class BetaCompactionSummaryItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `agent` wire field.
   final SdkOptional<BetaAgentTagParam?> agent;
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
-
   /// The type of the item. Always `compaction`.
   final BetaCompactionSummaryItemParamType type_;
-
   /// The encrypted content of the compaction summary.
   final String encryptedContent;
 
-  const BetaCompactionSummaryItemParam(
-      {this.agent = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      required this.type_,
-      required this.encryptedContent});
+  const BetaCompactionSummaryItemParam({this.agent = const SdkOmitted(), this.id = const SdkOmitted(), required this.type_, required this.encryptedContent});
 
-  BetaCompactionSummaryItemParam Function(
-      {SdkOptional<BetaAgentTagParam?> agent,
-      SdkOptional<String?> id,
-      BetaCompactionSummaryItemParamType type_,
-      String encryptedContent}) get copyWith => _copyWith;
+  BetaCompactionSummaryItemParam Function({SdkOptional<BetaAgentTagParam?> agent, SdkOptional<String?> id, BetaCompactionSummaryItemParamType type_, String encryptedContent}) get copyWith => _copyWith;
 
-  BetaCompactionSummaryItemParam _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? encryptedContent = sdkOmittedValue}) =>
-      BetaCompactionSummaryItemParam(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTagParam?>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaCompactionSummaryItemParamType,
-        encryptedContent: identical(encryptedContent, sdkOmittedValue)
-            ? this.encryptedContent
-            : encryptedContent as String,
-      );
+  BetaCompactionSummaryItemParam _copyWith({Object? agent = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? encryptedContent = sdkOmittedValue}) => BetaCompactionSummaryItemParam(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTagParam?>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaCompactionSummaryItemParamType,
+    encryptedContent: identical(encryptedContent, sdkOmittedValue) ? this.encryptedContent : encryptedContent as String,
+  );
 
-  factory BetaCompactionSummaryItemParam.fromJson(Map<String, dynamic> json) =>
-      BetaCompactionSummaryItemParam(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTagParam.fromJson(
-                    json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        id: json.containsKey('id')
-            ? SdkPresent(json['id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaCompactionSummaryItemParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        encryptedContent: (json['encrypted_content'] as String?)!,
-      );
+  factory BetaCompactionSummaryItemParam.fromJson(Map<String, dynamic> json) => BetaCompactionSummaryItemParam(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTagParam.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaCompactionSummaryItemParamType.fromJson(json['type'] as String) : null)!,
+    encryptedContent: (json['encrypted_content'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTagParam?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String?>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'encrypted_content': encryptedContent,
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTagParam?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String?>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'encrypted_content': encryptedContent,
+  };
 }
 
 /// Compacts the current context. Must be the final input item.
 class BetaCompactionTriggerItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `agent` wire field.
   final SdkOptional<BetaAgentTagParam?> agent;
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
-
   /// The type of the item. Always `compaction_trigger`.
   final BetaCompactionTriggerItemParamType type_;
 
-  const BetaCompactionTriggerItemParam(
-      {this.agent = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      required this.type_});
+  const BetaCompactionTriggerItemParam({this.agent = const SdkOmitted(), this.id = const SdkOmitted(), required this.type_});
 
-  BetaCompactionTriggerItemParam Function(
-      {SdkOptional<BetaAgentTagParam?> agent,
-      SdkOptional<String?> id,
-      BetaCompactionTriggerItemParamType type_}) get copyWith => _copyWith;
+  BetaCompactionTriggerItemParam Function({SdkOptional<BetaAgentTagParam?> agent, SdkOptional<String?> id, BetaCompactionTriggerItemParamType type_}) get copyWith => _copyWith;
 
-  BetaCompactionTriggerItemParam _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      BetaCompactionTriggerItemParam(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTagParam?>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaCompactionTriggerItemParamType,
-      );
+  BetaCompactionTriggerItemParam _copyWith({Object? agent = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => BetaCompactionTriggerItemParam(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTagParam?>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaCompactionTriggerItemParamType,
+  );
 
-  factory BetaCompactionTriggerItemParam.fromJson(Map<String, dynamic> json) =>
-      BetaCompactionTriggerItemParam(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTagParam.fromJson(
-                    json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        id: json.containsKey('id')
-            ? SdkPresent(json['id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaCompactionTriggerItemParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory BetaCompactionTriggerItemParam.fromJson(Map<String, dynamic> json) => BetaCompactionTriggerItemParam(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTagParam.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaCompactionTriggerItemParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTagParam?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String?>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTagParam?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String?>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+  };
 }

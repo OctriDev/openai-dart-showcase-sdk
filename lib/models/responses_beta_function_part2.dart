@@ -6,12 +6,12 @@ part of 'responses_beta_function.dart';
 // responses_beta_function domain models (part 2)
 /// Typed representation of the `BetaFunctionCallOutputStatusEnum` API schema.
 final class BetaFunctionCallOutputStatusEnum {
+
   final String value;
 
   const BetaFunctionCallOutputStatusEnum._(this.value);
 
-  factory BetaFunctionCallOutputStatusEnum.fromJson(String value) =>
-      BetaFunctionCallOutputStatusEnum._(value);
+  factory BetaFunctionCallOutputStatusEnum.fromJson(String value) => BetaFunctionCallOutputStatusEnum._(value);
 
   static const inProgress = BetaFunctionCallOutputStatusEnum._('in_progress');
   static const completed = BetaFunctionCallOutputStatusEnum._('completed');
@@ -19,25 +19,22 @@ final class BetaFunctionCallOutputStatusEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaFunctionCallOutputStatusEnum && other.value == value;
+  @override bool operator ==(Object other) => other is BetaFunctionCallOutputStatusEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `BetaFunctionCallStatus` API schema.
 final class BetaFunctionCallStatus {
+
   final String value;
 
   const BetaFunctionCallStatus._(this.value);
 
-  factory BetaFunctionCallStatus.fromJson(String value) =>
-      BetaFunctionCallStatus._(value);
+  factory BetaFunctionCallStatus.fromJson(String value) => BetaFunctionCallStatus._(value);
 
   static const inProgress = BetaFunctionCallStatus._('in_progress');
   static const completed = BetaFunctionCallStatus._('completed');
@@ -45,299 +42,159 @@ final class BetaFunctionCallStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaFunctionCallStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaFunctionCallStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Execute a shell command.
 class BetaFunctionShellAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `commands` wire field.
   final List<String> commands;
-
   /// Required `integer` value serialized in the `timeout_ms` wire field.
   final int? timeoutMs;
-
   /// Required `integer` value serialized in the `max_output_length` wire field.
   final int? maxOutputLength;
 
-  const BetaFunctionShellAction(
-      {required this.commands,
-      required this.timeoutMs,
-      required this.maxOutputLength});
+  const BetaFunctionShellAction({required this.commands, required this.timeoutMs, required this.maxOutputLength});
 
-  BetaFunctionShellAction Function(
-      {List<String> commands,
-      int? timeoutMs,
-      int? maxOutputLength}) get copyWith => _copyWith;
+  BetaFunctionShellAction Function({List<String> commands, int? timeoutMs, int? maxOutputLength}) get copyWith => _copyWith;
 
-  BetaFunctionShellAction _copyWith(
-          {Object? commands = sdkOmittedValue,
-          Object? timeoutMs = sdkOmittedValue,
-          Object? maxOutputLength = sdkOmittedValue}) =>
-      BetaFunctionShellAction(
-        commands: identical(commands, sdkOmittedValue)
-            ? this.commands
-            : commands as List<String>,
-        timeoutMs: identical(timeoutMs, sdkOmittedValue)
-            ? this.timeoutMs
-            : timeoutMs as int?,
-        maxOutputLength: identical(maxOutputLength, sdkOmittedValue)
-            ? this.maxOutputLength
-            : maxOutputLength as int?,
-      );
+  BetaFunctionShellAction _copyWith({Object? commands = sdkOmittedValue, Object? timeoutMs = sdkOmittedValue, Object? maxOutputLength = sdkOmittedValue}) => BetaFunctionShellAction(
+    commands: identical(commands, sdkOmittedValue) ? this.commands : commands as List<String>,
+    timeoutMs: identical(timeoutMs, sdkOmittedValue) ? this.timeoutMs : timeoutMs as int?,
+    maxOutputLength: identical(maxOutputLength, sdkOmittedValue) ? this.maxOutputLength : maxOutputLength as int?,
+  );
 
-  factory BetaFunctionShellAction.fromJson(Map<String, dynamic> json) =>
-      BetaFunctionShellAction(
-        commands:
-            ((json['commands'] as List?)?.map((e) => e as String).toList())!,
-        timeoutMs: json.containsKey('timeout_ms')
-            ? (json['timeout_ms'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'timeout_ms', 'Required property is missing'),
-        maxOutputLength: json.containsKey('max_output_length')
-            ? (json['max_output_length'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'max_output_length', 'Required property is missing'),
-      );
+  factory BetaFunctionShellAction.fromJson(Map<String, dynamic> json) => BetaFunctionShellAction(
+    commands: ((json['commands'] as List?)?.map((e) => e as String).toList())!,
+    timeoutMs: json.containsKey('timeout_ms') ? (json['timeout_ms'] as num?)?.toInt() : throw ArgumentError.value(null, 'timeout_ms', 'Required property is missing'),
+    maxOutputLength: json.containsKey('max_output_length') ? (json['max_output_length'] as num?)?.toInt() : throw ArgumentError.value(null, 'max_output_length', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'commands': commands,
-        'timeout_ms': timeoutMs,
-        'max_output_length': maxOutputLength,
-      };
+    'commands': commands,
+    'timeout_ms': timeoutMs,
+    'max_output_length': maxOutputLength,
+  };
 }
 
 /// Commands and limits describing how to run the shell tool call.
 class BetaFunctionShellActionParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Ordered shell commands for the execution environment to run.
   final List<String> commands;
-
   /// Optional `integer` value serialized in the `timeout_ms` wire field.
   final SdkOptional<int?> timeoutMs;
-
   /// Optional `integer` value serialized in the `max_output_length` wire field.
   final SdkOptional<int?> maxOutputLength;
 
-  const BetaFunctionShellActionParam(
-      {required this.commands,
-      this.timeoutMs = const SdkOmitted(),
-      this.maxOutputLength = const SdkOmitted()});
+  const BetaFunctionShellActionParam({required this.commands, this.timeoutMs = const SdkOmitted(), this.maxOutputLength = const SdkOmitted()});
 
-  BetaFunctionShellActionParam Function(
-      {List<String> commands,
-      SdkOptional<int?> timeoutMs,
-      SdkOptional<int?> maxOutputLength}) get copyWith => _copyWith;
+  BetaFunctionShellActionParam Function({List<String> commands, SdkOptional<int?> timeoutMs, SdkOptional<int?> maxOutputLength}) get copyWith => _copyWith;
 
-  BetaFunctionShellActionParam _copyWith(
-          {Object? commands = sdkOmittedValue,
-          Object? timeoutMs = sdkOmittedValue,
-          Object? maxOutputLength = sdkOmittedValue}) =>
-      BetaFunctionShellActionParam(
-        commands: identical(commands, sdkOmittedValue)
-            ? this.commands
-            : commands as List<String>,
-        timeoutMs: identical(timeoutMs, sdkOmittedValue)
-            ? this.timeoutMs
-            : timeoutMs as SdkOptional<int?>,
-        maxOutputLength: identical(maxOutputLength, sdkOmittedValue)
-            ? this.maxOutputLength
-            : maxOutputLength as SdkOptional<int?>,
-      );
+  BetaFunctionShellActionParam _copyWith({Object? commands = sdkOmittedValue, Object? timeoutMs = sdkOmittedValue, Object? maxOutputLength = sdkOmittedValue}) => BetaFunctionShellActionParam(
+    commands: identical(commands, sdkOmittedValue) ? this.commands : commands as List<String>,
+    timeoutMs: identical(timeoutMs, sdkOmittedValue) ? this.timeoutMs : timeoutMs as SdkOptional<int?>,
+    maxOutputLength: identical(maxOutputLength, sdkOmittedValue) ? this.maxOutputLength : maxOutputLength as SdkOptional<int?>,
+  );
 
-  factory BetaFunctionShellActionParam.fromJson(Map<String, dynamic> json) =>
-      BetaFunctionShellActionParam(
-        commands:
-            ((json['commands'] as List?)?.map((e) => e as String).toList())!,
-        timeoutMs: json.containsKey('timeout_ms')
-            ? SdkPresent((json['timeout_ms'] as num?)?.toInt())
-            : const SdkOmitted(),
-        maxOutputLength: json.containsKey('max_output_length')
-            ? SdkPresent((json['max_output_length'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory BetaFunctionShellActionParam.fromJson(Map<String, dynamic> json) => BetaFunctionShellActionParam(
+    commands: ((json['commands'] as List?)?.map((e) => e as String).toList())!,
+    timeoutMs: json.containsKey('timeout_ms') ? SdkPresent((json['timeout_ms'] as num?)?.toInt()) : const SdkOmitted(),
+    maxOutputLength: json.containsKey('max_output_length') ? SdkPresent((json['max_output_length'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'commands': commands,
-        ...switch (timeoutMs) {
-          SdkPresent<int?>(value: final value) => {
-              'timeout_ms': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxOutputLength) {
-          SdkPresent<int?>(value: final value) => {
-              'max_output_length': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'commands': commands,
+    ...switch (timeoutMs) {
+      SdkPresent<int?>(value: final value) => {'timeout_ms': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxOutputLength) {
+      SdkPresent<int?>(value: final value) => {'max_output_length': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A tool call that executes one or more shell commands in a managed environment.
 class BetaFunctionShellCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag> agent;
-
   /// The type of the item. Always `shell_call`.
   final BetaFunctionShellCallType type_;
-
   /// The unique ID of the shell tool call. Populated when this item is returned via API.
   final String id;
-
   /// The unique ID of the shell tool call generated by the model.
   final String callId;
-
   /// Optional API value serialized in the `caller` wire field.
   final SdkOptional<BetaToolCallCaller?> caller;
-
   /// The shell commands and limits that describe how to run the tool call.
   final BetaFunctionShellAction action;
-
   /// The status of the shell call. One of `in_progress`, `completed`, or `incomplete`.
   final BetaFunctionShellCallStatus status;
-
   /// Required API value serialized in the `environment` wire field.
   final BetaFunctionShellCallEnvironment? environment;
-
   /// The ID of the entity that created this tool call.
   final SdkOptional<String> createdBy;
 
-  const BetaFunctionShellCall(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.id,
-      required this.callId,
-      this.caller = const SdkOmitted(),
-      required this.action,
-      required this.status,
-      required this.environment,
-      this.createdBy = const SdkOmitted()});
+  const BetaFunctionShellCall({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.callId, this.caller = const SdkOmitted(), required this.action, required this.status, required this.environment, this.createdBy = const SdkOmitted()});
 
-  BetaFunctionShellCall Function(
-      {SdkOptional<BetaAgentTag> agent,
-      BetaFunctionShellCallType type_,
-      String id,
-      String callId,
-      SdkOptional<BetaToolCallCaller?> caller,
-      BetaFunctionShellAction action,
-      BetaFunctionShellCallStatus status,
-      BetaFunctionShellCallEnvironment? environment,
-      SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  BetaFunctionShellCall Function({SdkOptional<BetaAgentTag> agent, BetaFunctionShellCallType type_, String id, String callId, SdkOptional<BetaToolCallCaller?> caller, BetaFunctionShellAction action, BetaFunctionShellCallStatus status, BetaFunctionShellCallEnvironment? environment, SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  BetaFunctionShellCall _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? caller = sdkOmittedValue,
-          Object? action = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? environment = sdkOmittedValue,
-          Object? createdBy = sdkOmittedValue}) =>
-      BetaFunctionShellCall(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaFunctionShellCallType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        caller: identical(caller, sdkOmittedValue)
-            ? this.caller
-            : caller as SdkOptional<BetaToolCallCaller?>,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as BetaFunctionShellAction,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as BetaFunctionShellCallStatus,
-        environment: identical(environment, sdkOmittedValue)
-            ? this.environment
-            : environment as BetaFunctionShellCallEnvironment?,
-        createdBy: identical(createdBy, sdkOmittedValue)
-            ? this.createdBy
-            : createdBy as SdkOptional<String>,
-      );
+  BetaFunctionShellCall _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? caller = sdkOmittedValue, Object? action = sdkOmittedValue, Object? status = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => BetaFunctionShellCall(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFunctionShellCallType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    caller: identical(caller, sdkOmittedValue) ? this.caller : caller as SdkOptional<BetaToolCallCaller?>,
+    action: identical(action, sdkOmittedValue) ? this.action : action as BetaFunctionShellAction,
+    status: identical(status, sdkOmittedValue) ? this.status : status as BetaFunctionShellCallStatus,
+    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as BetaFunctionShellCallEnvironment?,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
+  );
 
-  factory BetaFunctionShellCall.fromJson(Map<String, dynamic> json) =>
-      BetaFunctionShellCall(
-        agent: json['agent'] != null
-            ? SdkPresent((json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaFunctionShellCallType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        callId: (json['call_id'] as String?)!,
-        caller: json.containsKey('caller')
-            ? SdkPresent(json['caller'] != null
-                ? BetaToolCallCaller.fromJson(json['caller'])
-                : null)
-            : const SdkOmitted(),
-        action: (json['action'] != null
-            ? BetaFunctionShellAction.fromJson(
-                json['action'] as Map<String, dynamic>)
-            : null)!,
-        status: (json['status'] != null
-            ? BetaFunctionShellCallStatus.fromJson(json['status'] as String)
-            : null)!,
-        environment: json.containsKey('environment')
-            ? json['environment'] != null
-                ? BetaFunctionShellCallEnvironment.fromJson(json['environment'])
-                : null
-            : throw ArgumentError.value(
-                null, 'environment', 'Required property is missing'),
-        createdBy: json['created_by'] != null
-            ? SdkPresent((json['created_by'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory BetaFunctionShellCall.fromJson(Map<String, dynamic> json) => BetaFunctionShellCall(
+    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaFunctionShellCallType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    callId: (json['call_id'] as String?)!,
+    caller: json.containsKey('caller') ? SdkPresent(json['caller'] != null ? BetaToolCallCaller.fromJson(json['caller']) : null) : const SdkOmitted(),
+    action: (json['action'] != null ? BetaFunctionShellAction.fromJson(json['action'] as Map<String, dynamic>) : null)!,
+    status: (json['status'] != null ? BetaFunctionShellCallStatus.fromJson(json['status'] as String) : null)!,
+    environment: json.containsKey('environment') ? json['environment'] != null ? BetaFunctionShellCallEnvironment.fromJson(json['environment']) : null : throw ArgumentError.value(null, 'environment', 'Required property is missing'),
+    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag>(value: final value) => {
-              'agent': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'id': id,
-        'call_id': callId,
-        ...switch (caller) {
-          SdkPresent<BetaToolCallCaller?>(value: final value) => {
-              'caller': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'action': action.toJson(),
-        'status': status.toJson(),
-        'environment': environment?.toJson(),
-        ...switch (createdBy) {
-          SdkPresent<String>(value: final value) => {
-              'created_by': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag>(value: final value) => {'agent': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'id': id,
+    'call_id': callId,
+    ...switch (caller) {
+      SdkPresent<BetaToolCallCaller?>(value: final value) => {'caller': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'action': action.toJson(),
+    'status': status.toJson(),
+    'environment': environment?.toJson(),
+    ...switch (createdBy) {
+      SdkPresent<String>(value: final value) => {'created_by': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class BetaFunctionShellCallEnvironment {
@@ -346,64 +203,32 @@ sealed class BetaFunctionShellCallEnvironment {
   const BetaFunctionShellCallEnvironment();
   factory BetaFunctionShellCallEnvironment.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaLocalEnvironmentResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaFunctionShellCallEnvironmentBetaLocalEnvironmentResource(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaContainerReferenceResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaFunctionShellCallEnvironmentBetaContainerReferenceResource(
-              value);
-        }
-      } catch (_) {}
+      try { final value = BetaLocalEnvironmentResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellCallEnvironmentBetaLocalEnvironmentResource(value); } } catch (_) {}
+      try { final value = BetaContainerReferenceResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellCallEnvironmentBetaContainerReferenceResource(value); } } catch (_) {}
     }
-    try {
-      return BetaFunctionShellCallEnvironmentBetaLocalEnvironmentResource(
-          BetaLocalEnvironmentResource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaFunctionShellCallEnvironmentBetaContainerReferenceResource(
-          BetaContainerReferenceResource.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"local", "container_reference"}.contains(json["type"])) {
-      return UnknownBetaFunctionShellCallEnvironment(json);
-    }
-    throw FormatException(
-        "No variant matched for BetaFunctionShellCallEnvironment");
+    try { return BetaFunctionShellCallEnvironmentBetaLocalEnvironmentResource(BetaLocalEnvironmentResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaFunctionShellCallEnvironmentBetaContainerReferenceResource(BetaContainerReferenceResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"local", "container_reference"}.contains(json["type"])) { return UnknownBetaFunctionShellCallEnvironment(json); }
+    throw FormatException("No variant matched for BetaFunctionShellCallEnvironment");
   }
   Object? toJson();
 }
 
-final class BetaFunctionShellCallEnvironmentBetaLocalEnvironmentResource
-    extends BetaFunctionShellCallEnvironment {
+final class BetaFunctionShellCallEnvironmentBetaLocalEnvironmentResource extends BetaFunctionShellCallEnvironment {
   final BetaLocalEnvironmentResource value;
-  const BetaFunctionShellCallEnvironmentBetaLocalEnvironmentResource(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaFunctionShellCallEnvironmentBetaLocalEnvironmentResource(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaFunctionShellCallEnvironmentBetaContainerReferenceResource
-    extends BetaFunctionShellCallEnvironment {
+final class BetaFunctionShellCallEnvironmentBetaContainerReferenceResource extends BetaFunctionShellCallEnvironment {
   final BetaContainerReferenceResource value;
-  const BetaFunctionShellCallEnvironmentBetaContainerReferenceResource(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaFunctionShellCallEnvironmentBetaContainerReferenceResource(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaFunctionShellCallEnvironment] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaFunctionShellCallEnvironment
-    extends BetaFunctionShellCallEnvironment {
+final class UnknownBetaFunctionShellCallEnvironment extends BetaFunctionShellCallEnvironment {
   final Map<String, dynamic> raw;
   const UnknownBetaFunctionShellCallEnvironment(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

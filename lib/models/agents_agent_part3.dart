@@ -8,358 +8,186 @@ part of 'agents_agent.dart';
 class AgentToolConfigParamMcp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `mcp`.
   final AgentToolConfigParamMcpType type_;
-
   /// A label used to identify the MCP server in tool calls.
   final String serverLabel;
-
   /// The attached vault credential used to authenticate this MCP server. Optional when exactly one attached credential matches the server URL.
   final SdkOptional<String?> credentialId;
-
   /// The transport used to connect to the MCP server.
   final McpTransportConfigParam transport;
-
   /// Metadata included with requests to this MCP server.
   final SdkOptional<Map<String, dynamic>?> requestMetadata;
-
   /// The MCP tools the agent may call. All server tools are allowed when omitted.
   final SdkOptional<List<String>?> allowedTools;
-
   /// Whether this MCP server must initialize before the first turn. Defaults to `false`.
   final SdkOptional<bool> required_;
-
   /// Selects where outbound MCP HTTP connections originate. Omitted or `service` uses the Managed Agents service network; `environment` uses the session's selected environment.
   final SdkOptional<McpConnectionOriginParam?> connectionOrigin;
 
-  const AgentToolConfigParamMcp(
-      {required this.type_,
-      required this.serverLabel,
-      this.credentialId = const SdkOmitted(),
-      required this.transport,
-      this.requestMetadata = const SdkOmitted(),
-      this.allowedTools = const SdkOmitted(),
-      this.required_ = const SdkOmitted(),
-      this.connectionOrigin = const SdkOmitted()});
+  const AgentToolConfigParamMcp({required this.type_, required this.serverLabel, this.credentialId = const SdkOmitted(), required this.transport, this.requestMetadata = const SdkOmitted(), this.allowedTools = const SdkOmitted(), this.required_ = const SdkOmitted(), this.connectionOrigin = const SdkOmitted()});
 
-  AgentToolConfigParamMcp Function(
-          {AgentToolConfigParamMcpType type_,
-          String serverLabel,
-          SdkOptional<String?> credentialId,
-          McpTransportConfigParam transport,
-          SdkOptional<Map<String, dynamic>?> requestMetadata,
-          SdkOptional<List<String>?> allowedTools,
-          SdkOptional<bool> required_,
-          SdkOptional<McpConnectionOriginParam?> connectionOrigin})
-      get copyWith => _copyWith;
+  AgentToolConfigParamMcp Function({AgentToolConfigParamMcpType type_, String serverLabel, SdkOptional<String?> credentialId, McpTransportConfigParam transport, SdkOptional<Map<String, dynamic>?> requestMetadata, SdkOptional<List<String>?> allowedTools, SdkOptional<bool> required_, SdkOptional<McpConnectionOriginParam?> connectionOrigin}) get copyWith => _copyWith;
 
-  AgentToolConfigParamMcp _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? serverLabel = sdkOmittedValue,
-          Object? credentialId = sdkOmittedValue,
-          Object? transport = sdkOmittedValue,
-          Object? requestMetadata = sdkOmittedValue,
-          Object? allowedTools = sdkOmittedValue,
-          Object? required_ = sdkOmittedValue,
-          Object? connectionOrigin = sdkOmittedValue}) =>
-      AgentToolConfigParamMcp(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AgentToolConfigParamMcpType,
-        serverLabel: identical(serverLabel, sdkOmittedValue)
-            ? this.serverLabel
-            : serverLabel as String,
-        credentialId: identical(credentialId, sdkOmittedValue)
-            ? this.credentialId
-            : credentialId as SdkOptional<String?>,
-        transport: identical(transport, sdkOmittedValue)
-            ? this.transport
-            : transport as McpTransportConfigParam,
-        requestMetadata: identical(requestMetadata, sdkOmittedValue)
-            ? this.requestMetadata
-            : requestMetadata as SdkOptional<Map<String, dynamic>?>,
-        allowedTools: identical(allowedTools, sdkOmittedValue)
-            ? this.allowedTools
-            : allowedTools as SdkOptional<List<String>?>,
-        required_: identical(required_, sdkOmittedValue)
-            ? this.required_
-            : required_ as SdkOptional<bool>,
-        connectionOrigin: identical(connectionOrigin, sdkOmittedValue)
-            ? this.connectionOrigin
-            : connectionOrigin as SdkOptional<McpConnectionOriginParam?>,
-      );
+  AgentToolConfigParamMcp _copyWith({Object? type_ = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? credentialId = sdkOmittedValue, Object? transport = sdkOmittedValue, Object? requestMetadata = sdkOmittedValue, Object? allowedTools = sdkOmittedValue, Object? required_ = sdkOmittedValue, Object? connectionOrigin = sdkOmittedValue}) => AgentToolConfigParamMcp(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolConfigParamMcpType,
+    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
+    credentialId: identical(credentialId, sdkOmittedValue) ? this.credentialId : credentialId as SdkOptional<String?>,
+    transport: identical(transport, sdkOmittedValue) ? this.transport : transport as McpTransportConfigParam,
+    requestMetadata: identical(requestMetadata, sdkOmittedValue) ? this.requestMetadata : requestMetadata as SdkOptional<Map<String, dynamic>?>,
+    allowedTools: identical(allowedTools, sdkOmittedValue) ? this.allowedTools : allowedTools as SdkOptional<List<String>?>,
+    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as SdkOptional<bool>,
+    connectionOrigin: identical(connectionOrigin, sdkOmittedValue) ? this.connectionOrigin : connectionOrigin as SdkOptional<McpConnectionOriginParam?>,
+  );
 
-  factory AgentToolConfigParamMcp.fromJson(Map<String, dynamic> json) =>
-      AgentToolConfigParamMcp(
-        type_: (json['type'] != null
-            ? AgentToolConfigParamMcpType.fromJson(json['type'] as String)
-            : null)!,
-        serverLabel: (json['server_label'] as String?)!,
-        credentialId: json.containsKey('credential_id')
-            ? SdkPresent(json['credential_id'] as String?)
-            : const SdkOmitted(),
-        transport: (json['transport'] != null
-            ? McpTransportConfigParam.fromJson(json['transport'])
-            : null)!,
-        requestMetadata: json.containsKey('request_metadata')
-            ? SdkPresent(json['request_metadata'] == null
-                ? null
-                : json['request_metadata'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-        allowedTools: json.containsKey('allowed_tools')
-            ? SdkPresent((json['allowed_tools'] as List?)
-                ?.map((e) => e as String)
-                .toList())
-            : const SdkOmitted(),
-        required_: json['required'] != null
-            ? SdkPresent((json['required'] as bool?)!)
-            : const SdkOmitted(),
-        connectionOrigin: json.containsKey('connection_origin')
-            ? SdkPresent(json['connection_origin'] != null
-                ? McpConnectionOriginParam.fromJson(
-                    json['connection_origin'] as String)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory AgentToolConfigParamMcp.fromJson(Map<String, dynamic> json) => AgentToolConfigParamMcp(
+    type_: (json['type'] != null ? AgentToolConfigParamMcpType.fromJson(json['type'] as String) : null)!,
+    serverLabel: (json['server_label'] as String?)!,
+    credentialId: json.containsKey('credential_id') ? SdkPresent(json['credential_id'] as String?) : const SdkOmitted(),
+    transport: (json['transport'] != null ? McpTransportConfigParam.fromJson(json['transport']) : null)!,
+    requestMetadata: json.containsKey('request_metadata') ? SdkPresent(json['request_metadata'] == null ? null : json['request_metadata'] as Map<String, dynamic>) : const SdkOmitted(),
+    allowedTools: json.containsKey('allowed_tools') ? SdkPresent((json['allowed_tools'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    required_: json['required'] != null ? SdkPresent((json['required'] as bool?)!) : const SdkOmitted(),
+    connectionOrigin: json.containsKey('connection_origin') ? SdkPresent(json['connection_origin'] != null ? McpConnectionOriginParam.fromJson(json['connection_origin'] as String) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'server_label': serverLabel,
-        ...switch (credentialId) {
-          SdkPresent<String?>(value: final value) => {
-              'credential_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'transport': transport.toJson(),
-        ...switch (requestMetadata) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'request_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedTools) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'allowed_tools': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (required_) {
-          SdkPresent<bool>(value: final value) => {
-              'required': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (connectionOrigin) {
-          SdkPresent<McpConnectionOriginParam?>(value: final value) => {
-              'connection_origin': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'server_label': serverLabel,
+    ...switch (credentialId) {
+      SdkPresent<String?>(value: final value) => {'credential_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'transport': transport.toJson(),
+    ...switch (requestMetadata) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'request_metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedTools) {
+      SdkPresent<List<String>?>(value: final value) => {'allowed_tools': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (required_) {
+      SdkPresent<bool>(value: final value) => {'required': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (connectionOrigin) {
+      SdkPresent<McpConnectionOriginParam?>(value: final value) => {'connection_origin': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Enables calling tools from model-generated code.
 class AgentToolConfigParamProgrammaticToolCalling {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `programmatic_tool_calling`.
   final AgentToolConfigParamProgrammaticToolCallingType type_;
-
   /// Whether tools can be called from model-generated code. Defaults to `true`.
   final SdkOptional<bool> enabled;
 
-  const AgentToolConfigParamProgrammaticToolCalling(
-      {required this.type_, this.enabled = const SdkOmitted()});
+  const AgentToolConfigParamProgrammaticToolCalling({required this.type_, this.enabled = const SdkOmitted()});
 
-  AgentToolConfigParamProgrammaticToolCalling Function(
-      {AgentToolConfigParamProgrammaticToolCallingType type_,
-      SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  AgentToolConfigParamProgrammaticToolCalling Function({AgentToolConfigParamProgrammaticToolCallingType type_, SdkOptional<bool> enabled}) get copyWith => _copyWith;
 
-  AgentToolConfigParamProgrammaticToolCalling _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? enabled = sdkOmittedValue}) =>
-      AgentToolConfigParamProgrammaticToolCalling(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AgentToolConfigParamProgrammaticToolCallingType,
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as SdkOptional<bool>,
-      );
+  AgentToolConfigParamProgrammaticToolCalling _copyWith({Object? type_ = sdkOmittedValue, Object? enabled = sdkOmittedValue}) => AgentToolConfigParamProgrammaticToolCalling(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolConfigParamProgrammaticToolCallingType,
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
+  );
 
-  factory AgentToolConfigParamProgrammaticToolCalling.fromJson(
-          Map<String, dynamic> json) =>
-      AgentToolConfigParamProgrammaticToolCalling(
-        type_: (json['type'] != null
-            ? AgentToolConfigParamProgrammaticToolCallingType.fromJson(
-                json['type'] as String)
-            : null)!,
-        enabled: json['enabled'] != null
-            ? SdkPresent((json['enabled'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory AgentToolConfigParamProgrammaticToolCalling.fromJson(Map<String, dynamic> json) => AgentToolConfigParamProgrammaticToolCalling(
+    type_: (json['type'] != null ? AgentToolConfigParamProgrammaticToolCallingType.fromJson(json['type'] as String) : null)!,
+    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (enabled) {
-          SdkPresent<bool>(value: final value) => {
-              'enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (enabled) {
+      SdkPresent<bool>(value: final value) => {'enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Discovers deferred function tools and loads them into the model context.
 class AgentToolConfigParamToolSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `tool_search`.
   final AgentToolConfigParamToolSearchType type_;
 
   const AgentToolConfigParamToolSearch({required this.type_});
 
-  AgentToolConfigParamToolSearch Function(
-      {AgentToolConfigParamToolSearchType type_}) get copyWith => _copyWith;
+  AgentToolConfigParamToolSearch Function({AgentToolConfigParamToolSearchType type_}) get copyWith => _copyWith;
 
-  AgentToolConfigParamToolSearch _copyWith({Object? type_ = sdkOmittedValue}) =>
-      AgentToolConfigParamToolSearch(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AgentToolConfigParamToolSearchType,
-      );
+  AgentToolConfigParamToolSearch _copyWith({Object? type_ = sdkOmittedValue}) => AgentToolConfigParamToolSearch(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolConfigParamToolSearchType,
+  );
 
-  factory AgentToolConfigParamToolSearch.fromJson(Map<String, dynamic> json) =>
-      AgentToolConfigParamToolSearch(
-        type_: (json['type'] != null
-            ? AgentToolConfigParamToolSearchType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory AgentToolConfigParamToolSearch.fromJson(Map<String, dynamic> json) => AgentToolConfigParamToolSearch(
+    type_: (json['type'] != null ? AgentToolConfigParamToolSearchType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Web search.
 class AgentToolConfigParamWebSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `web_search`.
   final AgentToolConfigParamWebSearchType type_;
-
   /// The source used for web search results. Defaults to `live`.
   final SdkOptional<WebSearchModeParam?> mode;
-
   /// The amount of search context made available to the model. Defaults to `medium`.
   final SdkOptional<WebSearchContextSizeParam?> contextSize;
-
   /// Domains the search may include.
   final SdkOptional<List<String>?> allowedDomains;
-
   /// Approximate location used to localize search results.
   final SdkOptional<WebSearchLocationParam?> location;
 
-  const AgentToolConfigParamWebSearch(
-      {required this.type_,
-      this.mode = const SdkOmitted(),
-      this.contextSize = const SdkOmitted(),
-      this.allowedDomains = const SdkOmitted(),
-      this.location = const SdkOmitted()});
+  const AgentToolConfigParamWebSearch({required this.type_, this.mode = const SdkOmitted(), this.contextSize = const SdkOmitted(), this.allowedDomains = const SdkOmitted(), this.location = const SdkOmitted()});
 
-  AgentToolConfigParamWebSearch Function(
-      {AgentToolConfigParamWebSearchType type_,
-      SdkOptional<WebSearchModeParam?> mode,
-      SdkOptional<WebSearchContextSizeParam?> contextSize,
-      SdkOptional<List<String>?> allowedDomains,
-      SdkOptional<WebSearchLocationParam?> location}) get copyWith => _copyWith;
+  AgentToolConfigParamWebSearch Function({AgentToolConfigParamWebSearchType type_, SdkOptional<WebSearchModeParam?> mode, SdkOptional<WebSearchContextSizeParam?> contextSize, SdkOptional<List<String>?> allowedDomains, SdkOptional<WebSearchLocationParam?> location}) get copyWith => _copyWith;
 
-  AgentToolConfigParamWebSearch _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? mode = sdkOmittedValue,
-          Object? contextSize = sdkOmittedValue,
-          Object? allowedDomains = sdkOmittedValue,
-          Object? location = sdkOmittedValue}) =>
-      AgentToolConfigParamWebSearch(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AgentToolConfigParamWebSearchType,
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as SdkOptional<WebSearchModeParam?>,
-        contextSize: identical(contextSize, sdkOmittedValue)
-            ? this.contextSize
-            : contextSize as SdkOptional<WebSearchContextSizeParam?>,
-        allowedDomains: identical(allowedDomains, sdkOmittedValue)
-            ? this.allowedDomains
-            : allowedDomains as SdkOptional<List<String>?>,
-        location: identical(location, sdkOmittedValue)
-            ? this.location
-            : location as SdkOptional<WebSearchLocationParam?>,
-      );
+  AgentToolConfigParamWebSearch _copyWith({Object? type_ = sdkOmittedValue, Object? mode = sdkOmittedValue, Object? contextSize = sdkOmittedValue, Object? allowedDomains = sdkOmittedValue, Object? location = sdkOmittedValue}) => AgentToolConfigParamWebSearch(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolConfigParamWebSearchType,
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as SdkOptional<WebSearchModeParam?>,
+    contextSize: identical(contextSize, sdkOmittedValue) ? this.contextSize : contextSize as SdkOptional<WebSearchContextSizeParam?>,
+    allowedDomains: identical(allowedDomains, sdkOmittedValue) ? this.allowedDomains : allowedDomains as SdkOptional<List<String>?>,
+    location: identical(location, sdkOmittedValue) ? this.location : location as SdkOptional<WebSearchLocationParam?>,
+  );
 
-  factory AgentToolConfigParamWebSearch.fromJson(Map<String, dynamic> json) =>
-      AgentToolConfigParamWebSearch(
-        type_: (json['type'] != null
-            ? AgentToolConfigParamWebSearchType.fromJson(json['type'] as String)
-            : null)!,
-        mode: json.containsKey('mode')
-            ? SdkPresent(json['mode'] != null
-                ? WebSearchModeParam.fromJson(json['mode'] as String)
-                : null)
-            : const SdkOmitted(),
-        contextSize: json.containsKey('context_size')
-            ? SdkPresent(json['context_size'] != null
-                ? WebSearchContextSizeParam.fromJson(
-                    json['context_size'] as String)
-                : null)
-            : const SdkOmitted(),
-        allowedDomains: json.containsKey('allowed_domains')
-            ? SdkPresent((json['allowed_domains'] as List?)
-                ?.map((e) => e as String)
-                .toList())
-            : const SdkOmitted(),
-        location: json.containsKey('location')
-            ? SdkPresent(json['location'] != null
-                ? WebSearchLocationParam.fromJson(
-                    json['location'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory AgentToolConfigParamWebSearch.fromJson(Map<String, dynamic> json) => AgentToolConfigParamWebSearch(
+    type_: (json['type'] != null ? AgentToolConfigParamWebSearchType.fromJson(json['type'] as String) : null)!,
+    mode: json.containsKey('mode') ? SdkPresent(json['mode'] != null ? WebSearchModeParam.fromJson(json['mode'] as String) : null) : const SdkOmitted(),
+    contextSize: json.containsKey('context_size') ? SdkPresent(json['context_size'] != null ? WebSearchContextSizeParam.fromJson(json['context_size'] as String) : null) : const SdkOmitted(),
+    allowedDomains: json.containsKey('allowed_domains') ? SdkPresent((json['allowed_domains'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    location: json.containsKey('location') ? SdkPresent(json['location'] != null ? WebSearchLocationParam.fromJson(json['location'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (mode) {
-          SdkPresent<WebSearchModeParam?>(value: final value) => {
-              'mode': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contextSize) {
-          SdkPresent<WebSearchContextSizeParam?>(value: final value) => {
-              'context_size': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedDomains) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'allowed_domains': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (location) {
-          SdkPresent<WebSearchLocationParam?>(value: final value) => {
-              'location': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (mode) {
+      SdkPresent<WebSearchModeParam?>(value: final value) => {'mode': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contextSize) {
+      SdkPresent<WebSearchContextSizeParam?>(value: final value) => {'context_size': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedDomains) {
+      SdkPresent<List<String>?>(value: final value) => {'allowed_domains': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (location) {
+      SdkPresent<WebSearchLocationParam?>(value: final value) => {'location': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class AgentToolResource {
@@ -368,162 +196,85 @@ sealed class AgentToolResource {
   const AgentToolResource();
   factory AgentToolResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = AgentToolResourceFunction.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AgentToolResourceAgentToolResourceFunction(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AgentToolResourceProgrammaticToolCalling.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AgentToolResourceAgentToolResourceProgrammaticToolCalling(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = AgentToolResourceMcp.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AgentToolResourceAgentToolResourceMcp(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AgentToolResourceWebSearch.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AgentToolResourceAgentToolResourceWebSearch(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AgentToolResourceComputerUse.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AgentToolResourceAgentToolResourceComputerUse(value);
-        }
-      } catch (_) {}
+      try { final value = AgentToolResourceFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolResourceAgentToolResourceFunction(value); } } catch (_) {}
+      try { final value = AgentToolResourceProgrammaticToolCalling.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolResourceAgentToolResourceProgrammaticToolCalling(value); } } catch (_) {}
+      try { final value = AgentToolResourceMcp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolResourceAgentToolResourceMcp(value); } } catch (_) {}
+      try { final value = AgentToolResourceWebSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolResourceAgentToolResourceWebSearch(value); } } catch (_) {}
+      try { final value = AgentToolResourceComputerUse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolResourceAgentToolResourceComputerUse(value); } } catch (_) {}
     }
-    try {
-      return AgentToolResourceAgentToolResourceFunction(
-          AgentToolResourceFunction.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return AgentToolResourceAgentToolResourceProgrammaticToolCalling(
-          AgentToolResourceProgrammaticToolCalling.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return AgentToolResourceAgentToolResourceMcp(
-          AgentToolResourceMcp.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return AgentToolResourceAgentToolResourceWebSearch(
-          AgentToolResourceWebSearch.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return AgentToolResourceAgentToolResourceComputerUse(
-          AgentToolResourceComputerUse.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "function",
-          "programmatic_tool_calling",
-          "mcp",
-          "web_search",
-          "computer_use"
-        }.contains(json["type"])) {
-      return UnknownAgentToolResource(json);
-    }
+    try { return AgentToolResourceAgentToolResourceFunction(AgentToolResourceFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return AgentToolResourceAgentToolResourceProgrammaticToolCalling(AgentToolResourceProgrammaticToolCalling.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return AgentToolResourceAgentToolResourceMcp(AgentToolResourceMcp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return AgentToolResourceAgentToolResourceWebSearch(AgentToolResourceWebSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return AgentToolResourceAgentToolResourceComputerUse(AgentToolResourceComputerUse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "programmatic_tool_calling", "mcp", "web_search", "computer_use"}.contains(json["type"])) { return UnknownAgentToolResource(json); }
     throw FormatException("No variant matched for AgentToolResource");
   }
   Object? toJson();
 }
 
-final class AgentToolResourceAgentToolResourceFunction
-    extends AgentToolResource {
+final class AgentToolResourceAgentToolResourceFunction extends AgentToolResource {
   final AgentToolResourceFunction value;
   const AgentToolResourceAgentToolResourceFunction(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class AgentToolResourceAgentToolResourceProgrammaticToolCalling
-    extends AgentToolResource {
+final class AgentToolResourceAgentToolResourceProgrammaticToolCalling extends AgentToolResource {
   final AgentToolResourceProgrammaticToolCalling value;
   const AgentToolResourceAgentToolResourceProgrammaticToolCalling(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class AgentToolResourceAgentToolResourceMcp extends AgentToolResource {
   final AgentToolResourceMcp value;
   const AgentToolResourceAgentToolResourceMcp(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class AgentToolResourceAgentToolResourceWebSearch
-    extends AgentToolResource {
+final class AgentToolResourceAgentToolResourceWebSearch extends AgentToolResource {
   final AgentToolResourceWebSearch value;
   const AgentToolResourceAgentToolResourceWebSearch(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class AgentToolResourceAgentToolResourceComputerUse
-    extends AgentToolResource {
+final class AgentToolResourceAgentToolResourceComputerUse extends AgentToolResource {
   final AgentToolResourceComputerUse value;
   const AgentToolResourceAgentToolResourceComputerUse(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [AgentToolResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownAgentToolResource extends AgentToolResource {
   final Map<String, dynamic> raw;
   const UnknownAgentToolResource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Browser use in an OpenAI-hosted session.
 class AgentToolResourceComputerUse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `computer_use`.
   final AgentToolResourceComputerUseType type_;
-
   /// Whether computer tool outputs include screenshots.
   final bool includeScreenshots;
 
-  const AgentToolResourceComputerUse(
-      {required this.type_, required this.includeScreenshots});
+  const AgentToolResourceComputerUse({required this.type_, required this.includeScreenshots});
 
-  AgentToolResourceComputerUse Function(
-      {AgentToolResourceComputerUseType type_,
-      bool includeScreenshots}) get copyWith => _copyWith;
+  AgentToolResourceComputerUse Function({AgentToolResourceComputerUseType type_, bool includeScreenshots}) get copyWith => _copyWith;
 
-  AgentToolResourceComputerUse _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? includeScreenshots = sdkOmittedValue}) =>
-      AgentToolResourceComputerUse(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AgentToolResourceComputerUseType,
-        includeScreenshots: identical(includeScreenshots, sdkOmittedValue)
-            ? this.includeScreenshots
-            : includeScreenshots as bool,
-      );
+  AgentToolResourceComputerUse _copyWith({Object? type_ = sdkOmittedValue, Object? includeScreenshots = sdkOmittedValue}) => AgentToolResourceComputerUse(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolResourceComputerUseType,
+    includeScreenshots: identical(includeScreenshots, sdkOmittedValue) ? this.includeScreenshots : includeScreenshots as bool,
+  );
 
-  factory AgentToolResourceComputerUse.fromJson(Map<String, dynamic> json) =>
-      AgentToolResourceComputerUse(
-        type_: (json['type'] != null
-            ? AgentToolResourceComputerUseType.fromJson(json['type'] as String)
-            : null)!,
-        includeScreenshots: (json['include_screenshots'] as bool?)!,
-      );
+  factory AgentToolResourceComputerUse.fromJson(Map<String, dynamic> json) => AgentToolResourceComputerUse(
+    type_: (json['type'] != null ? AgentToolResourceComputerUseType.fromJson(json['type'] as String) : null)!,
+    includeScreenshots: (json['include_screenshots'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'include_screenshots': includeScreenshots,
-      };
+    'type': type_.toJson(),
+    'include_screenshots': includeScreenshots,
+  };
 }

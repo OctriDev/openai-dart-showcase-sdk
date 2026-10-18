@@ -6,12 +6,12 @@ part of 'responses_beta_service.dart';
 // responses_beta_service domain models
 /// Typed representation of the `BetaServiceTierEnum` API schema.
 final class BetaServiceTierEnum {
+
   final String value;
 
   const BetaServiceTierEnum._(this.value);
 
-  factory BetaServiceTierEnum.fromJson(String value) =>
-      BetaServiceTierEnum._(value);
+  factory BetaServiceTierEnum.fromJson(String value) => BetaServiceTierEnum._(value);
 
   static const auto = BetaServiceTierEnum._('auto');
   static const default_ = BetaServiceTierEnum._('default');
@@ -21,15 +21,12 @@ final class BetaServiceTierEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaServiceTierEnum && other.value == value;
+  @override bool operator ==(Object other) => other is BetaServiceTierEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 sealed class BetaServiceTierResponses {
@@ -37,19 +34,14 @@ sealed class BetaServiceTierResponses {
   static const String constructionSurface = 'named';
   const BetaServiceTierResponses();
   factory BetaServiceTierResponses.fromJson(Object? json) {
-    try {
-      return BetaServiceTierResponsesBetaServiceTierResponsesVariant0(
-          BetaServiceTierResponsesVariant0.fromJson(json as String));
-    } catch (_) {}
+    try { return BetaServiceTierResponsesBetaServiceTierResponsesVariant0(BetaServiceTierResponsesVariant0.fromJson(json as String)); } catch (_) {}
     throw FormatException("No variant matched for BetaServiceTierResponses");
   }
   Object? toJson();
 }
 
-final class BetaServiceTierResponsesBetaServiceTierResponsesVariant0
-    extends BetaServiceTierResponses {
+final class BetaServiceTierResponsesBetaServiceTierResponsesVariant0 extends BetaServiceTierResponses {
   final BetaServiceTierResponsesVariant0 value;
   const BetaServiceTierResponsesBetaServiceTierResponsesVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

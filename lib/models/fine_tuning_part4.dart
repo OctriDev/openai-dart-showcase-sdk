@@ -8,217 +8,107 @@ part of 'fine_tuning.dart';
 class FineTuneReinforcementHyperparameters {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Number of examples in each batch. A larger batch size means that model parameters are updated less frequently, but with lower variance.
   final SdkOptional<dynamic> batchSize;
-
   /// Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting.
   final SdkOptional<dynamic> learningRateMultiplier;
-
   /// The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
   final SdkOptional<dynamic> nEpochs;
-
   /// Level of reasoning effort.
-  final SdkOptional<FineTuneReinforcementHyperparametersReasoningEffort>
-      reasoningEffort;
-
+  final SdkOptional<FineTuneReinforcementHyperparametersReasoningEffort> reasoningEffort;
   /// Multiplier on amount of compute used for exploring search space during training.
   final SdkOptional<dynamic> computeMultiplier;
-
   /// The number of training steps between evaluation runs.
   final SdkOptional<dynamic> evalInterval;
-
   /// Number of evaluation samples to generate per training step.
   final SdkOptional<dynamic> evalSamples;
 
-  const FineTuneReinforcementHyperparameters(
-      {this.batchSize = const SdkOmitted(),
-      this.learningRateMultiplier = const SdkOmitted(),
-      this.nEpochs = const SdkOmitted(),
-      this.reasoningEffort = const SdkOmitted(),
-      this.computeMultiplier = const SdkOmitted(),
-      this.evalInterval = const SdkOmitted(),
-      this.evalSamples = const SdkOmitted()});
+  const FineTuneReinforcementHyperparameters({this.batchSize = const SdkOmitted(), this.learningRateMultiplier = const SdkOmitted(), this.nEpochs = const SdkOmitted(), this.reasoningEffort = const SdkOmitted(), this.computeMultiplier = const SdkOmitted(), this.evalInterval = const SdkOmitted(), this.evalSamples = const SdkOmitted()});
 
-  FineTuneReinforcementHyperparameters Function(
-      {SdkOptional<dynamic> batchSize,
-      SdkOptional<dynamic> learningRateMultiplier,
-      SdkOptional<dynamic> nEpochs,
-      SdkOptional<FineTuneReinforcementHyperparametersReasoningEffort>
-          reasoningEffort,
-      SdkOptional<dynamic> computeMultiplier,
-      SdkOptional<dynamic> evalInterval,
-      SdkOptional<dynamic> evalSamples}) get copyWith => _copyWith;
+  FineTuneReinforcementHyperparameters Function({SdkOptional<dynamic> batchSize, SdkOptional<dynamic> learningRateMultiplier, SdkOptional<dynamic> nEpochs, SdkOptional<FineTuneReinforcementHyperparametersReasoningEffort> reasoningEffort, SdkOptional<dynamic> computeMultiplier, SdkOptional<dynamic> evalInterval, SdkOptional<dynamic> evalSamples}) get copyWith => _copyWith;
 
-  FineTuneReinforcementHyperparameters _copyWith(
-          {Object? batchSize = sdkOmittedValue,
-          Object? learningRateMultiplier = sdkOmittedValue,
-          Object? nEpochs = sdkOmittedValue,
-          Object? reasoningEffort = sdkOmittedValue,
-          Object? computeMultiplier = sdkOmittedValue,
-          Object? evalInterval = sdkOmittedValue,
-          Object? evalSamples = sdkOmittedValue}) =>
-      FineTuneReinforcementHyperparameters(
-        batchSize: identical(batchSize, sdkOmittedValue)
-            ? this.batchSize
-            : batchSize as SdkOptional<dynamic>,
-        learningRateMultiplier:
-            identical(learningRateMultiplier, sdkOmittedValue)
-                ? this.learningRateMultiplier
-                : learningRateMultiplier as SdkOptional<dynamic>,
-        nEpochs: identical(nEpochs, sdkOmittedValue)
-            ? this.nEpochs
-            : nEpochs as SdkOptional<dynamic>,
-        reasoningEffort: identical(reasoningEffort, sdkOmittedValue)
-            ? this.reasoningEffort
-            : reasoningEffort as SdkOptional<
-                FineTuneReinforcementHyperparametersReasoningEffort>,
-        computeMultiplier: identical(computeMultiplier, sdkOmittedValue)
-            ? this.computeMultiplier
-            : computeMultiplier as SdkOptional<dynamic>,
-        evalInterval: identical(evalInterval, sdkOmittedValue)
-            ? this.evalInterval
-            : evalInterval as SdkOptional<dynamic>,
-        evalSamples: identical(evalSamples, sdkOmittedValue)
-            ? this.evalSamples
-            : evalSamples as SdkOptional<dynamic>,
-      );
+  FineTuneReinforcementHyperparameters _copyWith({Object? batchSize = sdkOmittedValue, Object? learningRateMultiplier = sdkOmittedValue, Object? nEpochs = sdkOmittedValue, Object? reasoningEffort = sdkOmittedValue, Object? computeMultiplier = sdkOmittedValue, Object? evalInterval = sdkOmittedValue, Object? evalSamples = sdkOmittedValue}) => FineTuneReinforcementHyperparameters(
+    batchSize: identical(batchSize, sdkOmittedValue) ? this.batchSize : batchSize as SdkOptional<dynamic>,
+    learningRateMultiplier: identical(learningRateMultiplier, sdkOmittedValue) ? this.learningRateMultiplier : learningRateMultiplier as SdkOptional<dynamic>,
+    nEpochs: identical(nEpochs, sdkOmittedValue) ? this.nEpochs : nEpochs as SdkOptional<dynamic>,
+    reasoningEffort: identical(reasoningEffort, sdkOmittedValue) ? this.reasoningEffort : reasoningEffort as SdkOptional<FineTuneReinforcementHyperparametersReasoningEffort>,
+    computeMultiplier: identical(computeMultiplier, sdkOmittedValue) ? this.computeMultiplier : computeMultiplier as SdkOptional<dynamic>,
+    evalInterval: identical(evalInterval, sdkOmittedValue) ? this.evalInterval : evalInterval as SdkOptional<dynamic>,
+    evalSamples: identical(evalSamples, sdkOmittedValue) ? this.evalSamples : evalSamples as SdkOptional<dynamic>,
+  );
 
-  factory FineTuneReinforcementHyperparameters.fromJson(
-          Map<String, dynamic> json) =>
-      FineTuneReinforcementHyperparameters(
-        batchSize: json['batch_size'] != null
-            ? SdkPresent((json['batch_size'])!)
-            : const SdkOmitted(),
-        learningRateMultiplier: json['learning_rate_multiplier'] != null
-            ? SdkPresent((json['learning_rate_multiplier'])!)
-            : const SdkOmitted(),
-        nEpochs: json['n_epochs'] != null
-            ? SdkPresent((json['n_epochs'])!)
-            : const SdkOmitted(),
-        reasoningEffort: json['reasoning_effort'] != null
-            ? SdkPresent((json['reasoning_effort'] != null
-                ? FineTuneReinforcementHyperparametersReasoningEffort.fromJson(
-                    json['reasoning_effort'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        computeMultiplier: json['compute_multiplier'] != null
-            ? SdkPresent((json['compute_multiplier'])!)
-            : const SdkOmitted(),
-        evalInterval: json['eval_interval'] != null
-            ? SdkPresent((json['eval_interval'])!)
-            : const SdkOmitted(),
-        evalSamples: json['eval_samples'] != null
-            ? SdkPresent((json['eval_samples'])!)
-            : const SdkOmitted(),
-      );
+  factory FineTuneReinforcementHyperparameters.fromJson(Map<String, dynamic> json) => FineTuneReinforcementHyperparameters(
+    batchSize: json['batch_size'] != null ? SdkPresent((json['batch_size'])!) : const SdkOmitted(),
+    learningRateMultiplier: json['learning_rate_multiplier'] != null ? SdkPresent((json['learning_rate_multiplier'])!) : const SdkOmitted(),
+    nEpochs: json['n_epochs'] != null ? SdkPresent((json['n_epochs'])!) : const SdkOmitted(),
+    reasoningEffort: json['reasoning_effort'] != null ? SdkPresent((json['reasoning_effort'] != null ? FineTuneReinforcementHyperparametersReasoningEffort.fromJson(json['reasoning_effort'] as String) : null)!) : const SdkOmitted(),
+    computeMultiplier: json['compute_multiplier'] != null ? SdkPresent((json['compute_multiplier'])!) : const SdkOmitted(),
+    evalInterval: json['eval_interval'] != null ? SdkPresent((json['eval_interval'])!) : const SdkOmitted(),
+    evalSamples: json['eval_samples'] != null ? SdkPresent((json['eval_samples'])!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (batchSize) {
-          SdkPresent<dynamic>(value: final value) => {
-              'batch_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (learningRateMultiplier) {
-          SdkPresent<dynamic>(value: final value) => {
-              'learning_rate_multiplier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nEpochs) {
-          SdkPresent<dynamic>(value: final value) => {
-              'n_epochs': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reasoningEffort) {
-          SdkPresent<FineTuneReinforcementHyperparametersReasoningEffort>(
-            value: final value
-          ) =>
-            {
-              'reasoning_effort': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (computeMultiplier) {
-          SdkPresent<dynamic>(value: final value) => {
-              'compute_multiplier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (evalInterval) {
-          SdkPresent<dynamic>(value: final value) => {
-              'eval_interval': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (evalSamples) {
-          SdkPresent<dynamic>(value: final value) => {
-              'eval_samples': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (batchSize) {
+      SdkPresent<dynamic>(value: final value) => {'batch_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (learningRateMultiplier) {
+      SdkPresent<dynamic>(value: final value) => {'learning_rate_multiplier': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nEpochs) {
+      SdkPresent<dynamic>(value: final value) => {'n_epochs': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reasoningEffort) {
+      SdkPresent<FineTuneReinforcementHyperparametersReasoningEffort>(value: final value) => {'reasoning_effort': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (computeMultiplier) {
+      SdkPresent<dynamic>(value: final value) => {'compute_multiplier': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (evalInterval) {
+      SdkPresent<dynamic>(value: final value) => {'eval_interval': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (evalSamples) {
+      SdkPresent<dynamic>(value: final value) => {'eval_samples': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Configuration for the reinforcement fine-tuning method.
 class FineTuneReinforcementMethod {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The grader used for the fine-tuning job.
   final FineTuneReinforcementMethodGrader grader;
-
   /// The hyperparameters used for the reinforcement fine-tuning job.
   final SdkOptional<FineTuneReinforcementHyperparameters> hyperparameters;
 
-  const FineTuneReinforcementMethod(
-      {required this.grader, this.hyperparameters = const SdkOmitted()});
+  const FineTuneReinforcementMethod({required this.grader, this.hyperparameters = const SdkOmitted()});
 
-  FineTuneReinforcementMethod Function(
-          {FineTuneReinforcementMethodGrader grader,
-          SdkOptional<FineTuneReinforcementHyperparameters> hyperparameters})
-      get copyWith => _copyWith;
+  FineTuneReinforcementMethod Function({FineTuneReinforcementMethodGrader grader, SdkOptional<FineTuneReinforcementHyperparameters> hyperparameters}) get copyWith => _copyWith;
 
-  FineTuneReinforcementMethod _copyWith(
-          {Object? grader = sdkOmittedValue,
-          Object? hyperparameters = sdkOmittedValue}) =>
-      FineTuneReinforcementMethod(
-        grader: identical(grader, sdkOmittedValue)
-            ? this.grader
-            : grader as FineTuneReinforcementMethodGrader,
-        hyperparameters: identical(hyperparameters, sdkOmittedValue)
-            ? this.hyperparameters
-            : hyperparameters
-                as SdkOptional<FineTuneReinforcementHyperparameters>,
-      );
+  FineTuneReinforcementMethod _copyWith({Object? grader = sdkOmittedValue, Object? hyperparameters = sdkOmittedValue}) => FineTuneReinforcementMethod(
+    grader: identical(grader, sdkOmittedValue) ? this.grader : grader as FineTuneReinforcementMethodGrader,
+    hyperparameters: identical(hyperparameters, sdkOmittedValue) ? this.hyperparameters : hyperparameters as SdkOptional<FineTuneReinforcementHyperparameters>,
+  );
 
-  factory FineTuneReinforcementMethod.fromJson(Map<String, dynamic> json) =>
-      FineTuneReinforcementMethod(
-        grader: (json['grader'] != null
-            ? FineTuneReinforcementMethodGrader.fromJson(json['grader'])
-            : null)!,
-        hyperparameters: json['hyperparameters'] != null
-            ? SdkPresent((json['hyperparameters'] != null
-                ? FineTuneReinforcementHyperparameters.fromJson(
-                    json['hyperparameters'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory FineTuneReinforcementMethod.fromJson(Map<String, dynamic> json) => FineTuneReinforcementMethod(
+    grader: (json['grader'] != null ? FineTuneReinforcementMethodGrader.fromJson(json['grader']) : null)!,
+    hyperparameters: json['hyperparameters'] != null ? SdkPresent((json['hyperparameters'] != null ? FineTuneReinforcementHyperparameters.fromJson(json['hyperparameters'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'grader': grader.toJson(),
-        ...switch (hyperparameters) {
-          SdkPresent<FineTuneReinforcementHyperparameters>(
-            value: final value
-          ) =>
-            {
-              'hyperparameters': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'grader': grader.toJson(),
+    ...switch (hyperparameters) {
+      SdkPresent<FineTuneReinforcementHyperparameters>(value: final value) => {'hyperparameters': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class FineTuneReinforcementMethodGrader {
@@ -227,121 +117,58 @@ sealed class FineTuneReinforcementMethodGrader {
   const FineTuneReinforcementMethodGrader();
   factory FineTuneReinforcementMethodGrader.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = GraderStringCheck.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FineTuneReinforcementMethodGraderGraderStringCheck(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderTextSimilarity.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FineTuneReinforcementMethodGraderGraderTextSimilarity(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderPython.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FineTuneReinforcementMethodGraderGraderPython(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderScoreModel.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FineTuneReinforcementMethodGraderGraderScoreModel(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderMulti.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FineTuneReinforcementMethodGraderGraderMulti(value);
-        }
-      } catch (_) {}
+      try { final value = GraderStringCheck.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FineTuneReinforcementMethodGraderGraderStringCheck(value); } } catch (_) {}
+      try { final value = GraderTextSimilarity.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FineTuneReinforcementMethodGraderGraderTextSimilarity(value); } } catch (_) {}
+      try { final value = GraderPython.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FineTuneReinforcementMethodGraderGraderPython(value); } } catch (_) {}
+      try { final value = GraderScoreModel.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FineTuneReinforcementMethodGraderGraderScoreModel(value); } } catch (_) {}
+      try { final value = GraderMulti.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FineTuneReinforcementMethodGraderGraderMulti(value); } } catch (_) {}
     }
-    try {
-      return FineTuneReinforcementMethodGraderGraderStringCheck(
-          GraderStringCheck.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return FineTuneReinforcementMethodGraderGraderTextSimilarity(
-          GraderTextSimilarity.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return FineTuneReinforcementMethodGraderGraderPython(
-          GraderPython.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return FineTuneReinforcementMethodGraderGraderScoreModel(
-          GraderScoreModel.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return FineTuneReinforcementMethodGraderGraderMulti(
-          GraderMulti.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "string_check",
-          "text_similarity",
-          "python",
-          "score_model",
-          "multi"
-        }.contains(json["type"])) {
-      return UnknownFineTuneReinforcementMethodGrader(json);
-    }
-    throw FormatException(
-        "No variant matched for FineTuneReinforcementMethodGrader");
+    try { return FineTuneReinforcementMethodGraderGraderStringCheck(GraderStringCheck.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return FineTuneReinforcementMethodGraderGraderTextSimilarity(GraderTextSimilarity.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return FineTuneReinforcementMethodGraderGraderPython(GraderPython.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return FineTuneReinforcementMethodGraderGraderScoreModel(GraderScoreModel.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return FineTuneReinforcementMethodGraderGraderMulti(GraderMulti.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"string_check", "text_similarity", "python", "score_model", "multi"}.contains(json["type"])) { return UnknownFineTuneReinforcementMethodGrader(json); }
+    throw FormatException("No variant matched for FineTuneReinforcementMethodGrader");
   }
   Object? toJson();
 }
 
-final class FineTuneReinforcementMethodGraderGraderStringCheck
-    extends FineTuneReinforcementMethodGrader {
+final class FineTuneReinforcementMethodGraderGraderStringCheck extends FineTuneReinforcementMethodGrader {
   final GraderStringCheck value;
   const FineTuneReinforcementMethodGraderGraderStringCheck(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneReinforcementMethodGraderGraderTextSimilarity
-    extends FineTuneReinforcementMethodGrader {
+final class FineTuneReinforcementMethodGraderGraderTextSimilarity extends FineTuneReinforcementMethodGrader {
   final GraderTextSimilarity value;
   const FineTuneReinforcementMethodGraderGraderTextSimilarity(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneReinforcementMethodGraderGraderPython
-    extends FineTuneReinforcementMethodGrader {
+final class FineTuneReinforcementMethodGraderGraderPython extends FineTuneReinforcementMethodGrader {
   final GraderPython value;
   const FineTuneReinforcementMethodGraderGraderPython(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneReinforcementMethodGraderGraderScoreModel
-    extends FineTuneReinforcementMethodGrader {
+final class FineTuneReinforcementMethodGraderGraderScoreModel extends FineTuneReinforcementMethodGrader {
   final GraderScoreModel value;
   const FineTuneReinforcementMethodGraderGraderScoreModel(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneReinforcementMethodGraderGraderMulti
-    extends FineTuneReinforcementMethodGrader {
+final class FineTuneReinforcementMethodGraderGraderMulti extends FineTuneReinforcementMethodGrader {
   final GraderMulti value;
   const FineTuneReinforcementMethodGraderGraderMulti(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [FineTuneReinforcementMethodGrader] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownFineTuneReinforcementMethodGrader
-    extends FineTuneReinforcementMethodGrader {
+final class UnknownFineTuneReinforcementMethodGrader extends FineTuneReinforcementMethodGrader {
   final Map<String, dynamic> raw;
   const UnknownFineTuneReinforcementMethodGrader(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 sealed class FineTuneSupervisedHyperparametersBatchSize {
@@ -349,74 +176,47 @@ sealed class FineTuneSupervisedHyperparametersBatchSize {
   static const String constructionSurface = 'named';
   const FineTuneSupervisedHyperparametersBatchSize();
   factory FineTuneSupervisedHyperparametersBatchSize.fromJson(Object? json) {
-    if (json is num) {
-      return FineTuneSupervisedHyperparametersBatchSizeInt(json.toInt());
-    }
-    try {
-      return FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0(
-          FineTuneSupervisedHyperparametersBatchSizeVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneSupervisedHyperparametersBatchSize");
+    if (json is num) { return FineTuneSupervisedHyperparametersBatchSizeInt(json.toInt()); }
+    try { return FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0(FineTuneSupervisedHyperparametersBatchSizeVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneSupervisedHyperparametersBatchSize");
   }
   Object? toJson();
 }
 
-final class FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0
-    extends FineTuneSupervisedHyperparametersBatchSize {
+final class FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0 extends FineTuneSupervisedHyperparametersBatchSize {
   final FineTuneSupervisedHyperparametersBatchSizeVariant0 value;
-  const FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneSupervisedHyperparametersBatchSizeInt
-    extends FineTuneSupervisedHyperparametersBatchSize {
+final class FineTuneSupervisedHyperparametersBatchSizeInt extends FineTuneSupervisedHyperparametersBatchSize {
   final int value;
   const FineTuneSupervisedHyperparametersBatchSizeInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class FineTuneSupervisedHyperparametersLearningRateMultiplier {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const FineTuneSupervisedHyperparametersLearningRateMultiplier();
-  factory FineTuneSupervisedHyperparametersLearningRateMultiplier.fromJson(
-      Object? json) {
-    if (json is num) {
-      return FineTuneSupervisedHyperparametersLearningRateMultiplierDouble(
-          json.toDouble());
-    }
-    try {
-      return FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0(
-          FineTuneSupervisedHyperparametersLearningRateMultiplierVariant0
-              .fromJson(json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneSupervisedHyperparametersLearningRateMultiplier");
+  factory FineTuneSupervisedHyperparametersLearningRateMultiplier.fromJson(Object? json) {
+    if (json is num) { return FineTuneSupervisedHyperparametersLearningRateMultiplierDouble(json.toDouble()); }
+    try { return FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0(FineTuneSupervisedHyperparametersLearningRateMultiplierVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneSupervisedHyperparametersLearningRateMultiplier");
   }
   Object? toJson();
 }
 
-final class FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0
-    extends FineTuneSupervisedHyperparametersLearningRateMultiplier {
+final class FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0 extends FineTuneSupervisedHyperparametersLearningRateMultiplier {
   final FineTuneSupervisedHyperparametersLearningRateMultiplierVariant0 value;
-  const FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneSupervisedHyperparametersLearningRateMultiplierDouble
-    extends FineTuneSupervisedHyperparametersLearningRateMultiplier {
+final class FineTuneSupervisedHyperparametersLearningRateMultiplierDouble extends FineTuneSupervisedHyperparametersLearningRateMultiplier {
   final double value;
-  const FineTuneSupervisedHyperparametersLearningRateMultiplierDouble(
-      this.value);
-  @override
-  Object? toJson() => value;
+  const FineTuneSupervisedHyperparametersLearningRateMultiplierDouble(this.value);
+  @override Object? toJson() => value;
 }
 
 sealed class FineTuneSupervisedHyperparametersNEpochs {
@@ -424,110 +224,64 @@ sealed class FineTuneSupervisedHyperparametersNEpochs {
   static const String constructionSurface = 'named';
   const FineTuneSupervisedHyperparametersNEpochs();
   factory FineTuneSupervisedHyperparametersNEpochs.fromJson(Object? json) {
-    if (json is num) {
-      return FineTuneSupervisedHyperparametersNEpochsInt(json.toInt());
-    }
-    try {
-      return FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0(
-          FineTuneSupervisedHyperparametersNEpochsVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneSupervisedHyperparametersNEpochs");
+    if (json is num) { return FineTuneSupervisedHyperparametersNEpochsInt(json.toInt()); }
+    try { return FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0(FineTuneSupervisedHyperparametersNEpochsVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneSupervisedHyperparametersNEpochs");
   }
   Object? toJson();
 }
 
-final class FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0
-    extends FineTuneSupervisedHyperparametersNEpochs {
+final class FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0 extends FineTuneSupervisedHyperparametersNEpochs {
   final FineTuneSupervisedHyperparametersNEpochsVariant0 value;
-  const FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneSupervisedHyperparametersNEpochsInt
-    extends FineTuneSupervisedHyperparametersNEpochs {
+final class FineTuneSupervisedHyperparametersNEpochsInt extends FineTuneSupervisedHyperparametersNEpochs {
   final int value;
   const FineTuneSupervisedHyperparametersNEpochsInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// The hyperparameters used for the fine-tuning job.
 class FineTuneSupervisedHyperparameters {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Number of examples in each batch. A larger batch size means that model parameters are updated less frequently, but with lower variance.
   final SdkOptional<dynamic> batchSize;
-
   /// Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting.
   final SdkOptional<dynamic> learningRateMultiplier;
-
   /// The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
   final SdkOptional<dynamic> nEpochs;
 
-  const FineTuneSupervisedHyperparameters(
-      {this.batchSize = const SdkOmitted(),
-      this.learningRateMultiplier = const SdkOmitted(),
-      this.nEpochs = const SdkOmitted()});
+  const FineTuneSupervisedHyperparameters({this.batchSize = const SdkOmitted(), this.learningRateMultiplier = const SdkOmitted(), this.nEpochs = const SdkOmitted()});
 
-  FineTuneSupervisedHyperparameters Function(
-      {SdkOptional<dynamic> batchSize,
-      SdkOptional<dynamic> learningRateMultiplier,
-      SdkOptional<dynamic> nEpochs}) get copyWith => _copyWith;
+  FineTuneSupervisedHyperparameters Function({SdkOptional<dynamic> batchSize, SdkOptional<dynamic> learningRateMultiplier, SdkOptional<dynamic> nEpochs}) get copyWith => _copyWith;
 
-  FineTuneSupervisedHyperparameters _copyWith(
-          {Object? batchSize = sdkOmittedValue,
-          Object? learningRateMultiplier = sdkOmittedValue,
-          Object? nEpochs = sdkOmittedValue}) =>
-      FineTuneSupervisedHyperparameters(
-        batchSize: identical(batchSize, sdkOmittedValue)
-            ? this.batchSize
-            : batchSize as SdkOptional<dynamic>,
-        learningRateMultiplier:
-            identical(learningRateMultiplier, sdkOmittedValue)
-                ? this.learningRateMultiplier
-                : learningRateMultiplier as SdkOptional<dynamic>,
-        nEpochs: identical(nEpochs, sdkOmittedValue)
-            ? this.nEpochs
-            : nEpochs as SdkOptional<dynamic>,
-      );
+  FineTuneSupervisedHyperparameters _copyWith({Object? batchSize = sdkOmittedValue, Object? learningRateMultiplier = sdkOmittedValue, Object? nEpochs = sdkOmittedValue}) => FineTuneSupervisedHyperparameters(
+    batchSize: identical(batchSize, sdkOmittedValue) ? this.batchSize : batchSize as SdkOptional<dynamic>,
+    learningRateMultiplier: identical(learningRateMultiplier, sdkOmittedValue) ? this.learningRateMultiplier : learningRateMultiplier as SdkOptional<dynamic>,
+    nEpochs: identical(nEpochs, sdkOmittedValue) ? this.nEpochs : nEpochs as SdkOptional<dynamic>,
+  );
 
-  factory FineTuneSupervisedHyperparameters.fromJson(
-          Map<String, dynamic> json) =>
-      FineTuneSupervisedHyperparameters(
-        batchSize: json['batch_size'] != null
-            ? SdkPresent((json['batch_size'])!)
-            : const SdkOmitted(),
-        learningRateMultiplier: json['learning_rate_multiplier'] != null
-            ? SdkPresent((json['learning_rate_multiplier'])!)
-            : const SdkOmitted(),
-        nEpochs: json['n_epochs'] != null
-            ? SdkPresent((json['n_epochs'])!)
-            : const SdkOmitted(),
-      );
+  factory FineTuneSupervisedHyperparameters.fromJson(Map<String, dynamic> json) => FineTuneSupervisedHyperparameters(
+    batchSize: json['batch_size'] != null ? SdkPresent((json['batch_size'])!) : const SdkOmitted(),
+    learningRateMultiplier: json['learning_rate_multiplier'] != null ? SdkPresent((json['learning_rate_multiplier'])!) : const SdkOmitted(),
+    nEpochs: json['n_epochs'] != null ? SdkPresent((json['n_epochs'])!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (batchSize) {
-          SdkPresent<dynamic>(value: final value) => {
-              'batch_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (learningRateMultiplier) {
-          SdkPresent<dynamic>(value: final value) => {
-              'learning_rate_multiplier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nEpochs) {
-          SdkPresent<dynamic>(value: final value) => {
-              'n_epochs': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (batchSize) {
+      SdkPresent<dynamic>(value: final value) => {'batch_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (learningRateMultiplier) {
+      SdkPresent<dynamic>(value: final value) => {'learning_rate_multiplier': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nEpochs) {
+      SdkPresent<dynamic>(value: final value) => {'n_epochs': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

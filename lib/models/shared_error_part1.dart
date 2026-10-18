@@ -8,70 +8,45 @@ part of 'shared_error.dart';
 class ErrorBodyResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The error type.
   final String type_;
-
   /// A machine-readable error code.
   final String code;
-
   /// A human-readable error message.
   final String message;
-
   /// The request parameter that caused the error, or null for a request-wide error.
   final String? param;
 
-  const ErrorBodyResource(
-      {required this.type_,
-      required this.code,
-      required this.message,
-      required this.param});
+  const ErrorBodyResource({required this.type_, required this.code, required this.message, required this.param});
 
-  ErrorBodyResource Function(
-      {String type_,
-      String code,
-      String message,
-      String? param}) get copyWith => _copyWith;
+  ErrorBodyResource Function({String type_, String code, String message, String? param}) get copyWith => _copyWith;
 
-  ErrorBodyResource _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? param = sdkOmittedValue}) =>
-      ErrorBodyResource(
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-        param:
-            identical(param, sdkOmittedValue) ? this.param : param as String?,
-      );
+  ErrorBodyResource _copyWith({Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue, Object? param = sdkOmittedValue}) => ErrorBodyResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+    param: identical(param, sdkOmittedValue) ? this.param : param as String?,
+  );
 
-  factory ErrorBodyResource.fromJson(Map<String, dynamic> json) =>
-      ErrorBodyResource(
-        type_: (json['type'] as String?)!,
-        code: (json['code'] as String?)!,
-        message: (json['message'] as String?)!,
-        param: json.containsKey('param')
-            ? json['param'] as String?
-            : throw ArgumentError.value(
-                null, 'param', 'Required property is missing'),
-      );
+  factory ErrorBodyResource.fromJson(Map<String, dynamic> json) => ErrorBodyResource(
+    type_: (json['type'] as String?)!,
+    code: (json['code'] as String?)!,
+    message: (json['message'] as String?)!,
+    param: json.containsKey('param') ? json['param'] as String? : throw ArgumentError.value(null, 'param', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_,
-        'code': code,
-        'message': message,
-        'param': param,
-      };
+    'type': type_,
+    'code': code,
+    'message': message,
+    'param': param,
+  };
 }
 
 /// Typed representation of the `ErrorResponse` API schema.
 class ErrorResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required object value serialized in the `error` wire field.
   final Error3 error;
 
@@ -80,25 +55,22 @@ class ErrorResponse {
   ErrorResponse Function({Error3 error}) get copyWith => _copyWith;
 
   ErrorResponse _copyWith({Object? error = sdkOmittedValue}) => ErrorResponse(
-        error: identical(error, sdkOmittedValue) ? this.error : error as Error3,
-      );
+    error: identical(error, sdkOmittedValue) ? this.error : error as Error3,
+  );
 
   factory ErrorResponse.fromJson(Map<String, dynamic> json) => ErrorResponse(
-        error: (json['error'] != null
-            ? Error3.fromJson(json['error'] as Map<String, dynamic>)
-            : null)!,
-      );
+    error: (json['error'] != null ? Error3.fromJson(json['error'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'error': error.toJson(),
-      };
+    'error': error.toJson(),
+  };
 }
 
 /// An API error response.
 class ErrorResponse2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The error returned by the API.
   final ErrorBodyResource error;
 
@@ -107,18 +79,14 @@ class ErrorResponse2 {
   ErrorResponse2 Function({ErrorBodyResource error}) get copyWith => _copyWith;
 
   ErrorResponse2 _copyWith({Object? error = sdkOmittedValue}) => ErrorResponse2(
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as ErrorBodyResource,
-      );
+    error: identical(error, sdkOmittedValue) ? this.error : error as ErrorBodyResource,
+  );
 
   factory ErrorResponse2.fromJson(Map<String, dynamic> json) => ErrorResponse2(
-        error: (json['error'] != null
-            ? ErrorBodyResource.fromJson(json['error'] as Map<String, dynamic>)
-            : null)!,
-      );
+    error: (json['error'] != null ? ErrorBodyResource.fromJson(json['error'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'error': error.toJson(),
-      };
+    'error': error.toJson(),
+  };
 }

@@ -6,36 +6,33 @@ part of 'inline.dart';
 // Inline operation models (part 128)
 /// The object type, which is always `vector_store`.
 final class VectorStoreObjectObject {
+
   final String value;
 
   const VectorStoreObjectObject._(this.value);
 
-  factory VectorStoreObjectObject.fromJson(String value) =>
-      VectorStoreObjectObject._(value);
+  factory VectorStoreObjectObject.fromJson(String value) => VectorStoreObjectObject._(value);
 
   static const vectorStore = VectorStoreObjectObject._('vector_store');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VectorStoreObjectObject && other.value == value;
+  @override bool operator ==(Object other) => other is VectorStoreObjectObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the vector store, which can be either `expired`, `in_progress`, or `completed`. A status of `completed` indicates that the vector store is ready for use.
 final class VectorStoreObjectStatus {
+
   final String value;
 
   const VectorStoreObjectStatus._(this.value);
 
-  factory VectorStoreObjectStatus.fromJson(String value) =>
-      VectorStoreObjectStatus._(value);
+  factory VectorStoreObjectStatus.fromJson(String value) => VectorStoreObjectStatus._(value);
 
   static const expired = VectorStoreObjectStatus._('expired');
   static const inProgress = VectorStoreObjectStatus._('in_progress');
@@ -43,102 +40,87 @@ final class VectorStoreObjectStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VectorStoreObjectStatus && other.value == value;
+  @override bool operator ==(Object other) => other is VectorStoreObjectStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Enable re-ranking; set to `none` to disable, which can help reduce latency.
 final class VectorStoreSearchRequestRankingOptionsRanker {
+
   final String value;
 
   const VectorStoreSearchRequestRankingOptionsRanker._(this.value);
 
-  factory VectorStoreSearchRequestRankingOptionsRanker.fromJson(String value) =>
-      VectorStoreSearchRequestRankingOptionsRanker._(value);
+  factory VectorStoreSearchRequestRankingOptionsRanker.fromJson(String value) => VectorStoreSearchRequestRankingOptionsRanker._(value);
 
   static const none = VectorStoreSearchRequestRankingOptionsRanker._('none');
   static const auto = VectorStoreSearchRequestRankingOptionsRanker._('auto');
-  static const default20241115 =
-      VectorStoreSearchRequestRankingOptionsRanker._('default-2024-11-15');
+  static const default20241115 = VectorStoreSearchRequestRankingOptionsRanker._('default-2024-11-15');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VectorStoreSearchRequestRankingOptionsRanker &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is VectorStoreSearchRequestRankingOptionsRanker && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of content.
 final class VectorStoreSearchResultContentObjectType {
+
   final String value;
 
   const VectorStoreSearchResultContentObjectType._(this.value);
 
-  factory VectorStoreSearchResultContentObjectType.fromJson(String value) =>
-      VectorStoreSearchResultContentObjectType._(value);
+  factory VectorStoreSearchResultContentObjectType.fromJson(String value) => VectorStoreSearchResultContentObjectType._(value);
 
   static const text = VectorStoreSearchResultContentObjectType._('text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VectorStoreSearchResultContentObjectType && other.value == value;
+  @override bool operator ==(Object other) => other is VectorStoreSearchResultContentObjectType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `vector_store.search_results.page`
 final class VectorStoreSearchResultsPageObject {
+
   final String value;
 
   const VectorStoreSearchResultsPageObject._(this.value);
 
-  factory VectorStoreSearchResultsPageObject.fromJson(String value) =>
-      VectorStoreSearchResultsPageObject._(value);
+  factory VectorStoreSearchResultsPageObject.fromJson(String value) => VectorStoreSearchResultsPageObject._(value);
 
-  static const vectorStoreSearchResultsPage =
-      VectorStoreSearchResultsPageObject._('vector_store.search_results.page');
+  static const vectorStoreSearchResultsPage = VectorStoreSearchResultsPageObject._('vector_store.search_results.page');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VectorStoreSearchResultsPageObject && other.value == value;
+  @override bool operator ==(Object other) => other is VectorStoreSearchResultsPageObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Constrains the verbosity of the model's response. Lower values will result in more concise responses, while higher values will result in more verbose responses. Currently supported values are `low`, `medium`, and `high`. The default is `medium`.
 final class VerbosityVariant0 {
+
   final String value;
 
   const VerbosityVariant0._(this.value);
 
-  factory VerbosityVariant0.fromJson(String value) =>
-      VerbosityVariant0._(value);
+  factory VerbosityVariant0.fromJson(String value) => VerbosityVariant0._(value);
 
   static const low = VerbosityVariant0._('low');
   static const medium = VerbosityVariant0._('medium');
@@ -146,183 +128,157 @@ final class VerbosityVariant0 {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerbosityVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is VerbosityVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object returned, must be `list`.
 final class VideoListResourceObject {
+
   final String value;
 
   const VideoListResourceObject._(this.value);
 
-  factory VideoListResourceObject.fromJson(String value) =>
-      VideoListResourceObject._(value);
+  factory VideoListResourceObject.fromJson(String value) => VideoListResourceObject._(value);
 
   static const list = VideoListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VideoListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is VideoListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `video`.
 final class VideoResourceObject {
+
   final String value;
 
   const VideoResourceObject._(this.value);
 
-  factory VideoResourceObject.fromJson(String value) =>
-      VideoResourceObject._(value);
+  factory VideoResourceObject.fromJson(String value) => VideoResourceObject._(value);
 
   static const video = VideoResourceObject._('video');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VideoResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is VideoResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class VoiceConsentDeletedResourceObject {
+
   final String value;
 
   const VoiceConsentDeletedResourceObject._(this.value);
 
-  factory VoiceConsentDeletedResourceObject.fromJson(String value) =>
-      VoiceConsentDeletedResourceObject._(value);
+  factory VoiceConsentDeletedResourceObject.fromJson(String value) => VoiceConsentDeletedResourceObject._(value);
 
-  static const audioVoiceConsent =
-      VoiceConsentDeletedResourceObject._('audio.voice_consent');
+  static const audioVoiceConsent = VoiceConsentDeletedResourceObject._('audio.voice_consent');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VoiceConsentDeletedResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is VoiceConsentDeletedResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class VoiceConsentListResourceObject {
+
   final String value;
 
   const VoiceConsentListResourceObject._(this.value);
 
-  factory VoiceConsentListResourceObject.fromJson(String value) =>
-      VoiceConsentListResourceObject._(value);
+  factory VoiceConsentListResourceObject.fromJson(String value) => VoiceConsentListResourceObject._(value);
 
   static const list = VoiceConsentListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VoiceConsentListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is VoiceConsentListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `audio.voice_consent`.
 final class VoiceConsentResourceObject {
+
   final String value;
 
   const VoiceConsentResourceObject._(this.value);
 
-  factory VoiceConsentResourceObject.fromJson(String value) =>
-      VoiceConsentResourceObject._(value);
+  factory VoiceConsentResourceObject.fromJson(String value) => VoiceConsentResourceObject._(value);
 
-  static const audioVoiceConsent =
-      VoiceConsentResourceObject._('audio.voice_consent');
+  static const audioVoiceConsent = VoiceConsentResourceObject._('audio.voice_consent');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VoiceConsentResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is VoiceConsentResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `audio.voice`.
 final class VoiceResourceObject {
+
   final String value;
 
   const VoiceResourceObject._(this.value);
 
-  factory VoiceResourceObject.fromJson(String value) =>
-      VoiceResourceObject._(value);
+  factory VoiceResourceObject.fromJson(String value) => VoiceResourceObject._(value);
 
   static const audioVoice = VoiceResourceObject._('audio.voice');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VoiceResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is VoiceResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// How the voice was created.
 final class VoiceResourceType {
+
   final String value;
 
   const VoiceResourceType._(this.value);
 
-  factory VoiceResourceType.fromJson(String value) =>
-      VoiceResourceType._(value);
+  factory VoiceResourceType.fromJson(String value) => VoiceResourceType._(value);
 
   static const audioSample = VoiceResourceType._('audio_sample');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VoiceResourceType && other.value == value;
+  @override bool operator ==(Object other) => other is VoiceResourceType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

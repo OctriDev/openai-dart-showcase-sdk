@@ -6,12 +6,12 @@ part of 'agents_container.dart';
 // agents_container domain models
 /// The CPU and memory tier for a new OpenAI-hosted session environment.
 final class ContainerSizeParam {
+
   final String value;
 
   const ContainerSizeParam._(this.value);
 
-  factory ContainerSizeParam.fromJson(String value) =>
-      ContainerSizeParam._(value);
+  factory ContainerSizeParam.fromJson(String value) => ContainerSizeParam._(value);
 
   static const small = ContainerSizeParam._('small');
   static const medium = ContainerSizeParam._('medium');
@@ -19,25 +19,22 @@ final class ContainerSizeParam {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContainerSizeParam && other.value == value;
+  @override bool operator ==(Object other) => other is ContainerSizeParam && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The effective CPU and memory tier of an OpenAI-hosted environment.
 final class ContainerSizeResource {
+
   final String value;
 
   const ContainerSizeResource._(this.value);
 
-  factory ContainerSizeResource.fromJson(String value) =>
-      ContainerSizeResource._(value);
+  factory ContainerSizeResource.fromJson(String value) => ContainerSizeResource._(value);
 
   static const small = ContainerSizeResource._('small');
   static const medium = ContainerSizeResource._('medium');
@@ -45,13 +42,10 @@ final class ContainerSizeResource {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContainerSizeResource && other.value == value;
+  @override bool operator ==(Object other) => other is ContainerSizeResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

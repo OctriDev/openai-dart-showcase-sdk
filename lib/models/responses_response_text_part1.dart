@@ -8,256 +8,141 @@ part of 'responses_response_text.dart';
 class ResponseTextDeltaEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `response.output_text.delta`.
   final ResponseTextDeltaEventType type_;
-
   /// The ID of the output item that the text delta was added to.
   final String itemId;
-
   /// The index of the output item that the text delta was added to.
   final int outputIndex;
-
   /// The index of the content part that the text delta was added to.
   final int contentIndex;
-
   /// The text delta that was added.
   final String delta;
-
   /// The sequence number for this event.
   final int sequenceNumber;
-
   /// The log probabilities of the tokens in the delta.
   final List<ResponseLogProb> logprobs;
 
-  const ResponseTextDeltaEvent(
-      {required this.type_,
-      required this.itemId,
-      required this.outputIndex,
-      required this.contentIndex,
-      required this.delta,
-      required this.sequenceNumber,
-      required this.logprobs});
+  const ResponseTextDeltaEvent({required this.type_, required this.itemId, required this.outputIndex, required this.contentIndex, required this.delta, required this.sequenceNumber, required this.logprobs});
 
-  ResponseTextDeltaEvent Function(
-      {ResponseTextDeltaEventType type_,
-      String itemId,
-      int outputIndex,
-      int contentIndex,
-      String delta,
-      int sequenceNumber,
-      List<ResponseLogProb> logprobs}) get copyWith => _copyWith;
+  ResponseTextDeltaEvent Function({ResponseTextDeltaEventType type_, String itemId, int outputIndex, int contentIndex, String delta, int sequenceNumber, List<ResponseLogProb> logprobs}) get copyWith => _copyWith;
 
-  ResponseTextDeltaEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? contentIndex = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? logprobs = sdkOmittedValue}) =>
-      ResponseTextDeltaEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseTextDeltaEventType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        contentIndex: identical(contentIndex, sdkOmittedValue)
-            ? this.contentIndex
-            : contentIndex as int,
-        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        logprobs: identical(logprobs, sdkOmittedValue)
-            ? this.logprobs
-            : logprobs as List<ResponseLogProb>,
-      );
+  ResponseTextDeltaEvent _copyWith({Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? logprobs = sdkOmittedValue}) => ResponseTextDeltaEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseTextDeltaEventType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as List<ResponseLogProb>,
+  );
 
-  factory ResponseTextDeltaEvent.fromJson(Map<String, dynamic> json) =>
-      ResponseTextDeltaEvent(
-        type_: (json['type'] != null
-            ? ResponseTextDeltaEventType.fromJson(json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        contentIndex: ((json['content_index'] as num?)?.toInt())!,
-        delta: (json['delta'] as String?)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        logprobs: ((json['logprobs'] as List?)
-            ?.map((e) => ResponseLogProb.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory ResponseTextDeltaEvent.fromJson(Map<String, dynamic> json) => ResponseTextDeltaEvent(
+    type_: (json['type'] != null ? ResponseTextDeltaEventType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    contentIndex: ((json['content_index'] as num?)?.toInt())!,
+    delta: (json['delta'] as String?)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    logprobs: ((json['logprobs'] as List?)?.map((e) => ResponseLogProb.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'content_index': contentIndex,
-        'delta': delta,
-        'sequence_number': sequenceNumber,
-        'logprobs': logprobs.map((item) => item.toJson()).toList(),
-      };
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'content_index': contentIndex,
+    'delta': delta,
+    'sequence_number': sequenceNumber,
+    'logprobs': logprobs.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Emitted when text content is finalized.
 class ResponseTextDoneEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `response.output_text.done`.
   final ResponseTextDoneEventType type_;
-
   /// The ID of the output item that the text content is finalized.
   final String itemId;
-
   /// The index of the output item that the text content is finalized.
   final int outputIndex;
-
   /// The index of the content part that the text content is finalized.
   final int contentIndex;
-
   /// The text content that is finalized.
   final String text;
-
   /// The sequence number for this event.
   final int sequenceNumber;
-
   /// The log probabilities of the tokens in the delta.
   final List<ResponseLogProb> logprobs;
 
-  const ResponseTextDoneEvent(
-      {required this.type_,
-      required this.itemId,
-      required this.outputIndex,
-      required this.contentIndex,
-      required this.text,
-      required this.sequenceNumber,
-      required this.logprobs});
+  const ResponseTextDoneEvent({required this.type_, required this.itemId, required this.outputIndex, required this.contentIndex, required this.text, required this.sequenceNumber, required this.logprobs});
 
-  ResponseTextDoneEvent Function(
-      {ResponseTextDoneEventType type_,
-      String itemId,
-      int outputIndex,
-      int contentIndex,
-      String text,
-      int sequenceNumber,
-      List<ResponseLogProb> logprobs}) get copyWith => _copyWith;
+  ResponseTextDoneEvent Function({ResponseTextDoneEventType type_, String itemId, int outputIndex, int contentIndex, String text, int sequenceNumber, List<ResponseLogProb> logprobs}) get copyWith => _copyWith;
 
-  ResponseTextDoneEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? contentIndex = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? logprobs = sdkOmittedValue}) =>
-      ResponseTextDoneEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseTextDoneEventType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        contentIndex: identical(contentIndex, sdkOmittedValue)
-            ? this.contentIndex
-            : contentIndex as int,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        logprobs: identical(logprobs, sdkOmittedValue)
-            ? this.logprobs
-            : logprobs as List<ResponseLogProb>,
-      );
+  ResponseTextDoneEvent _copyWith({Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? text = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? logprobs = sdkOmittedValue}) => ResponseTextDoneEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseTextDoneEventType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as List<ResponseLogProb>,
+  );
 
-  factory ResponseTextDoneEvent.fromJson(Map<String, dynamic> json) =>
-      ResponseTextDoneEvent(
-        type_: (json['type'] != null
-            ? ResponseTextDoneEventType.fromJson(json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        contentIndex: ((json['content_index'] as num?)?.toInt())!,
-        text: (json['text'] as String?)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        logprobs: ((json['logprobs'] as List?)
-            ?.map((e) => ResponseLogProb.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory ResponseTextDoneEvent.fromJson(Map<String, dynamic> json) => ResponseTextDoneEvent(
+    type_: (json['type'] != null ? ResponseTextDoneEventType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    contentIndex: ((json['content_index'] as num?)?.toInt())!,
+    text: (json['text'] as String?)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    logprobs: ((json['logprobs'] as List?)?.map((e) => ResponseLogProb.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'content_index': contentIndex,
-        'text': text,
-        'sequence_number': sequenceNumber,
-        'logprobs': logprobs.map((item) => item.toJson()).toList(),
-      };
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'content_index': contentIndex,
+    'text': text,
+    'sequence_number': sequenceNumber,
+    'logprobs': logprobs.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Configuration options for a text response from the model. Can be plain text or structured JSON data. Learn more: - [Text inputs and outputs](https://developers.openai.com/api/docs/guides/text) - [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
 class ResponseTextParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An object specifying the format that the model must output. Configuring `{ "type": "json_schema" }` enables Structured Outputs, which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs). The default format is `{ "type": "text" }` with no additional options. **Not recommended for gpt-4o and newer models:** Setting to `{ "type": "json_object" }` enables the older JSON mode, which ensures the message the model generates is valid JSON. Using `json_schema` is preferred for models that support it.
   final SdkOptional<TextResponseFormatConfiguration> format;
-
   /// Optional API value serialized in the `verbosity` wire field.
   final SdkOptional<Verbosity?> verbosity;
 
-  const ResponseTextParam(
-      {this.format = const SdkOmitted(), this.verbosity = const SdkOmitted()});
+  const ResponseTextParam({this.format = const SdkOmitted(), this.verbosity = const SdkOmitted()});
 
-  ResponseTextParam Function(
-      {SdkOptional<TextResponseFormatConfiguration> format,
-      SdkOptional<Verbosity?> verbosity}) get copyWith => _copyWith;
+  ResponseTextParam Function({SdkOptional<TextResponseFormatConfiguration> format, SdkOptional<Verbosity?> verbosity}) get copyWith => _copyWith;
 
-  ResponseTextParam _copyWith(
-          {Object? format = sdkOmittedValue,
-          Object? verbosity = sdkOmittedValue}) =>
-      ResponseTextParam(
-        format: identical(format, sdkOmittedValue)
-            ? this.format
-            : format as SdkOptional<TextResponseFormatConfiguration>,
-        verbosity: identical(verbosity, sdkOmittedValue)
-            ? this.verbosity
-            : verbosity as SdkOptional<Verbosity?>,
-      );
+  ResponseTextParam _copyWith({Object? format = sdkOmittedValue, Object? verbosity = sdkOmittedValue}) => ResponseTextParam(
+    format: identical(format, sdkOmittedValue) ? this.format : format as SdkOptional<TextResponseFormatConfiguration>,
+    verbosity: identical(verbosity, sdkOmittedValue) ? this.verbosity : verbosity as SdkOptional<Verbosity?>,
+  );
 
-  factory ResponseTextParam.fromJson(Map<String, dynamic> json) =>
-      ResponseTextParam(
-        format: json['format'] != null
-            ? SdkPresent((json['format'] != null
-                ? TextResponseFormatConfiguration.fromJson(json['format'])
-                : null)!)
-            : const SdkOmitted(),
-        verbosity: json.containsKey('verbosity')
-            ? SdkPresent(json['verbosity'] != null
-                ? Verbosity.fromJson(json['verbosity'])
-                : null)
-            : const SdkOmitted(),
-      );
+  factory ResponseTextParam.fromJson(Map<String, dynamic> json) => ResponseTextParam(
+    format: json['format'] != null ? SdkPresent((json['format'] != null ? TextResponseFormatConfiguration.fromJson(json['format']) : null)!) : const SdkOmitted(),
+    verbosity: json.containsKey('verbosity') ? SdkPresent(json['verbosity'] != null ? Verbosity.fromJson(json['verbosity']) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (format) {
-          SdkPresent<TextResponseFormatConfiguration>(value: final value) => {
-              'format': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (verbosity) {
-          SdkPresent<Verbosity?>(value: final value) => {
-              'verbosity': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (format) {
+      SdkPresent<TextResponseFormatConfiguration>(value: final value) => {'format': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (verbosity) {
+      SdkPresent<Verbosity?>(value: final value) => {'verbosity': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

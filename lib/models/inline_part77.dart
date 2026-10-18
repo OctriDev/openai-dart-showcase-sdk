@@ -9,17 +9,14 @@ enum MessageStreamEventVariant1Event {
 
   static MessageStreamEventVariant1Event fromJson(String value) {
     switch (value) {
-      case 'thread.message.in_progress':
-        return MessageStreamEventVariant1Event.threadMessageInProgress;
-      default:
-        throw ArgumentError('Unknown MessageStreamEventVariant1Event: $value');
+      case 'thread.message.in_progress': return MessageStreamEventVariant1Event.threadMessageInProgress;
+      default: throw ArgumentError('Unknown MessageStreamEventVariant1Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageStreamEventVariant1Event.threadMessageInProgress:
-        return 'thread.message.in_progress';
+      case MessageStreamEventVariant1Event.threadMessageInProgress: return 'thread.message.in_progress';
     }
   }
 
@@ -32,17 +29,14 @@ enum MessageStreamEventVariant2Event {
 
   static MessageStreamEventVariant2Event fromJson(String value) {
     switch (value) {
-      case 'thread.message.delta':
-        return MessageStreamEventVariant2Event.threadMessageDelta;
-      default:
-        throw ArgumentError('Unknown MessageStreamEventVariant2Event: $value');
+      case 'thread.message.delta': return MessageStreamEventVariant2Event.threadMessageDelta;
+      default: throw ArgumentError('Unknown MessageStreamEventVariant2Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageStreamEventVariant2Event.threadMessageDelta:
-        return 'thread.message.delta';
+      case MessageStreamEventVariant2Event.threadMessageDelta: return 'thread.message.delta';
     }
   }
 
@@ -55,17 +49,14 @@ enum MessageStreamEventVariant3Event {
 
   static MessageStreamEventVariant3Event fromJson(String value) {
     switch (value) {
-      case 'thread.message.completed':
-        return MessageStreamEventVariant3Event.threadMessageCompleted;
-      default:
-        throw ArgumentError('Unknown MessageStreamEventVariant3Event: $value');
+      case 'thread.message.completed': return MessageStreamEventVariant3Event.threadMessageCompleted;
+      default: throw ArgumentError('Unknown MessageStreamEventVariant3Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageStreamEventVariant3Event.threadMessageCompleted:
-        return 'thread.message.completed';
+      case MessageStreamEventVariant3Event.threadMessageCompleted: return 'thread.message.completed';
     }
   }
 
@@ -78,17 +69,14 @@ enum MessageStreamEventVariant4Event {
 
   static MessageStreamEventVariant4Event fromJson(String value) {
     switch (value) {
-      case 'thread.message.incomplete':
-        return MessageStreamEventVariant4Event.threadMessageIncomplete;
-      default:
-        throw ArgumentError('Unknown MessageStreamEventVariant4Event: $value');
+      case 'thread.message.incomplete': return MessageStreamEventVariant4Event.threadMessageIncomplete;
+      default: throw ArgumentError('Unknown MessageStreamEventVariant4Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageStreamEventVariant4Event.threadMessageIncomplete:
-        return 'thread.message.incomplete';
+      case MessageStreamEventVariant4Event.threadMessageIncomplete: return 'thread.message.incomplete';
     }
   }
 
@@ -98,6 +86,7 @@ enum MessageStreamEventVariant4Event {
 
 /// The object type, which is always "model".
 final class ModelObject {
+
   final String value;
 
   const ModelObject._(this.value);
@@ -108,97 +97,74 @@ final class ModelObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ModelObject && other.value == value;
+  @override bool operator ==(Object other) => other is ModelObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `model` wire field.
 final class ModelIdsResponsesVariant1 {
+
   final String value;
 
   const ModelIdsResponsesVariant1._(this.value);
 
-  factory ModelIdsResponsesVariant1.fromJson(String value) =>
-      ModelIdsResponsesVariant1._(value);
+  factory ModelIdsResponsesVariant1.fromJson(String value) => ModelIdsResponsesVariant1._(value);
 
   static const o1Pro = ModelIdsResponsesVariant1._('o1-pro');
   static const o1Pro20250319 = ModelIdsResponsesVariant1._('o1-pro-2025-03-19');
   static const o3Pro = ModelIdsResponsesVariant1._('o3-pro');
   static const o3Pro20250610 = ModelIdsResponsesVariant1._('o3-pro-2025-06-10');
   static const o3DeepResearch = ModelIdsResponsesVariant1._('o3-deep-research');
-  static const o3DeepResearch20250626 =
-      ModelIdsResponsesVariant1._('o3-deep-research-2025-06-26');
-  static const o4MiniDeepResearch =
-      ModelIdsResponsesVariant1._('o4-mini-deep-research');
-  static const o4MiniDeepResearch20250626 =
-      ModelIdsResponsesVariant1._('o4-mini-deep-research-2025-06-26');
-  static const computerUsePreview =
-      ModelIdsResponsesVariant1._('computer-use-preview');
-  static const computerUsePreview20250311 =
-      ModelIdsResponsesVariant1._('computer-use-preview-2025-03-11');
+  static const o3DeepResearch20250626 = ModelIdsResponsesVariant1._('o3-deep-research-2025-06-26');
+  static const o4MiniDeepResearch = ModelIdsResponsesVariant1._('o4-mini-deep-research');
+  static const o4MiniDeepResearch20250626 = ModelIdsResponsesVariant1._('o4-mini-deep-research-2025-06-26');
+  static const computerUsePreview = ModelIdsResponsesVariant1._('computer-use-preview');
+  static const computerUsePreview20250311 = ModelIdsResponsesVariant1._('computer-use-preview-2025-03-11');
   static const gpt55Pro = ModelIdsResponsesVariant1._('gpt-5.5-pro');
-  static const gpt55Pro20260423 =
-      ModelIdsResponsesVariant1._('gpt-5.5-pro-2026-04-23');
+  static const gpt55Pro20260423 = ModelIdsResponsesVariant1._('gpt-5.5-pro-2026-04-23');
   static const gpt5Codex = ModelIdsResponsesVariant1._('gpt-5-codex');
   static const gpt5Pro = ModelIdsResponsesVariant1._('gpt-5-pro');
-  static const gpt5Pro20251006 =
-      ModelIdsResponsesVariant1._('gpt-5-pro-2025-10-06');
+  static const gpt5Pro20251006 = ModelIdsResponsesVariant1._('gpt-5-pro-2025-10-06');
   static const gpt51CodexMax = ModelIdsResponsesVariant1._('gpt-5.1-codex-max');
-  static const gptDaybreakBlueLatest =
-      ModelIdsResponsesVariant1._('gpt-daybreak-blue-latest');
-  static const gptDaybreakRedLatest =
-      ModelIdsResponsesVariant1._('gpt-daybreak-red-latest');
+  static const gptDaybreakBlueLatest = ModelIdsResponsesVariant1._('gpt-daybreak-blue-latest');
+  static const gptDaybreakRedLatest = ModelIdsResponsesVariant1._('gpt-daybreak-red-latest');
   static const gpt56Cyber = ModelIdsResponsesVariant1._('gpt-5.6-cyber');
-  static const gptRosalindResearch =
-      ModelIdsResponsesVariant1._('gpt-rosalind-research');
+  static const gptRosalindResearch = ModelIdsResponsesVariant1._('gpt-rosalind-research');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ModelIdsResponsesVariant1 && other.value == value;
+  @override bool operator ==(Object other) => other is ModelIdsResponsesVariant1 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Deprecated. Use `prompt_cache_options.ttl` instead. The retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](https://developers.openai.com/api/docs/guides/prompt-caching#prompt-cache-retention). This field expresses a maximum retention policy, while `prompt_cache_options.ttl` expresses a minimum cache lifetime. The two fields are independent and do not interact. For `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported. For older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy: - Organizations without ZDR enabled default to `24h`. - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.
 final class ModelResponsePropertiesPromptCacheRetentionVariant0 {
+
   final String value;
 
   const ModelResponsePropertiesPromptCacheRetentionVariant0._(this.value);
 
-  factory ModelResponsePropertiesPromptCacheRetentionVariant0.fromJson(
-          String value) =>
-      ModelResponsePropertiesPromptCacheRetentionVariant0._(value);
+  factory ModelResponsePropertiesPromptCacheRetentionVariant0.fromJson(String value) => ModelResponsePropertiesPromptCacheRetentionVariant0._(value);
 
-  static const inMemory =
-      ModelResponsePropertiesPromptCacheRetentionVariant0._('in_memory');
-  static const v24h =
-      ModelResponsePropertiesPromptCacheRetentionVariant0._('24h');
+  static const inMemory = ModelResponsePropertiesPromptCacheRetentionVariant0._('in_memory');
+  static const v24h = ModelResponsePropertiesPromptCacheRetentionVariant0._('24h');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ModelResponsePropertiesPromptCacheRetentionVariant0 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ModelResponsePropertiesPromptCacheRetentionVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which was always `error` for moderation failures.
@@ -207,17 +173,14 @@ enum ModerationErrorBodyType {
 
   static ModerationErrorBodyType fromJson(String value) {
     switch (value) {
-      case 'error':
-        return ModerationErrorBodyType.error;
-      default:
-        throw ArgumentError('Unknown ModerationErrorBodyType: $value');
+      case 'error': return ModerationErrorBodyType.error;
+      default: throw ArgumentError('Unknown ModerationErrorBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ModerationErrorBodyType.error:
-        return 'error';
+      case ModerationErrorBodyType.error: return 'error';
     }
   }
 
@@ -231,17 +194,14 @@ enum ModerationResultBodyType {
 
   static ModerationResultBodyType fromJson(String value) {
     switch (value) {
-      case 'moderation_result':
-        return ModerationResultBodyType.moderationResult;
-      default:
-        throw ArgumentError('Unknown ModerationResultBodyType: $value');
+      case 'moderation_result': return ModerationResultBodyType.moderationResult;
+      default: throw ArgumentError('Unknown ModerationResultBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ModerationResultBodyType.moderationResult:
-        return 'moderation_result';
+      case ModerationResultBodyType.moderationResult: return 'moderation_result';
     }
   }
 
@@ -255,17 +215,14 @@ enum MoveParamType {
 
   static MoveParamType fromJson(String value) {
     switch (value) {
-      case 'move':
-        return MoveParamType.move;
-      default:
-        throw ArgumentError('Unknown MoveParamType: $value');
+      case 'move': return MoveParamType.move;
+      default: throw ArgumentError('Unknown MoveParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MoveParamType.move:
-        return 'move';
+      case MoveParamType.move: return 'move';
     }
   }
 
@@ -279,17 +236,14 @@ enum NamespaceToolParamType {
 
   static NamespaceToolParamType fromJson(String value) {
     switch (value) {
-      case 'namespace':
-        return NamespaceToolParamType.namespace;
-      default:
-        throw ArgumentError('Unknown NamespaceToolParamType: $value');
+      case 'namespace': return NamespaceToolParamType.namespace;
+      default: throw ArgumentError('Unknown NamespaceToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case NamespaceToolParamType.namespace:
-        return 'namespace';
+      case NamespaceToolParamType.namespace: return 'namespace';
     }
   }
 
@@ -303,18 +257,14 @@ enum OciExternalStorageProviderParamsType {
 
   static OciExternalStorageProviderParamsType fromJson(String value) {
     switch (value) {
-      case 'oci':
-        return OciExternalStorageProviderParamsType.oci;
-      default:
-        throw ArgumentError(
-            'Unknown OciExternalStorageProviderParamsType: $value');
+      case 'oci': return OciExternalStorageProviderParamsType.oci;
+      default: throw ArgumentError('Unknown OciExternalStorageProviderParamsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case OciExternalStorageProviderParamsType.oci:
-        return 'oci';
+      case OciExternalStorageProviderParamsType.oci: return 'oci';
     }
   }
 
@@ -328,18 +278,14 @@ enum OciExternalStorageProviderResponseType {
 
   static OciExternalStorageProviderResponseType fromJson(String value) {
     switch (value) {
-      case 'oci':
-        return OciExternalStorageProviderResponseType.oci;
-      default:
-        throw ArgumentError(
-            'Unknown OciExternalStorageProviderResponseType: $value');
+      case 'oci': return OciExternalStorageProviderResponseType.oci;
+      default: throw ArgumentError('Unknown OciExternalStorageProviderResponseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case OciExternalStorageProviderResponseType.oci:
-        return 'oci';
+      case OciExternalStorageProviderResponseType.oci: return 'oci';
     }
   }
 

@@ -10,17 +10,14 @@ enum ResponseFormatTextType {
 
   static ResponseFormatTextType fromJson(String value) {
     switch (value) {
-      case 'text':
-        return ResponseFormatTextType.text;
-      default:
-        throw ArgumentError('Unknown ResponseFormatTextType: $value');
+      case 'text': return ResponseFormatTextType.text;
+      default: throw ArgumentError('Unknown ResponseFormatTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseFormatTextType.text:
-        return 'text';
+      case ResponseFormatTextType.text: return 'text';
     }
   }
 
@@ -30,50 +27,44 @@ enum ResponseFormatTextType {
 
 /// The type of response format being defined. Always `grammar`.
 final class ResponseFormatTextGrammarType {
+
   final String value;
 
   const ResponseFormatTextGrammarType._(this.value);
 
-  factory ResponseFormatTextGrammarType.fromJson(String value) =>
-      ResponseFormatTextGrammarType._(value);
+  factory ResponseFormatTextGrammarType.fromJson(String value) => ResponseFormatTextGrammarType._(value);
 
   static const grammar = ResponseFormatTextGrammarType._('grammar');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResponseFormatTextGrammarType && other.value == value;
+  @override bool operator ==(Object other) => other is ResponseFormatTextGrammarType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of response format being defined. Always `python`.
 final class ResponseFormatTextPythonType {
+
   final String value;
 
   const ResponseFormatTextPythonType._(this.value);
 
-  factory ResponseFormatTextPythonType.fromJson(String value) =>
-      ResponseFormatTextPythonType._(value);
+  factory ResponseFormatTextPythonType.fromJson(String value) => ResponseFormatTextPythonType._(value);
 
   static const python = ResponseFormatTextPythonType._('python');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResponseFormatTextPythonType && other.value == value;
+  @override bool operator ==(Object other) => other is ResponseFormatTextPythonType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always `response.function_call_arguments.delta`.
@@ -82,20 +73,14 @@ enum ResponseFunctionCallArgumentsDeltaEventType {
 
   static ResponseFunctionCallArgumentsDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.function_call_arguments.delta':
-        return ResponseFunctionCallArgumentsDeltaEventType
-            .responseFunctionCallArgumentsDelta;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseFunctionCallArgumentsDeltaEventType: $value');
+      case 'response.function_call_arguments.delta': return ResponseFunctionCallArgumentsDeltaEventType.responseFunctionCallArgumentsDelta;
+      default: throw ArgumentError('Unknown ResponseFunctionCallArgumentsDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseFunctionCallArgumentsDeltaEventType
-            .responseFunctionCallArgumentsDelta:
-        return 'response.function_call_arguments.delta';
+      case ResponseFunctionCallArgumentsDeltaEventType.responseFunctionCallArgumentsDelta: return 'response.function_call_arguments.delta';
     }
   }
 
@@ -109,20 +94,14 @@ enum ResponseFunctionCallArgumentsDoneEventType {
 
   static ResponseFunctionCallArgumentsDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.function_call_arguments.done':
-        return ResponseFunctionCallArgumentsDoneEventType
-            .responseFunctionCallArgumentsDone;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseFunctionCallArgumentsDoneEventType: $value');
+      case 'response.function_call_arguments.done': return ResponseFunctionCallArgumentsDoneEventType.responseFunctionCallArgumentsDone;
+      default: throw ArgumentError('Unknown ResponseFunctionCallArgumentsDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseFunctionCallArgumentsDoneEventType
-            .responseFunctionCallArgumentsDone:
-        return 'response.function_call_arguments.done';
+      case ResponseFunctionCallArgumentsDoneEventType.responseFunctionCallArgumentsDone: return 'response.function_call_arguments.done';
     }
   }
 
@@ -136,20 +115,14 @@ enum ResponseImageGenCallCompletedEventType {
 
   static ResponseImageGenCallCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.image_generation_call.completed':
-        return ResponseImageGenCallCompletedEventType
-            .responseImageGenerationCallCompleted;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseImageGenCallCompletedEventType: $value');
+      case 'response.image_generation_call.completed': return ResponseImageGenCallCompletedEventType.responseImageGenerationCallCompleted;
+      default: throw ArgumentError('Unknown ResponseImageGenCallCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseImageGenCallCompletedEventType
-            .responseImageGenerationCallCompleted:
-        return 'response.image_generation_call.completed';
+      case ResponseImageGenCallCompletedEventType.responseImageGenerationCallCompleted: return 'response.image_generation_call.completed';
     }
   }
 
@@ -163,20 +136,14 @@ enum ResponseImageGenCallGeneratingEventType {
 
   static ResponseImageGenCallGeneratingEventType fromJson(String value) {
     switch (value) {
-      case 'response.image_generation_call.generating':
-        return ResponseImageGenCallGeneratingEventType
-            .responseImageGenerationCallGenerating;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseImageGenCallGeneratingEventType: $value');
+      case 'response.image_generation_call.generating': return ResponseImageGenCallGeneratingEventType.responseImageGenerationCallGenerating;
+      default: throw ArgumentError('Unknown ResponseImageGenCallGeneratingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseImageGenCallGeneratingEventType
-            .responseImageGenerationCallGenerating:
-        return 'response.image_generation_call.generating';
+      case ResponseImageGenCallGeneratingEventType.responseImageGenerationCallGenerating: return 'response.image_generation_call.generating';
     }
   }
 
@@ -190,20 +157,14 @@ enum ResponseImageGenCallInProgressEventType {
 
   static ResponseImageGenCallInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.image_generation_call.in_progress':
-        return ResponseImageGenCallInProgressEventType
-            .responseImageGenerationCallInProgress;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseImageGenCallInProgressEventType: $value');
+      case 'response.image_generation_call.in_progress': return ResponseImageGenCallInProgressEventType.responseImageGenerationCallInProgress;
+      default: throw ArgumentError('Unknown ResponseImageGenCallInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseImageGenCallInProgressEventType
-            .responseImageGenerationCallInProgress:
-        return 'response.image_generation_call.in_progress';
+      case ResponseImageGenCallInProgressEventType.responseImageGenerationCallInProgress: return 'response.image_generation_call.in_progress';
     }
   }
 
@@ -217,20 +178,14 @@ enum ResponseImageGenCallPartialImageEventType {
 
   static ResponseImageGenCallPartialImageEventType fromJson(String value) {
     switch (value) {
-      case 'response.image_generation_call.partial_image':
-        return ResponseImageGenCallPartialImageEventType
-            .responseImageGenerationCallPartialImage;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseImageGenCallPartialImageEventType: $value');
+      case 'response.image_generation_call.partial_image': return ResponseImageGenCallPartialImageEventType.responseImageGenerationCallPartialImage;
+      default: throw ArgumentError('Unknown ResponseImageGenCallPartialImageEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseImageGenCallPartialImageEventType
-            .responseImageGenerationCallPartialImage:
-        return 'response.image_generation_call.partial_image';
+      case ResponseImageGenCallPartialImageEventType.responseImageGenerationCallPartialImage: return 'response.image_generation_call.partial_image';
     }
   }
 
@@ -244,17 +199,14 @@ enum ResponseIncompleteEventType {
 
   static ResponseIncompleteEventType fromJson(String value) {
     switch (value) {
-      case 'response.incomplete':
-        return ResponseIncompleteEventType.responseIncomplete;
-      default:
-        throw ArgumentError('Unknown ResponseIncompleteEventType: $value');
+      case 'response.incomplete': return ResponseIncompleteEventType.responseIncomplete;
+      default: throw ArgumentError('Unknown ResponseIncompleteEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseIncompleteEventType.responseIncomplete:
-        return 'response.incomplete';
+      case ResponseIncompleteEventType.responseIncomplete: return 'response.incomplete';
     }
   }
 
@@ -268,17 +220,14 @@ enum ResponseInProgressEventType {
 
   static ResponseInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.in_progress':
-        return ResponseInProgressEventType.responseInProgress;
-      default:
-        throw ArgumentError('Unknown ResponseInProgressEventType: $value');
+      case 'response.in_progress': return ResponseInProgressEventType.responseInProgress;
+      default: throw ArgumentError('Unknown ResponseInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseInProgressEventType.responseInProgress:
-        return 'response.in_progress';
+      case ResponseInProgressEventType.responseInProgress: return 'response.in_progress';
     }
   }
 
@@ -288,26 +237,23 @@ enum ResponseInProgressEventType {
 
 /// The type of object returned, must be `list`.
 final class ResponseItemListObject {
+
   final String value;
 
   const ResponseItemListObject._(this.value);
 
-  factory ResponseItemListObject.fromJson(String value) =>
-      ResponseItemListObject._(value);
+  factory ResponseItemListObject.fromJson(String value) => ResponseItemListObject._(value);
 
   static const list = ResponseItemListObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResponseItemListObject && other.value == value;
+  @override bool operator ==(Object other) => other is ResponseItemListObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always 'response.mcp_call_arguments.delta'.
@@ -316,19 +262,14 @@ enum ResponseMCPCallArgumentsDeltaEventType {
 
   static ResponseMCPCallArgumentsDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call_arguments.delta':
-        return ResponseMCPCallArgumentsDeltaEventType
-            .responseMcpCallArgumentsDelta;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseMCPCallArgumentsDeltaEventType: $value');
+      case 'response.mcp_call_arguments.delta': return ResponseMCPCallArgumentsDeltaEventType.responseMcpCallArgumentsDelta;
+      default: throw ArgumentError('Unknown ResponseMCPCallArgumentsDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseMCPCallArgumentsDeltaEventType.responseMcpCallArgumentsDelta:
-        return 'response.mcp_call_arguments.delta';
+      case ResponseMCPCallArgumentsDeltaEventType.responseMcpCallArgumentsDelta: return 'response.mcp_call_arguments.delta';
     }
   }
 

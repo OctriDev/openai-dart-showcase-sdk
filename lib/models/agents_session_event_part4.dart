@@ -8,544 +8,291 @@ part of 'agents_session_event.dart';
 class SessionEventAgentSessionRequiresAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `agent.session.requires_action`.
   final SessionEventAgentSessionRequiresActionType type_;
-
   /// The unique ID of the event.
   final String eventId;
-
   /// The session and its current required actions.
   final SessionResource session;
 
-  const SessionEventAgentSessionRequiresAction(
-      {required this.type_, required this.eventId, required this.session});
+  const SessionEventAgentSessionRequiresAction({required this.type_, required this.eventId, required this.session});
 
-  SessionEventAgentSessionRequiresAction Function(
-      {SessionEventAgentSessionRequiresActionType type_,
-      String eventId,
-      SessionResource session}) get copyWith => _copyWith;
+  SessionEventAgentSessionRequiresAction Function({SessionEventAgentSessionRequiresActionType type_, String eventId, SessionResource session}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionRequiresAction _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? session = sdkOmittedValue}) =>
-      SessionEventAgentSessionRequiresAction(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SessionEventAgentSessionRequiresActionType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as SessionResource,
-      );
+  SessionEventAgentSessionRequiresAction _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? session = sdkOmittedValue}) => SessionEventAgentSessionRequiresAction(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionRequiresActionType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    session: identical(session, sdkOmittedValue) ? this.session : session as SessionResource,
+  );
 
-  factory SessionEventAgentSessionRequiresAction.fromJson(
-          Map<String, dynamic> json) =>
-      SessionEventAgentSessionRequiresAction(
-        type_: (json['type'] != null
-            ? SessionEventAgentSessionRequiresActionType.fromJson(
-                json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        session: (json['session'] != null
-            ? SessionResource.fromJson(json['session'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory SessionEventAgentSessionRequiresAction.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionRequiresAction(
+    type_: (json['type'] != null ? SessionEventAgentSessionRequiresActionType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    session: (json['session'] != null ? SessionResource.fromJson(json['session'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        'session': session.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    'session': session.toJson(),
+  };
 }
 
 /// Emitted when a closed subagent successfully resumes.
 class SessionEventAgentSessionSubagentActive {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `agent.session.subagent.active`.
   final SessionEventAgentSessionSubagentActiveType type_;
-
   /// The unique ID of the event.
   final String eventId;
-
   /// The subagent that resumed.
   final SubagentResource subagent;
 
-  const SessionEventAgentSessionSubagentActive(
-      {required this.type_, required this.eventId, required this.subagent});
+  const SessionEventAgentSessionSubagentActive({required this.type_, required this.eventId, required this.subagent});
 
-  SessionEventAgentSessionSubagentActive Function(
-      {SessionEventAgentSessionSubagentActiveType type_,
-      String eventId,
-      SubagentResource subagent}) get copyWith => _copyWith;
+  SessionEventAgentSessionSubagentActive Function({SessionEventAgentSessionSubagentActiveType type_, String eventId, SubagentResource subagent}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionSubagentActive _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? subagent = sdkOmittedValue}) =>
-      SessionEventAgentSessionSubagentActive(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SessionEventAgentSessionSubagentActiveType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        subagent: identical(subagent, sdkOmittedValue)
-            ? this.subagent
-            : subagent as SubagentResource,
-      );
+  SessionEventAgentSessionSubagentActive _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? subagent = sdkOmittedValue}) => SessionEventAgentSessionSubagentActive(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionSubagentActiveType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    subagent: identical(subagent, sdkOmittedValue) ? this.subagent : subagent as SubagentResource,
+  );
 
-  factory SessionEventAgentSessionSubagentActive.fromJson(
-          Map<String, dynamic> json) =>
-      SessionEventAgentSessionSubagentActive(
-        type_: (json['type'] != null
-            ? SessionEventAgentSessionSubagentActiveType.fromJson(
-                json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        subagent: (json['subagent'] != null
-            ? SubagentResource.fromJson(
-                json['subagent'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory SessionEventAgentSessionSubagentActive.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionSubagentActive(
+    type_: (json['type'] != null ? SessionEventAgentSessionSubagentActiveType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    subagent: (json['subagent'] != null ? SubagentResource.fromJson(json['subagent'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        'subagent': subagent.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    'subagent': subagent.toJson(),
+  };
 }
 
 /// Emitted when a subagent is closed.
 class SessionEventAgentSessionSubagentClosed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `agent.session.subagent.closed`.
   final SessionEventAgentSessionSubagentClosedType type_;
-
   /// The unique ID of the event.
   final String eventId;
-
   /// The subagent that was closed.
   final SubagentResource subagent;
 
-  const SessionEventAgentSessionSubagentClosed(
-      {required this.type_, required this.eventId, required this.subagent});
+  const SessionEventAgentSessionSubagentClosed({required this.type_, required this.eventId, required this.subagent});
 
-  SessionEventAgentSessionSubagentClosed Function(
-      {SessionEventAgentSessionSubagentClosedType type_,
-      String eventId,
-      SubagentResource subagent}) get copyWith => _copyWith;
+  SessionEventAgentSessionSubagentClosed Function({SessionEventAgentSessionSubagentClosedType type_, String eventId, SubagentResource subagent}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionSubagentClosed _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? subagent = sdkOmittedValue}) =>
-      SessionEventAgentSessionSubagentClosed(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SessionEventAgentSessionSubagentClosedType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        subagent: identical(subagent, sdkOmittedValue)
-            ? this.subagent
-            : subagent as SubagentResource,
-      );
+  SessionEventAgentSessionSubagentClosed _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? subagent = sdkOmittedValue}) => SessionEventAgentSessionSubagentClosed(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionSubagentClosedType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    subagent: identical(subagent, sdkOmittedValue) ? this.subagent : subagent as SubagentResource,
+  );
 
-  factory SessionEventAgentSessionSubagentClosed.fromJson(
-          Map<String, dynamic> json) =>
-      SessionEventAgentSessionSubagentClosed(
-        type_: (json['type'] != null
-            ? SessionEventAgentSessionSubagentClosedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        subagent: (json['subagent'] != null
-            ? SubagentResource.fromJson(
-                json['subagent'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory SessionEventAgentSessionSubagentClosed.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionSubagentClosed(
+    type_: (json['type'] != null ? SessionEventAgentSessionSubagentClosedType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    subagent: (json['subagent'] != null ? SubagentResource.fromJson(json['subagent'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        'subagent': subagent.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    'subagent': subagent.toJson(),
+  };
 }
 
 /// Emitted when a subagent is created.
 class SessionEventAgentSessionSubagentCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `agent.session.subagent.created`.
   final SessionEventAgentSessionSubagentCreatedType type_;
-
   /// The unique ID of the event.
   final String eventId;
-
   /// The subagent that was created.
   final SubagentResource subagent;
 
-  const SessionEventAgentSessionSubagentCreated(
-      {required this.type_, required this.eventId, required this.subagent});
+  const SessionEventAgentSessionSubagentCreated({required this.type_, required this.eventId, required this.subagent});
 
-  SessionEventAgentSessionSubagentCreated Function(
-      {SessionEventAgentSessionSubagentCreatedType type_,
-      String eventId,
-      SubagentResource subagent}) get copyWith => _copyWith;
+  SessionEventAgentSessionSubagentCreated Function({SessionEventAgentSessionSubagentCreatedType type_, String eventId, SubagentResource subagent}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionSubagentCreated _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? subagent = sdkOmittedValue}) =>
-      SessionEventAgentSessionSubagentCreated(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SessionEventAgentSessionSubagentCreatedType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        subagent: identical(subagent, sdkOmittedValue)
-            ? this.subagent
-            : subagent as SubagentResource,
-      );
+  SessionEventAgentSessionSubagentCreated _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? subagent = sdkOmittedValue}) => SessionEventAgentSessionSubagentCreated(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionSubagentCreatedType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    subagent: identical(subagent, sdkOmittedValue) ? this.subagent : subagent as SubagentResource,
+  );
 
-  factory SessionEventAgentSessionSubagentCreated.fromJson(
-          Map<String, dynamic> json) =>
-      SessionEventAgentSessionSubagentCreated(
-        type_: (json['type'] != null
-            ? SessionEventAgentSessionSubagentCreatedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        subagent: (json['subagent'] != null
-            ? SubagentResource.fromJson(
-                json['subagent'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory SessionEventAgentSessionSubagentCreated.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionSubagentCreated(
+    type_: (json['type'] != null ? SessionEventAgentSessionSubagentCreatedType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    subagent: (json['subagent'] != null ? SubagentResource.fromJson(json['subagent'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        'subagent': subagent.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    'subagent': subagent.toJson(),
+  };
 }
 
 /// Emitted when a turn is cancelled.
 class SessionEventAgentSessionTurnCancelled {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `agent.session.turn.cancelled`.
   final SessionEventAgentSessionTurnCancelledType type_;
-
   /// The unique ID of the event.
   final String eventId;
-
   /// The ID of the session associated with the event.
   final String sessionId;
-
   /// The ID of the turn associated with the event.
   final String turnId;
-
   /// The cancelled turn.
   final TurnResource turn;
-
   /// Token usage by the root agent during the turn, when available.
   final TokenUsageResource? usage;
 
-  const SessionEventAgentSessionTurnCancelled(
-      {required this.type_,
-      required this.eventId,
-      required this.sessionId,
-      required this.turnId,
-      required this.turn,
-      required this.usage});
+  const SessionEventAgentSessionTurnCancelled({required this.type_, required this.eventId, required this.sessionId, required this.turnId, required this.turn, required this.usage});
 
-  SessionEventAgentSessionTurnCancelled Function(
-      {SessionEventAgentSessionTurnCancelledType type_,
-      String eventId,
-      String sessionId,
-      String turnId,
-      TurnResource turn,
-      TokenUsageResource? usage}) get copyWith => _copyWith;
+  SessionEventAgentSessionTurnCancelled Function({SessionEventAgentSessionTurnCancelledType type_, String eventId, String sessionId, String turnId, TurnResource turn, TokenUsageResource? usage}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionTurnCancelled _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? sessionId = sdkOmittedValue,
-          Object? turnId = sdkOmittedValue,
-          Object? turn = sdkOmittedValue,
-          Object? usage = sdkOmittedValue}) =>
-      SessionEventAgentSessionTurnCancelled(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SessionEventAgentSessionTurnCancelledType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        sessionId: identical(sessionId, sdkOmittedValue)
-            ? this.sessionId
-            : sessionId as String,
-        turnId:
-            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-        turn:
-            identical(turn, sdkOmittedValue) ? this.turn : turn as TurnResource,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as TokenUsageResource?,
-      );
+  SessionEventAgentSessionTurnCancelled _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? turn = sdkOmittedValue, Object? usage = sdkOmittedValue}) => SessionEventAgentSessionTurnCancelled(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionTurnCancelledType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
+    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+    turn: identical(turn, sdkOmittedValue) ? this.turn : turn as TurnResource,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as TokenUsageResource?,
+  );
 
-  factory SessionEventAgentSessionTurnCancelled.fromJson(
-          Map<String, dynamic> json) =>
-      SessionEventAgentSessionTurnCancelled(
-        type_: (json['type'] != null
-            ? SessionEventAgentSessionTurnCancelledType.fromJson(
-                json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        sessionId: (json['session_id'] as String?)!,
-        turnId: (json['turn_id'] as String?)!,
-        turn: (json['turn'] != null
-            ? TurnResource.fromJson(json['turn'] as Map<String, dynamic>)
-            : null)!,
-        usage: json.containsKey('usage')
-            ? json['usage'] != null
-                ? TokenUsageResource.fromJson(
-                    json['usage'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'usage', 'Required property is missing'),
-      );
+  factory SessionEventAgentSessionTurnCancelled.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionTurnCancelled(
+    type_: (json['type'] != null ? SessionEventAgentSessionTurnCancelledType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    sessionId: (json['session_id'] as String?)!,
+    turnId: (json['turn_id'] as String?)!,
+    turn: (json['turn'] != null ? TurnResource.fromJson(json['turn'] as Map<String, dynamic>) : null)!,
+    usage: json.containsKey('usage') ? json['usage'] != null ? TokenUsageResource.fromJson(json['usage'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'usage', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        'session_id': sessionId,
-        'turn_id': turnId,
-        'turn': turn.toJson(),
-        'usage': usage?.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    'session_id': sessionId,
+    'turn_id': turnId,
+    'turn': turn.toJson(),
+    'usage': usage?.toJson(),
+  };
 }
 
 /// Emitted when a turn completes.
 class SessionEventAgentSessionTurnCompleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `agent.session.turn.completed`.
   final SessionEventAgentSessionTurnCompletedType type_;
-
   /// The unique ID of the event.
   final String eventId;
-
   /// The ID of the session associated with the event.
   final String sessionId;
-
   /// The ID of the turn associated with the event.
   final String turnId;
-
   /// The completed turn.
   final TurnResource turn;
-
   /// Token usage by the root agent during the turn, when available.
   final TokenUsageResource? usage;
 
-  const SessionEventAgentSessionTurnCompleted(
-      {required this.type_,
-      required this.eventId,
-      required this.sessionId,
-      required this.turnId,
-      required this.turn,
-      required this.usage});
+  const SessionEventAgentSessionTurnCompleted({required this.type_, required this.eventId, required this.sessionId, required this.turnId, required this.turn, required this.usage});
 
-  SessionEventAgentSessionTurnCompleted Function(
-      {SessionEventAgentSessionTurnCompletedType type_,
-      String eventId,
-      String sessionId,
-      String turnId,
-      TurnResource turn,
-      TokenUsageResource? usage}) get copyWith => _copyWith;
+  SessionEventAgentSessionTurnCompleted Function({SessionEventAgentSessionTurnCompletedType type_, String eventId, String sessionId, String turnId, TurnResource turn, TokenUsageResource? usage}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionTurnCompleted _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? sessionId = sdkOmittedValue,
-          Object? turnId = sdkOmittedValue,
-          Object? turn = sdkOmittedValue,
-          Object? usage = sdkOmittedValue}) =>
-      SessionEventAgentSessionTurnCompleted(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SessionEventAgentSessionTurnCompletedType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        sessionId: identical(sessionId, sdkOmittedValue)
-            ? this.sessionId
-            : sessionId as String,
-        turnId:
-            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-        turn:
-            identical(turn, sdkOmittedValue) ? this.turn : turn as TurnResource,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as TokenUsageResource?,
-      );
+  SessionEventAgentSessionTurnCompleted _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? turn = sdkOmittedValue, Object? usage = sdkOmittedValue}) => SessionEventAgentSessionTurnCompleted(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionTurnCompletedType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
+    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+    turn: identical(turn, sdkOmittedValue) ? this.turn : turn as TurnResource,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as TokenUsageResource?,
+  );
 
-  factory SessionEventAgentSessionTurnCompleted.fromJson(
-          Map<String, dynamic> json) =>
-      SessionEventAgentSessionTurnCompleted(
-        type_: (json['type'] != null
-            ? SessionEventAgentSessionTurnCompletedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        sessionId: (json['session_id'] as String?)!,
-        turnId: (json['turn_id'] as String?)!,
-        turn: (json['turn'] != null
-            ? TurnResource.fromJson(json['turn'] as Map<String, dynamic>)
-            : null)!,
-        usage: json.containsKey('usage')
-            ? json['usage'] != null
-                ? TokenUsageResource.fromJson(
-                    json['usage'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'usage', 'Required property is missing'),
-      );
+  factory SessionEventAgentSessionTurnCompleted.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionTurnCompleted(
+    type_: (json['type'] != null ? SessionEventAgentSessionTurnCompletedType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    sessionId: (json['session_id'] as String?)!,
+    turnId: (json['turn_id'] as String?)!,
+    turn: (json['turn'] != null ? TurnResource.fromJson(json['turn'] as Map<String, dynamic>) : null)!,
+    usage: json.containsKey('usage') ? json['usage'] != null ? TokenUsageResource.fromJson(json['usage'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'usage', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        'session_id': sessionId,
-        'turn_id': turnId,
-        'turn': turn.toJson(),
-        'usage': usage?.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    'session_id': sessionId,
+    'turn_id': turnId,
+    'turn': turn.toJson(),
+    'usage': usage?.toJson(),
+  };
 }
 
 /// Emitted when an output text content part is added.
 class SessionEventAgentSessionTurnContentPartAdded {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `agent.session.turn.content_part.added`.
   final SessionEventAgentSessionTurnContentPartAddedType type_;
-
   /// The unique ID of the event.
   final String eventId;
-
   /// The ID of the session associated with the event.
   final String sessionId;
-
   /// The ID of the turn associated with the event, when applicable.
   final String? turnId;
-
   /// The ID of the message item.
   final String itemId;
-
   /// The index of the item in the turn output.
   final int outputIndex;
-
   /// The index of the content part in the message.
   final int contentIndex;
-
   /// The initial content part.
   final OutputTextResource part_;
 
-  const SessionEventAgentSessionTurnContentPartAdded(
-      {required this.type_,
-      required this.eventId,
-      required this.sessionId,
-      required this.turnId,
-      required this.itemId,
-      required this.outputIndex,
-      required this.contentIndex,
-      required this.part_});
+  const SessionEventAgentSessionTurnContentPartAdded({required this.type_, required this.eventId, required this.sessionId, required this.turnId, required this.itemId, required this.outputIndex, required this.contentIndex, required this.part_});
 
-  SessionEventAgentSessionTurnContentPartAdded Function(
-      {SessionEventAgentSessionTurnContentPartAddedType type_,
-      String eventId,
-      String sessionId,
-      String? turnId,
-      String itemId,
-      int outputIndex,
-      int contentIndex,
-      OutputTextResource part_}) get copyWith => _copyWith;
+  SessionEventAgentSessionTurnContentPartAdded Function({SessionEventAgentSessionTurnContentPartAddedType type_, String eventId, String sessionId, String? turnId, String itemId, int outputIndex, int contentIndex, OutputTextResource part_}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionTurnContentPartAdded _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? sessionId = sdkOmittedValue,
-          Object? turnId = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? contentIndex = sdkOmittedValue,
-          Object? part_ = sdkOmittedValue}) =>
-      SessionEventAgentSessionTurnContentPartAdded(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SessionEventAgentSessionTurnContentPartAddedType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        sessionId: identical(sessionId, sdkOmittedValue)
-            ? this.sessionId
-            : sessionId as String,
-        turnId: identical(turnId, sdkOmittedValue)
-            ? this.turnId
-            : turnId as String?,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        contentIndex: identical(contentIndex, sdkOmittedValue)
-            ? this.contentIndex
-            : contentIndex as int,
-        part_: identical(part_, sdkOmittedValue)
-            ? this.part_
-            : part_ as OutputTextResource,
-      );
+  SessionEventAgentSessionTurnContentPartAdded _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? part_ = sdkOmittedValue}) => SessionEventAgentSessionTurnContentPartAdded(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionTurnContentPartAddedType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
+    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String?,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
+    part_: identical(part_, sdkOmittedValue) ? this.part_ : part_ as OutputTextResource,
+  );
 
-  factory SessionEventAgentSessionTurnContentPartAdded.fromJson(
-          Map<String, dynamic> json) =>
-      SessionEventAgentSessionTurnContentPartAdded(
-        type_: (json['type'] != null
-            ? SessionEventAgentSessionTurnContentPartAddedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        sessionId: (json['session_id'] as String?)!,
-        turnId: json.containsKey('turn_id')
-            ? json['turn_id'] as String?
-            : throw ArgumentError.value(
-                null, 'turn_id', 'Required property is missing'),
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        contentIndex: ((json['content_index'] as num?)?.toInt())!,
-        part_: (json['part'] != null
-            ? OutputTextResource.fromJson(json['part'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory SessionEventAgentSessionTurnContentPartAdded.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionTurnContentPartAdded(
+    type_: (json['type'] != null ? SessionEventAgentSessionTurnContentPartAddedType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    sessionId: (json['session_id'] as String?)!,
+    turnId: json.containsKey('turn_id') ? json['turn_id'] as String? : throw ArgumentError.value(null, 'turn_id', 'Required property is missing'),
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    contentIndex: ((json['content_index'] as num?)?.toInt())!,
+    part_: (json['part'] != null ? OutputTextResource.fromJson(json['part'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        'session_id': sessionId,
-        'turn_id': turnId,
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'content_index': contentIndex,
-        'part': part_.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    'session_id': sessionId,
+    'turn_id': turnId,
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'content_index': contentIndex,
+    'part': part_.toJson(),
+  };
 }

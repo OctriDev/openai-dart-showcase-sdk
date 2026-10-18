@@ -8,83 +8,43 @@ part of 'vaults_rotate.dart';
 class RotateMcpOauthRefreshParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The replacement refresh token. Omit or pass `null` to keep the stored token. This secret is never returned in resources.
   final SdkOptional<String?> refreshToken;
-
   /// Replacement space-separated OAuth scopes for refresh requests. Omit to keep the scopes, or pass `null` to stop sending a scope parameter.
   final SdkOptional<String?> scope;
-
   /// Client-secret updates for the existing token endpoint authentication method.
   final SdkOptional<RotateMcpOauthTokenEndpointAuthParam?> tokenEndpointAuth;
 
-  const RotateMcpOauthRefreshParam(
-      {this.refreshToken = const SdkOmitted(),
-      this.scope = const SdkOmitted(),
-      this.tokenEndpointAuth = const SdkOmitted()});
+  const RotateMcpOauthRefreshParam({this.refreshToken = const SdkOmitted(), this.scope = const SdkOmitted(), this.tokenEndpointAuth = const SdkOmitted()});
 
-  RotateMcpOauthRefreshParam Function(
-          {SdkOptional<String?> refreshToken,
-          SdkOptional<String?> scope,
-          SdkOptional<RotateMcpOauthTokenEndpointAuthParam?> tokenEndpointAuth})
-      get copyWith => _copyWith;
+  RotateMcpOauthRefreshParam Function({SdkOptional<String?> refreshToken, SdkOptional<String?> scope, SdkOptional<RotateMcpOauthTokenEndpointAuthParam?> tokenEndpointAuth}) get copyWith => _copyWith;
 
-  RotateMcpOauthRefreshParam _copyWith(
-          {Object? refreshToken = sdkOmittedValue,
-          Object? scope = sdkOmittedValue,
-          Object? tokenEndpointAuth = sdkOmittedValue}) =>
-      RotateMcpOauthRefreshParam(
-        refreshToken: identical(refreshToken, sdkOmittedValue)
-            ? this.refreshToken
-            : refreshToken as SdkOptional<String?>,
-        scope: identical(scope, sdkOmittedValue)
-            ? this.scope
-            : scope as SdkOptional<String?>,
-        tokenEndpointAuth: identical(tokenEndpointAuth, sdkOmittedValue)
-            ? this.tokenEndpointAuth
-            : tokenEndpointAuth
-                as SdkOptional<RotateMcpOauthTokenEndpointAuthParam?>,
-      );
+  RotateMcpOauthRefreshParam _copyWith({Object? refreshToken = sdkOmittedValue, Object? scope = sdkOmittedValue, Object? tokenEndpointAuth = sdkOmittedValue}) => RotateMcpOauthRefreshParam(
+    refreshToken: identical(refreshToken, sdkOmittedValue) ? this.refreshToken : refreshToken as SdkOptional<String?>,
+    scope: identical(scope, sdkOmittedValue) ? this.scope : scope as SdkOptional<String?>,
+    tokenEndpointAuth: identical(tokenEndpointAuth, sdkOmittedValue) ? this.tokenEndpointAuth : tokenEndpointAuth as SdkOptional<RotateMcpOauthTokenEndpointAuthParam?>,
+  );
 
-  factory RotateMcpOauthRefreshParam.fromJson(Map<String, dynamic> json) =>
-      RotateMcpOauthRefreshParam(
-        refreshToken: json.containsKey('refresh_token')
-            ? SdkPresent(json['refresh_token'] as String?)
-            : const SdkOmitted(),
-        scope: json.containsKey('scope')
-            ? SdkPresent(json['scope'] as String?)
-            : const SdkOmitted(),
-        tokenEndpointAuth: json.containsKey('token_endpoint_auth')
-            ? SdkPresent(json['token_endpoint_auth'] != null
-                ? RotateMcpOauthTokenEndpointAuthParam.fromJson(
-                    json['token_endpoint_auth'])
-                : null)
-            : const SdkOmitted(),
-      );
+  factory RotateMcpOauthRefreshParam.fromJson(Map<String, dynamic> json) => RotateMcpOauthRefreshParam(
+    refreshToken: json.containsKey('refresh_token') ? SdkPresent(json['refresh_token'] as String?) : const SdkOmitted(),
+    scope: json.containsKey('scope') ? SdkPresent(json['scope'] as String?) : const SdkOmitted(),
+    tokenEndpointAuth: json.containsKey('token_endpoint_auth') ? SdkPresent(json['token_endpoint_auth'] != null ? RotateMcpOauthTokenEndpointAuthParam.fromJson(json['token_endpoint_auth']) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (refreshToken) {
-          SdkPresent<String?>(value: final value) => {
-              'refresh_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scope) {
-          SdkPresent<String?>(value: final value) => {
-              'scope': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tokenEndpointAuth) {
-          SdkPresent<RotateMcpOauthTokenEndpointAuthParam?>(
-            value: final value
-          ) =>
-            {
-              'token_endpoint_auth': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (refreshToken) {
+      SdkPresent<String?>(value: final value) => {'refresh_token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scope) {
+      SdkPresent<String?>(value: final value) => {'scope': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tokenEndpointAuth) {
+      SdkPresent<RotateMcpOauthTokenEndpointAuthParam?>(value: final value) => {'token_endpoint_auth': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class RotateMcpOauthTokenEndpointAuthParam {
@@ -93,178 +53,98 @@ sealed class RotateMcpOauthTokenEndpointAuthParam {
   const RotateMcpOauthTokenEndpointAuthParam();
   factory RotateMcpOauthTokenEndpointAuthParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value =
-            RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
-                json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            RotateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(
-              value);
-        }
-      } catch (_) {}
+      try { final value = RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(value); } } catch (_) {}
+      try { final value = RotateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(value); } } catch (_) {}
     }
-    try {
-      return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-          RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(
-          RotateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"client_secret_basic", "client_secret_post"}
-            .contains(json["type"])) {
-      return UnknownRotateMcpOauthTokenEndpointAuthParam(json);
-    }
-    throw FormatException(
-        "No variant matched for RotateMcpOauthTokenEndpointAuthParam");
+    try { return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(RotateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"client_secret_basic", "client_secret_post"}.contains(json["type"])) { return UnknownRotateMcpOauthTokenEndpointAuthParam(json); }
+    throw FormatException("No variant matched for RotateMcpOauthTokenEndpointAuthParam");
   }
   Object? toJson();
 }
 
-final class RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic
-    extends RotateMcpOauthTokenEndpointAuthParam {
+final class RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic extends RotateMcpOauthTokenEndpointAuthParam {
   final RotateMcpOauthTokenEndpointAuthParamClientSecretBasic value;
-  const RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost
-    extends RotateMcpOauthTokenEndpointAuthParam {
+final class RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost extends RotateMcpOauthTokenEndpointAuthParam {
   final RotateMcpOauthTokenEndpointAuthParamClientSecretPost value;
-  const RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [RotateMcpOauthTokenEndpointAuthParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRotateMcpOauthTokenEndpointAuthParam
-    extends RotateMcpOauthTokenEndpointAuthParam {
+final class UnknownRotateMcpOauthTokenEndpointAuthParam extends RotateMcpOauthTokenEndpointAuthParam {
   final Map<String, dynamic> raw;
   const UnknownRotateMcpOauthTokenEndpointAuthParam(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Updates credentials sent using HTTP Basic authentication.
 class RotateMcpOauthTokenEndpointAuthParamClientSecretBasic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `client_secret_basic`.
   final RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_;
-
   /// The replacement OAuth client secret. Omit or pass `null` to keep the stored secret. This secret is never returned in resources.
   final SdkOptional<String?> clientSecret;
 
-  const RotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-      {required this.type_, this.clientSecret = const SdkOmitted()});
+  const RotateMcpOauthTokenEndpointAuthParamClientSecretBasic({required this.type_, this.clientSecret = const SdkOmitted()});
 
-  RotateMcpOauthTokenEndpointAuthParamClientSecretBasic Function(
-      {RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_,
-      SdkOptional<String?> clientSecret}) get copyWith => _copyWith;
+  RotateMcpOauthTokenEndpointAuthParamClientSecretBasic Function({RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_, SdkOptional<String?> clientSecret}) get copyWith => _copyWith;
 
-  RotateMcpOauthTokenEndpointAuthParamClientSecretBasic _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? clientSecret = sdkOmittedValue}) =>
-      RotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType,
-        clientSecret: identical(clientSecret, sdkOmittedValue)
-            ? this.clientSecret
-            : clientSecret as SdkOptional<String?>,
-      );
+  RotateMcpOauthTokenEndpointAuthParamClientSecretBasic _copyWith({Object? type_ = sdkOmittedValue, Object? clientSecret = sdkOmittedValue}) => RotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType,
+    clientSecret: identical(clientSecret, sdkOmittedValue) ? this.clientSecret : clientSecret as SdkOptional<String?>,
+  );
 
-  factory RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
-          Map<String, dynamic> json) =>
-      RotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-        type_: (json['type'] != null
-            ? RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType
-                .fromJson(json['type'] as String)
-            : null)!,
-        clientSecret: json.containsKey('client_secret')
-            ? SdkPresent(json['client_secret'] as String?)
-            : const SdkOmitted(),
-      );
+  factory RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(Map<String, dynamic> json) => RotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+    type_: (json['type'] != null ? RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType.fromJson(json['type'] as String) : null)!,
+    clientSecret: json.containsKey('client_secret') ? SdkPresent(json['client_secret'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (clientSecret) {
-          SdkPresent<String?>(value: final value) => {
-              'client_secret': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (clientSecret) {
+      SdkPresent<String?>(value: final value) => {'client_secret': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Updates credentials sent in the token request body.
 class RotateMcpOauthTokenEndpointAuthParamClientSecretPost {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `client_secret_post`.
   final RotateMcpOauthTokenEndpointAuthParamClientSecretPostType type_;
-
   /// The replacement OAuth client secret. Omit or pass `null` to keep the stored secret. This secret is never returned in resources.
   final SdkOptional<String?> clientSecret;
 
-  const RotateMcpOauthTokenEndpointAuthParamClientSecretPost(
-      {required this.type_, this.clientSecret = const SdkOmitted()});
+  const RotateMcpOauthTokenEndpointAuthParamClientSecretPost({required this.type_, this.clientSecret = const SdkOmitted()});
 
-  RotateMcpOauthTokenEndpointAuthParamClientSecretPost Function(
-      {RotateMcpOauthTokenEndpointAuthParamClientSecretPostType type_,
-      SdkOptional<String?> clientSecret}) get copyWith => _copyWith;
+  RotateMcpOauthTokenEndpointAuthParamClientSecretPost Function({RotateMcpOauthTokenEndpointAuthParamClientSecretPostType type_, SdkOptional<String?> clientSecret}) get copyWith => _copyWith;
 
-  RotateMcpOauthTokenEndpointAuthParamClientSecretPost _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? clientSecret = sdkOmittedValue}) =>
-      RotateMcpOauthTokenEndpointAuthParamClientSecretPost(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RotateMcpOauthTokenEndpointAuthParamClientSecretPostType,
-        clientSecret: identical(clientSecret, sdkOmittedValue)
-            ? this.clientSecret
-            : clientSecret as SdkOptional<String?>,
-      );
+  RotateMcpOauthTokenEndpointAuthParamClientSecretPost _copyWith({Object? type_ = sdkOmittedValue, Object? clientSecret = sdkOmittedValue}) => RotateMcpOauthTokenEndpointAuthParamClientSecretPost(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RotateMcpOauthTokenEndpointAuthParamClientSecretPostType,
+    clientSecret: identical(clientSecret, sdkOmittedValue) ? this.clientSecret : clientSecret as SdkOptional<String?>,
+  );
 
-  factory RotateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(
-          Map<String, dynamic> json) =>
-      RotateMcpOauthTokenEndpointAuthParamClientSecretPost(
-        type_: (json['type'] != null
-            ? RotateMcpOauthTokenEndpointAuthParamClientSecretPostType.fromJson(
-                json['type'] as String)
-            : null)!,
-        clientSecret: json.containsKey('client_secret')
-            ? SdkPresent(json['client_secret'] as String?)
-            : const SdkOmitted(),
-      );
+  factory RotateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(Map<String, dynamic> json) => RotateMcpOauthTokenEndpointAuthParamClientSecretPost(
+    type_: (json['type'] != null ? RotateMcpOauthTokenEndpointAuthParamClientSecretPostType.fromJson(json['type'] as String) : null)!,
+    clientSecret: json.containsKey('client_secret') ? SdkPresent(json['client_secret'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (clientSecret) {
-          SdkPresent<String?>(value: final value) => {
-              'client_secret': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (clientSecret) {
+      SdkPresent<String?>(value: final value) => {'client_secret': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class RotateVaultCredentialAuthParam {
@@ -273,228 +153,117 @@ sealed class RotateVaultCredentialAuthParam {
   const RotateVaultCredentialAuthParam();
   factory RotateVaultCredentialAuthParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = RotateVaultCredentialAuthParamMcpOauth.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = RotateVaultCredentialAuthParamStaticBearer.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(
-              value);
-        }
-      } catch (_) {}
+      try { final value = RotateVaultCredentialAuthParamMcpOauth.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(value); } } catch (_) {}
+      try { final value = RotateVaultCredentialAuthParamStaticBearer.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(value); } } catch (_) {}
+      try { final value = RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(value); } } catch (_) {}
     }
-    try {
-      return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(
-          RotateVaultCredentialAuthParamMcpOauth.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(
-          RotateVaultCredentialAuthParamStaticBearer.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(
-          RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"mcp_oauth", "static_bearer", "environment_variable"}
-            .contains(json["type"])) {
-      return UnknownRotateVaultCredentialAuthParam(json);
-    }
-    throw FormatException(
-        "No variant matched for RotateVaultCredentialAuthParam");
+    try { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(RotateVaultCredentialAuthParamMcpOauth.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(RotateVaultCredentialAuthParamStaticBearer.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"mcp_oauth", "static_bearer", "environment_variable"}.contains(json["type"])) { return UnknownRotateVaultCredentialAuthParam(json); }
+    throw FormatException("No variant matched for RotateVaultCredentialAuthParam");
   }
   Object? toJson();
 }
 
-final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth
-    extends RotateVaultCredentialAuthParam {
+final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth extends RotateVaultCredentialAuthParam {
   final RotateVaultCredentialAuthParamMcpOauth value;
-  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer
-    extends RotateVaultCredentialAuthParam {
+final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer extends RotateVaultCredentialAuthParam {
   final RotateVaultCredentialAuthParamStaticBearer value;
-  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable
-    extends RotateVaultCredentialAuthParam {
+final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable extends RotateVaultCredentialAuthParam {
   final RotateVaultCredentialAuthParamEnvironmentVariable value;
-  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [RotateVaultCredentialAuthParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRotateVaultCredentialAuthParam
-    extends RotateVaultCredentialAuthParam {
+final class UnknownRotateVaultCredentialAuthParam extends RotateVaultCredentialAuthParam {
   final Map<String, dynamic> raw;
   const UnknownRotateVaultCredentialAuthParam(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Replace the secret for an OpenAI-hosted environment credential. The environment variable name and networking configuration remain unchanged.
 class RotateVaultCredentialAuthParamEnvironmentVariable {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `environment_variable`.
   final RotateVaultCredentialAuthParamEnvironmentVariableType type_;
-
   /// The write-only replacement secret. Never returned in credential resources or supplied directly to sandbox code. Must be nonempty and must not contain carriage returns, newlines, or NUL bytes.
   final String secretValue;
 
-  const RotateVaultCredentialAuthParamEnvironmentVariable(
-      {required this.type_, required this.secretValue});
+  const RotateVaultCredentialAuthParamEnvironmentVariable({required this.type_, required this.secretValue});
 
-  RotateVaultCredentialAuthParamEnvironmentVariable Function(
-      {RotateVaultCredentialAuthParamEnvironmentVariableType type_,
-      String secretValue}) get copyWith => _copyWith;
+  RotateVaultCredentialAuthParamEnvironmentVariable Function({RotateVaultCredentialAuthParamEnvironmentVariableType type_, String secretValue}) get copyWith => _copyWith;
 
-  RotateVaultCredentialAuthParamEnvironmentVariable _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? secretValue = sdkOmittedValue}) =>
-      RotateVaultCredentialAuthParamEnvironmentVariable(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RotateVaultCredentialAuthParamEnvironmentVariableType,
-        secretValue: identical(secretValue, sdkOmittedValue)
-            ? this.secretValue
-            : secretValue as String,
-      );
+  RotateVaultCredentialAuthParamEnvironmentVariable _copyWith({Object? type_ = sdkOmittedValue, Object? secretValue = sdkOmittedValue}) => RotateVaultCredentialAuthParamEnvironmentVariable(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RotateVaultCredentialAuthParamEnvironmentVariableType,
+    secretValue: identical(secretValue, sdkOmittedValue) ? this.secretValue : secretValue as String,
+  );
 
-  factory RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(
-          Map<String, dynamic> json) =>
-      RotateVaultCredentialAuthParamEnvironmentVariable(
-        type_: (json['type'] != null
-            ? RotateVaultCredentialAuthParamEnvironmentVariableType.fromJson(
-                json['type'] as String)
-            : null)!,
-        secretValue: (json['secret_value'] as String?)!,
-      );
+  factory RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(Map<String, dynamic> json) => RotateVaultCredentialAuthParamEnvironmentVariable(
+    type_: (json['type'] != null ? RotateVaultCredentialAuthParamEnvironmentVariableType.fromJson(json['type'] as String) : null)!,
+    secretValue: (json['secret_value'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'secret_value': secretValue,
-      };
+    'type': type_.toJson(),
+    'secret_value': secretValue,
+  };
 }
 
 /// Rotate an OAuth credential for an HTTPS MCP destination.
 class RotateVaultCredentialAuthParamMcpOauth {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `mcp_oauth`.
   final RotateVaultCredentialAuthParamMcpOauthType type_;
-
   /// A write-only replacement OAuth access token.
   final SdkOptional<String?> accessToken;
-
   /// The replacement expiry as an RFC 3339 timestamp, or `null` to clear it. Omitting this field preserves the expiry unless a new access token is supplied, in which case the expiry is cleared.
   final SdkOptional<String?> expiresAt;
-
   /// Optional write-only refresh-token and client-secret updates.
   final SdkOptional<RotateMcpOauthRefreshParam?> refresh;
 
-  const RotateVaultCredentialAuthParamMcpOauth(
-      {required this.type_,
-      this.accessToken = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted(),
-      this.refresh = const SdkOmitted()});
+  const RotateVaultCredentialAuthParamMcpOauth({required this.type_, this.accessToken = const SdkOmitted(), this.expiresAt = const SdkOmitted(), this.refresh = const SdkOmitted()});
 
-  RotateVaultCredentialAuthParamMcpOauth Function(
-          {RotateVaultCredentialAuthParamMcpOauthType type_,
-          SdkOptional<String?> accessToken,
-          SdkOptional<String?> expiresAt,
-          SdkOptional<RotateMcpOauthRefreshParam?> refresh})
-      get copyWith => _copyWith;
+  RotateVaultCredentialAuthParamMcpOauth Function({RotateVaultCredentialAuthParamMcpOauthType type_, SdkOptional<String?> accessToken, SdkOptional<String?> expiresAt, SdkOptional<RotateMcpOauthRefreshParam?> refresh}) get copyWith => _copyWith;
 
-  RotateVaultCredentialAuthParamMcpOauth _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? accessToken = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue,
-          Object? refresh = sdkOmittedValue}) =>
-      RotateVaultCredentialAuthParamMcpOauth(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RotateVaultCredentialAuthParamMcpOauthType,
-        accessToken: identical(accessToken, sdkOmittedValue)
-            ? this.accessToken
-            : accessToken as SdkOptional<String?>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<String?>,
-        refresh: identical(refresh, sdkOmittedValue)
-            ? this.refresh
-            : refresh as SdkOptional<RotateMcpOauthRefreshParam?>,
-      );
+  RotateVaultCredentialAuthParamMcpOauth _copyWith({Object? type_ = sdkOmittedValue, Object? accessToken = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? refresh = sdkOmittedValue}) => RotateVaultCredentialAuthParamMcpOauth(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RotateVaultCredentialAuthParamMcpOauthType,
+    accessToken: identical(accessToken, sdkOmittedValue) ? this.accessToken : accessToken as SdkOptional<String?>,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String?>,
+    refresh: identical(refresh, sdkOmittedValue) ? this.refresh : refresh as SdkOptional<RotateMcpOauthRefreshParam?>,
+  );
 
-  factory RotateVaultCredentialAuthParamMcpOauth.fromJson(
-          Map<String, dynamic> json) =>
-      RotateVaultCredentialAuthParamMcpOauth(
-        type_: (json['type'] != null
-            ? RotateVaultCredentialAuthParamMcpOauthType.fromJson(
-                json['type'] as String)
-            : null)!,
-        accessToken: json.containsKey('access_token')
-            ? SdkPresent(json['access_token'] as String?)
-            : const SdkOmitted(),
-        expiresAt: json.containsKey('expires_at')
-            ? SdkPresent(json['expires_at'] as String?)
-            : const SdkOmitted(),
-        refresh: json.containsKey('refresh')
-            ? SdkPresent(json['refresh'] != null
-                ? RotateMcpOauthRefreshParam.fromJson(
-                    json['refresh'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory RotateVaultCredentialAuthParamMcpOauth.fromJson(Map<String, dynamic> json) => RotateVaultCredentialAuthParamMcpOauth(
+    type_: (json['type'] != null ? RotateVaultCredentialAuthParamMcpOauthType.fromJson(json['type'] as String) : null)!,
+    accessToken: json.containsKey('access_token') ? SdkPresent(json['access_token'] as String?) : const SdkOmitted(),
+    expiresAt: json.containsKey('expires_at') ? SdkPresent(json['expires_at'] as String?) : const SdkOmitted(),
+    refresh: json.containsKey('refresh') ? SdkPresent(json['refresh'] != null ? RotateMcpOauthRefreshParam.fromJson(json['refresh'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (accessToken) {
-          SdkPresent<String?>(value: final value) => {
-              'access_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<String?>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (refresh) {
-          SdkPresent<RotateMcpOauthRefreshParam?>(value: final value) => {
-              'refresh': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (accessToken) {
+      SdkPresent<String?>(value: final value) => {'access_token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAt) {
+      SdkPresent<String?>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (refresh) {
+      SdkPresent<RotateMcpOauthRefreshParam?>(value: final value) => {'refresh': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

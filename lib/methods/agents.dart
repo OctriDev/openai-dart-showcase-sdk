@@ -31,38 +31,20 @@ Future<AgentEnvironmentListResource> listAgentEnvironments(ClientConfig config,
           'GET', '/agents/environments',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentEnvironments',
-          fromJsonRaw: (value) => AgentEnvironmentListResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AgentEnvironmentListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists OpenAI-hosted environments owned by the authenticated principal. Requires access to the prewarming beta.
 ///
@@ -71,32 +53,13 @@ Future<AgentEnvironmentListResource> listAgentEnvironments(ClientConfig config,
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
 /// [type_] The hosting type to list. Defaults to `openai_hosted`.
-Stream<PublicEnvironmentResource> listAgentEnvironmentsPaginated(
-    ClientConfig config,
-    {int? limit,
-    ListOrderParam? order,
-    String? after,
-    EnvironmentTypeParam? type_,
-    RequestOptions? requestOptions}) async* {
+Stream<PublicEnvironmentResource> listAgentEnvironmentsPaginated(ClientConfig config, {int? limit, ListOrderParam? order, String? after, EnvironmentTypeParam? type_, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentEnvironments(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        type_: type_ == null
-            ? const SdkOmitted<EnvironmentTypeParam>()
-            : SdkPresent<EnvironmentTypeParam>(type_),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentEnvironments(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), type_: type_ == null ? const SdkOmitted<EnvironmentTypeParam>() : SdkPresent<EnvironmentTypeParam>(type_), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -104,27 +67,10 @@ Stream<PublicEnvironmentResource> listAgentEnvironmentsPaginated(
   }
 }
 
-Stream<SdkPage<AgentEnvironmentListResource, PublicEnvironmentResource>>
-    listAgentEnvironmentsPages(ClientConfig config,
-        {int? limit,
-        ListOrderParam? order,
-        String? after,
-        EnvironmentTypeParam? type_,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<AgentEnvironmentListResource, PublicEnvironmentResource>> listAgentEnvironmentsPages(ClientConfig config, {int? limit, ListOrderParam? order, String? after, EnvironmentTypeParam? type_, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentEnvironments(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        type_: type_ == null
-            ? const SdkOmitted<EnvironmentTypeParam>()
-            : SdkPresent<EnvironmentTypeParam>(type_),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentEnvironments(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), type_: type_ == null ? const SdkOmitted<EnvironmentTypeParam>() : SdkPresent<EnvironmentTypeParam>(type_), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -134,6 +80,7 @@ Stream<SdkPage<AgentEnvironmentListResource, PublicEnvironmentResource>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Creates an OpenAI-hosted environment before creating a session. Requires access to the prewarming beta.
 ///
@@ -170,32 +117,14 @@ Future<PublicEnvironmentResource> createAgentEnvironment(ClientConfig config,
             'vault_ids': SdkUtils.unwrapOptional(vaultIds)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
           operationId: 'createAgentEnvironment',
-          fromJsonRaw: (value) =>
-              PublicEnvironmentResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PublicEnvironmentResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves an execution environment's connection status and safe installed metadata. See [environment lifecycle](https://developers.openai.com/api/docs/guides/agents-api/environments/lifecycle).
 ///
@@ -209,26 +138,12 @@ Future<PublicEnvironmentResource> retrieveAgentEnvironment(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveAgentEnvironment',
-          fromJsonRaw: (value) =>
-              PublicEnvironmentResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PublicEnvironmentResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists live files on a connected execution environment with optional directory filtering and opaque cursor pagination. See [environment files](https://developers.openai.com/api/docs/guides/agents-api/environments/files).
 ///
@@ -238,14 +153,14 @@ Future<PublicEnvironmentResource> retrieveAgentEnvironment(ClientConfig config,
 /// [order] Sort by case-sensitive path components. Defaults to descending.
 /// [page] The opaque token from the previous page. Keep the same path, order,
 ///   and limit.
-Future<EnvironmentFileListResource> listAgentEnvironmentFiles(
-    ClientConfig config,
-    {required String environmentId,
-    SdkOptional<String?> path = const SdkOmitted(),
-    SdkOptional<int?> limit = const SdkOmitted(),
-    SdkOptional<ListOrderParam> order = const SdkOmitted(),
-    SdkOptional<String> page = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<EnvironmentFileListResource>
+    listAgentEnvironmentFiles(ClientConfig config,
+        {required String environmentId,
+        SdkOptional<String?> path = const SdkOmitted(),
+        SdkOptional<int?> limit = const SdkOmitted(),
+        SdkOptional<ListOrderParam> order = const SdkOmitted(),
+        SdkOptional<String> page = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   validateLength('environment_id', environmentId, min: 0, max: 1048576);
   if (path is SdkPresent<String?>) {
     final pathValue = path.value;
@@ -267,38 +182,19 @@ Future<EnvironmentFileListResource> listAgentEnvironmentFiles(
           '/agents/environments/${Uri.encodeComponent(environmentId.toString())}/files',
           config: config,
           query: {
-            'path': SdkQueryValue(SdkUtils.unwrapOptional(path),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'path': SdkQueryValue(SdkUtils.unwrapOptional(path), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentEnvironmentFiles',
-          fromJsonRaw: (value) => EnvironmentFileListResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => EnvironmentFileListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Writes a file to a connected agent execution environment, using either inline base64 data or a file uploaded through the Files API. Choose the `inline` or `file_id` body variant and provide the absolute destination `path`; writing to an existing regular file at that path replaces it. Upload the file between turns and wait for success before starting the next turn.
 ///
@@ -317,28 +213,12 @@ Future<EnvironmentFileResource> createAgentEnvironmentFile(ClientConfig config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
           operationId: 'createAgentEnvironmentFile',
-          fromJsonRaw: (value) =>
-              EnvironmentFileResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => EnvironmentFileResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '429': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists subagents in a session, including nested and closed subagents. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
 ///
@@ -347,13 +227,13 @@ Future<EnvironmentFileResource> createAgentEnvironmentFile(ClientConfig config,
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Future<ListAgentSessionSubagentsResponse> listAgentSessionSubagents(
-    ClientConfig config,
-    {required String sessionId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<ListOrderParam> order = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ListAgentSessionSubagentsResponse>
+    listAgentSessionSubagents(ClientConfig config,
+        {required String sessionId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<ListOrderParam> order = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   validateLength('session_id', sessionId, min: 0, max: 1048576);
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 100);
@@ -366,36 +246,19 @@ Future<ListAgentSessionSubagentsResponse> listAgentSessionSubagents(
           '/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/subagents',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentSessionSubagents',
-          fromJsonRaw: (value) => ListAgentSessionSubagentsResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListAgentSessionSubagentsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists subagents in a session, including nested and closed subagents. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
 ///
@@ -404,29 +267,13 @@ Future<ListAgentSessionSubagentsResponse> listAgentSessionSubagents(
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Stream<SubagentResource> listAgentSessionSubagentsPaginated(ClientConfig config,
-    {required String sessionId,
-    int? limit,
-    ListOrderParam? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<SubagentResource> listAgentSessionSubagentsPaginated(ClientConfig config, {required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionSubagents(config,
-        sessionId: sessionId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionSubagents(config, sessionId: sessionId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -434,25 +281,10 @@ Stream<SubagentResource> listAgentSessionSubagentsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<ListAgentSessionSubagentsResponse, SubagentResource>>
-    listAgentSessionSubagentsPages(ClientConfig config,
-        {required String sessionId,
-        int? limit,
-        ListOrderParam? order,
-        String? after,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListAgentSessionSubagentsResponse, SubagentResource>> listAgentSessionSubagentsPages(ClientConfig config, {required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionSubagents(config,
-        sessionId: sessionId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionSubagents(config, sessionId: sessionId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -462,6 +294,7 @@ Stream<SdkPage<ListAgentSessionSubagentsResponse, SubagentResource>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Retrieves a subagent belonging to this session. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
 ///
@@ -479,26 +312,12 @@ Future<SubagentResource> retrieveAgentSessionSubagent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveAgentSessionSubagent',
-          fromJsonRaw: (value) =>
-              SubagentResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SubagentResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists this subagent's own items across all of its turns. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
 ///
@@ -508,14 +327,14 @@ Future<SubagentResource> retrieveAgentSessionSubagent(ClientConfig config,
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Future<SessionItemListResource> listAgentSessionSubagentItems(
-    ClientConfig config,
-    {required String sessionId,
-    required String subagentId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<ListOrderParam> order = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<SessionItemListResource>
+    listAgentSessionSubagentItems(ClientConfig config,
+        {required String sessionId,
+        required String subagentId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<ListOrderParam> order = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   validateLength('session_id', sessionId, min: 0, max: 1048576);
   validateLength('subagent_id', subagentId, min: 0, max: 1048576);
   if (limit is SdkPresent<int>) {
@@ -529,36 +348,19 @@ Future<SessionItemListResource> listAgentSessionSubagentItems(
           '/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/subagents/${Uri.encodeComponent(subagentId.toString())}/items',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentSessionSubagentItems',
-          fromJsonRaw: (value) =>
-              SessionItemListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionItemListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists this subagent's own items across all of its turns. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
 ///
@@ -568,32 +370,13 @@ Future<SessionItemListResource> listAgentSessionSubagentItems(
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Stream<SessionTurnItemResource> listAgentSessionSubagentItemsPaginated(
-    ClientConfig config,
-    {required String sessionId,
-    required String subagentId,
-    int? limit,
-    ListOrderParam? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<SessionTurnItemResource> listAgentSessionSubagentItemsPaginated(ClientConfig config, {required String sessionId, required String subagentId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionSubagentItems(config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionSubagentItems(config, sessionId: sessionId, subagentId: subagentId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -601,27 +384,10 @@ Stream<SessionTurnItemResource> listAgentSessionSubagentItemsPaginated(
   }
 }
 
-Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>>
-    listAgentSessionSubagentItemsPages(ClientConfig config,
-        {required String sessionId,
-        required String subagentId,
-        int? limit,
-        ListOrderParam? order,
-        String? after,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>> listAgentSessionSubagentItemsPages(ClientConfig config, {required String sessionId, required String subagentId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionSubagentItems(config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionSubagentItems(config, sessionId: sessionId, subagentId: subagentId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -632,6 +398,7 @@ Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>>
   }
 }
 
+
 /// Lists all turns of this subagent, including turns after a resume. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
 ///
 /// [sessionId] The ID of the session.
@@ -640,14 +407,14 @@ Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>>
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Future<SessionTurnListResource> listAgentSessionSubagentTurns(
-    ClientConfig config,
-    {required String sessionId,
-    required String subagentId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<ListOrderParam> order = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<SessionTurnListResource>
+    listAgentSessionSubagentTurns(ClientConfig config,
+        {required String sessionId,
+        required String subagentId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<ListOrderParam> order = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   validateLength('session_id', sessionId, min: 0, max: 1048576);
   validateLength('subagent_id', subagentId, min: 0, max: 1048576);
   if (limit is SdkPresent<int>) {
@@ -661,36 +428,19 @@ Future<SessionTurnListResource> listAgentSessionSubagentTurns(
           '/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/subagents/${Uri.encodeComponent(subagentId.toString())}/turns',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentSessionSubagentTurns',
-          fromJsonRaw: (value) =>
-              SessionTurnListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionTurnListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists all turns of this subagent, including turns after a resume. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
 ///
@@ -700,31 +450,13 @@ Future<SessionTurnListResource> listAgentSessionSubagentTurns(
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Stream<TurnResource> listAgentSessionSubagentTurnsPaginated(ClientConfig config,
-    {required String sessionId,
-    required String subagentId,
-    int? limit,
-    ListOrderParam? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<TurnResource> listAgentSessionSubagentTurnsPaginated(ClientConfig config, {required String sessionId, required String subagentId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionSubagentTurns(config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionSubagentTurns(config, sessionId: sessionId, subagentId: subagentId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -732,27 +464,10 @@ Stream<TurnResource> listAgentSessionSubagentTurnsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<SessionTurnListResource, TurnResource>>
-    listAgentSessionSubagentTurnsPages(ClientConfig config,
-        {required String sessionId,
-        required String subagentId,
-        int? limit,
-        ListOrderParam? order,
-        String? after,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SessionTurnListResource, TurnResource>> listAgentSessionSubagentTurnsPages(ClientConfig config, {required String sessionId, required String subagentId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionSubagentTurns(config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionSubagentTurns(config, sessionId: sessionId, subagentId: subagentId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -762,6 +477,7 @@ Stream<SdkPage<SessionTurnListResource, TurnResource>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Retrieves a turn belonging to this subagent. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
 ///
@@ -782,26 +498,12 @@ Future<TurnResource> retrieveAgentSessionSubagentTurn(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveAgentSessionSubagentTurn',
-          fromJsonRaw: (value) =>
-              TurnResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TurnResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists items belonging to one turn of this subagent. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
 ///
@@ -812,15 +514,15 @@ Future<TurnResource> retrieveAgentSessionSubagentTurn(ClientConfig config,
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Future<SessionItemListResource> listAgentSessionSubagentTurnItems(
-    ClientConfig config,
-    {required String sessionId,
-    required String subagentId,
-    required String turnId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<ListOrderParam> order = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<SessionItemListResource>
+    listAgentSessionSubagentTurnItems(ClientConfig config,
+        {required String sessionId,
+        required String subagentId,
+        required String turnId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<ListOrderParam> order = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   validateLength('session_id', sessionId, min: 0, max: 1048576);
   validateLength('subagent_id', subagentId, min: 0, max: 1048576);
   validateLength('turn_id', turnId, min: 0, max: 1048576);
@@ -835,36 +537,19 @@ Future<SessionItemListResource> listAgentSessionSubagentTurnItems(
           '/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/subagents/${Uri.encodeComponent(subagentId.toString())}/turns/${Uri.encodeComponent(turnId.toString())}/items',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentSessionSubagentTurnItems',
-          fromJsonRaw: (value) =>
-              SessionItemListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionItemListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists items belonging to one turn of this subagent. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
 ///
@@ -875,34 +560,13 @@ Future<SessionItemListResource> listAgentSessionSubagentTurnItems(
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Stream<SessionTurnItemResource> listAgentSessionSubagentTurnItemsPaginated(
-    ClientConfig config,
-    {required String sessionId,
-    required String subagentId,
-    required String turnId,
-    int? limit,
-    ListOrderParam? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<SessionTurnItemResource> listAgentSessionSubagentTurnItemsPaginated(ClientConfig config, {required String sessionId, required String subagentId, required String turnId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionSubagentTurnItems(config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        turnId: turnId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionSubagentTurnItems(config, sessionId: sessionId, subagentId: subagentId, turnId: turnId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -910,29 +574,10 @@ Stream<SessionTurnItemResource> listAgentSessionSubagentTurnItemsPaginated(
   }
 }
 
-Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>>
-    listAgentSessionSubagentTurnItemsPages(ClientConfig config,
-        {required String sessionId,
-        required String subagentId,
-        required String turnId,
-        int? limit,
-        ListOrderParam? order,
-        String? after,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>> listAgentSessionSubagentTurnItemsPages(ClientConfig config, {required String sessionId, required String subagentId, required String turnId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionSubagentTurnItems(config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        turnId: turnId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionSubagentTurnItems(config, sessionId: sessionId, subagentId: subagentId, turnId: turnId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -942,6 +587,7 @@ Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Lists reusable agents in the current project. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
 ///
@@ -964,36 +610,19 @@ Future<AgentListResource> listAgents(ClientConfig config,
   return (await sdkRequest<AgentListResource>('GET', '/agents',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgents',
-          fromJsonRaw: (value) =>
-              AgentListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AgentListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists reusable agents in the current project. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
 ///
@@ -1001,27 +630,13 @@ Future<AgentListResource> listAgents(ClientConfig config,
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Stream<AgentResource> listAgentsPaginated(ClientConfig config,
-    {int? limit,
-    ListOrderParam? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<AgentResource> listAgentsPaginated(ClientConfig config, {int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgents(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgents(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -1029,23 +644,10 @@ Stream<AgentResource> listAgentsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<AgentListResource, AgentResource>> listAgentsPages(
-    ClientConfig config,
-    {int? limit,
-    ListOrderParam? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<AgentListResource, AgentResource>> listAgentsPages(ClientConfig config, {int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgents(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgents(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -1055,6 +657,7 @@ Stream<SdkPage<AgentListResource, AgentResource>> listAgentsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Creates a reusable agent without storing credentials. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
 ///
@@ -1083,8 +686,7 @@ Future<AgentResource> createAgent(ClientConfig config,
     SdkOptional<TextParam?> text = const SdkOmitted(),
     SdkOptional<ServiceTierParam?> serviceTier = const SdkOmitted(),
     SdkOptional<String?> instructions = const SdkOmitted(),
-    SdkOptional<List<PersistedAgentToolConfigParam>?> tools =
-        const SdkOmitted(),
+    SdkOptional<List<PersistedAgentToolConfigParam>?> tools = const SdkOmitted(),
     SdkOptional<MultiAgentConfigCurrentParam?> multiAgent = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   validateLength('model', model, min: 0, max: 1048576);
@@ -1122,27 +724,12 @@ Future<AgentResource> createAgent(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createAgent',
-          fromJsonRaw: (value) =>
-              AgentResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AgentResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a reusable agent by ID. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
 ///
@@ -1156,26 +743,12 @@ Future<AgentResource> retrieveAgent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveAgent',
-          fromJsonRaw: (value) =>
-              AgentResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AgentResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates a reusable agent. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
 ///
@@ -1207,8 +780,7 @@ Future<AgentResource> updateAgent(ClientConfig config,
     SdkOptional<MultiAgentConfigCurrentParam?> multiAgent = const SdkOmitted(),
     SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
     SdkOptional<String?> name = const SdkOmitted(),
-    SdkOptional<List<PersistedAgentToolConfigParam>?> tools =
-        const SdkOmitted(),
+    SdkOptional<List<PersistedAgentToolConfigParam>?> tools = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   validateLength('agent_id', agentId, min: 0, max: 1048576);
   if (model is SdkPresent<String>) {
@@ -1249,27 +821,12 @@ Future<AgentResource> updateAgent(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateAgent',
-          fromJsonRaw: (value) =>
-              AgentResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AgentResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a reusable agent. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
 ///
@@ -1283,26 +840,12 @@ Future<DeletedAgentResource> deleteAgent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteAgent',
-          fromJsonRaw: (value) =>
-              DeletedAgentResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedAgentResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists reusable environment templates without returning confidential values. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
 ///
@@ -1310,12 +853,12 @@ Future<DeletedAgentResource> deleteAgent(ClientConfig config,
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Future<EnvironmentTemplateListResource> listAgentEnvironmentTemplates(
-    ClientConfig config,
-    {SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<ListOrderParam> order = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<EnvironmentTemplateListResource>
+    listAgentEnvironmentTemplates(ClientConfig config,
+        {SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<ListOrderParam> order = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 100);
   }
@@ -1327,34 +870,19 @@ Future<EnvironmentTemplateListResource> listAgentEnvironmentTemplates(
           'GET', '/agents/environments/templates',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentEnvironmentTemplates',
-          fromJsonRaw: (value) => EnvironmentTemplateListResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => EnvironmentTemplateListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists reusable environment templates without returning confidential values. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
 ///
@@ -1362,28 +890,13 @@ Future<EnvironmentTemplateListResource> listAgentEnvironmentTemplates(
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Stream<EnvironmentTemplateResource> listAgentEnvironmentTemplatesPaginated(
-    ClientConfig config,
-    {int? limit,
-    ListOrderParam? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<EnvironmentTemplateResource> listAgentEnvironmentTemplatesPaginated(ClientConfig config, {int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentEnvironmentTemplates(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentEnvironmentTemplates(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -1391,23 +904,10 @@ Stream<EnvironmentTemplateResource> listAgentEnvironmentTemplatesPaginated(
   }
 }
 
-Stream<SdkPage<EnvironmentTemplateListResource, EnvironmentTemplateResource>>
-    listAgentEnvironmentTemplatesPages(ClientConfig config,
-        {int? limit,
-        ListOrderParam? order,
-        String? after,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<EnvironmentTemplateListResource, EnvironmentTemplateResource>> listAgentEnvironmentTemplatesPages(ClientConfig config, {int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentEnvironmentTemplates(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentEnvironmentTemplates(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -1417,6 +917,7 @@ Stream<SdkPage<EnvironmentTemplateListResource, EnvironmentTemplateResource>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Creates reusable environment configuration without returning confidential setup commands or environment values. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
 ///
@@ -1437,19 +938,19 @@ Stream<SdkPage<EnvironmentTemplateListResource, EnvironmentTemplateResource>>
 ///   list.
 /// [files] Files available before the agent starts. Defaults to an empty list.
 /// [name] An optional human-readable display name for the template.
-Future<EnvironmentTemplateResource> createAgentEnvironmentTemplate(
-    ClientConfig config,
-    {SdkOptional<EnvironmentPackagesParam?> packages = const SdkOmitted(),
-    SdkOptional<List<SetupCommandParam>?> setupCommands = const SdkOmitted(),
-    SdkOptional<NetworkPolicyParam?> network = const SdkOmitted(),
-    SdkOptional<DesktopParam?> desktop = const SdkOmitted(),
-    SdkOptional<Map<String, String>?> env = const SdkOmitted(),
-    SdkOptional<List<String>?> capabilityDirectories = const SdkOmitted(),
-    SdkOptional<List<HostedSkillParam>?> skills = const SdkOmitted(),
-    SdkOptional<List<HostedPluginParam>?> plugins = const SdkOmitted(),
-    SdkOptional<List<HostedEnvironmentFileParam>?> files = const SdkOmitted(),
-    SdkOptional<String?> name = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<EnvironmentTemplateResource>
+    createAgentEnvironmentTemplate(ClientConfig config,
+        {SdkOptional<EnvironmentPackagesParam?> packages = const SdkOmitted(),
+        SdkOptional<List<SetupCommandParam>?> setupCommands = const SdkOmitted(),
+        SdkOptional<NetworkPolicyParam?> network = const SdkOmitted(),
+        SdkOptional<DesktopParam?> desktop = const SdkOmitted(),
+        SdkOptional<Map<String, String>?> env = const SdkOmitted(),
+        SdkOptional<List<String>?> capabilityDirectories = const SdkOmitted(),
+        SdkOptional<List<HostedSkillParam>?> skills = const SdkOmitted(),
+        SdkOptional<List<HostedPluginParam>?> plugins = const SdkOmitted(),
+        SdkOptional<List<HostedEnvironmentFileParam>?> files = const SdkOmitted(),
+        SdkOptional<String?> name = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (setupCommands is SdkPresent<List<SetupCommandParam>?>) {
     final setupCommandsValue = setupCommands.value;
     if (setupCommandsValue != null) {
@@ -1459,8 +960,7 @@ Future<EnvironmentTemplateResource> createAgentEnvironmentTemplate(
   if (capabilityDirectories is SdkPresent<List<String>?>) {
     final capabilityDirectoriesValue = capabilityDirectories.value;
     if (capabilityDirectoriesValue != null) {
-      validateItems('capability_directories', capabilityDirectoriesValue,
-          min: 0, max: 16384);
+      validateItems('capability_directories', capabilityDirectoriesValue, min: 0, max: 16384);
     }
   }
   if (skills is SdkPresent<List<HostedSkillParam>?>) {
@@ -1497,8 +997,7 @@ Future<EnvironmentTemplateResource> createAgentEnvironmentTemplate(
             'network': SdkUtils.unwrapOptional(network),
             'desktop': SdkUtils.unwrapOptional(desktop),
             'env': SdkUtils.unwrapOptional(env),
-            'capability_directories':
-                SdkUtils.unwrapOptional(capabilityDirectories),
+            'capability_directories': SdkUtils.unwrapOptional(capabilityDirectories),
             'skills': SdkUtils.unwrapOptional(skills),
             'plugins': SdkUtils.unwrapOptional(plugins),
             'files': SdkUtils.unwrapOptional(files),
@@ -1506,59 +1005,33 @@ Future<EnvironmentTemplateResource> createAgentEnvironmentTemplate(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createAgentEnvironmentTemplate',
-          fromJsonRaw: (value) => EnvironmentTemplateResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => EnvironmentTemplateResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves reusable environment configuration without returning confidential values. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
 ///
 /// [environmentTemplateId] The ID of the reusable environment template.
-Future<EnvironmentTemplateResource> retrieveAgentEnvironmentTemplate(
-    ClientConfig config,
-    {required String environmentTemplateId,
-    RequestOptions? requestOptions}) async {
-  validateLength('environment_template_id', environmentTemplateId,
-      min: 0, max: 1048576);
+Future<EnvironmentTemplateResource>
+    retrieveAgentEnvironmentTemplate(ClientConfig config,
+        {required String environmentTemplateId,
+        RequestOptions? requestOptions}) async {
+  validateLength('environment_template_id', environmentTemplateId, min: 0, max: 1048576);
 
   return (await sdkRequest<EnvironmentTemplateResource>('GET',
           '/agents/environments/templates/${Uri.encodeComponent(environmentTemplateId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveAgentEnvironmentTemplate',
-          fromJsonRaw: (value) => EnvironmentTemplateResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => EnvironmentTemplateResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates reusable environment configuration without returning confidential values. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
 ///
@@ -1576,22 +1049,21 @@ Future<EnvironmentTemplateResource> retrieveAgentEnvironmentTemplate(
 /// [skills] Replacement skill configuration installed for each new session.
 /// [plugins] Replacement plugin configuration installed for each new session.
 /// [files] Replacement file configuration materialized for each new session.
-Future<EnvironmentTemplateResource> updateAgentEnvironmentTemplate(
-    ClientConfig config,
-    {required String environmentTemplateId,
-    SdkOptional<String?> name = const SdkOmitted(),
-    SdkOptional<EnvironmentPackagesParam?> packages = const SdkOmitted(),
-    SdkOptional<List<SetupCommandParam>?> setupCommands = const SdkOmitted(),
-    SdkOptional<NetworkPolicyParam?> network = const SdkOmitted(),
-    SdkOptional<DesktopParam?> desktop = const SdkOmitted(),
-    SdkOptional<Map<String, String>?> env = const SdkOmitted(),
-    SdkOptional<List<String>?> capabilityDirectories = const SdkOmitted(),
-    SdkOptional<List<HostedSkillParam>?> skills = const SdkOmitted(),
-    SdkOptional<List<HostedPluginParam>?> plugins = const SdkOmitted(),
-    SdkOptional<List<HostedEnvironmentFileParam>?> files = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
-  validateLength('environment_template_id', environmentTemplateId,
-      min: 0, max: 1048576);
+Future<EnvironmentTemplateResource>
+    updateAgentEnvironmentTemplate(ClientConfig config,
+        {required String environmentTemplateId,
+        SdkOptional<String?> name = const SdkOmitted(),
+        SdkOptional<EnvironmentPackagesParam?> packages = const SdkOmitted(),
+        SdkOptional<List<SetupCommandParam>?> setupCommands = const SdkOmitted(),
+        SdkOptional<NetworkPolicyParam?> network = const SdkOmitted(),
+        SdkOptional<DesktopParam?> desktop = const SdkOmitted(),
+        SdkOptional<Map<String, String>?> env = const SdkOmitted(),
+        SdkOptional<List<String>?> capabilityDirectories = const SdkOmitted(),
+        SdkOptional<List<HostedSkillParam>?> skills = const SdkOmitted(),
+        SdkOptional<List<HostedPluginParam>?> plugins = const SdkOmitted(),
+        SdkOptional<List<HostedEnvironmentFileParam>?> files = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
+  validateLength('environment_template_id', environmentTemplateId, min: 0, max: 1048576);
   if (name is SdkPresent<String?>) {
     final nameValue = name.value;
     if (nameValue != null) {
@@ -1607,8 +1079,7 @@ Future<EnvironmentTemplateResource> updateAgentEnvironmentTemplate(
   if (capabilityDirectories is SdkPresent<List<String>?>) {
     final capabilityDirectoriesValue = capabilityDirectories.value;
     if (capabilityDirectoriesValue != null) {
-      validateItems('capability_directories', capabilityDirectoriesValue,
-          min: 0, max: 16384);
+      validateItems('capability_directories', capabilityDirectoriesValue, min: 0, max: 16384);
     }
   }
   if (skills is SdkPresent<List<HostedSkillParam>?>) {
@@ -1640,71 +1111,40 @@ Future<EnvironmentTemplateResource> updateAgentEnvironmentTemplate(
             'network': SdkUtils.unwrapOptional(network),
             'desktop': SdkUtils.unwrapOptional(desktop),
             'env': SdkUtils.unwrapOptional(env),
-            'capability_directories':
-                SdkUtils.unwrapOptional(capabilityDirectories),
+            'capability_directories': SdkUtils.unwrapOptional(capabilityDirectories),
             'skills': SdkUtils.unwrapOptional(skills),
             'plugins': SdkUtils.unwrapOptional(plugins),
             'files': SdkUtils.unwrapOptional(files)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateAgentEnvironmentTemplate',
-          fromJsonRaw: (value) => EnvironmentTemplateResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => EnvironmentTemplateResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes reusable environment configuration and all confidential template inputs. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
 ///
 /// [environmentTemplateId] The ID of the reusable environment template.
-Future<DeletedEnvironmentTemplateResource> deleteAgentEnvironmentTemplate(
-    ClientConfig config,
-    {required String environmentTemplateId,
-    RequestOptions? requestOptions}) async {
-  validateLength('environment_template_id', environmentTemplateId,
-      min: 0, max: 1048576);
+Future<DeletedEnvironmentTemplateResource>
+    deleteAgentEnvironmentTemplate(ClientConfig config,
+        {required String environmentTemplateId,
+        RequestOptions? requestOptions}) async {
+  validateLength('environment_template_id', environmentTemplateId, min: 0, max: 1048576);
 
   return (await sdkRequest<DeletedEnvironmentTemplateResource>('DELETE',
           '/agents/environments/templates/${Uri.encodeComponent(environmentTemplateId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteAgentEnvironmentTemplate',
-          fromJsonRaw: (value) => DeletedEnvironmentTemplateResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedEnvironmentTemplateResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists managed agent sessions using ID-based pagination and the requested sort order. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
 ///
@@ -1733,38 +1173,20 @@ Future<SessionListResource> listAgentSessions(ClientConfig config,
   return (await sdkRequest<SessionListResource>('GET', '/agents/sessions',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'agent_id': SdkQueryValue(SdkUtils.unwrapOptional(agentId),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'agent_id': SdkQueryValue(SdkUtils.unwrapOptional(agentId), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentSessions',
-          fromJsonRaw: (value) =>
-              SessionListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists managed agent sessions using ID-based pagination and the requested sort order. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
 ///
@@ -1774,31 +1196,13 @@ Future<SessionListResource> listAgentSessions(ClientConfig config,
 /// [after] Return resources after this resource ID in the selected order.
 /// [agentId] Only return sessions whose root agent has this ID. Omit to return
 ///   sessions for all agents.
-Stream<SessionResource> listAgentSessionsPaginated(ClientConfig config,
-    {int? limit,
-    ListOrderParam? order,
-    String? after,
-    String? agentId,
-    RequestOptions? requestOptions}) async* {
+Stream<SessionResource> listAgentSessionsPaginated(ClientConfig config, {int? limit, ListOrderParam? order, String? after, String? agentId, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessions(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        agentId: agentId == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(agentId),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessions(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), agentId: agentId == null ? const SdkOmitted<String>() : SdkPresent<String>(agentId), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -1806,27 +1210,10 @@ Stream<SessionResource> listAgentSessionsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<SessionListResource, SessionResource>> listAgentSessionsPages(
-    ClientConfig config,
-    {int? limit,
-    ListOrderParam? order,
-    String? after,
-    String? agentId,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SessionListResource, SessionResource>> listAgentSessionsPages(ClientConfig config, {int? limit, ListOrderParam? order, String? after, String? agentId, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessions(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        agentId: agentId == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(agentId),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessions(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), agentId: agentId == null ? const SdkOmitted<String>() : SdkPresent<String>(agentId), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -1836,6 +1223,7 @@ Stream<SdkPage<SessionListResource, SessionResource>> listAgentSessionsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Creates a managed agent session, optionally submits initial input, and returns the session or streams its events when stream is true. See [running sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions).
 ///
@@ -1891,29 +1279,12 @@ Future<SessionResource> createAgentSession(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createAgentSession',
-          fromJsonRaw: (value) =>
-              SessionResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a managed agent session, optionally submits initial input, and returns the session or streams its events when stream is true. See [running sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions).
 ///
@@ -1935,51 +1306,32 @@ Future<SessionResource> createAgentSession(ClientConfig config,
 ///   `none`, or when `stream` is `true` for an environment that is not
 ///   `self_hosted`; optional for self-hosted and non-streaming execution
 ///   environments.
-Stream<SessionEvent> createAgentSessionStream(ClientConfig config,
-    {required EnvironmentParam environment,
-    required bool stream,
-    SdkOptional<SessionSpendControlParam?> spendControl = const SdkOmitted(),
-    SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
-    SdkOptional<SessionAgentConfigParam> agent = const SdkOmitted(),
-    SdkOptional<String> agentId = const SdkOmitted(),
-    SdkOptional<List<String>?> vaultIds = const SdkOmitted(),
-    SdkOptional<CreateSessionInputParam?> input = const SdkOmitted(),
-    RequestOptions? requestOptions}) async* {
+Stream<SessionEvent> createAgentSessionStream(ClientConfig config, {required EnvironmentParam environment, required bool stream, SdkOptional<SessionSpendControlParam?> spendControl = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<SessionAgentConfigParam> agent = const SdkOmitted(), SdkOptional<String> agentId = const SdkOmitted(), SdkOptional<List<String>?> vaultIds = const SdkOmitted(), SdkOptional<CreateSessionInputParam?> input = const SdkOmitted(), RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/agents/sessions',
     config: config,
     body: {
-      'environment': environment,
-      'stream': stream,
-      'spend_control': SdkUtils.unwrapOptional(spendControl),
-      'metadata': SdkUtils.unwrapOptional(metadata),
-      'agent': SdkUtils.unwrapOptional(agent),
-      'agent_id': SdkUtils.unwrapOptional(agentId),
-      'vault_ids': SdkUtils.unwrapOptional(vaultIds),
-      'input': SdkUtils.unwrapOptional(input),
-    },
+    'environment': environment,
+    'stream': stream,
+    'spend_control': SdkUtils.unwrapOptional(spendControl),
+    'metadata': SdkUtils.unwrapOptional(metadata),
+    'agent': SdkUtils.unwrapOptional(agent),
+    'agent_id': SdkUtils.unwrapOptional(agentId),
+    'vault_ids': SdkUtils.unwrapOptional(vaultIds),
+    'input': SdkUtils.unwrapOptional(input),
+  },
     operationId: 'createAgentSessionStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {
-      '400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '429': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-    },
+    errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)},
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => SessionEvent.fromJson(event.data));
   }
 }
-
 /// Retrieves the current state of a managed agent session. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
 ///
 /// [sessionId] The ID of the session.
@@ -1992,26 +1344,12 @@ Future<SessionResource> retrieveAgentSession(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveAgentSession',
-          fromJsonRaw: (value) =>
-              SessionResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates session metadata, model, reasoning effort, or service tier. Model settings apply to subsequent turns. Omitted fields are unchanged. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
 ///
@@ -2040,27 +1378,12 @@ Future<SessionResource> updateAgentSession(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateAgentSession',
-          fromJsonRaw: (value) =>
-              SessionResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Removes a managed agent session from the public API and returns a deletion confirmation. If backend execution has ended, deletion can cancel a still-open public turn and abandon unpublished outputs. Running execution must be cancelled first. Physical cleanup may continue asynchronously. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
 ///
@@ -2074,26 +1397,12 @@ Future<DeletedSessionResource> deleteAgentSession(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteAgentSession',
-          fromJsonRaw: (value) =>
-              DeletedSessionResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedSessionResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists immutable artifacts published by completed hosted session turns. See [session artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files#openai-hosted-artifacts).
 ///
@@ -2104,14 +1413,14 @@ Future<DeletedSessionResource> deleteAgentSession(ClientConfig config,
 /// [after] Return resources after this resource ID in the selected order.
 /// [environmentId] Restrict the listing to artifacts produced by this
 ///   environment.
-Future<SessionArtifactListResource> listAgentSessionArtifacts(
-    ClientConfig config,
-    {required String sessionId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<ListOrderParam> order = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<String?> environmentId = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<SessionArtifactListResource>
+    listAgentSessionArtifacts(ClientConfig config,
+        {required String sessionId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<ListOrderParam> order = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        SdkOptional<String?> environmentId = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   validateLength('session_id', sessionId, min: 0, max: 1048576);
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 100);
@@ -2122,8 +1431,7 @@ Future<SessionArtifactListResource> listAgentSessionArtifacts(
   if (environmentId is SdkPresent<String?>) {
     final environmentIdValue = environmentId.value;
     if (environmentIdValue != null) {
-      validateLength('environment_id', environmentIdValue,
-          min: 0, max: 1048576);
+      validateLength('environment_id', environmentIdValue, min: 0, max: 1048576);
     }
   }
 
@@ -2131,40 +1439,20 @@ Future<SessionArtifactListResource> listAgentSessionArtifacts(
           '/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/artifacts',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'environment_id': SdkQueryValue(
-                SdkUtils.unwrapOptional(environmentId),
-                style: 'form',
-                explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'environment_id': SdkQueryValue(SdkUtils.unwrapOptional(environmentId), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentSessionArtifacts',
-          fromJsonRaw: (value) => SessionArtifactListResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionArtifactListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists immutable artifacts published by completed hosted session turns. See [session artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files#openai-hosted-artifacts).
 ///
@@ -2175,34 +1463,13 @@ Future<SessionArtifactListResource> listAgentSessionArtifacts(
 /// [after] Return resources after this resource ID in the selected order.
 /// [environmentId] Restrict the listing to artifacts produced by this
 ///   environment.
-Stream<SessionArtifactResource> listAgentSessionArtifactsPaginated(
-    ClientConfig config,
-    {required String sessionId,
-    int? limit,
-    ListOrderParam? order,
-    String? after,
-    String? environmentId,
-    RequestOptions? requestOptions}) async* {
+Stream<SessionArtifactResource> listAgentSessionArtifactsPaginated(ClientConfig config, {required String sessionId, int? limit, ListOrderParam? order, String? after, String? environmentId, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionArtifacts(config,
-        sessionId: sessionId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        environmentId: environmentId == null
-            ? const SdkOmitted<String?>()
-            : SdkPresent<String?>(environmentId),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionArtifacts(config, sessionId: sessionId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), environmentId: environmentId == null ? const SdkOmitted<String?>() : SdkPresent<String?>(environmentId), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -2210,29 +1477,10 @@ Stream<SessionArtifactResource> listAgentSessionArtifactsPaginated(
   }
 }
 
-Stream<SdkPage<SessionArtifactListResource, SessionArtifactResource>>
-    listAgentSessionArtifactsPages(ClientConfig config,
-        {required String sessionId,
-        int? limit,
-        ListOrderParam? order,
-        String? after,
-        String? environmentId,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SessionArtifactListResource, SessionArtifactResource>> listAgentSessionArtifactsPages(ClientConfig config, {required String sessionId, int? limit, ListOrderParam? order, String? after, String? environmentId, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionArtifacts(config,
-        sessionId: sessionId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        environmentId: environmentId == null
-            ? const SdkOmitted<String?>()
-            : SdkPresent<String?>(environmentId),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionArtifacts(config, sessionId: sessionId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), environmentId: environmentId == null ? const SdkOmitted<String?>() : SdkPresent<String?>(environmentId), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -2243,15 +1491,16 @@ Stream<SdkPage<SessionArtifactListResource, SessionArtifactResource>>
   }
 }
 
+
 /// Retrieves immutable metadata for one durable session artifact. See [session artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files#openai-hosted-artifacts).
 ///
 /// [sessionId] The ID of the session that owns the artifact.
 /// [artifactId] The immutable session artifact ID.
-Future<SessionArtifactResource> retrieveAgentSessionArtifact(
-    ClientConfig config,
-    {required String sessionId,
-    required String artifactId,
-    RequestOptions? requestOptions}) async {
+Future<SessionArtifactResource>
+    retrieveAgentSessionArtifact(ClientConfig config,
+        {required String sessionId,
+        required String artifactId,
+        RequestOptions? requestOptions}) async {
   validateLength('session_id', sessionId, min: 0, max: 1048576);
   validateLength('artifact_id', artifactId, min: 0, max: 1048576);
 
@@ -2260,36 +1509,22 @@ Future<SessionArtifactResource> retrieveAgentSessionArtifact(
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveAgentSessionArtifact',
-          fromJsonRaw: (value) =>
-              SessionArtifactResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionArtifactResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes an immutable session artifact without deleting its live environment file or original Files API object. See [session artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files#openai-hosted-artifacts).
 ///
 /// [sessionId] The ID of the session that owns the artifact.
 /// [artifactId] The immutable session artifact ID.
-Future<DeletedSessionArtifactResource> deleteAgentSessionArtifact(
-    ClientConfig config,
-    {required String sessionId,
-    required String artifactId,
-    RequestOptions? requestOptions}) async {
+Future<DeletedSessionArtifactResource>
+    deleteAgentSessionArtifact(ClientConfig config,
+        {required String sessionId,
+        required String artifactId,
+        RequestOptions? requestOptions}) async {
   validateLength('session_id', sessionId, min: 0, max: 1048576);
   validateLength('artifact_id', artifactId, min: 0, max: 1048576);
 
@@ -2298,26 +1533,12 @@ Future<DeletedSessionArtifactResource> deleteAgentSessionArtifact(
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteAgentSessionArtifact',
-          fromJsonRaw: (value) => DeletedSessionArtifactResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedSessionArtifactResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Downloads immutable session artifact bytes after the execution environment expires. See [session artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files#openai-hosted-artifacts).
 ///
@@ -2336,29 +1557,15 @@ Future<List<int>> retrieveAgentSessionArtifactContent(ClientConfig config,
           decoder: SdkResponseDecoder.bytes,
           operationId: 'retrieveAgentSessionArtifactContent',
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Streams live events for an agent session. See [session events](https://developers.openai.com/api/docs/guides/agents-api/sessions/events).
 ///
 /// [sessionId] The ID of the session.
-Stream<SessionEvent> listAgentSessionEvents(ClientConfig config,
-    {required String sessionId, RequestOptions? requestOptions}) async* {
+Stream<SessionEvent> listAgentSessionEvents(ClientConfig config, {required String sessionId, RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'GET',
     '/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/events',
@@ -2368,21 +1575,12 @@ Stream<SessionEvent> listAgentSessionEvents(ClientConfig config,
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {
-      '400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>),
-      '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-    },
+    errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)},
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => SessionEvent.fromJson(event.data));
   }
 }
-
 /// Submits message, cancellation, tool-result, or computer-use approval-response events to a managed agent session. Cancellation can recover a still-open turn whose backend execution has ended by marking it cancelled and abandoning unpublished outputs. Saved results, published files, and existing terminal outcomes are preserved. HTTP 202 confirms acceptance, not durable completion. See [session events](https://developers.openai.com/api/docs/guides/agents-api/sessions/events).
 ///
 /// [sessionId] The ID of the session.
@@ -2405,28 +1603,13 @@ Future<void> createAgentSessionEvents(ClientConfig config,
           config: config,
           body: {'events': events},
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
           operationId: 'createAgentSessionEvents',
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists items produced by the session's root agent, including its interactions with subagents. Each subagent has its own item history. See [inspecting agent output](https://developers.openai.com/api/docs/guides/agents-api/observability).
 ///
@@ -2453,36 +1636,19 @@ Future<SessionItemListResource> listAgentSessionItems(ClientConfig config,
           '/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/items',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentSessionItems',
-          fromJsonRaw: (value) =>
-              SessionItemListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionItemListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists items produced by the session's root agent, including its interactions with subagents. Each subagent has its own item history. See [inspecting agent output](https://developers.openai.com/api/docs/guides/agents-api/observability).
 ///
@@ -2491,30 +1657,13 @@ Future<SessionItemListResource> listAgentSessionItems(ClientConfig config,
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Stream<SessionTurnItemResource> listAgentSessionItemsPaginated(
-    ClientConfig config,
-    {required String sessionId,
-    int? limit,
-    ListOrderParam? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<SessionTurnItemResource> listAgentSessionItemsPaginated(ClientConfig config, {required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionItems(config,
-        sessionId: sessionId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionItems(config, sessionId: sessionId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -2522,25 +1671,10 @@ Stream<SessionTurnItemResource> listAgentSessionItemsPaginated(
   }
 }
 
-Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>>
-    listAgentSessionItemsPages(ClientConfig config,
-        {required String sessionId,
-        int? limit,
-        ListOrderParam? order,
-        String? after,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>> listAgentSessionItemsPages(ClientConfig config, {required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionItems(config,
-        sessionId: sessionId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionItems(config, sessionId: sessionId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -2550,6 +1684,7 @@ Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Lists published root-turn traces as OTLP JSON, ordered by turn creation time and ID. Unpublished traces are skipped. Each page returns data available when read; it does not wait for late traces. Trace reads and the JSON response are limited to 16 MiB per request. If the limit is exceeded, request fewer traces.
 ///
@@ -2576,36 +1711,19 @@ Future<SessionTraceListResource> listAgentSessionTraces(ClientConfig config,
           '/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/traces',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentSessionTraces',
-          fromJsonRaw: (value) =>
-              SessionTraceListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionTraceListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists published root-turn traces as OTLP JSON, ordered by turn creation time and ID. Unpublished traces are skipped. Each page returns data available when read; it does not wait for late traces. Trace reads and the JSON response are limited to 16 MiB per request. If the limit is exceeded, request fewer traces.
 ///
@@ -2614,30 +1732,13 @@ Future<SessionTraceListResource> listAgentSessionTraces(ClientConfig config,
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Stream<SessionTurnTraceResource> listAgentSessionTracesPaginated(
-    ClientConfig config,
-    {required String sessionId,
-    int? limit,
-    ListOrderParam? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<SessionTurnTraceResource> listAgentSessionTracesPaginated(ClientConfig config, {required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionTraces(config,
-        sessionId: sessionId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionTraces(config, sessionId: sessionId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -2645,25 +1746,10 @@ Stream<SessionTurnTraceResource> listAgentSessionTracesPaginated(
   }
 }
 
-Stream<SdkPage<SessionTraceListResource, SessionTurnTraceResource>>
-    listAgentSessionTracesPages(ClientConfig config,
-        {required String sessionId,
-        int? limit,
-        ListOrderParam? order,
-        String? after,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SessionTraceListResource, SessionTurnTraceResource>> listAgentSessionTracesPages(ClientConfig config, {required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionTraces(config,
-        sessionId: sessionId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionTraces(config, sessionId: sessionId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -2673,6 +1759,7 @@ Stream<SdkPage<SessionTraceListResource, SessionTurnTraceResource>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Lists turns by creation time and turn ID. The after cursor is exclusive in the selected order. See [session turns](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage#inspect-session-turns).
 ///
@@ -2699,36 +1786,19 @@ Future<SessionTurnListResource> listAgentSessionTurns(ClientConfig config,
           '/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/turns',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentSessionTurns',
-          fromJsonRaw: (value) =>
-              SessionTurnListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionTurnListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists turns by creation time and turn ID. The after cursor is exclusive in the selected order. See [session turns](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage#inspect-session-turns).
 ///
@@ -2737,29 +1807,13 @@ Future<SessionTurnListResource> listAgentSessionTurns(ClientConfig config,
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Stream<TurnResource> listAgentSessionTurnsPaginated(ClientConfig config,
-    {required String sessionId,
-    int? limit,
-    ListOrderParam? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<TurnResource> listAgentSessionTurnsPaginated(ClientConfig config, {required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionTurns(config,
-        sessionId: sessionId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionTurns(config, sessionId: sessionId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -2767,25 +1821,10 @@ Stream<TurnResource> listAgentSessionTurnsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<SessionTurnListResource, TurnResource>>
-    listAgentSessionTurnsPages(ClientConfig config,
-        {required String sessionId,
-        int? limit,
-        ListOrderParam? order,
-        String? after,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SessionTurnListResource, TurnResource>> listAgentSessionTurnsPages(ClientConfig config, {required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionTurns(config,
-        sessionId: sessionId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionTurns(config, sessionId: sessionId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -2795,6 +1834,7 @@ Stream<SdkPage<SessionTurnListResource, TurnResource>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Retrieves a turn's current status, timestamps, usage, and error. Returns 404 if the turn does not belong to the session. See [session turns](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage#inspect-session-turns).
 ///
@@ -2812,26 +1852,12 @@ Future<TurnResource> retrieveAgentSessionTurn(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveAgentSessionTurn',
-          fromJsonRaw: (value) =>
-              TurnResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TurnResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '401': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '409': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '500': (value) =>
-            ErrorResponse2.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists items belonging to one root-agent turn, including its interactions with subagents. See [inspecting agent output](https://developers.openai.com/api/docs/guides/agents-api/observability).
 ///
@@ -2861,36 +1887,19 @@ Future<SessionItemListResource> listAgentSessionTurnItems(ClientConfig config,
           '/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/turns/${Uri.encodeComponent(turnId.toString())}/items',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAgentSessionTurnItems',
-          fromJsonRaw: (value) =>
-              SessionItemListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SessionItemListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists items belonging to one root-agent turn, including its interactions with subagents. See [inspecting agent output](https://developers.openai.com/api/docs/guides/agents-api/observability).
 ///
@@ -2900,32 +1909,13 @@ Future<SessionItemListResource> listAgentSessionTurnItems(ClientConfig config,
 ///   Defaults to 20.
 /// [order] The order in which resources are returned. Defaults to `desc`.
 /// [after] Return resources after this resource ID in the selected order.
-Stream<SessionTurnItemResource> listAgentSessionTurnItemsPaginated(
-    ClientConfig config,
-    {required String sessionId,
-    required String turnId,
-    int? limit,
-    ListOrderParam? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<SessionTurnItemResource> listAgentSessionTurnItemsPaginated(ClientConfig config, {required String sessionId, required String turnId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionTurnItems(config,
-        sessionId: sessionId,
-        turnId: turnId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionTurnItems(config, sessionId: sessionId, turnId: turnId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -2933,27 +1923,10 @@ Stream<SessionTurnItemResource> listAgentSessionTurnItemsPaginated(
   }
 }
 
-Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>>
-    listAgentSessionTurnItemsPages(ClientConfig config,
-        {required String sessionId,
-        required String turnId,
-        int? limit,
-        ListOrderParam? order,
-        String? after,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SessionItemListResource, SessionTurnItemResource>> listAgentSessionTurnItemsPages(ClientConfig config, {required String sessionId, required String turnId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAgentSessionTurnItems(config,
-        sessionId: sessionId,
-        turnId: turnId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListOrderParam>()
-            : SdkPresent<ListOrderParam>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listAgentSessionTurnItems(config, sessionId: sessionId, turnId: turnId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;

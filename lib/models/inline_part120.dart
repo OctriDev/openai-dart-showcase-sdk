@@ -10,18 +10,14 @@ enum StaticChunkingStrategyResponseParamType {
 
   static StaticChunkingStrategyResponseParamType fromJson(String value) {
     switch (value) {
-      case 'static':
-        return StaticChunkingStrategyResponseParamType.static_;
-      default:
-        throw ArgumentError(
-            'Unknown StaticChunkingStrategyResponseParamType: $value');
+      case 'static': return StaticChunkingStrategyResponseParamType.static_;
+      default: throw ArgumentError('Unknown StaticChunkingStrategyResponseParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case StaticChunkingStrategyResponseParamType.static_:
-        return 'static';
+      case StaticChunkingStrategyResponseParamType.static_: return 'static';
     }
   }
 
@@ -35,17 +31,14 @@ enum SummaryTextContentType {
 
   static SummaryTextContentType fromJson(String value) {
     switch (value) {
-      case 'summary_text':
-        return SummaryTextContentType.summaryText;
-      default:
-        throw ArgumentError('Unknown SummaryTextContentType: $value');
+      case 'summary_text': return SummaryTextContentType.summaryText;
+      default: throw ArgumentError('Unknown SummaryTextContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SummaryTextContentType.summaryText:
-        return 'summary_text';
+      case SummaryTextContentType.summaryText: return 'summary_text';
     }
   }
 
@@ -55,26 +48,23 @@ enum SummaryTextContentType {
 
 /// The content type. Always `summary_text`.
 final class SummaryTextResourceType {
+
   final String value;
 
   const SummaryTextResourceType._(this.value);
 
-  factory SummaryTextResourceType.fromJson(String value) =>
-      SummaryTextResourceType._(value);
+  factory SummaryTextResourceType.fromJson(String value) => SummaryTextResourceType._(value);
 
   static const summaryText = SummaryTextResourceType._('summary_text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SummaryTextResourceType && other.value == value;
+  @override bool operator ==(Object other) => other is SummaryTextResourceType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The provenance signal type. Always `synthid`.
@@ -83,17 +73,14 @@ enum SynthIDProvenanceResultType {
 
   static SynthIDProvenanceResultType fromJson(String value) {
     switch (value) {
-      case 'synthid':
-        return SynthIDProvenanceResultType.synthid;
-      default:
-        throw ArgumentError('Unknown SynthIDProvenanceResultType: $value');
+      case 'synthid': return SynthIDProvenanceResultType.synthid;
+      default: throw ArgumentError('Unknown SynthIDProvenanceResultType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SynthIDProvenanceResultType.synthid:
-        return 'synthid';
+      case SynthIDProvenanceResultType.synthid: return 'synthid';
     }
   }
 
@@ -103,26 +90,23 @@ enum SynthIDProvenanceResultType {
 
 /// Type discriminator that is always `chatkit.thread_item`.
 final class TaskGroupItemObject {
+
   final String value;
 
   const TaskGroupItemObject._(this.value);
 
-  factory TaskGroupItemObject.fromJson(String value) =>
-      TaskGroupItemObject._(value);
+  factory TaskGroupItemObject.fromJson(String value) => TaskGroupItemObject._(value);
 
   static const chatkitThreadItem = TaskGroupItemObject._('chatkit.thread_item');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TaskGroupItemObject && other.value == value;
+  @override bool operator ==(Object other) => other is TaskGroupItemObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Type discriminator that is always `chatkit.task_group`.
@@ -131,17 +115,14 @@ enum TaskGroupItemType {
 
   static TaskGroupItemType fromJson(String value) {
     switch (value) {
-      case 'chatkit.task_group':
-        return TaskGroupItemType.chatkitTaskGroup;
-      default:
-        throw ArgumentError('Unknown TaskGroupItemType: $value');
+      case 'chatkit.task_group': return TaskGroupItemType.chatkitTaskGroup;
+      default: throw ArgumentError('Unknown TaskGroupItemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TaskGroupItemType.chatkitTaskGroup:
-        return 'chatkit.task_group';
+      case TaskGroupItemType.chatkitTaskGroup: return 'chatkit.task_group';
     }
   }
 
@@ -151,6 +132,7 @@ enum TaskGroupItemType {
 
 /// Type discriminator that is always `chatkit.thread_item`.
 final class TaskItemObject {
+
   final String value;
 
   const TaskItemObject._(this.value);
@@ -161,15 +143,12 @@ final class TaskItemObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TaskItemObject && other.value == value;
+  @override bool operator ==(Object other) => other is TaskItemObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Type discriminator that is always `chatkit.task`.
@@ -178,17 +157,14 @@ enum TaskItemType {
 
   static TaskItemType fromJson(String value) {
     switch (value) {
-      case 'chatkit.task':
-        return TaskItemType.chatkitTask;
-      default:
-        throw ArgumentError('Unknown TaskItemType: $value');
+      case 'chatkit.task': return TaskItemType.chatkitTask;
+      default: throw ArgumentError('Unknown TaskItemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TaskItemType.chatkitTask:
-        return 'chatkit.task';
+      case TaskItemType.chatkitTask: return 'chatkit.task';
     }
   }
 
@@ -202,17 +178,14 @@ enum TextContentType {
 
   static TextContentType fromJson(String value) {
     switch (value) {
-      case 'text':
-        return TextContentType.text;
-      default:
-        throw ArgumentError('Unknown TextContentType: $value');
+      case 'text': return TextContentType.text;
+      default: throw ArgumentError('Unknown TextContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TextContentType.text:
-        return 'text';
+      case TextContentType.text: return 'text';
     }
   }
 
@@ -226,17 +199,14 @@ enum TextFormatParamJsonSchemaType {
 
   static TextFormatParamJsonSchemaType fromJson(String value) {
     switch (value) {
-      case 'json_schema':
-        return TextFormatParamJsonSchemaType.jsonSchema;
-      default:
-        throw ArgumentError('Unknown TextFormatParamJsonSchemaType: $value');
+      case 'json_schema': return TextFormatParamJsonSchemaType.jsonSchema;
+      default: throw ArgumentError('Unknown TextFormatParamJsonSchemaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TextFormatParamJsonSchemaType.jsonSchema:
-        return 'json_schema';
+      case TextFormatParamJsonSchemaType.jsonSchema: return 'json_schema';
     }
   }
 
@@ -250,17 +220,14 @@ enum TextFormatParamTextType {
 
   static TextFormatParamTextType fromJson(String value) {
     switch (value) {
-      case 'text':
-        return TextFormatParamTextType.text;
-      default:
-        throw ArgumentError('Unknown TextFormatParamTextType: $value');
+      case 'text': return TextFormatParamTextType.text;
+      default: throw ArgumentError('Unknown TextFormatParamTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TextFormatParamTextType.text:
-        return 'text';
+      case TextFormatParamTextType.text: return 'text';
     }
   }
 
@@ -274,17 +241,14 @@ enum TextFormatResourceJsonSchemaType {
 
   static TextFormatResourceJsonSchemaType fromJson(String value) {
     switch (value) {
-      case 'json_schema':
-        return TextFormatResourceJsonSchemaType.jsonSchema;
-      default:
-        throw ArgumentError('Unknown TextFormatResourceJsonSchemaType: $value');
+      case 'json_schema': return TextFormatResourceJsonSchemaType.jsonSchema;
+      default: throw ArgumentError('Unknown TextFormatResourceJsonSchemaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TextFormatResourceJsonSchemaType.jsonSchema:
-        return 'json_schema';
+      case TextFormatResourceJsonSchemaType.jsonSchema: return 'json_schema';
     }
   }
 
@@ -298,17 +262,14 @@ enum TextFormatResourceTextType {
 
   static TextFormatResourceTextType fromJson(String value) {
     switch (value) {
-      case 'text':
-        return TextFormatResourceTextType.text;
-      default:
-        throw ArgumentError('Unknown TextFormatResourceTextType: $value');
+      case 'text': return TextFormatResourceTextType.text;
+      default: throw ArgumentError('Unknown TextFormatResourceTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TextFormatResourceTextType.text:
-        return 'text';
+      case TextFormatResourceTextType.text: return 'text';
     }
   }
 

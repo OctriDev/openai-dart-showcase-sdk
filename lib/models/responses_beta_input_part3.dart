@@ -8,109 +8,55 @@ part of 'responses_beta_input.dart';
 class BetaInputMessageResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the message input. Always set to `message`.
   final BetaInputMessageType type_;
-
   /// The role of the message input. One of `user`, `system`, or `developer`.
   final BetaInputMessageRole role;
-
   /// The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final SdkOptional<BetaInputMessageStatus> status;
-
   /// A list of one or many input items to the model, containing different content types.
   final List<BetaInputContent> content;
-
   /// The unique ID of the message input.
   final String id;
 
-  const BetaInputMessageResource(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.role,
-      this.status = const SdkOmitted(),
-      required this.content,
-      required this.id});
+  const BetaInputMessageResource({this.agent = const SdkOmitted(), required this.type_, required this.role, this.status = const SdkOmitted(), required this.content, required this.id});
 
-  BetaInputMessageResource Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaInputMessageType type_,
-      BetaInputMessageRole role,
-      SdkOptional<BetaInputMessageStatus> status,
-      List<BetaInputContent> content,
-      String id}) get copyWith => _copyWith;
+  BetaInputMessageResource Function({SdkOptional<BetaAgentTag?> agent, BetaInputMessageType type_, BetaInputMessageRole role, SdkOptional<BetaInputMessageStatus> status, List<BetaInputContent> content, String id}) get copyWith => _copyWith;
 
-  BetaInputMessageResource _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? content = sdkOmittedValue,
-          Object? id = sdkOmittedValue}) =>
-      BetaInputMessageResource(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaInputMessageType,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as BetaInputMessageRole,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<BetaInputMessageStatus>,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as List<BetaInputContent>,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  BetaInputMessageResource _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? role = sdkOmittedValue, Object? status = sdkOmittedValue, Object? content = sdkOmittedValue, Object? id = sdkOmittedValue}) => BetaInputMessageResource(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaInputMessageType,
+    role: identical(role, sdkOmittedValue) ? this.role : role as BetaInputMessageRole,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<BetaInputMessageStatus>,
+    content: identical(content, sdkOmittedValue) ? this.content : content as List<BetaInputContent>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory BetaInputMessageResource.fromJson(Map<String, dynamic> json) =>
-      BetaInputMessageResource(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaInputMessageType.fromJson(json['type'] as String)
-            : null)!,
-        role: (json['role'] != null
-            ? BetaInputMessageRole.fromJson(json['role'] as String)
-            : null)!,
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? BetaInputMessageStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        content: ((json['content'] as List?)
-            ?.map((e) => BetaInputContent.fromJson(e))
-            .toList())!,
-        id: (json['id'] as String?)!,
-      );
+  factory BetaInputMessageResource.fromJson(Map<String, dynamic> json) => BetaInputMessageResource(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaInputMessageType.fromJson(json['type'] as String) : null)!,
+    role: (json['role'] != null ? BetaInputMessageRole.fromJson(json['role'] as String) : null)!,
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? BetaInputMessageStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    content: ((json['content'] as List?)?.map((e) => BetaInputContent.fromJson(e)).toList())!,
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'role': role.toJson(),
-        ...switch (status) {
-          SdkPresent<BetaInputMessageStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'content': content.map((item) => item.toJson()).toList(),
-        'id': id,
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'role': role.toJson(),
+    ...switch (status) {
+      SdkPresent<BetaInputMessageStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'content': content.map((item) => item.toJson()).toList(),
+    'id': id,
+  };
 }
 
 sealed class BetaInputParam {
@@ -118,12 +64,8 @@ sealed class BetaInputParam {
   static const String constructionSurface = 'named';
   const BetaInputParam();
   factory BetaInputParam.fromJson(Object? json) {
-    if (json is String) {
-      return BetaInputParamString(json);
-    }
-    try {
-      return BetaInputParamBetaInputItem(BetaInputItem.fromJson(json));
-    } catch (_) {}
+    if (json is String) { return BetaInputParamString(json); }
+    try { return BetaInputParamBetaInputItem(BetaInputItem.fromJson(json)); } catch (_) {}
     throw FormatException("No variant matched for BetaInputParam");
   }
   Object? toJson();
@@ -132,145 +74,85 @@ sealed class BetaInputParam {
 final class BetaInputParamString extends BetaInputParam {
   final String value;
   const BetaInputParamString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class BetaInputParamBetaInputItem extends BetaInputParam {
   final BetaInputItem value;
   const BetaInputParamBetaInputItem(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A text input to the model.
 class BetaInputTextContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the input item. Always `input_text`.
   final BetaInputTextContentType type_;
-
   /// The text input to the model.
   final String text;
-
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
   final SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint;
 
-  const BetaInputTextContent(
-      {required this.type_,
-      required this.text,
-      this.promptCacheBreakpoint = const SdkOmitted()});
+  const BetaInputTextContent({required this.type_, required this.text, this.promptCacheBreakpoint = const SdkOmitted()});
 
-  BetaInputTextContent Function(
-          {BetaInputTextContentType type_,
-          String text,
-          SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint})
-      get copyWith => _copyWith;
+  BetaInputTextContent Function({BetaInputTextContentType type_, String text, SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint}) get copyWith => _copyWith;
 
-  BetaInputTextContent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
-      BetaInputTextContent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaInputTextContentType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
-            ? this.promptCacheBreakpoint
-            : promptCacheBreakpoint
-                as SdkOptional<BetaPromptCacheBreakpointConfig>,
-      );
+  BetaInputTextContent _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => BetaInputTextContent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaInputTextContentType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<BetaPromptCacheBreakpointConfig>,
+  );
 
-  factory BetaInputTextContent.fromJson(Map<String, dynamic> json) =>
-      BetaInputTextContent(
-        type_: (json['type'] != null
-            ? BetaInputTextContentType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-        promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null
-            ? SdkPresent((json['prompt_cache_breakpoint'] != null
-                ? BetaPromptCacheBreakpointConfig.fromJson(
-                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory BetaInputTextContent.fromJson(Map<String, dynamic> json) => BetaInputTextContent(
+    type_: (json['type'] != null ? BetaInputTextContentType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+    promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null ? SdkPresent((json['prompt_cache_breakpoint'] != null ? BetaPromptCacheBreakpointConfig.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-        ...switch (promptCacheBreakpoint) {
-          SdkPresent<BetaPromptCacheBreakpointConfig>(value: final value) => {
-              'prompt_cache_breakpoint': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'text': text,
+    ...switch (promptCacheBreakpoint) {
+      SdkPresent<BetaPromptCacheBreakpointConfig>(value: final value) => {'prompt_cache_breakpoint': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A text input to the model.
 class BetaInputTextContentParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the input item. Always `input_text`.
   final BetaInputTextContentParamType type_;
-
   /// The text input to the model.
   final String text;
-
   /// Optional API value serialized in the `prompt_cache_breakpoint` wire field.
   final SdkOptional<BetaPromptCacheBreakpointParam?> promptCacheBreakpoint;
 
-  const BetaInputTextContentParam(
-      {required this.type_,
-      required this.text,
-      this.promptCacheBreakpoint = const SdkOmitted()});
+  const BetaInputTextContentParam({required this.type_, required this.text, this.promptCacheBreakpoint = const SdkOmitted()});
 
-  BetaInputTextContentParam Function(
-          {BetaInputTextContentParamType type_,
-          String text,
-          SdkOptional<BetaPromptCacheBreakpointParam?> promptCacheBreakpoint})
-      get copyWith => _copyWith;
+  BetaInputTextContentParam Function({BetaInputTextContentParamType type_, String text, SdkOptional<BetaPromptCacheBreakpointParam?> promptCacheBreakpoint}) get copyWith => _copyWith;
 
-  BetaInputTextContentParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
-      BetaInputTextContentParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaInputTextContentParamType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
-            ? this.promptCacheBreakpoint
-            : promptCacheBreakpoint
-                as SdkOptional<BetaPromptCacheBreakpointParam?>,
-      );
+  BetaInputTextContentParam _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => BetaInputTextContentParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaInputTextContentParamType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<BetaPromptCacheBreakpointParam?>,
+  );
 
-  factory BetaInputTextContentParam.fromJson(Map<String, dynamic> json) =>
-      BetaInputTextContentParam(
-        type_: (json['type'] != null
-            ? BetaInputTextContentParamType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-        promptCacheBreakpoint: json.containsKey('prompt_cache_breakpoint')
-            ? SdkPresent(json['prompt_cache_breakpoint'] != null
-                ? BetaPromptCacheBreakpointParam.fromJson(
-                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory BetaInputTextContentParam.fromJson(Map<String, dynamic> json) => BetaInputTextContentParam(
+    type_: (json['type'] != null ? BetaInputTextContentParamType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+    promptCacheBreakpoint: json.containsKey('prompt_cache_breakpoint') ? SdkPresent(json['prompt_cache_breakpoint'] != null ? BetaPromptCacheBreakpointParam.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-        ...switch (promptCacheBreakpoint) {
-          SdkPresent<BetaPromptCacheBreakpointParam?>(value: final value) => {
-              'prompt_cache_breakpoint': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'text': text,
+    ...switch (promptCacheBreakpoint) {
+      SdkPresent<BetaPromptCacheBreakpointParam?>(value: final value) => {'prompt_cache_breakpoint': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -13,12 +13,12 @@ class Metadata {
   const Metadata({this.value = const <String, String>{}});
 
   factory Metadata.fromJson(Map<String, dynamic> json) => Metadata(
-        value: json.map((key, value) => MapEntry(key, value as String)),
-      );
+    value: json.map((key, value) => MapEntry(key, value as String)),
+  );
 
   Map<String, dynamic> toJson() => value.map(
-        (key, value) => MapEntry(key, value),
-      );
+    (key, value) => MapEntry(key, value),
+  );
 
   String? operator [](String key) => value[key];
   Iterable<String> get keys => value.keys;
@@ -28,279 +28,156 @@ class Metadata {
 class MoveParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a move action, this property is always set to `move`.
   final MoveParamType type_;
-
   /// The x-coordinate to move to.
   final int x;
-
   /// The y-coordinate to move to.
   final int y;
-
   /// The keys being held while moving the mouse.
   final SdkOptional<List<String>?> keys;
 
-  const MoveParam(
-      {required this.type_,
-      required this.x,
-      required this.y,
-      this.keys = const SdkOmitted()});
+  const MoveParam({required this.type_, required this.x, required this.y, this.keys = const SdkOmitted()});
 
-  MoveParam Function(
-      {MoveParamType type_,
-      int x,
-      int y,
-      SdkOptional<List<String>?> keys}) get copyWith => _copyWith;
+  MoveParam Function({MoveParamType type_, int x, int y, SdkOptional<List<String>?> keys}) get copyWith => _copyWith;
 
-  MoveParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? x = sdkOmittedValue,
-          Object? y = sdkOmittedValue,
-          Object? keys = sdkOmittedValue}) =>
-      MoveParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MoveParamType,
-        x: identical(x, sdkOmittedValue) ? this.x : x as int,
-        y: identical(y, sdkOmittedValue) ? this.y : y as int,
-        keys: identical(keys, sdkOmittedValue)
-            ? this.keys
-            : keys as SdkOptional<List<String>?>,
-      );
+  MoveParam _copyWith({Object? type_ = sdkOmittedValue, Object? x = sdkOmittedValue, Object? y = sdkOmittedValue, Object? keys = sdkOmittedValue}) => MoveParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MoveParamType,
+    x: identical(x, sdkOmittedValue) ? this.x : x as int,
+    y: identical(y, sdkOmittedValue) ? this.y : y as int,
+    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as SdkOptional<List<String>?>,
+  );
 
   factory MoveParam.fromJson(Map<String, dynamic> json) => MoveParam(
-        type_: (json['type'] != null
-            ? MoveParamType.fromJson(json['type'] as String)
-            : null)!,
-        x: ((json['x'] as num?)?.toInt())!,
-        y: ((json['y'] as num?)?.toInt())!,
-        keys: json.containsKey('keys')
-            ? SdkPresent(
-                (json['keys'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-      );
+    type_: (json['type'] != null ? MoveParamType.fromJson(json['type'] as String) : null)!,
+    x: ((json['x'] as num?)?.toInt())!,
+    y: ((json['y'] as num?)?.toInt())!,
+    keys: json.containsKey('keys') ? SdkPresent((json['keys'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'x': x,
-        'y': y,
-        ...switch (keys) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'keys': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'x': x,
+    'y': y,
+    ...switch (keys) {
+      SdkPresent<List<String>?>(value: final value) => {'keys': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `OciExternalStorageProviderResponse` API schema.
 class OciExternalStorageProviderResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final OciExternalStorageProviderResponseType type_;
-
   /// Required `string` value serialized in the `tenancy_ocid` wire field.
   final String tenancyOcid;
-
   /// Required `string` value serialized in the `region` wire field.
   final String region;
-
   /// Required `string` value serialized in the `bucket` wire field.
   final String bucket;
 
-  const OciExternalStorageProviderResponse(
-      {required this.type_,
-      required this.tenancyOcid,
-      required this.region,
-      required this.bucket});
+  const OciExternalStorageProviderResponse({required this.type_, required this.tenancyOcid, required this.region, required this.bucket});
 
-  OciExternalStorageProviderResponse Function(
-      {OciExternalStorageProviderResponseType type_,
-      String tenancyOcid,
-      String region,
-      String bucket}) get copyWith => _copyWith;
+  OciExternalStorageProviderResponse Function({OciExternalStorageProviderResponseType type_, String tenancyOcid, String region, String bucket}) get copyWith => _copyWith;
 
-  OciExternalStorageProviderResponse _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? tenancyOcid = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? bucket = sdkOmittedValue}) =>
-      OciExternalStorageProviderResponse(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as OciExternalStorageProviderResponseType,
-        tenancyOcid: identical(tenancyOcid, sdkOmittedValue)
-            ? this.tenancyOcid
-            : tenancyOcid as String,
-        region:
-            identical(region, sdkOmittedValue) ? this.region : region as String,
-        bucket:
-            identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
-      );
+  OciExternalStorageProviderResponse _copyWith({Object? type_ = sdkOmittedValue, Object? tenancyOcid = sdkOmittedValue, Object? region = sdkOmittedValue, Object? bucket = sdkOmittedValue}) => OciExternalStorageProviderResponse(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as OciExternalStorageProviderResponseType,
+    tenancyOcid: identical(tenancyOcid, sdkOmittedValue) ? this.tenancyOcid : tenancyOcid as String,
+    region: identical(region, sdkOmittedValue) ? this.region : region as String,
+    bucket: identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
+  );
 
-  factory OciExternalStorageProviderResponse.fromJson(
-          Map<String, dynamic> json) =>
-      OciExternalStorageProviderResponse(
-        type_: (json['type'] != null
-            ? OciExternalStorageProviderResponseType.fromJson(
-                json['type'] as String)
-            : null)!,
-        tenancyOcid: (json['tenancy_ocid'] as String?)!,
-        region: (json['region'] as String?)!,
-        bucket: (json['bucket'] as String?)!,
-      );
+  factory OciExternalStorageProviderResponse.fromJson(Map<String, dynamic> json) => OciExternalStorageProviderResponse(
+    type_: (json['type'] != null ? OciExternalStorageProviderResponseType.fromJson(json['type'] as String) : null)!,
+    tenancyOcid: (json['tenancy_ocid'] as String?)!,
+    region: (json['region'] as String?)!,
+    bucket: (json['bucket'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'tenancy_ocid': tenancyOcid,
-        'region': region,
-        'bucket': bucket,
-      };
+    'type': type_.toJson(),
+    'tenancy_ocid': tenancyOcid,
+    'region': region,
+    'bucket': bucket,
+  };
 }
 
 /// The `File` object represents a document that has been uploaded to OpenAI.
 class OpenAIFile {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The file identifier, which can be referenced in the API endpoints.
   final String id;
-
   /// The size of the file, in bytes. In a completed file upload response, this can be null when the file size is not yet available.
   final int? bytes;
-
   /// The Unix timestamp (in seconds) for when the file was created.
   final int createdAt;
-
   /// The Unix timestamp (in seconds) for when the file will expire. In a completed file upload response, this can be null when no expiry is set.
   final SdkOptional<int> expiresAt;
-
   /// The name of the file.
   final String filename;
-
   /// The object type, which is always `file`.
   final OpenAIFileObject object;
-
   /// The intended purpose of the file. Supported values are `assistants`, `assistants_output`, `batch`, `batch_output`, `fine-tune`, `fine-tune-results`, `vision`, and `user_data`.
   final OpenAIFilePurpose purpose;
-
   /// Deprecated. The current status of the file, which can be either `uploaded`, `processed`, or `error`.
   final OpenAIFileStatus status;
-
   /// Deprecated. For details on why a fine-tuning training file failed validation, see the `error` field on `fine_tuning.job`. Completed file upload responses can return null when these details are unset.
   final SdkOptional<String> statusDetails;
 
-  const OpenAIFile(
-      {required this.id,
-      required this.bytes,
-      required this.createdAt,
-      this.expiresAt = const SdkOmitted(),
-      required this.filename,
-      required this.object,
-      required this.purpose,
-      required this.status,
-      this.statusDetails = const SdkOmitted()});
+  const OpenAIFile({required this.id, required this.bytes, required this.createdAt, this.expiresAt = const SdkOmitted(), required this.filename, required this.object, required this.purpose, required this.status, this.statusDetails = const SdkOmitted()});
 
-  OpenAIFile Function(
-      {String id,
-      int? bytes,
-      int createdAt,
-      SdkOptional<int> expiresAt,
-      String filename,
-      OpenAIFileObject object,
-      OpenAIFilePurpose purpose,
-      OpenAIFileStatus status,
-      SdkOptional<String> statusDetails}) get copyWith => _copyWith;
+  OpenAIFile Function({String id, int? bytes, int createdAt, SdkOptional<int> expiresAt, String filename, OpenAIFileObject object, OpenAIFilePurpose purpose, OpenAIFileStatus status, SdkOptional<String> statusDetails}) get copyWith => _copyWith;
 
-  OpenAIFile _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? bytes = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue,
-          Object? filename = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? purpose = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? statusDetails = sdkOmittedValue}) =>
-      OpenAIFile(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as int?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<int>,
-        filename: identical(filename, sdkOmittedValue)
-            ? this.filename
-            : filename as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as OpenAIFileObject,
-        purpose: identical(purpose, sdkOmittedValue)
-            ? this.purpose
-            : purpose as OpenAIFilePurpose,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as OpenAIFileStatus,
-        statusDetails: identical(statusDetails, sdkOmittedValue)
-            ? this.statusDetails
-            : statusDetails as SdkOptional<String>,
-      );
+  OpenAIFile _copyWith({Object? id = sdkOmittedValue, Object? bytes = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? object = sdkOmittedValue, Object? purpose = sdkOmittedValue, Object? status = sdkOmittedValue, Object? statusDetails = sdkOmittedValue}) => OpenAIFile(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as int?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int>,
+    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as OpenAIFileObject,
+    purpose: identical(purpose, sdkOmittedValue) ? this.purpose : purpose as OpenAIFilePurpose,
+    status: identical(status, sdkOmittedValue) ? this.status : status as OpenAIFileStatus,
+    statusDetails: identical(statusDetails, sdkOmittedValue) ? this.statusDetails : statusDetails as SdkOptional<String>,
+  );
 
   factory OpenAIFile.fromJson(Map<String, dynamic> json) => OpenAIFile(
-        id: (json['id'] as String?)!,
-        bytes: json.containsKey('bytes')
-            ? (json['bytes'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'bytes', 'Required property is missing'),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        expiresAt: json['expires_at'] != null
-            ? SdkPresent(((json['expires_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        filename: (json['filename'] as String?)!,
-        object: (json['object'] != null
-            ? OpenAIFileObject.fromJson(json['object'] as String)
-            : null)!,
-        purpose: (json['purpose'] != null
-            ? OpenAIFilePurpose.fromJson(json['purpose'] as String)
-            : null)!,
-        status: (json['status'] != null
-            ? OpenAIFileStatus.fromJson(json['status'] as String)
-            : null)!,
-        statusDetails: json['status_details'] != null
-            ? SdkPresent((json['status_details'] as String?)!)
-            : const SdkOmitted(),
-      );
+    id: (json['id'] as String?)!,
+    bytes: json.containsKey('bytes') ? (json['bytes'] as num?)?.toInt() : throw ArgumentError.value(null, 'bytes', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    expiresAt: json['expires_at'] != null ? SdkPresent(((json['expires_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    filename: (json['filename'] as String?)!,
+    object: (json['object'] != null ? OpenAIFileObject.fromJson(json['object'] as String) : null)!,
+    purpose: (json['purpose'] != null ? OpenAIFilePurpose.fromJson(json['purpose'] as String) : null)!,
+    status: (json['status'] != null ? OpenAIFileStatus.fromJson(json['status'] as String) : null)!,
+    statusDetails: json['status_details'] != null ? SdkPresent((json['status_details'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'bytes': bytes,
-        'created_at': createdAt,
-        ...switch (expiresAt) {
-          SdkPresent<int>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'filename': filename,
-        'object': object.toJson(),
-        'purpose': purpose.toJson(),
-        'status': status.toJson(),
-        ...switch (statusDetails) {
-          SdkPresent<String>(value: final value) => {
-              'status_details': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    'bytes': bytes,
+    'created_at': createdAt,
+    ...switch (expiresAt) {
+      SdkPresent<int>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    'filename': filename,
+    'object': object.toJson(),
+    'purpose': purpose.toJson(),
+    'status': status.toJson(),
+    ...switch (statusDetails) {
+      SdkPresent<String>(value: final value) => {'status_details': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `OrderEnum` API schema.
 final class OrderEnum {
+
   final String value;
 
   const OrderEnum._(this.value);
@@ -312,14 +189,12 @@ final class OrderEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is OrderEnum && other.value == value;
+  @override bool operator ==(Object other) => other is OrderEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 // ParallelToolCalls = bool
@@ -328,42 +203,34 @@ final class OrderEnum {
 class ProgrammaticToolCallingParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the tool. Always `programmatic_tool_calling`.
   final ProgrammaticToolCallingParamType type_;
 
   const ProgrammaticToolCallingParam({required this.type_});
 
-  ProgrammaticToolCallingParam Function(
-      {ProgrammaticToolCallingParamType type_}) get copyWith => _copyWith;
+  ProgrammaticToolCallingParam Function({ProgrammaticToolCallingParamType type_}) get copyWith => _copyWith;
 
-  ProgrammaticToolCallingParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      ProgrammaticToolCallingParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ProgrammaticToolCallingParamType,
-      );
+  ProgrammaticToolCallingParam _copyWith({Object? type_ = sdkOmittedValue}) => ProgrammaticToolCallingParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ProgrammaticToolCallingParamType,
+  );
 
-  factory ProgrammaticToolCallingParam.fromJson(Map<String, dynamic> json) =>
-      ProgrammaticToolCallingParam(
-        type_: (json['type'] != null
-            ? ProgrammaticToolCallingParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory ProgrammaticToolCallingParam.fromJson(Map<String, dynamic> json) => ProgrammaticToolCallingParam(
+    type_: (json['type'] != null ? ProgrammaticToolCallingParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `ProjectEventTypeEnum` API schema.
 final class ProjectEventTypeEnum {
+
   final String value;
 
   const ProjectEventTypeEnum._(this.value);
 
-  factory ProjectEventTypeEnum.fromJson(String value) =>
-      ProjectEventTypeEnum._(value);
+  factory ProjectEventTypeEnum.fromJson(String value) => ProjectEventTypeEnum._(value);
 
   static const batchCompleted = ProjectEventTypeEnum._('batch.completed');
   static const batchFailed = ProjectEventTypeEnum._('batch.failed');
@@ -372,81 +239,57 @@ final class ProjectEventTypeEnum {
   static const responseCompleted = ProjectEventTypeEnum._('response.completed');
   static const responseFailed = ProjectEventTypeEnum._('response.failed');
   static const responseCancelled = ProjectEventTypeEnum._('response.cancelled');
-  static const responseIncomplete =
-      ProjectEventTypeEnum._('response.incomplete');
+  static const responseIncomplete = ProjectEventTypeEnum._('response.incomplete');
   static const evalRunSucceeded = ProjectEventTypeEnum._('eval.run.succeeded');
   static const evalRunFailed = ProjectEventTypeEnum._('eval.run.failed');
   static const evalRunCanceled = ProjectEventTypeEnum._('eval.run.canceled');
-  static const fineTuningJobSucceeded =
-      ProjectEventTypeEnum._('fine_tuning.job.succeeded');
-  static const fineTuningJobFailed =
-      ProjectEventTypeEnum._('fine_tuning.job.failed');
-  static const fineTuningJobCancelled =
-      ProjectEventTypeEnum._('fine_tuning.job.cancelled');
-  static const realtimeCallIncoming =
-      ProjectEventTypeEnum._('realtime.call.incoming');
+  static const fineTuningJobSucceeded = ProjectEventTypeEnum._('fine_tuning.job.succeeded');
+  static const fineTuningJobFailed = ProjectEventTypeEnum._('fine_tuning.job.failed');
+  static const fineTuningJobCancelled = ProjectEventTypeEnum._('fine_tuning.job.cancelled');
+  static const realtimeCallIncoming = ProjectEventTypeEnum._('realtime.call.incoming');
   static const videoCompleted = ProjectEventTypeEnum._('video.completed');
   static const videoFailed = ProjectEventTypeEnum._('video.failed');
-  static const agentEnvironmentReady =
-      ProjectEventTypeEnum._('agent.environment.ready');
-  static const agentEnvironmentFailed =
-      ProjectEventTypeEnum._('agent.environment.failed');
-  static const agentEnvironmentSuspended =
-      ProjectEventTypeEnum._('agent.environment.suspended');
-  static const agentEnvironmentExpired =
-      ProjectEventTypeEnum._('agent.environment.expired');
-  static const agentSessionCreated =
-      ProjectEventTypeEnum._('agent.session.created');
-  static const agentSessionActionRequired =
-      ProjectEventTypeEnum._('agent.session.action_required');
-  static const agentSessionInProgress =
-      ProjectEventTypeEnum._('agent.session.in_progress');
+  static const agentEnvironmentReady = ProjectEventTypeEnum._('agent.environment.ready');
+  static const agentEnvironmentFailed = ProjectEventTypeEnum._('agent.environment.failed');
+  static const agentEnvironmentSuspended = ProjectEventTypeEnum._('agent.environment.suspended');
+  static const agentEnvironmentExpired = ProjectEventTypeEnum._('agent.environment.expired');
+  static const agentSessionCreated = ProjectEventTypeEnum._('agent.session.created');
+  static const agentSessionActionRequired = ProjectEventTypeEnum._('agent.session.action_required');
+  static const agentSessionInProgress = ProjectEventTypeEnum._('agent.session.in_progress');
   static const agentSessionIdle = ProjectEventTypeEnum._('agent.session.idle');
-  static const agentSessionFailed =
-      ProjectEventTypeEnum._('agent.session.failed');
-  static const safetyAlertCreated =
-      ProjectEventTypeEnum._('safety.alert.created');
+  static const agentSessionFailed = ProjectEventTypeEnum._('agent.session.failed');
+  static const safetyAlertCreated = ProjectEventTypeEnum._('safety.alert.created');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectEventTypeEnum && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectEventTypeEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Request payload for assigning a role to a group or user.
 class PublicAssignOrganizationGroupRoleBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Identifier of the role to assign.
   final String roleId;
 
   const PublicAssignOrganizationGroupRoleBody({required this.roleId});
 
-  PublicAssignOrganizationGroupRoleBody Function({String roleId})
-      get copyWith => _copyWith;
+  PublicAssignOrganizationGroupRoleBody Function({String roleId}) get copyWith => _copyWith;
 
-  PublicAssignOrganizationGroupRoleBody _copyWith(
-          {Object? roleId = sdkOmittedValue}) =>
-      PublicAssignOrganizationGroupRoleBody(
-        roleId:
-            identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
-      );
+  PublicAssignOrganizationGroupRoleBody _copyWith({Object? roleId = sdkOmittedValue}) => PublicAssignOrganizationGroupRoleBody(
+    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
+  );
 
-  factory PublicAssignOrganizationGroupRoleBody.fromJson(
-          Map<String, dynamic> json) =>
-      PublicAssignOrganizationGroupRoleBody(
-        roleId: (json['role_id'] as String?)!,
-      );
+  factory PublicAssignOrganizationGroupRoleBody.fromJson(Map<String, dynamic> json) => PublicAssignOrganizationGroupRoleBody(
+    roleId: (json['role_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'role_id': roleId,
-      };
+    'role_id': roleId,
+  };
 }

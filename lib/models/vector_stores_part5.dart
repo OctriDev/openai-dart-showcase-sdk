@@ -8,178 +8,91 @@ part of 'vector_stores.dart';
 class VectorStoreSearchRequestRankingOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Enable re-ranking; set to `none` to disable, which can help reduce latency.
   final SdkOptional<VectorStoreSearchRequestRankingOptionsRanker> ranker;
-
   /// Optional `number` value serialized in the `score_threshold` wire field.
   final SdkOptional<double> scoreThreshold;
 
-  const VectorStoreSearchRequestRankingOptions(
-      {this.ranker = const SdkOmitted(),
-      this.scoreThreshold = const SdkOmitted()});
+  const VectorStoreSearchRequestRankingOptions({this.ranker = const SdkOmitted(), this.scoreThreshold = const SdkOmitted()});
 
-  VectorStoreSearchRequestRankingOptions Function(
-      {SdkOptional<VectorStoreSearchRequestRankingOptionsRanker> ranker,
-      SdkOptional<double> scoreThreshold}) get copyWith => _copyWith;
+  VectorStoreSearchRequestRankingOptions Function({SdkOptional<VectorStoreSearchRequestRankingOptionsRanker> ranker, SdkOptional<double> scoreThreshold}) get copyWith => _copyWith;
 
-  VectorStoreSearchRequestRankingOptions _copyWith(
-          {Object? ranker = sdkOmittedValue,
-          Object? scoreThreshold = sdkOmittedValue}) =>
-      VectorStoreSearchRequestRankingOptions(
-        ranker: identical(ranker, sdkOmittedValue)
-            ? this.ranker
-            : ranker
-                as SdkOptional<VectorStoreSearchRequestRankingOptionsRanker>,
-        scoreThreshold: identical(scoreThreshold, sdkOmittedValue)
-            ? this.scoreThreshold
-            : scoreThreshold as SdkOptional<double>,
-      );
+  VectorStoreSearchRequestRankingOptions _copyWith({Object? ranker = sdkOmittedValue, Object? scoreThreshold = sdkOmittedValue}) => VectorStoreSearchRequestRankingOptions(
+    ranker: identical(ranker, sdkOmittedValue) ? this.ranker : ranker as SdkOptional<VectorStoreSearchRequestRankingOptionsRanker>,
+    scoreThreshold: identical(scoreThreshold, sdkOmittedValue) ? this.scoreThreshold : scoreThreshold as SdkOptional<double>,
+  );
 
-  factory VectorStoreSearchRequestRankingOptions.fromJson(
-          Map<String, dynamic> json) =>
-      VectorStoreSearchRequestRankingOptions(
-        ranker: json['ranker'] != null
-            ? SdkPresent((json['ranker'] != null
-                ? VectorStoreSearchRequestRankingOptionsRanker.fromJson(
-                    json['ranker'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        scoreThreshold: json['score_threshold'] != null
-            ? SdkPresent(((json['score_threshold'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory VectorStoreSearchRequestRankingOptions.fromJson(Map<String, dynamic> json) => VectorStoreSearchRequestRankingOptions(
+    ranker: json['ranker'] != null ? SdkPresent((json['ranker'] != null ? VectorStoreSearchRequestRankingOptionsRanker.fromJson(json['ranker'] as String) : null)!) : const SdkOmitted(),
+    scoreThreshold: json['score_threshold'] != null ? SdkPresent(((json['score_threshold'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (ranker) {
-          SdkPresent<VectorStoreSearchRequestRankingOptionsRanker>(
-            value: final value
-          ) =>
-            {
-              'ranker': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scoreThreshold) {
-          SdkPresent<double>(value: final value) => {
-              'score_threshold': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (ranker) {
+      SdkPresent<VectorStoreSearchRequestRankingOptionsRanker>(value: final value) => {'ranker': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scoreThreshold) {
+      SdkPresent<double>(value: final value) => {'score_threshold': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VectorStoreSearchRequest` API schema.
 class VectorStoreSearchRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A query string for a search
   final dynamic query;
-
   /// Whether to rewrite the natural language query for vector search.
   final SdkOptional<bool> rewriteQuery;
-
   /// The maximum number of results to return. This number should be between 1 and 50 inclusive.
   final SdkOptional<int> maxNumResults;
-
   /// A filter to apply based on file attributes.
   final SdkOptional<VectorStoreSearchRequestFilters> filters;
-
   /// Ranking options for search.
   final SdkOptional<VectorStoreSearchRequestRankingOptions> rankingOptions;
 
-  const VectorStoreSearchRequest(
-      {required this.query,
-      this.rewriteQuery = const SdkOmitted(),
-      this.maxNumResults = const SdkOmitted(),
-      this.filters = const SdkOmitted(),
-      this.rankingOptions = const SdkOmitted()});
+  const VectorStoreSearchRequest({required this.query, this.rewriteQuery = const SdkOmitted(), this.maxNumResults = const SdkOmitted(), this.filters = const SdkOmitted(), this.rankingOptions = const SdkOmitted()});
 
-  VectorStoreSearchRequest Function(
-          {dynamic query,
-          SdkOptional<bool> rewriteQuery,
-          SdkOptional<int> maxNumResults,
-          SdkOptional<VectorStoreSearchRequestFilters> filters,
-          SdkOptional<VectorStoreSearchRequestRankingOptions> rankingOptions})
-      get copyWith => _copyWith;
+  VectorStoreSearchRequest Function({dynamic query, SdkOptional<bool> rewriteQuery, SdkOptional<int> maxNumResults, SdkOptional<VectorStoreSearchRequestFilters> filters, SdkOptional<VectorStoreSearchRequestRankingOptions> rankingOptions}) get copyWith => _copyWith;
 
-  VectorStoreSearchRequest _copyWith(
-          {Object? query = sdkOmittedValue,
-          Object? rewriteQuery = sdkOmittedValue,
-          Object? maxNumResults = sdkOmittedValue,
-          Object? filters = sdkOmittedValue,
-          Object? rankingOptions = sdkOmittedValue}) =>
-      VectorStoreSearchRequest(
-        query:
-            identical(query, sdkOmittedValue) ? this.query : query as dynamic,
-        rewriteQuery: identical(rewriteQuery, sdkOmittedValue)
-            ? this.rewriteQuery
-            : rewriteQuery as SdkOptional<bool>,
-        maxNumResults: identical(maxNumResults, sdkOmittedValue)
-            ? this.maxNumResults
-            : maxNumResults as SdkOptional<int>,
-        filters: identical(filters, sdkOmittedValue)
-            ? this.filters
-            : filters as SdkOptional<VectorStoreSearchRequestFilters>,
-        rankingOptions: identical(rankingOptions, sdkOmittedValue)
-            ? this.rankingOptions
-            : rankingOptions
-                as SdkOptional<VectorStoreSearchRequestRankingOptions>,
-      );
+  VectorStoreSearchRequest _copyWith({Object? query = sdkOmittedValue, Object? rewriteQuery = sdkOmittedValue, Object? maxNumResults = sdkOmittedValue, Object? filters = sdkOmittedValue, Object? rankingOptions = sdkOmittedValue}) => VectorStoreSearchRequest(
+    query: identical(query, sdkOmittedValue) ? this.query : query as dynamic,
+    rewriteQuery: identical(rewriteQuery, sdkOmittedValue) ? this.rewriteQuery : rewriteQuery as SdkOptional<bool>,
+    maxNumResults: identical(maxNumResults, sdkOmittedValue) ? this.maxNumResults : maxNumResults as SdkOptional<int>,
+    filters: identical(filters, sdkOmittedValue) ? this.filters : filters as SdkOptional<VectorStoreSearchRequestFilters>,
+    rankingOptions: identical(rankingOptions, sdkOmittedValue) ? this.rankingOptions : rankingOptions as SdkOptional<VectorStoreSearchRequestRankingOptions>,
+  );
 
-  factory VectorStoreSearchRequest.fromJson(Map<String, dynamic> json) =>
-      VectorStoreSearchRequest(
-        query: (json['query'])!,
-        rewriteQuery: json['rewrite_query'] != null
-            ? SdkPresent((json['rewrite_query'] as bool?)!)
-            : const SdkOmitted(),
-        maxNumResults: json['max_num_results'] != null
-            ? SdkPresent(((json['max_num_results'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        filters: json['filters'] != null
-            ? SdkPresent((json['filters'] != null
-                ? VectorStoreSearchRequestFilters.fromJson(json['filters'])
-                : null)!)
-            : const SdkOmitted(),
-        rankingOptions: json['ranking_options'] != null
-            ? SdkPresent((json['ranking_options'] != null
-                ? VectorStoreSearchRequestRankingOptions.fromJson(
-                    json['ranking_options'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory VectorStoreSearchRequest.fromJson(Map<String, dynamic> json) => VectorStoreSearchRequest(
+    query: (json['query'])!,
+    rewriteQuery: json['rewrite_query'] != null ? SdkPresent((json['rewrite_query'] as bool?)!) : const SdkOmitted(),
+    maxNumResults: json['max_num_results'] != null ? SdkPresent(((json['max_num_results'] as num?)?.toInt())!) : const SdkOmitted(),
+    filters: json['filters'] != null ? SdkPresent((json['filters'] != null ? VectorStoreSearchRequestFilters.fromJson(json['filters']) : null)!) : const SdkOmitted(),
+    rankingOptions: json['ranking_options'] != null ? SdkPresent((json['ranking_options'] != null ? VectorStoreSearchRequestRankingOptions.fromJson(json['ranking_options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'query': query,
-        ...switch (rewriteQuery) {
-          SdkPresent<bool>(value: final value) => {
-              'rewrite_query': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxNumResults) {
-          SdkPresent<int>(value: final value) => {
-              'max_num_results': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (filters) {
-          SdkPresent<VectorStoreSearchRequestFilters>(value: final value) => {
-              'filters': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rankingOptions) {
-          SdkPresent<VectorStoreSearchRequestRankingOptions>(
-            value: final value
-          ) =>
-            {
-              'ranking_options': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'query': query,
+    ...switch (rewriteQuery) {
+      SdkPresent<bool>(value: final value) => {'rewrite_query': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxNumResults) {
+      SdkPresent<int>(value: final value) => {'max_num_results': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (filters) {
+      SdkPresent<VectorStoreSearchRequestFilters>(value: final value) => {'filters': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rankingOptions) {
+      SdkPresent<VectorStoreSearchRequestRankingOptions>(value: final value) => {'ranking_options': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class VectorStoreSearchRequestFilters {
@@ -188,272 +101,149 @@ sealed class VectorStoreSearchRequestFilters {
   const VectorStoreSearchRequestFilters();
   factory VectorStoreSearchRequestFilters.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ComparisonFilter.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return VectorStoreSearchRequestFiltersComparisonFilter(value);
-        }
-      } catch (_) {}
-      try {
-        final value = CompoundFilter.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return VectorStoreSearchRequestFiltersCompoundFilter(value);
-        }
-      } catch (_) {}
+      try { final value = ComparisonFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VectorStoreSearchRequestFiltersComparisonFilter(value); } } catch (_) {}
+      try { final value = CompoundFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VectorStoreSearchRequestFiltersCompoundFilter(value); } } catch (_) {}
     }
-    try {
-      return VectorStoreSearchRequestFiltersComparisonFilter(
-          ComparisonFilter.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return VectorStoreSearchRequestFiltersCompoundFilter(
-          CompoundFilter.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}
-            .contains(json["type"])) {
-      return UnknownVectorStoreSearchRequestFilters(json);
-    }
-    throw FormatException(
-        "No variant matched for VectorStoreSearchRequestFilters");
+    try { return VectorStoreSearchRequestFiltersComparisonFilter(ComparisonFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return VectorStoreSearchRequestFiltersCompoundFilter(CompoundFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}.contains(json["type"])) { return UnknownVectorStoreSearchRequestFilters(json); }
+    throw FormatException("No variant matched for VectorStoreSearchRequestFilters");
   }
   Object? toJson();
 }
 
-final class VectorStoreSearchRequestFiltersComparisonFilter
-    extends VectorStoreSearchRequestFilters {
+final class VectorStoreSearchRequestFiltersComparisonFilter extends VectorStoreSearchRequestFilters {
   final ComparisonFilter value;
   const VectorStoreSearchRequestFiltersComparisonFilter(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class VectorStoreSearchRequestFiltersCompoundFilter
-    extends VectorStoreSearchRequestFilters {
+final class VectorStoreSearchRequestFiltersCompoundFilter extends VectorStoreSearchRequestFilters {
   final CompoundFilter value;
   const VectorStoreSearchRequestFiltersCompoundFilter(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [VectorStoreSearchRequestFilters] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownVectorStoreSearchRequestFilters
-    extends VectorStoreSearchRequestFilters {
+final class UnknownVectorStoreSearchRequestFilters extends VectorStoreSearchRequestFilters {
   final Map<String, dynamic> raw;
   const UnknownVectorStoreSearchRequestFilters(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Typed representation of the `VectorStoreSearchResultContentObject` API schema.
 class VectorStoreSearchResultContentObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of content.
   final VectorStoreSearchResultContentObjectType type_;
-
   /// The text content returned from search.
   final String text;
 
-  const VectorStoreSearchResultContentObject(
-      {required this.type_, required this.text});
+  const VectorStoreSearchResultContentObject({required this.type_, required this.text});
 
-  VectorStoreSearchResultContentObject Function(
-      {VectorStoreSearchResultContentObjectType type_,
-      String text}) get copyWith => _copyWith;
+  VectorStoreSearchResultContentObject Function({VectorStoreSearchResultContentObjectType type_, String text}) get copyWith => _copyWith;
 
-  VectorStoreSearchResultContentObject _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      VectorStoreSearchResultContentObject(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as VectorStoreSearchResultContentObjectType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  VectorStoreSearchResultContentObject _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => VectorStoreSearchResultContentObject(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VectorStoreSearchResultContentObjectType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory VectorStoreSearchResultContentObject.fromJson(
-          Map<String, dynamic> json) =>
-      VectorStoreSearchResultContentObject(
-        type_: (json['type'] != null
-            ? VectorStoreSearchResultContentObjectType.fromJson(
-                json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory VectorStoreSearchResultContentObject.fromJson(Map<String, dynamic> json) => VectorStoreSearchResultContentObject(
+    type_: (json['type'] != null ? VectorStoreSearchResultContentObjectType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }
 
 /// Typed representation of the `VectorStoreSearchResultItem` API schema.
 class VectorStoreSearchResultItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the vector store file.
   final String fileId;
-
   /// The name of the vector store file.
   final String filename;
-
   /// The similarity score for the result.
   final double score;
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters, booleans, or numbers.
   final Map<String, dynamic>? attributes;
-
   /// Content chunks from the file.
   final List<VectorStoreSearchResultContentObject> content;
 
-  const VectorStoreSearchResultItem(
-      {required this.fileId,
-      required this.filename,
-      required this.score,
-      required this.attributes,
-      required this.content});
+  const VectorStoreSearchResultItem({required this.fileId, required this.filename, required this.score, required this.attributes, required this.content});
 
-  VectorStoreSearchResultItem Function(
-          {String fileId,
-          String filename,
-          double score,
-          Map<String, dynamic>? attributes,
-          List<VectorStoreSearchResultContentObject> content})
-      get copyWith => _copyWith;
+  VectorStoreSearchResultItem Function({String fileId, String filename, double score, Map<String, dynamic>? attributes, List<VectorStoreSearchResultContentObject> content}) get copyWith => _copyWith;
 
-  VectorStoreSearchResultItem _copyWith(
-          {Object? fileId = sdkOmittedValue,
-          Object? filename = sdkOmittedValue,
-          Object? score = sdkOmittedValue,
-          Object? attributes = sdkOmittedValue,
-          Object? content = sdkOmittedValue}) =>
-      VectorStoreSearchResultItem(
-        fileId:
-            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-        filename: identical(filename, sdkOmittedValue)
-            ? this.filename
-            : filename as String,
-        score: identical(score, sdkOmittedValue) ? this.score : score as double,
-        attributes: identical(attributes, sdkOmittedValue)
-            ? this.attributes
-            : attributes as Map<String, dynamic>?,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as List<VectorStoreSearchResultContentObject>,
-      );
+  VectorStoreSearchResultItem _copyWith({Object? fileId = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? score = sdkOmittedValue, Object? attributes = sdkOmittedValue, Object? content = sdkOmittedValue}) => VectorStoreSearchResultItem(
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String,
+    score: identical(score, sdkOmittedValue) ? this.score : score as double,
+    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as Map<String, dynamic>?,
+    content: identical(content, sdkOmittedValue) ? this.content : content as List<VectorStoreSearchResultContentObject>,
+  );
 
-  factory VectorStoreSearchResultItem.fromJson(Map<String, dynamic> json) =>
-      VectorStoreSearchResultItem(
-        fileId: (json['file_id'] as String?)!,
-        filename: (json['filename'] as String?)!,
-        score: ((json['score'] as num?)?.toDouble())!,
-        attributes: json.containsKey('attributes')
-            ? json['attributes'] == null
-                ? null
-                : json['attributes'] as Map<String, dynamic>
-            : throw ArgumentError.value(
-                null, 'attributes', 'Required property is missing'),
-        content: ((json['content'] as List?)
-            ?.map((e) => VectorStoreSearchResultContentObject.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory VectorStoreSearchResultItem.fromJson(Map<String, dynamic> json) => VectorStoreSearchResultItem(
+    fileId: (json['file_id'] as String?)!,
+    filename: (json['filename'] as String?)!,
+    score: ((json['score'] as num?)?.toDouble())!,
+    attributes: json.containsKey('attributes') ? json['attributes'] == null ? null : json['attributes'] as Map<String, dynamic> : throw ArgumentError.value(null, 'attributes', 'Required property is missing'),
+    content: ((json['content'] as List?)?.map((e) => VectorStoreSearchResultContentObject.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'file_id': fileId,
-        'filename': filename,
-        'score': score,
-        'attributes': attributes,
-        'content': content.map((item) => item.toJson()).toList(),
-      };
+    'file_id': fileId,
+    'filename': filename,
+    'score': score,
+    'attributes': attributes,
+    'content': content.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Typed representation of the `VectorStoreSearchResultsPage` API schema.
 class VectorStoreSearchResultsPage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `vector_store.search_results.page`
   final VectorStoreSearchResultsPageObject object;
-
   /// Required array value serialized in the `search_query` wire field.
   final List<String> searchQuery;
-
   /// The list of search result items.
   final List<VectorStoreSearchResultItem> data;
-
   /// Indicates if there are more results to fetch.
   final bool hasMore;
-
   /// Required `string` value serialized in the `next_page` wire field.
   final String? nextPage;
 
-  const VectorStoreSearchResultsPage(
-      {required this.object,
-      required this.searchQuery,
-      required this.data,
-      required this.hasMore,
-      required this.nextPage});
+  const VectorStoreSearchResultsPage({required this.object, required this.searchQuery, required this.data, required this.hasMore, required this.nextPage});
 
-  VectorStoreSearchResultsPage Function(
-      {VectorStoreSearchResultsPageObject object,
-      List<String> searchQuery,
-      List<VectorStoreSearchResultItem> data,
-      bool hasMore,
-      String? nextPage}) get copyWith => _copyWith;
+  VectorStoreSearchResultsPage Function({VectorStoreSearchResultsPageObject object, List<String> searchQuery, List<VectorStoreSearchResultItem> data, bool hasMore, String? nextPage}) get copyWith => _copyWith;
 
-  VectorStoreSearchResultsPage _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? searchQuery = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? nextPage = sdkOmittedValue}) =>
-      VectorStoreSearchResultsPage(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as VectorStoreSearchResultsPageObject,
-        searchQuery: identical(searchQuery, sdkOmittedValue)
-            ? this.searchQuery
-            : searchQuery as List<String>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<VectorStoreSearchResultItem>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-        nextPage: identical(nextPage, sdkOmittedValue)
-            ? this.nextPage
-            : nextPage as String?,
-      );
+  VectorStoreSearchResultsPage _copyWith({Object? object = sdkOmittedValue, Object? searchQuery = sdkOmittedValue, Object? data = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? nextPage = sdkOmittedValue}) => VectorStoreSearchResultsPage(
+    object: identical(object, sdkOmittedValue) ? this.object : object as VectorStoreSearchResultsPageObject,
+    searchQuery: identical(searchQuery, sdkOmittedValue) ? this.searchQuery : searchQuery as List<String>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<VectorStoreSearchResultItem>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+    nextPage: identical(nextPage, sdkOmittedValue) ? this.nextPage : nextPage as String?,
+  );
 
-  factory VectorStoreSearchResultsPage.fromJson(Map<String, dynamic> json) =>
-      VectorStoreSearchResultsPage(
-        object: (json['object'] != null
-            ? VectorStoreSearchResultsPageObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        searchQuery: ((json['search_query'] as List?)
-            ?.map((e) => e as String)
-            .toList())!,
-        data: ((json['data'] as List?)
-            ?.map((e) =>
-                VectorStoreSearchResultItem.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        hasMore: (json['has_more'] as bool?)!,
-        nextPage: json.containsKey('next_page')
-            ? json['next_page'] as String?
-            : throw ArgumentError.value(
-                null, 'next_page', 'Required property is missing'),
-      );
+  factory VectorStoreSearchResultsPage.fromJson(Map<String, dynamic> json) => VectorStoreSearchResultsPage(
+    object: (json['object'] != null ? VectorStoreSearchResultsPageObject.fromJson(json['object'] as String) : null)!,
+    searchQuery: ((json['search_query'] as List?)?.map((e) => e as String).toList())!,
+    data: ((json['data'] as List?)?.map((e) => VectorStoreSearchResultItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    hasMore: (json['has_more'] as bool?)!,
+    nextPage: json.containsKey('next_page') ? json['next_page'] as String? : throw ArgumentError.value(null, 'next_page', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'search_query': searchQuery,
-        'data': data.map((item) => item.toJson()).toList(),
-        'has_more': hasMore,
-        'next_page': nextPage,
-      };
+    'object': object.toJson(),
+    'search_query': searchQuery,
+    'data': data.map((item) => item.toJson()).toList(),
+    'has_more': hasMore,
+    'next_page': nextPage,
+  };
 }

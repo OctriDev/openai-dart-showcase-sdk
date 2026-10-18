@@ -6,51 +6,44 @@ part of 'inline.dart';
 // Inline operation models (part 119)
 /// The object type, which is always `agent.session.trace`.
 final class SessionTurnTraceResourceObject {
+
   final String value;
 
   const SessionTurnTraceResourceObject._(this.value);
 
-  factory SessionTurnTraceResourceObject.fromJson(String value) =>
-      SessionTurnTraceResourceObject._(value);
+  factory SessionTurnTraceResourceObject.fromJson(String value) => SessionTurnTraceResourceObject._(value);
 
-  static const agentSessionTrace =
-      SessionTurnTraceResourceObject._('agent.session.trace');
+  static const agentSessionTrace = SessionTurnTraceResourceObject._('agent.session.trace');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SessionTurnTraceResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is SessionTurnTraceResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object returned, must be `list`.
 final class SkillListResourceObject {
+
   final String value;
 
   const SkillListResourceObject._(this.value);
 
-  factory SkillListResourceObject.fromJson(String value) =>
-      SkillListResourceObject._(value);
+  factory SkillListResourceObject.fromJson(String value) => SkillListResourceObject._(value);
 
   static const list = SkillListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SkillListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is SkillListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// References a skill created with the /v1/skills endpoint.
@@ -59,17 +52,14 @@ enum SkillReferenceParamType {
 
   static SkillReferenceParamType fromJson(String value) {
     switch (value) {
-      case 'skill_reference':
-        return SkillReferenceParamType.skillReference;
-      default:
-        throw ArgumentError('Unknown SkillReferenceParamType: $value');
+      case 'skill_reference': return SkillReferenceParamType.skillReference;
+      default: throw ArgumentError('Unknown SkillReferenceParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SkillReferenceParamType.skillReference:
-        return 'skill_reference';
+      case SkillReferenceParamType.skillReference: return 'skill_reference';
     }
   }
 
@@ -79,74 +69,65 @@ enum SkillReferenceParamType {
 
 /// The object type, which is `skill`.
 final class SkillResourceObject {
+
   final String value;
 
   const SkillResourceObject._(this.value);
 
-  factory SkillResourceObject.fromJson(String value) =>
-      SkillResourceObject._(value);
+  factory SkillResourceObject.fromJson(String value) => SkillResourceObject._(value);
 
   static const skill = SkillResourceObject._('skill');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SkillResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is SkillResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object returned, must be `list`.
 final class SkillVersionListResourceObject {
+
   final String value;
 
   const SkillVersionListResourceObject._(this.value);
 
-  factory SkillVersionListResourceObject.fromJson(String value) =>
-      SkillVersionListResourceObject._(value);
+  factory SkillVersionListResourceObject.fromJson(String value) => SkillVersionListResourceObject._(value);
 
   static const list = SkillVersionListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SkillVersionListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is SkillVersionListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is `skill.version`.
 final class SkillVersionResourceObject {
+
   final String value;
 
   const SkillVersionResourceObject._(this.value);
 
-  factory SkillVersionResourceObject.fromJson(String value) =>
-      SkillVersionResourceObject._(value);
+  factory SkillVersionResourceObject.fromJson(String value) => SkillVersionResourceObject._(value);
 
   static const skillVersion = SkillVersionResourceObject._('skill.version');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SkillVersionResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is SkillVersionResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The tool to call. Always `apply_patch`.
@@ -155,17 +136,14 @@ enum SpecificApplyPatchParamType {
 
   static SpecificApplyPatchParamType fromJson(String value) {
     switch (value) {
-      case 'apply_patch':
-        return SpecificApplyPatchParamType.applyPatch;
-      default:
-        throw ArgumentError('Unknown SpecificApplyPatchParamType: $value');
+      case 'apply_patch': return SpecificApplyPatchParamType.applyPatch;
+      default: throw ArgumentError('Unknown SpecificApplyPatchParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SpecificApplyPatchParamType.applyPatch:
-        return 'apply_patch';
+      case SpecificApplyPatchParamType.applyPatch: return 'apply_patch';
     }
   }
 
@@ -179,17 +157,14 @@ enum SpecificFunctionShellParamType {
 
   static SpecificFunctionShellParamType fromJson(String value) {
     switch (value) {
-      case 'shell':
-        return SpecificFunctionShellParamType.shell;
-      default:
-        throw ArgumentError('Unknown SpecificFunctionShellParamType: $value');
+      case 'shell': return SpecificFunctionShellParamType.shell;
+      default: throw ArgumentError('Unknown SpecificFunctionShellParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SpecificFunctionShellParamType.shell:
-        return 'shell';
+      case SpecificFunctionShellParamType.shell: return 'shell';
     }
   }
 
@@ -203,18 +178,14 @@ enum SpecificProgrammaticToolCallingParamType {
 
   static SpecificProgrammaticToolCallingParamType fromJson(String value) {
     switch (value) {
-      case 'programmatic_tool_calling':
-        return SpecificProgrammaticToolCallingParamType.programmaticToolCalling;
-      default:
-        throw ArgumentError(
-            'Unknown SpecificProgrammaticToolCallingParamType: $value');
+      case 'programmatic_tool_calling': return SpecificProgrammaticToolCallingParamType.programmaticToolCalling;
+      default: throw ArgumentError('Unknown SpecificProgrammaticToolCallingParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SpecificProgrammaticToolCallingParamType.programmaticToolCalling:
-        return 'programmatic_tool_calling';
+      case SpecificProgrammaticToolCallingParamType.programmaticToolCalling: return 'programmatic_tool_calling';
     }
   }
 
@@ -228,17 +199,14 @@ enum SpeechAudioDeltaEventType {
 
   static SpeechAudioDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'speech.audio.delta':
-        return SpeechAudioDeltaEventType.speechAudioDelta;
-      default:
-        throw ArgumentError('Unknown SpeechAudioDeltaEventType: $value');
+      case 'speech.audio.delta': return SpeechAudioDeltaEventType.speechAudioDelta;
+      default: throw ArgumentError('Unknown SpeechAudioDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SpeechAudioDeltaEventType.speechAudioDelta:
-        return 'speech.audio.delta';
+      case SpeechAudioDeltaEventType.speechAudioDelta: return 'speech.audio.delta';
     }
   }
 
@@ -252,17 +220,14 @@ enum SpeechAudioDoneEventType {
 
   static SpeechAudioDoneEventType fromJson(String value) {
     switch (value) {
-      case 'speech.audio.done':
-        return SpeechAudioDoneEventType.speechAudioDone;
-      default:
-        throw ArgumentError('Unknown SpeechAudioDoneEventType: $value');
+      case 'speech.audio.done': return SpeechAudioDoneEventType.speechAudioDone;
+      default: throw ArgumentError('Unknown SpeechAudioDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SpeechAudioDoneEventType.speechAudioDone:
-        return 'speech.audio.done';
+      case SpeechAudioDoneEventType.speechAudioDone: return 'speech.audio.done';
     }
   }
 
@@ -272,26 +237,23 @@ enum SpeechAudioDoneEventType {
 
 /// The notification channel type. Currently only `email` is supported.
 final class SpendAlertNotificationChannelType {
+
   final String value;
 
   const SpendAlertNotificationChannelType._(this.value);
 
-  factory SpendAlertNotificationChannelType.fromJson(String value) =>
-      SpendAlertNotificationChannelType._(value);
+  factory SpendAlertNotificationChannelType.fromJson(String value) => SpendAlertNotificationChannelType._(value);
 
   static const email = SpendAlertNotificationChannelType._('email');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SpendAlertNotificationChannelType && other.value == value;
+  @override bool operator ==(Object other) => other is SpendAlertNotificationChannelType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `static`.
@@ -300,18 +262,14 @@ enum StaticChunkingStrategyRequestParamType {
 
   static StaticChunkingStrategyRequestParamType fromJson(String value) {
     switch (value) {
-      case 'static':
-        return StaticChunkingStrategyRequestParamType.static_;
-      default:
-        throw ArgumentError(
-            'Unknown StaticChunkingStrategyRequestParamType: $value');
+      case 'static': return StaticChunkingStrategyRequestParamType.static_;
+      default: throw ArgumentError('Unknown StaticChunkingStrategyRequestParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case StaticChunkingStrategyRequestParamType.static_:
-        return 'static';
+      case StaticChunkingStrategyRequestParamType.static_: return 'static';
     }
   }
 

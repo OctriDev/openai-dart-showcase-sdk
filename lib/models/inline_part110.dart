@@ -10,18 +10,14 @@ enum ResponseSteerRequiredInputVariant4Type {
 
   static ResponseSteerRequiredInputVariant4Type fromJson(String value) {
     switch (value) {
-      case 'apply_patch_call_output':
-        return ResponseSteerRequiredInputVariant4Type.applyPatchCallOutput;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseSteerRequiredInputVariant4Type: $value');
+      case 'apply_patch_call_output': return ResponseSteerRequiredInputVariant4Type.applyPatchCallOutput;
+      default: throw ArgumentError('Unknown ResponseSteerRequiredInputVariant4Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseSteerRequiredInputVariant4Type.applyPatchCallOutput:
-        return 'apply_patch_call_output';
+      case ResponseSteerRequiredInputVariant4Type.applyPatchCallOutput: return 'apply_patch_call_output';
     }
   }
 
@@ -31,27 +27,23 @@ enum ResponseSteerRequiredInputVariant4Type {
 
 /// Required enumerated value serialized in the `execution` wire field.
 final class ResponseSteerRequiredInputVariant5Execution {
+
   final String value;
 
   const ResponseSteerRequiredInputVariant5Execution._(this.value);
 
-  factory ResponseSteerRequiredInputVariant5Execution.fromJson(String value) =>
-      ResponseSteerRequiredInputVariant5Execution._(value);
+  factory ResponseSteerRequiredInputVariant5Execution.fromJson(String value) => ResponseSteerRequiredInputVariant5Execution._(value);
 
   static const client = ResponseSteerRequiredInputVariant5Execution._('client');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResponseSteerRequiredInputVariant5Execution &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ResponseSteerRequiredInputVariant5Execution && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -60,18 +52,14 @@ enum ResponseSteerRequiredInputVariant5Type {
 
   static ResponseSteerRequiredInputVariant5Type fromJson(String value) {
     switch (value) {
-      case 'tool_search_output':
-        return ResponseSteerRequiredInputVariant5Type.toolSearchOutput;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseSteerRequiredInputVariant5Type: $value');
+      case 'tool_search_output': return ResponseSteerRequiredInputVariant5Type.toolSearchOutput;
+      default: throw ArgumentError('Unknown ResponseSteerRequiredInputVariant5Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseSteerRequiredInputVariant5Type.toolSearchOutput:
-        return 'tool_search_output';
+      case ResponseSteerRequiredInputVariant5Type.toolSearchOutput: return 'tool_search_output';
     }
   }
 
@@ -85,18 +73,14 @@ enum ResponseSteerRequiredInputVariant6Type {
 
   static ResponseSteerRequiredInputVariant6Type fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_response':
-        return ResponseSteerRequiredInputVariant6Type.mcpApprovalResponse;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseSteerRequiredInputVariant6Type: $value');
+      case 'mcp_approval_response': return ResponseSteerRequiredInputVariant6Type.mcpApprovalResponse;
+      default: throw ArgumentError('Unknown ResponseSteerRequiredInputVariant6Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseSteerRequiredInputVariant6Type.mcpApprovalResponse:
-        return 'mcp_approval_response';
+      case ResponseSteerRequiredInputVariant6Type.mcpApprovalResponse: return 'mcp_approval_response';
     }
   }
 
@@ -110,17 +94,14 @@ enum ResponseTextDeltaEventType {
 
   static ResponseTextDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.output_text.delta':
-        return ResponseTextDeltaEventType.responseOutputTextDelta;
-      default:
-        throw ArgumentError('Unknown ResponseTextDeltaEventType: $value');
+      case 'response.output_text.delta': return ResponseTextDeltaEventType.responseOutputTextDelta;
+      default: throw ArgumentError('Unknown ResponseTextDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseTextDeltaEventType.responseOutputTextDelta:
-        return 'response.output_text.delta';
+      case ResponseTextDeltaEventType.responseOutputTextDelta: return 'response.output_text.delta';
     }
   }
 
@@ -134,17 +115,14 @@ enum ResponseTextDoneEventType {
 
   static ResponseTextDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.output_text.done':
-        return ResponseTextDoneEventType.responseOutputTextDone;
-      default:
-        throw ArgumentError('Unknown ResponseTextDoneEventType: $value');
+      case 'response.output_text.done': return ResponseTextDoneEventType.responseOutputTextDone;
+      default: throw ArgumentError('Unknown ResponseTextDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseTextDoneEventType.responseOutputTextDone:
-        return 'response.output_text.done';
+      case ResponseTextDoneEventType.responseOutputTextDone: return 'response.output_text.done';
     }
   }
 
@@ -158,20 +136,14 @@ enum ResponseWebSearchCallCompletedEventType {
 
   static ResponseWebSearchCallCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.web_search_call.completed':
-        return ResponseWebSearchCallCompletedEventType
-            .responseWebSearchCallCompleted;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseWebSearchCallCompletedEventType: $value');
+      case 'response.web_search_call.completed': return ResponseWebSearchCallCompletedEventType.responseWebSearchCallCompleted;
+      default: throw ArgumentError('Unknown ResponseWebSearchCallCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseWebSearchCallCompletedEventType
-            .responseWebSearchCallCompleted:
-        return 'response.web_search_call.completed';
+      case ResponseWebSearchCallCompletedEventType.responseWebSearchCallCompleted: return 'response.web_search_call.completed';
     }
   }
 
@@ -185,20 +157,14 @@ enum ResponseWebSearchCallInProgressEventType {
 
   static ResponseWebSearchCallInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.web_search_call.in_progress':
-        return ResponseWebSearchCallInProgressEventType
-            .responseWebSearchCallInProgress;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseWebSearchCallInProgressEventType: $value');
+      case 'response.web_search_call.in_progress': return ResponseWebSearchCallInProgressEventType.responseWebSearchCallInProgress;
+      default: throw ArgumentError('Unknown ResponseWebSearchCallInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseWebSearchCallInProgressEventType
-            .responseWebSearchCallInProgress:
-        return 'response.web_search_call.in_progress';
+      case ResponseWebSearchCallInProgressEventType.responseWebSearchCallInProgress: return 'response.web_search_call.in_progress';
     }
   }
 
@@ -212,20 +178,14 @@ enum ResponseWebSearchCallSearchingEventType {
 
   static ResponseWebSearchCallSearchingEventType fromJson(String value) {
     switch (value) {
-      case 'response.web_search_call.searching':
-        return ResponseWebSearchCallSearchingEventType
-            .responseWebSearchCallSearching;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseWebSearchCallSearchingEventType: $value');
+      case 'response.web_search_call.searching': return ResponseWebSearchCallSearchingEventType.responseWebSearchCallSearching;
+      default: throw ArgumentError('Unknown ResponseWebSearchCallSearchingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseWebSearchCallSearchingEventType
-            .responseWebSearchCallSearching:
-        return 'response.web_search_call.searching';
+      case ResponseWebSearchCallSearchingEventType.responseWebSearchCallSearching: return 'response.web_search_call.searching';
     }
   }
 
@@ -239,17 +199,14 @@ enum ResponseWsErrorType {
 
   static ResponseWsErrorType fromJson(String value) {
     switch (value) {
-      case 'error':
-        return ResponseWsErrorType.error;
-      default:
-        throw ArgumentError('Unknown ResponseWsErrorType: $value');
+      case 'error': return ResponseWsErrorType.error;
+      default: throw ArgumentError('Unknown ResponseWsErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseWsErrorType.error:
-        return 'error';
+      case ResponseWsErrorType.error: return 'error';
     }
   }
 
@@ -263,18 +220,14 @@ enum ResumeSubagentCallItemResourceType {
 
   static ResumeSubagentCallItemResourceType fromJson(String value) {
     switch (value) {
-      case 'resume_subagent_call':
-        return ResumeSubagentCallItemResourceType.resumeSubagentCall;
-      default:
-        throw ArgumentError(
-            'Unknown ResumeSubagentCallItemResourceType: $value');
+      case 'resume_subagent_call': return ResumeSubagentCallItemResourceType.resumeSubagentCall;
+      default: throw ArgumentError('Unknown ResumeSubagentCallItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResumeSubagentCallItemResourceType.resumeSubagentCall:
-        return 'resume_subagent_call';
+      case ResumeSubagentCallItemResourceType.resumeSubagentCall: return 'resume_subagent_call';
     }
   }
 
@@ -284,6 +237,7 @@ enum ResumeSubagentCallItemResourceType {
 
 /// Always `role`.
 final class RoleObject {
+
   final String value;
 
   const RoleObject._(this.value);
@@ -294,36 +248,31 @@ final class RoleObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is RoleObject && other.value == value;
+  @override bool operator ==(Object other) => other is RoleObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `role.deleted`.
 final class RoleDeletedResourceObject {
+
   final String value;
 
   const RoleDeletedResourceObject._(this.value);
 
-  factory RoleDeletedResourceObject.fromJson(String value) =>
-      RoleDeletedResourceObject._(value);
+  factory RoleDeletedResourceObject.fromJson(String value) => RoleDeletedResourceObject._(value);
 
   static const roleDeleted = RoleDeletedResourceObject._('role.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RoleDeletedResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is RoleDeletedResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

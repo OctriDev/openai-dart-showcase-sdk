@@ -21,6 +21,7 @@ Future<String> createRealtimeCall(ClientConfig config,
       .data;
 }
 
+
 /// Accepts an incoming SIP call and configures the Realtime session that handles it. Set `type` to `realtime` and configure session behavior through fields such as `model`, `audio`, and `tools`; `output_modalities` supports text or audio, but not both. The caller is bridged to the model after the session configuration is applied.
 ///
 /// Accept an incoming SIP call and configure the realtime session that will handle it.
@@ -86,18 +87,14 @@ Future<String> createRealtimeCall(ClientConfig config,
 Future<void> acceptRealtimeCall(ClientConfig config,
     {required String callId,
     required RealtimeSessionCreateRequestGAType type_,
-    SdkOptional<List<RealtimeSessionCreateRequestGAOutputModalitiesItem>>
-        outputModalities = const SdkOmitted(),
+    SdkOptional<List<RealtimeSessionCreateRequestGAOutputModalitiesItem>> outputModalities = const SdkOmitted(),
     SdkOptional<String> model = const SdkOmitted(),
     SdkOptional<String> instructions = const SdkOmitted(),
     SdkOptional<RealtimeSessionCreateRequestGAAudio> audio = const SdkOmitted(),
-    SdkOptional<List<RealtimeSessionCreateRequestGAIncludeItem>> include =
-        const SdkOmitted(),
+    SdkOptional<List<RealtimeSessionCreateRequestGAIncludeItem>> include = const SdkOmitted(),
     SdkOptional<dynamic> tracing = const SdkOmitted(),
-    SdkOptional<List<RealtimeSessionCreateRequestGAToolsItem>> tools =
-        const SdkOmitted(),
-    SdkOptional<RealtimeSessionCreateRequestGAToolChoice> toolChoice =
-        const SdkOmitted(),
+    SdkOptional<List<RealtimeSessionCreateRequestGAToolsItem>> tools = const SdkOmitted(),
+    SdkOptional<RealtimeSessionCreateRequestGAToolChoice> toolChoice = const SdkOmitted(),
     SdkOptional<bool> parallelToolCalls = const SdkOmitted(),
     SdkOptional<RealtimeReasoning> reasoning = const SdkOmitted(),
     SdkOptional<dynamic> maxOutputTokens = const SdkOmitted(),
@@ -128,14 +125,10 @@ Future<void> acceptRealtimeCall(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'acceptRealtimeCall',
           options: requestOptions,
-          errors: {
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// End an active Realtime API call, whether it was initiated over SIP or WebRTC.
 ///
@@ -155,11 +148,10 @@ Future<void> hangupRealtimeCall(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'hangupRealtimeCall',
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Transfer an active SIP call to a new destination using the SIP REFER verb.
 ///
@@ -179,12 +171,10 @@ Future<void> referRealtimeCall(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'referRealtimeCall',
           options: requestOptions,
-          errors: {
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Decline an incoming SIP call by returning a SIP status code to the caller.
 ///
@@ -204,14 +194,10 @@ Future<void> rejectRealtimeCall(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'rejectRealtimeCall',
           options: requestOptions,
-          errors: {
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Create a Realtime client secret with an associated session configuration. Client secrets are short-lived tokens that can be passed to a client app, such as a web frontend or mobile client, which grants access to the Realtime API without leaking your main API key. You can configure a custom TTL for each client secret. You can also attach session configuration options to the client secret, which will be applied to any sessions created using that client secret, but these can also be overridden by the client connection. [Learn more about authentication with client secrets over WebRTC](https://developers.openai.com/api/docs/guides/realtime-webrtc). Returns the created client secret and the effective session object. The client secret is a string that looks like `ek_1234`.
 ///
@@ -221,13 +207,11 @@ Future<void> rejectRealtimeCall(ClientConfig config,
 ///   started. A secret can be used to create multiple sessions until it expires.
 /// [session] Session configuration to use for the client secret. Choose either
 ///   a realtime session or a transcription session.
-Future<RealtimeCreateClientSecretResponse> createRealtimeClientSecret(
-    ClientConfig config,
-    {SdkOptional<RealtimeCreateClientSecretRequestExpiresAfter> expiresAfter =
-        const SdkOmitted(),
-    SdkOptional<RealtimeCreateClientSecretRequestSession> session =
-        const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<RealtimeCreateClientSecretResponse>
+    createRealtimeClientSecret(ClientConfig config,
+        {SdkOptional<RealtimeCreateClientSecretRequestExpiresAfter> expiresAfter = const SdkOmitted(),
+        SdkOptional<RealtimeCreateClientSecretRequestSession> session = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<RealtimeCreateClientSecretResponse>(
           'POST', '/realtime/client_secrets',
           config: config,
@@ -237,19 +221,12 @@ Future<RealtimeCreateClientSecretResponse> createRealtimeClientSecret(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createRealtimeClientSecret',
-          fromJsonRaw: (value) => RealtimeCreateClientSecretResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RealtimeCreateClientSecretResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a Realtime session and an ephemeral API key for authenticating client-side connections. Configure the session with fields such as `modalities`, `instructions`, and `tools`; the key expires after one minute. Use the returned `client_secret.value` in client environments instead of a standard API token.
 ///
@@ -321,21 +298,16 @@ Future<RealtimeCreateClientSecretResponse> createRealtimeClientSecret(
 ///   version-prompts-in-code).
 Future<RealtimeSessionCreateResponse> createRealtimeSession(ClientConfig config,
     {required RealtimeSessionCreateRequestClientSecret clientSecret,
-    SdkOptional<List<RealtimeSessionCreateRequestModalitiesItem>> modalities =
-        const SdkOmitted(),
+    SdkOptional<List<RealtimeSessionCreateRequestModalitiesItem>> modalities = const SdkOmitted(),
     SdkOptional<String> instructions = const SdkOmitted(),
     SdkOptional<VoiceIdsOrCustomVoice> voice = const SdkOmitted(),
     SdkOptional<String> inputAudioFormat = const SdkOmitted(),
     SdkOptional<String> outputAudioFormat = const SdkOmitted(),
-    SdkOptional<RealtimeSessionCreateRequestInputAudioTranscription>
-        inputAudioTranscription = const SdkOmitted(),
+    SdkOptional<RealtimeSessionCreateRequestInputAudioTranscription> inputAudioTranscription = const SdkOmitted(),
     SdkOptional<double> speed = const SdkOmitted(),
-    SdkOptional<RealtimeSessionCreateRequestTracing>
-        tracing = const SdkOmitted(),
-    SdkOptional<RealtimeSessionCreateRequestTurnDetection> turnDetection =
-        const SdkOmitted(),
-    SdkOptional<List<RealtimeSessionCreateRequestToolsItem>> tools =
-        const SdkOmitted(),
+    SdkOptional<RealtimeSessionCreateRequestTracing> tracing = const SdkOmitted(),
+    SdkOptional<RealtimeSessionCreateRequestTurnDetection> turnDetection = const SdkOmitted(),
+    SdkOptional<List<RealtimeSessionCreateRequestToolsItem>> tools = const SdkOmitted(),
     SdkOptional<String> toolChoice = const SdkOmitted(),
     SdkOptional<double> temperature = const SdkOmitted(),
     SdkOptional<dynamic> maxResponseOutputTokens = const SdkOmitted(),
@@ -356,26 +328,24 @@ Future<RealtimeSessionCreateResponse> createRealtimeSession(ClientConfig config,
             'voice': SdkUtils.unwrapOptional(voice),
             'input_audio_format': SdkUtils.unwrapOptional(inputAudioFormat),
             'output_audio_format': SdkUtils.unwrapOptional(outputAudioFormat),
-            'input_audio_transcription':
-                SdkUtils.unwrapOptional(inputAudioTranscription),
+            'input_audio_transcription': SdkUtils.unwrapOptional(inputAudioTranscription),
             'speed': SdkUtils.unwrapOptional(speed),
             'tracing': SdkUtils.unwrapOptional(tracing),
             'turn_detection': SdkUtils.unwrapOptional(turnDetection),
             'tools': SdkUtils.unwrapOptional(tools),
             'tool_choice': SdkUtils.unwrapOptional(toolChoice),
             'temperature': SdkUtils.unwrapOptional(temperature),
-            'max_response_output_tokens':
-                SdkUtils.unwrapOptional(maxResponseOutputTokens),
+            'max_response_output_tokens': SdkUtils.unwrapOptional(maxResponseOutputTokens),
             'truncation': SdkUtils.unwrapOptional(truncation),
             'prompt': SdkUtils.unwrapOptional(prompt)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createRealtimeSession',
-          fromJsonRaw: (value) => RealtimeSessionCreateResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RealtimeSessionCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Create an ephemeral API token for use in client-side applications with the Realtime API specifically for realtime transcriptions. Can be configured with the same session parameters as the `transcription_session.update` client event. It responds with a session object, plus a `client_secret` key which contains a usable ephemeral API token that can be used to authenticate browser clients for the Realtime API. Returns the created Realtime transcription session object, plus an ephemeral key.
 ///
@@ -396,40 +366,30 @@ Future<RealtimeSessionCreateResponse> createRealtimeSession(ClientConfig config,
 /// [include] The set of items to include in the transcription. Current
 ///   available items are: `item.input_audio_transcription.logprobs`
 Future<RealtimeTranscriptionSessionCreateResponse>
-    createRealtimeTranscriptionSession(
-        ClientConfig config,
-        {SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection>
-            turnDetection = const SdkOmitted(),
-        SdkOptional<
-                RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>
-            inputAudioNoiseReduction = const SdkOmitted(),
-        SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat>
-            inputAudioFormat = const SdkOmitted(),
-        SdkOptional<AudioTranscription> inputAudioTranscription =
-            const SdkOmitted(),
-        SdkOptional<List<RealtimeTranscriptionSessionCreateRequestIncludeItem>>
-            include = const SdkOmitted(),
+    createRealtimeTranscriptionSession(ClientConfig config,
+        {SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection> turnDetection = const SdkOmitted(),
+        SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction> inputAudioNoiseReduction = const SdkOmitted(),
+        SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat> inputAudioFormat = const SdkOmitted(),
+        SdkOptional<AudioTranscription> inputAudioTranscription = const SdkOmitted(),
+        SdkOptional<List<RealtimeTranscriptionSessionCreateRequestIncludeItem>> include = const SdkOmitted(),
         RequestOptions? requestOptions}) async {
   return (await sdkRequest<RealtimeTranscriptionSessionCreateResponse>(
           'POST', '/realtime/transcription_sessions',
           config: config,
           body: {
             'turn_detection': SdkUtils.unwrapOptional(turnDetection),
-            'input_audio_noise_reduction':
-                SdkUtils.unwrapOptional(inputAudioNoiseReduction),
+            'input_audio_noise_reduction': SdkUtils.unwrapOptional(inputAudioNoiseReduction),
             'input_audio_format': SdkUtils.unwrapOptional(inputAudioFormat),
-            'input_audio_transcription':
-                SdkUtils.unwrapOptional(inputAudioTranscription),
+            'input_audio_transcription': SdkUtils.unwrapOptional(inputAudioTranscription),
             'include': SdkUtils.unwrapOptional(include)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createRealtimeTranscriptionSession',
-          fromJsonRaw: (value) =>
-              RealtimeTranscriptionSessionCreateResponse.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RealtimeTranscriptionSessionCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Create a Realtime translation client secret with an associated translation session configuration. Client secrets are short-lived tokens that can be passed to a client app, such as a web frontend or mobile client, which grants access to the Realtime Translation API without leaking your main API key. You can configure a custom TTL for each client secret. Returns the created client secret and the effective translation session object. The client secret is a string that looks like `ek_1234`.
 ///
@@ -443,8 +403,7 @@ Future<RealtimeTranscriptionSessionCreateResponse>
 Future<RealtimeTranslationClientSecretCreateResponse>
     createRealtimeTranslationClientSecret(ClientConfig config,
         {required RealtimeTranslationSessionCreateRequest session,
-        SdkOptional<RealtimeTranslationClientSecretCreateRequestExpiresAfter>
-            expiresAfter = const SdkOmitted(),
+        SdkOptional<RealtimeTranslationClientSecretCreateRequestExpiresAfter> expiresAfter = const SdkOmitted(),
         RequestOptions? requestOptions}) async {
   return (await sdkRequest<RealtimeTranslationClientSecretCreateResponse>(
           'POST', '/realtime/translations/client_secrets',
@@ -455,17 +414,8 @@ Future<RealtimeTranslationClientSecretCreateResponse>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createRealtimeTranslationClientSecret',
-          fromJsonRaw: (value) =>
-              RealtimeTranslationClientSecretCreateResponse.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RealtimeTranslationClientSecretCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

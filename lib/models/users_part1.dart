@@ -8,235 +8,133 @@ part of 'users.dart';
 class UserDeleteResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final UserDeleteResponseObject object;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
 
-  const UserDeleteResponse(
-      {required this.object, required this.id, required this.deleted});
+  const UserDeleteResponse({required this.object, required this.id, required this.deleted});
 
-  UserDeleteResponse Function(
-      {UserDeleteResponseObject object,
-      String id,
-      bool deleted}) get copyWith => _copyWith;
+  UserDeleteResponse Function({UserDeleteResponseObject object, String id, bool deleted}) get copyWith => _copyWith;
 
-  UserDeleteResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      UserDeleteResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as UserDeleteResponseObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-      );
+  UserDeleteResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => UserDeleteResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as UserDeleteResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+  );
 
-  factory UserDeleteResponse.fromJson(Map<String, dynamic> json) =>
-      UserDeleteResponse(
-        object: (json['object'] != null
-            ? UserDeleteResponseObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        deleted: (json['deleted'] as bool?)!,
-      );
+  factory UserDeleteResponse.fromJson(Map<String, dynamic> json) => UserDeleteResponse(
+    object: (json['object'] != null ? UserDeleteResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    deleted: (json['deleted'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'deleted': deleted,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'deleted': deleted,
+  };
 }
 
 /// Typed representation of the `UserListResponse` API schema.
 class UserListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final UserListResponseObject object;
-
   /// Required array value serialized in the `data` wire field.
   final List<User> data;
-
   /// Optional `string` value serialized in the `first_id` wire field.
   final SdkOptional<String?> firstId;
-
   /// Optional `string` value serialized in the `last_id` wire field.
   final SdkOptional<String?> lastId;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const UserListResponse(
-      {required this.object,
-      required this.data,
-      this.firstId = const SdkOmitted(),
-      this.lastId = const SdkOmitted(),
-      required this.hasMore});
+  const UserListResponse({required this.object, required this.data, this.firstId = const SdkOmitted(), this.lastId = const SdkOmitted(), required this.hasMore});
 
-  UserListResponse Function(
-      {UserListResponseObject object,
-      List<User> data,
-      SdkOptional<String?> firstId,
-      SdkOptional<String?> lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  UserListResponse Function({UserListResponseObject object, List<User> data, SdkOptional<String?> firstId, SdkOptional<String?> lastId, bool hasMore}) get copyWith => _copyWith;
 
-  UserListResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      UserListResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as UserListResponseObject,
-        data: identical(data, sdkOmittedValue) ? this.data : data as List<User>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as SdkOptional<String?>,
-        lastId: identical(lastId, sdkOmittedValue)
-            ? this.lastId
-            : lastId as SdkOptional<String?>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  UserListResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => UserListResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as UserListResponseObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<User>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as SdkOptional<String?>,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as SdkOptional<String?>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory UserListResponse.fromJson(Map<String, dynamic> json) =>
-      UserListResponse(
-        object: (json['object'] != null
-            ? UserListResponseObject.fromJson(json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => User.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: json.containsKey('first_id')
-            ? SdkPresent(json['first_id'] as String?)
-            : const SdkOmitted(),
-        lastId: json.containsKey('last_id')
-            ? SdkPresent(json['last_id'] as String?)
-            : const SdkOmitted(),
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory UserListResponse.fromJson(Map<String, dynamic> json) => UserListResponse(
+    object: (json['object'] != null ? UserListResponseObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => User.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: json.containsKey('first_id') ? SdkPresent(json['first_id'] as String?) : const SdkOmitted(),
+    lastId: json.containsKey('last_id') ? SdkPresent(json['last_id'] as String?) : const SdkOmitted(),
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        ...switch (firstId) {
-          SdkPresent<String?>(value: final value) => {
-              'first_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastId) {
-          SdkPresent<String?>(value: final value) => {
-              'last_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'has_more': hasMore,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    ...switch (firstId) {
+      SdkPresent<String?>(value: final value) => {'first_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastId) {
+      SdkPresent<String?>(value: final value) => {'last_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'has_more': hasMore,
+  };
 }
 
 /// Typed representation of the `UserRoleUpdateRequest` API schema.
 class UserRoleUpdateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// `owner` or `reader`
   final SdkOptional<String?> role;
-
   /// Role ID to assign to the user.
   final SdkOptional<String?> roleId;
-
   /// Technical level metadata.
   final SdkOptional<String?> technicalLevel;
-
   /// Developer persona metadata.
   final SdkOptional<String?> developerPersona;
 
-  const UserRoleUpdateRequest(
-      {this.role = const SdkOmitted(),
-      this.roleId = const SdkOmitted(),
-      this.technicalLevel = const SdkOmitted(),
-      this.developerPersona = const SdkOmitted()});
+  const UserRoleUpdateRequest({this.role = const SdkOmitted(), this.roleId = const SdkOmitted(), this.technicalLevel = const SdkOmitted(), this.developerPersona = const SdkOmitted()});
 
-  UserRoleUpdateRequest Function(
-      {SdkOptional<String?> role,
-      SdkOptional<String?> roleId,
-      SdkOptional<String?> technicalLevel,
-      SdkOptional<String?> developerPersona}) get copyWith => _copyWith;
+  UserRoleUpdateRequest Function({SdkOptional<String?> role, SdkOptional<String?> roleId, SdkOptional<String?> technicalLevel, SdkOptional<String?> developerPersona}) get copyWith => _copyWith;
 
-  UserRoleUpdateRequest _copyWith(
-          {Object? role = sdkOmittedValue,
-          Object? roleId = sdkOmittedValue,
-          Object? technicalLevel = sdkOmittedValue,
-          Object? developerPersona = sdkOmittedValue}) =>
-      UserRoleUpdateRequest(
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as SdkOptional<String?>,
-        roleId: identical(roleId, sdkOmittedValue)
-            ? this.roleId
-            : roleId as SdkOptional<String?>,
-        technicalLevel: identical(technicalLevel, sdkOmittedValue)
-            ? this.technicalLevel
-            : technicalLevel as SdkOptional<String?>,
-        developerPersona: identical(developerPersona, sdkOmittedValue)
-            ? this.developerPersona
-            : developerPersona as SdkOptional<String?>,
-      );
+  UserRoleUpdateRequest _copyWith({Object? role = sdkOmittedValue, Object? roleId = sdkOmittedValue, Object? technicalLevel = sdkOmittedValue, Object? developerPersona = sdkOmittedValue}) => UserRoleUpdateRequest(
+    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<String?>,
+    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as SdkOptional<String?>,
+    technicalLevel: identical(technicalLevel, sdkOmittedValue) ? this.technicalLevel : technicalLevel as SdkOptional<String?>,
+    developerPersona: identical(developerPersona, sdkOmittedValue) ? this.developerPersona : developerPersona as SdkOptional<String?>,
+  );
 
-  factory UserRoleUpdateRequest.fromJson(Map<String, dynamic> json) =>
-      UserRoleUpdateRequest(
-        role: json.containsKey('role')
-            ? SdkPresent(json['role'] as String?)
-            : const SdkOmitted(),
-        roleId: json.containsKey('role_id')
-            ? SdkPresent(json['role_id'] as String?)
-            : const SdkOmitted(),
-        technicalLevel: json.containsKey('technical_level')
-            ? SdkPresent(json['technical_level'] as String?)
-            : const SdkOmitted(),
-        developerPersona: json.containsKey('developer_persona')
-            ? SdkPresent(json['developer_persona'] as String?)
-            : const SdkOmitted(),
-      );
+  factory UserRoleUpdateRequest.fromJson(Map<String, dynamic> json) => UserRoleUpdateRequest(
+    role: json.containsKey('role') ? SdkPresent(json['role'] as String?) : const SdkOmitted(),
+    roleId: json.containsKey('role_id') ? SdkPresent(json['role_id'] as String?) : const SdkOmitted(),
+    technicalLevel: json.containsKey('technical_level') ? SdkPresent(json['technical_level'] as String?) : const SdkOmitted(),
+    developerPersona: json.containsKey('developer_persona') ? SdkPresent(json['developer_persona'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (role) {
-          SdkPresent<String?>(value: final value) => {
-              'role': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (roleId) {
-          SdkPresent<String?>(value: final value) => {
-              'role_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (technicalLevel) {
-          SdkPresent<String?>(value: final value) => {
-              'technical_level': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (developerPersona) {
-          SdkPresent<String?>(value: final value) => {
-              'developer_persona': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (role) {
+      SdkPresent<String?>(value: final value) => {'role': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (roleId) {
+      SdkPresent<String?>(value: final value) => {'role_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (technicalLevel) {
+      SdkPresent<String?>(value: final value) => {'technical_level': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (developerPersona) {
+      SdkPresent<String?>(value: final value) => {'developer_persona': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -11,27 +11,19 @@ import '../types.dart';
 /// Returns hosted tool permissions for a project.
 ///
 /// [projectId] The ID of the project.
-Future<ProjectHostedToolPermissions> retrieveProjectHostedToolPermissions(
-    ClientConfig config,
-    {required String projectId,
-    RequestOptions? requestOptions}) async {
+Future<ProjectHostedToolPermissions> retrieveProjectHostedToolPermissions(ClientConfig config,
+    {required String projectId, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectHostedToolPermissions>('GET',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/hosted_tool_permissions',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveProjectHostedToolPermissions',
-          fromJsonRaw: (value) => ProjectHostedToolPermissions.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectHostedToolPermissions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates the hosted tool permissions for a project. Supply settings for the tools you want to change using `file_search`, `web_search`, `image_generation`, `mcp`, or `code_interpreter`. The response returns the project's resulting permission states.
 ///
@@ -43,17 +35,15 @@ Future<ProjectHostedToolPermissions> retrieveProjectHostedToolPermissions(
 /// [imageGeneration] The image generation permission update.
 /// [mcp] The MCP permission update.
 /// [codeInterpreter] The code interpreter permission update.
-Future<ProjectHostedToolPermissions> updateProjectHostedToolPermissions(
-    ClientConfig config,
-    {required String projectId,
-    SdkOptional<HostedToolPermissionUpdate?> fileSearch = const SdkOmitted(),
-    SdkOptional<HostedToolPermissionUpdate?> webSearch = const SdkOmitted(),
-    SdkOptional<HostedToolPermissionUpdate?> imageGeneration =
-        const SdkOmitted(),
-    SdkOptional<HostedToolPermissionUpdate?> mcp = const SdkOmitted(),
-    SdkOptional<HostedToolPermissionUpdate?> codeInterpreter =
-        const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ProjectHostedToolPermissions>
+    updateProjectHostedToolPermissions(ClientConfig config,
+        {required String projectId,
+        SdkOptional<HostedToolPermissionUpdate?> fileSearch = const SdkOmitted(),
+        SdkOptional<HostedToolPermissionUpdate?> webSearch = const SdkOmitted(),
+        SdkOptional<HostedToolPermissionUpdate?> imageGeneration = const SdkOmitted(),
+        SdkOptional<HostedToolPermissionUpdate?> mcp = const SdkOmitted(),
+        SdkOptional<HostedToolPermissionUpdate?> codeInterpreter = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectHostedToolPermissions>('POST',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/hosted_tool_permissions',
           config: config,
@@ -66,20 +56,8 @@ Future<ProjectHostedToolPermissions> updateProjectHostedToolPermissions(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateProjectHostedToolPermissions',
-          fromJsonRaw: (value) => ProjectHostedToolPermissions.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectHostedToolPermissions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

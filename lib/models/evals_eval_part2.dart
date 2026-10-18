@@ -8,493 +8,281 @@ part of 'evals_eval.dart';
 class EvalGraderScoreModelVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The threshold for the score.
   final SdkOptional<double> passThreshold;
 
   const EvalGraderScoreModelVariant1({this.passThreshold = const SdkOmitted()});
 
-  EvalGraderScoreModelVariant1 Function({SdkOptional<double> passThreshold})
-      get copyWith => _copyWith;
+  EvalGraderScoreModelVariant1 Function({SdkOptional<double> passThreshold}) get copyWith => _copyWith;
 
-  EvalGraderScoreModelVariant1 _copyWith(
-          {Object? passThreshold = sdkOmittedValue}) =>
-      EvalGraderScoreModelVariant1(
-        passThreshold: identical(passThreshold, sdkOmittedValue)
-            ? this.passThreshold
-            : passThreshold as SdkOptional<double>,
-      );
+  EvalGraderScoreModelVariant1 _copyWith({Object? passThreshold = sdkOmittedValue}) => EvalGraderScoreModelVariant1(
+    passThreshold: identical(passThreshold, sdkOmittedValue) ? this.passThreshold : passThreshold as SdkOptional<double>,
+  );
 
-  factory EvalGraderScoreModelVariant1.fromJson(Map<String, dynamic> json) =>
-      EvalGraderScoreModelVariant1(
-        passThreshold: json['pass_threshold'] != null
-            ? SdkPresent(((json['pass_threshold'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory EvalGraderScoreModelVariant1.fromJson(Map<String, dynamic> json) => EvalGraderScoreModelVariant1(
+    passThreshold: json['pass_threshold'] != null ? SdkPresent(((json['pass_threshold'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (passThreshold) {
-          SdkPresent<double>(value: final value) => {
-              'pass_threshold': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (passThreshold) {
+      SdkPresent<double>(value: final value) => {'pass_threshold': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class GraderScoreModelSamplingParamsMaxCompletionsTokens {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const GraderScoreModelSamplingParamsMaxCompletionsTokens();
-  factory GraderScoreModelSamplingParamsMaxCompletionsTokens.fromJson(
-      Object? json) {
-    if (json is num) {
-      return GraderScoreModelSamplingParamsMaxCompletionsTokensInt(
-          json.toInt());
-    }
-    throw FormatException(
-        "No variant matched for GraderScoreModelSamplingParamsMaxCompletionsTokens");
+  factory GraderScoreModelSamplingParamsMaxCompletionsTokens.fromJson(Object? json) {
+    if (json is num) { return GraderScoreModelSamplingParamsMaxCompletionsTokensInt(json.toInt()); }
+    throw FormatException("No variant matched for GraderScoreModelSamplingParamsMaxCompletionsTokens");
   }
   Object? toJson();
 }
 
-final class GraderScoreModelSamplingParamsMaxCompletionsTokensInt
-    extends GraderScoreModelSamplingParamsMaxCompletionsTokens {
+final class GraderScoreModelSamplingParamsMaxCompletionsTokensInt extends GraderScoreModelSamplingParamsMaxCompletionsTokens {
   final int value;
   const GraderScoreModelSamplingParamsMaxCompletionsTokensInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// The sampling parameters for the model.
 class GraderScoreModelSamplingParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `integer` value serialized in the `seed` wire field.
   final SdkOptional<int?> seed;
-
   /// Optional `number` value serialized in the `top_p` wire field.
   final SdkOptional<double?> topP;
-
   /// Optional `number` value serialized in the `temperature` wire field.
   final SdkOptional<double?> temperature;
-
   /// Optional API value serialized in the `max_completions_tokens` wire field.
   final SdkOptional<int?> maxCompletionsTokens;
-
   /// Optional API value serialized in the `reasoning_effort` wire field.
   final SdkOptional<ReasoningEffort?> reasoningEffort;
 
-  const GraderScoreModelSamplingParams(
-      {this.seed = const SdkOmitted(),
-      this.topP = const SdkOmitted(),
-      this.temperature = const SdkOmitted(),
-      this.maxCompletionsTokens = const SdkOmitted(),
-      this.reasoningEffort = const SdkOmitted()});
+  const GraderScoreModelSamplingParams({this.seed = const SdkOmitted(), this.topP = const SdkOmitted(), this.temperature = const SdkOmitted(), this.maxCompletionsTokens = const SdkOmitted(), this.reasoningEffort = const SdkOmitted()});
 
-  GraderScoreModelSamplingParams Function(
-      {SdkOptional<int?> seed,
-      SdkOptional<double?> topP,
-      SdkOptional<double?> temperature,
-      SdkOptional<int?> maxCompletionsTokens,
-      SdkOptional<ReasoningEffort?> reasoningEffort}) get copyWith => _copyWith;
+  GraderScoreModelSamplingParams Function({SdkOptional<int?> seed, SdkOptional<double?> topP, SdkOptional<double?> temperature, SdkOptional<int?> maxCompletionsTokens, SdkOptional<ReasoningEffort?> reasoningEffort}) get copyWith => _copyWith;
 
-  GraderScoreModelSamplingParams _copyWith(
-          {Object? seed = sdkOmittedValue,
-          Object? topP = sdkOmittedValue,
-          Object? temperature = sdkOmittedValue,
-          Object? maxCompletionsTokens = sdkOmittedValue,
-          Object? reasoningEffort = sdkOmittedValue}) =>
-      GraderScoreModelSamplingParams(
-        seed: identical(seed, sdkOmittedValue)
-            ? this.seed
-            : seed as SdkOptional<int?>,
-        topP: identical(topP, sdkOmittedValue)
-            ? this.topP
-            : topP as SdkOptional<double?>,
-        temperature: identical(temperature, sdkOmittedValue)
-            ? this.temperature
-            : temperature as SdkOptional<double?>,
-        maxCompletionsTokens: identical(maxCompletionsTokens, sdkOmittedValue)
-            ? this.maxCompletionsTokens
-            : maxCompletionsTokens as SdkOptional<int?>,
-        reasoningEffort: identical(reasoningEffort, sdkOmittedValue)
-            ? this.reasoningEffort
-            : reasoningEffort as SdkOptional<ReasoningEffort?>,
-      );
+  GraderScoreModelSamplingParams _copyWith({Object? seed = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? maxCompletionsTokens = sdkOmittedValue, Object? reasoningEffort = sdkOmittedValue}) => GraderScoreModelSamplingParams(
+    seed: identical(seed, sdkOmittedValue) ? this.seed : seed as SdkOptional<int?>,
+    topP: identical(topP, sdkOmittedValue) ? this.topP : topP as SdkOptional<double?>,
+    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double?>,
+    maxCompletionsTokens: identical(maxCompletionsTokens, sdkOmittedValue) ? this.maxCompletionsTokens : maxCompletionsTokens as SdkOptional<int?>,
+    reasoningEffort: identical(reasoningEffort, sdkOmittedValue) ? this.reasoningEffort : reasoningEffort as SdkOptional<ReasoningEffort?>,
+  );
 
-  factory GraderScoreModelSamplingParams.fromJson(Map<String, dynamic> json) =>
-      GraderScoreModelSamplingParams(
-        seed: json.containsKey('seed')
-            ? SdkPresent((json['seed'] as num?)?.toInt())
-            : const SdkOmitted(),
-        topP: json.containsKey('top_p')
-            ? SdkPresent((json['top_p'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        temperature: json.containsKey('temperature')
-            ? SdkPresent((json['temperature'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        maxCompletionsTokens: json.containsKey('max_completions_tokens')
-            ? SdkPresent((json['max_completions_tokens'] as num?)?.toInt())
-            : const SdkOmitted(),
-        reasoningEffort: json.containsKey('reasoning_effort')
-            ? SdkPresent(json['reasoning_effort'] != null
-                ? ReasoningEffort.fromJson(json['reasoning_effort'])
-                : null)
-            : const SdkOmitted(),
-      );
+  factory GraderScoreModelSamplingParams.fromJson(Map<String, dynamic> json) => GraderScoreModelSamplingParams(
+    seed: json.containsKey('seed') ? SdkPresent((json['seed'] as num?)?.toInt()) : const SdkOmitted(),
+    topP: json.containsKey('top_p') ? SdkPresent((json['top_p'] as num?)?.toDouble()) : const SdkOmitted(),
+    temperature: json.containsKey('temperature') ? SdkPresent((json['temperature'] as num?)?.toDouble()) : const SdkOmitted(),
+    maxCompletionsTokens: json.containsKey('max_completions_tokens') ? SdkPresent((json['max_completions_tokens'] as num?)?.toInt()) : const SdkOmitted(),
+    reasoningEffort: json.containsKey('reasoning_effort') ? SdkPresent(json['reasoning_effort'] != null ? ReasoningEffort.fromJson(json['reasoning_effort']) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (seed) {
-          SdkPresent<int?>(value: final value) => {
-              'seed': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (topP) {
-          SdkPresent<double?>(value: final value) => {
-              'top_p': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (temperature) {
-          SdkPresent<double?>(value: final value) => {
-              'temperature': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxCompletionsTokens) {
-          SdkPresent<int?>(value: final value) => {
-              'max_completions_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reasoningEffort) {
-          SdkPresent<ReasoningEffort?>(value: final value) => {
-              'reasoning_effort': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (seed) {
+      SdkPresent<int?>(value: final value) => {'seed': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (topP) {
+      SdkPresent<double?>(value: final value) => {'top_p': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (temperature) {
+      SdkPresent<double?>(value: final value) => {'temperature': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxCompletionsTokens) {
+      SdkPresent<int?>(value: final value) => {'max_completions_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reasoningEffort) {
+      SdkPresent<ReasoningEffort?>(value: final value) => {'reasoning_effort': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `EvalGraderScoreModel` API schema.
 class EvalGraderScoreModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `score_model`.
   final GraderScoreModelType type_;
-
   /// The name of the grader.
   final String name;
-
   /// The model to use for the evaluation.
   final String model;
-
   /// The sampling parameters for the model.
   final SdkOptional<GraderScoreModelSamplingParams> samplingParams;
-
   /// The input messages evaluated by the grader. Supports text, output text, input image, and input audio content blocks, and may include template strings.
   final List<EvalItem> input;
-
   /// The service requires two numbers for the score range. Defaults to `[0, 1]`.
   final SdkOptional<List<double>> range;
-
   /// The threshold for the score.
   final SdkOptional<double> passThreshold;
 
-  const EvalGraderScoreModel(
-      {required this.type_,
-      required this.name,
-      required this.model,
-      this.samplingParams = const SdkOmitted(),
-      required this.input,
-      this.range = const SdkOmitted(),
-      this.passThreshold = const SdkOmitted()});
+  const EvalGraderScoreModel({required this.type_, required this.name, required this.model, this.samplingParams = const SdkOmitted(), required this.input, this.range = const SdkOmitted(), this.passThreshold = const SdkOmitted()});
 
-  EvalGraderScoreModel Function(
-      {GraderScoreModelType type_,
-      String name,
-      String model,
-      SdkOptional<GraderScoreModelSamplingParams> samplingParams,
-      List<EvalItem> input,
-      SdkOptional<List<double>> range,
-      SdkOptional<double> passThreshold}) get copyWith => _copyWith;
+  EvalGraderScoreModel Function({GraderScoreModelType type_, String name, String model, SdkOptional<GraderScoreModelSamplingParams> samplingParams, List<EvalItem> input, SdkOptional<List<double>> range, SdkOptional<double> passThreshold}) get copyWith => _copyWith;
 
-  EvalGraderScoreModel _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? samplingParams = sdkOmittedValue,
-          Object? input = sdkOmittedValue,
-          Object? range = sdkOmittedValue,
-          Object? passThreshold = sdkOmittedValue}) =>
-      EvalGraderScoreModel(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as GraderScoreModelType,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        samplingParams: identical(samplingParams, sdkOmittedValue)
-            ? this.samplingParams
-            : samplingParams as SdkOptional<GraderScoreModelSamplingParams>,
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as List<EvalItem>,
-        range: identical(range, sdkOmittedValue)
-            ? this.range
-            : range as SdkOptional<List<double>>,
-        passThreshold: identical(passThreshold, sdkOmittedValue)
-            ? this.passThreshold
-            : passThreshold as SdkOptional<double>,
-      );
+  EvalGraderScoreModel _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? model = sdkOmittedValue, Object? samplingParams = sdkOmittedValue, Object? input = sdkOmittedValue, Object? range = sdkOmittedValue, Object? passThreshold = sdkOmittedValue}) => EvalGraderScoreModel(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as GraderScoreModelType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    samplingParams: identical(samplingParams, sdkOmittedValue) ? this.samplingParams : samplingParams as SdkOptional<GraderScoreModelSamplingParams>,
+    input: identical(input, sdkOmittedValue) ? this.input : input as List<EvalItem>,
+    range: identical(range, sdkOmittedValue) ? this.range : range as SdkOptional<List<double>>,
+    passThreshold: identical(passThreshold, sdkOmittedValue) ? this.passThreshold : passThreshold as SdkOptional<double>,
+  );
 
-  factory EvalGraderScoreModel.fromJson(Map<String, dynamic> json) =>
-      EvalGraderScoreModel(
-        type_: (json['type'] != null
-            ? GraderScoreModelType.fromJson(json['type'] as String)
-            : null)!,
-        name: (json['name'] as String?)!,
-        model: (json['model'] as String?)!,
-        samplingParams: json['sampling_params'] != null
-            ? SdkPresent((json['sampling_params'] != null
-                ? GraderScoreModelSamplingParams.fromJson(
-                    json['sampling_params'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        input: ((json['input'] as List?)
-            ?.map((e) => EvalItem.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        range: json['range'] != null
-            ? SdkPresent(((json['range'] as List?)
-                ?.map((e) => (e as num).toDouble())
-                .toList())!)
-            : const SdkOmitted(),
-        passThreshold: json['pass_threshold'] != null
-            ? SdkPresent(((json['pass_threshold'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory EvalGraderScoreModel.fromJson(Map<String, dynamic> json) => EvalGraderScoreModel(
+    type_: (json['type'] != null ? GraderScoreModelType.fromJson(json['type'] as String) : null)!,
+    name: (json['name'] as String?)!,
+    model: (json['model'] as String?)!,
+    samplingParams: json['sampling_params'] != null ? SdkPresent((json['sampling_params'] != null ? GraderScoreModelSamplingParams.fromJson(json['sampling_params'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    input: ((json['input'] as List?)?.map((e) => EvalItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    range: json['range'] != null ? SdkPresent(((json['range'] as List?)?.map((e) => (e as num).toDouble()).toList())!) : const SdkOmitted(),
+    passThreshold: json['pass_threshold'] != null ? SdkPresent(((json['pass_threshold'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'name': name,
-        'model': model,
-        ...switch (samplingParams) {
-          SdkPresent<GraderScoreModelSamplingParams>(value: final value) => {
-              'sampling_params': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'input': input.map((item) => item.toJson()).toList(),
-        ...switch (range) {
-          SdkPresent<List<double>>(value: final value) => {
-              'range': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (passThreshold) {
-          SdkPresent<double>(value: final value) => {
-              'pass_threshold': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'name': name,
+    'model': model,
+    ...switch (samplingParams) {
+      SdkPresent<GraderScoreModelSamplingParams>(value: final value) => {'sampling_params': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'input': input.map((item) => item.toJson()).toList(),
+    ...switch (range) {
+      SdkPresent<List<double>>(value: final value) => {'range': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (passThreshold) {
+      SdkPresent<double>(value: final value) => {'pass_threshold': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `EvalGraderStringCheck` API schema.
 class EvalGraderStringCheck {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `string_check`.
   final GraderStringCheckType type_;
-
   /// The name of the grader.
   final String name;
-
   /// The input text. This may include template strings.
   final String input;
-
   /// The reference text. This may include template strings.
   final String reference;
-
   /// The string check operation to perform. One of `eq`, `ne`, `like`, or `ilike`.
   final GraderStringCheckOperation operation;
 
-  const EvalGraderStringCheck(
-      {required this.type_,
-      required this.name,
-      required this.input,
-      required this.reference,
-      required this.operation});
+  const EvalGraderStringCheck({required this.type_, required this.name, required this.input, required this.reference, required this.operation});
 
-  EvalGraderStringCheck Function(
-      {GraderStringCheckType type_,
-      String name,
-      String input,
-      String reference,
-      GraderStringCheckOperation operation}) get copyWith => _copyWith;
+  EvalGraderStringCheck Function({GraderStringCheckType type_, String name, String input, String reference, GraderStringCheckOperation operation}) get copyWith => _copyWith;
 
-  EvalGraderStringCheck _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? input = sdkOmittedValue,
-          Object? reference = sdkOmittedValue,
-          Object? operation = sdkOmittedValue}) =>
-      EvalGraderStringCheck(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as GraderStringCheckType,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        input: identical(input, sdkOmittedValue) ? this.input : input as String,
-        reference: identical(reference, sdkOmittedValue)
-            ? this.reference
-            : reference as String,
-        operation: identical(operation, sdkOmittedValue)
-            ? this.operation
-            : operation as GraderStringCheckOperation,
-      );
+  EvalGraderStringCheck _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? input = sdkOmittedValue, Object? reference = sdkOmittedValue, Object? operation = sdkOmittedValue}) => EvalGraderStringCheck(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as GraderStringCheckType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    input: identical(input, sdkOmittedValue) ? this.input : input as String,
+    reference: identical(reference, sdkOmittedValue) ? this.reference : reference as String,
+    operation: identical(operation, sdkOmittedValue) ? this.operation : operation as GraderStringCheckOperation,
+  );
 
-  factory EvalGraderStringCheck.fromJson(Map<String, dynamic> json) =>
-      EvalGraderStringCheck(
-        type_: (json['type'] != null
-            ? GraderStringCheckType.fromJson(json['type'] as String)
-            : null)!,
-        name: (json['name'] as String?)!,
-        input: (json['input'] as String?)!,
-        reference: (json['reference'] as String?)!,
-        operation: (json['operation'] != null
-            ? GraderStringCheckOperation.fromJson(json['operation'] as String)
-            : null)!,
-      );
+  factory EvalGraderStringCheck.fromJson(Map<String, dynamic> json) => EvalGraderStringCheck(
+    type_: (json['type'] != null ? GraderStringCheckType.fromJson(json['type'] as String) : null)!,
+    name: (json['name'] as String?)!,
+    input: (json['input'] as String?)!,
+    reference: (json['reference'] as String?)!,
+    operation: (json['operation'] != null ? GraderStringCheckOperation.fromJson(json['operation'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'name': name,
-        'input': input,
-        'reference': reference,
-        'operation': operation.toJson(),
-      };
+    'type': type_.toJson(),
+    'name': name,
+    'input': input,
+    'reference': reference,
+    'operation': operation.toJson(),
+  };
 }
 
 /// Required object value serialized in the `testing_criteria[]` wire field.
 class EvalGraderTextSimilarityVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The threshold for the score.
   final double passThreshold;
 
   const EvalGraderTextSimilarityVariant1({required this.passThreshold});
 
-  EvalGraderTextSimilarityVariant1 Function({double passThreshold})
-      get copyWith => _copyWith;
+  EvalGraderTextSimilarityVariant1 Function({double passThreshold}) get copyWith => _copyWith;
 
-  EvalGraderTextSimilarityVariant1 _copyWith(
-          {Object? passThreshold = sdkOmittedValue}) =>
-      EvalGraderTextSimilarityVariant1(
-        passThreshold: identical(passThreshold, sdkOmittedValue)
-            ? this.passThreshold
-            : passThreshold as double,
-      );
+  EvalGraderTextSimilarityVariant1 _copyWith({Object? passThreshold = sdkOmittedValue}) => EvalGraderTextSimilarityVariant1(
+    passThreshold: identical(passThreshold, sdkOmittedValue) ? this.passThreshold : passThreshold as double,
+  );
 
-  factory EvalGraderTextSimilarityVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      EvalGraderTextSimilarityVariant1(
-        passThreshold: ((json['pass_threshold'] as num?)?.toDouble())!,
-      );
+  factory EvalGraderTextSimilarityVariant1.fromJson(Map<String, dynamic> json) => EvalGraderTextSimilarityVariant1(
+    passThreshold: ((json['pass_threshold'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'pass_threshold': passThreshold,
-      };
+    'pass_threshold': passThreshold,
+  };
 }
 
 /// Typed representation of the `EvalGraderTextSimilarity` API schema.
 class EvalGraderTextSimilarity {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of grader.
   final GraderTextSimilarityType type_;
-
   /// The name of the grader.
   final String name;
-
   /// The text being graded.
   final String input;
-
   /// The text being graded against.
   final String reference;
-
   /// The evaluation metric to use. One of `cosine`, `fuzzy_match`, `bleu`, `gleu`, `meteor`, `rouge_1`, `rouge_2`, `rouge_3`, `rouge_4`, `rouge_5`, or `rouge_l`.
   final GraderTextSimilarityEvaluationMetric evaluationMetric;
-
   /// The threshold for the score.
   final double passThreshold;
 
-  const EvalGraderTextSimilarity(
-      {required this.type_,
-      required this.name,
-      required this.input,
-      required this.reference,
-      required this.evaluationMetric,
-      required this.passThreshold});
+  const EvalGraderTextSimilarity({required this.type_, required this.name, required this.input, required this.reference, required this.evaluationMetric, required this.passThreshold});
 
-  EvalGraderTextSimilarity Function(
-      {GraderTextSimilarityType type_,
-      String name,
-      String input,
-      String reference,
-      GraderTextSimilarityEvaluationMetric evaluationMetric,
-      double passThreshold}) get copyWith => _copyWith;
+  EvalGraderTextSimilarity Function({GraderTextSimilarityType type_, String name, String input, String reference, GraderTextSimilarityEvaluationMetric evaluationMetric, double passThreshold}) get copyWith => _copyWith;
 
-  EvalGraderTextSimilarity _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? input = sdkOmittedValue,
-          Object? reference = sdkOmittedValue,
-          Object? evaluationMetric = sdkOmittedValue,
-          Object? passThreshold = sdkOmittedValue}) =>
-      EvalGraderTextSimilarity(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as GraderTextSimilarityType,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        input: identical(input, sdkOmittedValue) ? this.input : input as String,
-        reference: identical(reference, sdkOmittedValue)
-            ? this.reference
-            : reference as String,
-        evaluationMetric: identical(evaluationMetric, sdkOmittedValue)
-            ? this.evaluationMetric
-            : evaluationMetric as GraderTextSimilarityEvaluationMetric,
-        passThreshold: identical(passThreshold, sdkOmittedValue)
-            ? this.passThreshold
-            : passThreshold as double,
-      );
+  EvalGraderTextSimilarity _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? input = sdkOmittedValue, Object? reference = sdkOmittedValue, Object? evaluationMetric = sdkOmittedValue, Object? passThreshold = sdkOmittedValue}) => EvalGraderTextSimilarity(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as GraderTextSimilarityType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    input: identical(input, sdkOmittedValue) ? this.input : input as String,
+    reference: identical(reference, sdkOmittedValue) ? this.reference : reference as String,
+    evaluationMetric: identical(evaluationMetric, sdkOmittedValue) ? this.evaluationMetric : evaluationMetric as GraderTextSimilarityEvaluationMetric,
+    passThreshold: identical(passThreshold, sdkOmittedValue) ? this.passThreshold : passThreshold as double,
+  );
 
-  factory EvalGraderTextSimilarity.fromJson(Map<String, dynamic> json) =>
-      EvalGraderTextSimilarity(
-        type_: (json['type'] != null
-            ? GraderTextSimilarityType.fromJson(json['type'] as String)
-            : null)!,
-        name: (json['name'] as String?)!,
-        input: (json['input'] as String?)!,
-        reference: (json['reference'] as String?)!,
-        evaluationMetric: (json['evaluation_metric'] != null
-            ? GraderTextSimilarityEvaluationMetric.fromJson(
-                json['evaluation_metric'] as String)
-            : null)!,
-        passThreshold: ((json['pass_threshold'] as num?)?.toDouble())!,
-      );
+  factory EvalGraderTextSimilarity.fromJson(Map<String, dynamic> json) => EvalGraderTextSimilarity(
+    type_: (json['type'] != null ? GraderTextSimilarityType.fromJson(json['type'] as String) : null)!,
+    name: (json['name'] as String?)!,
+    input: (json['input'] as String?)!,
+    reference: (json['reference'] as String?)!,
+    evaluationMetric: (json['evaluation_metric'] != null ? GraderTextSimilarityEvaluationMetric.fromJson(json['evaluation_metric'] as String) : null)!,
+    passThreshold: ((json['pass_threshold'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'name': name,
-        'input': input,
-        'reference': reference,
-        'evaluation_metric': evaluationMetric.toJson(),
-        'pass_threshold': passThreshold,
-      };
+    'type': type_.toJson(),
+    'name': name,
+    'input': input,
+    'reference': reference,
+    'evaluation_metric': evaluationMetric.toJson(),
+    'pass_threshold': passThreshold,
+  };
 }

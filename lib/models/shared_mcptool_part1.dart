@@ -9,14 +9,8 @@ sealed class MCPToolAllowedTools {
   static const String constructionSurface = 'named';
   const MCPToolAllowedTools();
   factory MCPToolAllowedTools.fromJson(Object? json) {
-    if (json is List) {
-      return MCPToolAllowedToolsListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
-    try {
-      return MCPToolAllowedToolsMCPToolFilter(
-          MCPToolFilter.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    if (json is List) { return MCPToolAllowedToolsListString(json.map((e) => e as String).toList().cast<String>()); }
+    try { return MCPToolAllowedToolsMCPToolFilter(MCPToolFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for MCPToolAllowedTools");
   }
   Object? toJson();
@@ -25,398 +19,198 @@ sealed class MCPToolAllowedTools {
 final class MCPToolAllowedToolsListString extends MCPToolAllowedTools {
   final List<String> value;
   const MCPToolAllowedToolsListString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class MCPToolAllowedToolsMCPToolFilter extends MCPToolAllowedTools {
   final MCPToolFilter value;
   const MCPToolAllowedToolsMCPToolFilter(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// Give the model access to additional tools via remote Model Context Protocol (MCP) servers. [Learn more about MCP](https://developers.openai.com/api/docs/guides/tools-connectors-mcp).
 class MCPTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the MCP tool. Always `mcp`.
   final MCPToolType type_;
-
   /// A label for this MCP server, used to identify it in tool calls.
   final String serverLabel;
-
   /// The URL for the MCP server. One of `server_url`, `connector_id`, or `tunnel_id` must be provided.
   final SdkOptional<String> serverUrl;
-
   /// Identifier for service connectors, like those available in ChatGPT. One of `server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more about service connectors [here](https://developers.openai.com/api/docs/guides/tools-connectors-mcp#connectors). This field is deprecated for models released after September 1, 2026. Use `server_url` to connect to a remote MCP server, or `tunnel_id` to connect through a Secure MCP Tunnel. Currently supported `connector_id` values are: - Dropbox: `connector_dropbox` - Gmail: `connector_gmail` - Google Calendar: `connector_googlecalendar` - Google Drive: `connector_googledrive` - Microsoft Teams: `connector_microsoftteams` - Outlook Calendar: `connector_outlookcalendar` - Outlook Email: `connector_outlookemail` - SharePoint: `connector_sharepoint`
   final SdkOptional<MCPToolConnectorId> connectorId;
-
   /// The Secure MCP Tunnel ID to use instead of a direct server URL. One of `server_url`, `connector_id`, or `tunnel_id` must be provided.
   final SdkOptional<String> tunnelId;
-
   /// An OAuth access token that can be used with a remote MCP server, either with a custom MCP server URL or a service connector. Your application must handle the OAuth authorization flow and provide the token here.
   final SdkOptional<String> authorization;
-
   /// Optional description of the MCP server, used to provide more context.
   final SdkOptional<String> serverDescription;
-
   /// Optional HTTP headers to send to the MCP server. Use for authentication or other purposes.
   final SdkOptional<Map<String, String>?> headers;
-
   /// List of allowed tool names or a filter object.
   final SdkOptional<dynamic> allowedTools;
-
   /// The tool invocation context(s).
   final SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers;
-
   /// Specify which of the MCP server's tools require approval.
   final SdkOptional<MCPToolRequireApproval?> requireApproval;
-
   /// Whether this MCP tool is deferred and discovered via tool search.
   final SdkOptional<bool> deferLoading;
 
-  const MCPTool(
-      {required this.type_,
-      required this.serverLabel,
-      this.serverUrl = const SdkOmitted(),
-      this.connectorId = const SdkOmitted(),
-      this.tunnelId = const SdkOmitted(),
-      this.authorization = const SdkOmitted(),
-      this.serverDescription = const SdkOmitted(),
-      this.headers = const SdkOmitted(),
-      this.allowedTools = const SdkOmitted(),
-      this.allowedCallers = const SdkOmitted(),
-      this.requireApproval = const SdkOmitted(),
-      this.deferLoading = const SdkOmitted()});
+  const MCPTool({required this.type_, required this.serverLabel, this.serverUrl = const SdkOmitted(), this.connectorId = const SdkOmitted(), this.tunnelId = const SdkOmitted(), this.authorization = const SdkOmitted(), this.serverDescription = const SdkOmitted(), this.headers = const SdkOmitted(), this.allowedTools = const SdkOmitted(), this.allowedCallers = const SdkOmitted(), this.requireApproval = const SdkOmitted(), this.deferLoading = const SdkOmitted()});
 
-  MCPTool Function(
-      {MCPToolType type_,
-      String serverLabel,
-      SdkOptional<String> serverUrl,
-      SdkOptional<MCPToolConnectorId> connectorId,
-      SdkOptional<String> tunnelId,
-      SdkOptional<String> authorization,
-      SdkOptional<String> serverDescription,
-      SdkOptional<Map<String, String>?> headers,
-      SdkOptional<dynamic> allowedTools,
-      SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers,
-      SdkOptional<MCPToolRequireApproval?> requireApproval,
-      SdkOptional<bool> deferLoading}) get copyWith => _copyWith;
+  MCPTool Function({MCPToolType type_, String serverLabel, SdkOptional<String> serverUrl, SdkOptional<MCPToolConnectorId> connectorId, SdkOptional<String> tunnelId, SdkOptional<String> authorization, SdkOptional<String> serverDescription, SdkOptional<Map<String, String>?> headers, SdkOptional<dynamic> allowedTools, SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers, SdkOptional<MCPToolRequireApproval?> requireApproval, SdkOptional<bool> deferLoading}) get copyWith => _copyWith;
 
-  MCPTool _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? serverLabel = sdkOmittedValue,
-          Object? serverUrl = sdkOmittedValue,
-          Object? connectorId = sdkOmittedValue,
-          Object? tunnelId = sdkOmittedValue,
-          Object? authorization = sdkOmittedValue,
-          Object? serverDescription = sdkOmittedValue,
-          Object? headers = sdkOmittedValue,
-          Object? allowedTools = sdkOmittedValue,
-          Object? allowedCallers = sdkOmittedValue,
-          Object? requireApproval = sdkOmittedValue,
-          Object? deferLoading = sdkOmittedValue}) =>
-      MCPTool(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MCPToolType,
-        serverLabel: identical(serverLabel, sdkOmittedValue)
-            ? this.serverLabel
-            : serverLabel as String,
-        serverUrl: identical(serverUrl, sdkOmittedValue)
-            ? this.serverUrl
-            : serverUrl as SdkOptional<String>,
-        connectorId: identical(connectorId, sdkOmittedValue)
-            ? this.connectorId
-            : connectorId as SdkOptional<MCPToolConnectorId>,
-        tunnelId: identical(tunnelId, sdkOmittedValue)
-            ? this.tunnelId
-            : tunnelId as SdkOptional<String>,
-        authorization: identical(authorization, sdkOmittedValue)
-            ? this.authorization
-            : authorization as SdkOptional<String>,
-        serverDescription: identical(serverDescription, sdkOmittedValue)
-            ? this.serverDescription
-            : serverDescription as SdkOptional<String>,
-        headers: identical(headers, sdkOmittedValue)
-            ? this.headers
-            : headers as SdkOptional<Map<String, String>?>,
-        allowedTools: identical(allowedTools, sdkOmittedValue)
-            ? this.allowedTools
-            : allowedTools as SdkOptional<dynamic>,
-        allowedCallers: identical(allowedCallers, sdkOmittedValue)
-            ? this.allowedCallers
-            : allowedCallers as SdkOptional<List<CallableToolAllowedCaller>?>,
-        requireApproval: identical(requireApproval, sdkOmittedValue)
-            ? this.requireApproval
-            : requireApproval as SdkOptional<MCPToolRequireApproval?>,
-        deferLoading: identical(deferLoading, sdkOmittedValue)
-            ? this.deferLoading
-            : deferLoading as SdkOptional<bool>,
-      );
+  MCPTool _copyWith({Object? type_ = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? serverUrl = sdkOmittedValue, Object? connectorId = sdkOmittedValue, Object? tunnelId = sdkOmittedValue, Object? authorization = sdkOmittedValue, Object? serverDescription = sdkOmittedValue, Object? headers = sdkOmittedValue, Object? allowedTools = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue, Object? requireApproval = sdkOmittedValue, Object? deferLoading = sdkOmittedValue}) => MCPTool(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MCPToolType,
+    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
+    serverUrl: identical(serverUrl, sdkOmittedValue) ? this.serverUrl : serverUrl as SdkOptional<String>,
+    connectorId: identical(connectorId, sdkOmittedValue) ? this.connectorId : connectorId as SdkOptional<MCPToolConnectorId>,
+    tunnelId: identical(tunnelId, sdkOmittedValue) ? this.tunnelId : tunnelId as SdkOptional<String>,
+    authorization: identical(authorization, sdkOmittedValue) ? this.authorization : authorization as SdkOptional<String>,
+    serverDescription: identical(serverDescription, sdkOmittedValue) ? this.serverDescription : serverDescription as SdkOptional<String>,
+    headers: identical(headers, sdkOmittedValue) ? this.headers : headers as SdkOptional<Map<String, String>?>,
+    allowedTools: identical(allowedTools, sdkOmittedValue) ? this.allowedTools : allowedTools as SdkOptional<dynamic>,
+    allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<CallableToolAllowedCaller>?>,
+    requireApproval: identical(requireApproval, sdkOmittedValue) ? this.requireApproval : requireApproval as SdkOptional<MCPToolRequireApproval?>,
+    deferLoading: identical(deferLoading, sdkOmittedValue) ? this.deferLoading : deferLoading as SdkOptional<bool>,
+  );
 
   factory MCPTool.fromJson(Map<String, dynamic> json) => MCPTool(
-        type_: (json['type'] != null
-            ? MCPToolType.fromJson(json['type'] as String)
-            : null)!,
-        serverLabel: (json['server_label'] as String?)!,
-        serverUrl: json['server_url'] != null
-            ? SdkPresent((json['server_url'] as String?)!)
-            : const SdkOmitted(),
-        connectorId: json['connector_id'] != null
-            ? SdkPresent((json['connector_id'] != null
-                ? MCPToolConnectorId.fromJson(json['connector_id'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        tunnelId: json['tunnel_id'] != null
-            ? SdkPresent((json['tunnel_id'] as String?)!)
-            : const SdkOmitted(),
-        authorization: json['authorization'] != null
-            ? SdkPresent((json['authorization'] as String?)!)
-            : const SdkOmitted(),
-        serverDescription: json['server_description'] != null
-            ? SdkPresent((json['server_description'] as String?)!)
-            : const SdkOmitted(),
-        headers: json.containsKey('headers')
-            ? SdkPresent(json['headers'] == null
-                ? null
-                : Map<String, dynamic>.from(json['headers'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))
-            : const SdkOmitted(),
-        allowedTools: json.containsKey('allowed_tools')
-            ? SdkPresent(SdkUtils.unionBranch(
-                json['allowed_tools'], [MCPToolFilter.fromJson]))
-            : const SdkOmitted(),
-        allowedCallers: json.containsKey('allowed_callers')
-            ? SdkPresent((json['allowed_callers'] as List?)
-                ?.map((e) => CallableToolAllowedCaller.fromJson(e as String))
-                .toList())
-            : const SdkOmitted(),
-        requireApproval: json.containsKey('require_approval')
-            ? SdkPresent(json['require_approval'] != null
-                ? MCPToolRequireApproval.fromJson(json['require_approval'])
-                : null)
-            : const SdkOmitted(),
-        deferLoading: json['defer_loading'] != null
-            ? SdkPresent((json['defer_loading'] as bool?)!)
-            : const SdkOmitted(),
-      );
+    type_: (json['type'] != null ? MCPToolType.fromJson(json['type'] as String) : null)!,
+    serverLabel: (json['server_label'] as String?)!,
+    serverUrl: json['server_url'] != null ? SdkPresent((json['server_url'] as String?)!) : const SdkOmitted(),
+    connectorId: json['connector_id'] != null ? SdkPresent((json['connector_id'] != null ? MCPToolConnectorId.fromJson(json['connector_id'] as String) : null)!) : const SdkOmitted(),
+    tunnelId: json['tunnel_id'] != null ? SdkPresent((json['tunnel_id'] as String?)!) : const SdkOmitted(),
+    authorization: json['authorization'] != null ? SdkPresent((json['authorization'] as String?)!) : const SdkOmitted(),
+    serverDescription: json['server_description'] != null ? SdkPresent((json['server_description'] as String?)!) : const SdkOmitted(),
+    headers: json.containsKey('headers') ? SdkPresent(json['headers'] == null ? null : Map<String, dynamic>.from(json['headers'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
+    allowedTools: json.containsKey('allowed_tools') ? SdkPresent(SdkUtils.unionBranch(json['allowed_tools'], [MCPToolFilter.fromJson])) : const SdkOmitted(),
+    allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => CallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
+    requireApproval: json.containsKey('require_approval') ? SdkPresent(json['require_approval'] != null ? MCPToolRequireApproval.fromJson(json['require_approval']) : null) : const SdkOmitted(),
+    deferLoading: json['defer_loading'] != null ? SdkPresent((json['defer_loading'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'server_label': serverLabel,
-        ...switch (serverUrl) {
-          SdkPresent<String>(value: final value) => {
-              'server_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (connectorId) {
-          SdkPresent<MCPToolConnectorId>(value: final value) => {
-              'connector_id': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tunnelId) {
-          SdkPresent<String>(value: final value) => {
-              'tunnel_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (authorization) {
-          SdkPresent<String>(value: final value) => {
-              'authorization': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serverDescription) {
-          SdkPresent<String>(value: final value) => {
-              'server_description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (headers) {
-          SdkPresent<Map<String, String>?>(value: final value) => {
-              'headers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedTools) {
-          SdkPresent<dynamic>(value: final value) => {
-              'allowed_tools': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedCallers) {
-          SdkPresent<List<CallableToolAllowedCaller>?>(value: final value) => {
-              'allowed_callers': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (requireApproval) {
-          SdkPresent<MCPToolRequireApproval?>(value: final value) => {
-              'require_approval': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deferLoading) {
-          SdkPresent<bool>(value: final value) => {
-              'defer_loading': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'server_label': serverLabel,
+    ...switch (serverUrl) {
+      SdkPresent<String>(value: final value) => {'server_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (connectorId) {
+      SdkPresent<MCPToolConnectorId>(value: final value) => {'connector_id': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tunnelId) {
+      SdkPresent<String>(value: final value) => {'tunnel_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (authorization) {
+      SdkPresent<String>(value: final value) => {'authorization': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serverDescription) {
+      SdkPresent<String>(value: final value) => {'server_description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (headers) {
+      SdkPresent<Map<String, String>?>(value: final value) => {'headers': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedTools) {
+      SdkPresent<dynamic>(value: final value) => {'allowed_tools': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedCallers) {
+      SdkPresent<List<CallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (requireApproval) {
+      SdkPresent<MCPToolRequireApproval?>(value: final value) => {'require_approval': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deferLoading) {
+      SdkPresent<bool>(value: final value) => {'defer_loading': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// An invocation of a tool on an MCP server.
 class MCPToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the item. Always `mcp_call`.
   final MCPToolCallType type_;
-
   /// The unique ID of the tool call.
   final String id;
-
   /// The label of the MCP server running the tool.
   final String serverLabel;
-
   /// The name of the tool that was run.
   final String name;
-
   /// A JSON string of the arguments passed to the tool.
   final String arguments;
-
   /// Optional `string` value serialized in the `output` wire field.
   final SdkOptional<String?> output;
-
   /// The error from the tool call, if any.
   final SdkOptional<MCPToolCallError?> error;
-
   /// The status of the tool call. One of `in_progress`, `completed`, `incomplete`, `calling`, or `failed`.
   final SdkOptional<MCPToolCallStatus> status;
-
   /// Optional `string` value serialized in the `approval_request_id` wire field.
   final SdkOptional<String?> approvalRequestId;
 
-  const MCPToolCall(
-      {required this.type_,
-      required this.id,
-      required this.serverLabel,
-      required this.name,
-      required this.arguments,
-      this.output = const SdkOmitted(),
-      this.error = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.approvalRequestId = const SdkOmitted()});
+  const MCPToolCall({required this.type_, required this.id, required this.serverLabel, required this.name, required this.arguments, this.output = const SdkOmitted(), this.error = const SdkOmitted(), this.status = const SdkOmitted(), this.approvalRequestId = const SdkOmitted()});
 
-  MCPToolCall Function(
-      {MCPToolCallType type_,
-      String id,
-      String serverLabel,
-      String name,
-      String arguments,
-      SdkOptional<String?> output,
-      SdkOptional<MCPToolCallError?> error,
-      SdkOptional<MCPToolCallStatus> status,
-      SdkOptional<String?> approvalRequestId}) get copyWith => _copyWith;
+  MCPToolCall Function({MCPToolCallType type_, String id, String serverLabel, String name, String arguments, SdkOptional<String?> output, SdkOptional<MCPToolCallError?> error, SdkOptional<MCPToolCallStatus> status, SdkOptional<String?> approvalRequestId}) get copyWith => _copyWith;
 
-  MCPToolCall _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? serverLabel = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? arguments = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? error = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? approvalRequestId = sdkOmittedValue}) =>
-      MCPToolCall(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MCPToolCallType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        serverLabel: identical(serverLabel, sdkOmittedValue)
-            ? this.serverLabel
-            : serverLabel as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        arguments: identical(arguments, sdkOmittedValue)
-            ? this.arguments
-            : arguments as String,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as SdkOptional<String?>,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as SdkOptional<MCPToolCallError?>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<MCPToolCallStatus>,
-        approvalRequestId: identical(approvalRequestId, sdkOmittedValue)
-            ? this.approvalRequestId
-            : approvalRequestId as SdkOptional<String?>,
-      );
+  MCPToolCall _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? name = sdkOmittedValue, Object? arguments = sdkOmittedValue, Object? output = sdkOmittedValue, Object? error = sdkOmittedValue, Object? status = sdkOmittedValue, Object? approvalRequestId = sdkOmittedValue}) => MCPToolCall(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MCPToolCallType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as String,
+    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<String?>,
+    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<MCPToolCallError?>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<MCPToolCallStatus>,
+    approvalRequestId: identical(approvalRequestId, sdkOmittedValue) ? this.approvalRequestId : approvalRequestId as SdkOptional<String?>,
+  );
 
   factory MCPToolCall.fromJson(Map<String, dynamic> json) => MCPToolCall(
-        type_: (json['type'] != null
-            ? MCPToolCallType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        serverLabel: (json['server_label'] as String?)!,
-        name: (json['name'] as String?)!,
-        arguments: (json['arguments'] as String?)!,
-        output: json.containsKey('output')
-            ? SdkPresent(json['output'] as String?)
-            : const SdkOmitted(),
-        error: json.containsKey('error')
-            ? SdkPresent(json['error'] != null
-                ? MCPToolCallError.fromJson(json['error'])
-                : null)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? MCPToolCallStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        approvalRequestId: json.containsKey('approval_request_id')
-            ? SdkPresent(json['approval_request_id'] as String?)
-            : const SdkOmitted(),
-      );
+    type_: (json['type'] != null ? MCPToolCallType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    serverLabel: (json['server_label'] as String?)!,
+    name: (json['name'] as String?)!,
+    arguments: (json['arguments'] as String?)!,
+    output: json.containsKey('output') ? SdkPresent(json['output'] as String?) : const SdkOmitted(),
+    error: json.containsKey('error') ? SdkPresent(json['error'] != null ? MCPToolCallError.fromJson(json['error']) : null) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? MCPToolCallStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    approvalRequestId: json.containsKey('approval_request_id') ? SdkPresent(json['approval_request_id'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'server_label': serverLabel,
-        'name': name,
-        'arguments': arguments,
-        ...switch (output) {
-          SdkPresent<String?>(value: final value) => {
-              'output': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (error) {
-          SdkPresent<MCPToolCallError?>(value: final value) => {
-              'error': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<MCPToolCallStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (approvalRequestId) {
-          SdkPresent<String?>(value: final value) => {
-              'approval_request_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'server_label': serverLabel,
+    'name': name,
+    'arguments': arguments,
+    ...switch (output) {
+      SdkPresent<String?>(value: final value) => {'output': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (error) {
+      SdkPresent<MCPToolCallError?>(value: final value) => {'error': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<MCPToolCallStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (approvalRequestId) {
+      SdkPresent<String?>(value: final value) => {'approval_request_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class MCPToolCallError {
@@ -425,43 +219,14 @@ sealed class MCPToolCallError {
   const MCPToolCallError();
   factory MCPToolCallError.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = MCPProtocolError.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MCPToolCallErrorMCPProtocolError(value);
-        }
-      } catch (_) {}
-      try {
-        final value = MCPToolExecutionError.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MCPToolCallErrorMCPToolExecutionError(value);
-        }
-      } catch (_) {}
-      try {
-        final value = HTTPError.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MCPToolCallErrorHTTPError(value);
-        }
-      } catch (_) {}
+      try { final value = MCPProtocolError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MCPToolCallErrorMCPProtocolError(value); } } catch (_) {}
+      try { final value = MCPToolExecutionError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MCPToolCallErrorMCPToolExecutionError(value); } } catch (_) {}
+      try { final value = HTTPError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MCPToolCallErrorHTTPError(value); } } catch (_) {}
     }
-    try {
-      return MCPToolCallErrorMCPProtocolError(
-          MCPProtocolError.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MCPToolCallErrorMCPToolExecutionError(
-          MCPToolExecutionError.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MCPToolCallErrorHTTPError(
-          HTTPError.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"mcp_protocol_error", "mcp_tool_execution_error", "http_error"}
-            .contains(json["type"])) {
-      return UnknownMCPToolCallError(json);
-    }
+    try { return MCPToolCallErrorMCPProtocolError(MCPProtocolError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MCPToolCallErrorMCPToolExecutionError(MCPToolExecutionError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MCPToolCallErrorHTTPError(HTTPError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"mcp_protocol_error", "mcp_tool_execution_error", "http_error"}.contains(json["type"])) { return UnknownMCPToolCallError(json); }
     throw FormatException("No variant matched for MCPToolCallError");
   }
   Object? toJson();
@@ -470,40 +235,36 @@ sealed class MCPToolCallError {
 final class MCPToolCallErrorMCPProtocolError extends MCPToolCallError {
   final MCPProtocolError value;
   const MCPToolCallErrorMCPProtocolError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class MCPToolCallErrorMCPToolExecutionError extends MCPToolCallError {
   final MCPToolExecutionError value;
   const MCPToolCallErrorMCPToolExecutionError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class MCPToolCallErrorHTTPError extends MCPToolCallError {
   final HTTPError value;
   const MCPToolCallErrorHTTPError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [MCPToolCallError] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownMCPToolCallError extends MCPToolCallError {
   final Map<String, dynamic> raw;
   const UnknownMCPToolCallError(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Typed representation of the `MCPToolCallStatus` API schema.
 final class MCPToolCallStatus {
+
   final String value;
 
   const MCPToolCallStatus._(this.value);
 
-  factory MCPToolCallStatus.fromJson(String value) =>
-      MCPToolCallStatus._(value);
+  factory MCPToolCallStatus.fromJson(String value) => MCPToolCallStatus._(value);
 
   static const inProgress = MCPToolCallStatus._('in_progress');
   static const completed = MCPToolCallStatus._('completed');
@@ -513,13 +274,10 @@ final class MCPToolCallStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MCPToolCallStatus && other.value == value;
+  @override bool operator ==(Object other) => other is MCPToolCallStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

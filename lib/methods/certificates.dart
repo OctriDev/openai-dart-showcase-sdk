@@ -19,39 +19,29 @@ import '../types.dart';
 ///   after=obj_foo in order to fetch the next page of the list.
 /// [order] Sort order by the `created_at` timestamp of the objects. `asc` for
 ///   ascending order and `desc` for descending order.
-Future<ListCertificatesResponse> listCertificatesForOrganization(
-    ClientConfig config,
-    {SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<ListCertificatesForOrganizationOrder> order =
-        const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ListCertificatesResponse>
+    listCertificatesForOrganization(ClientConfig config,
+        {SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        SdkOptional<ListCertificatesForOrganizationOrder> order = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ListCertificatesResponse>(
           'GET', '/organization/certificates',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listCertificatesForOrganization',
-          fromJsonRaw: (value) =>
-              ListCertificatesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListCertificatesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists certificates uploaded for the organization. Use `after` to continue from a certificate ID, and set `order` to sort by creation time. The response includes pagination metadata and whether more certificates are available.
 ///
@@ -65,28 +55,13 @@ Future<ListCertificatesResponse> listCertificatesForOrganization(
 ///   after=obj_foo in order to fetch the next page of the list.
 /// [order] Sort order by the `created_at` timestamp of the objects. `asc` for
 ///   ascending order and `desc` for descending order.
-Stream<OrganizationCertificate> listCertificatesForOrganizationPaginated(
-    ClientConfig config,
-    {int? limit,
-    String? after,
-    ListCertificatesForOrganizationOrder? order,
-    RequestOptions? requestOptions}) async* {
+Stream<OrganizationCertificate> listCertificatesForOrganizationPaginated(ClientConfig config, {int? limit, String? after, ListCertificatesForOrganizationOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listCertificatesForOrganization(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListCertificatesForOrganizationOrder>()
-            : SdkPresent<ListCertificatesForOrganizationOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listCertificatesForOrganization(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListCertificatesForOrganizationOrder>() : SdkPresent<ListCertificatesForOrganizationOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -94,23 +69,10 @@ Stream<OrganizationCertificate> listCertificatesForOrganizationPaginated(
   }
 }
 
-Stream<SdkPage<ListCertificatesResponse, OrganizationCertificate>>
-    listCertificatesForOrganizationPages(ClientConfig config,
-        {int? limit,
-        String? after,
-        ListCertificatesForOrganizationOrder? order,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListCertificatesResponse, OrganizationCertificate>> listCertificatesForOrganizationPages(ClientConfig config, {int? limit, String? after, ListCertificatesForOrganizationOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listCertificatesForOrganization(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListCertificatesForOrganizationOrder>()
-            : SdkPresent<ListCertificatesForOrganizationOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listCertificatesForOrganization(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListCertificatesForOrganizationOrder>() : SdkPresent<ListCertificatesForOrganizationOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -120,6 +82,7 @@ Stream<SdkPage<ListCertificatesResponse, OrganizationCertificate>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Upload a certificate to the organization. This does **not** automatically activate the certificate. Organizations can upload up to 50 certificates.
 ///
@@ -137,19 +100,12 @@ Future<Certificate> uploadCertificate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'uploadCertificate',
-          fromJsonRaw: (value) =>
-              Certificate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Certificate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Activates certificates at the organization level. Provide the certificate IDs in `certificate_ids`; the operation activates them atomically and idempotently. You can activate up to 10 certificates in a single request.
 ///
@@ -169,24 +125,12 @@ Future<OrganizationCertificateActivationResponse>
           body: {'certificate_ids': certificateIds},
           decoder: SdkResponseDecoder.json,
           operationId: 'activateCertificatesForOrganization',
-          fromJsonRaw: (value) =>
-              OrganizationCertificateActivationResponse.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationCertificateActivationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deactivates organization-level certificates in a single request. Supply between 1 and 10 certificate IDs; the operation is atomic and idempotent.
 ///
@@ -206,24 +150,12 @@ Future<OrganizationCertificateDeactivationResponse>
           body: {'certificate_ids': certificateIds},
           decoder: SdkResponseDecoder.json,
           operationId: 'deactivateCertificatesForOrganization',
-          fromJsonRaw: (value) =>
-              OrganizationCertificateDeactivationResponse.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationCertificateDeactivationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Get a certificate that has been uploaded to the organization. You can get a certificate regardless of whether it is active or not.
 ///
@@ -239,26 +171,16 @@ Future<Certificate> getCertificate(ClientConfig config,
           '/organization/certificates/${Uri.encodeComponent(certificateId.toString())}',
           config: config,
           query: {
-            'include': SdkQueryValue(SdkUtils.unwrapOptional(include),
-                style: 'form', explode: true)
+            'include': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getCertificate',
-          fromJsonRaw: (value) =>
-              Certificate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Certificate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Modify a certificate. Note that only the name can be modified.
 ///
@@ -274,23 +196,12 @@ Future<Certificate> modifyCertificate(ClientConfig config,
           body: {'name': SdkUtils.unwrapOptional(name)},
           decoder: SdkResponseDecoder.json,
           operationId: 'modifyCertificate',
-          fromJsonRaw: (value) =>
-              Certificate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Certificate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Delete a certificate from the organization. The certificate must be inactive for the organization and all projects.
 ///
@@ -302,18 +213,12 @@ Future<DeleteCertificateResponse> deleteCertificate(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteCertificate',
-          fromJsonRaw: (value) =>
-              DeleteCertificateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteCertificateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists certificates configured for a project. Use `after` to continue from a certificate ID in a previous response, and set `limit` and `order` to control the page size and sort direction.
 ///
@@ -328,39 +233,30 @@ Future<DeleteCertificateResponse> deleteCertificate(ClientConfig config,
 ///   after=obj_foo in order to fetch the next page of the list.
 /// [order] Sort order by the `created_at` timestamp of the objects. `asc` for
 ///   ascending order and `desc` for descending order.
-Future<ListProjectCertificatesResponse> listCertificatesForProject(
-    ClientConfig config,
-    {required String projectId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<ListCertificatesForProjectOrder> order = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ListProjectCertificatesResponse>
+    listCertificatesForProject(ClientConfig config,
+        {required String projectId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        SdkOptional<ListCertificatesForProjectOrder> order = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ListProjectCertificatesResponse>('GET',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/certificates',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listCertificatesForProject',
-          fromJsonRaw: (value) => ListProjectCertificatesResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListProjectCertificatesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists certificates configured for a project. Use `after` to continue from a certificate ID in a previous response, and set `limit` and `order` to control the page size and sort direction.
 ///
@@ -375,30 +271,13 @@ Future<ListProjectCertificatesResponse> listCertificatesForProject(
 ///   after=obj_foo in order to fetch the next page of the list.
 /// [order] Sort order by the `created_at` timestamp of the objects. `asc` for
 ///   ascending order and `desc` for descending order.
-Stream<OrganizationProjectCertificate> listCertificatesForProjectPaginated(
-    ClientConfig config,
-    {required String projectId,
-    int? limit,
-    String? after,
-    ListCertificatesForProjectOrder? order,
-    RequestOptions? requestOptions}) async* {
+Stream<OrganizationProjectCertificate> listCertificatesForProjectPaginated(ClientConfig config, {required String projectId, int? limit, String? after, ListCertificatesForProjectOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listCertificatesForProject(config,
-        projectId: projectId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListCertificatesForProjectOrder>()
-            : SdkPresent<ListCertificatesForProjectOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listCertificatesForProject(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListCertificatesForProjectOrder>() : SdkPresent<ListCertificatesForProjectOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -406,25 +285,10 @@ Stream<OrganizationProjectCertificate> listCertificatesForProjectPaginated(
   }
 }
 
-Stream<SdkPage<ListProjectCertificatesResponse, OrganizationProjectCertificate>>
-    listCertificatesForProjectPages(ClientConfig config,
-        {required String projectId,
-        int? limit,
-        String? after,
-        ListCertificatesForProjectOrder? order,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListProjectCertificatesResponse, OrganizationProjectCertificate>> listCertificatesForProjectPages(ClientConfig config, {required String projectId, int? limit, String? after, ListCertificatesForProjectOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listCertificatesForProject(config,
-        projectId: projectId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListCertificatesForProjectOrder>()
-            : SdkPresent<ListCertificatesForProjectOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listCertificatesForProject(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListCertificatesForProjectOrder>() : SdkPresent<ListCertificatesForProjectOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -434,6 +298,7 @@ Stream<SdkPage<ListProjectCertificatesResponse, OrganizationProjectCertificate>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Activates certificates for a project. Supply between 1 and 10 certificate IDs; the operation is atomic and idempotent. The response contains the certificates with their updated activation state.
 ///
@@ -449,31 +314,18 @@ Future<OrganizationProjectCertificateActivationResponse>
         RequestOptions? requestOptions}) async {
   validateItems('certificate_ids', certificateIds, min: 1, max: 10);
 
-  return (await sdkRequest<OrganizationProjectCertificateActivationResponse>(
-          'POST',
+  return (await sdkRequest<OrganizationProjectCertificateActivationResponse>('POST',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/certificates/activate',
           config: config,
           body: {'certificate_ids': certificateIds},
           decoder: SdkResponseDecoder.json,
           operationId: 'activateCertificatesForProject',
-          fromJsonRaw: (value) =>
-              OrganizationProjectCertificateActivationResponse.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationProjectCertificateActivationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deactivates certificates for a project. Supply between 1 and 10 certificate IDs; the operation is atomic and idempotent. The response contains the certificates with their updated activation state.
 ///
@@ -489,28 +341,14 @@ Future<OrganizationProjectCertificateDeactivationResponse>
         RequestOptions? requestOptions}) async {
   validateItems('certificate_ids', certificateIds, min: 1, max: 10);
 
-  return (await sdkRequest<OrganizationProjectCertificateDeactivationResponse>(
-          'POST',
+  return (await sdkRequest<OrganizationProjectCertificateDeactivationResponse>('POST',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/certificates/deactivate',
           config: config,
           body: {'certificate_ids': certificateIds},
           decoder: SdkResponseDecoder.json,
           operationId: 'deactivateCertificatesForProject',
-          fromJsonRaw: (value) =>
-              OrganizationProjectCertificateDeactivationResponse.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationProjectCertificateDeactivationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

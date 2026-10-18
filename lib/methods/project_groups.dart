@@ -30,30 +30,19 @@ Future<ProjectGroupListResource> listProjectGroups(ClientConfig config,
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/groups',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listProjectGroups',
-          fromJsonRaw: (value) =>
-              ProjectGroupListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectGroupListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists the groups that have access to a project. Use `after` to continue from the last group in a previous response, and set `limit` and `order` to control the page size and sort order.
 ///
@@ -64,29 +53,13 @@ Future<ProjectGroupListResource> listProjectGroups(ClientConfig config,
 /// [after] Cursor for pagination. Provide the ID of the last group from the
 ///   previous response to fetch the next page.
 /// [order] Sort order for the returned groups.
-Stream<ProjectGroup> listProjectGroupsPaginated(ClientConfig config,
-    {required String projectId,
-    int? limit,
-    String? after,
-    ListProjectGroupsOrder? order,
-    RequestOptions? requestOptions}) async* {
+Stream<ProjectGroup> listProjectGroupsPaginated(ClientConfig config, {required String projectId, int? limit, String? after, ListProjectGroupsOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectGroups(config,
-        projectId: projectId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListProjectGroupsOrder>()
-            : SdkPresent<ListProjectGroupsOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listProjectGroups(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListProjectGroupsOrder>() : SdkPresent<ListProjectGroupsOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.next;
     if (sdkNext == null) return;
@@ -94,25 +67,10 @@ Stream<ProjectGroup> listProjectGroupsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<ProjectGroupListResource, ProjectGroup>> listProjectGroupsPages(
-    ClientConfig config,
-    {required String projectId,
-    int? limit,
-    String? after,
-    ListProjectGroupsOrder? order,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ProjectGroupListResource, ProjectGroup>> listProjectGroupsPages(ClientConfig config, {required String projectId, int? limit, String? after, ListProjectGroupsOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectGroups(config,
-        projectId: projectId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListProjectGroupsOrder>()
-            : SdkPresent<ListProjectGroupsOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listProjectGroups(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListProjectGroupsOrder>() : SdkPresent<ListProjectGroupsOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.next;
@@ -122,6 +80,7 @@ Stream<SdkPage<ProjectGroupListResource, ProjectGroup>> listProjectGroupsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Grants a group access to a project with a specified project role. Supply the group ID and role identifier to create the group’s project membership.
 ///
@@ -141,23 +100,12 @@ Future<ProjectGroup> addProjectGroup(ClientConfig config,
           body: {'group_id': groupId, 'role': role},
           decoder: SdkResponseDecoder.json,
           operationId: 'addProjectGroup',
-          fromJsonRaw: (value) =>
-              ProjectGroup.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectGroup.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a group's membership details for a project. Use `project_id` and `group_id` to identify the project and group, and `group_type` to select a group type; it defaults to `group` when omitted.
 ///
@@ -175,26 +123,16 @@ Future<ProjectGroup> retrieveProjectGroup(ClientConfig config,
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/groups/${Uri.encodeComponent(groupId.toString())}',
           config: config,
           query: {
-            'group_type': SdkQueryValue(SdkUtils.unwrapOptional(groupType),
-                style: 'form', explode: true)
+            'group_type': SdkQueryValue(SdkUtils.unwrapOptional(groupType), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveProjectGroup',
-          fromJsonRaw: (value) =>
-              ProjectGroup.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectGroup.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Removes a group's access to a project. Use `project_id` and `group_id` to identify the project membership to revoke. The response confirms whether the membership was removed.
 ///
@@ -211,15 +149,8 @@ Future<ProjectGroupDeletedResource> removeProjectGroup(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'removeProjectGroup',
-          fromJsonRaw: (value) => ProjectGroupDeletedResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectGroupDeletedResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

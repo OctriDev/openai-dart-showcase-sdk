@@ -5,12 +5,12 @@ part of 'inline.dart';
 
 // Inline operation models (part 138)
 final class UsageCompletionsGroupByItem {
+
   final String value;
 
   const UsageCompletionsGroupByItem._(this.value);
 
-  factory UsageCompletionsGroupByItem.fromJson(String value) =>
-      UsageCompletionsGroupByItem._(value);
+  factory UsageCompletionsGroupByItem.fromJson(String value) => UsageCompletionsGroupByItem._(value);
 
   static const projectId = UsageCompletionsGroupByItem._('project_id');
   static const userId = UsageCompletionsGroupByItem._('user_id');
@@ -22,24 +22,21 @@ final class UsageCompletionsGroupByItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageCompletionsGroupByItem && other.value == value;
+  @override bool operator ==(Object other) => other is UsageCompletionsGroupByItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class UsageEmbeddingsBucketWidth {
+
   final String value;
 
   const UsageEmbeddingsBucketWidth._(this.value);
 
-  factory UsageEmbeddingsBucketWidth.fromJson(String value) =>
-      UsageEmbeddingsBucketWidth._(value);
+  factory UsageEmbeddingsBucketWidth.fromJson(String value) => UsageEmbeddingsBucketWidth._(value);
 
   static const v1m = UsageEmbeddingsBucketWidth._('1m');
   static const v1h = UsageEmbeddingsBucketWidth._('1h');
@@ -47,24 +44,21 @@ final class UsageEmbeddingsBucketWidth {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageEmbeddingsBucketWidth && other.value == value;
+  @override bool operator ==(Object other) => other is UsageEmbeddingsBucketWidth && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class UsageEmbeddingsGroupByItem {
+
   final String value;
 
   const UsageEmbeddingsGroupByItem._(this.value);
 
-  factory UsageEmbeddingsGroupByItem.fromJson(String value) =>
-      UsageEmbeddingsGroupByItem._(value);
+  factory UsageEmbeddingsGroupByItem.fromJson(String value) => UsageEmbeddingsGroupByItem._(value);
 
   static const projectId = UsageEmbeddingsGroupByItem._('project_id');
   static const userId = UsageEmbeddingsGroupByItem._('user_id');
@@ -73,24 +67,21 @@ final class UsageEmbeddingsGroupByItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageEmbeddingsGroupByItem && other.value == value;
+  @override bool operator ==(Object other) => other is UsageEmbeddingsGroupByItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class UsageFileSearchCallsBucketWidth {
+
   final String value;
 
   const UsageFileSearchCallsBucketWidth._(this.value);
 
-  factory UsageFileSearchCallsBucketWidth.fromJson(String value) =>
-      UsageFileSearchCallsBucketWidth._(value);
+  factory UsageFileSearchCallsBucketWidth.fromJson(String value) => UsageFileSearchCallsBucketWidth._(value);
 
   static const v1m = UsageFileSearchCallsBucketWidth._('1m');
   static const v1h = UsageFileSearchCallsBucketWidth._('1h');
@@ -98,51 +89,44 @@ final class UsageFileSearchCallsBucketWidth {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageFileSearchCallsBucketWidth && other.value == value;
+  @override bool operator ==(Object other) => other is UsageFileSearchCallsBucketWidth && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class UsageFileSearchCallsGroupByItem {
+
   final String value;
 
   const UsageFileSearchCallsGroupByItem._(this.value);
 
-  factory UsageFileSearchCallsGroupByItem.fromJson(String value) =>
-      UsageFileSearchCallsGroupByItem._(value);
+  factory UsageFileSearchCallsGroupByItem.fromJson(String value) => UsageFileSearchCallsGroupByItem._(value);
 
   static const projectId = UsageFileSearchCallsGroupByItem._('project_id');
   static const userId = UsageFileSearchCallsGroupByItem._('user_id');
   static const apiKeyId = UsageFileSearchCallsGroupByItem._('api_key_id');
-  static const vectorStoreId =
-      UsageFileSearchCallsGroupByItem._('vector_store_id');
+  static const vectorStoreId = UsageFileSearchCallsGroupByItem._('vector_store_id');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageFileSearchCallsGroupByItem && other.value == value;
+  @override bool operator ==(Object other) => other is UsageFileSearchCallsGroupByItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class UsageImagesBucketWidth {
+
   final String value;
 
   const UsageImagesBucketWidth._(this.value);
 
-  factory UsageImagesBucketWidth.fromJson(String value) =>
-      UsageImagesBucketWidth._(value);
+  factory UsageImagesBucketWidth.fromJson(String value) => UsageImagesBucketWidth._(value);
 
   static const v1m = UsageImagesBucketWidth._('1m');
   static const v1h = UsageImagesBucketWidth._('1h');
@@ -150,24 +134,21 @@ final class UsageImagesBucketWidth {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageImagesBucketWidth && other.value == value;
+  @override bool operator ==(Object other) => other is UsageImagesBucketWidth && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class UsageImagesSourcesItem {
+
   final String value;
 
   const UsageImagesSourcesItem._(this.value);
 
-  factory UsageImagesSourcesItem.fromJson(String value) =>
-      UsageImagesSourcesItem._(value);
+  factory UsageImagesSourcesItem.fromJson(String value) => UsageImagesSourcesItem._(value);
 
   static const imageGeneration = UsageImagesSourcesItem._('image.generation');
   static const imageEdit = UsageImagesSourcesItem._('image.edit');
@@ -175,24 +156,21 @@ final class UsageImagesSourcesItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageImagesSourcesItem && other.value == value;
+  @override bool operator ==(Object other) => other is UsageImagesSourcesItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class UsageImagesSizesItem {
+
   final String value;
 
   const UsageImagesSizesItem._(this.value);
 
-  factory UsageImagesSizesItem.fromJson(String value) =>
-      UsageImagesSizesItem._(value);
+  factory UsageImagesSizesItem.fromJson(String value) => UsageImagesSizesItem._(value);
 
   static const v256x256 = UsageImagesSizesItem._('256x256');
   static const v512x512 = UsageImagesSizesItem._('512x512');
@@ -202,24 +180,21 @@ final class UsageImagesSizesItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageImagesSizesItem && other.value == value;
+  @override bool operator ==(Object other) => other is UsageImagesSizesItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class UsageImagesGroupByItem {
+
   final String value;
 
   const UsageImagesGroupByItem._(this.value);
 
-  factory UsageImagesGroupByItem.fromJson(String value) =>
-      UsageImagesGroupByItem._(value);
+  factory UsageImagesGroupByItem.fromJson(String value) => UsageImagesGroupByItem._(value);
 
   static const projectId = UsageImagesGroupByItem._('project_id');
   static const userId = UsageImagesGroupByItem._('user_id');
@@ -230,24 +205,21 @@ final class UsageImagesGroupByItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageImagesGroupByItem && other.value == value;
+  @override bool operator ==(Object other) => other is UsageImagesGroupByItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class UsageModerationsBucketWidth {
+
   final String value;
 
   const UsageModerationsBucketWidth._(this.value);
 
-  factory UsageModerationsBucketWidth.fromJson(String value) =>
-      UsageModerationsBucketWidth._(value);
+  factory UsageModerationsBucketWidth.fromJson(String value) => UsageModerationsBucketWidth._(value);
 
   static const v1m = UsageModerationsBucketWidth._('1m');
   static const v1h = UsageModerationsBucketWidth._('1h');
@@ -255,24 +227,21 @@ final class UsageModerationsBucketWidth {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageModerationsBucketWidth && other.value == value;
+  @override bool operator ==(Object other) => other is UsageModerationsBucketWidth && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class UsageModerationsGroupByItem {
+
   final String value;
 
   const UsageModerationsGroupByItem._(this.value);
 
-  factory UsageModerationsGroupByItem.fromJson(String value) =>
-      UsageModerationsGroupByItem._(value);
+  factory UsageModerationsGroupByItem.fromJson(String value) => UsageModerationsGroupByItem._(value);
 
   static const projectId = UsageModerationsGroupByItem._('project_id');
   static const userId = UsageModerationsGroupByItem._('user_id');
@@ -281,24 +250,21 @@ final class UsageModerationsGroupByItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageModerationsGroupByItem && other.value == value;
+  @override bool operator ==(Object other) => other is UsageModerationsGroupByItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class UsageVectorStoresBucketWidth {
+
   final String value;
 
   const UsageVectorStoresBucketWidth._(this.value);
 
-  factory UsageVectorStoresBucketWidth.fromJson(String value) =>
-      UsageVectorStoresBucketWidth._(value);
+  factory UsageVectorStoresBucketWidth.fromJson(String value) => UsageVectorStoresBucketWidth._(value);
 
   static const v1m = UsageVectorStoresBucketWidth._('1m');
   static const v1h = UsageVectorStoresBucketWidth._('1h');
@@ -306,13 +272,10 @@ final class UsageVectorStoresBucketWidth {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UsageVectorStoresBucketWidth && other.value == value;
+  @override bool operator ==(Object other) => other is UsageVectorStoresBucketWidth && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

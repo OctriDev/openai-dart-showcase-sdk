@@ -8,538 +8,275 @@ part of 'responses_beta_computer.dart';
 class BetaComputerScreenshotContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a computer screenshot, this property is always set to `computer_screenshot`.
   final BetaComputerScreenshotContentType type_;
-
   /// Required API value serialized in the `image_url` wire field.
   final String? imageUrl;
-
   /// Required `string` value serialized in the `file_id` wire field.
   final String? fileId;
-
   /// The detail level of the screenshot image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.
   final BetaImageDetail detail;
-
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
   final SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint;
 
-  const BetaComputerScreenshotContent(
-      {required this.type_,
-      required this.imageUrl,
-      required this.fileId,
-      required this.detail,
-      this.promptCacheBreakpoint = const SdkOmitted()});
+  const BetaComputerScreenshotContent({required this.type_, required this.imageUrl, required this.fileId, required this.detail, this.promptCacheBreakpoint = const SdkOmitted()});
 
-  BetaComputerScreenshotContent Function(
-          {BetaComputerScreenshotContentType type_,
-          String? imageUrl,
-          String? fileId,
-          BetaImageDetail detail,
-          SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint})
-      get copyWith => _copyWith;
+  BetaComputerScreenshotContent Function({BetaComputerScreenshotContentType type_, String? imageUrl, String? fileId, BetaImageDetail detail, SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint}) get copyWith => _copyWith;
 
-  BetaComputerScreenshotContent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue,
-          Object? fileId = sdkOmittedValue,
-          Object? detail = sdkOmittedValue,
-          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
-      BetaComputerScreenshotContent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaComputerScreenshotContentType,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as String?,
-        fileId: identical(fileId, sdkOmittedValue)
-            ? this.fileId
-            : fileId as String?,
-        detail: identical(detail, sdkOmittedValue)
-            ? this.detail
-            : detail as BetaImageDetail,
-        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
-            ? this.promptCacheBreakpoint
-            : promptCacheBreakpoint
-                as SdkOptional<BetaPromptCacheBreakpointConfig>,
-      );
+  BetaComputerScreenshotContent _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? detail = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => BetaComputerScreenshotContent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaComputerScreenshotContentType,
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as String?,
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String?,
+    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as BetaImageDetail,
+    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<BetaPromptCacheBreakpointConfig>,
+  );
 
-  factory BetaComputerScreenshotContent.fromJson(Map<String, dynamic> json) =>
-      BetaComputerScreenshotContent(
-        type_: (json['type'] != null
-            ? BetaComputerScreenshotContentType.fromJson(json['type'] as String)
-            : null)!,
-        imageUrl: json.containsKey('image_url')
-            ? json['image_url'] as String?
-            : throw ArgumentError.value(
-                null, 'image_url', 'Required property is missing'),
-        fileId: json.containsKey('file_id')
-            ? json['file_id'] as String?
-            : throw ArgumentError.value(
-                null, 'file_id', 'Required property is missing'),
-        detail: (json['detail'] != null
-            ? BetaImageDetail.fromJson(json['detail'] as String)
-            : null)!,
-        promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null
-            ? SdkPresent((json['prompt_cache_breakpoint'] != null
-                ? BetaPromptCacheBreakpointConfig.fromJson(
-                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory BetaComputerScreenshotContent.fromJson(Map<String, dynamic> json) => BetaComputerScreenshotContent(
+    type_: (json['type'] != null ? BetaComputerScreenshotContentType.fromJson(json['type'] as String) : null)!,
+    imageUrl: json.containsKey('image_url') ? json['image_url'] as String? : throw ArgumentError.value(null, 'image_url', 'Required property is missing'),
+    fileId: json.containsKey('file_id') ? json['file_id'] as String? : throw ArgumentError.value(null, 'file_id', 'Required property is missing'),
+    detail: (json['detail'] != null ? BetaImageDetail.fromJson(json['detail'] as String) : null)!,
+    promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null ? SdkPresent((json['prompt_cache_breakpoint'] != null ? BetaPromptCacheBreakpointConfig.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'image_url': imageUrl,
-        'file_id': fileId,
-        'detail': detail.toJson(),
-        ...switch (promptCacheBreakpoint) {
-          SdkPresent<BetaPromptCacheBreakpointConfig>(value: final value) => {
-              'prompt_cache_breakpoint': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'image_url': imageUrl,
+    'file_id': fileId,
+    'detail': detail.toJson(),
+    ...switch (promptCacheBreakpoint) {
+      SdkPresent<BetaPromptCacheBreakpointConfig>(value: final value) => {'prompt_cache_breakpoint': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A computer screenshot image used with the computer use tool.
 class BetaComputerScreenshotImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a computer screenshot, this property is always set to `computer_screenshot`.
   final BetaComputerScreenshotImageType type_;
-
   /// The URL of the screenshot image.
   final SdkOptional<String> imageUrl;
-
   /// The identifier of an uploaded file that contains the screenshot.
   final SdkOptional<String> fileId;
 
-  const BetaComputerScreenshotImage(
-      {required this.type_,
-      this.imageUrl = const SdkOmitted(),
-      this.fileId = const SdkOmitted()});
+  const BetaComputerScreenshotImage({required this.type_, this.imageUrl = const SdkOmitted(), this.fileId = const SdkOmitted()});
 
-  BetaComputerScreenshotImage Function(
-      {BetaComputerScreenshotImageType type_,
-      SdkOptional<String> imageUrl,
-      SdkOptional<String> fileId}) get copyWith => _copyWith;
+  BetaComputerScreenshotImage Function({BetaComputerScreenshotImageType type_, SdkOptional<String> imageUrl, SdkOptional<String> fileId}) get copyWith => _copyWith;
 
-  BetaComputerScreenshotImage _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue,
-          Object? fileId = sdkOmittedValue}) =>
-      BetaComputerScreenshotImage(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaComputerScreenshotImageType,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as SdkOptional<String>,
-        fileId: identical(fileId, sdkOmittedValue)
-            ? this.fileId
-            : fileId as SdkOptional<String>,
-      );
+  BetaComputerScreenshotImage _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? fileId = sdkOmittedValue}) => BetaComputerScreenshotImage(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaComputerScreenshotImageType,
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<String>,
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
+  );
 
-  factory BetaComputerScreenshotImage.fromJson(Map<String, dynamic> json) =>
-      BetaComputerScreenshotImage(
-        type_: (json['type'] != null
-            ? BetaComputerScreenshotImageType.fromJson(json['type'] as String)
-            : null)!,
-        imageUrl: json['image_url'] != null
-            ? SdkPresent((json['image_url'] as String?)!)
-            : const SdkOmitted(),
-        fileId: json['file_id'] != null
-            ? SdkPresent((json['file_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory BetaComputerScreenshotImage.fromJson(Map<String, dynamic> json) => BetaComputerScreenshotImage(
+    type_: (json['type'] != null ? BetaComputerScreenshotImageType.fromJson(json['type'] as String) : null)!,
+    imageUrl: json['image_url'] != null ? SdkPresent((json['image_url'] as String?)!) : const SdkOmitted(),
+    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (imageUrl) {
-          SdkPresent<String>(value: final value) => {
-              'image_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fileId) {
-          SdkPresent<String>(value: final value) => {
-              'file_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (imageUrl) {
+      SdkPresent<String>(value: final value) => {'image_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fileId) {
+      SdkPresent<String>(value: final value) => {'file_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A tool that controls a virtual computer. Learn more about the [computer tool](https://developers.openai.com/api/docs/guides/tools-computer-use).
 class BetaComputerTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the computer tool. Always `computer`.
   final BetaComputerToolType type_;
 
   const BetaComputerTool({required this.type_});
 
-  BetaComputerTool Function({BetaComputerToolType type_}) get copyWith =>
-      _copyWith;
+  BetaComputerTool Function({BetaComputerToolType type_}) get copyWith => _copyWith;
 
-  BetaComputerTool _copyWith({Object? type_ = sdkOmittedValue}) =>
-      BetaComputerTool(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaComputerToolType,
-      );
+  BetaComputerTool _copyWith({Object? type_ = sdkOmittedValue}) => BetaComputerTool(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaComputerToolType,
+  );
 
-  factory BetaComputerTool.fromJson(Map<String, dynamic> json) =>
-      BetaComputerTool(
-        type_: (json['type'] != null
-            ? BetaComputerToolType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory BetaComputerTool.fromJson(Map<String, dynamic> json) => BetaComputerTool(
+    type_: (json['type'] != null ? BetaComputerToolType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// A tool call to a computer use tool. See the [computer use guide](https://developers.openai.com/api/docs/guides/tools-computer-use) for more information.
 class BetaComputerToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the computer call. Always `computer_call`.
   final BetaComputerToolCallType type_;
-
   /// The unique ID of the computer call.
   final String id;
-
   /// An identifier used when responding to the tool call with output.
   final String callId;
-
   /// Optional API value serialized in the `action` wire field.
   final SdkOptional<BetaComputerAction> action;
-
   /// Flattened batched actions for `computer_use`. Each action includes an `type` discriminator and action-specific fields.
   final SdkOptional<List<BetaComputerAction>> actions;
-
   /// The pending safety checks for the computer call.
   final List<BetaComputerCallSafetyCheckParam> pendingSafetyChecks;
-
   /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final BetaComputerToolCallStatus status;
 
-  const BetaComputerToolCall(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.id,
-      required this.callId,
-      this.action = const SdkOmitted(),
-      this.actions = const SdkOmitted(),
-      required this.pendingSafetyChecks,
-      required this.status});
+  const BetaComputerToolCall({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.callId, this.action = const SdkOmitted(), this.actions = const SdkOmitted(), required this.pendingSafetyChecks, required this.status});
 
-  BetaComputerToolCall Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaComputerToolCallType type_,
-      String id,
-      String callId,
-      SdkOptional<BetaComputerAction> action,
-      SdkOptional<List<BetaComputerAction>> actions,
-      List<BetaComputerCallSafetyCheckParam> pendingSafetyChecks,
-      BetaComputerToolCallStatus status}) get copyWith => _copyWith;
+  BetaComputerToolCall Function({SdkOptional<BetaAgentTag?> agent, BetaComputerToolCallType type_, String id, String callId, SdkOptional<BetaComputerAction> action, SdkOptional<List<BetaComputerAction>> actions, List<BetaComputerCallSafetyCheckParam> pendingSafetyChecks, BetaComputerToolCallStatus status}) get copyWith => _copyWith;
 
-  BetaComputerToolCall _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? action = sdkOmittedValue,
-          Object? actions = sdkOmittedValue,
-          Object? pendingSafetyChecks = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      BetaComputerToolCall(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaComputerToolCallType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<BetaComputerAction>,
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<BetaComputerAction>>,
-        pendingSafetyChecks: identical(pendingSafetyChecks, sdkOmittedValue)
-            ? this.pendingSafetyChecks
-            : pendingSafetyChecks as List<BetaComputerCallSafetyCheckParam>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as BetaComputerToolCallStatus,
-      );
+  BetaComputerToolCall _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? action = sdkOmittedValue, Object? actions = sdkOmittedValue, Object? pendingSafetyChecks = sdkOmittedValue, Object? status = sdkOmittedValue}) => BetaComputerToolCall(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaComputerToolCallType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<BetaComputerAction>,
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<BetaComputerAction>>,
+    pendingSafetyChecks: identical(pendingSafetyChecks, sdkOmittedValue) ? this.pendingSafetyChecks : pendingSafetyChecks as List<BetaComputerCallSafetyCheckParam>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as BetaComputerToolCallStatus,
+  );
 
-  factory BetaComputerToolCall.fromJson(Map<String, dynamic> json) =>
-      BetaComputerToolCall(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaComputerToolCallType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        callId: (json['call_id'] as String?)!,
-        action: json['action'] != null
-            ? SdkPresent((json['action'] != null
-                ? BetaComputerAction.fromJson(json['action'])
-                : null)!)
-            : const SdkOmitted(),
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => BetaComputerAction.fromJson(e))
-                .toList())!)
-            : const SdkOmitted(),
-        pendingSafetyChecks: ((json['pending_safety_checks'] as List?)
-            ?.map((e) => BetaComputerCallSafetyCheckParam.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-        status: (json['status'] != null
-            ? BetaComputerToolCallStatus.fromJson(json['status'] as String)
-            : null)!,
-      );
+  factory BetaComputerToolCall.fromJson(Map<String, dynamic> json) => BetaComputerToolCall(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaComputerToolCallType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    callId: (json['call_id'] as String?)!,
+    action: json['action'] != null ? SdkPresent((json['action'] != null ? BetaComputerAction.fromJson(json['action']) : null)!) : const SdkOmitted(),
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => BetaComputerAction.fromJson(e)).toList())!) : const SdkOmitted(),
+    pendingSafetyChecks: ((json['pending_safety_checks'] as List?)?.map((e) => BetaComputerCallSafetyCheckParam.fromJson(e as Map<String, dynamic>)).toList())!,
+    status: (json['status'] != null ? BetaComputerToolCallStatus.fromJson(json['status'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'id': id,
-        'call_id': callId,
-        ...switch (action) {
-          SdkPresent<BetaComputerAction>(value: final value) => {
-              'action': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (actions) {
-          SdkPresent<List<BetaComputerAction>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'pending_safety_checks':
-            pendingSafetyChecks.map((item) => item.toJson()).toList(),
-        'status': status.toJson(),
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'id': id,
+    'call_id': callId,
+    ...switch (action) {
+      SdkPresent<BetaComputerAction>(value: final value) => {'action': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (actions) {
+      SdkPresent<List<BetaComputerAction>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    'pending_safety_checks': pendingSafetyChecks.map((item) => item.toJson()).toList(),
+    'status': status.toJson(),
+  };
 }
 
 /// The output of a computer tool call.
 class BetaComputerToolCallOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the computer tool call output. Always `computer_call_output`.
   final BetaComputerToolCallOutputType type_;
-
   /// The ID of the computer tool call output.
   final SdkOptional<String> id;
-
   /// The ID of the computer tool call that produced the output.
   final String callId;
-
   /// The safety checks reported by the API that have been acknowledged by the developer.
-  final SdkOptional<List<BetaComputerCallSafetyCheckParam>>
-      acknowledgedSafetyChecks;
-
+  final SdkOptional<List<BetaComputerCallSafetyCheckParam>> acknowledgedSafetyChecks;
   /// A computer screenshot image used with the computer use tool.
   final BetaComputerScreenshotImage output;
-
   /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
   final SdkOptional<BetaComputerToolCallOutputStatus> status;
 
-  const BetaComputerToolCallOutput(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      this.id = const SdkOmitted(),
-      required this.callId,
-      this.acknowledgedSafetyChecks = const SdkOmitted(),
-      required this.output,
-      this.status = const SdkOmitted()});
+  const BetaComputerToolCallOutput({this.agent = const SdkOmitted(), required this.type_, this.id = const SdkOmitted(), required this.callId, this.acknowledgedSafetyChecks = const SdkOmitted(), required this.output, this.status = const SdkOmitted()});
 
-  BetaComputerToolCallOutput Function(
-          {SdkOptional<BetaAgentTag?> agent,
-          BetaComputerToolCallOutputType type_,
-          SdkOptional<String> id,
-          String callId,
-          SdkOptional<List<BetaComputerCallSafetyCheckParam>>
-              acknowledgedSafetyChecks,
-          BetaComputerScreenshotImage output,
-          SdkOptional<BetaComputerToolCallOutputStatus> status})
-      get copyWith => _copyWith;
+  BetaComputerToolCallOutput Function({SdkOptional<BetaAgentTag?> agent, BetaComputerToolCallOutputType type_, SdkOptional<String> id, String callId, SdkOptional<List<BetaComputerCallSafetyCheckParam>> acknowledgedSafetyChecks, BetaComputerScreenshotImage output, SdkOptional<BetaComputerToolCallOutputStatus> status}) get copyWith => _copyWith;
 
-  BetaComputerToolCallOutput _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? acknowledgedSafetyChecks = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      BetaComputerToolCallOutput(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaComputerToolCallOutputType,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        acknowledgedSafetyChecks:
-            identical(acknowledgedSafetyChecks, sdkOmittedValue)
-                ? this.acknowledgedSafetyChecks
-                : acknowledgedSafetyChecks
-                    as SdkOptional<List<BetaComputerCallSafetyCheckParam>>,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as BetaComputerScreenshotImage,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<BetaComputerToolCallOutputStatus>,
-      );
+  BetaComputerToolCallOutput _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? acknowledgedSafetyChecks = sdkOmittedValue, Object? output = sdkOmittedValue, Object? status = sdkOmittedValue}) => BetaComputerToolCallOutput(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaComputerToolCallOutputType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    acknowledgedSafetyChecks: identical(acknowledgedSafetyChecks, sdkOmittedValue) ? this.acknowledgedSafetyChecks : acknowledgedSafetyChecks as SdkOptional<List<BetaComputerCallSafetyCheckParam>>,
+    output: identical(output, sdkOmittedValue) ? this.output : output as BetaComputerScreenshotImage,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<BetaComputerToolCallOutputStatus>,
+  );
 
-  factory BetaComputerToolCallOutput.fromJson(Map<String, dynamic> json) =>
-      BetaComputerToolCallOutput(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaComputerToolCallOutputType.fromJson(json['type'] as String)
-            : null)!,
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        callId: (json['call_id'] as String?)!,
-        acknowledgedSafetyChecks: json['acknowledged_safety_checks'] != null
-            ? SdkPresent(((json['acknowledged_safety_checks'] as List?)
-                ?.map((e) => BetaComputerCallSafetyCheckParam.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        output: (json['output'] != null
-            ? BetaComputerScreenshotImage.fromJson(
-                json['output'] as Map<String, dynamic>)
-            : null)!,
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? BetaComputerToolCallOutputStatus.fromJson(
-                    json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory BetaComputerToolCallOutput.fromJson(Map<String, dynamic> json) => BetaComputerToolCallOutput(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaComputerToolCallOutputType.fromJson(json['type'] as String) : null)!,
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    callId: (json['call_id'] as String?)!,
+    acknowledgedSafetyChecks: json['acknowledged_safety_checks'] != null ? SdkPresent(((json['acknowledged_safety_checks'] as List?)?.map((e) => BetaComputerCallSafetyCheckParam.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    output: (json['output'] != null ? BetaComputerScreenshotImage.fromJson(json['output'] as Map<String, dynamic>) : null)!,
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? BetaComputerToolCallOutputStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'call_id': callId,
-        ...switch (acknowledgedSafetyChecks) {
-          SdkPresent<List<BetaComputerCallSafetyCheckParam>>(
-            value: final value
-          ) =>
-            {
-              'acknowledged_safety_checks':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'output': output.toJson(),
-        ...switch (status) {
-          SdkPresent<BetaComputerToolCallOutputStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'call_id': callId,
+    ...switch (acknowledgedSafetyChecks) {
+      SdkPresent<List<BetaComputerCallSafetyCheckParam>>(value: final value) => {'acknowledged_safety_checks': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    'output': output.toJson(),
+    ...switch (status) {
+      SdkPresent<BetaComputerToolCallOutputStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `data[]` wire field.
 class BetaComputerToolCallOutputResourceVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
   final BetaComputerCallOutputStatus status;
-
   /// The identifier of the actor that created the item.
   final SdkOptional<String> createdBy;
 
-  const BetaComputerToolCallOutputResourceVariant1(
-      {required this.status, this.createdBy = const SdkOmitted()});
+  const BetaComputerToolCallOutputResourceVariant1({required this.status, this.createdBy = const SdkOmitted()});
 
-  BetaComputerToolCallOutputResourceVariant1 Function(
-      {BetaComputerCallOutputStatus status,
-      SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  BetaComputerToolCallOutputResourceVariant1 Function({BetaComputerCallOutputStatus status, SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  BetaComputerToolCallOutputResourceVariant1 _copyWith(
-          {Object? status = sdkOmittedValue,
-          Object? createdBy = sdkOmittedValue}) =>
-      BetaComputerToolCallOutputResourceVariant1(
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as BetaComputerCallOutputStatus,
-        createdBy: identical(createdBy, sdkOmittedValue)
-            ? this.createdBy
-            : createdBy as SdkOptional<String>,
-      );
+  BetaComputerToolCallOutputResourceVariant1 _copyWith({Object? status = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => BetaComputerToolCallOutputResourceVariant1(
+    status: identical(status, sdkOmittedValue) ? this.status : status as BetaComputerCallOutputStatus,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
+  );
 
-  factory BetaComputerToolCallOutputResourceVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      BetaComputerToolCallOutputResourceVariant1(
-        status: (json['status'] != null
-            ? BetaComputerCallOutputStatus.fromJson(json['status'] as String)
-            : null)!,
-        createdBy: json['created_by'] != null
-            ? SdkPresent((json['created_by'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory BetaComputerToolCallOutputResourceVariant1.fromJson(Map<String, dynamic> json) => BetaComputerToolCallOutputResourceVariant1(
+    status: (json['status'] != null ? BetaComputerCallOutputStatus.fromJson(json['status'] as String) : null)!,
+    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'status': status.toJson(),
-        ...switch (createdBy) {
-          SdkPresent<String>(value: final value) => {
-              'created_by': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'status': status.toJson(),
+    ...switch (createdBy) {
+      SdkPresent<String>(value: final value) => {'created_by': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

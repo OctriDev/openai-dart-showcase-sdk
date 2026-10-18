@@ -8,252 +8,151 @@ part of 'chat_custom.dart';
 class CustomToolChatCompletionsCustom {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the custom tool, used to identify it in tool calls.
   final String name;
-
   /// Optional description of the custom tool, used to provide more context.
   final SdkOptional<String> description;
-
   /// The input format for the custom tool. Default is unconstrained text.
   final SdkOptional<CustomToolChatCompletionsCustomFormat> format;
 
-  const CustomToolChatCompletionsCustom(
-      {required this.name,
-      this.description = const SdkOmitted(),
-      this.format = const SdkOmitted()});
+  const CustomToolChatCompletionsCustom({required this.name, this.description = const SdkOmitted(), this.format = const SdkOmitted()});
 
-  CustomToolChatCompletionsCustom Function(
-          {String name,
-          SdkOptional<String> description,
-          SdkOptional<CustomToolChatCompletionsCustomFormat> format})
-      get copyWith => _copyWith;
+  CustomToolChatCompletionsCustom Function({String name, SdkOptional<String> description, SdkOptional<CustomToolChatCompletionsCustomFormat> format}) get copyWith => _copyWith;
 
-  CustomToolChatCompletionsCustom _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? format = sdkOmittedValue}) =>
-      CustomToolChatCompletionsCustom(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        format: identical(format, sdkOmittedValue)
-            ? this.format
-            : format as SdkOptional<CustomToolChatCompletionsCustomFormat>,
-      );
+  CustomToolChatCompletionsCustom _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? format = sdkOmittedValue}) => CustomToolChatCompletionsCustom(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    format: identical(format, sdkOmittedValue) ? this.format : format as SdkOptional<CustomToolChatCompletionsCustomFormat>,
+  );
 
-  factory CustomToolChatCompletionsCustom.fromJson(Map<String, dynamic> json) =>
-      CustomToolChatCompletionsCustom(
-        name: (json['name'] as String?)!,
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        format: json['format'] != null
-            ? SdkPresent((json['format'] != null
-                ? CustomToolChatCompletionsCustomFormat.fromJson(json['format'])
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory CustomToolChatCompletionsCustom.fromJson(Map<String, dynamic> json) => CustomToolChatCompletionsCustom(
+    name: (json['name'] as String?)!,
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    format: json['format'] != null ? SdkPresent((json['format'] != null ? CustomToolChatCompletionsCustomFormat.fromJson(json['format']) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (format) {
-          SdkPresent<CustomToolChatCompletionsCustomFormat>(
-            value: final value
-          ) =>
-            {
-              'format': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (format) {
+      SdkPresent<CustomToolChatCompletionsCustomFormat>(value: final value) => {'format': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A custom tool that processes input using a specified format.
 class CustomToolChatCompletions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the custom tool. Always `custom`.
   final CustomToolChatCompletionsType type_;
-
   /// Properties of the custom tool.
   final CustomToolChatCompletionsCustom custom;
 
   const CustomToolChatCompletions({required this.type_, required this.custom});
 
-  CustomToolChatCompletions Function(
-      {CustomToolChatCompletionsType type_,
-      CustomToolChatCompletionsCustom custom}) get copyWith => _copyWith;
+  CustomToolChatCompletions Function({CustomToolChatCompletionsType type_, CustomToolChatCompletionsCustom custom}) get copyWith => _copyWith;
 
-  CustomToolChatCompletions _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? custom = sdkOmittedValue}) =>
-      CustomToolChatCompletions(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CustomToolChatCompletionsType,
-        custom: identical(custom, sdkOmittedValue)
-            ? this.custom
-            : custom as CustomToolChatCompletionsCustom,
-      );
+  CustomToolChatCompletions _copyWith({Object? type_ = sdkOmittedValue, Object? custom = sdkOmittedValue}) => CustomToolChatCompletions(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CustomToolChatCompletionsType,
+    custom: identical(custom, sdkOmittedValue) ? this.custom : custom as CustomToolChatCompletionsCustom,
+  );
 
-  factory CustomToolChatCompletions.fromJson(Map<String, dynamic> json) =>
-      CustomToolChatCompletions(
-        type_: (json['type'] != null
-            ? CustomToolChatCompletionsType.fromJson(json['type'] as String)
-            : null)!,
-        custom: (json['custom'] != null
-            ? CustomToolChatCompletionsCustom.fromJson(
-                json['custom'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory CustomToolChatCompletions.fromJson(Map<String, dynamic> json) => CustomToolChatCompletions(
+    type_: (json['type'] != null ? CustomToolChatCompletionsType.fromJson(json['type'] as String) : null)!,
+    custom: (json['custom'] != null ? CustomToolChatCompletionsCustom.fromJson(json['custom'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'custom': custom.toJson(),
-      };
+    'type': type_.toJson(),
+    'custom': custom.toJson(),
+  };
 }
 
 /// Unconstrained free-form text.
 class CustomToolChatCompletionsCustomFormatVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unconstrained text format. Always `text`.
   final CustomToolChatCompletionsCustomFormatVariant0Type type_;
 
   const CustomToolChatCompletionsCustomFormatVariant0({required this.type_});
 
-  CustomToolChatCompletionsCustomFormatVariant0 Function(
-          {CustomToolChatCompletionsCustomFormatVariant0Type type_})
-      get copyWith => _copyWith;
+  CustomToolChatCompletionsCustomFormatVariant0 Function({CustomToolChatCompletionsCustomFormatVariant0Type type_}) get copyWith => _copyWith;
 
-  CustomToolChatCompletionsCustomFormatVariant0 _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      CustomToolChatCompletionsCustomFormatVariant0(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CustomToolChatCompletionsCustomFormatVariant0Type,
-      );
+  CustomToolChatCompletionsCustomFormatVariant0 _copyWith({Object? type_ = sdkOmittedValue}) => CustomToolChatCompletionsCustomFormatVariant0(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CustomToolChatCompletionsCustomFormatVariant0Type,
+  );
 
-  factory CustomToolChatCompletionsCustomFormatVariant0.fromJson(
-          Map<String, dynamic> json) =>
-      CustomToolChatCompletionsCustomFormatVariant0(
-        type_: (json['type'] != null
-            ? CustomToolChatCompletionsCustomFormatVariant0Type.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory CustomToolChatCompletionsCustomFormatVariant0.fromJson(Map<String, dynamic> json) => CustomToolChatCompletionsCustomFormatVariant0(
+    type_: (json['type'] != null ? CustomToolChatCompletionsCustomFormatVariant0Type.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Your chosen grammar.
 class CustomToolChatCompletionsCustomFormatVariant1Grammar {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The grammar definition.
   final String definition;
-
   /// The syntax of the grammar definition. One of `lark` or `regex`.
   final CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax syntax;
 
-  const CustomToolChatCompletionsCustomFormatVariant1Grammar(
-      {required this.definition, required this.syntax});
+  const CustomToolChatCompletionsCustomFormatVariant1Grammar({required this.definition, required this.syntax});
 
-  CustomToolChatCompletionsCustomFormatVariant1Grammar Function(
-          {String definition,
-          CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax syntax})
-      get copyWith => _copyWith;
+  CustomToolChatCompletionsCustomFormatVariant1Grammar Function({String definition, CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax syntax}) get copyWith => _copyWith;
 
-  CustomToolChatCompletionsCustomFormatVariant1Grammar _copyWith(
-          {Object? definition = sdkOmittedValue,
-          Object? syntax = sdkOmittedValue}) =>
-      CustomToolChatCompletionsCustomFormatVariant1Grammar(
-        definition: identical(definition, sdkOmittedValue)
-            ? this.definition
-            : definition as String,
-        syntax: identical(syntax, sdkOmittedValue)
-            ? this.syntax
-            : syntax
-                as CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax,
-      );
+  CustomToolChatCompletionsCustomFormatVariant1Grammar _copyWith({Object? definition = sdkOmittedValue, Object? syntax = sdkOmittedValue}) => CustomToolChatCompletionsCustomFormatVariant1Grammar(
+    definition: identical(definition, sdkOmittedValue) ? this.definition : definition as String,
+    syntax: identical(syntax, sdkOmittedValue) ? this.syntax : syntax as CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax,
+  );
 
-  factory CustomToolChatCompletionsCustomFormatVariant1Grammar.fromJson(
-          Map<String, dynamic> json) =>
-      CustomToolChatCompletionsCustomFormatVariant1Grammar(
-        definition: (json['definition'] as String?)!,
-        syntax: (json['syntax'] != null
-            ? CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax
-                .fromJson(json['syntax'] as String)
-            : null)!,
-      );
+  factory CustomToolChatCompletionsCustomFormatVariant1Grammar.fromJson(Map<String, dynamic> json) => CustomToolChatCompletionsCustomFormatVariant1Grammar(
+    definition: (json['definition'] as String?)!,
+    syntax: (json['syntax'] != null ? CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax.fromJson(json['syntax'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'definition': definition,
-        'syntax': syntax.toJson(),
-      };
+    'definition': definition,
+    'syntax': syntax.toJson(),
+  };
 }
 
 /// A grammar defined by the user.
 class CustomToolChatCompletionsCustomFormatVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Grammar format. Always `grammar`.
   final CustomToolChatCompletionsCustomFormatVariant1Type type_;
-
   /// Your chosen grammar.
   final CustomToolChatCompletionsCustomFormatVariant1Grammar grammar;
 
-  const CustomToolChatCompletionsCustomFormatVariant1(
-      {required this.type_, required this.grammar});
+  const CustomToolChatCompletionsCustomFormatVariant1({required this.type_, required this.grammar});
 
-  CustomToolChatCompletionsCustomFormatVariant1 Function(
-          {CustomToolChatCompletionsCustomFormatVariant1Type type_,
-          CustomToolChatCompletionsCustomFormatVariant1Grammar grammar})
-      get copyWith => _copyWith;
+  CustomToolChatCompletionsCustomFormatVariant1 Function({CustomToolChatCompletionsCustomFormatVariant1Type type_, CustomToolChatCompletionsCustomFormatVariant1Grammar grammar}) get copyWith => _copyWith;
 
-  CustomToolChatCompletionsCustomFormatVariant1 _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? grammar = sdkOmittedValue}) =>
-      CustomToolChatCompletionsCustomFormatVariant1(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CustomToolChatCompletionsCustomFormatVariant1Type,
-        grammar: identical(grammar, sdkOmittedValue)
-            ? this.grammar
-            : grammar as CustomToolChatCompletionsCustomFormatVariant1Grammar,
-      );
+  CustomToolChatCompletionsCustomFormatVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? grammar = sdkOmittedValue}) => CustomToolChatCompletionsCustomFormatVariant1(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CustomToolChatCompletionsCustomFormatVariant1Type,
+    grammar: identical(grammar, sdkOmittedValue) ? this.grammar : grammar as CustomToolChatCompletionsCustomFormatVariant1Grammar,
+  );
 
-  factory CustomToolChatCompletionsCustomFormatVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      CustomToolChatCompletionsCustomFormatVariant1(
-        type_: (json['type'] != null
-            ? CustomToolChatCompletionsCustomFormatVariant1Type.fromJson(
-                json['type'] as String)
-            : null)!,
-        grammar: (json['grammar'] != null
-            ? CustomToolChatCompletionsCustomFormatVariant1Grammar.fromJson(
-                json['grammar'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory CustomToolChatCompletionsCustomFormatVariant1.fromJson(Map<String, dynamic> json) => CustomToolChatCompletionsCustomFormatVariant1(
+    type_: (json['type'] != null ? CustomToolChatCompletionsCustomFormatVariant1Type.fromJson(json['type'] as String) : null)!,
+    grammar: (json['grammar'] != null ? CustomToolChatCompletionsCustomFormatVariant1Grammar.fromJson(json['grammar'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'grammar': grammar.toJson(),
-      };
+    'type': type_.toJson(),
+    'grammar': grammar.toJson(),
+  };
 }
 
 sealed class CustomToolChatCompletionsCustomFormat {
@@ -262,53 +161,24 @@ sealed class CustomToolChatCompletionsCustomFormat {
   const CustomToolChatCompletionsCustomFormat();
   factory CustomToolChatCompletionsCustomFormat.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value =
-            CustomToolChatCompletionsCustomFormatVariant0.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant0(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            CustomToolChatCompletionsCustomFormatVariant1.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant1(
-              value);
-        }
-      } catch (_) {}
+      try { final value = CustomToolChatCompletionsCustomFormatVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant0(value); } } catch (_) {}
+      try { final value = CustomToolChatCompletionsCustomFormatVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant1(value); } } catch (_) {}
     }
-    try {
-      return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant0(
-          CustomToolChatCompletionsCustomFormatVariant0.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant1(
-          CustomToolChatCompletionsCustomFormatVariant1.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for CustomToolChatCompletionsCustomFormat");
+    try { return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant0(CustomToolChatCompletionsCustomFormatVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant1(CustomToolChatCompletionsCustomFormatVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for CustomToolChatCompletionsCustomFormat");
   }
   Object? toJson();
 }
 
-final class CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant0
-    extends CustomToolChatCompletionsCustomFormat {
+final class CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant0 extends CustomToolChatCompletionsCustomFormat {
   final CustomToolChatCompletionsCustomFormatVariant0 value;
-  const CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant1
-    extends CustomToolChatCompletionsCustomFormat {
+final class CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant1 extends CustomToolChatCompletionsCustomFormat {
   final CustomToolChatCompletionsCustomFormatVariant1 value;
-  const CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant1(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatVariant1(this.value);
+  @override Object? toJson() => value.toJson();
 }

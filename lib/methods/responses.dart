@@ -16,23 +16,17 @@ Future<Response> createResponse(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'createResponse',
-          fromJsonRaw: (value) =>
-              Response.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Response.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a model response from text, image, or file input and can produce text or JSON output. Provide `input` and `model`, and configure `tools` and `tool_choice` when you want the model to use custom code or built-in tools. Set `background` to run the response asynchronously or `stream` to receive generated events as they are produced.
 ///
 /// Creates a model response. Provide [text](https://developers.openai.com/api/docs/guides/text) or [image](https://developers.openai.com/api/docs/guides/images-vision) inputs to generate [text](https://developers.openai.com/api/docs/guides/text) or [JSON](https://developers.openai.com/api/docs/guides/structured-outputs) outputs. Have the model call your own [custom code](https://developers.openai.com/api/docs/guides/function-calling) or use built-in [tools](https://developers.openai.com/api/docs/guides/tools) like [web search](https://developers.openai.com/api/docs/guides/tools-web-search) or [file search](https://developers.openai.com/api/docs/guides/tools-file-search) to use your own data as input for the model's response.
-Stream<ResponseStreamEvent> createResponseStream(ClientConfig config,
-    {required CreateResponse body, RequestOptions? requestOptions}) async* {
+Stream<ResponseStreamEvent> createResponseStream(ClientConfig config, {required CreateResponse body, RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/responses',
@@ -43,18 +37,12 @@ Stream<ResponseStreamEvent> createResponseStream(ClientConfig config,
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {
-      '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-    },
+    errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => ResponseStreamEvent.fromJson(event.data));
   }
 }
-
 /// Retrieves a model response by its identifier. Use `include` to request additional response data, or set `stream` to receive server-sent events. When streaming, use `starting_after` to resume from an event sequence number.
 ///
 /// Retrieves a model response with the given ID.
@@ -88,32 +76,19 @@ Future<Response> getResponse(ClientConfig config,
           'GET', '/responses/${Uri.encodeComponent(responseId.toString())}',
           config: config,
           query: {
-            'include': SdkQueryValue(SdkUtils.unwrapOptional(include),
-                style: 'form', explode: true),
-            'stream': SdkQueryValue(SdkUtils.unwrapOptional(stream),
-                style: 'form', explode: true),
-            'starting_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(startingAfter),
-                style: 'form',
-                explode: true),
-            'include_obfuscation': SdkQueryValue(
-                SdkUtils.unwrapOptional(includeObfuscation),
-                style: 'form',
-                explode: true)
+            'include': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true),
+            'stream': SdkQueryValue(SdkUtils.unwrapOptional(stream), style: 'form', explode: true),
+            'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true),
+            'include_obfuscation': SdkQueryValue(SdkUtils.unwrapOptional(includeObfuscation), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getResponse',
-          fromJsonRaw: (value) =>
-              Response.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Response.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a model response by its identifier. Use `include` to request additional response data, or set `stream` to receive server-sent events. When streaming, use `starting_after` to resume from an event sequence number.
 ///
@@ -137,44 +112,28 @@ Future<Response> getResponse(ClientConfig config,
 ///   add a small amount of overhead to the data stream. You can set
 ///   `include_obfuscation` to false to optimize for bandwidth if you trust the
 ///   network links between your application and the OpenAI API.
-Stream<ResponseStreamEvent> getResponseStream(ClientConfig config,
-    {required String responseId,
-    SdkOptional<List<IncludeEnum>> include = const SdkOmitted(),
-    SdkOptional<bool> stream = const SdkOmitted(),
-    SdkOptional<int> startingAfter = const SdkOmitted(),
-    SdkOptional<bool> includeObfuscation = const SdkOmitted(),
-    RequestOptions? requestOptions}) async* {
+Stream<ResponseStreamEvent> getResponseStream(ClientConfig config, {required String responseId, SdkOptional<List<IncludeEnum>> include = const SdkOmitted(), SdkOptional<bool> stream = const SdkOmitted(), SdkOptional<int> startingAfter = const SdkOmitted(), SdkOptional<bool> includeObfuscation = const SdkOmitted(), RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'GET',
     '/responses/${Uri.encodeComponent(responseId.toString())}',
     query: {
-      'include': SdkQueryValue(SdkUtils.unwrapOptional(include),
-          style: 'form', explode: true),
-      'stream': SdkQueryValue(SdkUtils.unwrapOptional(stream),
-          style: 'form', explode: true),
-      'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter),
-          style: 'form', explode: true),
-      'include_obfuscation': SdkQueryValue(
-          SdkUtils.unwrapOptional(includeObfuscation),
-          style: 'form',
-          explode: true),
-    },
+    'include': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true),
+    'stream': SdkQueryValue(SdkUtils.unwrapOptional(stream), style: 'form', explode: true),
+    'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true),
+    'include_obfuscation': SdkQueryValue(SdkUtils.unwrapOptional(includeObfuscation), style: 'form', explode: true),
+  },
     config: config,
     operationId: 'getResponseStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {
-      '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-    },
+    errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => ResponseStreamEvent.fromJson(event.data));
   }
 }
-
 /// Deletes a model response by its identifier. Use this operation when you no longer need to retain the response. The successful result confirms deletion and includes the response identifier.
 ///
 /// Deletes a model response with the given ID.
@@ -187,15 +146,12 @@ Future<DeleteResponseResponse> deleteResponse(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteResponse',
-          fromJsonRaw: (value) =>
-              DeleteResponseResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteResponseResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Cancels a model response that is running in the background. Use this operation when you need to stop background generation before it completes. Only responses created with `background` set to `true` can be cancelled.
 ///
@@ -209,15 +165,12 @@ Future<Response> cancelResponse(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'cancelResponse',
-          fromJsonRaw: (value) =>
-              Response.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Response.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists the input items used to generate a model response. Use `limit` to set the page size and `order` to choose the item order. Use `after` with an item identifier to continue through the results; check `has_more` to determine whether additional items are available.
 ///
@@ -243,28 +196,20 @@ Future<ResponseItemList> listInputItems(ClientConfig config,
           '/responses/${Uri.encodeComponent(responseId.toString())}/input_items',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'include': SdkQueryValue(SdkUtils.unwrapOptional(include),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'include': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listInputItems',
-          fromJsonRaw: (value) =>
-              ResponseItemList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ResponseItemList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists the input items used to generate a model response. Use `limit` to set the page size and `order` to choose the item order. Use `after` with an item identifier to continue through the results; check `has_more` to determine whether additional items are available.
 ///
@@ -279,62 +224,23 @@ Future<ResponseItemList> listInputItems(ClientConfig config,
 /// [after] An item ID to list items after, used in pagination.
 /// [include] Additional fields to include in the response. See the `include`
 ///   parameter for Response creation above for more information.
-Stream<ItemResource> listInputItemsPaginated(ClientConfig config,
-    {required String responseId,
-    int? limit,
-    ListInputItemsOrder? order,
-    String? after,
-    List<IncludeEnum>? include,
-    RequestOptions? requestOptions}) async* {
+Stream<ItemResource> listInputItemsPaginated(ClientConfig config, {required String responseId, int? limit, ListInputItemsOrder? order, String? after, List<IncludeEnum>? include, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listInputItems(config,
-        responseId: responseId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListInputItemsOrder>()
-            : SdkPresent<ListInputItemsOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        include: include == null
-            ? const SdkOmitted<List<IncludeEnum>>()
-            : SdkPresent<List<IncludeEnum>>(include),
-        requestOptions: requestOptions);
+    final sdkPage = await listInputItems(config, responseId: responseId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListInputItemsOrder>() : SdkPresent<ListInputItemsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), include: include == null ? const SdkOmitted<List<IncludeEnum>>() : SdkPresent<List<IncludeEnum>>(include), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ResponseItemList, ItemResource>> listInputItemsPages(
-    ClientConfig config,
-    {required String responseId,
-    int? limit,
-    ListInputItemsOrder? order,
-    String? after,
-    List<IncludeEnum>? include,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ResponseItemList, ItemResource>> listInputItemsPages(ClientConfig config, {required String responseId, int? limit, ListInputItemsOrder? order, String? after, List<IncludeEnum>? include, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listInputItems(config,
-        responseId: responseId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListInputItemsOrder>()
-            : SdkPresent<ListInputItemsOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        include: include == null
-            ? const SdkOmitted<List<IncludeEnum>>()
-            : SdkPresent<List<IncludeEnum>>(include),
-        requestOptions: requestOptions);
+    final sdkPage = await listInputItems(config, responseId: responseId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListInputItemsOrder>() : SdkPresent<ListInputItemsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), include: include == null ? const SdkOmitted<List<IncludeEnum>>() : SdkPresent<List<IncludeEnum>>(include), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -344,6 +250,7 @@ Stream<SdkPage<ResponseItemList, ItemResource>> listInputItemsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Counts the input tokens for a response request. Provide the model and any input or conversation context to count, and use `input_tokens` in the result to inspect the count. Do not combine `previous_response_id` with `conversation`.
 ///
@@ -407,17 +314,12 @@ Future<TokenCountsResource> countResponsesInputTokens(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'countResponsesInputTokens',
-          fromJsonRaw: (value) =>
-              TokenCountsResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TokenCountsResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Compacts conversation input and returns a compacted response object with output items and token usage. Provide the required `model` and any input or conversation context to compact. Do not combine `previous_response_id` with `conversation`.
 ///
@@ -448,10 +350,8 @@ Future<CompactResource> compactResponses(ClientConfig config,
     SdkOptional<String?> previousResponseId = const SdkOmitted(),
     SdkOptional<String?> instructions = const SdkOmitted(),
     SdkOptional<String?> promptCacheKey = const SdkOmitted(),
-    SdkOptional<PromptCacheRetentionEnum?> promptCacheRetention =
-        const SdkOmitted(),
-    SdkOptional<PromptCacheOptionsParam?> promptCacheOptions =
-        const SdkOmitted(),
+    SdkOptional<PromptCacheRetentionEnum?> promptCacheRetention = const SdkOmitted(),
+    SdkOptional<PromptCacheOptionsParam?> promptCacheOptions = const SdkOmitted(),
     SdkOptional<ServiceTierEnum?> serviceTier = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<CompactResource>('POST', '/responses/compact',
@@ -462,26 +362,18 @@ Future<CompactResource> compactResponses(ClientConfig config,
             'previous_response_id': SdkUtils.unwrapOptional(previousResponseId),
             'instructions': SdkUtils.unwrapOptional(instructions),
             'prompt_cache_key': SdkUtils.unwrapOptional(promptCacheKey),
-            'prompt_cache_retention':
-                SdkUtils.unwrapOptional(promptCacheRetention),
+            'prompt_cache_retention': SdkUtils.unwrapOptional(promptCacheRetention),
             'prompt_cache_options': SdkUtils.unwrapOptional(promptCacheOptions),
             'service_tier': SdkUtils.unwrapOptional(serviceTier)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'compactResponses',
-          fromJsonRaw: (value) =>
-              CompactResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CompactResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a model response from text, image, or file input, with optional tools and output configuration. Use `input`, `model`, and `tools` to control what the model processes and how it generates the response. Set `background` to true if you need to cancel the response later.
 ///
@@ -490,66 +382,44 @@ Future<CompactResource> compactResponses(ClientConfig config,
 /// [openaiBeta] Optional beta features to enable for this request.
 Future<BetaResponse> betaCreateResponse(ClientConfig config,
     {required BetaCreateResponse body,
-    SdkOptional<List<BetaCreateResponseOpenaiBetaItem>> openaiBeta =
-        const SdkOmitted(),
+    SdkOptional<List<BetaCreateResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<BetaResponse>('POST', '/responses?beta=true',
           config: config,
           body: body,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
+          extraHeaders: SdkUtils.serializeHeaders({'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
           operationId: 'betaCreateResponse',
-          fromJsonRaw: (value) =>
-              BetaResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BetaResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) =>
-            BetaErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) =>
-            BetaErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => BetaErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => BetaErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a model response from text, image, or file input, with optional tools and output configuration. Use `input`, `model`, and `tools` to control what the model processes and how it generates the response. Set `background` to true if you need to cancel the response later.
 ///
 /// Creates a model response. Provide [text](https://developers.openai.com/api/docs/guides/text) or [image](https://developers.openai.com/api/docs/guides/images-vision) inputs to generate [text](https://developers.openai.com/api/docs/guides/text) or [JSON](https://developers.openai.com/api/docs/guides/structured-outputs) outputs. Have the model call your own [custom code](https://developers.openai.com/api/docs/guides/function-calling) or use built-in [tools](https://developers.openai.com/api/docs/guides/tools) like [web search](https://developers.openai.com/api/docs/guides/tools-web-search) or [file search](https://developers.openai.com/api/docs/guides/tools-file-search) to use your own data as input for the model's response.
 ///
 /// [openaiBeta] Optional beta features to enable for this request.
-Stream<BetaResponseStreamEvent> betaCreateResponseStream(ClientConfig config,
-    {required BetaCreateResponse body,
-    SdkOptional<List<BetaCreateResponseOpenaiBetaItem>> openaiBeta =
-        const SdkOmitted(),
-    RequestOptions? requestOptions}) async* {
+Stream<BetaResponseStreamEvent> betaCreateResponseStream(ClientConfig config, {required BetaCreateResponse body, SdkOptional<List<BetaCreateResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(), RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/responses?beta=true',
     config: config,
     body: body,
-    extraHeaders: SdkUtils.serializeHeaders(
-        {'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
+    extraHeaders: SdkUtils.serializeHeaders({'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
     operationId: 'betaCreateResponseStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {
-      '400': (value) =>
-          BetaErrorResponse.fromJson(value as Map<String, dynamic>),
-      '404': (value) =>
-          BetaErrorResponse.fromJson(value as Map<String, dynamic>),
-      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-    },
+    errors: {'400': (value) => BetaErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => BetaErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => BetaResponseStreamEvent.fromJson(event.data));
   }
 }
-
 /// Retrieves a model response by its identifier. Use `include` to request additional response data, or set `stream` to receive response events as server-sent events. Use `starting_after` to begin streaming after a particular event sequence number.
 ///
 /// Retrieves a model response with the given ID.
@@ -579,41 +449,26 @@ Future<BetaResponse> betaGetResponse(ClientConfig config,
     SdkOptional<bool> stream = const SdkOmitted(),
     SdkOptional<int> startingAfter = const SdkOmitted(),
     SdkOptional<bool> includeObfuscation = const SdkOmitted(),
-    SdkOptional<List<BetaGetResponseOpenaiBetaItem>> openaiBeta =
-        const SdkOmitted(),
+    SdkOptional<List<BetaGetResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<BetaResponse>('GET',
           '/responses/${Uri.encodeComponent(responseId.toString())}?beta=true',
           config: config,
           query: {
-            'include': SdkQueryValue(SdkUtils.unwrapOptional(include),
-                style: 'form', explode: true),
-            'stream': SdkQueryValue(SdkUtils.unwrapOptional(stream),
-                style: 'form', explode: true),
-            'starting_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(startingAfter),
-                style: 'form',
-                explode: true),
-            'include_obfuscation': SdkQueryValue(
-                SdkUtils.unwrapOptional(includeObfuscation),
-                style: 'form',
-                explode: true)
+            'include': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true),
+            'stream': SdkQueryValue(SdkUtils.unwrapOptional(stream), style: 'form', explode: true),
+            'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true),
+            'include_obfuscation': SdkQueryValue(SdkUtils.unwrapOptional(includeObfuscation), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
+          extraHeaders: SdkUtils.serializeHeaders({'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
           operationId: 'betaGetResponse',
-          fromJsonRaw: (value) =>
-              BetaResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BetaResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '404': (value) =>
-                BetaErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => BetaErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a model response by its identifier. Use `include` to request additional response data, or set `stream` to receive response events as server-sent events. Use `starting_after` to begin streaming after a particular event sequence number.
 ///
@@ -638,49 +493,29 @@ Future<BetaResponse> betaGetResponse(ClientConfig config,
 ///   `include_obfuscation` to false to optimize for bandwidth if you trust the
 ///   network links between your application and the OpenAI API.
 /// [openaiBeta] Optional beta features to enable for this request.
-Stream<BetaResponseStreamEvent> betaGetResponseStream(ClientConfig config,
-    {required String responseId,
-    SdkOptional<List<BetaIncludeEnum>> include = const SdkOmitted(),
-    SdkOptional<bool> stream = const SdkOmitted(),
-    SdkOptional<int> startingAfter = const SdkOmitted(),
-    SdkOptional<bool> includeObfuscation = const SdkOmitted(),
-    SdkOptional<List<BetaGetResponseOpenaiBetaItem>> openaiBeta =
-        const SdkOmitted(),
-    RequestOptions? requestOptions}) async* {
+Stream<BetaResponseStreamEvent> betaGetResponseStream(ClientConfig config, {required String responseId, SdkOptional<List<BetaIncludeEnum>> include = const SdkOmitted(), SdkOptional<bool> stream = const SdkOmitted(), SdkOptional<int> startingAfter = const SdkOmitted(), SdkOptional<bool> includeObfuscation = const SdkOmitted(), SdkOptional<List<BetaGetResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(), RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'GET',
     '/responses/${Uri.encodeComponent(responseId.toString())}?beta=true',
     query: {
-      'include': SdkQueryValue(SdkUtils.unwrapOptional(include),
-          style: 'form', explode: true),
-      'stream': SdkQueryValue(SdkUtils.unwrapOptional(stream),
-          style: 'form', explode: true),
-      'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter),
-          style: 'form', explode: true),
-      'include_obfuscation': SdkQueryValue(
-          SdkUtils.unwrapOptional(includeObfuscation),
-          style: 'form',
-          explode: true),
-    },
+    'include': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true),
+    'stream': SdkQueryValue(SdkUtils.unwrapOptional(stream), style: 'form', explode: true),
+    'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true),
+    'include_obfuscation': SdkQueryValue(SdkUtils.unwrapOptional(includeObfuscation), style: 'form', explode: true),
+  },
     config: config,
-    extraHeaders: SdkUtils.serializeHeaders(
-        {'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
+    extraHeaders: SdkUtils.serializeHeaders({'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
     operationId: 'betaGetResponseStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {
-      '404': (value) =>
-          BetaErrorResponse.fromJson(value as Map<String, dynamic>),
-      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-    },
+    errors: {'404': (value) => BetaErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => BetaResponseStreamEvent.fromJson(event.data));
   }
 }
-
 /// Deletes a model response by its identifier. Use this operation when you no longer need the response to remain available. The response identifies the deleted object and indicates that deletion occurred.
 ///
 /// Deletes a model response with the given ID.
@@ -689,26 +524,20 @@ Stream<BetaResponseStreamEvent> betaGetResponseStream(ClientConfig config,
 /// [openaiBeta] Optional beta features to enable for this request.
 Future<BetaDeleteResponseResponse> betaDeleteResponse(ClientConfig config,
     {required String responseId,
-    SdkOptional<List<BetaDeleteResponseOpenaiBetaItem>> openaiBeta =
-        const SdkOmitted(),
+    SdkOptional<List<BetaDeleteResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<BetaDeleteResponseResponse>('DELETE',
           '/responses/${Uri.encodeComponent(responseId.toString())}?beta=true',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
+          extraHeaders: SdkUtils.serializeHeaders({'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
           operationId: 'betaDeleteResponse',
-          fromJsonRaw: (value) => BetaDeleteResponseResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BetaDeleteResponseResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) =>
-            BetaErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => BetaErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Cancels a background model response by its identifier. Use this operation only for responses created with `background` set to true; responses created without background processing cannot be cancelled. The response includes the model response object and its current status.
 ///
@@ -718,26 +547,20 @@ Future<BetaDeleteResponseResponse> betaDeleteResponse(ClientConfig config,
 /// [openaiBeta] Optional beta features to enable for this request.
 Future<BetaResponse> betaCancelResponse(ClientConfig config,
     {required String responseId,
-    SdkOptional<List<BetaCancelResponseOpenaiBetaItem>> openaiBeta =
-        const SdkOmitted(),
+    SdkOptional<List<BetaCancelResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<BetaResponse>('POST',
           '/responses/${Uri.encodeComponent(responseId.toString())}/cancel?beta=true',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
+          extraHeaders: SdkUtils.serializeHeaders({'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
           operationId: 'betaCancelResponse',
-          fromJsonRaw: (value) =>
-              BetaResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BetaResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) =>
-            BetaErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => BetaErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Compacts a conversation and returns a compacted response object. Provide the required `model` and conversation content through `input` or `previous_response_id` to produce a compacted representation. Use the result to manage the context window in a long-running conversation.
 ///
@@ -765,16 +588,13 @@ Future<BetaResponse> betaCancelResponse(ClientConfig config,
 ///   field.
 Future<BetaCompactResource> betaResponsesCompact(ClientConfig config,
     {required BetaModelIdsCompaction? model,
-    SdkOptional<List<BetaResponsesCompactOpenaiBetaItem>> openaiBeta =
-        const SdkOmitted(),
+    SdkOptional<List<BetaResponsesCompactOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
     SdkOptional<dynamic> input = const SdkOmitted(),
     SdkOptional<String?> previousResponseId = const SdkOmitted(),
     SdkOptional<String?> instructions = const SdkOmitted(),
     SdkOptional<String?> promptCacheKey = const SdkOmitted(),
-    SdkOptional<BetaPromptCacheRetentionEnum?> promptCacheRetention =
-        const SdkOmitted(),
-    SdkOptional<BetaPromptCacheOptionsParam?> promptCacheOptions =
-        const SdkOmitted(),
+    SdkOptional<BetaPromptCacheRetentionEnum?> promptCacheRetention = const SdkOmitted(),
+    SdkOptional<BetaPromptCacheOptionsParam?> promptCacheOptions = const SdkOmitted(),
     SdkOptional<BetaServiceTierEnum?> serviceTier = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<BetaCompactResource>(
@@ -786,28 +606,19 @@ Future<BetaCompactResource> betaResponsesCompact(ClientConfig config,
             'previous_response_id': SdkUtils.unwrapOptional(previousResponseId),
             'instructions': SdkUtils.unwrapOptional(instructions),
             'prompt_cache_key': SdkUtils.unwrapOptional(promptCacheKey),
-            'prompt_cache_retention':
-                SdkUtils.unwrapOptional(promptCacheRetention),
+            'prompt_cache_retention': SdkUtils.unwrapOptional(promptCacheRetention),
             'prompt_cache_options': SdkUtils.unwrapOptional(promptCacheOptions),
             'service_tier': SdkUtils.unwrapOptional(serviceTier)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
+          extraHeaders: SdkUtils.serializeHeaders({'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
           operationId: 'betaResponsesCompact',
-          fromJsonRaw: (value) =>
-              BetaCompactResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BetaCompactResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                BetaErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => BetaErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists the input items used to generate a model response. Use `limit` to control the number of returned items and `order` to choose their sequence. Pass `after` with an item ID from a previous page to continue through the list.
 ///
@@ -829,37 +640,27 @@ Future<BetaResponseItemList> betaListInputItems(ClientConfig config,
     SdkOptional<BetaListInputItemsOrder> order = const SdkOmitted(),
     SdkOptional<String> after = const SdkOmitted(),
     SdkOptional<List<BetaIncludeEnum>> include = const SdkOmitted(),
-    SdkOptional<List<BetaListInputItemsOpenaiBetaItem>> openaiBeta =
-        const SdkOmitted(),
+    SdkOptional<List<BetaListInputItemsOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<BetaResponseItemList>('GET',
           '/responses/${Uri.encodeComponent(responseId.toString())}/input_items?beta=true',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'include': SdkQueryValue(SdkUtils.unwrapOptional(include),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'include': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
+          extraHeaders: SdkUtils.serializeHeaders({'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
           operationId: 'betaListInputItems',
-          fromJsonRaw: (value) =>
-              BetaResponseItemList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BetaResponseItemList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '404': (value) =>
-                BetaErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => BetaErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists the input items used to generate a model response. Use `limit` to control the number of returned items and `order` to choose their sequence. Pass `after` with an item ID from a previous page to continue through the list.
 ///
@@ -875,70 +676,23 @@ Future<BetaResponseItemList> betaListInputItems(ClientConfig config,
 /// [include] Additional fields to include in the response. See the `include`
 ///   parameter for Response creation above for more information.
 /// [openaiBeta] Optional beta features to enable for this request.
-Stream<BetaItemResource> betaListInputItemsPaginated(ClientConfig config,
-    {required String responseId,
-    int? limit,
-    BetaListInputItemsOrder? order,
-    String? after,
-    List<BetaIncludeEnum>? include,
-    List<BetaListInputItemsOpenaiBetaItem>? openaiBeta,
-    RequestOptions? requestOptions}) async* {
+Stream<BetaItemResource> betaListInputItemsPaginated(ClientConfig config, {required String responseId, int? limit, BetaListInputItemsOrder? order, String? after, List<BetaIncludeEnum>? include, List<BetaListInputItemsOpenaiBetaItem>? openaiBeta, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await betaListInputItems(config,
-        responseId: responseId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<BetaListInputItemsOrder>()
-            : SdkPresent<BetaListInputItemsOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        include: include == null
-            ? const SdkOmitted<List<BetaIncludeEnum>>()
-            : SdkPresent<List<BetaIncludeEnum>>(include),
-        openaiBeta: openaiBeta == null
-            ? const SdkOmitted<List<BetaListInputItemsOpenaiBetaItem>>()
-            : SdkPresent<List<BetaListInputItemsOpenaiBetaItem>>(openaiBeta),
-        requestOptions: requestOptions);
+    final sdkPage = await betaListInputItems(config, responseId: responseId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<BetaListInputItemsOrder>() : SdkPresent<BetaListInputItemsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), include: include == null ? const SdkOmitted<List<BetaIncludeEnum>>() : SdkPresent<List<BetaIncludeEnum>>(include), openaiBeta: openaiBeta == null ? const SdkOmitted<List<BetaListInputItemsOpenaiBetaItem>>() : SdkPresent<List<BetaListInputItemsOpenaiBetaItem>>(openaiBeta), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<BetaResponseItemList, BetaItemResource>> betaListInputItemsPages(
-    ClientConfig config,
-    {required String responseId,
-    int? limit,
-    BetaListInputItemsOrder? order,
-    String? after,
-    List<BetaIncludeEnum>? include,
-    List<BetaListInputItemsOpenaiBetaItem>? openaiBeta,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<BetaResponseItemList, BetaItemResource>> betaListInputItemsPages(ClientConfig config, {required String responseId, int? limit, BetaListInputItemsOrder? order, String? after, List<BetaIncludeEnum>? include, List<BetaListInputItemsOpenaiBetaItem>? openaiBeta, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await betaListInputItems(config,
-        responseId: responseId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<BetaListInputItemsOrder>()
-            : SdkPresent<BetaListInputItemsOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        include: include == null
-            ? const SdkOmitted<List<BetaIncludeEnum>>()
-            : SdkPresent<List<BetaIncludeEnum>>(include),
-        openaiBeta: openaiBeta == null
-            ? const SdkOmitted<List<BetaListInputItemsOpenaiBetaItem>>()
-            : SdkPresent<List<BetaListInputItemsOpenaiBetaItem>>(openaiBeta),
-        requestOptions: requestOptions);
+    final sdkPage = await betaListInputItems(config, responseId: responseId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<BetaListInputItemsOrder>() : SdkPresent<BetaListInputItemsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), include: include == null ? const SdkOmitted<List<BetaIncludeEnum>>() : SdkPresent<List<BetaIncludeEnum>>(include), openaiBeta: openaiBeta == null ? const SdkOmitted<List<BetaListInputItemsOpenaiBetaItem>>() : SdkPresent<List<BetaListInputItemsOpenaiBetaItem>>(openaiBeta), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -948,6 +702,7 @@ Stream<SdkPage<BetaResponseItemList, BetaItemResource>> betaListInputItemsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Counts the input tokens for a prospective model request. Supply the model and any input, tool, text, reasoning, or conversation settings whose token contribution you want counted. Use the returned count to assess the request's input size before generating a response.
 ///
@@ -979,23 +734,22 @@ Stream<SdkPage<BetaResponseItemList, BetaItemResource>> betaListInputItemsPages(
 /// [toolChoice] Optional API value serialized in the `tool_choice` wire field.
 /// [parallelToolCalls] Optional `boolean` value serialized in the
 ///   `parallel_tool_calls` wire field.
-Future<BetaTokenCountsResource> betaResponsesCountInputTokens(
-    ClientConfig config,
-    {SdkOptional<List<BetaResponsesCountInputTokensOpenaiBetaItem>> openaiBeta =
-        const SdkOmitted(),
-    SdkOptional<String?> model = const SdkOmitted(),
-    SdkOptional<dynamic> input = const SdkOmitted(),
-    SdkOptional<String?> previousResponseId = const SdkOmitted(),
-    SdkOptional<List<BetaTool>?> tools = const SdkOmitted(),
-    SdkOptional<BetaResponseTextParam?> text = const SdkOmitted(),
-    SdkOptional<BetaReasoning?> reasoning = const SdkOmitted(),
-    SdkOptional<BetaTruncationEnum> truncation = const SdkOmitted(),
-    SdkOptional<String?> instructions = const SdkOmitted(),
-    SdkOptional<String> personality = const SdkOmitted(),
-    SdkOptional<BetaConversationParam?> conversation = const SdkOmitted(),
-    SdkOptional<BetaToolChoiceParam?> toolChoice = const SdkOmitted(),
-    SdkOptional<bool?> parallelToolCalls = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<BetaTokenCountsResource>
+    betaResponsesCountInputTokens(ClientConfig config,
+        {SdkOptional<List<BetaResponsesCountInputTokensOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
+        SdkOptional<String?> model = const SdkOmitted(),
+        SdkOptional<dynamic> input = const SdkOmitted(),
+        SdkOptional<String?> previousResponseId = const SdkOmitted(),
+        SdkOptional<List<BetaTool>?> tools = const SdkOmitted(),
+        SdkOptional<BetaResponseTextParam?> text = const SdkOmitted(),
+        SdkOptional<BetaReasoning?> reasoning = const SdkOmitted(),
+        SdkOptional<BetaTruncationEnum> truncation = const SdkOmitted(),
+        SdkOptional<String?> instructions = const SdkOmitted(),
+        SdkOptional<String> personality = const SdkOmitted(),
+        SdkOptional<BetaConversationParam?> conversation = const SdkOmitted(),
+        SdkOptional<BetaToolChoiceParam?> toolChoice = const SdkOmitted(),
+        SdkOptional<bool?> parallelToolCalls = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<BetaTokenCountsResource>(
           'POST', '/responses/input_tokens?beta=true',
           config: config,
@@ -1014,17 +768,10 @@ Future<BetaTokenCountsResource> betaResponsesCountInputTokens(
             'parallel_tool_calls': SdkUtils.unwrapOptional(parallelToolCalls)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
+          extraHeaders: SdkUtils.serializeHeaders({'openai-beta': SdkUtils.unwrapOptional(openaiBeta)}),
           operationId: 'betaResponsesCountInputTokens',
-          fromJsonRaw: (value) =>
-              BetaTokenCountsResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BetaTokenCountsResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                BetaErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => BetaErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

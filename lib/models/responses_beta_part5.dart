@@ -8,40 +8,29 @@ part of 'responses_beta.dart';
 class BetaSummaryTextContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `summary_text`.
   final BetaSummaryTextContentType type_;
-
   /// A summary of the reasoning output from the model so far.
   final String text;
 
   const BetaSummaryTextContent({required this.type_, required this.text});
 
-  BetaSummaryTextContent Function(
-      {BetaSummaryTextContentType type_,
-      String text}) get copyWith => _copyWith;
+  BetaSummaryTextContent Function({BetaSummaryTextContentType type_, String text}) get copyWith => _copyWith;
 
-  BetaSummaryTextContent _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      BetaSummaryTextContent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaSummaryTextContentType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  BetaSummaryTextContent _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => BetaSummaryTextContent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaSummaryTextContentType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory BetaSummaryTextContent.fromJson(Map<String, dynamic> json) =>
-      BetaSummaryTextContent(
-        type_: (json['type'] != null
-            ? BetaSummaryTextContentType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory BetaSummaryTextContent.fromJson(Map<String, dynamic> json) => BetaSummaryTextContent(
+    type_: (json['type'] != null ? BetaSummaryTextContentType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }
 
 // BetaToolsArray = List<BetaTool>
@@ -50,111 +39,85 @@ class BetaSummaryTextContent {
 class BetaTopLogProb {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `token` wire field.
   final String token;
-
   /// Required `number` value serialized in the `logprob` wire field.
   final double logprob;
-
   /// Required array value serialized in the `bytes` wire field.
   final List<int> bytes;
 
-  const BetaTopLogProb(
-      {required this.token, required this.logprob, required this.bytes});
+  const BetaTopLogProb({required this.token, required this.logprob, required this.bytes});
 
-  BetaTopLogProb Function({String token, double logprob, List<int> bytes})
-      get copyWith => _copyWith;
+  BetaTopLogProb Function({String token, double logprob, List<int> bytes}) get copyWith => _copyWith;
 
-  BetaTopLogProb _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue,
-          Object? bytes = sdkOmittedValue}) =>
-      BetaTopLogProb(
-        token: identical(token, sdkOmittedValue) ? this.token : token as String,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as double,
-        bytes:
-            identical(bytes, sdkOmittedValue) ? this.bytes : bytes as List<int>,
-      );
+  BetaTopLogProb _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? bytes = sdkOmittedValue}) => BetaTopLogProb(
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as double,
+    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as List<int>,
+  );
 
   factory BetaTopLogProb.fromJson(Map<String, dynamic> json) => BetaTopLogProb(
-        token: (json['token'] as String?)!,
-        logprob: ((json['logprob'] as num?)?.toDouble())!,
-        bytes: ((json['bytes'] as List?)
-            ?.map((e) => (e as num).toInt())
-            .toList())!,
-      );
+    token: (json['token'] as String?)!,
+    logprob: ((json['logprob'] as num?)?.toDouble())!,
+    bytes: ((json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'token': token,
-        'logprob': logprob,
-        'bytes': bytes,
-      };
+    'token': token,
+    'logprob': logprob,
+    'bytes': bytes,
+  };
 }
 
 /// Typed representation of the `BetaTruncationEnum` API schema.
 final class BetaTruncationEnum {
+
   final String value;
 
   const BetaTruncationEnum._(this.value);
 
-  factory BetaTruncationEnum.fromJson(String value) =>
-      BetaTruncationEnum._(value);
+  factory BetaTruncationEnum.fromJson(String value) => BetaTruncationEnum._(value);
 
   static const auto = BetaTruncationEnum._('auto');
   static const disabled = BetaTruncationEnum._('disabled');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaTruncationEnum && other.value == value;
+  @override bool operator ==(Object other) => other is BetaTruncationEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// An action to type in text.
 class BetaTypeParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a type action, this property is always set to `type`.
   final BetaTypeParamType type_;
-
   /// The text to type.
   final String text;
 
   const BetaTypeParam({required this.type_, required this.text});
 
-  BetaTypeParam Function({BetaTypeParamType type_, String text}) get copyWith =>
-      _copyWith;
+  BetaTypeParam Function({BetaTypeParamType type_, String text}) get copyWith => _copyWith;
 
-  BetaTypeParam _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      BetaTypeParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaTypeParamType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  BetaTypeParam _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => BetaTypeParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaTypeParamType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
   factory BetaTypeParam.fromJson(Map<String, dynamic> json) => BetaTypeParam(
-        type_: (json['type'] != null
-            ? BetaTypeParamType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+    type_: (json['type'] != null ? BetaTypeParamType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }
 
 /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters, booleans, or numbers.
@@ -165,14 +128,13 @@ class BetaVectorStoreFileAttributes {
 
   const BetaVectorStoreFileAttributes({this.value = const <String, dynamic>{}});
 
-  factory BetaVectorStoreFileAttributes.fromJson(Map<String, dynamic> json) =>
-      BetaVectorStoreFileAttributes(
-        value: json.map((key, value) => MapEntry(key, value)),
-      );
+  factory BetaVectorStoreFileAttributes.fromJson(Map<String, dynamic> json) => BetaVectorStoreFileAttributes(
+    value: json.map((key, value) => MapEntry(key, value)),
+  );
 
   Map<String, dynamic> toJson() => value.map(
-        (key, value) => MapEntry(key, value),
-      );
+    (key, value) => MapEntry(key, value),
+  );
 
   dynamic operator [](String key) => value[key];
   Iterable<String> get keys => value.keys;
@@ -183,10 +145,7 @@ sealed class BetaVerbosity {
   static const String constructionSurface = 'named';
   const BetaVerbosity();
   factory BetaVerbosity.fromJson(Object? json) {
-    try {
-      return BetaVerbosityBetaVerbosityVariant0(
-          BetaVerbosityVariant0.fromJson(json as String));
-    } catch (_) {}
+    try { return BetaVerbosityBetaVerbosityVariant0(BetaVerbosityVariant0.fromJson(json as String)); } catch (_) {}
     throw FormatException("No variant matched for BetaVerbosity");
   }
   Object? toJson();
@@ -195,15 +154,13 @@ sealed class BetaVerbosity {
 final class BetaVerbosityBetaVerbosityVariant0 extends BetaVerbosity {
   final BetaVerbosityVariant0 value;
   const BetaVerbosityBetaVerbosityVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A wait action.
 class BetaWaitParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a wait action, this property is always set to `wait`.
   final BetaWaitParamType type_;
 
@@ -212,18 +169,14 @@ class BetaWaitParam {
   BetaWaitParam Function({BetaWaitParamType type_}) get copyWith => _copyWith;
 
   BetaWaitParam _copyWith({Object? type_ = sdkOmittedValue}) => BetaWaitParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaWaitParamType,
-      );
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaWaitParamType,
+  );
 
   factory BetaWaitParam.fromJson(Map<String, dynamic> json) => BetaWaitParam(
-        type_: (json['type'] != null
-            ? BetaWaitParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+    type_: (json['type'] != null ? BetaWaitParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

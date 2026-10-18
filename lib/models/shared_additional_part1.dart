@@ -8,142 +8,79 @@ part of 'shared_additional.dart';
 class AdditionalTools {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the item. Always `additional_tools`.
   final AdditionalToolsType type_;
-
   /// The unique ID of the additional tools item.
   final String id;
-
   /// The role that provided the additional tools.
   final MessageRole role;
-
   /// The additional tool definitions made available at this item.
   final List<Tool> tools;
 
-  const AdditionalTools(
-      {required this.type_,
-      required this.id,
-      required this.role,
-      required this.tools});
+  const AdditionalTools({required this.type_, required this.id, required this.role, required this.tools});
 
-  AdditionalTools Function(
-      {AdditionalToolsType type_,
-      String id,
-      MessageRole role,
-      List<Tool> tools}) get copyWith => _copyWith;
+  AdditionalTools Function({AdditionalToolsType type_, String id, MessageRole role, List<Tool> tools}) get copyWith => _copyWith;
 
-  AdditionalTools _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? tools = sdkOmittedValue}) =>
-      AdditionalTools(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AdditionalToolsType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        role:
-            identical(role, sdkOmittedValue) ? this.role : role as MessageRole,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as List<Tool>,
-      );
+  AdditionalTools _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? role = sdkOmittedValue, Object? tools = sdkOmittedValue}) => AdditionalTools(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AdditionalToolsType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    role: identical(role, sdkOmittedValue) ? this.role : role as MessageRole,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<Tool>,
+  );
 
-  factory AdditionalTools.fromJson(Map<String, dynamic> json) =>
-      AdditionalTools(
-        type_: (json['type'] != null
-            ? AdditionalToolsType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        role: (json['role'] != null
-            ? MessageRole.fromJson(json['role'] as String)
-            : null)!,
-        tools:
-            ((json['tools'] as List?)?.map((e) => Tool.fromJson(e)).toList())!,
-      );
+  factory AdditionalTools.fromJson(Map<String, dynamic> json) => AdditionalTools(
+    type_: (json['type'] != null ? AdditionalToolsType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    role: (json['role'] != null ? MessageRole.fromJson(json['role'] as String) : null)!,
+    tools: ((json['tools'] as List?)?.map((e) => Tool.fromJson(e)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'role': role.toJson(),
-        'tools': tools.map((item) => item.toJson()).toList(),
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'role': role.toJson(),
+    'tools': tools.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Typed representation of the `AdditionalToolsItemParam` API schema.
 class AdditionalToolsItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
-
   /// The item type. Always `additional_tools`.
   final AdditionalToolsItemParamType type_;
-
   /// The role that provided the additional tools. Only `developer` is supported.
   final AdditionalToolsItemParamRole role;
-
   /// A list of additional tools made available at this item.
   final List<Tool> tools;
 
-  const AdditionalToolsItemParam(
-      {this.id = const SdkOmitted(),
-      required this.type_,
-      required this.role,
-      required this.tools});
+  const AdditionalToolsItemParam({this.id = const SdkOmitted(), required this.type_, required this.role, required this.tools});
 
-  AdditionalToolsItemParam Function(
-      {SdkOptional<String?> id,
-      AdditionalToolsItemParamType type_,
-      AdditionalToolsItemParamRole role,
-      List<Tool> tools}) get copyWith => _copyWith;
+  AdditionalToolsItemParam Function({SdkOptional<String?> id, AdditionalToolsItemParamType type_, AdditionalToolsItemParamRole role, List<Tool> tools}) get copyWith => _copyWith;
 
-  AdditionalToolsItemParam _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? tools = sdkOmittedValue}) =>
-      AdditionalToolsItemParam(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AdditionalToolsItemParamType,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as AdditionalToolsItemParamRole,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as List<Tool>,
-      );
+  AdditionalToolsItemParam _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? role = sdkOmittedValue, Object? tools = sdkOmittedValue}) => AdditionalToolsItemParam(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AdditionalToolsItemParamType,
+    role: identical(role, sdkOmittedValue) ? this.role : role as AdditionalToolsItemParamRole,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<Tool>,
+  );
 
-  factory AdditionalToolsItemParam.fromJson(Map<String, dynamic> json) =>
-      AdditionalToolsItemParam(
-        id: json.containsKey('id')
-            ? SdkPresent(json['id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? AdditionalToolsItemParamType.fromJson(json['type'] as String)
-            : null)!,
-        role: (json['role'] != null
-            ? AdditionalToolsItemParamRole.fromJson(json['role'] as String)
-            : null)!,
-        tools:
-            ((json['tools'] as List?)?.map((e) => Tool.fromJson(e)).toList())!,
-      );
+  factory AdditionalToolsItemParam.fromJson(Map<String, dynamic> json) => AdditionalToolsItemParam(
+    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? AdditionalToolsItemParamType.fromJson(json['type'] as String) : null)!,
+    role: (json['role'] != null ? AdditionalToolsItemParamRole.fromJson(json['role'] as String) : null)!,
+    tools: ((json['tools'] as List?)?.map((e) => Tool.fromJson(e)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String?>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'role': role.toJson(),
-        'tools': tools.map((item) => item.toJson()).toList(),
-      };
+    ...switch (id) {
+      SdkPresent<String?>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'role': role.toJson(),
+    'tools': tools.map((item) => item.toJson()).toList(),
+  };
 }

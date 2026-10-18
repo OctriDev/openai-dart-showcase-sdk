@@ -6,106 +6,73 @@ part of 'decisions_decisions.dart';
 // decisions_decisions domain models
 /// Typed representation of the `DecisionsUsageApiSource` API schema.
 final class DecisionsUsageApiSource {
+
   final String value;
 
   const DecisionsUsageApiSource._(this.value);
 
-  factory DecisionsUsageApiSource.fromJson(String value) =>
-      DecisionsUsageApiSource._(value);
+  factory DecisionsUsageApiSource.fromJson(String value) => DecisionsUsageApiSource._(value);
 
   static const agentsApi = DecisionsUsageApiSource._('agents_api');
   static const unlabeled = DecisionsUsageApiSource._('unlabeled');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DecisionsUsageApiSource && other.value == value;
+  @override bool operator ==(Object other) => other is DecisionsUsageApiSource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `DecisionsUsageBucket` API schema.
 class DecisionsUsageBucket {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final DecisionsUsageBucketObject object;
-
   /// Required `integer` value serialized in the `start_time` wire field.
   final int startTime;
-
   /// Required `integer` value serialized in the `end_time` wire field.
   final int endTime;
-
   /// Required array value serialized in the `results` wire field.
   final List<DecisionsUsageResult> results;
 
-  const DecisionsUsageBucket(
-      {required this.object,
-      required this.startTime,
-      required this.endTime,
-      required this.results});
+  const DecisionsUsageBucket({required this.object, required this.startTime, required this.endTime, required this.results});
 
-  DecisionsUsageBucket Function(
-      {DecisionsUsageBucketObject object,
-      int startTime,
-      int endTime,
-      List<DecisionsUsageResult> results}) get copyWith => _copyWith;
+  DecisionsUsageBucket Function({DecisionsUsageBucketObject object, int startTime, int endTime, List<DecisionsUsageResult> results}) get copyWith => _copyWith;
 
-  DecisionsUsageBucket _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? startTime = sdkOmittedValue,
-          Object? endTime = sdkOmittedValue,
-          Object? results = sdkOmittedValue}) =>
-      DecisionsUsageBucket(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DecisionsUsageBucketObject,
-        startTime: identical(startTime, sdkOmittedValue)
-            ? this.startTime
-            : startTime as int,
-        endTime:
-            identical(endTime, sdkOmittedValue) ? this.endTime : endTime as int,
-        results: identical(results, sdkOmittedValue)
-            ? this.results
-            : results as List<DecisionsUsageResult>,
-      );
+  DecisionsUsageBucket _copyWith({Object? object = sdkOmittedValue, Object? startTime = sdkOmittedValue, Object? endTime = sdkOmittedValue, Object? results = sdkOmittedValue}) => DecisionsUsageBucket(
+    object: identical(object, sdkOmittedValue) ? this.object : object as DecisionsUsageBucketObject,
+    startTime: identical(startTime, sdkOmittedValue) ? this.startTime : startTime as int,
+    endTime: identical(endTime, sdkOmittedValue) ? this.endTime : endTime as int,
+    results: identical(results, sdkOmittedValue) ? this.results : results as List<DecisionsUsageResult>,
+  );
 
-  factory DecisionsUsageBucket.fromJson(Map<String, dynamic> json) =>
-      DecisionsUsageBucket(
-        object: (json['object'] != null
-            ? DecisionsUsageBucketObject.fromJson(json['object'] as String)
-            : null)!,
-        startTime: ((json['start_time'] as num?)?.toInt())!,
-        endTime: ((json['end_time'] as num?)?.toInt())!,
-        results: ((json['results'] as List?)
-            ?.map(
-                (e) => DecisionsUsageResult.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory DecisionsUsageBucket.fromJson(Map<String, dynamic> json) => DecisionsUsageBucket(
+    object: (json['object'] != null ? DecisionsUsageBucketObject.fromJson(json['object'] as String) : null)!,
+    startTime: ((json['start_time'] as num?)?.toInt())!,
+    endTime: ((json['end_time'] as num?)?.toInt())!,
+    results: ((json['results'] as List?)?.map((e) => DecisionsUsageResult.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'start_time': startTime,
-        'end_time': endTime,
-        'results': results.map((item) => item.toJson()).toList(),
-      };
+    'object': object.toJson(),
+    'start_time': startTime,
+    'end_time': endTime,
+    'results': results.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Typed representation of the `DecisionsUsageBucketWidth` API schema.
 final class DecisionsUsageBucketWidth {
+
   final String value;
 
   const DecisionsUsageBucketWidth._(this.value);
 
-  factory DecisionsUsageBucketWidth.fromJson(String value) =>
-      DecisionsUsageBucketWidth._(value);
+  factory DecisionsUsageBucketWidth.fromJson(String value) => DecisionsUsageBucketWidth._(value);
 
   static const v1m = DecisionsUsageBucketWidth._('1m');
   static const v1h = DecisionsUsageBucketWidth._('1h');
@@ -113,124 +80,85 @@ final class DecisionsUsageBucketWidth {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DecisionsUsageBucketWidth && other.value == value;
+  @override bool operator ==(Object other) => other is DecisionsUsageBucketWidth && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `DecisionsUsageErrorDetails` API schema.
 class DecisionsUsageErrorDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `code` wire field.
   final String? code;
-
   /// Required `string` value serialized in the `message` wire field.
   final String message;
-
   /// Required `string` value serialized in the `param` wire field.
   final String? param;
-
   /// Required `string` value serialized in the `type` wire field.
   final String type_;
 
-  const DecisionsUsageErrorDetails(
-      {required this.code,
-      required this.message,
-      required this.param,
-      required this.type_});
+  const DecisionsUsageErrorDetails({required this.code, required this.message, required this.param, required this.type_});
 
-  DecisionsUsageErrorDetails Function(
-      {String? code,
-      String message,
-      String? param,
-      String type_}) get copyWith => _copyWith;
+  DecisionsUsageErrorDetails Function({String? code, String message, String? param, String type_}) get copyWith => _copyWith;
 
-  DecisionsUsageErrorDetails _copyWith(
-          {Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? param = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      DecisionsUsageErrorDetails(
-        code: identical(code, sdkOmittedValue) ? this.code : code as String?,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-        param:
-            identical(param, sdkOmittedValue) ? this.param : param as String?,
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-      );
+  DecisionsUsageErrorDetails _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue, Object? param = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => DecisionsUsageErrorDetails(
+    code: identical(code, sdkOmittedValue) ? this.code : code as String?,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+    param: identical(param, sdkOmittedValue) ? this.param : param as String?,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+  );
 
-  factory DecisionsUsageErrorDetails.fromJson(Map<String, dynamic> json) =>
-      DecisionsUsageErrorDetails(
-        code: json.containsKey('code')
-            ? json['code'] as String?
-            : throw ArgumentError.value(
-                null, 'code', 'Required property is missing'),
-        message: (json['message'] as String?)!,
-        param: json.containsKey('param')
-            ? json['param'] as String?
-            : throw ArgumentError.value(
-                null, 'param', 'Required property is missing'),
-        type_: (json['type'] as String?)!,
-      );
+  factory DecisionsUsageErrorDetails.fromJson(Map<String, dynamic> json) => DecisionsUsageErrorDetails(
+    code: json.containsKey('code') ? json['code'] as String? : throw ArgumentError.value(null, 'code', 'Required property is missing'),
+    message: (json['message'] as String?)!,
+    param: json.containsKey('param') ? json['param'] as String? : throw ArgumentError.value(null, 'param', 'Required property is missing'),
+    type_: (json['type'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'code': code,
-        'message': message,
-        'param': param,
-        'type': type_,
-      };
+    'code': code,
+    'message': message,
+    'param': param,
+    'type': type_,
+  };
 }
 
 /// Typed representation of the `DecisionsUsageErrorResponse` API schema.
 class DecisionsUsageErrorResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required object value serialized in the `error` wire field.
   final DecisionsUsageErrorDetails error;
 
   const DecisionsUsageErrorResponse({required this.error});
 
-  DecisionsUsageErrorResponse Function({DecisionsUsageErrorDetails error})
-      get copyWith => _copyWith;
+  DecisionsUsageErrorResponse Function({DecisionsUsageErrorDetails error}) get copyWith => _copyWith;
 
-  DecisionsUsageErrorResponse _copyWith({Object? error = sdkOmittedValue}) =>
-      DecisionsUsageErrorResponse(
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as DecisionsUsageErrorDetails,
-      );
+  DecisionsUsageErrorResponse _copyWith({Object? error = sdkOmittedValue}) => DecisionsUsageErrorResponse(
+    error: identical(error, sdkOmittedValue) ? this.error : error as DecisionsUsageErrorDetails,
+  );
 
-  factory DecisionsUsageErrorResponse.fromJson(Map<String, dynamic> json) =>
-      DecisionsUsageErrorResponse(
-        error: (json['error'] != null
-            ? DecisionsUsageErrorDetails.fromJson(
-                json['error'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory DecisionsUsageErrorResponse.fromJson(Map<String, dynamic> json) => DecisionsUsageErrorResponse(
+    error: (json['error'] != null ? DecisionsUsageErrorDetails.fromJson(json['error'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'error': error.toJson(),
-      };
+    'error': error.toJson(),
+  };
 }
 
 /// Typed representation of the `DecisionsUsageGroupBy` API schema.
 final class DecisionsUsageGroupBy {
+
   final String value;
 
   const DecisionsUsageGroupBy._(this.value);
 
-  factory DecisionsUsageGroupBy.fromJson(String value) =>
-      DecisionsUsageGroupBy._(value);
+  factory DecisionsUsageGroupBy.fromJson(String value) => DecisionsUsageGroupBy._(value);
 
   static const projectId = DecisionsUsageGroupBy._('project_id');
   static const userId = DecisionsUsageGroupBy._('user_id');
@@ -242,50 +170,36 @@ final class DecisionsUsageGroupBy {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DecisionsUsageGroupBy && other.value == value;
+  @override bool operator ==(Object other) => other is DecisionsUsageGroupBy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `DecisionsUsagePermissionErrorResponse` API schema.
 class DecisionsUsagePermissionErrorResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Details about the permission error.
   final DecisionsUsagePermissionErrorResponseError error;
 
   const DecisionsUsagePermissionErrorResponse({required this.error});
 
-  DecisionsUsagePermissionErrorResponse Function(
-          {DecisionsUsagePermissionErrorResponseError error})
-      get copyWith => _copyWith;
+  DecisionsUsagePermissionErrorResponse Function({DecisionsUsagePermissionErrorResponseError error}) get copyWith => _copyWith;
 
-  DecisionsUsagePermissionErrorResponse _copyWith(
-          {Object? error = sdkOmittedValue}) =>
-      DecisionsUsagePermissionErrorResponse(
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as DecisionsUsagePermissionErrorResponseError,
-      );
+  DecisionsUsagePermissionErrorResponse _copyWith({Object? error = sdkOmittedValue}) => DecisionsUsagePermissionErrorResponse(
+    error: identical(error, sdkOmittedValue) ? this.error : error as DecisionsUsagePermissionErrorResponseError,
+  );
 
-  factory DecisionsUsagePermissionErrorResponse.fromJson(
-          Map<String, dynamic> json) =>
-      DecisionsUsagePermissionErrorResponse(
-        error: (json['error'] != null
-            ? DecisionsUsagePermissionErrorResponseError.fromJson(json['error'])
-            : null)!,
-      );
+  factory DecisionsUsagePermissionErrorResponse.fromJson(Map<String, dynamic> json) => DecisionsUsagePermissionErrorResponse(
+    error: (json['error'] != null ? DecisionsUsagePermissionErrorResponseError.fromJson(json['error']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'error': error.toJson(),
-      };
+    'error': error.toJson(),
+  };
 }
 
 sealed class DecisionsUsagePermissionErrorResponseError {
@@ -293,32 +207,21 @@ sealed class DecisionsUsagePermissionErrorResponseError {
   static const String constructionSurface = 'named';
   const DecisionsUsagePermissionErrorResponseError();
   factory DecisionsUsagePermissionErrorResponseError.fromJson(Object? json) {
-    if (json is String) {
-      return DecisionsUsagePermissionErrorResponseErrorString(json);
-    }
-    try {
-      return DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails(
-          DecisionsUsageErrorDetails.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for DecisionsUsagePermissionErrorResponseError");
+    if (json is String) { return DecisionsUsagePermissionErrorResponseErrorString(json); }
+    try { return DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails(DecisionsUsageErrorDetails.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for DecisionsUsagePermissionErrorResponseError");
   }
   Object? toJson();
 }
 
-final class DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails
-    extends DecisionsUsagePermissionErrorResponseError {
+final class DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails extends DecisionsUsagePermissionErrorResponseError {
   final DecisionsUsageErrorDetails value;
-  const DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class DecisionsUsagePermissionErrorResponseErrorString
-    extends DecisionsUsagePermissionErrorResponseError {
+final class DecisionsUsagePermissionErrorResponseErrorString extends DecisionsUsagePermissionErrorResponseError {
   final String value;
   const DecisionsUsagePermissionErrorResponseErrorString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }

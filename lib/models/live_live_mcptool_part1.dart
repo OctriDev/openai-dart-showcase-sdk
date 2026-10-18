@@ -8,93 +8,59 @@ part of 'live_live_mcptool.dart';
 class LiveMCPToolChoiceParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The tool to call. Always `mcp`.
   final LiveMCPToolChoiceParamType type_;
-
   /// The label of the MCP server to call.
   final String serverLabel;
-
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String?> name;
 
-  const LiveMCPToolChoiceParam(
-      {required this.type_,
-      required this.serverLabel,
-      this.name = const SdkOmitted()});
+  const LiveMCPToolChoiceParam({required this.type_, required this.serverLabel, this.name = const SdkOmitted()});
 
-  LiveMCPToolChoiceParam Function(
-      {LiveMCPToolChoiceParamType type_,
-      String serverLabel,
-      SdkOptional<String?> name}) get copyWith => _copyWith;
+  LiveMCPToolChoiceParam Function({LiveMCPToolChoiceParamType type_, String serverLabel, SdkOptional<String?> name}) get copyWith => _copyWith;
 
-  LiveMCPToolChoiceParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? serverLabel = sdkOmittedValue,
-          Object? name = sdkOmittedValue}) =>
-      LiveMCPToolChoiceParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveMCPToolChoiceParamType,
-        serverLabel: identical(serverLabel, sdkOmittedValue)
-            ? this.serverLabel
-            : serverLabel as String,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-      );
+  LiveMCPToolChoiceParam _copyWith({Object? type_ = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? name = sdkOmittedValue}) => LiveMCPToolChoiceParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveMCPToolChoiceParamType,
+    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+  );
 
-  factory LiveMCPToolChoiceParam.fromJson(Map<String, dynamic> json) =>
-      LiveMCPToolChoiceParam(
-        type_: (json['type'] != null
-            ? LiveMCPToolChoiceParamType.fromJson(json['type'] as String)
-            : null)!,
-        serverLabel: (json['server_label'] as String?)!,
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-      );
+  factory LiveMCPToolChoiceParam.fromJson(Map<String, dynamic> json) => LiveMCPToolChoiceParam(
+    type_: (json['type'] != null ? LiveMCPToolChoiceParamType.fromJson(json['type'] as String) : null)!,
+    serverLabel: (json['server_label'] as String?)!,
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'server_label': serverLabel,
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'server_label': serverLabel,
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `LiveMCPToolInputParam` API schema.
 class LiveMCPToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveMCPToolInputParamType type_;
 
   const LiveMCPToolInputParam({required this.type_});
 
-  LiveMCPToolInputParam Function({LiveMCPToolInputParamType type_})
-      get copyWith => _copyWith;
+  LiveMCPToolInputParam Function({LiveMCPToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveMCPToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      LiveMCPToolInputParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveMCPToolInputParamType,
-      );
+  LiveMCPToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveMCPToolInputParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveMCPToolInputParamType,
+  );
 
-  factory LiveMCPToolInputParam.fromJson(Map<String, dynamic> json) =>
-      LiveMCPToolInputParam(
-        type_: (json['type'] != null
-            ? LiveMCPToolInputParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory LiveMCPToolInputParam.fromJson(Map<String, dynamic> json) => LiveMCPToolInputParam(
+    type_: (json['type'] != null ? LiveMCPToolInputParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

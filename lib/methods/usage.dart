@@ -44,40 +44,25 @@ Future<UsageResponse> usageCosts(ClientConfig config,
   return (await sdkRequest<UsageResponse>('GET', '/organization/costs',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds),
-                style: 'form', explode: true),
-            'line_items': SdkQueryValue(SdkUtils.unwrapOptional(lineItems),
-                style: 'form', explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds), style: 'form', explode: true),
+            'line_items': SdkQueryValue(SdkUtils.unwrapOptional(lineItems), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usageCosts',
-          fromJsonRaw: (value) =>
-              UsageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UsageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Retrieves cost data for the organization over a specified time range. Set `start_time` and optionally use project, API key, line item, or grouping filters to narrow the results; use the returned cursor to fetch additional pages.
 ///
@@ -103,49 +88,13 @@ Future<UsageResponse> usageCosts(ClientConfig config,
 ///   between 1 and 180, and the default is 7.
 /// [page] A cursor for use in pagination. Corresponding to the `next_page`
 ///   field from the previous response.
-Stream<UsageTimeBucket> usageCostsPaginated(ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageCostsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? apiKeyIds,
-    List<String>? lineItems,
-    List<UsageCostsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<UsageTimeBucket> usageCostsPaginated(ClientConfig config, {required int startTime, int? endTime, UsageCostsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? apiKeyIds, List<String>? lineItems, List<UsageCostsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageCosts(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageCostsBucketWidth>()
-            : SdkPresent<UsageCostsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        lineItems: lineItems == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(lineItems),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageCostsGroupByItem>>()
-            : SdkPresent<List<UsageCostsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageCosts(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageCostsBucketWidth>() : SdkPresent<UsageCostsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), lineItems: lineItems == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(lineItems), groupBy: groupBy == null ? const SdkOmitted<List<UsageCostsGroupByItem>>() : SdkPresent<List<UsageCostsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -153,45 +102,10 @@ Stream<UsageTimeBucket> usageCostsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageCostsPages(
-    ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageCostsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? apiKeyIds,
-    List<String>? lineItems,
-    List<UsageCostsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageCostsPages(ClientConfig config, {required int startTime, int? endTime, UsageCostsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? apiKeyIds, List<String>? lineItems, List<UsageCostsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageCosts(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageCostsBucketWidth>()
-            : SdkPresent<UsageCostsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        lineItems: lineItems == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(lineItems),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageCostsGroupByItem>>()
-            : SdkPresent<List<UsageCostsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageCosts(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageCostsBucketWidth>() : SdkPresent<UsageCostsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), lineItems: lineItems == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(lineItems), groupBy: groupBy == null ? const SdkOmitted<List<UsageCostsGroupByItem>>() : SdkPresent<List<UsageCostsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;
@@ -201,6 +115,7 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageCostsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Get audio speeches usage details for the organization.
 ///
@@ -228,8 +143,7 @@ Future<UsageResponse> usageAudioSpeeches(ClientConfig config,
     SdkOptional<List<String>> userIds = const SdkOmitted(),
     SdkOptional<List<String>> apiKeyIds = const SdkOmitted(),
     SdkOptional<List<String>> models = const SdkOmitted(),
-    SdkOptional<List<UsageAudioSpeechesGroupByItem>> groupBy =
-        const SdkOmitted(),
+    SdkOptional<List<UsageAudioSpeechesGroupByItem>> groupBy = const SdkOmitted(),
     SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<String> page = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -237,42 +151,26 @@ Future<UsageResponse> usageAudioSpeeches(ClientConfig config,
           'GET', '/organization/usage/audio_speeches',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds),
-                style: 'form', explode: true),
-            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds),
-                style: 'form', explode: true),
-            'models': SdkQueryValue(SdkUtils.unwrapOptional(models),
-                style: 'form', explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds), style: 'form', explode: true),
+            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds), style: 'form', explode: true),
+            'models': SdkQueryValue(SdkUtils.unwrapOptional(models), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usageAudioSpeeches',
-          fromJsonRaw: (value) =>
-              UsageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UsageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Get audio speeches usage details for the organization.
 ///
@@ -292,53 +190,13 @@ Future<UsageResponse> usageAudioSpeeches(ClientConfig config,
 ///   `bucket_width=1m`: default: 60, max: 1440
 /// [page] A cursor for use in pagination. Corresponding to the `next_page`
 ///   field from the previous response.
-Stream<UsageTimeBucket> usageAudioSpeechesPaginated(ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageAudioSpeechesBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageAudioSpeechesGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<UsageTimeBucket> usageAudioSpeechesPaginated(ClientConfig config, {required int startTime, int? endTime, UsageAudioSpeechesBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageAudioSpeechesGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageAudioSpeeches(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageAudioSpeechesBucketWidth>()
-            : SdkPresent<UsageAudioSpeechesBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageAudioSpeechesGroupByItem>>()
-            : SdkPresent<List<UsageAudioSpeechesGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageAudioSpeeches(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageAudioSpeechesBucketWidth>() : SdkPresent<UsageAudioSpeechesBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), groupBy: groupBy == null ? const SdkOmitted<List<UsageAudioSpeechesGroupByItem>>() : SdkPresent<List<UsageAudioSpeechesGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -346,49 +204,10 @@ Stream<UsageTimeBucket> usageAudioSpeechesPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageAudioSpeechesPages(
-    ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageAudioSpeechesBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageAudioSpeechesGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageAudioSpeechesPages(ClientConfig config, {required int startTime, int? endTime, UsageAudioSpeechesBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageAudioSpeechesGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageAudioSpeeches(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageAudioSpeechesBucketWidth>()
-            : SdkPresent<UsageAudioSpeechesBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageAudioSpeechesGroupByItem>>()
-            : SdkPresent<List<UsageAudioSpeechesGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageAudioSpeeches(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageAudioSpeechesBucketWidth>() : SdkPresent<UsageAudioSpeechesBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), groupBy: groupBy == null ? const SdkOmitted<List<UsageAudioSpeechesGroupByItem>>() : SdkPresent<List<UsageAudioSpeechesGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;
@@ -398,6 +217,7 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageAudioSpeechesPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Get audio transcriptions usage details for the organization.
 ///
@@ -420,14 +240,12 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageAudioSpeechesPages(
 Future<UsageResponse> usageAudioTranscriptions(ClientConfig config,
     {required int startTime,
     SdkOptional<int> endTime = const SdkOmitted(),
-    SdkOptional<UsageAudioTranscriptionsBucketWidth> bucketWidth =
-        const SdkOmitted(),
+    SdkOptional<UsageAudioTranscriptionsBucketWidth> bucketWidth = const SdkOmitted(),
     SdkOptional<List<String>> projectIds = const SdkOmitted(),
     SdkOptional<List<String>> userIds = const SdkOmitted(),
     SdkOptional<List<String>> apiKeyIds = const SdkOmitted(),
     SdkOptional<List<String>> models = const SdkOmitted(),
-    SdkOptional<List<UsageAudioTranscriptionsGroupByItem>> groupBy =
-        const SdkOmitted(),
+    SdkOptional<List<UsageAudioTranscriptionsGroupByItem>> groupBy = const SdkOmitted(),
     SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<String> page = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -435,42 +253,26 @@ Future<UsageResponse> usageAudioTranscriptions(ClientConfig config,
           'GET', '/organization/usage/audio_transcriptions',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds),
-                style: 'form', explode: true),
-            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds),
-                style: 'form', explode: true),
-            'models': SdkQueryValue(SdkUtils.unwrapOptional(models),
-                style: 'form', explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds), style: 'form', explode: true),
+            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds), style: 'form', explode: true),
+            'models': SdkQueryValue(SdkUtils.unwrapOptional(models), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usageAudioTranscriptions',
-          fromJsonRaw: (value) =>
-              UsageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UsageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Get audio transcriptions usage details for the organization.
 ///
@@ -490,53 +292,13 @@ Future<UsageResponse> usageAudioTranscriptions(ClientConfig config,
 ///   `bucket_width=1m`: default: 60, max: 1440
 /// [page] A cursor for use in pagination. Corresponding to the `next_page`
 ///   field from the previous response.
-Stream<UsageTimeBucket> usageAudioTranscriptionsPaginated(ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageAudioTranscriptionsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageAudioTranscriptionsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<UsageTimeBucket> usageAudioTranscriptionsPaginated(ClientConfig config, {required int startTime, int? endTime, UsageAudioTranscriptionsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageAudioTranscriptionsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageAudioTranscriptions(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageAudioTranscriptionsBucketWidth>()
-            : SdkPresent<UsageAudioTranscriptionsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageAudioTranscriptionsGroupByItem>>()
-            : SdkPresent<List<UsageAudioTranscriptionsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageAudioTranscriptions(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageAudioTranscriptionsBucketWidth>() : SdkPresent<UsageAudioTranscriptionsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), groupBy: groupBy == null ? const SdkOmitted<List<UsageAudioTranscriptionsGroupByItem>>() : SdkPresent<List<UsageAudioTranscriptionsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -544,49 +306,10 @@ Stream<UsageTimeBucket> usageAudioTranscriptionsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageAudioTranscriptionsPages(
-    ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageAudioTranscriptionsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageAudioTranscriptionsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageAudioTranscriptionsPages(ClientConfig config, {required int startTime, int? endTime, UsageAudioTranscriptionsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageAudioTranscriptionsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageAudioTranscriptions(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageAudioTranscriptionsBucketWidth>()
-            : SdkPresent<UsageAudioTranscriptionsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageAudioTranscriptionsGroupByItem>>()
-            : SdkPresent<List<UsageAudioTranscriptionsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageAudioTranscriptions(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageAudioTranscriptionsBucketWidth>() : SdkPresent<UsageAudioTranscriptionsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), groupBy: groupBy == null ? const SdkOmitted<List<UsageAudioTranscriptionsGroupByItem>>() : SdkPresent<List<UsageAudioTranscriptionsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;
@@ -596,6 +319,7 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageAudioTranscriptionsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Get code interpreter sessions usage details for the organization.
 ///
@@ -614,11 +338,9 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageAudioTranscriptionsPages(
 Future<UsageResponse> usageCodeInterpreterSessions(ClientConfig config,
     {required int startTime,
     SdkOptional<int> endTime = const SdkOmitted(),
-    SdkOptional<UsageCodeInterpreterSessionsBucketWidth> bucketWidth =
-        const SdkOmitted(),
+    SdkOptional<UsageCodeInterpreterSessionsBucketWidth> bucketWidth = const SdkOmitted(),
     SdkOptional<List<String>> projectIds = const SdkOmitted(),
-    SdkOptional<List<UsageCodeInterpreterSessionsGroupByItem>> groupBy =
-        const SdkOmitted(),
+    SdkOptional<List<UsageCodeInterpreterSessionsGroupByItem>> groupBy = const SdkOmitted(),
     SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<String> page = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -626,36 +348,23 @@ Future<UsageResponse> usageCodeInterpreterSessions(ClientConfig config,
           'GET', '/organization/usage/code_interpreter_sessions',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usageCodeInterpreterSessions',
-          fromJsonRaw: (value) =>
-              UsageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UsageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Get code interpreter sessions usage details for the organization.
 ///
@@ -671,43 +380,13 @@ Future<UsageResponse> usageCodeInterpreterSessions(ClientConfig config,
 ///   `bucket_width=1m`: default: 60, max: 1440
 /// [page] A cursor for use in pagination. Corresponding to the `next_page`
 ///   field from the previous response.
-Stream<UsageTimeBucket> usageCodeInterpreterSessionsPaginated(
-    ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageCodeInterpreterSessionsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<UsageCodeInterpreterSessionsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<UsageTimeBucket> usageCodeInterpreterSessionsPaginated(ClientConfig config, {required int startTime, int? endTime, UsageCodeInterpreterSessionsBucketWidth? bucketWidth, List<String>? projectIds, List<UsageCodeInterpreterSessionsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageCodeInterpreterSessions(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageCodeInterpreterSessionsBucketWidth>()
-            : SdkPresent<UsageCodeInterpreterSessionsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageCodeInterpreterSessionsGroupByItem>>()
-            : SdkPresent<List<UsageCodeInterpreterSessionsGroupByItem>>(
-                groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageCodeInterpreterSessions(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageCodeInterpreterSessionsBucketWidth>() : SdkPresent<UsageCodeInterpreterSessionsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), groupBy: groupBy == null ? const SdkOmitted<List<UsageCodeInterpreterSessionsGroupByItem>>() : SdkPresent<List<UsageCodeInterpreterSessionsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -715,38 +394,10 @@ Stream<UsageTimeBucket> usageCodeInterpreterSessionsPaginated(
   }
 }
 
-Stream<SdkPage<UsageResponse, UsageTimeBucket>>
-    usageCodeInterpreterSessionsPages(ClientConfig config,
-        {required int startTime,
-        int? endTime,
-        UsageCodeInterpreterSessionsBucketWidth? bucketWidth,
-        List<String>? projectIds,
-        List<UsageCodeInterpreterSessionsGroupByItem>? groupBy,
-        int? limit,
-        String? page,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageCodeInterpreterSessionsPages(ClientConfig config, {required int startTime, int? endTime, UsageCodeInterpreterSessionsBucketWidth? bucketWidth, List<String>? projectIds, List<UsageCodeInterpreterSessionsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageCodeInterpreterSessions(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageCodeInterpreterSessionsBucketWidth>()
-            : SdkPresent<UsageCodeInterpreterSessionsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageCodeInterpreterSessionsGroupByItem>>()
-            : SdkPresent<List<UsageCodeInterpreterSessionsGroupByItem>>(
-                groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageCodeInterpreterSessions(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageCodeInterpreterSessionsBucketWidth>() : SdkPresent<UsageCodeInterpreterSessionsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), groupBy: groupBy == null ? const SdkOmitted<List<UsageCodeInterpreterSessionsGroupByItem>>() : SdkPresent<List<UsageCodeInterpreterSessionsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;
@@ -756,6 +407,7 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Get completions usage details for the organization.
 ///
@@ -797,44 +449,27 @@ Future<UsageResponse> usageCompletions(ClientConfig config,
           'GET', '/organization/usage/completions',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds),
-                style: 'form', explode: true),
-            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds),
-                style: 'form', explode: true),
-            'models': SdkQueryValue(SdkUtils.unwrapOptional(models),
-                style: 'form', explode: true),
-            'batch': SdkQueryValue(SdkUtils.unwrapOptional(batch),
-                style: 'form', explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds), style: 'form', explode: true),
+            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds), style: 'form', explode: true),
+            'models': SdkQueryValue(SdkUtils.unwrapOptional(models), style: 'form', explode: true),
+            'batch': SdkQueryValue(SdkUtils.unwrapOptional(batch), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usageCompletions',
-          fromJsonRaw: (value) =>
-              UsageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UsageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Get completions usage details for the organization.
 ///
@@ -859,56 +494,13 @@ Future<UsageResponse> usageCompletions(ClientConfig config,
 ///   `bucket_width=1m`: default: 60, max: 1440
 /// [page] A cursor for use in pagination. Corresponding to the `next_page`
 ///   field from the previous response.
-Stream<UsageTimeBucket> usageCompletionsPaginated(ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageCompletionsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    bool? batch,
-    List<UsageCompletionsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<UsageTimeBucket> usageCompletionsPaginated(ClientConfig config, {required int startTime, int? endTime, UsageCompletionsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, bool? batch, List<UsageCompletionsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageCompletions(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageCompletionsBucketWidth>()
-            : SdkPresent<UsageCompletionsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        batch:
-            batch == null ? const SdkOmitted<bool>() : SdkPresent<bool>(batch),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageCompletionsGroupByItem>>()
-            : SdkPresent<List<UsageCompletionsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageCompletions(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageCompletionsBucketWidth>() : SdkPresent<UsageCompletionsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), batch: batch == null ? const SdkOmitted<bool>() : SdkPresent<bool>(batch), groupBy: groupBy == null ? const SdkOmitted<List<UsageCompletionsGroupByItem>>() : SdkPresent<List<UsageCompletionsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -916,52 +508,10 @@ Stream<UsageTimeBucket> usageCompletionsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageCompletionsPages(
-    ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageCompletionsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    bool? batch,
-    List<UsageCompletionsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageCompletionsPages(ClientConfig config, {required int startTime, int? endTime, UsageCompletionsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, bool? batch, List<UsageCompletionsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageCompletions(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageCompletionsBucketWidth>()
-            : SdkPresent<UsageCompletionsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        batch:
-            batch == null ? const SdkOmitted<bool>() : SdkPresent<bool>(batch),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageCompletionsGroupByItem>>()
-            : SdkPresent<List<UsageCompletionsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageCompletions(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageCompletionsBucketWidth>() : SdkPresent<UsageCompletionsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), batch: batch == null ? const SdkOmitted<bool>() : SdkPresent<bool>(batch), groupBy: groupBy == null ? const SdkOmitted<List<UsageCompletionsGroupByItem>>() : SdkPresent<List<UsageCompletionsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;
@@ -971,6 +521,7 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageCompletionsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Get embeddings usage details for the organization.
 ///
@@ -1006,42 +557,26 @@ Future<UsageResponse> usageEmbeddings(ClientConfig config,
           'GET', '/organization/usage/embeddings',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds),
-                style: 'form', explode: true),
-            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds),
-                style: 'form', explode: true),
-            'models': SdkQueryValue(SdkUtils.unwrapOptional(models),
-                style: 'form', explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds), style: 'form', explode: true),
+            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds), style: 'form', explode: true),
+            'models': SdkQueryValue(SdkUtils.unwrapOptional(models), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usageEmbeddings',
-          fromJsonRaw: (value) =>
-              UsageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UsageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Get embeddings usage details for the organization.
 ///
@@ -1061,53 +596,13 @@ Future<UsageResponse> usageEmbeddings(ClientConfig config,
 ///   `bucket_width=1m`: default: 60, max: 1440
 /// [page] A cursor for use in pagination. Corresponding to the `next_page`
 ///   field from the previous response.
-Stream<UsageTimeBucket> usageEmbeddingsPaginated(ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageEmbeddingsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageEmbeddingsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<UsageTimeBucket> usageEmbeddingsPaginated(ClientConfig config, {required int startTime, int? endTime, UsageEmbeddingsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageEmbeddingsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageEmbeddings(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageEmbeddingsBucketWidth>()
-            : SdkPresent<UsageEmbeddingsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageEmbeddingsGroupByItem>>()
-            : SdkPresent<List<UsageEmbeddingsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageEmbeddings(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageEmbeddingsBucketWidth>() : SdkPresent<UsageEmbeddingsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), groupBy: groupBy == null ? const SdkOmitted<List<UsageEmbeddingsGroupByItem>>() : SdkPresent<List<UsageEmbeddingsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -1115,49 +610,10 @@ Stream<UsageTimeBucket> usageEmbeddingsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageEmbeddingsPages(
-    ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageEmbeddingsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageEmbeddingsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageEmbeddingsPages(ClientConfig config, {required int startTime, int? endTime, UsageEmbeddingsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageEmbeddingsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageEmbeddings(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageEmbeddingsBucketWidth>()
-            : SdkPresent<UsageEmbeddingsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageEmbeddingsGroupByItem>>()
-            : SdkPresent<List<UsageEmbeddingsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageEmbeddings(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageEmbeddingsBucketWidth>() : SdkPresent<UsageEmbeddingsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), groupBy: groupBy == null ? const SdkOmitted<List<UsageEmbeddingsGroupByItem>>() : SdkPresent<List<UsageEmbeddingsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;
@@ -1167,6 +623,7 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageEmbeddingsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Get file search calls usage details for the organization.
 ///
@@ -1189,14 +646,12 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageEmbeddingsPages(
 Future<UsageResponse> usageFileSearchCalls(ClientConfig config,
     {required int startTime,
     SdkOptional<int> endTime = const SdkOmitted(),
-    SdkOptional<UsageFileSearchCallsBucketWidth> bucketWidth =
-        const SdkOmitted(),
+    SdkOptional<UsageFileSearchCallsBucketWidth> bucketWidth = const SdkOmitted(),
     SdkOptional<List<String>> projectIds = const SdkOmitted(),
     SdkOptional<List<String>> userIds = const SdkOmitted(),
     SdkOptional<List<String>> apiKeyIds = const SdkOmitted(),
     SdkOptional<List<String>> vectorStoreIds = const SdkOmitted(),
-    SdkOptional<List<UsageFileSearchCallsGroupByItem>> groupBy =
-        const SdkOmitted(),
+    SdkOptional<List<UsageFileSearchCallsGroupByItem>> groupBy = const SdkOmitted(),
     SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<String> page = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -1204,44 +659,26 @@ Future<UsageResponse> usageFileSearchCalls(ClientConfig config,
           'GET', '/organization/usage/file_search_calls',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds),
-                style: 'form', explode: true),
-            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds),
-                style: 'form', explode: true),
-            'vector_store_ids': SdkQueryValue(
-                SdkUtils.unwrapOptional(vectorStoreIds),
-                style: 'form',
-                explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds), style: 'form', explode: true),
+            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds), style: 'form', explode: true),
+            'vector_store_ids': SdkQueryValue(SdkUtils.unwrapOptional(vectorStoreIds), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usageFileSearchCalls',
-          fromJsonRaw: (value) =>
-              UsageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UsageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Get file search calls usage details for the organization.
 ///
@@ -1261,53 +698,13 @@ Future<UsageResponse> usageFileSearchCalls(ClientConfig config,
 ///   `bucket_width=1m`: default: 60, max: 1440
 /// [page] A cursor for use in pagination. Corresponding to the `next_page`
 ///   field from the previous response.
-Stream<UsageTimeBucket> usageFileSearchCallsPaginated(ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageFileSearchCallsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? vectorStoreIds,
-    List<UsageFileSearchCallsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<UsageTimeBucket> usageFileSearchCallsPaginated(ClientConfig config, {required int startTime, int? endTime, UsageFileSearchCallsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? vectorStoreIds, List<UsageFileSearchCallsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageFileSearchCalls(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageFileSearchCallsBucketWidth>()
-            : SdkPresent<UsageFileSearchCallsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        vectorStoreIds: vectorStoreIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(vectorStoreIds),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageFileSearchCallsGroupByItem>>()
-            : SdkPresent<List<UsageFileSearchCallsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageFileSearchCalls(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageFileSearchCallsBucketWidth>() : SdkPresent<UsageFileSearchCallsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), vectorStoreIds: vectorStoreIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(vectorStoreIds), groupBy: groupBy == null ? const SdkOmitted<List<UsageFileSearchCallsGroupByItem>>() : SdkPresent<List<UsageFileSearchCallsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -1315,49 +712,10 @@ Stream<UsageTimeBucket> usageFileSearchCallsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageFileSearchCallsPages(
-    ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageFileSearchCallsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? vectorStoreIds,
-    List<UsageFileSearchCallsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageFileSearchCallsPages(ClientConfig config, {required int startTime, int? endTime, UsageFileSearchCallsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? vectorStoreIds, List<UsageFileSearchCallsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageFileSearchCalls(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageFileSearchCallsBucketWidth>()
-            : SdkPresent<UsageFileSearchCallsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        vectorStoreIds: vectorStoreIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(vectorStoreIds),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageFileSearchCallsGroupByItem>>()
-            : SdkPresent<List<UsageFileSearchCallsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageFileSearchCalls(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageFileSearchCallsBucketWidth>() : SdkPresent<UsageFileSearchCallsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), vectorStoreIds: vectorStoreIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(vectorStoreIds), groupBy: groupBy == null ? const SdkOmitted<List<UsageFileSearchCallsGroupByItem>>() : SdkPresent<List<UsageFileSearchCallsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;
@@ -1367,6 +725,7 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageFileSearchCallsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Lists image usage for the organization in time buckets. Use `start_time` to set the inclusive start of the range, and filter by sources, image sizes, projects, users, API keys, or models as needed. Use the `next_page` value to retrieve the next page of results.
 ///
@@ -1411,46 +770,28 @@ Future<UsageResponse> usageImages(ClientConfig config,
   return (await sdkRequest<UsageResponse>('GET', '/organization/usage/images',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'sources': SdkQueryValue(SdkUtils.unwrapOptional(sources),
-                style: 'form', explode: true),
-            'sizes': SdkQueryValue(SdkUtils.unwrapOptional(sizes),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds),
-                style: 'form', explode: true),
-            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds),
-                style: 'form', explode: true),
-            'models': SdkQueryValue(SdkUtils.unwrapOptional(models),
-                style: 'form', explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'sources': SdkQueryValue(SdkUtils.unwrapOptional(sources), style: 'form', explode: true),
+            'sizes': SdkQueryValue(SdkUtils.unwrapOptional(sizes), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds), style: 'form', explode: true),
+            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds), style: 'form', explode: true),
+            'models': SdkQueryValue(SdkUtils.unwrapOptional(models), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usageImages',
-          fromJsonRaw: (value) =>
-              UsageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UsageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists image usage for the organization in time buckets. Use `start_time` to set the inclusive start of the range, and filter by sources, image sizes, projects, users, API keys, or models as needed. Use the `next_page` value to retrieve the next page of results.
 ///
@@ -1478,61 +819,13 @@ Future<UsageResponse> usageImages(ClientConfig config,
 ///   `bucket_width=1m`: default: 60, max: 1440
 /// [page] A cursor for use in pagination. Corresponding to the `next_page`
 ///   field from the previous response.
-Stream<UsageTimeBucket> usageImagesPaginated(ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageImagesBucketWidth? bucketWidth,
-    List<UsageImagesSourcesItem>? sources,
-    List<UsageImagesSizesItem>? sizes,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageImagesGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<UsageTimeBucket> usageImagesPaginated(ClientConfig config, {required int startTime, int? endTime, UsageImagesBucketWidth? bucketWidth, List<UsageImagesSourcesItem>? sources, List<UsageImagesSizesItem>? sizes, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageImagesGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageImages(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageImagesBucketWidth>()
-            : SdkPresent<UsageImagesBucketWidth>(bucketWidth),
-        sources: sources == null
-            ? const SdkOmitted<List<UsageImagesSourcesItem>>()
-            : SdkPresent<List<UsageImagesSourcesItem>>(sources),
-        sizes: sizes == null
-            ? const SdkOmitted<List<UsageImagesSizesItem>>()
-            : SdkPresent<List<UsageImagesSizesItem>>(sizes),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageImagesGroupByItem>>()
-            : SdkPresent<List<UsageImagesGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageImages(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageImagesBucketWidth>() : SdkPresent<UsageImagesBucketWidth>(bucketWidth), sources: sources == null ? const SdkOmitted<List<UsageImagesSourcesItem>>() : SdkPresent<List<UsageImagesSourcesItem>>(sources), sizes: sizes == null ? const SdkOmitted<List<UsageImagesSizesItem>>() : SdkPresent<List<UsageImagesSizesItem>>(sizes), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), groupBy: groupBy == null ? const SdkOmitted<List<UsageImagesGroupByItem>>() : SdkPresent<List<UsageImagesGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -1540,57 +833,10 @@ Stream<UsageTimeBucket> usageImagesPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageImagesPages(
-    ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageImagesBucketWidth? bucketWidth,
-    List<UsageImagesSourcesItem>? sources,
-    List<UsageImagesSizesItem>? sizes,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageImagesGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageImagesPages(ClientConfig config, {required int startTime, int? endTime, UsageImagesBucketWidth? bucketWidth, List<UsageImagesSourcesItem>? sources, List<UsageImagesSizesItem>? sizes, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageImagesGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageImages(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageImagesBucketWidth>()
-            : SdkPresent<UsageImagesBucketWidth>(bucketWidth),
-        sources: sources == null
-            ? const SdkOmitted<List<UsageImagesSourcesItem>>()
-            : SdkPresent<List<UsageImagesSourcesItem>>(sources),
-        sizes: sizes == null
-            ? const SdkOmitted<List<UsageImagesSizesItem>>()
-            : SdkPresent<List<UsageImagesSizesItem>>(sizes),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageImagesGroupByItem>>()
-            : SdkPresent<List<UsageImagesGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageImages(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageImagesBucketWidth>() : SdkPresent<UsageImagesBucketWidth>(bucketWidth), sources: sources == null ? const SdkOmitted<List<UsageImagesSourcesItem>>() : SdkPresent<List<UsageImagesSourcesItem>>(sources), sizes: sizes == null ? const SdkOmitted<List<UsageImagesSizesItem>>() : SdkPresent<List<UsageImagesSizesItem>>(sizes), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), groupBy: groupBy == null ? const SdkOmitted<List<UsageImagesGroupByItem>>() : SdkPresent<List<UsageImagesGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;
@@ -1600,6 +846,7 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageImagesPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Get moderations usage details for the organization.
 ///
@@ -1635,42 +882,26 @@ Future<UsageResponse> usageModerations(ClientConfig config,
           'GET', '/organization/usage/moderations',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds),
-                style: 'form', explode: true),
-            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds),
-                style: 'form', explode: true),
-            'models': SdkQueryValue(SdkUtils.unwrapOptional(models),
-                style: 'form', explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds), style: 'form', explode: true),
+            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds), style: 'form', explode: true),
+            'models': SdkQueryValue(SdkUtils.unwrapOptional(models), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usageModerations',
-          fromJsonRaw: (value) =>
-              UsageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UsageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Get moderations usage details for the organization.
 ///
@@ -1690,53 +921,13 @@ Future<UsageResponse> usageModerations(ClientConfig config,
 ///   `bucket_width=1m`: default: 60, max: 1440
 /// [page] A cursor for use in pagination. Corresponding to the `next_page`
 ///   field from the previous response.
-Stream<UsageTimeBucket> usageModerationsPaginated(ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageModerationsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageModerationsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<UsageTimeBucket> usageModerationsPaginated(ClientConfig config, {required int startTime, int? endTime, UsageModerationsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageModerationsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageModerations(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageModerationsBucketWidth>()
-            : SdkPresent<UsageModerationsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageModerationsGroupByItem>>()
-            : SdkPresent<List<UsageModerationsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageModerations(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageModerationsBucketWidth>() : SdkPresent<UsageModerationsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), groupBy: groupBy == null ? const SdkOmitted<List<UsageModerationsGroupByItem>>() : SdkPresent<List<UsageModerationsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -1744,49 +935,10 @@ Stream<UsageTimeBucket> usageModerationsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageModerationsPages(
-    ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageModerationsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageModerationsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageModerationsPages(ClientConfig config, {required int startTime, int? endTime, UsageModerationsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageModerationsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageModerations(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageModerationsBucketWidth>()
-            : SdkPresent<UsageModerationsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageModerationsGroupByItem>>()
-            : SdkPresent<List<UsageModerationsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageModerations(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageModerationsBucketWidth>() : SdkPresent<UsageModerationsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), groupBy: groupBy == null ? const SdkOmitted<List<UsageModerationsGroupByItem>>() : SdkPresent<List<UsageModerationsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;
@@ -1796,6 +948,7 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageModerationsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Get vector stores usage details for the organization.
 ///
@@ -1816,8 +969,7 @@ Future<UsageResponse> usageVectorStores(ClientConfig config,
     SdkOptional<int> endTime = const SdkOmitted(),
     SdkOptional<UsageVectorStoresBucketWidth> bucketWidth = const SdkOmitted(),
     SdkOptional<List<String>> projectIds = const SdkOmitted(),
-    SdkOptional<List<UsageVectorStoresGroupByItem>> groupBy =
-        const SdkOmitted(),
+    SdkOptional<List<UsageVectorStoresGroupByItem>> groupBy = const SdkOmitted(),
     SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<String> page = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -1825,36 +977,23 @@ Future<UsageResponse> usageVectorStores(ClientConfig config,
           'GET', '/organization/usage/vector_stores',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usageVectorStores',
-          fromJsonRaw: (value) =>
-              UsageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UsageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Get vector stores usage details for the organization.
 ///
@@ -1870,41 +1009,13 @@ Future<UsageResponse> usageVectorStores(ClientConfig config,
 ///   `bucket_width=1m`: default: 60, max: 1440
 /// [page] A cursor for use in pagination. Corresponding to the `next_page`
 ///   field from the previous response.
-Stream<UsageTimeBucket> usageVectorStoresPaginated(ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageVectorStoresBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<UsageVectorStoresGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<UsageTimeBucket> usageVectorStoresPaginated(ClientConfig config, {required int startTime, int? endTime, UsageVectorStoresBucketWidth? bucketWidth, List<String>? projectIds, List<UsageVectorStoresGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageVectorStores(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageVectorStoresBucketWidth>()
-            : SdkPresent<UsageVectorStoresBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageVectorStoresGroupByItem>>()
-            : SdkPresent<List<UsageVectorStoresGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageVectorStores(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageVectorStoresBucketWidth>() : SdkPresent<UsageVectorStoresBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), groupBy: groupBy == null ? const SdkOmitted<List<UsageVectorStoresGroupByItem>>() : SdkPresent<List<UsageVectorStoresGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -1912,37 +1023,10 @@ Stream<UsageTimeBucket> usageVectorStoresPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageVectorStoresPages(
-    ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageVectorStoresBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<UsageVectorStoresGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageVectorStoresPages(ClientConfig config, {required int startTime, int? endTime, UsageVectorStoresBucketWidth? bucketWidth, List<String>? projectIds, List<UsageVectorStoresGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageVectorStores(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageVectorStoresBucketWidth>()
-            : SdkPresent<UsageVectorStoresBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageVectorStoresGroupByItem>>()
-            : SdkPresent<List<UsageVectorStoresGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageVectorStores(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageVectorStoresBucketWidth>() : SdkPresent<UsageVectorStoresBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), groupBy: groupBy == null ? const SdkOmitted<List<UsageVectorStoresGroupByItem>>() : SdkPresent<List<UsageVectorStoresGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;
@@ -1952,6 +1036,7 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageVectorStoresPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Get web search calls usage details for the organization.
 ///
@@ -1977,16 +1062,13 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageVectorStoresPages(
 Future<UsageResponse> usageWebSearchCalls(ClientConfig config,
     {required int startTime,
     SdkOptional<int> endTime = const SdkOmitted(),
-    SdkOptional<UsageWebSearchCallsBucketWidth> bucketWidth =
-        const SdkOmitted(),
+    SdkOptional<UsageWebSearchCallsBucketWidth> bucketWidth = const SdkOmitted(),
     SdkOptional<List<String>> projectIds = const SdkOmitted(),
     SdkOptional<List<String>> userIds = const SdkOmitted(),
     SdkOptional<List<String>> apiKeyIds = const SdkOmitted(),
     SdkOptional<List<String>> models = const SdkOmitted(),
-    SdkOptional<List<UsageWebSearchCallsContextLevelsItem>> contextLevels =
-        const SdkOmitted(),
-    SdkOptional<List<UsageWebSearchCallsGroupByItem>> groupBy =
-        const SdkOmitted(),
+    SdkOptional<List<UsageWebSearchCallsContextLevelsItem>> contextLevels = const SdkOmitted(),
+    SdkOptional<List<UsageWebSearchCallsGroupByItem>> groupBy = const SdkOmitted(),
     SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<String> page = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -1994,46 +1076,27 @@ Future<UsageResponse> usageWebSearchCalls(ClientConfig config,
           'GET', '/organization/usage/web_search_calls',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds),
-                style: 'form', explode: true),
-            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds),
-                style: 'form', explode: true),
-            'models': SdkQueryValue(SdkUtils.unwrapOptional(models),
-                style: 'form', explode: true),
-            'context_levels': SdkQueryValue(
-                SdkUtils.unwrapOptional(contextLevels),
-                style: 'form',
-                explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds), style: 'form', explode: true),
+            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds), style: 'form', explode: true),
+            'models': SdkQueryValue(SdkUtils.unwrapOptional(models), style: 'form', explode: true),
+            'context_levels': SdkQueryValue(SdkUtils.unwrapOptional(contextLevels), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usageWebSearchCalls',
-          fromJsonRaw: (value) =>
-              UsageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UsageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Get web search calls usage details for the organization.
 ///
@@ -2056,58 +1119,13 @@ Future<UsageResponse> usageWebSearchCalls(ClientConfig config,
 ///   `bucket_width=1m`: default: 60, max: 1440
 /// [page] A cursor for use in pagination. Corresponding to the `next_page`
 ///   field from the previous response.
-Stream<UsageTimeBucket> usageWebSearchCallsPaginated(ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageWebSearchCallsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageWebSearchCallsContextLevelsItem>? contextLevels,
-    List<UsageWebSearchCallsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<UsageTimeBucket> usageWebSearchCallsPaginated(ClientConfig config, {required int startTime, int? endTime, UsageWebSearchCallsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageWebSearchCallsContextLevelsItem>? contextLevels, List<UsageWebSearchCallsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageWebSearchCalls(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageWebSearchCallsBucketWidth>()
-            : SdkPresent<UsageWebSearchCallsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        contextLevels: contextLevels == null
-            ? const SdkOmitted<List<UsageWebSearchCallsContextLevelsItem>>()
-            : SdkPresent<List<UsageWebSearchCallsContextLevelsItem>>(
-                contextLevels),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageWebSearchCallsGroupByItem>>()
-            : SdkPresent<List<UsageWebSearchCallsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageWebSearchCalls(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageWebSearchCallsBucketWidth>() : SdkPresent<UsageWebSearchCallsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), contextLevels: contextLevels == null ? const SdkOmitted<List<UsageWebSearchCallsContextLevelsItem>>() : SdkPresent<List<UsageWebSearchCallsContextLevelsItem>>(contextLevels), groupBy: groupBy == null ? const SdkOmitted<List<UsageWebSearchCallsGroupByItem>>() : SdkPresent<List<UsageWebSearchCallsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -2115,54 +1133,10 @@ Stream<UsageTimeBucket> usageWebSearchCallsPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageWebSearchCallsPages(
-    ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    UsageWebSearchCallsBucketWidth? bucketWidth,
-    List<String>? projectIds,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    List<UsageWebSearchCallsContextLevelsItem>? contextLevels,
-    List<UsageWebSearchCallsGroupByItem>? groupBy,
-    int? limit,
-    String? page,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageWebSearchCallsPages(ClientConfig config, {required int startTime, int? endTime, UsageWebSearchCallsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageWebSearchCallsContextLevelsItem>? contextLevels, List<UsageWebSearchCallsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await usageWebSearchCalls(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int>()
-            : SdkPresent<int>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<UsageWebSearchCallsBucketWidth>()
-            : SdkPresent<UsageWebSearchCallsBucketWidth>(bucketWidth),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(projectIds),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(models),
-        contextLevels: contextLevels == null
-            ? const SdkOmitted<List<UsageWebSearchCallsContextLevelsItem>>()
-            : SdkPresent<List<UsageWebSearchCallsContextLevelsItem>>(
-                contextLevels),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<UsageWebSearchCallsGroupByItem>>()
-            : SdkPresent<List<UsageWebSearchCallsGroupByItem>>(groupBy),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await usageWebSearchCalls(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int>() : SdkPresent<int>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<UsageWebSearchCallsBucketWidth>() : SdkPresent<UsageWebSearchCallsBucketWidth>(bucketWidth), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), userIds: userIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(models), contextLevels: contextLevels == null ? const SdkOmitted<List<UsageWebSearchCallsContextLevelsItem>>() : SdkPresent<List<UsageWebSearchCallsContextLevelsItem>>(contextLevels), groupBy: groupBy == null ? const SdkOmitted<List<UsageWebSearchCallsGroupByItem>>() : SdkPresent<List<UsageWebSearchCallsGroupByItem>>(groupBy), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), page: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;
@@ -2172,6 +1146,7 @@ Stream<SdkPage<UsageResponse, UsageTimeBucket>> usageWebSearchCallsPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Get Decisions API usage details for the organization.
 ///
@@ -2213,44 +1188,27 @@ Future<PublicDecisionsUsageResponseResource> decisionsUsage(ClientConfig config,
           'GET', '/organization/usage/decisions',
           config: config,
           query: {
-            'start_time':
-                SdkQueryValue(startTime, style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
-                style: 'form', explode: true),
-            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy),
-                style: 'form', explode: true),
-            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds),
-                style: 'form', explode: true),
-            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds),
-                style: 'form', explode: true),
-            'models': SdkQueryValue(SdkUtils.unwrapOptional(models),
-                style: 'form', explode: true),
-            'batch': SdkQueryValue(SdkUtils.unwrapOptional(batch),
-                style: 'form', explode: true)
+            'start_time': SdkQueryValue(startTime, style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'bucket_width': SdkQueryValue(SdkUtils.unwrapOptional(bucketWidth), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'project_ids': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
+            'group_by': SdkQueryValue(SdkUtils.unwrapOptional(groupBy), style: 'form', explode: true),
+            'user_ids': SdkQueryValue(SdkUtils.unwrapOptional(userIds), style: 'form', explode: true),
+            'api_key_ids': SdkQueryValue(SdkUtils.unwrapOptional(apiKeyIds), style: 'form', explode: true),
+            'models': SdkQueryValue(SdkUtils.unwrapOptional(models), style: 'form', explode: true),
+            'batch': SdkQueryValue(SdkUtils.unwrapOptional(batch), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'decisionsUsage',
-          fromJsonRaw: (value) => PublicDecisionsUsageResponseResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PublicDecisionsUsageResponseResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => DecisionsUsageErrorResponse.fromJson(
-                value as Map<String, dynamic>),
-            '403': (value) => DecisionsUsagePermissionErrorResponse.fromJson(
-                value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => DecisionsUsageErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => DecisionsUsagePermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Get Decisions API usage details for the organization.
 ///
@@ -2275,58 +1233,13 @@ Future<PublicDecisionsUsageResponseResource> decisionsUsage(ClientConfig config,
 /// [models] Return only usage for these models.
 /// [batch] If `true`, return batch jobs only. If `false`, return non-batch jobs
 ///   only. By default, return both.
-Stream<DecisionsUsageBucket> decisionsUsagePaginated(ClientConfig config,
-    {required int startTime,
-    int? endTime,
-    String? bucketWidth,
-    int? limit,
-    String? page,
-    List<String>? projectIds,
-    List<DecisionsUsageGroupBy>? groupBy,
-    List<String>? userIds,
-    List<String>? apiKeyIds,
-    List<String>? models,
-    bool? batch,
-    RequestOptions? requestOptions}) async* {
+Stream<DecisionsUsageBucket> decisionsUsagePaginated(ClientConfig config, {required int startTime, int? endTime, String? bucketWidth, int? limit, String? page, List<String>? projectIds, List<DecisionsUsageGroupBy>? groupBy, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, bool? batch, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await decisionsUsage(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int?>()
-            : SdkPresent<int?>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<String?>()
-            : SdkPresent<String?>(bucketWidth),
-        limit:
-            limit == null ? const SdkOmitted<int?>() : SdkPresent<int?>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String?>()
-            : SdkPresent<String?>(sdkCursor),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>?>()
-            : SdkPresent<List<String>?>(projectIds),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<DecisionsUsageGroupBy>?>()
-            : SdkPresent<List<DecisionsUsageGroupBy>?>(groupBy),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>?>()
-            : SdkPresent<List<String>?>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>?>()
-            : SdkPresent<List<String>?>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>?>()
-            : SdkPresent<List<String>?>(models),
-        batch: batch == null
-            ? const SdkOmitted<bool?>()
-            : SdkPresent<bool?>(batch),
-        requestOptions: requestOptions);
+    final sdkPage = await decisionsUsage(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int?>() : SdkPresent<int?>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<String?>() : SdkPresent<String?>(bucketWidth), limit: limit == null ? const SdkOmitted<int?>() : SdkPresent<int?>(limit), page: sdkCursor == null ? const SdkOmitted<String?>() : SdkPresent<String?>(sdkCursor), projectIds: projectIds == null ? const SdkOmitted<List<String>?>() : SdkPresent<List<String>?>(projectIds), groupBy: groupBy == null ? const SdkOmitted<List<DecisionsUsageGroupBy>?>() : SdkPresent<List<DecisionsUsageGroupBy>?>(groupBy), userIds: userIds == null ? const SdkOmitted<List<String>?>() : SdkPresent<List<String>?>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>?>() : SdkPresent<List<String>?>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>?>() : SdkPresent<List<String>?>(models), batch: batch == null ? const SdkOmitted<bool?>() : SdkPresent<bool?>(batch), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.nextPage;
     if (sdkNext == null) return;
@@ -2334,54 +1247,10 @@ Stream<DecisionsUsageBucket> decisionsUsagePaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<PublicDecisionsUsageResponseResource, DecisionsUsageBucket>>
-    decisionsUsagePages(ClientConfig config,
-        {required int startTime,
-        int? endTime,
-        String? bucketWidth,
-        int? limit,
-        String? page,
-        List<String>? projectIds,
-        List<DecisionsUsageGroupBy>? groupBy,
-        List<String>? userIds,
-        List<String>? apiKeyIds,
-        List<String>? models,
-        bool? batch,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<PublicDecisionsUsageResponseResource, DecisionsUsageBucket>> decisionsUsagePages(ClientConfig config, {required int startTime, int? endTime, String? bucketWidth, int? limit, String? page, List<String>? projectIds, List<DecisionsUsageGroupBy>? groupBy, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, bool? batch, RequestOptions? requestOptions}) async* {
   var sdkCursor = page;
   while (true) {
-    final sdkPage = await decisionsUsage(config,
-        startTime: startTime,
-        endTime: endTime == null
-            ? const SdkOmitted<int?>()
-            : SdkPresent<int?>(endTime),
-        bucketWidth: bucketWidth == null
-            ? const SdkOmitted<String?>()
-            : SdkPresent<String?>(bucketWidth),
-        limit:
-            limit == null ? const SdkOmitted<int?>() : SdkPresent<int?>(limit),
-        page: sdkCursor == null
-            ? const SdkOmitted<String?>()
-            : SdkPresent<String?>(sdkCursor),
-        projectIds: projectIds == null
-            ? const SdkOmitted<List<String>?>()
-            : SdkPresent<List<String>?>(projectIds),
-        groupBy: groupBy == null
-            ? const SdkOmitted<List<DecisionsUsageGroupBy>?>()
-            : SdkPresent<List<DecisionsUsageGroupBy>?>(groupBy),
-        userIds: userIds == null
-            ? const SdkOmitted<List<String>?>()
-            : SdkPresent<List<String>?>(userIds),
-        apiKeyIds: apiKeyIds == null
-            ? const SdkOmitted<List<String>?>()
-            : SdkPresent<List<String>?>(apiKeyIds),
-        models: models == null
-            ? const SdkOmitted<List<String>?>()
-            : SdkPresent<List<String>?>(models),
-        batch: batch == null
-            ? const SdkOmitted<bool?>()
-            : SdkPresent<bool?>(batch),
-        requestOptions: requestOptions);
+    final sdkPage = await decisionsUsage(config, startTime: startTime, endTime: endTime == null ? const SdkOmitted<int?>() : SdkPresent<int?>(endTime), bucketWidth: bucketWidth == null ? const SdkOmitted<String?>() : SdkPresent<String?>(bucketWidth), limit: limit == null ? const SdkOmitted<int?>() : SdkPresent<int?>(limit), page: sdkCursor == null ? const SdkOmitted<String?>() : SdkPresent<String?>(sdkCursor), projectIds: projectIds == null ? const SdkOmitted<List<String>?>() : SdkPresent<List<String>?>(projectIds), groupBy: groupBy == null ? const SdkOmitted<List<DecisionsUsageGroupBy>?>() : SdkPresent<List<DecisionsUsageGroupBy>?>(groupBy), userIds: userIds == null ? const SdkOmitted<List<String>?>() : SdkPresent<List<String>?>(userIds), apiKeyIds: apiKeyIds == null ? const SdkOmitted<List<String>?>() : SdkPresent<List<String>?>(apiKeyIds), models: models == null ? const SdkOmitted<List<String>?>() : SdkPresent<List<String>?>(models), batch: batch == null ? const SdkOmitted<bool?>() : SdkPresent<bool?>(batch), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPage;

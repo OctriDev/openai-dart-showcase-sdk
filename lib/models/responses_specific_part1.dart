@@ -8,98 +8,70 @@ part of 'responses_specific.dart';
 class SpecificApplyPatchParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The tool to call. Always `apply_patch`.
   final SpecificApplyPatchParamType type_;
 
   const SpecificApplyPatchParam({required this.type_});
 
-  SpecificApplyPatchParam Function({SpecificApplyPatchParamType type_})
-      get copyWith => _copyWith;
+  SpecificApplyPatchParam Function({SpecificApplyPatchParamType type_}) get copyWith => _copyWith;
 
-  SpecificApplyPatchParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      SpecificApplyPatchParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SpecificApplyPatchParamType,
-      );
+  SpecificApplyPatchParam _copyWith({Object? type_ = sdkOmittedValue}) => SpecificApplyPatchParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SpecificApplyPatchParamType,
+  );
 
-  factory SpecificApplyPatchParam.fromJson(Map<String, dynamic> json) =>
-      SpecificApplyPatchParam(
-        type_: (json['type'] != null
-            ? SpecificApplyPatchParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory SpecificApplyPatchParam.fromJson(Map<String, dynamic> json) => SpecificApplyPatchParam(
+    type_: (json['type'] != null ? SpecificApplyPatchParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Forces the model to call the shell tool when a tool call is required.
 class SpecificFunctionShellParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The tool to call. Always `shell`.
   final SpecificFunctionShellParamType type_;
 
   const SpecificFunctionShellParam({required this.type_});
 
-  SpecificFunctionShellParam Function({SpecificFunctionShellParamType type_})
-      get copyWith => _copyWith;
+  SpecificFunctionShellParam Function({SpecificFunctionShellParamType type_}) get copyWith => _copyWith;
 
-  SpecificFunctionShellParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      SpecificFunctionShellParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SpecificFunctionShellParamType,
-      );
+  SpecificFunctionShellParam _copyWith({Object? type_ = sdkOmittedValue}) => SpecificFunctionShellParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SpecificFunctionShellParamType,
+  );
 
-  factory SpecificFunctionShellParam.fromJson(Map<String, dynamic> json) =>
-      SpecificFunctionShellParam(
-        type_: (json['type'] != null
-            ? SpecificFunctionShellParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory SpecificFunctionShellParam.fromJson(Map<String, dynamic> json) => SpecificFunctionShellParam(
+    type_: (json['type'] != null ? SpecificFunctionShellParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `SpecificProgrammaticToolCallingParam` API schema.
 class SpecificProgrammaticToolCallingParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The tool to call. Always `programmatic_tool_calling`.
   final SpecificProgrammaticToolCallingParamType type_;
 
   const SpecificProgrammaticToolCallingParam({required this.type_});
 
-  SpecificProgrammaticToolCallingParam Function(
-          {SpecificProgrammaticToolCallingParamType type_})
-      get copyWith => _copyWith;
+  SpecificProgrammaticToolCallingParam Function({SpecificProgrammaticToolCallingParamType type_}) get copyWith => _copyWith;
 
-  SpecificProgrammaticToolCallingParam _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      SpecificProgrammaticToolCallingParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SpecificProgrammaticToolCallingParamType,
-      );
+  SpecificProgrammaticToolCallingParam _copyWith({Object? type_ = sdkOmittedValue}) => SpecificProgrammaticToolCallingParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SpecificProgrammaticToolCallingParamType,
+  );
 
-  factory SpecificProgrammaticToolCallingParam.fromJson(
-          Map<String, dynamic> json) =>
-      SpecificProgrammaticToolCallingParam(
-        type_: (json['type'] != null
-            ? SpecificProgrammaticToolCallingParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory SpecificProgrammaticToolCallingParam.fromJson(Map<String, dynamic> json) => SpecificProgrammaticToolCallingParam(
+    type_: (json['type'] != null ? SpecificProgrammaticToolCallingParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

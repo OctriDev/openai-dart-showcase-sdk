@@ -10,17 +10,14 @@ enum MCPProtocolErrorType {
 
   static MCPProtocolErrorType fromJson(String value) {
     switch (value) {
-      case 'mcp_protocol_error':
-        return MCPProtocolErrorType.mcpProtocolError;
-      default:
-        throw ArgumentError('Unknown MCPProtocolErrorType: $value');
+      case 'mcp_protocol_error': return MCPProtocolErrorType.mcpProtocolError;
+      default: throw ArgumentError('Unknown MCPProtocolErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPProtocolErrorType.mcpProtocolError:
-        return 'mcp_protocol_error';
+      case MCPProtocolErrorType.mcpProtocolError: return 'mcp_protocol_error';
     }
   }
 
@@ -30,39 +27,30 @@ enum MCPProtocolErrorType {
 
 /// Identifier for service connectors, like those available in ChatGPT. One of `server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more about service connectors [here](https://developers.openai.com/api/docs/guides/tools-connectors-mcp#connectors). This field is deprecated for models released after September 1, 2026. Use `server_url` to connect to a remote MCP server, or `tunnel_id` to connect through a Secure MCP Tunnel. Currently supported `connector_id` values are: - Dropbox: `connector_dropbox` - Gmail: `connector_gmail` - Google Calendar: `connector_googlecalendar` - Google Drive: `connector_googledrive` - Microsoft Teams: `connector_microsoftteams` - Outlook Calendar: `connector_outlookcalendar` - Outlook Email: `connector_outlookemail` - SharePoint: `connector_sharepoint`
 final class MCPToolConnectorId {
+
   final String value;
 
   const MCPToolConnectorId._(this.value);
 
-  factory MCPToolConnectorId.fromJson(String value) =>
-      MCPToolConnectorId._(value);
+  factory MCPToolConnectorId.fromJson(String value) => MCPToolConnectorId._(value);
 
   static const connectorDropbox = MCPToolConnectorId._('connector_dropbox');
   static const connectorGmail = MCPToolConnectorId._('connector_gmail');
-  static const connectorGooglecalendar =
-      MCPToolConnectorId._('connector_googlecalendar');
-  static const connectorGoogledrive =
-      MCPToolConnectorId._('connector_googledrive');
-  static const connectorMicrosoftteams =
-      MCPToolConnectorId._('connector_microsoftteams');
-  static const connectorOutlookcalendar =
-      MCPToolConnectorId._('connector_outlookcalendar');
-  static const connectorOutlookemail =
-      MCPToolConnectorId._('connector_outlookemail');
-  static const connectorSharepoint =
-      MCPToolConnectorId._('connector_sharepoint');
+  static const connectorGooglecalendar = MCPToolConnectorId._('connector_googlecalendar');
+  static const connectorGoogledrive = MCPToolConnectorId._('connector_googledrive');
+  static const connectorMicrosoftteams = MCPToolConnectorId._('connector_microsoftteams');
+  static const connectorOutlookcalendar = MCPToolConnectorId._('connector_outlookcalendar');
+  static const connectorOutlookemail = MCPToolConnectorId._('connector_outlookemail');
+  static const connectorSharepoint = MCPToolConnectorId._('connector_sharepoint');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MCPToolConnectorId && other.value == value;
+  @override bool operator ==(Object other) => other is MCPToolConnectorId && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the MCP tool. Always `mcp`.
@@ -71,17 +59,14 @@ enum MCPToolType {
 
   static MCPToolType fromJson(String value) {
     switch (value) {
-      case 'mcp':
-        return MCPToolType.mcp;
-      default:
-        throw ArgumentError('Unknown MCPToolType: $value');
+      case 'mcp': return MCPToolType.mcp;
+      default: throw ArgumentError('Unknown MCPToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPToolType.mcp:
-        return 'mcp';
+      case MCPToolType.mcp: return 'mcp';
     }
   }
 
@@ -95,17 +80,14 @@ enum MCPToolCallType {
 
   static MCPToolCallType fromJson(String value) {
     switch (value) {
-      case 'mcp_call':
-        return MCPToolCallType.mcpCall;
-      default:
-        throw ArgumentError('Unknown MCPToolCallType: $value');
+      case 'mcp_call': return MCPToolCallType.mcpCall;
+      default: throw ArgumentError('Unknown MCPToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPToolCallType.mcpCall:
-        return 'mcp_call';
+      case MCPToolCallType.mcpCall: return 'mcp_call';
     }
   }
 
@@ -119,17 +101,14 @@ enum MCPToolExecutionErrorType {
 
   static MCPToolExecutionErrorType fromJson(String value) {
     switch (value) {
-      case 'mcp_tool_execution_error':
-        return MCPToolExecutionErrorType.mcpToolExecutionError;
-      default:
-        throw ArgumentError('Unknown MCPToolExecutionErrorType: $value');
+      case 'mcp_tool_execution_error': return MCPToolExecutionErrorType.mcpToolExecutionError;
+      default: throw ArgumentError('Unknown MCPToolExecutionErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPToolExecutionErrorType.mcpToolExecutionError:
-        return 'mcp_tool_execution_error';
+      case MCPToolExecutionErrorType.mcpToolExecutionError: return 'mcp_tool_execution_error';
     }
   }
 
@@ -139,27 +118,24 @@ enum MCPToolExecutionErrorType {
 
 /// Specify a single approval policy for all tools. One of `always` or `never`. When set to `always`, all tools will require approval. When set to `never`, all tools will not require approval.
 final class MCPToolRequireApprovalVariant1 {
+
   final String value;
 
   const MCPToolRequireApprovalVariant1._(this.value);
 
-  factory MCPToolRequireApprovalVariant1.fromJson(String value) =>
-      MCPToolRequireApprovalVariant1._(value);
+  factory MCPToolRequireApprovalVariant1.fromJson(String value) => MCPToolRequireApprovalVariant1._(value);
 
   static const always = MCPToolRequireApprovalVariant1._('always');
   static const never = MCPToolRequireApprovalVariant1._('never');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MCPToolRequireApprovalVariant1 && other.value == value;
+  @override bool operator ==(Object other) => other is MCPToolRequireApprovalVariant1 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object. Always `http`.
@@ -168,17 +144,14 @@ enum McpTransportConfigParamHttpType {
 
   static McpTransportConfigParamHttpType fromJson(String value) {
     switch (value) {
-      case 'http':
-        return McpTransportConfigParamHttpType.http;
-      default:
-        throw ArgumentError('Unknown McpTransportConfigParamHttpType: $value');
+      case 'http': return McpTransportConfigParamHttpType.http;
+      default: throw ArgumentError('Unknown McpTransportConfigParamHttpType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpTransportConfigParamHttpType.http:
-        return 'http';
+      case McpTransportConfigParamHttpType.http: return 'http';
     }
   }
 
@@ -192,17 +165,14 @@ enum McpTransportConfigParamStdioType {
 
   static McpTransportConfigParamStdioType fromJson(String value) {
     switch (value) {
-      case 'stdio':
-        return McpTransportConfigParamStdioType.stdio;
-      default:
-        throw ArgumentError('Unknown McpTransportConfigParamStdioType: $value');
+      case 'stdio': return McpTransportConfigParamStdioType.stdio;
+      default: throw ArgumentError('Unknown McpTransportConfigParamStdioType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpTransportConfigParamStdioType.stdio:
-        return 'stdio';
+      case McpTransportConfigParamStdioType.stdio: return 'stdio';
     }
   }
 
@@ -216,17 +186,14 @@ enum McpTransportResourceHttpType {
 
   static McpTransportResourceHttpType fromJson(String value) {
     switch (value) {
-      case 'http':
-        return McpTransportResourceHttpType.http;
-      default:
-        throw ArgumentError('Unknown McpTransportResourceHttpType: $value');
+      case 'http': return McpTransportResourceHttpType.http;
+      default: throw ArgumentError('Unknown McpTransportResourceHttpType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpTransportResourceHttpType.http:
-        return 'http';
+      case McpTransportResourceHttpType.http: return 'http';
     }
   }
 
@@ -240,17 +207,14 @@ enum McpTransportResourceStdioType {
 
   static McpTransportResourceStdioType fromJson(String value) {
     switch (value) {
-      case 'stdio':
-        return McpTransportResourceStdioType.stdio;
-      default:
-        throw ArgumentError('Unknown McpTransportResourceStdioType: $value');
+      case 'stdio': return McpTransportResourceStdioType.stdio;
+      default: throw ArgumentError('Unknown McpTransportResourceStdioType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpTransportResourceStdioType.stdio:
-        return 'stdio';
+      case McpTransportResourceStdioType.stdio: return 'stdio';
     }
   }
 
@@ -264,17 +228,14 @@ enum MessageType {
 
   static MessageType fromJson(String value) {
     switch (value) {
-      case 'message':
-        return MessageType.message;
-      default:
-        throw ArgumentError('Unknown MessageType: $value');
+      case 'message': return MessageType.message;
+      default: throw ArgumentError('Unknown MessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageType.message:
-        return 'message';
+      case MessageType.message: return 'message';
     }
   }
 
@@ -284,12 +245,12 @@ enum MessageType {
 
 /// Specifies the detail level of the image if specified by the user. `low` uses fewer tokens, you can opt in to high resolution using `high`.
 final class MessageContentImageFileObjectImageFileDetail {
+
   final String value;
 
   const MessageContentImageFileObjectImageFileDetail._(this.value);
 
-  factory MessageContentImageFileObjectImageFileDetail.fromJson(String value) =>
-      MessageContentImageFileObjectImageFileDetail._(value);
+  factory MessageContentImageFileObjectImageFileDetail.fromJson(String value) => MessageContentImageFileObjectImageFileDetail._(value);
 
   static const auto = MessageContentImageFileObjectImageFileDetail._('auto');
   static const low = MessageContentImageFileObjectImageFileDetail._('low');
@@ -297,16 +258,12 @@ final class MessageContentImageFileObjectImageFileDetail {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MessageContentImageFileObjectImageFileDetail &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is MessageContentImageFileObjectImageFileDetail && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `image_file`.
@@ -315,18 +272,14 @@ enum MessageContentImageFileObjectType {
 
   static MessageContentImageFileObjectType fromJson(String value) {
     switch (value) {
-      case 'image_file':
-        return MessageContentImageFileObjectType.imageFile;
-      default:
-        throw ArgumentError(
-            'Unknown MessageContentImageFileObjectType: $value');
+      case 'image_file': return MessageContentImageFileObjectType.imageFile;
+      default: throw ArgumentError('Unknown MessageContentImageFileObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessageContentImageFileObjectType.imageFile:
-        return 'image_file';
+      case MessageContentImageFileObjectType.imageFile: return 'image_file';
     }
   }
 

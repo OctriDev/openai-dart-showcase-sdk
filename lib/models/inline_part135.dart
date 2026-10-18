@@ -5,198 +5,173 @@ part of 'inline.dart';
 
 // Inline operation models (part 135)
 final class ListAssistantsOrder {
+
   final String value;
 
   const ListAssistantsOrder._(this.value);
 
-  factory ListAssistantsOrder.fromJson(String value) =>
-      ListAssistantsOrder._(value);
+  factory ListAssistantsOrder.fromJson(String value) => ListAssistantsOrder._(value);
 
   static const asc = ListAssistantsOrder._('asc');
   static const desc = ListAssistantsOrder._('desc');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListAssistantsOrder && other.value == value;
+  @override bool operator ==(Object other) => other is ListAssistantsOrder && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class ListChatCompletionsOrder {
+
   final String value;
 
   const ListChatCompletionsOrder._(this.value);
 
-  factory ListChatCompletionsOrder.fromJson(String value) =>
-      ListChatCompletionsOrder._(value);
+  factory ListChatCompletionsOrder.fromJson(String value) => ListChatCompletionsOrder._(value);
 
   static const asc = ListChatCompletionsOrder._('asc');
   static const desc = ListChatCompletionsOrder._('desc');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListChatCompletionsOrder && other.value == value;
+  @override bool operator ==(Object other) => other is ListChatCompletionsOrder && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GetChatCompletionMessagesOrder {
+
   final String value;
 
   const GetChatCompletionMessagesOrder._(this.value);
 
-  factory GetChatCompletionMessagesOrder.fromJson(String value) =>
-      GetChatCompletionMessagesOrder._(value);
+  factory GetChatCompletionMessagesOrder.fromJson(String value) => GetChatCompletionMessagesOrder._(value);
 
   static const asc = GetChatCompletionMessagesOrder._('asc');
   static const desc = GetChatCompletionMessagesOrder._('desc');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GetChatCompletionMessagesOrder && other.value == value;
+  @override bool operator ==(Object other) => other is GetChatCompletionMessagesOrder && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class ListContainersOrder {
+
   final String value;
 
   const ListContainersOrder._(this.value);
 
-  factory ListContainersOrder.fromJson(String value) =>
-      ListContainersOrder._(value);
+  factory ListContainersOrder.fromJson(String value) => ListContainersOrder._(value);
 
   static const asc = ListContainersOrder._('asc');
   static const desc = ListContainersOrder._('desc');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListContainersOrder && other.value == value;
+  @override bool operator ==(Object other) => other is ListContainersOrder && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class DeleteContainerResponseObject {
+
   final String value;
 
   const DeleteContainerResponseObject._(this.value);
 
-  factory DeleteContainerResponseObject.fromJson(String value) =>
-      DeleteContainerResponseObject._(value);
+  factory DeleteContainerResponseObject.fromJson(String value) => DeleteContainerResponseObject._(value);
 
-  static const containerDeleted =
-      DeleteContainerResponseObject._('container.deleted');
+  static const containerDeleted = DeleteContainerResponseObject._('container.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeleteContainerResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeleteContainerResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class ListContainerFilesOrder {
+
   final String value;
 
   const ListContainerFilesOrder._(this.value);
 
-  factory ListContainerFilesOrder.fromJson(String value) =>
-      ListContainerFilesOrder._(value);
+  factory ListContainerFilesOrder.fromJson(String value) => ListContainerFilesOrder._(value);
 
   static const asc = ListContainerFilesOrder._('asc');
   static const desc = ListContainerFilesOrder._('desc');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListContainerFilesOrder && other.value == value;
+  @override bool operator ==(Object other) => other is ListContainerFilesOrder && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class DeleteContainerFileResponseObject {
+
   final String value;
 
   const DeleteContainerFileResponseObject._(this.value);
 
-  factory DeleteContainerFileResponseObject.fromJson(String value) =>
-      DeleteContainerFileResponseObject._(value);
+  factory DeleteContainerFileResponseObject.fromJson(String value) => DeleteContainerFileResponseObject._(value);
 
-  static const containerFileDeleted =
-      DeleteContainerFileResponseObject._('container.file.deleted');
+  static const containerFileDeleted = DeleteContainerFileResponseObject._('container.file.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeleteContainerFileResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeleteContainerFileResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class ListConversationItemsOrder {
+
   final String value;
 
   const ListConversationItemsOrder._(this.value);
 
-  factory ListConversationItemsOrder.fromJson(String value) =>
-      ListConversationItemsOrder._(value);
+  factory ListConversationItemsOrder.fromJson(String value) => ListConversationItemsOrder._(value);
 
   static const asc = ListConversationItemsOrder._('asc');
   static const desc = ListConversationItemsOrder._('desc');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListConversationItemsOrder && other.value == value;
+  @override bool operator ==(Object other) => other is ListConversationItemsOrder && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class ListEvalsOrder {
+
   final String value;
 
   const ListEvalsOrder._(this.value);
@@ -208,18 +183,16 @@ final class ListEvalsOrder {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListEvalsOrder && other.value == value;
+  @override bool operator ==(Object other) => other is ListEvalsOrder && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class ListEvalsOrderBy {
+
   final String value;
 
   const ListEvalsOrderBy._(this.value);
@@ -231,18 +204,16 @@ final class ListEvalsOrderBy {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListEvalsOrderBy && other.value == value;
+  @override bool operator ==(Object other) => other is ListEvalsOrderBy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GetEvalRunsOrder {
+
   final String value;
 
   const GetEvalRunsOrder._(this.value);
@@ -254,24 +225,21 @@ final class GetEvalRunsOrder {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GetEvalRunsOrder && other.value == value;
+  @override bool operator ==(Object other) => other is GetEvalRunsOrder && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GetEvalRunsStatus {
+
   final String value;
 
   const GetEvalRunsStatus._(this.value);
 
-  factory GetEvalRunsStatus.fromJson(String value) =>
-      GetEvalRunsStatus._(value);
+  factory GetEvalRunsStatus.fromJson(String value) => GetEvalRunsStatus._(value);
 
   static const queued = GetEvalRunsStatus._('queued');
   static const inProgress = GetEvalRunsStatus._('in_progress');
@@ -281,37 +249,31 @@ final class GetEvalRunsStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GetEvalRunsStatus && other.value == value;
+  @override bool operator ==(Object other) => other is GetEvalRunsStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GetEvalRunOutputItemsStatus {
+
   final String value;
 
   const GetEvalRunOutputItemsStatus._(this.value);
 
-  factory GetEvalRunOutputItemsStatus.fromJson(String value) =>
-      GetEvalRunOutputItemsStatus._(value);
+  factory GetEvalRunOutputItemsStatus.fromJson(String value) => GetEvalRunOutputItemsStatus._(value);
 
   static const fail = GetEvalRunOutputItemsStatus._('fail');
   static const pass = GetEvalRunOutputItemsStatus._('pass');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GetEvalRunOutputItemsStatus && other.value == value;
+  @override bool operator ==(Object other) => other is GetEvalRunOutputItemsStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

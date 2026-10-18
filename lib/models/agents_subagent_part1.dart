@@ -6,181 +6,107 @@ part of 'agents_subagent.dart';
 // agents_subagent domain models
 /// The object type for a subagent.
 final class SubagentObjectResource {
+
   final String value;
 
   const SubagentObjectResource._(this.value);
 
-  factory SubagentObjectResource.fromJson(String value) =>
-      SubagentObjectResource._(value);
+  factory SubagentObjectResource.fromJson(String value) => SubagentObjectResource._(value);
 
-  static const agentSessionSubagent =
-      SubagentObjectResource._('agent.session.subagent');
+  static const agentSessionSubagent = SubagentObjectResource._('agent.session.subagent');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SubagentObjectResource && other.value == value;
+  @override bool operator ==(Object other) => other is SubagentObjectResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A subagent created within a session.
 class SubagentResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the subagent.
   final String id;
-
   /// The object type. Always `agent.session.subagent`.
   final SubagentObjectResource object;
-
   /// The ID of the session that owns the subagent.
   final String sessionId;
-
   /// The runner-assigned nickname, or null when unavailable.
   final String? name;
-
   /// Initial task content, or null when unavailable. Text may contain placeholders for images or audio when only a preview is available.
   final List<AgentContentResource>? instructions;
-
   /// The ID of the agent that created this subagent.
   final String parentAgentId;
-
   /// The current status of the subagent.
   final SubagentStatusResource status;
-
   /// The Unix timestamp, in seconds, when the subagent was first opened. Resuming does not change it.
   final int openedAt;
-
   /// The Unix timestamp, in seconds, when the subagent was closed. Null while active, including after resume.
   final int? closedAt;
 
-  const SubagentResource(
-      {required this.id,
-      required this.object,
-      required this.sessionId,
-      required this.name,
-      required this.instructions,
-      required this.parentAgentId,
-      required this.status,
-      required this.openedAt,
-      required this.closedAt});
+  const SubagentResource({required this.id, required this.object, required this.sessionId, required this.name, required this.instructions, required this.parentAgentId, required this.status, required this.openedAt, required this.closedAt});
 
-  SubagentResource Function(
-      {String id,
-      SubagentObjectResource object,
-      String sessionId,
-      String? name,
-      List<AgentContentResource>? instructions,
-      String parentAgentId,
-      SubagentStatusResource status,
-      int openedAt,
-      int? closedAt}) get copyWith => _copyWith;
+  SubagentResource Function({String id, SubagentObjectResource object, String sessionId, String? name, List<AgentContentResource>? instructions, String parentAgentId, SubagentStatusResource status, int openedAt, int? closedAt}) get copyWith => _copyWith;
 
-  SubagentResource _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? sessionId = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue,
-          Object? parentAgentId = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? openedAt = sdkOmittedValue,
-          Object? closedAt = sdkOmittedValue}) =>
-      SubagentResource(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SubagentObjectResource,
-        sessionId: identical(sessionId, sdkOmittedValue)
-            ? this.sessionId
-            : sessionId as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String?,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as List<AgentContentResource>?,
-        parentAgentId: identical(parentAgentId, sdkOmittedValue)
-            ? this.parentAgentId
-            : parentAgentId as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SubagentStatusResource,
-        openedAt: identical(openedAt, sdkOmittedValue)
-            ? this.openedAt
-            : openedAt as int,
-        closedAt: identical(closedAt, sdkOmittedValue)
-            ? this.closedAt
-            : closedAt as int?,
-      );
+  SubagentResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? parentAgentId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? openedAt = sdkOmittedValue, Object? closedAt = sdkOmittedValue}) => SubagentResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SubagentObjectResource,
+    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String?,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as List<AgentContentResource>?,
+    parentAgentId: identical(parentAgentId, sdkOmittedValue) ? this.parentAgentId : parentAgentId as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SubagentStatusResource,
+    openedAt: identical(openedAt, sdkOmittedValue) ? this.openedAt : openedAt as int,
+    closedAt: identical(closedAt, sdkOmittedValue) ? this.closedAt : closedAt as int?,
+  );
 
-  factory SubagentResource.fromJson(Map<String, dynamic> json) =>
-      SubagentResource(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? SubagentObjectResource.fromJson(json['object'] as String)
-            : null)!,
-        sessionId: (json['session_id'] as String?)!,
-        name: json.containsKey('name')
-            ? json['name'] as String?
-            : throw ArgumentError.value(
-                null, 'name', 'Required property is missing'),
-        instructions: json.containsKey('instructions')
-            ? (json['instructions'] as List?)
-                ?.map((e) => AgentContentResource.fromJson(e))
-                .toList()
-            : throw ArgumentError.value(
-                null, 'instructions', 'Required property is missing'),
-        parentAgentId: (json['parent_agent_id'] as String?)!,
-        status: (json['status'] != null
-            ? SubagentStatusResource.fromJson(json['status'] as String)
-            : null)!,
-        openedAt: ((json['opened_at'] as num?)?.toInt())!,
-        closedAt: json.containsKey('closed_at')
-            ? (json['closed_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'closed_at', 'Required property is missing'),
-      );
+  factory SubagentResource.fromJson(Map<String, dynamic> json) => SubagentResource(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? SubagentObjectResource.fromJson(json['object'] as String) : null)!,
+    sessionId: (json['session_id'] as String?)!,
+    name: json.containsKey('name') ? json['name'] as String? : throw ArgumentError.value(null, 'name', 'Required property is missing'),
+    instructions: json.containsKey('instructions') ? (json['instructions'] as List?)?.map((e) => AgentContentResource.fromJson(e)).toList() : throw ArgumentError.value(null, 'instructions', 'Required property is missing'),
+    parentAgentId: (json['parent_agent_id'] as String?)!,
+    status: (json['status'] != null ? SubagentStatusResource.fromJson(json['status'] as String) : null)!,
+    openedAt: ((json['opened_at'] as num?)?.toInt())!,
+    closedAt: json.containsKey('closed_at') ? (json['closed_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'closed_at', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'session_id': sessionId,
-        'name': name,
-        'instructions': instructions?.map((item) => item.toJson()).toList(),
-        'parent_agent_id': parentAgentId,
-        'status': status.toJson(),
-        'opened_at': openedAt,
-        'closed_at': closedAt,
-      };
+    'id': id,
+    'object': object.toJson(),
+    'session_id': sessionId,
+    'name': name,
+    'instructions': instructions?.map((item) => item.toJson()).toList(),
+    'parent_agent_id': parentAgentId,
+    'status': status.toJson(),
+    'opened_at': openedAt,
+    'closed_at': closedAt,
+  };
 }
 
 /// The current status of a subagent.
 final class SubagentStatusResource {
+
   final String value;
 
   const SubagentStatusResource._(this.value);
 
-  factory SubagentStatusResource.fromJson(String value) =>
-      SubagentStatusResource._(value);
+  factory SubagentStatusResource.fromJson(String value) => SubagentStatusResource._(value);
 
   static const active = SubagentStatusResource._('active');
   static const closed = SubagentStatusResource._('closed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SubagentStatusResource && other.value == value;
+  @override bool operator ==(Object other) => other is SubagentStatusResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

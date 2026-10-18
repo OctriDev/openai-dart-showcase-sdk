@@ -8,125 +8,85 @@ part of 'code_interpreter.dart';
 class CodeInterpreterFileOutputFilesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The MIME type of the file.
   final String mimeType;
-
   /// The ID of the file.
   final String fileId;
 
-  const CodeInterpreterFileOutputFilesItem(
-      {required this.mimeType, required this.fileId});
+  const CodeInterpreterFileOutputFilesItem({required this.mimeType, required this.fileId});
 
-  CodeInterpreterFileOutputFilesItem Function({String mimeType, String fileId})
-      get copyWith => _copyWith;
+  CodeInterpreterFileOutputFilesItem Function({String mimeType, String fileId}) get copyWith => _copyWith;
 
-  CodeInterpreterFileOutputFilesItem _copyWith(
-          {Object? mimeType = sdkOmittedValue,
-          Object? fileId = sdkOmittedValue}) =>
-      CodeInterpreterFileOutputFilesItem(
-        mimeType: identical(mimeType, sdkOmittedValue)
-            ? this.mimeType
-            : mimeType as String,
-        fileId:
-            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-      );
+  CodeInterpreterFileOutputFilesItem _copyWith({Object? mimeType = sdkOmittedValue, Object? fileId = sdkOmittedValue}) => CodeInterpreterFileOutputFilesItem(
+    mimeType: identical(mimeType, sdkOmittedValue) ? this.mimeType : mimeType as String,
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+  );
 
-  factory CodeInterpreterFileOutputFilesItem.fromJson(
-          Map<String, dynamic> json) =>
-      CodeInterpreterFileOutputFilesItem(
-        mimeType: (json['mime_type'] as String?)!,
-        fileId: (json['file_id'] as String?)!,
-      );
+  factory CodeInterpreterFileOutputFilesItem.fromJson(Map<String, dynamic> json) => CodeInterpreterFileOutputFilesItem(
+    mimeType: (json['mime_type'] as String?)!,
+    fileId: (json['file_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'mime_type': mimeType,
-        'file_id': fileId,
-      };
+    'mime_type': mimeType,
+    'file_id': fileId,
+  };
 }
 
 /// The output of a code interpreter tool call that is a file.
 class CodeInterpreterFileOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the code interpreter file output. Always `files`.
   final CodeInterpreterFileOutputType type_;
-
   /// Required array value serialized in the `files` wire field.
   final List<CodeInterpreterFileOutputFilesItem> files;
 
   const CodeInterpreterFileOutput({required this.type_, required this.files});
 
-  CodeInterpreterFileOutput Function(
-          {CodeInterpreterFileOutputType type_,
-          List<CodeInterpreterFileOutputFilesItem> files})
-      get copyWith => _copyWith;
+  CodeInterpreterFileOutput Function({CodeInterpreterFileOutputType type_, List<CodeInterpreterFileOutputFilesItem> files}) get copyWith => _copyWith;
 
-  CodeInterpreterFileOutput _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? files = sdkOmittedValue}) =>
-      CodeInterpreterFileOutput(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CodeInterpreterFileOutputType,
-        files: identical(files, sdkOmittedValue)
-            ? this.files
-            : files as List<CodeInterpreterFileOutputFilesItem>,
-      );
+  CodeInterpreterFileOutput _copyWith({Object? type_ = sdkOmittedValue, Object? files = sdkOmittedValue}) => CodeInterpreterFileOutput(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CodeInterpreterFileOutputType,
+    files: identical(files, sdkOmittedValue) ? this.files : files as List<CodeInterpreterFileOutputFilesItem>,
+  );
 
-  factory CodeInterpreterFileOutput.fromJson(Map<String, dynamic> json) =>
-      CodeInterpreterFileOutput(
-        type_: (json['type'] != null
-            ? CodeInterpreterFileOutputType.fromJson(json['type'] as String)
-            : null)!,
-        files: ((json['files'] as List?)
-            ?.map((e) => CodeInterpreterFileOutputFilesItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory CodeInterpreterFileOutput.fromJson(Map<String, dynamic> json) => CodeInterpreterFileOutput(
+    type_: (json['type'] != null ? CodeInterpreterFileOutputType.fromJson(json['type'] as String) : null)!,
+    files: ((json['files'] as List?)?.map((e) => CodeInterpreterFileOutputFilesItem.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'files': files.map((item) => item.toJson()).toList(),
-      };
+    'type': type_.toJson(),
+    'files': files.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// The output of a code interpreter tool call that is text.
 class CodeInterpreterTextOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the code interpreter text output. Always `logs`.
   final CodeInterpreterTextOutputType type_;
-
   /// The logs of the code interpreter tool call.
   final String logs;
 
   const CodeInterpreterTextOutput({required this.type_, required this.logs});
 
-  CodeInterpreterTextOutput Function(
-      {CodeInterpreterTextOutputType type_,
-      String logs}) get copyWith => _copyWith;
+  CodeInterpreterTextOutput Function({CodeInterpreterTextOutputType type_, String logs}) get copyWith => _copyWith;
 
-  CodeInterpreterTextOutput _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? logs = sdkOmittedValue}) =>
-      CodeInterpreterTextOutput(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CodeInterpreterTextOutputType,
-        logs: identical(logs, sdkOmittedValue) ? this.logs : logs as String,
-      );
+  CodeInterpreterTextOutput _copyWith({Object? type_ = sdkOmittedValue, Object? logs = sdkOmittedValue}) => CodeInterpreterTextOutput(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CodeInterpreterTextOutputType,
+    logs: identical(logs, sdkOmittedValue) ? this.logs : logs as String,
+  );
 
-  factory CodeInterpreterTextOutput.fromJson(Map<String, dynamic> json) =>
-      CodeInterpreterTextOutput(
-        type_: (json['type'] != null
-            ? CodeInterpreterTextOutputType.fromJson(json['type'] as String)
-            : null)!,
-        logs: (json['logs'] as String?)!,
-      );
+  factory CodeInterpreterTextOutput.fromJson(Map<String, dynamic> json) => CodeInterpreterTextOutput(
+    type_: (json['type'] != null ? CodeInterpreterTextOutputType.fromJson(json['type'] as String) : null)!,
+    logs: (json['logs'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'logs': logs,
-      };
+    'type': type_.toJson(),
+    'logs': logs,
+  };
 }

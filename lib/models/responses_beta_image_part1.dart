@@ -6,12 +6,12 @@ part of 'responses_beta_image.dart';
 // responses_beta_image domain models
 /// Typed representation of the `BetaImageBackground` API schema.
 final class BetaImageBackground {
+
   final String value;
 
   const BetaImageBackground._(this.value);
 
-  factory BetaImageBackground.fromJson(String value) =>
-      BetaImageBackground._(value);
+  factory BetaImageBackground.fromJson(String value) => BetaImageBackground._(value);
 
   static const transparent = BetaImageBackground._('transparent');
   static const opaque = BetaImageBackground._('opaque');
@@ -19,19 +19,17 @@ final class BetaImageBackground {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaImageBackground && other.value == value;
+  @override bool operator ==(Object other) => other is BetaImageBackground && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `BetaImageDetail` API schema.
 final class BetaImageDetail {
+
   final String value;
 
   const BetaImageDetail._(this.value);
@@ -45,25 +43,22 @@ final class BetaImageDetail {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaImageDetail && other.value == value;
+  @override bool operator ==(Object other) => other is BetaImageDetail && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `BetaImageGenActionEnum` API schema.
 final class BetaImageGenActionEnum {
+
   final String value;
 
   const BetaImageGenActionEnum._(this.value);
 
-  factory BetaImageGenActionEnum.fromJson(String value) =>
-      BetaImageGenActionEnum._(value);
+  factory BetaImageGenActionEnum.fromJson(String value) => BetaImageGenActionEnum._(value);
 
   static const generate = BetaImageGenActionEnum._('generate');
   static const edit = BetaImageGenActionEnum._('edit');
@@ -71,321 +66,159 @@ final class BetaImageGenActionEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaImageGenActionEnum && other.value == value;
+  @override bool operator ==(Object other) => other is BetaImageGenActionEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional mask for inpainting. Contains `image_url` (string, optional) and `file_id` (string, optional).
 class BetaImageGenToolInputImageMask {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Base64-encoded mask image.
   final SdkOptional<String> imageUrl;
-
   /// File ID for the mask image.
   final SdkOptional<String> fileId;
 
-  const BetaImageGenToolInputImageMask(
-      {this.imageUrl = const SdkOmitted(), this.fileId = const SdkOmitted()});
+  const BetaImageGenToolInputImageMask({this.imageUrl = const SdkOmitted(), this.fileId = const SdkOmitted()});
 
-  BetaImageGenToolInputImageMask Function(
-      {SdkOptional<String> imageUrl,
-      SdkOptional<String> fileId}) get copyWith => _copyWith;
+  BetaImageGenToolInputImageMask Function({SdkOptional<String> imageUrl, SdkOptional<String> fileId}) get copyWith => _copyWith;
 
-  BetaImageGenToolInputImageMask _copyWith(
-          {Object? imageUrl = sdkOmittedValue,
-          Object? fileId = sdkOmittedValue}) =>
-      BetaImageGenToolInputImageMask(
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as SdkOptional<String>,
-        fileId: identical(fileId, sdkOmittedValue)
-            ? this.fileId
-            : fileId as SdkOptional<String>,
-      );
+  BetaImageGenToolInputImageMask _copyWith({Object? imageUrl = sdkOmittedValue, Object? fileId = sdkOmittedValue}) => BetaImageGenToolInputImageMask(
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<String>,
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
+  );
 
-  factory BetaImageGenToolInputImageMask.fromJson(Map<String, dynamic> json) =>
-      BetaImageGenToolInputImageMask(
-        imageUrl: json['image_url'] != null
-            ? SdkPresent((json['image_url'] as String?)!)
-            : const SdkOmitted(),
-        fileId: json['file_id'] != null
-            ? SdkPresent((json['file_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory BetaImageGenToolInputImageMask.fromJson(Map<String, dynamic> json) => BetaImageGenToolInputImageMask(
+    imageUrl: json['image_url'] != null ? SdkPresent((json['image_url'] as String?)!) : const SdkOmitted(),
+    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (imageUrl) {
-          SdkPresent<String>(value: final value) => {
-              'image_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fileId) {
-          SdkPresent<String>(value: final value) => {
-              'file_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (imageUrl) {
+      SdkPresent<String>(value: final value) => {'image_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fileId) {
+      SdkPresent<String>(value: final value) => {'file_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A tool that generates images using the GPT image models.
 class BetaImageGenTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the image generation tool. Always `image_generation`.
   final BetaImageGenToolType type_;
-
   /// Optional `string` value serialized in the `model` wire field.
   final SdkOptional<String> model;
-
   /// The quality of the generated image. The GPT image models support `low`, `medium`, and `high`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, also support `xhigh` and `max`. Default: `auto`.
   final SdkOptional<BetaImageGenToolQuality> quality;
-
   /// The size of the generated images. For `gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and `gpt-image-2.5-flare-2026-09-08`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model's current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing.
   final SdkOptional<String> size;
-
   /// The output format of the generated image. One of `png`, `webp`, or `jpeg`. Default: `png`.
   final SdkOptional<BetaImageGenToolOutputFormat> outputFormat;
-
   /// Compression level for the output image. Default: 100.
   final SdkOptional<int> outputCompression;
-
   /// Moderation level for the generated image. Default: `auto`.
   final SdkOptional<BetaImageGenToolModeration> moderation;
-
   /// Set the background of the generated image. One of `transparent`, `opaque`, or `auto`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, support `opaque` and `transparent` backgrounds. Transparent backgrounds are available for supported GPT Image models. For `gpt-image-2` and `gpt-image-2-2026-04-21`, this support is in preview. When using `transparent`, set the output format to `png` or `webp`. Default: `auto`.
   final SdkOptional<BetaImageGenToolBackground> background;
-
   /// Optional API value serialized in the `input_fidelity` wire field.
   final SdkOptional<BetaInputFidelity?> inputFidelity;
-
   /// Optional mask for inpainting. Contains `image_url` (string, optional) and `file_id` (string, optional).
   final SdkOptional<BetaImageGenToolInputImageMask> inputImageMask;
-
   /// Number of partial images to generate in streaming mode, from 0 (default value) to 3.
   final SdkOptional<int> partialImages;
-
   /// Whether to generate a new image or edit an existing image. Default: `auto`.
   final SdkOptional<BetaImageGenActionEnum> action;
 
-  const BetaImageGenTool(
-      {required this.type_,
-      this.model = const SdkOmitted(),
-      this.quality = const SdkOmitted(),
-      this.size = const SdkOmitted(),
-      this.outputFormat = const SdkOmitted(),
-      this.outputCompression = const SdkOmitted(),
-      this.moderation = const SdkOmitted(),
-      this.background = const SdkOmitted(),
-      this.inputFidelity = const SdkOmitted(),
-      this.inputImageMask = const SdkOmitted(),
-      this.partialImages = const SdkOmitted(),
-      this.action = const SdkOmitted()});
+  const BetaImageGenTool({required this.type_, this.model = const SdkOmitted(), this.quality = const SdkOmitted(), this.size = const SdkOmitted(), this.outputFormat = const SdkOmitted(), this.outputCompression = const SdkOmitted(), this.moderation = const SdkOmitted(), this.background = const SdkOmitted(), this.inputFidelity = const SdkOmitted(), this.inputImageMask = const SdkOmitted(), this.partialImages = const SdkOmitted(), this.action = const SdkOmitted()});
 
-  BetaImageGenTool Function(
-      {BetaImageGenToolType type_,
-      SdkOptional<String> model,
-      SdkOptional<BetaImageGenToolQuality> quality,
-      SdkOptional<String> size,
-      SdkOptional<BetaImageGenToolOutputFormat> outputFormat,
-      SdkOptional<int> outputCompression,
-      SdkOptional<BetaImageGenToolModeration> moderation,
-      SdkOptional<BetaImageGenToolBackground> background,
-      SdkOptional<BetaInputFidelity?> inputFidelity,
-      SdkOptional<BetaImageGenToolInputImageMask> inputImageMask,
-      SdkOptional<int> partialImages,
-      SdkOptional<BetaImageGenActionEnum> action}) get copyWith => _copyWith;
+  BetaImageGenTool Function({BetaImageGenToolType type_, SdkOptional<String> model, SdkOptional<BetaImageGenToolQuality> quality, SdkOptional<String> size, SdkOptional<BetaImageGenToolOutputFormat> outputFormat, SdkOptional<int> outputCompression, SdkOptional<BetaImageGenToolModeration> moderation, SdkOptional<BetaImageGenToolBackground> background, SdkOptional<BetaInputFidelity?> inputFidelity, SdkOptional<BetaImageGenToolInputImageMask> inputImageMask, SdkOptional<int> partialImages, SdkOptional<BetaImageGenActionEnum> action}) get copyWith => _copyWith;
 
-  BetaImageGenTool _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? quality = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? outputFormat = sdkOmittedValue,
-          Object? outputCompression = sdkOmittedValue,
-          Object? moderation = sdkOmittedValue,
-          Object? background = sdkOmittedValue,
-          Object? inputFidelity = sdkOmittedValue,
-          Object? inputImageMask = sdkOmittedValue,
-          Object? partialImages = sdkOmittedValue,
-          Object? action = sdkOmittedValue}) =>
-      BetaImageGenTool(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaImageGenToolType,
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<String>,
-        quality: identical(quality, sdkOmittedValue)
-            ? this.quality
-            : quality as SdkOptional<BetaImageGenToolQuality>,
-        size: identical(size, sdkOmittedValue)
-            ? this.size
-            : size as SdkOptional<String>,
-        outputFormat: identical(outputFormat, sdkOmittedValue)
-            ? this.outputFormat
-            : outputFormat as SdkOptional<BetaImageGenToolOutputFormat>,
-        outputCompression: identical(outputCompression, sdkOmittedValue)
-            ? this.outputCompression
-            : outputCompression as SdkOptional<int>,
-        moderation: identical(moderation, sdkOmittedValue)
-            ? this.moderation
-            : moderation as SdkOptional<BetaImageGenToolModeration>,
-        background: identical(background, sdkOmittedValue)
-            ? this.background
-            : background as SdkOptional<BetaImageGenToolBackground>,
-        inputFidelity: identical(inputFidelity, sdkOmittedValue)
-            ? this.inputFidelity
-            : inputFidelity as SdkOptional<BetaInputFidelity?>,
-        inputImageMask: identical(inputImageMask, sdkOmittedValue)
-            ? this.inputImageMask
-            : inputImageMask as SdkOptional<BetaImageGenToolInputImageMask>,
-        partialImages: identical(partialImages, sdkOmittedValue)
-            ? this.partialImages
-            : partialImages as SdkOptional<int>,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<BetaImageGenActionEnum>,
-      );
+  BetaImageGenTool _copyWith({Object? type_ = sdkOmittedValue, Object? model = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? size = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? outputCompression = sdkOmittedValue, Object? moderation = sdkOmittedValue, Object? background = sdkOmittedValue, Object? inputFidelity = sdkOmittedValue, Object? inputImageMask = sdkOmittedValue, Object? partialImages = sdkOmittedValue, Object? action = sdkOmittedValue}) => BetaImageGenTool(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaImageGenToolType,
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
+    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as SdkOptional<BetaImageGenToolQuality>,
+    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String>,
+    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as SdkOptional<BetaImageGenToolOutputFormat>,
+    outputCompression: identical(outputCompression, sdkOmittedValue) ? this.outputCompression : outputCompression as SdkOptional<int>,
+    moderation: identical(moderation, sdkOmittedValue) ? this.moderation : moderation as SdkOptional<BetaImageGenToolModeration>,
+    background: identical(background, sdkOmittedValue) ? this.background : background as SdkOptional<BetaImageGenToolBackground>,
+    inputFidelity: identical(inputFidelity, sdkOmittedValue) ? this.inputFidelity : inputFidelity as SdkOptional<BetaInputFidelity?>,
+    inputImageMask: identical(inputImageMask, sdkOmittedValue) ? this.inputImageMask : inputImageMask as SdkOptional<BetaImageGenToolInputImageMask>,
+    partialImages: identical(partialImages, sdkOmittedValue) ? this.partialImages : partialImages as SdkOptional<int>,
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<BetaImageGenActionEnum>,
+  );
 
-  factory BetaImageGenTool.fromJson(Map<String, dynamic> json) =>
-      BetaImageGenTool(
-        type_: (json['type'] != null
-            ? BetaImageGenToolType.fromJson(json['type'] as String)
-            : null)!,
-        model: json['model'] != null
-            ? SdkPresent((json['model'] as String?)!)
-            : const SdkOmitted(),
-        quality: json['quality'] != null
-            ? SdkPresent((json['quality'] != null
-                ? BetaImageGenToolQuality.fromJson(json['quality'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        size: json['size'] != null
-            ? SdkPresent((json['size'] as String?)!)
-            : const SdkOmitted(),
-        outputFormat: json['output_format'] != null
-            ? SdkPresent((json['output_format'] != null
-                ? BetaImageGenToolOutputFormat.fromJson(
-                    json['output_format'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        outputCompression: json['output_compression'] != null
-            ? SdkPresent(((json['output_compression'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        moderation: json['moderation'] != null
-            ? SdkPresent((json['moderation'] != null
-                ? BetaImageGenToolModeration.fromJson(
-                    json['moderation'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        background: json['background'] != null
-            ? SdkPresent((json['background'] != null
-                ? BetaImageGenToolBackground.fromJson(
-                    json['background'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        inputFidelity: json.containsKey('input_fidelity')
-            ? SdkPresent(json['input_fidelity'] != null
-                ? BetaInputFidelity.fromJson(json['input_fidelity'] as String)
-                : null)
-            : const SdkOmitted(),
-        inputImageMask: json['input_image_mask'] != null
-            ? SdkPresent((json['input_image_mask'] != null
-                ? BetaImageGenToolInputImageMask.fromJson(
-                    json['input_image_mask'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        partialImages: json['partial_images'] != null
-            ? SdkPresent(((json['partial_images'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        action: json['action'] != null
-            ? SdkPresent((json['action'] != null
-                ? BetaImageGenActionEnum.fromJson(json['action'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory BetaImageGenTool.fromJson(Map<String, dynamic> json) => BetaImageGenTool(
+    type_: (json['type'] != null ? BetaImageGenToolType.fromJson(json['type'] as String) : null)!,
+    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
+    quality: json['quality'] != null ? SdkPresent((json['quality'] != null ? BetaImageGenToolQuality.fromJson(json['quality'] as String) : null)!) : const SdkOmitted(),
+    size: json['size'] != null ? SdkPresent((json['size'] as String?)!) : const SdkOmitted(),
+    outputFormat: json['output_format'] != null ? SdkPresent((json['output_format'] != null ? BetaImageGenToolOutputFormat.fromJson(json['output_format'] as String) : null)!) : const SdkOmitted(),
+    outputCompression: json['output_compression'] != null ? SdkPresent(((json['output_compression'] as num?)?.toInt())!) : const SdkOmitted(),
+    moderation: json['moderation'] != null ? SdkPresent((json['moderation'] != null ? BetaImageGenToolModeration.fromJson(json['moderation'] as String) : null)!) : const SdkOmitted(),
+    background: json['background'] != null ? SdkPresent((json['background'] != null ? BetaImageGenToolBackground.fromJson(json['background'] as String) : null)!) : const SdkOmitted(),
+    inputFidelity: json.containsKey('input_fidelity') ? SdkPresent(json['input_fidelity'] != null ? BetaInputFidelity.fromJson(json['input_fidelity'] as String) : null) : const SdkOmitted(),
+    inputImageMask: json['input_image_mask'] != null ? SdkPresent((json['input_image_mask'] != null ? BetaImageGenToolInputImageMask.fromJson(json['input_image_mask'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    partialImages: json['partial_images'] != null ? SdkPresent(((json['partial_images'] as num?)?.toInt())!) : const SdkOmitted(),
+    action: json['action'] != null ? SdkPresent((json['action'] != null ? BetaImageGenActionEnum.fromJson(json['action'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (model) {
-          SdkPresent<String>(value: final value) => {
-              'model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (quality) {
-          SdkPresent<BetaImageGenToolQuality>(value: final value) => {
-              'quality': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (size) {
-          SdkPresent<String>(value: final value) => {
-              'size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputFormat) {
-          SdkPresent<BetaImageGenToolOutputFormat>(value: final value) => {
-              'output_format': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputCompression) {
-          SdkPresent<int>(value: final value) => {
-              'output_compression': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (moderation) {
-          SdkPresent<BetaImageGenToolModeration>(value: final value) => {
-              'moderation': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (background) {
-          SdkPresent<BetaImageGenToolBackground>(value: final value) => {
-              'background': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputFidelity) {
-          SdkPresent<BetaInputFidelity?>(value: final value) => {
-              'input_fidelity': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputImageMask) {
-          SdkPresent<BetaImageGenToolInputImageMask>(value: final value) => {
-              'input_image_mask': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (partialImages) {
-          SdkPresent<int>(value: final value) => {
-              'partial_images': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (action) {
-          SdkPresent<BetaImageGenActionEnum>(value: final value) => {
-              'action': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (model) {
+      SdkPresent<String>(value: final value) => {'model': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (quality) {
+      SdkPresent<BetaImageGenToolQuality>(value: final value) => {'quality': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (size) {
+      SdkPresent<String>(value: final value) => {'size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputFormat) {
+      SdkPresent<BetaImageGenToolOutputFormat>(value: final value) => {'output_format': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputCompression) {
+      SdkPresent<int>(value: final value) => {'output_compression': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (moderation) {
+      SdkPresent<BetaImageGenToolModeration>(value: final value) => {'moderation': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (background) {
+      SdkPresent<BetaImageGenToolBackground>(value: final value) => {'background': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputFidelity) {
+      SdkPresent<BetaInputFidelity?>(value: final value) => {'input_fidelity': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputImageMask) {
+      SdkPresent<BetaImageGenToolInputImageMask>(value: final value) => {'input_image_mask': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (partialImages) {
+      SdkPresent<int>(value: final value) => {'partial_images': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (action) {
+      SdkPresent<BetaImageGenActionEnum>(value: final value) => {'action': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class BetaImageGenToolCallQuality {
@@ -393,20 +226,14 @@ sealed class BetaImageGenToolCallQuality {
   static const String constructionSurface = 'named';
   const BetaImageGenToolCallQuality();
   factory BetaImageGenToolCallQuality.fromJson(Object? json) {
-    try {
-      return BetaImageGenToolCallQualityBetaImageGenToolCallQualityVariant0(
-          BetaImageGenToolCallQualityVariant0.fromJson(json as String));
-    } catch (_) {}
+    try { return BetaImageGenToolCallQualityBetaImageGenToolCallQualityVariant0(BetaImageGenToolCallQualityVariant0.fromJson(json as String)); } catch (_) {}
     throw FormatException("No variant matched for BetaImageGenToolCallQuality");
   }
   Object? toJson();
 }
 
-final class BetaImageGenToolCallQualityBetaImageGenToolCallQualityVariant0
-    extends BetaImageGenToolCallQuality {
+final class BetaImageGenToolCallQualityBetaImageGenToolCallQualityVariant0 extends BetaImageGenToolCallQuality {
   final BetaImageGenToolCallQualityVariant0 value;
-  const BetaImageGenToolCallQualityBetaImageGenToolCallQualityVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaImageGenToolCallQualityBetaImageGenToolCallQualityVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
