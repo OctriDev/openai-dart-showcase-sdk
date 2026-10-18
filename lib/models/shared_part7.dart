@@ -4,101 +4,6 @@
 part of 'shared.dart';
 
 // shared domain models (part 7)
-/// Typed representation of the `ProjectEventTypeEnum` API schema.
-final class ProjectEventTypeEnum {
-  final String value;
-
-  const ProjectEventTypeEnum._(this.value);
-
-  factory ProjectEventTypeEnum.fromJson(String value) =>
-      ProjectEventTypeEnum._(value);
-
-  static const batchCompleted = ProjectEventTypeEnum._('batch.completed');
-  static const batchFailed = ProjectEventTypeEnum._('batch.failed');
-  static const batchExpired = ProjectEventTypeEnum._('batch.expired');
-  static const batchCancelled = ProjectEventTypeEnum._('batch.cancelled');
-  static const responseCompleted = ProjectEventTypeEnum._('response.completed');
-  static const responseFailed = ProjectEventTypeEnum._('response.failed');
-  static const responseCancelled = ProjectEventTypeEnum._('response.cancelled');
-  static const responseIncomplete =
-      ProjectEventTypeEnum._('response.incomplete');
-  static const evalRunSucceeded = ProjectEventTypeEnum._('eval.run.succeeded');
-  static const evalRunFailed = ProjectEventTypeEnum._('eval.run.failed');
-  static const evalRunCanceled = ProjectEventTypeEnum._('eval.run.canceled');
-  static const fineTuningJobSucceeded =
-      ProjectEventTypeEnum._('fine_tuning.job.succeeded');
-  static const fineTuningJobFailed =
-      ProjectEventTypeEnum._('fine_tuning.job.failed');
-  static const fineTuningJobCancelled =
-      ProjectEventTypeEnum._('fine_tuning.job.cancelled');
-  static const realtimeCallIncoming =
-      ProjectEventTypeEnum._('realtime.call.incoming');
-  static const videoCompleted = ProjectEventTypeEnum._('video.completed');
-  static const videoFailed = ProjectEventTypeEnum._('video.failed');
-  static const agentEnvironmentReady =
-      ProjectEventTypeEnum._('agent.environment.ready');
-  static const agentEnvironmentFailed =
-      ProjectEventTypeEnum._('agent.environment.failed');
-  static const agentEnvironmentSuspended =
-      ProjectEventTypeEnum._('agent.environment.suspended');
-  static const agentEnvironmentExpired =
-      ProjectEventTypeEnum._('agent.environment.expired');
-  static const agentSessionCreated =
-      ProjectEventTypeEnum._('agent.session.created');
-  static const agentSessionActionRequired =
-      ProjectEventTypeEnum._('agent.session.action_required');
-  static const agentSessionInProgress =
-      ProjectEventTypeEnum._('agent.session.in_progress');
-  static const agentSessionIdle = ProjectEventTypeEnum._('agent.session.idle');
-  static const agentSessionFailed =
-      ProjectEventTypeEnum._('agent.session.failed');
-  static const safetyAlertCreated =
-      ProjectEventTypeEnum._('safety.alert.created');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectEventTypeEnum && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// Request payload for assigning a role to a group or user.
-class PublicAssignOrganizationGroupRoleBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Identifier of the role to assign.
-  final String roleId;
-
-  const PublicAssignOrganizationGroupRoleBody({required this.roleId});
-
-  PublicAssignOrganizationGroupRoleBody Function({String roleId})
-      get copyWith => _copyWith;
-
-  PublicAssignOrganizationGroupRoleBody _copyWith(
-          {Object? roleId = sdkOmittedValue}) =>
-      PublicAssignOrganizationGroupRoleBody(
-        roleId:
-            identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
-      );
-
-  factory PublicAssignOrganizationGroupRoleBody.fromJson(
-          Map<String, dynamic> json) =>
-      PublicAssignOrganizationGroupRoleBody(
-        roleId: (json['role_id'] as String?)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'role_id': roleId,
-      };
-}
-
 /// Typed representation of the `RankerVersionType` API schema.
 final class RankerVersionType {
   final String value;
@@ -444,4 +349,57 @@ sealed class StopConfiguration {
     throw FormatException("No variant matched for StopConfiguration");
   }
   Object? toJson();
+}
+
+final class StopConfigurationString extends StopConfiguration {
+  final String value;
+  const StopConfigurationString(this.value);
+  @override
+  Object? toJson() => value;
+}
+
+final class StopConfigurationListString extends StopConfiguration {
+  final List<String> value;
+  const StopConfigurationListString(this.value);
+  @override
+  Object? toJson() => value;
+}
+
+/// A summary text from the model.
+class SummaryTextContent {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The type of the object. Always `summary_text`.
+  final SummaryTextContentType type_;
+
+  /// A summary of the reasoning output from the model so far.
+  final String text;
+
+  const SummaryTextContent({required this.type_, required this.text});
+
+  SummaryTextContent Function({SummaryTextContentType type_, String text})
+      get copyWith => _copyWith;
+
+  SummaryTextContent _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      SummaryTextContent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SummaryTextContentType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
+
+  factory SummaryTextContent.fromJson(Map<String, dynamic> json) =>
+      SummaryTextContent(
+        type_: (json['type'] != null
+            ? SummaryTextContentType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'type': type_.toJson(),
+        'text': text,
+      };
 }

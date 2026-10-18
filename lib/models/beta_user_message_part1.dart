@@ -159,6 +159,29 @@ sealed class BetaUserMessageItemParamContentItem {
   static const String constructionSurface = 'named';
   const BetaUserMessageItemParamContentItem();
   factory BetaUserMessageItemParamContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaInputTextContentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaUserMessageItemParamContentItemBetaInputTextContentParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaInputImageContentParamAutoParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaUserMessageItemParamContentItemBetaInputImageContentParamAutoParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaInputFileContentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaUserMessageItemParamContentItemBetaInputFileContentParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaUserMessageItemParamContentItemBetaInputTextContentParam(
           BetaInputTextContentParam.fromJson(json as Map<String, dynamic>));

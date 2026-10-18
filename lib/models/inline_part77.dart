@@ -4,6 +4,52 @@
 part of 'inline.dart';
 
 // Inline operation models (part 77)
+enum MessageStreamEventVariant1Event {
+  threadMessageInProgress;
+
+  static MessageStreamEventVariant1Event fromJson(String value) {
+    switch (value) {
+      case 'thread.message.in_progress':
+        return MessageStreamEventVariant1Event.threadMessageInProgress;
+      default:
+        throw ArgumentError('Unknown MessageStreamEventVariant1Event: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case MessageStreamEventVariant1Event.threadMessageInProgress:
+        return 'thread.message.in_progress';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+enum MessageStreamEventVariant2Event {
+  threadMessageDelta;
+
+  static MessageStreamEventVariant2Event fromJson(String value) {
+    switch (value) {
+      case 'thread.message.delta':
+        return MessageStreamEventVariant2Event.threadMessageDelta;
+      default:
+        throw ArgumentError('Unknown MessageStreamEventVariant2Event: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case MessageStreamEventVariant2Event.threadMessageDelta:
+        return 'thread.message.delta';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
 enum MessageStreamEventVariant3Event {
   threadMessageCompleted;
 
@@ -68,30 +114,6 @@ final class ModelObject {
   @override
   bool operator ==(Object other) =>
       other is ModelObject && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// Required enumerated value serialized in the `model` wire field.
-final class ModelIdsLiveVariant1 {
-  final String value;
-
-  const ModelIdsLiveVariant1._(this.value);
-
-  factory ModelIdsLiveVariant1.fromJson(String value) =>
-      ModelIdsLiveVariant1._(value);
-
-  static const gptLive1 = ModelIdsLiveVariant1._('gpt-live-1');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is ModelIdsLiveVariant1 && other.value == value;
 
   @override
   int get hashCode => value.hashCode;

@@ -10,7 +10,7 @@ class LiveSessionCreateParams {
   static const String constructionSurface = 'named';
 
   /// The Live model. Required in the session configuration for every transport; do not pass it as a URL query parameter.
-  final ModelIdsLive model;
+  final String model;
 
   /// Optional `string` value serialized in the `instructions` wire field.
   final SdkOptional<String?> instructions;
@@ -44,7 +44,7 @@ class LiveSessionCreateParams {
       this.client = const SdkOmitted()});
 
   LiveSessionCreateParams Function(
-      {ModelIdsLive model,
+      {String model,
       SdkOptional<String?> instructions,
       SdkOptional<List<LiveInitialItem>> input,
       SdkOptional<LiveInitialSessionAudioParam> audio,
@@ -63,9 +63,7 @@ class LiveSessionCreateParams {
           Object? store = sdkOmittedValue,
           Object? client = sdkOmittedValue}) =>
       LiveSessionCreateParams(
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as ModelIdsLive,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
         instructions: identical(instructions, sdkOmittedValue)
             ? this.instructions
             : instructions as SdkOptional<String?>,
@@ -91,9 +89,7 @@ class LiveSessionCreateParams {
 
   factory LiveSessionCreateParams.fromJson(Map<String, dynamic> json) =>
       LiveSessionCreateParams(
-        model: (json['model'] != null
-            ? ModelIdsLive.fromJson(json['model'])
-            : null)!,
+        model: (json['model'] as String?)!,
         instructions: json.containsKey('instructions')
             ? SdkPresent(json['instructions'] as String?)
             : const SdkOmitted(),
@@ -131,7 +127,7 @@ class LiveSessionCreateParams {
       );
 
   Map<String, dynamic> toJson() => {
-        'model': model.toJson(),
+        'model': model,
         ...switch (instructions) {
           SdkPresent<String?>(value: final value) => {
               'instructions': value,
@@ -186,6 +182,29 @@ sealed class LiveSessionCreateParamsDelegation {
   static const String constructionSurface = 'named';
   const LiveSessionCreateParamsDelegation();
   factory LiveSessionCreateParamsDelegation.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveClientDelegationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateParamsDelegationLiveClientDelegationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveResponsesDelegationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionsDelegationParam2.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveSessionCreateParamsDelegationLiveClientDelegationParam(
           LiveClientDelegationParam.fromJson(json as Map<String, dynamic>));
@@ -345,6 +364,20 @@ sealed class LiveSessionCreateRequestTransport {
   static const String constructionSurface = 'named';
   const LiveSessionCreateRequestTransport();
   factory LiveSessionCreateRequestTransport.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveWebRTCTransport.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateRequestTransportLiveWebRTCTransport(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSIPTransport.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateRequestTransportLiveSIPTransport(value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveSessionCreateRequestTransportLiveWebRTCTransport(
           LiveWebRTCTransport.fromJson(json as Map<String, dynamic>));
@@ -394,6 +427,22 @@ sealed class LiveSessionCreateRequestTransportRequest {
   static const String constructionSurface = 'named';
   const LiveSessionCreateRequestTransportRequest();
   factory LiveSessionCreateRequestTransportRequest.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveWebRTCTransport.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateRequestTransportRequestLiveWebRTCTransport(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSIPTransportRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateRequestTransportRequestLiveSIPTransportRequest(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveSessionCreateRequestTransportRequestLiveWebRTCTransport(
           LiveWebRTCTransport.fromJson(json as Map<String, dynamic>));

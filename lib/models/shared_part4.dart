@@ -391,6 +391,20 @@ sealed class Filters {
   static const String constructionSurface = 'named';
   const Filters();
   factory Filters.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ComparisonFilter.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FiltersComparisonFilter(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CompoundFilter.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FiltersCompoundFilter(value);
+        }
+      } catch (_) {}
+    }
     try {
       return FiltersComparisonFilter(
           ComparisonFilter.fromJson(json as Map<String, dynamic>));

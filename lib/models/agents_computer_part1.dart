@@ -53,6 +53,26 @@ sealed class ComputerUseApprovalRequestKindResource {
   static const String constructionSurface = 'named';
   const ComputerUseApprovalRequestKindResource();
   factory ComputerUseApprovalRequestKindResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            ComputerUseApprovalRequestKindResourceBrowserAuthentication
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserAuthentication(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            ComputerUseApprovalRequestKindResourceBrowserOriginAccess.fromJson(
+                json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserOriginAccess(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ComputerUseApprovalRequestKindResourceComputerUseApprovalRequestKindResourceBrowserAuthentication(
           ComputerUseApprovalRequestKindResourceBrowserAuthentication.fromJson(
@@ -340,6 +360,26 @@ sealed class ComputerUseApprovalResponseKindResource {
   static const String constructionSurface = 'named';
   const ComputerUseApprovalResponseKindResource();
   factory ComputerUseApprovalResponseKindResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
           ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource

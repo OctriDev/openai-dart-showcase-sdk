@@ -76,6 +76,20 @@ sealed class NamespaceToolParamToolsItem {
   static const String constructionSurface = 'named';
   const NamespaceToolParamToolsItem();
   factory NamespaceToolParamToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = FunctionToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return NamespaceToolParamToolsItemFunctionToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CustomToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return NamespaceToolParamToolsItemCustomToolParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return NamespaceToolParamToolsItemFunctionToolParam(
           FunctionToolParam.fromJson(json as Map<String, dynamic>));

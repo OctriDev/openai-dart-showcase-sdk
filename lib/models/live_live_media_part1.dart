@@ -52,7 +52,7 @@ class LiveMediaSessionCreateParams {
   static const String constructionSurface = 'named';
 
   /// The Live model. Required in the session configuration for every transport; do not pass it as a URL query parameter.
-  final ModelIdsLive model;
+  final String model;
 
   /// Optional `string` value serialized in the `instructions` wire field.
   final SdkOptional<String?> instructions;
@@ -86,7 +86,7 @@ class LiveMediaSessionCreateParams {
       this.client = const SdkOmitted()});
 
   LiveMediaSessionCreateParams Function(
-      {ModelIdsLive model,
+      {String model,
       SdkOptional<String?> instructions,
       SdkOptional<LiveMediaSessionAudioParam> audio,
       SdkOptional<Delegation?> delegation,
@@ -105,9 +105,7 @@ class LiveMediaSessionCreateParams {
           Object? input = sdkOmittedValue,
           Object? client = sdkOmittedValue}) =>
       LiveMediaSessionCreateParams(
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as ModelIdsLive,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
         instructions: identical(instructions, sdkOmittedValue)
             ? this.instructions
             : instructions as SdkOptional<String?>,
@@ -133,9 +131,7 @@ class LiveMediaSessionCreateParams {
 
   factory LiveMediaSessionCreateParams.fromJson(Map<String, dynamic> json) =>
       LiveMediaSessionCreateParams(
-        model: (json['model'] != null
-            ? ModelIdsLive.fromJson(json['model'])
-            : null)!,
+        model: (json['model'] as String?)!,
         instructions: json.containsKey('instructions')
             ? SdkPresent(json['instructions'] as String?)
             : const SdkOmitted(),
@@ -173,7 +169,7 @@ class LiveMediaSessionCreateParams {
       );
 
   Map<String, dynamic> toJson() => {
-        'model': model.toJson(),
+        'model': model,
         ...switch (instructions) {
           SdkPresent<String?>(value: final value) => {
               'instructions': value,

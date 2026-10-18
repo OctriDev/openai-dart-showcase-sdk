@@ -9,6 +9,349 @@ sealed class RealtimeServerEvent {
   static const String constructionSurface = 'named';
   const RealtimeServerEvent();
   factory RealtimeServerEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RealtimeServerEventConversationCreated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventConversationCreated(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventConversationItemCreated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventConversationItemCreated(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventConversationItemDeleted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventConversationItemDeleted(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventConversationItemInputAudioTranscriptionCompleted
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionCompleted(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventConversationItemInputAudioTranscriptionDelta
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionDelta(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventConversationItemInputAudioTranscriptionFailed
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionFailed(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventConversationItemRetrieved.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventConversationItemRetrieved(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventConversationItemTruncated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventConversationItemTruncated(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventError(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventInputAudioBufferCleared.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventInputAudioBufferCleared(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventInputAudioBufferCommitted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventInputAudioBufferCommitted(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventInputAudioBufferDtmfEventReceived.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventInputAudioBufferDtmfEventReceived(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventInputAudioBufferSpeechStarted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStarted(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventInputAudioBufferSpeechStopped.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventInputAudioBufferSpeechStopped(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventRateLimitsUpdated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventRateLimitsUpdated(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventResponseAudioDelta.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseAudioDelta(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventResponseAudioDone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseAudioDone(value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventResponseAudioTranscriptDelta.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDelta(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventResponseAudioTranscriptDone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseAudioTranscriptDone(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventResponseContentPartAdded.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseContentPartAdded(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventResponseContentPartDone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseContentPartDone(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventResponseCreated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseCreated(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventResponseDone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseDone(value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventResponseFunctionCallArgumentsDelta.fromJson(
+                json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDelta(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventResponseFunctionCallArgumentsDone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseFunctionCallArgumentsDone(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventResponseOutputItemAdded.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseOutputItemAdded(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventResponseOutputItemDone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseOutputItemDone(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventResponseTextDelta.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseTextDelta(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventResponseTextDone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseTextDone(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventSessionCreated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventSessionCreated(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventSessionUpdated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventSessionUpdated(value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventOutputAudioBufferStarted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventOutputAudioBufferStopped.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventOutputAudioBufferCleared.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventConversationItemAdded.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventConversationItemAdded(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventConversationItemDone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventConversationItemDone(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventInputAudioBufferTimeoutTriggered.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventInputAudioBufferTimeoutTriggered(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventConversationItemInputAudioTranscriptionSegment
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionSegment(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventMCPListToolsInProgress.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventMCPListToolsInProgress(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventMCPListToolsCompleted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventMCPListToolsCompleted(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventMCPListToolsFailed.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventMCPListToolsFailed(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventResponseMCPCallArgumentsDelta.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDelta(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventResponseMCPCallArgumentsDone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDone(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventResponseMCPCallInProgress.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseMCPCallInProgress(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeServerEventResponseMCPCallCompleted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseMCPCallCompleted(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeServerEventResponseMCPCallFailed.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventRealtimeServerEventResponseMCPCallFailed(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RealtimeServerEventRealtimeServerEventConversationCreated(
           RealtimeServerEventConversationCreated.fromJson(
@@ -536,57 +879,6 @@ final class RealtimeServerEventRealtimeServerEventResponseTextDelta
     extends RealtimeServerEvent {
   final RealtimeServerEventResponseTextDelta value;
   const RealtimeServerEventRealtimeServerEventResponseTextDelta(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class RealtimeServerEventRealtimeServerEventResponseTextDone
-    extends RealtimeServerEvent {
-  final RealtimeServerEventResponseTextDone value;
-  const RealtimeServerEventRealtimeServerEventResponseTextDone(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class RealtimeServerEventRealtimeServerEventSessionCreated
-    extends RealtimeServerEvent {
-  final RealtimeServerEventSessionCreated value;
-  const RealtimeServerEventRealtimeServerEventSessionCreated(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class RealtimeServerEventRealtimeServerEventSessionUpdated
-    extends RealtimeServerEvent {
-  final RealtimeServerEventSessionUpdated value;
-  const RealtimeServerEventRealtimeServerEventSessionUpdated(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted
-    extends RealtimeServerEvent {
-  final RealtimeServerEventOutputAudioBufferStarted value;
-  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped
-    extends RealtimeServerEvent {
-  final RealtimeServerEventOutputAudioBufferStopped value;
-  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared
-    extends RealtimeServerEvent {
-  final RealtimeServerEventOutputAudioBufferCleared value;
-  const RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared(
-      this.value);
   @override
   Object? toJson() => value.toJson();
 }

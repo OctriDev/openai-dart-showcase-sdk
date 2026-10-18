@@ -80,6 +80,8 @@ class PredictionContent {
       };
 }
 
+// ResponseModalities = List<ResponseModalitiesItem>
+
 sealed class ServiceTier {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -99,49 +101,4 @@ final class ServiceTierServiceTierVariant0 extends ServiceTier {
   const ServiceTierServiceTierVariant0(this.value);
   @override
   Object? toJson() => value.toJson();
-}
-
-sealed class ToolsItem {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const ToolsItem();
-  factory ToolsItem.fromJson(Object? json) {
-    try {
-      return ToolsItemChatCompletionTool(
-          ChatCompletionTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolsItemCustomToolChatCompletions(
-          CustomToolChatCompletions.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"function", "custom"}.contains(json["type"])) {
-      return UnknownToolsItem(json);
-    }
-    throw FormatException("No variant matched for ToolsItem");
-  }
-  Object? toJson();
-}
-
-final class ToolsItemChatCompletionTool extends ToolsItem {
-  final ChatCompletionTool value;
-  const ToolsItemChatCompletionTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ToolsItemCustomToolChatCompletions extends ToolsItem {
-  final CustomToolChatCompletions value;
-  const ToolsItemCustomToolChatCompletions(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-/// A [ToolsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownToolsItem extends ToolsItem {
-  final Map<String, dynamic> raw;
-  const UnknownToolsItem(this.raw);
-  @override
-  Object? toJson() => raw;
 }

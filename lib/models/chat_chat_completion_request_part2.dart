@@ -9,6 +9,50 @@ sealed class ChatCompletionRequestMessage {
   static const String constructionSurface = 'named';
   const ChatCompletionRequestMessage();
   factory ChatCompletionRequestMessage.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ChatCompletionRequestDeveloperMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestDeveloperMessage(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionRequestSystemMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestSystemMessage(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionRequestUserMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestUserMessage(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionRequestAssistantMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestAssistantMessage(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionRequestToolMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestToolMessage(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionRequestFunctionMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestFunctionMessage(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ChatCompletionRequestMessageChatCompletionRequestDeveloperMessage(
           ChatCompletionRequestDeveloperMessage.fromJson(

@@ -109,6 +109,22 @@ sealed class AutoCodeInterpreterToolParamNetworkPolicy {
   static const String constructionSurface = 'named';
   const AutoCodeInterpreterToolParamNetworkPolicy();
   factory AutoCodeInterpreterToolParamNetworkPolicy.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ContainerNetworkPolicyDisabledParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyDisabledParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ContainerNetworkPolicyAllowlistParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyAllowlistParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return AutoCodeInterpreterToolParamNetworkPolicyContainerNetworkPolicyDisabledParam(
           ContainerNetworkPolicyDisabledParam.fromJson(

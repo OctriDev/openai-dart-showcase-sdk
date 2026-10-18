@@ -474,31 +474,3 @@ class AssistantObject {
         },
       };
 }
-
-sealed class AssistantObjectToolsItem {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const AssistantObjectToolsItem();
-  factory AssistantObjectToolsItem.fromJson(Object? json) {
-    try {
-      return AssistantObjectToolsItemAssistantToolsCode(
-          AssistantToolsCode.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return AssistantObjectToolsItemAssistantToolsFileSearch(
-          AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return AssistantObjectToolsItemAssistantToolsFunction(
-          AssistantToolsFunction.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"code_interpreter", "file_search", "function"}
-            .contains(json["type"])) {
-      return UnknownAssistantObjectToolsItem(json);
-    }
-    throw FormatException("No variant matched for AssistantObjectToolsItem");
-  }
-  Object? toJson();
-}

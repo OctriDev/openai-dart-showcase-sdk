@@ -4,6 +4,88 @@
 part of 'realtime_realtime_server_event.dart';
 
 // realtime_realtime_server_event domain models (part 10)
+/// Returned when a new Item is created during Response generation.
+class RealtimeServerEventResponseOutputItemAdded {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The unique ID of the server event.
+  final String eventId;
+
+  /// The event type, must be `response.output_item.added`.
+  final RealtimeServerEventResponseOutputItemAddedType type_;
+
+  /// The ID of the Response to which the item belongs.
+  final String responseId;
+
+  /// The index of the output item in the Response.
+  final int outputIndex;
+
+  /// A single item within a Realtime conversation.
+  final RealtimeConversationItem item;
+
+  const RealtimeServerEventResponseOutputItemAdded(
+      {required this.eventId,
+      required this.type_,
+      required this.responseId,
+      required this.outputIndex,
+      required this.item});
+
+  RealtimeServerEventResponseOutputItemAdded Function(
+      {String eventId,
+      RealtimeServerEventResponseOutputItemAddedType type_,
+      String responseId,
+      int outputIndex,
+      RealtimeConversationItem item}) get copyWith => _copyWith;
+
+  RealtimeServerEventResponseOutputItemAdded _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? item = sdkOmittedValue}) =>
+      RealtimeServerEventResponseOutputItemAdded(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeServerEventResponseOutputItemAddedType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        item: identical(item, sdkOmittedValue)
+            ? this.item
+            : item as RealtimeConversationItem,
+      );
+
+  factory RealtimeServerEventResponseOutputItemAdded.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeServerEventResponseOutputItemAdded(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeServerEventResponseOutputItemAddedType.fromJson(
+                json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        item: (json['item'] != null
+            ? RealtimeConversationItem.fromJson(json['item'])
+            : null)!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'output_index': outputIndex,
+        'item': item.toJson(),
+      };
+}
+
 /// Returned when an Item is done streaming. Also emitted when a Response is interrupted, incomplete, or cancelled.
 class RealtimeServerEventResponseOutputItemDone {
   /// This model is constructed from named fields in one call.
@@ -348,6 +430,23 @@ sealed class RealtimeServerEventSessionCreatedSession {
   static const String constructionSurface = 'named';
   const RealtimeServerEventSessionCreatedSession();
   factory RealtimeServerEventSessionCreatedSession.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RealtimeSessionCreateResponseGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventSessionCreatedSessionRealtimeSessionCreateResponseGA(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranscriptionSessionCreateResponseGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventSessionCreatedSessionRealtimeTranscriptionSessionCreateResponseGA(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RealtimeServerEventSessionCreatedSessionRealtimeSessionCreateResponseGA(
           RealtimeSessionCreateResponseGA.fromJson(
@@ -392,118 +491,6 @@ final class UnknownRealtimeServerEventSessionCreatedSession
     extends RealtimeServerEventSessionCreatedSession {
   final Map<String, dynamic> raw;
   const UnknownRealtimeServerEventSessionCreatedSession(this.raw);
-  @override
-  Object? toJson() => raw;
-}
-
-/// Returned when a session is updated with a `session.update` event, unless there is an error.
-class RealtimeServerEventSessionUpdated {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The unique ID of the server event.
-  final String eventId;
-
-  /// The event type, must be `session.updated`.
-  final RealtimeServerEventSessionUpdatedType type_;
-
-  /// The session configuration.
-  final RealtimeServerEventSessionUpdatedSession session;
-
-  const RealtimeServerEventSessionUpdated(
-      {required this.eventId, required this.type_, required this.session});
-
-  RealtimeServerEventSessionUpdated Function(
-          {String eventId,
-          RealtimeServerEventSessionUpdatedType type_,
-          RealtimeServerEventSessionUpdatedSession session})
-      get copyWith => _copyWith;
-
-  RealtimeServerEventSessionUpdated _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? session = sdkOmittedValue}) =>
-      RealtimeServerEventSessionUpdated(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeServerEventSessionUpdatedType,
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as RealtimeServerEventSessionUpdatedSession,
-      );
-
-  factory RealtimeServerEventSessionUpdated.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeServerEventSessionUpdated(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeServerEventSessionUpdatedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        session: (json['session'] != null
-            ? RealtimeServerEventSessionUpdatedSession.fromJson(json['session'])
-            : null)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'session': session.toJson(),
-      };
-}
-
-sealed class RealtimeServerEventSessionUpdatedSession {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const RealtimeServerEventSessionUpdatedSession();
-  factory RealtimeServerEventSessionUpdatedSession.fromJson(Object? json) {
-    try {
-      return RealtimeServerEventSessionUpdatedSessionRealtimeSessionCreateResponseGA(
-          RealtimeSessionCreateResponseGA.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RealtimeServerEventSessionUpdatedSessionRealtimeTranscriptionSessionCreateResponseGA(
-          RealtimeTranscriptionSessionCreateResponseGA.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"realtime", "transcription"}.contains(json["type"])) {
-      return UnknownRealtimeServerEventSessionUpdatedSession(json);
-    }
-    throw FormatException(
-        "No variant matched for RealtimeServerEventSessionUpdatedSession");
-  }
-  Object? toJson();
-}
-
-final class RealtimeServerEventSessionUpdatedSessionRealtimeSessionCreateResponseGA
-    extends RealtimeServerEventSessionUpdatedSession {
-  final RealtimeSessionCreateResponseGA value;
-  const RealtimeServerEventSessionUpdatedSessionRealtimeSessionCreateResponseGA(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class RealtimeServerEventSessionUpdatedSessionRealtimeTranscriptionSessionCreateResponseGA
-    extends RealtimeServerEventSessionUpdatedSession {
-  final RealtimeTranscriptionSessionCreateResponseGA value;
-  const RealtimeServerEventSessionUpdatedSessionRealtimeTranscriptionSessionCreateResponseGA(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-/// A [RealtimeServerEventSessionUpdatedSession] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeServerEventSessionUpdatedSession
-    extends RealtimeServerEventSessionUpdatedSession {
-  final Map<String, dynamic> raw;
-  const UnknownRealtimeServerEventSessionUpdatedSession(this.raw);
   @override
   Object? toJson() => raw;
 }

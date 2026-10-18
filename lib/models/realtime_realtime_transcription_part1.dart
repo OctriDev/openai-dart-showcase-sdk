@@ -160,7 +160,9 @@ class RealtimeTranscriptionSessionCreateRequest {
       turnDetection;
 
   /// Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
-  final SdkOptional<dynamic> inputAudioNoiseReduction;
+  final SdkOptional<
+          RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>
+      inputAudioNoiseReduction;
 
   /// The format of input audio. Options are `pcm16`, `g711_ulaw`, or `g711_alaw`. For `pcm16`, input audio must be 16-bit PCM at a 24kHz sample rate, single channel (mono), and little-endian byte order.
   final SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat>
@@ -183,7 +185,9 @@ class RealtimeTranscriptionSessionCreateRequest {
   RealtimeTranscriptionSessionCreateRequest Function(
       {SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection>
           turnDetection,
-      SdkOptional<dynamic> inputAudioNoiseReduction,
+      SdkOptional<
+              RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>
+          inputAudioNoiseReduction,
       SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat>
           inputAudioFormat,
       SdkOptional<AudioTranscription> inputAudioTranscription,
@@ -201,10 +205,11 @@ class RealtimeTranscriptionSessionCreateRequest {
             ? this.turnDetection
             : turnDetection as SdkOptional<
                 RealtimeTranscriptionSessionCreateRequestTurnDetection>,
-        inputAudioNoiseReduction:
-            identical(inputAudioNoiseReduction, sdkOmittedValue)
-                ? this.inputAudioNoiseReduction
-                : inputAudioNoiseReduction as SdkOptional<dynamic>,
+        inputAudioNoiseReduction: identical(
+                inputAudioNoiseReduction, sdkOmittedValue)
+            ? this.inputAudioNoiseReduction
+            : inputAudioNoiseReduction as SdkOptional<
+                RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>,
         inputAudioFormat: identical(inputAudioFormat, sdkOmittedValue)
             ? this.inputAudioFormat
             : inputAudioFormat as SdkOptional<
@@ -229,7 +234,11 @@ class RealtimeTranscriptionSessionCreateRequest {
                 : null)!)
             : const SdkOmitted(),
         inputAudioNoiseReduction: json['input_audio_noise_reduction'] != null
-            ? SdkPresent((json['input_audio_noise_reduction'])!)
+            ? SdkPresent((json['input_audio_noise_reduction'] != null
+                ? RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction
+                    .fromJson(json['input_audio_noise_reduction']
+                        as Map<String, dynamic>)
+                : null)!)
             : const SdkOmitted(),
         inputAudioFormat: json['input_audio_format'] != null
             ? SdkPresent((json['input_audio_format'] != null
@@ -263,8 +272,12 @@ class RealtimeTranscriptionSessionCreateRequest {
           _ => const <String, dynamic>{},
         },
         ...switch (inputAudioNoiseReduction) {
-          SdkPresent<dynamic>(value: final value) => {
-              'input_audio_noise_reduction': value,
+          SdkPresent<
+                RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>(
+            value: final value
+          ) =>
+            {
+              'input_audio_noise_reduction': value.toJson(),
             },
           _ => const <String, dynamic>{},
         },
@@ -350,7 +363,9 @@ class RealtimeTranscriptionSessionCreateRequestGAAudioInput {
   final SdkOptional<AudioTranscription> transcription;
 
   /// Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
-  final SdkOptional<dynamic> noiseReduction;
+  final SdkOptional<
+          RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction>
+      noiseReduction;
 
   /// Configuration for turn detection, ether Server VAD or Semantic VAD. This can be set to `null` to turn off, in which case the client must manually trigger model response. Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech. Semantic VAD is more advanced and uses a turn detection model (in conjunction with VAD) to semantically estimate whether the user has finished speaking, then dynamically sets a timeout based on this probability. For example, if user audio trails off with "uhhm", the model will score a low probability of turn end and wait longer for the user to continue speaking. This can be useful for more natural conversations, but may have a higher latency. For `gpt-realtime-whisper` transcription sessions, turn detection must be set to `null`; VAD is not supported.
   final SdkOptional<RealtimeTurnDetection?> turnDetection;
@@ -362,11 +377,13 @@ class RealtimeTranscriptionSessionCreateRequestGAAudioInput {
       this.turnDetection = const SdkOmitted()});
 
   RealtimeTranscriptionSessionCreateRequestGAAudioInput Function(
-          {SdkOptional<RealtimeAudioFormats> format,
-          SdkOptional<AudioTranscription> transcription,
-          SdkOptional<dynamic> noiseReduction,
-          SdkOptional<RealtimeTurnDetection?> turnDetection})
-      get copyWith => _copyWith;
+      {SdkOptional<RealtimeAudioFormats> format,
+      SdkOptional<AudioTranscription> transcription,
+      SdkOptional<
+              RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction>
+          noiseReduction,
+      SdkOptional<RealtimeTurnDetection?>
+          turnDetection}) get copyWith => _copyWith;
 
   RealtimeTranscriptionSessionCreateRequestGAAudioInput _copyWith(
           {Object? format = sdkOmittedValue,
@@ -382,7 +399,8 @@ class RealtimeTranscriptionSessionCreateRequestGAAudioInput {
             : transcription as SdkOptional<AudioTranscription>,
         noiseReduction: identical(noiseReduction, sdkOmittedValue)
             ? this.noiseReduction
-            : noiseReduction as SdkOptional<dynamic>,
+            : noiseReduction as SdkOptional<
+                RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction>,
         turnDetection: identical(turnDetection, sdkOmittedValue)
             ? this.turnDetection
             : turnDetection as SdkOptional<RealtimeTurnDetection?>,
@@ -403,7 +421,10 @@ class RealtimeTranscriptionSessionCreateRequestGAAudioInput {
                 : null)!)
             : const SdkOmitted(),
         noiseReduction: json['noise_reduction'] != null
-            ? SdkPresent((json['noise_reduction'])!)
+            ? SdkPresent((json['noise_reduction'] != null
+                ? RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction
+                    .fromJson(json['noise_reduction'] as Map<String, dynamic>)
+                : null)!)
             : const SdkOmitted(),
         turnDetection: json.containsKey('turn_detection')
             ? SdkPresent(json['turn_detection'] != null
@@ -426,8 +447,12 @@ class RealtimeTranscriptionSessionCreateRequestGAAudioInput {
           _ => const <String, dynamic>{},
         },
         ...switch (noiseReduction) {
-          SdkPresent<dynamic>(value: final value) => {
-              'noise_reduction': value,
+          SdkPresent<
+                RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction>(
+            value: final value
+          ) =>
+            {
+              'noise_reduction': value.toJson(),
             },
           _ => const <String, dynamic>{},
         },

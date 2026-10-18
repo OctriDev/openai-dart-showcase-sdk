@@ -93,6 +93,50 @@ sealed class RunStepStreamEvent {
   static const String constructionSurface = 'named';
   const RunStepStreamEvent();
   factory RunStepStreamEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RunStepStreamEventVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepStreamEventRunStepStreamEventVariant0(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStepStreamEventVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepStreamEventRunStepStreamEventVariant1(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStepStreamEventVariant2.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepStreamEventRunStepStreamEventVariant2(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStepStreamEventVariant3.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepStreamEventRunStepStreamEventVariant3(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStepStreamEventVariant4.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepStreamEventRunStepStreamEventVariant4(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStepStreamEventVariant5.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepStreamEventRunStepStreamEventVariant5(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStepStreamEventVariant6.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepStreamEventRunStepStreamEventVariant6(value);
+        }
+      } catch (_) {}
+    }
     try {
       return RunStepStreamEventRunStepStreamEventVariant0(
           RunStepStreamEventVariant0.fromJson(json as Map<String, dynamic>));
@@ -370,46 +414,6 @@ class RunStreamEventVariant4 {
       RunStreamEventVariant4(
         event: (json['event'] != null
             ? RunStreamEventVariant4Event.fromJson(json['event'] as String)
-            : null)!,
-        data: (json['data'] != null
-            ? RunObject.fromJson(json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'event': event.toJson(),
-        'data': data.toJson(),
-      };
-}
-
-/// Occurs when a [run](https://developers.openai.com/api/docs/assistants/migration) ends with status `incomplete`.
-class RunStreamEventVariant5 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  final RunStreamEventVariant5Event event;
-
-  /// Represents an execution run on a [thread](https://developers.openai.com/api/docs/assistants/migration).
-  final RunObject data;
-
-  const RunStreamEventVariant5({required this.event, required this.data});
-
-  RunStreamEventVariant5 Function(
-      {RunStreamEventVariant5Event event,
-      RunObject data}) get copyWith => _copyWith;
-
-  RunStreamEventVariant5 _copyWith(
-          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
-      RunStreamEventVariant5(
-        event: identical(event, sdkOmittedValue)
-            ? this.event
-            : event as RunStreamEventVariant5Event,
-        data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
-      );
-
-  factory RunStreamEventVariant5.fromJson(Map<String, dynamic> json) =>
-      RunStreamEventVariant5(
-        event: (json['event'] != null
-            ? RunStreamEventVariant5Event.fromJson(json['event'] as String)
             : null)!,
         data: (json['data'] != null
             ? RunObject.fromJson(json['data'] as Map<String, dynamic>)

@@ -417,6 +417,38 @@ sealed class InputItem {
   static const String constructionSurface = 'named';
   const InputItem();
   factory InputItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = EasyInputMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputItemEasyInputMessage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CompactionTriggerItemParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputItemCompactionTriggerItemParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ItemReferenceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputItemItemReferenceParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ProgramItemParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputItemProgramItemParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ProgramOutputItemParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputItemProgramOutputItemParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return InputItemEasyInputMessage(
           EasyInputMessage.fromJson(json as Map<String, dynamic>));

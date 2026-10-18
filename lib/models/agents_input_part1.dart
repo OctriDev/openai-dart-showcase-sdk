@@ -9,6 +9,20 @@ sealed class InputContentParam {
   static const String constructionSurface = 'named';
   const InputContentParam();
   factory InputContentParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = InputContentParamInputText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputContentParamInputContentParamInputText(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputContentParamInputImage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputContentParamInputContentParamInputImage(value);
+        }
+      } catch (_) {}
+    }
     try {
       return InputContentParamInputContentParamInputText(
           InputContentParamInputText.fromJson(json as Map<String, dynamic>));
@@ -140,6 +154,20 @@ sealed class InputContentResource {
   static const String constructionSurface = 'named';
   const InputContentResource();
   factory InputContentResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = InputContentResourceInputText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputContentResourceInputContentResourceInputText(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputContentResourceInputImage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputContentResourceInputContentResourceInputImage(value);
+        }
+      } catch (_) {}
+    }
     try {
       return InputContentResourceInputContentResourceInputText(
           InputContentResourceInputText.fromJson(json as Map<String, dynamic>));

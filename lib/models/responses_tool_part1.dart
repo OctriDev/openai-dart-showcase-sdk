@@ -107,6 +107,56 @@ sealed class ToolChoiceParam {
   static const String constructionSurface = 'named';
   const ToolChoiceParam();
   factory ToolChoiceParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ToolChoiceAllowed.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolChoiceParamToolChoiceAllowed(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolChoiceTypes.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolChoiceParamToolChoiceTypes(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolChoiceFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolChoiceParamToolChoiceFunction(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolChoiceMCP.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolChoiceParamToolChoiceMCP(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolChoiceCustom.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolChoiceParamToolChoiceCustom(value);
+        }
+      } catch (_) {}
+      try {
+        final value = SpecificProgrammaticToolCallingParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolChoiceParamSpecificProgrammaticToolCallingParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = SpecificApplyPatchParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolChoiceParamSpecificApplyPatchParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = SpecificFunctionShellParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolChoiceParamSpecificFunctionShellParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return ToolChoiceParamToolChoiceOptions(
           ToolChoiceOptions.fromJson(json as String));

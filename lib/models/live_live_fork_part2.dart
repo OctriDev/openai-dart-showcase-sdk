@@ -4,6 +4,28 @@
 part of 'live_live_fork.dart';
 
 // live_live_fork domain models (part 2)
+sealed class LiveForkSessionStartEventEventId {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const LiveForkSessionStartEventEventId();
+  factory LiveForkSessionStartEventEventId.fromJson(Object? json) {
+    if (json is String) {
+      return LiveForkSessionStartEventEventIdString(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveForkSessionStartEventEventId");
+  }
+  Object? toJson();
+}
+
+final class LiveForkSessionStartEventEventIdString
+    extends LiveForkSessionStartEventEventId {
+  final String value;
+  const LiveForkSessionStartEventEventIdString(this.value);
+  @override
+  Object? toJson() => value;
+}
+
 /// Start a Live session after connecting to a stored session’s fork WebSocket. Send an empty `session` object to use the stored configuration.
 class LiveForkSessionStartEvent {
   /// This model is constructed from named fields in one call.

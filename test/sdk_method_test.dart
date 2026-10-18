@@ -197,7 +197,7 @@ void main() {
             SdkPresent<String>((jsonDecode("\"instructions\"") as String)),
         audio: SdkPresent<RealtimeSessionCreateRequestGAAudio>(
             RealtimeSessionCreateRequestGAAudio.fromJson((jsonDecode(
-                        "{\"input\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"transcription\":{\"model\":\"model\",\"language\":\"language\",\"languages\":[\"languages\"],\"keywords\":[\"keywords\"],\"prompt\":\"prompt\",\"delay\":\"minimal\"},\"noise_reduction\":null,\"turn_detection\":{\"type\":\"server_vad\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1,\"create_response\":true,\"interrupt_response\":true,\"idle_timeout_ms\":5000}},\"output\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"voice\":\"alloy\",\"speed\":1}}")
+                        "{\"input\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"transcription\":{\"model\":\"model\",\"language\":\"language\",\"languages\":[\"languages\"],\"keywords\":[\"keywords\"],\"prompt\":\"prompt\",\"delay\":\"minimal\"},\"noise_reduction\":{\"type\":\"near_field\"},\"turn_detection\":{\"type\":\"server_vad\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1,\"create_response\":true,\"interrupt_response\":true,\"idle_timeout_ms\":5000}},\"output\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"voice\":\"alloy\",\"speed\":1}}")
                     as Map)
                 .cast<String, dynamic>())),
         include: SdkPresent<List<RealtimeSessionCreateRequestGAIncludeItem>>(
@@ -255,7 +255,7 @@ void main() {
               SdkPresent<String>((jsonDecode("\"instructions\"") as String)),
           audio: SdkPresent<RealtimeSessionCreateRequestGAAudio>(
               RealtimeSessionCreateRequestGAAudio.fromJson((jsonDecode(
-                          "{\"input\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"transcription\":{\"model\":\"model\",\"language\":\"language\",\"languages\":[\"languages\"],\"keywords\":[\"keywords\"],\"prompt\":\"prompt\",\"delay\":\"minimal\"},\"noise_reduction\":null,\"turn_detection\":{\"type\":\"server_vad\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1,\"create_response\":true,\"interrupt_response\":true,\"idle_timeout_ms\":5000}},\"output\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"voice\":\"alloy\",\"speed\":1}}")
+                          "{\"input\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"transcription\":{\"model\":\"model\",\"language\":\"language\",\"languages\":[\"languages\"],\"keywords\":[\"keywords\"],\"prompt\":\"prompt\",\"delay\":\"minimal\"},\"noise_reduction\":{\"type\":\"near_field\"},\"turn_detection\":{\"type\":\"server_vad\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1,\"create_response\":true,\"interrupt_response\":true,\"idle_timeout_ms\":5000}},\"output\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"voice\":\"alloy\",\"speed\":1}}")
                       as Map)
                   .cast<String, dynamic>())),
           include: SdkPresent<List<RealtimeSessionCreateRequestGAIncludeItem>>(
@@ -1035,7 +1035,7 @@ void main() {
         mismatch(
           normal(actual),
           SdkUtils.decodeJson(
-              "{\"object\":\"list\",\"data\":[{\"agent\":{\"agent_name\":\"Example Name\"},\"type\":\"BetaInputMessageResource\",\"role\":\"user\",\"status\":\"in_progress\",\"content\":[{\"type\":\"input_text\",\"text\":\"text\",\"prompt_cache_breakpoint\":{\"mode\":\"explicit\"}}],\"id\":\"id-1\"}],\"has_more\":false,\"first_id\":\"first-1\",\"last_id\":\"last-1\"}"),
+              "{\"object\":\"list\",\"data\":[{\"agent\":{\"agent_name\":\"Example Name\"},\"type\":\"message\",\"role\":\"user\",\"status\":\"in_progress\",\"content\":[{\"type\":\"input_text\",\"text\":\"text\",\"prompt_cache_breakpoint\":{\"mode\":\"explicit\"}}],\"id\":\"id-1\"}],\"has_more\":false,\"first_id\":\"first-1\",\"last_id\":\"last-1\"}"),
         ),
         isNull,
       );
@@ -2319,7 +2319,7 @@ void main() {
             <CreateAssistantRequestToolsItem>[]),
         toolResources: SdkPresent<CreateAssistantRequestToolResources?>(
             CreateAssistantRequestToolResources.fromJson((jsonDecode(
-                        "{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}}")
+                        "{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"],\"vector_stores\":[{\"file_ids\":[\"file_ids\"],\"chunking_strategy\":{\"type\":\"auto\"},\"metadata\":{\"key\":\"key\"}}]}}")
                     as Map)
                 .cast<String, dynamic>())),
         metadata: SdkPresent<Map<String, dynamic>?>(
@@ -3795,21 +3795,10 @@ void main() {
     test("createLive reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_0.createLive(
         config,
-        session: LiveMediaSessionCreateParams(
-            model: ModelIdsLive.fromJson(
-                (jsonDecode("{}") as Map).cast<String, dynamic>()),
-            instructions:
-                SdkPresent<String?>((jsonDecode("\"sample\"") as String)),
-            audio: SdkPresent<LiveMediaSessionAudioParam>(LiveMediaSessionAudioParam.fromJson(
-                (jsonDecode("{}") as Map).cast<String, dynamic>())),
-            delegation: SdkPresent<Delegation?>(Delegation.fromJson(
-                (jsonDecode("{}") as Map).cast<String, dynamic>())),
-            triggers: SdkPresent<List<LiveDecisionTriggerInputParam>>(
-                <LiveDecisionTriggerInputParam>[]),
-            store: SdkPresent<bool>((jsonDecode("true") as bool)),
-            input: SdkPresent<List<LiveInitialItem>>(<LiveInitialItem>[]),
-            client: SdkPresent<LiveClientConfigParam>(
-                LiveClientConfigParam.fromJson((jsonDecode("{}") as Map).cast<String, dynamic>()))),
+        session: LiveMediaSessionCreateParams.fromJson((jsonDecode(
+                    "{\"model\":\"gpt-live-1\",\"instructions\":\"instructions\",\"audio\":{\"output\":{\"voice\":{\"id\":\"id-1\"}}},\"delegation\":{\"type\":\"client\"},\"triggers\":[{\"type\":\"decisions\",\"event_type\":\"session.input_transcript.delta\",\"decisions\":{\"questions\":[{\"type\":\"choice\",\"name\":\"Example Name\",\"instructions\":\"instructions\",\"choices\":[{\"value\":\"value\",\"description\":\"string\"},{\"value\":\"value\",\"description\":\"string\"}]}]}}],\"store\":false,\"input\":[{\"id\":\"id-1\",\"type\":\"message\",\"status\":\"incomplete\",\"role\":\"developer\",\"content\":[{\"type\":\"input_text\",\"text\":\"text\"}]}],\"client\":{\"data_channel\":{\"allowed_client_events\":\"all\",\"allowed_server_events\":\"all\"}}}")
+                as Map)
+            .cast<String, dynamic>()),
         transport: LiveSessionCreateRequestTransportRequest.fromJson(
             (jsonDecode("{\"type\":\"webrtc\",\"sdp\":\"x\"}") as Map)
                 .cast<String, dynamic>()),
@@ -3831,21 +3820,10 @@ void main() {
       try {
         await sdk_methods_0.createLive(
           config,
-          session: LiveMediaSessionCreateParams(
-              model: ModelIdsLive.fromJson(
-                  (jsonDecode("{}") as Map).cast<String, dynamic>()),
-              instructions:
-                  SdkPresent<String?>((jsonDecode("\"sample\"") as String)),
-              audio: SdkPresent<LiveMediaSessionAudioParam>(LiveMediaSessionAudioParam.fromJson(
-                  (jsonDecode("{}") as Map).cast<String, dynamic>())),
-              delegation: SdkPresent<Delegation?>(Delegation.fromJson(
-                  (jsonDecode("{}") as Map).cast<String, dynamic>())),
-              triggers: SdkPresent<List<LiveDecisionTriggerInputParam>>(
-                  <LiveDecisionTriggerInputParam>[]),
-              store: SdkPresent<bool>((jsonDecode("true") as bool)),
-              input: SdkPresent<List<LiveInitialItem>>(<LiveInitialItem>[]),
-              client: SdkPresent<LiveClientConfigParam>(
-                  LiveClientConfigParam.fromJson((jsonDecode("{}") as Map).cast<String, dynamic>()))),
+          session: LiveMediaSessionCreateParams.fromJson((jsonDecode(
+                      "{\"model\":\"gpt-live-1\",\"instructions\":\"instructions\",\"audio\":{\"output\":{\"voice\":{\"id\":\"id-1\"}}},\"delegation\":{\"type\":\"client\"},\"triggers\":[{\"type\":\"decisions\",\"event_type\":\"session.input_transcript.delta\",\"decisions\":{\"questions\":[{\"type\":\"choice\",\"name\":\"Example Name\",\"instructions\":\"instructions\",\"choices\":[{\"value\":\"value\",\"description\":\"string\"},{\"value\":\"value\",\"description\":\"string\"}]}]}}],\"store\":false,\"input\":[{\"id\":\"id-1\",\"type\":\"message\",\"status\":\"incomplete\",\"role\":\"developer\",\"content\":[{\"type\":\"input_text\",\"text\":\"text\"}]}],\"client\":{\"data_channel\":{\"allowed_client_events\":\"all\",\"allowed_server_events\":\"all\"}}}")
+                  as Map)
+              .cast<String, dynamic>()),
           transport: LiveSessionCreateRequestTransportRequest.fromJson(
               (jsonDecode("{\"type\":\"webrtc\",\"sdp\":\"x\"}") as Map)
                   .cast<String, dynamic>()),
@@ -4259,7 +4237,7 @@ void main() {
         config,
         body: CreateRealtimeCallBody.realtimeCallCreateRequest(
             RealtimeCallCreateRequest.fromJson((jsonDecode(
-                        "{\"sdp\":\"sdp\",\"session\":{\"type\":\"realtime\",\"output_modalities\":[\"audio\"],\"model\":\"model\",\"instructions\":\"instructions\",\"audio\":{\"input\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"transcription\":{\"model\":\"model\",\"language\":\"language\",\"languages\":[\"languages\"],\"keywords\":[\"keywords\"],\"prompt\":\"prompt\",\"delay\":\"minimal\"},\"noise_reduction\":null,\"turn_detection\":{\"type\":\"server_vad\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1,\"create_response\":true,\"interrupt_response\":true,\"idle_timeout_ms\":5000}},\"output\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"voice\":\"alloy\",\"speed\":1}},\"include\":[\"item.input_audio_transcription.logprobs\"],\"tracing\":null,\"tools\":[{\"type\":\"function\",\"name\":\"Example Name\",\"description\":\"example text\",\"parameters\":{}}],\"tool_choice\":\"auto\",\"parallel_tool_calls\":false,\"reasoning\":{\"effort\":\"low\"},\"max_output_tokens\":1,\"truncation\":\"auto\",\"prompt\":{\"id\":\"id-1\",\"version\":\"version\",\"variables\":{\"key\":{\"type\":\"input_text\",\"text\":\"text\",\"prompt_cache_breakpoint\":{\"mode\":\"explicit\"}}}}}}")
+                        "{\"sdp\":\"sdp\",\"session\":{\"type\":\"realtime\",\"output_modalities\":[\"audio\"],\"model\":\"model\",\"instructions\":\"instructions\",\"audio\":{\"input\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"transcription\":{\"model\":\"model\",\"language\":\"language\",\"languages\":[\"languages\"],\"keywords\":[\"keywords\"],\"prompt\":\"prompt\",\"delay\":\"minimal\"},\"noise_reduction\":{\"type\":\"near_field\"},\"turn_detection\":{\"type\":\"server_vad\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1,\"create_response\":true,\"interrupt_response\":true,\"idle_timeout_ms\":5000}},\"output\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"voice\":\"alloy\",\"speed\":1}},\"include\":[\"item.input_audio_transcription.logprobs\"],\"tracing\":null,\"tools\":[{\"type\":\"function\",\"name\":\"Example Name\",\"description\":\"example text\",\"parameters\":{}}],\"tool_choice\":\"auto\",\"parallel_tool_calls\":false,\"reasoning\":{\"effort\":\"low\"},\"max_output_tokens\":1,\"truncation\":\"auto\",\"prompt\":{\"id\":\"id-1\",\"version\":\"version\",\"variables\":{\"key\":{\"type\":\"input_text\",\"text\":\"text\",\"prompt_cache_breakpoint\":{\"mode\":\"explicit\"}}}}}}")
                     as Map)
                 .cast<String, dynamic>())),
       );
@@ -4299,7 +4277,7 @@ void main() {
                     .cast<String, dynamic>())),
         session: SdkPresent<RealtimeCreateClientSecretRequestSession>(
             RealtimeCreateClientSecretRequestSession.fromJson((jsonDecode(
-                        "{\"type\":\"realtime\",\"output_modalities\":[\"audio\"],\"model\":\"model\",\"instructions\":\"instructions\",\"audio\":{\"input\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"transcription\":{\"model\":\"model\",\"language\":\"language\",\"languages\":[\"languages\"],\"keywords\":[\"keywords\"],\"prompt\":\"prompt\",\"delay\":\"minimal\"},\"noise_reduction\":null,\"turn_detection\":{\"type\":\"server_vad\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1,\"create_response\":true,\"interrupt_response\":true,\"idle_timeout_ms\":5000}},\"output\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"voice\":\"alloy\",\"speed\":1}},\"include\":[\"item.input_audio_transcription.logprobs\"],\"tracing\":null,\"tools\":[{\"type\":\"function\",\"name\":\"Example Name\",\"description\":\"example text\",\"parameters\":{}}],\"tool_choice\":\"auto\",\"parallel_tool_calls\":false,\"reasoning\":{\"effort\":\"low\"},\"max_output_tokens\":1,\"truncation\":\"auto\",\"prompt\":{\"id\":\"id-1\",\"version\":\"version\",\"variables\":{\"key\":{\"type\":\"input_text\",\"text\":\"text\",\"prompt_cache_breakpoint\":{\"mode\":\"explicit\"}}}}}")
+                        "{\"type\":\"realtime\",\"output_modalities\":[\"audio\"],\"model\":\"model\",\"instructions\":\"instructions\",\"audio\":{\"input\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"transcription\":{\"model\":\"model\",\"language\":\"language\",\"languages\":[\"languages\"],\"keywords\":[\"keywords\"],\"prompt\":\"prompt\",\"delay\":\"minimal\"},\"noise_reduction\":{\"type\":\"near_field\"},\"turn_detection\":{\"type\":\"server_vad\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1,\"create_response\":true,\"interrupt_response\":true,\"idle_timeout_ms\":5000}},\"output\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"voice\":\"alloy\",\"speed\":1}},\"include\":[\"item.input_audio_transcription.logprobs\"],\"tracing\":null,\"tools\":[{\"type\":\"function\",\"name\":\"Example Name\",\"description\":\"example text\",\"parameters\":{}}],\"tool_choice\":\"auto\",\"parallel_tool_calls\":false,\"reasoning\":{\"effort\":\"low\"},\"max_output_tokens\":1,\"truncation\":\"auto\",\"prompt\":{\"id\":\"id-1\",\"version\":\"version\",\"variables\":{\"key\":{\"type\":\"input_text\",\"text\":\"text\",\"prompt_cache_breakpoint\":{\"mode\":\"explicit\"}}}}}")
                     as Map)
                 .cast<String, dynamic>())),
       );
@@ -4329,7 +4307,7 @@ void main() {
                           .cast<String, dynamic>())),
           session: SdkPresent<RealtimeCreateClientSecretRequestSession>(
               RealtimeCreateClientSecretRequestSession.fromJson((jsonDecode(
-                          "{\"type\":\"realtime\",\"output_modalities\":[\"audio\"],\"model\":\"model\",\"instructions\":\"instructions\",\"audio\":{\"input\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"transcription\":{\"model\":\"model\",\"language\":\"language\",\"languages\":[\"languages\"],\"keywords\":[\"keywords\"],\"prompt\":\"prompt\",\"delay\":\"minimal\"},\"noise_reduction\":null,\"turn_detection\":{\"type\":\"server_vad\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1,\"create_response\":true,\"interrupt_response\":true,\"idle_timeout_ms\":5000}},\"output\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"voice\":\"alloy\",\"speed\":1}},\"include\":[\"item.input_audio_transcription.logprobs\"],\"tracing\":null,\"tools\":[{\"type\":\"function\",\"name\":\"Example Name\",\"description\":\"example text\",\"parameters\":{}}],\"tool_choice\":\"auto\",\"parallel_tool_calls\":false,\"reasoning\":{\"effort\":\"low\"},\"max_output_tokens\":1,\"truncation\":\"auto\",\"prompt\":{\"id\":\"id-1\",\"version\":\"version\",\"variables\":{\"key\":{\"type\":\"input_text\",\"text\":\"text\",\"prompt_cache_breakpoint\":{\"mode\":\"explicit\"}}}}}")
+                          "{\"type\":\"realtime\",\"output_modalities\":[\"audio\"],\"model\":\"model\",\"instructions\":\"instructions\",\"audio\":{\"input\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"transcription\":{\"model\":\"model\",\"language\":\"language\",\"languages\":[\"languages\"],\"keywords\":[\"keywords\"],\"prompt\":\"prompt\",\"delay\":\"minimal\"},\"noise_reduction\":{\"type\":\"near_field\"},\"turn_detection\":{\"type\":\"server_vad\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1,\"create_response\":true,\"interrupt_response\":true,\"idle_timeout_ms\":5000}},\"output\":{\"format\":{\"type\":\"audio/pcm\",\"rate\":24000},\"voice\":\"alloy\",\"speed\":1}},\"include\":[\"item.input_audio_transcription.logprobs\"],\"tracing\":null,\"tools\":[{\"type\":\"function\",\"name\":\"Example Name\",\"description\":\"example text\",\"parameters\":{}}],\"tool_choice\":\"auto\",\"parallel_tool_calls\":false,\"reasoning\":{\"effort\":\"low\"},\"max_output_tokens\":1,\"truncation\":\"auto\",\"prompt\":{\"id\":\"id-1\",\"version\":\"version\",\"variables\":{\"key\":{\"type\":\"input_text\",\"text\":\"text\",\"prompt_cache_breakpoint\":{\"mode\":\"explicit\"}}}}}")
                       as Map)
                   .cast<String, dynamic>())),
         );
@@ -4375,7 +4353,9 @@ void main() {
                     (jsonDecode("{\"model\":\"model\"}") as Map)
                         .cast<String, dynamic>())),
         speed: SdkPresent<double>((jsonDecode("1") as num).toDouble()),
-        tracing: SdkPresent<dynamic>(jsonDecode("\"auto\"")),
+        tracing: SdkPresent<RealtimeSessionCreateRequestTracing>(
+            RealtimeSessionCreateRequestTracing.fromJson(
+                jsonDecode("\"auto\"") as String)),
         turnDetection: SdkPresent<RealtimeSessionCreateRequestTurnDetection>(
             RealtimeSessionCreateRequestTurnDetection.fromJson((jsonDecode(
                         "{\"type\":\"type\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1}")
@@ -4420,7 +4400,11 @@ void main() {
                 (jsonDecode("{\"type\":\"server_vad\",\"threshold\":1,\"prefix_padding_ms\":1,\"silence_duration_ms\":1}")
                         as Map)
                     .cast<String, dynamic>())),
-        inputAudioNoiseReduction: SdkPresent<dynamic>(jsonDecode("\"sample\"")),
+        inputAudioNoiseReduction: SdkPresent<
+                RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>(
+            RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction
+                .fromJson((jsonDecode("{\"type\":\"near_field\"}") as Map)
+                    .cast<String, dynamic>())),
         inputAudioFormat: SdkPresent<
                 RealtimeTranscriptionSessionCreateRequestInputAudioFormat>(
             RealtimeTranscriptionSessionCreateRequestInputAudioFormat.fromJson(
@@ -4799,9 +4783,9 @@ void main() {
       expect(
         mismatch(
           normal(streamFrame(actual,
-              "{\"enabled\":false,\"event\":\"ThreadStreamEvent\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}")),
+              "{\"enabled\":false,\"event\":\"thread.created\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}")),
           SdkUtils.decodeJson(
-              "{\"enabled\":false,\"event\":\"ThreadStreamEvent\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}"),
+              "{\"enabled\":false,\"event\":\"thread.created\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}"),
         ),
         isNull,
       );
@@ -4943,7 +4927,8 @@ void main() {
         config,
         model: (jsonDecode("\"model\"") as String),
         input: (jsonDecode("\"input\"") as String),
-        voice: jsonDecode("\"ash\""),
+        voice:
+            CreateSpeechRequestVoice.fromJson(jsonDecode("\"ash\"") as String),
         instructions:
             SdkPresent<String>((jsonDecode("\"instructions\"") as String)),
         responseFormat: SdkPresent<CreateSpeechRequestResponseFormat>(
@@ -4966,7 +4951,8 @@ void main() {
           config,
           model: (jsonDecode("\"model\"") as String),
           input: (jsonDecode("\"input\"") as String),
-          voice: jsonDecode("\"ash\""),
+          voice: CreateSpeechRequestVoice.fromJson(
+              jsonDecode("\"ash\"") as String),
           instructions:
               SdkPresent<String>((jsonDecode("\"instructions\"") as String)),
           responseFormat: SdkPresent<CreateSpeechRequestResponseFormat>(
@@ -4998,7 +4984,8 @@ void main() {
             config,
             model: (jsonDecode("\"model\"") as String),
             input: (jsonDecode("\"input\"") as String),
-            voice: jsonDecode("\"ash\""),
+            voice: CreateSpeechRequestVoice.fromJson(
+                jsonDecode("\"ash\"") as String),
             instructions:
                 SdkPresent<String>((jsonDecode("\"instructions\"") as String)),
             responseFormat: SdkPresent<CreateSpeechRequestResponseFormat>(
@@ -5032,7 +5019,7 @@ void main() {
             .toList()),
         toolResources: SdkPresent<CreateThreadRequestToolResources?>(
             CreateThreadRequestToolResources.fromJson((jsonDecode(
-                        "{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}}")
+                        "{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"],\"vector_stores\":[{\"file_ids\":[\"file_ids\"],\"chunking_strategy\":{\"type\":\"auto\"},\"metadata\":{\"key\":\"key\"}}]}}")
                     as Map)
                 .cast<String, dynamic>())),
         metadata: SdkPresent<Map<String, dynamic>?>(
@@ -5056,7 +5043,7 @@ void main() {
         assistantId: (jsonDecode("\"assistant-1\"") as String),
         thread: SdkPresent<
             CreateThreadRequest>(CreateThreadRequest.fromJson((jsonDecode(
-                    "{\"messages\":[{\"role\":\"user\",\"content\":\"content\",\"attachments\":[{\"file_id\":\"file-1\",\"tools\":[{\"type\":\"code_interpreter\"}]}],\"metadata\":{\"key\":\"key\"}}],\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}")
+                    "{\"messages\":[{\"role\":\"user\",\"content\":\"content\",\"attachments\":[{\"file_id\":\"file-1\",\"tools\":[{\"type\":\"code_interpreter\"}]}],\"metadata\":{\"key\":\"key\"}}],\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"],\"vector_stores\":[{\"file_ids\":[\"file_ids\"],\"chunking_strategy\":{\"type\":\"auto\"},\"metadata\":{\"key\":\"key\"}}]}},\"metadata\":{\"key\":\"key\"}}")
                 as Map)
             .cast<String, dynamic>())),
         model: SdkPresent<String?>((jsonDecode("\"gpt-4.1\"") as String)),
@@ -5115,7 +5102,7 @@ void main() {
             stream: (jsonDecode("false") as bool),
             thread: SdkPresent<
                 CreateThreadRequest>(CreateThreadRequest.fromJson((jsonDecode(
-                        "{\"messages\":[{\"role\":\"user\",\"content\":\"content\",\"attachments\":[{\"file_id\":\"file-1\",\"tools\":[{\"type\":\"code_interpreter\"}]}],\"metadata\":{\"key\":\"key\"}}],\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}")
+                        "{\"messages\":[{\"role\":\"user\",\"content\":\"content\",\"attachments\":[{\"file_id\":\"file-1\",\"tools\":[{\"type\":\"code_interpreter\"}]}],\"metadata\":{\"key\":\"key\"}}],\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"],\"vector_stores\":[{\"file_ids\":[\"file_ids\"],\"chunking_strategy\":{\"type\":\"auto\"},\"metadata\":{\"key\":\"key\"}}]}},\"metadata\":{\"key\":\"key\"}}")
                     as Map)
                 .cast<String, dynamic>())),
             model: SdkPresent<String?>((jsonDecode("\"gpt-4.1\"") as String)),
@@ -5162,9 +5149,9 @@ void main() {
       expect(
         mismatch(
           normal(streamFrame(actual,
-              "{\"enabled\":false,\"event\":\"ThreadStreamEvent\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}")),
+              "{\"enabled\":false,\"event\":\"thread.created\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}")),
           SdkUtils.decodeJson(
-              "{\"enabled\":false,\"event\":\"ThreadStreamEvent\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}"),
+              "{\"enabled\":false,\"event\":\"thread.created\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}"),
         ),
         isNull,
       );
@@ -5203,8 +5190,12 @@ void main() {
                         .fromJson(element as String))
                 .toList()),
         stream: SdkPresent<bool?>((jsonDecode("false") as bool)),
-        chunkingStrategy: SdkPresent<dynamic>(jsonDecode(
-            "{\"type\":\"server_vad\",\"prefix_padding_ms\":300,\"silence_duration_ms\":200,\"threshold\":0.5}")),
+        chunkingStrategy: SdkPresent<
+                CreateTranscriptionRequestChunkingStrategy?>(
+            CreateTranscriptionRequestChunkingStrategy.fromJson((jsonDecode(
+                        "{\"type\":\"server_vad\",\"prefix_padding_ms\":300,\"silence_duration_ms\":200,\"threshold\":0.5}")
+                    as Map)
+                .cast<String, dynamic>())),
         knownSpeakerNames: SdkPresent<List<String>>(
             (jsonDecode("[\"Example Name\"]") as List)
                 .map((element) => (element as String))
@@ -5262,8 +5253,12 @@ void main() {
                           .fromJson(element as String))
                   .toList()),
           stream: SdkPresent<bool?>((jsonDecode("false") as bool)),
-          chunkingStrategy: SdkPresent<dynamic>(jsonDecode(
-              "{\"type\":\"server_vad\",\"prefix_padding_ms\":300,\"silence_duration_ms\":200,\"threshold\":0.5}")),
+          chunkingStrategy: SdkPresent<
+                  CreateTranscriptionRequestChunkingStrategy?>(
+              CreateTranscriptionRequestChunkingStrategy.fromJson((jsonDecode(
+                          "{\"type\":\"server_vad\",\"prefix_padding_ms\":300,\"silence_duration_ms\":200,\"threshold\":0.5}")
+                      as Map)
+                  .cast<String, dynamic>())),
           knownSpeakerNames: SdkPresent<List<String>>(
               (jsonDecode("[\"Example Name\"]") as List)
                   .map((element) => (element as String))
@@ -5324,8 +5319,12 @@ void main() {
                         CreateTranscriptionRequestTimestampGranularitiesItem
                             .fromJson(element as String))
                     .toList()),
-            chunkingStrategy: SdkPresent<dynamic>(jsonDecode(
-                "{\"type\":\"server_vad\",\"prefix_padding_ms\":300,\"silence_duration_ms\":200,\"threshold\":0.5}")),
+            chunkingStrategy: SdkPresent<
+                    CreateTranscriptionRequestChunkingStrategy?>(
+                CreateTranscriptionRequestChunkingStrategy.fromJson((jsonDecode(
+                            "{\"type\":\"server_vad\",\"prefix_padding_ms\":300,\"silence_duration_ms\":200,\"threshold\":0.5}")
+                        as Map)
+                    .cast<String, dynamic>())),
             knownSpeakerNames: SdkPresent<List<String>>(
                 (jsonDecode("[\"Example Name\"]") as List)
                     .map((element) => (element as String))
@@ -11132,7 +11131,7 @@ void main() {
         mismatch(
           normal(actual),
           SdkUtils.decodeJson(
-              "{\"object\":\"list\",\"data\":[{\"type\":\"InputMessageResource\",\"role\":\"user\",\"status\":\"in_progress\",\"content\":[{\"type\":\"input_text\",\"text\":\"text\",\"prompt_cache_breakpoint\":{\"mode\":\"explicit\"}}],\"id\":\"id-1\"}],\"has_more\":false,\"first_id\":\"first-1\",\"last_id\":\"last-1\"}"),
+              "{\"object\":\"list\",\"data\":[{\"type\":\"message\",\"role\":\"user\",\"status\":\"in_progress\",\"content\":[{\"type\":\"input_text\",\"text\":\"text\",\"prompt_cache_breakpoint\":{\"mode\":\"explicit\"}}],\"id\":\"id-1\"}],\"has_more\":false,\"first_id\":\"first-1\",\"last_id\":\"last-1\"}"),
         ),
         isNull,
       );
@@ -15317,10 +15316,10 @@ void main() {
     });
 
     test(
-        "submitAssistantsToolOutputsToRun reaches the mock and decodes its response",
+        "submitAssistantsToolOutputsToRunStream reaches the mock and decodes its response",
         () async {
       final actual = await sdk_methods_16
-          .submitAssistantsToolOutputsToRun(
+          .submitAssistantsToolOutputsToRunStream(
             config,
             threadId: (jsonDecode("\"thread-1\"") as String),
             runId: (jsonDecode("\"run-1\"") as String),
@@ -15331,15 +15330,15 @@ void main() {
                     SubmitToolOutputsRunRequestToolOutputsItem.fromJson(
                         (element as Map).cast<String, dynamic>()))
                 .toList(),
-            stream: SdkPresent<bool?>((jsonDecode("false") as bool)),
+            stream: (jsonDecode("false") as bool),
           )
           .first;
       expect(
         mismatch(
           normal(streamFrame(actual,
-              "{\"enabled\":false,\"event\":\"ThreadStreamEvent\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}")),
+              "{\"enabled\":false,\"event\":\"thread.created\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}")),
           SdkUtils.decodeJson(
-              "{\"enabled\":false,\"event\":\"ThreadStreamEvent\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}"),
+              "{\"enabled\":false,\"event\":\"thread.created\",\"data\":{\"id\":\"id-1\",\"object\":\"thread\",\"created_at\":1,\"tool_resources\":{\"code_interpreter\":{\"file_ids\":[]},\"file_search\":{\"vector_store_ids\":[\"vector_store_ids\"]}},\"metadata\":{\"key\":\"key\"}}}"),
         ),
         isNull,
       );

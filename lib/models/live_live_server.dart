@@ -2,6 +2,7 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // live_live_server domain model library.
+import '../sdk_utils.dart';
 import 'live_live.dart';
 import 'live_live_commentary.dart';
 import 'live_live_decision.dart';

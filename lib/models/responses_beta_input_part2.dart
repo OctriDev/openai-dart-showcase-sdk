@@ -252,6 +252,38 @@ sealed class BetaInputItem {
   static const String constructionSurface = 'named';
   const BetaInputItem();
   factory BetaInputItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaEasyInputMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaInputItemBetaEasyInputMessage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaCompactionTriggerItemParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaInputItemBetaCompactionTriggerItemParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaItemReferenceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaInputItemBetaItemReferenceParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaProgramItemParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaInputItemBetaProgramItemParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaProgramOutputItemParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaInputItemBetaProgramOutputItemParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaInputItemBetaEasyInputMessage(
           BetaEasyInputMessage.fromJson(json as Map<String, dynamic>));

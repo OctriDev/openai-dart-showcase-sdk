@@ -141,6 +141,22 @@ sealed class PersistedMcpTransportConfigParam {
   static const String constructionSurface = 'named';
   const PersistedMcpTransportConfigParam();
   factory PersistedMcpTransportConfigParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = PersistedMcpTransportConfigParamHttp.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = PersistedMcpTransportConfigParamStdio.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamStdio(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp(
           PersistedMcpTransportConfigParamHttp.fromJson(
@@ -356,6 +372,22 @@ sealed class PersistedMcpTransportResource {
   static const String constructionSurface = 'named';
   const PersistedMcpTransportResource();
   factory PersistedMcpTransportResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = PersistedMcpTransportResourceHttp.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedMcpTransportResourcePersistedMcpTransportResourceHttp(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = PersistedMcpTransportResourceStdio.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedMcpTransportResourcePersistedMcpTransportResourceStdio(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return PersistedMcpTransportResourcePersistedMcpTransportResourceHttp(
           PersistedMcpTransportResourceHttp.fromJson(

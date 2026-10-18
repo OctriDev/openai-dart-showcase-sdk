@@ -276,6 +276,29 @@ sealed class BetaApplyPatchToolCallOperation {
   static const String constructionSurface = 'named';
   const BetaApplyPatchToolCallOperation();
   factory BetaApplyPatchToolCallOperation.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaApplyPatchCreateFileOperation.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaApplyPatchToolCallOperationBetaApplyPatchCreateFileOperation(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaApplyPatchDeleteFileOperation.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaApplyPatchToolCallOperationBetaApplyPatchDeleteFileOperation(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaApplyPatchUpdateFileOperation.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaApplyPatchToolCallOperationBetaApplyPatchUpdateFileOperation(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaApplyPatchToolCallOperationBetaApplyPatchCreateFileOperation(
           BetaApplyPatchCreateFileOperation.fromJson(

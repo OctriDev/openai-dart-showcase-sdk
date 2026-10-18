@@ -44,7 +44,8 @@ class CreateTranscriptionRequest {
   final SdkOptional<bool?> stream;
 
   /// Controls how the audio is cut into chunks. When set to `"auto"`, the server first normalizes loudness and then uses voice activity detection (VAD) to choose boundaries. `server_vad` object can be provided to tweak VAD detection parameters manually. If unset, the audio is transcribed as a single block. Required when using `gpt-4o-transcribe-diarize` for inputs longer than 30 seconds.
-  final SdkOptional<dynamic> chunkingStrategy;
+  final SdkOptional<CreateTranscriptionRequestChunkingStrategy?>
+      chunkingStrategy;
 
   /// Optional list of speaker names that correspond to the audio samples provided in `known_speaker_references[]`. Each entry should be a short identifier (for example `customer` or `agent`). Up to 4 speakers are supported.
   final SdkOptional<List<String>> knownSpeakerNames;
@@ -81,7 +82,7 @@ class CreateTranscriptionRequest {
       SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>>
           timestampGranularities,
       SdkOptional<bool?> stream,
-      SdkOptional<dynamic> chunkingStrategy,
+      SdkOptional<CreateTranscriptionRequestChunkingStrategy?> chunkingStrategy,
       SdkOptional<List<String>> knownSpeakerNames,
       SdkOptional<List<String>>
           knownSpeakerReferences}) get copyWith => _copyWith;
@@ -135,7 +136,8 @@ class CreateTranscriptionRequest {
             : stream as SdkOptional<bool?>,
         chunkingStrategy: identical(chunkingStrategy, sdkOmittedValue)
             ? this.chunkingStrategy
-            : chunkingStrategy as SdkOptional<dynamic>,
+            : chunkingStrategy
+                as SdkOptional<CreateTranscriptionRequestChunkingStrategy?>,
         knownSpeakerNames: identical(knownSpeakerNames, sdkOmittedValue)
             ? this.knownSpeakerNames
             : knownSpeakerNames as SdkOptional<List<String>>,
@@ -192,8 +194,10 @@ class CreateTranscriptionRequest {
             ? SdkPresent(json['stream'] as bool?)
             : const SdkOmitted(),
         chunkingStrategy: json.containsKey('chunking_strategy')
-            ? SdkPresent(SdkUtils.unionBranch(
-                json['chunking_strategy'], [VadConfig.fromJson]))
+            ? SdkPresent(json['chunking_strategy'] != null
+                ? CreateTranscriptionRequestChunkingStrategy.fromJson(
+                    json['chunking_strategy'])
+                : null)
             : const SdkOmitted(),
         knownSpeakerNames: json['known_speaker_names'] != null
             ? SdkPresent(((json['known_speaker_names'] as List?)
@@ -270,8 +274,11 @@ class CreateTranscriptionRequest {
           _ => const <String, dynamic>{},
         },
         ...switch (chunkingStrategy) {
-          SdkPresent<dynamic>(value: final value) => {
-              'chunking_strategy': value,
+          SdkPresent<CreateTranscriptionRequestChunkingStrategy?>(
+            value: final value
+          ) =>
+            {
+              'chunking_strategy': value?.toJson(),
             },
           _ => const <String, dynamic>{},
         },
@@ -288,6 +295,117 @@ class CreateTranscriptionRequest {
           _ => const <String, dynamic>{},
         },
       };
+}
+
+sealed class CreateTranscriptionRequestChunkingStrategy {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const CreateTranscriptionRequestChunkingStrategy();
+  factory CreateTranscriptionRequestChunkingStrategy.fromJson(Object? json) {
+    try {
+      return CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0(
+          CreateTranscriptionRequestChunkingStrategyVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    try {
+      return CreateTranscriptionRequestChunkingStrategyVadConfig(
+          VadConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateTranscriptionRequestChunkingStrategy");
+  }
+  Object? toJson();
+}
+
+final class CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0
+    extends CreateTranscriptionRequestChunkingStrategy {
+  final CreateTranscriptionRequestChunkingStrategyVariant0 value;
+  const CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class CreateTranscriptionRequestChunkingStrategyVadConfig
+    extends CreateTranscriptionRequestChunkingStrategy {
+  final VadConfig value;
+  const CreateTranscriptionRequestChunkingStrategyVadConfig(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+sealed class CreateTranscriptionResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const CreateTranscriptionResponse();
+  factory CreateTranscriptionResponse.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = CreateTranscriptionResponseJson.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseCreateTranscriptionResponseJson(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateTranscriptionResponseDiarizedJson.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseCreateTranscriptionResponseDiarizedJson(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateTranscriptionResponseVerboseJson.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseCreateTranscriptionResponseVerboseJson(
+              value);
+        }
+      } catch (_) {}
+    }
+    try {
+      return CreateTranscriptionResponseCreateTranscriptionResponseJson(
+          CreateTranscriptionResponseJson.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateTranscriptionResponseCreateTranscriptionResponseDiarizedJson(
+          CreateTranscriptionResponseDiarizedJson.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateTranscriptionResponseCreateTranscriptionResponseVerboseJson(
+          CreateTranscriptionResponseVerboseJson.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException("No variant matched for CreateTranscriptionResponse");
+  }
+  Object? toJson();
+}
+
+final class CreateTranscriptionResponseCreateTranscriptionResponseJson
+    extends CreateTranscriptionResponse {
+  final CreateTranscriptionResponseJson value;
+  const CreateTranscriptionResponseCreateTranscriptionResponseJson(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class CreateTranscriptionResponseCreateTranscriptionResponseDiarizedJson
+    extends CreateTranscriptionResponse {
+  final CreateTranscriptionResponseDiarizedJson value;
+  const CreateTranscriptionResponseCreateTranscriptionResponseDiarizedJson(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class CreateTranscriptionResponseCreateTranscriptionResponseVerboseJson
+    extends CreateTranscriptionResponse {
+  final CreateTranscriptionResponseVerboseJson value;
+  const CreateTranscriptionResponseCreateTranscriptionResponseVerboseJson(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Represents a diarized transcription response returned by the model, including the combined transcript and speaker-segment annotations.
@@ -391,6 +509,22 @@ sealed class CreateTranscriptionResponseDiarizedJsonUsage {
   static const String constructionSurface = 'named';
   const CreateTranscriptionResponseDiarizedJsonUsage();
   factory CreateTranscriptionResponseDiarizedJsonUsage.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = TranscriptTextUsageTokens.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageTokens(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = TranscriptTextUsageDuration.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageDuration(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageTokens(
           TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>));
@@ -435,82 +569,4 @@ final class UnknownCreateTranscriptionResponseDiarizedJsonUsage
   const UnknownCreateTranscriptionResponseDiarizedJsonUsage(this.raw);
   @override
   Object? toJson() => raw;
-}
-
-/// Required object value serialized in the `logprobs[]` wire field.
-class CreateTranscriptionResponseJsonLogprobsItem {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The token in the transcription.
-  final SdkOptional<String> token;
-
-  /// The log probability of the token.
-  final SdkOptional<double> logprob;
-
-  /// The bytes of the token.
-  final SdkOptional<List<double>> bytes;
-
-  const CreateTranscriptionResponseJsonLogprobsItem(
-      {this.token = const SdkOmitted(),
-      this.logprob = const SdkOmitted(),
-      this.bytes = const SdkOmitted()});
-
-  CreateTranscriptionResponseJsonLogprobsItem Function(
-      {SdkOptional<String> token,
-      SdkOptional<double> logprob,
-      SdkOptional<List<double>> bytes}) get copyWith => _copyWith;
-
-  CreateTranscriptionResponseJsonLogprobsItem _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue,
-          Object? bytes = sdkOmittedValue}) =>
-      CreateTranscriptionResponseJsonLogprobsItem(
-        token: identical(token, sdkOmittedValue)
-            ? this.token
-            : token as SdkOptional<String>,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as SdkOptional<double>,
-        bytes: identical(bytes, sdkOmittedValue)
-            ? this.bytes
-            : bytes as SdkOptional<List<double>>,
-      );
-
-  factory CreateTranscriptionResponseJsonLogprobsItem.fromJson(
-          Map<String, dynamic> json) =>
-      CreateTranscriptionResponseJsonLogprobsItem(
-        token: json['token'] != null
-            ? SdkPresent((json['token'] as String?)!)
-            : const SdkOmitted(),
-        logprob: json['logprob'] != null
-            ? SdkPresent(((json['logprob'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        bytes: json['bytes'] != null
-            ? SdkPresent(((json['bytes'] as List?)
-                ?.map((e) => (e as num).toDouble())
-                .toList())!)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        ...switch (token) {
-          SdkPresent<String>(value: final value) => {
-              'token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logprob) {
-          SdkPresent<double>(value: final value) => {
-              'logprob': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (bytes) {
-          SdkPresent<List<double>>(value: final value) => {
-              'bytes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
 }

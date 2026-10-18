@@ -114,6 +114,32 @@ sealed class CreateMcpOauthTokenEndpointAuthParam {
   static const String constructionSurface = 'named';
   const CreateMcpOauthTokenEndpointAuthParam();
   factory CreateMcpOauthTokenEndpointAuthParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = CreateMcpOauthTokenEndpointAuthParamNone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            CreateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
+                json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            CreateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(
           CreateMcpOauthTokenEndpointAuthParamNone.fromJson(
@@ -311,6 +337,30 @@ sealed class CreateVaultCredentialAuthParam {
   static const String constructionSurface = 'named';
   const CreateVaultCredentialAuthParam();
   factory CreateVaultCredentialAuthParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = CreateVaultCredentialAuthParamMcpOauth.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateVaultCredentialAuthParamStaticBearer.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            CreateVaultCredentialAuthParamEnvironmentVariable.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(
           CreateVaultCredentialAuthParamMcpOauth.fromJson(

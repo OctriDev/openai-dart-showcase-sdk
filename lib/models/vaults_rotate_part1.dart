@@ -92,6 +92,25 @@ sealed class RotateMcpOauthTokenEndpointAuthParam {
   static const String constructionSurface = 'named';
   const RotateMcpOauthTokenEndpointAuthParam();
   factory RotateMcpOauthTokenEndpointAuthParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
+                json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RotateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
           RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
@@ -253,6 +272,30 @@ sealed class RotateVaultCredentialAuthParam {
   static const String constructionSurface = 'named';
   const RotateVaultCredentialAuthParam();
   factory RotateVaultCredentialAuthParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RotateVaultCredentialAuthParamMcpOauth.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RotateVaultCredentialAuthParamStaticBearer.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(
           RotateVaultCredentialAuthParamMcpOauth.fromJson(
@@ -453,48 +496,5 @@ class RotateVaultCredentialAuthParamMcpOauth {
             },
           _ => const <String, dynamic>{},
         },
-      };
-}
-
-/// Replace the bearer token for the credential's MCP server.
-class RotateVaultCredentialAuthParamStaticBearer {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The type of the object. Always `static_bearer`.
-  final RotateVaultCredentialAuthParamStaticBearerType type_;
-
-  /// The replacement bearer token. This secret is never returned in credential resources.
-  final String token;
-
-  const RotateVaultCredentialAuthParamStaticBearer(
-      {required this.type_, required this.token});
-
-  RotateVaultCredentialAuthParamStaticBearer Function(
-      {RotateVaultCredentialAuthParamStaticBearerType type_,
-      String token}) get copyWith => _copyWith;
-
-  RotateVaultCredentialAuthParamStaticBearer _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? token = sdkOmittedValue}) =>
-      RotateVaultCredentialAuthParamStaticBearer(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RotateVaultCredentialAuthParamStaticBearerType,
-        token: identical(token, sdkOmittedValue) ? this.token : token as String,
-      );
-
-  factory RotateVaultCredentialAuthParamStaticBearer.fromJson(
-          Map<String, dynamic> json) =>
-      RotateVaultCredentialAuthParamStaticBearer(
-        type_: (json['type'] != null
-            ? RotateVaultCredentialAuthParamStaticBearerType.fromJson(
-                json['type'] as String)
-            : null)!,
-        token: (json['token'] as String?)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'token': token,
       };
 }

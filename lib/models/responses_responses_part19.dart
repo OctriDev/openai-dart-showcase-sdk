@@ -275,6 +275,380 @@ sealed class ResponsesServerEvent {
   static const String constructionSurface = 'named';
   const ResponsesServerEvent();
   factory ResponsesServerEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ResponsesServerEventVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant0(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant1(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant2.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant2(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant3.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant3(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant4.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant4(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant5.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant5(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant6.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant6(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant7.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant7(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant8.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant8(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant9.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant9(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant10.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant10(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant11.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant11(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant12.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant12(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant13.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant13(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant14.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant14(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant15.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant15(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant16.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant16(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant17.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant17(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant18.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant18(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant19.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant19(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant20.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant20(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant21.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant21(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant22.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant22(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant23.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant23(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant24.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant24(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant25.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant25(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant26.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant26(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant27.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant27(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant28.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant28(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant29.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant29(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant30.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant30(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant31.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant31(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant32.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant32(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant33.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant33(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant34.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant34(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant35.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant35(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant36.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant36(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant37.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant37(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant38.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant38(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant39.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant39(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant40.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant40(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant41.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant41(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant42.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant42(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant43.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant43(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant44.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant44(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant45.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant45(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant46.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant46(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant47.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant47(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant48.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant48(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant49.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant49(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant50.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant50(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant51.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant51(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant52.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant52(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant53.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant53(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant54.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant54(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant55.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant55(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant56.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant56(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant57.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant57(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseWsError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponseWsError(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerAcceptedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponseSteerAcceptedEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerPendingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponseSteerPendingEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerFailedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponseSteerFailedEvent(value);
+        }
+      } catch (_) {}
+    }
     try {
       return ResponsesServerEventResponsesServerEventVariant0(
           ResponsesServerEventVariant0.fromJson(json as Map<String, dynamic>));
@@ -594,76 +968,4 @@ sealed class ResponsesServerEvent {
     throw FormatException("No variant matched for ResponsesServerEvent");
   }
   Object? toJson();
-}
-
-final class ResponsesServerEventResponsesServerEventVariant0
-    extends ResponsesServerEvent {
-  final ResponsesServerEventVariant0 value;
-  const ResponsesServerEventResponsesServerEventVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesServerEventResponsesServerEventVariant1
-    extends ResponsesServerEvent {
-  final ResponsesServerEventVariant1 value;
-  const ResponsesServerEventResponsesServerEventVariant1(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesServerEventResponsesServerEventVariant2
-    extends ResponsesServerEvent {
-  final ResponsesServerEventVariant2 value;
-  const ResponsesServerEventResponsesServerEventVariant2(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesServerEventResponsesServerEventVariant3
-    extends ResponsesServerEvent {
-  final ResponsesServerEventVariant3 value;
-  const ResponsesServerEventResponsesServerEventVariant3(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesServerEventResponsesServerEventVariant4
-    extends ResponsesServerEvent {
-  final ResponsesServerEventVariant4 value;
-  const ResponsesServerEventResponsesServerEventVariant4(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesServerEventResponsesServerEventVariant5
-    extends ResponsesServerEvent {
-  final ResponsesServerEventVariant5 value;
-  const ResponsesServerEventResponsesServerEventVariant5(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesServerEventResponsesServerEventVariant6
-    extends ResponsesServerEvent {
-  final ResponsesServerEventVariant6 value;
-  const ResponsesServerEventResponsesServerEventVariant6(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesServerEventResponsesServerEventVariant7
-    extends ResponsesServerEvent {
-  final ResponsesServerEventVariant7 value;
-  const ResponsesServerEventResponsesServerEventVariant7(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesServerEventResponsesServerEventVariant8
-    extends ResponsesServerEvent {
-  final ResponsesServerEventVariant8 value;
-  const ResponsesServerEventResponsesServerEventVariant8(this.value);
-  @override
-  Object? toJson() => value.toJson();
 }

@@ -19,3 +19,4 @@ part 'assistants_run_part7.dart';
 part 'assistants_run_part8.dart';
 part 'assistants_run_part9.dart';
 part 'assistants_run_part10.dart';
+part 'assistants_run_part11.dart';

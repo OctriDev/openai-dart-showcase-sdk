@@ -9,6 +9,62 @@ sealed class BetaComputerAction {
   static const String constructionSurface = 'named';
   const BetaComputerAction();
   factory BetaComputerAction.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaClickParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaComputerActionBetaClickParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaDoubleClickAction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaComputerActionBetaDoubleClickAction(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaDragParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaComputerActionBetaDragParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaKeyPressAction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaComputerActionBetaKeyPressAction(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaMoveParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaComputerActionBetaMoveParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaScreenshotParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaComputerActionBetaScreenshotParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaScrollParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaComputerActionBetaScrollParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaTypeParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaComputerActionBetaTypeParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaWaitParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaComputerActionBetaWaitParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaComputerActionBetaClickParam(
           BetaClickParam.fromJson(json as Map<String, dynamic>));

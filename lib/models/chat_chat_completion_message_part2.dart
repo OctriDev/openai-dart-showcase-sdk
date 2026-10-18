@@ -350,6 +350,22 @@ sealed class ChatCompletionMessageToolCallsItem {
   static const String constructionSurface = 'named';
   const ChatCompletionMessageToolCallsItem();
   factory ChatCompletionMessageToolCallsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ChatCompletionMessageToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionMessageToolCallsItemChatCompletionMessageToolCall(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionMessageCustomToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionMessageToolCallsItemChatCompletionMessageCustomToolCall(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ChatCompletionMessageToolCallsItemChatCompletionMessageToolCall(
           ChatCompletionMessageToolCall.fromJson(json as Map<String, dynamic>));

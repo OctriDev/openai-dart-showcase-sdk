@@ -124,28 +124,28 @@ final class ThreadResourceObject {
   int get hashCode => value.hashCode;
 }
 
-final class ThreadStreamEventVariant0Event {
-  final String value;
+/// Required enumerated value serialized in the `event` wire field.
+enum ThreadStreamEventEvent {
+  threadCreated;
 
-  const ThreadStreamEventVariant0Event._(this.value);
+  static ThreadStreamEventEvent fromJson(String value) {
+    switch (value) {
+      case 'thread.created':
+        return ThreadStreamEventEvent.threadCreated;
+      default:
+        throw ArgumentError('Unknown ThreadStreamEventEvent: $value');
+    }
+  }
 
-  factory ThreadStreamEventVariant0Event.fromJson(String value) =>
-      ThreadStreamEventVariant0Event._(value);
-
-  static const threadCreated =
-      ThreadStreamEventVariant0Event._('thread.created');
-
-  String toJson() => value;
+  String toJson() {
+    switch (this) {
+      case ThreadStreamEventEvent.threadCreated:
+        return 'thread.created';
+    }
+  }
 
   @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is ThreadStreamEventVariant0Event && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
+  String toString() => toJson();
 }
 
 /// Required enumerated value serialized in the `object` wire field.

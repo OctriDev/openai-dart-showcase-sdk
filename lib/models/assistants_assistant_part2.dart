@@ -4,6 +4,54 @@
 part of 'assistants_assistant.dart';
 
 // assistants_assistant domain models (part 2)
+sealed class AssistantObjectToolsItem {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const AssistantObjectToolsItem();
+  factory AssistantObjectToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = AssistantToolsCode.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AssistantObjectToolsItemAssistantToolsCode(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AssistantToolsFileSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AssistantObjectToolsItemAssistantToolsFileSearch(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AssistantToolsFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AssistantObjectToolsItemAssistantToolsFunction(value);
+        }
+      } catch (_) {}
+    }
+    try {
+      return AssistantObjectToolsItemAssistantToolsCode(
+          AssistantToolsCode.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AssistantObjectToolsItemAssistantToolsFileSearch(
+          AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AssistantObjectToolsItemAssistantToolsFunction(
+          AssistantToolsFunction.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"code_interpreter", "file_search", "function"}
+            .contains(json["type"])) {
+      return UnknownAssistantObjectToolsItem(json);
+    }
+    throw FormatException("No variant matched for AssistantObjectToolsItem");
+  }
+  Object? toJson();
+}
+
 final class AssistantObjectToolsItemAssistantToolsCode
     extends AssistantObjectToolsItem {
   final AssistantToolsCode value;
@@ -41,9 +89,29 @@ sealed class AssistantStreamEvent {
   static const String constructionSurface = 'named';
   const AssistantStreamEvent();
   factory AssistantStreamEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ThreadStreamEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AssistantStreamEventThreadStreamEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ErrorEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AssistantStreamEventErrorEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AssistantStreamEventDoneEvent(value);
+        }
+      } catch (_) {}
+    }
     try {
       return AssistantStreamEventThreadStreamEvent(
-          ThreadStreamEvent.fromJson(json));
+          ThreadStreamEvent.fromJson(json as Map<String, dynamic>));
     } catch (_) {}
     try {
       return AssistantStreamEventRunStreamEvent(RunStreamEvent.fromJson(json));
@@ -354,40 +422,5 @@ class AssistantToolsFileSearch {
             },
           _ => const <String, dynamic>{},
         },
-      };
-}
-
-/// Typed representation of the `AssistantToolsFileSearchTypeOnly` API schema.
-class AssistantToolsFileSearchTypeOnly {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The type of tool being defined: `file_search`
-  final AssistantToolsFileSearchTypeOnlyType type_;
-
-  const AssistantToolsFileSearchTypeOnly({required this.type_});
-
-  AssistantToolsFileSearchTypeOnly Function(
-      {AssistantToolsFileSearchTypeOnlyType type_}) get copyWith => _copyWith;
-
-  AssistantToolsFileSearchTypeOnly _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      AssistantToolsFileSearchTypeOnly(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AssistantToolsFileSearchTypeOnlyType,
-      );
-
-  factory AssistantToolsFileSearchTypeOnly.fromJson(
-          Map<String, dynamic> json) =>
-      AssistantToolsFileSearchTypeOnly(
-        type_: (json['type'] != null
-            ? AssistantToolsFileSearchTypeOnlyType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
       };
 }

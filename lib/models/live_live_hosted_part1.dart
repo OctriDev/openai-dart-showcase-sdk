@@ -139,6 +139,22 @@ sealed class LiveHostedShellContainerAutoParamNetworkPolicy {
   const LiveHostedShellContainerAutoParamNetworkPolicy();
   factory LiveHostedShellContainerAutoParamNetworkPolicy.fromJson(
       Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveContainerNetworkPolicyDisabledParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveHostedShellContainerAutoParamNetworkPolicyLiveContainerNetworkPolicyDisabledParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveHostedShellNetworkPolicyAllowlistParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveHostedShellContainerAutoParamNetworkPolicyLiveHostedShellNetworkPolicyAllowlistParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveHostedShellContainerAutoParamNetworkPolicyLiveContainerNetworkPolicyDisabledParam(
           LiveContainerNetworkPolicyDisabledParam.fromJson(
@@ -192,6 +208,22 @@ sealed class LiveHostedShellContainerAutoParamSkillsItem {
   static const String constructionSurface = 'named';
   const LiveHostedShellContainerAutoParamSkillsItem();
   factory LiveHostedShellContainerAutoParamSkillsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveSkillReferenceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveHostedShellContainerAutoParamSkillsItemLiveSkillReferenceParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInlineSkillParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveHostedShellContainerAutoParamSkillsItemLiveInlineSkillParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveHostedShellContainerAutoParamSkillsItemLiveSkillReferenceParam(
           LiveSkillReferenceParam.fromJson(json as Map<String, dynamic>));
@@ -350,6 +382,29 @@ sealed class LiveHostedShellToolInputParamEnvironment {
   static const String constructionSurface = 'named';
   const LiveHostedShellToolInputParamEnvironment();
   factory LiveHostedShellToolInputParamEnvironment.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveHostedShellContainerAutoParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveHostedShellToolInputParamEnvironmentLiveHostedShellContainerAutoParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveContainerReferenceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveHostedShellToolInputParamEnvironmentLiveContainerReferenceParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveLocalEnvironmentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveHostedShellToolInputParamEnvironmentLiveLocalEnvironmentParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveHostedShellToolInputParamEnvironmentLiveHostedShellContainerAutoParam(
           LiveHostedShellContainerAutoParam.fromJson(

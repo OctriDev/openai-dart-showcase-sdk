@@ -4,6 +4,46 @@
 part of 'assistants_run.dart';
 
 // assistants_run domain models (part 10)
+/// Occurs when a [run](https://developers.openai.com/api/docs/assistants/migration) ends with status `incomplete`.
+class RunStreamEventVariant5 {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  final RunStreamEventVariant5Event event;
+
+  /// Represents an execution run on a [thread](https://developers.openai.com/api/docs/assistants/migration).
+  final RunObject data;
+
+  const RunStreamEventVariant5({required this.event, required this.data});
+
+  RunStreamEventVariant5 Function(
+      {RunStreamEventVariant5Event event,
+      RunObject data}) get copyWith => _copyWith;
+
+  RunStreamEventVariant5 _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      RunStreamEventVariant5(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as RunStreamEventVariant5Event,
+        data: identical(data, sdkOmittedValue) ? this.data : data as RunObject,
+      );
+
+  factory RunStreamEventVariant5.fromJson(Map<String, dynamic> json) =>
+      RunStreamEventVariant5(
+        event: (json['event'] != null
+            ? RunStreamEventVariant5Event.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? RunObject.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
+}
+
 /// Occurs when a [run](https://developers.openai.com/api/docs/assistants/migration) fails.
 class RunStreamEventVariant6 {
   /// This model is constructed from named fields in one call.
@@ -169,6 +209,68 @@ sealed class RunStreamEvent {
   static const String constructionSurface = 'named';
   const RunStreamEvent();
   factory RunStreamEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RunStreamEventVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStreamEventRunStreamEventVariant0(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStreamEventVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStreamEventRunStreamEventVariant1(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStreamEventVariant2.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStreamEventRunStreamEventVariant2(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStreamEventVariant3.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStreamEventRunStreamEventVariant3(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStreamEventVariant4.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStreamEventRunStreamEventVariant4(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStreamEventVariant5.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStreamEventRunStreamEventVariant5(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStreamEventVariant6.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStreamEventRunStreamEventVariant6(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStreamEventVariant7.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStreamEventRunStreamEventVariant7(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStreamEventVariant8.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStreamEventRunStreamEventVariant8(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStreamEventVariant9.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStreamEventRunStreamEventVariant9(value);
+        }
+      } catch (_) {}
+    }
     try {
       return RunStreamEventRunStreamEventVariant0(
           RunStreamEventVariant0.fromJson(json as Map<String, dynamic>));
@@ -320,60 +422,5 @@ class RunToolCallObjectFunction {
   Map<String, dynamic> toJson() => {
         'name': name,
         'arguments': arguments,
-      };
-}
-
-/// Tool call objects
-class RunToolCallObject {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](https://developers.openai.com/api/docs/assistants/migration) endpoint.
-  final String id;
-
-  /// The type of tool call the output is required for. For now, this is always `function`.
-  final RunToolCallObjectType type_;
-
-  /// The function definition.
-  final RunToolCallObjectFunction function_;
-
-  const RunToolCallObject(
-      {required this.id, required this.type_, required this.function_});
-
-  RunToolCallObject Function(
-      {String id,
-      RunToolCallObjectType type_,
-      RunToolCallObjectFunction function_}) get copyWith => _copyWith;
-
-  RunToolCallObject _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? function_ = sdkOmittedValue}) =>
-      RunToolCallObject(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RunToolCallObjectType,
-        function_: identical(function_, sdkOmittedValue)
-            ? this.function_
-            : function_ as RunToolCallObjectFunction,
-      );
-
-  factory RunToolCallObject.fromJson(Map<String, dynamic> json) =>
-      RunToolCallObject(
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? RunToolCallObjectType.fromJson(json['type'] as String)
-            : null)!,
-        function_: (json['function'] != null
-            ? RunToolCallObjectFunction.fromJson(
-                json['function'] as Map<String, dynamic>)
-            : null)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'type': type_.toJson(),
-        'function': function_.toJson(),
       };
 }

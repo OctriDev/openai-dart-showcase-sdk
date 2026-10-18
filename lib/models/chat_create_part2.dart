@@ -37,7 +37,7 @@ class CreateChatCompletionRequestVariant1 {
   final SdkOptional<int?> topLogprobs;
 
   /// An object specifying the format that the model must output. Setting to `{ "type": "json_schema", "json_schema": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs). Setting to `{ "type": "json_object" }` enables the older JSON mode, which ensures the message the model generates is valid JSON. Using `json_schema` is preferred for models that support it.
-  final SdkOptional<ResponseFormat> responseFormat;
+  final SdkOptional<dynamic> responseFormat;
 
   /// Parameters for audio output. Required when audio output is requested with `modalities: ["audio"]`. [Learn more](https://developers.openai.com/api/docs/guides/audio).
   final SdkOptional<CreateChatCompletionRequestVariant1Audio?> audio;
@@ -74,7 +74,7 @@ class CreateChatCompletionRequestVariant1 {
   final SdkOptional<ChatCompletionStreamOptions?> streamOptions;
 
   /// A list of tools the model may call. You can provide either [custom tools](https://developers.openai.com/api/docs/guides/function-calling#custom-tools) or [function tools](https://developers.openai.com/api/docs/guides/function-calling).
-  final SdkOptional<List<ToolsItem>> tools;
+  final SdkOptional<List<dynamic>> tools;
 
   /// Controls which (if any) tool is called by the model. `none` means the model will not call any tool and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools. Specifying a particular tool via `{"type": "function", "function": {"name": "my_function"}}` forces the model to call that tool. `none` is the default when no tools are present. `auto` is the default if tools are present.
   final SdkOptional<ChatCompletionToolChoiceOption> toolChoice;
@@ -132,7 +132,7 @@ class CreateChatCompletionRequestVariant1 {
           SdkOptional<CreateChatCompletionRequestVariant1WebSearchOptions>
               webSearchOptions,
           SdkOptional<int?> topLogprobs,
-          SdkOptional<ResponseFormat> responseFormat,
+          SdkOptional<dynamic> responseFormat,
           SdkOptional<CreateChatCompletionRequestVariant1Audio?> audio,
           SdkOptional<bool?> store,
           SdkOptional<ModerationParam?> moderation,
@@ -145,7 +145,7 @@ class CreateChatCompletionRequestVariant1 {
           SdkOptional<PredictionContent?> prediction,
           SdkOptional<int?> seed,
           SdkOptional<ChatCompletionStreamOptions?> streamOptions,
-          SdkOptional<List<ToolsItem>> tools,
+          SdkOptional<List<dynamic>> tools,
           SdkOptional<ChatCompletionToolChoiceOption> toolChoice,
           SdkOptional<bool> parallelToolCalls,
           SdkOptional<dynamic> functionCall,
@@ -217,7 +217,7 @@ class CreateChatCompletionRequestVariant1 {
             : topLogprobs as SdkOptional<int?>,
         responseFormat: identical(responseFormat, sdkOmittedValue)
             ? this.responseFormat
-            : responseFormat as SdkOptional<ResponseFormat>,
+            : responseFormat as SdkOptional<dynamic>,
         audio: identical(audio, sdkOmittedValue)
             ? this.audio
             : audio as SdkOptional<CreateChatCompletionRequestVariant1Audio?>,
@@ -254,7 +254,7 @@ class CreateChatCompletionRequestVariant1 {
             : streamOptions as SdkOptional<ChatCompletionStreamOptions?>,
         tools: identical(tools, sdkOmittedValue)
             ? this.tools
-            : tools as SdkOptional<List<ToolsItem>>,
+            : tools as SdkOptional<List<dynamic>>,
         toolChoice: identical(toolChoice, sdkOmittedValue)
             ? this.toolChoice
             : toolChoice as SdkOptional<ChatCompletionToolChoiceOption>,
@@ -315,9 +315,11 @@ class CreateChatCompletionRequestVariant1 {
             ? SdkPresent((json['top_logprobs'] as num?)?.toInt())
             : const SdkOmitted(),
         responseFormat: json['response_format'] != null
-            ? SdkPresent((json['response_format'] != null
-                ? ResponseFormat.fromJson(json['response_format'])
-                : null)!)
+            ? SdkPresent((SdkUtils.unionBranch(json['response_format'], [
+                ResponseFormatText.fromJson,
+                ResponseFormatJsonSchema.fromJson,
+                ResponseFormatJsonObject.fromJson
+              ]))!)
             : const SdkOmitted(),
         audio: json.containsKey('audio')
             ? SdkPresent(json['audio'] != null
@@ -373,9 +375,7 @@ class CreateChatCompletionRequestVariant1 {
                 : null)
             : const SdkOmitted(),
         tools: json['tools'] != null
-            ? SdkPresent(((json['tools'] as List?)
-                ?.map((e) => ToolsItem.fromJson(e))
-                .toList())!)
+            ? SdkPresent(((json['tools'] as List?)?.map((e) => e).toList())!)
             : const SdkOmitted(),
         toolChoice: json['tool_choice'] != null
             ? SdkPresent((json['tool_choice'] != null
@@ -458,8 +458,8 @@ class CreateChatCompletionRequestVariant1 {
           _ => const <String, dynamic>{},
         },
         ...switch (responseFormat) {
-          SdkPresent<ResponseFormat>(value: final value) => {
-              'response_format': value.toJson(),
+          SdkPresent<dynamic>(value: final value) => {
+              'response_format': value,
             },
           _ => const <String, dynamic>{},
         },
@@ -539,8 +539,8 @@ class CreateChatCompletionRequestVariant1 {
           _ => const <String, dynamic>{},
         },
         ...switch (tools) {
-          SdkPresent<List<ToolsItem>>(value: final value) => {
-              'tools': value.map((item) => item.toJson()).toList(),
+          SdkPresent<List<dynamic>>(value: final value) => {
+              'tools': value,
             },
           _ => const <String, dynamic>{},
         },

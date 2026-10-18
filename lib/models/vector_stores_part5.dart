@@ -187,6 +187,20 @@ sealed class VectorStoreSearchRequestFilters {
   static const String constructionSurface = 'named';
   const VectorStoreSearchRequestFilters();
   factory VectorStoreSearchRequestFilters.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ComparisonFilter.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VectorStoreSearchRequestFiltersComparisonFilter(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CompoundFilter.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VectorStoreSearchRequestFiltersCompoundFilter(value);
+        }
+      } catch (_) {}
+    }
     try {
       return VectorStoreSearchRequestFiltersComparisonFilter(
           ComparisonFilter.fromJson(json as Map<String, dynamic>));

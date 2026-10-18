@@ -76,6 +76,20 @@ sealed class BetaNamespaceToolParamToolsItem {
   static const String constructionSurface = 'named';
   const BetaNamespaceToolParamToolsItem();
   factory BetaNamespaceToolParamToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaFunctionToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaNamespaceToolParamToolsItemBetaFunctionToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaCustomToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaNamespaceToolParamToolsItemBetaCustomToolParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaNamespaceToolParamToolsItemBetaFunctionToolParam(
           BetaFunctionToolParam.fromJson(json as Map<String, dynamic>));

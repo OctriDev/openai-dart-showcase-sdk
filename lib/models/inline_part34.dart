@@ -287,34 +287,31 @@ enum ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamAction {
 }
 
 /// Required enumerated value serialized in the `type` wire field.
-final class ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType {
-  final String value;
+enum ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType {
+  browserAuthentication;
 
-  const ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType._(
-      this.value);
+  static ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType
+      fromJson(String value) {
+    switch (value) {
+      case 'browser_authentication':
+        return ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType
+            .browserAuthentication;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType: $value');
+    }
+  }
 
-  factory ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType.fromJson(
-          String value) =>
-      ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType._(
-          value);
-
-  static const browserAuthentication =
-      ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType._(
-          'browser_authentication');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other
-          is ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType &&
-      other.value == value;
+  String toJson() {
+    switch (this) {
+      case ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType
+            .browserAuthentication:
+        return 'browser_authentication';
+    }
+  }
 
   @override
-  int get hashCode => value.hashCode;
+  String toString() => toJson();
 }
 
 /// Required enumerated value serialized in the `action` wire field.
@@ -346,32 +343,29 @@ enum ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamAction {
 }
 
 /// Required enumerated value serialized in the `type` wire field.
-final class ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType {
-  final String value;
+enum ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType {
+  browserAuthentication;
 
-  const ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType._(
-      this.value);
+  static ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType
+      fromJson(String value) {
+    switch (value) {
+      case 'browser_authentication':
+        return ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType
+            .browserAuthentication;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType: $value');
+    }
+  }
 
-  factory ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType.fromJson(
-          String value) =>
-      ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType._(
-          value);
-
-  static const browserAuthentication =
-      ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType._(
-          'browser_authentication');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other
-          is ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType &&
-      other.value == value;
+  String toJson() {
+    switch (this) {
+      case ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType
+            .browserAuthentication:
+        return 'browser_authentication';
+    }
+  }
 
   @override
-  int get hashCode => value.hashCode;
+  String toString() => toJson();
 }

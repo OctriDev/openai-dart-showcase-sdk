@@ -126,6 +126,22 @@ sealed class ContainerAutoParamNetworkPolicy {
   static const String constructionSurface = 'named';
   const ContainerAutoParamNetworkPolicy();
   factory ContainerAutoParamNetworkPolicy.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ContainerNetworkPolicyDisabledParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContainerAutoParamNetworkPolicyContainerNetworkPolicyDisabledParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ContainerNetworkPolicyAllowlistParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContainerAutoParamNetworkPolicyContainerNetworkPolicyAllowlistParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ContainerAutoParamNetworkPolicyContainerNetworkPolicyDisabledParam(
           ContainerNetworkPolicyDisabledParam.fromJson(
@@ -179,6 +195,20 @@ sealed class ContainerAutoParamSkillsItem {
   static const String constructionSurface = 'named';
   const ContainerAutoParamSkillsItem();
   factory ContainerAutoParamSkillsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = SkillReferenceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContainerAutoParamSkillsItemSkillReferenceParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InlineSkillParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContainerAutoParamSkillsItemInlineSkillParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return ContainerAutoParamSkillsItemSkillReferenceParam(
           SkillReferenceParam.fromJson(json as Map<String, dynamic>));
@@ -447,51 +477,5 @@ class ContainerNetworkPolicyDisabledParam {
 
   Map<String, dynamic> toJson() => {
         'type': type_.toJson(),
-      };
-}
-
-/// Typed representation of the `ContainerNetworkPolicyDomainSecretParam` API schema.
-class ContainerNetworkPolicyDomainSecretParam {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The domain associated with the secret.
-  final String domain;
-
-  /// The name of the secret to inject for the domain.
-  final String name;
-
-  /// The secret value to inject for the domain.
-  final String value;
-
-  const ContainerNetworkPolicyDomainSecretParam(
-      {required this.domain, required this.name, required this.value});
-
-  ContainerNetworkPolicyDomainSecretParam Function(
-      {String domain, String name, String value}) get copyWith => _copyWith;
-
-  ContainerNetworkPolicyDomainSecretParam _copyWith(
-          {Object? domain = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? value = sdkOmittedValue}) =>
-      ContainerNetworkPolicyDomainSecretParam(
-        domain:
-            identical(domain, sdkOmittedValue) ? this.domain : domain as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        value: identical(value, sdkOmittedValue) ? this.value : value as String,
-      );
-
-  factory ContainerNetworkPolicyDomainSecretParam.fromJson(
-          Map<String, dynamic> json) =>
-      ContainerNetworkPolicyDomainSecretParam(
-        domain: (json['domain'] as String?)!,
-        name: (json['name'] as String?)!,
-        value: (json['value'] as String?)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'domain': domain,
-        'name': name,
-        'value': value,
       };
 }

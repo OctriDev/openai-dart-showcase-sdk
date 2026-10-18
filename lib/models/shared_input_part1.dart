@@ -93,6 +93,26 @@ sealed class InputContent {
   static const String constructionSurface = 'named';
   const InputContent();
   factory InputContent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = InputTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputContentInputTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputImageContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputContentInputImageContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputFileContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return InputContentInputFileContent(value);
+        }
+      } catch (_) {}
+    }
     try {
       return InputContentInputTextContent(
           InputTextContent.fromJson(json as Map<String, dynamic>));

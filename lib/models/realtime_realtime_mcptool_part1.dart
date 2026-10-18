@@ -139,6 +139,26 @@ sealed class RealtimeMCPToolCallError {
   static const String constructionSurface = 'named';
   const RealtimeMCPToolCallError();
   factory RealtimeMCPToolCallError.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RealtimeMCPProtocolError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeMCPToolCallErrorRealtimeMCPProtocolError(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeMCPToolExecutionError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeMCPToolCallErrorRealtimeMCPToolExecutionError(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeMCPHTTPError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeMCPToolCallErrorRealtimeMCPHTTPError(value);
+        }
+      } catch (_) {}
+    }
     try {
       return RealtimeMCPToolCallErrorRealtimeMCPProtocolError(
           RealtimeMCPProtocolError.fromJson(json as Map<String, dynamic>));

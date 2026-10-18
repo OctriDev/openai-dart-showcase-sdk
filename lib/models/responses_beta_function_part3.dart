@@ -174,6 +174,22 @@ sealed class BetaFunctionShellCallItemParamEnvironment {
   static const String constructionSurface = 'named';
   const BetaFunctionShellCallItemParamEnvironment();
   factory BetaFunctionShellCallItemParamEnvironment.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaLocalEnvironmentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionShellCallItemParamEnvironmentBetaLocalEnvironmentParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaContainerReferenceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionShellCallItemParamEnvironmentBetaContainerReferenceParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaFunctionShellCallItemParamEnvironmentBetaLocalEnvironmentParam(
           BetaLocalEnvironmentParam.fromJson(json as Map<String, dynamic>));
@@ -478,6 +494,22 @@ sealed class BetaFunctionShellCallOutputContentOutcome {
   static const String constructionSurface = 'named';
   const BetaFunctionShellCallOutputContentOutcome();
   factory BetaFunctionShellCallOutputContentOutcome.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaFunctionShellCallOutputTimeoutOutcome.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputTimeoutOutcome(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaFunctionShellCallOutputExitOutcome.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputExitOutcome(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputTimeoutOutcome(
           BetaFunctionShellCallOutputTimeoutOutcome.fromJson(

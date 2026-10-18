@@ -508,6 +508,38 @@ sealed class ValidateGraderRequestGrader {
   static const String constructionSurface = 'named';
   const ValidateGraderRequestGrader();
   factory ValidateGraderRequestGrader.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = GraderStringCheck.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ValidateGraderRequestGraderGraderStringCheck(value);
+        }
+      } catch (_) {}
+      try {
+        final value = GraderTextSimilarity.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ValidateGraderRequestGraderGraderTextSimilarity(value);
+        }
+      } catch (_) {}
+      try {
+        final value = GraderPython.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ValidateGraderRequestGraderGraderPython(value);
+        }
+      } catch (_) {}
+      try {
+        final value = GraderScoreModel.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ValidateGraderRequestGraderGraderScoreModel(value);
+        }
+      } catch (_) {}
+      try {
+        final value = GraderMulti.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ValidateGraderRequestGraderGraderMulti(value);
+        }
+      } catch (_) {}
+    }
     try {
       return ValidateGraderRequestGraderGraderStringCheck(
           GraderStringCheck.fromJson(json as Map<String, dynamic>));
@@ -564,14 +596,6 @@ final class ValidateGraderRequestGraderGraderPython
     extends ValidateGraderRequestGrader {
   final GraderPython value;
   const ValidateGraderRequestGraderGraderPython(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ValidateGraderRequestGraderGraderScoreModel
-    extends ValidateGraderRequestGrader {
-  final GraderScoreModel value;
-  const ValidateGraderRequestGraderGraderScoreModel(this.value);
   @override
   Object? toJson() => value.toJson();
 }

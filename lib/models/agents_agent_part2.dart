@@ -4,6 +4,30 @@
 part of 'agents_agent.dart';
 
 // agents_agent domain models (part 2)
+final class AgentOutputItemResourceWaitForSubagentsCallItemResource
+    extends AgentOutputItemResource {
+  final WaitForSubagentsCallItemResource value;
+  const AgentOutputItemResourceWaitForSubagentsCallItemResource(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class AgentOutputItemResourceInterruptSubagentCallItemResource
+    extends AgentOutputItemResource {
+  final InterruptSubagentCallItemResource value;
+  const AgentOutputItemResourceInterruptSubagentCallItemResource(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class AgentOutputItemResourceCloseSubagentCallItemResource
+    extends AgentOutputItemResource {
+  final CloseSubagentCallItemResource value;
+  const AgentOutputItemResourceCloseSubagentCallItemResource(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
 /// A [AgentOutputItemResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownAgentOutputItemResource extends AgentOutputItemResource {
   final Map<String, dynamic> raw;
@@ -196,6 +220,46 @@ sealed class AgentToolConfigParam {
   static const String constructionSurface = 'named';
   const AgentToolConfigParam();
   factory AgentToolConfigParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = AgentToolConfigParamFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamFunction(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AgentToolConfigParamToolSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamToolSearch(value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            AgentToolConfigParamProgrammaticToolCalling.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamProgrammaticToolCalling(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = AgentToolConfigParamMcp.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamMcp(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AgentToolConfigParamWebSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamWebSearch(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AgentToolConfigParamComputerUse.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamComputerUse(value);
+        }
+      } catch (_) {}
+    }
     try {
       return AgentToolConfigParamAgentToolConfigParamFunction(
           AgentToolConfigParamFunction.fromJson(json as Map<String, dynamic>));

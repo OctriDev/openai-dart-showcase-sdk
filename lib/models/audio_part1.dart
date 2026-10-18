@@ -33,81 +33,6 @@ final class AudioResponseFormat {
   int get hashCode => value.hashCode;
 }
 
-/// Custom voice reference.
-class CreateSpeechRequestVoiceVariant1 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The custom voice ID, e.g. `voice_1234`.
-  final String id;
-
-  const CreateSpeechRequestVoiceVariant1({required this.id});
-
-  CreateSpeechRequestVoiceVariant1 Function({String id}) get copyWith =>
-      _copyWith;
-
-  CreateSpeechRequestVoiceVariant1 _copyWith({Object? id = sdkOmittedValue}) =>
-      CreateSpeechRequestVoiceVariant1(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
-
-  factory CreateSpeechRequestVoiceVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      CreateSpeechRequestVoiceVariant1(
-        id: (json['id'] as String?)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-      };
-}
-
-sealed class CreateSpeechRequestVoice {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const CreateSpeechRequestVoice();
-  factory CreateSpeechRequestVoice.fromJson(Object? json) {
-    if (json is String) {
-      return CreateSpeechRequestVoiceString(json);
-    }
-    try {
-      return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant0Variant1(
-          CreateSpeechRequestVoiceVariant0Variant1.fromJson(json as String));
-    } catch (_) {}
-    try {
-      return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1(
-          CreateSpeechRequestVoiceVariant1.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException("No variant matched for CreateSpeechRequestVoice");
-  }
-  Object? toJson();
-}
-
-final class CreateSpeechRequestVoiceString extends CreateSpeechRequestVoice {
-  final String value;
-  const CreateSpeechRequestVoiceString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant0Variant1
-    extends CreateSpeechRequestVoice {
-  final CreateSpeechRequestVoiceVariant0Variant1 value;
-  const CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant0Variant1(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1
-    extends CreateSpeechRequestVoice {
-  final CreateSpeechRequestVoiceVariant1 value;
-  const CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
 /// Typed representation of the `CreateSpeechRequest` API schema.
 class CreateSpeechRequest {
   /// This model is constructed from named fields in one call.
@@ -123,7 +48,7 @@ class CreateSpeechRequest {
   final SdkOptional<String> instructions;
 
   /// The voice to use when generating the audio. Supported built-in voices are `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. You may also provide a custom voice object with an `id`, for example `{ "id": "voice_1234" }`. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples.
-  final dynamic voice;
+  final CreateSpeechRequestVoice voice;
 
   /// The format to audio in. Supported formats are `mp3`, `opus`, `aac`, `flac`, `wav`, and `pcm`.
   final SdkOptional<CreateSpeechRequestResponseFormat> responseFormat;
@@ -147,7 +72,7 @@ class CreateSpeechRequest {
           {String model,
           String input,
           SdkOptional<String> instructions,
-          dynamic voice,
+          CreateSpeechRequestVoice voice,
           SdkOptional<CreateSpeechRequestResponseFormat> responseFormat,
           SdkOptional<double> speed,
           SdkOptional<CreateSpeechRequestStreamFormat> streamFormat})
@@ -167,8 +92,9 @@ class CreateSpeechRequest {
         instructions: identical(instructions, sdkOmittedValue)
             ? this.instructions
             : instructions as SdkOptional<String>,
-        voice:
-            identical(voice, sdkOmittedValue) ? this.voice : voice as dynamic,
+        voice: identical(voice, sdkOmittedValue)
+            ? this.voice
+            : voice as CreateSpeechRequestVoice,
         responseFormat: identical(responseFormat, sdkOmittedValue)
             ? this.responseFormat
             : responseFormat as SdkOptional<CreateSpeechRequestResponseFormat>,
@@ -187,7 +113,9 @@ class CreateSpeechRequest {
         instructions: json['instructions'] != null
             ? SdkPresent((json['instructions'] as String?)!)
             : const SdkOmitted(),
-        voice: (json['voice'])!,
+        voice: (json['voice'] != null
+            ? CreateSpeechRequestVoice.fromJson(json['voice'])
+            : null)!,
         responseFormat: json['response_format'] != null
             ? SdkPresent((json['response_format'] != null
                 ? CreateSpeechRequestResponseFormat.fromJson(
@@ -214,7 +142,7 @@ class CreateSpeechRequest {
             },
           _ => const <String, dynamic>{},
         },
-        'voice': voice,
+        'voice': voice.toJson(),
         ...switch (responseFormat) {
           SdkPresent<CreateSpeechRequestResponseFormat>(value: final value) => {
               'response_format': value.toJson(),
@@ -236,11 +164,99 @@ class CreateSpeechRequest {
       };
 }
 
+/// Custom voice reference.
+class CreateSpeechRequestVoiceVariant2 {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The custom voice ID, e.g. `voice_1234`.
+  final String id;
+
+  const CreateSpeechRequestVoiceVariant2({required this.id});
+
+  CreateSpeechRequestVoiceVariant2 Function({String id}) get copyWith =>
+      _copyWith;
+
+  CreateSpeechRequestVoiceVariant2 _copyWith({Object? id = sdkOmittedValue}) =>
+      CreateSpeechRequestVoiceVariant2(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
+
+  factory CreateSpeechRequestVoiceVariant2.fromJson(
+          Map<String, dynamic> json) =>
+      CreateSpeechRequestVoiceVariant2(
+        id: (json['id'] as String?)!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+      };
+}
+
+sealed class CreateSpeechRequestVoice {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const CreateSpeechRequestVoice();
+  factory CreateSpeechRequestVoice.fromJson(Object? json) {
+    if (json is String) {
+      return CreateSpeechRequestVoiceString(json);
+    }
+    try {
+      return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1(
+          CreateSpeechRequestVoiceVariant1.fromJson(json as String));
+    } catch (_) {}
+    try {
+      return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant2(
+          CreateSpeechRequestVoiceVariant2.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException("No variant matched for CreateSpeechRequestVoice");
+  }
+  Object? toJson();
+}
+
+final class CreateSpeechRequestVoiceString extends CreateSpeechRequestVoice {
+  final String value;
+  const CreateSpeechRequestVoiceString(this.value);
+  @override
+  Object? toJson() => value;
+}
+
+final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1
+    extends CreateSpeechRequestVoice {
+  final CreateSpeechRequestVoiceVariant1 value;
+  const CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant2
+    extends CreateSpeechRequestVoice {
+  final CreateSpeechRequestVoiceVariant2 value;
+  const CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant2(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
 sealed class CreateSpeechResponseStreamEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const CreateSpeechResponseStreamEvent();
   factory CreateSpeechResponseStreamEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = SpeechAudioDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateSpeechResponseStreamEventSpeechAudioDeltaEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = SpeechAudioDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateSpeechResponseStreamEventSpeechAudioDoneEvent(value);
+        }
+      } catch (_) {}
+    }
     try {
       return CreateSpeechResponseStreamEventSpeechAudioDeltaEvent(
           SpeechAudioDeltaEvent.fromJson(json as Map<String, dynamic>));
@@ -284,41 +300,4 @@ final class UnknownCreateSpeechResponseStreamEvent
   const UnknownCreateSpeechResponseStreamEvent(this.raw);
   @override
   Object? toJson() => raw;
-}
-
-sealed class CreateTranscriptionRequestChunkingStrategy {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const CreateTranscriptionRequestChunkingStrategy();
-  factory CreateTranscriptionRequestChunkingStrategy.fromJson(Object? json) {
-    try {
-      return CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0(
-          CreateTranscriptionRequestChunkingStrategyVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    try {
-      return CreateTranscriptionRequestChunkingStrategyVadConfig(
-          VadConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for CreateTranscriptionRequestChunkingStrategy");
-  }
-  Object? toJson();
-}
-
-final class CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0
-    extends CreateTranscriptionRequestChunkingStrategy {
-  final CreateTranscriptionRequestChunkingStrategyVariant0 value;
-  const CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class CreateTranscriptionRequestChunkingStrategyVadConfig
-    extends CreateTranscriptionRequestChunkingStrategy {
-  final VadConfig value;
-  const CreateTranscriptionRequestChunkingStrategyVadConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
 }

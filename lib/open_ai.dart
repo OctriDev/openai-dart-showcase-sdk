@@ -358,6 +358,27 @@ class AssistantsNamespace {
         requestOptions: requestOptions);
   }
 
+  /// Lists messages belonging to a thread. Use `run_id` to filter by the run that generated the messages and `order` to control their creation-time order. Use `after` or `before` cursors to navigate the results.
+  ///
+  /// Returns a list of messages for a given thread.
+  Stream<MessageObject> listMessagesPaginated(
+      {required String threadId,
+      int? limit,
+      ListMessagesOrder? order,
+      String? after,
+      String? before,
+      String? runId,
+      RequestOptions? requestOptions}) async* {
+    yield* assistants_methods.listMessagesPaginated(_config,
+        threadId: threadId,
+        limit: limit,
+        order: order,
+        after: after,
+        before: before,
+        runId: runId,
+        requestOptions: requestOptions);
+  }
+
   /// Creates a message in a thread. Provide the message `role` and `content`, and optionally include file attachments or metadata. Use this operation to add a user or assistant message to an existing conversation thread.
   ///
   /// Create a message.
@@ -617,6 +638,29 @@ class AssistantsNamespace {
         requestOptions: requestOptions);
   }
 
+  /// Lists the steps belonging to a run on a thread. Use cursor parameters to page through the steps, and set `order` to control their order by creation time.
+  ///
+  /// Returns a list of run steps belonging to a run.
+  Stream<RunStepObject> listRunStepsPaginated(
+      {required String threadId,
+      required String runId,
+      int? limit,
+      ListRunStepsOrder? order,
+      String? after,
+      String? before,
+      List<ListRunStepsIncludeItem>? include,
+      RequestOptions? requestOptions}) async* {
+    yield* assistants_methods.listRunStepsPaginated(_config,
+        threadId: threadId,
+        runId: runId,
+        limit: limit,
+        order: order,
+        after: after,
+        before: before,
+        include: include,
+        requestOptions: requestOptions);
+  }
+
   /// Retrieves a specific step from a run on a thread. Use `include[]` to request file search result content when the step contains file search tool calls.
   ///
   /// Retrieves a run step.
@@ -679,7 +723,7 @@ class AudioNamespace {
   Future<List<int>> createSpeech(
       {required String model,
       required String input,
-      required dynamic voice,
+      required CreateSpeechRequestVoice voice,
       SdkOptional<String> instructions = const SdkOmitted(),
       SdkOptional<CreateSpeechRequestResponseFormat> responseFormat =
           const SdkOmitted(),
@@ -704,7 +748,7 @@ class AudioNamespace {
   Stream<CreateSpeechResponseStreamEvent> createSpeechStream(
       {required String model,
       required String input,
-      required dynamic voice,
+      required CreateSpeechRequestVoice voice,
       SdkOptional<String> instructions = const SdkOmitted(),
       SdkOptional<CreateSpeechRequestResponseFormat> responseFormat =
           const SdkOmitted(),
@@ -726,7 +770,7 @@ class AudioNamespace {
   /// Transcribes an audio file and returns the transcript in a selected format or as a stream of transcript events. Provide the audio `file` and `model`, then use options such as `language`, `prompt`, or `timestamp_granularities` to guide or shape the output. Use multipart form data and include enough file metadata for the audio format to be identified.
   ///
   /// Transcribes audio into the input language. Returns a transcription object in `json`, `diarized_json`, or `verbose_json` format, plain text in `text`, `srt`, or `vtt` format, or a stream of transcript events. Supported formats depend on the model.
-  Future<dynamic> createTranscription(
+  Future<CreateTranscriptionResponse> createTranscription(
       {required SdkUploadFile file,
       required String model,
       SdkOptional<String> language = const SdkOmitted(),
@@ -739,7 +783,8 @@ class AudioNamespace {
       SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>>
           timestampGranularities = const SdkOmitted(),
       SdkOptional<bool?> stream = const SdkOmitted(),
-      SdkOptional<dynamic> chunkingStrategy = const SdkOmitted(),
+      SdkOptional<CreateTranscriptionRequestChunkingStrategy?>
+          chunkingStrategy = const SdkOmitted(),
       SdkOptional<List<String>> knownSpeakerNames = const SdkOmitted(),
       SdkOptional<List<String>> knownSpeakerReferences = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
@@ -777,7 +822,8 @@ class AudioNamespace {
       SdkOptional<List<TranscriptionInclude>> include = const SdkOmitted(),
       SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>>
           timestampGranularities = const SdkOmitted(),
-      SdkOptional<dynamic> chunkingStrategy = const SdkOmitted(),
+      SdkOptional<CreateTranscriptionRequestChunkingStrategy?>
+          chunkingStrategy = const SdkOmitted(),
       SdkOptional<List<String>> knownSpeakerNames = const SdkOmitted(),
       SdkOptional<List<String>> knownSpeakerReferences = const SdkOmitted(),
       RequestOptions? requestOptions}) async* {
@@ -802,7 +848,7 @@ class AudioNamespace {
   /// Translates an audio file into English and returns the result in a selected format. Provide the `file` and `model`, then optionally use `prompt` to guide the translation style. Send the file as multipart form data with metadata that lets the service identify its audio format.
   ///
   /// Translates audio into English.
-  Future<dynamic> createTranslation(
+  Future<CreateTranslationResponse> createTranslation(
       {required SdkUploadFile file,
       required String model,
       SdkOptional<String> prompt = const SdkOmitted(),
@@ -4884,7 +4930,8 @@ class RealtimeNamespace {
       SdkOptional<RealtimeSessionCreateRequestInputAudioTranscription>
           inputAudioTranscription = const SdkOmitted(),
       SdkOptional<double> speed = const SdkOmitted(),
-      SdkOptional<dynamic> tracing = const SdkOmitted(),
+      SdkOptional<RealtimeSessionCreateRequestTracing>
+          tracing = const SdkOmitted(),
       SdkOptional<RealtimeSessionCreateRequestTurnDetection> turnDetection =
           const SdkOmitted(),
       SdkOptional<List<RealtimeSessionCreateRequestToolsItem>> tools =
@@ -4919,7 +4966,9 @@ class RealtimeNamespace {
   Future<RealtimeTranscriptionSessionCreateResponse> createTranscriptionSession(
       {SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection>
           turnDetection = const SdkOmitted(),
-      SdkOptional<dynamic> inputAudioNoiseReduction = const SdkOmitted(),
+      SdkOptional<
+              RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>
+          inputAudioNoiseReduction = const SdkOmitted(),
       SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat>
           inputAudioFormat = const SdkOmitted(),
       SdkOptional<AudioTranscription> inputAudioTranscription =
@@ -5412,6 +5461,23 @@ class VectorStoresNamespace {
         requestOptions: requestOptions);
   }
 
+  /// Lists vector stores, which are collections of processed files that you can use with the `file_search` tool. Use the cursor parameters to move forward or backward through the results, and set `order` to control sorting by creation time.
+  ///
+  /// Returns a list of vector stores.
+  Stream<VectorStoreObject> listPaginated(
+      {int? limit,
+      ListVectorStoresOrder? order,
+      String? after,
+      String? before,
+      RequestOptions? requestOptions}) async* {
+    yield* vector_stores_methods.listVectorStoresPaginated(_config,
+        limit: limit,
+        order: order,
+        after: after,
+        before: before,
+        requestOptions: requestOptions);
+  }
+
   /// Creates a vector store to collect processed files for use with the `file_search` tool. Supply `file_ids` to add files at creation, and optionally set a name, description, expiration policy, chunking strategy, or metadata.
   ///
   /// Create a vector store.
@@ -5540,6 +5606,29 @@ class VectorStoresNamespace {
         requestOptions: requestOptions);
   }
 
+  /// Lists the files in a vector store file batch. Use `filter` to limit results by processing status and the cursor parameters to navigate through the batch's files.
+  ///
+  /// Returns a list of vector store files in a batch.
+  Stream<VectorStoreFileObject> listFilesInBatchPaginated(
+      {required String vectorStoreId,
+      required String batchId,
+      int? limit,
+      ListFilesInVectorStoreBatchOrder? order,
+      String? after,
+      String? before,
+      ListFilesInVectorStoreBatchFilter? filter,
+      RequestOptions? requestOptions}) async* {
+    yield* vector_stores_methods.listFilesInVectorStoreBatchPaginated(_config,
+        vectorStoreId: vectorStoreId,
+        batchId: batchId,
+        limit: limit,
+        order: order,
+        after: after,
+        before: before,
+        filter: filter,
+        requestOptions: requestOptions);
+  }
+
   /// Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
   ///
   /// Returns a list of vector store files.
@@ -5552,6 +5641,27 @@ class VectorStoresNamespace {
       SdkOptional<ListVectorStoreFilesFilter> filter = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
     return vector_stores_methods.listVectorStoreFiles(_config,
+        vectorStoreId: vectorStoreId,
+        limit: limit,
+        order: order,
+        after: after,
+        before: before,
+        filter: filter,
+        requestOptions: requestOptions);
+  }
+
+  /// Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
+  ///
+  /// Returns a list of vector store files.
+  Stream<VectorStoreFileObject> listFilesPaginated(
+      {required String vectorStoreId,
+      int? limit,
+      ListVectorStoreFilesOrder? order,
+      String? after,
+      String? before,
+      ListVectorStoreFilesFilter? filter,
+      RequestOptions? requestOptions}) async* {
+    yield* vector_stores_methods.listVectorStoreFilesPaginated(_config,
         vectorStoreId: vectorStoreId,
         limit: limit,
         order: order,

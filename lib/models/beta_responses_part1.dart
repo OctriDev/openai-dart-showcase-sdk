@@ -9,6 +9,27 @@ sealed class BetaResponsesClientEvent {
   static const String constructionSurface = 'named';
   const BetaResponsesClientEvent();
   factory BetaResponsesClientEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaResponsesClientEventResponseCreate.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaResponsesClientEventBetaResponsesClientEventResponseCreate(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaResponseSteerEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaResponsesClientEventBetaResponseSteerEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaResponseInjectEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaResponsesClientEventBetaResponseInjectEvent(value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaResponsesClientEventBetaResponsesClientEventResponseCreate(
           BetaResponsesClientEventResponseCreate.fromJson(

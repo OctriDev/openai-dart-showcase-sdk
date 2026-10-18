@@ -9,6 +9,39 @@ sealed class SessionInputParam {
   static const String constructionSurface = 'named';
   const SessionInputParam();
   factory SessionInputParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            SessionInputParamAgentSessionInputComputerUseApprovalRequestResult
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionInputParamSessionInputParamAgentSessionInputComputerUseApprovalRequestResult(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = SessionInputParamAgentSessionInputMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionInputParamSessionInputParamAgentSessionInputMessage(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = SessionInputParamAgentSessionInputCancel.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionInputParamSessionInputParamAgentSessionInputCancel(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            SessionInputParamAgentSessionInputToolResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionInputParamSessionInputParamAgentSessionInputToolResult(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return SessionInputParamSessionInputParamAgentSessionInputComputerUseApprovalRequestResult(
           SessionInputParamAgentSessionInputComputerUseApprovalRequestResult

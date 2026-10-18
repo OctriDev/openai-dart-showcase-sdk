@@ -145,6 +145,23 @@ sealed class RealtimeCreateClientSecretRequestSession {
   static const String constructionSurface = 'named';
   const RealtimeCreateClientSecretRequestSession();
   factory RealtimeCreateClientSecretRequestSession.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RealtimeSessionCreateRequestGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranscriptionSessionCreateRequestGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeCreateClientSecretRequestSessionRealtimeTranscriptionSessionCreateRequestGA(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA(
           RealtimeSessionCreateRequestGA.fromJson(
@@ -253,6 +270,23 @@ sealed class RealtimeCreateClientSecretResponseSession {
   static const String constructionSurface = 'named';
   const RealtimeCreateClientSecretResponseSession();
   factory RealtimeCreateClientSecretResponseSession.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RealtimeSessionCreateResponseGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranscriptionSessionCreateResponseGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeCreateClientSecretResponseSessionRealtimeTranscriptionSessionCreateResponseGA(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA(
           RealtimeSessionCreateResponseGA.fromJson(

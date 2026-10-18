@@ -45,6 +45,21 @@ sealed class LiveSessionCreateResponseTransport {
   static const String constructionSurface = 'named';
   const LiveSessionCreateResponseTransport();
   factory LiveSessionCreateResponseTransport.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveWebRTCTransport.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateResponseTransportLiveWebRTCTransport(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSessionCreateResponseTransportVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateResponseTransportLiveSessionCreateResponseTransportVariant1(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveSessionCreateResponseTransportLiveWebRTCTransport(
           LiveWebRTCTransport.fromJson(json as Map<String, dynamic>));
@@ -97,7 +112,7 @@ class LiveSessionResourceParam {
   static const String constructionSurface = 'named';
 
   /// The Live model. Required in the session configuration for every transport; do not pass it as a URL query parameter.
-  final ModelIdsLive model;
+  final String model;
 
   /// Optional `string` value serialized in the `instructions` wire field.
   final SdkOptional<String?> instructions;
@@ -143,7 +158,7 @@ class LiveSessionResourceParam {
       required this.status});
 
   LiveSessionResourceParam Function(
-      {ModelIdsLive model,
+      {String model,
       SdkOptional<String?> instructions,
       SdkOptional<List<LiveInitialItem>> input,
       SdkOptional<LiveInitialSessionAudioParam> audio,
@@ -168,9 +183,7 @@ class LiveSessionResourceParam {
           Object? expiresAt = sdkOmittedValue,
           Object? status = sdkOmittedValue}) =>
       LiveSessionResourceParam(
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as ModelIdsLive,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
         instructions: identical(instructions, sdkOmittedValue)
             ? this.instructions
             : instructions as SdkOptional<String?>,
@@ -203,9 +216,7 @@ class LiveSessionResourceParam {
 
   factory LiveSessionResourceParam.fromJson(Map<String, dynamic> json) =>
       LiveSessionResourceParam(
-        model: (json['model'] != null
-            ? ModelIdsLive.fromJson(json['model'])
-            : null)!,
+        model: (json['model'] as String?)!,
         instructions: json.containsKey('instructions')
             ? SdkPresent(json['instructions'] as String?)
             : const SdkOmitted(),
@@ -249,7 +260,7 @@ class LiveSessionResourceParam {
       );
 
   Map<String, dynamic> toJson() => {
-        'model': model.toJson(),
+        'model': model,
         ...switch (instructions) {
           SdkPresent<String?>(value: final value) => {
               'instructions': value,
@@ -307,6 +318,29 @@ sealed class LiveSessionResourceParamDelegation {
   static const String constructionSurface = 'named';
   const LiveSessionResourceParamDelegation();
   factory LiveSessionResourceParamDelegation.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveClientDelegationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionResourceParamDelegationLiveClientDelegationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveResponsesDelegationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionResourceParamDelegationLiveResponsesDelegationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionsDelegationParam2.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionResourceParamDelegationLiveDecisionsDelegationParam2(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveSessionResourceParamDelegationLiveClientDelegationParam(
           LiveClientDelegationParam.fromJson(json as Map<String, dynamic>));
@@ -462,70 +496,4 @@ final class LiveSessionStartEventEventIdString
   const LiveSessionStartEventEventIdString(this.value);
   @override
   Object? toJson() => value;
-}
-
-/// Start a Live session on a primary WebSocket. Send this event before other commands and wait for `session.started`.
-class LiveSessionStartEvent {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Optional API value serialized in the `event_id` wire field.
-  final SdkOptional<String?> eventId;
-
-  /// The Live client event type. Always `session.start`.
-  final LiveSessionStartEventType type_;
-
-  /// Initial configuration for a primary WebSocket. Send session.start first and wait for session.started before application commands. WebRTC creation already starts the session; do not send this event again on its data channel.
-  final LiveSessionCreateParams session;
-
-  const LiveSessionStartEvent(
-      {this.eventId = const SdkOmitted(),
-      required this.type_,
-      required this.session});
-
-  LiveSessionStartEvent Function(
-      {SdkOptional<String?> eventId,
-      LiveSessionStartEventType type_,
-      LiveSessionCreateParams session}) get copyWith => _copyWith;
-
-  LiveSessionStartEvent _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? session = sdkOmittedValue}) =>
-      LiveSessionStartEvent(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveSessionStartEventType,
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as LiveSessionCreateParams,
-      );
-
-  factory LiveSessionStartEvent.fromJson(Map<String, dynamic> json) =>
-      LiveSessionStartEvent(
-        eventId: json.containsKey('event_id')
-            ? SdkPresent(json['event_id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? LiveSessionStartEventType.fromJson(json['type'] as String)
-            : null)!,
-        session: (json['session'] != null
-            ? LiveSessionCreateParams.fromJson(
-                json['session'] as Map<String, dynamic>)
-            : null)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String?>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'session': session.toJson(),
-      };
 }

@@ -130,6 +130,94 @@ class CreateChatCompletionRequestVariant1WebSearchOptions {
       };
 }
 
+sealed class CreateChatCompletionRequestVariant1ResponseFormat {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const CreateChatCompletionRequestVariant1ResponseFormat();
+  factory CreateChatCompletionRequestVariant1ResponseFormat.fromJson(
+      Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ResponseFormatText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateChatCompletionRequestVariant1ResponseFormatResponseFormatText(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseFormatJsonSchema.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateChatCompletionRequestVariant1ResponseFormatResponseFormatJsonSchema(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseFormatJsonObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateChatCompletionRequestVariant1ResponseFormatResponseFormatJsonObject(
+              value);
+        }
+      } catch (_) {}
+    }
+    try {
+      return CreateChatCompletionRequestVariant1ResponseFormatResponseFormatText(
+          ResponseFormatText.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateChatCompletionRequestVariant1ResponseFormatResponseFormatJsonSchema(
+          ResponseFormatJsonSchema.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateChatCompletionRequestVariant1ResponseFormatResponseFormatJsonObject(
+          ResponseFormatJsonObject.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"text", "json_schema", "json_object"}.contains(json["type"])) {
+      return UnknownCreateChatCompletionRequestVariant1ResponseFormat(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateChatCompletionRequestVariant1ResponseFormat");
+  }
+  Object? toJson();
+}
+
+final class CreateChatCompletionRequestVariant1ResponseFormatResponseFormatText
+    extends CreateChatCompletionRequestVariant1ResponseFormat {
+  final ResponseFormatText value;
+  const CreateChatCompletionRequestVariant1ResponseFormatResponseFormatText(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class CreateChatCompletionRequestVariant1ResponseFormatResponseFormatJsonSchema
+    extends CreateChatCompletionRequestVariant1ResponseFormat {
+  final ResponseFormatJsonSchema value;
+  const CreateChatCompletionRequestVariant1ResponseFormatResponseFormatJsonSchema(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class CreateChatCompletionRequestVariant1ResponseFormatResponseFormatJsonObject
+    extends CreateChatCompletionRequestVariant1ResponseFormat {
+  final ResponseFormatJsonObject value;
+  const CreateChatCompletionRequestVariant1ResponseFormatResponseFormatJsonObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+/// A [CreateChatCompletionRequestVariant1ResponseFormat] whose `type` names no branch this SDK knows, kept as received.
+final class UnknownCreateChatCompletionRequestVariant1ResponseFormat
+    extends CreateChatCompletionRequestVariant1ResponseFormat {
+  final Map<String, dynamic> raw;
+  const UnknownCreateChatCompletionRequestVariant1ResponseFormat(this.raw);
+  @override
+  Object? toJson() => raw;
+}
+
 /// Parameters for audio output. Required when audio output is requested with `modalities: ["audio"]`. [Learn more](https://developers.openai.com/api/docs/guides/audio).
 class CreateChatCompletionRequestVariant1Audio {
   /// This model is constructed from named fields in one call.

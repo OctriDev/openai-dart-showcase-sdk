@@ -100,6 +100,25 @@ sealed class RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsIte
   const RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem();
   factory RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem.fromJson(
       Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RunStepDeltaStepDetailsToolCallsCodeOutputImageObject.fromJson(
+                json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputImageObject(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(
           RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject.fromJson(

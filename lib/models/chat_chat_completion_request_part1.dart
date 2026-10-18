@@ -280,6 +280,24 @@ sealed class ChatCompletionRequestAssistantMessageContentPart {
   const ChatCompletionRequestAssistantMessageContentPart();
   factory ChatCompletionRequestAssistantMessageContentPart.fromJson(
       Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            ChatCompletionRequestMessageContentPartText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            ChatCompletionRequestMessageContentPartRefusal.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartRefusal(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText(
           ChatCompletionRequestMessageContentPartText.fromJson(

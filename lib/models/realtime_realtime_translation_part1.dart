@@ -9,6 +9,31 @@ sealed class RealtimeTranslationClientEvent {
   static const String constructionSurface = 'named';
   const RealtimeTranslationClientEvent();
   factory RealtimeTranslationClientEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            RealtimeTranslationClientEventSessionUpdate.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTranslationClientEventRealtimeTranslationClientEventSessionUpdate(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranslationClientEventInputAudioBufferAppend.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTranslationClientEventRealtimeTranslationClientEventInputAudioBufferAppend(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeTranslationClientEventSessionClose.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTranslationClientEventRealtimeTranslationClientEventSessionClose(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RealtimeTranslationClientEventRealtimeTranslationClientEventSessionUpdate(
           RealtimeTranslationClientEventSessionUpdate.fromJson(
@@ -451,6 +476,65 @@ sealed class RealtimeTranslationServerEvent {
   static const String constructionSurface = 'named';
   const RealtimeTranslationServerEvent();
   factory RealtimeTranslationServerEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RealtimeServerEventError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTranslationServerEventRealtimeServerEventError(value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranslationServerEventSessionCreated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTranslationServerEventRealtimeTranslationServerEventSessionCreated(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranslationServerEventSessionUpdated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTranslationServerEventRealtimeTranslationServerEventSessionUpdated(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranslationServerEventSessionClosed.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTranslationServerEventRealtimeTranslationServerEventSessionClosed(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranslationServerEventSessionInputTranscriptDelta.fromJson(
+                json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTranslationServerEventRealtimeTranslationServerEventSessionInputTranscriptDelta(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranslationServerEventSessionOutputTranscriptDelta.fromJson(
+                json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTranslationServerEventRealtimeTranslationServerEventSessionOutputTranscriptDelta(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranslationServerEventSessionOutputAudioDelta.fromJson(
+                json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTranslationServerEventRealtimeTranslationServerEventSessionOutputAudioDelta(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RealtimeTranslationServerEventRealtimeServerEventError(
           RealtimeServerEventError.fromJson(json as Map<String, dynamic>));
@@ -508,24 +592,6 @@ final class RealtimeTranslationServerEventRealtimeServerEventError
     extends RealtimeTranslationServerEvent {
   final RealtimeServerEventError value;
   const RealtimeTranslationServerEventRealtimeServerEventError(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionCreated
-    extends RealtimeTranslationServerEvent {
-  final RealtimeTranslationServerEventSessionCreated value;
-  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionCreated(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class RealtimeTranslationServerEventRealtimeTranslationServerEventSessionUpdated
-    extends RealtimeTranslationServerEvent {
-  final RealtimeTranslationServerEventSessionUpdated value;
-  const RealtimeTranslationServerEventRealtimeTranslationServerEventSessionUpdated(
-      this.value);
   @override
   Object? toJson() => value.toJson();
 }

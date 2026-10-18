@@ -9,6 +9,26 @@ sealed class OutputContent {
   static const String constructionSurface = 'named';
   const OutputContent();
   factory OutputContent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = OutputTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputContentOutputTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RefusalContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputContentRefusalContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ReasoningTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputContentReasoningTextContent(value);
+        }
+      } catch (_) {}
+    }
     try {
       return OutputContentOutputTextContent(
           OutputTextContent.fromJson(json as Map<String, dynamic>));
@@ -66,6 +86,176 @@ sealed class OutputItem {
   static const String constructionSurface = 'named';
   const OutputItem();
   factory OutputItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = OutputMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemOutputMessage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FileSearchToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemFileSearchToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemFunctionToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionToolCallOutputResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemFunctionToolCallOutputResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WebSearchToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemWebSearchToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ComputerToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemComputerToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ComputerToolCallOutputResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemComputerToolCallOutputResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ReasoningItem.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemReasoningItem(value);
+        }
+      } catch (_) {}
+      try {
+        final value = Program.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemProgram(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ProgramOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemProgramOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolSearchCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemToolSearchCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolSearchOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemToolSearchOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AdditionalTools.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemAdditionalTools(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CompactionBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemCompactionBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ImageGenToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemImageGenToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CodeInterpreterToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemCodeInterpreterToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LocalShellToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemLocalShellToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LocalShellToolCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemLocalShellToolCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionShellCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemFunctionShellCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionShellCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemFunctionShellCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ApplyPatchToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemApplyPatchToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ApplyPatchToolCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemApplyPatchToolCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MCPToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemMCPToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MCPListTools.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemMCPListTools(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MCPApprovalRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemMCPApprovalRequest(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MCPApprovalResponseResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemMCPApprovalResponseResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CustomToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemCustomToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CustomToolCallOutputResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputItemCustomToolCallOutputResource(value);
+        }
+      } catch (_) {}
+    }
     try {
       return OutputItemOutputMessage(
           OutputMessage.fromJson(json as Map<String, dynamic>));
@@ -398,26 +588,4 @@ final class OutputItemMCPApprovalResponseResource extends OutputItem {
   const OutputItemMCPApprovalResponseResource(this.value);
   @override
   Object? toJson() => value.toJson();
-}
-
-final class OutputItemCustomToolCall extends OutputItem {
-  final CustomToolCall value;
-  const OutputItemCustomToolCall(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class OutputItemCustomToolCallOutputResource extends OutputItem {
-  final CustomToolCallOutputResource value;
-  const OutputItemCustomToolCallOutputResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-/// A [OutputItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownOutputItem extends OutputItem {
-  final Map<String, dynamic> raw;
-  const UnknownOutputItem(this.raw);
-  @override
-  Object? toJson() => raw;
 }

@@ -43,7 +43,7 @@ class LiveCallAcceptSession {
   static const String constructionSurface = 'named';
 
   /// The Live model to use for the accepted call.
-  final ModelIdsLive model;
+  final String model;
 
   /// Optional `string` value serialized in the `instructions` wire field.
   final SdkOptional<String?> instructions;
@@ -77,7 +77,7 @@ class LiveCallAcceptSession {
       required this.type_});
 
   LiveCallAcceptSession Function(
-      {ModelIdsLive model,
+      {String model,
       SdkOptional<String?> instructions,
       SdkOptional<LiveMediaSessionAudioParam> audio,
       SdkOptional<Delegation?> delegation,
@@ -96,9 +96,7 @@ class LiveCallAcceptSession {
           Object? input = sdkOmittedValue,
           Object? type_ = sdkOmittedValue}) =>
       LiveCallAcceptSession(
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as ModelIdsLive,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
         instructions: identical(instructions, sdkOmittedValue)
             ? this.instructions
             : instructions as SdkOptional<String?>,
@@ -124,9 +122,7 @@ class LiveCallAcceptSession {
 
   factory LiveCallAcceptSession.fromJson(Map<String, dynamic> json) =>
       LiveCallAcceptSession(
-        model: (json['model'] != null
-            ? ModelIdsLive.fromJson(json['model'])
-            : null)!,
+        model: (json['model'] as String?)!,
         instructions: json.containsKey('instructions')
             ? SdkPresent(json['instructions'] as String?)
             : const SdkOmitted(),
@@ -161,7 +157,7 @@ class LiveCallAcceptSession {
       );
 
   Map<String, dynamic> toJson() => {
-        'model': model.toJson(),
+        'model': model,
         ...switch (instructions) {
           SdkPresent<String?>(value: final value) => {
               'instructions': value,

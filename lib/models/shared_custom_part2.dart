@@ -4,6 +4,14 @@
 part of 'shared_custom.dart';
 
 // shared_custom domain models (part 2)
+final class CustomToolParamFormatCustomTextFormatParam
+    extends CustomToolParamFormat {
+  final CustomTextFormatParam value;
+  const CustomToolParamFormatCustomTextFormatParam(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
 final class CustomToolParamFormatCustomGrammarFormatParam
     extends CustomToolParamFormat {
   final CustomGrammarFormatParam value;

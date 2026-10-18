@@ -162,6 +162,31 @@ sealed class RunStepDeltaStepDetailsToolCallsObjectToolCallsItem {
   const RunStepDeltaStepDetailsToolCallsObjectToolCallsItem();
   factory RunStepDeltaStepDetailsToolCallsObjectToolCallsItem.fromJson(
       Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RunStepDeltaStepDetailsToolCallsCodeObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDeltaStepDetailsToolCallsObjectToolCallsItemRunStepDeltaStepDetailsToolCallsCodeObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RunStepDeltaStepDetailsToolCallsFileSearchObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDeltaStepDetailsToolCallsObjectToolCallsItemRunStepDeltaStepDetailsToolCallsFileSearchObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RunStepDeltaStepDetailsToolCallsFunctionObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDeltaStepDetailsToolCallsObjectToolCallsItemRunStepDeltaStepDetailsToolCallsFunctionObject(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RunStepDeltaStepDetailsToolCallsObjectToolCallsItemRunStepDeltaStepDetailsToolCallsCodeObject(
           RunStepDeltaStepDetailsToolCallsCodeObject.fromJson(
@@ -422,6 +447,24 @@ sealed class RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
   const RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem();
   factory RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem.fromJson(
       Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            RunStepDetailsToolCallsCodeOutputLogsObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RunStepDetailsToolCallsCodeOutputImageObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputImageObject(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject(
           RunStepDetailsToolCallsCodeOutputLogsObject.fromJson(

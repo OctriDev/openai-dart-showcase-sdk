@@ -403,6 +403,22 @@ sealed class ToolSearchOutputNamespaceToolParamToolsItem {
   static const String constructionSurface = 'named';
   const ToolSearchOutputNamespaceToolParamToolsItem();
   factory ToolSearchOutputNamespaceToolParamToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ToolSearchOutputFunctionToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputNamespaceToolParamToolsItemToolSearchOutputFunctionToolParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CustomToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputNamespaceToolParamToolsItemCustomToolParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ToolSearchOutputNamespaceToolParamToolsItemToolSearchOutputFunctionToolParam(
           ToolSearchOutputFunctionToolParam.fromJson(
@@ -454,6 +470,104 @@ sealed class ToolSearchOutputTool {
   static const String constructionSurface = 'named';
   const ToolSearchOutputTool();
   factory ToolSearchOutputTool.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = FunctionTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolFunctionTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FileSearchTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolFileSearchTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ComputerTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolComputerTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ComputerUsePreviewTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolComputerUsePreviewTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WebSearchTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolWebSearchTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MCPTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolMCPTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CodeInterpreterTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolCodeInterpreterTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ProgrammaticToolCallingParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolProgrammaticToolCallingParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ImageGenTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolImageGenTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LocalShellToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolLocalShellToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionShellToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolFunctionShellToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CustomToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolCustomToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolSearchOutputNamespaceToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolToolSearchOutputNamespaceToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolSearchToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolToolSearchToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WebSearchPreviewTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolWebSearchPreviewTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ApplyPatchToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolSearchOutputToolApplyPatchToolParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return ToolSearchOutputToolFunctionTool(
           FunctionTool.fromJson(json as Map<String, dynamic>));
@@ -551,28 +665,6 @@ sealed class ToolSearchOutputTool {
 final class ToolSearchOutputToolFunctionTool extends ToolSearchOutputTool {
   final FunctionTool value;
   const ToolSearchOutputToolFunctionTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ToolSearchOutputToolFileSearchTool extends ToolSearchOutputTool {
-  final FileSearchTool value;
-  const ToolSearchOutputToolFileSearchTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ToolSearchOutputToolComputerTool extends ToolSearchOutputTool {
-  final ComputerTool value;
-  const ToolSearchOutputToolComputerTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ToolSearchOutputToolComputerUsePreviewTool
-    extends ToolSearchOutputTool {
-  final ComputerUsePreviewTool value;
-  const ToolSearchOutputToolComputerUsePreviewTool(this.value);
   @override
   Object? toJson() => value.toJson();
 }

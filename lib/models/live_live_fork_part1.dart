@@ -48,6 +48,98 @@ sealed class LiveForkClientEvent {
   static const String constructionSurface = 'named';
   const LiveForkClientEvent();
   factory LiveForkClientEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveForkSessionStartEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveForkSessionStartEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSessionUpdateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveSessionUpdateParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInputAudioAppendEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveInputAudioAppendEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInputAudioMuteParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveInputAudioMuteParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInputAudioUnmuteParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveInputAudioUnmuteParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveOutputAudioFixturePlayParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveOutputAudioFixturePlayParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInstructionsAppendParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveInstructionsAppendParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveThinkingAppendParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveThinkingAppendParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveCommentaryAppendParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveCommentaryAppendParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionCreateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveDecisionCreateParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionItemCreateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveDecisionItemCreateParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionItemDeleteParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveDecisionItemDeleteParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveResponseItemCreateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveResponseItemCreateParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveResponseCreateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveResponseCreateParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSessionCloseParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveForkClientEventLiveSessionCloseParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveForkClientEventLiveForkSessionStartEvent(
           LiveForkSessionStartEvent.fromJson(json as Map<String, dynamic>));
@@ -451,26 +543,4 @@ class LiveForkSessionConfigParam {
           _ => const <String, dynamic>{},
         },
       };
-}
-
-sealed class LiveForkSessionStartEventEventId {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const LiveForkSessionStartEventEventId();
-  factory LiveForkSessionStartEventEventId.fromJson(Object? json) {
-    if (json is String) {
-      return LiveForkSessionStartEventEventIdString(json);
-    }
-    throw FormatException(
-        "No variant matched for LiveForkSessionStartEventEventId");
-  }
-  Object? toJson();
-}
-
-final class LiveForkSessionStartEventEventIdString
-    extends LiveForkSessionStartEventEventId {
-  final String value;
-  const LiveForkSessionStartEventEventIdString(this.value);
-  @override
-  Object? toJson() => value;
 }

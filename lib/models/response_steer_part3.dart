@@ -55,6 +55,57 @@ sealed class ResponseSteerRequiredInput {
   static const String constructionSurface = 'named';
   const ResponseSteerRequiredInput();
   factory ResponseSteerRequiredInput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ResponseSteerRequiredInputVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponseSteerRequiredInputResponseSteerRequiredInputVariant0(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerRequiredInputVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponseSteerRequiredInputResponseSteerRequiredInputVariant1(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerRequiredInputVariant2.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponseSteerRequiredInputResponseSteerRequiredInputVariant2(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerRequiredInputVariant3.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponseSteerRequiredInputResponseSteerRequiredInputVariant3(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerRequiredInputVariant4.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponseSteerRequiredInputResponseSteerRequiredInputVariant4(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerRequiredInputVariant5.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponseSteerRequiredInputResponseSteerRequiredInputVariant5(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerRequiredInputVariant6.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponseSteerRequiredInputResponseSteerRequiredInputVariant6(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ResponseSteerRequiredInputResponseSteerRequiredInputVariant0(
           ResponseSteerRequiredInputVariant0.fromJson(

@@ -110,6 +110,20 @@ sealed class OutputMessageContent {
   static const String constructionSurface = 'named';
   const OutputMessageContent();
   factory OutputMessageContent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = OutputTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputMessageContentOutputTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RefusalContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return OutputMessageContentRefusalContent(value);
+        }
+      } catch (_) {}
+    }
     try {
       return OutputMessageContentOutputTextContent(
           OutputTextContent.fromJson(json as Map<String, dynamic>));

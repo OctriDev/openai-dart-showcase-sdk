@@ -244,49 +244,51 @@ class ThreadObject {
 }
 
 /// Occurs when a new [thread](https://developers.openai.com/api/docs/assistants/migration) is created.
-class ThreadStreamEventVariant0 {
+class ThreadStreamEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
 
   /// Whether to enable input audio transcription.
   final SdkOptional<bool> enabled;
-  final ThreadStreamEventVariant0Event event;
+
+  /// Required enumerated value serialized in the `event` wire field.
+  final ThreadStreamEventEvent event;
 
   /// Represents a thread that contains [messages](https://developers.openai.com/api/docs/assistants/migration).
   final ThreadObject data;
 
-  const ThreadStreamEventVariant0(
+  const ThreadStreamEvent(
       {this.enabled = const SdkOmitted(),
       required this.event,
       required this.data});
 
-  ThreadStreamEventVariant0 Function(
+  ThreadStreamEvent Function(
       {SdkOptional<bool> enabled,
-      ThreadStreamEventVariant0Event event,
+      ThreadStreamEventEvent event,
       ThreadObject data}) get copyWith => _copyWith;
 
-  ThreadStreamEventVariant0 _copyWith(
+  ThreadStreamEvent _copyWith(
           {Object? enabled = sdkOmittedValue,
           Object? event = sdkOmittedValue,
           Object? data = sdkOmittedValue}) =>
-      ThreadStreamEventVariant0(
+      ThreadStreamEvent(
         enabled: identical(enabled, sdkOmittedValue)
             ? this.enabled
             : enabled as SdkOptional<bool>,
         event: identical(event, sdkOmittedValue)
             ? this.event
-            : event as ThreadStreamEventVariant0Event,
+            : event as ThreadStreamEventEvent,
         data:
             identical(data, sdkOmittedValue) ? this.data : data as ThreadObject,
       );
 
-  factory ThreadStreamEventVariant0.fromJson(Map<String, dynamic> json) =>
-      ThreadStreamEventVariant0(
+  factory ThreadStreamEvent.fromJson(Map<String, dynamic> json) =>
+      ThreadStreamEvent(
         enabled: json['enabled'] != null
             ? SdkPresent((json['enabled'] as bool?)!)
             : const SdkOmitted(),
         event: (json['event'] != null
-            ? ThreadStreamEventVariant0Event.fromJson(json['event'] as String)
+            ? ThreadStreamEventEvent.fromJson(json['event'] as String)
             : null)!,
         data: (json['data'] != null
             ? ThreadObject.fromJson(json['data'] as Map<String, dynamic>)
@@ -303,26 +305,4 @@ class ThreadStreamEventVariant0 {
         'event': event.toJson(),
         'data': data.toJson(),
       };
-}
-
-sealed class ThreadStreamEvent {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const ThreadStreamEvent();
-  factory ThreadStreamEvent.fromJson(Object? json) {
-    try {
-      return ThreadStreamEventThreadStreamEventVariant0(
-          ThreadStreamEventVariant0.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException("No variant matched for ThreadStreamEvent");
-  }
-  Object? toJson();
-}
-
-final class ThreadStreamEventThreadStreamEventVariant0
-    extends ThreadStreamEvent {
-  final ThreadStreamEventVariant0 value;
-  const ThreadStreamEventThreadStreamEventVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
 }

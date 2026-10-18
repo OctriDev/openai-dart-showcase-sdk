@@ -40,13 +40,14 @@ class RealtimeSession {
   final SdkOptional<RealtimeTurnDetection?> turnDetection;
 
   /// Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
-  final SdkOptional<dynamic> inputAudioNoiseReduction;
+  final SdkOptional<RealtimeSessionInputAudioNoiseReduction>
+      inputAudioNoiseReduction;
 
   /// The speed of the model's spoken response. 1.0 is the default speed. 0.25 is the minimum speed. 1.5 is the maximum speed. This value can only be changed in between model turns, not while a response is in progress.
   final SdkOptional<double> speed;
 
   /// Configuration options for tracing. Set to null to disable tracing. Once tracing is enabled for a session, the configuration cannot be modified. `auto` will create a trace for the session with default values for the workflow name, group id, and metadata.
-  final SdkOptional<dynamic> tracing;
+  final SdkOptional<RealtimeSessionTracing?> tracing;
 
   /// Tools (functions) available to the model.
   final SdkOptional<List<RealtimeFunctionTool>> tools;
@@ -102,9 +103,10 @@ class RealtimeSession {
           SdkOptional<RealtimeSessionOutputAudioFormat> outputAudioFormat,
           SdkOptional<AudioTranscriptionResponse?> inputAudioTranscription,
           SdkOptional<RealtimeTurnDetection?> turnDetection,
-          SdkOptional<dynamic> inputAudioNoiseReduction,
+          SdkOptional<RealtimeSessionInputAudioNoiseReduction>
+              inputAudioNoiseReduction,
           SdkOptional<double> speed,
-          SdkOptional<dynamic> tracing,
+          SdkOptional<RealtimeSessionTracing?> tracing,
           SdkOptional<List<RealtimeFunctionTool>> tools,
           SdkOptional<String> toolChoice,
           SdkOptional<double> temperature,
@@ -172,13 +174,14 @@ class RealtimeSession {
         inputAudioNoiseReduction:
             identical(inputAudioNoiseReduction, sdkOmittedValue)
                 ? this.inputAudioNoiseReduction
-                : inputAudioNoiseReduction as SdkOptional<dynamic>,
+                : inputAudioNoiseReduction
+                    as SdkOptional<RealtimeSessionInputAudioNoiseReduction>,
         speed: identical(speed, sdkOmittedValue)
             ? this.speed
             : speed as SdkOptional<double>,
         tracing: identical(tracing, sdkOmittedValue)
             ? this.tracing
-            : tracing as SdkOptional<dynamic>,
+            : tracing as SdkOptional<RealtimeSessionTracing?>,
         tools: identical(tools, sdkOmittedValue)
             ? this.tools
             : tools as SdkOptional<List<RealtimeFunctionTool>>,
@@ -252,13 +255,18 @@ class RealtimeSession {
                 : null)
             : const SdkOmitted(),
         inputAudioNoiseReduction: json['input_audio_noise_reduction'] != null
-            ? SdkPresent((json['input_audio_noise_reduction'])!)
+            ? SdkPresent((json['input_audio_noise_reduction'] != null
+                ? RealtimeSessionInputAudioNoiseReduction.fromJson(
+                    json['input_audio_noise_reduction'] as Map<String, dynamic>)
+                : null)!)
             : const SdkOmitted(),
         speed: json['speed'] != null
             ? SdkPresent(((json['speed'] as num?)?.toDouble())!)
             : const SdkOmitted(),
         tracing: json.containsKey('tracing')
-            ? SdkPresent(json['tracing'])
+            ? SdkPresent(json['tracing'] != null
+                ? RealtimeSessionTracing.fromJson(json['tracing'])
+                : null)
             : const SdkOmitted(),
         tools: json['tools'] != null
             ? SdkPresent(((json['tools'] as List?)
@@ -353,8 +361,11 @@ class RealtimeSession {
           _ => const <String, dynamic>{},
         },
         ...switch (inputAudioNoiseReduction) {
-          SdkPresent<dynamic>(value: final value) => {
-              'input_audio_noise_reduction': value,
+          SdkPresent<RealtimeSessionInputAudioNoiseReduction>(
+            value: final value
+          ) =>
+            {
+              'input_audio_noise_reduction': value.toJson(),
             },
           _ => const <String, dynamic>{},
         },
@@ -365,8 +376,8 @@ class RealtimeSession {
           _ => const <String, dynamic>{},
         },
         ...switch (tracing) {
-          SdkPresent<dynamic>(value: final value) => {
-              'tracing': value,
+          SdkPresent<RealtimeSessionTracing?>(value: final value) => {
+              'tracing': value?.toJson(),
             },
           _ => const <String, dynamic>{},
         },

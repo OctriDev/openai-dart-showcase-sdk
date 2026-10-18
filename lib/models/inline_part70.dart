@@ -4,6 +4,54 @@
 part of 'inline.dart';
 
 // Inline operation models (part 70)
+/// The event type, always `session.closed`.
+enum LiveSessionClosedType {
+  sessionClosed;
+
+  static LiveSessionClosedType fromJson(String value) {
+    switch (value) {
+      case 'session.closed':
+        return LiveSessionClosedType.sessionClosed;
+      default:
+        throw ArgumentError('Unknown LiveSessionClosedType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveSessionClosedType.sessionClosed:
+        return 'session.closed';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// The Live client event type. Always `session.close`.
+enum LiveSessionCloseParamType {
+  sessionClose;
+
+  static LiveSessionCloseParamType fromJson(String value) {
+    switch (value) {
+      case 'session.close':
+        return LiveSessionCloseParamType.sessionClose;
+      default:
+        throw ArgumentError('Unknown LiveSessionCloseParamType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveSessionCloseParamType.sessionClose:
+        return 'session.close';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
 /// The transport used for the Live session. Always `sip`.
 enum LiveSessionCreateResponseTransportVariant1Type {
   sip;
@@ -267,52 +315,4 @@ final class LiveSIPTrunkAuthRequestType {
 
   @override
   int get hashCode => value.hashCode;
-}
-
-/// References a skill created with the /v1/skills endpoint.
-enum LiveSkillReferenceParamType {
-  skillReference;
-
-  static LiveSkillReferenceParamType fromJson(String value) {
-    switch (value) {
-      case 'skill_reference':
-        return LiveSkillReferenceParamType.skillReference;
-      default:
-        throw ArgumentError('Unknown LiveSkillReferenceParamType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveSkillReferenceParamType.skillReference:
-        return 'skill_reference';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// The tool to call. Always `apply_patch`.
-enum LiveSpecificApplyPatchParamType {
-  applyPatch;
-
-  static LiveSpecificApplyPatchParamType fromJson(String value) {
-    switch (value) {
-      case 'apply_patch':
-        return LiveSpecificApplyPatchParamType.applyPatch;
-      default:
-        throw ArgumentError('Unknown LiveSpecificApplyPatchParamType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveSpecificApplyPatchParamType.applyPatch:
-        return 'apply_patch';
-    }
-  }
-
-  @override
-  String toString() => toJson();
 }

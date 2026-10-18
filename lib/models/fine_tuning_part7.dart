@@ -230,6 +230,38 @@ sealed class GraderMultiGradersValue {
   static const String constructionSurface = 'named';
   const GraderMultiGradersValue();
   factory GraderMultiGradersValue.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = GraderStringCheck.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return GraderMultiGradersValueGraderStringCheck(value);
+        }
+      } catch (_) {}
+      try {
+        final value = GraderTextSimilarity.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return GraderMultiGradersValueGraderTextSimilarity(value);
+        }
+      } catch (_) {}
+      try {
+        final value = GraderPython.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return GraderMultiGradersValueGraderPython(value);
+        }
+      } catch (_) {}
+      try {
+        final value = GraderScoreModel.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return GraderMultiGradersValueGraderScoreModel(value);
+        }
+      } catch (_) {}
+      try {
+        final value = GraderLabelModel.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return GraderMultiGradersValueGraderLabelModel(value);
+        }
+      } catch (_) {}
+    }
     try {
       return GraderMultiGradersValueGraderStringCheck(
           GraderStringCheck.fromJson(json as Map<String, dynamic>));

@@ -137,6 +137,20 @@ sealed class BetaModerationInput {
   static const String constructionSurface = 'named';
   const BetaModerationInput();
   factory BetaModerationInput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaModerationResultBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaModerationInputBetaModerationResultBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaModerationErrorBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaModerationInputBetaModerationErrorBody(value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaModerationInputBetaModerationResultBody(
           BetaModerationResultBody.fromJson(json as Map<String, dynamic>));
@@ -234,6 +248,20 @@ sealed class BetaModerationOutput {
   static const String constructionSurface = 'named';
   const BetaModerationOutput();
   factory BetaModerationOutput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaModerationResultBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaModerationOutputBetaModerationResultBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaModerationErrorBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaModerationOutputBetaModerationErrorBody(value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaModerationOutputBetaModerationResultBody(
           BetaModerationResultBody.fromJson(json as Map<String, dynamic>));

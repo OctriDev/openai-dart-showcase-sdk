@@ -252,6 +252,21 @@ sealed class BetaResponseSteerInputItem {
   static const String constructionSurface = 'named';
   const BetaResponseSteerInputItem();
   factory BetaResponseSteerInputItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaUserMessageItemParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaResponseSteerInputItemBetaUserMessageItemParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaFunctionCallOutputItemParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaResponseSteerInputItemBetaFunctionCallOutputItemParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaResponseSteerInputItemBetaUserMessageItemParam(
           BetaUserMessageItemParam.fromJson(json as Map<String, dynamic>));

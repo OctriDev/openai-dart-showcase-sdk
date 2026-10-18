@@ -127,6 +127,20 @@ sealed class ImageEditStreamEvent {
   static const String constructionSurface = 'named';
   const ImageEditStreamEvent();
   factory ImageEditStreamEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ImageEditPartialImageEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ImageEditStreamEventImageEditPartialImageEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ImageEditCompletedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ImageEditStreamEventImageEditCompletedEvent(value);
+        }
+      } catch (_) {}
+    }
     try {
       return ImageEditStreamEventImageEditPartialImageEvent(
           ImageEditPartialImageEvent.fromJson(json as Map<String, dynamic>));
@@ -505,28 +519,4 @@ class ImageGenPartialImageEvent {
         'output_format': outputFormat.toJson(),
         'partial_image_index': partialImageIndex,
       };
-}
-
-sealed class ImageGenStreamEvent {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const ImageGenStreamEvent();
-  factory ImageGenStreamEvent.fromJson(Object? json) {
-    try {
-      return ImageGenStreamEventImageGenPartialImageEvent(
-          ImageGenPartialImageEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ImageGenStreamEventImageGenCompletedEvent(
-          ImageGenCompletedEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"image_generation.partial_image", "image_generation.completed"}
-            .contains(json["type"])) {
-      return UnknownImageGenStreamEvent(json);
-    }
-    throw FormatException("No variant matched for ImageGenStreamEvent");
-  }
-  Object? toJson();
 }

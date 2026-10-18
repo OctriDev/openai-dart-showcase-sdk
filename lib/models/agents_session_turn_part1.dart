@@ -117,6 +117,115 @@ sealed class SessionTurnItemResource {
   static const String constructionSurface = 'named';
   const SessionTurnItemResource();
   factory SessionTurnItemResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = MessageItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceMessageItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ReasoningItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceReasoningItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceFunctionCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionCallOutputItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceFunctionCallOutputItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AgentMessageItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceAgentMessageItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = McpCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceMcpCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ComputerUseCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceComputerUseCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BrowserAuthenticationRequestItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceBrowserAuthenticationRequestItemResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            ComputerUseApprovalRequestResultItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceComputerUseApprovalRequestResultItemResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = WebSearchCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceWebSearchCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CommandExecutionItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceCommandExecutionItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceCreateSubagentCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = SendSubagentInputCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceSendSubagentInputCallItemResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResumeSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceResumeSubagentCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WaitForSubagentsCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceWaitForSubagentsCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InterruptSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceInterruptSubagentCallItemResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CloseSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionTurnItemResourceCloseSubagentCallItemResource(value);
+        }
+      } catch (_) {}
+    }
     try {
       return SessionTurnItemResourceMessageItemResource(
           MessageItemResource.fromJson(json as Map<String, dynamic>));

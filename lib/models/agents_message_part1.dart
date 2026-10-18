@@ -9,6 +9,26 @@ sealed class MessageContentResource {
   static const String constructionSurface = 'named';
   const MessageContentResource();
   factory MessageContentResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = MessageContentResourceInputText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentResourceMessageContentResourceInputText(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MessageContentResourceInputImage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentResourceMessageContentResourceInputImage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MessageContentResourceOutputText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentResourceMessageContentResourceOutputText(value);
+        }
+      } catch (_) {}
+    }
     try {
       return MessageContentResourceMessageContentResourceInputText(
           MessageContentResourceInputText.fromJson(

@@ -217,6 +217,26 @@ sealed class EvalRunDataSource {
   static const String constructionSurface = 'named';
   const EvalRunDataSource();
   factory EvalRunDataSource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = CreateEvalJsonlRunDataSource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalRunDataSourceCreateEvalJsonlRunDataSource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateEvalCompletionsRunDataSource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalRunDataSourceCreateEvalCompletionsRunDataSource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateEvalResponsesRunDataSource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalRunDataSourceCreateEvalResponsesRunDataSource(value);
+        }
+      } catch (_) {}
+    }
     try {
       return EvalRunDataSourceCreateEvalJsonlRunDataSource(
           CreateEvalJsonlRunDataSource.fromJson(json as Map<String, dynamic>));

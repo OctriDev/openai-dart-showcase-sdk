@@ -206,6 +206,39 @@ class DeleteContainerFileResponse {
       };
 }
 
+class CreateConversationItemsRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The items to add to the conversation. You may add up to 20 items at a time.
+  final List<InputItem> items;
+
+  const CreateConversationItemsRequestBody({required this.items});
+
+  CreateConversationItemsRequestBody Function({List<InputItem> items})
+      get copyWith => _copyWith;
+
+  CreateConversationItemsRequestBody _copyWith(
+          {Object? items = sdkOmittedValue}) =>
+      CreateConversationItemsRequestBody(
+        items: identical(items, sdkOmittedValue)
+            ? this.items
+            : items as List<InputItem>,
+      );
+
+  factory CreateConversationItemsRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      CreateConversationItemsRequestBody(
+        items: ((json['items'] as List?)
+            ?.map((e) => InputItem.fromJson(e))
+            .toList())!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'items': items.map((item) => item.toJson()).toList(),
+      };
+}
+
 class UpdateEvalRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -370,44 +403,4 @@ class DeleteEvalRunResponse {
           _ => const <String, dynamic>{},
         },
       };
-}
-
-/// The request body: one of the values the operation accepts, each sent as its media type.
-class CreateImageEditBody {
-  const CreateImageEditBody._(this.value, this.mediaType);
-
-  /// Sent as `application/json`.
-  CreateImageEditBody.editImageBodyJsonParam(EditImageBodyJsonParam value)
-      : this._(value, 'application/json');
-
-  /// Sent as `multipart/form-data`.
-  CreateImageEditBody.createImageEditRequest(CreateImageEditRequest value)
-      : this._(SdkFormValue(value, const {'image', 'mask'}),
-            'multipart/form-data');
-
-  /// The value sent, in its wire form.
-  final Object value;
-
-  /// The media type the value is sent as.
-  final String mediaType;
-}
-
-/// The request body: one of the values the operation accepts, each sent as its media type.
-class CreateImageEditStreamBody {
-  const CreateImageEditStreamBody._(this.value, this.mediaType);
-
-  /// Sent as `application/json`.
-  CreateImageEditStreamBody.editImageBodyJsonParam(EditImageBodyJsonParam value)
-      : this._(value, 'application/json');
-
-  /// Sent as `multipart/form-data`.
-  CreateImageEditStreamBody.createImageEditRequest(CreateImageEditRequest value)
-      : this._(SdkFormValue(value, const {'image', 'mask'}),
-            'multipart/form-data');
-
-  /// The value sent, in its wire form.
-  final Object value;
-
-  /// The media type the value is sent as.
-  final String mediaType;
 }

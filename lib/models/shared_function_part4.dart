@@ -290,6 +290,22 @@ sealed class FunctionShellCallOutputOutcomeParam {
   static const String constructionSurface = 'named';
   const FunctionShellCallOutputOutcomeParam();
   factory FunctionShellCallOutputOutcomeParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = FunctionShellCallOutputTimeoutOutcomeParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionShellCallOutputOutcomeParamFunctionShellCallOutputTimeoutOutcomeParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionShellCallOutputExitOutcomeParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionShellCallOutputOutcomeParamFunctionShellCallOutputExitOutcomeParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return FunctionShellCallOutputOutcomeParamFunctionShellCallOutputTimeoutOutcomeParam(
           FunctionShellCallOutputTimeoutOutcomeParam.fromJson(

@@ -276,52 +276,83 @@ enum LiveInitialOutputTextContentPartParamType {
   String toString() => toJson();
 }
 
-/// The text content type. Always `text`.
-enum LiveInitialTextContentPartParamType {
-  text;
+/// Optional enumerated value serialized in the `voice` wire field.
+final class LiveInitialSessionAudioOutputParamVoiceVariant1 {
+  final String value;
 
-  static LiveInitialTextContentPartParamType fromJson(String value) {
-    switch (value) {
-      case 'text':
-        return LiveInitialTextContentPartParamType.text;
-      default:
-        throw ArgumentError(
-            'Unknown LiveInitialTextContentPartParamType: $value');
-    }
-  }
+  const LiveInitialSessionAudioOutputParamVoiceVariant1._(this.value);
 
-  String toJson() {
-    switch (this) {
-      case LiveInitialTextContentPartParamType.text:
-        return 'text';
-    }
-  }
+  factory LiveInitialSessionAudioOutputParamVoiceVariant1.fromJson(
+          String value) =>
+      LiveInitialSessionAudioOutputParamVoiceVariant1._(value);
+
+  static const alloy =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('alloy');
+  static const ash = LiveInitialSessionAudioOutputParamVoiceVariant1._('ash');
+  static const ballad =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('ballad');
+  static const beacon =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('beacon');
+  static const bossa =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('bossa');
+  static const brise =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('brise');
+  static const cedar =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('cedar');
+  static const cinder =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('cinder');
+  static const coral =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('coral');
+  static const delta =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('delta');
+  static const echo = LiveInitialSessionAudioOutputParamVoiceVariant1._('echo');
+  static const flitz =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('flitz');
+  static const gleam =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('gleam');
+  static const harema =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('harema');
+  static const juni = LiveInitialSessionAudioOutputParamVoiceVariant1._('juni');
+  static const marin =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('marin');
+  static const meridian =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('meridian');
+  static const nira = LiveInitialSessionAudioOutputParamVoiceVariant1._('nira');
+  static const noeul =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('noeul');
+  static const nuri = LiveInitialSessionAudioOutputParamVoiceVariant1._('nuri');
+  static const quartz =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('quartz');
+  static const ripple =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('ripple');
+  static const sage = LiveInitialSessionAudioOutputParamVoiceVariant1._('sage');
+  static const shida =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('shida');
+  static const shimmer =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('shimmer');
+  static const sillage =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('sillage');
+  static const stone =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('stone');
+  static const tempo =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('tempo');
+  static const verse =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('verse');
+  static const vesper =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('vesper');
+  static const willow =
+      LiveInitialSessionAudioOutputParamVoiceVariant1._('willow');
+
+  String toJson() => value;
 
   @override
-  String toString() => toJson();
-}
-
-/// The author of this history message. Always `user`.
-enum LiveInitialUserMessageItemParamRole {
-  user;
-
-  static LiveInitialUserMessageItemParamRole fromJson(String value) {
-    switch (value) {
-      case 'user':
-        return LiveInitialUserMessageItemParamRole.user;
-      default:
-        throw ArgumentError(
-            'Unknown LiveInitialUserMessageItemParamRole: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveInitialUserMessageItemParamRole.user:
-        return 'user';
-    }
-  }
+  String toString() => value.toString();
 
   @override
-  String toString() => toJson();
+  bool operator ==(Object other) =>
+      other is LiveInitialSessionAudioOutputParamVoiceVariant1 &&
+      other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
 }

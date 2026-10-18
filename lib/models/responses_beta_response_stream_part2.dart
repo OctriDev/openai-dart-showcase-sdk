@@ -4,6 +4,82 @@
 part of 'responses_beta_response_stream.dart';
 
 // responses_beta_response_stream domain models (part 2)
+final class BetaResponseStreamEventBetaResponseShellCallOutputContentDoneStreamingEvent
+    extends BetaResponseStreamEvent {
+  final BetaResponseShellCallOutputContentDoneStreamingEvent value;
+  const BetaResponseStreamEventBetaResponseShellCallOutputContentDoneStreamingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaResponseStreamEventBetaResponseInProgressEvent
+    extends BetaResponseStreamEvent {
+  final BetaResponseInProgressEvent value;
+  const BetaResponseStreamEventBetaResponseInProgressEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaResponseStreamEventBetaResponseFailedEvent
+    extends BetaResponseStreamEvent {
+  final BetaResponseFailedEvent value;
+  const BetaResponseStreamEventBetaResponseFailedEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaResponseStreamEventBetaResponseIncompleteEvent
+    extends BetaResponseStreamEvent {
+  final BetaResponseIncompleteEvent value;
+  const BetaResponseStreamEventBetaResponseIncompleteEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaResponseStreamEventBetaResponseOutputItemAddedEvent
+    extends BetaResponseStreamEvent {
+  final BetaResponseOutputItemAddedEvent value;
+  const BetaResponseStreamEventBetaResponseOutputItemAddedEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaResponseStreamEventBetaResponseOutputItemDoneEvent
+    extends BetaResponseStreamEvent {
+  final BetaResponseOutputItemDoneEvent value;
+  const BetaResponseStreamEventBetaResponseOutputItemDoneEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaResponseStreamEventBetaResponseReasoningSummaryPartAddedEvent
+    extends BetaResponseStreamEvent {
+  final BetaResponseReasoningSummaryPartAddedEvent value;
+  const BetaResponseStreamEventBetaResponseReasoningSummaryPartAddedEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaResponseStreamEventBetaResponseReasoningSummaryPartDoneEvent
+    extends BetaResponseStreamEvent {
+  final BetaResponseReasoningSummaryPartDoneEvent value;
+  const BetaResponseStreamEventBetaResponseReasoningSummaryPartDoneEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaResponseStreamEventBetaResponseReasoningSummaryTextDeltaEvent
+    extends BetaResponseStreamEvent {
+  final BetaResponseReasoningSummaryTextDeltaEvent value;
+  const BetaResponseStreamEventBetaResponseReasoningSummaryTextDeltaEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
 final class BetaResponseStreamEventBetaResponseReasoningSummaryTextDoneEvent
     extends BetaResponseStreamEvent {
   final BetaResponseReasoningSummaryTextDoneEvent value;

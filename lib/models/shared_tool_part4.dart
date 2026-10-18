@@ -4,6 +4,28 @@
 part of 'shared_tool.dart';
 
 // shared_tool domain models (part 4)
+final class ToolSearchOutputToolFileSearchTool extends ToolSearchOutputTool {
+  final FileSearchTool value;
+  const ToolSearchOutputToolFileSearchTool(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ToolSearchOutputToolComputerTool extends ToolSearchOutputTool {
+  final ComputerTool value;
+  const ToolSearchOutputToolComputerTool(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ToolSearchOutputToolComputerUsePreviewTool
+    extends ToolSearchOutputTool {
+  final ComputerUsePreviewTool value;
+  const ToolSearchOutputToolComputerUsePreviewTool(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
 final class ToolSearchOutputToolWebSearchTool extends ToolSearchOutputTool {
   final WebSearchTool value;
   const ToolSearchOutputToolWebSearchTool(this.value);

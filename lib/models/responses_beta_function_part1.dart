@@ -9,6 +9,27 @@ sealed class BetaFunctionAndCustomToolCallOutput {
   static const String constructionSurface = 'named';
   const BetaFunctionAndCustomToolCallOutput();
   factory BetaFunctionAndCustomToolCallOutput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaInputTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionAndCustomToolCallOutputBetaInputTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaInputImageContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionAndCustomToolCallOutputBetaInputImageContent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaInputFileContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionAndCustomToolCallOutputBetaInputFileContent(value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaFunctionAndCustomToolCallOutputBetaInputTextContent(
           BetaInputTextContent.fromJson(json as Map<String, dynamic>));
@@ -378,6 +399,29 @@ sealed class BetaFunctionCallOutputItemParamOutputItem {
   static const String constructionSurface = 'named';
   const BetaFunctionCallOutputItemParamOutputItem();
   factory BetaFunctionCallOutputItemParamOutputItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaInputTextContentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionCallOutputItemParamOutputItemBetaInputTextContentParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaInputImageContentParamAutoParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionCallOutputItemParamOutputItemBetaInputImageContentParamAutoParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaInputFileContentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionCallOutputItemParamOutputItemBetaInputFileContentParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaFunctionCallOutputItemParamOutputItemBetaInputTextContentParam(
           BetaInputTextContentParam.fromJson(json as Map<String, dynamic>));

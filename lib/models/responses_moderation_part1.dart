@@ -104,6 +104,20 @@ sealed class ModerationInput {
   static const String constructionSurface = 'named';
   const ModerationInput();
   factory ModerationInput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ModerationResultBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ModerationInputModerationResultBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ModerationErrorBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ModerationInputModerationErrorBody(value);
+        }
+      } catch (_) {}
+    }
     try {
       return ModerationInputModerationResultBody(
           ModerationResultBody.fromJson(json as Map<String, dynamic>));
@@ -149,6 +163,20 @@ sealed class ModerationOutput {
   static const String constructionSurface = 'named';
   const ModerationOutput();
   factory ModerationOutput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ModerationResultBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ModerationOutputModerationResultBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ModerationErrorBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ModerationOutputModerationErrorBody(value);
+        }
+      } catch (_) {}
+    }
     try {
       return ModerationOutputModerationResultBody(
           ModerationResultBody.fromJson(json as Map<String, dynamic>));

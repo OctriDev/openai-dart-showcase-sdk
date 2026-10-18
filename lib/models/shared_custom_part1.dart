@@ -496,6 +496,20 @@ sealed class CustomToolParamFormat {
   static const String constructionSurface = 'named';
   const CustomToolParamFormat();
   factory CustomToolParamFormat.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = CustomTextFormatParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CustomToolParamFormatCustomTextFormatParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CustomGrammarFormatParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CustomToolParamFormatCustomGrammarFormatParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return CustomToolParamFormatCustomTextFormatParam(
           CustomTextFormatParam.fromJson(json as Map<String, dynamic>));
@@ -512,12 +526,4 @@ sealed class CustomToolParamFormat {
     throw FormatException("No variant matched for CustomToolParamFormat");
   }
   Object? toJson();
-}
-
-final class CustomToolParamFormatCustomTextFormatParam
-    extends CustomToolParamFormat {
-  final CustomTextFormatParam value;
-  const CustomToolParamFormatCustomTextFormatParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
 }

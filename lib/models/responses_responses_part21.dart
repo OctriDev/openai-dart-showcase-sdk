@@ -4,6 +4,78 @@
 part of 'responses_responses.dart';
 
 // responses_responses domain models (part 21)
+final class ResponsesServerEventResponsesServerEventVariant43
+    extends ResponsesServerEvent {
+  final ResponsesServerEventVariant43 value;
+  const ResponsesServerEventResponsesServerEventVariant43(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponsesServerEventResponsesServerEventVariant44
+    extends ResponsesServerEvent {
+  final ResponsesServerEventVariant44 value;
+  const ResponsesServerEventResponsesServerEventVariant44(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponsesServerEventResponsesServerEventVariant45
+    extends ResponsesServerEvent {
+  final ResponsesServerEventVariant45 value;
+  const ResponsesServerEventResponsesServerEventVariant45(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponsesServerEventResponsesServerEventVariant46
+    extends ResponsesServerEvent {
+  final ResponsesServerEventVariant46 value;
+  const ResponsesServerEventResponsesServerEventVariant46(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponsesServerEventResponsesServerEventVariant47
+    extends ResponsesServerEvent {
+  final ResponsesServerEventVariant47 value;
+  const ResponsesServerEventResponsesServerEventVariant47(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponsesServerEventResponsesServerEventVariant48
+    extends ResponsesServerEvent {
+  final ResponsesServerEventVariant48 value;
+  const ResponsesServerEventResponsesServerEventVariant48(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponsesServerEventResponsesServerEventVariant49
+    extends ResponsesServerEvent {
+  final ResponsesServerEventVariant49 value;
+  const ResponsesServerEventResponsesServerEventVariant49(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponsesServerEventResponsesServerEventVariant50
+    extends ResponsesServerEvent {
+  final ResponsesServerEventVariant50 value;
+  const ResponsesServerEventResponsesServerEventVariant50(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponsesServerEventResponsesServerEventVariant51
+    extends ResponsesServerEvent {
+  final ResponsesServerEventVariant51 value;
+  const ResponsesServerEventResponsesServerEventVariant51(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
 final class ResponsesServerEventResponsesServerEventVariant52
     extends ResponsesServerEvent {
   final ResponsesServerEventVariant52 value;
@@ -96,6 +168,419 @@ sealed class ResponsesWebSocketStreamEventVariant0 {
   static const String constructionSurface = 'named';
   const ResponsesWebSocketStreamEventVariant0();
   factory ResponsesWebSocketStreamEventVariant0.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ResponseAudioDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseAudioDeltaEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseAudioDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseAudioDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseAudioTranscriptDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseAudioTranscriptDeltaEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseAudioTranscriptDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseAudioTranscriptDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseCodeInterpreterCallCodeDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCodeDeltaEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseCodeInterpreterCallCodeDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCodeDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseCodeInterpreterCallCompletedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCompletedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseCodeInterpreterCallInProgressEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallInProgressEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            ResponseCodeInterpreterCallInterpretingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallInterpretingEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseCompactionCompactingStreamingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseCompactionCompactingStreamingEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseCompletedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseCompletedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseContentPartAddedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseContentPartAddedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseContentPartDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseContentPartDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseCreatedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseCreatedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseFileSearchCallCompletedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallCompletedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseFileSearchCallInProgressEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallInProgressEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseFileSearchCallSearchingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallSearchingEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseFunctionCallArgumentsDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseFunctionCallArgumentsDeltaEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseFunctionCallArgumentsDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseFunctionCallArgumentsDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            ResponseShellCallCommandAddedStreamingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandAddedStreamingEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            ResponseShellCallCommandDeltaStreamingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandDeltaStreamingEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseShellCallCommandDoneStreamingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandDoneStreamingEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            ResponseShellCallOutputContentDeltaStreamingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseShellCallOutputContentDeltaStreamingEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            ResponseShellCallOutputContentDoneStreamingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseShellCallOutputContentDoneStreamingEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseInProgressEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseInProgressEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseFailedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseFailedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseIncompleteEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseIncompleteEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseOutputItemAddedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseOutputItemAddedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseOutputItemDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseOutputItemDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseReasoningSummaryPartAddedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseReasoningSummaryPartAddedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseReasoningSummaryPartDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseReasoningSummaryPartDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseReasoningSummaryTextDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseReasoningSummaryTextDeltaEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseReasoningSummaryTextDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseReasoningSummaryTextDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseReasoningTextDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseReasoningTextDeltaEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseReasoningTextDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseReasoningTextDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseRefusalDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseRefusalDeltaEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseRefusalDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseRefusalDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseTextDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseTextDeltaEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseTextDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseTextDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseWebSearchCallCompletedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseWebSearchCallCompletedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseWebSearchCallInProgressEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseWebSearchCallInProgressEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseWebSearchCallSearchingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseWebSearchCallSearchingEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseImageGenCallCompletedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseImageGenCallCompletedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseImageGenCallGeneratingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseImageGenCallGeneratingEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseImageGenCallInProgressEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseImageGenCallInProgressEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseImageGenCallPartialImageEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseImageGenCallPartialImageEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseMCPCallArgumentsDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseMCPCallArgumentsDeltaEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseMCPCallArgumentsDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseMCPCallArgumentsDoneEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseMCPCallCompletedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseMCPCallCompletedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseMCPCallFailedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseMCPCallFailedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseMCPCallInProgressEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseMCPCallInProgressEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseMCPListToolsCompletedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseMCPListToolsCompletedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseMCPListToolsFailedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseMCPListToolsFailedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseMCPListToolsInProgressEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseMCPListToolsInProgressEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseOutputTextAnnotationAddedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseOutputTextAnnotationAddedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseQueuedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseQueuedEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseCustomToolCallInputDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseCustomToolCallInputDeltaEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseCustomToolCallInputDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesWebSocketStreamEventVariant0ResponseCustomToolCallInputDoneEvent(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ResponsesWebSocketStreamEventVariant0ResponseAudioDeltaEvent(
           ResponseAudioDeltaEvent.fromJson(json as Map<String, dynamic>));
@@ -468,166 +953,6 @@ final class ResponsesWebSocketStreamEventVariant0ResponseAudioTranscriptDoneEven
     extends ResponsesWebSocketStreamEventVariant0 {
   final ResponseAudioTranscriptDoneEvent value;
   const ResponsesWebSocketStreamEventVariant0ResponseAudioTranscriptDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCodeDeltaEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseCodeInterpreterCallCodeDeltaEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCodeDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCodeDoneEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseCodeInterpreterCallCodeDoneEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCodeDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCompletedEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseCodeInterpreterCallCompletedEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallCompletedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallInProgressEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseCodeInterpreterCallInProgressEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallInProgressEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallInterpretingEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseCodeInterpreterCallInterpretingEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseCodeInterpreterCallInterpretingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseCompactionCompactingStreamingEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseCompactionCompactingStreamingEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseCompactionCompactingStreamingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseCompletedEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseCompletedEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseCompletedEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseContentPartAddedEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseContentPartAddedEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseContentPartAddedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseContentPartDoneEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseContentPartDoneEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseContentPartDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseCreatedEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseCreatedEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseCreatedEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallCompletedEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseFileSearchCallCompletedEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallCompletedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallInProgressEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseFileSearchCallInProgressEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallInProgressEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallSearchingEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseFileSearchCallSearchingEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseFileSearchCallSearchingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseFunctionCallArgumentsDeltaEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseFunctionCallArgumentsDeltaEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseFunctionCallArgumentsDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseFunctionCallArgumentsDoneEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseFunctionCallArgumentsDoneEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseFunctionCallArgumentsDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandAddedStreamingEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseShellCallCommandAddedStreamingEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandAddedStreamingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandDeltaStreamingEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseShellCallCommandDeltaStreamingEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandDeltaStreamingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandDoneStreamingEvent
-    extends ResponsesWebSocketStreamEventVariant0 {
-  final ResponseShellCallCommandDoneStreamingEvent value;
-  const ResponsesWebSocketStreamEventVariant0ResponseShellCallCommandDoneStreamingEvent(
       this.value);
   @override
   Object? toJson() => value.toJson();

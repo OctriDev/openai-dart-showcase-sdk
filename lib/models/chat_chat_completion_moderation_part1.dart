@@ -106,6 +106,22 @@ sealed class ChatCompletionModerationInput {
   static const String constructionSurface = 'named';
   const ChatCompletionModerationInput();
   factory ChatCompletionModerationInput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ChatCompletionModerationResults.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionModerationInputChatCompletionModerationResults(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionModerationError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionModerationInputChatCompletionModerationError(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ChatCompletionModerationInputChatCompletionModerationResults(
           ChatCompletionModerationResults.fromJson(
@@ -157,6 +173,22 @@ sealed class ChatCompletionModerationOutput {
   static const String constructionSurface = 'named';
   const ChatCompletionModerationOutput();
   factory ChatCompletionModerationOutput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ChatCompletionModerationResults.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionModerationOutputChatCompletionModerationResults(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionModerationError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionModerationOutputChatCompletionModerationError(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ChatCompletionModerationOutputChatCompletionModerationResults(
           ChatCompletionModerationResults.fromJson(

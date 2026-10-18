@@ -46,6 +46,35 @@ sealed class PromptCacheDiagnostics {
   static const String constructionSurface = 'named';
   const PromptCacheDiagnostics();
   factory PromptCacheDiagnostics.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = PromptCacheMissDiagnosticsBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PromptCacheDiagnosticsPromptCacheMissDiagnosticsBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value = PromptCacheHitDiagnosticsBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PromptCacheDiagnosticsPromptCacheHitDiagnosticsBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            PromptCacheComparisonResponseNotFoundDiagnosticsBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PromptCacheDiagnosticsPromptCacheComparisonResponseNotFoundDiagnosticsBody(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = PromptCacheUnavailableDiagnosticsBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PromptCacheDiagnosticsPromptCacheUnavailableDiagnosticsBody(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return PromptCacheDiagnosticsPromptCacheMissDiagnosticsBody(
           PromptCacheMissDiagnosticsBody.fromJson(

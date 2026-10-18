@@ -4,6 +4,78 @@
 part of 'responses_response_stream.dart';
 
 // responses_response_stream domain models (part 2)
+final class ResponseStreamEventResponseShellCallOutputContentDoneStreamingEvent
+    extends ResponseStreamEvent {
+  final ResponseShellCallOutputContentDoneStreamingEvent value;
+  const ResponseStreamEventResponseShellCallOutputContentDoneStreamingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponseStreamEventResponseInProgressEvent
+    extends ResponseStreamEvent {
+  final ResponseInProgressEvent value;
+  const ResponseStreamEventResponseInProgressEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponseStreamEventResponseFailedEvent extends ResponseStreamEvent {
+  final ResponseFailedEvent value;
+  const ResponseStreamEventResponseFailedEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponseStreamEventResponseIncompleteEvent
+    extends ResponseStreamEvent {
+  final ResponseIncompleteEvent value;
+  const ResponseStreamEventResponseIncompleteEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponseStreamEventResponseOutputItemAddedEvent
+    extends ResponseStreamEvent {
+  final ResponseOutputItemAddedEvent value;
+  const ResponseStreamEventResponseOutputItemAddedEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponseStreamEventResponseOutputItemDoneEvent
+    extends ResponseStreamEvent {
+  final ResponseOutputItemDoneEvent value;
+  const ResponseStreamEventResponseOutputItemDoneEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponseStreamEventResponseReasoningSummaryPartAddedEvent
+    extends ResponseStreamEvent {
+  final ResponseReasoningSummaryPartAddedEvent value;
+  const ResponseStreamEventResponseReasoningSummaryPartAddedEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponseStreamEventResponseReasoningSummaryPartDoneEvent
+    extends ResponseStreamEvent {
+  final ResponseReasoningSummaryPartDoneEvent value;
+  const ResponseStreamEventResponseReasoningSummaryPartDoneEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class ResponseStreamEventResponseReasoningSummaryTextDeltaEvent
+    extends ResponseStreamEvent {
+  final ResponseReasoningSummaryTextDeltaEvent value;
+  const ResponseStreamEventResponseReasoningSummaryTextDeltaEvent(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
 final class ResponseStreamEventResponseReasoningSummaryTextDoneEvent
     extends ResponseStreamEvent {
   final ResponseReasoningSummaryTextDoneEvent value;

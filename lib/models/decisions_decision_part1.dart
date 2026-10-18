@@ -75,6 +75,32 @@ sealed class DecisionInputContentPartsItem {
   static const String constructionSurface = 'named';
   const DecisionInputContentPartsItem();
   factory DecisionInputContentPartsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = DecisionInputText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputContentPartsItemDecisionInputText(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DecisionInputImage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputContentPartsItemDecisionInputImage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DecisionInputOutputText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputContentPartsItemDecisionInputOutputText(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DecisionInputRefusal.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputContentPartsItemDecisionInputRefusal(value);
+        }
+      } catch (_) {}
+    }
     try {
       return DecisionInputContentPartsItemDecisionInputText(
           DecisionInputText.fromJson(json as Map<String, dynamic>));

@@ -63,6 +63,26 @@ sealed class ComputerUseApprovalResponseParamBrowserAuthentication {
   const ComputerUseApprovalResponseParamBrowserAuthentication();
   factory ComputerUseApprovalResponseParamBrowserAuthentication.fromJson(
       Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParam
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerUseApprovalResponseParamBrowserAuthenticationComputerUseApprovalResponseParamBrowserAuthenticationSubmitParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            ComputerUseApprovalResponseParamBrowserAuthenticationCancelParam
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerUseApprovalResponseParamBrowserAuthenticationComputerUseApprovalResponseParamBrowserAuthenticationCancelParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ComputerUseApprovalResponseParamBrowserAuthenticationComputerUseApprovalResponseParamBrowserAuthenticationSubmitParam(
           ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParam

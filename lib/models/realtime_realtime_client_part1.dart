@@ -9,6 +9,84 @@ sealed class RealtimeClientEvent {
   static const String constructionSurface = 'named';
   const RealtimeClientEvent();
   factory RealtimeClientEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RealtimeClientEventConversationItemCreate.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventRealtimeClientEventConversationItemCreate(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeClientEventConversationItemDelete.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventRealtimeClientEventConversationItemDelete(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeClientEventConversationItemRetrieve.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventRealtimeClientEventConversationItemRetrieve(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeClientEventConversationItemTruncate.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventRealtimeClientEventConversationItemTruncate(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeClientEventInputAudioBufferAppend.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventRealtimeClientEventInputAudioBufferAppend(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeClientEventInputAudioBufferClear.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventRealtimeClientEventInputAudioBufferClear(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeClientEventOutputAudioBufferClear.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventRealtimeClientEventOutputAudioBufferClear(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeClientEventInputAudioBufferCommit.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventRealtimeClientEventInputAudioBufferCommit(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeClientEventResponseCancel.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventRealtimeClientEventResponseCancel(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeClientEventResponseCreate.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventRealtimeClientEventResponseCreate(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeClientEventSessionUpdate.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventRealtimeClientEventSessionUpdate(value);
+        }
+      } catch (_) {}
+    }
     try {
       return RealtimeClientEventRealtimeClientEventConversationItemCreate(
           RealtimeClientEventConversationItemCreate.fromJson(

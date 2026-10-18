@@ -4,6 +4,57 @@
 part of 'inline.dart';
 
 // Inline operation models (part 75)
+/// Specifies the detail level of the image. `low` uses fewer tokens, you can opt in to high resolution using `high`. Default value is `auto`
+final class MessageContentImageUrlObjectImageUrlDetail {
+  final String value;
+
+  const MessageContentImageUrlObjectImageUrlDetail._(this.value);
+
+  factory MessageContentImageUrlObjectImageUrlDetail.fromJson(String value) =>
+      MessageContentImageUrlObjectImageUrlDetail._(value);
+
+  static const auto = MessageContentImageUrlObjectImageUrlDetail._('auto');
+  static const low = MessageContentImageUrlObjectImageUrlDetail._('low');
+  static const high = MessageContentImageUrlObjectImageUrlDetail._('high');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is MessageContentImageUrlObjectImageUrlDetail &&
+      other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// The type of the content part.
+enum MessageContentImageUrlObjectType {
+  imageUrl;
+
+  static MessageContentImageUrlObjectType fromJson(String value) {
+    switch (value) {
+      case 'image_url':
+        return MessageContentImageUrlObjectType.imageUrl;
+      default:
+        throw ArgumentError('Unknown MessageContentImageUrlObjectType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case MessageContentImageUrlObjectType.imageUrl:
+        return 'image_url';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
 /// Always `refusal`.
 enum MessageContentRefusalObjectType {
   refusal;
@@ -280,59 +331,6 @@ enum MessageDeltaContentImageUrlObjectType {
     switch (this) {
       case MessageDeltaContentImageUrlObjectType.imageUrl:
         return 'image_url';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// Always `refusal`.
-enum MessageDeltaContentRefusalObjectType {
-  refusal;
-
-  static MessageDeltaContentRefusalObjectType fromJson(String value) {
-    switch (value) {
-      case 'refusal':
-        return MessageDeltaContentRefusalObjectType.refusal;
-      default:
-        throw ArgumentError(
-            'Unknown MessageDeltaContentRefusalObjectType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case MessageDeltaContentRefusalObjectType.refusal:
-        return 'refusal';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// Always `file_citation`.
-enum MessageDeltaContentTextAnnotationsFileCitationObjectType {
-  fileCitation;
-
-  static MessageDeltaContentTextAnnotationsFileCitationObjectType fromJson(
-      String value) {
-    switch (value) {
-      case 'file_citation':
-        return MessageDeltaContentTextAnnotationsFileCitationObjectType
-            .fileCitation;
-      default:
-        throw ArgumentError(
-            'Unknown MessageDeltaContentTextAnnotationsFileCitationObjectType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case MessageDeltaContentTextAnnotationsFileCitationObjectType
-            .fileCitation:
-        return 'file_citation';
     }
   }
 

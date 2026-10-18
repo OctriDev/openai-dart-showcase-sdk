@@ -4,62 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 100)
-/// Optional enumerated value serialized in the `max_output_tokens` wire field.
-final class RealtimeSessionCreateRequestGAMaxOutputTokensVariant1 {
-  final String value;
-
-  const RealtimeSessionCreateRequestGAMaxOutputTokensVariant1._(this.value);
-
-  factory RealtimeSessionCreateRequestGAMaxOutputTokensVariant1.fromJson(
-          String value) =>
-      RealtimeSessionCreateRequestGAMaxOutputTokensVariant1._(value);
-
-  static const inf =
-      RealtimeSessionCreateRequestGAMaxOutputTokensVariant1._('inf');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeSessionCreateRequestGAMaxOutputTokensVariant1 &&
-      other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// Required enumerated value serialized in the `output_modalities[]` wire field.
-final class RealtimeSessionCreateRequestGAOutputModalitiesItem {
-  final String value;
-
-  const RealtimeSessionCreateRequestGAOutputModalitiesItem._(this.value);
-
-  factory RealtimeSessionCreateRequestGAOutputModalitiesItem.fromJson(
-          String value) =>
-      RealtimeSessionCreateRequestGAOutputModalitiesItem._(value);
-
-  static const text =
-      RealtimeSessionCreateRequestGAOutputModalitiesItem._('text');
-  static const audio =
-      RealtimeSessionCreateRequestGAOutputModalitiesItem._('audio');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeSessionCreateRequestGAOutputModalitiesItem &&
-      other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
 /// Enables tracing and sets default values for tracing configuration options. Always `auto`.
 final class RealtimeSessionCreateRequestGATracingVariant0 {
   final String value;
@@ -109,6 +53,31 @@ enum RealtimeSessionCreateRequestGAType {
 
   @override
   String toString() => toJson();
+}
+
+/// Default tracing mode for the session.
+final class RealtimeSessionCreateRequestTracingVariant0 {
+  final String value;
+
+  const RealtimeSessionCreateRequestTracingVariant0._(this.value);
+
+  factory RealtimeSessionCreateRequestTracingVariant0.fromJson(String value) =>
+      RealtimeSessionCreateRequestTracingVariant0._(value);
+
+  static const auto = RealtimeSessionCreateRequestTracingVariant0._('auto');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeSessionCreateRequestTracingVariant0 &&
+      other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `include[]` wire field.
@@ -187,31 +156,6 @@ final class RealtimeSessionCreateResponseOutputModalitiesItem {
   @override
   bool operator ==(Object other) =>
       other is RealtimeSessionCreateResponseOutputModalitiesItem &&
-      other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// Default tracing mode for the session.
-final class RealtimeSessionCreateResponseTracingVariant0 {
-  final String value;
-
-  const RealtimeSessionCreateResponseTracingVariant0._(this.value);
-
-  factory RealtimeSessionCreateResponseTracingVariant0.fromJson(String value) =>
-      RealtimeSessionCreateResponseTracingVariant0._(value);
-
-  static const auto = RealtimeSessionCreateResponseTracingVariant0._('auto');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeSessionCreateResponseTracingVariant0 &&
       other.value == value;
 
   @override
@@ -326,6 +270,31 @@ final class RealtimeSessionCreateResponseGAOutputModalitiesItem {
   int get hashCode => value.hashCode;
 }
 
+/// The type of session to create. Always `realtime` for the Realtime API.
+enum RealtimeSessionCreateResponseGAType {
+  realtime;
+
+  static RealtimeSessionCreateResponseGAType fromJson(String value) {
+    switch (value) {
+      case 'realtime':
+        return RealtimeSessionCreateResponseGAType.realtime;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeSessionCreateResponseGAType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case RealtimeSessionCreateResponseGAType.realtime:
+        return 'realtime';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
 /// Enables tracing and sets default values for tracing configuration options. Always `auto`.
 final class RealtimeSessionCreateResponseGATracingVariant0 {
   final String value;
@@ -346,6 +315,31 @@ final class RealtimeSessionCreateResponseGATracingVariant0 {
   @override
   bool operator ==(Object other) =>
       other is RealtimeSessionCreateResponseGATracingVariant0 &&
+      other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// Default tracing mode for the session.
+final class RealtimeSessionCreateResponseTracingVariant0 {
+  final String value;
+
+  const RealtimeSessionCreateResponseTracingVariant0._(this.value);
+
+  factory RealtimeSessionCreateResponseTracingVariant0.fromJson(String value) =>
+      RealtimeSessionCreateResponseTracingVariant0._(value);
+
+  static const auto = RealtimeSessionCreateResponseTracingVariant0._('auto');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeSessionCreateResponseTracingVariant0 &&
       other.value == value;
 
   @override

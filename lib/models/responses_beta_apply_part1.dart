@@ -299,6 +299,29 @@ sealed class BetaApplyPatchOperationParam {
   static const String constructionSurface = 'named';
   const BetaApplyPatchOperationParam();
   factory BetaApplyPatchOperationParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaApplyPatchCreateFileOperationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaApplyPatchOperationParamBetaApplyPatchCreateFileOperationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaApplyPatchDeleteFileOperationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaApplyPatchOperationParamBetaApplyPatchDeleteFileOperationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaApplyPatchUpdateFileOperationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaApplyPatchOperationParamBetaApplyPatchUpdateFileOperationParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaApplyPatchOperationParamBetaApplyPatchCreateFileOperationParam(
           BetaApplyPatchCreateFileOperationParam.fromJson(

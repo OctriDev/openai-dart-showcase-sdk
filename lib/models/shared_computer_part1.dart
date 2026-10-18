@@ -9,6 +9,62 @@ sealed class ComputerAction {
   static const String constructionSurface = 'named';
   const ComputerAction();
   factory ComputerAction.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ClickParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerActionClickParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DoubleClickAction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerActionDoubleClickAction(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DragParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerActionDragParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = KeyPressAction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerActionKeyPressAction(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MoveParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerActionMoveParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ScreenshotParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerActionScreenshotParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ScrollParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerActionScrollParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = TypeParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerActionTypeParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WaitParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ComputerActionWaitParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return ComputerActionClickParam(
           ClickParam.fromJson(json as Map<String, dynamic>));

@@ -9,6 +9,26 @@ sealed class Delegation {
   static const String constructionSurface = 'named';
   const Delegation();
   factory Delegation.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveClientDelegationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DelegationLiveClientDelegationParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveResponsesDelegationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DelegationLiveResponsesDelegationParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionsDelegationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DelegationLiveDecisionsDelegationParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return DelegationLiveClientDelegationParam(
           LiveClientDelegationParam.fromJson(json as Map<String, dynamic>));
@@ -64,36 +84,7 @@ final class UnknownDelegation extends Delegation {
 
 // Instructions = String
 
-sealed class ModelIdsLive {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const ModelIdsLive();
-  factory ModelIdsLive.fromJson(Object? json) {
-    if (json is String) {
-      return ModelIdsLiveString(json);
-    }
-    try {
-      return ModelIdsLiveModelIdsLiveVariant1(
-          ModelIdsLiveVariant1.fromJson(json as String));
-    } catch (_) {}
-    throw FormatException("No variant matched for ModelIdsLive");
-  }
-  Object? toJson();
-}
-
-final class ModelIdsLiveString extends ModelIdsLive {
-  final String value;
-  const ModelIdsLiveString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-final class ModelIdsLiveModelIdsLiveVariant1 extends ModelIdsLive {
-  final ModelIdsLiveVariant1 value;
-  const ModelIdsLiveModelIdsLiveVariant1(this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
+// ModelIdsLive = String
 
 // PropertiesStore = bool
 

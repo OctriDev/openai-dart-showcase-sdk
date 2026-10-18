@@ -197,6 +197,27 @@ sealed class EvalDataSourceConfig {
   static const String constructionSurface = 'named';
   const EvalDataSourceConfig();
   factory EvalDataSourceConfig.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = EvalCustomDataSourceConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalDataSourceConfigEvalCustomDataSourceConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalLogsDataSourceConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalDataSourceConfigEvalLogsDataSourceConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalStoredCompletionsDataSourceConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalDataSourceConfigEvalStoredCompletionsDataSourceConfig(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return EvalDataSourceConfigEvalCustomDataSourceConfig(
           EvalCustomDataSourceConfig.fromJson(json as Map<String, dynamic>));

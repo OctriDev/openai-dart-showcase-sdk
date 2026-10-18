@@ -807,6 +807,100 @@ Future<ListMessagesResponse> listMessages(ClientConfig config,
       .data;
 }
 
+/// Lists messages belonging to a thread. Use `run_id` to filter by the run that generated the messages and `order` to control their creation-time order. Use `after` or `before` cursors to navigate the results.
+///
+/// Returns a list of messages for a given thread.
+///
+/// [threadId] The ID of the
+///   [thread](https://developers.openai.com/api/docs/assistants/migration) the
+///   messages belong to.
+/// [limit] A limit on the number of objects to be returned. Limit can range
+///   between 1 and 100, and the default is 20.
+/// [order] Sort order by the `created_at` timestamp of the objects. `asc` for
+///   ascending order and `desc` for descending order.
+/// [after] A cursor for use in pagination. `after` is an object ID that defines
+///   your place in the list. For instance, if you make a list request and receive
+///   100 objects, ending with obj_foo, your subsequent call can include
+///   after=obj_foo in order to fetch the next page of the list.
+/// [before] A cursor for use in pagination. `before` is an object ID that
+///   defines your place in the list. For instance, if you make a list request and
+///   receive 100 objects, starting with obj_foo, your subsequent call can include
+///   before=obj_foo in order to fetch the previous page of the list.
+/// [runId] Filter messages by the run ID that generated them.
+Stream<MessageObject> listMessagesPaginated(ClientConfig config,
+    {required String threadId,
+    int? limit,
+    ListMessagesOrder? order,
+    String? after,
+    String? before,
+    String? runId,
+    RequestOptions? requestOptions}) async* {
+  var sdkCursor = after;
+  while (true) {
+    final sdkPage = await listMessages(config,
+        threadId: threadId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListMessagesOrder>()
+            : SdkPresent<ListMessagesOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        runId: runId == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(runId),
+        requestOptions: requestOptions);
+    final sdkItems = sdkPage.data;
+    if (sdkItems.isEmpty) return;
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
+    if (sdkPage.hasMore != true) return;
+    final sdkNext = sdkPage.lastId;
+    sdkCursor = sdkNext;
+  }
+}
+
+Stream<SdkPage<ListMessagesResponse, MessageObject>> listMessagesPages(
+    ClientConfig config,
+    {required String threadId,
+    int? limit,
+    ListMessagesOrder? order,
+    String? after,
+    String? before,
+    String? runId,
+    RequestOptions? requestOptions}) async* {
+  var sdkCursor = after;
+  while (true) {
+    final sdkPage = await listMessages(config,
+        threadId: threadId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListMessagesOrder>()
+            : SdkPresent<ListMessagesOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        runId: runId == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(runId),
+        requestOptions: requestOptions);
+    final sdkItems = sdkPage.data;
+    if (sdkItems.isEmpty) return;
+    final sdkNext = sdkPage.lastId;
+    final sdkHasMore = sdkPage.hasMore == true;
+    yield SdkPage(data: sdkPage, items: sdkItems, hasMore: sdkHasMore);
+    if (!sdkHasMore) return;
+    sdkCursor = sdkNext;
+  }
+}
+
 /// Creates a message in a thread. Provide the message `role` and `content`, and optionally include file attachments or metadata. Use this operation to add a user or assistant message to an existing conversation thread.
 ///
 /// Create a message.
@@ -1529,6 +1623,108 @@ Future<ListRunStepsResponse> listRunSteps(ClientConfig config,
                 ErrorResponse.fromJson(value as Map<String, dynamic>)
           }))
       .data;
+}
+
+/// Lists the steps belonging to a run on a thread. Use cursor parameters to page through the steps, and set `order` to control their order by creation time.
+///
+/// Returns a list of run steps belonging to a run.
+///
+/// [threadId] The ID of the thread the run and run steps belong to.
+/// [runId] The ID of the run the run steps belong to.
+/// [limit] A limit on the number of objects to be returned. Limit can range
+///   between 1 and 100, and the default is 20.
+/// [order] Sort order by the `created_at` timestamp of the objects. `asc` for
+///   ascending order and `desc` for descending order.
+/// [after] A cursor for use in pagination. `after` is an object ID that defines
+///   your place in the list. For instance, if you make a list request and receive
+///   100 objects, ending with obj_foo, your subsequent call can include
+///   after=obj_foo in order to fetch the next page of the list.
+/// [before] A cursor for use in pagination. `before` is an object ID that
+///   defines your place in the list. For instance, if you make a list request and
+///   receive 100 objects, starting with obj_foo, your subsequent call can include
+///   before=obj_foo in order to fetch the previous page of the list.
+/// [include] A list of additional fields to include in the response. Currently
+///   the only supported value is
+///   `step_details.tool_calls[*].file_search.results[*].content` to fetch the
+///   file search result content. See the [file search tool
+///   documentation](https://developers.openai.com/api/docs/guides/tools-file-sear
+///   ch#retrieval-customization) for more information.
+Stream<RunStepObject> listRunStepsPaginated(ClientConfig config,
+    {required String threadId,
+    required String runId,
+    int? limit,
+    ListRunStepsOrder? order,
+    String? after,
+    String? before,
+    List<ListRunStepsIncludeItem>? include,
+    RequestOptions? requestOptions}) async* {
+  var sdkCursor = after;
+  while (true) {
+    final sdkPage = await listRunSteps(config,
+        threadId: threadId,
+        runId: runId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListRunStepsOrder>()
+            : SdkPresent<ListRunStepsOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        include: include == null
+            ? const SdkOmitted<List<ListRunStepsIncludeItem>>()
+            : SdkPresent<List<ListRunStepsIncludeItem>>(include),
+        requestOptions: requestOptions);
+    final sdkItems = sdkPage.data;
+    if (sdkItems.isEmpty) return;
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
+    if (sdkPage.hasMore != true) return;
+    final sdkNext = sdkPage.lastId;
+    sdkCursor = sdkNext;
+  }
+}
+
+Stream<SdkPage<ListRunStepsResponse, RunStepObject>> listRunStepsPages(
+    ClientConfig config,
+    {required String threadId,
+    required String runId,
+    int? limit,
+    ListRunStepsOrder? order,
+    String? after,
+    String? before,
+    List<ListRunStepsIncludeItem>? include,
+    RequestOptions? requestOptions}) async* {
+  var sdkCursor = after;
+  while (true) {
+    final sdkPage = await listRunSteps(config,
+        threadId: threadId,
+        runId: runId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListRunStepsOrder>()
+            : SdkPresent<ListRunStepsOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        include: include == null
+            ? const SdkOmitted<List<ListRunStepsIncludeItem>>()
+            : SdkPresent<List<ListRunStepsIncludeItem>>(include),
+        requestOptions: requestOptions);
+    final sdkItems = sdkPage.data;
+    if (sdkItems.isEmpty) return;
+    final sdkNext = sdkPage.lastId;
+    final sdkHasMore = sdkPage.hasMore == true;
+    yield SdkPage(data: sdkPage, items: sdkItems, hasMore: sdkHasMore);
+    if (!sdkHasMore) return;
+    sdkCursor = sdkNext;
+  }
 }
 
 /// Retrieves a specific step from a run on a thread. Use `include[]` to request file search result content when the step contains file search tool calls.

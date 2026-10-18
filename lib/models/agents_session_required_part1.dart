@@ -9,6 +9,32 @@ sealed class SessionRequiredActionResource {
   static const String constructionSurface = 'named';
   const SessionRequiredActionResource();
   factory SessionRequiredActionResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            SessionRequiredActionResourceComputerUseApprovalRequest.fromJson(
+                json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionRequiredActionResourceSessionRequiredActionResourceComputerUseApprovalRequest(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = SessionRequiredActionResourceFunctionCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionRequiredActionResourceSessionRequiredActionResourceFunctionCall(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            SessionRequiredActionResourceEnvironmentConnection.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SessionRequiredActionResourceSessionRequiredActionResourceEnvironmentConnection(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return SessionRequiredActionResourceSessionRequiredActionResourceComputerUseApprovalRequest(
           SessionRequiredActionResourceComputerUseApprovalRequest.fromJson(

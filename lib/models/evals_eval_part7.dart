@@ -135,6 +135,38 @@ sealed class EvalTestingCriteriaItem {
   static const String constructionSurface = 'named';
   const EvalTestingCriteriaItem();
   factory EvalTestingCriteriaItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = EvalGraderLabelModel.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalTestingCriteriaItemEvalGraderLabelModel(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalGraderStringCheck.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalTestingCriteriaItemEvalGraderStringCheck(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalGraderTextSimilarity.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalTestingCriteriaItemEvalGraderTextSimilarity(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalGraderPython.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalTestingCriteriaItemEvalGraderPython(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalGraderScoreModel.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalTestingCriteriaItemEvalGraderScoreModel(value);
+        }
+      } catch (_) {}
+    }
     try {
       return EvalTestingCriteriaItemEvalGraderLabelModel(
           EvalGraderLabelModel.fromJson(json as Map<String, dynamic>));

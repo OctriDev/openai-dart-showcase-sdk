@@ -411,6 +411,20 @@ sealed class RealtimeTurnDetection {
   static const String constructionSurface = 'named';
   const RealtimeTurnDetection();
   factory RealtimeTurnDetection.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RealtimeTurnDetectionVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTurnDetectionRealtimeTurnDetectionVariant0(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeTurnDetectionVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTurnDetectionRealtimeTurnDetectionVariant1(value);
+        }
+      } catch (_) {}
+    }
     try {
       return RealtimeTurnDetectionRealtimeTurnDetectionVariant0(
           RealtimeTurnDetectionVariant0.fromJson(json as Map<String, dynamic>));

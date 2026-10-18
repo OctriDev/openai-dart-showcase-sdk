@@ -9,6 +9,26 @@ sealed class FunctionAndCustomToolCallOutput {
   static const String constructionSurface = 'named';
   const FunctionAndCustomToolCallOutput();
   factory FunctionAndCustomToolCallOutput.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = InputTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionAndCustomToolCallOutputInputTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputImageContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionAndCustomToolCallOutputInputImageContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputFileContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionAndCustomToolCallOutputInputFileContent(value);
+        }
+      } catch (_) {}
+    }
     try {
       return FunctionAndCustomToolCallOutputInputTextContent(
           InputTextContent.fromJson(json as Map<String, dynamic>));
@@ -355,6 +375,29 @@ sealed class FunctionCallOutputItemParamOutputItem {
   static const String constructionSurface = 'named';
   const FunctionCallOutputItemParamOutputItem();
   factory FunctionCallOutputItemParamOutputItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = InputTextContentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionCallOutputItemParamOutputItemInputTextContentParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputImageContentParamAutoParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionCallOutputItemParamOutputItemInputImageContentParamAutoParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputFileContentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionCallOutputItemParamOutputItemInputFileContentParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return FunctionCallOutputItemParamOutputItemInputTextContentParam(
           InputTextContentParam.fromJson(json as Map<String, dynamic>));
@@ -412,30 +455,4 @@ final class UnknownFunctionCallOutputItemParamOutputItem
   const UnknownFunctionCallOutputItemParamOutputItem(this.raw);
   @override
   Object? toJson() => raw;
-}
-
-/// Typed representation of the `FunctionCallOutputStatusEnum` API schema.
-final class FunctionCallOutputStatusEnum {
-  final String value;
-
-  const FunctionCallOutputStatusEnum._(this.value);
-
-  factory FunctionCallOutputStatusEnum.fromJson(String value) =>
-      FunctionCallOutputStatusEnum._(value);
-
-  static const inProgress = FunctionCallOutputStatusEnum._('in_progress');
-  static const completed = FunctionCallOutputStatusEnum._('completed');
-  static const incomplete = FunctionCallOutputStatusEnum._('incomplete');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is FunctionCallOutputStatusEnum && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
 }

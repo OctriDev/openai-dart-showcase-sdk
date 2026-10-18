@@ -9,6 +9,26 @@ sealed class RunObjectToolsItem {
   static const String constructionSurface = 'named';
   const RunObjectToolsItem();
   factory RunObjectToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = AssistantToolsCode.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunObjectToolsItemAssistantToolsCode(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AssistantToolsFileSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunObjectToolsItemAssistantToolsFileSearch(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AssistantToolsFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunObjectToolsItemAssistantToolsFunction(value);
+        }
+      } catch (_) {}
+    }
     try {
       return RunObjectToolsItemAssistantToolsCode(
           AssistantToolsCode.fromJson(json as Map<String, dynamic>));
@@ -219,6 +239,23 @@ sealed class RunStepDeltaObjectDeltaStepDetails {
   static const String constructionSurface = 'named';
   const RunStepDeltaObjectDeltaStepDetails();
   factory RunStepDeltaObjectDeltaStepDetails.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            RunStepDeltaStepDetailsMessageCreationObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStepDeltaStepDetailsToolCallsObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsToolCallsObject(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject(
           RunStepDeltaStepDetailsMessageCreationObject.fromJson(

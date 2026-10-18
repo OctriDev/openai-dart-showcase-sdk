@@ -338,6 +338,28 @@ sealed class CreateThreadAndRunRequestToolsItem {
   static const String constructionSurface = 'named';
   const CreateThreadAndRunRequestToolsItem();
   factory CreateThreadAndRunRequestToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = AssistantToolsCode.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateThreadAndRunRequestToolsItemAssistantToolsCode(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AssistantToolsFileSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateThreadAndRunRequestToolsItemAssistantToolsFileSearch(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = AssistantToolsFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateThreadAndRunRequestToolsItemAssistantToolsFunction(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return CreateThreadAndRunRequestToolsItemAssistantToolsCode(
           AssistantToolsCode.fromJson(json as Map<String, dynamic>));

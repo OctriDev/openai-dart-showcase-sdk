@@ -113,6 +113,22 @@ sealed class BetaAutoCodeInterpreterToolParamNetworkPolicy {
   static const String constructionSurface = 'named';
   const BetaAutoCodeInterpreterToolParamNetworkPolicy();
   factory BetaAutoCodeInterpreterToolParamNetworkPolicy.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaContainerNetworkPolicyDisabledParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaAutoCodeInterpreterToolParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaContainerNetworkPolicyAllowlistParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaAutoCodeInterpreterToolParamNetworkPolicyBetaContainerNetworkPolicyAllowlistParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaAutoCodeInterpreterToolParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam(
           BetaContainerNetworkPolicyDisabledParam.fromJson(

@@ -274,6 +274,20 @@ sealed class ProvenanceResourceResultsItem {
   static const String constructionSurface = 'named';
   const ProvenanceResourceResultsItem();
   factory ProvenanceResourceResultsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = C2PAProvenanceResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ProvenanceResourceResultsItemC2PAProvenanceResult(value);
+        }
+      } catch (_) {}
+      try {
+        final value = SynthIDProvenanceResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ProvenanceResourceResultsItemSynthIDProvenanceResult(value);
+        }
+      } catch (_) {}
+    }
     try {
       return ProvenanceResourceResultsItemC2PAProvenanceResult(
           C2PAProvenanceResult.fromJson(json as Map<String, dynamic>));

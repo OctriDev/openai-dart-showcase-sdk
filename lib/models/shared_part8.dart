@@ -4,59 +4,6 @@
 part of 'shared.dart';
 
 // shared domain models (part 8)
-final class StopConfigurationString extends StopConfiguration {
-  final String value;
-  const StopConfigurationString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-final class StopConfigurationListString extends StopConfiguration {
-  final List<String> value;
-  const StopConfigurationListString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-/// A summary text from the model.
-class SummaryTextContent {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The type of the object. Always `summary_text`.
-  final SummaryTextContentType type_;
-
-  /// A summary of the reasoning output from the model so far.
-  final String text;
-
-  const SummaryTextContent({required this.type_, required this.text});
-
-  SummaryTextContent Function({SummaryTextContentType type_, String text})
-      get copyWith => _copyWith;
-
-  SummaryTextContent _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      SummaryTextContent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SummaryTextContentType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
-
-  factory SummaryTextContent.fromJson(Map<String, dynamic> json) =>
-      SummaryTextContent(
-        type_: (json['type'] != null
-            ? SummaryTextContentType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
-}
-
 /// The top log probability of a token.
 class TopLogProb {
   /// This model is constructed from named fields in one call.

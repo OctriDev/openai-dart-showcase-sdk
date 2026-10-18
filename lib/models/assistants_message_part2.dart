@@ -98,6 +98,24 @@ sealed class MessageContentTextObjectTextAnnotationsItem {
   static const String constructionSurface = 'named';
   const MessageContentTextObjectTextAnnotationsItem();
   factory MessageContentTextObjectTextAnnotationsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            MessageContentTextAnnotationsFileCitationObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFileCitationObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            MessageContentTextAnnotationsFilePathObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFilePathObject(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return MessageContentTextObjectTextAnnotationsItemMessageContentTextAnnotationsFileCitationObject(
           MessageContentTextAnnotationsFileCitationObject.fromJson(

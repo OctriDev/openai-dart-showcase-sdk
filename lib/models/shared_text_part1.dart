@@ -47,6 +47,27 @@ sealed class TextResponseFormatConfiguration {
   static const String constructionSurface = 'named';
   const TextResponseFormatConfiguration();
   factory TextResponseFormatConfiguration.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = ResponseFormatText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return TextResponseFormatConfigurationResponseFormatText(value);
+        }
+      } catch (_) {}
+      try {
+        final value = TextResponseFormatJsonSchema.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return TextResponseFormatConfigurationTextResponseFormatJsonSchema(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseFormatJsonObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return TextResponseFormatConfigurationResponseFormatJsonObject(value);
+        }
+      } catch (_) {}
+    }
     try {
       return TextResponseFormatConfigurationResponseFormatText(
           ResponseFormatText.fromJson(json as Map<String, dynamic>));

@@ -4,6 +4,42 @@
 part of 'responses_beta_output.dart';
 
 // responses_beta_output domain models (part 2)
+final class BetaOutputItemBetaMCPToolCall extends BetaOutputItem {
+  final BetaMCPToolCall value;
+  const BetaOutputItemBetaMCPToolCall(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaOutputItemBetaMCPListTools extends BetaOutputItem {
+  final BetaMCPListTools value;
+  const BetaOutputItemBetaMCPListTools(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaOutputItemBetaMCPApprovalRequest extends BetaOutputItem {
+  final BetaMCPApprovalRequest value;
+  const BetaOutputItemBetaMCPApprovalRequest(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaOutputItemBetaMCPApprovalResponseResource
+    extends BetaOutputItem {
+  final BetaMCPApprovalResponseResource value;
+  const BetaOutputItemBetaMCPApprovalResponseResource(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class BetaOutputItemBetaCustomToolCall extends BetaOutputItem {
+  final BetaCustomToolCall value;
+  const BetaOutputItemBetaCustomToolCall(this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
 final class BetaOutputItemBetaCustomToolCallOutputResource
     extends BetaOutputItem {
   final BetaCustomToolCallOutputResource value;
@@ -147,6 +183,20 @@ sealed class BetaOutputMessageContent {
   static const String constructionSurface = 'named';
   const BetaOutputMessageContent();
   factory BetaOutputMessageContent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaOutputTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaOutputMessageContentBetaOutputTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaRefusalContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaOutputMessageContentBetaRefusalContent(value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaOutputMessageContentBetaOutputTextContent(
           BetaOutputTextContent.fromJson(json as Map<String, dynamic>));
@@ -333,6 +383,29 @@ sealed class BetaOutputTextContentParamAnnotationsItem {
   static const String constructionSurface = 'named';
   const BetaOutputTextContentParamAnnotationsItem();
   factory BetaOutputTextContentParamAnnotationsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaFileCitationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaUrlCitationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaContainerFileCitationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(
           BetaFileCitationParam.fromJson(json as Map<String, dynamic>));

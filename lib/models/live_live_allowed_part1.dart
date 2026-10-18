@@ -123,6 +123,92 @@ sealed class LiveAllowedToolsChoiceParamToolsItem {
   static const String constructionSurface = 'named';
   const LiveAllowedToolsChoiceParamToolsItem();
   factory LiveAllowedToolsChoiceParamToolsItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveFunctionToolChoiceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveFunctionToolChoiceParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveMCPToolChoiceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveMCPToolChoiceParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificFileSearchParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveSpecificFileSearchParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificWebSearchParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveSpecificWebSearchParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificWebSearchPreviewParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveSpecificWebSearchPreviewParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificImageGenParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveSpecificImageGenParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificComputerParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveSpecificComputerParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificCodeInterpreterParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveSpecificCodeInterpreterParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificProgrammaticToolCallingParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveSpecificProgrammaticToolCallingParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificFunctionShellParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveSpecificFunctionShellParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificCustomToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveSpecificCustomToolParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificApplyPatchParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveAllowedToolsChoiceParamToolsItemLiveSpecificApplyPatchParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveAllowedToolsChoiceParamToolsItemLiveFunctionToolChoiceParam(
           LiveFunctionToolChoiceParam.fromJson(json as Map<String, dynamic>));

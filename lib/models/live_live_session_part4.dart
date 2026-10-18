@@ -4,6 +4,72 @@
 part of 'live_live_session.dart';
 
 // live_live_session domain models (part 4)
+/// Start a Live session on a primary WebSocket. Send this event before other commands and wait for `session.started`.
+class LiveSessionStartEvent {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// Optional API value serialized in the `event_id` wire field.
+  final SdkOptional<String?> eventId;
+
+  /// The Live client event type. Always `session.start`.
+  final LiveSessionStartEventType type_;
+
+  /// Initial configuration for a primary WebSocket. Send session.start first and wait for session.started before application commands. WebRTC creation already starts the session; do not send this event again on its data channel.
+  final LiveSessionCreateParams session;
+
+  const LiveSessionStartEvent(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      required this.session});
+
+  LiveSessionStartEvent Function(
+      {SdkOptional<String?> eventId,
+      LiveSessionStartEventType type_,
+      LiveSessionCreateParams session}) get copyWith => _copyWith;
+
+  LiveSessionStartEvent _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? session = sdkOmittedValue}) =>
+      LiveSessionStartEvent(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSessionStartEventType,
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as LiveSessionCreateParams,
+      );
+
+  factory LiveSessionStartEvent.fromJson(Map<String, dynamic> json) =>
+      LiveSessionStartEvent(
+        eventId: json.containsKey('event_id')
+            ? SdkPresent(json['event_id'] as String?)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? LiveSessionStartEventType.fromJson(json['type'] as String)
+            : null)!,
+        session: (json['session'] != null
+            ? LiveSessionCreateParams.fromJson(
+                json['session'] as Map<String, dynamic>)
+            : null)!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        ...switch (eventId) {
+          SdkPresent<String?>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'session': session.toJson(),
+      };
+}
+
 /// Returned when a Live session update is accepted. Contains the resolved session configuration after the update.
 class LiveSessionUpdated {
   /// This model is constructed from named fields in one call.
@@ -241,6 +307,29 @@ sealed class LiveSessionUpdateParamsDelegation {
   static const String constructionSurface = 'named';
   const LiveSessionUpdateParamsDelegation();
   factory LiveSessionUpdateParamsDelegation.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveClientDelegationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionUpdateParamsDelegationLiveClientDelegationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveResponsesDelegationUpdateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionUpdateParamsDelegationLiveResponsesDelegationUpdateParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionsDelegationUpdateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionUpdateParamsDelegationLiveDecisionsDelegationUpdateParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveSessionUpdateParamsDelegationLiveClientDelegationParam(
           LiveClientDelegationParam.fromJson(json as Map<String, dynamic>));

@@ -4,6 +4,81 @@
 part of 'assistants_modify.dart';
 
 // assistants_modify domain models (part 3)
+/// A set of resources that are made available to the assistant's tools in this thread. The resources are specific to the type of tool. For example, the `code_interpreter` tool requires a list of file IDs, while the `file_search` tool requires a list of vector store IDs.
+class ModifyThreadRequestToolResources {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// Optional object value serialized in the `code_interpreter` wire field.
+  final SdkOptional<ModifyThreadRequestToolResourcesCodeInterpreter>
+      codeInterpreter;
+
+  /// Optional object value serialized in the `file_search` wire field.
+  final SdkOptional<ModifyThreadRequestToolResourcesFileSearch> fileSearch;
+
+  const ModifyThreadRequestToolResources(
+      {this.codeInterpreter = const SdkOmitted(),
+      this.fileSearch = const SdkOmitted()});
+
+  ModifyThreadRequestToolResources Function(
+          {SdkOptional<ModifyThreadRequestToolResourcesCodeInterpreter>
+              codeInterpreter,
+          SdkOptional<ModifyThreadRequestToolResourcesFileSearch> fileSearch})
+      get copyWith => _copyWith;
+
+  ModifyThreadRequestToolResources _copyWith(
+          {Object? codeInterpreter = sdkOmittedValue,
+          Object? fileSearch = sdkOmittedValue}) =>
+      ModifyThreadRequestToolResources(
+        codeInterpreter: identical(codeInterpreter, sdkOmittedValue)
+            ? this.codeInterpreter
+            : codeInterpreter
+                as SdkOptional<ModifyThreadRequestToolResourcesCodeInterpreter>,
+        fileSearch: identical(fileSearch, sdkOmittedValue)
+            ? this.fileSearch
+            : fileSearch
+                as SdkOptional<ModifyThreadRequestToolResourcesFileSearch>,
+      );
+
+  factory ModifyThreadRequestToolResources.fromJson(
+          Map<String, dynamic> json) =>
+      ModifyThreadRequestToolResources(
+        codeInterpreter: json['code_interpreter'] != null
+            ? SdkPresent((json['code_interpreter'] != null
+                ? ModifyThreadRequestToolResourcesCodeInterpreter.fromJson(
+                    json['code_interpreter'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        fileSearch: json['file_search'] != null
+            ? SdkPresent((json['file_search'] != null
+                ? ModifyThreadRequestToolResourcesFileSearch.fromJson(
+                    json['file_search'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        ...switch (codeInterpreter) {
+          SdkPresent<ModifyThreadRequestToolResourcesCodeInterpreter>(
+            value: final value
+          ) =>
+            {
+              'code_interpreter': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fileSearch) {
+          SdkPresent<ModifyThreadRequestToolResourcesFileSearch>(
+            value: final value
+          ) =>
+            {
+              'file_search': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
 /// Typed representation of the `ModifyThreadRequest` API schema.
 class ModifyThreadRequest {
   /// This model is constructed from named fields in one call.

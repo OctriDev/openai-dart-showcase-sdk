@@ -4,8 +4,6 @@
 // chat domain model library.
 import '../sdk_utils.dart';
 import 'chat_chat_completion_request.dart';
-import 'chat_custom.dart';
 import 'inline.dart';
-import 'shared_chat.dart';
 
 part 'chat_part1.dart';

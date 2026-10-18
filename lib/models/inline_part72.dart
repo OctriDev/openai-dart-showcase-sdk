@@ -5,6 +5,54 @@ part of 'inline.dart';
 
 // Inline operation models (part 72)
 /// Required enumerated value serialized in the `type` wire field.
+enum LiveToolSearchToolInputParamType {
+  toolSearch;
+
+  static LiveToolSearchToolInputParamType fromJson(String value) {
+    switch (value) {
+      case 'tool_search':
+        return LiveToolSearchToolInputParamType.toolSearch;
+      default:
+        throw ArgumentError('Unknown LiveToolSearchToolInputParamType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveToolSearchToolInputParamType.toolSearch:
+        return 'tool_search';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// Required enumerated value serialized in the `type` wire field.
+enum LiveTransportAnsweredType {
+  transportAnswered;
+
+  static LiveTransportAnsweredType fromJson(String value) {
+    switch (value) {
+      case 'transport.answered':
+        return LiveTransportAnsweredType.transportAnswered;
+      default:
+        throw ArgumentError('Unknown LiveTransportAnsweredType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveTransportAnsweredType.transportAnswered:
+        return 'transport.answered';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// Required enumerated value serialized in the `type` wire field.
 final class LiveTransportCallErrorType {
   final String value;
 
@@ -265,59 +313,6 @@ final class LocalShellToolCallStatus {
   @override
   bool operator ==(Object other) =>
       other is LocalShellToolCallStatus && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// The type of the local shell call. Always `local_shell_call`.
-enum LocalShellToolCallType {
-  localShellCall;
-
-  static LocalShellToolCallType fromJson(String value) {
-    switch (value) {
-      case 'local_shell_call':
-        return LocalShellToolCallType.localShellCall;
-      default:
-        throw ArgumentError('Unknown LocalShellToolCallType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LocalShellToolCallType.localShellCall:
-        return 'local_shell_call';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// The status of the item. One of `in_progress`, `completed`, or `incomplete`.
-final class LocalShellToolCallOutputStatusVariant0 {
-  final String value;
-
-  const LocalShellToolCallOutputStatusVariant0._(this.value);
-
-  factory LocalShellToolCallOutputStatusVariant0.fromJson(String value) =>
-      LocalShellToolCallOutputStatusVariant0._(value);
-
-  static const inProgress =
-      LocalShellToolCallOutputStatusVariant0._('in_progress');
-  static const completed =
-      LocalShellToolCallOutputStatusVariant0._('completed');
-  static const incomplete =
-      LocalShellToolCallOutputStatusVariant0._('incomplete');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is LocalShellToolCallOutputStatusVariant0 && other.value == value;
 
   @override
   int get hashCode => value.hashCode;

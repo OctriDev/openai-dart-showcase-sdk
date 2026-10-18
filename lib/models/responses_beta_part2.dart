@@ -365,6 +365,20 @@ sealed class BetaFilters {
   static const String constructionSurface = 'named';
   const BetaFilters();
   factory BetaFilters.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaComparisonFilter.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFiltersBetaComparisonFilter(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaCompoundFilter.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFiltersBetaCompoundFilter(value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaFiltersBetaComparisonFilter(
           BetaComparisonFilter.fromJson(json as Map<String, dynamic>));

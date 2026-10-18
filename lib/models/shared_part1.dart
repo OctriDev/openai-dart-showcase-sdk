@@ -9,6 +9,32 @@ sealed class Annotation {
   static const String constructionSurface = 'named';
   const Annotation();
   factory Annotation.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = FileCitationBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AnnotationFileCitationBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value = UrlCitationBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AnnotationUrlCitationBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ContainerFileCitationBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AnnotationContainerFileCitationBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FilePath.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AnnotationFilePath(value);
+        }
+      } catch (_) {}
+    }
     try {
       return AnnotationFileCitationBody(
           FileCitationBody.fromJson(json as Map<String, dynamic>));

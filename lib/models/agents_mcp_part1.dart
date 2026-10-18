@@ -186,6 +186,20 @@ sealed class McpTransportConfigParam {
   static const String constructionSurface = 'named';
   const McpTransportConfigParam();
   factory McpTransportConfigParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = McpTransportConfigParamHttp.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return McpTransportConfigParamMcpTransportConfigParamHttp(value);
+        }
+      } catch (_) {}
+      try {
+        final value = McpTransportConfigParamStdio.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return McpTransportConfigParamMcpTransportConfigParamStdio(value);
+        }
+      } catch (_) {}
+    }
     try {
       return McpTransportConfigParamMcpTransportConfigParamHttp(
           McpTransportConfigParamHttp.fromJson(json as Map<String, dynamic>));
@@ -430,6 +444,20 @@ sealed class McpTransportResource {
   static const String constructionSurface = 'named';
   const McpTransportResource();
   factory McpTransportResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = McpTransportResourceHttp.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return McpTransportResourceMcpTransportResourceHttp(value);
+        }
+      } catch (_) {}
+      try {
+        final value = McpTransportResourceStdio.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return McpTransportResourceMcpTransportResourceStdio(value);
+        }
+      } catch (_) {}
+    }
     try {
       return McpTransportResourceMcpTransportResourceHttp(
           McpTransportResourceHttp.fromJson(json as Map<String, dynamic>));

@@ -74,6 +74,98 @@ sealed class LiveClientEvent {
   static const String constructionSurface = 'named';
   const LiveClientEvent();
   factory LiveClientEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveSessionStartEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveSessionStartEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSessionUpdateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveSessionUpdateParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInputAudioAppendEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveInputAudioAppendEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInputAudioMuteParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveInputAudioMuteParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInputAudioUnmuteParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveInputAudioUnmuteParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveOutputAudioFixturePlayParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveOutputAudioFixturePlayParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInstructionsAppendParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveInstructionsAppendParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveThinkingAppendParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveThinkingAppendParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveCommentaryAppendParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveCommentaryAppendParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionCreateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveDecisionCreateParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionItemCreateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveDecisionItemCreateParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionItemDeleteParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveDecisionItemDeleteParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveResponseItemCreateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveResponseItemCreateParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveResponseCreateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveResponseCreateParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSessionCloseParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveClientEventLiveSessionCloseParam(value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveClientEventLiveSessionStartEvent(
           LiveSessionStartEvent.fromJson(json as Map<String, dynamic>));

@@ -330,7 +330,8 @@ Future<RealtimeSessionCreateResponse> createRealtimeSession(ClientConfig config,
     SdkOptional<RealtimeSessionCreateRequestInputAudioTranscription>
         inputAudioTranscription = const SdkOmitted(),
     SdkOptional<double> speed = const SdkOmitted(),
-    SdkOptional<dynamic> tracing = const SdkOmitted(),
+    SdkOptional<RealtimeSessionCreateRequestTracing>
+        tracing = const SdkOmitted(),
     SdkOptional<RealtimeSessionCreateRequestTurnDetection> turnDetection =
         const SdkOmitted(),
     SdkOptional<List<RealtimeSessionCreateRequestToolsItem>> tools =
@@ -395,10 +396,13 @@ Future<RealtimeSessionCreateResponse> createRealtimeSession(ClientConfig config,
 /// [include] The set of items to include in the transcription. Current
 ///   available items are: `item.input_audio_transcription.logprobs`
 Future<RealtimeTranscriptionSessionCreateResponse>
-    createRealtimeTranscriptionSession(ClientConfig config,
+    createRealtimeTranscriptionSession(
+        ClientConfig config,
         {SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection>
             turnDetection = const SdkOmitted(),
-        SdkOptional<dynamic> inputAudioNoiseReduction = const SdkOmitted(),
+        SdkOptional<
+                RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>
+            inputAudioNoiseReduction = const SdkOmitted(),
         SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat>
             inputAudioFormat = const SdkOmitted(),
         SdkOptional<AudioTranscription> inputAudioTranscription =

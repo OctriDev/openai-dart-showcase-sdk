@@ -4,6 +4,84 @@
 part of 'audio.dart';
 
 // audio domain models (part 3)
+/// Required object value serialized in the `logprobs[]` wire field.
+class CreateTranscriptionResponseJsonLogprobsItem {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The token in the transcription.
+  final SdkOptional<String> token;
+
+  /// The log probability of the token.
+  final SdkOptional<double> logprob;
+
+  /// The bytes of the token.
+  final SdkOptional<List<double>> bytes;
+
+  const CreateTranscriptionResponseJsonLogprobsItem(
+      {this.token = const SdkOmitted(),
+      this.logprob = const SdkOmitted(),
+      this.bytes = const SdkOmitted()});
+
+  CreateTranscriptionResponseJsonLogprobsItem Function(
+      {SdkOptional<String> token,
+      SdkOptional<double> logprob,
+      SdkOptional<List<double>> bytes}) get copyWith => _copyWith;
+
+  CreateTranscriptionResponseJsonLogprobsItem _copyWith(
+          {Object? token = sdkOmittedValue,
+          Object? logprob = sdkOmittedValue,
+          Object? bytes = sdkOmittedValue}) =>
+      CreateTranscriptionResponseJsonLogprobsItem(
+        token: identical(token, sdkOmittedValue)
+            ? this.token
+            : token as SdkOptional<String>,
+        logprob: identical(logprob, sdkOmittedValue)
+            ? this.logprob
+            : logprob as SdkOptional<double>,
+        bytes: identical(bytes, sdkOmittedValue)
+            ? this.bytes
+            : bytes as SdkOptional<List<double>>,
+      );
+
+  factory CreateTranscriptionResponseJsonLogprobsItem.fromJson(
+          Map<String, dynamic> json) =>
+      CreateTranscriptionResponseJsonLogprobsItem(
+        token: json['token'] != null
+            ? SdkPresent((json['token'] as String?)!)
+            : const SdkOmitted(),
+        logprob: json['logprob'] != null
+            ? SdkPresent(((json['logprob'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        bytes: json['bytes'] != null
+            ? SdkPresent(((json['bytes'] as List?)
+                ?.map((e) => (e as num).toDouble())
+                .toList())!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        ...switch (token) {
+          SdkPresent<String>(value: final value) => {
+              'token': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (logprob) {
+          SdkPresent<double>(value: final value) => {
+              'logprob': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (bytes) {
+          SdkPresent<List<double>>(value: final value) => {
+              'bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
 /// Represents a transcription response returned by model, based on the provided input.
 class CreateTranscriptionResponseJson {
   /// This model is constructed from named fields in one call.
@@ -110,6 +188,22 @@ sealed class CreateTranscriptionResponseJsonUsage {
   static const String constructionSurface = 'named';
   const CreateTranscriptionResponseJsonUsage();
   factory CreateTranscriptionResponseJsonUsage.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = TranscriptTextUsageTokens.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseJsonUsageTranscriptTextUsageTokens(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = TranscriptTextUsageDuration.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseJsonUsageTranscriptTextUsageDuration(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return CreateTranscriptionResponseJsonUsageTranscriptTextUsageTokens(
           TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>));
@@ -161,6 +255,29 @@ sealed class CreateTranscriptionResponseStreamEvent {
   static const String constructionSurface = 'named';
   const CreateTranscriptionResponseStreamEvent();
   factory CreateTranscriptionResponseStreamEvent.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = TranscriptTextSegmentEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseStreamEventTranscriptTextSegmentEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = TranscriptTextDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseStreamEventTranscriptTextDeltaEvent(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = TranscriptTextDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseStreamEventTranscriptTextDoneEvent(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return CreateTranscriptionResponseStreamEventTranscriptTextSegmentEvent(
           TranscriptTextSegmentEvent.fromJson(json as Map<String, dynamic>));
@@ -440,33 +557,5 @@ class CreateTranslationRequest {
             },
           _ => const <String, dynamic>{},
         },
-      };
-}
-
-/// Typed representation of the `CreateTranslationResponseJson` API schema.
-class CreateTranslationResponseJson {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Required `string` value serialized in the `text` wire field.
-  final String text;
-
-  const CreateTranslationResponseJson({required this.text});
-
-  CreateTranslationResponseJson Function({String text}) get copyWith =>
-      _copyWith;
-
-  CreateTranslationResponseJson _copyWith({Object? text = sdkOmittedValue}) =>
-      CreateTranslationResponseJson(
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
-
-  factory CreateTranslationResponseJson.fromJson(Map<String, dynamic> json) =>
-      CreateTranslationResponseJson(
-        text: (json['text'] as String?)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'text': text,
       };
 }

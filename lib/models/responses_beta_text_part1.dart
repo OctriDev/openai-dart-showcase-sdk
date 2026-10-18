@@ -48,6 +48,29 @@ sealed class BetaTextResponseFormatConfiguration {
   static const String constructionSurface = 'named';
   const BetaTextResponseFormatConfiguration();
   factory BetaTextResponseFormatConfiguration.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaResponseFormatText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaTextResponseFormatConfigurationBetaResponseFormatText(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaTextResponseFormatJsonSchema.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaTextResponseFormatConfigurationBetaTextResponseFormatJsonSchema(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaResponseFormatJsonObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaTextResponseFormatConfigurationBetaResponseFormatJsonObject(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaTextResponseFormatConfigurationBetaResponseFormatText(
           BetaResponseFormatText.fromJson(json as Map<String, dynamic>));

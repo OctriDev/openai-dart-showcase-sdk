@@ -9,6 +9,30 @@ sealed class VaultCredentialAuthResource {
   static const String constructionSurface = 'named';
   const VaultCredentialAuthResource();
   factory VaultCredentialAuthResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = VaultCredentialAuthResourceMcpOauth.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VaultCredentialAuthResourceVaultCredentialAuthResourceMcpOauth(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = VaultCredentialAuthResourceStaticBearer.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VaultCredentialAuthResourceVaultCredentialAuthResourceStaticBearer(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            VaultCredentialAuthResourceEnvironmentVariable.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VaultCredentialAuthResourceVaultCredentialAuthResourceEnvironmentVariable(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return VaultCredentialAuthResourceVaultCredentialAuthResourceMcpOauth(
           VaultCredentialAuthResourceMcpOauth.fromJson(
@@ -348,6 +372,22 @@ sealed class VaultCredentialNetworkingParam {
   static const String constructionSurface = 'named';
   const VaultCredentialNetworkingParam();
   factory VaultCredentialNetworkingParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = VaultCredentialNetworkingParamUnrestricted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VaultCredentialNetworkingParamVaultCredentialNetworkingParamUnrestricted(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = VaultCredentialNetworkingParamLimited.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VaultCredentialNetworkingParamVaultCredentialNetworkingParamLimited(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return VaultCredentialNetworkingParamVaultCredentialNetworkingParamUnrestricted(
           VaultCredentialNetworkingParamUnrestricted.fromJson(
@@ -478,30 +518,4 @@ class VaultCredentialNetworkingParamUnrestricted {
   Map<String, dynamic> toJson() => {
         'type': type_.toJson(),
       };
-}
-
-sealed class VaultCredentialNetworkingResource {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const VaultCredentialNetworkingResource();
-  factory VaultCredentialNetworkingResource.fromJson(Object? json) {
-    try {
-      return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted(
-          VaultCredentialNetworkingResourceUnrestricted.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceLimited(
-          VaultCredentialNetworkingResourceLimited.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"unrestricted", "limited"}.contains(json["type"])) {
-      return UnknownVaultCredentialNetworkingResource(json);
-    }
-    throw FormatException(
-        "No variant matched for VaultCredentialNetworkingResource");
-  }
-  Object? toJson();
 }

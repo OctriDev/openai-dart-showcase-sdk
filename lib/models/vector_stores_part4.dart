@@ -160,6 +160,22 @@ sealed class VectorStoreFileObjectChunkingStrategy {
   static const String constructionSurface = 'named';
   const VectorStoreFileObjectChunkingStrategy();
   factory VectorStoreFileObjectChunkingStrategy.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = StaticChunkingStrategyResponseParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VectorStoreFileObjectChunkingStrategyStaticChunkingStrategyResponseParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = OtherChunkingStrategyResponseParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VectorStoreFileObjectChunkingStrategyOtherChunkingStrategyResponseParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return VectorStoreFileObjectChunkingStrategyStaticChunkingStrategyResponseParam(
           StaticChunkingStrategyResponseParam.fromJson(

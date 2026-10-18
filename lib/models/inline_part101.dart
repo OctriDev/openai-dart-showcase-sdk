@@ -4,29 +4,28 @@
 part of 'inline.dart';
 
 // Inline operation models (part 101)
-/// The type of session to create. Always `realtime` for the Realtime API.
-enum RealtimeSessionCreateResponseGAType {
-  realtime;
+/// Default tracing mode for the session.
+final class RealtimeSessionTracingVariant0 {
+  final String value;
 
-  static RealtimeSessionCreateResponseGAType fromJson(String value) {
-    switch (value) {
-      case 'realtime':
-        return RealtimeSessionCreateResponseGAType.realtime;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeSessionCreateResponseGAType: $value');
-    }
-  }
+  const RealtimeSessionTracingVariant0._(this.value);
 
-  String toJson() {
-    switch (this) {
-      case RealtimeSessionCreateResponseGAType.realtime:
-        return 'realtime';
-    }
-  }
+  factory RealtimeSessionTracingVariant0.fromJson(String value) =>
+      RealtimeSessionTracingVariant0._(value);
+
+  static const auto = RealtimeSessionTracingVariant0._('auto');
+
+  String toJson() => value;
 
   @override
-  String toString() => toJson();
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeSessionTracingVariant0 && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `include[]` wire field.

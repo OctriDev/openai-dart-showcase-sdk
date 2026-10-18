@@ -494,6 +494,24 @@ sealed class MessageDeltaContentTextObjectTextAnnotationsItem {
   const MessageDeltaContentTextObjectTextAnnotationsItem();
   factory MessageDeltaContentTextObjectTextAnnotationsItem.fromJson(
       Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value =
+            MessageDeltaContentTextAnnotationsFileCitationObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            MessageDeltaContentTextAnnotationsFilePathObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFilePathObject(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject(
           MessageDeltaContentTextAnnotationsFileCitationObject.fromJson(

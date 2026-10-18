@@ -10,11 +10,12 @@ class LiveInitialSessionAudioOutputParam {
   static const String constructionSurface = 'named';
 
   /// The voice used for Live speech, as a built-in voice name or a custom voice object containing its ID. Defaults to `marin` and cannot change after startup.
-  final SdkOptional<dynamic> voice;
+  final SdkOptional<LiveInitialSessionAudioOutputParamVoice> voice;
 
   const LiveInitialSessionAudioOutputParam({this.voice = const SdkOmitted()});
 
-  LiveInitialSessionAudioOutputParam Function({SdkOptional<dynamic> voice})
+  LiveInitialSessionAudioOutputParam Function(
+          {SdkOptional<LiveInitialSessionAudioOutputParamVoice> voice})
       get copyWith => _copyWith;
 
   LiveInitialSessionAudioOutputParam _copyWith(
@@ -22,26 +23,79 @@ class LiveInitialSessionAudioOutputParam {
       LiveInitialSessionAudioOutputParam(
         voice: identical(voice, sdkOmittedValue)
             ? this.voice
-            : voice as SdkOptional<dynamic>,
+            : voice as SdkOptional<LiveInitialSessionAudioOutputParamVoice>,
       );
 
   factory LiveInitialSessionAudioOutputParam.fromJson(
           Map<String, dynamic> json) =>
       LiveInitialSessionAudioOutputParam(
         voice: json['voice'] != null
-            ? SdkPresent((SdkUtils.unionBranch(
-                json['voice'], [LiveCustomVoiceParam.fromJson]))!)
+            ? SdkPresent((json['voice'] != null
+                ? LiveInitialSessionAudioOutputParamVoice.fromJson(
+                    json['voice'])
+                : null)!)
             : const SdkOmitted(),
       );
 
   Map<String, dynamic> toJson() => {
         ...switch (voice) {
-          SdkPresent<dynamic>(value: final value) => {
-              'voice': value,
+          SdkPresent<LiveInitialSessionAudioOutputParamVoice>(
+            value: final value
+          ) =>
+            {
+              'voice': value.toJson(),
             },
           _ => const <String, dynamic>{},
         },
       };
+}
+
+sealed class LiveInitialSessionAudioOutputParamVoice {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  const LiveInitialSessionAudioOutputParamVoice();
+  factory LiveInitialSessionAudioOutputParamVoice.fromJson(Object? json) {
+    if (json is String) {
+      return LiveInitialSessionAudioOutputParamVoiceString(json);
+    }
+    try {
+      return LiveInitialSessionAudioOutputParamVoiceLiveInitialSessionAudioOutputParamVoiceVariant1(
+          LiveInitialSessionAudioOutputParamVoiceVariant1.fromJson(
+              json as String));
+    } catch (_) {}
+    try {
+      return LiveInitialSessionAudioOutputParamVoiceLiveCustomVoiceParam(
+          LiveCustomVoiceParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for LiveInitialSessionAudioOutputParamVoice");
+  }
+  Object? toJson();
+}
+
+final class LiveInitialSessionAudioOutputParamVoiceString
+    extends LiveInitialSessionAudioOutputParamVoice {
+  final String value;
+  const LiveInitialSessionAudioOutputParamVoiceString(this.value);
+  @override
+  Object? toJson() => value;
+}
+
+final class LiveInitialSessionAudioOutputParamVoiceLiveInitialSessionAudioOutputParamVoiceVariant1
+    extends LiveInitialSessionAudioOutputParamVoice {
+  final LiveInitialSessionAudioOutputParamVoiceVariant1 value;
+  const LiveInitialSessionAudioOutputParamVoiceLiveInitialSessionAudioOutputParamVoiceVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class LiveInitialSessionAudioOutputParamVoiceLiveCustomVoiceParam
+    extends LiveInitialSessionAudioOutputParamVoice {
+  final LiveCustomVoiceParam value;
+  const LiveInitialSessionAudioOutputParamVoiceLiveCustomVoiceParam(this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Startup audio configuration. Only primary WebSockets accept audio.format; WebRTC and SIP negotiate their media format. Voice and format are immutable after startup.

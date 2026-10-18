@@ -2,6 +2,7 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // responses_output domain model library.
+import '../sdk_utils.dart';
 import 'responses_custom.dart';
 import 'shared.dart';
 import 'shared_additional.dart';
@@ -24,3 +25,4 @@ import 'shared_tool.dart';
 import 'shared_web.dart';
 
 part 'responses_output_part1.dart';
+part 'responses_output_part2.dart';

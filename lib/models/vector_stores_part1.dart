@@ -44,6 +44,22 @@ sealed class ChunkingStrategyRequestParam {
   static const String constructionSurface = 'named';
   const ChunkingStrategyRequestParam();
   factory ChunkingStrategyRequestParam.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = AutoChunkingStrategyRequestParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = StaticChunkingStrategyRequestParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChunkingStrategyRequestParamStaticChunkingStrategyRequestParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam(
           AutoChunkingStrategyRequestParam.fromJson(
@@ -417,6 +433,22 @@ sealed class CreateVectorStoreRequestChunkingStrategy {
   static const String constructionSurface = 'named';
   const CreateVectorStoreRequestChunkingStrategy();
   factory CreateVectorStoreRequestChunkingStrategy.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = AutoChunkingStrategyRequestParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = StaticChunkingStrategyRequestParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateVectorStoreRequestChunkingStrategyStaticChunkingStrategyRequestParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam(
           AutoChunkingStrategyRequestParam.fromJson(

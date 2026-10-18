@@ -110,6 +110,22 @@ sealed class LiveDecisionInputItemParamContentItem {
   static const String constructionSurface = 'named';
   const LiveDecisionInputItemParamContentItem();
   factory LiveDecisionInputItemParamContentItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = LiveDecisionInputTextParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveDecisionInputItemParamContentItemLiveDecisionInputTextParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionInputImageParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveDecisionInputItemParamContentItemLiveDecisionInputImageParam(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return LiveDecisionInputItemParamContentItemLiveDecisionInputTextParam(
           LiveDecisionInputTextParam.fromJson(json as Map<String, dynamic>));

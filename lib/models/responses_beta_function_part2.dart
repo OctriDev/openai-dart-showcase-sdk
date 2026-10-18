@@ -345,6 +345,22 @@ sealed class BetaFunctionShellCallEnvironment {
   static const String constructionSurface = 'named';
   const BetaFunctionShellCallEnvironment();
   factory BetaFunctionShellCallEnvironment.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = BetaLocalEnvironmentResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionShellCallEnvironmentBetaLocalEnvironmentResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaContainerReferenceResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionShellCallEnvironmentBetaContainerReferenceResource(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return BetaFunctionShellCallEnvironmentBetaLocalEnvironmentResource(
           BetaLocalEnvironmentResource.fromJson(json as Map<String, dynamic>));

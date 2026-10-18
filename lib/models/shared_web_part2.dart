@@ -337,6 +337,26 @@ sealed class WebSearchToolCallAction {
   static const String constructionSurface = 'named';
   const WebSearchToolCallAction();
   factory WebSearchToolCallAction.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = WebSearchActionSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return WebSearchToolCallActionWebSearchActionSearch(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WebSearchActionOpenPage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return WebSearchToolCallActionWebSearchActionOpenPage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WebSearchActionFind.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return WebSearchToolCallActionWebSearchActionFind(value);
+        }
+      } catch (_) {}
+    }
     try {
       return WebSearchToolCallActionWebSearchActionSearch(
           WebSearchActionSearch.fromJson(json as Map<String, dynamic>));

@@ -4,6 +4,32 @@
 part of 'agents_session_event.dart';
 
 // agents_session_event domain models (part 2)
+final class SessionEventSessionEventAgentSessionTurnReasoningSummaryTextDelta
+    extends SessionEvent {
+  final SessionEventAgentSessionTurnReasoningSummaryTextDelta value;
+  const SessionEventSessionEventAgentSessionTurnReasoningSummaryTextDelta(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+final class SessionEventSessionEventAgentSessionTurnReasoningSummaryTextDone
+    extends SessionEvent {
+  final SessionEventAgentSessionTurnReasoningSummaryTextDone value;
+  const SessionEventSessionEventAgentSessionTurnReasoningSummaryTextDone(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
+/// A [SessionEvent] whose `type` names no branch this SDK knows, kept as received.
+final class UnknownSessionEvent extends SessionEvent {
+  final Map<String, dynamic> raw;
+  const UnknownSessionEvent(this.raw);
+  @override
+  Object? toJson() => raw;
+}
+
 /// Emitted when command execution produces an output delta.
 class SessionEventAgentOutputCommandExecutionOutputDelta {
   /// This model is constructed from named fields in one call.

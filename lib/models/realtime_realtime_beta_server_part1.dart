@@ -286,6 +286,22 @@ sealed class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompl
   const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage();
   factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage.fromJson(
       Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = TranscriptTextUsageTokens.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = TranscriptTextUsageDuration.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(
           TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>));

@@ -4,6 +4,59 @@
 part of 'inline.dart';
 
 // Inline operation models (part 73)
+/// The type of the local shell call. Always `local_shell_call`.
+enum LocalShellToolCallType {
+  localShellCall;
+
+  static LocalShellToolCallType fromJson(String value) {
+    switch (value) {
+      case 'local_shell_call':
+        return LocalShellToolCallType.localShellCall;
+      default:
+        throw ArgumentError('Unknown LocalShellToolCallType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LocalShellToolCallType.localShellCall:
+        return 'local_shell_call';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// The status of the item. One of `in_progress`, `completed`, or `incomplete`.
+final class LocalShellToolCallOutputStatusVariant0 {
+  final String value;
+
+  const LocalShellToolCallOutputStatusVariant0._(this.value);
+
+  factory LocalShellToolCallOutputStatusVariant0.fromJson(String value) =>
+      LocalShellToolCallOutputStatusVariant0._(value);
+
+  static const inProgress =
+      LocalShellToolCallOutputStatusVariant0._('in_progress');
+  static const completed =
+      LocalShellToolCallOutputStatusVariant0._('completed');
+  static const incomplete =
+      LocalShellToolCallOutputStatusVariant0._('incomplete');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is LocalShellToolCallOutputStatusVariant0 && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
 /// The type of the local shell tool call output. Always `local_shell_call_output`.
 enum LocalShellToolCallOutputType {
   localShellCallOutput;
@@ -275,65 +328,4 @@ enum McpOauthTokenEndpointAuthResourceNoneType {
 
   @override
   String toString() => toJson();
-}
-
-/// Required enumerated value serialized in the `type` wire field.
-enum MCPProtocolErrorType {
-  mcpProtocolError;
-
-  static MCPProtocolErrorType fromJson(String value) {
-    switch (value) {
-      case 'mcp_protocol_error':
-        return MCPProtocolErrorType.mcpProtocolError;
-      default:
-        throw ArgumentError('Unknown MCPProtocolErrorType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case MCPProtocolErrorType.mcpProtocolError:
-        return 'mcp_protocol_error';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// Identifier for service connectors, like those available in ChatGPT. One of `server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more about service connectors [here](https://developers.openai.com/api/docs/guides/tools-connectors-mcp#connectors). This field is deprecated for models released after September 1, 2026. Use `server_url` to connect to a remote MCP server, or `tunnel_id` to connect through a Secure MCP Tunnel. Currently supported `connector_id` values are: - Dropbox: `connector_dropbox` - Gmail: `connector_gmail` - Google Calendar: `connector_googlecalendar` - Google Drive: `connector_googledrive` - Microsoft Teams: `connector_microsoftteams` - Outlook Calendar: `connector_outlookcalendar` - Outlook Email: `connector_outlookemail` - SharePoint: `connector_sharepoint`
-final class MCPToolConnectorId {
-  final String value;
-
-  const MCPToolConnectorId._(this.value);
-
-  factory MCPToolConnectorId.fromJson(String value) =>
-      MCPToolConnectorId._(value);
-
-  static const connectorDropbox = MCPToolConnectorId._('connector_dropbox');
-  static const connectorGmail = MCPToolConnectorId._('connector_gmail');
-  static const connectorGooglecalendar =
-      MCPToolConnectorId._('connector_googlecalendar');
-  static const connectorGoogledrive =
-      MCPToolConnectorId._('connector_googledrive');
-  static const connectorMicrosoftteams =
-      MCPToolConnectorId._('connector_microsoftteams');
-  static const connectorOutlookcalendar =
-      MCPToolConnectorId._('connector_outlookcalendar');
-  static const connectorOutlookemail =
-      MCPToolConnectorId._('connector_outlookemail');
-  static const connectorSharepoint =
-      MCPToolConnectorId._('connector_sharepoint');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is MCPToolConnectorId && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
 }

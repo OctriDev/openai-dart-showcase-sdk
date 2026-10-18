@@ -233,6 +233,38 @@ sealed class DecisionInputItem {
   static const String constructionSurface = 'named';
   const DecisionInputItem();
   factory DecisionInputItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = DecisionInputMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputItemDecisionInputMessage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DecisionInputFunctionCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputItemDecisionInputFunctionCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DecisionInputFunctionCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputItemDecisionInputFunctionCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DecisionInputCustomToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputItemDecisionInputCustomToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DecisionInputCustomToolCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputItemDecisionInputCustomToolCallOutput(value);
+        }
+      } catch (_) {}
+    }
     try {
       return DecisionInputItemDecisionInputMessage(
           DecisionInputMessage.fromJson(json as Map<String, dynamic>));

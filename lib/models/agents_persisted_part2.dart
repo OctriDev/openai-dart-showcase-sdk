@@ -127,6 +127,50 @@ sealed class PersistedAgentToolResource {
   static const String constructionSurface = 'named';
   const PersistedAgentToolResource();
   factory PersistedAgentToolResource.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = PersistedAgentToolResourceFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolResourcePersistedAgentToolResourceFunction(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = PersistedAgentToolResourceToolSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolResourcePersistedAgentToolResourceToolSearch(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            PersistedAgentToolResourceProgrammaticToolCalling.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolResourcePersistedAgentToolResourceProgrammaticToolCalling(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = PersistedAgentToolResourceMcp.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolResourcePersistedAgentToolResourceMcp(value);
+        }
+      } catch (_) {}
+      try {
+        final value = PersistedAgentToolResourceWebSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolResourcePersistedAgentToolResourceWebSearch(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = PersistedAgentToolResourceComputerUse.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolResourcePersistedAgentToolResourceComputerUse(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return PersistedAgentToolResourcePersistedAgentToolResourceFunction(
           PersistedAgentToolResourceFunction.fromJson(

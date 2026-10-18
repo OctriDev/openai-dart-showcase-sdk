@@ -253,6 +253,41 @@ final class DecisionsUsageGroupBy {
   int get hashCode => value.hashCode;
 }
 
+/// Typed representation of the `DecisionsUsagePermissionErrorResponse` API schema.
+class DecisionsUsagePermissionErrorResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// Details about the permission error.
+  final DecisionsUsagePermissionErrorResponseError error;
+
+  const DecisionsUsagePermissionErrorResponse({required this.error});
+
+  DecisionsUsagePermissionErrorResponse Function(
+          {DecisionsUsagePermissionErrorResponseError error})
+      get copyWith => _copyWith;
+
+  DecisionsUsagePermissionErrorResponse _copyWith(
+          {Object? error = sdkOmittedValue}) =>
+      DecisionsUsagePermissionErrorResponse(
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as DecisionsUsagePermissionErrorResponseError,
+      );
+
+  factory DecisionsUsagePermissionErrorResponse.fromJson(
+          Map<String, dynamic> json) =>
+      DecisionsUsagePermissionErrorResponse(
+        error: (json['error'] != null
+            ? DecisionsUsagePermissionErrorResponseError.fromJson(json['error'])
+            : null)!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'error': error.toJson(),
+      };
+}
+
 sealed class DecisionsUsagePermissionErrorResponseError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -286,36 +321,4 @@ final class DecisionsUsagePermissionErrorResponseErrorString
   const DecisionsUsagePermissionErrorResponseErrorString(this.value);
   @override
   Object? toJson() => value;
-}
-
-/// Typed representation of the `DecisionsUsagePermissionErrorResponse` API schema.
-class DecisionsUsagePermissionErrorResponse {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Details about the permission error.
-  final dynamic error;
-
-  const DecisionsUsagePermissionErrorResponse({required this.error});
-
-  DecisionsUsagePermissionErrorResponse Function({dynamic error})
-      get copyWith => _copyWith;
-
-  DecisionsUsagePermissionErrorResponse _copyWith(
-          {Object? error = sdkOmittedValue}) =>
-      DecisionsUsagePermissionErrorResponse(
-        error:
-            identical(error, sdkOmittedValue) ? this.error : error as dynamic,
-      );
-
-  factory DecisionsUsagePermissionErrorResponse.fromJson(
-          Map<String, dynamic> json) =>
-      DecisionsUsagePermissionErrorResponse(
-        error: (SdkUtils.unionBranch(
-            json['error'], [DecisionsUsageErrorDetails.fromJson]))!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'error': error,
-      };
 }

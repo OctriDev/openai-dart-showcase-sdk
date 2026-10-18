@@ -527,29 +527,3 @@ class CreateContainerBody {
         },
       };
 }
-
-sealed class CreateContainerBodyNetworkPolicy {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const CreateContainerBodyNetworkPolicy();
-  factory CreateContainerBodyNetworkPolicy.fromJson(Object? json) {
-    try {
-      return CreateContainerBodyNetworkPolicyContainerNetworkPolicyDisabledParam(
-          ContainerNetworkPolicyDisabledParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateContainerBodyNetworkPolicyContainerNetworkPolicyAllowlistParam(
-          ContainerNetworkPolicyAllowlistParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"disabled", "allowlist"}.contains(json["type"])) {
-      return UnknownCreateContainerBodyNetworkPolicy(json);
-    }
-    throw FormatException(
-        "No variant matched for CreateContainerBodyNetworkPolicy");
-  }
-  Object? toJson();
-}

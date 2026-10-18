@@ -238,6 +238,21 @@ sealed class RunStepObjectStepDetails {
   static const String constructionSurface = 'named';
   const RunStepObjectStepDetails();
   factory RunStepObjectStepDetails.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = RunStepDetailsMessageCreationObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStepDetailsToolCallsObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepObjectStepDetailsRunStepDetailsToolCallsObject(value);
+        }
+      } catch (_) {}
+    }
     try {
       return RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(
           RunStepDetailsMessageCreationObject.fromJson(
