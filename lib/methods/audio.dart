@@ -36,9 +36,11 @@ Future<List<int>> createSpeech(ClientConfig config,
     required String input,
     required CreateSpeechRequestVoice voice,
     SdkOptional<String> instructions = const SdkOmitted(),
-    SdkOptional<CreateSpeechRequestResponseFormat> responseFormat = const SdkOmitted(),
+    SdkOptional<CreateSpeechRequestResponseFormat> responseFormat =
+        const SdkOmitted(),
     SdkOptional<double> speed = const SdkOmitted(),
-    SdkOptional<CreateSpeechRequestStreamFormat> streamFormat = const SdkOmitted(),
+    SdkOptional<CreateSpeechRequestStreamFormat> streamFormat =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   validateLength('input', input, max: 4096);
   if (instructions is SdkPresent<String>) {
@@ -62,10 +64,20 @@ Future<List<int>> createSpeech(ClientConfig config,
           decoder: SdkResponseDecoder.bytes,
           operationId: 'createSpeech',
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Generates audio from text using a selected text-to-speech model and voice. Provide `model`, `input`, and `voice`, then choose an output format or streaming mode as needed. The response contains audio data or streamed audio events.
 ///
@@ -91,31 +103,48 @@ Future<List<int>> createSpeech(ClientConfig config,
 ///   `4.0`. `1.0` is the default.
 /// [streamFormat] The format to stream the audio in. Supported formats are
 ///   `sse` and `audio`. `sse` is not supported for `tts-1` or `tts-1-hd`.
-Stream<CreateSpeechResponseStreamEvent> createSpeechStream(ClientConfig config, {required String model, required String input, required CreateSpeechRequestVoice voice, SdkOptional<String> instructions = const SdkOmitted(), SdkOptional<CreateSpeechRequestResponseFormat> responseFormat = const SdkOmitted(), SdkOptional<double> speed = const SdkOmitted(), SdkOptional<CreateSpeechRequestStreamFormat> streamFormat = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<CreateSpeechResponseStreamEvent> createSpeechStream(ClientConfig config,
+    {required String model,
+    required String input,
+    required CreateSpeechRequestVoice voice,
+    SdkOptional<String> instructions = const SdkOmitted(),
+    SdkOptional<CreateSpeechRequestResponseFormat> responseFormat =
+        const SdkOmitted(),
+    SdkOptional<double> speed = const SdkOmitted(),
+    SdkOptional<CreateSpeechRequestStreamFormat> streamFormat =
+        const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/audio/speech',
     config: config,
     body: {
-    'model': model,
-    'input': input,
-    'voice': voice,
-    'instructions': SdkUtils.unwrapOptional(instructions),
-    'response_format': SdkUtils.unwrapOptional(responseFormat),
-    'speed': SdkUtils.unwrapOptional(speed),
-    'stream_format': SdkUtils.unwrapOptional(streamFormat),
-  },
+      'model': model,
+      'input': input,
+      'voice': voice,
+      'instructions': SdkUtils.unwrapOptional(instructions),
+      'response_format': SdkUtils.unwrapOptional(responseFormat),
+      'speed': SdkUtils.unwrapOptional(speed),
+      'stream_format': SdkUtils.unwrapOptional(streamFormat),
+    },
     operationId: 'createSpeechStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => CreateSpeechResponseStreamEvent.fromJson(event.data));
   }
 }
+
 /// Transcribes an audio file and returns the transcript in a selected format or as a stream of transcript events. Provide the audio `file` and `model`, then use options such as `language`, `prompt`, or `timestamp_granularities` to guide or shape the output. Use multipart form data and include enough file metadata for the audio format to be identified.
 ///
 /// Transcribes audio into the input language. Returns a transcription object in `json`, `diarized_json`, or `verbose_json` format, plain text in `text`, `srt`, or `vtt` format, or a stream of transcript events. Supported formats depend on the model.
@@ -191,9 +220,11 @@ Future<CreateTranscriptionResponse> createTranscription(ClientConfig config,
     SdkOptional<AudioResponseFormat> responseFormat = const SdkOmitted(),
     SdkOptional<double> temperature = const SdkOmitted(),
     SdkOptional<List<TranscriptionInclude>> include = const SdkOmitted(),
-    SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>> timestampGranularities = const SdkOmitted(),
+    SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>>
+        timestampGranularities = const SdkOmitted(),
     SdkOptional<bool?> stream = const SdkOmitted(),
-    SdkOptional<CreateTranscriptionRequestChunkingStrategy?> chunkingStrategy = const SdkOmitted(),
+    SdkOptional<CreateTranscriptionRequestChunkingStrategy?> chunkingStrategy =
+        const SdkOmitted(),
     SdkOptional<List<String>> knownSpeakerNames = const SdkOmitted(),
     SdkOptional<List<String>> knownSpeakerReferences = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -204,7 +235,8 @@ Future<CreateTranscriptionResponse> createTranscription(ClientConfig config,
     validateItems('known_speaker_names', knownSpeakerNames.value, max: 4);
   }
   if (knownSpeakerReferences is SdkPresent<List<String>>) {
-    validateItems('known_speaker_references', knownSpeakerReferences.value, max: 4);
+    validateItems('known_speaker_references', knownSpeakerReferences.value,
+        max: 4);
   }
 
   return (await sdkRequest<CreateTranscriptionResponse>(
@@ -220,21 +252,39 @@ Future<CreateTranscriptionResponse> createTranscription(ClientConfig config,
             'response_format': SdkUtils.unwrapOptional(responseFormat),
             'temperature': SdkUtils.unwrapOptional(temperature),
             'include': SdkUtils.unwrapOptional(include),
-            'timestamp_granularities': SdkUtils.unwrapOptional(timestampGranularities),
+            'timestamp_granularities':
+                SdkUtils.unwrapOptional(timestampGranularities),
             'stream': SdkUtils.unwrapOptional(stream),
-            'chunking_strategy': SdkMultipartPart(SdkUtils.unwrapOptional(chunkingStrategy), contentType: 'application/json'),
+            'chunking_strategy': SdkMultipartPart(
+                SdkUtils.unwrapOptional(chunkingStrategy),
+                contentType: 'application/json'),
             'known_speaker_names': SdkUtils.unwrapOptional(knownSpeakerNames),
-            'known_speaker_references': SdkUtils.unwrapOptional(knownSpeakerReferences)
+            'known_speaker_references':
+                SdkUtils.unwrapOptional(knownSpeakerReferences)
           },
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'createTranscription',
           fromJsonRaw: (value) => CreateTranscriptionResponse.fromJson(value),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '413': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '502': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '413': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '502': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Transcribes an audio file and returns the transcript in a selected format or as a stream of transcript events. Provide the audio `file` and `model`, then use options such as `language`, `prompt`, or `timestamp_granularities` to guide or shape the output. Use multipart form data and include enough file metadata for the audio format to be identified.
 ///
@@ -301,39 +351,71 @@ Future<CreateTranscriptionResponse> createTranscription(ClientConfig config,
 ///   URLs)) that contain known speaker references matching
 ///   `known_speaker_names[]`. Each sample must be between 2 and 10 seconds, and
 ///   can use any of the same input audio formats supported by `file`.
-Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(ClientConfig config, {required SdkUploadFile file, required String model, required bool? stream, SdkOptional<String> language = const SdkOmitted(), SdkOptional<List<String>> languages = const SdkOmitted(), SdkOptional<List<String>> keywords = const SdkOmitted(), SdkOptional<String> prompt = const SdkOmitted(), SdkOptional<AudioResponseFormat> responseFormat = const SdkOmitted(), SdkOptional<double> temperature = const SdkOmitted(), SdkOptional<List<TranscriptionInclude>> include = const SdkOmitted(), SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>> timestampGranularities = const SdkOmitted(), SdkOptional<CreateTranscriptionRequestChunkingStrategy?> chunkingStrategy = const SdkOmitted(), SdkOptional<List<String>> knownSpeakerNames = const SdkOmitted(), SdkOptional<List<String>> knownSpeakerReferences = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(
+    ClientConfig config,
+    {required SdkUploadFile file,
+    required String model,
+    required bool? stream,
+    SdkOptional<String> language = const SdkOmitted(),
+    SdkOptional<List<String>> languages = const SdkOmitted(),
+    SdkOptional<List<String>> keywords = const SdkOmitted(),
+    SdkOptional<String> prompt = const SdkOmitted(),
+    SdkOptional<AudioResponseFormat> responseFormat = const SdkOmitted(),
+    SdkOptional<double> temperature = const SdkOmitted(),
+    SdkOptional<List<TranscriptionInclude>> include = const SdkOmitted(),
+    SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>>
+        timestampGranularities = const SdkOmitted(),
+    SdkOptional<CreateTranscriptionRequestChunkingStrategy?> chunkingStrategy =
+        const SdkOmitted(),
+    SdkOptional<List<String>> knownSpeakerNames = const SdkOmitted(),
+    SdkOptional<List<String>> knownSpeakerReferences = const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/audio/transcriptions',
     config: config,
     body: {
-    'file': file,
-    'model': model,
-    'stream': stream,
-    'language': SdkUtils.unwrapOptional(language),
-    'languages': SdkUtils.unwrapOptional(languages),
-    'keywords': SdkUtils.unwrapOptional(keywords),
-    'prompt': SdkUtils.unwrapOptional(prompt),
-    'response_format': SdkUtils.unwrapOptional(responseFormat),
-    'temperature': SdkUtils.unwrapOptional(temperature),
-    'include': SdkUtils.unwrapOptional(include),
-    'timestamp_granularities': SdkUtils.unwrapOptional(timestampGranularities),
-    'chunking_strategy': SdkMultipartPart(SdkUtils.unwrapOptional(chunkingStrategy), contentType: 'application/json'),
-    'known_speaker_names': SdkUtils.unwrapOptional(knownSpeakerNames),
-    'known_speaker_references': SdkUtils.unwrapOptional(knownSpeakerReferences),
-  },
+      'file': file,
+      'model': model,
+      'stream': stream,
+      'language': SdkUtils.unwrapOptional(language),
+      'languages': SdkUtils.unwrapOptional(languages),
+      'keywords': SdkUtils.unwrapOptional(keywords),
+      'prompt': SdkUtils.unwrapOptional(prompt),
+      'response_format': SdkUtils.unwrapOptional(responseFormat),
+      'temperature': SdkUtils.unwrapOptional(temperature),
+      'include': SdkUtils.unwrapOptional(include),
+      'timestamp_granularities':
+          SdkUtils.unwrapOptional(timestampGranularities),
+      'chunking_strategy': SdkMultipartPart(
+          SdkUtils.unwrapOptional(chunkingStrategy),
+          contentType: 'application/json'),
+      'known_speaker_names': SdkUtils.unwrapOptional(knownSpeakerNames),
+      'known_speaker_references':
+          SdkUtils.unwrapOptional(knownSpeakerReferences),
+    },
     contentType: 'multipart/form-data',
     operationId: 'createTranscriptionStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '413': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '502': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '413': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '502': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
-    yield sdkDecode(() => CreateTranscriptionResponseStreamEvent.fromJson(event.data));
+    yield sdkDecode(
+        () => CreateTranscriptionResponseStreamEvent.fromJson(event.data));
   }
 }
+
 /// Translates an audio file into English and returns the result in a selected format. Provide the `file` and `model`, then optionally use `prompt` to guide the translation style. Send the file as multipart form data with metadata that lets the service identify its audio format.
 ///
 /// Translates audio into English.
@@ -359,7 +441,8 @@ Future<CreateTranslationResponse> createTranslation(ClientConfig config,
     {required SdkUploadFile file,
     required String model,
     SdkOptional<String> prompt = const SdkOmitted(),
-    SdkOptional<CreateTranslationRequestResponseFormat> responseFormat = const SdkOmitted(),
+    SdkOptional<CreateTranslationRequestResponseFormat> responseFormat =
+        const SdkOmitted(),
     SdkOptional<double> temperature = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<CreateTranslationResponse>(
@@ -377,10 +460,24 @@ Future<CreateTranslationResponse> createTranslation(ClientConfig config,
           operationId: 'createTranslation',
           fromJsonRaw: (value) => CreateTranslationResponse.fromJson(value),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '413': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '502': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '413': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '502': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a voice consent recording by uploading its audio file with a label and language tag. Provide `name`, `recording`, and `language`, and send the recording as multipart form data in a supported audio format. The response includes the new recording's identifier and creation timestamp.
 ///
@@ -404,12 +501,17 @@ Future<VoiceConsentResource> createVoiceConsent(ClientConfig config,
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'createVoiceConsent',
-          fromJsonRaw: (value) => VoiceConsentResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VoiceConsentResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists voice consent recordings used to authorize creation of custom voices. Use the `after` cursor to continue from a previous page and `limit` to control the number of records returned. The response includes pagination cursors and indicates whether more records are available.
 ///
@@ -429,18 +531,24 @@ Future<VoiceConsentListResource> listVoiceConsents(ClientConfig config,
           'GET', '/audio/voice_consents',
           config: config,
           query: {
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true)
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listVoiceConsents',
-          fromJsonRaw: (value) => VoiceConsentListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VoiceConsentListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists voice consent recordings used to authorize creation of custom voices. Use the `after` cursor to continue from a previous page and `limit` to control the number of records returned. The response includes pagination cursors and indicates whether more records are available.
 ///
@@ -452,13 +560,21 @@ Future<VoiceConsentListResource> listVoiceConsents(ClientConfig config,
 ///   after=obj_foo in order to fetch the next page of the list.
 /// [limit] A limit on the number of objects to be returned. Limit can range
 ///   between 1 and 100, and the default is 20.
-Stream<VoiceConsentResource> listVoiceConsentsPaginated(ClientConfig config, {String? after, int? limit, RequestOptions? requestOptions}) async* {
+Stream<VoiceConsentResource> listVoiceConsentsPaginated(ClientConfig config,
+    {String? after, int? limit, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listVoiceConsents(config, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), requestOptions: requestOptions);
+    final sdkPage = await listVoiceConsents(config,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -466,10 +582,17 @@ Stream<VoiceConsentResource> listVoiceConsentsPaginated(ClientConfig config, {St
   }
 }
 
-Stream<SdkPage<VoiceConsentListResource, VoiceConsentResource>> listVoiceConsentsPages(ClientConfig config, {String? after, int? limit, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<VoiceConsentListResource, VoiceConsentResource>>
+    listVoiceConsentsPages(ClientConfig config,
+        {String? after, int? limit, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listVoiceConsents(config, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), requestOptions: requestOptions);
+    final sdkPage = await listVoiceConsents(config,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -479,7 +602,6 @@ Stream<SdkPage<VoiceConsentListResource, VoiceConsentResource>> listVoiceConsent
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Retrieves a voice consent recording by its identifier. Use `consent_id` to select the recording whose metadata you need.
 ///
@@ -493,12 +615,15 @@ Future<VoiceConsentResource> getVoiceConsent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getVoiceConsent',
-          fromJsonRaw: (value) => VoiceConsentResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VoiceConsentResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the metadata for a voice consent recording. Supply the required `name` field to change its label; this operation does not update the recording itself.
 ///
@@ -516,12 +641,17 @@ Future<VoiceConsentResource> updateVoiceConsent(ClientConfig config,
           body: {'name': name},
           decoder: SdkResponseDecoder.json,
           operationId: 'updateVoiceConsent',
-          fromJsonRaw: (value) => VoiceConsentResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VoiceConsentResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a voice consent recording. Use `consent_id` to identify the recording to remove.
 ///
@@ -535,12 +665,15 @@ Future<VoiceConsentDeletedResource> deleteVoiceConsent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteVoiceConsent',
-          fromJsonRaw: (value) => VoiceConsentDeletedResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VoiceConsentDeletedResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a custom voice for audio output from an audio sample and a previously uploaded consent recording. Send `name`, `audio_sample`, and `consent` as multipart form data; `type` defaults to `audio_sample` when omitted. Custom voices are limited to eligible customers.
 ///
@@ -553,8 +686,13 @@ Future<VoiceResource> createVoice(ClientConfig config,
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'createVoice',
-          fromJsonRaw: (value) => VoiceResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VoiceResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

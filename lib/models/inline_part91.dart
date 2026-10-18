@@ -8,16 +8,23 @@ part of 'inline.dart';
 enum RealtimeClientEventConversationItemRetrieveType {
   conversationItemRetrieve;
 
-  static RealtimeClientEventConversationItemRetrieveType fromJson(String value) {
+  static RealtimeClientEventConversationItemRetrieveType fromJson(
+      String value) {
     switch (value) {
-      case 'conversation.item.retrieve': return RealtimeClientEventConversationItemRetrieveType.conversationItemRetrieve;
-      default: throw ArgumentError('Unknown RealtimeClientEventConversationItemRetrieveType: $value');
+      case 'conversation.item.retrieve':
+        return RealtimeClientEventConversationItemRetrieveType
+            .conversationItemRetrieve;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeClientEventConversationItemRetrieveType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeClientEventConversationItemRetrieveType.conversationItemRetrieve: return 'conversation.item.retrieve';
+      case RealtimeClientEventConversationItemRetrieveType
+            .conversationItemRetrieve:
+        return 'conversation.item.retrieve';
     }
   }
 
@@ -29,16 +36,23 @@ enum RealtimeClientEventConversationItemRetrieveType {
 enum RealtimeClientEventConversationItemTruncateType {
   conversationItemTruncate;
 
-  static RealtimeClientEventConversationItemTruncateType fromJson(String value) {
+  static RealtimeClientEventConversationItemTruncateType fromJson(
+      String value) {
     switch (value) {
-      case 'conversation.item.truncate': return RealtimeClientEventConversationItemTruncateType.conversationItemTruncate;
-      default: throw ArgumentError('Unknown RealtimeClientEventConversationItemTruncateType: $value');
+      case 'conversation.item.truncate':
+        return RealtimeClientEventConversationItemTruncateType
+            .conversationItemTruncate;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeClientEventConversationItemTruncateType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeClientEventConversationItemTruncateType.conversationItemTruncate: return 'conversation.item.truncate';
+      case RealtimeClientEventConversationItemTruncateType
+            .conversationItemTruncate:
+        return 'conversation.item.truncate';
     }
   }
 
@@ -52,14 +66,19 @@ enum RealtimeClientEventInputAudioBufferAppendType {
 
   static RealtimeClientEventInputAudioBufferAppendType fromJson(String value) {
     switch (value) {
-      case 'input_audio_buffer.append': return RealtimeClientEventInputAudioBufferAppendType.inputAudioBufferAppend;
-      default: throw ArgumentError('Unknown RealtimeClientEventInputAudioBufferAppendType: $value');
+      case 'input_audio_buffer.append':
+        return RealtimeClientEventInputAudioBufferAppendType
+            .inputAudioBufferAppend;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeClientEventInputAudioBufferAppendType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeClientEventInputAudioBufferAppendType.inputAudioBufferAppend: return 'input_audio_buffer.append';
+      case RealtimeClientEventInputAudioBufferAppendType.inputAudioBufferAppend:
+        return 'input_audio_buffer.append';
     }
   }
 
@@ -73,14 +92,19 @@ enum RealtimeClientEventInputAudioBufferClearType {
 
   static RealtimeClientEventInputAudioBufferClearType fromJson(String value) {
     switch (value) {
-      case 'input_audio_buffer.clear': return RealtimeClientEventInputAudioBufferClearType.inputAudioBufferClear;
-      default: throw ArgumentError('Unknown RealtimeClientEventInputAudioBufferClearType: $value');
+      case 'input_audio_buffer.clear':
+        return RealtimeClientEventInputAudioBufferClearType
+            .inputAudioBufferClear;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeClientEventInputAudioBufferClearType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeClientEventInputAudioBufferClearType.inputAudioBufferClear: return 'input_audio_buffer.clear';
+      case RealtimeClientEventInputAudioBufferClearType.inputAudioBufferClear:
+        return 'input_audio_buffer.clear';
     }
   }
 
@@ -94,14 +118,19 @@ enum RealtimeClientEventInputAudioBufferCommitType {
 
   static RealtimeClientEventInputAudioBufferCommitType fromJson(String value) {
     switch (value) {
-      case 'input_audio_buffer.commit': return RealtimeClientEventInputAudioBufferCommitType.inputAudioBufferCommit;
-      default: throw ArgumentError('Unknown RealtimeClientEventInputAudioBufferCommitType: $value');
+      case 'input_audio_buffer.commit':
+        return RealtimeClientEventInputAudioBufferCommitType
+            .inputAudioBufferCommit;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeClientEventInputAudioBufferCommitType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeClientEventInputAudioBufferCommitType.inputAudioBufferCommit: return 'input_audio_buffer.commit';
+      case RealtimeClientEventInputAudioBufferCommitType.inputAudioBufferCommit:
+        return 'input_audio_buffer.commit';
     }
   }
 
@@ -115,14 +144,19 @@ enum RealtimeClientEventOutputAudioBufferClearType {
 
   static RealtimeClientEventOutputAudioBufferClearType fromJson(String value) {
     switch (value) {
-      case 'output_audio_buffer.clear': return RealtimeClientEventOutputAudioBufferClearType.outputAudioBufferClear;
-      default: throw ArgumentError('Unknown RealtimeClientEventOutputAudioBufferClearType: $value');
+      case 'output_audio_buffer.clear':
+        return RealtimeClientEventOutputAudioBufferClearType
+            .outputAudioBufferClear;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeClientEventOutputAudioBufferClearType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeClientEventOutputAudioBufferClearType.outputAudioBufferClear: return 'output_audio_buffer.clear';
+      case RealtimeClientEventOutputAudioBufferClearType.outputAudioBufferClear:
+        return 'output_audio_buffer.clear';
     }
   }
 
@@ -136,14 +170,18 @@ enum RealtimeClientEventResponseCancelType {
 
   static RealtimeClientEventResponseCancelType fromJson(String value) {
     switch (value) {
-      case 'response.cancel': return RealtimeClientEventResponseCancelType.responseCancel;
-      default: throw ArgumentError('Unknown RealtimeClientEventResponseCancelType: $value');
+      case 'response.cancel':
+        return RealtimeClientEventResponseCancelType.responseCancel;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeClientEventResponseCancelType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeClientEventResponseCancelType.responseCancel: return 'response.cancel';
+      case RealtimeClientEventResponseCancelType.responseCancel:
+        return 'response.cancel';
     }
   }
 
@@ -157,14 +195,18 @@ enum RealtimeClientEventResponseCreateType {
 
   static RealtimeClientEventResponseCreateType fromJson(String value) {
     switch (value) {
-      case 'response.create': return RealtimeClientEventResponseCreateType.responseCreate;
-      default: throw ArgumentError('Unknown RealtimeClientEventResponseCreateType: $value');
+      case 'response.create':
+        return RealtimeClientEventResponseCreateType.responseCreate;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeClientEventResponseCreateType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeClientEventResponseCreateType.responseCreate: return 'response.create';
+      case RealtimeClientEventResponseCreateType.responseCreate:
+        return 'response.create';
     }
   }
 
@@ -178,14 +220,18 @@ enum RealtimeClientEventSessionUpdateType {
 
   static RealtimeClientEventSessionUpdateType fromJson(String value) {
     switch (value) {
-      case 'session.update': return RealtimeClientEventSessionUpdateType.sessionUpdate;
-      default: throw ArgumentError('Unknown RealtimeClientEventSessionUpdateType: $value');
+      case 'session.update':
+        return RealtimeClientEventSessionUpdateType.sessionUpdate;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeClientEventSessionUpdateType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeClientEventSessionUpdateType.sessionUpdate: return 'session.update';
+      case RealtimeClientEventSessionUpdateType.sessionUpdate:
+        return 'session.update';
     }
   }
 
@@ -195,67 +241,86 @@ enum RealtimeClientEventSessionUpdateType {
 
 /// The event type, must be `transcription_session.update`.
 final class RealtimeClientEventTranscriptionSessionUpdateType {
-
   final String value;
 
   const RealtimeClientEventTranscriptionSessionUpdateType._(this.value);
 
-  factory RealtimeClientEventTranscriptionSessionUpdateType.fromJson(String value) => RealtimeClientEventTranscriptionSessionUpdateType._(value);
+  factory RealtimeClientEventTranscriptionSessionUpdateType.fromJson(
+          String value) =>
+      RealtimeClientEventTranscriptionSessionUpdateType._(value);
 
-  static const transcriptionSessionUpdate = RealtimeClientEventTranscriptionSessionUpdateType._('transcription_session.update');
+  static const transcriptionSessionUpdate =
+      RealtimeClientEventTranscriptionSessionUpdateType._(
+          'transcription_session.update');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeClientEventTranscriptionSessionUpdateType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeClientEventTranscriptionSessionUpdateType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Identifier for the API object being returned - always `realtime.item`. Optional when creating a new item.
 final class RealtimeConversationItemFunctionCallObject {
-
   final String value;
 
   const RealtimeConversationItemFunctionCallObject._(this.value);
 
-  factory RealtimeConversationItemFunctionCallObject.fromJson(String value) => RealtimeConversationItemFunctionCallObject._(value);
+  factory RealtimeConversationItemFunctionCallObject.fromJson(String value) =>
+      RealtimeConversationItemFunctionCallObject._(value);
 
-  static const realtimeItem = RealtimeConversationItemFunctionCallObject._('realtime.item');
+  static const realtimeItem =
+      RealtimeConversationItemFunctionCallObject._('realtime.item');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeConversationItemFunctionCallObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeConversationItemFunctionCallObject &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the item. Has no effect on the conversation.
 final class RealtimeConversationItemFunctionCallStatus {
-
   final String value;
 
   const RealtimeConversationItemFunctionCallStatus._(this.value);
 
-  factory RealtimeConversationItemFunctionCallStatus.fromJson(String value) => RealtimeConversationItemFunctionCallStatus._(value);
+  factory RealtimeConversationItemFunctionCallStatus.fromJson(String value) =>
+      RealtimeConversationItemFunctionCallStatus._(value);
 
-  static const completed = RealtimeConversationItemFunctionCallStatus._('completed');
-  static const incomplete = RealtimeConversationItemFunctionCallStatus._('incomplete');
-  static const inProgress = RealtimeConversationItemFunctionCallStatus._('in_progress');
+  static const completed =
+      RealtimeConversationItemFunctionCallStatus._('completed');
+  static const incomplete =
+      RealtimeConversationItemFunctionCallStatus._('incomplete');
+  static const inProgress =
+      RealtimeConversationItemFunctionCallStatus._('in_progress');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeConversationItemFunctionCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeConversationItemFunctionCallStatus &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the item. Always `function_call`.
@@ -264,14 +329,18 @@ enum RealtimeConversationItemFunctionCallType {
 
   static RealtimeConversationItemFunctionCallType fromJson(String value) {
     switch (value) {
-      case 'function_call': return RealtimeConversationItemFunctionCallType.functionCall;
-      default: throw ArgumentError('Unknown RealtimeConversationItemFunctionCallType: $value');
+      case 'function_call':
+        return RealtimeConversationItemFunctionCallType.functionCall;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeConversationItemFunctionCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeConversationItemFunctionCallType.functionCall: return 'function_call';
+      case RealtimeConversationItemFunctionCallType.functionCall:
+        return 'function_call';
     }
   }
 

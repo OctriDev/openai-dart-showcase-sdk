@@ -10,171 +10,321 @@ sealed class AgentContentResource {
   const AgentContentResource();
   factory AgentContentResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = OutputTextResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentContentResourceOutputTextResource(value); } } catch (_) {}
-      try { final value = EncryptedContentResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentContentResourceEncryptedContentResource(value); } } catch (_) {}
+      try {
+        final value = OutputTextResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentContentResourceOutputTextResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EncryptedContentResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentContentResourceEncryptedContentResource(value);
+        }
+      } catch (_) {}
     }
-    try { return AgentContentResourceOutputTextResource(OutputTextResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentContentResourceEncryptedContentResource(EncryptedContentResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"output_text", "encrypted_content"}.contains(json["type"])) { return UnknownAgentContentResource(json); }
+    try {
+      return AgentContentResourceOutputTextResource(
+          OutputTextResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentContentResourceEncryptedContentResource(
+          EncryptedContentResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"output_text", "encrypted_content"}.contains(json["type"])) {
+      return UnknownAgentContentResource(json);
+    }
     throw FormatException("No variant matched for AgentContentResource");
   }
   Object? toJson();
 }
 
-final class AgentContentResourceOutputTextResource extends AgentContentResource {
+final class AgentContentResourceOutputTextResource
+    extends AgentContentResource {
   final OutputTextResource value;
   const AgentContentResourceOutputTextResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentContentResourceEncryptedContentResource extends AgentContentResource {
+final class AgentContentResourceEncryptedContentResource
+    extends AgentContentResource {
   final EncryptedContentResource value;
   const AgentContentResourceEncryptedContentResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [AgentContentResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownAgentContentResource extends AgentContentResource {
   final Map<String, dynamic> raw;
   const UnknownAgentContentResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A page of Agents API resources, with IDs for retrieving additional pages.
 class AgentEnvironmentListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always `list`.
   final AgentEnvironmentListResourceObject object;
+
   /// The resources returned in this page, in the requested sort order.
   final List<PublicEnvironmentResource> data;
+
   /// The ID of the first resource in `data`, or `null` if the page is empty.
   final String? firstId;
+
   /// The ID of the last resource in `data`, or `null` if the page is empty. Pass this as `after` with the same order and filters.
   final String? lastId;
+
   /// Whether there are more resources to retrieve after this page.
   final bool hasMore;
 
-  const AgentEnvironmentListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
+  const AgentEnvironmentListResource(
+      {required this.object,
+      required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore});
 
-  AgentEnvironmentListResource Function({AgentEnvironmentListResourceObject object, List<PublicEnvironmentResource> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
+  AgentEnvironmentListResource Function(
+      {AgentEnvironmentListResourceObject object,
+      List<PublicEnvironmentResource> data,
+      String? firstId,
+      String? lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  AgentEnvironmentListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => AgentEnvironmentListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as AgentEnvironmentListResourceObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<PublicEnvironmentResource>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  AgentEnvironmentListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      AgentEnvironmentListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as AgentEnvironmentListResourceObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<PublicEnvironmentResource>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String?,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory AgentEnvironmentListResource.fromJson(Map<String, dynamic> json) => AgentEnvironmentListResource(
-    object: (json['object'] != null ? AgentEnvironmentListResourceObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => PublicEnvironmentResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
-    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory AgentEnvironmentListResource.fromJson(Map<String, dynamic> json) =>
+      AgentEnvironmentListResource(
+        object: (json['object'] != null
+            ? AgentEnvironmentListResourceObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                PublicEnvironmentResource.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? json['first_id'] as String?
+            : throw ArgumentError.value(
+                null, 'first_id', 'Required property is missing'),
+        lastId: json.containsKey('last_id')
+            ? json['last_id'] as String?
+            : throw ArgumentError.value(
+                null, 'last_id', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+      };
 }
 
 /// A page of Agents API resources, with IDs for retrieving additional pages.
 class AgentListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always `list`.
   final AgentListResourceObject object;
+
   /// The resources returned in this page, in the requested sort order.
   final List<AgentResource> data;
+
   /// The ID of the first resource in `data`, or `null` if the page is empty.
   final String? firstId;
+
   /// The ID of the last resource in `data`, or `null` if the page is empty. Pass this as `after` with the same order and filters.
   final String? lastId;
+
   /// Whether there are more resources to retrieve after this page.
   final bool hasMore;
 
-  const AgentListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
+  const AgentListResource(
+      {required this.object,
+      required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore});
 
-  AgentListResource Function({AgentListResourceObject object, List<AgentResource> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
+  AgentListResource Function(
+      {AgentListResourceObject object,
+      List<AgentResource> data,
+      String? firstId,
+      String? lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  AgentListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => AgentListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as AgentListResourceObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<AgentResource>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  AgentListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      AgentListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as AgentListResourceObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<AgentResource>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String?,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory AgentListResource.fromJson(Map<String, dynamic> json) => AgentListResource(
-    object: (json['object'] != null ? AgentListResourceObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => AgentResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
-    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory AgentListResource.fromJson(Map<String, dynamic> json) =>
+      AgentListResource(
+        object: (json['object'] != null
+            ? AgentListResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => AgentResource.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? json['first_id'] as String?
+            : throw ArgumentError.value(
+                null, 'first_id', 'Required property is missing'),
+        lastId: json.containsKey('last_id')
+            ? json['last_id'] as String?
+            : throw ArgumentError.value(
+                null, 'last_id', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+      };
 }
 
 /// A message exchanged between agent threads.
 class AgentMessageItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the message.
   final String id;
+
   /// The ID of the turn that contains this item.
   final String turnId;
+
   /// The item type. Always `agent_message`.
   final AgentMessageItemResourceType type_;
+
   /// The ID or name of the sending agent.
   final String senderAgentId;
+
   /// The ID or name of the receiving agent.
   final String recipientAgentId;
+
   /// The content exchanged between the agents.
   final List<AgentContentResource> content;
 
-  const AgentMessageItemResource({required this.id, required this.turnId, required this.type_, required this.senderAgentId, required this.recipientAgentId, required this.content});
+  const AgentMessageItemResource(
+      {required this.id,
+      required this.turnId,
+      required this.type_,
+      required this.senderAgentId,
+      required this.recipientAgentId,
+      required this.content});
 
-  AgentMessageItemResource Function({String id, String turnId, AgentMessageItemResourceType type_, String senderAgentId, String recipientAgentId, List<AgentContentResource> content}) get copyWith => _copyWith;
+  AgentMessageItemResource Function(
+      {String id,
+      String turnId,
+      AgentMessageItemResourceType type_,
+      String senderAgentId,
+      String recipientAgentId,
+      List<AgentContentResource> content}) get copyWith => _copyWith;
 
-  AgentMessageItemResource _copyWith({Object? id = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? senderAgentId = sdkOmittedValue, Object? recipientAgentId = sdkOmittedValue, Object? content = sdkOmittedValue}) => AgentMessageItemResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentMessageItemResourceType,
-    senderAgentId: identical(senderAgentId, sdkOmittedValue) ? this.senderAgentId : senderAgentId as String,
-    recipientAgentId: identical(recipientAgentId, sdkOmittedValue) ? this.recipientAgentId : recipientAgentId as String,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<AgentContentResource>,
-  );
+  AgentMessageItemResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? senderAgentId = sdkOmittedValue,
+          Object? recipientAgentId = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      AgentMessageItemResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        turnId:
+            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AgentMessageItemResourceType,
+        senderAgentId: identical(senderAgentId, sdkOmittedValue)
+            ? this.senderAgentId
+            : senderAgentId as String,
+        recipientAgentId: identical(recipientAgentId, sdkOmittedValue)
+            ? this.recipientAgentId
+            : recipientAgentId as String,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<AgentContentResource>,
+      );
 
-  factory AgentMessageItemResource.fromJson(Map<String, dynamic> json) => AgentMessageItemResource(
-    id: (json['id'] as String?)!,
-    turnId: (json['turn_id'] as String?)!,
-    type_: (json['type'] != null ? AgentMessageItemResourceType.fromJson(json['type'] as String) : null)!,
-    senderAgentId: (json['sender_agent_id'] as String?)!,
-    recipientAgentId: (json['recipient_agent_id'] as String?)!,
-    content: ((json['content'] as List?)?.map((e) => AgentContentResource.fromJson(e)).toList())!,
-  );
+  factory AgentMessageItemResource.fromJson(Map<String, dynamic> json) =>
+      AgentMessageItemResource(
+        id: (json['id'] as String?)!,
+        turnId: (json['turn_id'] as String?)!,
+        type_: (json['type'] != null
+            ? AgentMessageItemResourceType.fromJson(json['type'] as String)
+            : null)!,
+        senderAgentId: (json['sender_agent_id'] as String?)!,
+        recipientAgentId: (json['recipient_agent_id'] as String?)!,
+        content: ((json['content'] as List?)
+            ?.map((e) => AgentContentResource.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'turn_id': turnId,
-    'type': type_.toJson(),
-    'sender_agent_id': senderAgentId,
-    'recipient_agent_id': recipientAgentId,
-    'content': content.map((item) => item.toJson()).toList(),
-  };
+        'id': id,
+        'turn_id': turnId,
+        'type': type_.toJson(),
+        'sender_agent_id': senderAgentId,
+        'recipient_agent_id': recipientAgentId,
+        'content': content.map((item) => item.toJson()).toList(),
+      };
 }
 
 sealed class AgentOutputItemResource {
@@ -183,103 +333,266 @@ sealed class AgentOutputItemResource {
   const AgentOutputItemResource();
   factory AgentOutputItemResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = AssistantMessageItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceAssistantMessageItemResource(value); } } catch (_) {}
-      try { final value = ReasoningItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceReasoningItemResource(value); } } catch (_) {}
-      try { final value = FunctionCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceFunctionCallItemResource(value); } } catch (_) {}
-      try { final value = McpCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceMcpCallItemResource(value); } } catch (_) {}
-      try { final value = ComputerUseCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceComputerUseCallItemResource(value); } } catch (_) {}
-      try { final value = BrowserAuthenticationRequestItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceBrowserAuthenticationRequestItemResource(value); } } catch (_) {}
-      try { final value = WebSearchCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceWebSearchCallItemResource(value); } } catch (_) {}
-      try { final value = CommandExecutionItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceCommandExecutionItemResource(value); } } catch (_) {}
-      try { final value = CreateSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceCreateSubagentCallItemResource(value); } } catch (_) {}
-      try { final value = SendSubagentInputCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceSendSubagentInputCallItemResource(value); } } catch (_) {}
-      try { final value = ResumeSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceResumeSubagentCallItemResource(value); } } catch (_) {}
-      try { final value = WaitForSubagentsCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceWaitForSubagentsCallItemResource(value); } } catch (_) {}
-      try { final value = InterruptSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceInterruptSubagentCallItemResource(value); } } catch (_) {}
-      try { final value = CloseSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceCloseSubagentCallItemResource(value); } } catch (_) {}
+      try {
+        final value = AssistantMessageItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceAssistantMessageItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ReasoningItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceReasoningItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceFunctionCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = McpCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceMcpCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ComputerUseCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceComputerUseCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BrowserAuthenticationRequestItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceBrowserAuthenticationRequestItemResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = WebSearchCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceWebSearchCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CommandExecutionItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceCommandExecutionItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceCreateSubagentCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = SendSubagentInputCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceSendSubagentInputCallItemResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResumeSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceResumeSubagentCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WaitForSubagentsCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceWaitForSubagentsCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InterruptSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceInterruptSubagentCallItemResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CloseSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceCloseSubagentCallItemResource(value);
+        }
+      } catch (_) {}
     }
-    try { return AgentOutputItemResourceAssistantMessageItemResource(AssistantMessageItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceReasoningItemResource(ReasoningItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceFunctionCallItemResource(FunctionCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceMcpCallItemResource(McpCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceComputerUseCallItemResource(ComputerUseCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceBrowserAuthenticationRequestItemResource(BrowserAuthenticationRequestItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceWebSearchCallItemResource(WebSearchCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceCommandExecutionItemResource(CommandExecutionItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceCreateSubagentCallItemResource(CreateSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceSendSubagentInputCallItemResource(SendSubagentInputCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceResumeSubagentCallItemResource(ResumeSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceWaitForSubagentsCallItemResource(WaitForSubagentsCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceInterruptSubagentCallItemResource(InterruptSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceCloseSubagentCallItemResource(CloseSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"message", "reasoning", "function_call", "mcp_call", "computer_use_call", "computer_use_approval_request", "web_search_call", "command_execution", "interrupt_subagent_call", "create_subagent_call", "send_subagent_input_call", "resume_subagent_call", "wait_for_subagents_call", "close_subagent_call"}.contains(json["type"])) { return UnknownAgentOutputItemResource(json); }
+    try {
+      return AgentOutputItemResourceAssistantMessageItemResource(
+          AssistantMessageItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceReasoningItemResource(
+          ReasoningItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceFunctionCallItemResource(
+          FunctionCallItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceMcpCallItemResource(
+          McpCallItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceComputerUseCallItemResource(
+          ComputerUseCallItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceBrowserAuthenticationRequestItemResource(
+          BrowserAuthenticationRequestItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceWebSearchCallItemResource(
+          WebSearchCallItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceCommandExecutionItemResource(
+          CommandExecutionItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceCreateSubagentCallItemResource(
+          CreateSubagentCallItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceSendSubagentInputCallItemResource(
+          SendSubagentInputCallItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceResumeSubagentCallItemResource(
+          ResumeSubagentCallItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceWaitForSubagentsCallItemResource(
+          WaitForSubagentsCallItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceInterruptSubagentCallItemResource(
+          InterruptSubagentCallItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceCloseSubagentCallItemResource(
+          CloseSubagentCallItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "message",
+          "reasoning",
+          "function_call",
+          "mcp_call",
+          "computer_use_call",
+          "computer_use_approval_request",
+          "web_search_call",
+          "command_execution",
+          "interrupt_subagent_call",
+          "create_subagent_call",
+          "send_subagent_input_call",
+          "resume_subagent_call",
+          "wait_for_subagents_call",
+          "close_subagent_call"
+        }.contains(json["type"])) {
+      return UnknownAgentOutputItemResource(json);
+    }
     throw FormatException("No variant matched for AgentOutputItemResource");
   }
   Object? toJson();
 }
 
-final class AgentOutputItemResourceAssistantMessageItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceAssistantMessageItemResource
+    extends AgentOutputItemResource {
   final AssistantMessageItemResource value;
   const AgentOutputItemResourceAssistantMessageItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceReasoningItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceReasoningItemResource
+    extends AgentOutputItemResource {
   final ReasoningItemResource value;
   const AgentOutputItemResourceReasoningItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceFunctionCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceFunctionCallItemResource
+    extends AgentOutputItemResource {
   final FunctionCallItemResource value;
   const AgentOutputItemResourceFunctionCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceMcpCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceMcpCallItemResource
+    extends AgentOutputItemResource {
   final McpCallItemResource value;
   const AgentOutputItemResourceMcpCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceComputerUseCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceComputerUseCallItemResource
+    extends AgentOutputItemResource {
   final ComputerUseCallItemResource value;
   const AgentOutputItemResourceComputerUseCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceBrowserAuthenticationRequestItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceBrowserAuthenticationRequestItemResource
+    extends AgentOutputItemResource {
   final BrowserAuthenticationRequestItemResource value;
-  const AgentOutputItemResourceBrowserAuthenticationRequestItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  const AgentOutputItemResourceBrowserAuthenticationRequestItemResource(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceWebSearchCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceWebSearchCallItemResource
+    extends AgentOutputItemResource {
   final WebSearchCallItemResource value;
   const AgentOutputItemResourceWebSearchCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceCommandExecutionItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceCommandExecutionItemResource
+    extends AgentOutputItemResource {
   final CommandExecutionItemResource value;
   const AgentOutputItemResourceCommandExecutionItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceCreateSubagentCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceCreateSubagentCallItemResource
+    extends AgentOutputItemResource {
   final CreateSubagentCallItemResource value;
   const AgentOutputItemResourceCreateSubagentCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceSendSubagentInputCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceSendSubagentInputCallItemResource
+    extends AgentOutputItemResource {
   final SendSubagentInputCallItemResource value;
   const AgentOutputItemResourceSendSubagentInputCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceResumeSubagentCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceResumeSubagentCallItemResource
+    extends AgentOutputItemResource {
   final ResumeSubagentCallItemResource value;
   const AgentOutputItemResourceResumeSubagentCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

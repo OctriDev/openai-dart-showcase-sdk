@@ -6,12 +6,12 @@ part of 'shared_function.dart';
 // shared_function domain models (part 2)
 /// Typed representation of the `FunctionCallOutputStatusEnum` API schema.
 final class FunctionCallOutputStatusEnum {
-
   final String value;
 
   const FunctionCallOutputStatusEnum._(this.value);
 
-  factory FunctionCallOutputStatusEnum.fromJson(String value) => FunctionCallOutputStatusEnum._(value);
+  factory FunctionCallOutputStatusEnum.fromJson(String value) =>
+      FunctionCallOutputStatusEnum._(value);
 
   static const inProgress = FunctionCallOutputStatusEnum._('in_progress');
   static const completed = FunctionCallOutputStatusEnum._('completed');
@@ -19,22 +19,25 @@ final class FunctionCallOutputStatusEnum {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FunctionCallOutputStatusEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FunctionCallOutputStatusEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `FunctionCallStatus` API schema.
 final class FunctionCallStatus {
-
   final String value;
 
   const FunctionCallStatus._(this.value);
 
-  factory FunctionCallStatus.fromJson(String value) => FunctionCallStatus._(value);
+  factory FunctionCallStatus.fromJson(String value) =>
+      FunctionCallStatus._(value);
 
   static const inProgress = FunctionCallStatus._('in_progress');
   static const completed = FunctionCallStatus._('completed');
@@ -42,60 +45,100 @@ final class FunctionCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FunctionCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FunctionCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `FunctionObject` API schema.
 class FunctionObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A description of what the function does, used by the model to choose when and how to call the function.
   final SdkOptional<String> description;
+
   /// The name of the function to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64.
   final String name;
+
   /// The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://developers.openai.com/api/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. Omitting `parameters` defines a function with an empty parameter list.
   final SdkOptional<Map<String, dynamic>> parameters;
+
   /// Optional `boolean` value serialized in the `strict` wire field.
   final SdkOptional<bool?> strict;
 
-  const FunctionObject({this.description = const SdkOmitted(), required this.name, this.parameters = const SdkOmitted(), this.strict = const SdkOmitted()});
+  const FunctionObject(
+      {this.description = const SdkOmitted(),
+      required this.name,
+      this.parameters = const SdkOmitted(),
+      this.strict = const SdkOmitted()});
 
-  FunctionObject Function({SdkOptional<String> description, String name, SdkOptional<Map<String, dynamic>> parameters, SdkOptional<bool?> strict}) get copyWith => _copyWith;
+  FunctionObject Function(
+      {SdkOptional<String> description,
+      String name,
+      SdkOptional<Map<String, dynamic>> parameters,
+      SdkOptional<bool?> strict}) get copyWith => _copyWith;
 
-  FunctionObject _copyWith({Object? description = sdkOmittedValue, Object? name = sdkOmittedValue, Object? parameters = sdkOmittedValue, Object? strict = sdkOmittedValue}) => FunctionObject(
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as SdkOptional<Map<String, dynamic>>,
-    strict: identical(strict, sdkOmittedValue) ? this.strict : strict as SdkOptional<bool?>,
-  );
+  FunctionObject _copyWith(
+          {Object? description = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? parameters = sdkOmittedValue,
+          Object? strict = sdkOmittedValue}) =>
+      FunctionObject(
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        parameters: identical(parameters, sdkOmittedValue)
+            ? this.parameters
+            : parameters as SdkOptional<Map<String, dynamic>>,
+        strict: identical(strict, sdkOmittedValue)
+            ? this.strict
+            : strict as SdkOptional<bool?>,
+      );
 
   factory FunctionObject.fromJson(Map<String, dynamic> json) => FunctionObject(
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    name: (json['name'] as String?)!,
-    parameters: json['parameters'] != null ? SdkPresent((json['parameters'] == null ? null : json['parameters'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    strict: json.containsKey('strict') ? SdkPresent(json['strict'] as bool?) : const SdkOmitted(),
-  );
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        name: (json['name'] as String?)!,
+        parameters: json['parameters'] != null
+            ? SdkPresent((json['parameters'] == null
+                ? null
+                : json['parameters'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        strict: json.containsKey('strict')
+            ? SdkPresent(json['strict'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    'name': name,
-    ...switch (parameters) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'parameters': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (strict) {
-      SdkPresent<bool?>(value: final value) => {'strict': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'name': name,
+        ...switch (parameters) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'parameters': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (strict) {
+          SdkPresent<bool?>(value: final value) => {
+              'strict': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://developers.openai.com/api/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. Omitting `parameters` defines a function with an empty parameter list.
@@ -106,13 +149,14 @@ class FunctionParameters {
 
   const FunctionParameters({this.value = const <String, dynamic>{}});
 
-  factory FunctionParameters.fromJson(Map<String, dynamic> json) => FunctionParameters(
-    value: json.map((key, value) => MapEntry(key, value)),
-  );
+  factory FunctionParameters.fromJson(Map<String, dynamic> json) =>
+      FunctionParameters(
+        value: json.map((key, value) => MapEntry(key, value)),
+      );
 
   Map<String, dynamic> toJson() => value.map(
-    (key, value) => MapEntry(key, value),
-  );
+        (key, value) => MapEntry(key, value),
+      );
 
   dynamic operator [](String key) => value[key];
   Iterable<String> get keys => value.keys;
@@ -122,139 +166,264 @@ class FunctionParameters {
 class FunctionShellAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `commands` wire field.
   final List<String> commands;
+
   /// Required `integer` value serialized in the `timeout_ms` wire field.
   final int? timeoutMs;
+
   /// Required `integer` value serialized in the `max_output_length` wire field.
   final int? maxOutputLength;
 
-  const FunctionShellAction({required this.commands, required this.timeoutMs, required this.maxOutputLength});
+  const FunctionShellAction(
+      {required this.commands,
+      required this.timeoutMs,
+      required this.maxOutputLength});
 
-  FunctionShellAction Function({List<String> commands, int? timeoutMs, int? maxOutputLength}) get copyWith => _copyWith;
+  FunctionShellAction Function(
+      {List<String> commands,
+      int? timeoutMs,
+      int? maxOutputLength}) get copyWith => _copyWith;
 
-  FunctionShellAction _copyWith({Object? commands = sdkOmittedValue, Object? timeoutMs = sdkOmittedValue, Object? maxOutputLength = sdkOmittedValue}) => FunctionShellAction(
-    commands: identical(commands, sdkOmittedValue) ? this.commands : commands as List<String>,
-    timeoutMs: identical(timeoutMs, sdkOmittedValue) ? this.timeoutMs : timeoutMs as int?,
-    maxOutputLength: identical(maxOutputLength, sdkOmittedValue) ? this.maxOutputLength : maxOutputLength as int?,
-  );
+  FunctionShellAction _copyWith(
+          {Object? commands = sdkOmittedValue,
+          Object? timeoutMs = sdkOmittedValue,
+          Object? maxOutputLength = sdkOmittedValue}) =>
+      FunctionShellAction(
+        commands: identical(commands, sdkOmittedValue)
+            ? this.commands
+            : commands as List<String>,
+        timeoutMs: identical(timeoutMs, sdkOmittedValue)
+            ? this.timeoutMs
+            : timeoutMs as int?,
+        maxOutputLength: identical(maxOutputLength, sdkOmittedValue)
+            ? this.maxOutputLength
+            : maxOutputLength as int?,
+      );
 
-  factory FunctionShellAction.fromJson(Map<String, dynamic> json) => FunctionShellAction(
-    commands: ((json['commands'] as List?)?.map((e) => e as String).toList())!,
-    timeoutMs: json.containsKey('timeout_ms') ? (json['timeout_ms'] as num?)?.toInt() : throw ArgumentError.value(null, 'timeout_ms', 'Required property is missing'),
-    maxOutputLength: json.containsKey('max_output_length') ? (json['max_output_length'] as num?)?.toInt() : throw ArgumentError.value(null, 'max_output_length', 'Required property is missing'),
-  );
+  factory FunctionShellAction.fromJson(Map<String, dynamic> json) =>
+      FunctionShellAction(
+        commands:
+            ((json['commands'] as List?)?.map((e) => e as String).toList())!,
+        timeoutMs: json.containsKey('timeout_ms')
+            ? (json['timeout_ms'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'timeout_ms', 'Required property is missing'),
+        maxOutputLength: json.containsKey('max_output_length')
+            ? (json['max_output_length'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'max_output_length', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'commands': commands,
-    'timeout_ms': timeoutMs,
-    'max_output_length': maxOutputLength,
-  };
+        'commands': commands,
+        'timeout_ms': timeoutMs,
+        'max_output_length': maxOutputLength,
+      };
 }
 
 /// Commands and limits describing how to run the shell tool call.
 class FunctionShellActionParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Ordered shell commands for the execution environment to run.
   final List<String> commands;
+
   /// Optional `integer` value serialized in the `timeout_ms` wire field.
   final SdkOptional<int?> timeoutMs;
+
   /// Optional `integer` value serialized in the `max_output_length` wire field.
   final SdkOptional<int?> maxOutputLength;
 
-  const FunctionShellActionParam({required this.commands, this.timeoutMs = const SdkOmitted(), this.maxOutputLength = const SdkOmitted()});
+  const FunctionShellActionParam(
+      {required this.commands,
+      this.timeoutMs = const SdkOmitted(),
+      this.maxOutputLength = const SdkOmitted()});
 
-  FunctionShellActionParam Function({List<String> commands, SdkOptional<int?> timeoutMs, SdkOptional<int?> maxOutputLength}) get copyWith => _copyWith;
+  FunctionShellActionParam Function(
+      {List<String> commands,
+      SdkOptional<int?> timeoutMs,
+      SdkOptional<int?> maxOutputLength}) get copyWith => _copyWith;
 
-  FunctionShellActionParam _copyWith({Object? commands = sdkOmittedValue, Object? timeoutMs = sdkOmittedValue, Object? maxOutputLength = sdkOmittedValue}) => FunctionShellActionParam(
-    commands: identical(commands, sdkOmittedValue) ? this.commands : commands as List<String>,
-    timeoutMs: identical(timeoutMs, sdkOmittedValue) ? this.timeoutMs : timeoutMs as SdkOptional<int?>,
-    maxOutputLength: identical(maxOutputLength, sdkOmittedValue) ? this.maxOutputLength : maxOutputLength as SdkOptional<int?>,
-  );
+  FunctionShellActionParam _copyWith(
+          {Object? commands = sdkOmittedValue,
+          Object? timeoutMs = sdkOmittedValue,
+          Object? maxOutputLength = sdkOmittedValue}) =>
+      FunctionShellActionParam(
+        commands: identical(commands, sdkOmittedValue)
+            ? this.commands
+            : commands as List<String>,
+        timeoutMs: identical(timeoutMs, sdkOmittedValue)
+            ? this.timeoutMs
+            : timeoutMs as SdkOptional<int?>,
+        maxOutputLength: identical(maxOutputLength, sdkOmittedValue)
+            ? this.maxOutputLength
+            : maxOutputLength as SdkOptional<int?>,
+      );
 
-  factory FunctionShellActionParam.fromJson(Map<String, dynamic> json) => FunctionShellActionParam(
-    commands: ((json['commands'] as List?)?.map((e) => e as String).toList())!,
-    timeoutMs: json.containsKey('timeout_ms') ? SdkPresent((json['timeout_ms'] as num?)?.toInt()) : const SdkOmitted(),
-    maxOutputLength: json.containsKey('max_output_length') ? SdkPresent((json['max_output_length'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory FunctionShellActionParam.fromJson(Map<String, dynamic> json) =>
+      FunctionShellActionParam(
+        commands:
+            ((json['commands'] as List?)?.map((e) => e as String).toList())!,
+        timeoutMs: json.containsKey('timeout_ms')
+            ? SdkPresent((json['timeout_ms'] as num?)?.toInt())
+            : const SdkOmitted(),
+        maxOutputLength: json.containsKey('max_output_length')
+            ? SdkPresent((json['max_output_length'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'commands': commands,
-    ...switch (timeoutMs) {
-      SdkPresent<int?>(value: final value) => {'timeout_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxOutputLength) {
-      SdkPresent<int?>(value: final value) => {'max_output_length': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'commands': commands,
+        ...switch (timeoutMs) {
+          SdkPresent<int?>(value: final value) => {
+              'timeout_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxOutputLength) {
+          SdkPresent<int?>(value: final value) => {
+              'max_output_length': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A tool call that executes one or more shell commands in a managed environment.
 class FunctionShellCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the item. Always `shell_call`.
   final FunctionShellCallType type_;
+
   /// The unique ID of the shell tool call. Populated when this item is returned via API.
   final String id;
+
   /// The unique ID of the shell tool call generated by the model.
   final String callId;
+
   /// Optional API value serialized in the `caller` wire field.
   final SdkOptional<ToolCallCaller?> caller;
+
   /// The shell commands and limits that describe how to run the tool call.
   final FunctionShellAction action;
+
   /// The status of the shell call. One of `in_progress`, `completed`, or `incomplete`.
   final FunctionShellCallStatus status;
+
   /// Required API value serialized in the `environment` wire field.
   final FunctionShellCallEnvironment? environment;
+
   /// The ID of the entity that created this tool call.
   final SdkOptional<String> createdBy;
 
-  const FunctionShellCall({required this.type_, required this.id, required this.callId, this.caller = const SdkOmitted(), required this.action, required this.status, required this.environment, this.createdBy = const SdkOmitted()});
+  const FunctionShellCall(
+      {required this.type_,
+      required this.id,
+      required this.callId,
+      this.caller = const SdkOmitted(),
+      required this.action,
+      required this.status,
+      required this.environment,
+      this.createdBy = const SdkOmitted()});
 
-  FunctionShellCall Function({FunctionShellCallType type_, String id, String callId, SdkOptional<ToolCallCaller?> caller, FunctionShellAction action, FunctionShellCallStatus status, FunctionShellCallEnvironment? environment, SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  FunctionShellCall Function(
+      {FunctionShellCallType type_,
+      String id,
+      String callId,
+      SdkOptional<ToolCallCaller?> caller,
+      FunctionShellAction action,
+      FunctionShellCallStatus status,
+      FunctionShellCallEnvironment? environment,
+      SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  FunctionShellCall _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? caller = sdkOmittedValue, Object? action = sdkOmittedValue, Object? status = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => FunctionShellCall(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FunctionShellCallType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    caller: identical(caller, sdkOmittedValue) ? this.caller : caller as SdkOptional<ToolCallCaller?>,
-    action: identical(action, sdkOmittedValue) ? this.action : action as FunctionShellAction,
-    status: identical(status, sdkOmittedValue) ? this.status : status as FunctionShellCallStatus,
-    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as FunctionShellCallEnvironment?,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
-  );
+  FunctionShellCall _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? caller = sdkOmittedValue,
+          Object? action = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? environment = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue}) =>
+      FunctionShellCall(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as FunctionShellCallType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        caller: identical(caller, sdkOmittedValue)
+            ? this.caller
+            : caller as SdkOptional<ToolCallCaller?>,
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as FunctionShellAction,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as FunctionShellCallStatus,
+        environment: identical(environment, sdkOmittedValue)
+            ? this.environment
+            : environment as FunctionShellCallEnvironment?,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as SdkOptional<String>,
+      );
 
-  factory FunctionShellCall.fromJson(Map<String, dynamic> json) => FunctionShellCall(
-    type_: (json['type'] != null ? FunctionShellCallType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    callId: (json['call_id'] as String?)!,
-    caller: json.containsKey('caller') ? SdkPresent(json['caller'] != null ? ToolCallCaller.fromJson(json['caller']) : null) : const SdkOmitted(),
-    action: (json['action'] != null ? FunctionShellAction.fromJson(json['action'] as Map<String, dynamic>) : null)!,
-    status: (json['status'] != null ? FunctionShellCallStatus.fromJson(json['status'] as String) : null)!,
-    environment: json.containsKey('environment') ? json['environment'] != null ? FunctionShellCallEnvironment.fromJson(json['environment']) : null : throw ArgumentError.value(null, 'environment', 'Required property is missing'),
-    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
-  );
+  factory FunctionShellCall.fromJson(Map<String, dynamic> json) =>
+      FunctionShellCall(
+        type_: (json['type'] != null
+            ? FunctionShellCallType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        callId: (json['call_id'] as String?)!,
+        caller: json.containsKey('caller')
+            ? SdkPresent(json['caller'] != null
+                ? ToolCallCaller.fromJson(json['caller'])
+                : null)
+            : const SdkOmitted(),
+        action: (json['action'] != null
+            ? FunctionShellAction.fromJson(
+                json['action'] as Map<String, dynamic>)
+            : null)!,
+        status: (json['status'] != null
+            ? FunctionShellCallStatus.fromJson(json['status'] as String)
+            : null)!,
+        environment: json.containsKey('environment')
+            ? json['environment'] != null
+                ? FunctionShellCallEnvironment.fromJson(json['environment'])
+                : null
+            : throw ArgumentError.value(
+                null, 'environment', 'Required property is missing'),
+        createdBy: json['created_by'] != null
+            ? SdkPresent((json['created_by'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'call_id': callId,
-    ...switch (caller) {
-      SdkPresent<ToolCallCaller?>(value: final value) => {'caller': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'action': action.toJson(),
-    'status': status.toJson(),
-    'environment': environment?.toJson(),
-    ...switch (createdBy) {
-      SdkPresent<String>(value: final value) => {'created_by': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'call_id': callId,
+        ...switch (caller) {
+          SdkPresent<ToolCallCaller?>(value: final value) => {
+              'caller': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'action': action.toJson(),
+        'status': status.toJson(),
+        'environment': environment?.toJson(),
+        ...switch (createdBy) {
+          SdkPresent<String>(value: final value) => {
+              'created_by': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class FunctionShellCallEnvironment {
@@ -263,32 +432,59 @@ sealed class FunctionShellCallEnvironment {
   const FunctionShellCallEnvironment();
   factory FunctionShellCallEnvironment.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = LocalEnvironmentResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallEnvironmentLocalEnvironmentResource(value); } } catch (_) {}
-      try { final value = ContainerReferenceResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallEnvironmentContainerReferenceResource(value); } } catch (_) {}
+      try {
+        final value = LocalEnvironmentResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionShellCallEnvironmentLocalEnvironmentResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ContainerReferenceResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionShellCallEnvironmentContainerReferenceResource(value);
+        }
+      } catch (_) {}
     }
-    try { return FunctionShellCallEnvironmentLocalEnvironmentResource(LocalEnvironmentResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return FunctionShellCallEnvironmentContainerReferenceResource(ContainerReferenceResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"local", "container_reference"}.contains(json["type"])) { return UnknownFunctionShellCallEnvironment(json); }
-    throw FormatException("No variant matched for FunctionShellCallEnvironment");
+    try {
+      return FunctionShellCallEnvironmentLocalEnvironmentResource(
+          LocalEnvironmentResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return FunctionShellCallEnvironmentContainerReferenceResource(
+          ContainerReferenceResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"local", "container_reference"}.contains(json["type"])) {
+      return UnknownFunctionShellCallEnvironment(json);
+    }
+    throw FormatException(
+        "No variant matched for FunctionShellCallEnvironment");
   }
   Object? toJson();
 }
 
-final class FunctionShellCallEnvironmentLocalEnvironmentResource extends FunctionShellCallEnvironment {
+final class FunctionShellCallEnvironmentLocalEnvironmentResource
+    extends FunctionShellCallEnvironment {
   final LocalEnvironmentResource value;
   const FunctionShellCallEnvironmentLocalEnvironmentResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class FunctionShellCallEnvironmentContainerReferenceResource extends FunctionShellCallEnvironment {
+final class FunctionShellCallEnvironmentContainerReferenceResource
+    extends FunctionShellCallEnvironment {
   final ContainerReferenceResource value;
   const FunctionShellCallEnvironmentContainerReferenceResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [FunctionShellCallEnvironment] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownFunctionShellCallEnvironment extends FunctionShellCallEnvironment {
+final class UnknownFunctionShellCallEnvironment
+    extends FunctionShellCallEnvironment {
   final Map<String, dynamic> raw;
   const UnknownFunctionShellCallEnvironment(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -7,239 +7,566 @@ part of 'chat_create.dart';
 class CreateChatCompletionRequestVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of messages comprising the conversation so far. Depending on the [model](https://developers.openai.com/api/docs/models) you use, different message types (modalities) are supported, like [text](https://developers.openai.com/api/docs/guides/text), [images](https://developers.openai.com/api/docs/guides/images-vision), and [audio](https://developers.openai.com/api/docs/guides/audio).
   final List<ChatCompletionRequestMessage> messages;
+
   /// Model ID used to generate the response, like `gpt-6-astra` or `o3`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models.
   final String model;
   final SdkOptional<ServiceTier?> serviceTier;
+
   /// Output types that you would like the model to generate. Most models are capable of generating text, which is the default: `["text"]` The `gpt-4o-audio-preview` model can also be used to [generate audio](https://developers.openai.com/api/docs/guides/audio). To request that this model generate both text and audio responses, you can use: `["text", "audio"]`
   final SdkOptional<List<ResponseModalitiesItem>?> modalities;
   final SdkOptional<Verbosity?> verbosity;
   final SdkOptional<ReasoningEffort?> reasoningEffort;
+
   /// An upper bound for the number of tokens that can be generated for a completion, including visible output tokens and [reasoning tokens](https://developers.openai.com/api/docs/guides/reasoning).
   final SdkOptional<int?> maxCompletionTokens;
+
   /// Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
   final SdkOptional<double?> frequencyPenalty;
+
   /// Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
   final SdkOptional<double?> presencePenalty;
+
   /// This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://developers.openai.com/api/docs/guides/tools-web-search).
-  final SdkOptional<CreateChatCompletionRequestVariant1WebSearchOptions> webSearchOptions;
+  final SdkOptional<CreateChatCompletionRequestVariant1WebSearchOptions>
+      webSearchOptions;
+
   /// An integer between 0 and 20 specifying the maximum number of most likely tokens to return at each token position, each with an associated log probability. In some cases, the number of returned tokens may be fewer than requested. `logprobs` must be set to `true` if this parameter is used.
   final SdkOptional<int?> topLogprobs;
+
   /// An object specifying the format that the model must output. Setting to `{ "type": "json_schema", "json_schema": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs). Setting to `{ "type": "json_object" }` enables the older JSON mode, which ensures the message the model generates is valid JSON. Using `json_schema` is preferred for models that support it.
   final SdkOptional<dynamic> responseFormat;
+
   /// Parameters for audio output. Required when audio output is requested with `modalities: ["audio"]`. [Learn more](https://developers.openai.com/api/docs/guides/audio).
   final SdkOptional<CreateChatCompletionRequestVariant1Audio?> audio;
+
   /// Whether or not to store the output of this chat completion request for use in our [model distillation](https://developers.openai.com/api/docs/guides/supervised-fine-tuning#distilling-from-a-larger-model) or [evals](https://developers.openai.com/api/docs/guides/evals) products. Supports text and image inputs. Note: image inputs over 8MB will be dropped.
   final SdkOptional<bool?> store;
   final SdkOptional<ModerationParam?> moderation;
+
   /// If set to true, the model response data will be streamed to the client as it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format). See the [Streaming section below](https://developers.openai.com/api/reference/resources/chat/subresources/completions/streaming-events) for more information, along with the [streaming responses](https://developers.openai.com/api/docs/guides/streaming-responses) guide for more information on how to handle the streaming events.
   final SdkOptional<bool?> stream;
+
   /// Not supported with latest reasoning models `o3` and `o4-mini`. Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence.
   final SdkOptional<StopConfiguration?> stop;
+
   /// Modify the likelihood of specified tokens appearing in the completion. Accepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.
   final SdkOptional<Map<String, int>?> logitBias;
+
   /// Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`.
   final SdkOptional<bool?> logprobs;
+
   /// The maximum number of [tokens](https://platform.openai.com/tokenizer) that can be generated in the chat completion. This value can be used to control [costs](https://openai.com/api/pricing/) for text generated via API. This value is now deprecated in favor of `max_completion_tokens`, and is not compatible with [o-series models](https://developers.openai.com/api/docs/guides/reasoning).
   final SdkOptional<int?> maxTokens;
+
   /// How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. Keep `n` as `1` to minimize costs.
   final SdkOptional<int?> n;
+
   /// Configuration for a [Predicted Output](https://developers.openai.com/api/docs/guides/predicted-outputs), which can greatly improve response times when large parts of the model response are known ahead of time. This is most common when you are regenerating a file with only minor changes to most of the content.
   final SdkOptional<PredictionContent?> prediction;
+
   /// This feature is in Beta. If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result. Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend.
   final SdkOptional<int?> seed;
+
   /// Options for streaming response. Only set this when you set `stream: true`.
   final SdkOptional<ChatCompletionStreamOptions?> streamOptions;
+
   /// A list of tools the model may call. You can provide either [custom tools](https://developers.openai.com/api/docs/guides/function-calling#custom-tools) or [function tools](https://developers.openai.com/api/docs/guides/function-calling).
   final SdkOptional<List<dynamic>> tools;
+
   /// Controls which (if any) tool is called by the model. `none` means the model will not call any tool and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools. Specifying a particular tool via `{"type": "function", "function": {"name": "my_function"}}` forces the model to call that tool. `none` is the default when no tools are present. `auto` is the default if tools are present.
   final SdkOptional<ChatCompletionToolChoiceOption> toolChoice;
+
   /// Whether to enable [parallel function calling](https://developers.openai.com/api/docs/guides/function-calling#parallel-function-calling) during tool use.
   final SdkOptional<bool> parallelToolCalls;
+
   /// Deprecated in favor of `tool_choice`. Controls which (if any) function is called by the model. `none` means the model will not call a function and instead generates a message. `auto` means the model can pick between generating a message or calling a function. Specifying a particular function via `{"name": "my_function"}` forces the model to call that function. `none` is the default when no functions are present. `auto` is the default if functions are present.
   final SdkOptional<dynamic> functionCall;
+
   /// Deprecated in favor of `tools`. A list of functions the model may generate JSON inputs for.
   final SdkOptional<List<ChatCompletionFunctions>> functions;
 
-  const CreateChatCompletionRequestVariant1({required this.messages, required this.model, this.serviceTier = const SdkOmitted(), this.modalities = const SdkOmitted(), this.verbosity = const SdkOmitted(), this.reasoningEffort = const SdkOmitted(), this.maxCompletionTokens = const SdkOmitted(), this.frequencyPenalty = const SdkOmitted(), this.presencePenalty = const SdkOmitted(), this.webSearchOptions = const SdkOmitted(), this.topLogprobs = const SdkOmitted(), this.responseFormat = const SdkOmitted(), this.audio = const SdkOmitted(), this.store = const SdkOmitted(), this.moderation = const SdkOmitted(), this.stream = const SdkOmitted(), this.stop = const SdkOmitted(), this.logitBias = const SdkOmitted(), this.logprobs = const SdkOmitted(), this.maxTokens = const SdkOmitted(), this.n = const SdkOmitted(), this.prediction = const SdkOmitted(), this.seed = const SdkOmitted(), this.streamOptions = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.parallelToolCalls = const SdkOmitted(), this.functionCall = const SdkOmitted(), this.functions = const SdkOmitted()});
+  const CreateChatCompletionRequestVariant1(
+      {required this.messages,
+      required this.model,
+      this.serviceTier = const SdkOmitted(),
+      this.modalities = const SdkOmitted(),
+      this.verbosity = const SdkOmitted(),
+      this.reasoningEffort = const SdkOmitted(),
+      this.maxCompletionTokens = const SdkOmitted(),
+      this.frequencyPenalty = const SdkOmitted(),
+      this.presencePenalty = const SdkOmitted(),
+      this.webSearchOptions = const SdkOmitted(),
+      this.topLogprobs = const SdkOmitted(),
+      this.responseFormat = const SdkOmitted(),
+      this.audio = const SdkOmitted(),
+      this.store = const SdkOmitted(),
+      this.moderation = const SdkOmitted(),
+      this.stream = const SdkOmitted(),
+      this.stop = const SdkOmitted(),
+      this.logitBias = const SdkOmitted(),
+      this.logprobs = const SdkOmitted(),
+      this.maxTokens = const SdkOmitted(),
+      this.n = const SdkOmitted(),
+      this.prediction = const SdkOmitted(),
+      this.seed = const SdkOmitted(),
+      this.streamOptions = const SdkOmitted(),
+      this.tools = const SdkOmitted(),
+      this.toolChoice = const SdkOmitted(),
+      this.parallelToolCalls = const SdkOmitted(),
+      this.functionCall = const SdkOmitted(),
+      this.functions = const SdkOmitted()});
 
-  CreateChatCompletionRequestVariant1 Function({List<ChatCompletionRequestMessage> messages, String model, SdkOptional<ServiceTier?> serviceTier, SdkOptional<List<ResponseModalitiesItem>?> modalities, SdkOptional<Verbosity?> verbosity, SdkOptional<ReasoningEffort?> reasoningEffort, SdkOptional<int?> maxCompletionTokens, SdkOptional<double?> frequencyPenalty, SdkOptional<double?> presencePenalty, SdkOptional<CreateChatCompletionRequestVariant1WebSearchOptions> webSearchOptions, SdkOptional<int?> topLogprobs, SdkOptional<dynamic> responseFormat, SdkOptional<CreateChatCompletionRequestVariant1Audio?> audio, SdkOptional<bool?> store, SdkOptional<ModerationParam?> moderation, SdkOptional<bool?> stream, SdkOptional<StopConfiguration?> stop, SdkOptional<Map<String, int>?> logitBias, SdkOptional<bool?> logprobs, SdkOptional<int?> maxTokens, SdkOptional<int?> n, SdkOptional<PredictionContent?> prediction, SdkOptional<int?> seed, SdkOptional<ChatCompletionStreamOptions?> streamOptions, SdkOptional<List<dynamic>> tools, SdkOptional<ChatCompletionToolChoiceOption> toolChoice, SdkOptional<bool> parallelToolCalls, SdkOptional<dynamic> functionCall, SdkOptional<List<ChatCompletionFunctions>> functions}) get copyWith => _copyWith;
+  CreateChatCompletionRequestVariant1 Function(
+          {List<ChatCompletionRequestMessage> messages,
+          String model,
+          SdkOptional<ServiceTier?> serviceTier,
+          SdkOptional<List<ResponseModalitiesItem>?> modalities,
+          SdkOptional<Verbosity?> verbosity,
+          SdkOptional<ReasoningEffort?> reasoningEffort,
+          SdkOptional<int?> maxCompletionTokens,
+          SdkOptional<double?> frequencyPenalty,
+          SdkOptional<double?> presencePenalty,
+          SdkOptional<CreateChatCompletionRequestVariant1WebSearchOptions>
+              webSearchOptions,
+          SdkOptional<int?> topLogprobs,
+          SdkOptional<dynamic> responseFormat,
+          SdkOptional<CreateChatCompletionRequestVariant1Audio?> audio,
+          SdkOptional<bool?> store,
+          SdkOptional<ModerationParam?> moderation,
+          SdkOptional<bool?> stream,
+          SdkOptional<StopConfiguration?> stop,
+          SdkOptional<Map<String, int>?> logitBias,
+          SdkOptional<bool?> logprobs,
+          SdkOptional<int?> maxTokens,
+          SdkOptional<int?> n,
+          SdkOptional<PredictionContent?> prediction,
+          SdkOptional<int?> seed,
+          SdkOptional<ChatCompletionStreamOptions?> streamOptions,
+          SdkOptional<List<dynamic>> tools,
+          SdkOptional<ChatCompletionToolChoiceOption> toolChoice,
+          SdkOptional<bool> parallelToolCalls,
+          SdkOptional<dynamic> functionCall,
+          SdkOptional<List<ChatCompletionFunctions>> functions})
+      get copyWith => _copyWith;
 
-  CreateChatCompletionRequestVariant1 _copyWith({Object? messages = sdkOmittedValue, Object? model = sdkOmittedValue, Object? serviceTier = sdkOmittedValue, Object? modalities = sdkOmittedValue, Object? verbosity = sdkOmittedValue, Object? reasoningEffort = sdkOmittedValue, Object? maxCompletionTokens = sdkOmittedValue, Object? frequencyPenalty = sdkOmittedValue, Object? presencePenalty = sdkOmittedValue, Object? webSearchOptions = sdkOmittedValue, Object? topLogprobs = sdkOmittedValue, Object? responseFormat = sdkOmittedValue, Object? audio = sdkOmittedValue, Object? store = sdkOmittedValue, Object? moderation = sdkOmittedValue, Object? stream = sdkOmittedValue, Object? stop = sdkOmittedValue, Object? logitBias = sdkOmittedValue, Object? logprobs = sdkOmittedValue, Object? maxTokens = sdkOmittedValue, Object? n = sdkOmittedValue, Object? prediction = sdkOmittedValue, Object? seed = sdkOmittedValue, Object? streamOptions = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? parallelToolCalls = sdkOmittedValue, Object? functionCall = sdkOmittedValue, Object? functions = sdkOmittedValue}) => CreateChatCompletionRequestVariant1(
-    messages: identical(messages, sdkOmittedValue) ? this.messages : messages as List<ChatCompletionRequestMessage>,
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    serviceTier: identical(serviceTier, sdkOmittedValue) ? this.serviceTier : serviceTier as SdkOptional<ServiceTier?>,
-    modalities: identical(modalities, sdkOmittedValue) ? this.modalities : modalities as SdkOptional<List<ResponseModalitiesItem>?>,
-    verbosity: identical(verbosity, sdkOmittedValue) ? this.verbosity : verbosity as SdkOptional<Verbosity?>,
-    reasoningEffort: identical(reasoningEffort, sdkOmittedValue) ? this.reasoningEffort : reasoningEffort as SdkOptional<ReasoningEffort?>,
-    maxCompletionTokens: identical(maxCompletionTokens, sdkOmittedValue) ? this.maxCompletionTokens : maxCompletionTokens as SdkOptional<int?>,
-    frequencyPenalty: identical(frequencyPenalty, sdkOmittedValue) ? this.frequencyPenalty : frequencyPenalty as SdkOptional<double?>,
-    presencePenalty: identical(presencePenalty, sdkOmittedValue) ? this.presencePenalty : presencePenalty as SdkOptional<double?>,
-    webSearchOptions: identical(webSearchOptions, sdkOmittedValue) ? this.webSearchOptions : webSearchOptions as SdkOptional<CreateChatCompletionRequestVariant1WebSearchOptions>,
-    topLogprobs: identical(topLogprobs, sdkOmittedValue) ? this.topLogprobs : topLogprobs as SdkOptional<int?>,
-    responseFormat: identical(responseFormat, sdkOmittedValue) ? this.responseFormat : responseFormat as SdkOptional<dynamic>,
-    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as SdkOptional<CreateChatCompletionRequestVariant1Audio?>,
-    store: identical(store, sdkOmittedValue) ? this.store : store as SdkOptional<bool?>,
-    moderation: identical(moderation, sdkOmittedValue) ? this.moderation : moderation as SdkOptional<ModerationParam?>,
-    stream: identical(stream, sdkOmittedValue) ? this.stream : stream as SdkOptional<bool?>,
-    stop: identical(stop, sdkOmittedValue) ? this.stop : stop as SdkOptional<StopConfiguration?>,
-    logitBias: identical(logitBias, sdkOmittedValue) ? this.logitBias : logitBias as SdkOptional<Map<String, int>?>,
-    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as SdkOptional<bool?>,
-    maxTokens: identical(maxTokens, sdkOmittedValue) ? this.maxTokens : maxTokens as SdkOptional<int?>,
-    n: identical(n, sdkOmittedValue) ? this.n : n as SdkOptional<int?>,
-    prediction: identical(prediction, sdkOmittedValue) ? this.prediction : prediction as SdkOptional<PredictionContent?>,
-    seed: identical(seed, sdkOmittedValue) ? this.seed : seed as SdkOptional<int?>,
-    streamOptions: identical(streamOptions, sdkOmittedValue) ? this.streamOptions : streamOptions as SdkOptional<ChatCompletionStreamOptions?>,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<dynamic>>,
-    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<ChatCompletionToolChoiceOption>,
-    parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue) ? this.parallelToolCalls : parallelToolCalls as SdkOptional<bool>,
-    functionCall: identical(functionCall, sdkOmittedValue) ? this.functionCall : functionCall as SdkOptional<dynamic>,
-    functions: identical(functions, sdkOmittedValue) ? this.functions : functions as SdkOptional<List<ChatCompletionFunctions>>,
-  );
+  CreateChatCompletionRequestVariant1 _copyWith(
+          {Object? messages = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? serviceTier = sdkOmittedValue,
+          Object? modalities = sdkOmittedValue,
+          Object? verbosity = sdkOmittedValue,
+          Object? reasoningEffort = sdkOmittedValue,
+          Object? maxCompletionTokens = sdkOmittedValue,
+          Object? frequencyPenalty = sdkOmittedValue,
+          Object? presencePenalty = sdkOmittedValue,
+          Object? webSearchOptions = sdkOmittedValue,
+          Object? topLogprobs = sdkOmittedValue,
+          Object? responseFormat = sdkOmittedValue,
+          Object? audio = sdkOmittedValue,
+          Object? store = sdkOmittedValue,
+          Object? moderation = sdkOmittedValue,
+          Object? stream = sdkOmittedValue,
+          Object? stop = sdkOmittedValue,
+          Object? logitBias = sdkOmittedValue,
+          Object? logprobs = sdkOmittedValue,
+          Object? maxTokens = sdkOmittedValue,
+          Object? n = sdkOmittedValue,
+          Object? prediction = sdkOmittedValue,
+          Object? seed = sdkOmittedValue,
+          Object? streamOptions = sdkOmittedValue,
+          Object? tools = sdkOmittedValue,
+          Object? toolChoice = sdkOmittedValue,
+          Object? parallelToolCalls = sdkOmittedValue,
+          Object? functionCall = sdkOmittedValue,
+          Object? functions = sdkOmittedValue}) =>
+      CreateChatCompletionRequestVariant1(
+        messages: identical(messages, sdkOmittedValue)
+            ? this.messages
+            : messages as List<ChatCompletionRequestMessage>,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        serviceTier: identical(serviceTier, sdkOmittedValue)
+            ? this.serviceTier
+            : serviceTier as SdkOptional<ServiceTier?>,
+        modalities: identical(modalities, sdkOmittedValue)
+            ? this.modalities
+            : modalities as SdkOptional<List<ResponseModalitiesItem>?>,
+        verbosity: identical(verbosity, sdkOmittedValue)
+            ? this.verbosity
+            : verbosity as SdkOptional<Verbosity?>,
+        reasoningEffort: identical(reasoningEffort, sdkOmittedValue)
+            ? this.reasoningEffort
+            : reasoningEffort as SdkOptional<ReasoningEffort?>,
+        maxCompletionTokens: identical(maxCompletionTokens, sdkOmittedValue)
+            ? this.maxCompletionTokens
+            : maxCompletionTokens as SdkOptional<int?>,
+        frequencyPenalty: identical(frequencyPenalty, sdkOmittedValue)
+            ? this.frequencyPenalty
+            : frequencyPenalty as SdkOptional<double?>,
+        presencePenalty: identical(presencePenalty, sdkOmittedValue)
+            ? this.presencePenalty
+            : presencePenalty as SdkOptional<double?>,
+        webSearchOptions: identical(webSearchOptions, sdkOmittedValue)
+            ? this.webSearchOptions
+            : webSearchOptions as SdkOptional<
+                CreateChatCompletionRequestVariant1WebSearchOptions>,
+        topLogprobs: identical(topLogprobs, sdkOmittedValue)
+            ? this.topLogprobs
+            : topLogprobs as SdkOptional<int?>,
+        responseFormat: identical(responseFormat, sdkOmittedValue)
+            ? this.responseFormat
+            : responseFormat as SdkOptional<dynamic>,
+        audio: identical(audio, sdkOmittedValue)
+            ? this.audio
+            : audio as SdkOptional<CreateChatCompletionRequestVariant1Audio?>,
+        store: identical(store, sdkOmittedValue)
+            ? this.store
+            : store as SdkOptional<bool?>,
+        moderation: identical(moderation, sdkOmittedValue)
+            ? this.moderation
+            : moderation as SdkOptional<ModerationParam?>,
+        stream: identical(stream, sdkOmittedValue)
+            ? this.stream
+            : stream as SdkOptional<bool?>,
+        stop: identical(stop, sdkOmittedValue)
+            ? this.stop
+            : stop as SdkOptional<StopConfiguration?>,
+        logitBias: identical(logitBias, sdkOmittedValue)
+            ? this.logitBias
+            : logitBias as SdkOptional<Map<String, int>?>,
+        logprobs: identical(logprobs, sdkOmittedValue)
+            ? this.logprobs
+            : logprobs as SdkOptional<bool?>,
+        maxTokens: identical(maxTokens, sdkOmittedValue)
+            ? this.maxTokens
+            : maxTokens as SdkOptional<int?>,
+        n: identical(n, sdkOmittedValue) ? this.n : n as SdkOptional<int?>,
+        prediction: identical(prediction, sdkOmittedValue)
+            ? this.prediction
+            : prediction as SdkOptional<PredictionContent?>,
+        seed: identical(seed, sdkOmittedValue)
+            ? this.seed
+            : seed as SdkOptional<int?>,
+        streamOptions: identical(streamOptions, sdkOmittedValue)
+            ? this.streamOptions
+            : streamOptions as SdkOptional<ChatCompletionStreamOptions?>,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as SdkOptional<List<dynamic>>,
+        toolChoice: identical(toolChoice, sdkOmittedValue)
+            ? this.toolChoice
+            : toolChoice as SdkOptional<ChatCompletionToolChoiceOption>,
+        parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue)
+            ? this.parallelToolCalls
+            : parallelToolCalls as SdkOptional<bool>,
+        functionCall: identical(functionCall, sdkOmittedValue)
+            ? this.functionCall
+            : functionCall as SdkOptional<dynamic>,
+        functions: identical(functions, sdkOmittedValue)
+            ? this.functions
+            : functions as SdkOptional<List<ChatCompletionFunctions>>,
+      );
 
-  factory CreateChatCompletionRequestVariant1.fromJson(Map<String, dynamic> json) => CreateChatCompletionRequestVariant1(
-    messages: ((json['messages'] as List?)?.map((e) => ChatCompletionRequestMessage.fromJson(e)).toList())!,
-    model: (json['model'] as String?)!,
-    serviceTier: json.containsKey('service_tier') ? SdkPresent(json['service_tier'] != null ? ServiceTier.fromJson(json['service_tier']) : null) : const SdkOmitted(),
-    modalities: json.containsKey('modalities') ? SdkPresent((json['modalities'] as List?)?.map((e) => ResponseModalitiesItem.fromJson(e as String)).toList()) : const SdkOmitted(),
-    verbosity: json.containsKey('verbosity') ? SdkPresent(json['verbosity'] != null ? Verbosity.fromJson(json['verbosity']) : null) : const SdkOmitted(),
-    reasoningEffort: json.containsKey('reasoning_effort') ? SdkPresent(json['reasoning_effort'] != null ? ReasoningEffort.fromJson(json['reasoning_effort']) : null) : const SdkOmitted(),
-    maxCompletionTokens: json.containsKey('max_completion_tokens') ? SdkPresent((json['max_completion_tokens'] as num?)?.toInt()) : const SdkOmitted(),
-    frequencyPenalty: json.containsKey('frequency_penalty') ? SdkPresent((json['frequency_penalty'] as num?)?.toDouble()) : const SdkOmitted(),
-    presencePenalty: json.containsKey('presence_penalty') ? SdkPresent((json['presence_penalty'] as num?)?.toDouble()) : const SdkOmitted(),
-    webSearchOptions: json['web_search_options'] != null ? SdkPresent((json['web_search_options'] != null ? CreateChatCompletionRequestVariant1WebSearchOptions.fromJson(json['web_search_options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    topLogprobs: json.containsKey('top_logprobs') ? SdkPresent((json['top_logprobs'] as num?)?.toInt()) : const SdkOmitted(),
-    responseFormat: json['response_format'] != null ? SdkPresent((SdkUtils.unionBranch(json['response_format'], [ResponseFormatText.fromJson, ResponseFormatJsonSchema.fromJson, ResponseFormatJsonObject.fromJson]))!) : const SdkOmitted(),
-    audio: json.containsKey('audio') ? SdkPresent(json['audio'] != null ? CreateChatCompletionRequestVariant1Audio.fromJson(json['audio'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    store: json.containsKey('store') ? SdkPresent(json['store'] as bool?) : const SdkOmitted(),
-    moderation: json.containsKey('moderation') ? SdkPresent(json['moderation'] != null ? ModerationParam.fromJson(json['moderation'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    stream: json.containsKey('stream') ? SdkPresent(json['stream'] as bool?) : const SdkOmitted(),
-    stop: json.containsKey('stop') ? SdkPresent(json['stop'] != null ? StopConfiguration.fromJson(json['stop']) : null) : const SdkOmitted(),
-    logitBias: json.containsKey('logit_bias') ? SdkPresent(json['logit_bias'] == null ? null : Map<String, dynamic>.from(json['logit_bias'] as Map).map((key, value) => MapEntry(key, (value as num).toInt()))) : const SdkOmitted(),
-    logprobs: json.containsKey('logprobs') ? SdkPresent(json['logprobs'] as bool?) : const SdkOmitted(),
-    maxTokens: json.containsKey('max_tokens') ? SdkPresent((json['max_tokens'] as num?)?.toInt()) : const SdkOmitted(),
-    n: json.containsKey('n') ? SdkPresent((json['n'] as num?)?.toInt()) : const SdkOmitted(),
-    prediction: json.containsKey('prediction') ? SdkPresent(json['prediction'] != null ? PredictionContent.fromJson(json['prediction'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    seed: json.containsKey('seed') ? SdkPresent((json['seed'] as num?)?.toInt()) : const SdkOmitted(),
-    streamOptions: json.containsKey('stream_options') ? SdkPresent(json['stream_options'] != null ? ChatCompletionStreamOptions.fromJson(json['stream_options'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => e).toList())!) : const SdkOmitted(),
-    toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] != null ? ChatCompletionToolChoiceOption.fromJson(json['tool_choice']) : null)!) : const SdkOmitted(),
-    parallelToolCalls: json['parallel_tool_calls'] != null ? SdkPresent((json['parallel_tool_calls'] as bool?)!) : const SdkOmitted(),
-    functionCall: json['function_call'] != null ? SdkPresent((SdkUtils.unionBranch(json['function_call'], [ChatCompletionFunctionCallOption.fromJson]))!) : const SdkOmitted(),
-    functions: json['functions'] != null ? SdkPresent(((json['functions'] as List?)?.map((e) => ChatCompletionFunctions.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory CreateChatCompletionRequestVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      CreateChatCompletionRequestVariant1(
+        messages: ((json['messages'] as List?)
+            ?.map((e) => ChatCompletionRequestMessage.fromJson(e))
+            .toList())!,
+        model: (json['model'] as String?)!,
+        serviceTier: json.containsKey('service_tier')
+            ? SdkPresent(json['service_tier'] != null
+                ? ServiceTier.fromJson(json['service_tier'])
+                : null)
+            : const SdkOmitted(),
+        modalities: json.containsKey('modalities')
+            ? SdkPresent((json['modalities'] as List?)
+                ?.map((e) => ResponseModalitiesItem.fromJson(e as String))
+                .toList())
+            : const SdkOmitted(),
+        verbosity: json.containsKey('verbosity')
+            ? SdkPresent(json['verbosity'] != null
+                ? Verbosity.fromJson(json['verbosity'])
+                : null)
+            : const SdkOmitted(),
+        reasoningEffort: json.containsKey('reasoning_effort')
+            ? SdkPresent(json['reasoning_effort'] != null
+                ? ReasoningEffort.fromJson(json['reasoning_effort'])
+                : null)
+            : const SdkOmitted(),
+        maxCompletionTokens: json.containsKey('max_completion_tokens')
+            ? SdkPresent((json['max_completion_tokens'] as num?)?.toInt())
+            : const SdkOmitted(),
+        frequencyPenalty: json.containsKey('frequency_penalty')
+            ? SdkPresent((json['frequency_penalty'] as num?)?.toDouble())
+            : const SdkOmitted(),
+        presencePenalty: json.containsKey('presence_penalty')
+            ? SdkPresent((json['presence_penalty'] as num?)?.toDouble())
+            : const SdkOmitted(),
+        webSearchOptions: json['web_search_options'] != null
+            ? SdkPresent((json['web_search_options'] != null
+                ? CreateChatCompletionRequestVariant1WebSearchOptions.fromJson(
+                    json['web_search_options'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        topLogprobs: json.containsKey('top_logprobs')
+            ? SdkPresent((json['top_logprobs'] as num?)?.toInt())
+            : const SdkOmitted(),
+        responseFormat: json['response_format'] != null
+            ? SdkPresent((SdkUtils.unionBranch(json['response_format'], [
+                ResponseFormatText.fromJson,
+                ResponseFormatJsonSchema.fromJson,
+                ResponseFormatJsonObject.fromJson
+              ]))!)
+            : const SdkOmitted(),
+        audio: json.containsKey('audio')
+            ? SdkPresent(json['audio'] != null
+                ? CreateChatCompletionRequestVariant1Audio.fromJson(
+                    json['audio'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        store: json.containsKey('store')
+            ? SdkPresent(json['store'] as bool?)
+            : const SdkOmitted(),
+        moderation: json.containsKey('moderation')
+            ? SdkPresent(json['moderation'] != null
+                ? ModerationParam.fromJson(
+                    json['moderation'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        stream: json.containsKey('stream')
+            ? SdkPresent(json['stream'] as bool?)
+            : const SdkOmitted(),
+        stop: json.containsKey('stop')
+            ? SdkPresent(json['stop'] != null
+                ? StopConfiguration.fromJson(json['stop'])
+                : null)
+            : const SdkOmitted(),
+        logitBias: json.containsKey('logit_bias')
+            ? SdkPresent(json['logit_bias'] == null
+                ? null
+                : Map<String, dynamic>.from(json['logit_bias'] as Map)
+                    .map((key, value) => MapEntry(key, (value as num).toInt())))
+            : const SdkOmitted(),
+        logprobs: json.containsKey('logprobs')
+            ? SdkPresent(json['logprobs'] as bool?)
+            : const SdkOmitted(),
+        maxTokens: json.containsKey('max_tokens')
+            ? SdkPresent((json['max_tokens'] as num?)?.toInt())
+            : const SdkOmitted(),
+        n: json.containsKey('n')
+            ? SdkPresent((json['n'] as num?)?.toInt())
+            : const SdkOmitted(),
+        prediction: json.containsKey('prediction')
+            ? SdkPresent(json['prediction'] != null
+                ? PredictionContent.fromJson(
+                    json['prediction'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        seed: json.containsKey('seed')
+            ? SdkPresent((json['seed'] as num?)?.toInt())
+            : const SdkOmitted(),
+        streamOptions: json.containsKey('stream_options')
+            ? SdkPresent(json['stream_options'] != null
+                ? ChatCompletionStreamOptions.fromJson(
+                    json['stream_options'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        tools: json['tools'] != null
+            ? SdkPresent(((json['tools'] as List?)?.map((e) => e).toList())!)
+            : const SdkOmitted(),
+        toolChoice: json['tool_choice'] != null
+            ? SdkPresent((json['tool_choice'] != null
+                ? ChatCompletionToolChoiceOption.fromJson(json['tool_choice'])
+                : null)!)
+            : const SdkOmitted(),
+        parallelToolCalls: json['parallel_tool_calls'] != null
+            ? SdkPresent((json['parallel_tool_calls'] as bool?)!)
+            : const SdkOmitted(),
+        functionCall: json['function_call'] != null
+            ? SdkPresent((SdkUtils.unionBranch(json['function_call'],
+                [ChatCompletionFunctionCallOption.fromJson]))!)
+            : const SdkOmitted(),
+        functions: json['functions'] != null
+            ? SdkPresent(((json['functions'] as List?)
+                ?.map((e) =>
+                    ChatCompletionFunctions.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'messages': messages.map((item) => item.toJson()).toList(),
-    'model': model,
-    ...switch (serviceTier) {
-      SdkPresent<ServiceTier?>(value: final value) => {'service_tier': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (modalities) {
-      SdkPresent<List<ResponseModalitiesItem>?>(value: final value) => {'modalities': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (verbosity) {
-      SdkPresent<Verbosity?>(value: final value) => {'verbosity': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reasoningEffort) {
-      SdkPresent<ReasoningEffort?>(value: final value) => {'reasoning_effort': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxCompletionTokens) {
-      SdkPresent<int?>(value: final value) => {'max_completion_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (frequencyPenalty) {
-      SdkPresent<double?>(value: final value) => {'frequency_penalty': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (presencePenalty) {
-      SdkPresent<double?>(value: final value) => {'presence_penalty': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (webSearchOptions) {
-      SdkPresent<CreateChatCompletionRequestVariant1WebSearchOptions>(value: final value) => {'web_search_options': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (topLogprobs) {
-      SdkPresent<int?>(value: final value) => {'top_logprobs': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (responseFormat) {
-      SdkPresent<dynamic>(value: final value) => {'response_format': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (audio) {
-      SdkPresent<CreateChatCompletionRequestVariant1Audio?>(value: final value) => {'audio': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (store) {
-      SdkPresent<bool?>(value: final value) => {'store': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (moderation) {
-      SdkPresent<ModerationParam?>(value: final value) => {'moderation': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (stream) {
-      SdkPresent<bool?>(value: final value) => {'stream': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (stop) {
-      SdkPresent<StopConfiguration?>(value: final value) => {'stop': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (logitBias) {
-      SdkPresent<Map<String, int>?>(value: final value) => {'logit_bias': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (logprobs) {
-      SdkPresent<bool?>(value: final value) => {'logprobs': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxTokens) {
-      SdkPresent<int?>(value: final value) => {'max_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (n) {
-      SdkPresent<int?>(value: final value) => {'n': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (prediction) {
-      SdkPresent<PredictionContent?>(value: final value) => {'prediction': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (seed) {
-      SdkPresent<int?>(value: final value) => {'seed': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (streamOptions) {
-      SdkPresent<ChatCompletionStreamOptions?>(value: final value) => {'stream_options': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tools) {
-      SdkPresent<List<dynamic>>(value: final value) => {'tools': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (toolChoice) {
-      SdkPresent<ChatCompletionToolChoiceOption>(value: final value) => {'tool_choice': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parallelToolCalls) {
-      SdkPresent<bool>(value: final value) => {'parallel_tool_calls': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (functionCall) {
-      SdkPresent<dynamic>(value: final value) => {'function_call': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (functions) {
-      SdkPresent<List<ChatCompletionFunctions>>(value: final value) => {'functions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'messages': messages.map((item) => item.toJson()).toList(),
+        'model': model,
+        ...switch (serviceTier) {
+          SdkPresent<ServiceTier?>(value: final value) => {
+              'service_tier': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (modalities) {
+          SdkPresent<List<ResponseModalitiesItem>?>(value: final value) => {
+              'modalities': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (verbosity) {
+          SdkPresent<Verbosity?>(value: final value) => {
+              'verbosity': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reasoningEffort) {
+          SdkPresent<ReasoningEffort?>(value: final value) => {
+              'reasoning_effort': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxCompletionTokens) {
+          SdkPresent<int?>(value: final value) => {
+              'max_completion_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (frequencyPenalty) {
+          SdkPresent<double?>(value: final value) => {
+              'frequency_penalty': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (presencePenalty) {
+          SdkPresent<double?>(value: final value) => {
+              'presence_penalty': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (webSearchOptions) {
+          SdkPresent<CreateChatCompletionRequestVariant1WebSearchOptions>(
+            value: final value
+          ) =>
+            {
+              'web_search_options': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (topLogprobs) {
+          SdkPresent<int?>(value: final value) => {
+              'top_logprobs': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (responseFormat) {
+          SdkPresent<dynamic>(value: final value) => {
+              'response_format': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (audio) {
+          SdkPresent<CreateChatCompletionRequestVariant1Audio?>(
+            value: final value
+          ) =>
+            {
+              'audio': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (store) {
+          SdkPresent<bool?>(value: final value) => {
+              'store': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (moderation) {
+          SdkPresent<ModerationParam?>(value: final value) => {
+              'moderation': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (stream) {
+          SdkPresent<bool?>(value: final value) => {
+              'stream': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (stop) {
+          SdkPresent<StopConfiguration?>(value: final value) => {
+              'stop': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (logitBias) {
+          SdkPresent<Map<String, int>?>(value: final value) => {
+              'logit_bias': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (logprobs) {
+          SdkPresent<bool?>(value: final value) => {
+              'logprobs': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxTokens) {
+          SdkPresent<int?>(value: final value) => {
+              'max_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (n) {
+          SdkPresent<int?>(value: final value) => {
+              'n': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (prediction) {
+          SdkPresent<PredictionContent?>(value: final value) => {
+              'prediction': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (seed) {
+          SdkPresent<int?>(value: final value) => {
+              'seed': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (streamOptions) {
+          SdkPresent<ChatCompletionStreamOptions?>(value: final value) => {
+              'stream_options': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tools) {
+          SdkPresent<List<dynamic>>(value: final value) => {
+              'tools': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (toolChoice) {
+          SdkPresent<ChatCompletionToolChoiceOption>(value: final value) => {
+              'tool_choice': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parallelToolCalls) {
+          SdkPresent<bool>(value: final value) => {
+              'parallel_tool_calls': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (functionCall) {
+          SdkPresent<dynamic>(value: final value) => {
+              'function_call': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (functions) {
+          SdkPresent<List<ChatCompletionFunctions>>(value: final value) => {
+              'functions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

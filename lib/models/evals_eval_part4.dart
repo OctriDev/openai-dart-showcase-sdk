@@ -8,224 +8,415 @@ part of 'evals_eval.dart';
 class EvalResponsesSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of run data source. Always `responses`.
   final EvalResponsesSourceType type_;
+
   /// Optional object value serialized in the `metadata` wire field.
   final SdkOptional<Map<String, dynamic>?> metadata;
+
   /// Optional `string` value serialized in the `model` wire field.
   final SdkOptional<String?> model;
+
   /// Optional `string` value serialized in the `instructions_search` wire field.
   final SdkOptional<String?> instructionsSearch;
+
   /// Optional API value serialized in the `created_after` wire field.
   final SdkOptional<int?> createdAfter;
+
   /// Optional API value serialized in the `created_before` wire field.
   final SdkOptional<int?> createdBefore;
+
   /// Optional API value serialized in the `reasoning_effort` wire field.
   final SdkOptional<ReasoningEffort?> reasoningEffort;
+
   /// Optional `number` value serialized in the `temperature` wire field.
   final SdkOptional<double?> temperature;
+
   /// Optional `number` value serialized in the `top_p` wire field.
   final SdkOptional<double?> topP;
+
   /// List of user identifiers. This is a query parameter used to select responses.
   final SdkOptional<List<String>?> users;
+
   /// List of tool names. This is a query parameter used to select responses.
   final SdkOptional<List<String>?> tools;
 
-  const EvalResponsesSource({required this.type_, this.metadata = const SdkOmitted(), this.model = const SdkOmitted(), this.instructionsSearch = const SdkOmitted(), this.createdAfter = const SdkOmitted(), this.createdBefore = const SdkOmitted(), this.reasoningEffort = const SdkOmitted(), this.temperature = const SdkOmitted(), this.topP = const SdkOmitted(), this.users = const SdkOmitted(), this.tools = const SdkOmitted()});
+  const EvalResponsesSource(
+      {required this.type_,
+      this.metadata = const SdkOmitted(),
+      this.model = const SdkOmitted(),
+      this.instructionsSearch = const SdkOmitted(),
+      this.createdAfter = const SdkOmitted(),
+      this.createdBefore = const SdkOmitted(),
+      this.reasoningEffort = const SdkOmitted(),
+      this.temperature = const SdkOmitted(),
+      this.topP = const SdkOmitted(),
+      this.users = const SdkOmitted(),
+      this.tools = const SdkOmitted()});
 
-  EvalResponsesSource Function({EvalResponsesSourceType type_, SdkOptional<Map<String, dynamic>?> metadata, SdkOptional<String?> model, SdkOptional<String?> instructionsSearch, SdkOptional<int?> createdAfter, SdkOptional<int?> createdBefore, SdkOptional<ReasoningEffort?> reasoningEffort, SdkOptional<double?> temperature, SdkOptional<double?> topP, SdkOptional<List<String>?> users, SdkOptional<List<String>?> tools}) get copyWith => _copyWith;
+  EvalResponsesSource Function(
+      {EvalResponsesSourceType type_,
+      SdkOptional<Map<String, dynamic>?> metadata,
+      SdkOptional<String?> model,
+      SdkOptional<String?> instructionsSearch,
+      SdkOptional<int?> createdAfter,
+      SdkOptional<int?> createdBefore,
+      SdkOptional<ReasoningEffort?> reasoningEffort,
+      SdkOptional<double?> temperature,
+      SdkOptional<double?> topP,
+      SdkOptional<List<String>?> users,
+      SdkOptional<List<String>?> tools}) get copyWith => _copyWith;
 
-  EvalResponsesSource _copyWith({Object? type_ = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? model = sdkOmittedValue, Object? instructionsSearch = sdkOmittedValue, Object? createdAfter = sdkOmittedValue, Object? createdBefore = sdkOmittedValue, Object? reasoningEffort = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? users = sdkOmittedValue, Object? tools = sdkOmittedValue}) => EvalResponsesSource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EvalResponsesSourceType,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String?>,
-    instructionsSearch: identical(instructionsSearch, sdkOmittedValue) ? this.instructionsSearch : instructionsSearch as SdkOptional<String?>,
-    createdAfter: identical(createdAfter, sdkOmittedValue) ? this.createdAfter : createdAfter as SdkOptional<int?>,
-    createdBefore: identical(createdBefore, sdkOmittedValue) ? this.createdBefore : createdBefore as SdkOptional<int?>,
-    reasoningEffort: identical(reasoningEffort, sdkOmittedValue) ? this.reasoningEffort : reasoningEffort as SdkOptional<ReasoningEffort?>,
-    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double?>,
-    topP: identical(topP, sdkOmittedValue) ? this.topP : topP as SdkOptional<double?>,
-    users: identical(users, sdkOmittedValue) ? this.users : users as SdkOptional<List<String>?>,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<String>?>,
-  );
+  EvalResponsesSource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? instructionsSearch = sdkOmittedValue,
+          Object? createdAfter = sdkOmittedValue,
+          Object? createdBefore = sdkOmittedValue,
+          Object? reasoningEffort = sdkOmittedValue,
+          Object? temperature = sdkOmittedValue,
+          Object? topP = sdkOmittedValue,
+          Object? users = sdkOmittedValue,
+          Object? tools = sdkOmittedValue}) =>
+      EvalResponsesSource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EvalResponsesSourceType,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, dynamic>?>,
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<String?>,
+        instructionsSearch: identical(instructionsSearch, sdkOmittedValue)
+            ? this.instructionsSearch
+            : instructionsSearch as SdkOptional<String?>,
+        createdAfter: identical(createdAfter, sdkOmittedValue)
+            ? this.createdAfter
+            : createdAfter as SdkOptional<int?>,
+        createdBefore: identical(createdBefore, sdkOmittedValue)
+            ? this.createdBefore
+            : createdBefore as SdkOptional<int?>,
+        reasoningEffort: identical(reasoningEffort, sdkOmittedValue)
+            ? this.reasoningEffort
+            : reasoningEffort as SdkOptional<ReasoningEffort?>,
+        temperature: identical(temperature, sdkOmittedValue)
+            ? this.temperature
+            : temperature as SdkOptional<double?>,
+        topP: identical(topP, sdkOmittedValue)
+            ? this.topP
+            : topP as SdkOptional<double?>,
+        users: identical(users, sdkOmittedValue)
+            ? this.users
+            : users as SdkOptional<List<String>?>,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as SdkOptional<List<String>?>,
+      );
 
-  factory EvalResponsesSource.fromJson(Map<String, dynamic> json) => EvalResponsesSource(
-    type_: (json['type'] != null ? EvalResponsesSourceType.fromJson(json['type'] as String) : null)!,
-    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
-    model: json.containsKey('model') ? SdkPresent(json['model'] as String?) : const SdkOmitted(),
-    instructionsSearch: json.containsKey('instructions_search') ? SdkPresent(json['instructions_search'] as String?) : const SdkOmitted(),
-    createdAfter: json.containsKey('created_after') ? SdkPresent((json['created_after'] as num?)?.toInt()) : const SdkOmitted(),
-    createdBefore: json.containsKey('created_before') ? SdkPresent((json['created_before'] as num?)?.toInt()) : const SdkOmitted(),
-    reasoningEffort: json.containsKey('reasoning_effort') ? SdkPresent(json['reasoning_effort'] != null ? ReasoningEffort.fromJson(json['reasoning_effort']) : null) : const SdkOmitted(),
-    temperature: json.containsKey('temperature') ? SdkPresent((json['temperature'] as num?)?.toDouble()) : const SdkOmitted(),
-    topP: json.containsKey('top_p') ? SdkPresent((json['top_p'] as num?)?.toDouble()) : const SdkOmitted(),
-    users: json.containsKey('users') ? SdkPresent((json['users'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    tools: json.containsKey('tools') ? SdkPresent((json['tools'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-  );
+  factory EvalResponsesSource.fromJson(Map<String, dynamic> json) =>
+      EvalResponsesSource(
+        type_: (json['type'] != null
+            ? EvalResponsesSourceType.fromJson(json['type'] as String)
+            : null)!,
+        metadata: json.containsKey('metadata')
+            ? SdkPresent(json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        model: json.containsKey('model')
+            ? SdkPresent(json['model'] as String?)
+            : const SdkOmitted(),
+        instructionsSearch: json.containsKey('instructions_search')
+            ? SdkPresent(json['instructions_search'] as String?)
+            : const SdkOmitted(),
+        createdAfter: json.containsKey('created_after')
+            ? SdkPresent((json['created_after'] as num?)?.toInt())
+            : const SdkOmitted(),
+        createdBefore: json.containsKey('created_before')
+            ? SdkPresent((json['created_before'] as num?)?.toInt())
+            : const SdkOmitted(),
+        reasoningEffort: json.containsKey('reasoning_effort')
+            ? SdkPresent(json['reasoning_effort'] != null
+                ? ReasoningEffort.fromJson(json['reasoning_effort'])
+                : null)
+            : const SdkOmitted(),
+        temperature: json.containsKey('temperature')
+            ? SdkPresent((json['temperature'] as num?)?.toDouble())
+            : const SdkOmitted(),
+        topP: json.containsKey('top_p')
+            ? SdkPresent((json['top_p'] as num?)?.toDouble())
+            : const SdkOmitted(),
+        users: json.containsKey('users')
+            ? SdkPresent(
+                (json['users'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+        tools: json.containsKey('tools')
+            ? SdkPresent(
+                (json['tools'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (metadata) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (model) {
-      SdkPresent<String?>(value: final value) => {'model': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (instructionsSearch) {
-      SdkPresent<String?>(value: final value) => {'instructions_search': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAfter) {
-      SdkPresent<int?>(value: final value) => {'created_after': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdBefore) {
-      SdkPresent<int?>(value: final value) => {'created_before': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reasoningEffort) {
-      SdkPresent<ReasoningEffort?>(value: final value) => {'reasoning_effort': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (temperature) {
-      SdkPresent<double?>(value: final value) => {'temperature': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (topP) {
-      SdkPresent<double?>(value: final value) => {'top_p': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (users) {
-      SdkPresent<List<String>?>(value: final value) => {'users': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tools) {
-      SdkPresent<List<String>?>(value: final value) => {'tools': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (metadata) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (model) {
+          SdkPresent<String?>(value: final value) => {
+              'model': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (instructionsSearch) {
+          SdkPresent<String?>(value: final value) => {
+              'instructions_search': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAfter) {
+          SdkPresent<int?>(value: final value) => {
+              'created_after': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdBefore) {
+          SdkPresent<int?>(value: final value) => {
+              'created_before': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reasoningEffort) {
+          SdkPresent<ReasoningEffort?>(value: final value) => {
+              'reasoning_effort': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (temperature) {
+          SdkPresent<double?>(value: final value) => {
+              'temperature': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (topP) {
+          SdkPresent<double?>(value: final value) => {
+              'top_p': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (users) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'users': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tools) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'tools': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Counters summarizing the outcomes of the evaluation run.
 class EvalRunResultCounts {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Total number of executed output items.
   final int total;
+
   /// Number of output items that resulted in an error.
   final int errored;
+
   /// Number of output items that failed to pass the evaluation.
   final int failed;
+
   /// Number of output items that passed the evaluation.
   final int passed;
 
-  const EvalRunResultCounts({required this.total, required this.errored, required this.failed, required this.passed});
+  const EvalRunResultCounts(
+      {required this.total,
+      required this.errored,
+      required this.failed,
+      required this.passed});
 
-  EvalRunResultCounts Function({int total, int errored, int failed, int passed}) get copyWith => _copyWith;
+  EvalRunResultCounts Function({int total, int errored, int failed, int passed})
+      get copyWith => _copyWith;
 
-  EvalRunResultCounts _copyWith({Object? total = sdkOmittedValue, Object? errored = sdkOmittedValue, Object? failed = sdkOmittedValue, Object? passed = sdkOmittedValue}) => EvalRunResultCounts(
-    total: identical(total, sdkOmittedValue) ? this.total : total as int,
-    errored: identical(errored, sdkOmittedValue) ? this.errored : errored as int,
-    failed: identical(failed, sdkOmittedValue) ? this.failed : failed as int,
-    passed: identical(passed, sdkOmittedValue) ? this.passed : passed as int,
-  );
+  EvalRunResultCounts _copyWith(
+          {Object? total = sdkOmittedValue,
+          Object? errored = sdkOmittedValue,
+          Object? failed = sdkOmittedValue,
+          Object? passed = sdkOmittedValue}) =>
+      EvalRunResultCounts(
+        total: identical(total, sdkOmittedValue) ? this.total : total as int,
+        errored:
+            identical(errored, sdkOmittedValue) ? this.errored : errored as int,
+        failed:
+            identical(failed, sdkOmittedValue) ? this.failed : failed as int,
+        passed:
+            identical(passed, sdkOmittedValue) ? this.passed : passed as int,
+      );
 
-  factory EvalRunResultCounts.fromJson(Map<String, dynamic> json) => EvalRunResultCounts(
-    total: ((json['total'] as num?)?.toInt())!,
-    errored: ((json['errored'] as num?)?.toInt())!,
-    failed: ((json['failed'] as num?)?.toInt())!,
-    passed: ((json['passed'] as num?)?.toInt())!,
-  );
+  factory EvalRunResultCounts.fromJson(Map<String, dynamic> json) =>
+      EvalRunResultCounts(
+        total: ((json['total'] as num?)?.toInt())!,
+        errored: ((json['errored'] as num?)?.toInt())!,
+        failed: ((json['failed'] as num?)?.toInt())!,
+        passed: ((json['passed'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'total': total,
-    'errored': errored,
-    'failed': failed,
-    'passed': passed,
-  };
+        'total': total,
+        'errored': errored,
+        'failed': failed,
+        'passed': passed,
+      };
 }
 
 /// Required object value serialized in the `per_model_usage[]` wire field.
 class EvalRunPerModelUsageItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the model.
   final String modelName;
+
   /// The number of invocations.
   final int invocationCount;
+
   /// The number of prompt tokens used.
   final int promptTokens;
+
   /// The number of completion tokens generated.
   final int completionTokens;
+
   /// The total number of tokens used.
   final int totalTokens;
+
   /// The number of tokens retrieved from cache.
   final int cachedTokens;
 
-  const EvalRunPerModelUsageItem({required this.modelName, required this.invocationCount, required this.promptTokens, required this.completionTokens, required this.totalTokens, required this.cachedTokens});
+  const EvalRunPerModelUsageItem(
+      {required this.modelName,
+      required this.invocationCount,
+      required this.promptTokens,
+      required this.completionTokens,
+      required this.totalTokens,
+      required this.cachedTokens});
 
-  EvalRunPerModelUsageItem Function({String modelName, int invocationCount, int promptTokens, int completionTokens, int totalTokens, int cachedTokens}) get copyWith => _copyWith;
+  EvalRunPerModelUsageItem Function(
+      {String modelName,
+      int invocationCount,
+      int promptTokens,
+      int completionTokens,
+      int totalTokens,
+      int cachedTokens}) get copyWith => _copyWith;
 
-  EvalRunPerModelUsageItem _copyWith({Object? modelName = sdkOmittedValue, Object? invocationCount = sdkOmittedValue, Object? promptTokens = sdkOmittedValue, Object? completionTokens = sdkOmittedValue, Object? totalTokens = sdkOmittedValue, Object? cachedTokens = sdkOmittedValue}) => EvalRunPerModelUsageItem(
-    modelName: identical(modelName, sdkOmittedValue) ? this.modelName : modelName as String,
-    invocationCount: identical(invocationCount, sdkOmittedValue) ? this.invocationCount : invocationCount as int,
-    promptTokens: identical(promptTokens, sdkOmittedValue) ? this.promptTokens : promptTokens as int,
-    completionTokens: identical(completionTokens, sdkOmittedValue) ? this.completionTokens : completionTokens as int,
-    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
-    cachedTokens: identical(cachedTokens, sdkOmittedValue) ? this.cachedTokens : cachedTokens as int,
-  );
+  EvalRunPerModelUsageItem _copyWith(
+          {Object? modelName = sdkOmittedValue,
+          Object? invocationCount = sdkOmittedValue,
+          Object? promptTokens = sdkOmittedValue,
+          Object? completionTokens = sdkOmittedValue,
+          Object? totalTokens = sdkOmittedValue,
+          Object? cachedTokens = sdkOmittedValue}) =>
+      EvalRunPerModelUsageItem(
+        modelName: identical(modelName, sdkOmittedValue)
+            ? this.modelName
+            : modelName as String,
+        invocationCount: identical(invocationCount, sdkOmittedValue)
+            ? this.invocationCount
+            : invocationCount as int,
+        promptTokens: identical(promptTokens, sdkOmittedValue)
+            ? this.promptTokens
+            : promptTokens as int,
+        completionTokens: identical(completionTokens, sdkOmittedValue)
+            ? this.completionTokens
+            : completionTokens as int,
+        totalTokens: identical(totalTokens, sdkOmittedValue)
+            ? this.totalTokens
+            : totalTokens as int,
+        cachedTokens: identical(cachedTokens, sdkOmittedValue)
+            ? this.cachedTokens
+            : cachedTokens as int,
+      );
 
-  factory EvalRunPerModelUsageItem.fromJson(Map<String, dynamic> json) => EvalRunPerModelUsageItem(
-    modelName: (json['model_name'] as String?)!,
-    invocationCount: ((json['invocation_count'] as num?)?.toInt())!,
-    promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
-    completionTokens: ((json['completion_tokens'] as num?)?.toInt())!,
-    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-    cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
-  );
+  factory EvalRunPerModelUsageItem.fromJson(Map<String, dynamic> json) =>
+      EvalRunPerModelUsageItem(
+        modelName: (json['model_name'] as String?)!,
+        invocationCount: ((json['invocation_count'] as num?)?.toInt())!,
+        promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
+        completionTokens: ((json['completion_tokens'] as num?)?.toInt())!,
+        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+        cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'model_name': modelName,
-    'invocation_count': invocationCount,
-    'prompt_tokens': promptTokens,
-    'completion_tokens': completionTokens,
-    'total_tokens': totalTokens,
-    'cached_tokens': cachedTokens,
-  };
+        'model_name': modelName,
+        'invocation_count': invocationCount,
+        'prompt_tokens': promptTokens,
+        'completion_tokens': completionTokens,
+        'total_tokens': totalTokens,
+        'cached_tokens': cachedTokens,
+      };
 }
 
 /// Required object value serialized in the `per_testing_criteria_results[]` wire field.
 class EvalRunPerTestingCriteriaResultsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A description of the testing criteria.
   final String testingCriteria;
+
   /// Number of tests passed for this criteria.
   final int passed;
+
   /// Number of tests failed for this criteria.
   final int failed;
 
-  const EvalRunPerTestingCriteriaResultsItem({required this.testingCriteria, required this.passed, required this.failed});
+  const EvalRunPerTestingCriteriaResultsItem(
+      {required this.testingCriteria,
+      required this.passed,
+      required this.failed});
 
-  EvalRunPerTestingCriteriaResultsItem Function({String testingCriteria, int passed, int failed}) get copyWith => _copyWith;
+  EvalRunPerTestingCriteriaResultsItem Function(
+      {String testingCriteria,
+      int passed,
+      int failed}) get copyWith => _copyWith;
 
-  EvalRunPerTestingCriteriaResultsItem _copyWith({Object? testingCriteria = sdkOmittedValue, Object? passed = sdkOmittedValue, Object? failed = sdkOmittedValue}) => EvalRunPerTestingCriteriaResultsItem(
-    testingCriteria: identical(testingCriteria, sdkOmittedValue) ? this.testingCriteria : testingCriteria as String,
-    passed: identical(passed, sdkOmittedValue) ? this.passed : passed as int,
-    failed: identical(failed, sdkOmittedValue) ? this.failed : failed as int,
-  );
+  EvalRunPerTestingCriteriaResultsItem _copyWith(
+          {Object? testingCriteria = sdkOmittedValue,
+          Object? passed = sdkOmittedValue,
+          Object? failed = sdkOmittedValue}) =>
+      EvalRunPerTestingCriteriaResultsItem(
+        testingCriteria: identical(testingCriteria, sdkOmittedValue)
+            ? this.testingCriteria
+            : testingCriteria as String,
+        passed:
+            identical(passed, sdkOmittedValue) ? this.passed : passed as int,
+        failed:
+            identical(failed, sdkOmittedValue) ? this.failed : failed as int,
+      );
 
-  factory EvalRunPerTestingCriteriaResultsItem.fromJson(Map<String, dynamic> json) => EvalRunPerTestingCriteriaResultsItem(
-    testingCriteria: (json['testing_criteria'] as String?)!,
-    passed: ((json['passed'] as num?)?.toInt())!,
-    failed: ((json['failed'] as num?)?.toInt())!,
-  );
+  factory EvalRunPerTestingCriteriaResultsItem.fromJson(
+          Map<String, dynamic> json) =>
+      EvalRunPerTestingCriteriaResultsItem(
+        testingCriteria: (json['testing_criteria'] as String?)!,
+        passed: ((json['passed'] as num?)?.toInt())!,
+        failed: ((json['failed'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'testing_criteria': testingCriteria,
-    'passed': passed,
-    'failed': failed,
-  };
+        'testing_criteria': testingCriteria,
+        'passed': passed,
+        'failed': failed,
+      };
 }

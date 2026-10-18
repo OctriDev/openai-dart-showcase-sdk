@@ -8,96 +8,172 @@ part of 'responses_response_reasoning.dart';
 class ResponseReasoningTextDeltaEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always `response.reasoning_text.delta`.
   final ResponseReasoningTextDeltaEventType type_;
+
   /// The ID of the item this reasoning text delta is associated with.
   final String itemId;
+
   /// The index of the output item this reasoning text delta is associated with.
   final int outputIndex;
+
   /// The index of the reasoning content part this delta is associated with.
   final int contentIndex;
+
   /// The text delta that was added to the reasoning content.
   final String delta;
+
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseReasoningTextDeltaEvent({required this.type_, required this.itemId, required this.outputIndex, required this.contentIndex, required this.delta, required this.sequenceNumber});
+  const ResponseReasoningTextDeltaEvent(
+      {required this.type_,
+      required this.itemId,
+      required this.outputIndex,
+      required this.contentIndex,
+      required this.delta,
+      required this.sequenceNumber});
 
-  ResponseReasoningTextDeltaEvent Function({ResponseReasoningTextDeltaEventType type_, String itemId, int outputIndex, int contentIndex, String delta, int sequenceNumber}) get copyWith => _copyWith;
+  ResponseReasoningTextDeltaEvent Function(
+      {ResponseReasoningTextDeltaEventType type_,
+      String itemId,
+      int outputIndex,
+      int contentIndex,
+      String delta,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseReasoningTextDeltaEvent _copyWith({Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseReasoningTextDeltaEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseReasoningTextDeltaEventType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  ResponseReasoningTextDeltaEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? contentIndex = sdkOmittedValue,
+          Object? delta = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      ResponseReasoningTextDeltaEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseReasoningTextDeltaEventType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        contentIndex: identical(contentIndex, sdkOmittedValue)
+            ? this.contentIndex
+            : contentIndex as int,
+        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory ResponseReasoningTextDeltaEvent.fromJson(Map<String, dynamic> json) => ResponseReasoningTextDeltaEvent(
-    type_: (json['type'] != null ? ResponseReasoningTextDeltaEventType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    contentIndex: ((json['content_index'] as num?)?.toInt())!,
-    delta: (json['delta'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory ResponseReasoningTextDeltaEvent.fromJson(Map<String, dynamic> json) =>
+      ResponseReasoningTextDeltaEvent(
+        type_: (json['type'] != null
+            ? ResponseReasoningTextDeltaEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        contentIndex: ((json['content_index'] as num?)?.toInt())!,
+        delta: (json['delta'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'content_index': contentIndex,
-    'delta': delta,
-    'sequence_number': sequenceNumber,
-  };
+        'type': type_.toJson(),
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'content_index': contentIndex,
+        'delta': delta,
+        'sequence_number': sequenceNumber,
+      };
 }
 
 /// Emitted when a reasoning text is completed.
 class ResponseReasoningTextDoneEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always `response.reasoning_text.done`.
   final ResponseReasoningTextDoneEventType type_;
+
   /// The ID of the item this reasoning text is associated with.
   final String itemId;
+
   /// The index of the output item this reasoning text is associated with.
   final int outputIndex;
+
   /// The index of the reasoning content part.
   final int contentIndex;
+
   /// The full text of the completed reasoning content.
   final String text;
+
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseReasoningTextDoneEvent({required this.type_, required this.itemId, required this.outputIndex, required this.contentIndex, required this.text, required this.sequenceNumber});
+  const ResponseReasoningTextDoneEvent(
+      {required this.type_,
+      required this.itemId,
+      required this.outputIndex,
+      required this.contentIndex,
+      required this.text,
+      required this.sequenceNumber});
 
-  ResponseReasoningTextDoneEvent Function({ResponseReasoningTextDoneEventType type_, String itemId, int outputIndex, int contentIndex, String text, int sequenceNumber}) get copyWith => _copyWith;
+  ResponseReasoningTextDoneEvent Function(
+      {ResponseReasoningTextDoneEventType type_,
+      String itemId,
+      int outputIndex,
+      int contentIndex,
+      String text,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseReasoningTextDoneEvent _copyWith({Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? text = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseReasoningTextDoneEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseReasoningTextDoneEventType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  ResponseReasoningTextDoneEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? contentIndex = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      ResponseReasoningTextDoneEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseReasoningTextDoneEventType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        contentIndex: identical(contentIndex, sdkOmittedValue)
+            ? this.contentIndex
+            : contentIndex as int,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory ResponseReasoningTextDoneEvent.fromJson(Map<String, dynamic> json) => ResponseReasoningTextDoneEvent(
-    type_: (json['type'] != null ? ResponseReasoningTextDoneEventType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    contentIndex: ((json['content_index'] as num?)?.toInt())!,
-    text: (json['text'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory ResponseReasoningTextDoneEvent.fromJson(Map<String, dynamic> json) =>
+      ResponseReasoningTextDoneEvent(
+        type_: (json['type'] != null
+            ? ResponseReasoningTextDoneEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        contentIndex: ((json['content_index'] as num?)?.toInt())!,
+        text: (json['text'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'content_index': contentIndex,
-    'text': text,
-    'sequence_number': sequenceNumber,
-  };
+        'type': type_.toJson(),
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'content_index': contentIndex,
+        'text': text,
+        'sequence_number': sequenceNumber,
+      };
 }

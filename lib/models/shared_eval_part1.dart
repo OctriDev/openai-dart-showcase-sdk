@@ -8,37 +8,65 @@ part of 'shared_eval.dart';
 class EvalItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The role of the message input. One of `user`, `assistant`, `system`, or `developer`.
   final EvalItemRole role;
+
   /// Inputs to the model - can contain template strings. Supports text, output text, input images, and input audio, either as a single item or an array of items.
   final EvalItemContent content;
+
   /// The type of the message input. Always `message`.
   final SdkOptional<EvalItemType> type_;
 
-  const EvalItem({required this.role, required this.content, this.type_ = const SdkOmitted()});
+  const EvalItem(
+      {required this.role,
+      required this.content,
+      this.type_ = const SdkOmitted()});
 
-  EvalItem Function({EvalItemRole role, EvalItemContent content, SdkOptional<EvalItemType> type_}) get copyWith => _copyWith;
+  EvalItem Function(
+      {EvalItemRole role,
+      EvalItemContent content,
+      SdkOptional<EvalItemType> type_}) get copyWith => _copyWith;
 
-  EvalItem _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => EvalItem(
-    role: identical(role, sdkOmittedValue) ? this.role : role as EvalItemRole,
-    content: identical(content, sdkOmittedValue) ? this.content : content as EvalItemContent,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<EvalItemType>,
-  );
+  EvalItem _copyWith(
+          {Object? role = sdkOmittedValue,
+          Object? content = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      EvalItem(
+        role:
+            identical(role, sdkOmittedValue) ? this.role : role as EvalItemRole,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as EvalItemContent,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<EvalItemType>,
+      );
 
   factory EvalItem.fromJson(Map<String, dynamic> json) => EvalItem(
-    role: (json['role'] != null ? EvalItemRole.fromJson(json['role'] as String) : null)!,
-    content: (json['content'] != null ? EvalItemContent.fromJson(json['content']) : null)!,
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? EvalItemType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-  );
+        role: (json['role'] != null
+            ? EvalItemRole.fromJson(json['role'] as String)
+            : null)!,
+        content: (json['content'] != null
+            ? EvalItemContent.fromJson(json['content'])
+            : null)!,
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? EvalItemType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'role': role.toJson(),
-    'content': content.toJson(),
-    ...switch (type_) {
-      SdkPresent<EvalItemType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'role': role.toJson(),
+        'content': content.toJson(),
+        ...switch (type_) {
+          SdkPresent<EvalItemType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class EvalItemContent {
@@ -46,8 +74,16 @@ sealed class EvalItemContent {
   static const String constructionSurface = 'named';
   const EvalItemContent();
   factory EvalItemContent.fromJson(Object? json) {
-    if (json is List) { return EvalItemContentListEvalItemContentItem(json.map((e) => EvalItemContentItem.fromJson(e)).toList().cast<EvalItemContentItem>()); }
-    try { return EvalItemContentEvalItemContentItem(EvalItemContentItem.fromJson(json)); } catch (_) {}
+    if (json is List) {
+      return EvalItemContentListEvalItemContentItem(json
+          .map((e) => EvalItemContentItem.fromJson(e))
+          .toList()
+          .cast<EvalItemContentItem>());
+    }
+    try {
+      return EvalItemContentEvalItemContentItem(
+          EvalItemContentItem.fromJson(json));
+    } catch (_) {}
     throw FormatException("No variant matched for EvalItemContent");
   }
   Object? toJson();
@@ -56,13 +92,15 @@ sealed class EvalItemContent {
 final class EvalItemContentEvalItemContentItem extends EvalItemContent {
   final EvalItemContentItem value;
   const EvalItemContentEvalItemContentItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class EvalItemContentListEvalItemContentItem extends EvalItemContent {
   final List<EvalItemContentItem> value;
   const EvalItemContentListEvalItemContentItem(this.value);
-  @override Object? toJson() => value.map((e) => e.toJson()).toList();
+  @override
+  Object? toJson() => value.map((e) => e.toJson()).toList();
 }
 
 // EvalItemContentArray = List<EvalItemContentItem>
@@ -72,18 +110,57 @@ sealed class EvalItemContentItem {
   static const String constructionSurface = 'named';
   const EvalItemContentItem();
   factory EvalItemContentItem.fromJson(Object? json) {
-    if (json is String) { return EvalItemContentItemString(json); }
-    if (json is Map<String, dynamic>) {
-      try { final value = InputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalItemContentItemInputTextContent(value); } } catch (_) {}
-      try { final value = EvalItemContentOutputText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalItemContentItemEvalItemContentOutputText(value); } } catch (_) {}
-      try { final value = EvalItemInputImage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalItemContentItemEvalItemInputImage(value); } } catch (_) {}
-      try { final value = InputAudio.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalItemContentItemInputAudio(value); } } catch (_) {}
+    if (json is String) {
+      return EvalItemContentItemString(json);
     }
-    try { return EvalItemContentItemInputTextContent(InputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EvalItemContentItemEvalItemContentOutputText(EvalItemContentOutputText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EvalItemContentItemEvalItemInputImage(EvalItemInputImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EvalItemContentItemInputAudio(InputAudio.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "output_text", "input_image", "input_audio"}.contains(json["type"])) { return UnknownEvalItemContentItem(json); }
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = InputTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalItemContentItemInputTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalItemContentOutputText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalItemContentItemEvalItemContentOutputText(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalItemInputImage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalItemContentItemEvalItemInputImage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputAudio.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalItemContentItemInputAudio(value);
+        }
+      } catch (_) {}
+    }
+    try {
+      return EvalItemContentItemInputTextContent(
+          InputTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EvalItemContentItemEvalItemContentOutputText(
+          EvalItemContentOutputText.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EvalItemContentItemEvalItemInputImage(
+          EvalItemInputImage.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EvalItemContentItemInputAudio(
+          InputAudio.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"input_text", "output_text", "input_image", "input_audio"}
+            .contains(json["type"])) {
+      return UnknownEvalItemContentItem(json);
+    }
     throw FormatException("No variant matched for EvalItemContentItem");
   }
   Object? toJson();
@@ -92,67 +169,85 @@ sealed class EvalItemContentItem {
 final class EvalItemContentItemString extends EvalItemContentItem {
   final String value;
   const EvalItemContentItemString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 final class EvalItemContentItemInputTextContent extends EvalItemContentItem {
   final InputTextContent value;
   const EvalItemContentItemInputTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EvalItemContentItemEvalItemContentOutputText extends EvalItemContentItem {
+final class EvalItemContentItemEvalItemContentOutputText
+    extends EvalItemContentItem {
   final EvalItemContentOutputText value;
   const EvalItemContentItemEvalItemContentOutputText(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class EvalItemContentItemEvalItemInputImage extends EvalItemContentItem {
   final EvalItemInputImage value;
   const EvalItemContentItemEvalItemInputImage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class EvalItemContentItemInputAudio extends EvalItemContentItem {
   final InputAudio value;
   const EvalItemContentItemInputAudio(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [EvalItemContentItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownEvalItemContentItem extends EvalItemContentItem {
   final Map<String, dynamic> raw;
   const UnknownEvalItemContentItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A text output from the model.
 class EvalItemContentOutputText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the output text. Always `output_text`.
   final EvalItemContentOutputTextType type_;
+
   /// The text output from the model.
   final String text;
 
   const EvalItemContentOutputText({required this.type_, required this.text});
 
-  EvalItemContentOutputText Function({EvalItemContentOutputTextType type_, String text}) get copyWith => _copyWith;
+  EvalItemContentOutputText Function(
+      {EvalItemContentOutputTextType type_,
+      String text}) get copyWith => _copyWith;
 
-  EvalItemContentOutputText _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => EvalItemContentOutputText(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EvalItemContentOutputTextType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  EvalItemContentOutputText _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      EvalItemContentOutputText(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EvalItemContentOutputTextType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory EvalItemContentOutputText.fromJson(Map<String, dynamic> json) => EvalItemContentOutputText(
-    type_: (json['type'] != null ? EvalItemContentOutputTextType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-  );
+  factory EvalItemContentOutputText.fromJson(Map<String, dynamic> json) =>
+      EvalItemContentOutputText(
+        type_: (json['type'] != null
+            ? EvalItemContentOutputTextType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-  };
+        'type': type_.toJson(),
+        'text': text,
+      };
 }
 
 // EvalItemContentText = String
@@ -161,35 +256,61 @@ class EvalItemContentOutputText {
 class EvalItemInputImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the image input. Always `input_image`.
   final EvalItemInputImageType type_;
+
   /// The URL of the image input.
   final String imageUrl;
+
   /// The detail level of the image to be sent to the model. One of `high`, `low`, or `auto`. Defaults to `auto`.
   final SdkOptional<String> detail;
 
-  const EvalItemInputImage({required this.type_, required this.imageUrl, this.detail = const SdkOmitted()});
+  const EvalItemInputImage(
+      {required this.type_,
+      required this.imageUrl,
+      this.detail = const SdkOmitted()});
 
-  EvalItemInputImage Function({EvalItemInputImageType type_, String imageUrl, SdkOptional<String> detail}) get copyWith => _copyWith;
+  EvalItemInputImage Function(
+      {EvalItemInputImageType type_,
+      String imageUrl,
+      SdkOptional<String> detail}) get copyWith => _copyWith;
 
-  EvalItemInputImage _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? detail = sdkOmittedValue}) => EvalItemInputImage(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EvalItemInputImageType,
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as String,
-    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as SdkOptional<String>,
-  );
+  EvalItemInputImage _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue,
+          Object? detail = sdkOmittedValue}) =>
+      EvalItemInputImage(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EvalItemInputImageType,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as String,
+        detail: identical(detail, sdkOmittedValue)
+            ? this.detail
+            : detail as SdkOptional<String>,
+      );
 
-  factory EvalItemInputImage.fromJson(Map<String, dynamic> json) => EvalItemInputImage(
-    type_: (json['type'] != null ? EvalItemInputImageType.fromJson(json['type'] as String) : null)!,
-    imageUrl: (json['image_url'] as String?)!,
-    detail: json['detail'] != null ? SdkPresent((json['detail'] as String?)!) : const SdkOmitted(),
-  );
+  factory EvalItemInputImage.fromJson(Map<String, dynamic> json) =>
+      EvalItemInputImage(
+        type_: (json['type'] != null
+            ? EvalItemInputImageType.fromJson(json['type'] as String)
+            : null)!,
+        imageUrl: (json['image_url'] as String?)!,
+        detail: json['detail'] != null
+            ? SdkPresent((json['detail'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'image_url': imageUrl,
-    ...switch (detail) {
-      SdkPresent<String>(value: final value) => {'detail': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'image_url': imageUrl,
+        ...switch (detail) {
+          SdkPresent<String>(value: final value) => {
+              'detail': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

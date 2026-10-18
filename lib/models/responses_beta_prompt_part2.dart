@@ -8,137 +8,207 @@ part of 'responses_beta_prompt.dart';
 class BetaPromptCacheOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The minimum lifetime applied to each cache breakpoint.
   final BetaPromptCacheTTLEnum ttl;
+
   /// Whether implicit prompt-cache breakpoints were enabled.
   final BetaPromptCacheModeEnum mode;
+
   /// Optional `string` value serialized in the `comparison_response_id` wire field.
   final SdkOptional<String?> comparisonResponseId;
 
-  const BetaPromptCacheOptions({required this.ttl, required this.mode, this.comparisonResponseId = const SdkOmitted()});
+  const BetaPromptCacheOptions(
+      {required this.ttl,
+      required this.mode,
+      this.comparisonResponseId = const SdkOmitted()});
 
-  BetaPromptCacheOptions Function({BetaPromptCacheTTLEnum ttl, BetaPromptCacheModeEnum mode, SdkOptional<String?> comparisonResponseId}) get copyWith => _copyWith;
+  BetaPromptCacheOptions Function(
+      {BetaPromptCacheTTLEnum ttl,
+      BetaPromptCacheModeEnum mode,
+      SdkOptional<String?> comparisonResponseId}) get copyWith => _copyWith;
 
-  BetaPromptCacheOptions _copyWith({Object? ttl = sdkOmittedValue, Object? mode = sdkOmittedValue, Object? comparisonResponseId = sdkOmittedValue}) => BetaPromptCacheOptions(
-    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as BetaPromptCacheTTLEnum,
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as BetaPromptCacheModeEnum,
-    comparisonResponseId: identical(comparisonResponseId, sdkOmittedValue) ? this.comparisonResponseId : comparisonResponseId as SdkOptional<String?>,
-  );
+  BetaPromptCacheOptions _copyWith(
+          {Object? ttl = sdkOmittedValue,
+          Object? mode = sdkOmittedValue,
+          Object? comparisonResponseId = sdkOmittedValue}) =>
+      BetaPromptCacheOptions(
+        ttl: identical(ttl, sdkOmittedValue)
+            ? this.ttl
+            : ttl as BetaPromptCacheTTLEnum,
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as BetaPromptCacheModeEnum,
+        comparisonResponseId: identical(comparisonResponseId, sdkOmittedValue)
+            ? this.comparisonResponseId
+            : comparisonResponseId as SdkOptional<String?>,
+      );
 
-  factory BetaPromptCacheOptions.fromJson(Map<String, dynamic> json) => BetaPromptCacheOptions(
-    ttl: (json['ttl'] != null ? BetaPromptCacheTTLEnum.fromJson(json['ttl'] as String) : null)!,
-    mode: (json['mode'] != null ? BetaPromptCacheModeEnum.fromJson(json['mode'] as String) : null)!,
-    comparisonResponseId: json.containsKey('comparison_response_id') ? SdkPresent(json['comparison_response_id'] as String?) : const SdkOmitted(),
-  );
+  factory BetaPromptCacheOptions.fromJson(Map<String, dynamic> json) =>
+      BetaPromptCacheOptions(
+        ttl: (json['ttl'] != null
+            ? BetaPromptCacheTTLEnum.fromJson(json['ttl'] as String)
+            : null)!,
+        mode: (json['mode'] != null
+            ? BetaPromptCacheModeEnum.fromJson(json['mode'] as String)
+            : null)!,
+        comparisonResponseId: json.containsKey('comparison_response_id')
+            ? SdkPresent(json['comparison_response_id'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'ttl': ttl.toJson(),
-    'mode': mode.toJson(),
-    ...switch (comparisonResponseId) {
-      SdkPresent<String?>(value: final value) => {'comparison_response_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'ttl': ttl.toJson(),
+        'mode': mode.toJson(),
+        ...switch (comparisonResponseId) {
+          SdkPresent<String?>(value: final value) => {
+              'comparison_response_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.
 class BetaPromptCacheOptionsParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The minimum lifetime applied to every implicit and explicit cache breakpoint written by the request. Defaults to `30m`, which is currently the only supported value. The backend may retain cache entries for longer.
   final SdkOptional<BetaPromptCacheTTLEnum> ttl;
+
   /// Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to `implicit`. With `implicit`, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With `explicit`, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.
   final SdkOptional<BetaPromptCacheModeEnum> mode;
 
-  const BetaPromptCacheOptionsParam({this.ttl = const SdkOmitted(), this.mode = const SdkOmitted()});
+  const BetaPromptCacheOptionsParam(
+      {this.ttl = const SdkOmitted(), this.mode = const SdkOmitted()});
 
-  BetaPromptCacheOptionsParam Function({SdkOptional<BetaPromptCacheTTLEnum> ttl, SdkOptional<BetaPromptCacheModeEnum> mode}) get copyWith => _copyWith;
+  BetaPromptCacheOptionsParam Function(
+      {SdkOptional<BetaPromptCacheTTLEnum> ttl,
+      SdkOptional<BetaPromptCacheModeEnum> mode}) get copyWith => _copyWith;
 
-  BetaPromptCacheOptionsParam _copyWith({Object? ttl = sdkOmittedValue, Object? mode = sdkOmittedValue}) => BetaPromptCacheOptionsParam(
-    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as SdkOptional<BetaPromptCacheTTLEnum>,
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as SdkOptional<BetaPromptCacheModeEnum>,
-  );
+  BetaPromptCacheOptionsParam _copyWith(
+          {Object? ttl = sdkOmittedValue, Object? mode = sdkOmittedValue}) =>
+      BetaPromptCacheOptionsParam(
+        ttl: identical(ttl, sdkOmittedValue)
+            ? this.ttl
+            : ttl as SdkOptional<BetaPromptCacheTTLEnum>,
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as SdkOptional<BetaPromptCacheModeEnum>,
+      );
 
-  factory BetaPromptCacheOptionsParam.fromJson(Map<String, dynamic> json) => BetaPromptCacheOptionsParam(
-    ttl: json['ttl'] != null ? SdkPresent((json['ttl'] != null ? BetaPromptCacheTTLEnum.fromJson(json['ttl'] as String) : null)!) : const SdkOmitted(),
-    mode: json['mode'] != null ? SdkPresent((json['mode'] != null ? BetaPromptCacheModeEnum.fromJson(json['mode'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory BetaPromptCacheOptionsParam.fromJson(Map<String, dynamic> json) =>
+      BetaPromptCacheOptionsParam(
+        ttl: json['ttl'] != null
+            ? SdkPresent((json['ttl'] != null
+                ? BetaPromptCacheTTLEnum.fromJson(json['ttl'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        mode: json['mode'] != null
+            ? SdkPresent((json['mode'] != null
+                ? BetaPromptCacheModeEnum.fromJson(json['mode'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (ttl) {
-      SdkPresent<BetaPromptCacheTTLEnum>(value: final value) => {'ttl': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mode) {
-      SdkPresent<BetaPromptCacheModeEnum>(value: final value) => {'mode': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (ttl) {
+          SdkPresent<BetaPromptCacheTTLEnum>(value: final value) => {
+              'ttl': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mode) {
+          SdkPresent<BetaPromptCacheModeEnum>(value: final value) => {
+              'mode': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `BetaPromptCacheRetentionEnum` API schema.
 final class BetaPromptCacheRetentionEnum {
-
   final String value;
 
   const BetaPromptCacheRetentionEnum._(this.value);
 
-  factory BetaPromptCacheRetentionEnum.fromJson(String value) => BetaPromptCacheRetentionEnum._(value);
+  factory BetaPromptCacheRetentionEnum.fromJson(String value) =>
+      BetaPromptCacheRetentionEnum._(value);
 
   static const inMemory = BetaPromptCacheRetentionEnum._('in_memory');
   static const v24h = BetaPromptCacheRetentionEnum._('24h');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaPromptCacheRetentionEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaPromptCacheRetentionEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `BetaPromptCacheTTLEnum` API schema.
 final class BetaPromptCacheTTLEnum {
-
   final String value;
 
   const BetaPromptCacheTTLEnum._(this.value);
 
-  factory BetaPromptCacheTTLEnum.fromJson(String value) => BetaPromptCacheTTLEnum._(value);
+  factory BetaPromptCacheTTLEnum.fromJson(String value) =>
+      BetaPromptCacheTTLEnum._(value);
 
   static const v30m = BetaPromptCacheTTLEnum._('30m');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaPromptCacheTTLEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaPromptCacheTTLEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `BetaPromptCacheUnavailableDiagnosticsBody` API schema.
 class BetaPromptCacheUnavailableDiagnosticsBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final BetaPromptCacheUnavailableDiagnosticsBodyType type_;
 
   const BetaPromptCacheUnavailableDiagnosticsBody({required this.type_});
 
-  BetaPromptCacheUnavailableDiagnosticsBody Function({BetaPromptCacheUnavailableDiagnosticsBodyType type_}) get copyWith => _copyWith;
+  BetaPromptCacheUnavailableDiagnosticsBody Function(
+          {BetaPromptCacheUnavailableDiagnosticsBodyType type_})
+      get copyWith => _copyWith;
 
-  BetaPromptCacheUnavailableDiagnosticsBody _copyWith({Object? type_ = sdkOmittedValue}) => BetaPromptCacheUnavailableDiagnosticsBody(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaPromptCacheUnavailableDiagnosticsBodyType,
-  );
+  BetaPromptCacheUnavailableDiagnosticsBody _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      BetaPromptCacheUnavailableDiagnosticsBody(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaPromptCacheUnavailableDiagnosticsBodyType,
+      );
 
-  factory BetaPromptCacheUnavailableDiagnosticsBody.fromJson(Map<String, dynamic> json) => BetaPromptCacheUnavailableDiagnosticsBody(
-    type_: (json['type'] != null ? BetaPromptCacheUnavailableDiagnosticsBodyType.fromJson(json['type'] as String) : null)!,
-  );
+  factory BetaPromptCacheUnavailableDiagnosticsBody.fromJson(
+          Map<String, dynamic> json) =>
+      BetaPromptCacheUnavailableDiagnosticsBody(
+        type_: (json['type'] != null
+            ? BetaPromptCacheUnavailableDiagnosticsBodyType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

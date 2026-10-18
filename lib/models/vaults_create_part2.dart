@@ -8,154 +8,273 @@ part of 'vaults_create.dart';
 class CreateVaultCredentialAuthParamMcpOauth {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `mcp_oauth`.
   final CreateVaultCredentialAuthParamMcpOauthType type_;
+
   /// The HTTPS MCP server URL authorized by this credential.
   final String mcpServerUrl;
+
   /// A write-only OAuth access token; never returned by credential resources.
   final String accessToken;
+
   /// When the OAuth access token expires, as an RFC 3339 timestamp, if known.
   final SdkOptional<String?> expiresAt;
+
   /// Optional refresh configuration for an HTTPS OAuth token endpoint.
   final SdkOptional<CreateMcpOauthRefreshParam?> refresh;
 
-  const CreateVaultCredentialAuthParamMcpOauth({required this.type_, required this.mcpServerUrl, required this.accessToken, this.expiresAt = const SdkOmitted(), this.refresh = const SdkOmitted()});
+  const CreateVaultCredentialAuthParamMcpOauth(
+      {required this.type_,
+      required this.mcpServerUrl,
+      required this.accessToken,
+      this.expiresAt = const SdkOmitted(),
+      this.refresh = const SdkOmitted()});
 
-  CreateVaultCredentialAuthParamMcpOauth Function({CreateVaultCredentialAuthParamMcpOauthType type_, String mcpServerUrl, String accessToken, SdkOptional<String?> expiresAt, SdkOptional<CreateMcpOauthRefreshParam?> refresh}) get copyWith => _copyWith;
+  CreateVaultCredentialAuthParamMcpOauth Function(
+          {CreateVaultCredentialAuthParamMcpOauthType type_,
+          String mcpServerUrl,
+          String accessToken,
+          SdkOptional<String?> expiresAt,
+          SdkOptional<CreateMcpOauthRefreshParam?> refresh})
+      get copyWith => _copyWith;
 
-  CreateVaultCredentialAuthParamMcpOauth _copyWith({Object? type_ = sdkOmittedValue, Object? mcpServerUrl = sdkOmittedValue, Object? accessToken = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? refresh = sdkOmittedValue}) => CreateVaultCredentialAuthParamMcpOauth(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateVaultCredentialAuthParamMcpOauthType,
-    mcpServerUrl: identical(mcpServerUrl, sdkOmittedValue) ? this.mcpServerUrl : mcpServerUrl as String,
-    accessToken: identical(accessToken, sdkOmittedValue) ? this.accessToken : accessToken as String,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String?>,
-    refresh: identical(refresh, sdkOmittedValue) ? this.refresh : refresh as SdkOptional<CreateMcpOauthRefreshParam?>,
-  );
+  CreateVaultCredentialAuthParamMcpOauth _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? mcpServerUrl = sdkOmittedValue,
+          Object? accessToken = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue,
+          Object? refresh = sdkOmittedValue}) =>
+      CreateVaultCredentialAuthParamMcpOauth(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateVaultCredentialAuthParamMcpOauthType,
+        mcpServerUrl: identical(mcpServerUrl, sdkOmittedValue)
+            ? this.mcpServerUrl
+            : mcpServerUrl as String,
+        accessToken: identical(accessToken, sdkOmittedValue)
+            ? this.accessToken
+            : accessToken as String,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<String?>,
+        refresh: identical(refresh, sdkOmittedValue)
+            ? this.refresh
+            : refresh as SdkOptional<CreateMcpOauthRefreshParam?>,
+      );
 
-  factory CreateVaultCredentialAuthParamMcpOauth.fromJson(Map<String, dynamic> json) => CreateVaultCredentialAuthParamMcpOauth(
-    type_: (json['type'] != null ? CreateVaultCredentialAuthParamMcpOauthType.fromJson(json['type'] as String) : null)!,
-    mcpServerUrl: (json['mcp_server_url'] as String?)!,
-    accessToken: (json['access_token'] as String?)!,
-    expiresAt: json.containsKey('expires_at') ? SdkPresent(json['expires_at'] as String?) : const SdkOmitted(),
-    refresh: json.containsKey('refresh') ? SdkPresent(json['refresh'] != null ? CreateMcpOauthRefreshParam.fromJson(json['refresh'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory CreateVaultCredentialAuthParamMcpOauth.fromJson(
+          Map<String, dynamic> json) =>
+      CreateVaultCredentialAuthParamMcpOauth(
+        type_: (json['type'] != null
+            ? CreateVaultCredentialAuthParamMcpOauthType.fromJson(
+                json['type'] as String)
+            : null)!,
+        mcpServerUrl: (json['mcp_server_url'] as String?)!,
+        accessToken: (json['access_token'] as String?)!,
+        expiresAt: json.containsKey('expires_at')
+            ? SdkPresent(json['expires_at'] as String?)
+            : const SdkOmitted(),
+        refresh: json.containsKey('refresh')
+            ? SdkPresent(json['refresh'] != null
+                ? CreateMcpOauthRefreshParam.fromJson(
+                    json['refresh'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'mcp_server_url': mcpServerUrl,
-    'access_token': accessToken,
-    ...switch (expiresAt) {
-      SdkPresent<String?>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (refresh) {
-      SdkPresent<CreateMcpOauthRefreshParam?>(value: final value) => {'refresh': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'mcp_server_url': mcpServerUrl,
+        'access_token': accessToken,
+        ...switch (expiresAt) {
+          SdkPresent<String?>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (refresh) {
+          SdkPresent<CreateMcpOauthRefreshParam?>(value: final value) => {
+              'refresh': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A bearer token for an MCP server, without automatic OAuth refresh.
 class CreateVaultCredentialAuthParamStaticBearer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `static_bearer`.
   final CreateVaultCredentialAuthParamStaticBearerType type_;
+
   /// The HTTPS MCP server URL authorized by this credential.
   final String mcpServerUrl;
+
   /// The bearer token to store. This secret is never returned in credential resources.
   final String token;
 
-  const CreateVaultCredentialAuthParamStaticBearer({required this.type_, required this.mcpServerUrl, required this.token});
+  const CreateVaultCredentialAuthParamStaticBearer(
+      {required this.type_, required this.mcpServerUrl, required this.token});
 
-  CreateVaultCredentialAuthParamStaticBearer Function({CreateVaultCredentialAuthParamStaticBearerType type_, String mcpServerUrl, String token}) get copyWith => _copyWith;
+  CreateVaultCredentialAuthParamStaticBearer Function(
+      {CreateVaultCredentialAuthParamStaticBearerType type_,
+      String mcpServerUrl,
+      String token}) get copyWith => _copyWith;
 
-  CreateVaultCredentialAuthParamStaticBearer _copyWith({Object? type_ = sdkOmittedValue, Object? mcpServerUrl = sdkOmittedValue, Object? token = sdkOmittedValue}) => CreateVaultCredentialAuthParamStaticBearer(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateVaultCredentialAuthParamStaticBearerType,
-    mcpServerUrl: identical(mcpServerUrl, sdkOmittedValue) ? this.mcpServerUrl : mcpServerUrl as String,
-    token: identical(token, sdkOmittedValue) ? this.token : token as String,
-  );
+  CreateVaultCredentialAuthParamStaticBearer _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? mcpServerUrl = sdkOmittedValue,
+          Object? token = sdkOmittedValue}) =>
+      CreateVaultCredentialAuthParamStaticBearer(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateVaultCredentialAuthParamStaticBearerType,
+        mcpServerUrl: identical(mcpServerUrl, sdkOmittedValue)
+            ? this.mcpServerUrl
+            : mcpServerUrl as String,
+        token: identical(token, sdkOmittedValue) ? this.token : token as String,
+      );
 
-  factory CreateVaultCredentialAuthParamStaticBearer.fromJson(Map<String, dynamic> json) => CreateVaultCredentialAuthParamStaticBearer(
-    type_: (json['type'] != null ? CreateVaultCredentialAuthParamStaticBearerType.fromJson(json['type'] as String) : null)!,
-    mcpServerUrl: (json['mcp_server_url'] as String?)!,
-    token: (json['token'] as String?)!,
-  );
+  factory CreateVaultCredentialAuthParamStaticBearer.fromJson(
+          Map<String, dynamic> json) =>
+      CreateVaultCredentialAuthParamStaticBearer(
+        type_: (json['type'] != null
+            ? CreateVaultCredentialAuthParamStaticBearerType.fromJson(
+                json['type'] as String)
+            : null)!,
+        mcpServerUrl: (json['mcp_server_url'] as String?)!,
+        token: (json['token'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'mcp_server_url': mcpServerUrl,
-    'token': token,
-  };
+        'type': type_.toJson(),
+        'mcp_server_url': mcpServerUrl,
+        'token': token,
+      };
 }
 
 /// Parameters for storing a credential for an MCP server or an OpenAI-hosted environment.
 class CreateVaultCredentialParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name is trimmed before storage. It must contain 1 to 256 UTF-8 bytes after trimming.
   final String name;
+
   /// The authentication method and write-only secret values to store.
   final CreateVaultCredentialAuthParam auth;
+
   /// Up to 16 string key-value pairs, with keys up to 64 and values up to 512 characters. Defaults to an empty map.
   final SdkOptional<Map<String, String>> metadata;
 
-  const CreateVaultCredentialParams({required this.name, required this.auth, this.metadata = const SdkOmitted()});
+  const CreateVaultCredentialParams(
+      {required this.name,
+      required this.auth,
+      this.metadata = const SdkOmitted()});
 
-  CreateVaultCredentialParams Function({String name, CreateVaultCredentialAuthParam auth, SdkOptional<Map<String, String>> metadata}) get copyWith => _copyWith;
+  CreateVaultCredentialParams Function(
+      {String name,
+      CreateVaultCredentialAuthParam auth,
+      SdkOptional<Map<String, String>> metadata}) get copyWith => _copyWith;
 
-  CreateVaultCredentialParams _copyWith({Object? name = sdkOmittedValue, Object? auth = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => CreateVaultCredentialParams(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    auth: identical(auth, sdkOmittedValue) ? this.auth : auth as CreateVaultCredentialAuthParam,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, String>>,
-  );
+  CreateVaultCredentialParams _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? auth = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      CreateVaultCredentialParams(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        auth: identical(auth, sdkOmittedValue)
+            ? this.auth
+            : auth as CreateVaultCredentialAuthParam,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, String>>,
+      );
 
-  factory CreateVaultCredentialParams.fromJson(Map<String, dynamic> json) => CreateVaultCredentialParams(
-    name: (json['name'] as String?)!,
-    auth: (json['auth'] != null ? CreateVaultCredentialAuthParam.fromJson(json['auth']) : null)!,
-    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-  );
+  factory CreateVaultCredentialParams.fromJson(Map<String, dynamic> json) =>
+      CreateVaultCredentialParams(
+        name: (json['name'] as String?)!,
+        auth: (json['auth'] != null
+            ? CreateVaultCredentialAuthParam.fromJson(json['auth'])
+            : null)!,
+        metadata: json['metadata'] != null
+            ? SdkPresent((json['metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'auth': auth.toJson(),
-    ...switch (metadata) {
-      SdkPresent<Map<String, String>>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'auth': auth.toJson(),
+        ...switch (metadata) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Parameters for creating a vault to store credentials used by agent tools.
 class CreateVaultParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name is trimmed before storage. It must contain 1 to 256 UTF-8 bytes after trimming.
   final SdkOptional<String> name;
+
   /// Key-value pairs to associate with the vault, such as an application or team identifier.
   final SdkOptional<Map<String, String>?> metadata;
 
-  const CreateVaultParams({this.name = const SdkOmitted(), this.metadata = const SdkOmitted()});
+  const CreateVaultParams(
+      {this.name = const SdkOmitted(), this.metadata = const SdkOmitted()});
 
-  CreateVaultParams Function({SdkOptional<String> name, SdkOptional<Map<String, String>?> metadata}) get copyWith => _copyWith;
+  CreateVaultParams Function(
+      {SdkOptional<String> name,
+      SdkOptional<Map<String, String>?> metadata}) get copyWith => _copyWith;
 
-  CreateVaultParams _copyWith({Object? name = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => CreateVaultParams(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, String>?>,
-  );
+  CreateVaultParams _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      CreateVaultParams(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, String>?>,
+      );
 
-  factory CreateVaultParams.fromJson(Map<String, dynamic> json) => CreateVaultParams(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
-  );
+  factory CreateVaultParams.fromJson(Map<String, dynamic> json) =>
+      CreateVaultParams(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        metadata: json.containsKey('metadata')
+            ? SdkPresent(json['metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metadata) {
-      SdkPresent<Map<String, String>?>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metadata) {
+          SdkPresent<Map<String, String>?>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

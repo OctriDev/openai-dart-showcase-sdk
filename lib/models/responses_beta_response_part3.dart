@@ -9,16 +9,21 @@ sealed class BetaModelResponsePropertiesTopLogprobs {
   static const String constructionSurface = 'named';
   const BetaModelResponsePropertiesTopLogprobs();
   factory BetaModelResponsePropertiesTopLogprobs.fromJson(Object? json) {
-    if (json is num) { return BetaModelResponsePropertiesTopLogprobsInt(json.toInt()); }
-    throw FormatException("No variant matched for BetaModelResponsePropertiesTopLogprobs");
+    if (json is num) {
+      return BetaModelResponsePropertiesTopLogprobsInt(json.toInt());
+    }
+    throw FormatException(
+        "No variant matched for BetaModelResponsePropertiesTopLogprobs");
   }
   Object? toJson();
 }
 
-final class BetaModelResponsePropertiesTopLogprobsInt extends BetaModelResponsePropertiesTopLogprobs {
+final class BetaModelResponsePropertiesTopLogprobsInt
+    extends BetaModelResponsePropertiesTopLogprobs {
   final int value;
   const BetaModelResponsePropertiesTopLogprobsInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class BetaModelResponsePropertiesTemperature {
@@ -26,16 +31,21 @@ sealed class BetaModelResponsePropertiesTemperature {
   static const String constructionSurface = 'named';
   const BetaModelResponsePropertiesTemperature();
   factory BetaModelResponsePropertiesTemperature.fromJson(Object? json) {
-    if (json is num) { return BetaModelResponsePropertiesTemperatureDouble(json.toDouble()); }
-    throw FormatException("No variant matched for BetaModelResponsePropertiesTemperature");
+    if (json is num) {
+      return BetaModelResponsePropertiesTemperatureDouble(json.toDouble());
+    }
+    throw FormatException(
+        "No variant matched for BetaModelResponsePropertiesTemperature");
   }
   Object? toJson();
 }
 
-final class BetaModelResponsePropertiesTemperatureDouble extends BetaModelResponsePropertiesTemperature {
+final class BetaModelResponsePropertiesTemperatureDouble
+    extends BetaModelResponsePropertiesTemperature {
   final double value;
   const BetaModelResponsePropertiesTemperatureDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class BetaModelResponsePropertiesTopP {
@@ -43,16 +53,21 @@ sealed class BetaModelResponsePropertiesTopP {
   static const String constructionSurface = 'named';
   const BetaModelResponsePropertiesTopP();
   factory BetaModelResponsePropertiesTopP.fromJson(Object? json) {
-    if (json is num) { return BetaModelResponsePropertiesTopPDouble(json.toDouble()); }
-    throw FormatException("No variant matched for BetaModelResponsePropertiesTopP");
+    if (json is num) {
+      return BetaModelResponsePropertiesTopPDouble(json.toDouble());
+    }
+    throw FormatException(
+        "No variant matched for BetaModelResponsePropertiesTopP");
   }
   Object? toJson();
 }
 
-final class BetaModelResponsePropertiesTopPDouble extends BetaModelResponsePropertiesTopP {
+final class BetaModelResponsePropertiesTopPDouble
+    extends BetaModelResponsePropertiesTopP {
   final double value;
   const BetaModelResponsePropertiesTopPDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class BetaModelResponsePropertiesSafetyIdentifier {
@@ -60,31 +75,45 @@ sealed class BetaModelResponsePropertiesSafetyIdentifier {
   static const String constructionSurface = 'named';
   const BetaModelResponsePropertiesSafetyIdentifier();
   factory BetaModelResponsePropertiesSafetyIdentifier.fromJson(Object? json) {
-    if (json is String) { return BetaModelResponsePropertiesSafetyIdentifierString(json); }
-    throw FormatException("No variant matched for BetaModelResponsePropertiesSafetyIdentifier");
+    if (json is String) {
+      return BetaModelResponsePropertiesSafetyIdentifierString(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaModelResponsePropertiesSafetyIdentifier");
   }
   Object? toJson();
 }
 
-final class BetaModelResponsePropertiesSafetyIdentifierString extends BetaModelResponsePropertiesSafetyIdentifier {
+final class BetaModelResponsePropertiesSafetyIdentifierString
+    extends BetaModelResponsePropertiesSafetyIdentifier {
   final String value;
   const BetaModelResponsePropertiesSafetyIdentifierString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class BetaModelResponsePropertiesPromptCacheRetention {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const BetaModelResponsePropertiesPromptCacheRetention();
-  factory BetaModelResponsePropertiesPromptCacheRetention.fromJson(Object? json) {
-    try { return BetaModelResponsePropertiesPromptCacheRetentionBetaModelResponsePropertiesPromptCacheRetentionVariant0(BetaModelResponsePropertiesPromptCacheRetentionVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for BetaModelResponsePropertiesPromptCacheRetention");
+  factory BetaModelResponsePropertiesPromptCacheRetention.fromJson(
+      Object? json) {
+    try {
+      return BetaModelResponsePropertiesPromptCacheRetentionBetaModelResponsePropertiesPromptCacheRetentionVariant0(
+          BetaModelResponsePropertiesPromptCacheRetentionVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for BetaModelResponsePropertiesPromptCacheRetention");
   }
   Object? toJson();
 }
 
-final class BetaModelResponsePropertiesPromptCacheRetentionBetaModelResponsePropertiesPromptCacheRetentionVariant0 extends BetaModelResponsePropertiesPromptCacheRetention {
+final class BetaModelResponsePropertiesPromptCacheRetentionBetaModelResponsePropertiesPromptCacheRetentionVariant0
+    extends BetaModelResponsePropertiesPromptCacheRetention {
   final BetaModelResponsePropertiesPromptCacheRetentionVariant0 value;
-  const BetaModelResponsePropertiesPromptCacheRetentionBetaModelResponsePropertiesPromptCacheRetentionVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaModelResponsePropertiesPromptCacheRetentionBetaModelResponsePropertiesPromptCacheRetentionVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }

@@ -9,35 +9,55 @@ sealed class CreateCompletionRequestPrompt {
   static const String constructionSurface = 'named';
   const CreateCompletionRequestPrompt();
   factory CreateCompletionRequestPrompt.fromJson(Object? json) {
-    if (json is String) { return CreateCompletionRequestPromptString(json); }
-    if (json is List) { return CreateCompletionRequestPromptListString(json.map((e) => e as String).toList().cast<String>()); }
-    if (json is List) { return CreateCompletionRequestPromptListint(json.map((e) => (e as num).toInt()).toList().cast<int>()); }
-    if (json is List) { return CreateCompletionRequestPromptListListInt(json.map((e) => e).toList().cast<List<int>>()); }
-    throw FormatException("No variant matched for CreateCompletionRequestPrompt");
+    if (json is String) {
+      return CreateCompletionRequestPromptString(json);
+    }
+    if (json is List) {
+      return CreateCompletionRequestPromptListString(
+          json.map((e) => e as String).toList().cast<String>());
+    }
+    if (json is List) {
+      return CreateCompletionRequestPromptListint(
+          json.map((e) => (e as num).toInt()).toList().cast<int>());
+    }
+    if (json is List) {
+      return CreateCompletionRequestPromptListListInt(
+          json.map((e) => e).toList().cast<List<int>>());
+    }
+    throw FormatException(
+        "No variant matched for CreateCompletionRequestPrompt");
   }
   Object? toJson();
 }
 
-final class CreateCompletionRequestPromptString extends CreateCompletionRequestPrompt {
+final class CreateCompletionRequestPromptString
+    extends CreateCompletionRequestPrompt {
   final String value;
   const CreateCompletionRequestPromptString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class CreateCompletionRequestPromptListString extends CreateCompletionRequestPrompt {
+final class CreateCompletionRequestPromptListString
+    extends CreateCompletionRequestPrompt {
   final List<String> value;
   const CreateCompletionRequestPromptListString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class CreateCompletionRequestPromptListint extends CreateCompletionRequestPrompt {
+final class CreateCompletionRequestPromptListint
+    extends CreateCompletionRequestPrompt {
   final List<int> value;
   const CreateCompletionRequestPromptListint(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class CreateCompletionRequestPromptListListInt extends CreateCompletionRequestPrompt {
+final class CreateCompletionRequestPromptListListInt
+    extends CreateCompletionRequestPrompt {
   final List<List<int>> value;
   const CreateCompletionRequestPromptListListInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }

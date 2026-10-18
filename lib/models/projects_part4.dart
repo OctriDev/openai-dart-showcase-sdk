@@ -8,283 +8,504 @@ part of 'projects.dart';
 class ProjectServiceAccountApiKey {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always `organization.project.service_account.api_key`
   final ProjectServiceAccountApiKeyObject object;
+
   /// Required `string` value serialized in the `value` wire field.
   final String value;
+
   /// Required `string` value serialized in the `name` wire field.
   final String name;
+
   /// Required `unixtime`-formatted value serialized in the `created_at` wire field.
   final int createdAt;
+
   /// The Unix timestamp (in seconds) when the API key expires, or null if it does not expire.
   final SdkOptional<int?> expiresAt;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
 
-  const ProjectServiceAccountApiKey({required this.object, required this.value, required this.name, required this.createdAt, this.expiresAt = const SdkOmitted(), required this.id});
+  const ProjectServiceAccountApiKey(
+      {required this.object,
+      required this.value,
+      required this.name,
+      required this.createdAt,
+      this.expiresAt = const SdkOmitted(),
+      required this.id});
 
-  ProjectServiceAccountApiKey Function({ProjectServiceAccountApiKeyObject object, String value, String name, int createdAt, SdkOptional<int?> expiresAt, String id}) get copyWith => _copyWith;
+  ProjectServiceAccountApiKey Function(
+      {ProjectServiceAccountApiKeyObject object,
+      String value,
+      String name,
+      int createdAt,
+      SdkOptional<int?> expiresAt,
+      String id}) get copyWith => _copyWith;
 
-  ProjectServiceAccountApiKey _copyWith({Object? object = sdkOmittedValue, Object? value = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? id = sdkOmittedValue}) => ProjectServiceAccountApiKey(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectServiceAccountApiKeyObject,
-    value: identical(value, sdkOmittedValue) ? this.value : value as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int?>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  ProjectServiceAccountApiKey _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? value = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue,
+          Object? id = sdkOmittedValue}) =>
+      ProjectServiceAccountApiKey(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ProjectServiceAccountApiKeyObject,
+        value: identical(value, sdkOmittedValue) ? this.value : value as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<int?>,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory ProjectServiceAccountApiKey.fromJson(Map<String, dynamic> json) => ProjectServiceAccountApiKey(
-    object: (json['object'] != null ? ProjectServiceAccountApiKeyObject.fromJson(json['object'] as String) : null)!,
-    value: (json['value'] as String?)!,
-    name: (json['name'] as String?)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    expiresAt: json.containsKey('expires_at') ? SdkPresent((json['expires_at'] as num?)?.toInt()) : const SdkOmitted(),
-    id: (json['id'] as String?)!,
-  );
+  factory ProjectServiceAccountApiKey.fromJson(Map<String, dynamic> json) =>
+      ProjectServiceAccountApiKey(
+        object: (json['object'] != null
+            ? ProjectServiceAccountApiKeyObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        value: (json['value'] as String?)!,
+        name: (json['name'] as String?)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        expiresAt: json.containsKey('expires_at')
+            ? SdkPresent((json['expires_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'value': value,
-    'name': name,
-    'created_at': createdAt,
-    ...switch (expiresAt) {
-      SdkPresent<int?>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    'id': id,
-  };
+        'object': object.toJson(),
+        'value': value,
+        'name': name,
+        'created_at': createdAt,
+        ...switch (expiresAt) {
+          SdkPresent<int?>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'id': id,
+      };
 }
 
 sealed class ProjectServiceAccountCreateRequestExpiresInSeconds {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const ProjectServiceAccountCreateRequestExpiresInSeconds();
-  factory ProjectServiceAccountCreateRequestExpiresInSeconds.fromJson(Object? json) {
-    if (json is num) { return ProjectServiceAccountCreateRequestExpiresInSecondsInt(json.toInt()); }
-    throw FormatException("No variant matched for ProjectServiceAccountCreateRequestExpiresInSeconds");
+  factory ProjectServiceAccountCreateRequestExpiresInSeconds.fromJson(
+      Object? json) {
+    if (json is num) {
+      return ProjectServiceAccountCreateRequestExpiresInSecondsInt(
+          json.toInt());
+    }
+    throw FormatException(
+        "No variant matched for ProjectServiceAccountCreateRequestExpiresInSeconds");
   }
   Object? toJson();
 }
 
-final class ProjectServiceAccountCreateRequestExpiresInSecondsInt extends ProjectServiceAccountCreateRequestExpiresInSeconds {
+final class ProjectServiceAccountCreateRequestExpiresInSecondsInt
+    extends ProjectServiceAccountCreateRequestExpiresInSeconds {
   final int value;
   const ProjectServiceAccountCreateRequestExpiresInSecondsInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Typed representation of the `ProjectServiceAccountCreateRequest` API schema.
 class ProjectServiceAccountCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the service account being created.
   final String name;
+
   /// Optional `boolean` value serialized in the `create_service_account_only` wire field.
   final SdkOptional<bool?> createServiceAccountOnly;
+
   /// Number of seconds until the initial API key expires. If omitted or null, the key does not expire unless the effective organization or project policy requires an expiration. When a policy sets a maximum lifetime, this value must be provided and must not exceed that limit. A non-null value cannot be used when `create_service_account_only` is true.
   final SdkOptional<int?> expiresInSeconds;
 
-  const ProjectServiceAccountCreateRequest({required this.name, this.createServiceAccountOnly = const SdkOmitted(), this.expiresInSeconds = const SdkOmitted()});
+  const ProjectServiceAccountCreateRequest(
+      {required this.name,
+      this.createServiceAccountOnly = const SdkOmitted(),
+      this.expiresInSeconds = const SdkOmitted()});
 
-  ProjectServiceAccountCreateRequest Function({String name, SdkOptional<bool?> createServiceAccountOnly, SdkOptional<int?> expiresInSeconds}) get copyWith => _copyWith;
+  ProjectServiceAccountCreateRequest Function(
+      {String name,
+      SdkOptional<bool?> createServiceAccountOnly,
+      SdkOptional<int?> expiresInSeconds}) get copyWith => _copyWith;
 
-  ProjectServiceAccountCreateRequest _copyWith({Object? name = sdkOmittedValue, Object? createServiceAccountOnly = sdkOmittedValue, Object? expiresInSeconds = sdkOmittedValue}) => ProjectServiceAccountCreateRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    createServiceAccountOnly: identical(createServiceAccountOnly, sdkOmittedValue) ? this.createServiceAccountOnly : createServiceAccountOnly as SdkOptional<bool?>,
-    expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue) ? this.expiresInSeconds : expiresInSeconds as SdkOptional<int?>,
-  );
+  ProjectServiceAccountCreateRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? createServiceAccountOnly = sdkOmittedValue,
+          Object? expiresInSeconds = sdkOmittedValue}) =>
+      ProjectServiceAccountCreateRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        createServiceAccountOnly:
+            identical(createServiceAccountOnly, sdkOmittedValue)
+                ? this.createServiceAccountOnly
+                : createServiceAccountOnly as SdkOptional<bool?>,
+        expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue)
+            ? this.expiresInSeconds
+            : expiresInSeconds as SdkOptional<int?>,
+      );
 
-  factory ProjectServiceAccountCreateRequest.fromJson(Map<String, dynamic> json) => ProjectServiceAccountCreateRequest(
-    name: (json['name'] as String?)!,
-    createServiceAccountOnly: json.containsKey('create_service_account_only') ? SdkPresent(json['create_service_account_only'] as bool?) : const SdkOmitted(),
-    expiresInSeconds: json.containsKey('expires_in_seconds') ? SdkPresent((json['expires_in_seconds'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory ProjectServiceAccountCreateRequest.fromJson(
+          Map<String, dynamic> json) =>
+      ProjectServiceAccountCreateRequest(
+        name: (json['name'] as String?)!,
+        createServiceAccountOnly:
+            json.containsKey('create_service_account_only')
+                ? SdkPresent(json['create_service_account_only'] as bool?)
+                : const SdkOmitted(),
+        expiresInSeconds: json.containsKey('expires_in_seconds')
+            ? SdkPresent((json['expires_in_seconds'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (createServiceAccountOnly) {
-      SdkPresent<bool?>(value: final value) => {'create_service_account_only': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresInSeconds) {
-      SdkPresent<int?>(value: final value) => {'expires_in_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (createServiceAccountOnly) {
+          SdkPresent<bool?>(value: final value) => {
+              'create_service_account_only': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresInSeconds) {
+          SdkPresent<int?>(value: final value) => {
+              'expires_in_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ProjectServiceAccountCreateResponse` API schema.
 class ProjectServiceAccountCreateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final ProjectServiceAccountCreateResponseObject object;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required `string` value serialized in the `name` wire field.
   final String name;
+
   /// Service accounts created with default project membership have role `member`. Accounts created with `create_service_account_only` have role `none`.
   final ProjectServiceAccountCreateResponseRole role;
+
   /// Required `unixtime`-formatted value serialized in the `created_at` wire field.
   final int createdAt;
+
   /// Required API value serialized in the `api_key` wire field.
   final ProjectServiceAccountApiKey? apiKey;
 
-  const ProjectServiceAccountCreateResponse({required this.object, required this.id, required this.name, required this.role, required this.createdAt, required this.apiKey});
+  const ProjectServiceAccountCreateResponse(
+      {required this.object,
+      required this.id,
+      required this.name,
+      required this.role,
+      required this.createdAt,
+      required this.apiKey});
 
-  ProjectServiceAccountCreateResponse Function({ProjectServiceAccountCreateResponseObject object, String id, String name, ProjectServiceAccountCreateResponseRole role, int createdAt, ProjectServiceAccountApiKey? apiKey}) get copyWith => _copyWith;
+  ProjectServiceAccountCreateResponse Function(
+      {ProjectServiceAccountCreateResponseObject object,
+      String id,
+      String name,
+      ProjectServiceAccountCreateResponseRole role,
+      int createdAt,
+      ProjectServiceAccountApiKey? apiKey}) get copyWith => _copyWith;
 
-  ProjectServiceAccountCreateResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? role = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? apiKey = sdkOmittedValue}) => ProjectServiceAccountCreateResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectServiceAccountCreateResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    role: identical(role, sdkOmittedValue) ? this.role : role as ProjectServiceAccountCreateResponseRole,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    apiKey: identical(apiKey, sdkOmittedValue) ? this.apiKey : apiKey as ProjectServiceAccountApiKey?,
-  );
+  ProjectServiceAccountCreateResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? apiKey = sdkOmittedValue}) =>
+      ProjectServiceAccountCreateResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ProjectServiceAccountCreateResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as ProjectServiceAccountCreateResponseRole,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        apiKey: identical(apiKey, sdkOmittedValue)
+            ? this.apiKey
+            : apiKey as ProjectServiceAccountApiKey?,
+      );
 
-  factory ProjectServiceAccountCreateResponse.fromJson(Map<String, dynamic> json) => ProjectServiceAccountCreateResponse(
-    object: (json['object'] != null ? ProjectServiceAccountCreateResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    role: (json['role'] != null ? ProjectServiceAccountCreateResponseRole.fromJson(json['role'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    apiKey: json.containsKey('api_key') ? json['api_key'] != null ? ProjectServiceAccountApiKey.fromJson(json['api_key'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'api_key', 'Required property is missing'),
-  );
+  factory ProjectServiceAccountCreateResponse.fromJson(
+          Map<String, dynamic> json) =>
+      ProjectServiceAccountCreateResponse(
+        object: (json['object'] != null
+            ? ProjectServiceAccountCreateResponseObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        role: (json['role'] != null
+            ? ProjectServiceAccountCreateResponseRole.fromJson(
+                json['role'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        apiKey: json.containsKey('api_key')
+            ? json['api_key'] != null
+                ? ProjectServiceAccountApiKey.fromJson(
+                    json['api_key'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'api_key', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'name': name,
-    'role': role.toJson(),
-    'created_at': createdAt,
-    'api_key': apiKey?.toJson(),
-  };
+        'object': object.toJson(),
+        'id': id,
+        'name': name,
+        'role': role.toJson(),
+        'created_at': createdAt,
+        'api_key': apiKey?.toJson(),
+      };
 }
 
 /// Typed representation of the `ProjectServiceAccountDeleteResponse` API schema.
 class ProjectServiceAccountDeleteResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final ProjectServiceAccountDeleteResponseObject object;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
 
-  const ProjectServiceAccountDeleteResponse({required this.object, required this.id, required this.deleted});
+  const ProjectServiceAccountDeleteResponse(
+      {required this.object, required this.id, required this.deleted});
 
-  ProjectServiceAccountDeleteResponse Function({ProjectServiceAccountDeleteResponseObject object, String id, bool deleted}) get copyWith => _copyWith;
+  ProjectServiceAccountDeleteResponse Function(
+      {ProjectServiceAccountDeleteResponseObject object,
+      String id,
+      bool deleted}) get copyWith => _copyWith;
 
-  ProjectServiceAccountDeleteResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => ProjectServiceAccountDeleteResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectServiceAccountDeleteResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  ProjectServiceAccountDeleteResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      ProjectServiceAccountDeleteResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ProjectServiceAccountDeleteResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory ProjectServiceAccountDeleteResponse.fromJson(Map<String, dynamic> json) => ProjectServiceAccountDeleteResponse(
-    object: (json['object'] != null ? ProjectServiceAccountDeleteResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    deleted: (json['deleted'] as bool?)!,
-  );
+  factory ProjectServiceAccountDeleteResponse.fromJson(
+          Map<String, dynamic> json) =>
+      ProjectServiceAccountDeleteResponse(
+        object: (json['object'] != null
+            ? ProjectServiceAccountDeleteResponseObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        deleted: (json['deleted'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'deleted': deleted,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'deleted': deleted,
+      };
 }
 
 /// Typed representation of the `ProjectServiceAccountListResponse` API schema.
 class ProjectServiceAccountListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final ProjectServiceAccountListResponseObject object;
+
   /// Required array value serialized in the `data` wire field.
   final List<ProjectServiceAccount> data;
+
   /// Optional `string` value serialized in the `first_id` wire field.
   final SdkOptional<String?> firstId;
+
   /// Optional `string` value serialized in the `last_id` wire field.
   final SdkOptional<String?> lastId;
+
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ProjectServiceAccountListResponse({required this.object, required this.data, this.firstId = const SdkOmitted(), this.lastId = const SdkOmitted(), required this.hasMore});
+  const ProjectServiceAccountListResponse(
+      {required this.object,
+      required this.data,
+      this.firstId = const SdkOmitted(),
+      this.lastId = const SdkOmitted(),
+      required this.hasMore});
 
-  ProjectServiceAccountListResponse Function({ProjectServiceAccountListResponseObject object, List<ProjectServiceAccount> data, SdkOptional<String?> firstId, SdkOptional<String?> lastId, bool hasMore}) get copyWith => _copyWith;
+  ProjectServiceAccountListResponse Function(
+      {ProjectServiceAccountListResponseObject object,
+      List<ProjectServiceAccount> data,
+      SdkOptional<String?> firstId,
+      SdkOptional<String?> lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  ProjectServiceAccountListResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ProjectServiceAccountListResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectServiceAccountListResponseObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<ProjectServiceAccount>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as SdkOptional<String?>,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as SdkOptional<String?>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  ProjectServiceAccountListResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      ProjectServiceAccountListResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ProjectServiceAccountListResponseObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<ProjectServiceAccount>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as SdkOptional<String?>,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as SdkOptional<String?>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory ProjectServiceAccountListResponse.fromJson(Map<String, dynamic> json) => ProjectServiceAccountListResponse(
-    object: (json['object'] != null ? ProjectServiceAccountListResponseObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => ProjectServiceAccount.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? SdkPresent(json['first_id'] as String?) : const SdkOmitted(),
-    lastId: json.containsKey('last_id') ? SdkPresent(json['last_id'] as String?) : const SdkOmitted(),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory ProjectServiceAccountListResponse.fromJson(
+          Map<String, dynamic> json) =>
+      ProjectServiceAccountListResponse(
+        object: (json['object'] != null
+            ? ProjectServiceAccountListResponseObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                ProjectServiceAccount.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? SdkPresent(json['first_id'] as String?)
+            : const SdkOmitted(),
+        lastId: json.containsKey('last_id')
+            ? SdkPresent(json['last_id'] as String?)
+            : const SdkOmitted(),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    ...switch (firstId) {
-      SdkPresent<String?>(value: final value) => {'first_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastId) {
-      SdkPresent<String?>(value: final value) => {'last_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        ...switch (firstId) {
+          SdkPresent<String?>(value: final value) => {
+              'first_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastId) {
+          SdkPresent<String?>(value: final value) => {
+              'last_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'has_more': hasMore,
+      };
 }
 
 /// Typed representation of the `ProjectUpdateRequest` API schema.
 class ProjectUpdateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The updated name of the project, this name appears in reports.
   final SdkOptional<String?> name;
+
   /// External key ID to associate with the project.
   final SdkOptional<String?> externalKeyId;
+
   /// Geography for the project. Deprecated: use `residency` when creating a project to configure data residency. This field is retained for backward compatibility.
   final SdkOptional<String?> geography;
 
-  const ProjectUpdateRequest({this.name = const SdkOmitted(), this.externalKeyId = const SdkOmitted(), this.geography = const SdkOmitted()});
+  const ProjectUpdateRequest(
+      {this.name = const SdkOmitted(),
+      this.externalKeyId = const SdkOmitted(),
+      this.geography = const SdkOmitted()});
 
-  ProjectUpdateRequest Function({SdkOptional<String?> name, SdkOptional<String?> externalKeyId, SdkOptional<String?> geography}) get copyWith => _copyWith;
+  ProjectUpdateRequest Function(
+      {SdkOptional<String?> name,
+      SdkOptional<String?> externalKeyId,
+      SdkOptional<String?> geography}) get copyWith => _copyWith;
 
-  ProjectUpdateRequest _copyWith({Object? name = sdkOmittedValue, Object? externalKeyId = sdkOmittedValue, Object? geography = sdkOmittedValue}) => ProjectUpdateRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
-    externalKeyId: identical(externalKeyId, sdkOmittedValue) ? this.externalKeyId : externalKeyId as SdkOptional<String?>,
-    geography: identical(geography, sdkOmittedValue) ? this.geography : geography as SdkOptional<String?>,
-  );
+  ProjectUpdateRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? externalKeyId = sdkOmittedValue,
+          Object? geography = sdkOmittedValue}) =>
+      ProjectUpdateRequest(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String?>,
+        externalKeyId: identical(externalKeyId, sdkOmittedValue)
+            ? this.externalKeyId
+            : externalKeyId as SdkOptional<String?>,
+        geography: identical(geography, sdkOmittedValue)
+            ? this.geography
+            : geography as SdkOptional<String?>,
+      );
 
-  factory ProjectUpdateRequest.fromJson(Map<String, dynamic> json) => ProjectUpdateRequest(
-    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
-    externalKeyId: json.containsKey('external_key_id') ? SdkPresent(json['external_key_id'] as String?) : const SdkOmitted(),
-    geography: json.containsKey('geography') ? SdkPresent(json['geography'] as String?) : const SdkOmitted(),
-  );
+  factory ProjectUpdateRequest.fromJson(Map<String, dynamic> json) =>
+      ProjectUpdateRequest(
+        name: json.containsKey('name')
+            ? SdkPresent(json['name'] as String?)
+            : const SdkOmitted(),
+        externalKeyId: json.containsKey('external_key_id')
+            ? SdkPresent(json['external_key_id'] as String?)
+            : const SdkOmitted(),
+        geography: json.containsKey('geography')
+            ? SdkPresent(json['geography'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String?>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalKeyId) {
-      SdkPresent<String?>(value: final value) => {'external_key_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (geography) {
-      SdkPresent<String?>(value: final value) => {'geography': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String?>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalKeyId) {
+          SdkPresent<String?>(value: final value) => {
+              'external_key_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (geography) {
+          SdkPresent<String?>(value: final value) => {
+              'geography': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -6,12 +6,12 @@ part of 'live_live_tool.dart';
 // live_live_tool domain models
 /// Typed representation of the `LiveToolChoiceEnum` API schema.
 final class LiveToolChoiceEnum {
-
   final String value;
 
   const LiveToolChoiceEnum._(this.value);
 
-  factory LiveToolChoiceEnum.fromJson(String value) => LiveToolChoiceEnum._(value);
+  factory LiveToolChoiceEnum.fromJson(String value) =>
+      LiveToolChoiceEnum._(value);
 
   static const auto = LiveToolChoiceEnum._('auto');
   static const none = LiveToolChoiceEnum._('none');
@@ -19,22 +19,25 @@ final class LiveToolChoiceEnum {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveToolChoiceEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveToolChoiceEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `LiveToolChoiceValueEnum` API schema.
 final class LiveToolChoiceValueEnum {
-
   final String value;
 
   const LiveToolChoiceValueEnum._(this.value);
 
-  factory LiveToolChoiceValueEnum.fromJson(String value) => LiveToolChoiceValueEnum._(value);
+  factory LiveToolChoiceValueEnum.fromJson(String value) =>
+      LiveToolChoiceValueEnum._(value);
 
   static const none = LiveToolChoiceValueEnum._('none');
   static const auto = LiveToolChoiceValueEnum._('auto');
@@ -42,34 +45,45 @@ final class LiveToolChoiceValueEnum {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveToolChoiceValueEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveToolChoiceValueEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `LiveToolSearchToolInputParam` API schema.
 class LiveToolSearchToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final LiveToolSearchToolInputParamType type_;
 
   const LiveToolSearchToolInputParam({required this.type_});
 
-  LiveToolSearchToolInputParam Function({LiveToolSearchToolInputParamType type_}) get copyWith => _copyWith;
+  LiveToolSearchToolInputParam Function(
+      {LiveToolSearchToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveToolSearchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveToolSearchToolInputParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveToolSearchToolInputParamType,
-  );
+  LiveToolSearchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      LiveToolSearchToolInputParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveToolSearchToolInputParamType,
+      );
 
-  factory LiveToolSearchToolInputParam.fromJson(Map<String, dynamic> json) => LiveToolSearchToolInputParam(
-    type_: (json['type'] != null ? LiveToolSearchToolInputParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory LiveToolSearchToolInputParam.fromJson(Map<String, dynamic> json) =>
+      LiveToolSearchToolInputParam(
+        type_: (json['type'] != null
+            ? LiveToolSearchToolInputParamType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

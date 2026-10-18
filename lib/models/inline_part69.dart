@@ -10,14 +10,17 @@ enum LiveResponseEventType {
 
   static LiveResponseEventType fromJson(String value) {
     switch (value) {
-      case 'response.event': return LiveResponseEventType.responseEvent;
-      default: throw ArgumentError('Unknown LiveResponseEventType: $value');
+      case 'response.event':
+        return LiveResponseEventType.responseEvent;
+      default:
+        throw ArgumentError('Unknown LiveResponseEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveResponseEventType.responseEvent: return 'response.event';
+      case LiveResponseEventType.responseEvent:
+        return 'response.event';
     }
   }
 
@@ -31,14 +34,17 @@ enum LiveResponseItemCreateParamType {
 
   static LiveResponseItemCreateParamType fromJson(String value) {
     switch (value) {
-      case 'response.item.create': return LiveResponseItemCreateParamType.responseItemCreate;
-      default: throw ArgumentError('Unknown LiveResponseItemCreateParamType: $value');
+      case 'response.item.create':
+        return LiveResponseItemCreateParamType.responseItemCreate;
+      default:
+        throw ArgumentError('Unknown LiveResponseItemCreateParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveResponseItemCreateParamType.responseItemCreate: return 'response.item.create';
+      case LiveResponseItemCreateParamType.responseItemCreate:
+        return 'response.item.create';
     }
   }
 
@@ -52,14 +58,17 @@ enum LiveResponsesDelegationParamType {
 
   static LiveResponsesDelegationParamType fromJson(String value) {
     switch (value) {
-      case 'responses': return LiveResponsesDelegationParamType.responses;
-      default: throw ArgumentError('Unknown LiveResponsesDelegationParamType: $value');
+      case 'responses':
+        return LiveResponsesDelegationParamType.responses;
+      default:
+        throw ArgumentError('Unknown LiveResponsesDelegationParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveResponsesDelegationParamType.responses: return 'responses';
+      case LiveResponsesDelegationParamType.responses:
+        return 'responses';
     }
   }
 
@@ -73,14 +82,18 @@ enum LiveResponsesDelegationUpdateParamType {
 
   static LiveResponsesDelegationUpdateParamType fromJson(String value) {
     switch (value) {
-      case 'responses': return LiveResponsesDelegationUpdateParamType.responses;
-      default: throw ArgumentError('Unknown LiveResponsesDelegationUpdateParamType: $value');
+      case 'responses':
+        return LiveResponsesDelegationUpdateParamType.responses;
+      default:
+        throw ArgumentError(
+            'Unknown LiveResponsesDelegationUpdateParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveResponsesDelegationUpdateParamType.responses: return 'responses';
+      case LiveResponsesDelegationUpdateParamType.responses:
+        return 'responses';
     }
   }
 
@@ -94,14 +107,18 @@ enum LiveSessionAudioFormatPCMAParamType {
 
   static LiveSessionAudioFormatPCMAParamType fromJson(String value) {
     switch (value) {
-      case 'audio/pcma': return LiveSessionAudioFormatPCMAParamType.audioPcma;
-      default: throw ArgumentError('Unknown LiveSessionAudioFormatPCMAParamType: $value');
+      case 'audio/pcma':
+        return LiveSessionAudioFormatPCMAParamType.audioPcma;
+      default:
+        throw ArgumentError(
+            'Unknown LiveSessionAudioFormatPCMAParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSessionAudioFormatPCMAParamType.audioPcma: return 'audio/pcma';
+      case LiveSessionAudioFormatPCMAParamType.audioPcma:
+        return 'audio/pcma';
     }
   }
 
@@ -111,24 +128,27 @@ enum LiveSessionAudioFormatPCMAParamType {
 
 /// Audio sample rate in hertz. Live WebSocket PCM audio supports 16000 or 24000 Hz.
 final class LiveSessionAudioFormatPCMParamRate {
-
   final int value;
 
   const LiveSessionAudioFormatPCMParamRate._(this.value);
 
-  factory LiveSessionAudioFormatPCMParamRate.fromJson(int value) => LiveSessionAudioFormatPCMParamRate._(value);
+  factory LiveSessionAudioFormatPCMParamRate.fromJson(int value) =>
+      LiveSessionAudioFormatPCMParamRate._(value);
 
   static const v16000 = LiveSessionAudioFormatPCMParamRate._(16000);
   static const v24000 = LiveSessionAudioFormatPCMParamRate._(24000);
 
   int toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveSessionAudioFormatPCMParamRate && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveSessionAudioFormatPCMParamRate && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The audio encoding. Always `audio/pcm`.
@@ -137,14 +157,18 @@ enum LiveSessionAudioFormatPCMParamType {
 
   static LiveSessionAudioFormatPCMParamType fromJson(String value) {
     switch (value) {
-      case 'audio/pcm': return LiveSessionAudioFormatPCMParamType.audioPcm;
-      default: throw ArgumentError('Unknown LiveSessionAudioFormatPCMParamType: $value');
+      case 'audio/pcm':
+        return LiveSessionAudioFormatPCMParamType.audioPcm;
+      default:
+        throw ArgumentError(
+            'Unknown LiveSessionAudioFormatPCMParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSessionAudioFormatPCMParamType.audioPcm: return 'audio/pcm';
+      case LiveSessionAudioFormatPCMParamType.audioPcm:
+        return 'audio/pcm';
     }
   }
 
@@ -158,14 +182,18 @@ enum LiveSessionAudioFormatPCMUParamType {
 
   static LiveSessionAudioFormatPCMUParamType fromJson(String value) {
     switch (value) {
-      case 'audio/pcmu': return LiveSessionAudioFormatPCMUParamType.audioPcmu;
-      default: throw ArgumentError('Unknown LiveSessionAudioFormatPCMUParamType: $value');
+      case 'audio/pcmu':
+        return LiveSessionAudioFormatPCMUParamType.audioPcmu;
+      default:
+        throw ArgumentError(
+            'Unknown LiveSessionAudioFormatPCMUParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveSessionAudioFormatPCMUParamType.audioPcmu: return 'audio/pcmu';
+      case LiveSessionAudioFormatPCMUParamType.audioPcmu:
+        return 'audio/pcmu';
     }
   }
 
@@ -175,105 +203,123 @@ enum LiveSessionAudioFormatPCMUParamType {
 
 /// Required enumerated value serialized in the `reason` wire field.
 final class LiveSessionClosedReasonVariant0 {
-
   final String value;
 
   const LiveSessionClosedReasonVariant0._(this.value);
 
-  factory LiveSessionClosedReasonVariant0.fromJson(String value) => LiveSessionClosedReasonVariant0._(value);
+  factory LiveSessionClosedReasonVariant0.fromJson(String value) =>
+      LiveSessionClosedReasonVariant0._(value);
 
-  static const closeRequested = LiveSessionClosedReasonVariant0._('close_requested');
+  static const closeRequested =
+      LiveSessionClosedReasonVariant0._('close_requested');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveSessionClosedReasonVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveSessionClosedReasonVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `reason` wire field.
 final class LiveSessionClosedReasonVariant1 {
-
   final String value;
 
   const LiveSessionClosedReasonVariant1._(this.value);
 
-  factory LiveSessionClosedReasonVariant1.fromJson(String value) => LiveSessionClosedReasonVariant1._(value);
+  factory LiveSessionClosedReasonVariant1.fromJson(String value) =>
+      LiveSessionClosedReasonVariant1._(value);
 
   static const expired = LiveSessionClosedReasonVariant1._('expired');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveSessionClosedReasonVariant1 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveSessionClosedReasonVariant1 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `reason` wire field.
 final class LiveSessionClosedReasonVariant2 {
-
   final String value;
 
   const LiveSessionClosedReasonVariant2._(this.value);
 
-  factory LiveSessionClosedReasonVariant2.fromJson(String value) => LiveSessionClosedReasonVariant2._(value);
+  factory LiveSessionClosedReasonVariant2.fromJson(String value) =>
+      LiveSessionClosedReasonVariant2._(value);
 
   static const content = LiveSessionClosedReasonVariant2._('content');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveSessionClosedReasonVariant2 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveSessionClosedReasonVariant2 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `reason` wire field.
 final class LiveSessionClosedReasonVariant3 {
-
   final String value;
 
   const LiveSessionClosedReasonVariant3._(this.value);
 
-  factory LiveSessionClosedReasonVariant3.fromJson(String value) => LiveSessionClosedReasonVariant3._(value);
+  factory LiveSessionClosedReasonVariant3.fromJson(String value) =>
+      LiveSessionClosedReasonVariant3._(value);
 
-  static const remoteHangup = LiveSessionClosedReasonVariant3._('remote_hangup');
+  static const remoteHangup =
+      LiveSessionClosedReasonVariant3._('remote_hangup');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveSessionClosedReasonVariant3 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveSessionClosedReasonVariant3 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `reason` wire field.
 final class LiveSessionClosedReasonVariant4 {
-
   final String value;
 
   const LiveSessionClosedReasonVariant4._(this.value);
 
-  factory LiveSessionClosedReasonVariant4.fromJson(String value) => LiveSessionClosedReasonVariant4._(value);
+  factory LiveSessionClosedReasonVariant4.fromJson(String value) =>
+      LiveSessionClosedReasonVariant4._(value);
 
-  static const connectionLost = LiveSessionClosedReasonVariant4._('connection_lost');
+  static const connectionLost =
+      LiveSessionClosedReasonVariant4._('connection_lost');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveSessionClosedReasonVariant4 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveSessionClosedReasonVariant4 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

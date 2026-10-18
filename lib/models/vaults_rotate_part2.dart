@@ -8,62 +8,102 @@ part of 'vaults_rotate.dart';
 class RotateVaultCredentialAuthParamStaticBearer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `static_bearer`.
   final RotateVaultCredentialAuthParamStaticBearerType type_;
+
   /// The replacement bearer token. This secret is never returned in credential resources.
   final String token;
 
-  const RotateVaultCredentialAuthParamStaticBearer({required this.type_, required this.token});
+  const RotateVaultCredentialAuthParamStaticBearer(
+      {required this.type_, required this.token});
 
-  RotateVaultCredentialAuthParamStaticBearer Function({RotateVaultCredentialAuthParamStaticBearerType type_, String token}) get copyWith => _copyWith;
+  RotateVaultCredentialAuthParamStaticBearer Function(
+      {RotateVaultCredentialAuthParamStaticBearerType type_,
+      String token}) get copyWith => _copyWith;
 
-  RotateVaultCredentialAuthParamStaticBearer _copyWith({Object? type_ = sdkOmittedValue, Object? token = sdkOmittedValue}) => RotateVaultCredentialAuthParamStaticBearer(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RotateVaultCredentialAuthParamStaticBearerType,
-    token: identical(token, sdkOmittedValue) ? this.token : token as String,
-  );
+  RotateVaultCredentialAuthParamStaticBearer _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? token = sdkOmittedValue}) =>
+      RotateVaultCredentialAuthParamStaticBearer(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RotateVaultCredentialAuthParamStaticBearerType,
+        token: identical(token, sdkOmittedValue) ? this.token : token as String,
+      );
 
-  factory RotateVaultCredentialAuthParamStaticBearer.fromJson(Map<String, dynamic> json) => RotateVaultCredentialAuthParamStaticBearer(
-    type_: (json['type'] != null ? RotateVaultCredentialAuthParamStaticBearerType.fromJson(json['type'] as String) : null)!,
-    token: (json['token'] as String?)!,
-  );
+  factory RotateVaultCredentialAuthParamStaticBearer.fromJson(
+          Map<String, dynamic> json) =>
+      RotateVaultCredentialAuthParamStaticBearer(
+        type_: (json['type'] != null
+            ? RotateVaultCredentialAuthParamStaticBearerType.fromJson(
+                json['type'] as String)
+            : null)!,
+        token: (json['token'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'token': token,
-  };
+        'type': type_.toJson(),
+        'token': token,
+      };
 }
 
 /// Metadata, secret, expiry, and OAuth refresh scope updates for an existing vault credential. Supply at least one of `auth` or `metadata`.
 class RotateVaultCredentialParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Replacement values for the credential's existing authentication method.
   final SdkOptional<RotateVaultCredentialAuthParam> auth;
+
   /// Replaces all metadata. Omit to preserve it, or pass {} to clear it. Up to 16 string key-value pairs, with keys up to 64 and values up to 512 characters.
   final SdkOptional<Map<String, String>> metadata;
 
-  const RotateVaultCredentialParams({this.auth = const SdkOmitted(), this.metadata = const SdkOmitted()});
+  const RotateVaultCredentialParams(
+      {this.auth = const SdkOmitted(), this.metadata = const SdkOmitted()});
 
-  RotateVaultCredentialParams Function({SdkOptional<RotateVaultCredentialAuthParam> auth, SdkOptional<Map<String, String>> metadata}) get copyWith => _copyWith;
+  RotateVaultCredentialParams Function(
+      {SdkOptional<RotateVaultCredentialAuthParam> auth,
+      SdkOptional<Map<String, String>> metadata}) get copyWith => _copyWith;
 
-  RotateVaultCredentialParams _copyWith({Object? auth = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => RotateVaultCredentialParams(
-    auth: identical(auth, sdkOmittedValue) ? this.auth : auth as SdkOptional<RotateVaultCredentialAuthParam>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, String>>,
-  );
+  RotateVaultCredentialParams _copyWith(
+          {Object? auth = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      RotateVaultCredentialParams(
+        auth: identical(auth, sdkOmittedValue)
+            ? this.auth
+            : auth as SdkOptional<RotateVaultCredentialAuthParam>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, String>>,
+      );
 
-  factory RotateVaultCredentialParams.fromJson(Map<String, dynamic> json) => RotateVaultCredentialParams(
-    auth: json['auth'] != null ? SdkPresent((json['auth'] != null ? RotateVaultCredentialAuthParam.fromJson(json['auth']) : null)!) : const SdkOmitted(),
-    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-  );
+  factory RotateVaultCredentialParams.fromJson(Map<String, dynamic> json) =>
+      RotateVaultCredentialParams(
+        auth: json['auth'] != null
+            ? SdkPresent((json['auth'] != null
+                ? RotateVaultCredentialAuthParam.fromJson(json['auth'])
+                : null)!)
+            : const SdkOmitted(),
+        metadata: json['metadata'] != null
+            ? SdkPresent((json['metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (auth) {
-      SdkPresent<RotateVaultCredentialAuthParam>(value: final value) => {'auth': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metadata) {
-      SdkPresent<Map<String, String>>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (auth) {
+          SdkPresent<RotateVaultCredentialAuthParam>(value: final value) => {
+              'auth': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metadata) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

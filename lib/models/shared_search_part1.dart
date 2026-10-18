@@ -6,34 +6,37 @@ part of 'shared_search.dart';
 // shared_search domain models
 /// Typed representation of the `SearchContentType` API schema.
 final class SearchContentType {
-
   final String value;
 
   const SearchContentType._(this.value);
 
-  factory SearchContentType.fromJson(String value) => SearchContentType._(value);
+  factory SearchContentType.fromJson(String value) =>
+      SearchContentType._(value);
 
   static const text = SearchContentType._('text');
   static const image = SearchContentType._('image');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SearchContentType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SearchContentType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `SearchContextSize` API schema.
 final class SearchContextSize {
-
   final String value;
 
   const SearchContextSize._(this.value);
 
-  factory SearchContextSize.fromJson(String value) => SearchContextSize._(value);
+  factory SearchContextSize.fromJson(String value) =>
+      SearchContextSize._(value);
 
   static const low = SearchContextSize._('low');
   static const medium = SearchContextSize._('medium');
@@ -41,10 +44,13 @@ final class SearchContextSize {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SearchContextSize && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SearchContextSize && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -8,52 +8,100 @@ part of 'shared_message.dart';
 class Message {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the message. Always set to `message`.
   final MessageType type_;
+
   /// The unique ID of the message.
   final String id;
+
   /// The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final MessageStatus status;
+
   /// The role of the message. One of `unknown`, `user`, `assistant`, `system`, `critic`, `discriminator`, `developer`, or `tool`.
   final MessageRole role;
+
   /// The content of the message
   final List<MessageContentItem> content;
+
   /// Optional API value serialized in the `phase` wire field.
   final SdkOptional<MessagePhase2?> phase;
 
-  const Message({required this.type_, required this.id, required this.status, required this.role, required this.content, this.phase = const SdkOmitted()});
+  const Message(
+      {required this.type_,
+      required this.id,
+      required this.status,
+      required this.role,
+      required this.content,
+      this.phase = const SdkOmitted()});
 
-  Message Function({MessageType type_, String id, MessageStatus status, MessageRole role, List<MessageContentItem> content, SdkOptional<MessagePhase2?> phase}) get copyWith => _copyWith;
+  Message Function(
+      {MessageType type_,
+      String id,
+      MessageStatus status,
+      MessageRole role,
+      List<MessageContentItem> content,
+      SdkOptional<MessagePhase2?> phase}) get copyWith => _copyWith;
 
-  Message _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? role = sdkOmittedValue, Object? content = sdkOmittedValue, Object? phase = sdkOmittedValue}) => Message(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as MessageStatus,
-    role: identical(role, sdkOmittedValue) ? this.role : role as MessageRole,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<MessageContentItem>,
-    phase: identical(phase, sdkOmittedValue) ? this.phase : phase as SdkOptional<MessagePhase2?>,
-  );
+  Message _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? content = sdkOmittedValue,
+          Object? phase = sdkOmittedValue}) =>
+      Message(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessageType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as MessageStatus,
+        role:
+            identical(role, sdkOmittedValue) ? this.role : role as MessageRole,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<MessageContentItem>,
+        phase: identical(phase, sdkOmittedValue)
+            ? this.phase
+            : phase as SdkOptional<MessagePhase2?>,
+      );
 
   factory Message.fromJson(Map<String, dynamic> json) => Message(
-    type_: (json['type'] != null ? MessageType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    status: (json['status'] != null ? MessageStatus.fromJson(json['status'] as String) : null)!,
-    role: (json['role'] != null ? MessageRole.fromJson(json['role'] as String) : null)!,
-    content: ((json['content'] as List?)?.map((e) => MessageContentItem.fromJson(e)).toList())!,
-    phase: json.containsKey('phase') ? SdkPresent(json['phase'] != null ? MessagePhase2.fromJson(json['phase'] as String) : null) : const SdkOmitted(),
-  );
+        type_: (json['type'] != null
+            ? MessageType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        status: (json['status'] != null
+            ? MessageStatus.fromJson(json['status'] as String)
+            : null)!,
+        role: (json['role'] != null
+            ? MessageRole.fromJson(json['role'] as String)
+            : null)!,
+        content: ((json['content'] as List?)
+            ?.map((e) => MessageContentItem.fromJson(e))
+            .toList())!,
+        phase: json.containsKey('phase')
+            ? SdkPresent(json['phase'] != null
+                ? MessagePhase2.fromJson(json['phase'] as String)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'status': status.toJson(),
-    'role': role.toJson(),
-    'content': content.map((item) => item.toJson()).toList(),
-    ...switch (phase) {
-      SdkPresent<MessagePhase2?>(value: final value) => {'phase': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'status': status.toJson(),
+        'role': role.toJson(),
+        'content': content.map((item) => item.toJson()).toList(),
+        ...switch (phase) {
+          SdkPresent<MessagePhase2?>(value: final value) => {
+              'phase': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class MessageContentItem {
@@ -62,26 +110,112 @@ sealed class MessageContentItem {
   const MessageContentItem();
   factory MessageContentItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = InputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemInputTextContent(value); } } catch (_) {}
-      try { final value = OutputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemOutputTextContent(value); } } catch (_) {}
-      try { final value = TextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemTextContent(value); } } catch (_) {}
-      try { final value = SummaryTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemSummaryTextContent(value); } } catch (_) {}
-      try { final value = ReasoningTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemReasoningTextContent(value); } } catch (_) {}
-      try { final value = RefusalContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemRefusalContent(value); } } catch (_) {}
-      try { final value = InputImageContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemInputImageContent(value); } } catch (_) {}
-      try { final value = ComputerScreenshotContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemComputerScreenshotContent(value); } } catch (_) {}
-      try { final value = InputFileContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageContentItemInputFileContent(value); } } catch (_) {}
+      try {
+        final value = InputTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentItemInputTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = OutputTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentItemOutputTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = TextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentItemTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = SummaryTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentItemSummaryTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ReasoningTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentItemReasoningTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RefusalContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentItemRefusalContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputImageContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentItemInputImageContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ComputerScreenshotContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentItemComputerScreenshotContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputFileContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessageContentItemInputFileContent(value);
+        }
+      } catch (_) {}
     }
-    try { return MessageContentItemInputTextContent(InputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageContentItemOutputTextContent(OutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageContentItemTextContent(TextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageContentItemSummaryTextContent(SummaryTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageContentItemReasoningTextContent(ReasoningTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageContentItemRefusalContent(RefusalContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageContentItemInputImageContent(InputImageContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageContentItemComputerScreenshotContent(ComputerScreenshotContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessageContentItemInputFileContent(InputFileContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "output_text", "text", "summary_text", "reasoning_text", "refusal", "input_image", "computer_screenshot", "input_file"}.contains(json["type"])) { return UnknownMessageContentItem(json); }
+    try {
+      return MessageContentItemInputTextContent(
+          InputTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageContentItemOutputTextContent(
+          OutputTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageContentItemTextContent(
+          TextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageContentItemSummaryTextContent(
+          SummaryTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageContentItemReasoningTextContent(
+          ReasoningTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageContentItemRefusalContent(
+          RefusalContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageContentItemInputImageContent(
+          InputImageContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageContentItemComputerScreenshotContent(
+          ComputerScreenshotContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessageContentItemInputFileContent(
+          InputFileContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "input_text",
+          "output_text",
+          "text",
+          "summary_text",
+          "reasoning_text",
+          "refusal",
+          "input_image",
+          "computer_screenshot",
+          "input_file"
+        }.contains(json["type"])) {
+      return UnknownMessageContentItem(json);
+    }
     throw FormatException("No variant matched for MessageContentItem");
   }
   Object? toJson();
@@ -90,67 +224,77 @@ sealed class MessageContentItem {
 final class MessageContentItemInputTextContent extends MessageContentItem {
   final InputTextContent value;
   const MessageContentItemInputTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class MessageContentItemOutputTextContent extends MessageContentItem {
   final OutputTextContent value;
   const MessageContentItemOutputTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class MessageContentItemTextContent extends MessageContentItem {
   final TextContent value;
   const MessageContentItemTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class MessageContentItemSummaryTextContent extends MessageContentItem {
   final SummaryTextContent value;
   const MessageContentItemSummaryTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class MessageContentItemReasoningTextContent extends MessageContentItem {
   final ReasoningTextContent value;
   const MessageContentItemReasoningTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class MessageContentItemRefusalContent extends MessageContentItem {
   final RefusalContent value;
   const MessageContentItemRefusalContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class MessageContentItemInputImageContent extends MessageContentItem {
   final InputImageContent value;
   const MessageContentItemInputImageContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessageContentItemComputerScreenshotContent extends MessageContentItem {
+final class MessageContentItemComputerScreenshotContent
+    extends MessageContentItem {
   final ComputerScreenshotContent value;
   const MessageContentItemComputerScreenshotContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class MessageContentItemInputFileContent extends MessageContentItem {
   final InputFileContent value;
   const MessageContentItemInputFileContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [MessageContentItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownMessageContentItem extends MessageContentItem {
   final Map<String, dynamic> raw;
   const UnknownMessageContentItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`). For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend phase on all assistant messages — dropping it can degrade performance. Not used for user messages.
 final class MessagePhase {
-
   final String value;
 
   const MessagePhase._(this.value);
@@ -162,17 +306,19 @@ final class MessagePhase {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagePhase && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagePhase && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `MessagePhase2` API schema.
 final class MessagePhase2 {
-
   final String value;
 
   const MessagePhase2._(this.value);
@@ -184,17 +330,19 @@ final class MessagePhase2 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagePhase2 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagePhase2 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `MessageRole` API schema.
 final class MessageRole {
-
   final String value;
 
   const MessageRole._(this.value);
@@ -212,17 +360,19 @@ final class MessageRole {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `MessageStatus` API schema.
 final class MessageStatus {
-
   final String value;
 
   const MessageStatus._(this.value);
@@ -235,10 +385,13 @@ final class MessageStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessageStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessageStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

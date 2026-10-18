@@ -8,6 +8,7 @@ part of 'webhook_safety_alert_created.dart';
 class WebhookSafetyAlertCreatedData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The safety alert ID to pass to `GET /v1/safety/alerts/{id}`.
   final String id;
 
@@ -15,59 +16,98 @@ class WebhookSafetyAlertCreatedData {
 
   WebhookSafetyAlertCreatedData Function({String id}) get copyWith => _copyWith;
 
-  WebhookSafetyAlertCreatedData _copyWith({Object? id = sdkOmittedValue}) => WebhookSafetyAlertCreatedData(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  WebhookSafetyAlertCreatedData _copyWith({Object? id = sdkOmittedValue}) =>
+      WebhookSafetyAlertCreatedData(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory WebhookSafetyAlertCreatedData.fromJson(Map<String, dynamic> json) => WebhookSafetyAlertCreatedData(
-    id: (json['id'] as String?)!,
-  );
+  factory WebhookSafetyAlertCreatedData.fromJson(Map<String, dynamic> json) =>
+      WebhookSafetyAlertCreatedData(
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }
 
 /// Sent when an approved safety alert is available for an API project.
 class WebhookSafetyAlertCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the webhook event.
   final String id;
+
   /// Always `event`.
   final WebhookSafetyAlertCreatedObject object;
+
   /// The Unix timestamp in seconds when the event was created.
   final int createdAt;
+
   /// Always `safety.alert.created`.
   final WebhookSafetyAlertCreatedType type_;
+
   /// Required object value serialized in the `data` wire field.
   final WebhookSafetyAlertCreatedData data;
 
-  const WebhookSafetyAlertCreated({required this.id, required this.object, required this.createdAt, required this.type_, required this.data});
+  const WebhookSafetyAlertCreated(
+      {required this.id,
+      required this.object,
+      required this.createdAt,
+      required this.type_,
+      required this.data});
 
-  WebhookSafetyAlertCreated Function({String id, WebhookSafetyAlertCreatedObject object, int createdAt, WebhookSafetyAlertCreatedType type_, WebhookSafetyAlertCreatedData data}) get copyWith => _copyWith;
+  WebhookSafetyAlertCreated Function(
+      {String id,
+      WebhookSafetyAlertCreatedObject object,
+      int createdAt,
+      WebhookSafetyAlertCreatedType type_,
+      WebhookSafetyAlertCreatedData data}) get copyWith => _copyWith;
 
-  WebhookSafetyAlertCreated _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => WebhookSafetyAlertCreated(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as WebhookSafetyAlertCreatedObject,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookSafetyAlertCreatedType,
-    data: identical(data, sdkOmittedValue) ? this.data : data as WebhookSafetyAlertCreatedData,
-  );
+  WebhookSafetyAlertCreated _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      WebhookSafetyAlertCreated(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as WebhookSafetyAlertCreatedObject,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebhookSafetyAlertCreatedType,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as WebhookSafetyAlertCreatedData,
+      );
 
-  factory WebhookSafetyAlertCreated.fromJson(Map<String, dynamic> json) => WebhookSafetyAlertCreated(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? WebhookSafetyAlertCreatedObject.fromJson(json['object'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    type_: (json['type'] != null ? WebhookSafetyAlertCreatedType.fromJson(json['type'] as String) : null)!,
-    data: (json['data'] != null ? WebhookSafetyAlertCreatedData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory WebhookSafetyAlertCreated.fromJson(Map<String, dynamic> json) =>
+      WebhookSafetyAlertCreated(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? WebhookSafetyAlertCreatedObject.fromJson(json['object'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        type_: (json['type'] != null
+            ? WebhookSafetyAlertCreatedType.fromJson(json['type'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? WebhookSafetyAlertCreatedData.fromJson(
+                json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'created_at': createdAt,
-    'type': type_.toJson(),
-    'data': data.toJson(),
-  };
+        'id': id,
+        'object': object.toJson(),
+        'created_at': createdAt,
+        'type': type_.toJson(),
+        'data': data.toJson(),
+      };
 }

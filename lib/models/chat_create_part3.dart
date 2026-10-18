@@ -9,16 +9,21 @@ sealed class ModelResponsePropertiesTemperature {
   static const String constructionSurface = 'named';
   const ModelResponsePropertiesTemperature();
   factory ModelResponsePropertiesTemperature.fromJson(Object? json) {
-    if (json is num) { return ModelResponsePropertiesTemperatureDouble(json.toDouble()); }
-    throw FormatException("No variant matched for ModelResponsePropertiesTemperature");
+    if (json is num) {
+      return ModelResponsePropertiesTemperatureDouble(json.toDouble());
+    }
+    throw FormatException(
+        "No variant matched for ModelResponsePropertiesTemperature");
   }
   Object? toJson();
 }
 
-final class ModelResponsePropertiesTemperatureDouble extends ModelResponsePropertiesTemperature {
+final class ModelResponsePropertiesTemperatureDouble
+    extends ModelResponsePropertiesTemperature {
   final double value;
   const ModelResponsePropertiesTemperatureDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class ModelResponsePropertiesTopP {
@@ -26,16 +31,20 @@ sealed class ModelResponsePropertiesTopP {
   static const String constructionSurface = 'named';
   const ModelResponsePropertiesTopP();
   factory ModelResponsePropertiesTopP.fromJson(Object? json) {
-    if (json is num) { return ModelResponsePropertiesTopPDouble(json.toDouble()); }
+    if (json is num) {
+      return ModelResponsePropertiesTopPDouble(json.toDouble());
+    }
     throw FormatException("No variant matched for ModelResponsePropertiesTopP");
   }
   Object? toJson();
 }
 
-final class ModelResponsePropertiesTopPDouble extends ModelResponsePropertiesTopP {
+final class ModelResponsePropertiesTopPDouble
+    extends ModelResponsePropertiesTopP {
   final double value;
   const ModelResponsePropertiesTopPDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class ModelResponsePropertiesSafetyIdentifier {
@@ -43,16 +52,21 @@ sealed class ModelResponsePropertiesSafetyIdentifier {
   static const String constructionSurface = 'named';
   const ModelResponsePropertiesSafetyIdentifier();
   factory ModelResponsePropertiesSafetyIdentifier.fromJson(Object? json) {
-    if (json is String) { return ModelResponsePropertiesSafetyIdentifierString(json); }
-    throw FormatException("No variant matched for ModelResponsePropertiesSafetyIdentifier");
+    if (json is String) {
+      return ModelResponsePropertiesSafetyIdentifierString(json);
+    }
+    throw FormatException(
+        "No variant matched for ModelResponsePropertiesSafetyIdentifier");
   }
   Object? toJson();
 }
 
-final class ModelResponsePropertiesSafetyIdentifierString extends ModelResponsePropertiesSafetyIdentifier {
+final class ModelResponsePropertiesSafetyIdentifierString
+    extends ModelResponsePropertiesSafetyIdentifier {
   final String value;
   const ModelResponsePropertiesSafetyIdentifierString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class ModelResponsePropertiesPromptCacheRetention {
@@ -60,14 +74,22 @@ sealed class ModelResponsePropertiesPromptCacheRetention {
   static const String constructionSurface = 'named';
   const ModelResponsePropertiesPromptCacheRetention();
   factory ModelResponsePropertiesPromptCacheRetention.fromJson(Object? json) {
-    try { return ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0(ModelResponsePropertiesPromptCacheRetentionVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for ModelResponsePropertiesPromptCacheRetention");
+    try {
+      return ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0(
+          ModelResponsePropertiesPromptCacheRetentionVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for ModelResponsePropertiesPromptCacheRetention");
   }
   Object? toJson();
 }
 
-final class ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0 extends ModelResponsePropertiesPromptCacheRetention {
+final class ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0
+    extends ModelResponsePropertiesPromptCacheRetention {
   final ModelResponsePropertiesPromptCacheRetentionVariant0 value;
-  const ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }

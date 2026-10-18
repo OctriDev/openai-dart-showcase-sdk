@@ -6,23 +6,28 @@ part of 'inline.dart';
 // Inline operation models (part 44)
 /// The breakpoint mode. Always `explicit`.
 final class DecisionInputImagePromptCacheBreakpointMode {
-
   final String value;
 
   const DecisionInputImagePromptCacheBreakpointMode._(this.value);
 
-  factory DecisionInputImagePromptCacheBreakpointMode.fromJson(String value) => DecisionInputImagePromptCacheBreakpointMode._(value);
+  factory DecisionInputImagePromptCacheBreakpointMode.fromJson(String value) =>
+      DecisionInputImagePromptCacheBreakpointMode._(value);
 
-  static const explicit = DecisionInputImagePromptCacheBreakpointMode._('explicit');
+  static const explicit =
+      DecisionInputImagePromptCacheBreakpointMode._('explicit');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DecisionInputImagePromptCacheBreakpointMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DecisionInputImagePromptCacheBreakpointMode &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -31,14 +36,17 @@ enum DecisionInputImageType {
 
   static DecisionInputImageType fromJson(String value) {
     switch (value) {
-      case 'input_image': return DecisionInputImageType.inputImage;
-      default: throw ArgumentError('Unknown DecisionInputImageType: $value');
+      case 'input_image':
+        return DecisionInputImageType.inputImage;
+      default:
+        throw ArgumentError('Unknown DecisionInputImageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DecisionInputImageType.inputImage: return 'input_image';
+      case DecisionInputImageType.inputImage:
+        return 'input_image';
     }
   }
 
@@ -48,12 +56,12 @@ enum DecisionInputImageType {
 
 /// Required enumerated value serialized in the `role` wire field.
 final class DecisionInputMessageRole {
-
   final String value;
 
   const DecisionInputMessageRole._(this.value);
 
-  factory DecisionInputMessageRole.fromJson(String value) => DecisionInputMessageRole._(value);
+  factory DecisionInputMessageRole.fromJson(String value) =>
+      DecisionInputMessageRole._(value);
 
   static const user = DecisionInputMessageRole._('user');
   static const developer = DecisionInputMessageRole._('developer');
@@ -62,12 +70,15 @@ final class DecisionInputMessageRole {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DecisionInputMessageRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DecisionInputMessageRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `type` wire field.
@@ -76,14 +87,17 @@ enum DecisionInputMessageType {
 
   static DecisionInputMessageType fromJson(String value) {
     switch (value) {
-      case 'message': return DecisionInputMessageType.message;
-      default: throw ArgumentError('Unknown DecisionInputMessageType: $value');
+      case 'message':
+        return DecisionInputMessageType.message;
+      default:
+        throw ArgumentError('Unknown DecisionInputMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DecisionInputMessageType.message: return 'message';
+      case DecisionInputMessageType.message:
+        return 'message';
     }
   }
 
@@ -97,14 +111,17 @@ enum DecisionInputOutputTextType {
 
   static DecisionInputOutputTextType fromJson(String value) {
     switch (value) {
-      case 'output_text': return DecisionInputOutputTextType.outputText;
-      default: throw ArgumentError('Unknown DecisionInputOutputTextType: $value');
+      case 'output_text':
+        return DecisionInputOutputTextType.outputText;
+      default:
+        throw ArgumentError('Unknown DecisionInputOutputTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DecisionInputOutputTextType.outputText: return 'output_text';
+      case DecisionInputOutputTextType.outputText:
+        return 'output_text';
     }
   }
 
@@ -118,14 +135,17 @@ enum DecisionInputRefusalType {
 
   static DecisionInputRefusalType fromJson(String value) {
     switch (value) {
-      case 'refusal': return DecisionInputRefusalType.refusal;
-      default: throw ArgumentError('Unknown DecisionInputRefusalType: $value');
+      case 'refusal':
+        return DecisionInputRefusalType.refusal;
+      default:
+        throw ArgumentError('Unknown DecisionInputRefusalType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DecisionInputRefusalType.refusal: return 'refusal';
+      case DecisionInputRefusalType.refusal:
+        return 'refusal';
     }
   }
 
@@ -135,23 +155,28 @@ enum DecisionInputRefusalType {
 
 /// The breakpoint mode. Always `explicit`.
 final class DecisionInputTextPromptCacheBreakpointMode {
-
   final String value;
 
   const DecisionInputTextPromptCacheBreakpointMode._(this.value);
 
-  factory DecisionInputTextPromptCacheBreakpointMode.fromJson(String value) => DecisionInputTextPromptCacheBreakpointMode._(value);
+  factory DecisionInputTextPromptCacheBreakpointMode.fromJson(String value) =>
+      DecisionInputTextPromptCacheBreakpointMode._(value);
 
-  static const explicit = DecisionInputTextPromptCacheBreakpointMode._('explicit');
+  static const explicit =
+      DecisionInputTextPromptCacheBreakpointMode._('explicit');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DecisionInputTextPromptCacheBreakpointMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DecisionInputTextPromptCacheBreakpointMode &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -160,14 +185,17 @@ enum DecisionInputTextType {
 
   static DecisionInputTextType fromJson(String value) {
     switch (value) {
-      case 'input_text': return DecisionInputTextType.inputText;
-      default: throw ArgumentError('Unknown DecisionInputTextType: $value');
+      case 'input_text':
+        return DecisionInputTextType.inputText;
+      default:
+        throw ArgumentError('Unknown DecisionInputTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DecisionInputTextType.inputText: return 'input_text';
+      case DecisionInputTextType.inputText:
+        return 'input_text';
     }
   }
 
@@ -177,106 +205,123 @@ enum DecisionInputTextType {
 
 /// Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to `implicit`. With `implicit`, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With `explicit`, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.
 final class DecisionRequestPromptCacheOptionsMode {
-
   final String value;
 
   const DecisionRequestPromptCacheOptionsMode._(this.value);
 
-  factory DecisionRequestPromptCacheOptionsMode.fromJson(String value) => DecisionRequestPromptCacheOptionsMode._(value);
+  factory DecisionRequestPromptCacheOptionsMode.fromJson(String value) =>
+      DecisionRequestPromptCacheOptionsMode._(value);
 
   static const implicit = DecisionRequestPromptCacheOptionsMode._('implicit');
   static const explicit = DecisionRequestPromptCacheOptionsMode._('explicit');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DecisionRequestPromptCacheOptionsMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DecisionRequestPromptCacheOptionsMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The minimum lifetime applied to every implicit and explicit cache breakpoint written by the request. Defaults to `30m`, which is currently the only supported value. The backend may retain cache entries for longer.
 final class DecisionRequestPromptCacheOptionsTtl {
-
   final String value;
 
   const DecisionRequestPromptCacheOptionsTtl._(this.value);
 
-  factory DecisionRequestPromptCacheOptionsTtl.fromJson(String value) => DecisionRequestPromptCacheOptionsTtl._(value);
+  factory DecisionRequestPromptCacheOptionsTtl.fromJson(String value) =>
+      DecisionRequestPromptCacheOptionsTtl._(value);
 
   static const v30m = DecisionRequestPromptCacheOptionsTtl._('30m');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DecisionRequestPromptCacheOptionsTtl && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DecisionRequestPromptCacheOptionsTtl && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class DecisionsUsageBucketObject {
-
   final String value;
 
   const DecisionsUsageBucketObject._(this.value);
 
-  factory DecisionsUsageBucketObject.fromJson(String value) => DecisionsUsageBucketObject._(value);
+  factory DecisionsUsageBucketObject.fromJson(String value) =>
+      DecisionsUsageBucketObject._(value);
 
   static const bucket = DecisionsUsageBucketObject._('bucket');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DecisionsUsageBucketObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DecisionsUsageBucketObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class DecisionsUsageResultObject {
-
   final String value;
 
   const DecisionsUsageResultObject._(this.value);
 
-  factory DecisionsUsageResultObject.fromJson(String value) => DecisionsUsageResultObject._(value);
+  factory DecisionsUsageResultObject.fromJson(String value) =>
+      DecisionsUsageResultObject._(value);
 
-  static const organizationUsageDecisionsResult = DecisionsUsageResultObject._('organization.usage.decisions.result');
+  static const organizationUsageDecisionsResult =
+      DecisionsUsageResultObject._('organization.usage.decisions.result');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DecisionsUsageResultObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DecisionsUsageResultObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class DeleteAssistantResponseObject {
-
   final String value;
 
   const DeleteAssistantResponseObject._(this.value);
 
-  factory DeleteAssistantResponseObject.fromJson(String value) => DeleteAssistantResponseObject._(value);
+  factory DeleteAssistantResponseObject.fromJson(String value) =>
+      DeleteAssistantResponseObject._(value);
 
-  static const assistantDeleted = DeleteAssistantResponseObject._('assistant.deleted');
+  static const assistantDeleted =
+      DeleteAssistantResponseObject._('assistant.deleted');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DeleteAssistantResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DeleteAssistantResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
