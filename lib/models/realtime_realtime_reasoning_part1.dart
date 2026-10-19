@@ -8,37 +8,49 @@ part of 'realtime_realtime_reasoning.dart';
 class RealtimeReasoning {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Constrains effort on reasoning for reasoning-capable Realtime models such as `gpt-realtime-2`.
   final SdkOptional<RealtimeReasoningEffort> effort;
 
   const RealtimeReasoning({this.effort = const SdkOmitted()});
 
-  RealtimeReasoning Function({SdkOptional<RealtimeReasoningEffort> effort}) get copyWith => _copyWith;
+  RealtimeReasoning Function({SdkOptional<RealtimeReasoningEffort> effort})
+      get copyWith => _copyWith;
 
-  RealtimeReasoning _copyWith({Object? effort = sdkOmittedValue}) => RealtimeReasoning(
-    effort: identical(effort, sdkOmittedValue) ? this.effort : effort as SdkOptional<RealtimeReasoningEffort>,
-  );
+  RealtimeReasoning _copyWith({Object? effort = sdkOmittedValue}) =>
+      RealtimeReasoning(
+        effort: identical(effort, sdkOmittedValue)
+            ? this.effort
+            : effort as SdkOptional<RealtimeReasoningEffort>,
+      );
 
-  factory RealtimeReasoning.fromJson(Map<String, dynamic> json) => RealtimeReasoning(
-    effort: json['effort'] != null ? SdkPresent((json['effort'] != null ? RealtimeReasoningEffort.fromJson(json['effort'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory RealtimeReasoning.fromJson(Map<String, dynamic> json) =>
+      RealtimeReasoning(
+        effort: json['effort'] != null
+            ? SdkPresent((json['effort'] != null
+                ? RealtimeReasoningEffort.fromJson(json['effort'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (effort) {
-      SdkPresent<RealtimeReasoningEffort>(value: final value) => {'effort': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (effort) {
+          SdkPresent<RealtimeReasoningEffort>(value: final value) => {
+              'effort': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Constrains effort on reasoning for reasoning-capable Realtime models such as `gpt-realtime-2`.
 final class RealtimeReasoningEffort {
-
   final String value;
 
   const RealtimeReasoningEffort._(this.value);
 
-  factory RealtimeReasoningEffort.fromJson(String value) => RealtimeReasoningEffort._(value);
+  factory RealtimeReasoningEffort.fromJson(String value) =>
+      RealtimeReasoningEffort._(value);
 
   static const minimal = RealtimeReasoningEffort._('minimal');
   static const low = RealtimeReasoningEffort._('low');
@@ -48,10 +60,13 @@ final class RealtimeReasoningEffort {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeReasoningEffort && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeReasoningEffort && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

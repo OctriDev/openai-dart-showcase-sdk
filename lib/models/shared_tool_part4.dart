@@ -7,144 +7,213 @@ part of 'shared_tool.dart';
 final class ToolSearchOutputToolFileSearchTool extends ToolSearchOutputTool {
   final FileSearchTool value;
   const ToolSearchOutputToolFileSearchTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolSearchOutputToolComputerTool extends ToolSearchOutputTool {
   final ComputerTool value;
   const ToolSearchOutputToolComputerTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ToolSearchOutputToolComputerUsePreviewTool extends ToolSearchOutputTool {
+final class ToolSearchOutputToolComputerUsePreviewTool
+    extends ToolSearchOutputTool {
   final ComputerUsePreviewTool value;
   const ToolSearchOutputToolComputerUsePreviewTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolSearchOutputToolWebSearchTool extends ToolSearchOutputTool {
   final WebSearchTool value;
   const ToolSearchOutputToolWebSearchTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolSearchOutputToolMCPTool extends ToolSearchOutputTool {
   final MCPTool value;
   const ToolSearchOutputToolMCPTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ToolSearchOutputToolCodeInterpreterTool extends ToolSearchOutputTool {
+final class ToolSearchOutputToolCodeInterpreterTool
+    extends ToolSearchOutputTool {
   final CodeInterpreterTool value;
   const ToolSearchOutputToolCodeInterpreterTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ToolSearchOutputToolProgrammaticToolCallingParam extends ToolSearchOutputTool {
+final class ToolSearchOutputToolProgrammaticToolCallingParam
+    extends ToolSearchOutputTool {
   final ProgrammaticToolCallingParam value;
   const ToolSearchOutputToolProgrammaticToolCallingParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolSearchOutputToolImageGenTool extends ToolSearchOutputTool {
   final ImageGenTool value;
   const ToolSearchOutputToolImageGenTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ToolSearchOutputToolLocalShellToolParam extends ToolSearchOutputTool {
+final class ToolSearchOutputToolLocalShellToolParam
+    extends ToolSearchOutputTool {
   final LocalShellToolParam value;
   const ToolSearchOutputToolLocalShellToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ToolSearchOutputToolFunctionShellToolParam extends ToolSearchOutputTool {
+final class ToolSearchOutputToolFunctionShellToolParam
+    extends ToolSearchOutputTool {
   final FunctionShellToolParam value;
   const ToolSearchOutputToolFunctionShellToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolSearchOutputToolCustomToolParam extends ToolSearchOutputTool {
   final CustomToolParam value;
   const ToolSearchOutputToolCustomToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ToolSearchOutputToolToolSearchOutputNamespaceToolParam extends ToolSearchOutputTool {
+final class ToolSearchOutputToolToolSearchOutputNamespaceToolParam
+    extends ToolSearchOutputTool {
   final ToolSearchOutputNamespaceToolParam value;
   const ToolSearchOutputToolToolSearchOutputNamespaceToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ToolSearchOutputToolToolSearchToolParam extends ToolSearchOutputTool {
+final class ToolSearchOutputToolToolSearchToolParam
+    extends ToolSearchOutputTool {
   final ToolSearchToolParam value;
   const ToolSearchOutputToolToolSearchToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ToolSearchOutputToolWebSearchPreviewTool extends ToolSearchOutputTool {
+final class ToolSearchOutputToolWebSearchPreviewTool
+    extends ToolSearchOutputTool {
   final WebSearchPreviewTool value;
   const ToolSearchOutputToolWebSearchPreviewTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ToolSearchOutputToolApplyPatchToolParam extends ToolSearchOutputTool {
+final class ToolSearchOutputToolApplyPatchToolParam
+    extends ToolSearchOutputTool {
   final ApplyPatchToolParam value;
   const ToolSearchOutputToolApplyPatchToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ToolSearchOutputTool] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownToolSearchOutputTool extends ToolSearchOutputTool {
   final Map<String, dynamic> raw;
   const UnknownToolSearchOutputTool(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Hosted or BYOT tool search configuration for deferred tools.
 class ToolSearchToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the tool. Always `tool_search`.
   final ToolSearchToolParamType type_;
+
   /// Whether tool search is executed by the server or by the client.
   final SdkOptional<ToolSearchExecutionType> execution;
+
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String?> description;
+
   /// Optional API value serialized in the `parameters` wire field.
   final SdkOptional<Map<String, dynamic>?> parameters;
 
-  const ToolSearchToolParam({required this.type_, this.execution = const SdkOmitted(), this.description = const SdkOmitted(), this.parameters = const SdkOmitted()});
+  const ToolSearchToolParam(
+      {required this.type_,
+      this.execution = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.parameters = const SdkOmitted()});
 
-  ToolSearchToolParam Function({ToolSearchToolParamType type_, SdkOptional<ToolSearchExecutionType> execution, SdkOptional<String?> description, SdkOptional<Map<String, dynamic>?> parameters}) get copyWith => _copyWith;
+  ToolSearchToolParam Function(
+      {ToolSearchToolParamType type_,
+      SdkOptional<ToolSearchExecutionType> execution,
+      SdkOptional<String?> description,
+      SdkOptional<Map<String, dynamic>?> parameters}) get copyWith => _copyWith;
 
-  ToolSearchToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? execution = sdkOmittedValue, Object? description = sdkOmittedValue, Object? parameters = sdkOmittedValue}) => ToolSearchToolParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ToolSearchToolParamType,
-    execution: identical(execution, sdkOmittedValue) ? this.execution : execution as SdkOptional<ToolSearchExecutionType>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as SdkOptional<Map<String, dynamic>?>,
-  );
+  ToolSearchToolParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? execution = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? parameters = sdkOmittedValue}) =>
+      ToolSearchToolParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ToolSearchToolParamType,
+        execution: identical(execution, sdkOmittedValue)
+            ? this.execution
+            : execution as SdkOptional<ToolSearchExecutionType>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String?>,
+        parameters: identical(parameters, sdkOmittedValue)
+            ? this.parameters
+            : parameters as SdkOptional<Map<String, dynamic>?>,
+      );
 
-  factory ToolSearchToolParam.fromJson(Map<String, dynamic> json) => ToolSearchToolParam(
-    type_: (json['type'] != null ? ToolSearchToolParamType.fromJson(json['type'] as String) : null)!,
-    execution: json['execution'] != null ? SdkPresent((json['execution'] != null ? ToolSearchExecutionType.fromJson(json['execution'] as String) : null)!) : const SdkOmitted(),
-    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    parameters: json.containsKey('parameters') ? SdkPresent(json['parameters'] == null ? null : json['parameters'] as Map<String, dynamic>) : const SdkOmitted(),
-  );
+  factory ToolSearchToolParam.fromJson(Map<String, dynamic> json) =>
+      ToolSearchToolParam(
+        type_: (json['type'] != null
+            ? ToolSearchToolParamType.fromJson(json['type'] as String)
+            : null)!,
+        execution: json['execution'] != null
+            ? SdkPresent((json['execution'] != null
+                ? ToolSearchExecutionType.fromJson(json['execution'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        description: json.containsKey('description')
+            ? SdkPresent(json['description'] as String?)
+            : const SdkOmitted(),
+        parameters: json.containsKey('parameters')
+            ? SdkPresent(json['parameters'] == null
+                ? null
+                : json['parameters'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (execution) {
-      SdkPresent<ToolSearchExecutionType>(value: final value) => {'execution': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String?>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parameters) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'parameters': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (execution) {
+          SdkPresent<ToolSearchExecutionType>(value: final value) => {
+              'execution': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String?>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parameters) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'parameters': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

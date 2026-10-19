@@ -6,77 +6,93 @@ part of 'inline.dart';
 // Inline operation models (part 39)
 /// Optional enumerated value serialized in the `n_epochs` wire field.
 final class CreateFineTuningJobRequestHyperparametersNEpochsVariant0 {
-
   final String value;
 
   const CreateFineTuningJobRequestHyperparametersNEpochsVariant0._(this.value);
 
-  factory CreateFineTuningJobRequestHyperparametersNEpochsVariant0.fromJson(String value) => CreateFineTuningJobRequestHyperparametersNEpochsVariant0._(value);
+  factory CreateFineTuningJobRequestHyperparametersNEpochsVariant0.fromJson(
+          String value) =>
+      CreateFineTuningJobRequestHyperparametersNEpochsVariant0._(value);
 
-  static const auto = CreateFineTuningJobRequestHyperparametersNEpochsVariant0._('auto');
+  static const auto =
+      CreateFineTuningJobRequestHyperparametersNEpochsVariant0._('auto');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateFineTuningJobRequestHyperparametersNEpochsVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateFineTuningJobRequestHyperparametersNEpochsVariant0 &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 final class CreateFineTuningJobRequestIntegrationsItemTypeVariant0 {
-
   final String value;
 
   const CreateFineTuningJobRequestIntegrationsItemTypeVariant0._(this.value);
 
-  factory CreateFineTuningJobRequestIntegrationsItemTypeVariant0.fromJson(String value) => CreateFineTuningJobRequestIntegrationsItemTypeVariant0._(value);
+  factory CreateFineTuningJobRequestIntegrationsItemTypeVariant0.fromJson(
+          String value) =>
+      CreateFineTuningJobRequestIntegrationsItemTypeVariant0._(value);
 
-  static const wandb = CreateFineTuningJobRequestIntegrationsItemTypeVariant0._('wandb');
+  static const wandb =
+      CreateFineTuningJobRequestIntegrationsItemTypeVariant0._('wandb');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateFineTuningJobRequestIntegrationsItemTypeVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateFineTuningJobRequestIntegrationsItemTypeVariant0 &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `background` wire field.
 final class CreateImageEditRequestBackgroundVariant0 {
-
   final String value;
 
   const CreateImageEditRequestBackgroundVariant0._(this.value);
 
-  factory CreateImageEditRequestBackgroundVariant0.fromJson(String value) => CreateImageEditRequestBackgroundVariant0._(value);
+  factory CreateImageEditRequestBackgroundVariant0.fromJson(String value) =>
+      CreateImageEditRequestBackgroundVariant0._(value);
 
-  static const transparent = CreateImageEditRequestBackgroundVariant0._('transparent');
+  static const transparent =
+      CreateImageEditRequestBackgroundVariant0._('transparent');
   static const opaque = CreateImageEditRequestBackgroundVariant0._('opaque');
   static const auto = CreateImageEditRequestBackgroundVariant0._('auto');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateImageEditRequestBackgroundVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateImageEditRequestBackgroundVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `output_format` wire field.
 final class CreateImageEditRequestOutputFormatVariant0 {
-
   final String value;
 
   const CreateImageEditRequestOutputFormatVariant0._(this.value);
 
-  factory CreateImageEditRequestOutputFormatVariant0.fromJson(String value) => CreateImageEditRequestOutputFormatVariant0._(value);
+  factory CreateImageEditRequestOutputFormatVariant0.fromJson(String value) =>
+      CreateImageEditRequestOutputFormatVariant0._(value);
 
   static const png = CreateImageEditRequestOutputFormatVariant0._('png');
   static const jpeg = CreateImageEditRequestOutputFormatVariant0._('jpeg');
@@ -84,22 +100,26 @@ final class CreateImageEditRequestOutputFormatVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateImageEditRequestOutputFormatVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateImageEditRequestOutputFormatVariant0 &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `quality` wire field.
 final class CreateImageEditRequestQualityVariant0 {
-
   final String value;
 
   const CreateImageEditRequestQualityVariant0._(this.value);
 
-  factory CreateImageEditRequestQualityVariant0.fromJson(String value) => CreateImageEditRequestQualityVariant0._(value);
+  factory CreateImageEditRequestQualityVariant0.fromJson(String value) =>
+      CreateImageEditRequestQualityVariant0._(value);
 
   static const low = CreateImageEditRequestQualityVariant0._('low');
   static const medium = CreateImageEditRequestQualityVariant0._('medium');
@@ -111,89 +131,102 @@ final class CreateImageEditRequestQualityVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateImageEditRequestQualityVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateImageEditRequestQualityVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Legacy response format parameter for retired image models. Unsupported for GPT image models, which always return base64-encoded images.
 final class CreateImageEditRequestResponseFormat {
-
   final String value;
 
   const CreateImageEditRequestResponseFormat._(this.value);
 
-  factory CreateImageEditRequestResponseFormat.fromJson(String value) => CreateImageEditRequestResponseFormat._(value);
+  factory CreateImageEditRequestResponseFormat.fromJson(String value) =>
+      CreateImageEditRequestResponseFormat._(value);
 
   static const url = CreateImageEditRequestResponseFormat._('url');
   static const b64Json = CreateImageEditRequestResponseFormat._('b64_json');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateImageEditRequestResponseFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateImageEditRequestResponseFormat && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `background` wire field.
 final class CreateImageRequestBackgroundVariant0 {
-
   final String value;
 
   const CreateImageRequestBackgroundVariant0._(this.value);
 
-  factory CreateImageRequestBackgroundVariant0.fromJson(String value) => CreateImageRequestBackgroundVariant0._(value);
+  factory CreateImageRequestBackgroundVariant0.fromJson(String value) =>
+      CreateImageRequestBackgroundVariant0._(value);
 
-  static const transparent = CreateImageRequestBackgroundVariant0._('transparent');
+  static const transparent =
+      CreateImageRequestBackgroundVariant0._('transparent');
   static const opaque = CreateImageRequestBackgroundVariant0._('opaque');
   static const auto = CreateImageRequestBackgroundVariant0._('auto');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateImageRequestBackgroundVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateImageRequestBackgroundVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `moderation` wire field.
 final class CreateImageRequestModerationVariant0 {
-
   final String value;
 
   const CreateImageRequestModerationVariant0._(this.value);
 
-  factory CreateImageRequestModerationVariant0.fromJson(String value) => CreateImageRequestModerationVariant0._(value);
+  factory CreateImageRequestModerationVariant0.fromJson(String value) =>
+      CreateImageRequestModerationVariant0._(value);
 
   static const low = CreateImageRequestModerationVariant0._('low');
   static const auto = CreateImageRequestModerationVariant0._('auto');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateImageRequestModerationVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateImageRequestModerationVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `output_format` wire field.
 final class CreateImageRequestOutputFormatVariant0 {
-
   final String value;
 
   const CreateImageRequestOutputFormatVariant0._(this.value);
 
-  factory CreateImageRequestOutputFormatVariant0.fromJson(String value) => CreateImageRequestOutputFormatVariant0._(value);
+  factory CreateImageRequestOutputFormatVariant0.fromJson(String value) =>
+      CreateImageRequestOutputFormatVariant0._(value);
 
   static const png = CreateImageRequestOutputFormatVariant0._('png');
   static const jpeg = CreateImageRequestOutputFormatVariant0._('jpeg');
@@ -201,22 +234,25 @@ final class CreateImageRequestOutputFormatVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateImageRequestOutputFormatVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateImageRequestOutputFormatVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `quality` wire field.
 final class CreateImageRequestQualityVariant0 {
-
   final String value;
 
   const CreateImageRequestQualityVariant0._(this.value);
 
-  factory CreateImageRequestQualityVariant0.fromJson(String value) => CreateImageRequestQualityVariant0._(value);
+  factory CreateImageRequestQualityVariant0.fromJson(String value) =>
+      CreateImageRequestQualityVariant0._(value);
 
   static const low = CreateImageRequestQualityVariant0._('low');
   static const medium = CreateImageRequestQualityVariant0._('medium');
@@ -229,54 +265,63 @@ final class CreateImageRequestQualityVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateImageRequestQualityVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateImageRequestQualityVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Legacy response format parameter for retired image models. Unsupported for GPT image models, which always return base64-encoded images.
 final class CreateImageRequestResponseFormat {
-
   final String value;
 
   const CreateImageRequestResponseFormat._(this.value);
 
-  factory CreateImageRequestResponseFormat.fromJson(String value) => CreateImageRequestResponseFormat._(value);
+  factory CreateImageRequestResponseFormat.fromJson(String value) =>
+      CreateImageRequestResponseFormat._(value);
 
   static const url = CreateImageRequestResponseFormat._('url');
   static const b64Json = CreateImageRequestResponseFormat._('b64_json');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateImageRequestResponseFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateImageRequestResponseFormat && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Legacy style parameter for retired image models. Unsupported for GPT image models; describe the desired style in the prompt instead.
 final class CreateImageRequestStyle {
-
   final String value;
 
   const CreateImageRequestStyle._(this.value);
 
-  factory CreateImageRequestStyle.fromJson(String value) => CreateImageRequestStyle._(value);
+  factory CreateImageRequestStyle.fromJson(String value) =>
+      CreateImageRequestStyle._(value);
 
   static const vivid = CreateImageRequestStyle._('vivid');
   static const natural = CreateImageRequestStyle._('natural');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateImageRequestStyle && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateImageRequestStyle && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

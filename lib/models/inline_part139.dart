@@ -5,32 +5,35 @@ part of 'inline.dart';
 
 // Inline operation models (part 139)
 final class UsageVectorStoresGroupByItem {
-
   final String value;
 
   const UsageVectorStoresGroupByItem._(this.value);
 
-  factory UsageVectorStoresGroupByItem.fromJson(String value) => UsageVectorStoresGroupByItem._(value);
+  factory UsageVectorStoresGroupByItem.fromJson(String value) =>
+      UsageVectorStoresGroupByItem._(value);
 
   static const projectId = UsageVectorStoresGroupByItem._('project_id');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageVectorStoresGroupByItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageVectorStoresGroupByItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class UsageWebSearchCallsBucketWidth {
-
   final String value;
 
   const UsageWebSearchCallsBucketWidth._(this.value);
 
-  factory UsageWebSearchCallsBucketWidth.fromJson(String value) => UsageWebSearchCallsBucketWidth._(value);
+  factory UsageWebSearchCallsBucketWidth.fromJson(String value) =>
+      UsageWebSearchCallsBucketWidth._(value);
 
   static const v1m = UsageWebSearchCallsBucketWidth._('1m');
   static const v1h = UsageWebSearchCallsBucketWidth._('1h');
@@ -38,21 +41,24 @@ final class UsageWebSearchCallsBucketWidth {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageWebSearchCallsBucketWidth && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageWebSearchCallsBucketWidth && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class UsageWebSearchCallsContextLevelsItem {
-
   final String value;
 
   const UsageWebSearchCallsContextLevelsItem._(this.value);
 
-  factory UsageWebSearchCallsContextLevelsItem.fromJson(String value) => UsageWebSearchCallsContextLevelsItem._(value);
+  factory UsageWebSearchCallsContextLevelsItem.fromJson(String value) =>
+      UsageWebSearchCallsContextLevelsItem._(value);
 
   static const low = UsageWebSearchCallsContextLevelsItem._('low');
   static const medium = UsageWebSearchCallsContextLevelsItem._('medium');
@@ -60,21 +66,24 @@ final class UsageWebSearchCallsContextLevelsItem {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageWebSearchCallsContextLevelsItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageWebSearchCallsContextLevelsItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class UsageWebSearchCallsGroupByItem {
-
   final String value;
 
   const UsageWebSearchCallsGroupByItem._(this.value);
 
-  factory UsageWebSearchCallsGroupByItem.fromJson(String value) => UsageWebSearchCallsGroupByItem._(value);
+  factory UsageWebSearchCallsGroupByItem.fromJson(String value) =>
+      UsageWebSearchCallsGroupByItem._(value);
 
   static const projectId = UsageWebSearchCallsGroupByItem._('project_id');
   static const userId = UsageWebSearchCallsGroupByItem._('user_id');
@@ -85,194 +94,229 @@ final class UsageWebSearchCallsGroupByItem {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageWebSearchCallsGroupByItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageWebSearchCallsGroupByItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListUserRoleAssignmentsOrder {
-
   final String value;
 
   const ListUserRoleAssignmentsOrder._(this.value);
 
-  factory ListUserRoleAssignmentsOrder.fromJson(String value) => ListUserRoleAssignmentsOrder._(value);
+  factory ListUserRoleAssignmentsOrder.fromJson(String value) =>
+      ListUserRoleAssignmentsOrder._(value);
 
   static const asc = ListUserRoleAssignmentsOrder._('asc');
   static const desc = ListUserRoleAssignmentsOrder._('desc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListUserRoleAssignmentsOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListUserRoleAssignmentsOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListProjectGroupRoleAssignmentsOrder {
-
   final String value;
 
   const ListProjectGroupRoleAssignmentsOrder._(this.value);
 
-  factory ListProjectGroupRoleAssignmentsOrder.fromJson(String value) => ListProjectGroupRoleAssignmentsOrder._(value);
+  factory ListProjectGroupRoleAssignmentsOrder.fromJson(String value) =>
+      ListProjectGroupRoleAssignmentsOrder._(value);
 
   static const asc = ListProjectGroupRoleAssignmentsOrder._('asc');
   static const desc = ListProjectGroupRoleAssignmentsOrder._('desc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListProjectGroupRoleAssignmentsOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListProjectGroupRoleAssignmentsOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListRolesProjectRolesOrder {
-
   final String value;
 
   const ListRolesProjectRolesOrder._(this.value);
 
-  factory ListRolesProjectRolesOrder.fromJson(String value) => ListRolesProjectRolesOrder._(value);
+  factory ListRolesProjectRolesOrder.fromJson(String value) =>
+      ListRolesProjectRolesOrder._(value);
 
   static const asc = ListRolesProjectRolesOrder._('asc');
   static const desc = ListRolesProjectRolesOrder._('desc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListRolesProjectRolesOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListRolesProjectRolesOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListProjectUserRoleAssignmentsOrder {
-
   final String value;
 
   const ListProjectUserRoleAssignmentsOrder._(this.value);
 
-  factory ListProjectUserRoleAssignmentsOrder.fromJson(String value) => ListProjectUserRoleAssignmentsOrder._(value);
+  factory ListProjectUserRoleAssignmentsOrder.fromJson(String value) =>
+      ListProjectUserRoleAssignmentsOrder._(value);
 
   static const asc = ListProjectUserRoleAssignmentsOrder._('asc');
   static const desc = ListProjectUserRoleAssignmentsOrder._('desc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListProjectUserRoleAssignmentsOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListProjectUserRoleAssignmentsOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class BetaCreateResponseOpenaiBetaItem {
-
   final String value;
 
   const BetaCreateResponseOpenaiBetaItem._(this.value);
 
-  factory BetaCreateResponseOpenaiBetaItem.fromJson(String value) => BetaCreateResponseOpenaiBetaItem._(value);
+  factory BetaCreateResponseOpenaiBetaItem.fromJson(String value) =>
+      BetaCreateResponseOpenaiBetaItem._(value);
 
-  static const responsesMultiAgentV1 = BetaCreateResponseOpenaiBetaItem._('responses_multi_agent=v1');
+  static const responsesMultiAgentV1 =
+      BetaCreateResponseOpenaiBetaItem._('responses_multi_agent=v1');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaCreateResponseOpenaiBetaItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaCreateResponseOpenaiBetaItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class BetaDeleteResponseOpenaiBetaItem {
-
   final String value;
 
   const BetaDeleteResponseOpenaiBetaItem._(this.value);
 
-  factory BetaDeleteResponseOpenaiBetaItem.fromJson(String value) => BetaDeleteResponseOpenaiBetaItem._(value);
+  factory BetaDeleteResponseOpenaiBetaItem.fromJson(String value) =>
+      BetaDeleteResponseOpenaiBetaItem._(value);
 
-  static const responsesMultiAgentV1 = BetaDeleteResponseOpenaiBetaItem._('responses_multi_agent=v1');
+  static const responsesMultiAgentV1 =
+      BetaDeleteResponseOpenaiBetaItem._('responses_multi_agent=v1');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaDeleteResponseOpenaiBetaItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaDeleteResponseOpenaiBetaItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class BetaDeleteResponseResponseObject {
-
   final String value;
 
   const BetaDeleteResponseResponseObject._(this.value);
 
-  factory BetaDeleteResponseResponseObject.fromJson(String value) => BetaDeleteResponseResponseObject._(value);
+  factory BetaDeleteResponseResponseObject.fromJson(String value) =>
+      BetaDeleteResponseResponseObject._(value);
 
-  static const responseDeleted = BetaDeleteResponseResponseObject._('response.deleted');
+  static const responseDeleted =
+      BetaDeleteResponseResponseObject._('response.deleted');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaDeleteResponseResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaDeleteResponseResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class BetaGetResponseOpenaiBetaItem {
-
   final String value;
 
   const BetaGetResponseOpenaiBetaItem._(this.value);
 
-  factory BetaGetResponseOpenaiBetaItem.fromJson(String value) => BetaGetResponseOpenaiBetaItem._(value);
+  factory BetaGetResponseOpenaiBetaItem.fromJson(String value) =>
+      BetaGetResponseOpenaiBetaItem._(value);
 
-  static const responsesMultiAgentV1 = BetaGetResponseOpenaiBetaItem._('responses_multi_agent=v1');
+  static const responsesMultiAgentV1 =
+      BetaGetResponseOpenaiBetaItem._('responses_multi_agent=v1');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaGetResponseOpenaiBetaItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaGetResponseOpenaiBetaItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class DeleteResponseResponseObject {
-
   final String value;
 
   const DeleteResponseResponseObject._(this.value);
 
-  factory DeleteResponseResponseObject.fromJson(String value) => DeleteResponseResponseObject._(value);
+  factory DeleteResponseResponseObject.fromJson(String value) =>
+      DeleteResponseResponseObject._(value);
 
-  static const responseDeleted = DeleteResponseResponseObject._('response.deleted');
+  static const responseDeleted =
+      DeleteResponseResponseObject._('response.deleted');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DeleteResponseResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DeleteResponseResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

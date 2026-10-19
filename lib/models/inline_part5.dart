@@ -6,46 +6,52 @@ part of 'inline.dart';
 // Inline operation models (part 5)
 /// The type of actor. Is either `session` or `api_key`.
 final class AuditLogActorType {
-
   final String value;
 
   const AuditLogActorType._(this.value);
 
-  factory AuditLogActorType.fromJson(String value) => AuditLogActorType._(value);
+  factory AuditLogActorType.fromJson(String value) =>
+      AuditLogActorType._(value);
 
   static const session = AuditLogActorType._('session');
   static const apiKey = AuditLogActorType._('api_key');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AuditLogActorType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AuditLogActorType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of API key. Can be either `user` or `service_account`.
 final class AuditLogActorApiKeyType {
-
   final String value;
 
   const AuditLogActorApiKeyType._(this.value);
 
-  factory AuditLogActorApiKeyType.fromJson(String value) => AuditLogActorApiKeyType._(value);
+  factory AuditLogActorApiKeyType.fromJson(String value) =>
+      AuditLogActorApiKeyType._(value);
 
   static const user = AuditLogActorApiKeyType._('user');
   static const serviceAccount = AuditLogActorApiKeyType._('service_account');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AuditLogActorApiKeyType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AuditLogActorApiKeyType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `auto`.
@@ -54,14 +60,18 @@ enum AutoChunkingStrategyRequestParamType {
 
   static AutoChunkingStrategyRequestParamType fromJson(String value) {
     switch (value) {
-      case 'auto': return AutoChunkingStrategyRequestParamType.auto;
-      default: throw ArgumentError('Unknown AutoChunkingStrategyRequestParamType: $value');
+      case 'auto':
+        return AutoChunkingStrategyRequestParamType.auto;
+      default:
+        throw ArgumentError(
+            'Unknown AutoChunkingStrategyRequestParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AutoChunkingStrategyRequestParamType.auto: return 'auto';
+      case AutoChunkingStrategyRequestParamType.auto:
+        return 'auto';
     }
   }
 
@@ -71,23 +81,26 @@ enum AutoChunkingStrategyRequestParamType {
 
 /// Always `auto`.
 final class AutoCodeInterpreterToolParamType {
-
   final String value;
 
   const AutoCodeInterpreterToolParamType._(this.value);
 
-  factory AutoCodeInterpreterToolParamType.fromJson(String value) => AutoCodeInterpreterToolParamType._(value);
+  factory AutoCodeInterpreterToolParamType.fromJson(String value) =>
+      AutoCodeInterpreterToolParamType._(value);
 
   static const auto = AutoCodeInterpreterToolParamType._('auto');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AutoCodeInterpreterToolParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AutoCodeInterpreterToolParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -96,14 +109,18 @@ enum AwsExternalStorageProviderParamsType {
 
   static AwsExternalStorageProviderParamsType fromJson(String value) {
     switch (value) {
-      case 'aws': return AwsExternalStorageProviderParamsType.aws;
-      default: throw ArgumentError('Unknown AwsExternalStorageProviderParamsType: $value');
+      case 'aws':
+        return AwsExternalStorageProviderParamsType.aws;
+      default:
+        throw ArgumentError(
+            'Unknown AwsExternalStorageProviderParamsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AwsExternalStorageProviderParamsType.aws: return 'aws';
+      case AwsExternalStorageProviderParamsType.aws:
+        return 'aws';
     }
   }
 
@@ -117,14 +134,18 @@ enum AwsExternalStorageProviderResponseType {
 
   static AwsExternalStorageProviderResponseType fromJson(String value) {
     switch (value) {
-      case 'aws': return AwsExternalStorageProviderResponseType.aws;
-      default: throw ArgumentError('Unknown AwsExternalStorageProviderResponseType: $value');
+      case 'aws':
+        return AwsExternalStorageProviderResponseType.aws;
+      default:
+        throw ArgumentError(
+            'Unknown AwsExternalStorageProviderResponseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AwsExternalStorageProviderResponseType.aws: return 'aws';
+      case AwsExternalStorageProviderResponseType.aws:
+        return 'aws';
     }
   }
 
@@ -138,14 +159,18 @@ enum AzureExternalStorageProviderParamsType {
 
   static AzureExternalStorageProviderParamsType fromJson(String value) {
     switch (value) {
-      case 'azure': return AzureExternalStorageProviderParamsType.azure;
-      default: throw ArgumentError('Unknown AzureExternalStorageProviderParamsType: $value');
+      case 'azure':
+        return AzureExternalStorageProviderParamsType.azure;
+      default:
+        throw ArgumentError(
+            'Unknown AzureExternalStorageProviderParamsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AzureExternalStorageProviderParamsType.azure: return 'azure';
+      case AzureExternalStorageProviderParamsType.azure:
+        return 'azure';
     }
   }
 
@@ -159,14 +184,18 @@ enum AzureExternalStorageProviderResponseType {
 
   static AzureExternalStorageProviderResponseType fromJson(String value) {
     switch (value) {
-      case 'azure': return AzureExternalStorageProviderResponseType.azure;
-      default: throw ArgumentError('Unknown AzureExternalStorageProviderResponseType: $value');
+      case 'azure':
+        return AzureExternalStorageProviderResponseType.azure;
+      default:
+        throw ArgumentError(
+            'Unknown AzureExternalStorageProviderResponseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AzureExternalStorageProviderResponseType.azure: return 'azure';
+      case AzureExternalStorageProviderResponseType.azure:
+        return 'azure';
     }
   }
 
@@ -176,7 +205,6 @@ enum AzureExternalStorageProviderResponseType {
 
 /// The object type, which is always `batch`.
 final class BatchObject {
-
   final String value;
 
   const BatchObject._(this.value);
@@ -187,17 +215,19 @@ final class BatchObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BatchObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BatchObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current status of the batch.
 final class BatchStatus {
-
   final String value;
 
   const BatchStatus._(this.value);
@@ -215,33 +245,39 @@ final class BatchStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BatchStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BatchStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Anchor timestamp after which the expiration policy applies. Supported anchors: `created_at`. Note that the anchor is the file creation time, not the time the batch is created.
 final class BatchFileExpirationAfterAnchor {
-
   final String value;
 
   const BatchFileExpirationAfterAnchor._(this.value);
 
-  factory BatchFileExpirationAfterAnchor.fromJson(String value) => BatchFileExpirationAfterAnchor._(value);
+  factory BatchFileExpirationAfterAnchor.fromJson(String value) =>
+      BatchFileExpirationAfterAnchor._(value);
 
   static const createdAt = BatchFileExpirationAfterAnchor._('created_at');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BatchFileExpirationAfterAnchor && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BatchFileExpirationAfterAnchor && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the item. Always `additional_tools`.
@@ -250,14 +286,17 @@ enum BetaAdditionalToolsType {
 
   static BetaAdditionalToolsType fromJson(String value) {
     switch (value) {
-      case 'additional_tools': return BetaAdditionalToolsType.additionalTools;
-      default: throw ArgumentError('Unknown BetaAdditionalToolsType: $value');
+      case 'additional_tools':
+        return BetaAdditionalToolsType.additionalTools;
+      default:
+        throw ArgumentError('Unknown BetaAdditionalToolsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaAdditionalToolsType.additionalTools: return 'additional_tools';
+      case BetaAdditionalToolsType.additionalTools:
+        return 'additional_tools';
     }
   }
 
@@ -267,21 +306,24 @@ enum BetaAdditionalToolsType {
 
 /// The role that provided the additional tools. Only `developer` is supported.
 final class BetaAdditionalToolsItemParamRole {
-
   final String value;
 
   const BetaAdditionalToolsItemParamRole._(this.value);
 
-  factory BetaAdditionalToolsItemParamRole.fromJson(String value) => BetaAdditionalToolsItemParamRole._(value);
+  factory BetaAdditionalToolsItemParamRole.fromJson(String value) =>
+      BetaAdditionalToolsItemParamRole._(value);
 
   static const developer = BetaAdditionalToolsItemParamRole._('developer');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaAdditionalToolsItemParamRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaAdditionalToolsItemParamRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

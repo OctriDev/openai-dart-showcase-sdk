@@ -9,23 +9,32 @@ sealed class CreateAssistantRequestModel {
   static const String constructionSurface = 'named';
   const CreateAssistantRequestModel();
   factory CreateAssistantRequestModel.fromJson(Object? json) {
-    if (json is String) { return CreateAssistantRequestModelString(json); }
-    try { return CreateAssistantRequestModelAssistantSupportedModels(AssistantSupportedModels.fromJson(json as String)); } catch (_) {}
+    if (json is String) {
+      return CreateAssistantRequestModelString(json);
+    }
+    try {
+      return CreateAssistantRequestModelAssistantSupportedModels(
+          AssistantSupportedModels.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for CreateAssistantRequestModel");
   }
   Object? toJson();
 }
 
-final class CreateAssistantRequestModelString extends CreateAssistantRequestModel {
+final class CreateAssistantRequestModelString
+    extends CreateAssistantRequestModel {
   final String value;
   const CreateAssistantRequestModelString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class CreateAssistantRequestModelAssistantSupportedModels extends CreateAssistantRequestModel {
+final class CreateAssistantRequestModelAssistantSupportedModels
+    extends CreateAssistantRequestModel {
   final AssistantSupportedModels value;
   const CreateAssistantRequestModelAssistantSupportedModels(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class CreateAssistantRequestName {
@@ -33,16 +42,20 @@ sealed class CreateAssistantRequestName {
   static const String constructionSurface = 'named';
   const CreateAssistantRequestName();
   factory CreateAssistantRequestName.fromJson(Object? json) {
-    if (json is String) { return CreateAssistantRequestNameString(json); }
+    if (json is String) {
+      return CreateAssistantRequestNameString(json);
+    }
     throw FormatException("No variant matched for CreateAssistantRequestName");
   }
   Object? toJson();
 }
 
-final class CreateAssistantRequestNameString extends CreateAssistantRequestName {
+final class CreateAssistantRequestNameString
+    extends CreateAssistantRequestName {
   final String value;
   const CreateAssistantRequestNameString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class CreateAssistantRequestDescription {
@@ -50,16 +63,21 @@ sealed class CreateAssistantRequestDescription {
   static const String constructionSurface = 'named';
   const CreateAssistantRequestDescription();
   factory CreateAssistantRequestDescription.fromJson(Object? json) {
-    if (json is String) { return CreateAssistantRequestDescriptionString(json); }
-    throw FormatException("No variant matched for CreateAssistantRequestDescription");
+    if (json is String) {
+      return CreateAssistantRequestDescriptionString(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateAssistantRequestDescription");
   }
   Object? toJson();
 }
 
-final class CreateAssistantRequestDescriptionString extends CreateAssistantRequestDescription {
+final class CreateAssistantRequestDescriptionString
+    extends CreateAssistantRequestDescription {
   final String value;
   const CreateAssistantRequestDescriptionString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class CreateAssistantRequestInstructions {
@@ -67,156 +85,306 @@ sealed class CreateAssistantRequestInstructions {
   static const String constructionSurface = 'named';
   const CreateAssistantRequestInstructions();
   factory CreateAssistantRequestInstructions.fromJson(Object? json) {
-    if (json is String) { return CreateAssistantRequestInstructionsString(json); }
-    throw FormatException("No variant matched for CreateAssistantRequestInstructions");
+    if (json is String) {
+      return CreateAssistantRequestInstructionsString(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateAssistantRequestInstructions");
   }
   Object? toJson();
 }
 
-final class CreateAssistantRequestInstructionsString extends CreateAssistantRequestInstructions {
+final class CreateAssistantRequestInstructionsString
+    extends CreateAssistantRequestInstructions {
   final String value;
   const CreateAssistantRequestInstructionsString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Optional object value serialized in the `code_interpreter` wire field.
 class CreateAssistantRequestToolResourcesCodeInterpreter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of [file](https://developers.openai.com/api/reference/resources/files) IDs made available to the `code_interpreter` tool. There can be a maximum of 20 files associated with the tool.
   final SdkOptional<List<String>> fileIds;
 
-  const CreateAssistantRequestToolResourcesCodeInterpreter({this.fileIds = const SdkOmitted()});
+  const CreateAssistantRequestToolResourcesCodeInterpreter(
+      {this.fileIds = const SdkOmitted()});
 
-  CreateAssistantRequestToolResourcesCodeInterpreter Function({SdkOptional<List<String>> fileIds}) get copyWith => _copyWith;
+  CreateAssistantRequestToolResourcesCodeInterpreter Function(
+      {SdkOptional<List<String>> fileIds}) get copyWith => _copyWith;
 
-  CreateAssistantRequestToolResourcesCodeInterpreter _copyWith({Object? fileIds = sdkOmittedValue}) => CreateAssistantRequestToolResourcesCodeInterpreter(
-    fileIds: identical(fileIds, sdkOmittedValue) ? this.fileIds : fileIds as SdkOptional<List<String>>,
-  );
+  CreateAssistantRequestToolResourcesCodeInterpreter _copyWith(
+          {Object? fileIds = sdkOmittedValue}) =>
+      CreateAssistantRequestToolResourcesCodeInterpreter(
+        fileIds: identical(fileIds, sdkOmittedValue)
+            ? this.fileIds
+            : fileIds as SdkOptional<List<String>>,
+      );
 
-  factory CreateAssistantRequestToolResourcesCodeInterpreter.fromJson(Map<String, dynamic> json) => CreateAssistantRequestToolResourcesCodeInterpreter(
-    fileIds: json['file_ids'] != null ? SdkPresent(((json['file_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory CreateAssistantRequestToolResourcesCodeInterpreter.fromJson(
+          Map<String, dynamic> json) =>
+      CreateAssistantRequestToolResourcesCodeInterpreter(
+        fileIds: json['file_ids'] != null
+            ? SdkPresent(((json['file_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (fileIds) {
-      SdkPresent<List<String>>(value: final value) => {'file_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (fileIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'file_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `vector_stores[]` wire field.
 class CreateAssistantRequestToolResourcesFileSearchVectorStoresItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of [file](https://developers.openai.com/api/reference/resources/files) IDs to add to the vector store. For vector stores created before Nov 2025, there can be a maximum of 10,000 files in a vector store. For vector stores created starting in Nov 2025, the limit is 100,000,000 files.
   final SdkOptional<List<String>> fileIds;
+
   /// The chunking strategy used to chunk the file(s). If not set, will use the `auto` strategy.
-  final SdkOptional<CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy> chunkingStrategy;
+  final SdkOptional<
+          CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>
+      chunkingStrategy;
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
 
-  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItem({this.fileIds = const SdkOmitted(), this.chunkingStrategy = const SdkOmitted(), this.metadata = const SdkOmitted()});
+  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItem(
+      {this.fileIds = const SdkOmitted(),
+      this.chunkingStrategy = const SdkOmitted(),
+      this.metadata = const SdkOmitted()});
 
-  CreateAssistantRequestToolResourcesFileSearchVectorStoresItem Function({SdkOptional<List<String>> fileIds, SdkOptional<CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy> chunkingStrategy, SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
+  CreateAssistantRequestToolResourcesFileSearchVectorStoresItem Function(
+      {SdkOptional<List<String>> fileIds,
+      SdkOptional<
+              CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>
+          chunkingStrategy,
+      SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
 
-  CreateAssistantRequestToolResourcesFileSearchVectorStoresItem _copyWith({Object? fileIds = sdkOmittedValue, Object? chunkingStrategy = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => CreateAssistantRequestToolResourcesFileSearchVectorStoresItem(
-    fileIds: identical(fileIds, sdkOmittedValue) ? this.fileIds : fileIds as SdkOptional<List<String>>,
-    chunkingStrategy: identical(chunkingStrategy, sdkOmittedValue) ? this.chunkingStrategy : chunkingStrategy as SdkOptional<CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
-  );
+  CreateAssistantRequestToolResourcesFileSearchVectorStoresItem _copyWith(
+          {Object? fileIds = sdkOmittedValue,
+          Object? chunkingStrategy = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      CreateAssistantRequestToolResourcesFileSearchVectorStoresItem(
+        fileIds: identical(fileIds, sdkOmittedValue)
+            ? this.fileIds
+            : fileIds as SdkOptional<List<String>>,
+        chunkingStrategy: identical(chunkingStrategy, sdkOmittedValue)
+            ? this.chunkingStrategy
+            : chunkingStrategy as SdkOptional<
+                CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, dynamic>?>,
+      );
 
-  factory CreateAssistantRequestToolResourcesFileSearchVectorStoresItem.fromJson(Map<String, dynamic> json) => CreateAssistantRequestToolResourcesFileSearchVectorStoresItem(
-    fileIds: json['file_ids'] != null ? SdkPresent(((json['file_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    chunkingStrategy: json['chunking_strategy'] != null ? SdkPresent((json['chunking_strategy'] != null ? CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy.fromJson(json['chunking_strategy']) : null)!) : const SdkOmitted(),
-    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
-  );
+  factory CreateAssistantRequestToolResourcesFileSearchVectorStoresItem.fromJson(
+          Map<String, dynamic> json) =>
+      CreateAssistantRequestToolResourcesFileSearchVectorStoresItem(
+        fileIds: json['file_ids'] != null
+            ? SdkPresent(((json['file_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        chunkingStrategy: json['chunking_strategy'] != null
+            ? SdkPresent((json['chunking_strategy'] != null
+                ? CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy
+                    .fromJson(json['chunking_strategy'])
+                : null)!)
+            : const SdkOmitted(),
+        metadata: json.containsKey('metadata')
+            ? SdkPresent(json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (fileIds) {
-      SdkPresent<List<String>>(value: final value) => {'file_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (chunkingStrategy) {
-      SdkPresent<CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>(value: final value) => {'chunking_strategy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metadata) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (fileIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'file_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (chunkingStrategy) {
+          SdkPresent<
+                CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>(
+            value: final value
+          ) =>
+            {
+              'chunking_strategy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metadata) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `file_search` wire field.
 class CreateAssistantRequestToolResourcesFileSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The [vector store](https://developers.openai.com/api/reference/resources/vector_stores) attached to this assistant. There can be a maximum of 1 vector store attached to the assistant.
   final SdkOptional<List<String>> vectorStoreIds;
+
   /// A helper to create a [vector store](https://developers.openai.com/api/reference/resources/vector_stores) with file_ids and attach it to this assistant. There can be a maximum of 1 vector store attached to the assistant.
-  final SdkOptional<List<CreateAssistantRequestToolResourcesFileSearchVectorStoresItem>> vectorStores;
+  final SdkOptional<
+          List<CreateAssistantRequestToolResourcesFileSearchVectorStoresItem>>
+      vectorStores;
 
-  const CreateAssistantRequestToolResourcesFileSearch({this.vectorStoreIds = const SdkOmitted(), this.vectorStores = const SdkOmitted()});
+  const CreateAssistantRequestToolResourcesFileSearch(
+      {this.vectorStoreIds = const SdkOmitted(),
+      this.vectorStores = const SdkOmitted()});
 
-  CreateAssistantRequestToolResourcesFileSearch Function({SdkOptional<List<String>> vectorStoreIds, SdkOptional<List<CreateAssistantRequestToolResourcesFileSearchVectorStoresItem>> vectorStores}) get copyWith => _copyWith;
+  CreateAssistantRequestToolResourcesFileSearch Function(
+      {SdkOptional<List<String>> vectorStoreIds,
+      SdkOptional<
+              List<
+                  CreateAssistantRequestToolResourcesFileSearchVectorStoresItem>>
+          vectorStores}) get copyWith => _copyWith;
 
-  CreateAssistantRequestToolResourcesFileSearch _copyWith({Object? vectorStoreIds = sdkOmittedValue, Object? vectorStores = sdkOmittedValue}) => CreateAssistantRequestToolResourcesFileSearch(
-    vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue) ? this.vectorStoreIds : vectorStoreIds as SdkOptional<List<String>>,
-    vectorStores: identical(vectorStores, sdkOmittedValue) ? this.vectorStores : vectorStores as SdkOptional<List<CreateAssistantRequestToolResourcesFileSearchVectorStoresItem>>,
-  );
+  CreateAssistantRequestToolResourcesFileSearch _copyWith(
+          {Object? vectorStoreIds = sdkOmittedValue,
+          Object? vectorStores = sdkOmittedValue}) =>
+      CreateAssistantRequestToolResourcesFileSearch(
+        vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue)
+            ? this.vectorStoreIds
+            : vectorStoreIds as SdkOptional<List<String>>,
+        vectorStores: identical(vectorStores, sdkOmittedValue)
+            ? this.vectorStores
+            : vectorStores as SdkOptional<
+                List<
+                    CreateAssistantRequestToolResourcesFileSearchVectorStoresItem>>,
+      );
 
-  factory CreateAssistantRequestToolResourcesFileSearch.fromJson(Map<String, dynamic> json) => CreateAssistantRequestToolResourcesFileSearch(
-    vectorStoreIds: json['vector_store_ids'] != null ? SdkPresent(((json['vector_store_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    vectorStores: json['vector_stores'] != null ? SdkPresent(((json['vector_stores'] as List?)?.map((e) => CreateAssistantRequestToolResourcesFileSearchVectorStoresItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory CreateAssistantRequestToolResourcesFileSearch.fromJson(
+          Map<String, dynamic> json) =>
+      CreateAssistantRequestToolResourcesFileSearch(
+        vectorStoreIds: json['vector_store_ids'] != null
+            ? SdkPresent(((json['vector_store_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        vectorStores: json['vector_stores'] != null
+            ? SdkPresent(((json['vector_stores'] as List?)
+                ?.map((e) =>
+                    CreateAssistantRequestToolResourcesFileSearchVectorStoresItem
+                        .fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (vectorStoreIds) {
-      SdkPresent<List<String>>(value: final value) => {'vector_store_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (vectorStores) {
-      SdkPresent<List<CreateAssistantRequestToolResourcesFileSearchVectorStoresItem>>(value: final value) => {'vector_stores': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (vectorStoreIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'vector_store_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (vectorStores) {
+          SdkPresent<
+                List<
+                    CreateAssistantRequestToolResourcesFileSearchVectorStoresItem>>(
+            value: final value
+          ) =>
+            {
+              'vector_stores': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A set of resources that are used by the assistant's tools. The resources are specific to the type of tool. For example, the `code_interpreter` tool requires a list of file IDs, while the `file_search` tool requires a list of vector store IDs.
 class CreateAssistantRequestToolResources {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `code_interpreter` wire field.
-  final SdkOptional<CreateAssistantRequestToolResourcesCodeInterpreter> codeInterpreter;
+  final SdkOptional<CreateAssistantRequestToolResourcesCodeInterpreter>
+      codeInterpreter;
+
   /// Optional object value serialized in the `file_search` wire field.
   final SdkOptional<CreateAssistantRequestToolResourcesFileSearch> fileSearch;
 
-  const CreateAssistantRequestToolResources({this.codeInterpreter = const SdkOmitted(), this.fileSearch = const SdkOmitted()});
+  const CreateAssistantRequestToolResources(
+      {this.codeInterpreter = const SdkOmitted(),
+      this.fileSearch = const SdkOmitted()});
 
-  CreateAssistantRequestToolResources Function({SdkOptional<CreateAssistantRequestToolResourcesCodeInterpreter> codeInterpreter, SdkOptional<CreateAssistantRequestToolResourcesFileSearch> fileSearch}) get copyWith => _copyWith;
+  CreateAssistantRequestToolResources Function(
+      {SdkOptional<CreateAssistantRequestToolResourcesCodeInterpreter>
+          codeInterpreter,
+      SdkOptional<CreateAssistantRequestToolResourcesFileSearch>
+          fileSearch}) get copyWith => _copyWith;
 
-  CreateAssistantRequestToolResources _copyWith({Object? codeInterpreter = sdkOmittedValue, Object? fileSearch = sdkOmittedValue}) => CreateAssistantRequestToolResources(
-    codeInterpreter: identical(codeInterpreter, sdkOmittedValue) ? this.codeInterpreter : codeInterpreter as SdkOptional<CreateAssistantRequestToolResourcesCodeInterpreter>,
-    fileSearch: identical(fileSearch, sdkOmittedValue) ? this.fileSearch : fileSearch as SdkOptional<CreateAssistantRequestToolResourcesFileSearch>,
-  );
+  CreateAssistantRequestToolResources _copyWith(
+          {Object? codeInterpreter = sdkOmittedValue,
+          Object? fileSearch = sdkOmittedValue}) =>
+      CreateAssistantRequestToolResources(
+        codeInterpreter: identical(codeInterpreter, sdkOmittedValue)
+            ? this.codeInterpreter
+            : codeInterpreter as SdkOptional<
+                CreateAssistantRequestToolResourcesCodeInterpreter>,
+        fileSearch: identical(fileSearch, sdkOmittedValue)
+            ? this.fileSearch
+            : fileSearch
+                as SdkOptional<CreateAssistantRequestToolResourcesFileSearch>,
+      );
 
-  factory CreateAssistantRequestToolResources.fromJson(Map<String, dynamic> json) => CreateAssistantRequestToolResources(
-    codeInterpreter: json['code_interpreter'] != null ? SdkPresent((json['code_interpreter'] != null ? CreateAssistantRequestToolResourcesCodeInterpreter.fromJson(json['code_interpreter'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    fileSearch: json['file_search'] != null ? SdkPresent((json['file_search'] != null ? CreateAssistantRequestToolResourcesFileSearch.fromJson(json['file_search'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory CreateAssistantRequestToolResources.fromJson(
+          Map<String, dynamic> json) =>
+      CreateAssistantRequestToolResources(
+        codeInterpreter: json['code_interpreter'] != null
+            ? SdkPresent((json['code_interpreter'] != null
+                ? CreateAssistantRequestToolResourcesCodeInterpreter.fromJson(
+                    json['code_interpreter'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        fileSearch: json['file_search'] != null
+            ? SdkPresent((json['file_search'] != null
+                ? CreateAssistantRequestToolResourcesFileSearch.fromJson(
+                    json['file_search'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (codeInterpreter) {
-      SdkPresent<CreateAssistantRequestToolResourcesCodeInterpreter>(value: final value) => {'code_interpreter': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fileSearch) {
-      SdkPresent<CreateAssistantRequestToolResourcesFileSearch>(value: final value) => {'file_search': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (codeInterpreter) {
+          SdkPresent<CreateAssistantRequestToolResourcesCodeInterpreter>(
+            value: final value
+          ) =>
+            {
+              'code_interpreter': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fileSearch) {
+          SdkPresent<CreateAssistantRequestToolResourcesFileSearch>(
+            value: final value
+          ) =>
+            {
+              'file_search': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class CreateAssistantRequestTemperature {
@@ -224,16 +392,21 @@ sealed class CreateAssistantRequestTemperature {
   static const String constructionSurface = 'named';
   const CreateAssistantRequestTemperature();
   factory CreateAssistantRequestTemperature.fromJson(Object? json) {
-    if (json is num) { return CreateAssistantRequestTemperatureDouble(json.toDouble()); }
-    throw FormatException("No variant matched for CreateAssistantRequestTemperature");
+    if (json is num) {
+      return CreateAssistantRequestTemperatureDouble(json.toDouble());
+    }
+    throw FormatException(
+        "No variant matched for CreateAssistantRequestTemperature");
   }
   Object? toJson();
 }
 
-final class CreateAssistantRequestTemperatureDouble extends CreateAssistantRequestTemperature {
+final class CreateAssistantRequestTemperatureDouble
+    extends CreateAssistantRequestTemperature {
   final double value;
   const CreateAssistantRequestTemperatureDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class CreateAssistantRequestTopP {
@@ -241,14 +414,18 @@ sealed class CreateAssistantRequestTopP {
   static const String constructionSurface = 'named';
   const CreateAssistantRequestTopP();
   factory CreateAssistantRequestTopP.fromJson(Object? json) {
-    if (json is num) { return CreateAssistantRequestTopPDouble(json.toDouble()); }
+    if (json is num) {
+      return CreateAssistantRequestTopPDouble(json.toDouble());
+    }
     throw FormatException("No variant matched for CreateAssistantRequestTopP");
   }
   Object? toJson();
 }
 
-final class CreateAssistantRequestTopPDouble extends CreateAssistantRequestTopP {
+final class CreateAssistantRequestTopPDouble
+    extends CreateAssistantRequestTopP {
   final double value;
   const CreateAssistantRequestTopPDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }

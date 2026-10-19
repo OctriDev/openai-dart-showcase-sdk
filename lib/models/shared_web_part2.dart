@@ -8,173 +8,328 @@ part of 'shared_web.dart';
 class WebSearchPreviewTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the web search tool. One of `web_search_preview` or `web_search_preview_2025_03_11`.
   final WebSearchPreviewToolType type_;
+
   /// Optional API value serialized in the `user_location` wire field.
   final SdkOptional<ApproximateLocation?> userLocation;
+
   /// High level guidance for the amount of context window space to use for the search. One of `low`, `medium`, or `high`. `medium` is the default.
   final SdkOptional<SearchContextSize> searchContextSize;
+
   /// Optional array value serialized in the `search_content_types` wire field.
   final SdkOptional<List<SearchContentType>> searchContentTypes;
 
-  const WebSearchPreviewTool({required this.type_, this.userLocation = const SdkOmitted(), this.searchContextSize = const SdkOmitted(), this.searchContentTypes = const SdkOmitted()});
+  const WebSearchPreviewTool(
+      {required this.type_,
+      this.userLocation = const SdkOmitted(),
+      this.searchContextSize = const SdkOmitted(),
+      this.searchContentTypes = const SdkOmitted()});
 
-  WebSearchPreviewTool Function({WebSearchPreviewToolType type_, SdkOptional<ApproximateLocation?> userLocation, SdkOptional<SearchContextSize> searchContextSize, SdkOptional<List<SearchContentType>> searchContentTypes}) get copyWith => _copyWith;
+  WebSearchPreviewTool Function(
+          {WebSearchPreviewToolType type_,
+          SdkOptional<ApproximateLocation?> userLocation,
+          SdkOptional<SearchContextSize> searchContextSize,
+          SdkOptional<List<SearchContentType>> searchContentTypes})
+      get copyWith => _copyWith;
 
-  WebSearchPreviewTool _copyWith({Object? type_ = sdkOmittedValue, Object? userLocation = sdkOmittedValue, Object? searchContextSize = sdkOmittedValue, Object? searchContentTypes = sdkOmittedValue}) => WebSearchPreviewTool(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchPreviewToolType,
-    userLocation: identical(userLocation, sdkOmittedValue) ? this.userLocation : userLocation as SdkOptional<ApproximateLocation?>,
-    searchContextSize: identical(searchContextSize, sdkOmittedValue) ? this.searchContextSize : searchContextSize as SdkOptional<SearchContextSize>,
-    searchContentTypes: identical(searchContentTypes, sdkOmittedValue) ? this.searchContentTypes : searchContentTypes as SdkOptional<List<SearchContentType>>,
-  );
+  WebSearchPreviewTool _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? userLocation = sdkOmittedValue,
+          Object? searchContextSize = sdkOmittedValue,
+          Object? searchContentTypes = sdkOmittedValue}) =>
+      WebSearchPreviewTool(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebSearchPreviewToolType,
+        userLocation: identical(userLocation, sdkOmittedValue)
+            ? this.userLocation
+            : userLocation as SdkOptional<ApproximateLocation?>,
+        searchContextSize: identical(searchContextSize, sdkOmittedValue)
+            ? this.searchContextSize
+            : searchContextSize as SdkOptional<SearchContextSize>,
+        searchContentTypes: identical(searchContentTypes, sdkOmittedValue)
+            ? this.searchContentTypes
+            : searchContentTypes as SdkOptional<List<SearchContentType>>,
+      );
 
-  factory WebSearchPreviewTool.fromJson(Map<String, dynamic> json) => WebSearchPreviewTool(
-    type_: (json['type'] != null ? WebSearchPreviewToolType.fromJson(json['type'] as String) : null)!,
-    userLocation: json.containsKey('user_location') ? SdkPresent(json['user_location'] != null ? ApproximateLocation.fromJson(json['user_location'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    searchContextSize: json['search_context_size'] != null ? SdkPresent((json['search_context_size'] != null ? SearchContextSize.fromJson(json['search_context_size'] as String) : null)!) : const SdkOmitted(),
-    searchContentTypes: json['search_content_types'] != null ? SdkPresent(((json['search_content_types'] as List?)?.map((e) => SearchContentType.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory WebSearchPreviewTool.fromJson(Map<String, dynamic> json) =>
+      WebSearchPreviewTool(
+        type_: (json['type'] != null
+            ? WebSearchPreviewToolType.fromJson(json['type'] as String)
+            : null)!,
+        userLocation: json.containsKey('user_location')
+            ? SdkPresent(json['user_location'] != null
+                ? ApproximateLocation.fromJson(
+                    json['user_location'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        searchContextSize: json['search_context_size'] != null
+            ? SdkPresent((json['search_context_size'] != null
+                ? SearchContextSize.fromJson(
+                    json['search_context_size'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        searchContentTypes: json['search_content_types'] != null
+            ? SdkPresent(((json['search_content_types'] as List?)
+                ?.map((e) => SearchContentType.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (userLocation) {
-      SdkPresent<ApproximateLocation?>(value: final value) => {'user_location': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (searchContextSize) {
-      SdkPresent<SearchContextSize>(value: final value) => {'search_context_size': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (searchContentTypes) {
-      SdkPresent<List<SearchContentType>>(value: final value) => {'search_content_types': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (userLocation) {
+          SdkPresent<ApproximateLocation?>(value: final value) => {
+              'user_location': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (searchContextSize) {
+          SdkPresent<SearchContextSize>(value: final value) => {
+              'search_context_size': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (searchContentTypes) {
+          SdkPresent<List<SearchContentType>>(value: final value) => {
+              'search_content_types':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Filters for the search.
 class WebSearchToolFilters {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Allowed domains for the search. If not provided, all domains are allowed. Subdomains of the provided domains are allowed as well. Example: `["pubmed.ncbi.nlm.nih.gov"]`
   final SdkOptional<List<String>?> allowedDomains;
 
   const WebSearchToolFilters({this.allowedDomains = const SdkOmitted()});
 
-  WebSearchToolFilters Function({SdkOptional<List<String>?> allowedDomains}) get copyWith => _copyWith;
+  WebSearchToolFilters Function({SdkOptional<List<String>?> allowedDomains})
+      get copyWith => _copyWith;
 
-  WebSearchToolFilters _copyWith({Object? allowedDomains = sdkOmittedValue}) => WebSearchToolFilters(
-    allowedDomains: identical(allowedDomains, sdkOmittedValue) ? this.allowedDomains : allowedDomains as SdkOptional<List<String>?>,
-  );
+  WebSearchToolFilters _copyWith({Object? allowedDomains = sdkOmittedValue}) =>
+      WebSearchToolFilters(
+        allowedDomains: identical(allowedDomains, sdkOmittedValue)
+            ? this.allowedDomains
+            : allowedDomains as SdkOptional<List<String>?>,
+      );
 
-  factory WebSearchToolFilters.fromJson(Map<String, dynamic> json) => WebSearchToolFilters(
-    allowedDomains: json.containsKey('allowed_domains') ? SdkPresent((json['allowed_domains'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-  );
+  factory WebSearchToolFilters.fromJson(Map<String, dynamic> json) =>
+      WebSearchToolFilters(
+        allowedDomains: json.containsKey('allowed_domains')
+            ? SdkPresent((json['allowed_domains'] as List?)
+                ?.map((e) => e as String)
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (allowedDomains) {
-      SdkPresent<List<String>?>(value: final value) => {'allowed_domains': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (allowedDomains) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'allowed_domains': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Search the Internet for sources related to the prompt. Learn more about the [web search tool](https://developers.openai.com/api/docs/guides/tools-web-search).
 class WebSearchTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the web search tool. One of `web_search` or `web_search_2025_08_26`.
   final WebSearchToolType type_;
+
   /// Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
   final SdkOptional<bool> externalWebAccess;
+
   /// Filters for the search.
   final SdkOptional<WebSearchToolFilters?> filters;
+
   /// The approximate location of the user. If omitted or null, defaults to the United States. To avoid this fallback, pass `{"type": "approximate"}` without location fields. To localize results, provide the relevant location fields.
   final SdkOptional<WebSearchApproximateLocation?> userLocation;
+
   /// High level guidance for the amount of context window space to use for the search. One of `low`, `medium`, or `high`. `medium` is the default.
   final SdkOptional<WebSearchToolSearchContextSize> searchContextSize;
 
-  const WebSearchTool({required this.type_, this.externalWebAccess = const SdkOmitted(), this.filters = const SdkOmitted(), this.userLocation = const SdkOmitted(), this.searchContextSize = const SdkOmitted()});
+  const WebSearchTool(
+      {required this.type_,
+      this.externalWebAccess = const SdkOmitted(),
+      this.filters = const SdkOmitted(),
+      this.userLocation = const SdkOmitted(),
+      this.searchContextSize = const SdkOmitted()});
 
-  WebSearchTool Function({WebSearchToolType type_, SdkOptional<bool> externalWebAccess, SdkOptional<WebSearchToolFilters?> filters, SdkOptional<WebSearchApproximateLocation?> userLocation, SdkOptional<WebSearchToolSearchContextSize> searchContextSize}) get copyWith => _copyWith;
+  WebSearchTool Function(
+          {WebSearchToolType type_,
+          SdkOptional<bool> externalWebAccess,
+          SdkOptional<WebSearchToolFilters?> filters,
+          SdkOptional<WebSearchApproximateLocation?> userLocation,
+          SdkOptional<WebSearchToolSearchContextSize> searchContextSize})
+      get copyWith => _copyWith;
 
-  WebSearchTool _copyWith({Object? type_ = sdkOmittedValue, Object? externalWebAccess = sdkOmittedValue, Object? filters = sdkOmittedValue, Object? userLocation = sdkOmittedValue, Object? searchContextSize = sdkOmittedValue}) => WebSearchTool(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchToolType,
-    externalWebAccess: identical(externalWebAccess, sdkOmittedValue) ? this.externalWebAccess : externalWebAccess as SdkOptional<bool>,
-    filters: identical(filters, sdkOmittedValue) ? this.filters : filters as SdkOptional<WebSearchToolFilters?>,
-    userLocation: identical(userLocation, sdkOmittedValue) ? this.userLocation : userLocation as SdkOptional<WebSearchApproximateLocation?>,
-    searchContextSize: identical(searchContextSize, sdkOmittedValue) ? this.searchContextSize : searchContextSize as SdkOptional<WebSearchToolSearchContextSize>,
-  );
+  WebSearchTool _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? externalWebAccess = sdkOmittedValue,
+          Object? filters = sdkOmittedValue,
+          Object? userLocation = sdkOmittedValue,
+          Object? searchContextSize = sdkOmittedValue}) =>
+      WebSearchTool(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebSearchToolType,
+        externalWebAccess: identical(externalWebAccess, sdkOmittedValue)
+            ? this.externalWebAccess
+            : externalWebAccess as SdkOptional<bool>,
+        filters: identical(filters, sdkOmittedValue)
+            ? this.filters
+            : filters as SdkOptional<WebSearchToolFilters?>,
+        userLocation: identical(userLocation, sdkOmittedValue)
+            ? this.userLocation
+            : userLocation as SdkOptional<WebSearchApproximateLocation?>,
+        searchContextSize: identical(searchContextSize, sdkOmittedValue)
+            ? this.searchContextSize
+            : searchContextSize as SdkOptional<WebSearchToolSearchContextSize>,
+      );
 
   factory WebSearchTool.fromJson(Map<String, dynamic> json) => WebSearchTool(
-    type_: (json['type'] != null ? WebSearchToolType.fromJson(json['type'] as String) : null)!,
-    externalWebAccess: json['external_web_access'] != null ? SdkPresent((json['external_web_access'] as bool?)!) : const SdkOmitted(),
-    filters: json.containsKey('filters') ? SdkPresent(json['filters'] != null ? WebSearchToolFilters.fromJson(json['filters'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    userLocation: json.containsKey('user_location') ? SdkPresent(json['user_location'] != null ? WebSearchApproximateLocation.fromJson(json['user_location'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    searchContextSize: json['search_context_size'] != null ? SdkPresent((json['search_context_size'] != null ? WebSearchToolSearchContextSize.fromJson(json['search_context_size'] as String) : null)!) : const SdkOmitted(),
-  );
+        type_: (json['type'] != null
+            ? WebSearchToolType.fromJson(json['type'] as String)
+            : null)!,
+        externalWebAccess: json['external_web_access'] != null
+            ? SdkPresent((json['external_web_access'] as bool?)!)
+            : const SdkOmitted(),
+        filters: json.containsKey('filters')
+            ? SdkPresent(json['filters'] != null
+                ? WebSearchToolFilters.fromJson(
+                    json['filters'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        userLocation: json.containsKey('user_location')
+            ? SdkPresent(json['user_location'] != null
+                ? WebSearchApproximateLocation.fromJson(
+                    json['user_location'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        searchContextSize: json['search_context_size'] != null
+            ? SdkPresent((json['search_context_size'] != null
+                ? WebSearchToolSearchContextSize.fromJson(
+                    json['search_context_size'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (externalWebAccess) {
-      SdkPresent<bool>(value: final value) => {'external_web_access': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (filters) {
-      SdkPresent<WebSearchToolFilters?>(value: final value) => {'filters': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userLocation) {
-      SdkPresent<WebSearchApproximateLocation?>(value: final value) => {'user_location': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (searchContextSize) {
-      SdkPresent<WebSearchToolSearchContextSize>(value: final value) => {'search_context_size': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (externalWebAccess) {
+          SdkPresent<bool>(value: final value) => {
+              'external_web_access': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (filters) {
+          SdkPresent<WebSearchToolFilters?>(value: final value) => {
+              'filters': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userLocation) {
+          SdkPresent<WebSearchApproximateLocation?>(value: final value) => {
+              'user_location': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (searchContextSize) {
+          SdkPresent<WebSearchToolSearchContextSize>(value: final value) => {
+              'search_context_size': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The results of a web search tool call. See the [web search guide](https://developers.openai.com/api/docs/guides/tools-web-search) for more information.
 class WebSearchToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the web search tool call.
   final String id;
+
   /// The type of the web search tool call. Always `web_search_call`.
   final WebSearchToolCallType type_;
+
   /// The status of the web search tool call.
   final WebSearchCallStatus status;
+
   /// An object describing the specific action taken in this web search call. Includes details on how the model used the web (search, open_page, find_in_page).
   final SdkOptional<WebSearchToolCallAction> action;
 
-  const WebSearchToolCall({required this.id, required this.type_, required this.status, this.action = const SdkOmitted()});
+  const WebSearchToolCall(
+      {required this.id,
+      required this.type_,
+      required this.status,
+      this.action = const SdkOmitted()});
 
-  WebSearchToolCall Function({String id, WebSearchToolCallType type_, WebSearchCallStatus status, SdkOptional<WebSearchToolCallAction> action}) get copyWith => _copyWith;
+  WebSearchToolCall Function(
+      {String id,
+      WebSearchToolCallType type_,
+      WebSearchCallStatus status,
+      SdkOptional<WebSearchToolCallAction> action}) get copyWith => _copyWith;
 
-  WebSearchToolCall _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? status = sdkOmittedValue, Object? action = sdkOmittedValue}) => WebSearchToolCall(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchToolCallType,
-    status: identical(status, sdkOmittedValue) ? this.status : status as WebSearchCallStatus,
-    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<WebSearchToolCallAction>,
-  );
+  WebSearchToolCall _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? action = sdkOmittedValue}) =>
+      WebSearchToolCall(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebSearchToolCallType,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as WebSearchCallStatus,
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as SdkOptional<WebSearchToolCallAction>,
+      );
 
-  factory WebSearchToolCall.fromJson(Map<String, dynamic> json) => WebSearchToolCall(
-    id: (json['id'] as String?)!,
-    type_: (json['type'] != null ? WebSearchToolCallType.fromJson(json['type'] as String) : null)!,
-    status: (json['status'] != null ? WebSearchCallStatus.fromJson(json['status'] as String) : null)!,
-    action: json['action'] != null ? SdkPresent((json['action'] != null ? WebSearchToolCallAction.fromJson(json['action']) : null)!) : const SdkOmitted(),
-  );
+  factory WebSearchToolCall.fromJson(Map<String, dynamic> json) =>
+      WebSearchToolCall(
+        id: (json['id'] as String?)!,
+        type_: (json['type'] != null
+            ? WebSearchToolCallType.fromJson(json['type'] as String)
+            : null)!,
+        status: (json['status'] != null
+            ? WebSearchCallStatus.fromJson(json['status'] as String)
+            : null)!,
+        action: json['action'] != null
+            ? SdkPresent((json['action'] != null
+                ? WebSearchToolCallAction.fromJson(json['action'])
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'type': type_.toJson(),
-    'status': status.toJson(),
-    ...switch (action) {
-      SdkPresent<WebSearchToolCallAction>(value: final value) => {'action': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        'type': type_.toJson(),
+        'status': status.toJson(),
+        ...switch (action) {
+          SdkPresent<WebSearchToolCallAction>(value: final value) => {
+              'action': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class WebSearchToolCallAction {
@@ -183,40 +338,75 @@ sealed class WebSearchToolCallAction {
   const WebSearchToolCallAction();
   factory WebSearchToolCallAction.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = WebSearchActionSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchToolCallActionWebSearchActionSearch(value); } } catch (_) {}
-      try { final value = WebSearchActionOpenPage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchToolCallActionWebSearchActionOpenPage(value); } } catch (_) {}
-      try { final value = WebSearchActionFind.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchToolCallActionWebSearchActionFind(value); } } catch (_) {}
+      try {
+        final value = WebSearchActionSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return WebSearchToolCallActionWebSearchActionSearch(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WebSearchActionOpenPage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return WebSearchToolCallActionWebSearchActionOpenPage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WebSearchActionFind.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return WebSearchToolCallActionWebSearchActionFind(value);
+        }
+      } catch (_) {}
     }
-    try { return WebSearchToolCallActionWebSearchActionSearch(WebSearchActionSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return WebSearchToolCallActionWebSearchActionOpenPage(WebSearchActionOpenPage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return WebSearchToolCallActionWebSearchActionFind(WebSearchActionFind.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"search", "open_page", "find_in_page"}.contains(json["type"])) { return UnknownWebSearchToolCallAction(json); }
+    try {
+      return WebSearchToolCallActionWebSearchActionSearch(
+          WebSearchActionSearch.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return WebSearchToolCallActionWebSearchActionOpenPage(
+          WebSearchActionOpenPage.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return WebSearchToolCallActionWebSearchActionFind(
+          WebSearchActionFind.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"search", "open_page", "find_in_page"}.contains(json["type"])) {
+      return UnknownWebSearchToolCallAction(json);
+    }
     throw FormatException("No variant matched for WebSearchToolCallAction");
   }
   Object? toJson();
 }
 
-final class WebSearchToolCallActionWebSearchActionSearch extends WebSearchToolCallAction {
+final class WebSearchToolCallActionWebSearchActionSearch
+    extends WebSearchToolCallAction {
   final WebSearchActionSearch value;
   const WebSearchToolCallActionWebSearchActionSearch(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class WebSearchToolCallActionWebSearchActionOpenPage extends WebSearchToolCallAction {
+final class WebSearchToolCallActionWebSearchActionOpenPage
+    extends WebSearchToolCallAction {
   final WebSearchActionOpenPage value;
   const WebSearchToolCallActionWebSearchActionOpenPage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class WebSearchToolCallActionWebSearchActionFind extends WebSearchToolCallAction {
+final class WebSearchToolCallActionWebSearchActionFind
+    extends WebSearchToolCallAction {
   final WebSearchActionFind value;
   const WebSearchToolCallActionWebSearchActionFind(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [WebSearchToolCallAction] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownWebSearchToolCallAction extends WebSearchToolCallAction {
   final Map<String, dynamic> raw;
   const UnknownWebSearchToolCallAction(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

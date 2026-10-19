@@ -8,50 +8,89 @@ part of 'live_live_input.dart';
 class LiveInputTranscriptDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the Live server event.
   final String eventId;
+
   /// The event_id of the client command associated with this server event, when supplied.
   final SdkOptional<String> clientEventId;
+
   /// The start of this event on the Live session timeline, in milliseconds from the beginning of the session.
   final int startMs;
+
   /// The end of this event on the Live session timeline, in milliseconds from the beginning of the session. For appended context, this can equal start_ms.
   final int endMs;
+
   /// The transcript text fragment for the audio in this time range. Append fragments in delivery order to build the transcript.
   final String delta;
+
   /// The event type, always `session.input_transcript.delta`.
   final LiveInputTranscriptDeltaType type_;
 
-  const LiveInputTranscriptDelta({required this.eventId, this.clientEventId = const SdkOmitted(), required this.startMs, required this.endMs, required this.delta, required this.type_});
+  const LiveInputTranscriptDelta(
+      {required this.eventId,
+      this.clientEventId = const SdkOmitted(),
+      required this.startMs,
+      required this.endMs,
+      required this.delta,
+      required this.type_});
 
-  LiveInputTranscriptDelta Function({String eventId, SdkOptional<String> clientEventId, int startMs, int endMs, String delta, LiveInputTranscriptDeltaType type_}) get copyWith => _copyWith;
+  LiveInputTranscriptDelta Function(
+      {String eventId,
+      SdkOptional<String> clientEventId,
+      int startMs,
+      int endMs,
+      String delta,
+      LiveInputTranscriptDeltaType type_}) get copyWith => _copyWith;
 
-  LiveInputTranscriptDelta _copyWith({Object? eventId = sdkOmittedValue, Object? clientEventId = sdkOmittedValue, Object? startMs = sdkOmittedValue, Object? endMs = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => LiveInputTranscriptDelta(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    clientEventId: identical(clientEventId, sdkOmittedValue) ? this.clientEventId : clientEventId as SdkOptional<String>,
-    startMs: identical(startMs, sdkOmittedValue) ? this.startMs : startMs as int,
-    endMs: identical(endMs, sdkOmittedValue) ? this.endMs : endMs as int,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveInputTranscriptDeltaType,
-  );
+  LiveInputTranscriptDelta _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? clientEventId = sdkOmittedValue,
+          Object? startMs = sdkOmittedValue,
+          Object? endMs = sdkOmittedValue,
+          Object? delta = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      LiveInputTranscriptDelta(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        clientEventId: identical(clientEventId, sdkOmittedValue)
+            ? this.clientEventId
+            : clientEventId as SdkOptional<String>,
+        startMs:
+            identical(startMs, sdkOmittedValue) ? this.startMs : startMs as int,
+        endMs: identical(endMs, sdkOmittedValue) ? this.endMs : endMs as int,
+        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveInputTranscriptDeltaType,
+      );
 
-  factory LiveInputTranscriptDelta.fromJson(Map<String, dynamic> json) => LiveInputTranscriptDelta(
-    eventId: (json['event_id'] as String?)!,
-    clientEventId: json['client_event_id'] != null ? SdkPresent((json['client_event_id'] as String?)!) : const SdkOmitted(),
-    startMs: ((json['start_ms'] as num?)?.toInt())!,
-    endMs: ((json['end_ms'] as num?)?.toInt())!,
-    delta: (json['delta'] as String?)!,
-    type_: (json['type'] != null ? LiveInputTranscriptDeltaType.fromJson(json['type'] as String) : null)!,
-  );
+  factory LiveInputTranscriptDelta.fromJson(Map<String, dynamic> json) =>
+      LiveInputTranscriptDelta(
+        eventId: (json['event_id'] as String?)!,
+        clientEventId: json['client_event_id'] != null
+            ? SdkPresent((json['client_event_id'] as String?)!)
+            : const SdkOmitted(),
+        startMs: ((json['start_ms'] as num?)?.toInt())!,
+        endMs: ((json['end_ms'] as num?)?.toInt())!,
+        delta: (json['delta'] as String?)!,
+        type_: (json['type'] != null
+            ? LiveInputTranscriptDeltaType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    ...switch (clientEventId) {
-      SdkPresent<String>(value: final value) => {'client_event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'start_ms': startMs,
-    'end_ms': endMs,
-    'delta': delta,
-    'type': type_.toJson(),
-  };
+        'event_id': eventId,
+        ...switch (clientEventId) {
+          SdkPresent<String>(value: final value) => {
+              'client_event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'start_ms': startMs,
+        'end_ms': endMs,
+        'delta': delta,
+        'type': type_.toJson(),
+      };
 }
