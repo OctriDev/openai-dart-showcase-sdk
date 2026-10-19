@@ -44,7 +44,7 @@ class VectorStoreSearchRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   /// A query string for a search
-  final dynamic query;
+  final List<String> query;
   /// Whether to rewrite the natural language query for vector search.
   final SdkOptional<bool> rewriteQuery;
   /// The maximum number of results to return. This number should be between 1 and 50 inclusive.
@@ -56,10 +56,10 @@ class VectorStoreSearchRequest {
 
   const VectorStoreSearchRequest({required this.query, this.rewriteQuery = const SdkOmitted(), this.maxNumResults = const SdkOmitted(), this.filters = const SdkOmitted(), this.rankingOptions = const SdkOmitted()});
 
-  VectorStoreSearchRequest Function({dynamic query, SdkOptional<bool> rewriteQuery, SdkOptional<int> maxNumResults, SdkOptional<VectorStoreSearchRequestFilters> filters, SdkOptional<VectorStoreSearchRequestRankingOptions> rankingOptions}) get copyWith => _copyWith;
+  VectorStoreSearchRequest Function({List<String> query, SdkOptional<bool> rewriteQuery, SdkOptional<int> maxNumResults, SdkOptional<VectorStoreSearchRequestFilters> filters, SdkOptional<VectorStoreSearchRequestRankingOptions> rankingOptions}) get copyWith => _copyWith;
 
   VectorStoreSearchRequest _copyWith({Object? query = sdkOmittedValue, Object? rewriteQuery = sdkOmittedValue, Object? maxNumResults = sdkOmittedValue, Object? filters = sdkOmittedValue, Object? rankingOptions = sdkOmittedValue}) => VectorStoreSearchRequest(
-    query: identical(query, sdkOmittedValue) ? this.query : query as dynamic,
+    query: identical(query, sdkOmittedValue) ? this.query : query as List<String>,
     rewriteQuery: identical(rewriteQuery, sdkOmittedValue) ? this.rewriteQuery : rewriteQuery as SdkOptional<bool>,
     maxNumResults: identical(maxNumResults, sdkOmittedValue) ? this.maxNumResults : maxNumResults as SdkOptional<int>,
     filters: identical(filters, sdkOmittedValue) ? this.filters : filters as SdkOptional<VectorStoreSearchRequestFilters>,
@@ -67,7 +67,7 @@ class VectorStoreSearchRequest {
   );
 
   factory VectorStoreSearchRequest.fromJson(Map<String, dynamic> json) => VectorStoreSearchRequest(
-    query: (json['query'])!,
+    query: ((json['query'] as List?)?.map((e) => e as String).toList())!,
     rewriteQuery: json['rewrite_query'] != null ? SdkPresent((json['rewrite_query'] as bool?)!) : const SdkOmitted(),
     maxNumResults: json['max_num_results'] != null ? SdkPresent(((json['max_num_results'] as num?)?.toInt())!) : const SdkOmitted(),
     filters: json['filters'] != null ? SdkPresent((json['filters'] != null ? VectorStoreSearchRequestFilters.fromJson(json['filters']) : null)!) : const SdkOmitted(),

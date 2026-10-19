@@ -5,27 +5,6 @@ part of 'inline.dart';
 
 // Inline operation models (part 72)
 /// Required enumerated value serialized in the `type` wire field.
-enum LiveToolSearchToolInputParamType {
-  toolSearch;
-
-  static LiveToolSearchToolInputParamType fromJson(String value) {
-    switch (value) {
-      case 'tool_search': return LiveToolSearchToolInputParamType.toolSearch;
-      default: throw ArgumentError('Unknown LiveToolSearchToolInputParamType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveToolSearchToolInputParamType.toolSearch: return 'tool_search';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
-/// Required enumerated value serialized in the `type` wire field.
 enum LiveTransportAnsweredType {
   transportAnswered;
 
@@ -277,4 +256,25 @@ final class LocalShellToolCallStatus {
 
   @override int get hashCode => value.hashCode;
 
+}
+
+/// The type of the local shell call. Always `local_shell_call`.
+enum LocalShellToolCallType {
+  localShellCall;
+
+  static LocalShellToolCallType fromJson(String value) {
+    switch (value) {
+      case 'local_shell_call': return LocalShellToolCallType.localShellCall;
+      default: throw ArgumentError('Unknown LocalShellToolCallType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LocalShellToolCallType.localShellCall: return 'local_shell_call';
+    }
+  }
+
+  @override
+  String toString() => toJson();
 }

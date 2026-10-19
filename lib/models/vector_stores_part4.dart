@@ -267,27 +267,3 @@ class VectorStoreObject {
     'metadata': metadata,
   };
 }
-
-sealed class VectorStoreSearchRequestQuery {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const VectorStoreSearchRequestQuery();
-  factory VectorStoreSearchRequestQuery.fromJson(Object? json) {
-    if (json is String) { return VectorStoreSearchRequestQueryString(json); }
-    if (json is List) { return VectorStoreSearchRequestQueryListString(json.map((e) => e as String).toList().cast<String>()); }
-    throw FormatException("No variant matched for VectorStoreSearchRequestQuery");
-  }
-  Object? toJson();
-}
-
-final class VectorStoreSearchRequestQueryString extends VectorStoreSearchRequestQuery {
-  final String value;
-  const VectorStoreSearchRequestQueryString(this.value);
-  @override Object? toJson() => value;
-}
-
-final class VectorStoreSearchRequestQueryListString extends VectorStoreSearchRequestQuery {
-  final List<String> value;
-  const VectorStoreSearchRequestQueryListString(this.value);
-  @override Object? toJson() => value;
-}

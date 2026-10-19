@@ -4,27 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 68)
-/// The event type, always `session.instructions.appended`.
-enum LiveInstructionsAppendedType {
-  sessionInstructionsAppended;
-
-  static LiveInstructionsAppendedType fromJson(String value) {
-    switch (value) {
-      case 'session.instructions.appended': return LiveInstructionsAppendedType.sessionInstructionsAppended;
-      default: throw ArgumentError('Unknown LiveInstructionsAppendedType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveInstructionsAppendedType.sessionInstructionsAppended: return 'session.instructions.appended';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
 /// The Live client event type. Always `session.instructions.append`.
 enum LiveInstructionsAppendParamType {
   sessionInstructionsAppend;
@@ -270,6 +249,27 @@ enum LiveResponseCreateParamType {
   String toJson() {
     switch (this) {
       case LiveResponseCreateParamType.responseCreate: return 'response.create';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// The event type, always `response.event`.
+enum LiveResponseEventType {
+  responseEvent;
+
+  static LiveResponseEventType fromJson(String value) {
+    switch (value) {
+      case 'response.event': return LiveResponseEventType.responseEvent;
+      default: throw ArgumentError('Unknown LiveResponseEventType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveResponseEventType.responseEvent: return 'response.event';
     }
   }
 

@@ -665,7 +665,7 @@ Future<VectorStoreFileContentResponse>
 /// [rankingOptions] Ranking options for search.
 Future<VectorStoreSearchResultsPage> searchVectorStore(ClientConfig config,
     {required String vectorStoreId,
-    required dynamic query,
+    required List<String> query,
     SdkOptional<bool> rewriteQuery = const SdkOmitted(),
     SdkOptional<int> maxNumResults = const SdkOmitted(),
     SdkOptional<VectorStoreSearchRequestFilters> filters = const SdkOmitted(),

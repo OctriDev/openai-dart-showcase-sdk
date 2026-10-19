@@ -4,48 +4,6 @@
 part of 'live_live.dart';
 
 // live_live domain models (part 2)
-/// Reports an error in the Live session, such as an invalid client command. Use error.client_event_id, when present, to identify the command that caused the error.
-class LiveErrorEvent {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The unique ID of the Live server event.
-  final String eventId;
-  /// The event_id of the client command associated with this server event, when supplied.
-  final SdkOptional<String> clientEventId;
-  /// The event type, always `error`.
-  final LiveErrorEventType type_;
-  /// Details of the Live error and the client command that caused it, when known.
-  final LiveLiveError error;
-
-  const LiveErrorEvent({required this.eventId, this.clientEventId = const SdkOmitted(), required this.type_, required this.error});
-
-  LiveErrorEvent Function({String eventId, SdkOptional<String> clientEventId, LiveErrorEventType type_, LiveLiveError error}) get copyWith => _copyWith;
-
-  LiveErrorEvent _copyWith({Object? eventId = sdkOmittedValue, Object? clientEventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? error = sdkOmittedValue}) => LiveErrorEvent(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    clientEventId: identical(clientEventId, sdkOmittedValue) ? this.clientEventId : clientEventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveErrorEventType,
-    error: identical(error, sdkOmittedValue) ? this.error : error as LiveLiveError,
-  );
-
-  factory LiveErrorEvent.fromJson(Map<String, dynamic> json) => LiveErrorEvent(
-    eventId: (json['event_id'] as String?)!,
-    clientEventId: json['client_event_id'] != null ? SdkPresent((json['client_event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? LiveErrorEventType.fromJson(json['type'] as String) : null)!,
-    error: (json['error'] != null ? LiveLiveError.fromJson(json['error'] as Map<String, dynamic>) : null)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    ...switch (clientEventId) {
-      SdkPresent<String>(value: final value) => {'client_event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'error': error.toJson(),
-  };
-}
-
 /// Typed representation of the `LiveFileSearchToolInputParam` API schema.
 class LiveFileSearchToolInputParam {
   /// This model is constructed from named fields in one call.
@@ -274,4 +232,27 @@ class LiveSkillReferenceParam {
       _ => const <String, dynamic>{},
     },
   };
+}
+
+/// Typed representation of the `LiveTextVerbosity` API schema.
+final class LiveTextVerbosity {
+
+  final String value;
+
+  const LiveTextVerbosity._(this.value);
+
+  factory LiveTextVerbosity.fromJson(String value) => LiveTextVerbosity._(value);
+
+  static const low = LiveTextVerbosity._('low');
+  static const medium = LiveTextVerbosity._('medium');
+  static const high = LiveTextVerbosity._('high');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is LiveTextVerbosity && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
 }

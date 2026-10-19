@@ -4,27 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 67)
-/// The text content type. Always `text`.
-enum LiveInitialTextContentPartParamType {
-  text;
-
-  static LiveInitialTextContentPartParamType fromJson(String value) {
-    switch (value) {
-      case 'text': return LiveInitialTextContentPartParamType.text;
-      default: throw ArgumentError('Unknown LiveInitialTextContentPartParamType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveInitialTextContentPartParamType.text: return 'text';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
 /// The author of this history message. Always `user`.
 enum LiveInitialUserMessageItemParamRole {
   user;
@@ -270,6 +249,27 @@ enum LiveInputTranscriptDeltaType {
   String toJson() {
     switch (this) {
       case LiveInputTranscriptDeltaType.sessionInputTranscriptDelta: return 'session.input_transcript.delta';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// The event type, always `session.instructions.appended`.
+enum LiveInstructionsAppendedType {
+  sessionInstructionsAppended;
+
+  static LiveInstructionsAppendedType fromJson(String value) {
+    switch (value) {
+      case 'session.instructions.appended': return LiveInstructionsAppendedType.sessionInstructionsAppended;
+      default: throw ArgumentError('Unknown LiveInstructionsAppendedType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveInstructionsAppendedType.sessionInstructionsAppended: return 'session.instructions.appended';
     }
   }
 

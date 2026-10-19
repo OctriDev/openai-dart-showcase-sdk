@@ -3588,7 +3588,7 @@ class VectorStoresNamespace {
   /// Search a vector store for relevant chunks based on a query and file attributes filter.
   Future<VectorStoreSearchResultsPage> search(
       {required String vectorStoreId,
-      required dynamic query,
+      required List<String> query,
       SdkOptional<bool> rewriteQuery = const SdkOmitted(),
       SdkOptional<int> maxNumResults = const SdkOmitted(),
       SdkOptional<VectorStoreSearchRequestFilters> filters = const SdkOmitted(),

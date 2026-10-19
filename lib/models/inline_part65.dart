@@ -4,27 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 65)
-/// Required enumerated value serialized in the `type` wire field.
-final class LiveDecisionTriggerInputParamType {
-
-  final String value;
-
-  const LiveDecisionTriggerInputParamType._(this.value);
-
-  factory LiveDecisionTriggerInputParamType.fromJson(String value) => LiveDecisionTriggerInputParamType._(value);
-
-  static const decisions = LiveDecisionTriggerInputParamType._('decisions');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is LiveDecisionTriggerInputParamType && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
 /// Required enumerated value serialized in the `event_type` wire field.
 final class LiveDecisionTriggerInputParam2EventType {
 
@@ -271,6 +250,27 @@ enum LiveFunctionToolInputParamType {
   String toJson() {
     switch (this) {
       case LiveFunctionToolInputParamType.function_: return 'function';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// Automatically creates a container for this request
+enum LiveHostedShellContainerAutoParamType {
+  containerAuto;
+
+  static LiveHostedShellContainerAutoParamType fromJson(String value) {
+    switch (value) {
+      case 'container_auto': return LiveHostedShellContainerAutoParamType.containerAuto;
+      default: throw ArgumentError('Unknown LiveHostedShellContainerAutoParamType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveHostedShellContainerAutoParamType.containerAuto: return 'container_auto';
     }
   }
 

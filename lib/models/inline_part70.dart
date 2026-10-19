@@ -4,27 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 70)
-/// The event type, always `session.closed`.
-enum LiveSessionClosedType {
-  sessionClosed;
-
-  static LiveSessionClosedType fromJson(String value) {
-    switch (value) {
-      case 'session.closed': return LiveSessionClosedType.sessionClosed;
-      default: throw ArgumentError('Unknown LiveSessionClosedType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveSessionClosedType.sessionClosed: return 'session.closed';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
 /// The Live client event type. Always `session.close`.
 enum LiveSessionCloseParamType {
   sessionClose;
@@ -275,4 +254,25 @@ final class LiveSIPTrunkAuthRequestType {
 
   @override int get hashCode => value.hashCode;
 
+}
+
+/// References a skill created with the /v1/skills endpoint.
+enum LiveSkillReferenceParamType {
+  skillReference;
+
+  static LiveSkillReferenceParamType fromJson(String value) {
+    switch (value) {
+      case 'skill_reference': return LiveSkillReferenceParamType.skillReference;
+      default: throw ArgumentError('Unknown LiveSkillReferenceParamType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveSkillReferenceParamType.skillReference: return 'skill_reference';
+    }
+  }
+
+  @override
+  String toString() => toJson();
 }
