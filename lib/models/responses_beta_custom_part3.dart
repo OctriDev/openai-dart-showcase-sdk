@@ -8,5 +8,6 @@ part of 'responses_beta_custom.dart';
 final class UnknownBetaCustomToolParamFormat extends BetaCustomToolParamFormat {
   final Map<String, dynamic> raw;
   const UnknownBetaCustomToolParamFormat(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -8,248 +8,561 @@ part of 'live_live_responses.dart';
 class LiveResponsesDelegationParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The delegation owner. Always `responses` for tasks handled by the Responses API.
   final LiveResponsesDelegationParamType type_;
+
   /// Backend model, prompt, and tools used when the Live session delegates a task to Responses.
   final LiveResponsesDelegationSettingsInputParam responses;
 
-  const LiveResponsesDelegationParam({required this.type_, required this.responses});
+  const LiveResponsesDelegationParam(
+      {required this.type_, required this.responses});
 
-  LiveResponsesDelegationParam Function({LiveResponsesDelegationParamType type_, LiveResponsesDelegationSettingsInputParam responses}) get copyWith => _copyWith;
+  LiveResponsesDelegationParam Function(
+          {LiveResponsesDelegationParamType type_,
+          LiveResponsesDelegationSettingsInputParam responses})
+      get copyWith => _copyWith;
 
-  LiveResponsesDelegationParam _copyWith({Object? type_ = sdkOmittedValue, Object? responses = sdkOmittedValue}) => LiveResponsesDelegationParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveResponsesDelegationParamType,
-    responses: identical(responses, sdkOmittedValue) ? this.responses : responses as LiveResponsesDelegationSettingsInputParam,
-  );
+  LiveResponsesDelegationParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? responses = sdkOmittedValue}) =>
+      LiveResponsesDelegationParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveResponsesDelegationParamType,
+        responses: identical(responses, sdkOmittedValue)
+            ? this.responses
+            : responses as LiveResponsesDelegationSettingsInputParam,
+      );
 
-  factory LiveResponsesDelegationParam.fromJson(Map<String, dynamic> json) => LiveResponsesDelegationParam(
-    type_: (json['type'] != null ? LiveResponsesDelegationParamType.fromJson(json['type'] as String) : null)!,
-    responses: (json['responses'] != null ? LiveResponsesDelegationSettingsInputParam.fromJson(json['responses'] as Map<String, dynamic>) : null)!,
-  );
+  factory LiveResponsesDelegationParam.fromJson(Map<String, dynamic> json) =>
+      LiveResponsesDelegationParam(
+        type_: (json['type'] != null
+            ? LiveResponsesDelegationParamType.fromJson(json['type'] as String)
+            : null)!,
+        responses: (json['responses'] != null
+            ? LiveResponsesDelegationSettingsInputParam.fromJson(
+                json['responses'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'responses': responses.toJson(),
-  };
+        'type': type_.toJson(),
+        'responses': responses.toJson(),
+      };
 }
 
 sealed class LiveResponsesDelegationSettingsInputParamMaxOutputTokens {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const LiveResponsesDelegationSettingsInputParamMaxOutputTokens();
-  factory LiveResponsesDelegationSettingsInputParamMaxOutputTokens.fromJson(Object? json) {
-    if (json is num) { return LiveResponsesDelegationSettingsInputParamMaxOutputTokensInt(json.toInt()); }
-    throw FormatException("No variant matched for LiveResponsesDelegationSettingsInputParamMaxOutputTokens");
+  factory LiveResponsesDelegationSettingsInputParamMaxOutputTokens.fromJson(
+      Object? json) {
+    if (json is num) {
+      return LiveResponsesDelegationSettingsInputParamMaxOutputTokensInt(
+          json.toInt());
+    }
+    throw FormatException(
+        "No variant matched for LiveResponsesDelegationSettingsInputParamMaxOutputTokens");
   }
   Object? toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamMaxOutputTokensInt extends LiveResponsesDelegationSettingsInputParamMaxOutputTokens {
+final class LiveResponsesDelegationSettingsInputParamMaxOutputTokensInt
+    extends LiveResponsesDelegationSettingsInputParamMaxOutputTokens {
   final int value;
   const LiveResponsesDelegationSettingsInputParamMaxOutputTokensInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Model, prompt, and tool settings for tasks delegated by the Live session to a Responses backend.
 class LiveResponsesDelegationSettingsInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The model used for server-owned Responses delegations.
   final String model;
+
   /// Optional `string` value serialized in the `instructions` wire field.
   final SdkOptional<String?> instructions;
+
   /// Optional API value serialized in the `max_output_tokens` wire field.
   final SdkOptional<int?> maxOutputTokens;
+
   /// Optional API value serialized in the `service_tier` wire field.
   final SdkOptional<LiveResponsesServiceTier?> serviceTier;
+
   /// Optional API value serialized in the `reasoning` wire field.
   final SdkOptional<LiveDelegationReasoningInputParam?> reasoning;
+
   /// Optional API value serialized in the `text` wire field.
   final SdkOptional<LiveDelegationTextInputParam?> text;
+
   /// Tools available to the Responses backend while it handles tasks delegated by the Live model.
-  final SdkOptional<List<LiveResponsesDelegationSettingsInputParamToolsItem>> tools;
+  final SdkOptional<List<LiveResponsesDelegationSettingsInputParamToolsItem>>
+      tools;
+
   /// Controls which tool the Responses backend uses when handling a task delegated by the Live model.
-  final SdkOptional<LiveResponsesDelegationSettingsInputParamToolChoice> toolChoice;
+  final SdkOptional<LiveResponsesDelegationSettingsInputParamToolChoice>
+      toolChoice;
+
   /// Optional `boolean` value serialized in the `parallel_tool_calls` wire field.
   final SdkOptional<bool?> parallelToolCalls;
 
-  const LiveResponsesDelegationSettingsInputParam({required this.model, this.instructions = const SdkOmitted(), this.maxOutputTokens = const SdkOmitted(), this.serviceTier = const SdkOmitted(), this.reasoning = const SdkOmitted(), this.text = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.parallelToolCalls = const SdkOmitted()});
+  const LiveResponsesDelegationSettingsInputParam(
+      {required this.model,
+      this.instructions = const SdkOmitted(),
+      this.maxOutputTokens = const SdkOmitted(),
+      this.serviceTier = const SdkOmitted(),
+      this.reasoning = const SdkOmitted(),
+      this.text = const SdkOmitted(),
+      this.tools = const SdkOmitted(),
+      this.toolChoice = const SdkOmitted(),
+      this.parallelToolCalls = const SdkOmitted()});
 
-  LiveResponsesDelegationSettingsInputParam Function({String model, SdkOptional<String?> instructions, SdkOptional<int?> maxOutputTokens, SdkOptional<LiveResponsesServiceTier?> serviceTier, SdkOptional<LiveDelegationReasoningInputParam?> reasoning, SdkOptional<LiveDelegationTextInputParam?> text, SdkOptional<List<LiveResponsesDelegationSettingsInputParamToolsItem>> tools, SdkOptional<LiveResponsesDelegationSettingsInputParamToolChoice> toolChoice, SdkOptional<bool?> parallelToolCalls}) get copyWith => _copyWith;
+  LiveResponsesDelegationSettingsInputParam Function(
+      {String model,
+      SdkOptional<String?> instructions,
+      SdkOptional<int?> maxOutputTokens,
+      SdkOptional<LiveResponsesServiceTier?> serviceTier,
+      SdkOptional<LiveDelegationReasoningInputParam?> reasoning,
+      SdkOptional<LiveDelegationTextInputParam?> text,
+      SdkOptional<List<LiveResponsesDelegationSettingsInputParamToolsItem>>
+          tools,
+      SdkOptional<LiveResponsesDelegationSettingsInputParamToolChoice>
+          toolChoice,
+      SdkOptional<bool?> parallelToolCalls}) get copyWith => _copyWith;
 
-  LiveResponsesDelegationSettingsInputParam _copyWith({Object? model = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? maxOutputTokens = sdkOmittedValue, Object? serviceTier = sdkOmittedValue, Object? reasoning = sdkOmittedValue, Object? text = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? parallelToolCalls = sdkOmittedValue}) => LiveResponsesDelegationSettingsInputParam(
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String?>,
-    maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue) ? this.maxOutputTokens : maxOutputTokens as SdkOptional<int?>,
-    serviceTier: identical(serviceTier, sdkOmittedValue) ? this.serviceTier : serviceTier as SdkOptional<LiveResponsesServiceTier?>,
-    reasoning: identical(reasoning, sdkOmittedValue) ? this.reasoning : reasoning as SdkOptional<LiveDelegationReasoningInputParam?>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<LiveDelegationTextInputParam?>,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<LiveResponsesDelegationSettingsInputParamToolsItem>>,
-    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<LiveResponsesDelegationSettingsInputParamToolChoice>,
-    parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue) ? this.parallelToolCalls : parallelToolCalls as SdkOptional<bool?>,
-  );
+  LiveResponsesDelegationSettingsInputParam _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? instructions = sdkOmittedValue,
+          Object? maxOutputTokens = sdkOmittedValue,
+          Object? serviceTier = sdkOmittedValue,
+          Object? reasoning = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? tools = sdkOmittedValue,
+          Object? toolChoice = sdkOmittedValue,
+          Object? parallelToolCalls = sdkOmittedValue}) =>
+      LiveResponsesDelegationSettingsInputParam(
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        instructions: identical(instructions, sdkOmittedValue)
+            ? this.instructions
+            : instructions as SdkOptional<String?>,
+        maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue)
+            ? this.maxOutputTokens
+            : maxOutputTokens as SdkOptional<int?>,
+        serviceTier: identical(serviceTier, sdkOmittedValue)
+            ? this.serviceTier
+            : serviceTier as SdkOptional<LiveResponsesServiceTier?>,
+        reasoning: identical(reasoning, sdkOmittedValue)
+            ? this.reasoning
+            : reasoning as SdkOptional<LiveDelegationReasoningInputParam?>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<LiveDelegationTextInputParam?>,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as SdkOptional<
+                List<LiveResponsesDelegationSettingsInputParamToolsItem>>,
+        toolChoice: identical(toolChoice, sdkOmittedValue)
+            ? this.toolChoice
+            : toolChoice as SdkOptional<
+                LiveResponsesDelegationSettingsInputParamToolChoice>,
+        parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue)
+            ? this.parallelToolCalls
+            : parallelToolCalls as SdkOptional<bool?>,
+      );
 
-  factory LiveResponsesDelegationSettingsInputParam.fromJson(Map<String, dynamic> json) => LiveResponsesDelegationSettingsInputParam(
-    model: (json['model'] as String?)!,
-    instructions: json.containsKey('instructions') ? SdkPresent(json['instructions'] as String?) : const SdkOmitted(),
-    maxOutputTokens: json.containsKey('max_output_tokens') ? SdkPresent((json['max_output_tokens'] as num?)?.toInt()) : const SdkOmitted(),
-    serviceTier: json.containsKey('service_tier') ? SdkPresent(json['service_tier'] != null ? LiveResponsesServiceTier.fromJson(json['service_tier'] as String) : null) : const SdkOmitted(),
-    reasoning: json.containsKey('reasoning') ? SdkPresent(json['reasoning'] != null ? LiveDelegationReasoningInputParam.fromJson(json['reasoning'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    text: json.containsKey('text') ? SdkPresent(json['text'] != null ? LiveDelegationTextInputParam.fromJson(json['text'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => LiveResponsesDelegationSettingsInputParamToolsItem.fromJson(e)).toList())!) : const SdkOmitted(),
-    toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] != null ? LiveResponsesDelegationSettingsInputParamToolChoice.fromJson(json['tool_choice']) : null)!) : const SdkOmitted(),
-    parallelToolCalls: json.containsKey('parallel_tool_calls') ? SdkPresent(json['parallel_tool_calls'] as bool?) : const SdkOmitted(),
-  );
+  factory LiveResponsesDelegationSettingsInputParam.fromJson(
+          Map<String, dynamic> json) =>
+      LiveResponsesDelegationSettingsInputParam(
+        model: (json['model'] as String?)!,
+        instructions: json.containsKey('instructions')
+            ? SdkPresent(json['instructions'] as String?)
+            : const SdkOmitted(),
+        maxOutputTokens: json.containsKey('max_output_tokens')
+            ? SdkPresent((json['max_output_tokens'] as num?)?.toInt())
+            : const SdkOmitted(),
+        serviceTier: json.containsKey('service_tier')
+            ? SdkPresent(json['service_tier'] != null
+                ? LiveResponsesServiceTier.fromJson(
+                    json['service_tier'] as String)
+                : null)
+            : const SdkOmitted(),
+        reasoning: json.containsKey('reasoning')
+            ? SdkPresent(json['reasoning'] != null
+                ? LiveDelegationReasoningInputParam.fromJson(
+                    json['reasoning'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        text: json.containsKey('text')
+            ? SdkPresent(json['text'] != null
+                ? LiveDelegationTextInputParam.fromJson(
+                    json['text'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        tools: json['tools'] != null
+            ? SdkPresent(((json['tools'] as List?)
+                ?.map((e) =>
+                    LiveResponsesDelegationSettingsInputParamToolsItem.fromJson(
+                        e))
+                .toList())!)
+            : const SdkOmitted(),
+        toolChoice: json['tool_choice'] != null
+            ? SdkPresent((json['tool_choice'] != null
+                ? LiveResponsesDelegationSettingsInputParamToolChoice.fromJson(
+                    json['tool_choice'])
+                : null)!)
+            : const SdkOmitted(),
+        parallelToolCalls: json.containsKey('parallel_tool_calls')
+            ? SdkPresent(json['parallel_tool_calls'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'model': model,
-    ...switch (instructions) {
-      SdkPresent<String?>(value: final value) => {'instructions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxOutputTokens) {
-      SdkPresent<int?>(value: final value) => {'max_output_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (serviceTier) {
-      SdkPresent<LiveResponsesServiceTier?>(value: final value) => {'service_tier': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reasoning) {
-      SdkPresent<LiveDelegationReasoningInputParam?>(value: final value) => {'reasoning': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<LiveDelegationTextInputParam?>(value: final value) => {'text': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tools) {
-      SdkPresent<List<LiveResponsesDelegationSettingsInputParamToolsItem>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (toolChoice) {
-      SdkPresent<LiveResponsesDelegationSettingsInputParamToolChoice>(value: final value) => {'tool_choice': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parallelToolCalls) {
-      SdkPresent<bool?>(value: final value) => {'parallel_tool_calls': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'model': model,
+        ...switch (instructions) {
+          SdkPresent<String?>(value: final value) => {
+              'instructions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxOutputTokens) {
+          SdkPresent<int?>(value: final value) => {
+              'max_output_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (serviceTier) {
+          SdkPresent<LiveResponsesServiceTier?>(value: final value) => {
+              'service_tier': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reasoning) {
+          SdkPresent<LiveDelegationReasoningInputParam?>(value: final value) =>
+            {
+              'reasoning': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<LiveDelegationTextInputParam?>(value: final value) => {
+              'text': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tools) {
+          SdkPresent<List<LiveResponsesDelegationSettingsInputParamToolsItem>>(
+            value: final value
+          ) =>
+            {
+              'tools': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (toolChoice) {
+          SdkPresent<LiveResponsesDelegationSettingsInputParamToolChoice>(
+            value: final value
+          ) =>
+            {
+              'tool_choice': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parallelToolCalls) {
+          SdkPresent<bool?>(value: final value) => {
+              'parallel_tool_calls': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1();
-  factory LiveResponsesDelegationSettingsInputParamToolChoiceVariant1.fromJson(Object? json) {
+  factory LiveResponsesDelegationSettingsInputParamToolChoiceVariant1.fromJson(
+      Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = LiveFunctionToolChoiceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveFunctionToolChoiceParam(value); } } catch (_) {}
-      try { final value = LiveMCPToolChoiceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveMCPToolChoiceParam(value); } } catch (_) {}
-      try { final value = LiveSpecificFileSearchParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFileSearchParam(value); } } catch (_) {}
-      try { final value = LiveSpecificWebSearchParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchParam(value); } } catch (_) {}
-      try { final value = LiveSpecificWebSearchPreviewParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchPreviewParam(value); } } catch (_) {}
-      try { final value = LiveSpecificImageGenParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificImageGenParam(value); } } catch (_) {}
-      try { final value = LiveSpecificComputerParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificComputerParam(value); } } catch (_) {}
-      try { final value = LiveSpecificCodeInterpreterParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCodeInterpreterParam(value); } } catch (_) {}
-      try { final value = LiveSpecificProgrammaticToolCallingParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificProgrammaticToolCallingParam(value); } } catch (_) {}
-      try { final value = LiveSpecificFunctionShellParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFunctionShellParam(value); } } catch (_) {}
-      try { final value = LiveSpecificCustomToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCustomToolParam(value); } } catch (_) {}
-      try { final value = LiveSpecificApplyPatchParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificApplyPatchParam(value); } } catch (_) {}
+      try {
+        final value = LiveFunctionToolChoiceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveFunctionToolChoiceParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveMCPToolChoiceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveMCPToolChoiceParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificFileSearchParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFileSearchParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificWebSearchParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificWebSearchPreviewParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchPreviewParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificImageGenParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificImageGenParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificComputerParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificComputerParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificCodeInterpreterParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCodeInterpreterParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificProgrammaticToolCallingParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificProgrammaticToolCallingParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificFunctionShellParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFunctionShellParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificCustomToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCustomToolParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSpecificApplyPatchParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificApplyPatchParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveFunctionToolChoiceParam(LiveFunctionToolChoiceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveMCPToolChoiceParam(LiveMCPToolChoiceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFileSearchParam(LiveSpecificFileSearchParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchParam(LiveSpecificWebSearchParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchPreviewParam(LiveSpecificWebSearchPreviewParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificImageGenParam(LiveSpecificImageGenParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificComputerParam(LiveSpecificComputerParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCodeInterpreterParam(LiveSpecificCodeInterpreterParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificProgrammaticToolCallingParam(LiveSpecificProgrammaticToolCallingParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFunctionShellParam(LiveSpecificFunctionShellParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCustomToolParam(LiveSpecificCustomToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificApplyPatchParam(LiveSpecificApplyPatchParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "mcp", "file_search", "web_search", "web_search_preview", "image_generation", "computer", "code_interpreter", "programmatic_tool_calling", "shell", "custom", "apply_patch"}.contains(json["type"])) { return UnknownLiveResponsesDelegationSettingsInputParamToolChoiceVariant1(json); }
-    throw FormatException("No variant matched for LiveResponsesDelegationSettingsInputParamToolChoiceVariant1");
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveFunctionToolChoiceParam(
+          LiveFunctionToolChoiceParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveMCPToolChoiceParam(
+          LiveMCPToolChoiceParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFileSearchParam(
+          LiveSpecificFileSearchParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchParam(
+          LiveSpecificWebSearchParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchPreviewParam(
+          LiveSpecificWebSearchPreviewParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificImageGenParam(
+          LiveSpecificImageGenParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificComputerParam(
+          LiveSpecificComputerParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCodeInterpreterParam(
+          LiveSpecificCodeInterpreterParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificProgrammaticToolCallingParam(
+          LiveSpecificProgrammaticToolCallingParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFunctionShellParam(
+          LiveSpecificFunctionShellParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCustomToolParam(
+          LiveSpecificCustomToolParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificApplyPatchParam(
+          LiveSpecificApplyPatchParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "function",
+          "mcp",
+          "file_search",
+          "web_search",
+          "web_search_preview",
+          "image_generation",
+          "computer",
+          "code_interpreter",
+          "programmatic_tool_calling",
+          "shell",
+          "custom",
+          "apply_patch"
+        }.contains(json["type"])) {
+      return UnknownLiveResponsesDelegationSettingsInputParamToolChoiceVariant1(
+          json);
+    }
+    throw FormatException(
+        "No variant matched for LiveResponsesDelegationSettingsInputParamToolChoiceVariant1");
   }
   Object? toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveFunctionToolChoiceParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveFunctionToolChoiceParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveFunctionToolChoiceParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveFunctionToolChoiceParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveFunctionToolChoiceParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveMCPToolChoiceParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveMCPToolChoiceParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveMCPToolChoiceParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveMCPToolChoiceParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveMCPToolChoiceParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFileSearchParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFileSearchParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveSpecificFileSearchParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFileSearchParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFileSearchParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveSpecificWebSearchParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchPreviewParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchPreviewParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveSpecificWebSearchPreviewParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchPreviewParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificWebSearchPreviewParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificImageGenParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificImageGenParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveSpecificImageGenParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificImageGenParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificImageGenParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificComputerParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificComputerParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveSpecificComputerParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificComputerParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificComputerParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCodeInterpreterParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCodeInterpreterParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveSpecificCodeInterpreterParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCodeInterpreterParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCodeInterpreterParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificProgrammaticToolCallingParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificProgrammaticToolCallingParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveSpecificProgrammaticToolCallingParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificProgrammaticToolCallingParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificProgrammaticToolCallingParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFunctionShellParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFunctionShellParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveSpecificFunctionShellParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFunctionShellParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificFunctionShellParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCustomToolParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCustomToolParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveSpecificCustomToolParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCustomToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificCustomToolParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificApplyPatchParam extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificApplyPatchParam
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final LiveSpecificApplyPatchParam value;
-  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificApplyPatchParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveResponsesDelegationSettingsInputParamToolChoiceVariant1LiveSpecificApplyPatchParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [LiveResponsesDelegationSettingsInputParamToolChoiceVariant1] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownLiveResponsesDelegationSettingsInputParamToolChoiceVariant1 extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
+final class UnknownLiveResponsesDelegationSettingsInputParamToolChoiceVariant1
+    extends LiveResponsesDelegationSettingsInputParamToolChoiceVariant1 {
   final Map<String, dynamic> raw;
-  const UnknownLiveResponsesDelegationSettingsInputParamToolChoiceVariant1(this.raw);
-  @override Object? toJson() => raw;
+  const UnknownLiveResponsesDelegationSettingsInputParamToolChoiceVariant1(
+      this.raw);
+  @override
+  Object? toJson() => raw;
 }

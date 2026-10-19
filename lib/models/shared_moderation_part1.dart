@@ -8,51 +8,61 @@ part of 'shared_moderation.dart';
 class ModerationConfigParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `mode` wire field.
   final ModerationMode mode;
 
   const ModerationConfigParam({required this.mode});
 
-  ModerationConfigParam Function({ModerationMode mode}) get copyWith => _copyWith;
+  ModerationConfigParam Function({ModerationMode mode}) get copyWith =>
+      _copyWith;
 
-  ModerationConfigParam _copyWith({Object? mode = sdkOmittedValue}) => ModerationConfigParam(
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as ModerationMode,
-  );
+  ModerationConfigParam _copyWith({Object? mode = sdkOmittedValue}) =>
+      ModerationConfigParam(
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as ModerationMode,
+      );
 
-  factory ModerationConfigParam.fromJson(Map<String, dynamic> json) => ModerationConfigParam(
-    mode: (json['mode'] != null ? ModerationMode.fromJson(json['mode'] as String) : null)!,
-  );
+  factory ModerationConfigParam.fromJson(Map<String, dynamic> json) =>
+      ModerationConfigParam(
+        mode: (json['mode'] != null
+            ? ModerationMode.fromJson(json['mode'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'mode': mode.toJson(),
-  };
+        'mode': mode.toJson(),
+      };
 }
 
 /// Typed representation of the `ModerationInputType` API schema.
 final class ModerationInputType {
-
   final String value;
 
   const ModerationInputType._(this.value);
 
-  factory ModerationInputType.fromJson(String value) => ModerationInputType._(value);
+  factory ModerationInputType.fromJson(String value) =>
+      ModerationInputType._(value);
 
   static const text = ModerationInputType._('text');
   static const image = ModerationInputType._('image');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ModerationInputType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ModerationInputType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `ModerationMode` API schema.
 final class ModerationMode {
-
   final String value;
 
   const ModerationMode._(this.value);
@@ -64,126 +74,232 @@ final class ModerationMode {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ModerationMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ModerationMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Configuration for running moderation on the input and output of this response.
 class ModerationParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The moderation model to use for moderated completions, e.g. 'omni-moderation-latest'.
   final String model;
+
   /// Optional API value serialized in the `policy` wire field.
   final SdkOptional<ModerationPolicyParam?> policy;
 
-  const ModerationParam({required this.model, this.policy = const SdkOmitted()});
+  const ModerationParam(
+      {required this.model, this.policy = const SdkOmitted()});
 
-  ModerationParam Function({String model, SdkOptional<ModerationPolicyParam?> policy}) get copyWith => _copyWith;
+  ModerationParam Function(
+      {String model,
+      SdkOptional<ModerationPolicyParam?> policy}) get copyWith => _copyWith;
 
-  ModerationParam _copyWith({Object? model = sdkOmittedValue, Object? policy = sdkOmittedValue}) => ModerationParam(
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    policy: identical(policy, sdkOmittedValue) ? this.policy : policy as SdkOptional<ModerationPolicyParam?>,
-  );
+  ModerationParam _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? policy = sdkOmittedValue}) =>
+      ModerationParam(
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        policy: identical(policy, sdkOmittedValue)
+            ? this.policy
+            : policy as SdkOptional<ModerationPolicyParam?>,
+      );
 
-  factory ModerationParam.fromJson(Map<String, dynamic> json) => ModerationParam(
-    model: (json['model'] as String?)!,
-    policy: json.containsKey('policy') ? SdkPresent(json['policy'] != null ? ModerationPolicyParam.fromJson(json['policy'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory ModerationParam.fromJson(Map<String, dynamic> json) =>
+      ModerationParam(
+        model: (json['model'] as String?)!,
+        policy: json.containsKey('policy')
+            ? SdkPresent(json['policy'] != null
+                ? ModerationPolicyParam.fromJson(
+                    json['policy'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'model': model,
-    ...switch (policy) {
-      SdkPresent<ModerationPolicyParam?>(value: final value) => {'policy': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'model': model,
+        ...switch (policy) {
+          SdkPresent<ModerationPolicyParam?>(value: final value) => {
+              'policy': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The policy to apply to moderated response input and output.
 class ModerationPolicyParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `input` wire field.
   final SdkOptional<ModerationConfigParam?> input;
+
   /// Optional API value serialized in the `output` wire field.
   final SdkOptional<ModerationConfigParam?> output;
 
-  const ModerationPolicyParam({this.input = const SdkOmitted(), this.output = const SdkOmitted()});
+  const ModerationPolicyParam(
+      {this.input = const SdkOmitted(), this.output = const SdkOmitted()});
 
-  ModerationPolicyParam Function({SdkOptional<ModerationConfigParam?> input, SdkOptional<ModerationConfigParam?> output}) get copyWith => _copyWith;
+  ModerationPolicyParam Function(
+      {SdkOptional<ModerationConfigParam?> input,
+      SdkOptional<ModerationConfigParam?> output}) get copyWith => _copyWith;
 
-  ModerationPolicyParam _copyWith({Object? input = sdkOmittedValue, Object? output = sdkOmittedValue}) => ModerationPolicyParam(
-    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<ModerationConfigParam?>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<ModerationConfigParam?>,
-  );
+  ModerationPolicyParam _copyWith(
+          {Object? input = sdkOmittedValue,
+          Object? output = sdkOmittedValue}) =>
+      ModerationPolicyParam(
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as SdkOptional<ModerationConfigParam?>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<ModerationConfigParam?>,
+      );
 
-  factory ModerationPolicyParam.fromJson(Map<String, dynamic> json) => ModerationPolicyParam(
-    input: json.containsKey('input') ? SdkPresent(json['input'] != null ? ModerationConfigParam.fromJson(json['input'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    output: json.containsKey('output') ? SdkPresent(json['output'] != null ? ModerationConfigParam.fromJson(json['output'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory ModerationPolicyParam.fromJson(Map<String, dynamic> json) =>
+      ModerationPolicyParam(
+        input: json.containsKey('input')
+            ? SdkPresent(json['input'] != null
+                ? ModerationConfigParam.fromJson(
+                    json['input'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        output: json.containsKey('output')
+            ? SdkPresent(json['output'] != null
+                ? ModerationConfigParam.fromJson(
+                    json['output'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (input) {
-      SdkPresent<ModerationConfigParam?>(value: final value) => {'input': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (output) {
-      SdkPresent<ModerationConfigParam?>(value: final value) => {'output': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (input) {
+          SdkPresent<ModerationConfigParam?>(value: final value) => {
+              'input': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (output) {
+          SdkPresent<ModerationConfigParam?>(value: final value) => {
+              'output': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A moderation result produced for the response input or output.
 class ModerationResultBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which was always `moderation_result` for successful moderation results.
   final ModerationResultBodyType type_;
+
   /// The moderation model that produced this result.
   final String model;
+
   /// A boolean indicating whether the content was flagged by any category.
   final bool flagged;
+
   /// A dictionary of moderation categories to booleans, True if the input is flagged under this category.
   final Map<String, bool> categories;
+
   /// A dictionary of moderation categories to scores.
   final Map<String, double> categoryScores;
+
   /// Which modalities of input are reflected by the score for each category.
   final Map<String, List<ModerationInputType>> categoryAppliedInputTypes;
 
-  const ModerationResultBody({required this.type_, required this.model, required this.flagged, required this.categories, required this.categoryScores, required this.categoryAppliedInputTypes});
+  const ModerationResultBody(
+      {required this.type_,
+      required this.model,
+      required this.flagged,
+      required this.categories,
+      required this.categoryScores,
+      required this.categoryAppliedInputTypes});
 
-  ModerationResultBody Function({ModerationResultBodyType type_, String model, bool flagged, Map<String, bool> categories, Map<String, double> categoryScores, Map<String, List<ModerationInputType>> categoryAppliedInputTypes}) get copyWith => _copyWith;
+  ModerationResultBody Function(
+          {ModerationResultBodyType type_,
+          String model,
+          bool flagged,
+          Map<String, bool> categories,
+          Map<String, double> categoryScores,
+          Map<String, List<ModerationInputType>> categoryAppliedInputTypes})
+      get copyWith => _copyWith;
 
-  ModerationResultBody _copyWith({Object? type_ = sdkOmittedValue, Object? model = sdkOmittedValue, Object? flagged = sdkOmittedValue, Object? categories = sdkOmittedValue, Object? categoryScores = sdkOmittedValue, Object? categoryAppliedInputTypes = sdkOmittedValue}) => ModerationResultBody(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ModerationResultBodyType,
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    flagged: identical(flagged, sdkOmittedValue) ? this.flagged : flagged as bool,
-    categories: identical(categories, sdkOmittedValue) ? this.categories : categories as Map<String, bool>,
-    categoryScores: identical(categoryScores, sdkOmittedValue) ? this.categoryScores : categoryScores as Map<String, double>,
-    categoryAppliedInputTypes: identical(categoryAppliedInputTypes, sdkOmittedValue) ? this.categoryAppliedInputTypes : categoryAppliedInputTypes as Map<String, List<ModerationInputType>>,
-  );
+  ModerationResultBody _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? flagged = sdkOmittedValue,
+          Object? categories = sdkOmittedValue,
+          Object? categoryScores = sdkOmittedValue,
+          Object? categoryAppliedInputTypes = sdkOmittedValue}) =>
+      ModerationResultBody(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ModerationResultBodyType,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        flagged: identical(flagged, sdkOmittedValue)
+            ? this.flagged
+            : flagged as bool,
+        categories: identical(categories, sdkOmittedValue)
+            ? this.categories
+            : categories as Map<String, bool>,
+        categoryScores: identical(categoryScores, sdkOmittedValue)
+            ? this.categoryScores
+            : categoryScores as Map<String, double>,
+        categoryAppliedInputTypes:
+            identical(categoryAppliedInputTypes, sdkOmittedValue)
+                ? this.categoryAppliedInputTypes
+                : categoryAppliedInputTypes
+                    as Map<String, List<ModerationInputType>>,
+      );
 
-  factory ModerationResultBody.fromJson(Map<String, dynamic> json) => ModerationResultBody(
-    type_: (json['type'] != null ? ModerationResultBodyType.fromJson(json['type'] as String) : null)!,
-    model: (json['model'] as String?)!,
-    flagged: (json['flagged'] as bool?)!,
-    categories: (json['categories'] == null ? null : Map<String, dynamic>.from(json['categories'] as Map).map((key, value) => MapEntry(key, value as bool)))!,
-    categoryScores: (json['category_scores'] == null ? null : Map<String, dynamic>.from(json['category_scores'] as Map).map((key, value) => MapEntry(key, (value as num).toDouble())))!,
-    categoryAppliedInputTypes: (json['category_applied_input_types'] == null ? null : Map<String, dynamic>.from(json['category_applied_input_types'] as Map).map((key, value) => MapEntry(key, (value as List).map((item) => ModerationInputType.fromJson(item as String)).toList())))!,
-  );
+  factory ModerationResultBody.fromJson(Map<String, dynamic> json) =>
+      ModerationResultBody(
+        type_: (json['type'] != null
+            ? ModerationResultBodyType.fromJson(json['type'] as String)
+            : null)!,
+        model: (json['model'] as String?)!,
+        flagged: (json['flagged'] as bool?)!,
+        categories: (json['categories'] == null
+            ? null
+            : Map<String, dynamic>.from(json['categories'] as Map)
+                .map((key, value) => MapEntry(key, value as bool)))!,
+        categoryScores: (json['category_scores'] == null
+            ? null
+            : Map<String, dynamic>.from(json['category_scores'] as Map).map(
+                (key, value) => MapEntry(key, (value as num).toDouble())))!,
+        categoryAppliedInputTypes: (json['category_applied_input_types'] == null
+            ? null
+            : Map<String, dynamic>.from(
+                    json['category_applied_input_types'] as Map)
+                .map((key, value) => MapEntry(
+                    key,
+                    (value as List)
+                        .map((item) =>
+                            ModerationInputType.fromJson(item as String))
+                        .toList())))!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'model': model,
-    'flagged': flagged,
-    'categories': categories,
-    'category_scores': categoryScores,
-    'category_applied_input_types': categoryAppliedInputTypes.map((key, value) => MapEntry(key, value.map((item) => item.toJson()).toList())),
-  };
+        'type': type_.toJson(),
+        'model': model,
+        'flagged': flagged,
+        'categories': categories,
+        'category_scores': categoryScores,
+        'category_applied_input_types': categoryAppliedInputTypes.map(
+            (key, value) =>
+                MapEntry(key, value.map((item) => item.toJson()).toList())),
+      };
 }

@@ -6,7 +6,6 @@ part of 'inline.dart';
 // Inline operation models (part 78)
 /// The object type, which is always `file`.
 final class OpenAIFileObject {
-
   final String value;
 
   const OpenAIFileObject._(this.value);
@@ -17,22 +16,25 @@ final class OpenAIFileObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OpenAIFileObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OpenAIFileObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The intended purpose of the file. Supported values are `assistants`, `assistants_output`, `batch`, `batch_output`, `fine-tune`, `fine-tune-results`, `vision`, and `user_data`.
 final class OpenAIFilePurpose {
-
   final String value;
 
   const OpenAIFilePurpose._(this.value);
 
-  factory OpenAIFilePurpose.fromJson(String value) => OpenAIFilePurpose._(value);
+  factory OpenAIFilePurpose.fromJson(String value) =>
+      OpenAIFilePurpose._(value);
 
   static const assistants = OpenAIFilePurpose._('assistants');
   static const assistantsOutput = OpenAIFilePurpose._('assistants_output');
@@ -45,17 +47,19 @@ final class OpenAIFilePurpose {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OpenAIFilePurpose && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OpenAIFilePurpose && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Deprecated. The current status of the file, which can be either `uploaded`, `processed`, or `error`.
 final class OpenAIFileStatus {
-
   final String value;
 
   const OpenAIFileStatus._(this.value);
@@ -68,223 +72,280 @@ final class OpenAIFileStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OpenAIFileStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OpenAIFileStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `organization.certificate`.
 final class OrganizationCertificateObject {
-
   final String value;
 
   const OrganizationCertificateObject._(this.value);
 
-  factory OrganizationCertificateObject.fromJson(String value) => OrganizationCertificateObject._(value);
+  factory OrganizationCertificateObject.fromJson(String value) =>
+      OrganizationCertificateObject._(value);
 
-  static const organizationCertificate = OrganizationCertificateObject._('organization.certificate');
+  static const organizationCertificate =
+      OrganizationCertificateObject._('organization.certificate');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationCertificateObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationCertificateObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The organization certificate activation result type.
 final class OrganizationCertificateActivationResponseObject {
-
   final String value;
 
   const OrganizationCertificateActivationResponseObject._(this.value);
 
-  factory OrganizationCertificateActivationResponseObject.fromJson(String value) => OrganizationCertificateActivationResponseObject._(value);
+  factory OrganizationCertificateActivationResponseObject.fromJson(
+          String value) =>
+      OrganizationCertificateActivationResponseObject._(value);
 
-  static const organizationCertificateActivation = OrganizationCertificateActivationResponseObject._('organization.certificate.activation');
+  static const organizationCertificateActivation =
+      OrganizationCertificateActivationResponseObject._(
+          'organization.certificate.activation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationCertificateActivationResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationCertificateActivationResponseObject &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The organization certificate deactivation result type.
 final class OrganizationCertificateDeactivationResponseObject {
-
   final String value;
 
   const OrganizationCertificateDeactivationResponseObject._(this.value);
 
-  factory OrganizationCertificateDeactivationResponseObject.fromJson(String value) => OrganizationCertificateDeactivationResponseObject._(value);
+  factory OrganizationCertificateDeactivationResponseObject.fromJson(
+          String value) =>
+      OrganizationCertificateDeactivationResponseObject._(value);
 
-  static const organizationCertificateDeactivation = OrganizationCertificateDeactivationResponseObject._('organization.certificate.deactivation');
+  static const organizationCertificateDeactivation =
+      OrganizationCertificateDeactivationResponseObject._(
+          'organization.certificate.deactivation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationCertificateDeactivationResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationCertificateDeactivationResponseObject &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `organization.data_retention`.
 final class OrganizationDataRetentionObject {
-
   final String value;
 
   const OrganizationDataRetentionObject._(this.value);
 
-  factory OrganizationDataRetentionObject.fromJson(String value) => OrganizationDataRetentionObject._(value);
+  factory OrganizationDataRetentionObject.fromJson(String value) =>
+      OrganizationDataRetentionObject._(value);
 
-  static const organizationDataRetention = OrganizationDataRetentionObject._('organization.data_retention');
+  static const organizationDataRetention =
+      OrganizationDataRetentionObject._('organization.data_retention');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationDataRetentionObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationDataRetentionObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The configured organization data retention type.
 final class OrganizationDataRetentionType {
-
   final String value;
 
   const OrganizationDataRetentionType._(this.value);
 
-  factory OrganizationDataRetentionType.fromJson(String value) => OrganizationDataRetentionType._(value);
+  factory OrganizationDataRetentionType.fromJson(String value) =>
+      OrganizationDataRetentionType._(value);
 
-  static const zeroDataRetention = OrganizationDataRetentionType._('zero_data_retention');
-  static const modifiedAbuseMonitoring = OrganizationDataRetentionType._('modified_abuse_monitoring');
-  static const enhancedZeroDataRetention = OrganizationDataRetentionType._('enhanced_zero_data_retention');
-  static const enhancedModifiedAbuseMonitoring = OrganizationDataRetentionType._('enhanced_modified_abuse_monitoring');
+  static const zeroDataRetention =
+      OrganizationDataRetentionType._('zero_data_retention');
+  static const modifiedAbuseMonitoring =
+      OrganizationDataRetentionType._('modified_abuse_monitoring');
+  static const enhancedZeroDataRetention =
+      OrganizationDataRetentionType._('enhanced_zero_data_retention');
+  static const enhancedModifiedAbuseMonitoring =
+      OrganizationDataRetentionType._('enhanced_modified_abuse_monitoring');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationDataRetentionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationDataRetentionType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `organization.project.certificate`.
 final class OrganizationProjectCertificateObject {
-
   final String value;
 
   const OrganizationProjectCertificateObject._(this.value);
 
-  factory OrganizationProjectCertificateObject.fromJson(String value) => OrganizationProjectCertificateObject._(value);
+  factory OrganizationProjectCertificateObject.fromJson(String value) =>
+      OrganizationProjectCertificateObject._(value);
 
-  static const organizationProjectCertificate = OrganizationProjectCertificateObject._('organization.project.certificate');
+  static const organizationProjectCertificate =
+      OrganizationProjectCertificateObject._(
+          'organization.project.certificate');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationProjectCertificateObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationProjectCertificateObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The project certificate activation result type.
 final class OrganizationProjectCertificateActivationResponseObject {
-
   final String value;
 
   const OrganizationProjectCertificateActivationResponseObject._(this.value);
 
-  factory OrganizationProjectCertificateActivationResponseObject.fromJson(String value) => OrganizationProjectCertificateActivationResponseObject._(value);
+  factory OrganizationProjectCertificateActivationResponseObject.fromJson(
+          String value) =>
+      OrganizationProjectCertificateActivationResponseObject._(value);
 
-  static const organizationProjectCertificateActivation = OrganizationProjectCertificateActivationResponseObject._('organization.project.certificate.activation');
+  static const organizationProjectCertificateActivation =
+      OrganizationProjectCertificateActivationResponseObject._(
+          'organization.project.certificate.activation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationProjectCertificateActivationResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationProjectCertificateActivationResponseObject &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The project certificate deactivation result type.
 final class OrganizationProjectCertificateDeactivationResponseObject {
-
   final String value;
 
   const OrganizationProjectCertificateDeactivationResponseObject._(this.value);
 
-  factory OrganizationProjectCertificateDeactivationResponseObject.fromJson(String value) => OrganizationProjectCertificateDeactivationResponseObject._(value);
+  factory OrganizationProjectCertificateDeactivationResponseObject.fromJson(
+          String value) =>
+      OrganizationProjectCertificateDeactivationResponseObject._(value);
 
-  static const organizationProjectCertificateDeactivation = OrganizationProjectCertificateDeactivationResponseObject._('organization.project.certificate.deactivation');
+  static const organizationProjectCertificateDeactivation =
+      OrganizationProjectCertificateDeactivationResponseObject._(
+          'organization.project.certificate.deactivation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationProjectCertificateDeactivationResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationProjectCertificateDeactivationResponseObject &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The currency for the threshold amount.
 final class OrganizationSpendAlertCurrency {
-
   final String value;
 
   const OrganizationSpendAlertCurrency._(this.value);
 
-  factory OrganizationSpendAlertCurrency.fromJson(String value) => OrganizationSpendAlertCurrency._(value);
+  factory OrganizationSpendAlertCurrency.fromJson(String value) =>
+      OrganizationSpendAlertCurrency._(value);
 
   static const usd = OrganizationSpendAlertCurrency._('USD');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationSpendAlertCurrency && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationSpendAlertCurrency && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The time interval for evaluating spend against the threshold.
 final class OrganizationSpendAlertInterval {
-
   final String value;
 
   const OrganizationSpendAlertInterval._(this.value);
 
-  factory OrganizationSpendAlertInterval.fromJson(String value) => OrganizationSpendAlertInterval._(value);
+  factory OrganizationSpendAlertInterval.fromJson(String value) =>
+      OrganizationSpendAlertInterval._(value);
 
   static const month = OrganizationSpendAlertInterval._('month');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationSpendAlertInterval && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationSpendAlertInterval && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

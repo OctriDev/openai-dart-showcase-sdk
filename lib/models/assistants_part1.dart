@@ -8,155 +8,240 @@ part of 'assistants.dart';
 class DoneEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `event` wire field.
   final DoneEventEvent event;
+
   /// Required enumerated value serialized in the `data` wire field.
   final DoneEventData data;
 
   const DoneEvent({required this.event, required this.data});
 
-  DoneEvent Function({DoneEventEvent event, DoneEventData data}) get copyWith => _copyWith;
+  DoneEvent Function({DoneEventEvent event, DoneEventData data}) get copyWith =>
+      _copyWith;
 
-  DoneEvent _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => DoneEvent(
-    event: identical(event, sdkOmittedValue) ? this.event : event as DoneEventEvent,
-    data: identical(data, sdkOmittedValue) ? this.data : data as DoneEventData,
-  );
+  DoneEvent _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      DoneEvent(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as DoneEventEvent,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as DoneEventData,
+      );
 
   factory DoneEvent.fromJson(Map<String, dynamic> json) => DoneEvent(
-    event: (json['event'] != null ? DoneEventEvent.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? DoneEventData.fromJson(json['data'] as String) : null)!,
-  );
+        event: (json['event'] != null
+            ? DoneEventEvent.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? DoneEventData.fromJson(json['data'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Occurs when an [error](https://developers.openai.com/api/docs/guides/error-codes#api-errors) occurs. This can happen due to an internal server error or a timeout.
 class ErrorEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `event` wire field.
   final ErrorEventEvent event;
+
   /// Required object value serialized in the `data` wire field.
   final Error3 data;
 
   const ErrorEvent({required this.event, required this.data});
 
-  ErrorEvent Function({ErrorEventEvent event, Error3 data}) get copyWith => _copyWith;
+  ErrorEvent Function({ErrorEventEvent event, Error3 data}) get copyWith =>
+      _copyWith;
 
-  ErrorEvent _copyWith({Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) => ErrorEvent(
-    event: identical(event, sdkOmittedValue) ? this.event : event as ErrorEventEvent,
-    data: identical(data, sdkOmittedValue) ? this.data : data as Error3,
-  );
+  ErrorEvent _copyWith(
+          {Object? event = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      ErrorEvent(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as ErrorEventEvent,
+        data: identical(data, sdkOmittedValue) ? this.data : data as Error3,
+      );
 
   factory ErrorEvent.fromJson(Map<String, dynamic> json) => ErrorEvent(
-    event: (json['event'] != null ? ErrorEventEvent.fromJson(json['event'] as String) : null)!,
-    data: (json['data'] != null ? Error3.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+        event: (json['event'] != null
+            ? ErrorEventEvent.fromJson(json['event'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? Error3.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event': event.toJson(),
-    'data': data.toJson(),
-  };
+        'event': event.toJson(),
+        'data': data.toJson(),
+      };
 }
 
 /// Required object value serialized in the `tool_outputs[]` wire field.
 class SubmitToolOutputsRunRequestToolOutputsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the tool call in the `required_action` object within the run object the output is being submitted for.
   final SdkOptional<String> toolCallId;
+
   /// The output of the tool call to be submitted to continue the run.
   final SdkOptional<String> output;
 
-  const SubmitToolOutputsRunRequestToolOutputsItem({this.toolCallId = const SdkOmitted(), this.output = const SdkOmitted()});
+  const SubmitToolOutputsRunRequestToolOutputsItem(
+      {this.toolCallId = const SdkOmitted(), this.output = const SdkOmitted()});
 
-  SubmitToolOutputsRunRequestToolOutputsItem Function({SdkOptional<String> toolCallId, SdkOptional<String> output}) get copyWith => _copyWith;
+  SubmitToolOutputsRunRequestToolOutputsItem Function(
+      {SdkOptional<String> toolCallId,
+      SdkOptional<String> output}) get copyWith => _copyWith;
 
-  SubmitToolOutputsRunRequestToolOutputsItem _copyWith({Object? toolCallId = sdkOmittedValue, Object? output = sdkOmittedValue}) => SubmitToolOutputsRunRequestToolOutputsItem(
-    toolCallId: identical(toolCallId, sdkOmittedValue) ? this.toolCallId : toolCallId as SdkOptional<String>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<String>,
-  );
+  SubmitToolOutputsRunRequestToolOutputsItem _copyWith(
+          {Object? toolCallId = sdkOmittedValue,
+          Object? output = sdkOmittedValue}) =>
+      SubmitToolOutputsRunRequestToolOutputsItem(
+        toolCallId: identical(toolCallId, sdkOmittedValue)
+            ? this.toolCallId
+            : toolCallId as SdkOptional<String>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<String>,
+      );
 
-  factory SubmitToolOutputsRunRequestToolOutputsItem.fromJson(Map<String, dynamic> json) => SubmitToolOutputsRunRequestToolOutputsItem(
-    toolCallId: json['tool_call_id'] != null ? SdkPresent((json['tool_call_id'] as String?)!) : const SdkOmitted(),
-    output: json['output'] != null ? SdkPresent((json['output'] as String?)!) : const SdkOmitted(),
-  );
+  factory SubmitToolOutputsRunRequestToolOutputsItem.fromJson(
+          Map<String, dynamic> json) =>
+      SubmitToolOutputsRunRequestToolOutputsItem(
+        toolCallId: json['tool_call_id'] != null
+            ? SdkPresent((json['tool_call_id'] as String?)!)
+            : const SdkOmitted(),
+        output: json['output'] != null
+            ? SdkPresent((json['output'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (toolCallId) {
-      SdkPresent<String>(value: final value) => {'tool_call_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (output) {
-      SdkPresent<String>(value: final value) => {'output': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (toolCallId) {
+          SdkPresent<String>(value: final value) => {
+              'tool_call_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (output) {
+          SdkPresent<String>(value: final value) => {
+              'output': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `SubmitToolOutputsRunRequest` API schema.
 class SubmitToolOutputsRunRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of tools for which the outputs are being submitted.
   final List<SubmitToolOutputsRunRequestToolOutputsItem> toolOutputs;
+
   /// Optional `boolean` value serialized in the `stream` wire field.
   final SdkOptional<bool?> stream;
 
-  const SubmitToolOutputsRunRequest({required this.toolOutputs, this.stream = const SdkOmitted()});
+  const SubmitToolOutputsRunRequest(
+      {required this.toolOutputs, this.stream = const SdkOmitted()});
 
-  SubmitToolOutputsRunRequest Function({List<SubmitToolOutputsRunRequestToolOutputsItem> toolOutputs, SdkOptional<bool?> stream}) get copyWith => _copyWith;
+  SubmitToolOutputsRunRequest Function(
+      {List<SubmitToolOutputsRunRequestToolOutputsItem> toolOutputs,
+      SdkOptional<bool?> stream}) get copyWith => _copyWith;
 
-  SubmitToolOutputsRunRequest _copyWith({Object? toolOutputs = sdkOmittedValue, Object? stream = sdkOmittedValue}) => SubmitToolOutputsRunRequest(
-    toolOutputs: identical(toolOutputs, sdkOmittedValue) ? this.toolOutputs : toolOutputs as List<SubmitToolOutputsRunRequestToolOutputsItem>,
-    stream: identical(stream, sdkOmittedValue) ? this.stream : stream as SdkOptional<bool?>,
-  );
+  SubmitToolOutputsRunRequest _copyWith(
+          {Object? toolOutputs = sdkOmittedValue,
+          Object? stream = sdkOmittedValue}) =>
+      SubmitToolOutputsRunRequest(
+        toolOutputs: identical(toolOutputs, sdkOmittedValue)
+            ? this.toolOutputs
+            : toolOutputs as List<SubmitToolOutputsRunRequestToolOutputsItem>,
+        stream: identical(stream, sdkOmittedValue)
+            ? this.stream
+            : stream as SdkOptional<bool?>,
+      );
 
-  factory SubmitToolOutputsRunRequest.fromJson(Map<String, dynamic> json) => SubmitToolOutputsRunRequest(
-    toolOutputs: ((json['tool_outputs'] as List?)?.map((e) => SubmitToolOutputsRunRequestToolOutputsItem.fromJson(e as Map<String, dynamic>)).toList())!,
-    stream: json.containsKey('stream') ? SdkPresent(json['stream'] as bool?) : const SdkOmitted(),
-  );
+  factory SubmitToolOutputsRunRequest.fromJson(Map<String, dynamic> json) =>
+      SubmitToolOutputsRunRequest(
+        toolOutputs: ((json['tool_outputs'] as List?)
+            ?.map((e) => SubmitToolOutputsRunRequestToolOutputsItem.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        stream: json.containsKey('stream')
+            ? SdkPresent(json['stream'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'tool_outputs': toolOutputs.map((item) => item.toJson()).toList(),
-    ...switch (stream) {
-      SdkPresent<bool?>(value: final value) => {'stream': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'tool_outputs': toolOutputs.map((item) => item.toJson()).toList(),
+        ...switch (stream) {
+          SdkPresent<bool?>(value: final value) => {
+              'stream': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Controls for how a thread will be truncated prior to the run. Use this to control the initial context window of the run.
 class TruncationObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The truncation strategy to use for the thread. The default is `auto`. If set to `last_messages`, the thread will be truncated to the n most recent messages in the thread. When set to `auto`, messages in the middle of the thread will be dropped to fit the context length of the model, `max_prompt_tokens`.
   final TruncationObjectType type_;
+
   /// Optional API value serialized in the `last_messages` wire field.
   final SdkOptional<int?> lastMessages;
 
-  const TruncationObject({required this.type_, this.lastMessages = const SdkOmitted()});
+  const TruncationObject(
+      {required this.type_, this.lastMessages = const SdkOmitted()});
 
-  TruncationObject Function({TruncationObjectType type_, SdkOptional<int?> lastMessages}) get copyWith => _copyWith;
+  TruncationObject Function(
+      {TruncationObjectType type_,
+      SdkOptional<int?> lastMessages}) get copyWith => _copyWith;
 
-  TruncationObject _copyWith({Object? type_ = sdkOmittedValue, Object? lastMessages = sdkOmittedValue}) => TruncationObject(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TruncationObjectType,
-    lastMessages: identical(lastMessages, sdkOmittedValue) ? this.lastMessages : lastMessages as SdkOptional<int?>,
-  );
+  TruncationObject _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? lastMessages = sdkOmittedValue}) =>
+      TruncationObject(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as TruncationObjectType,
+        lastMessages: identical(lastMessages, sdkOmittedValue)
+            ? this.lastMessages
+            : lastMessages as SdkOptional<int?>,
+      );
 
-  factory TruncationObject.fromJson(Map<String, dynamic> json) => TruncationObject(
-    type_: (json['type'] != null ? TruncationObjectType.fromJson(json['type'] as String) : null)!,
-    lastMessages: json.containsKey('last_messages') ? SdkPresent((json['last_messages'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory TruncationObject.fromJson(Map<String, dynamic> json) =>
+      TruncationObject(
+        type_: (json['type'] != null
+            ? TruncationObjectType.fromJson(json['type'] as String)
+            : null)!,
+        lastMessages: json.containsKey('last_messages')
+            ? SdkPresent((json['last_messages'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (lastMessages) {
-      SdkPresent<int?>(value: final value) => {'last_messages': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (lastMessages) {
+          SdkPresent<int?>(value: final value) => {
+              'last_messages': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

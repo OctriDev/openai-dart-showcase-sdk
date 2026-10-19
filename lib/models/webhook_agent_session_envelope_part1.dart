@@ -8,32 +8,51 @@ part of 'webhook_agent_session_envelope.dart';
 class WebhookAgentSessionEnvelope {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the event.
   final String id;
+
   /// The object type. Always `event`.
   final WebhookAgentSessionEnvelopeObject object;
+
   /// The Unix timestamp, in seconds, when the event was created.
   final int createdAt;
 
-  const WebhookAgentSessionEnvelope({required this.id, required this.object, required this.createdAt});
+  const WebhookAgentSessionEnvelope(
+      {required this.id, required this.object, required this.createdAt});
 
-  WebhookAgentSessionEnvelope Function({String id, WebhookAgentSessionEnvelopeObject object, int createdAt}) get copyWith => _copyWith;
+  WebhookAgentSessionEnvelope Function(
+      {String id,
+      WebhookAgentSessionEnvelopeObject object,
+      int createdAt}) get copyWith => _copyWith;
 
-  WebhookAgentSessionEnvelope _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => WebhookAgentSessionEnvelope(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as WebhookAgentSessionEnvelopeObject,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-  );
+  WebhookAgentSessionEnvelope _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      WebhookAgentSessionEnvelope(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as WebhookAgentSessionEnvelopeObject,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+      );
 
-  factory WebhookAgentSessionEnvelope.fromJson(Map<String, dynamic> json) => WebhookAgentSessionEnvelope(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? WebhookAgentSessionEnvelopeObject.fromJson(json['object'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-  );
+  factory WebhookAgentSessionEnvelope.fromJson(Map<String, dynamic> json) =>
+      WebhookAgentSessionEnvelope(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? WebhookAgentSessionEnvelopeObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'created_at': createdAt,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'created_at': createdAt,
+      };
 }

@@ -9,16 +9,23 @@ sealed class BetaResponseVariant2Truncation {
   static const String constructionSurface = 'named';
   const BetaResponseVariant2Truncation();
   factory BetaResponseVariant2Truncation.fromJson(Object? json) {
-    try { return BetaResponseVariant2TruncationBetaResponseVariant2TruncationVariant0(BetaResponseVariant2TruncationVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for BetaResponseVariant2Truncation");
+    try {
+      return BetaResponseVariant2TruncationBetaResponseVariant2TruncationVariant0(
+          BetaResponseVariant2TruncationVariant0.fromJson(json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for BetaResponseVariant2Truncation");
   }
   Object? toJson();
 }
 
-final class BetaResponseVariant2TruncationBetaResponseVariant2TruncationVariant0 extends BetaResponseVariant2Truncation {
+final class BetaResponseVariant2TruncationBetaResponseVariant2TruncationVariant0
+    extends BetaResponseVariant2Truncation {
   final BetaResponseVariant2TruncationVariant0 value;
-  const BetaResponseVariant2TruncationBetaResponseVariant2TruncationVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseVariant2TruncationBetaResponseVariant2TruncationVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class BetaResponseVariant2CompletedAt {
@@ -26,43 +33,69 @@ sealed class BetaResponseVariant2CompletedAt {
   static const String constructionSurface = 'named';
   const BetaResponseVariant2CompletedAt();
   factory BetaResponseVariant2CompletedAt.fromJson(Object? json) {
-    if (json is num) { return BetaResponseVariant2CompletedAtDouble(json.toDouble()); }
-    throw FormatException("No variant matched for BetaResponseVariant2CompletedAt");
+    if (json is num) {
+      return BetaResponseVariant2CompletedAtDouble(json.toDouble());
+    }
+    throw FormatException(
+        "No variant matched for BetaResponseVariant2CompletedAt");
   }
   Object? toJson();
 }
 
-final class BetaResponseVariant2CompletedAtDouble extends BetaResponseVariant2CompletedAt {
+final class BetaResponseVariant2CompletedAtDouble
+    extends BetaResponseVariant2CompletedAt {
   final double value;
   const BetaResponseVariant2CompletedAtDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Details about why the response is incomplete.
 class BetaResponseVariant2IncompleteDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The reason why the response is incomplete. `steered` means the response stopped at a safe output boundary after a WebSocket `response.steer` event. The server can then create a successor response automatically with the queued input.
   final SdkOptional<BetaResponseVariant2IncompleteDetailsReason> reason;
 
-  const BetaResponseVariant2IncompleteDetails({this.reason = const SdkOmitted()});
+  const BetaResponseVariant2IncompleteDetails(
+      {this.reason = const SdkOmitted()});
 
-  BetaResponseVariant2IncompleteDetails Function({SdkOptional<BetaResponseVariant2IncompleteDetailsReason> reason}) get copyWith => _copyWith;
+  BetaResponseVariant2IncompleteDetails Function(
+          {SdkOptional<BetaResponseVariant2IncompleteDetailsReason> reason})
+      get copyWith => _copyWith;
 
-  BetaResponseVariant2IncompleteDetails _copyWith({Object? reason = sdkOmittedValue}) => BetaResponseVariant2IncompleteDetails(
-    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as SdkOptional<BetaResponseVariant2IncompleteDetailsReason>,
-  );
+  BetaResponseVariant2IncompleteDetails _copyWith(
+          {Object? reason = sdkOmittedValue}) =>
+      BetaResponseVariant2IncompleteDetails(
+        reason: identical(reason, sdkOmittedValue)
+            ? this.reason
+            : reason
+                as SdkOptional<BetaResponseVariant2IncompleteDetailsReason>,
+      );
 
-  factory BetaResponseVariant2IncompleteDetails.fromJson(Map<String, dynamic> json) => BetaResponseVariant2IncompleteDetails(
-    reason: json['reason'] != null ? SdkPresent((json['reason'] != null ? BetaResponseVariant2IncompleteDetailsReason.fromJson(json['reason'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory BetaResponseVariant2IncompleteDetails.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseVariant2IncompleteDetails(
+        reason: json['reason'] != null
+            ? SdkPresent((json['reason'] != null
+                ? BetaResponseVariant2IncompleteDetailsReason.fromJson(
+                    json['reason'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (reason) {
-      SdkPresent<BetaResponseVariant2IncompleteDetailsReason>(value: final value) => {'reason': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (reason) {
+          SdkPresent<BetaResponseVariant2IncompleteDetailsReason>(
+            value: final value
+          ) =>
+            {
+              'reason': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class BetaResponseVariant2Instructions {
@@ -70,23 +103,33 @@ sealed class BetaResponseVariant2Instructions {
   static const String constructionSurface = 'named';
   const BetaResponseVariant2Instructions();
   factory BetaResponseVariant2Instructions.fromJson(Object? json) {
-    if (json is String) { return BetaResponseVariant2InstructionsString(json); }
-    try { return BetaResponseVariant2InstructionsBetaInputItem(BetaInputItem.fromJson(json)); } catch (_) {}
-    throw FormatException("No variant matched for BetaResponseVariant2Instructions");
+    if (json is String) {
+      return BetaResponseVariant2InstructionsString(json);
+    }
+    try {
+      return BetaResponseVariant2InstructionsBetaInputItem(
+          BetaInputItem.fromJson(json));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for BetaResponseVariant2Instructions");
   }
   Object? toJson();
 }
 
-final class BetaResponseVariant2InstructionsString extends BetaResponseVariant2Instructions {
+final class BetaResponseVariant2InstructionsString
+    extends BetaResponseVariant2Instructions {
   final String value;
   const BetaResponseVariant2InstructionsString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class BetaResponseVariant2InstructionsBetaInputItem extends BetaResponseVariant2Instructions {
+final class BetaResponseVariant2InstructionsBetaInputItem
+    extends BetaResponseVariant2Instructions {
   final BetaInputItem value;
   const BetaResponseVariant2InstructionsBetaInputItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class BetaResponseVariant2OutputText {
@@ -94,14 +137,19 @@ sealed class BetaResponseVariant2OutputText {
   static const String constructionSurface = 'named';
   const BetaResponseVariant2OutputText();
   factory BetaResponseVariant2OutputText.fromJson(Object? json) {
-    if (json is String) { return BetaResponseVariant2OutputTextString(json); }
-    throw FormatException("No variant matched for BetaResponseVariant2OutputText");
+    if (json is String) {
+      return BetaResponseVariant2OutputTextString(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaResponseVariant2OutputText");
   }
   Object? toJson();
 }
 
-final class BetaResponseVariant2OutputTextString extends BetaResponseVariant2OutputText {
+final class BetaResponseVariant2OutputTextString
+    extends BetaResponseVariant2OutputText {
   final String value;
   const BetaResponseVariant2OutputTextString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }

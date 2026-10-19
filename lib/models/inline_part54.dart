@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models (part 54)
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 final class FunctionToolCallOutputStatus {
-
   final String value;
 
   const FunctionToolCallOutputStatus._(this.value);
 
-  factory FunctionToolCallOutputStatus.fromJson(String value) => FunctionToolCallOutputStatus._(value);
+  factory FunctionToolCallOutputStatus.fromJson(String value) =>
+      FunctionToolCallOutputStatus._(value);
 
   static const inProgress = FunctionToolCallOutputStatus._('in_progress');
   static const completed = FunctionToolCallOutputStatus._('completed');
@@ -19,12 +19,15 @@ final class FunctionToolCallOutputStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FunctionToolCallOutputStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FunctionToolCallOutputStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the function tool call output. Always `function_call_output`.
@@ -33,14 +36,17 @@ enum FunctionToolCallOutputType {
 
   static FunctionToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'function_call_output': return FunctionToolCallOutputType.functionCallOutput;
-      default: throw ArgumentError('Unknown FunctionToolCallOutputType: $value');
+      case 'function_call_output':
+        return FunctionToolCallOutputType.functionCallOutput;
+      default:
+        throw ArgumentError('Unknown FunctionToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionToolCallOutputType.functionCallOutput: return 'function_call_output';
+      case FunctionToolCallOutputType.functionCallOutput:
+        return 'function_call_output';
     }
   }
 
@@ -54,14 +60,17 @@ enum FunctionToolParamType {
 
   static FunctionToolParamType fromJson(String value) {
     switch (value) {
-      case 'function': return FunctionToolParamType.function_;
-      default: throw ArgumentError('Unknown FunctionToolParamType: $value');
+      case 'function':
+        return FunctionToolParamType.function_;
+      default:
+        throw ArgumentError('Unknown FunctionToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionToolParamType.function_: return 'function';
+      case FunctionToolParamType.function_:
+        return 'function';
     }
   }
 
@@ -75,14 +84,18 @@ enum GcpExternalStorageProviderParamsType {
 
   static GcpExternalStorageProviderParamsType fromJson(String value) {
     switch (value) {
-      case 'gcp': return GcpExternalStorageProviderParamsType.gcp;
-      default: throw ArgumentError('Unknown GcpExternalStorageProviderParamsType: $value');
+      case 'gcp':
+        return GcpExternalStorageProviderParamsType.gcp;
+      default:
+        throw ArgumentError(
+            'Unknown GcpExternalStorageProviderParamsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case GcpExternalStorageProviderParamsType.gcp: return 'gcp';
+      case GcpExternalStorageProviderParamsType.gcp:
+        return 'gcp';
     }
   }
 
@@ -96,14 +109,18 @@ enum GcpExternalStorageProviderResponseType {
 
   static GcpExternalStorageProviderResponseType fromJson(String value) {
     switch (value) {
-      case 'gcp': return GcpExternalStorageProviderResponseType.gcp;
-      default: throw ArgumentError('Unknown GcpExternalStorageProviderResponseType: $value');
+      case 'gcp':
+        return GcpExternalStorageProviderResponseType.gcp;
+      default:
+        throw ArgumentError(
+            'Unknown GcpExternalStorageProviderResponseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case GcpExternalStorageProviderResponseType.gcp: return 'gcp';
+      case GcpExternalStorageProviderResponseType.gcp:
+        return 'gcp';
     }
   }
 
@@ -117,14 +134,17 @@ enum GraderLabelModelType {
 
   static GraderLabelModelType fromJson(String value) {
     switch (value) {
-      case 'label_model': return GraderLabelModelType.labelModel;
-      default: throw ArgumentError('Unknown GraderLabelModelType: $value');
+      case 'label_model':
+        return GraderLabelModelType.labelModel;
+      default:
+        throw ArgumentError('Unknown GraderLabelModelType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case GraderLabelModelType.labelModel: return 'label_model';
+      case GraderLabelModelType.labelModel:
+        return 'label_model';
     }
   }
 
@@ -138,14 +158,17 @@ enum GraderMultiType {
 
   static GraderMultiType fromJson(String value) {
     switch (value) {
-      case 'multi': return GraderMultiType.multi;
-      default: throw ArgumentError('Unknown GraderMultiType: $value');
+      case 'multi':
+        return GraderMultiType.multi;
+      default:
+        throw ArgumentError('Unknown GraderMultiType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case GraderMultiType.multi: return 'multi';
+      case GraderMultiType.multi:
+        return 'multi';
     }
   }
 
@@ -159,14 +182,17 @@ enum GraderPythonType {
 
   static GraderPythonType fromJson(String value) {
     switch (value) {
-      case 'python': return GraderPythonType.python;
-      default: throw ArgumentError('Unknown GraderPythonType: $value');
+      case 'python':
+        return GraderPythonType.python;
+      default:
+        throw ArgumentError('Unknown GraderPythonType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case GraderPythonType.python: return 'python';
+      case GraderPythonType.python:
+        return 'python';
     }
   }
 
@@ -180,14 +206,17 @@ enum GraderScoreModelType {
 
   static GraderScoreModelType fromJson(String value) {
     switch (value) {
-      case 'score_model': return GraderScoreModelType.scoreModel;
-      default: throw ArgumentError('Unknown GraderScoreModelType: $value');
+      case 'score_model':
+        return GraderScoreModelType.scoreModel;
+      default:
+        throw ArgumentError('Unknown GraderScoreModelType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case GraderScoreModelType.scoreModel: return 'score_model';
+      case GraderScoreModelType.scoreModel:
+        return 'score_model';
     }
   }
 
@@ -197,12 +226,12 @@ enum GraderScoreModelType {
 
 /// The string check operation to perform. One of `eq`, `ne`, `like`, or `ilike`.
 final class GraderStringCheckOperation {
-
   final String value;
 
   const GraderStringCheckOperation._(this.value);
 
-  factory GraderStringCheckOperation.fromJson(String value) => GraderStringCheckOperation._(value);
+  factory GraderStringCheckOperation.fromJson(String value) =>
+      GraderStringCheckOperation._(value);
 
   static const eq = GraderStringCheckOperation._('eq');
   static const ne = GraderStringCheckOperation._('ne');
@@ -211,12 +240,15 @@ final class GraderStringCheckOperation {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GraderStringCheckOperation && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GraderStringCheckOperation && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `string_check`.
@@ -225,14 +257,17 @@ enum GraderStringCheckType {
 
   static GraderStringCheckType fromJson(String value) {
     switch (value) {
-      case 'string_check': return GraderStringCheckType.stringCheck;
-      default: throw ArgumentError('Unknown GraderStringCheckType: $value');
+      case 'string_check':
+        return GraderStringCheckType.stringCheck;
+      default:
+        throw ArgumentError('Unknown GraderStringCheckType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case GraderStringCheckType.stringCheck: return 'string_check';
+      case GraderStringCheckType.stringCheck:
+        return 'string_check';
     }
   }
 
@@ -242,15 +277,16 @@ enum GraderStringCheckType {
 
 /// The evaluation metric to use. One of `cosine`, `fuzzy_match`, `bleu`, `gleu`, `meteor`, `rouge_1`, `rouge_2`, `rouge_3`, `rouge_4`, `rouge_5`, or `rouge_l`.
 final class GraderTextSimilarityEvaluationMetric {
-
   final String value;
 
   const GraderTextSimilarityEvaluationMetric._(this.value);
 
-  factory GraderTextSimilarityEvaluationMetric.fromJson(String value) => GraderTextSimilarityEvaluationMetric._(value);
+  factory GraderTextSimilarityEvaluationMetric.fromJson(String value) =>
+      GraderTextSimilarityEvaluationMetric._(value);
 
   static const cosine = GraderTextSimilarityEvaluationMetric._('cosine');
-  static const fuzzyMatch = GraderTextSimilarityEvaluationMetric._('fuzzy_match');
+  static const fuzzyMatch =
+      GraderTextSimilarityEvaluationMetric._('fuzzy_match');
   static const bleu = GraderTextSimilarityEvaluationMetric._('bleu');
   static const gleu = GraderTextSimilarityEvaluationMetric._('gleu');
   static const meteor = GraderTextSimilarityEvaluationMetric._('meteor');
@@ -263,12 +299,15 @@ final class GraderTextSimilarityEvaluationMetric {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GraderTextSimilarityEvaluationMetric && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GraderTextSimilarityEvaluationMetric && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of grader.
@@ -277,14 +316,17 @@ enum GraderTextSimilarityType {
 
   static GraderTextSimilarityType fromJson(String value) {
     switch (value) {
-      case 'text_similarity': return GraderTextSimilarityType.textSimilarity;
-      default: throw ArgumentError('Unknown GraderTextSimilarityType: $value');
+      case 'text_similarity':
+        return GraderTextSimilarityType.textSimilarity;
+      default:
+        throw ArgumentError('Unknown GraderTextSimilarityType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case GraderTextSimilarityType.textSimilarity: return 'text_similarity';
+      case GraderTextSimilarityType.textSimilarity:
+        return 'text_similarity';
     }
   }
 

@@ -8,70 +8,136 @@ part of 'realtime_realtime_create.dart';
 class RealtimeCreateClientSecretRequestExpiresAfter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The anchor point for the client secret expiration, meaning that `seconds` will be added to the `created_at` time of the client secret to produce an expiration timestamp. Only `created_at` is currently supported.
   final SdkOptional<RealtimeCreateClientSecretRequestExpiresAfterAnchor> anchor;
+
   /// The number of seconds from the anchor point to the expiration. Select a value between `10` and `7200` (2 hours). This default to 600 seconds (10 minutes) if not specified.
   final SdkOptional<int> seconds;
 
-  const RealtimeCreateClientSecretRequestExpiresAfter({this.anchor = const SdkOmitted(), this.seconds = const SdkOmitted()});
+  const RealtimeCreateClientSecretRequestExpiresAfter(
+      {this.anchor = const SdkOmitted(), this.seconds = const SdkOmitted()});
 
-  RealtimeCreateClientSecretRequestExpiresAfter Function({SdkOptional<RealtimeCreateClientSecretRequestExpiresAfterAnchor> anchor, SdkOptional<int> seconds}) get copyWith => _copyWith;
+  RealtimeCreateClientSecretRequestExpiresAfter Function(
+      {SdkOptional<RealtimeCreateClientSecretRequestExpiresAfterAnchor> anchor,
+      SdkOptional<int> seconds}) get copyWith => _copyWith;
 
-  RealtimeCreateClientSecretRequestExpiresAfter _copyWith({Object? anchor = sdkOmittedValue, Object? seconds = sdkOmittedValue}) => RealtimeCreateClientSecretRequestExpiresAfter(
-    anchor: identical(anchor, sdkOmittedValue) ? this.anchor : anchor as SdkOptional<RealtimeCreateClientSecretRequestExpiresAfterAnchor>,
-    seconds: identical(seconds, sdkOmittedValue) ? this.seconds : seconds as SdkOptional<int>,
-  );
+  RealtimeCreateClientSecretRequestExpiresAfter _copyWith(
+          {Object? anchor = sdkOmittedValue,
+          Object? seconds = sdkOmittedValue}) =>
+      RealtimeCreateClientSecretRequestExpiresAfter(
+        anchor: identical(anchor, sdkOmittedValue)
+            ? this.anchor
+            : anchor as SdkOptional<
+                RealtimeCreateClientSecretRequestExpiresAfterAnchor>,
+        seconds: identical(seconds, sdkOmittedValue)
+            ? this.seconds
+            : seconds as SdkOptional<int>,
+      );
 
-  factory RealtimeCreateClientSecretRequestExpiresAfter.fromJson(Map<String, dynamic> json) => RealtimeCreateClientSecretRequestExpiresAfter(
-    anchor: json['anchor'] != null ? SdkPresent((json['anchor'] != null ? RealtimeCreateClientSecretRequestExpiresAfterAnchor.fromJson(json['anchor'] as String) : null)!) : const SdkOmitted(),
-    seconds: json['seconds'] != null ? SdkPresent(((json['seconds'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory RealtimeCreateClientSecretRequestExpiresAfter.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeCreateClientSecretRequestExpiresAfter(
+        anchor: json['anchor'] != null
+            ? SdkPresent((json['anchor'] != null
+                ? RealtimeCreateClientSecretRequestExpiresAfterAnchor.fromJson(
+                    json['anchor'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        seconds: json['seconds'] != null
+            ? SdkPresent(((json['seconds'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (anchor) {
-      SdkPresent<RealtimeCreateClientSecretRequestExpiresAfterAnchor>(value: final value) => {'anchor': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (seconds) {
-      SdkPresent<int>(value: final value) => {'seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (anchor) {
+          SdkPresent<RealtimeCreateClientSecretRequestExpiresAfterAnchor>(
+            value: final value
+          ) =>
+            {
+              'anchor': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (seconds) {
+          SdkPresent<int>(value: final value) => {
+              'seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Create a session and client secret for the Realtime API. The request can specify either a realtime or a transcription session configuration. [Learn more about the Realtime API](https://developers.openai.com/api/docs/guides/realtime).
 class RealtimeCreateClientSecretRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Configuration for the client secret expiration. Expiration refers to the time after which a client secret will no longer be valid for creating sessions. The session itself may continue after that time once started. A secret can be used to create multiple sessions until it expires.
   final SdkOptional<RealtimeCreateClientSecretRequestExpiresAfter> expiresAfter;
+
   /// Session configuration to use for the client secret. Choose either a realtime session or a transcription session.
   final SdkOptional<RealtimeCreateClientSecretRequestSession> session;
 
-  const RealtimeCreateClientSecretRequest({this.expiresAfter = const SdkOmitted(), this.session = const SdkOmitted()});
+  const RealtimeCreateClientSecretRequest(
+      {this.expiresAfter = const SdkOmitted(),
+      this.session = const SdkOmitted()});
 
-  RealtimeCreateClientSecretRequest Function({SdkOptional<RealtimeCreateClientSecretRequestExpiresAfter> expiresAfter, SdkOptional<RealtimeCreateClientSecretRequestSession> session}) get copyWith => _copyWith;
+  RealtimeCreateClientSecretRequest Function(
+      {SdkOptional<RealtimeCreateClientSecretRequestExpiresAfter> expiresAfter,
+      SdkOptional<RealtimeCreateClientSecretRequestSession>
+          session}) get copyWith => _copyWith;
 
-  RealtimeCreateClientSecretRequest _copyWith({Object? expiresAfter = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeCreateClientSecretRequest(
-    expiresAfter: identical(expiresAfter, sdkOmittedValue) ? this.expiresAfter : expiresAfter as SdkOptional<RealtimeCreateClientSecretRequestExpiresAfter>,
-    session: identical(session, sdkOmittedValue) ? this.session : session as SdkOptional<RealtimeCreateClientSecretRequestSession>,
-  );
+  RealtimeCreateClientSecretRequest _copyWith(
+          {Object? expiresAfter = sdkOmittedValue,
+          Object? session = sdkOmittedValue}) =>
+      RealtimeCreateClientSecretRequest(
+        expiresAfter: identical(expiresAfter, sdkOmittedValue)
+            ? this.expiresAfter
+            : expiresAfter
+                as SdkOptional<RealtimeCreateClientSecretRequestExpiresAfter>,
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as SdkOptional<RealtimeCreateClientSecretRequestSession>,
+      );
 
-  factory RealtimeCreateClientSecretRequest.fromJson(Map<String, dynamic> json) => RealtimeCreateClientSecretRequest(
-    expiresAfter: json['expires_after'] != null ? SdkPresent((json['expires_after'] != null ? RealtimeCreateClientSecretRequestExpiresAfter.fromJson(json['expires_after'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    session: json['session'] != null ? SdkPresent((json['session'] != null ? RealtimeCreateClientSecretRequestSession.fromJson(json['session']) : null)!) : const SdkOmitted(),
-  );
+  factory RealtimeCreateClientSecretRequest.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeCreateClientSecretRequest(
+        expiresAfter: json['expires_after'] != null
+            ? SdkPresent((json['expires_after'] != null
+                ? RealtimeCreateClientSecretRequestExpiresAfter.fromJson(
+                    json['expires_after'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        session: json['session'] != null
+            ? SdkPresent((json['session'] != null
+                ? RealtimeCreateClientSecretRequestSession.fromJson(
+                    json['session'])
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (expiresAfter) {
-      SdkPresent<RealtimeCreateClientSecretRequestExpiresAfter>(value: final value) => {'expires_after': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (session) {
-      SdkPresent<RealtimeCreateClientSecretRequestSession>(value: final value) => {'session': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (expiresAfter) {
+          SdkPresent<RealtimeCreateClientSecretRequestExpiresAfter>(
+            value: final value
+          ) =>
+            {
+              'expires_after': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (session) {
+          SdkPresent<RealtimeCreateClientSecretRequestSession>(
+            value: final value
+          ) =>
+            {
+              'session': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class RealtimeCreateClientSecretRequestSession {
@@ -80,68 +146,123 @@ sealed class RealtimeCreateClientSecretRequestSession {
   const RealtimeCreateClientSecretRequestSession();
   factory RealtimeCreateClientSecretRequestSession.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RealtimeSessionCreateRequestGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA(value); } } catch (_) {}
-      try { final value = RealtimeTranscriptionSessionCreateRequestGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeCreateClientSecretRequestSessionRealtimeTranscriptionSessionCreateRequestGA(value); } } catch (_) {}
+      try {
+        final value = RealtimeSessionCreateRequestGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranscriptionSessionCreateRequestGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeCreateClientSecretRequestSessionRealtimeTranscriptionSessionCreateRequestGA(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA(RealtimeSessionCreateRequestGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeCreateClientSecretRequestSessionRealtimeTranscriptionSessionCreateRequestGA(RealtimeTranscriptionSessionCreateRequestGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"realtime", "transcription"}.contains(json["type"])) { return UnknownRealtimeCreateClientSecretRequestSession(json); }
-    throw FormatException("No variant matched for RealtimeCreateClientSecretRequestSession");
+    try {
+      return RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA(
+          RealtimeSessionCreateRequestGA.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeCreateClientSecretRequestSessionRealtimeTranscriptionSessionCreateRequestGA(
+          RealtimeTranscriptionSessionCreateRequestGA.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"realtime", "transcription"}.contains(json["type"])) {
+      return UnknownRealtimeCreateClientSecretRequestSession(json);
+    }
+    throw FormatException(
+        "No variant matched for RealtimeCreateClientSecretRequestSession");
   }
   Object? toJson();
 }
 
-final class RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA extends RealtimeCreateClientSecretRequestSession {
+final class RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA
+    extends RealtimeCreateClientSecretRequestSession {
   final RealtimeSessionCreateRequestGA value;
-  const RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeCreateClientSecretRequestSessionRealtimeSessionCreateRequestGA(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeCreateClientSecretRequestSessionRealtimeTranscriptionSessionCreateRequestGA extends RealtimeCreateClientSecretRequestSession {
+final class RealtimeCreateClientSecretRequestSessionRealtimeTranscriptionSessionCreateRequestGA
+    extends RealtimeCreateClientSecretRequestSession {
   final RealtimeTranscriptionSessionCreateRequestGA value;
-  const RealtimeCreateClientSecretRequestSessionRealtimeTranscriptionSessionCreateRequestGA(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeCreateClientSecretRequestSessionRealtimeTranscriptionSessionCreateRequestGA(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeCreateClientSecretRequestSession] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeCreateClientSecretRequestSession extends RealtimeCreateClientSecretRequestSession {
+final class UnknownRealtimeCreateClientSecretRequestSession
+    extends RealtimeCreateClientSecretRequestSession {
   final Map<String, dynamic> raw;
   const UnknownRealtimeCreateClientSecretRequestSession(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Response from creating a session and client secret for the Realtime API.
 class RealtimeCreateClientSecretResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The generated client secret value.
   final String value;
+
   /// Expiration timestamp for the client secret, in seconds since epoch.
   final int expiresAt;
+
   /// The session configuration for either a realtime or transcription session.
   final RealtimeCreateClientSecretResponseSession session;
 
-  const RealtimeCreateClientSecretResponse({required this.value, required this.expiresAt, required this.session});
+  const RealtimeCreateClientSecretResponse(
+      {required this.value, required this.expiresAt, required this.session});
 
-  RealtimeCreateClientSecretResponse Function({String value, int expiresAt, RealtimeCreateClientSecretResponseSession session}) get copyWith => _copyWith;
+  RealtimeCreateClientSecretResponse Function(
+          {String value,
+          int expiresAt,
+          RealtimeCreateClientSecretResponseSession session})
+      get copyWith => _copyWith;
 
-  RealtimeCreateClientSecretResponse _copyWith({Object? value = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeCreateClientSecretResponse(
-    value: identical(value, sdkOmittedValue) ? this.value : value as String,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as int,
-    session: identical(session, sdkOmittedValue) ? this.session : session as RealtimeCreateClientSecretResponseSession,
-  );
+  RealtimeCreateClientSecretResponse _copyWith(
+          {Object? value = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue,
+          Object? session = sdkOmittedValue}) =>
+      RealtimeCreateClientSecretResponse(
+        value: identical(value, sdkOmittedValue) ? this.value : value as String,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as int,
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as RealtimeCreateClientSecretResponseSession,
+      );
 
-  factory RealtimeCreateClientSecretResponse.fromJson(Map<String, dynamic> json) => RealtimeCreateClientSecretResponse(
-    value: (json['value'] as String?)!,
-    expiresAt: ((json['expires_at'] as num?)?.toInt())!,
-    session: (json['session'] != null ? RealtimeCreateClientSecretResponseSession.fromJson(json['session']) : null)!,
-  );
+  factory RealtimeCreateClientSecretResponse.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeCreateClientSecretResponse(
+        value: (json['value'] as String?)!,
+        expiresAt: ((json['expires_at'] as num?)?.toInt())!,
+        session: (json['session'] != null
+            ? RealtimeCreateClientSecretResponseSession.fromJson(
+                json['session'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'value': value,
-    'expires_at': expiresAt,
-    'session': session.toJson(),
-  };
+        'value': value,
+        'expires_at': expiresAt,
+        'session': session.toJson(),
+      };
 }
 
 sealed class RealtimeCreateClientSecretResponseSession {
@@ -150,32 +271,66 @@ sealed class RealtimeCreateClientSecretResponseSession {
   const RealtimeCreateClientSecretResponseSession();
   factory RealtimeCreateClientSecretResponseSession.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RealtimeSessionCreateResponseGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA(value); } } catch (_) {}
-      try { final value = RealtimeTranscriptionSessionCreateResponseGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeCreateClientSecretResponseSessionRealtimeTranscriptionSessionCreateResponseGA(value); } } catch (_) {}
+      try {
+        final value = RealtimeSessionCreateResponseGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranscriptionSessionCreateResponseGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeCreateClientSecretResponseSessionRealtimeTranscriptionSessionCreateResponseGA(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA(RealtimeSessionCreateResponseGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeCreateClientSecretResponseSessionRealtimeTranscriptionSessionCreateResponseGA(RealtimeTranscriptionSessionCreateResponseGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"realtime", "transcription"}.contains(json["type"])) { return UnknownRealtimeCreateClientSecretResponseSession(json); }
-    throw FormatException("No variant matched for RealtimeCreateClientSecretResponseSession");
+    try {
+      return RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA(
+          RealtimeSessionCreateResponseGA.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeCreateClientSecretResponseSessionRealtimeTranscriptionSessionCreateResponseGA(
+          RealtimeTranscriptionSessionCreateResponseGA.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"realtime", "transcription"}.contains(json["type"])) {
+      return UnknownRealtimeCreateClientSecretResponseSession(json);
+    }
+    throw FormatException(
+        "No variant matched for RealtimeCreateClientSecretResponseSession");
   }
   Object? toJson();
 }
 
-final class RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA extends RealtimeCreateClientSecretResponseSession {
+final class RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA
+    extends RealtimeCreateClientSecretResponseSession {
   final RealtimeSessionCreateResponseGA value;
-  const RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeCreateClientSecretResponseSessionRealtimeSessionCreateResponseGA(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeCreateClientSecretResponseSessionRealtimeTranscriptionSessionCreateResponseGA extends RealtimeCreateClientSecretResponseSession {
+final class RealtimeCreateClientSecretResponseSessionRealtimeTranscriptionSessionCreateResponseGA
+    extends RealtimeCreateClientSecretResponseSession {
   final RealtimeTranscriptionSessionCreateResponseGA value;
-  const RealtimeCreateClientSecretResponseSessionRealtimeTranscriptionSessionCreateResponseGA(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeCreateClientSecretResponseSessionRealtimeTranscriptionSessionCreateResponseGA(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeCreateClientSecretResponseSession] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeCreateClientSecretResponseSession extends RealtimeCreateClientSecretResponseSession {
+final class UnknownRealtimeCreateClientSecretResponseSession
+    extends RealtimeCreateClientSecretResponseSession {
   final Map<String, dynamic> raw;
   const UnknownRealtimeCreateClientSecretResponseSession(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

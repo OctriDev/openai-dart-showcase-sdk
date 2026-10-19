@@ -8,86 +8,152 @@ part of 'responses_response_custom.dart';
 class ResponseCustomToolCallInputDeltaEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event type identifier.
   final ResponseCustomToolCallInputDeltaEventType type_;
+
   /// The sequence number of this event.
   final int sequenceNumber;
+
   /// The index of the output this delta applies to.
   final int outputIndex;
+
   /// Unique identifier for the API item associated with this event.
   final String itemId;
+
   /// The incremental input data (delta) for the custom tool call.
   final String delta;
 
-  const ResponseCustomToolCallInputDeltaEvent({required this.type_, required this.sequenceNumber, required this.outputIndex, required this.itemId, required this.delta});
+  const ResponseCustomToolCallInputDeltaEvent(
+      {required this.type_,
+      required this.sequenceNumber,
+      required this.outputIndex,
+      required this.itemId,
+      required this.delta});
 
-  ResponseCustomToolCallInputDeltaEvent Function({ResponseCustomToolCallInputDeltaEventType type_, int sequenceNumber, int outputIndex, String itemId, String delta}) get copyWith => _copyWith;
+  ResponseCustomToolCallInputDeltaEvent Function(
+      {ResponseCustomToolCallInputDeltaEventType type_,
+      int sequenceNumber,
+      int outputIndex,
+      String itemId,
+      String delta}) get copyWith => _copyWith;
 
-  ResponseCustomToolCallInputDeltaEvent _copyWith({Object? type_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? delta = sdkOmittedValue}) => ResponseCustomToolCallInputDeltaEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseCustomToolCallInputDeltaEventType,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-  );
+  ResponseCustomToolCallInputDeltaEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? delta = sdkOmittedValue}) =>
+      ResponseCustomToolCallInputDeltaEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseCustomToolCallInputDeltaEventType,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+      );
 
-  factory ResponseCustomToolCallInputDeltaEvent.fromJson(Map<String, dynamic> json) => ResponseCustomToolCallInputDeltaEvent(
-    type_: (json['type'] != null ? ResponseCustomToolCallInputDeltaEventType.fromJson(json['type'] as String) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    delta: (json['delta'] as String?)!,
-  );
+  factory ResponseCustomToolCallInputDeltaEvent.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseCustomToolCallInputDeltaEvent(
+        type_: (json['type'] != null
+            ? ResponseCustomToolCallInputDeltaEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        delta: (json['delta'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'sequence_number': sequenceNumber,
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'delta': delta,
-  };
+        'type': type_.toJson(),
+        'sequence_number': sequenceNumber,
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'delta': delta,
+      };
 }
 
 /// Event indicating that input for a custom tool call is complete.
 class ResponseCustomToolCallInputDoneEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event type identifier.
   final ResponseCustomToolCallInputDoneEventType type_;
+
   /// The sequence number of this event.
   final int sequenceNumber;
+
   /// The index of the output this event applies to.
   final int outputIndex;
+
   /// Unique identifier for the API item associated with this event.
   final String itemId;
+
   /// The complete input data for the custom tool call.
   final String input;
 
-  const ResponseCustomToolCallInputDoneEvent({required this.type_, required this.sequenceNumber, required this.outputIndex, required this.itemId, required this.input});
+  const ResponseCustomToolCallInputDoneEvent(
+      {required this.type_,
+      required this.sequenceNumber,
+      required this.outputIndex,
+      required this.itemId,
+      required this.input});
 
-  ResponseCustomToolCallInputDoneEvent Function({ResponseCustomToolCallInputDoneEventType type_, int sequenceNumber, int outputIndex, String itemId, String input}) get copyWith => _copyWith;
+  ResponseCustomToolCallInputDoneEvent Function(
+      {ResponseCustomToolCallInputDoneEventType type_,
+      int sequenceNumber,
+      int outputIndex,
+      String itemId,
+      String input}) get copyWith => _copyWith;
 
-  ResponseCustomToolCallInputDoneEvent _copyWith({Object? type_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? input = sdkOmittedValue}) => ResponseCustomToolCallInputDoneEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseCustomToolCallInputDoneEventType,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as String,
-  );
+  ResponseCustomToolCallInputDoneEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? input = sdkOmittedValue}) =>
+      ResponseCustomToolCallInputDoneEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseCustomToolCallInputDoneEventType,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        input: identical(input, sdkOmittedValue) ? this.input : input as String,
+      );
 
-  factory ResponseCustomToolCallInputDoneEvent.fromJson(Map<String, dynamic> json) => ResponseCustomToolCallInputDoneEvent(
-    type_: (json['type'] != null ? ResponseCustomToolCallInputDoneEventType.fromJson(json['type'] as String) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    input: (json['input'] as String?)!,
-  );
+  factory ResponseCustomToolCallInputDoneEvent.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseCustomToolCallInputDoneEvent(
+        type_: (json['type'] != null
+            ? ResponseCustomToolCallInputDoneEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        input: (json['input'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'sequence_number': sequenceNumber,
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'input': input,
-  };
+        'type': type_.toJson(),
+        'sequence_number': sequenceNumber,
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'input': input,
+      };
 }

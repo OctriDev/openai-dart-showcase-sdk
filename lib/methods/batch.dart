@@ -38,7 +38,8 @@ Future<Batch> createBatch(ClientConfig config,
     required CreateBatchRequestEndpoint endpoint,
     required CreateBatchRequestCompletionWindow completionWindow,
     SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
-    SdkOptional<BatchFileExpirationAfter> outputExpiresAfter = const SdkOmitted(),
+    SdkOptional<BatchFileExpirationAfter> outputExpiresAfter =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<Batch>('POST', '/batches',
           config: config,
@@ -53,10 +54,18 @@ Future<Batch> createBatch(ClientConfig config,
           operationId: 'createBatch',
           fromJsonRaw: (value) => Batch.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists batches created by your organization. Use `after` to continue from a batch ID and `limit` to set the number of results, from 1 to 100.
 ///
@@ -75,18 +84,26 @@ Future<ListBatchesResponse> listBatch(ClientConfig config,
   return (await sdkRequest<ListBatchesResponse>('GET', '/batches',
           config: config,
           query: {
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true)
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listBatch',
-          fromJsonRaw: (value) => ListBatchesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListBatchesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists batches created by your organization. Use `after` to continue from a batch ID and `limit` to set the number of results, from 1 to 100.
 ///
@@ -98,13 +115,21 @@ Future<ListBatchesResponse> listBatch(ClientConfig config,
 ///   after=obj_foo in order to fetch the next page of the list.
 /// [limit] A limit on the number of objects to be returned. Limit can range
 ///   between 1 and 100, and the default is 20.
-Stream<Batch> listBatchPaginated(ClientConfig config, {String? after, int? limit, RequestOptions? requestOptions}) async* {
+Stream<Batch> listBatchPaginated(ClientConfig config,
+    {String? after, int? limit, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listBatch(config, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), requestOptions: requestOptions);
+    final sdkPage = await listBatch(config,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -112,10 +137,16 @@ Stream<Batch> listBatchPaginated(ClientConfig config, {String? after, int? limit
   }
 }
 
-Stream<SdkPage<ListBatchesResponse, Batch>> listBatchPages(ClientConfig config, {String? after, int? limit, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListBatchesResponse, Batch>> listBatchPages(ClientConfig config,
+    {String? after, int? limit, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listBatch(config, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), requestOptions: requestOptions);
+    final sdkPage = await listBatch(config,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -125,7 +156,6 @@ Stream<SdkPage<ListBatchesResponse, Batch>> listBatchPages(ClientConfig config, 
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Retrieves a batch by its identifier. Use `batch_id` to inspect the batch configuration, status, and available output or error file references.
 ///
@@ -141,10 +171,13 @@ Future<Batch> retrieveBatch(ClientConfig config,
           operationId: 'retrieveBatch',
           fromJsonRaw: (value) => Batch.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Cancels an in-progress batch. The batch will be in status `cancelling` for up to 10 minutes, before changing to `cancelled`, where it will have partial results (if any) available in the output file.
 ///
@@ -158,6 +191,11 @@ Future<Batch> cancelBatch(ClientConfig config,
           operationId: 'cancelBatch',
           fromJsonRaw: (value) => Batch.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

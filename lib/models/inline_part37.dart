@@ -6,190 +6,247 @@ part of 'inline.dart';
 // Inline operation models (part 37)
 /// The type of location approximation. Always `approximate`.
 final class CreateChatCompletionRequestVariant1WebSearchOptionsUserLocationType {
-
   final String value;
 
-  const CreateChatCompletionRequestVariant1WebSearchOptionsUserLocationType._(this.value);
+  const CreateChatCompletionRequestVariant1WebSearchOptionsUserLocationType._(
+      this.value);
 
-  factory CreateChatCompletionRequestVariant1WebSearchOptionsUserLocationType.fromJson(String value) => CreateChatCompletionRequestVariant1WebSearchOptionsUserLocationType._(value);
+  factory CreateChatCompletionRequestVariant1WebSearchOptionsUserLocationType.fromJson(
+          String value) =>
+      CreateChatCompletionRequestVariant1WebSearchOptionsUserLocationType._(
+          value);
 
-  static const approximate = CreateChatCompletionRequestVariant1WebSearchOptionsUserLocationType._('approximate');
+  static const approximate =
+      CreateChatCompletionRequestVariant1WebSearchOptionsUserLocationType._(
+          'approximate');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateChatCompletionRequestVariant1WebSearchOptionsUserLocationType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other
+          is CreateChatCompletionRequestVariant1WebSearchOptionsUserLocationType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters, `tool_calls` if the model called a tool, or `function_call` (deprecated) if the model called a function. Read the [Model Spec](https://model-spec.openai.com/2025-12-18.html) for more.
 final class CreateChatCompletionResponseChoicesItemFinishReason {
-
   final String value;
 
   const CreateChatCompletionResponseChoicesItemFinishReason._(this.value);
 
-  factory CreateChatCompletionResponseChoicesItemFinishReason.fromJson(String value) => CreateChatCompletionResponseChoicesItemFinishReason._(value);
+  factory CreateChatCompletionResponseChoicesItemFinishReason.fromJson(
+          String value) =>
+      CreateChatCompletionResponseChoicesItemFinishReason._(value);
 
-  static const stop = CreateChatCompletionResponseChoicesItemFinishReason._('stop');
-  static const length = CreateChatCompletionResponseChoicesItemFinishReason._('length');
-  static const toolCalls = CreateChatCompletionResponseChoicesItemFinishReason._('tool_calls');
-  static const contentFilter = CreateChatCompletionResponseChoicesItemFinishReason._('content_filter');
-  static const functionCall = CreateChatCompletionResponseChoicesItemFinishReason._('function_call');
+  static const stop =
+      CreateChatCompletionResponseChoicesItemFinishReason._('stop');
+  static const length =
+      CreateChatCompletionResponseChoicesItemFinishReason._('length');
+  static const toolCalls =
+      CreateChatCompletionResponseChoicesItemFinishReason._('tool_calls');
+  static const contentFilter =
+      CreateChatCompletionResponseChoicesItemFinishReason._('content_filter');
+  static const functionCall =
+      CreateChatCompletionResponseChoicesItemFinishReason._('function_call');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateChatCompletionResponseChoicesItemFinishReason && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateChatCompletionResponseChoicesItemFinishReason &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `chat.completion`.
 final class CreateChatCompletionResponseObject {
-
   final String value;
 
   const CreateChatCompletionResponseObject._(this.value);
 
-  factory CreateChatCompletionResponseObject.fromJson(String value) => CreateChatCompletionResponseObject._(value);
+  factory CreateChatCompletionResponseObject.fromJson(String value) =>
+      CreateChatCompletionResponseObject._(value);
 
-  static const chatCompletion = CreateChatCompletionResponseObject._('chat.completion');
+  static const chatCompletion =
+      CreateChatCompletionResponseObject._('chat.completion');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateChatCompletionResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateChatCompletionResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters, `tool_calls` if the model called a tool, or `function_call` (deprecated) if the model called a function. Omitted from the final audio update containing only `delta.audio.expires_at`.
 final class CreateChatCompletionStreamResponseChoicesItemFinishReason {
-
   final String value;
 
   const CreateChatCompletionStreamResponseChoicesItemFinishReason._(this.value);
 
-  factory CreateChatCompletionStreamResponseChoicesItemFinishReason.fromJson(String value) => CreateChatCompletionStreamResponseChoicesItemFinishReason._(value);
+  factory CreateChatCompletionStreamResponseChoicesItemFinishReason.fromJson(
+          String value) =>
+      CreateChatCompletionStreamResponseChoicesItemFinishReason._(value);
 
-  static const stop = CreateChatCompletionStreamResponseChoicesItemFinishReason._('stop');
-  static const length = CreateChatCompletionStreamResponseChoicesItemFinishReason._('length');
-  static const toolCalls = CreateChatCompletionStreamResponseChoicesItemFinishReason._('tool_calls');
-  static const contentFilter = CreateChatCompletionStreamResponseChoicesItemFinishReason._('content_filter');
-  static const functionCall = CreateChatCompletionStreamResponseChoicesItemFinishReason._('function_call');
+  static const stop =
+      CreateChatCompletionStreamResponseChoicesItemFinishReason._('stop');
+  static const length =
+      CreateChatCompletionStreamResponseChoicesItemFinishReason._('length');
+  static const toolCalls =
+      CreateChatCompletionStreamResponseChoicesItemFinishReason._('tool_calls');
+  static const contentFilter =
+      CreateChatCompletionStreamResponseChoicesItemFinishReason._(
+          'content_filter');
+  static const functionCall =
+      CreateChatCompletionStreamResponseChoicesItemFinishReason._(
+          'function_call');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateChatCompletionStreamResponseChoicesItemFinishReason && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateChatCompletionStreamResponseChoicesItemFinishReason &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `chat.completion.chunk`.
 final class CreateChatCompletionStreamResponseObject {
-
   final String value;
 
   const CreateChatCompletionStreamResponseObject._(this.value);
 
-  factory CreateChatCompletionStreamResponseObject.fromJson(String value) => CreateChatCompletionStreamResponseObject._(value);
+  factory CreateChatCompletionStreamResponseObject.fromJson(String value) =>
+      CreateChatCompletionStreamResponseObject._(value);
 
-  static const chatCompletionChunk = CreateChatCompletionStreamResponseObject._('chat.completion.chunk');
+  static const chatCompletionChunk =
+      CreateChatCompletionStreamResponseObject._('chat.completion.chunk');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateChatCompletionStreamResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateChatCompletionStreamResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `finish_reason` wire field.
 final class CreateCompletionResponseChoicesItemFinishReasonVariant0 {
-
   final String value;
 
   const CreateCompletionResponseChoicesItemFinishReasonVariant0._(this.value);
 
-  factory CreateCompletionResponseChoicesItemFinishReasonVariant0.fromJson(String value) => CreateCompletionResponseChoicesItemFinishReasonVariant0._(value);
+  factory CreateCompletionResponseChoicesItemFinishReasonVariant0.fromJson(
+          String value) =>
+      CreateCompletionResponseChoicesItemFinishReasonVariant0._(value);
 
-  static const stop = CreateCompletionResponseChoicesItemFinishReasonVariant0._('stop');
-  static const length = CreateCompletionResponseChoicesItemFinishReasonVariant0._('length');
-  static const contentFilter = CreateCompletionResponseChoicesItemFinishReasonVariant0._('content_filter');
+  static const stop =
+      CreateCompletionResponseChoicesItemFinishReasonVariant0._('stop');
+  static const length =
+      CreateCompletionResponseChoicesItemFinishReasonVariant0._('length');
+  static const contentFilter =
+      CreateCompletionResponseChoicesItemFinishReasonVariant0._(
+          'content_filter');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateCompletionResponseChoicesItemFinishReasonVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateCompletionResponseChoicesItemFinishReasonVariant0 &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always "text_completion"
 final class CreateCompletionResponseObject {
-
   final String value;
 
   const CreateCompletionResponseObject._(this.value);
 
-  factory CreateCompletionResponseObject.fromJson(String value) => CreateCompletionResponseObject._(value);
+  factory CreateCompletionResponseObject.fromJson(String value) =>
+      CreateCompletionResponseObject._(value);
 
-  static const textCompletion = CreateCompletionResponseObject._('text_completion');
+  static const textCompletion =
+      CreateCompletionResponseObject._('text_completion');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateCompletionResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateCompletionResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Time anchor for the expiration time. Currently only 'last_active_at' is supported.
 final class CreateContainerBodyExpiresAfterAnchor {
-
   final String value;
 
   const CreateContainerBodyExpiresAfterAnchor._(this.value);
 
-  factory CreateContainerBodyExpiresAfterAnchor.fromJson(String value) => CreateContainerBodyExpiresAfterAnchor._(value);
+  factory CreateContainerBodyExpiresAfterAnchor.fromJson(String value) =>
+      CreateContainerBodyExpiresAfterAnchor._(value);
 
-  static const lastActiveAt = CreateContainerBodyExpiresAfterAnchor._('last_active_at');
+  static const lastActiveAt =
+      CreateContainerBodyExpiresAfterAnchor._('last_active_at');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateContainerBodyExpiresAfterAnchor && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateContainerBodyExpiresAfterAnchor && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional memory limit for the container. Defaults to "1g".
 final class CreateContainerBodyMemoryLimit {
-
   final String value;
 
   const CreateContainerBodyMemoryLimit._(this.value);
 
-  factory CreateContainerBodyMemoryLimit.fromJson(String value) => CreateContainerBodyMemoryLimit._(value);
+  factory CreateContainerBodyMemoryLimit.fromJson(String value) =>
+      CreateContainerBodyMemoryLimit._(value);
 
   static const v1g = CreateContainerBodyMemoryLimit._('1g');
   static const v4g = CreateContainerBodyMemoryLimit._('4g');
@@ -198,55 +255,64 @@ final class CreateContainerBodyMemoryLimit {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateContainerBodyMemoryLimit && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateContainerBodyMemoryLimit && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The format to return the embeddings in. Can be either `float` or [`base64`](https://pypi.org/project/pybase64/).
 final class CreateEmbeddingRequestEncodingFormat {
-
   final String value;
 
   const CreateEmbeddingRequestEncodingFormat._(this.value);
 
-  factory CreateEmbeddingRequestEncodingFormat.fromJson(String value) => CreateEmbeddingRequestEncodingFormat._(value);
+  factory CreateEmbeddingRequestEncodingFormat.fromJson(String value) =>
+      CreateEmbeddingRequestEncodingFormat._(value);
 
   static const float = CreateEmbeddingRequestEncodingFormat._('float');
   static const base64 = CreateEmbeddingRequestEncodingFormat._('base64');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateEmbeddingRequestEncodingFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateEmbeddingRequestEncodingFormat && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always "list".
 final class CreateEmbeddingResponseObject {
-
   final String value;
 
   const CreateEmbeddingResponseObject._(this.value);
 
-  factory CreateEmbeddingResponseObject.fromJson(String value) => CreateEmbeddingResponseObject._(value);
+  factory CreateEmbeddingResponseObject.fromJson(String value) =>
+      CreateEmbeddingResponseObject._(value);
 
   static const list = CreateEmbeddingResponseObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateEmbeddingResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateEmbeddingResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object. Always `openai_hosted`.
@@ -255,14 +321,18 @@ enum CreateEnvironmentParamOpenaiHostedType {
 
   static CreateEnvironmentParamOpenaiHostedType fromJson(String value) {
     switch (value) {
-      case 'openai_hosted': return CreateEnvironmentParamOpenaiHostedType.openaiHosted;
-      default: throw ArgumentError('Unknown CreateEnvironmentParamOpenaiHostedType: $value');
+      case 'openai_hosted':
+        return CreateEnvironmentParamOpenaiHostedType.openaiHosted;
+      default:
+        throw ArgumentError(
+            'Unknown CreateEnvironmentParamOpenaiHostedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEnvironmentParamOpenaiHostedType.openaiHosted: return 'openai_hosted';
+      case CreateEnvironmentParamOpenaiHostedType.openaiHosted:
+        return 'openai_hosted';
     }
   }
 
@@ -276,14 +346,18 @@ enum CreateEvalCompletionsRunDataSourceType {
 
   static CreateEvalCompletionsRunDataSourceType fromJson(String value) {
     switch (value) {
-      case 'completions': return CreateEvalCompletionsRunDataSourceType.completions;
-      default: throw ArgumentError('Unknown CreateEvalCompletionsRunDataSourceType: $value');
+      case 'completions':
+        return CreateEvalCompletionsRunDataSourceType.completions;
+      default:
+        throw ArgumentError(
+            'Unknown CreateEvalCompletionsRunDataSourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEvalCompletionsRunDataSourceType.completions: return 'completions';
+      case CreateEvalCompletionsRunDataSourceType.completions:
+        return 'completions';
     }
   }
 

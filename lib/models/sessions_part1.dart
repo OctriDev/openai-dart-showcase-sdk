@@ -8,257 +8,440 @@ part of 'sessions.dart';
 class AutomaticThreadTitlingParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Enable automatic thread title generation. Defaults to true.
   final SdkOptional<bool> enabled;
 
   const AutomaticThreadTitlingParam({this.enabled = const SdkOmitted()});
 
-  AutomaticThreadTitlingParam Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  AutomaticThreadTitlingParam Function({SdkOptional<bool> enabled})
+      get copyWith => _copyWith;
 
-  AutomaticThreadTitlingParam _copyWith({Object? enabled = sdkOmittedValue}) => AutomaticThreadTitlingParam(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  AutomaticThreadTitlingParam _copyWith({Object? enabled = sdkOmittedValue}) =>
+      AutomaticThreadTitlingParam(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory AutomaticThreadTitlingParam.fromJson(Map<String, dynamic> json) => AutomaticThreadTitlingParam(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory AutomaticThreadTitlingParam.fromJson(Map<String, dynamic> json) =>
+      AutomaticThreadTitlingParam(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional per-session configuration settings for ChatKit behavior.
 class ChatkitConfigurationParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Configuration for automatic thread titling. When omitted, automatic thread titling is enabled by default.
   final SdkOptional<AutomaticThreadTitlingParam> automaticThreadTitling;
+
   /// Configuration for upload enablement and limits. When omitted, uploads are disabled by default (max_files 10, max_file_size 512 MB).
   final SdkOptional<FileUploadParam> fileUpload;
+
   /// Configuration for chat history retention. When omitted, history is enabled by default with no limit on recent_threads (null).
   final SdkOptional<HistoryParam> history;
 
-  const ChatkitConfigurationParam({this.automaticThreadTitling = const SdkOmitted(), this.fileUpload = const SdkOmitted(), this.history = const SdkOmitted()});
+  const ChatkitConfigurationParam(
+      {this.automaticThreadTitling = const SdkOmitted(),
+      this.fileUpload = const SdkOmitted(),
+      this.history = const SdkOmitted()});
 
-  ChatkitConfigurationParam Function({SdkOptional<AutomaticThreadTitlingParam> automaticThreadTitling, SdkOptional<FileUploadParam> fileUpload, SdkOptional<HistoryParam> history}) get copyWith => _copyWith;
+  ChatkitConfigurationParam Function(
+      {SdkOptional<AutomaticThreadTitlingParam> automaticThreadTitling,
+      SdkOptional<FileUploadParam> fileUpload,
+      SdkOptional<HistoryParam> history}) get copyWith => _copyWith;
 
-  ChatkitConfigurationParam _copyWith({Object? automaticThreadTitling = sdkOmittedValue, Object? fileUpload = sdkOmittedValue, Object? history = sdkOmittedValue}) => ChatkitConfigurationParam(
-    automaticThreadTitling: identical(automaticThreadTitling, sdkOmittedValue) ? this.automaticThreadTitling : automaticThreadTitling as SdkOptional<AutomaticThreadTitlingParam>,
-    fileUpload: identical(fileUpload, sdkOmittedValue) ? this.fileUpload : fileUpload as SdkOptional<FileUploadParam>,
-    history: identical(history, sdkOmittedValue) ? this.history : history as SdkOptional<HistoryParam>,
-  );
+  ChatkitConfigurationParam _copyWith(
+          {Object? automaticThreadTitling = sdkOmittedValue,
+          Object? fileUpload = sdkOmittedValue,
+          Object? history = sdkOmittedValue}) =>
+      ChatkitConfigurationParam(
+        automaticThreadTitling:
+            identical(automaticThreadTitling, sdkOmittedValue)
+                ? this.automaticThreadTitling
+                : automaticThreadTitling
+                    as SdkOptional<AutomaticThreadTitlingParam>,
+        fileUpload: identical(fileUpload, sdkOmittedValue)
+            ? this.fileUpload
+            : fileUpload as SdkOptional<FileUploadParam>,
+        history: identical(history, sdkOmittedValue)
+            ? this.history
+            : history as SdkOptional<HistoryParam>,
+      );
 
-  factory ChatkitConfigurationParam.fromJson(Map<String, dynamic> json) => ChatkitConfigurationParam(
-    automaticThreadTitling: json['automatic_thread_titling'] != null ? SdkPresent((json['automatic_thread_titling'] != null ? AutomaticThreadTitlingParam.fromJson(json['automatic_thread_titling'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    fileUpload: json['file_upload'] != null ? SdkPresent((json['file_upload'] != null ? FileUploadParam.fromJson(json['file_upload'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    history: json['history'] != null ? SdkPresent((json['history'] != null ? HistoryParam.fromJson(json['history'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ChatkitConfigurationParam.fromJson(Map<String, dynamic> json) =>
+      ChatkitConfigurationParam(
+        automaticThreadTitling: json['automatic_thread_titling'] != null
+            ? SdkPresent((json['automatic_thread_titling'] != null
+                ? AutomaticThreadTitlingParam.fromJson(
+                    json['automatic_thread_titling'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        fileUpload: json['file_upload'] != null
+            ? SdkPresent((json['file_upload'] != null
+                ? FileUploadParam.fromJson(
+                    json['file_upload'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        history: json['history'] != null
+            ? SdkPresent((json['history'] != null
+                ? HistoryParam.fromJson(json['history'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (automaticThreadTitling) {
-      SdkPresent<AutomaticThreadTitlingParam>(value: final value) => {'automatic_thread_titling': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fileUpload) {
-      SdkPresent<FileUploadParam>(value: final value) => {'file_upload': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (history) {
-      SdkPresent<HistoryParam>(value: final value) => {'history': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (automaticThreadTitling) {
+          SdkPresent<AutomaticThreadTitlingParam>(value: final value) => {
+              'automatic_thread_titling': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fileUpload) {
+          SdkPresent<FileUploadParam>(value: final value) => {
+              'file_upload': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (history) {
+          SdkPresent<HistoryParam>(value: final value) => {
+              'history': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Parameters for provisioning a new ChatKit session.
 class CreateChatSessionBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Workflow that powers the session.
   final WorkflowParam workflow;
+
   /// A free-form string that identifies your end user; ensures this Session can access other objects that have the same `user` scope.
   final String user;
+
   /// Optional override for session expiration timing in seconds from creation. Defaults to 10 minutes.
   final SdkOptional<ExpiresAfterParam> expiresAfter;
+
   /// Optional override for per-minute request limits. When omitted, defaults to 10.
   final SdkOptional<RateLimitsParam> rateLimits;
+
   /// Optional overrides for ChatKit runtime configuration features
   final SdkOptional<ChatkitConfigurationParam> chatkitConfiguration;
 
-  const CreateChatSessionBody({required this.workflow, required this.user, this.expiresAfter = const SdkOmitted(), this.rateLimits = const SdkOmitted(), this.chatkitConfiguration = const SdkOmitted()});
+  const CreateChatSessionBody(
+      {required this.workflow,
+      required this.user,
+      this.expiresAfter = const SdkOmitted(),
+      this.rateLimits = const SdkOmitted(),
+      this.chatkitConfiguration = const SdkOmitted()});
 
-  CreateChatSessionBody Function({WorkflowParam workflow, String user, SdkOptional<ExpiresAfterParam> expiresAfter, SdkOptional<RateLimitsParam> rateLimits, SdkOptional<ChatkitConfigurationParam> chatkitConfiguration}) get copyWith => _copyWith;
+  CreateChatSessionBody Function(
+          {WorkflowParam workflow,
+          String user,
+          SdkOptional<ExpiresAfterParam> expiresAfter,
+          SdkOptional<RateLimitsParam> rateLimits,
+          SdkOptional<ChatkitConfigurationParam> chatkitConfiguration})
+      get copyWith => _copyWith;
 
-  CreateChatSessionBody _copyWith({Object? workflow = sdkOmittedValue, Object? user = sdkOmittedValue, Object? expiresAfter = sdkOmittedValue, Object? rateLimits = sdkOmittedValue, Object? chatkitConfiguration = sdkOmittedValue}) => CreateChatSessionBody(
-    workflow: identical(workflow, sdkOmittedValue) ? this.workflow : workflow as WorkflowParam,
-    user: identical(user, sdkOmittedValue) ? this.user : user as String,
-    expiresAfter: identical(expiresAfter, sdkOmittedValue) ? this.expiresAfter : expiresAfter as SdkOptional<ExpiresAfterParam>,
-    rateLimits: identical(rateLimits, sdkOmittedValue) ? this.rateLimits : rateLimits as SdkOptional<RateLimitsParam>,
-    chatkitConfiguration: identical(chatkitConfiguration, sdkOmittedValue) ? this.chatkitConfiguration : chatkitConfiguration as SdkOptional<ChatkitConfigurationParam>,
-  );
+  CreateChatSessionBody _copyWith(
+          {Object? workflow = sdkOmittedValue,
+          Object? user = sdkOmittedValue,
+          Object? expiresAfter = sdkOmittedValue,
+          Object? rateLimits = sdkOmittedValue,
+          Object? chatkitConfiguration = sdkOmittedValue}) =>
+      CreateChatSessionBody(
+        workflow: identical(workflow, sdkOmittedValue)
+            ? this.workflow
+            : workflow as WorkflowParam,
+        user: identical(user, sdkOmittedValue) ? this.user : user as String,
+        expiresAfter: identical(expiresAfter, sdkOmittedValue)
+            ? this.expiresAfter
+            : expiresAfter as SdkOptional<ExpiresAfterParam>,
+        rateLimits: identical(rateLimits, sdkOmittedValue)
+            ? this.rateLimits
+            : rateLimits as SdkOptional<RateLimitsParam>,
+        chatkitConfiguration: identical(chatkitConfiguration, sdkOmittedValue)
+            ? this.chatkitConfiguration
+            : chatkitConfiguration as SdkOptional<ChatkitConfigurationParam>,
+      );
 
-  factory CreateChatSessionBody.fromJson(Map<String, dynamic> json) => CreateChatSessionBody(
-    workflow: (json['workflow'] != null ? WorkflowParam.fromJson(json['workflow'] as Map<String, dynamic>) : null)!,
-    user: (json['user'] as String?)!,
-    expiresAfter: json['expires_after'] != null ? SdkPresent((json['expires_after'] != null ? ExpiresAfterParam.fromJson(json['expires_after'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    rateLimits: json['rate_limits'] != null ? SdkPresent((json['rate_limits'] != null ? RateLimitsParam.fromJson(json['rate_limits'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    chatkitConfiguration: json['chatkit_configuration'] != null ? SdkPresent((json['chatkit_configuration'] != null ? ChatkitConfigurationParam.fromJson(json['chatkit_configuration'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory CreateChatSessionBody.fromJson(Map<String, dynamic> json) =>
+      CreateChatSessionBody(
+        workflow: (json['workflow'] != null
+            ? WorkflowParam.fromJson(json['workflow'] as Map<String, dynamic>)
+            : null)!,
+        user: (json['user'] as String?)!,
+        expiresAfter: json['expires_after'] != null
+            ? SdkPresent((json['expires_after'] != null
+                ? ExpiresAfterParam.fromJson(
+                    json['expires_after'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        rateLimits: json['rate_limits'] != null
+            ? SdkPresent((json['rate_limits'] != null
+                ? RateLimitsParam.fromJson(
+                    json['rate_limits'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        chatkitConfiguration: json['chatkit_configuration'] != null
+            ? SdkPresent((json['chatkit_configuration'] != null
+                ? ChatkitConfigurationParam.fromJson(
+                    json['chatkit_configuration'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'workflow': workflow.toJson(),
-    'user': user,
-    ...switch (expiresAfter) {
-      SdkPresent<ExpiresAfterParam>(value: final value) => {'expires_after': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (rateLimits) {
-      SdkPresent<RateLimitsParam>(value: final value) => {'rate_limits': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (chatkitConfiguration) {
-      SdkPresent<ChatkitConfigurationParam>(value: final value) => {'chatkit_configuration': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'workflow': workflow.toJson(),
+        'user': user,
+        ...switch (expiresAfter) {
+          SdkPresent<ExpiresAfterParam>(value: final value) => {
+              'expires_after': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (rateLimits) {
+          SdkPresent<RateLimitsParam>(value: final value) => {
+              'rate_limits': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (chatkitConfiguration) {
+          SdkPresent<ChatkitConfigurationParam>(value: final value) => {
+              'chatkit_configuration': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Controls when the session expires relative to an anchor timestamp.
 class ExpiresAfterParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Base timestamp used to calculate expiration. Currently fixed to `created_at`.
   final ExpiresAfterParamAnchor anchor;
+
   /// Number of seconds after the anchor when the session expires.
   final int seconds;
 
   const ExpiresAfterParam({required this.anchor, required this.seconds});
 
-  ExpiresAfterParam Function({ExpiresAfterParamAnchor anchor, int seconds}) get copyWith => _copyWith;
+  ExpiresAfterParam Function({ExpiresAfterParamAnchor anchor, int seconds})
+      get copyWith => _copyWith;
 
-  ExpiresAfterParam _copyWith({Object? anchor = sdkOmittedValue, Object? seconds = sdkOmittedValue}) => ExpiresAfterParam(
-    anchor: identical(anchor, sdkOmittedValue) ? this.anchor : anchor as ExpiresAfterParamAnchor,
-    seconds: identical(seconds, sdkOmittedValue) ? this.seconds : seconds as int,
-  );
+  ExpiresAfterParam _copyWith(
+          {Object? anchor = sdkOmittedValue,
+          Object? seconds = sdkOmittedValue}) =>
+      ExpiresAfterParam(
+        anchor: identical(anchor, sdkOmittedValue)
+            ? this.anchor
+            : anchor as ExpiresAfterParamAnchor,
+        seconds:
+            identical(seconds, sdkOmittedValue) ? this.seconds : seconds as int,
+      );
 
-  factory ExpiresAfterParam.fromJson(Map<String, dynamic> json) => ExpiresAfterParam(
-    anchor: (json['anchor'] != null ? ExpiresAfterParamAnchor.fromJson(json['anchor'] as String) : null)!,
-    seconds: ((json['seconds'] as num?)?.toInt())!,
-  );
+  factory ExpiresAfterParam.fromJson(Map<String, dynamic> json) =>
+      ExpiresAfterParam(
+        anchor: (json['anchor'] != null
+            ? ExpiresAfterParamAnchor.fromJson(json['anchor'] as String)
+            : null)!,
+        seconds: ((json['seconds'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'anchor': anchor.toJson(),
-    'seconds': seconds,
-  };
+        'anchor': anchor.toJson(),
+        'seconds': seconds,
+      };
 }
 
 /// Controls whether users can upload files.
 class FileUploadParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Enable uploads for this session. Defaults to false.
   final SdkOptional<bool> enabled;
+
   /// Maximum size in megabytes for each uploaded file. Defaults to 512 MB, which is the maximum allowable size.
   final SdkOptional<int> maxFileSize;
+
   /// Maximum number of files that can be uploaded to the session. Defaults to 10.
   final SdkOptional<int> maxFiles;
 
-  const FileUploadParam({this.enabled = const SdkOmitted(), this.maxFileSize = const SdkOmitted(), this.maxFiles = const SdkOmitted()});
+  const FileUploadParam(
+      {this.enabled = const SdkOmitted(),
+      this.maxFileSize = const SdkOmitted(),
+      this.maxFiles = const SdkOmitted()});
 
-  FileUploadParam Function({SdkOptional<bool> enabled, SdkOptional<int> maxFileSize, SdkOptional<int> maxFiles}) get copyWith => _copyWith;
+  FileUploadParam Function(
+      {SdkOptional<bool> enabled,
+      SdkOptional<int> maxFileSize,
+      SdkOptional<int> maxFiles}) get copyWith => _copyWith;
 
-  FileUploadParam _copyWith({Object? enabled = sdkOmittedValue, Object? maxFileSize = sdkOmittedValue, Object? maxFiles = sdkOmittedValue}) => FileUploadParam(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-    maxFileSize: identical(maxFileSize, sdkOmittedValue) ? this.maxFileSize : maxFileSize as SdkOptional<int>,
-    maxFiles: identical(maxFiles, sdkOmittedValue) ? this.maxFiles : maxFiles as SdkOptional<int>,
-  );
+  FileUploadParam _copyWith(
+          {Object? enabled = sdkOmittedValue,
+          Object? maxFileSize = sdkOmittedValue,
+          Object? maxFiles = sdkOmittedValue}) =>
+      FileUploadParam(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+        maxFileSize: identical(maxFileSize, sdkOmittedValue)
+            ? this.maxFileSize
+            : maxFileSize as SdkOptional<int>,
+        maxFiles: identical(maxFiles, sdkOmittedValue)
+            ? this.maxFiles
+            : maxFiles as SdkOptional<int>,
+      );
 
-  factory FileUploadParam.fromJson(Map<String, dynamic> json) => FileUploadParam(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-    maxFileSize: json['max_file_size'] != null ? SdkPresent(((json['max_file_size'] as num?)?.toInt())!) : const SdkOmitted(),
-    maxFiles: json['max_files'] != null ? SdkPresent(((json['max_files'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory FileUploadParam.fromJson(Map<String, dynamic> json) =>
+      FileUploadParam(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+        maxFileSize: json['max_file_size'] != null
+            ? SdkPresent(((json['max_file_size'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        maxFiles: json['max_files'] != null
+            ? SdkPresent(((json['max_files'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxFileSize) {
-      SdkPresent<int>(value: final value) => {'max_file_size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxFiles) {
-      SdkPresent<int>(value: final value) => {'max_files': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxFileSize) {
+          SdkPresent<int>(value: final value) => {
+              'max_file_size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxFiles) {
+          SdkPresent<int>(value: final value) => {
+              'max_files': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Controls how much historical context is retained for the session.
 class HistoryParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Enables chat users to access previous ChatKit threads. Defaults to true.
   final SdkOptional<bool> enabled;
+
   /// Number of recent ChatKit threads users have access to. Defaults to unlimited when unset.
   final SdkOptional<int> recentThreads;
 
-  const HistoryParam({this.enabled = const SdkOmitted(), this.recentThreads = const SdkOmitted()});
+  const HistoryParam(
+      {this.enabled = const SdkOmitted(),
+      this.recentThreads = const SdkOmitted()});
 
-  HistoryParam Function({SdkOptional<bool> enabled, SdkOptional<int> recentThreads}) get copyWith => _copyWith;
+  HistoryParam Function(
+      {SdkOptional<bool> enabled,
+      SdkOptional<int> recentThreads}) get copyWith => _copyWith;
 
-  HistoryParam _copyWith({Object? enabled = sdkOmittedValue, Object? recentThreads = sdkOmittedValue}) => HistoryParam(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-    recentThreads: identical(recentThreads, sdkOmittedValue) ? this.recentThreads : recentThreads as SdkOptional<int>,
-  );
+  HistoryParam _copyWith(
+          {Object? enabled = sdkOmittedValue,
+          Object? recentThreads = sdkOmittedValue}) =>
+      HistoryParam(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+        recentThreads: identical(recentThreads, sdkOmittedValue)
+            ? this.recentThreads
+            : recentThreads as SdkOptional<int>,
+      );
 
   factory HistoryParam.fromJson(Map<String, dynamic> json) => HistoryParam(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-    recentThreads: json['recent_threads'] != null ? SdkPresent(((json['recent_threads'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+        recentThreads: json['recent_threads'] != null
+            ? SdkPresent(((json['recent_threads'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (recentThreads) {
-      SdkPresent<int>(value: final value) => {'recent_threads': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (recentThreads) {
+          SdkPresent<int>(value: final value) => {
+              'recent_threads': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Controls request rate limits for the session.
 class RateLimitsParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Maximum number of requests allowed per minute for the session. Defaults to 10.
   final SdkOptional<int> maxRequestsPer1Minute;
 
   const RateLimitsParam({this.maxRequestsPer1Minute = const SdkOmitted()});
 
-  RateLimitsParam Function({SdkOptional<int> maxRequestsPer1Minute}) get copyWith => _copyWith;
+  RateLimitsParam Function({SdkOptional<int> maxRequestsPer1Minute})
+      get copyWith => _copyWith;
 
-  RateLimitsParam _copyWith({Object? maxRequestsPer1Minute = sdkOmittedValue}) => RateLimitsParam(
-    maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue) ? this.maxRequestsPer1Minute : maxRequestsPer1Minute as SdkOptional<int>,
-  );
+  RateLimitsParam _copyWith(
+          {Object? maxRequestsPer1Minute = sdkOmittedValue}) =>
+      RateLimitsParam(
+        maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue)
+            ? this.maxRequestsPer1Minute
+            : maxRequestsPer1Minute as SdkOptional<int>,
+      );
 
-  factory RateLimitsParam.fromJson(Map<String, dynamic> json) => RateLimitsParam(
-    maxRequestsPer1Minute: json['max_requests_per_1_minute'] != null ? SdkPresent(((json['max_requests_per_1_minute'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory RateLimitsParam.fromJson(Map<String, dynamic> json) =>
+      RateLimitsParam(
+        maxRequestsPer1Minute: json['max_requests_per_1_minute'] != null
+            ? SdkPresent(
+                ((json['max_requests_per_1_minute'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (maxRequestsPer1Minute) {
-      SdkPresent<int>(value: final value) => {'max_requests_per_1_minute': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (maxRequestsPer1Minute) {
+          SdkPresent<int>(value: final value) => {
+              'max_requests_per_1_minute': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class WorkflowParamStateVariablesValue {
@@ -266,29 +449,44 @@ sealed class WorkflowParamStateVariablesValue {
   static const String constructionSurface = 'named';
   const WorkflowParamStateVariablesValue();
   factory WorkflowParamStateVariablesValue.fromJson(Object? json) {
-    if (json is String) { return WorkflowParamStateVariablesValueString(json); }
-    if (json is num) { return WorkflowParamStateVariablesValueInt(json.toInt()); }
-    if (json is bool) { return WorkflowParamStateVariablesValueBool(json); }
-    if (json is num) { return WorkflowParamStateVariablesValueDouble(json.toDouble()); }
-    throw FormatException("No variant matched for WorkflowParamStateVariablesValue");
+    if (json is String) {
+      return WorkflowParamStateVariablesValueString(json);
+    }
+    if (json is num) {
+      return WorkflowParamStateVariablesValueInt(json.toInt());
+    }
+    if (json is bool) {
+      return WorkflowParamStateVariablesValueBool(json);
+    }
+    if (json is num) {
+      return WorkflowParamStateVariablesValueDouble(json.toDouble());
+    }
+    throw FormatException(
+        "No variant matched for WorkflowParamStateVariablesValue");
   }
   Object? toJson();
 }
 
-final class WorkflowParamStateVariablesValueString extends WorkflowParamStateVariablesValue {
+final class WorkflowParamStateVariablesValueString
+    extends WorkflowParamStateVariablesValue {
   final String value;
   const WorkflowParamStateVariablesValueString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class WorkflowParamStateVariablesValueInt extends WorkflowParamStateVariablesValue {
+final class WorkflowParamStateVariablesValueInt
+    extends WorkflowParamStateVariablesValue {
   final int value;
   const WorkflowParamStateVariablesValueInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class WorkflowParamStateVariablesValueBool extends WorkflowParamStateVariablesValue {
+final class WorkflowParamStateVariablesValueBool
+    extends WorkflowParamStateVariablesValue {
   final bool value;
   const WorkflowParamStateVariablesValueBool(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }

@@ -9,7 +9,10 @@ sealed class ReasoningSummary {
   static const String constructionSurface = 'named';
   const ReasoningSummary();
   factory ReasoningSummary.fromJson(Object? json) {
-    try { return ReasoningSummaryReasoningSummaryVariant0(ReasoningSummaryVariant0.fromJson(json as String)); } catch (_) {}
+    try {
+      return ReasoningSummaryReasoningSummaryVariant0(
+          ReasoningSummaryVariant0.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for ReasoningSummary");
   }
   Object? toJson();
@@ -18,7 +21,8 @@ sealed class ReasoningSummary {
 final class ReasoningSummaryReasoningSummaryVariant0 extends ReasoningSummary {
   final ReasoningSummaryVariant0 value;
   const ReasoningSummaryReasoningSummaryVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class ReasoningContext {
@@ -26,7 +30,10 @@ sealed class ReasoningContext {
   static const String constructionSurface = 'named';
   const ReasoningContext();
   factory ReasoningContext.fromJson(Object? json) {
-    try { return ReasoningContextReasoningContextVariant0(ReasoningContextVariant0.fromJson(json as String)); } catch (_) {}
+    try {
+      return ReasoningContextReasoningContextVariant0(
+          ReasoningContextVariant0.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for ReasoningContext");
   }
   Object? toJson();
@@ -35,7 +42,8 @@ sealed class ReasoningContext {
 final class ReasoningContextReasoningContextVariant0 extends ReasoningContext {
   final ReasoningContextVariant0 value;
   const ReasoningContextReasoningContextVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class ReasoningGenerateSummary {
@@ -43,75 +51,141 @@ sealed class ReasoningGenerateSummary {
   static const String constructionSurface = 'named';
   const ReasoningGenerateSummary();
   factory ReasoningGenerateSummary.fromJson(Object? json) {
-    try { return ReasoningGenerateSummaryReasoningGenerateSummaryVariant0(ReasoningGenerateSummaryVariant0.fromJson(json as String)); } catch (_) {}
+    try {
+      return ReasoningGenerateSummaryReasoningGenerateSummaryVariant0(
+          ReasoningGenerateSummaryVariant0.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for ReasoningGenerateSummary");
   }
   Object? toJson();
 }
 
-final class ReasoningGenerateSummaryReasoningGenerateSummaryVariant0 extends ReasoningGenerateSummary {
+final class ReasoningGenerateSummaryReasoningGenerateSummaryVariant0
+    extends ReasoningGenerateSummary {
   final ReasoningGenerateSummaryVariant0 value;
   const ReasoningGenerateSummaryReasoningGenerateSummaryVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Configuration options for [reasoning models](https://developers.openai.com/api/docs/guides/reasoning).
 class Reasoning {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Controls the reasoning execution mode for the request. When returned on a response, this is the effective execution mode.
   final SdkOptional<String> mode;
+
   /// Optional API value serialized in the `effort` wire field.
   final SdkOptional<ReasoningEffort?> effort;
+
   /// Optional API value serialized in the `summary` wire field.
   final SdkOptional<ReasoningSummaryVariant0?> summary;
+
   /// Optional API value serialized in the `context` wire field.
   final SdkOptional<ReasoningContextVariant0?> context;
+
   /// Optional API value serialized in the `generate_summary` wire field.
   final SdkOptional<ReasoningGenerateSummaryVariant0?> generateSummary;
 
-  const Reasoning({this.mode = const SdkOmitted(), this.effort = const SdkOmitted(), this.summary = const SdkOmitted(), this.context = const SdkOmitted(), this.generateSummary = const SdkOmitted()});
+  const Reasoning(
+      {this.mode = const SdkOmitted(),
+      this.effort = const SdkOmitted(),
+      this.summary = const SdkOmitted(),
+      this.context = const SdkOmitted(),
+      this.generateSummary = const SdkOmitted()});
 
-  Reasoning Function({SdkOptional<String> mode, SdkOptional<ReasoningEffort?> effort, SdkOptional<ReasoningSummaryVariant0?> summary, SdkOptional<ReasoningContextVariant0?> context, SdkOptional<ReasoningGenerateSummaryVariant0?> generateSummary}) get copyWith => _copyWith;
+  Reasoning Function(
+          {SdkOptional<String> mode,
+          SdkOptional<ReasoningEffort?> effort,
+          SdkOptional<ReasoningSummaryVariant0?> summary,
+          SdkOptional<ReasoningContextVariant0?> context,
+          SdkOptional<ReasoningGenerateSummaryVariant0?> generateSummary})
+      get copyWith => _copyWith;
 
-  Reasoning _copyWith({Object? mode = sdkOmittedValue, Object? effort = sdkOmittedValue, Object? summary = sdkOmittedValue, Object? context = sdkOmittedValue, Object? generateSummary = sdkOmittedValue}) => Reasoning(
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as SdkOptional<String>,
-    effort: identical(effort, sdkOmittedValue) ? this.effort : effort as SdkOptional<ReasoningEffort?>,
-    summary: identical(summary, sdkOmittedValue) ? this.summary : summary as SdkOptional<ReasoningSummaryVariant0?>,
-    context: identical(context, sdkOmittedValue) ? this.context : context as SdkOptional<ReasoningContextVariant0?>,
-    generateSummary: identical(generateSummary, sdkOmittedValue) ? this.generateSummary : generateSummary as SdkOptional<ReasoningGenerateSummaryVariant0?>,
-  );
+  Reasoning _copyWith(
+          {Object? mode = sdkOmittedValue,
+          Object? effort = sdkOmittedValue,
+          Object? summary = sdkOmittedValue,
+          Object? context = sdkOmittedValue,
+          Object? generateSummary = sdkOmittedValue}) =>
+      Reasoning(
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as SdkOptional<String>,
+        effort: identical(effort, sdkOmittedValue)
+            ? this.effort
+            : effort as SdkOptional<ReasoningEffort?>,
+        summary: identical(summary, sdkOmittedValue)
+            ? this.summary
+            : summary as SdkOptional<ReasoningSummaryVariant0?>,
+        context: identical(context, sdkOmittedValue)
+            ? this.context
+            : context as SdkOptional<ReasoningContextVariant0?>,
+        generateSummary: identical(generateSummary, sdkOmittedValue)
+            ? this.generateSummary
+            : generateSummary as SdkOptional<ReasoningGenerateSummaryVariant0?>,
+      );
 
   factory Reasoning.fromJson(Map<String, dynamic> json) => Reasoning(
-    mode: json['mode'] != null ? SdkPresent((json['mode'] as String?)!) : const SdkOmitted(),
-    effort: json.containsKey('effort') ? SdkPresent(json['effort'] != null ? ReasoningEffort.fromJson(json['effort']) : null) : const SdkOmitted(),
-    summary: json.containsKey('summary') ? SdkPresent(json['summary'] != null ? ReasoningSummaryVariant0.fromJson(json['summary'] as String) : null) : const SdkOmitted(),
-    context: json.containsKey('context') ? SdkPresent(json['context'] != null ? ReasoningContextVariant0.fromJson(json['context'] as String) : null) : const SdkOmitted(),
-    generateSummary: json.containsKey('generate_summary') ? SdkPresent(json['generate_summary'] != null ? ReasoningGenerateSummaryVariant0.fromJson(json['generate_summary'] as String) : null) : const SdkOmitted(),
-  );
+        mode: json['mode'] != null
+            ? SdkPresent((json['mode'] as String?)!)
+            : const SdkOmitted(),
+        effort: json.containsKey('effort')
+            ? SdkPresent(json['effort'] != null
+                ? ReasoningEffort.fromJson(json['effort'])
+                : null)
+            : const SdkOmitted(),
+        summary: json.containsKey('summary')
+            ? SdkPresent(json['summary'] != null
+                ? ReasoningSummaryVariant0.fromJson(json['summary'] as String)
+                : null)
+            : const SdkOmitted(),
+        context: json.containsKey('context')
+            ? SdkPresent(json['context'] != null
+                ? ReasoningContextVariant0.fromJson(json['context'] as String)
+                : null)
+            : const SdkOmitted(),
+        generateSummary: json.containsKey('generate_summary')
+            ? SdkPresent(json['generate_summary'] != null
+                ? ReasoningGenerateSummaryVariant0.fromJson(
+                    json['generate_summary'] as String)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (mode) {
-      SdkPresent<String>(value: final value) => {'mode': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (effort) {
-      SdkPresent<ReasoningEffort?>(value: final value) => {'effort': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (summary) {
-      SdkPresent<ReasoningSummaryVariant0?>(value: final value) => {'summary': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (context) {
-      SdkPresent<ReasoningContextVariant0?>(value: final value) => {'context': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (generateSummary) {
-      SdkPresent<ReasoningGenerateSummaryVariant0?>(value: final value) => {'generate_summary': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (mode) {
+          SdkPresent<String>(value: final value) => {
+              'mode': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (effort) {
+          SdkPresent<ReasoningEffort?>(value: final value) => {
+              'effort': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (summary) {
+          SdkPresent<ReasoningSummaryVariant0?>(value: final value) => {
+              'summary': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (context) {
+          SdkPresent<ReasoningContextVariant0?>(value: final value) => {
+              'context': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (generateSummary) {
+          SdkPresent<ReasoningGenerateSummaryVariant0?>(value: final value) => {
+              'generate_summary': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 // ReasoningModeEnum = String

@@ -21,15 +21,24 @@ Future<SkillResource> createSkill(ClientConfig config,
   return (await sdkRequest<SkillResource>('POST', '/skills',
           config: config,
           body: {'files': SdkUtils.upload(files, 'files')},
-          contentType: contentType is SdkPresent<String> ? contentType.value : 'application/json',
+          contentType: contentType is SdkPresent<String>
+              ? contentType.value
+              : 'application/json',
           decoder: SdkResponseDecoder.json,
           operationId: 'createSkill',
-          fromJsonRaw: (value) => SkillResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SkillResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists skills available in the current project. Use `limit` to control the number of results, `order` to sort them, and `after` to continue from a previous result.
 ///
@@ -51,19 +60,26 @@ Future<SkillListResource> listSkills(ClientConfig config,
   return (await sdkRequest<SkillListResource>('GET', '/skills',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listSkills',
-          fromJsonRaw: (value) => SkillListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SkillListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists skills available in the current project. Use `limit` to control the number of results, `order` to sort them, and `after` to continue from a previous result.
 ///
@@ -73,13 +89,27 @@ Future<SkillListResource> listSkills(ClientConfig config,
 /// [order] Sort order of results by timestamp. Use `asc` for ascending order or
 ///   `desc` for descending order.
 /// [after] Identifier for the last item from the previous pagination request
-Stream<SkillResource> listSkillsPaginated(ClientConfig config, {int? limit, OrderEnum? order, String? after, RequestOptions? requestOptions}) async* {
+Stream<SkillResource> listSkillsPaginated(ClientConfig config,
+    {int? limit,
+    OrderEnum? order,
+    String? after,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listSkills(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<OrderEnum>() : SdkPresent<OrderEnum>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listSkills(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<OrderEnum>()
+            : SdkPresent<OrderEnum>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -87,10 +117,23 @@ Stream<SkillResource> listSkillsPaginated(ClientConfig config, {int? limit, Orde
   }
 }
 
-Stream<SdkPage<SkillListResource, SkillResource>> listSkillsPages(ClientConfig config, {int? limit, OrderEnum? order, String? after, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SkillListResource, SkillResource>> listSkillsPages(
+    ClientConfig config,
+    {int? limit,
+    OrderEnum? order,
+    String? after,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listSkills(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<OrderEnum>() : SdkPresent<OrderEnum>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listSkills(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<OrderEnum>()
+            : SdkPresent<OrderEnum>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -100,7 +143,6 @@ Stream<SdkPage<SkillListResource, SkillResource>> listSkillsPages(ClientConfig c
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Deletes a skill by its identifier. Use `skill_id` to select the skill to remove. The response confirms whether the skill was deleted and includes its identifier.
 ///
@@ -114,12 +156,15 @@ Future<DeletedSkillResource> deleteSkill(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteSkill',
-          fromJsonRaw: (value) => DeletedSkillResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedSkillResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves a skill by its identifier. Use `skill_id` to select the skill whose details you need.
 ///
@@ -133,12 +178,15 @@ Future<SkillResource> getSkill(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getSkill',
-          fromJsonRaw: (value) => SkillResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SkillResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the default version pointer for a skill. Provide `default_version` to select the version that should be the skill's default. The response contains the updated skill details.
 ///
@@ -156,12 +204,19 @@ Future<SkillResource> updateSkillDefaultVersion(ClientConfig config,
           body: {'default_version': defaultVersion},
           decoder: SdkResponseDecoder.json,
           operationId: 'updateSkillDefaultVersion',
-          fromJsonRaw: (value) => SkillResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SkillResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the ZIP bundle for a skill. Use `skill_id` to select the skill whose files you want to download.
 ///
@@ -176,10 +231,12 @@ Future<List<int>> getSkillContent(ClientConfig config,
           decoder: SdkResponseDecoder.bytes,
           operationId: 'getSkillContent',
           options: requestOptions,
-          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a new immutable version of a skill from uploaded files or a ZIP archive. Include `files` with the version contents and optionally set `default` to make the new version the default. The response contains the created version details.
 ///
@@ -203,15 +260,26 @@ Future<SkillVersionResource> createSkillVersion(ClientConfig config,
             'files': SdkUtils.upload(files, 'files'),
             'default': SdkUtils.unwrapOptional(default_)
           },
-          contentType: contentType is SdkPresent<String> ? contentType.value : 'application/json',
+          contentType: contentType is SdkPresent<String>
+              ? contentType.value
+              : 'application/json',
           decoder: SdkResponseDecoder.json,
           operationId: 'createSkillVersion',
-          fromJsonRaw: (value) => SkillVersionResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SkillVersionResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists versions for a skill. Use `after` to continue from a skill version ID, `limit` to control the number of results, and `order` to sort by version number.
 ///
@@ -235,19 +303,28 @@ Future<SkillVersionListResource> listSkillVersions(ClientConfig config,
           'GET', '/skills/${Uri.encodeComponent(skillId.toString())}/versions',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listSkillVersions',
-          fromJsonRaw: (value) => SkillVersionListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SkillVersionListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists versions for a skill. Use `after` to continue from a skill version ID, `limit` to control the number of results, and `order` to sort by version number.
 ///
@@ -257,13 +334,29 @@ Future<SkillVersionListResource> listSkillVersions(ClientConfig config,
 /// [limit] Number of versions to retrieve.
 /// [order] Sort order of results by version number.
 /// [after] The skill version ID to start after.
-Stream<SkillVersionResource> listSkillVersionsPaginated(ClientConfig config, {required String skillId, int? limit, OrderEnum? order, String? after, RequestOptions? requestOptions}) async* {
+Stream<SkillVersionResource> listSkillVersionsPaginated(ClientConfig config,
+    {required String skillId,
+    int? limit,
+    OrderEnum? order,
+    String? after,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listSkillVersions(config, skillId: skillId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<OrderEnum>() : SdkPresent<OrderEnum>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listSkillVersions(config,
+        skillId: skillId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<OrderEnum>()
+            : SdkPresent<OrderEnum>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -271,10 +364,25 @@ Stream<SkillVersionResource> listSkillVersionsPaginated(ClientConfig config, {re
   }
 }
 
-Stream<SdkPage<SkillVersionListResource, SkillVersionResource>> listSkillVersionsPages(ClientConfig config, {required String skillId, int? limit, OrderEnum? order, String? after, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SkillVersionListResource, SkillVersionResource>>
+    listSkillVersionsPages(ClientConfig config,
+        {required String skillId,
+        int? limit,
+        OrderEnum? order,
+        String? after,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listSkillVersions(config, skillId: skillId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<OrderEnum>() : SdkPresent<OrderEnum>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listSkillVersions(config,
+        skillId: skillId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<OrderEnum>()
+            : SdkPresent<OrderEnum>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -284,7 +392,6 @@ Stream<SdkPage<SkillVersionListResource, SkillVersionResource>> listSkillVersion
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Retrieves a specific version of a skill. Provide `skill_id` to identify the skill and `version` to select the version to retrieve.
 ///
@@ -301,12 +408,16 @@ Future<SkillVersionResource> getSkillVersion(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getSkillVersion',
-          fromJsonRaw: (value) => SkillVersionResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SkillVersionResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Deletes a version of a skill. Use `skill_id` and `version` to select the version to remove. You cannot delete the default version while other versions remain.
 ///
@@ -323,12 +434,16 @@ Future<DeletedSkillVersionResource> deleteSkillVersion(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteSkillVersion',
-          fromJsonRaw: (value) => DeletedSkillVersionResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedSkillVersionResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves the ZIP bundle for a specific skill version. Use `skill_id` and `version` to identify the skill and version whose content you need. The response provides the bundle as a downloadable binary file.
 ///
@@ -346,6 +461,10 @@ Future<List<int>> getSkillVersionContent(ClientConfig config,
           decoder: SdkResponseDecoder.bytes,
           operationId: 'getSkillVersionContent',
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

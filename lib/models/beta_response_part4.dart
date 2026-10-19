@@ -5,69 +5,131 @@ part of 'beta_response.dart';
 
 // beta_response domain models (part 4)
 /// A [BetaResponseSteerRequiredInput] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaResponseSteerRequiredInput extends BetaResponseSteerRequiredInput {
+final class UnknownBetaResponseSteerRequiredInput
+    extends BetaResponseSteerRequiredInput {
   final Map<String, dynamic> raw;
   const UnknownBetaResponseSteerRequiredInput(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Emitted when an error occurs while processing a Responses WebSocket request.
 class BetaResponseWsError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `error`.
   final BetaResponseWsErrorType type_;
+
   /// The HTTP status code associated with a WebSocket protocol error.
   final SdkOptional<int> status;
+
   /// The sequence number of an error emitted by the response stream.
   final SdkOptional<int> sequenceNumber;
+
   /// Details about the error.
   final BetaErrorPayload error;
+
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const BetaResponseWsError({this.agent = const SdkOmitted(), required this.type_, this.status = const SdkOmitted(), this.sequenceNumber = const SdkOmitted(), required this.error, this.streamId = const SdkOmitted()});
+  const BetaResponseWsError(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      this.status = const SdkOmitted(),
+      this.sequenceNumber = const SdkOmitted(),
+      required this.error,
+      this.streamId = const SdkOmitted()});
 
-  BetaResponseWsError Function({SdkOptional<BetaAgentTag?> agent, BetaResponseWsErrorType type_, SdkOptional<int> status, SdkOptional<int> sequenceNumber, BetaErrorPayload error, SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponseWsError Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseWsErrorType type_,
+      SdkOptional<int> status,
+      SdkOptional<int> sequenceNumber,
+      BetaErrorPayload error,
+      SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponseWsError _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? status = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? error = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => BetaResponseWsError(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseWsErrorType,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<int>,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as SdkOptional<int>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as BetaErrorPayload,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponseWsError _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? error = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue}) =>
+      BetaResponseWsError(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseWsErrorType,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<int>,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as SdkOptional<int>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as BetaErrorPayload,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponseWsError.fromJson(Map<String, dynamic> json) => BetaResponseWsError(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseWsErrorType.fromJson(json['type'] as String) : null)!,
-    status: json['status'] != null ? SdkPresent(((json['status'] as num?)?.toInt())!) : const SdkOmitted(),
-    sequenceNumber: json['sequence_number'] != null ? SdkPresent(((json['sequence_number'] as num?)?.toInt())!) : const SdkOmitted(),
-    error: (json['error'] != null ? BetaErrorPayload.fromJson(json['error'] as Map<String, dynamic>) : null)!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponseWsError.fromJson(Map<String, dynamic> json) =>
+      BetaResponseWsError(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseWsErrorType.fromJson(json['type'] as String)
+            : null)!,
+        status: json['status'] != null
+            ? SdkPresent(((json['status'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        sequenceNumber: json['sequence_number'] != null
+            ? SdkPresent(((json['sequence_number'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        error: (json['error'] != null
+            ? BetaErrorPayload.fromJson(json['error'] as Map<String, dynamic>)
+            : null)!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    ...switch (status) {
-      SdkPresent<int>(value: final value) => {'status': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sequenceNumber) {
-      SdkPresent<int>(value: final value) => {'sequence_number': value,},
-      _ => const <String, dynamic>{},
-    },
-    'error': error.toJson(),
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        ...switch (status) {
+          SdkPresent<int>(value: final value) => {
+              'status': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sequenceNumber) {
+          SdkPresent<int>(value: final value) => {
+              'sequence_number': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'error': error.toJson(),
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

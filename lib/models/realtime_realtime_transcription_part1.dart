@@ -8,280 +8,598 @@ part of 'realtime_realtime_transcription.dart';
 class RealtimeTranscriptionSessionCreateRequestTurnDetection {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of turn detection. Only `server_vad` is currently supported for transcription sessions.
-  final SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetectionType> type_;
+  final SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetectionType>
+      type_;
+
   /// Activation threshold for VAD (0.0 to 1.0), this defaults to 0.5. A higher threshold will require louder audio to activate the model, and thus might perform better in noisy environments.
   final SdkOptional<double> threshold;
+
   /// Amount of audio to include before the VAD detected speech (in milliseconds). Defaults to 300ms.
   final SdkOptional<int> prefixPaddingMs;
+
   /// Duration of silence to detect speech stop (in milliseconds). Defaults to 500ms. With shorter values the model will respond more quickly, but may jump in on short pauses from the user.
   final SdkOptional<int> silenceDurationMs;
 
-  const RealtimeTranscriptionSessionCreateRequestTurnDetection({this.type_ = const SdkOmitted(), this.threshold = const SdkOmitted(), this.prefixPaddingMs = const SdkOmitted(), this.silenceDurationMs = const SdkOmitted()});
+  const RealtimeTranscriptionSessionCreateRequestTurnDetection(
+      {this.type_ = const SdkOmitted(),
+      this.threshold = const SdkOmitted(),
+      this.prefixPaddingMs = const SdkOmitted(),
+      this.silenceDurationMs = const SdkOmitted()});
 
-  RealtimeTranscriptionSessionCreateRequestTurnDetection Function({SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetectionType> type_, SdkOptional<double> threshold, SdkOptional<int> prefixPaddingMs, SdkOptional<int> silenceDurationMs}) get copyWith => _copyWith;
+  RealtimeTranscriptionSessionCreateRequestTurnDetection Function(
+      {SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetectionType>
+          type_,
+      SdkOptional<double> threshold,
+      SdkOptional<int> prefixPaddingMs,
+      SdkOptional<int> silenceDurationMs}) get copyWith => _copyWith;
 
-  RealtimeTranscriptionSessionCreateRequestTurnDetection _copyWith({Object? type_ = sdkOmittedValue, Object? threshold = sdkOmittedValue, Object? prefixPaddingMs = sdkOmittedValue, Object? silenceDurationMs = sdkOmittedValue}) => RealtimeTranscriptionSessionCreateRequestTurnDetection(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetectionType>,
-    threshold: identical(threshold, sdkOmittedValue) ? this.threshold : threshold as SdkOptional<double>,
-    prefixPaddingMs: identical(prefixPaddingMs, sdkOmittedValue) ? this.prefixPaddingMs : prefixPaddingMs as SdkOptional<int>,
-    silenceDurationMs: identical(silenceDurationMs, sdkOmittedValue) ? this.silenceDurationMs : silenceDurationMs as SdkOptional<int>,
-  );
+  RealtimeTranscriptionSessionCreateRequestTurnDetection _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? threshold = sdkOmittedValue,
+          Object? prefixPaddingMs = sdkOmittedValue,
+          Object? silenceDurationMs = sdkOmittedValue}) =>
+      RealtimeTranscriptionSessionCreateRequestTurnDetection(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<
+                RealtimeTranscriptionSessionCreateRequestTurnDetectionType>,
+        threshold: identical(threshold, sdkOmittedValue)
+            ? this.threshold
+            : threshold as SdkOptional<double>,
+        prefixPaddingMs: identical(prefixPaddingMs, sdkOmittedValue)
+            ? this.prefixPaddingMs
+            : prefixPaddingMs as SdkOptional<int>,
+        silenceDurationMs: identical(silenceDurationMs, sdkOmittedValue)
+            ? this.silenceDurationMs
+            : silenceDurationMs as SdkOptional<int>,
+      );
 
-  factory RealtimeTranscriptionSessionCreateRequestTurnDetection.fromJson(Map<String, dynamic> json) => RealtimeTranscriptionSessionCreateRequestTurnDetection(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? RealtimeTranscriptionSessionCreateRequestTurnDetectionType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    threshold: json['threshold'] != null ? SdkPresent(((json['threshold'] as num?)?.toDouble())!) : const SdkOmitted(),
-    prefixPaddingMs: json['prefix_padding_ms'] != null ? SdkPresent(((json['prefix_padding_ms'] as num?)?.toInt())!) : const SdkOmitted(),
-    silenceDurationMs: json['silence_duration_ms'] != null ? SdkPresent(((json['silence_duration_ms'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory RealtimeTranscriptionSessionCreateRequestTurnDetection.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranscriptionSessionCreateRequestTurnDetection(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? RealtimeTranscriptionSessionCreateRequestTurnDetectionType
+                    .fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        threshold: json['threshold'] != null
+            ? SdkPresent(((json['threshold'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        prefixPaddingMs: json['prefix_padding_ms'] != null
+            ? SdkPresent(((json['prefix_padding_ms'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        silenceDurationMs: json['silence_duration_ms'] != null
+            ? SdkPresent(((json['silence_duration_ms'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<RealtimeTranscriptionSessionCreateRequestTurnDetectionType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (threshold) {
-      SdkPresent<double>(value: final value) => {'threshold': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (prefixPaddingMs) {
-      SdkPresent<int>(value: final value) => {'prefix_padding_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (silenceDurationMs) {
-      SdkPresent<int>(value: final value) => {'silence_duration_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<
+                RealtimeTranscriptionSessionCreateRequestTurnDetectionType>(
+            value: final value
+          ) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (threshold) {
+          SdkPresent<double>(value: final value) => {
+              'threshold': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (prefixPaddingMs) {
+          SdkPresent<int>(value: final value) => {
+              'prefix_padding_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (silenceDurationMs) {
+          SdkPresent<int>(value: final value) => {
+              'silence_duration_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
 class RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of noise reduction. `near_field` is for close-talking microphones such as headphones, `far_field` is for far-field microphones such as laptop or conference room microphones.
   final SdkOptional<NoiseReductionType> type_;
 
-  const RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction({this.type_ = const SdkOmitted()});
+  const RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction(
+      {this.type_ = const SdkOmitted()});
 
-  RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction Function({SdkOptional<NoiseReductionType> type_}) get copyWith => _copyWith;
+  RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction Function(
+      {SdkOptional<NoiseReductionType> type_}) get copyWith => _copyWith;
 
-  RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction _copyWith({Object? type_ = sdkOmittedValue}) => RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<NoiseReductionType>,
-  );
+  RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<NoiseReductionType>,
+      );
 
-  factory RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction.fromJson(Map<String, dynamic> json) => RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? NoiseReductionType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? NoiseReductionType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<NoiseReductionType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<NoiseReductionType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Realtime transcription session object configuration.
 class RealtimeTranscriptionSessionCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Configuration for turn detection. Can be set to `null` to turn off. Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech.
-  final SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection> turnDetection;
+  final SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection>
+      turnDetection;
+
   /// Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
-  final SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction> inputAudioNoiseReduction;
+  final SdkOptional<
+          RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>
+      inputAudioNoiseReduction;
+
   /// The format of input audio. Options are `pcm16`, `g711_ulaw`, or `g711_alaw`. For `pcm16`, input audio must be 16-bit PCM at a 24kHz sample rate, single channel (mono), and little-endian byte order.
-  final SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat> inputAudioFormat;
+  final SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat>
+      inputAudioFormat;
+
   /// Configuration for input audio transcription. The client can optionally set the language and prompt for transcription, these offer additional guidance to the transcription service.
   final SdkOptional<AudioTranscription> inputAudioTranscription;
+
   /// The set of items to include in the transcription. Current available items are: `item.input_audio_transcription.logprobs`
-  final SdkOptional<List<RealtimeTranscriptionSessionCreateRequestIncludeItem>> include;
+  final SdkOptional<List<RealtimeTranscriptionSessionCreateRequestIncludeItem>>
+      include;
 
-  const RealtimeTranscriptionSessionCreateRequest({this.turnDetection = const SdkOmitted(), this.inputAudioNoiseReduction = const SdkOmitted(), this.inputAudioFormat = const SdkOmitted(), this.inputAudioTranscription = const SdkOmitted(), this.include = const SdkOmitted()});
+  const RealtimeTranscriptionSessionCreateRequest(
+      {this.turnDetection = const SdkOmitted(),
+      this.inputAudioNoiseReduction = const SdkOmitted(),
+      this.inputAudioFormat = const SdkOmitted(),
+      this.inputAudioTranscription = const SdkOmitted(),
+      this.include = const SdkOmitted()});
 
-  RealtimeTranscriptionSessionCreateRequest Function({SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection> turnDetection, SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction> inputAudioNoiseReduction, SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat> inputAudioFormat, SdkOptional<AudioTranscription> inputAudioTranscription, SdkOptional<List<RealtimeTranscriptionSessionCreateRequestIncludeItem>> include}) get copyWith => _copyWith;
+  RealtimeTranscriptionSessionCreateRequest Function(
+      {SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection>
+          turnDetection,
+      SdkOptional<
+              RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>
+          inputAudioNoiseReduction,
+      SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat>
+          inputAudioFormat,
+      SdkOptional<AudioTranscription> inputAudioTranscription,
+      SdkOptional<List<RealtimeTranscriptionSessionCreateRequestIncludeItem>>
+          include}) get copyWith => _copyWith;
 
-  RealtimeTranscriptionSessionCreateRequest _copyWith({Object? turnDetection = sdkOmittedValue, Object? inputAudioNoiseReduction = sdkOmittedValue, Object? inputAudioFormat = sdkOmittedValue, Object? inputAudioTranscription = sdkOmittedValue, Object? include = sdkOmittedValue}) => RealtimeTranscriptionSessionCreateRequest(
-    turnDetection: identical(turnDetection, sdkOmittedValue) ? this.turnDetection : turnDetection as SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection>,
-    inputAudioNoiseReduction: identical(inputAudioNoiseReduction, sdkOmittedValue) ? this.inputAudioNoiseReduction : inputAudioNoiseReduction as SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>,
-    inputAudioFormat: identical(inputAudioFormat, sdkOmittedValue) ? this.inputAudioFormat : inputAudioFormat as SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat>,
-    inputAudioTranscription: identical(inputAudioTranscription, sdkOmittedValue) ? this.inputAudioTranscription : inputAudioTranscription as SdkOptional<AudioTranscription>,
-    include: identical(include, sdkOmittedValue) ? this.include : include as SdkOptional<List<RealtimeTranscriptionSessionCreateRequestIncludeItem>>,
-  );
+  RealtimeTranscriptionSessionCreateRequest _copyWith(
+          {Object? turnDetection = sdkOmittedValue,
+          Object? inputAudioNoiseReduction = sdkOmittedValue,
+          Object? inputAudioFormat = sdkOmittedValue,
+          Object? inputAudioTranscription = sdkOmittedValue,
+          Object? include = sdkOmittedValue}) =>
+      RealtimeTranscriptionSessionCreateRequest(
+        turnDetection: identical(turnDetection, sdkOmittedValue)
+            ? this.turnDetection
+            : turnDetection as SdkOptional<
+                RealtimeTranscriptionSessionCreateRequestTurnDetection>,
+        inputAudioNoiseReduction: identical(
+                inputAudioNoiseReduction, sdkOmittedValue)
+            ? this.inputAudioNoiseReduction
+            : inputAudioNoiseReduction as SdkOptional<
+                RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>,
+        inputAudioFormat: identical(inputAudioFormat, sdkOmittedValue)
+            ? this.inputAudioFormat
+            : inputAudioFormat as SdkOptional<
+                RealtimeTranscriptionSessionCreateRequestInputAudioFormat>,
+        inputAudioTranscription:
+            identical(inputAudioTranscription, sdkOmittedValue)
+                ? this.inputAudioTranscription
+                : inputAudioTranscription as SdkOptional<AudioTranscription>,
+        include: identical(include, sdkOmittedValue)
+            ? this.include
+            : include as SdkOptional<
+                List<RealtimeTranscriptionSessionCreateRequestIncludeItem>>,
+      );
 
-  factory RealtimeTranscriptionSessionCreateRequest.fromJson(Map<String, dynamic> json) => RealtimeTranscriptionSessionCreateRequest(
-    turnDetection: json['turn_detection'] != null ? SdkPresent((json['turn_detection'] != null ? RealtimeTranscriptionSessionCreateRequestTurnDetection.fromJson(json['turn_detection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    inputAudioNoiseReduction: json['input_audio_noise_reduction'] != null ? SdkPresent((json['input_audio_noise_reduction'] != null ? RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction.fromJson(json['input_audio_noise_reduction'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    inputAudioFormat: json['input_audio_format'] != null ? SdkPresent((json['input_audio_format'] != null ? RealtimeTranscriptionSessionCreateRequestInputAudioFormat.fromJson(json['input_audio_format'] as String) : null)!) : const SdkOmitted(),
-    inputAudioTranscription: json['input_audio_transcription'] != null ? SdkPresent((json['input_audio_transcription'] != null ? AudioTranscription.fromJson(json['input_audio_transcription'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    include: json['include'] != null ? SdkPresent(((json['include'] as List?)?.map((e) => RealtimeTranscriptionSessionCreateRequestIncludeItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory RealtimeTranscriptionSessionCreateRequest.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranscriptionSessionCreateRequest(
+        turnDetection: json['turn_detection'] != null
+            ? SdkPresent((json['turn_detection'] != null
+                ? RealtimeTranscriptionSessionCreateRequestTurnDetection
+                    .fromJson(json['turn_detection'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        inputAudioNoiseReduction: json['input_audio_noise_reduction'] != null
+            ? SdkPresent((json['input_audio_noise_reduction'] != null
+                ? RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction
+                    .fromJson(json['input_audio_noise_reduction']
+                        as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        inputAudioFormat: json['input_audio_format'] != null
+            ? SdkPresent((json['input_audio_format'] != null
+                ? RealtimeTranscriptionSessionCreateRequestInputAudioFormat
+                    .fromJson(json['input_audio_format'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        inputAudioTranscription: json['input_audio_transcription'] != null
+            ? SdkPresent((json['input_audio_transcription'] != null
+                ? AudioTranscription.fromJson(
+                    json['input_audio_transcription'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        include: json['include'] != null
+            ? SdkPresent(((json['include'] as List?)
+                ?.map((e) =>
+                    RealtimeTranscriptionSessionCreateRequestIncludeItem
+                        .fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (turnDetection) {
-      SdkPresent<RealtimeTranscriptionSessionCreateRequestTurnDetection>(value: final value) => {'turn_detection': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inputAudioNoiseReduction) {
-      SdkPresent<RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>(value: final value) => {'input_audio_noise_reduction': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inputAudioFormat) {
-      SdkPresent<RealtimeTranscriptionSessionCreateRequestInputAudioFormat>(value: final value) => {'input_audio_format': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inputAudioTranscription) {
-      SdkPresent<AudioTranscription>(value: final value) => {'input_audio_transcription': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (include) {
-      SdkPresent<List<RealtimeTranscriptionSessionCreateRequestIncludeItem>>(value: final value) => {'include': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (turnDetection) {
+          SdkPresent<RealtimeTranscriptionSessionCreateRequestTurnDetection>(
+            value: final value
+          ) =>
+            {
+              'turn_detection': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inputAudioNoiseReduction) {
+          SdkPresent<
+                RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>(
+            value: final value
+          ) =>
+            {
+              'input_audio_noise_reduction': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inputAudioFormat) {
+          SdkPresent<RealtimeTranscriptionSessionCreateRequestInputAudioFormat>(
+            value: final value
+          ) =>
+            {
+              'input_audio_format': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inputAudioTranscription) {
+          SdkPresent<AudioTranscription>(value: final value) => {
+              'input_audio_transcription': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (include) {
+          SdkPresent<
+                List<RealtimeTranscriptionSessionCreateRequestIncludeItem>>(
+            value: final value
+          ) =>
+            {
+              'include': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
 class RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of noise reduction. `near_field` is for close-talking microphones such as headphones, `far_field` is for far-field microphones such as laptop or conference room microphones.
   final SdkOptional<NoiseReductionType> type_;
 
-  const RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction({this.type_ = const SdkOmitted()});
+  const RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction(
+      {this.type_ = const SdkOmitted()});
 
-  RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction Function({SdkOptional<NoiseReductionType> type_}) get copyWith => _copyWith;
+  RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction Function(
+      {SdkOptional<NoiseReductionType> type_}) get copyWith => _copyWith;
 
-  RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction _copyWith({Object? type_ = sdkOmittedValue}) => RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<NoiseReductionType>,
-  );
+  RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<NoiseReductionType>,
+      );
 
-  factory RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction.fromJson(Map<String, dynamic> json) => RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? NoiseReductionType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? NoiseReductionType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<NoiseReductionType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<NoiseReductionType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `input` wire field.
 class RealtimeTranscriptionSessionCreateRequestGAAudioInput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `format` wire field.
   final SdkOptional<RealtimeAudioFormats> format;
+
   /// Configuration for input audio transcription, defaults to off and can be set to `null` to turn off once on. Input audio transcription is not native to the model, since the model consumes audio directly. Transcription runs asynchronously through [the /audio/transcriptions endpoint](https://developers.openai.com/api/reference/resources/audio/subresources/transcriptions/methods/create) and should be treated as guidance of input audio content rather than precisely what the model heard. The client can optionally set the language and prompt for transcription, these offer additional guidance to the transcription service.
   final SdkOptional<AudioTranscription> transcription;
+
   /// Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
-  final SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction> noiseReduction;
+  final SdkOptional<
+          RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction>
+      noiseReduction;
+
   /// Configuration for turn detection, ether Server VAD or Semantic VAD. This can be set to `null` to turn off, in which case the client must manually trigger model response. Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech. Semantic VAD is more advanced and uses a turn detection model (in conjunction with VAD) to semantically estimate whether the user has finished speaking, then dynamically sets a timeout based on this probability. For example, if user audio trails off with "uhhm", the model will score a low probability of turn end and wait longer for the user to continue speaking. This can be useful for more natural conversations, but may have a higher latency. For `gpt-realtime-whisper` transcription sessions, turn detection must be set to `null`; VAD is not supported.
   final SdkOptional<RealtimeTurnDetection?> turnDetection;
 
-  const RealtimeTranscriptionSessionCreateRequestGAAudioInput({this.format = const SdkOmitted(), this.transcription = const SdkOmitted(), this.noiseReduction = const SdkOmitted(), this.turnDetection = const SdkOmitted()});
+  const RealtimeTranscriptionSessionCreateRequestGAAudioInput(
+      {this.format = const SdkOmitted(),
+      this.transcription = const SdkOmitted(),
+      this.noiseReduction = const SdkOmitted(),
+      this.turnDetection = const SdkOmitted()});
 
-  RealtimeTranscriptionSessionCreateRequestGAAudioInput Function({SdkOptional<RealtimeAudioFormats> format, SdkOptional<AudioTranscription> transcription, SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction> noiseReduction, SdkOptional<RealtimeTurnDetection?> turnDetection}) get copyWith => _copyWith;
+  RealtimeTranscriptionSessionCreateRequestGAAudioInput Function(
+      {SdkOptional<RealtimeAudioFormats> format,
+      SdkOptional<AudioTranscription> transcription,
+      SdkOptional<
+              RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction>
+          noiseReduction,
+      SdkOptional<RealtimeTurnDetection?>
+          turnDetection}) get copyWith => _copyWith;
 
-  RealtimeTranscriptionSessionCreateRequestGAAudioInput _copyWith({Object? format = sdkOmittedValue, Object? transcription = sdkOmittedValue, Object? noiseReduction = sdkOmittedValue, Object? turnDetection = sdkOmittedValue}) => RealtimeTranscriptionSessionCreateRequestGAAudioInput(
-    format: identical(format, sdkOmittedValue) ? this.format : format as SdkOptional<RealtimeAudioFormats>,
-    transcription: identical(transcription, sdkOmittedValue) ? this.transcription : transcription as SdkOptional<AudioTranscription>,
-    noiseReduction: identical(noiseReduction, sdkOmittedValue) ? this.noiseReduction : noiseReduction as SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction>,
-    turnDetection: identical(turnDetection, sdkOmittedValue) ? this.turnDetection : turnDetection as SdkOptional<RealtimeTurnDetection?>,
-  );
+  RealtimeTranscriptionSessionCreateRequestGAAudioInput _copyWith(
+          {Object? format = sdkOmittedValue,
+          Object? transcription = sdkOmittedValue,
+          Object? noiseReduction = sdkOmittedValue,
+          Object? turnDetection = sdkOmittedValue}) =>
+      RealtimeTranscriptionSessionCreateRequestGAAudioInput(
+        format: identical(format, sdkOmittedValue)
+            ? this.format
+            : format as SdkOptional<RealtimeAudioFormats>,
+        transcription: identical(transcription, sdkOmittedValue)
+            ? this.transcription
+            : transcription as SdkOptional<AudioTranscription>,
+        noiseReduction: identical(noiseReduction, sdkOmittedValue)
+            ? this.noiseReduction
+            : noiseReduction as SdkOptional<
+                RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction>,
+        turnDetection: identical(turnDetection, sdkOmittedValue)
+            ? this.turnDetection
+            : turnDetection as SdkOptional<RealtimeTurnDetection?>,
+      );
 
-  factory RealtimeTranscriptionSessionCreateRequestGAAudioInput.fromJson(Map<String, dynamic> json) => RealtimeTranscriptionSessionCreateRequestGAAudioInput(
-    format: json['format'] != null ? SdkPresent((json['format'] != null ? RealtimeAudioFormats.fromJson(json['format']) : null)!) : const SdkOmitted(),
-    transcription: json['transcription'] != null ? SdkPresent((json['transcription'] != null ? AudioTranscription.fromJson(json['transcription'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    noiseReduction: json['noise_reduction'] != null ? SdkPresent((json['noise_reduction'] != null ? RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction.fromJson(json['noise_reduction'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    turnDetection: json.containsKey('turn_detection') ? SdkPresent(json['turn_detection'] != null ? RealtimeTurnDetection.fromJson(json['turn_detection']) : null) : const SdkOmitted(),
-  );
+  factory RealtimeTranscriptionSessionCreateRequestGAAudioInput.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranscriptionSessionCreateRequestGAAudioInput(
+        format: json['format'] != null
+            ? SdkPresent((json['format'] != null
+                ? RealtimeAudioFormats.fromJson(json['format'])
+                : null)!)
+            : const SdkOmitted(),
+        transcription: json['transcription'] != null
+            ? SdkPresent((json['transcription'] != null
+                ? AudioTranscription.fromJson(
+                    json['transcription'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        noiseReduction: json['noise_reduction'] != null
+            ? SdkPresent((json['noise_reduction'] != null
+                ? RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction
+                    .fromJson(json['noise_reduction'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        turnDetection: json.containsKey('turn_detection')
+            ? SdkPresent(json['turn_detection'] != null
+                ? RealtimeTurnDetection.fromJson(json['turn_detection'])
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (format) {
-      SdkPresent<RealtimeAudioFormats>(value: final value) => {'format': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (transcription) {
-      SdkPresent<AudioTranscription>(value: final value) => {'transcription': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (noiseReduction) {
-      SdkPresent<RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction>(value: final value) => {'noise_reduction': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (turnDetection) {
-      SdkPresent<RealtimeTurnDetection?>(value: final value) => {'turn_detection': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (format) {
+          SdkPresent<RealtimeAudioFormats>(value: final value) => {
+              'format': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (transcription) {
+          SdkPresent<AudioTranscription>(value: final value) => {
+              'transcription': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (noiseReduction) {
+          SdkPresent<
+                RealtimeTranscriptionSessionCreateRequestGAAudioInputNoiseReduction>(
+            value: final value
+          ) =>
+            {
+              'noise_reduction': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (turnDetection) {
+          SdkPresent<RealtimeTurnDetection?>(value: final value) => {
+              'turn_detection': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Configuration for input and output audio.
 class RealtimeTranscriptionSessionCreateRequestGAAudio {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `input` wire field.
-  final SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudioInput> input;
+  final SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudioInput>
+      input;
 
-  const RealtimeTranscriptionSessionCreateRequestGAAudio({this.input = const SdkOmitted()});
+  const RealtimeTranscriptionSessionCreateRequestGAAudio(
+      {this.input = const SdkOmitted()});
 
-  RealtimeTranscriptionSessionCreateRequestGAAudio Function({SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudioInput> input}) get copyWith => _copyWith;
+  RealtimeTranscriptionSessionCreateRequestGAAudio Function(
+      {SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudioInput>
+          input}) get copyWith => _copyWith;
 
-  RealtimeTranscriptionSessionCreateRequestGAAudio _copyWith({Object? input = sdkOmittedValue}) => RealtimeTranscriptionSessionCreateRequestGAAudio(
-    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudioInput>,
-  );
+  RealtimeTranscriptionSessionCreateRequestGAAudio _copyWith(
+          {Object? input = sdkOmittedValue}) =>
+      RealtimeTranscriptionSessionCreateRequestGAAudio(
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as SdkOptional<
+                RealtimeTranscriptionSessionCreateRequestGAAudioInput>,
+      );
 
-  factory RealtimeTranscriptionSessionCreateRequestGAAudio.fromJson(Map<String, dynamic> json) => RealtimeTranscriptionSessionCreateRequestGAAudio(
-    input: json['input'] != null ? SdkPresent((json['input'] != null ? RealtimeTranscriptionSessionCreateRequestGAAudioInput.fromJson(json['input'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory RealtimeTranscriptionSessionCreateRequestGAAudio.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranscriptionSessionCreateRequestGAAudio(
+        input: json['input'] != null
+            ? SdkPresent((json['input'] != null
+                ? RealtimeTranscriptionSessionCreateRequestGAAudioInput
+                    .fromJson(json['input'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (input) {
-      SdkPresent<RealtimeTranscriptionSessionCreateRequestGAAudioInput>(value: final value) => {'input': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (input) {
+          SdkPresent<RealtimeTranscriptionSessionCreateRequestGAAudioInput>(
+            value: final value
+          ) =>
+            {
+              'input': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Realtime transcription session object configuration.
 class RealtimeTranscriptionSessionCreateRequestGA {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of session to create. Always `transcription` for transcription sessions.
   final RealtimeTranscriptionSessionCreateRequestGAType type_;
+
   /// Configuration for input and output audio.
   final SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudio> audio;
+
   /// Additional fields to include in server outputs. `item.input_audio_transcription.logprobs`: Include logprobs for input audio transcription.
-  final SdkOptional<List<RealtimeTranscriptionSessionCreateRequestGAIncludeItem>> include;
+  final SdkOptional<
+      List<RealtimeTranscriptionSessionCreateRequestGAIncludeItem>> include;
 
-  const RealtimeTranscriptionSessionCreateRequestGA({required this.type_, this.audio = const SdkOmitted(), this.include = const SdkOmitted()});
+  const RealtimeTranscriptionSessionCreateRequestGA(
+      {required this.type_,
+      this.audio = const SdkOmitted(),
+      this.include = const SdkOmitted()});
 
-  RealtimeTranscriptionSessionCreateRequestGA Function({RealtimeTranscriptionSessionCreateRequestGAType type_, SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudio> audio, SdkOptional<List<RealtimeTranscriptionSessionCreateRequestGAIncludeItem>> include}) get copyWith => _copyWith;
+  RealtimeTranscriptionSessionCreateRequestGA Function(
+      {RealtimeTranscriptionSessionCreateRequestGAType type_,
+      SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudio> audio,
+      SdkOptional<List<RealtimeTranscriptionSessionCreateRequestGAIncludeItem>>
+          include}) get copyWith => _copyWith;
 
-  RealtimeTranscriptionSessionCreateRequestGA _copyWith({Object? type_ = sdkOmittedValue, Object? audio = sdkOmittedValue, Object? include = sdkOmittedValue}) => RealtimeTranscriptionSessionCreateRequestGA(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTranscriptionSessionCreateRequestGAType,
-    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as SdkOptional<RealtimeTranscriptionSessionCreateRequestGAAudio>,
-    include: identical(include, sdkOmittedValue) ? this.include : include as SdkOptional<List<RealtimeTranscriptionSessionCreateRequestGAIncludeItem>>,
-  );
+  RealtimeTranscriptionSessionCreateRequestGA _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? audio = sdkOmittedValue,
+          Object? include = sdkOmittedValue}) =>
+      RealtimeTranscriptionSessionCreateRequestGA(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeTranscriptionSessionCreateRequestGAType,
+        audio: identical(audio, sdkOmittedValue)
+            ? this.audio
+            : audio as SdkOptional<
+                RealtimeTranscriptionSessionCreateRequestGAAudio>,
+        include: identical(include, sdkOmittedValue)
+            ? this.include
+            : include as SdkOptional<
+                List<RealtimeTranscriptionSessionCreateRequestGAIncludeItem>>,
+      );
 
-  factory RealtimeTranscriptionSessionCreateRequestGA.fromJson(Map<String, dynamic> json) => RealtimeTranscriptionSessionCreateRequestGA(
-    type_: (json['type'] != null ? RealtimeTranscriptionSessionCreateRequestGAType.fromJson(json['type'] as String) : null)!,
-    audio: json['audio'] != null ? SdkPresent((json['audio'] != null ? RealtimeTranscriptionSessionCreateRequestGAAudio.fromJson(json['audio'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    include: json['include'] != null ? SdkPresent(((json['include'] as List?)?.map((e) => RealtimeTranscriptionSessionCreateRequestGAIncludeItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory RealtimeTranscriptionSessionCreateRequestGA.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranscriptionSessionCreateRequestGA(
+        type_: (json['type'] != null
+            ? RealtimeTranscriptionSessionCreateRequestGAType.fromJson(
+                json['type'] as String)
+            : null)!,
+        audio: json['audio'] != null
+            ? SdkPresent((json['audio'] != null
+                ? RealtimeTranscriptionSessionCreateRequestGAAudio.fromJson(
+                    json['audio'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        include: json['include'] != null
+            ? SdkPresent(((json['include'] as List?)
+                ?.map((e) =>
+                    RealtimeTranscriptionSessionCreateRequestGAIncludeItem
+                        .fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (audio) {
-      SdkPresent<RealtimeTranscriptionSessionCreateRequestGAAudio>(value: final value) => {'audio': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (include) {
-      SdkPresent<List<RealtimeTranscriptionSessionCreateRequestGAIncludeItem>>(value: final value) => {'include': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (audio) {
+          SdkPresent<RealtimeTranscriptionSessionCreateRequestGAAudio>(
+            value: final value
+          ) =>
+            {
+              'audio': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (include) {
+          SdkPresent<
+                List<RealtimeTranscriptionSessionCreateRequestGAIncludeItem>>(
+            value: final value
+          ) =>
+            {
+              'include': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

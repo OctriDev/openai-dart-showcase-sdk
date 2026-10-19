@@ -8,45 +8,91 @@ part of 'shared_file.dart';
 class FileSearchToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the file search tool call.
   final String id;
+
   /// The type of the file search tool call. Always `file_search_call`.
   final FileSearchToolCallType type_;
+
   /// The status of the file search tool call. One of `in_progress`, `searching`, `incomplete` or `failed`,
   final FileSearchToolCallStatus status;
+
   /// The queries used to search for files.
   final List<String> queries;
+
   /// The results of the file search tool call.
   final SdkOptional<List<FileSearchToolCallResultsItem>?> results;
 
-  const FileSearchToolCall({required this.id, required this.type_, required this.status, required this.queries, this.results = const SdkOmitted()});
+  const FileSearchToolCall(
+      {required this.id,
+      required this.type_,
+      required this.status,
+      required this.queries,
+      this.results = const SdkOmitted()});
 
-  FileSearchToolCall Function({String id, FileSearchToolCallType type_, FileSearchToolCallStatus status, List<String> queries, SdkOptional<List<FileSearchToolCallResultsItem>?> results}) get copyWith => _copyWith;
+  FileSearchToolCall Function(
+          {String id,
+          FileSearchToolCallType type_,
+          FileSearchToolCallStatus status,
+          List<String> queries,
+          SdkOptional<List<FileSearchToolCallResultsItem>?> results})
+      get copyWith => _copyWith;
 
-  FileSearchToolCall _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? status = sdkOmittedValue, Object? queries = sdkOmittedValue, Object? results = sdkOmittedValue}) => FileSearchToolCall(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FileSearchToolCallType,
-    status: identical(status, sdkOmittedValue) ? this.status : status as FileSearchToolCallStatus,
-    queries: identical(queries, sdkOmittedValue) ? this.queries : queries as List<String>,
-    results: identical(results, sdkOmittedValue) ? this.results : results as SdkOptional<List<FileSearchToolCallResultsItem>?>,
-  );
+  FileSearchToolCall _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? queries = sdkOmittedValue,
+          Object? results = sdkOmittedValue}) =>
+      FileSearchToolCall(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as FileSearchToolCallType,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as FileSearchToolCallStatus,
+        queries: identical(queries, sdkOmittedValue)
+            ? this.queries
+            : queries as List<String>,
+        results: identical(results, sdkOmittedValue)
+            ? this.results
+            : results as SdkOptional<List<FileSearchToolCallResultsItem>?>,
+      );
 
-  factory FileSearchToolCall.fromJson(Map<String, dynamic> json) => FileSearchToolCall(
-    id: (json['id'] as String?)!,
-    type_: (json['type'] != null ? FileSearchToolCallType.fromJson(json['type'] as String) : null)!,
-    status: (json['status'] != null ? FileSearchToolCallStatus.fromJson(json['status'] as String) : null)!,
-    queries: ((json['queries'] as List?)?.map((e) => e as String).toList())!,
-    results: json.containsKey('results') ? SdkPresent((json['results'] as List?)?.map((e) => FileSearchToolCallResultsItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory FileSearchToolCall.fromJson(Map<String, dynamic> json) =>
+      FileSearchToolCall(
+        id: (json['id'] as String?)!,
+        type_: (json['type'] != null
+            ? FileSearchToolCallType.fromJson(json['type'] as String)
+            : null)!,
+        status: (json['status'] != null
+            ? FileSearchToolCallStatus.fromJson(json['status'] as String)
+            : null)!,
+        queries:
+            ((json['queries'] as List?)?.map((e) => e as String).toList())!,
+        results: json.containsKey('results')
+            ? SdkPresent((json['results'] as List?)
+                ?.map((e) => FileSearchToolCallResultsItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'type': type_.toJson(),
-    'status': status.toJson(),
-    'queries': queries,
-    ...switch (results) {
-      SdkPresent<List<FileSearchToolCallResultsItem>?>(value: final value) => {'results': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        'type': type_.toJson(),
+        'status': status.toJson(),
+        'queries': queries,
+        ...switch (results) {
+          SdkPresent<List<FileSearchToolCallResultsItem>?>(
+            value: final value
+          ) =>
+            {
+              'results': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

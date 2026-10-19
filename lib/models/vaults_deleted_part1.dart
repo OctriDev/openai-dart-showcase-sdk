@@ -8,66 +8,103 @@ part of 'vaults_deleted.dart';
 class DeletedVaultCredentialResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the deleted credential.
   final String id;
+
   /// The object type. Always `vault.credential.deleted`.
   final DeletedVaultCredentialResourceObject object;
+
   /// Whether the resource was deleted. Always `true`.
   final bool deleted;
 
-  const DeletedVaultCredentialResource({required this.id, required this.object, required this.deleted});
+  const DeletedVaultCredentialResource(
+      {required this.id, required this.object, required this.deleted});
 
-  DeletedVaultCredentialResource Function({String id, DeletedVaultCredentialResourceObject object, bool deleted}) get copyWith => _copyWith;
+  DeletedVaultCredentialResource Function(
+      {String id,
+      DeletedVaultCredentialResourceObject object,
+      bool deleted}) get copyWith => _copyWith;
 
-  DeletedVaultCredentialResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeletedVaultCredentialResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as DeletedVaultCredentialResourceObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  DeletedVaultCredentialResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      DeletedVaultCredentialResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as DeletedVaultCredentialResourceObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory DeletedVaultCredentialResource.fromJson(Map<String, dynamic> json) => DeletedVaultCredentialResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? DeletedVaultCredentialResourceObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-  );
+  factory DeletedVaultCredentialResource.fromJson(Map<String, dynamic> json) =>
+      DeletedVaultCredentialResource(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? DeletedVaultCredentialResourceObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        deleted: (json['deleted'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'deleted': deleted,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'deleted': deleted,
+      };
 }
 
 /// Confirmation that a vault was deleted.
 class DeletedVaultResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the deleted vault.
   final String id;
+
   /// The object type. Always `vault.deleted`.
   final DeletedVaultResourceObject object;
+
   /// Whether the resource was deleted. Always `true`.
   final bool deleted;
 
-  const DeletedVaultResource({required this.id, required this.object, required this.deleted});
+  const DeletedVaultResource(
+      {required this.id, required this.object, required this.deleted});
 
-  DeletedVaultResource Function({String id, DeletedVaultResourceObject object, bool deleted}) get copyWith => _copyWith;
+  DeletedVaultResource Function(
+      {String id,
+      DeletedVaultResourceObject object,
+      bool deleted}) get copyWith => _copyWith;
 
-  DeletedVaultResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeletedVaultResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as DeletedVaultResourceObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  DeletedVaultResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      DeletedVaultResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as DeletedVaultResourceObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory DeletedVaultResource.fromJson(Map<String, dynamic> json) => DeletedVaultResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? DeletedVaultResourceObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-  );
+  factory DeletedVaultResource.fromJson(Map<String, dynamic> json) =>
+      DeletedVaultResource(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? DeletedVaultResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        deleted: (json['deleted'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'deleted': deleted,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'deleted': deleted,
+      };
 }

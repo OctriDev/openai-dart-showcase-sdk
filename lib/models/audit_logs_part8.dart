@@ -8,283 +8,507 @@ part of 'audit_logs.dart';
 class AuditLogRoleUnboundFromResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the resource the role was unbound from. ChatGPT workspace connector resources use `&lt;workspace_id&gt;__&lt;connector_id&gt;`.
   final SdkOptional<String> id;
+
   /// The ID of the role that was unbound from the resource.
   final SdkOptional<String> roleId;
+
   /// The ID of the resource the role was unbound from.
   final SdkOptional<String> resourceId;
+
   /// The type of resource the role was unbound from.
   final SdkOptional<String> resourceType;
+
   /// The permissions remaining for the role after the change.
   final SdkOptional<List<String>> permissions;
+
   /// The workspace ID for a ChatGPT workspace connector resource.
   final SdkOptional<String> workspaceId;
+
   /// The connector ID for a ChatGPT workspace connector resource.
   final SdkOptional<String> connectorId;
+
   /// The connector display name for a ChatGPT workspace connector resource, or the connector ID when the display name could not be resolved.
   final SdkOptional<String> connectorName;
+
   /// Whether the connector is enabled for the role.
   final SdkOptional<bool> enabled;
+
   /// The connector role mutation path that produced the event.
   final SdkOptional<AuditLogRoleUnboundFromResourceSource> source;
 
-  const AuditLogRoleUnboundFromResource({this.id = const SdkOmitted(), this.roleId = const SdkOmitted(), this.resourceId = const SdkOmitted(), this.resourceType = const SdkOmitted(), this.permissions = const SdkOmitted(), this.workspaceId = const SdkOmitted(), this.connectorId = const SdkOmitted(), this.connectorName = const SdkOmitted(), this.enabled = const SdkOmitted(), this.source = const SdkOmitted()});
+  const AuditLogRoleUnboundFromResource(
+      {this.id = const SdkOmitted(),
+      this.roleId = const SdkOmitted(),
+      this.resourceId = const SdkOmitted(),
+      this.resourceType = const SdkOmitted(),
+      this.permissions = const SdkOmitted(),
+      this.workspaceId = const SdkOmitted(),
+      this.connectorId = const SdkOmitted(),
+      this.connectorName = const SdkOmitted(),
+      this.enabled = const SdkOmitted(),
+      this.source = const SdkOmitted()});
 
-  AuditLogRoleUnboundFromResource Function({SdkOptional<String> id, SdkOptional<String> roleId, SdkOptional<String> resourceId, SdkOptional<String> resourceType, SdkOptional<List<String>> permissions, SdkOptional<String> workspaceId, SdkOptional<String> connectorId, SdkOptional<String> connectorName, SdkOptional<bool> enabled, SdkOptional<AuditLogRoleUnboundFromResourceSource> source}) get copyWith => _copyWith;
+  AuditLogRoleUnboundFromResource Function(
+          {SdkOptional<String> id,
+          SdkOptional<String> roleId,
+          SdkOptional<String> resourceId,
+          SdkOptional<String> resourceType,
+          SdkOptional<List<String>> permissions,
+          SdkOptional<String> workspaceId,
+          SdkOptional<String> connectorId,
+          SdkOptional<String> connectorName,
+          SdkOptional<bool> enabled,
+          SdkOptional<AuditLogRoleUnboundFromResourceSource> source})
+      get copyWith => _copyWith;
 
-  AuditLogRoleUnboundFromResource _copyWith({Object? id = sdkOmittedValue, Object? roleId = sdkOmittedValue, Object? resourceId = sdkOmittedValue, Object? resourceType = sdkOmittedValue, Object? permissions = sdkOmittedValue, Object? workspaceId = sdkOmittedValue, Object? connectorId = sdkOmittedValue, Object? connectorName = sdkOmittedValue, Object? enabled = sdkOmittedValue, Object? source = sdkOmittedValue}) => AuditLogRoleUnboundFromResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as SdkOptional<String>,
-    resourceId: identical(resourceId, sdkOmittedValue) ? this.resourceId : resourceId as SdkOptional<String>,
-    resourceType: identical(resourceType, sdkOmittedValue) ? this.resourceType : resourceType as SdkOptional<String>,
-    permissions: identical(permissions, sdkOmittedValue) ? this.permissions : permissions as SdkOptional<List<String>>,
-    workspaceId: identical(workspaceId, sdkOmittedValue) ? this.workspaceId : workspaceId as SdkOptional<String>,
-    connectorId: identical(connectorId, sdkOmittedValue) ? this.connectorId : connectorId as SdkOptional<String>,
-    connectorName: identical(connectorName, sdkOmittedValue) ? this.connectorName : connectorName as SdkOptional<String>,
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<AuditLogRoleUnboundFromResourceSource>,
-  );
+  AuditLogRoleUnboundFromResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? roleId = sdkOmittedValue,
+          Object? resourceId = sdkOmittedValue,
+          Object? resourceType = sdkOmittedValue,
+          Object? permissions = sdkOmittedValue,
+          Object? workspaceId = sdkOmittedValue,
+          Object? connectorId = sdkOmittedValue,
+          Object? connectorName = sdkOmittedValue,
+          Object? enabled = sdkOmittedValue,
+          Object? source = sdkOmittedValue}) =>
+      AuditLogRoleUnboundFromResource(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        roleId: identical(roleId, sdkOmittedValue)
+            ? this.roleId
+            : roleId as SdkOptional<String>,
+        resourceId: identical(resourceId, sdkOmittedValue)
+            ? this.resourceId
+            : resourceId as SdkOptional<String>,
+        resourceType: identical(resourceType, sdkOmittedValue)
+            ? this.resourceType
+            : resourceType as SdkOptional<String>,
+        permissions: identical(permissions, sdkOmittedValue)
+            ? this.permissions
+            : permissions as SdkOptional<List<String>>,
+        workspaceId: identical(workspaceId, sdkOmittedValue)
+            ? this.workspaceId
+            : workspaceId as SdkOptional<String>,
+        connectorId: identical(connectorId, sdkOmittedValue)
+            ? this.connectorId
+            : connectorId as SdkOptional<String>,
+        connectorName: identical(connectorName, sdkOmittedValue)
+            ? this.connectorName
+            : connectorName as SdkOptional<String>,
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as SdkOptional<AuditLogRoleUnboundFromResourceSource>,
+      );
 
-  factory AuditLogRoleUnboundFromResource.fromJson(Map<String, dynamic> json) => AuditLogRoleUnboundFromResource(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    roleId: json['role_id'] != null ? SdkPresent((json['role_id'] as String?)!) : const SdkOmitted(),
-    resourceId: json['resource_id'] != null ? SdkPresent((json['resource_id'] as String?)!) : const SdkOmitted(),
-    resourceType: json['resource_type'] != null ? SdkPresent((json['resource_type'] as String?)!) : const SdkOmitted(),
-    permissions: json['permissions'] != null ? SdkPresent(((json['permissions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    workspaceId: json['workspace_id'] != null ? SdkPresent((json['workspace_id'] as String?)!) : const SdkOmitted(),
-    connectorId: json['connector_id'] != null ? SdkPresent((json['connector_id'] as String?)!) : const SdkOmitted(),
-    connectorName: json['connector_name'] != null ? SdkPresent((json['connector_name'] as String?)!) : const SdkOmitted(),
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-    source: json['source'] != null ? SdkPresent((json['source'] != null ? AuditLogRoleUnboundFromResourceSource.fromJson(json['source'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory AuditLogRoleUnboundFromResource.fromJson(Map<String, dynamic> json) =>
+      AuditLogRoleUnboundFromResource(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        roleId: json['role_id'] != null
+            ? SdkPresent((json['role_id'] as String?)!)
+            : const SdkOmitted(),
+        resourceId: json['resource_id'] != null
+            ? SdkPresent((json['resource_id'] as String?)!)
+            : const SdkOmitted(),
+        resourceType: json['resource_type'] != null
+            ? SdkPresent((json['resource_type'] as String?)!)
+            : const SdkOmitted(),
+        permissions: json['permissions'] != null
+            ? SdkPresent(((json['permissions'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        workspaceId: json['workspace_id'] != null
+            ? SdkPresent((json['workspace_id'] as String?)!)
+            : const SdkOmitted(),
+        connectorId: json['connector_id'] != null
+            ? SdkPresent((json['connector_id'] as String?)!)
+            : const SdkOmitted(),
+        connectorName: json['connector_name'] != null
+            ? SdkPresent((json['connector_name'] as String?)!)
+            : const SdkOmitted(),
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+        source: json['source'] != null
+            ? SdkPresent((json['source'] != null
+                ? AuditLogRoleUnboundFromResourceSource.fromJson(
+                    json['source'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (roleId) {
-      SdkPresent<String>(value: final value) => {'role_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (resourceId) {
-      SdkPresent<String>(value: final value) => {'resource_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (resourceType) {
-      SdkPresent<String>(value: final value) => {'resource_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (permissions) {
-      SdkPresent<List<String>>(value: final value) => {'permissions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (workspaceId) {
-      SdkPresent<String>(value: final value) => {'workspace_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (connectorId) {
-      SdkPresent<String>(value: final value) => {'connector_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (connectorName) {
-      SdkPresent<String>(value: final value) => {'connector_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (source) {
-      SdkPresent<AuditLogRoleUnboundFromResourceSource>(value: final value) => {'source': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (roleId) {
+          SdkPresent<String>(value: final value) => {
+              'role_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (resourceId) {
+          SdkPresent<String>(value: final value) => {
+              'resource_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (resourceType) {
+          SdkPresent<String>(value: final value) => {
+              'resource_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (permissions) {
+          SdkPresent<List<String>>(value: final value) => {
+              'permissions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (workspaceId) {
+          SdkPresent<String>(value: final value) => {
+              'workspace_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (connectorId) {
+          SdkPresent<String>(value: final value) => {
+              'connector_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (connectorName) {
+          SdkPresent<String>(value: final value) => {
+              'connector_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (source) {
+          SdkPresent<AuditLogRoleUnboundFromResourceSource>(
+            value: final value
+          ) =>
+            {
+              'source': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The payload used to create the service account.
 class AuditLogServiceAccountCreatedData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The role of the service account. Is either `owner` or `member`.
   final SdkOptional<String> role;
 
   const AuditLogServiceAccountCreatedData({this.role = const SdkOmitted()});
 
-  AuditLogServiceAccountCreatedData Function({SdkOptional<String> role}) get copyWith => _copyWith;
+  AuditLogServiceAccountCreatedData Function({SdkOptional<String> role})
+      get copyWith => _copyWith;
 
-  AuditLogServiceAccountCreatedData _copyWith({Object? role = sdkOmittedValue}) => AuditLogServiceAccountCreatedData(
-    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<String>,
-  );
+  AuditLogServiceAccountCreatedData _copyWith(
+          {Object? role = sdkOmittedValue}) =>
+      AuditLogServiceAccountCreatedData(
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as SdkOptional<String>,
+      );
 
-  factory AuditLogServiceAccountCreatedData.fromJson(Map<String, dynamic> json) => AuditLogServiceAccountCreatedData(
-    role: json['role'] != null ? SdkPresent((json['role'] as String?)!) : const SdkOmitted(),
-  );
+  factory AuditLogServiceAccountCreatedData.fromJson(
+          Map<String, dynamic> json) =>
+      AuditLogServiceAccountCreatedData(
+        role: json['role'] != null
+            ? SdkPresent((json['role'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (role) {
-      SdkPresent<String>(value: final value) => {'role': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (role) {
+          SdkPresent<String>(value: final value) => {
+              'role': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The details for events with this `type`.
 class AuditLogServiceAccountCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The service account ID.
   final SdkOptional<String> id;
+
   /// The payload used to create the service account.
   final SdkOptional<AuditLogServiceAccountCreatedData> data;
 
-  const AuditLogServiceAccountCreated({this.id = const SdkOmitted(), this.data = const SdkOmitted()});
+  const AuditLogServiceAccountCreated(
+      {this.id = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  AuditLogServiceAccountCreated Function({SdkOptional<String> id, SdkOptional<AuditLogServiceAccountCreatedData> data}) get copyWith => _copyWith;
+  AuditLogServiceAccountCreated Function(
+          {SdkOptional<String> id,
+          SdkOptional<AuditLogServiceAccountCreatedData> data})
+      get copyWith => _copyWith;
 
-  AuditLogServiceAccountCreated _copyWith({Object? id = sdkOmittedValue, Object? data = sdkOmittedValue}) => AuditLogServiceAccountCreated(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<AuditLogServiceAccountCreatedData>,
-  );
+  AuditLogServiceAccountCreated _copyWith(
+          {Object? id = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      AuditLogServiceAccountCreated(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<AuditLogServiceAccountCreatedData>,
+      );
 
-  factory AuditLogServiceAccountCreated.fromJson(Map<String, dynamic> json) => AuditLogServiceAccountCreated(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent((json['data'] != null ? AuditLogServiceAccountCreatedData.fromJson(json['data'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AuditLogServiceAccountCreated.fromJson(Map<String, dynamic> json) =>
+      AuditLogServiceAccountCreated(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent((json['data'] != null
+                ? AuditLogServiceAccountCreatedData.fromJson(
+                    json['data'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<AuditLogServiceAccountCreatedData>(value: final value) => {'data': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<AuditLogServiceAccountCreatedData>(value: final value) => {
+              'data': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The payload used to updated the service account.
 class AuditLogServiceAccountUpdatedChangesRequested {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The role of the service account. Is either `owner` or `member`.
   final SdkOptional<String> role;
 
-  const AuditLogServiceAccountUpdatedChangesRequested({this.role = const SdkOmitted()});
+  const AuditLogServiceAccountUpdatedChangesRequested(
+      {this.role = const SdkOmitted()});
 
-  AuditLogServiceAccountUpdatedChangesRequested Function({SdkOptional<String> role}) get copyWith => _copyWith;
+  AuditLogServiceAccountUpdatedChangesRequested Function(
+      {SdkOptional<String> role}) get copyWith => _copyWith;
 
-  AuditLogServiceAccountUpdatedChangesRequested _copyWith({Object? role = sdkOmittedValue}) => AuditLogServiceAccountUpdatedChangesRequested(
-    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<String>,
-  );
+  AuditLogServiceAccountUpdatedChangesRequested _copyWith(
+          {Object? role = sdkOmittedValue}) =>
+      AuditLogServiceAccountUpdatedChangesRequested(
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as SdkOptional<String>,
+      );
 
-  factory AuditLogServiceAccountUpdatedChangesRequested.fromJson(Map<String, dynamic> json) => AuditLogServiceAccountUpdatedChangesRequested(
-    role: json['role'] != null ? SdkPresent((json['role'] as String?)!) : const SdkOmitted(),
-  );
+  factory AuditLogServiceAccountUpdatedChangesRequested.fromJson(
+          Map<String, dynamic> json) =>
+      AuditLogServiceAccountUpdatedChangesRequested(
+        role: json['role'] != null
+            ? SdkPresent((json['role'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (role) {
-      SdkPresent<String>(value: final value) => {'role': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (role) {
+          SdkPresent<String>(value: final value) => {
+              'role': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The details for events with this `type`.
 class AuditLogServiceAccountUpdated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The service account ID.
   final SdkOptional<String> id;
+
   /// The payload used to updated the service account.
-  final SdkOptional<AuditLogServiceAccountUpdatedChangesRequested> changesRequested;
+  final SdkOptional<AuditLogServiceAccountUpdatedChangesRequested>
+      changesRequested;
 
-  const AuditLogServiceAccountUpdated({this.id = const SdkOmitted(), this.changesRequested = const SdkOmitted()});
+  const AuditLogServiceAccountUpdated(
+      {this.id = const SdkOmitted(),
+      this.changesRequested = const SdkOmitted()});
 
-  AuditLogServiceAccountUpdated Function({SdkOptional<String> id, SdkOptional<AuditLogServiceAccountUpdatedChangesRequested> changesRequested}) get copyWith => _copyWith;
+  AuditLogServiceAccountUpdated Function(
+      {SdkOptional<String> id,
+      SdkOptional<AuditLogServiceAccountUpdatedChangesRequested>
+          changesRequested}) get copyWith => _copyWith;
 
-  AuditLogServiceAccountUpdated _copyWith({Object? id = sdkOmittedValue, Object? changesRequested = sdkOmittedValue}) => AuditLogServiceAccountUpdated(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    changesRequested: identical(changesRequested, sdkOmittedValue) ? this.changesRequested : changesRequested as SdkOptional<AuditLogServiceAccountUpdatedChangesRequested>,
-  );
+  AuditLogServiceAccountUpdated _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? changesRequested = sdkOmittedValue}) =>
+      AuditLogServiceAccountUpdated(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        changesRequested: identical(changesRequested, sdkOmittedValue)
+            ? this.changesRequested
+            : changesRequested
+                as SdkOptional<AuditLogServiceAccountUpdatedChangesRequested>,
+      );
 
-  factory AuditLogServiceAccountUpdated.fromJson(Map<String, dynamic> json) => AuditLogServiceAccountUpdated(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    changesRequested: json['changes_requested'] != null ? SdkPresent((json['changes_requested'] != null ? AuditLogServiceAccountUpdatedChangesRequested.fromJson(json['changes_requested'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AuditLogServiceAccountUpdated.fromJson(Map<String, dynamic> json) =>
+      AuditLogServiceAccountUpdated(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        changesRequested: json['changes_requested'] != null
+            ? SdkPresent((json['changes_requested'] != null
+                ? AuditLogServiceAccountUpdatedChangesRequested.fromJson(
+                    json['changes_requested'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (changesRequested) {
-      SdkPresent<AuditLogServiceAccountUpdatedChangesRequested>(value: final value) => {'changes_requested': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (changesRequested) {
+          SdkPresent<AuditLogServiceAccountUpdatedChangesRequested>(
+            value: final value
+          ) =>
+            {
+              'changes_requested': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The details for events with this `type`.
 class AuditLogServiceAccountDeleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The service account ID.
   final SdkOptional<String> id;
 
   const AuditLogServiceAccountDeleted({this.id = const SdkOmitted()});
 
-  AuditLogServiceAccountDeleted Function({SdkOptional<String> id}) get copyWith => _copyWith;
+  AuditLogServiceAccountDeleted Function({SdkOptional<String> id})
+      get copyWith => _copyWith;
 
-  AuditLogServiceAccountDeleted _copyWith({Object? id = sdkOmittedValue}) => AuditLogServiceAccountDeleted(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  AuditLogServiceAccountDeleted _copyWith({Object? id = sdkOmittedValue}) =>
+      AuditLogServiceAccountDeleted(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory AuditLogServiceAccountDeleted.fromJson(Map<String, dynamic> json) => AuditLogServiceAccountDeleted(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory AuditLogServiceAccountDeleted.fromJson(Map<String, dynamic> json) =>
+      AuditLogServiceAccountDeleted(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The details for events with this `type`.
 class AuditLogWorkloadIdentityProviderCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The workload identity provider ID.
   final SdkOptional<String> id;
+
   /// The payload used to create the workload identity provider.
   final SdkOptional<Map<String, dynamic>> data;
 
-  const AuditLogWorkloadIdentityProviderCreated({this.id = const SdkOmitted(), this.data = const SdkOmitted()});
+  const AuditLogWorkloadIdentityProviderCreated(
+      {this.id = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  AuditLogWorkloadIdentityProviderCreated Function({SdkOptional<String> id, SdkOptional<Map<String, dynamic>> data}) get copyWith => _copyWith;
+  AuditLogWorkloadIdentityProviderCreated Function(
+      {SdkOptional<String> id,
+      SdkOptional<Map<String, dynamic>> data}) get copyWith => _copyWith;
 
-  AuditLogWorkloadIdentityProviderCreated _copyWith({Object? id = sdkOmittedValue, Object? data = sdkOmittedValue}) => AuditLogWorkloadIdentityProviderCreated(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<Map<String, dynamic>>,
-  );
+  AuditLogWorkloadIdentityProviderCreated _copyWith(
+          {Object? id = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      AuditLogWorkloadIdentityProviderCreated(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<Map<String, dynamic>>,
+      );
 
-  factory AuditLogWorkloadIdentityProviderCreated.fromJson(Map<String, dynamic> json) => AuditLogWorkloadIdentityProviderCreated(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent((json['data'] == null ? null : json['data'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+  factory AuditLogWorkloadIdentityProviderCreated.fromJson(
+          Map<String, dynamic> json) =>
+      AuditLogWorkloadIdentityProviderCreated(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent((json['data'] == null
+                ? null
+                : json['data'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'data': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'data': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

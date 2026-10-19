@@ -8,47 +8,82 @@ part of 'live_live_instructions.dart';
 class LiveInstructionsAppended {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the Live server event.
   final String eventId;
+
   /// The event_id of the client command associated with this server event, when supplied.
   final SdkOptional<String> clientEventId;
+
   /// The start of this event on the Live session timeline, in milliseconds from the beginning of the session.
   final int startMs;
+
   /// The end of this event on the Live session timeline, in milliseconds from the beginning of the session. For appended context, this can equal start_ms.
   final int endMs;
+
   /// The event type, always `session.instructions.appended`.
   final LiveInstructionsAppendedType type_;
 
-  const LiveInstructionsAppended({required this.eventId, this.clientEventId = const SdkOmitted(), required this.startMs, required this.endMs, required this.type_});
+  const LiveInstructionsAppended(
+      {required this.eventId,
+      this.clientEventId = const SdkOmitted(),
+      required this.startMs,
+      required this.endMs,
+      required this.type_});
 
-  LiveInstructionsAppended Function({String eventId, SdkOptional<String> clientEventId, int startMs, int endMs, LiveInstructionsAppendedType type_}) get copyWith => _copyWith;
+  LiveInstructionsAppended Function(
+      {String eventId,
+      SdkOptional<String> clientEventId,
+      int startMs,
+      int endMs,
+      LiveInstructionsAppendedType type_}) get copyWith => _copyWith;
 
-  LiveInstructionsAppended _copyWith({Object? eventId = sdkOmittedValue, Object? clientEventId = sdkOmittedValue, Object? startMs = sdkOmittedValue, Object? endMs = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => LiveInstructionsAppended(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    clientEventId: identical(clientEventId, sdkOmittedValue) ? this.clientEventId : clientEventId as SdkOptional<String>,
-    startMs: identical(startMs, sdkOmittedValue) ? this.startMs : startMs as int,
-    endMs: identical(endMs, sdkOmittedValue) ? this.endMs : endMs as int,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveInstructionsAppendedType,
-  );
+  LiveInstructionsAppended _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? clientEventId = sdkOmittedValue,
+          Object? startMs = sdkOmittedValue,
+          Object? endMs = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      LiveInstructionsAppended(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        clientEventId: identical(clientEventId, sdkOmittedValue)
+            ? this.clientEventId
+            : clientEventId as SdkOptional<String>,
+        startMs:
+            identical(startMs, sdkOmittedValue) ? this.startMs : startMs as int,
+        endMs: identical(endMs, sdkOmittedValue) ? this.endMs : endMs as int,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveInstructionsAppendedType,
+      );
 
-  factory LiveInstructionsAppended.fromJson(Map<String, dynamic> json) => LiveInstructionsAppended(
-    eventId: (json['event_id'] as String?)!,
-    clientEventId: json['client_event_id'] != null ? SdkPresent((json['client_event_id'] as String?)!) : const SdkOmitted(),
-    startMs: ((json['start_ms'] as num?)?.toInt())!,
-    endMs: ((json['end_ms'] as num?)?.toInt())!,
-    type_: (json['type'] != null ? LiveInstructionsAppendedType.fromJson(json['type'] as String) : null)!,
-  );
+  factory LiveInstructionsAppended.fromJson(Map<String, dynamic> json) =>
+      LiveInstructionsAppended(
+        eventId: (json['event_id'] as String?)!,
+        clientEventId: json['client_event_id'] != null
+            ? SdkPresent((json['client_event_id'] as String?)!)
+            : const SdkOmitted(),
+        startMs: ((json['start_ms'] as num?)?.toInt())!,
+        endMs: ((json['end_ms'] as num?)?.toInt())!,
+        type_: (json['type'] != null
+            ? LiveInstructionsAppendedType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    ...switch (clientEventId) {
-      SdkPresent<String>(value: final value) => {'client_event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'start_ms': startMs,
-    'end_ms': endMs,
-    'type': type_.toJson(),
-  };
+        'event_id': eventId,
+        ...switch (clientEventId) {
+          SdkPresent<String>(value: final value) => {
+              'client_event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'start_ms': startMs,
+        'end_ms': endMs,
+        'type': type_.toJson(),
+      };
 }
 
 sealed class LiveInstructionsAppendParamEventId {
@@ -56,16 +91,21 @@ sealed class LiveInstructionsAppendParamEventId {
   static const String constructionSurface = 'named';
   const LiveInstructionsAppendParamEventId();
   factory LiveInstructionsAppendParamEventId.fromJson(Object? json) {
-    if (json is String) { return LiveInstructionsAppendParamEventIdString(json); }
-    throw FormatException("No variant matched for LiveInstructionsAppendParamEventId");
+    if (json is String) {
+      return LiveInstructionsAppendParamEventIdString(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveInstructionsAppendParamEventId");
   }
   Object? toJson();
 }
 
-final class LiveInstructionsAppendParamEventIdString extends LiveInstructionsAppendParamEventId {
+final class LiveInstructionsAppendParamEventIdString
+    extends LiveInstructionsAppendParamEventId {
   final String value;
   const LiveInstructionsAppendParamEventIdString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class LiveInstructionsAppendParamDelegationId {
@@ -73,56 +113,96 @@ sealed class LiveInstructionsAppendParamDelegationId {
   static const String constructionSurface = 'named';
   const LiveInstructionsAppendParamDelegationId();
   factory LiveInstructionsAppendParamDelegationId.fromJson(Object? json) {
-    if (json is String) { return LiveInstructionsAppendParamDelegationIdString(json); }
-    throw FormatException("No variant matched for LiveInstructionsAppendParamDelegationId");
+    if (json is String) {
+      return LiveInstructionsAppendParamDelegationIdString(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveInstructionsAppendParamDelegationId");
   }
   Object? toJson();
 }
 
-final class LiveInstructionsAppendParamDelegationIdString extends LiveInstructionsAppendParamDelegationId {
+final class LiveInstructionsAppendParamDelegationIdString
+    extends LiveInstructionsAppendParamDelegationId {
   final String value;
   const LiveInstructionsAppendParamDelegationIdString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Append developer instructions to the Live conversation while it is running, optionally associating them with an existing client delegation. Rejected while an audio fixture is active. These instructions remain in conversation history through compaction and are included in future backend delegations. For external audio, describe content already delivered so the assistant does not repeat it.
 class LiveInstructionsAppendParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `event_id` wire field.
   final SdkOptional<String?> eventId;
+
   /// The Live client event type. Always `session.instructions.append`.
   final LiveInstructionsAppendParamType type_;
+
   /// Required API value serialized in the `delegation_id` wire field.
   final String? delegationId;
+
   /// Instruction text to append, limited to 500 tokens. This is a plain string, not an array of content parts.
   final String content;
 
-  const LiveInstructionsAppendParam({this.eventId = const SdkOmitted(), required this.type_, required this.delegationId, required this.content});
+  const LiveInstructionsAppendParam(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      required this.delegationId,
+      required this.content});
 
-  LiveInstructionsAppendParam Function({SdkOptional<String?> eventId, LiveInstructionsAppendParamType type_, String? delegationId, String content}) get copyWith => _copyWith;
+  LiveInstructionsAppendParam Function(
+      {SdkOptional<String?> eventId,
+      LiveInstructionsAppendParamType type_,
+      String? delegationId,
+      String content}) get copyWith => _copyWith;
 
-  LiveInstructionsAppendParam _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? delegationId = sdkOmittedValue, Object? content = sdkOmittedValue}) => LiveInstructionsAppendParam(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveInstructionsAppendParamType,
-    delegationId: identical(delegationId, sdkOmittedValue) ? this.delegationId : delegationId as String?,
-    content: identical(content, sdkOmittedValue) ? this.content : content as String,
-  );
+  LiveInstructionsAppendParam _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? delegationId = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      LiveInstructionsAppendParam(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveInstructionsAppendParamType,
+        delegationId: identical(delegationId, sdkOmittedValue)
+            ? this.delegationId
+            : delegationId as String?,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as String,
+      );
 
-  factory LiveInstructionsAppendParam.fromJson(Map<String, dynamic> json) => LiveInstructionsAppendParam(
-    eventId: json.containsKey('event_id') ? SdkPresent(json['event_id'] as String?) : const SdkOmitted(),
-    type_: (json['type'] != null ? LiveInstructionsAppendParamType.fromJson(json['type'] as String) : null)!,
-    delegationId: json.containsKey('delegation_id') ? json['delegation_id'] as String? : throw ArgumentError.value(null, 'delegation_id', 'Required property is missing'),
-    content: (json['content'] as String?)!,
-  );
+  factory LiveInstructionsAppendParam.fromJson(Map<String, dynamic> json) =>
+      LiveInstructionsAppendParam(
+        eventId: json.containsKey('event_id')
+            ? SdkPresent(json['event_id'] as String?)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? LiveInstructionsAppendParamType.fromJson(json['type'] as String)
+            : null)!,
+        delegationId: json.containsKey('delegation_id')
+            ? json['delegation_id'] as String?
+            : throw ArgumentError.value(
+                null, 'delegation_id', 'Required property is missing'),
+        content: (json['content'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String?>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'delegation_id': delegationId,
-    'content': content,
-  };
+        ...switch (eventId) {
+          SdkPresent<String?>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'delegation_id': delegationId,
+        'content': content,
+      };
 }
