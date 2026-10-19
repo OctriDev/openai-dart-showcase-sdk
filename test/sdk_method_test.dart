@@ -3796,7 +3796,7 @@ void main() {
       final actual = await sdk_methods_0.createLive(
         config,
         session: LiveMediaSessionCreateParams.fromJson((jsonDecode(
-                    "{\"model\":\"gpt-live-1\",\"instructions\":\"instructions\",\"audio\":{\"output\":{\"voice\":{\"id\":\"id-1\"}}},\"delegation\":{\"type\":\"client\"},\"triggers\":[{\"type\":\"decisions\",\"event_type\":\"session.input_transcript.delta\",\"decisions\":{\"questions\":[{\"type\":\"choice\",\"name\":\"Example Name\",\"instructions\":\"instructions\",\"choices\":[{\"value\":\"value\",\"description\":\"string\"},{\"value\":\"value\",\"description\":\"string\"}]}]}}],\"store\":false,\"input\":[{\"id\":\"id-1\",\"type\":\"message\",\"status\":\"incomplete\",\"role\":\"developer\",\"content\":[{\"type\":\"input_text\",\"text\":\"text\"}]}],\"client\":{\"data_channel\":{\"allowed_client_events\":\"all\",\"allowed_server_events\":\"all\"}}}")
+                    "{\"model\":\"gpt-live-1\",\"instructions\":\"instructions\",\"audio\":{\"output\":{\"voice\":{\"id\":\"id-1\"}}},\"delegation\":{\"type\":\"client\"},\"triggers\":[{\"type\":\"decisions\",\"event_type\":\"session.input_transcript.delta\",\"decisions\":{\"questions\":[{\"type\":\"choice\",\"name\":\"Example Name\",\"instructions\":\"instructions\",\"choices\":[{\"value\":\"value\",\"description\":\"string\"},{\"value\":\"value\",\"description\":\"string\"}]}]}}],\"store\":false,\"input\":[{\"id\":\"id-1\",\"type\":\"message\",\"status\":\"incomplete\",\"role\":\"developer\",\"content\":[{\"type\":\"input_text\",\"text\":\"text\"}]}],\"client\":{\"data_channel\":{\"allowed_client_events\":[\"error\"],\"allowed_server_events\":\"all\"}}}")
                 as Map)
             .cast<String, dynamic>()),
         transport: LiveSessionCreateRequestTransportRequest.fromJson(
@@ -3821,7 +3821,7 @@ void main() {
         await sdk_methods_0.createLive(
           config,
           session: LiveMediaSessionCreateParams.fromJson((jsonDecode(
-                      "{\"model\":\"gpt-live-1\",\"instructions\":\"instructions\",\"audio\":{\"output\":{\"voice\":{\"id\":\"id-1\"}}},\"delegation\":{\"type\":\"client\"},\"triggers\":[{\"type\":\"decisions\",\"event_type\":\"session.input_transcript.delta\",\"decisions\":{\"questions\":[{\"type\":\"choice\",\"name\":\"Example Name\",\"instructions\":\"instructions\",\"choices\":[{\"value\":\"value\",\"description\":\"string\"},{\"value\":\"value\",\"description\":\"string\"}]}]}}],\"store\":false,\"input\":[{\"id\":\"id-1\",\"type\":\"message\",\"status\":\"incomplete\",\"role\":\"developer\",\"content\":[{\"type\":\"input_text\",\"text\":\"text\"}]}],\"client\":{\"data_channel\":{\"allowed_client_events\":\"all\",\"allowed_server_events\":\"all\"}}}")
+                      "{\"model\":\"gpt-live-1\",\"instructions\":\"instructions\",\"audio\":{\"output\":{\"voice\":{\"id\":\"id-1\"}}},\"delegation\":{\"type\":\"client\"},\"triggers\":[{\"type\":\"decisions\",\"event_type\":\"session.input_transcript.delta\",\"decisions\":{\"questions\":[{\"type\":\"choice\",\"name\":\"Example Name\",\"instructions\":\"instructions\",\"choices\":[{\"value\":\"value\",\"description\":\"string\"},{\"value\":\"value\",\"description\":\"string\"}]}]}}],\"store\":false,\"input\":[{\"id\":\"id-1\",\"type\":\"message\",\"status\":\"incomplete\",\"role\":\"developer\",\"content\":[{\"type\":\"input_text\",\"text\":\"text\"}]}],\"client\":{\"data_channel\":{\"allowed_client_events\":[\"error\"],\"allowed_server_events\":\"all\"}}}")
                   as Map)
               .cast<String, dynamic>()),
           transport: LiveSessionCreateRequestTransportRequest.fromJson(
@@ -8172,7 +8172,7 @@ void main() {
                 .cast<String, dynamic>()),
         session: SdkPresent<LiveMediaSessionForkParams>(
             LiveMediaSessionForkParams.fromJson((jsonDecode(
-                        "{\"store\":false,\"delegation\":{\"type\":\"responses\",\"responses\":{\"model\":\"model\",\"instructions\":\"instructions\",\"max_output_tokens\":16,\"service_tier\":\"auto\",\"reasoning\":{\"effort\":\"none\",\"summary\":\"concise\"},\"text\":{\"verbosity\":\"low\"},\"tools\":[{\"type\":\"function\",\"name\":\"Example Name\",\"description\":\"example text\",\"parameters\":{\"key\":null},\"strict\":false}],\"tool_choice\":\"auto\",\"parallel_tool_calls\":false}},\"client\":{\"data_channel\":{\"allowed_client_events\":\"all\",\"allowed_server_events\":\"all\"}}}")
+                        "{\"store\":false,\"delegation\":{\"type\":\"responses\",\"responses\":{\"model\":\"model\",\"instructions\":\"instructions\",\"max_output_tokens\":16,\"service_tier\":\"auto\",\"reasoning\":{\"effort\":\"none\",\"summary\":\"concise\"},\"text\":{\"verbosity\":\"low\"},\"tools\":[{\"type\":\"function\",\"name\":\"Example Name\",\"description\":\"example text\",\"parameters\":{\"key\":null},\"strict\":false}],\"tool_choice\":\"auto\",\"parallel_tool_calls\":false}},\"client\":{\"data_channel\":{\"allowed_client_events\":[\"error\"],\"allowed_server_events\":\"all\"}}}")
                     as Map)
                 .cast<String, dynamic>())),
       );
@@ -8199,7 +8199,7 @@ void main() {
                   .cast<String, dynamic>()),
           session: SdkPresent<LiveMediaSessionForkParams>(
               LiveMediaSessionForkParams.fromJson((jsonDecode(
-                          "{\"store\":false,\"delegation\":{\"type\":\"responses\",\"responses\":{\"model\":\"model\",\"instructions\":\"instructions\",\"max_output_tokens\":16,\"service_tier\":\"auto\",\"reasoning\":{\"effort\":\"none\",\"summary\":\"concise\"},\"text\":{\"verbosity\":\"low\"},\"tools\":[{\"type\":\"function\",\"name\":\"Example Name\",\"description\":\"example text\",\"parameters\":{\"key\":null},\"strict\":false}],\"tool_choice\":\"auto\",\"parallel_tool_calls\":false}},\"client\":{\"data_channel\":{\"allowed_client_events\":\"all\",\"allowed_server_events\":\"all\"}}}")
+                          "{\"store\":false,\"delegation\":{\"type\":\"responses\",\"responses\":{\"model\":\"model\",\"instructions\":\"instructions\",\"max_output_tokens\":16,\"service_tier\":\"auto\",\"reasoning\":{\"effort\":\"none\",\"summary\":\"concise\"},\"text\":{\"verbosity\":\"low\"},\"tools\":[{\"type\":\"function\",\"name\":\"Example Name\",\"description\":\"example text\",\"parameters\":{\"key\":null},\"strict\":false}],\"tool_choice\":\"auto\",\"parallel_tool_calls\":false}},\"client\":{\"data_channel\":{\"allowed_client_events\":[\"error\"],\"allowed_server_events\":\"all\"}}}")
                       as Map)
                   .cast<String, dynamic>())),
         );
@@ -15228,7 +15228,9 @@ void main() {
       final actual = await sdk_methods_17.searchVectorStore(
         config,
         vectorStoreId: (jsonDecode("\"vs_abc123\"") as String),
-        query: jsonDecode("\"query\""),
+        query: (jsonDecode("[\"query\"]") as List)
+            .map((element) => (element as String))
+            .toList(),
         rewriteQuery: SdkPresent<bool>((jsonDecode("false") as bool)),
         maxNumResults: SdkPresent<int>((jsonDecode("10") as num).toInt()),
         filters: SdkPresent<VectorStoreSearchRequestFilters>(
@@ -15261,7 +15263,9 @@ void main() {
         await sdk_methods_17.searchVectorStore(
           config,
           vectorStoreId: (jsonDecode("\"vs_abc123\"") as String),
-          query: jsonDecode("\"query\""),
+          query: (jsonDecode("[\"query\"]") as List)
+              .map((element) => (element as String))
+              .toList(),
           rewriteQuery: SdkPresent<bool>((jsonDecode("false") as bool)),
           maxNumResults: SdkPresent<int>((jsonDecode("10") as num).toInt()),
           filters: SdkPresent<VectorStoreSearchRequestFilters>(

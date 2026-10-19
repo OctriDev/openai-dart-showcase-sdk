@@ -4,30 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 74)
-/// Required enumerated value serialized in the `type` wire field.
-enum MCPProtocolErrorType {
-  mcpProtocolError;
-
-  static MCPProtocolErrorType fromJson(String value) {
-    switch (value) {
-      case 'mcp_protocol_error':
-        return MCPProtocolErrorType.mcpProtocolError;
-      default:
-        throw ArgumentError('Unknown MCPProtocolErrorType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case MCPProtocolErrorType.mcpProtocolError:
-        return 'mcp_protocol_error';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
 /// Identifier for service connectors, like those available in ChatGPT. One of `server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more about service connectors [here](https://developers.openai.com/api/docs/guides/tools-connectors-mcp#connectors). This field is deprecated for models released after September 1, 2026. Use `server_url` to connect to a remote MCP server, or `tunnel_id` to connect through a Secure MCP Tunnel. Currently supported `connector_id` values are: - Dropbox: `connector_dropbox` - Gmail: `connector_gmail` - Google Calendar: `connector_googlecalendar` - Google Drive: `connector_googledrive` - Microsoft Teams: `connector_microsoftteams` - Outlook Calendar: `connector_outlookcalendar` - Outlook Email: `connector_outlookemail` - SharePoint: `connector_sharepoint`
 final class MCPToolConnectorId {
   final String value;
@@ -332,4 +308,31 @@ enum MessageContentImageFileObjectType {
 
   @override
   String toString() => toJson();
+}
+
+/// Specifies the detail level of the image. `low` uses fewer tokens, you can opt in to high resolution using `high`. Default value is `auto`
+final class MessageContentImageUrlObjectImageUrlDetail {
+  final String value;
+
+  const MessageContentImageUrlObjectImageUrlDetail._(this.value);
+
+  factory MessageContentImageUrlObjectImageUrlDetail.fromJson(String value) =>
+      MessageContentImageUrlObjectImageUrlDetail._(value);
+
+  static const auto = MessageContentImageUrlObjectImageUrlDetail._('auto');
+  static const low = MessageContentImageUrlObjectImageUrlDetail._('low');
+  static const high = MessageContentImageUrlObjectImageUrlDetail._('high');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is MessageContentImageUrlObjectImageUrlDetail &&
+      other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
 }

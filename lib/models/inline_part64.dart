@@ -4,30 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 64)
-/// The type of the input item. Always `input_text`.
-enum LiveDecisionInputTextParamType {
-  inputText;
-
-  static LiveDecisionInputTextParamType fromJson(String value) {
-    switch (value) {
-      case 'input_text':
-        return LiveDecisionInputTextParamType.inputText;
-      default:
-        throw ArgumentError('Unknown LiveDecisionInputTextParamType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveDecisionInputTextParamType.inputText:
-        return 'input_text';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
 /// Required enumerated value serialized in the `type` wire field.
 enum LiveDecisionItemCreatedType {
   decisionItemCreated;
@@ -320,6 +296,30 @@ final class LiveDecisionTriggerInputParamEventType {
   @override
   bool operator ==(Object other) =>
       other is LiveDecisionTriggerInputParamEventType && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// Required enumerated value serialized in the `type` wire field.
+final class LiveDecisionTriggerInputParamType {
+  final String value;
+
+  const LiveDecisionTriggerInputParamType._(this.value);
+
+  factory LiveDecisionTriggerInputParamType.fromJson(String value) =>
+      LiveDecisionTriggerInputParamType._(value);
+
+  static const decisions = LiveDecisionTriggerInputParamType._('decisions');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is LiveDecisionTriggerInputParamType && other.value == value;
 
   @override
   int get hashCode => value.hashCode;

@@ -4,29 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 77)
-enum MessageStreamEventVariant1Event {
-  threadMessageInProgress;
-
-  static MessageStreamEventVariant1Event fromJson(String value) {
-    switch (value) {
-      case 'thread.message.in_progress':
-        return MessageStreamEventVariant1Event.threadMessageInProgress;
-      default:
-        throw ArgumentError('Unknown MessageStreamEventVariant1Event: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case MessageStreamEventVariant1Event.threadMessageInProgress:
-        return 'thread.message.in_progress';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
 enum MessageStreamEventVariant2Event {
   threadMessageDelta;
 

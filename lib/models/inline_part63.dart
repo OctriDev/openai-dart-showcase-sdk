@@ -52,33 +52,6 @@ enum LiveCustomToolInputParamType {
   String toString() => toJson();
 }
 
-/// Optional enumerated value serialized in the `allowed_client_events` wire field.
-final class LiveDataChannelConfigParamAllowedClientEventsVariant0 {
-  final String value;
-
-  const LiveDataChannelConfigParamAllowedClientEventsVariant0._(this.value);
-
-  factory LiveDataChannelConfigParamAllowedClientEventsVariant0.fromJson(
-          String value) =>
-      LiveDataChannelConfigParamAllowedClientEventsVariant0._(value);
-
-  static const all =
-      LiveDataChannelConfigParamAllowedClientEventsVariant0._('all');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDataChannelConfigParamAllowedClientEventsVariant0 &&
-      other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
 /// Optional enumerated value serialized in the `allowed_server_events` wire field.
 final class LiveDataChannelConfigParamAllowedServerEventsVariant0 {
   final String value;
@@ -326,4 +299,28 @@ final class LiveDecisionInputItemParamType {
 
   @override
   int get hashCode => value.hashCode;
+}
+
+/// The type of the input item. Always `input_text`.
+enum LiveDecisionInputTextParamType {
+  inputText;
+
+  static LiveDecisionInputTextParamType fromJson(String value) {
+    switch (value) {
+      case 'input_text':
+        return LiveDecisionInputTextParamType.inputText;
+      default:
+        throw ArgumentError('Unknown LiveDecisionInputTextParamType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveDecisionInputTextParamType.inputText:
+        return 'input_text';
+    }
+  }
+
+  @override
+  String toString() => toJson();
 }

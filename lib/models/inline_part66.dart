@@ -4,31 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 66)
-/// Automatically creates a container for this request
-enum LiveHostedShellContainerAutoParamType {
-  containerAuto;
-
-  static LiveHostedShellContainerAutoParamType fromJson(String value) {
-    switch (value) {
-      case 'container_auto':
-        return LiveHostedShellContainerAutoParamType.containerAuto;
-      default:
-        throw ArgumentError(
-            'Unknown LiveHostedShellContainerAutoParamType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveHostedShellContainerAutoParamType.containerAuto:
-        return 'container_auto';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
 /// Allow outbound network access only to specified domains. Always `allowlist`.
 enum LiveHostedShellNetworkPolicyAllowlistParamType {
   allowlist;
@@ -355,4 +330,29 @@ final class LiveInitialSessionAudioOutputParamVoiceVariant1 {
 
   @override
   int get hashCode => value.hashCode;
+}
+
+/// The text content type. Always `text`.
+enum LiveInitialTextContentPartParamType {
+  text;
+
+  static LiveInitialTextContentPartParamType fromJson(String value) {
+    switch (value) {
+      case 'text':
+        return LiveInitialTextContentPartParamType.text;
+      default:
+        throw ArgumentError(
+            'Unknown LiveInitialTextContentPartParamType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveInitialTextContentPartParamType.text:
+        return 'text';
+    }
+  }
+
+  @override
+  String toString() => toJson();
 }

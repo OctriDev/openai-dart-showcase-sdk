@@ -9,4 +9,3 @@ import 'live_live_session.dart';
 
 part 'live_live_part1.dart';
 part 'live_live_part2.dart';
-part 'live_live_part3.dart';

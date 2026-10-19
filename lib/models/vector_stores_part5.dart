@@ -75,7 +75,7 @@ class VectorStoreSearchRequest {
   static const String constructionSurface = 'named';
 
   /// A query string for a search
-  final dynamic query;
+  final List<String> query;
 
   /// Whether to rewrite the natural language query for vector search.
   final SdkOptional<bool> rewriteQuery;
@@ -97,7 +97,7 @@ class VectorStoreSearchRequest {
       this.rankingOptions = const SdkOmitted()});
 
   VectorStoreSearchRequest Function(
-          {dynamic query,
+          {List<String> query,
           SdkOptional<bool> rewriteQuery,
           SdkOptional<int> maxNumResults,
           SdkOptional<VectorStoreSearchRequestFilters> filters,
@@ -111,8 +111,9 @@ class VectorStoreSearchRequest {
           Object? filters = sdkOmittedValue,
           Object? rankingOptions = sdkOmittedValue}) =>
       VectorStoreSearchRequest(
-        query:
-            identical(query, sdkOmittedValue) ? this.query : query as dynamic,
+        query: identical(query, sdkOmittedValue)
+            ? this.query
+            : query as List<String>,
         rewriteQuery: identical(rewriteQuery, sdkOmittedValue)
             ? this.rewriteQuery
             : rewriteQuery as SdkOptional<bool>,
@@ -130,7 +131,7 @@ class VectorStoreSearchRequest {
 
   factory VectorStoreSearchRequest.fromJson(Map<String, dynamic> json) =>
       VectorStoreSearchRequest(
-        query: (json['query'])!,
+        query: ((json['query'] as List?)?.map((e) => e as String).toList())!,
         rewriteQuery: json['rewrite_query'] != null
             ? SdkPresent((json['rewrite_query'] as bool?)!)
             : const SdkOmitted(),

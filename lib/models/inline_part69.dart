@@ -4,30 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 69)
-/// The event type, always `response.event`.
-enum LiveResponseEventType {
-  responseEvent;
-
-  static LiveResponseEventType fromJson(String value) {
-    switch (value) {
-      case 'response.event':
-        return LiveResponseEventType.responseEvent;
-      default:
-        throw ArgumentError('Unknown LiveResponseEventType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LiveResponseEventType.responseEvent:
-        return 'response.event';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
 /// The Live client event type. Always `response.item.create`.
 enum LiveResponseItemCreateParamType {
   responseItemCreate;
@@ -322,4 +298,28 @@ final class LiveSessionClosedReasonVariant4 {
 
   @override
   int get hashCode => value.hashCode;
+}
+
+/// The event type, always `session.closed`.
+enum LiveSessionClosedType {
+  sessionClosed;
+
+  static LiveSessionClosedType fromJson(String value) {
+    switch (value) {
+      case 'session.closed':
+        return LiveSessionClosedType.sessionClosed;
+      default:
+        throw ArgumentError('Unknown LiveSessionClosedType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case LiveSessionClosedType.sessionClosed:
+        return 'session.closed';
+    }
+  }
+
+  @override
+  String toString() => toJson();
 }
