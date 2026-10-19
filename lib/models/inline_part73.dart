@@ -4,30 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 73)
-/// The type of the local shell call. Always `local_shell_call`.
-enum LocalShellToolCallType {
-  localShellCall;
-
-  static LocalShellToolCallType fromJson(String value) {
-    switch (value) {
-      case 'local_shell_call':
-        return LocalShellToolCallType.localShellCall;
-      default:
-        throw ArgumentError('Unknown LocalShellToolCallType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case LocalShellToolCallType.localShellCall:
-        return 'local_shell_call';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 final class LocalShellToolCallOutputStatusVariant0 {
   final String value;
@@ -323,6 +299,30 @@ enum McpOauthTokenEndpointAuthResourceNoneType {
     switch (this) {
       case McpOauthTokenEndpointAuthResourceNoneType.none:
         return 'none';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+/// Required enumerated value serialized in the `type` wire field.
+enum MCPProtocolErrorType {
+  mcpProtocolError;
+
+  static MCPProtocolErrorType fromJson(String value) {
+    switch (value) {
+      case 'mcp_protocol_error':
+        return MCPProtocolErrorType.mcpProtocolError;
+      default:
+        throw ArgumentError('Unknown MCPProtocolErrorType: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case MCPProtocolErrorType.mcpProtocolError:
+        return 'mcp_protocol_error';
     }
   }
 

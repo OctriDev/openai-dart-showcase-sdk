@@ -4,31 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 76)
-/// Always `refusal`.
-enum MessageDeltaContentRefusalObjectType {
-  refusal;
-
-  static MessageDeltaContentRefusalObjectType fromJson(String value) {
-    switch (value) {
-      case 'refusal':
-        return MessageDeltaContentRefusalObjectType.refusal;
-      default:
-        throw ArgumentError(
-            'Unknown MessageDeltaContentRefusalObjectType: $value');
-    }
-  }
-
-  String toJson() {
-    switch (this) {
-      case MessageDeltaContentRefusalObjectType.refusal:
-        return 'refusal';
-    }
-  }
-
-  @override
-  String toString() => toJson();
-}
-
 /// Always `file_citation`.
 enum MessageDeltaContentTextAnnotationsFileCitationObjectType {
   fileCitation;
@@ -329,6 +304,29 @@ enum MessageStreamEventVariant0Event {
     switch (this) {
       case MessageStreamEventVariant0Event.threadMessageCreated:
         return 'thread.message.created';
+    }
+  }
+
+  @override
+  String toString() => toJson();
+}
+
+enum MessageStreamEventVariant1Event {
+  threadMessageInProgress;
+
+  static MessageStreamEventVariant1Event fromJson(String value) {
+    switch (value) {
+      case 'thread.message.in_progress':
+        return MessageStreamEventVariant1Event.threadMessageInProgress;
+      default:
+        throw ArgumentError('Unknown MessageStreamEventVariant1Event: $value');
+    }
+  }
+
+  String toJson() {
+    switch (this) {
+      case MessageStreamEventVariant1Event.threadMessageInProgress:
+        return 'thread.message.in_progress';
     }
   }
 

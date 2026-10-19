@@ -229,43 +229,6 @@ class LiveContextWindowUsage {
       };
 }
 
-sealed class LiveDataChannelConfigParamAllowedClientEvents {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const LiveDataChannelConfigParamAllowedClientEvents();
-  factory LiveDataChannelConfigParamAllowedClientEvents.fromJson(Object? json) {
-    if (json is List) {
-      return LiveDataChannelConfigParamAllowedClientEventsListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
-    try {
-      return LiveDataChannelConfigParamAllowedClientEventsLiveDataChannelConfigParamAllowedClientEventsVariant0(
-          LiveDataChannelConfigParamAllowedClientEventsVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for LiveDataChannelConfigParamAllowedClientEvents");
-  }
-  Object? toJson();
-}
-
-final class LiveDataChannelConfigParamAllowedClientEventsLiveDataChannelConfigParamAllowedClientEventsVariant0
-    extends LiveDataChannelConfigParamAllowedClientEvents {
-  final LiveDataChannelConfigParamAllowedClientEventsVariant0 value;
-  const LiveDataChannelConfigParamAllowedClientEventsLiveDataChannelConfigParamAllowedClientEventsVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
-}
-
-final class LiveDataChannelConfigParamAllowedClientEventsListString
-    extends LiveDataChannelConfigParamAllowedClientEvents {
-  final List<String> value;
-  const LiveDataChannelConfigParamAllowedClientEventsListString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
 sealed class LiveDataChannelConfigParamAllowedServerEvents {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -310,7 +273,7 @@ class LiveDataChannelConfigParam {
   static const String constructionSurface = 'named';
 
   /// Client event types that the frontend data channel may send. Use 'all' to allow every client event; an empty array allows none. Omission preserves the existing allow-all behavior.
-  final SdkOptional<dynamic> allowedClientEvents;
+  final SdkOptional<List<String>> allowedClientEvents;
 
   /// Server events that may be sent to the frontend data channel. Use 'all' to allow every server event; an empty array allows none. Omission preserves the existing allow-all behavior. Responses events use an object with type 'response.event' and a response_event selector.
   final SdkOptional<dynamic> allowedServerEvents;
@@ -320,7 +283,7 @@ class LiveDataChannelConfigParam {
       this.allowedServerEvents = const SdkOmitted()});
 
   LiveDataChannelConfigParam Function(
-      {SdkOptional<dynamic> allowedClientEvents,
+      {SdkOptional<List<String>> allowedClientEvents,
       SdkOptional<dynamic> allowedServerEvents}) get copyWith => _copyWith;
 
   LiveDataChannelConfigParam _copyWith(
@@ -329,7 +292,7 @@ class LiveDataChannelConfigParam {
       LiveDataChannelConfigParam(
         allowedClientEvents: identical(allowedClientEvents, sdkOmittedValue)
             ? this.allowedClientEvents
-            : allowedClientEvents as SdkOptional<dynamic>,
+            : allowedClientEvents as SdkOptional<List<String>>,
         allowedServerEvents: identical(allowedServerEvents, sdkOmittedValue)
             ? this.allowedServerEvents
             : allowedServerEvents as SdkOptional<dynamic>,
@@ -338,7 +301,9 @@ class LiveDataChannelConfigParam {
   factory LiveDataChannelConfigParam.fromJson(Map<String, dynamic> json) =>
       LiveDataChannelConfigParam(
         allowedClientEvents: json['allowed_client_events'] != null
-            ? SdkPresent((json['allowed_client_events'])!)
+            ? SdkPresent(((json['allowed_client_events'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
             : const SdkOmitted(),
         allowedServerEvents: json['allowed_server_events'] != null
             ? SdkPresent((json['allowed_server_events'])!)
@@ -347,7 +312,7 @@ class LiveDataChannelConfigParam {
 
   Map<String, dynamic> toJson() => {
         ...switch (allowedClientEvents) {
-          SdkPresent<dynamic>(value: final value) => {
+          SdkPresent<List<String>>(value: final value) => {
               'allowed_client_events': value,
             },
           _ => const <String, dynamic>{},
@@ -385,4 +350,79 @@ final class LiveDetailEnum {
 
   @override
   int get hashCode => value.hashCode;
+}
+
+/// Reports an error in the Live session, such as an invalid client command. Use error.client_event_id, when present, to identify the command that caused the error.
+class LiveErrorEvent {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The unique ID of the Live server event.
+  final String eventId;
+
+  /// The event_id of the client command associated with this server event, when supplied.
+  final SdkOptional<String> clientEventId;
+
+  /// The event type, always `error`.
+  final LiveErrorEventType type_;
+
+  /// Details of the Live error and the client command that caused it, when known.
+  final LiveLiveError error;
+
+  const LiveErrorEvent(
+      {required this.eventId,
+      this.clientEventId = const SdkOmitted(),
+      required this.type_,
+      required this.error});
+
+  LiveErrorEvent Function(
+      {String eventId,
+      SdkOptional<String> clientEventId,
+      LiveErrorEventType type_,
+      LiveLiveError error}) get copyWith => _copyWith;
+
+  LiveErrorEvent _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? clientEventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? error = sdkOmittedValue}) =>
+      LiveErrorEvent(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        clientEventId: identical(clientEventId, sdkOmittedValue)
+            ? this.clientEventId
+            : clientEventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveErrorEventType,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as LiveLiveError,
+      );
+
+  factory LiveErrorEvent.fromJson(Map<String, dynamic> json) => LiveErrorEvent(
+        eventId: (json['event_id'] as String?)!,
+        clientEventId: json['client_event_id'] != null
+            ? SdkPresent((json['client_event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? LiveErrorEventType.fromJson(json['type'] as String)
+            : null)!,
+        error: (json['error'] != null
+            ? LiveLiveError.fromJson(json['error'] as Map<String, dynamic>)
+            : null)!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'event_id': eventId,
+        ...switch (clientEventId) {
+          SdkPresent<String>(value: final value) => {
+              'client_event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'error': error.toJson(),
+      };
 }
