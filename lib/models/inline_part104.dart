@@ -6,27 +6,24 @@ part of 'inline.dart';
 // Inline operation models (part 104)
 /// The truncation strategy to use for the model response. - `auto`: If the input to this Response exceeds the model's context window size, the model will truncate the response to fit the context window by dropping items from the beginning of the conversation. - `disabled` (default): If the input size will exceed the context window size for a model, the request will fail with a 400 error.
 final class ResponseVariant2TruncationVariant0 {
+
   final String value;
 
   const ResponseVariant2TruncationVariant0._(this.value);
 
-  factory ResponseVariant2TruncationVariant0.fromJson(String value) =>
-      ResponseVariant2TruncationVariant0._(value);
+  factory ResponseVariant2TruncationVariant0.fromJson(String value) => ResponseVariant2TruncationVariant0._(value);
 
   static const auto = ResponseVariant2TruncationVariant0._('auto');
   static const disabled = ResponseVariant2TruncationVariant0._('disabled');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResponseVariant2TruncationVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is ResponseVariant2TruncationVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always `response.audio.delta`.
@@ -35,17 +32,14 @@ enum ResponseAudioDeltaEventType {
 
   static ResponseAudioDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.audio.delta':
-        return ResponseAudioDeltaEventType.responseAudioDelta;
-      default:
-        throw ArgumentError('Unknown ResponseAudioDeltaEventType: $value');
+      case 'response.audio.delta': return ResponseAudioDeltaEventType.responseAudioDelta;
+      default: throw ArgumentError('Unknown ResponseAudioDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseAudioDeltaEventType.responseAudioDelta:
-        return 'response.audio.delta';
+      case ResponseAudioDeltaEventType.responseAudioDelta: return 'response.audio.delta';
     }
   }
 
@@ -59,17 +53,14 @@ enum ResponseAudioDoneEventType {
 
   static ResponseAudioDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.audio.done':
-        return ResponseAudioDoneEventType.responseAudioDone;
-      default:
-        throw ArgumentError('Unknown ResponseAudioDoneEventType: $value');
+      case 'response.audio.done': return ResponseAudioDoneEventType.responseAudioDone;
+      default: throw ArgumentError('Unknown ResponseAudioDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseAudioDoneEventType.responseAudioDone:
-        return 'response.audio.done';
+      case ResponseAudioDoneEventType.responseAudioDone: return 'response.audio.done';
     }
   }
 
@@ -83,19 +74,14 @@ enum ResponseAudioTranscriptDeltaEventType {
 
   static ResponseAudioTranscriptDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.audio.transcript.delta':
-        return ResponseAudioTranscriptDeltaEventType
-            .responseAudioTranscriptDelta;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseAudioTranscriptDeltaEventType: $value');
+      case 'response.audio.transcript.delta': return ResponseAudioTranscriptDeltaEventType.responseAudioTranscriptDelta;
+      default: throw ArgumentError('Unknown ResponseAudioTranscriptDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseAudioTranscriptDeltaEventType.responseAudioTranscriptDelta:
-        return 'response.audio.transcript.delta';
+      case ResponseAudioTranscriptDeltaEventType.responseAudioTranscriptDelta: return 'response.audio.transcript.delta';
     }
   }
 
@@ -109,18 +95,14 @@ enum ResponseAudioTranscriptDoneEventType {
 
   static ResponseAudioTranscriptDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.audio.transcript.done':
-        return ResponseAudioTranscriptDoneEventType.responseAudioTranscriptDone;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseAudioTranscriptDoneEventType: $value');
+      case 'response.audio.transcript.done': return ResponseAudioTranscriptDoneEventType.responseAudioTranscriptDone;
+      default: throw ArgumentError('Unknown ResponseAudioTranscriptDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseAudioTranscriptDoneEventType.responseAudioTranscriptDone:
-        return 'response.audio.transcript.done';
+      case ResponseAudioTranscriptDoneEventType.responseAudioTranscriptDone: return 'response.audio.transcript.done';
     }
   }
 
@@ -134,20 +116,14 @@ enum ResponseCodeInterpreterCallCodeDeltaEventType {
 
   static ResponseCodeInterpreterCallCodeDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.code_interpreter_call_code.delta':
-        return ResponseCodeInterpreterCallCodeDeltaEventType
-            .responseCodeInterpreterCallCodeDelta;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseCodeInterpreterCallCodeDeltaEventType: $value');
+      case 'response.code_interpreter_call_code.delta': return ResponseCodeInterpreterCallCodeDeltaEventType.responseCodeInterpreterCallCodeDelta;
+      default: throw ArgumentError('Unknown ResponseCodeInterpreterCallCodeDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseCodeInterpreterCallCodeDeltaEventType
-            .responseCodeInterpreterCallCodeDelta:
-        return 'response.code_interpreter_call_code.delta';
+      case ResponseCodeInterpreterCallCodeDeltaEventType.responseCodeInterpreterCallCodeDelta: return 'response.code_interpreter_call_code.delta';
     }
   }
 
@@ -161,20 +137,14 @@ enum ResponseCodeInterpreterCallCodeDoneEventType {
 
   static ResponseCodeInterpreterCallCodeDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.code_interpreter_call_code.done':
-        return ResponseCodeInterpreterCallCodeDoneEventType
-            .responseCodeInterpreterCallCodeDone;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseCodeInterpreterCallCodeDoneEventType: $value');
+      case 'response.code_interpreter_call_code.done': return ResponseCodeInterpreterCallCodeDoneEventType.responseCodeInterpreterCallCodeDone;
+      default: throw ArgumentError('Unknown ResponseCodeInterpreterCallCodeDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseCodeInterpreterCallCodeDoneEventType
-            .responseCodeInterpreterCallCodeDone:
-        return 'response.code_interpreter_call_code.done';
+      case ResponseCodeInterpreterCallCodeDoneEventType.responseCodeInterpreterCallCodeDone: return 'response.code_interpreter_call_code.done';
     }
   }
 
@@ -188,20 +158,14 @@ enum ResponseCodeInterpreterCallCompletedEventType {
 
   static ResponseCodeInterpreterCallCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.code_interpreter_call.completed':
-        return ResponseCodeInterpreterCallCompletedEventType
-            .responseCodeInterpreterCallCompleted;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseCodeInterpreterCallCompletedEventType: $value');
+      case 'response.code_interpreter_call.completed': return ResponseCodeInterpreterCallCompletedEventType.responseCodeInterpreterCallCompleted;
+      default: throw ArgumentError('Unknown ResponseCodeInterpreterCallCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseCodeInterpreterCallCompletedEventType
-            .responseCodeInterpreterCallCompleted:
-        return 'response.code_interpreter_call.completed';
+      case ResponseCodeInterpreterCallCompletedEventType.responseCodeInterpreterCallCompleted: return 'response.code_interpreter_call.completed';
     }
   }
 
@@ -215,20 +179,14 @@ enum ResponseCodeInterpreterCallInProgressEventType {
 
   static ResponseCodeInterpreterCallInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.code_interpreter_call.in_progress':
-        return ResponseCodeInterpreterCallInProgressEventType
-            .responseCodeInterpreterCallInProgress;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseCodeInterpreterCallInProgressEventType: $value');
+      case 'response.code_interpreter_call.in_progress': return ResponseCodeInterpreterCallInProgressEventType.responseCodeInterpreterCallInProgress;
+      default: throw ArgumentError('Unknown ResponseCodeInterpreterCallInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseCodeInterpreterCallInProgressEventType
-            .responseCodeInterpreterCallInProgress:
-        return 'response.code_interpreter_call.in_progress';
+      case ResponseCodeInterpreterCallInProgressEventType.responseCodeInterpreterCallInProgress: return 'response.code_interpreter_call.in_progress';
     }
   }
 
@@ -240,23 +198,16 @@ enum ResponseCodeInterpreterCallInProgressEventType {
 enum ResponseCodeInterpreterCallInterpretingEventType {
   responseCodeInterpreterCallInterpreting;
 
-  static ResponseCodeInterpreterCallInterpretingEventType fromJson(
-      String value) {
+  static ResponseCodeInterpreterCallInterpretingEventType fromJson(String value) {
     switch (value) {
-      case 'response.code_interpreter_call.interpreting':
-        return ResponseCodeInterpreterCallInterpretingEventType
-            .responseCodeInterpreterCallInterpreting;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseCodeInterpreterCallInterpretingEventType: $value');
+      case 'response.code_interpreter_call.interpreting': return ResponseCodeInterpreterCallInterpretingEventType.responseCodeInterpreterCallInterpreting;
+      default: throw ArgumentError('Unknown ResponseCodeInterpreterCallInterpretingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseCodeInterpreterCallInterpretingEventType
-            .responseCodeInterpreterCallInterpreting:
-        return 'response.code_interpreter_call.interpreting';
+      case ResponseCodeInterpreterCallInterpretingEventType.responseCodeInterpreterCallInterpreting: return 'response.code_interpreter_call.interpreting';
     }
   }
 
@@ -270,20 +221,14 @@ enum ResponseCompactionCompactingStreamingEventType {
 
   static ResponseCompactionCompactingStreamingEventType fromJson(String value) {
     switch (value) {
-      case 'response.compaction.compacting':
-        return ResponseCompactionCompactingStreamingEventType
-            .responseCompactionCompacting;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseCompactionCompactingStreamingEventType: $value');
+      case 'response.compaction.compacting': return ResponseCompactionCompactingStreamingEventType.responseCompactionCompacting;
+      default: throw ArgumentError('Unknown ResponseCompactionCompactingStreamingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseCompactionCompactingStreamingEventType
-            .responseCompactionCompacting:
-        return 'response.compaction.compacting';
+      case ResponseCompactionCompactingStreamingEventType.responseCompactionCompacting: return 'response.compaction.compacting';
     }
   }
 
@@ -297,17 +242,14 @@ enum ResponseCompletedEventType {
 
   static ResponseCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.completed':
-        return ResponseCompletedEventType.responseCompleted;
-      default:
-        throw ArgumentError('Unknown ResponseCompletedEventType: $value');
+      case 'response.completed': return ResponseCompletedEventType.responseCompleted;
+      default: throw ArgumentError('Unknown ResponseCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseCompletedEventType.responseCompleted:
-        return 'response.completed';
+      case ResponseCompletedEventType.responseCompleted: return 'response.completed';
     }
   }
 
@@ -321,17 +263,14 @@ enum ResponseConfigurationUpdateType {
 
   static ResponseConfigurationUpdateType fromJson(String value) {
     switch (value) {
-      case 'configuration_update':
-        return ResponseConfigurationUpdateType.configurationUpdate;
-      default:
-        throw ArgumentError('Unknown ResponseConfigurationUpdateType: $value');
+      case 'configuration_update': return ResponseConfigurationUpdateType.configurationUpdate;
+      default: throw ArgumentError('Unknown ResponseConfigurationUpdateType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseConfigurationUpdateType.configurationUpdate:
-        return 'configuration_update';
+      case ResponseConfigurationUpdateType.configurationUpdate: return 'configuration_update';
     }
   }
 

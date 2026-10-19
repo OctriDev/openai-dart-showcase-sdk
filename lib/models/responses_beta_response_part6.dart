@@ -8,529 +8,292 @@ part of 'responses_beta_response.dart';
 class BetaResponseItemList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object returned, must be `list`.
   final BetaResponseItemListObject object;
-
   /// A list of items used to generate this response.
   final List<BetaItemResource> data;
-
   /// Whether there are more items available.
   final bool hasMore;
-
   /// The ID of the first item in the list.
   final String firstId;
-
   /// The ID of the last item in the list.
   final String lastId;
 
-  const BetaResponseItemList(
-      {required this.object,
-      required this.data,
-      required this.hasMore,
-      required this.firstId,
-      required this.lastId});
+  const BetaResponseItemList({required this.object, required this.data, required this.hasMore, required this.firstId, required this.lastId});
 
-  BetaResponseItemList Function(
-      {BetaResponseItemListObject object,
-      List<BetaItemResource> data,
-      bool hasMore,
-      String firstId,
-      String lastId}) get copyWith => _copyWith;
+  BetaResponseItemList Function({BetaResponseItemListObject object, List<BetaItemResource> data, bool hasMore, String firstId, String lastId}) get copyWith => _copyWith;
 
-  BetaResponseItemList _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue}) =>
-      BetaResponseItemList(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as BetaResponseItemListObject,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<BetaItemResource>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as String,
-        lastId:
-            identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
-      );
+  BetaResponseItemList _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue}) => BetaResponseItemList(
+    object: identical(object, sdkOmittedValue) ? this.object : object as BetaResponseItemListObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<BetaItemResource>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
+  );
 
-  factory BetaResponseItemList.fromJson(Map<String, dynamic> json) =>
-      BetaResponseItemList(
-        object: (json['object'] != null
-            ? BetaResponseItemListObject.fromJson(json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => BetaItemResource.fromJson(e))
-            .toList())!,
-        hasMore: (json['has_more'] as bool?)!,
-        firstId: (json['first_id'] as String?)!,
-        lastId: (json['last_id'] as String?)!,
-      );
+  factory BetaResponseItemList.fromJson(Map<String, dynamic> json) => BetaResponseItemList(
+    object: (json['object'] != null ? BetaResponseItemListObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => BetaItemResource.fromJson(e)).toList())!,
+    hasMore: (json['has_more'] as bool?)!,
+    firstId: (json['first_id'] as String?)!,
+    lastId: (json['last_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        'has_more': hasMore,
-        'first_id': firstId,
-        'last_id': lastId,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    'has_more': hasMore,
+    'first_id': firstId,
+    'last_id': lastId,
+  };
 }
 
 /// Required object value serialized in the `top_logprobs[]` wire field.
 class BetaResponseLogProbTopLogprobsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A possible text token.
   final SdkOptional<String> token;
-
   /// The log probability of this token.
   final SdkOptional<double> logprob;
 
-  const BetaResponseLogProbTopLogprobsItem(
-      {this.token = const SdkOmitted(), this.logprob = const SdkOmitted()});
+  const BetaResponseLogProbTopLogprobsItem({this.token = const SdkOmitted(), this.logprob = const SdkOmitted()});
 
-  BetaResponseLogProbTopLogprobsItem Function(
-      {SdkOptional<String> token,
-      SdkOptional<double> logprob}) get copyWith => _copyWith;
+  BetaResponseLogProbTopLogprobsItem Function({SdkOptional<String> token, SdkOptional<double> logprob}) get copyWith => _copyWith;
 
-  BetaResponseLogProbTopLogprobsItem _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue}) =>
-      BetaResponseLogProbTopLogprobsItem(
-        token: identical(token, sdkOmittedValue)
-            ? this.token
-            : token as SdkOptional<String>,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as SdkOptional<double>,
-      );
+  BetaResponseLogProbTopLogprobsItem _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue}) => BetaResponseLogProbTopLogprobsItem(
+    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as SdkOptional<double>,
+  );
 
-  factory BetaResponseLogProbTopLogprobsItem.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseLogProbTopLogprobsItem(
-        token: json['token'] != null
-            ? SdkPresent((json['token'] as String?)!)
-            : const SdkOmitted(),
-        logprob: json['logprob'] != null
-            ? SdkPresent(((json['logprob'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory BetaResponseLogProbTopLogprobsItem.fromJson(Map<String, dynamic> json) => BetaResponseLogProbTopLogprobsItem(
+    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
+    logprob: json['logprob'] != null ? SdkPresent(((json['logprob'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (token) {
-          SdkPresent<String>(value: final value) => {
-              'token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logprob) {
-          SdkPresent<double>(value: final value) => {
-              'logprob': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (token) {
+      SdkPresent<String>(value: final value) => {'token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logprob) {
+      SdkPresent<double>(value: final value) => {'logprob': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A logprob is the logarithmic probability that the model assigns to producing a particular token at a given position in the sequence. Less-negative (higher) logprob values indicate greater model confidence in that token choice.
 class BetaResponseLogProb {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A possible text token.
   final String token;
-
   /// The log probability of this token.
   final double logprob;
-
   /// The log probabilities of up to 20 of the most likely tokens.
   final SdkOptional<List<BetaResponseLogProbTopLogprobsItem>> topLogprobs;
 
-  const BetaResponseLogProb(
-      {required this.token,
-      required this.logprob,
-      this.topLogprobs = const SdkOmitted()});
+  const BetaResponseLogProb({required this.token, required this.logprob, this.topLogprobs = const SdkOmitted()});
 
-  BetaResponseLogProb Function(
-          {String token,
-          double logprob,
-          SdkOptional<List<BetaResponseLogProbTopLogprobsItem>> topLogprobs})
-      get copyWith => _copyWith;
+  BetaResponseLogProb Function({String token, double logprob, SdkOptional<List<BetaResponseLogProbTopLogprobsItem>> topLogprobs}) get copyWith => _copyWith;
 
-  BetaResponseLogProb _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue,
-          Object? topLogprobs = sdkOmittedValue}) =>
-      BetaResponseLogProb(
-        token: identical(token, sdkOmittedValue) ? this.token : token as String,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as double,
-        topLogprobs: identical(topLogprobs, sdkOmittedValue)
-            ? this.topLogprobs
-            : topLogprobs
-                as SdkOptional<List<BetaResponseLogProbTopLogprobsItem>>,
-      );
+  BetaResponseLogProb _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? topLogprobs = sdkOmittedValue}) => BetaResponseLogProb(
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as double,
+    topLogprobs: identical(topLogprobs, sdkOmittedValue) ? this.topLogprobs : topLogprobs as SdkOptional<List<BetaResponseLogProbTopLogprobsItem>>,
+  );
 
-  factory BetaResponseLogProb.fromJson(Map<String, dynamic> json) =>
-      BetaResponseLogProb(
-        token: (json['token'] as String?)!,
-        logprob: ((json['logprob'] as num?)?.toDouble())!,
-        topLogprobs: json['top_logprobs'] != null
-            ? SdkPresent(((json['top_logprobs'] as List?)
-                ?.map((e) => BetaResponseLogProbTopLogprobsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory BetaResponseLogProb.fromJson(Map<String, dynamic> json) => BetaResponseLogProb(
+    token: (json['token'] as String?)!,
+    logprob: ((json['logprob'] as num?)?.toDouble())!,
+    topLogprobs: json['top_logprobs'] != null ? SdkPresent(((json['top_logprobs'] as List?)?.map((e) => BetaResponseLogProbTopLogprobsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'token': token,
-        'logprob': logprob,
-        ...switch (topLogprobs) {
-          SdkPresent<List<BetaResponseLogProbTopLogprobsItem>>(
-            value: final value
-          ) =>
-            {
-              'top_logprobs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'token': token,
+    'logprob': logprob,
+    ...switch (topLogprobs) {
+      SdkPresent<List<BetaResponseLogProbTopLogprobsItem>>(value: final value) => {'top_logprobs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BetaResponseProperties` API schema.
 class BetaResponseProperties {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `previous_response_id` wire field.
   final SdkOptional<String?> previousResponseId;
-
   /// Model ID used to generate the response, like `gpt-6-astra`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models.
   final SdkOptional<BetaModelIdsResponses> model;
-
   /// Optional `boolean` value serialized in the `background` wire field.
   final SdkOptional<bool?> background;
-
   /// Optional `integer` value serialized in the `max_tool_calls` wire field.
   final SdkOptional<int?> maxToolCalls;
-
   /// Configuration options for a text response from the model. Can be plain text or structured JSON data. Learn more: - [Text inputs and outputs](https://developers.openai.com/api/docs/guides/text) - [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
   final SdkOptional<BetaResponseTextParam> text;
-
   /// An array of tools the model may call while generating a response. You can specify which tool to use by setting the `tool_choice` parameter. We support the following categories of tools: - **Built-in tools**: Tools that are provided by OpenAI that extend the model's capabilities, like [web search](https://developers.openai.com/api/docs/guides/tools-web-search) or [file search](https://developers.openai.com/api/docs/guides/tools-file-search). Learn more about [built-in tools](https://developers.openai.com/api/docs/guides/tools). - **MCP Tools**: Integrations with third-party systems via custom MCP servers or predefined connectors such as Google Drive and SharePoint. Learn more about [MCP Tools](https://developers.openai.com/api/docs/guides/tools-connectors-mcp). - **Function calls (custom tools)**: Functions that are defined by you, enabling the model to call your own code with strongly typed arguments and outputs. Learn more about [function calling](https://developers.openai.com/api/docs/guides/function-calling). You can also use custom tools to call your own code.
   final SdkOptional<List<BetaTool>> tools;
-
   /// How the model should select which tool (or tools) to use when generating a response. See the `tools` parameter to see how to specify which tools the model can call.
   final SdkOptional<BetaToolChoiceParam> toolChoice;
-
   /// Reference to a prompt template and its variables. [Learn more](https://developers.openai.com/api/docs/guides/text?api-mode=responses#version-prompts-in-code).
   final SdkOptional<BetaPrompt?> prompt;
 
-  const BetaResponseProperties(
-      {this.previousResponseId = const SdkOmitted(),
-      this.model = const SdkOmitted(),
-      this.background = const SdkOmitted(),
-      this.maxToolCalls = const SdkOmitted(),
-      this.text = const SdkOmitted(),
-      this.tools = const SdkOmitted(),
-      this.toolChoice = const SdkOmitted(),
-      this.prompt = const SdkOmitted()});
+  const BetaResponseProperties({this.previousResponseId = const SdkOmitted(), this.model = const SdkOmitted(), this.background = const SdkOmitted(), this.maxToolCalls = const SdkOmitted(), this.text = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.prompt = const SdkOmitted()});
 
-  BetaResponseProperties Function(
-      {SdkOptional<String?> previousResponseId,
-      SdkOptional<BetaModelIdsResponses> model,
-      SdkOptional<bool?> background,
-      SdkOptional<int?> maxToolCalls,
-      SdkOptional<BetaResponseTextParam> text,
-      SdkOptional<List<BetaTool>> tools,
-      SdkOptional<BetaToolChoiceParam> toolChoice,
-      SdkOptional<BetaPrompt?> prompt}) get copyWith => _copyWith;
+  BetaResponseProperties Function({SdkOptional<String?> previousResponseId, SdkOptional<BetaModelIdsResponses> model, SdkOptional<bool?> background, SdkOptional<int?> maxToolCalls, SdkOptional<BetaResponseTextParam> text, SdkOptional<List<BetaTool>> tools, SdkOptional<BetaToolChoiceParam> toolChoice, SdkOptional<BetaPrompt?> prompt}) get copyWith => _copyWith;
 
-  BetaResponseProperties _copyWith(
-          {Object? previousResponseId = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? background = sdkOmittedValue,
-          Object? maxToolCalls = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? toolChoice = sdkOmittedValue,
-          Object? prompt = sdkOmittedValue}) =>
-      BetaResponseProperties(
-        previousResponseId: identical(previousResponseId, sdkOmittedValue)
-            ? this.previousResponseId
-            : previousResponseId as SdkOptional<String?>,
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<BetaModelIdsResponses>,
-        background: identical(background, sdkOmittedValue)
-            ? this.background
-            : background as SdkOptional<bool?>,
-        maxToolCalls: identical(maxToolCalls, sdkOmittedValue)
-            ? this.maxToolCalls
-            : maxToolCalls as SdkOptional<int?>,
-        text: identical(text, sdkOmittedValue)
-            ? this.text
-            : text as SdkOptional<BetaResponseTextParam>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<BetaTool>>,
-        toolChoice: identical(toolChoice, sdkOmittedValue)
-            ? this.toolChoice
-            : toolChoice as SdkOptional<BetaToolChoiceParam>,
-        prompt: identical(prompt, sdkOmittedValue)
-            ? this.prompt
-            : prompt as SdkOptional<BetaPrompt?>,
-      );
+  BetaResponseProperties _copyWith({Object? previousResponseId = sdkOmittedValue, Object? model = sdkOmittedValue, Object? background = sdkOmittedValue, Object? maxToolCalls = sdkOmittedValue, Object? text = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? prompt = sdkOmittedValue}) => BetaResponseProperties(
+    previousResponseId: identical(previousResponseId, sdkOmittedValue) ? this.previousResponseId : previousResponseId as SdkOptional<String?>,
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<BetaModelIdsResponses>,
+    background: identical(background, sdkOmittedValue) ? this.background : background as SdkOptional<bool?>,
+    maxToolCalls: identical(maxToolCalls, sdkOmittedValue) ? this.maxToolCalls : maxToolCalls as SdkOptional<int?>,
+    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<BetaResponseTextParam>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<BetaTool>>,
+    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<BetaToolChoiceParam>,
+    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as SdkOptional<BetaPrompt?>,
+  );
 
-  factory BetaResponseProperties.fromJson(Map<String, dynamic> json) =>
-      BetaResponseProperties(
-        previousResponseId: json.containsKey('previous_response_id')
-            ? SdkPresent(json['previous_response_id'] as String?)
-            : const SdkOmitted(),
-        model: json['model'] != null
-            ? SdkPresent((json['model'] != null
-                ? BetaModelIdsResponses.fromJson(json['model'])
-                : null)!)
-            : const SdkOmitted(),
-        background: json.containsKey('background')
-            ? SdkPresent(json['background'] as bool?)
-            : const SdkOmitted(),
-        maxToolCalls: json.containsKey('max_tool_calls')
-            ? SdkPresent((json['max_tool_calls'] as num?)?.toInt())
-            : const SdkOmitted(),
-        text: json['text'] != null
-            ? SdkPresent((json['text'] != null
-                ? BetaResponseTextParam.fromJson(
-                    json['text'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        tools: json['tools'] != null
-            ? SdkPresent(((json['tools'] as List?)
-                ?.map((e) => BetaTool.fromJson(e))
-                .toList())!)
-            : const SdkOmitted(),
-        toolChoice: json['tool_choice'] != null
-            ? SdkPresent((json['tool_choice'] != null
-                ? BetaToolChoiceParam.fromJson(json['tool_choice'])
-                : null)!)
-            : const SdkOmitted(),
-        prompt: json.containsKey('prompt')
-            ? SdkPresent(json['prompt'] != null
-                ? BetaPrompt.fromJson(json['prompt'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory BetaResponseProperties.fromJson(Map<String, dynamic> json) => BetaResponseProperties(
+    previousResponseId: json.containsKey('previous_response_id') ? SdkPresent(json['previous_response_id'] as String?) : const SdkOmitted(),
+    model: json['model'] != null ? SdkPresent((json['model'] != null ? BetaModelIdsResponses.fromJson(json['model']) : null)!) : const SdkOmitted(),
+    background: json.containsKey('background') ? SdkPresent(json['background'] as bool?) : const SdkOmitted(),
+    maxToolCalls: json.containsKey('max_tool_calls') ? SdkPresent((json['max_tool_calls'] as num?)?.toInt()) : const SdkOmitted(),
+    text: json['text'] != null ? SdkPresent((json['text'] != null ? BetaResponseTextParam.fromJson(json['text'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => BetaTool.fromJson(e)).toList())!) : const SdkOmitted(),
+    toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] != null ? BetaToolChoiceParam.fromJson(json['tool_choice']) : null)!) : const SdkOmitted(),
+    prompt: json.containsKey('prompt') ? SdkPresent(json['prompt'] != null ? BetaPrompt.fromJson(json['prompt'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (previousResponseId) {
-          SdkPresent<String?>(value: final value) => {
-              'previous_response_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (model) {
-          SdkPresent<BetaModelIdsResponses>(value: final value) => {
-              'model': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (background) {
-          SdkPresent<bool?>(value: final value) => {
-              'background': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxToolCalls) {
-          SdkPresent<int?>(value: final value) => {
-              'max_tool_calls': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (text) {
-          SdkPresent<BetaResponseTextParam>(value: final value) => {
-              'text': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<BetaTool>>(value: final value) => {
-              'tools': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolChoice) {
-          SdkPresent<BetaToolChoiceParam>(value: final value) => {
-              'tool_choice': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prompt) {
-          SdkPresent<BetaPrompt?>(value: final value) => {
-              'prompt': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (previousResponseId) {
+      SdkPresent<String?>(value: final value) => {'previous_response_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (model) {
+      SdkPresent<BetaModelIdsResponses>(value: final value) => {'model': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (background) {
+      SdkPresent<bool?>(value: final value) => {'background': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxToolCalls) {
+      SdkPresent<int?>(value: final value) => {'max_tool_calls': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (text) {
+      SdkPresent<BetaResponseTextParam>(value: final value) => {'text': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<BetaTool>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolChoice) {
+      SdkPresent<BetaToolChoiceParam>(value: final value) => {'tool_choice': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prompt) {
+      SdkPresent<BetaPrompt?>(value: final value) => {'prompt': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Emitted when a response is queued and waiting to be processed.
 class BetaResponseQueuedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the event. Always 'response.queued'.
   final BetaResponseQueuedEventType type_;
-
   /// The full response object that is queued.
   final BetaResponse response;
-
   /// The sequence number for this event.
   final int sequenceNumber;
 
-  const BetaResponseQueuedEvent(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.response,
-      required this.sequenceNumber});
+  const BetaResponseQueuedEvent({this.agent = const SdkOmitted(), required this.type_, required this.response, required this.sequenceNumber});
 
-  BetaResponseQueuedEvent Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaResponseQueuedEventType type_,
-      BetaResponse response,
-      int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseQueuedEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseQueuedEventType type_, BetaResponse response, int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseQueuedEvent _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? response = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue}) =>
-      BetaResponseQueuedEvent(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseQueuedEventType,
-        response: identical(response, sdkOmittedValue)
-            ? this.response
-            : response as BetaResponse,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-      );
+  BetaResponseQueuedEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseQueuedEvent(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseQueuedEventType,
+    response: identical(response, sdkOmittedValue) ? this.response : response as BetaResponse,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+  );
 
-  factory BetaResponseQueuedEvent.fromJson(Map<String, dynamic> json) =>
-      BetaResponseQueuedEvent(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaResponseQueuedEventType.fromJson(json['type'] as String)
-            : null)!,
-        response: (json['response'] != null
-            ? BetaResponse.fromJson(json['response'] as Map<String, dynamic>)
-            : null)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-      );
+  factory BetaResponseQueuedEvent.fromJson(Map<String, dynamic> json) => BetaResponseQueuedEvent(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaResponseQueuedEventType.fromJson(json['type'] as String) : null)!,
+    response: (json['response'] != null ? BetaResponse.fromJson(json['response'] as Map<String, dynamic>) : null)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'response': response.toJson(),
-        'sequence_number': sequenceNumber,
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'response': response.toJson(),
+    'sequence_number': sequenceNumber,
+  };
 }
 
 /// A detailed breakdown of the input tokens.
 class BetaResponseUsageInputTokensDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of tokens that were retrieved from the cache. [More on prompt caching](https://developers.openai.com/api/docs/guides/prompt-caching).
   final int cachedTokens;
-
   /// The number of input tokens that were written to the cache.
   final int cacheWriteTokens;
 
-  const BetaResponseUsageInputTokensDetails(
-      {required this.cachedTokens, required this.cacheWriteTokens});
+  const BetaResponseUsageInputTokensDetails({required this.cachedTokens, required this.cacheWriteTokens});
 
-  BetaResponseUsageInputTokensDetails Function(
-      {int cachedTokens, int cacheWriteTokens}) get copyWith => _copyWith;
+  BetaResponseUsageInputTokensDetails Function({int cachedTokens, int cacheWriteTokens}) get copyWith => _copyWith;
 
-  BetaResponseUsageInputTokensDetails _copyWith(
-          {Object? cachedTokens = sdkOmittedValue,
-          Object? cacheWriteTokens = sdkOmittedValue}) =>
-      BetaResponseUsageInputTokensDetails(
-        cachedTokens: identical(cachedTokens, sdkOmittedValue)
-            ? this.cachedTokens
-            : cachedTokens as int,
-        cacheWriteTokens: identical(cacheWriteTokens, sdkOmittedValue)
-            ? this.cacheWriteTokens
-            : cacheWriteTokens as int,
-      );
+  BetaResponseUsageInputTokensDetails _copyWith({Object? cachedTokens = sdkOmittedValue, Object? cacheWriteTokens = sdkOmittedValue}) => BetaResponseUsageInputTokensDetails(
+    cachedTokens: identical(cachedTokens, sdkOmittedValue) ? this.cachedTokens : cachedTokens as int,
+    cacheWriteTokens: identical(cacheWriteTokens, sdkOmittedValue) ? this.cacheWriteTokens : cacheWriteTokens as int,
+  );
 
-  factory BetaResponseUsageInputTokensDetails.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseUsageInputTokensDetails(
-        cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
-        cacheWriteTokens: ((json['cache_write_tokens'] as num?)?.toInt())!,
-      );
+  factory BetaResponseUsageInputTokensDetails.fromJson(Map<String, dynamic> json) => BetaResponseUsageInputTokensDetails(
+    cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
+    cacheWriteTokens: ((json['cache_write_tokens'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'cached_tokens': cachedTokens,
-        'cache_write_tokens': cacheWriteTokens,
-      };
+    'cached_tokens': cachedTokens,
+    'cache_write_tokens': cacheWriteTokens,
+  };
 }
 
 /// A detailed breakdown of the output tokens.
 class BetaResponseUsageOutputTokensDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of reasoning tokens.
   final int reasoningTokens;
 
   const BetaResponseUsageOutputTokensDetails({required this.reasoningTokens});
 
-  BetaResponseUsageOutputTokensDetails Function({int reasoningTokens})
-      get copyWith => _copyWith;
+  BetaResponseUsageOutputTokensDetails Function({int reasoningTokens}) get copyWith => _copyWith;
 
-  BetaResponseUsageOutputTokensDetails _copyWith(
-          {Object? reasoningTokens = sdkOmittedValue}) =>
-      BetaResponseUsageOutputTokensDetails(
-        reasoningTokens: identical(reasoningTokens, sdkOmittedValue)
-            ? this.reasoningTokens
-            : reasoningTokens as int,
-      );
+  BetaResponseUsageOutputTokensDetails _copyWith({Object? reasoningTokens = sdkOmittedValue}) => BetaResponseUsageOutputTokensDetails(
+    reasoningTokens: identical(reasoningTokens, sdkOmittedValue) ? this.reasoningTokens : reasoningTokens as int,
+  );
 
-  factory BetaResponseUsageOutputTokensDetails.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseUsageOutputTokensDetails(
-        reasoningTokens: ((json['reasoning_tokens'] as num?)?.toInt())!,
-      );
+  factory BetaResponseUsageOutputTokensDetails.fromJson(Map<String, dynamic> json) => BetaResponseUsageOutputTokensDetails(
+    reasoningTokens: ((json['reasoning_tokens'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'reasoning_tokens': reasoningTokens,
-      };
+    'reasoning_tokens': reasoningTokens,
+  };
 }

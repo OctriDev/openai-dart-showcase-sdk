@@ -10,17 +10,14 @@ enum ImageEditCompletedEventType {
 
   static ImageEditCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'image_edit.completed':
-        return ImageEditCompletedEventType.imageEditCompleted;
-      default:
-        throw ArgumentError('Unknown ImageEditCompletedEventType: $value');
+      case 'image_edit.completed': return ImageEditCompletedEventType.imageEditCompleted;
+      default: throw ArgumentError('Unknown ImageEditCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ImageEditCompletedEventType.imageEditCompleted:
-        return 'image_edit.completed';
+      case ImageEditCompletedEventType.imageEditCompleted: return 'image_edit.completed';
     }
   }
 
@@ -30,39 +27,35 @@ enum ImageEditCompletedEventType {
 
 /// The background setting for the requested edited image.
 final class ImageEditPartialImageEventBackground {
+
   final String value;
 
   const ImageEditPartialImageEventBackground._(this.value);
 
-  factory ImageEditPartialImageEventBackground.fromJson(String value) =>
-      ImageEditPartialImageEventBackground._(value);
+  factory ImageEditPartialImageEventBackground.fromJson(String value) => ImageEditPartialImageEventBackground._(value);
 
-  static const transparent =
-      ImageEditPartialImageEventBackground._('transparent');
+  static const transparent = ImageEditPartialImageEventBackground._('transparent');
   static const opaque = ImageEditPartialImageEventBackground._('opaque');
   static const auto = ImageEditPartialImageEventBackground._('auto');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageEditPartialImageEventBackground && other.value == value;
+  @override bool operator ==(Object other) => other is ImageEditPartialImageEventBackground && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The output format for the requested edited image.
 final class ImageEditPartialImageEventOutputFormat {
+
   final String value;
 
   const ImageEditPartialImageEventOutputFormat._(this.value);
 
-  factory ImageEditPartialImageEventOutputFormat.fromJson(String value) =>
-      ImageEditPartialImageEventOutputFormat._(value);
+  factory ImageEditPartialImageEventOutputFormat.fromJson(String value) => ImageEditPartialImageEventOutputFormat._(value);
 
   static const png = ImageEditPartialImageEventOutputFormat._('png');
   static const webp = ImageEditPartialImageEventOutputFormat._('webp');
@@ -70,25 +63,22 @@ final class ImageEditPartialImageEventOutputFormat {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageEditPartialImageEventOutputFormat && other.value == value;
+  @override bool operator ==(Object other) => other is ImageEditPartialImageEventOutputFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The quality setting for the requested edited image.
 final class ImageEditPartialImageEventQuality {
+
   final String value;
 
   const ImageEditPartialImageEventQuality._(this.value);
 
-  factory ImageEditPartialImageEventQuality.fromJson(String value) =>
-      ImageEditPartialImageEventQuality._(value);
+  factory ImageEditPartialImageEventQuality.fromJson(String value) => ImageEditPartialImageEventQuality._(value);
 
   static const low = ImageEditPartialImageEventQuality._('low');
   static const medium = ImageEditPartialImageEventQuality._('medium');
@@ -99,15 +89,12 @@ final class ImageEditPartialImageEventQuality {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageEditPartialImageEventQuality && other.value == value;
+  @override bool operator ==(Object other) => other is ImageEditPartialImageEventQuality && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always `image_edit.partial_image`.
@@ -116,17 +103,14 @@ enum ImageEditPartialImageEventType {
 
   static ImageEditPartialImageEventType fromJson(String value) {
     switch (value) {
-      case 'image_edit.partial_image':
-        return ImageEditPartialImageEventType.imageEditPartialImage;
-      default:
-        throw ArgumentError('Unknown ImageEditPartialImageEventType: $value');
+      case 'image_edit.partial_image': return ImageEditPartialImageEventType.imageEditPartialImage;
+      default: throw ArgumentError('Unknown ImageEditPartialImageEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ImageEditPartialImageEventType.imageEditPartialImage:
-        return 'image_edit.partial_image';
+      case ImageEditPartialImageEventType.imageEditPartialImage: return 'image_edit.partial_image';
     }
   }
 
@@ -136,12 +120,12 @@ enum ImageEditPartialImageEventType {
 
 /// The background setting for the generated image.
 final class ImageGenCompletedEventBackground {
+
   final String value;
 
   const ImageGenCompletedEventBackground._(this.value);
 
-  factory ImageGenCompletedEventBackground.fromJson(String value) =>
-      ImageGenCompletedEventBackground._(value);
+  factory ImageGenCompletedEventBackground.fromJson(String value) => ImageGenCompletedEventBackground._(value);
 
   static const transparent = ImageGenCompletedEventBackground._('transparent');
   static const opaque = ImageGenCompletedEventBackground._('opaque');
@@ -149,25 +133,22 @@ final class ImageGenCompletedEventBackground {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageGenCompletedEventBackground && other.value == value;
+  @override bool operator ==(Object other) => other is ImageGenCompletedEventBackground && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The output format for the generated image.
 final class ImageGenCompletedEventOutputFormat {
+
   final String value;
 
   const ImageGenCompletedEventOutputFormat._(this.value);
 
-  factory ImageGenCompletedEventOutputFormat.fromJson(String value) =>
-      ImageGenCompletedEventOutputFormat._(value);
+  factory ImageGenCompletedEventOutputFormat.fromJson(String value) => ImageGenCompletedEventOutputFormat._(value);
 
   static const png = ImageGenCompletedEventOutputFormat._('png');
   static const webp = ImageGenCompletedEventOutputFormat._('webp');
@@ -175,25 +156,22 @@ final class ImageGenCompletedEventOutputFormat {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageGenCompletedEventOutputFormat && other.value == value;
+  @override bool operator ==(Object other) => other is ImageGenCompletedEventOutputFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The quality setting for the generated image.
 final class ImageGenCompletedEventQuality {
+
   final String value;
 
   const ImageGenCompletedEventQuality._(this.value);
 
-  factory ImageGenCompletedEventQuality.fromJson(String value) =>
-      ImageGenCompletedEventQuality._(value);
+  factory ImageGenCompletedEventQuality.fromJson(String value) => ImageGenCompletedEventQuality._(value);
 
   static const low = ImageGenCompletedEventQuality._('low');
   static const medium = ImageGenCompletedEventQuality._('medium');
@@ -204,15 +182,12 @@ final class ImageGenCompletedEventQuality {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageGenCompletedEventQuality && other.value == value;
+  @override bool operator ==(Object other) => other is ImageGenCompletedEventQuality && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always `image_generation.completed`.
@@ -221,17 +196,14 @@ enum ImageGenCompletedEventType {
 
   static ImageGenCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'image_generation.completed':
-        return ImageGenCompletedEventType.imageGenerationCompleted;
-      default:
-        throw ArgumentError('Unknown ImageGenCompletedEventType: $value');
+      case 'image_generation.completed': return ImageGenCompletedEventType.imageGenerationCompleted;
+      default: throw ArgumentError('Unknown ImageGenCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ImageGenCompletedEventType.imageGenerationCompleted:
-        return 'image_generation.completed';
+      case ImageGenCompletedEventType.imageGenerationCompleted: return 'image_generation.completed';
     }
   }
 
@@ -241,39 +213,35 @@ enum ImageGenCompletedEventType {
 
 /// The background setting for the requested image.
 final class ImageGenPartialImageEventBackground {
+
   final String value;
 
   const ImageGenPartialImageEventBackground._(this.value);
 
-  factory ImageGenPartialImageEventBackground.fromJson(String value) =>
-      ImageGenPartialImageEventBackground._(value);
+  factory ImageGenPartialImageEventBackground.fromJson(String value) => ImageGenPartialImageEventBackground._(value);
 
-  static const transparent =
-      ImageGenPartialImageEventBackground._('transparent');
+  static const transparent = ImageGenPartialImageEventBackground._('transparent');
   static const opaque = ImageGenPartialImageEventBackground._('opaque');
   static const auto = ImageGenPartialImageEventBackground._('auto');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageGenPartialImageEventBackground && other.value == value;
+  @override bool operator ==(Object other) => other is ImageGenPartialImageEventBackground && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The output format for the requested image.
 final class ImageGenPartialImageEventOutputFormat {
+
   final String value;
 
   const ImageGenPartialImageEventOutputFormat._(this.value);
 
-  factory ImageGenPartialImageEventOutputFormat.fromJson(String value) =>
-      ImageGenPartialImageEventOutputFormat._(value);
+  factory ImageGenPartialImageEventOutputFormat.fromJson(String value) => ImageGenPartialImageEventOutputFormat._(value);
 
   static const png = ImageGenPartialImageEventOutputFormat._('png');
   static const webp = ImageGenPartialImageEventOutputFormat._('webp');
@@ -281,25 +249,22 @@ final class ImageGenPartialImageEventOutputFormat {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageGenPartialImageEventOutputFormat && other.value == value;
+  @override bool operator ==(Object other) => other is ImageGenPartialImageEventOutputFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The quality setting for the requested image.
 final class ImageGenPartialImageEventQuality {
+
   final String value;
 
   const ImageGenPartialImageEventQuality._(this.value);
 
-  factory ImageGenPartialImageEventQuality.fromJson(String value) =>
-      ImageGenPartialImageEventQuality._(value);
+  factory ImageGenPartialImageEventQuality.fromJson(String value) => ImageGenPartialImageEventQuality._(value);
 
   static const low = ImageGenPartialImageEventQuality._('low');
   static const medium = ImageGenPartialImageEventQuality._('medium');
@@ -310,13 +275,10 @@ final class ImageGenPartialImageEventQuality {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageGenPartialImageEventQuality && other.value == value;
+  @override bool operator ==(Object other) => other is ImageGenPartialImageEventQuality && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -9,215 +9,144 @@ sealed class CreateModerationRequestInput {
   static const String constructionSurface = 'named';
   const CreateModerationRequestInput();
   factory CreateModerationRequestInput.fromJson(Object? json) {
-    if (json is String) {
-      return CreateModerationRequestInputString(json);
-    }
-    if (json is List) {
-      return CreateModerationRequestInputListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
-    try {
-      return CreateModerationRequestInputCreateModerationRequestInputItem(
-          CreateModerationRequestInputItem.fromJson(json));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for CreateModerationRequestInput");
+    if (json is String) { return CreateModerationRequestInputString(json); }
+    if (json is List) { return CreateModerationRequestInputListString(json.map((e) => e as String).toList().cast<String>()); }
+    try { return CreateModerationRequestInputCreateModerationRequestInputItem(CreateModerationRequestInputItem.fromJson(json)); } catch (_) {}
+    throw FormatException("No variant matched for CreateModerationRequestInput");
   }
   Object? toJson();
 }
 
-final class CreateModerationRequestInputString
-    extends CreateModerationRequestInput {
+final class CreateModerationRequestInputString extends CreateModerationRequestInput {
   final String value;
   const CreateModerationRequestInputString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateModerationRequestInputListString
-    extends CreateModerationRequestInput {
+final class CreateModerationRequestInputListString extends CreateModerationRequestInput {
   final List<String> value;
   const CreateModerationRequestInputListString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateModerationRequestInputCreateModerationRequestInputItem
-    extends CreateModerationRequestInput {
+final class CreateModerationRequestInputCreateModerationRequestInputItem extends CreateModerationRequestInput {
   final CreateModerationRequestInputItem value;
-  const CreateModerationRequestInputCreateModerationRequestInputItem(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateModerationRequestInputCreateModerationRequestInputItem(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `CreateModerationRequest` API schema.
 class CreateModerationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Input (or inputs) to classify. Can be a single string, an array of strings, or an array of multi-modal input objects similar to other models.
   final dynamic input;
-
   /// The content moderation model you would like to use. Learn more in [the moderation guide](https://developers.openai.com/api/docs/guides/moderation), and learn about available models [here](https://developers.openai.com/api/docs/guides/moderation).
   final SdkOptional<String> model;
 
-  const CreateModerationRequest(
-      {required this.input, this.model = const SdkOmitted()});
+  const CreateModerationRequest({required this.input, this.model = const SdkOmitted()});
 
-  CreateModerationRequest Function({dynamic input, SdkOptional<String> model})
-      get copyWith => _copyWith;
+  CreateModerationRequest Function({dynamic input, SdkOptional<String> model}) get copyWith => _copyWith;
 
-  CreateModerationRequest _copyWith(
-          {Object? input = sdkOmittedValue, Object? model = sdkOmittedValue}) =>
-      CreateModerationRequest(
-        input:
-            identical(input, sdkOmittedValue) ? this.input : input as dynamic,
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<String>,
-      );
+  CreateModerationRequest _copyWith({Object? input = sdkOmittedValue, Object? model = sdkOmittedValue}) => CreateModerationRequest(
+    input: identical(input, sdkOmittedValue) ? this.input : input as dynamic,
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
+  );
 
-  factory CreateModerationRequest.fromJson(Map<String, dynamic> json) =>
-      CreateModerationRequest(
-        input: (json['input'])!,
-        model: json['model'] != null
-            ? SdkPresent((json['model'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateModerationRequest.fromJson(Map<String, dynamic> json) => CreateModerationRequest(
+    input: (json['input'])!,
+    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'input': input,
-        ...switch (model) {
-          SdkPresent<String>(value: final value) => {
-              'model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'input': input,
+    ...switch (model) {
+      SdkPresent<String>(value: final value) => {'model': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Contains either an image URL or a data URL for a base64 encoded image.
 class CreateModerationRequestInputItemVariant0ImageUrl {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Either a URL of the image or the base64 encoded image data.
   final String url;
 
   const CreateModerationRequestInputItemVariant0ImageUrl({required this.url});
 
-  CreateModerationRequestInputItemVariant0ImageUrl Function({String url})
-      get copyWith => _copyWith;
+  CreateModerationRequestInputItemVariant0ImageUrl Function({String url}) get copyWith => _copyWith;
 
-  CreateModerationRequestInputItemVariant0ImageUrl _copyWith(
-          {Object? url = sdkOmittedValue}) =>
-      CreateModerationRequestInputItemVariant0ImageUrl(
-        url: identical(url, sdkOmittedValue) ? this.url : url as String,
-      );
+  CreateModerationRequestInputItemVariant0ImageUrl _copyWith({Object? url = sdkOmittedValue}) => CreateModerationRequestInputItemVariant0ImageUrl(
+    url: identical(url, sdkOmittedValue) ? this.url : url as String,
+  );
 
-  factory CreateModerationRequestInputItemVariant0ImageUrl.fromJson(
-          Map<String, dynamic> json) =>
-      CreateModerationRequestInputItemVariant0ImageUrl(
-        url: (json['url'] as String?)!,
-      );
+  factory CreateModerationRequestInputItemVariant0ImageUrl.fromJson(Map<String, dynamic> json) => CreateModerationRequestInputItemVariant0ImageUrl(
+    url: (json['url'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'url': url,
-      };
+    'url': url,
+  };
 }
 
 /// An object describing an image to classify.
 class CreateModerationRequestInputItemVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always `image_url`.
   final CreateModerationRequestInputItemVariant0Type type_;
-
   /// Contains either an image URL or a data URL for a base64 encoded image.
   final CreateModerationRequestInputItemVariant0ImageUrl imageUrl;
 
-  const CreateModerationRequestInputItemVariant0(
-      {required this.type_, required this.imageUrl});
+  const CreateModerationRequestInputItemVariant0({required this.type_, required this.imageUrl});
 
-  CreateModerationRequestInputItemVariant0 Function(
-          {CreateModerationRequestInputItemVariant0Type type_,
-          CreateModerationRequestInputItemVariant0ImageUrl imageUrl})
-      get copyWith => _copyWith;
+  CreateModerationRequestInputItemVariant0 Function({CreateModerationRequestInputItemVariant0Type type_, CreateModerationRequestInputItemVariant0ImageUrl imageUrl}) get copyWith => _copyWith;
 
-  CreateModerationRequestInputItemVariant0 _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue}) =>
-      CreateModerationRequestInputItemVariant0(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CreateModerationRequestInputItemVariant0Type,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as CreateModerationRequestInputItemVariant0ImageUrl,
-      );
+  CreateModerationRequestInputItemVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue}) => CreateModerationRequestInputItemVariant0(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateModerationRequestInputItemVariant0Type,
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as CreateModerationRequestInputItemVariant0ImageUrl,
+  );
 
-  factory CreateModerationRequestInputItemVariant0.fromJson(
-          Map<String, dynamic> json) =>
-      CreateModerationRequestInputItemVariant0(
-        type_: (json['type'] != null
-            ? CreateModerationRequestInputItemVariant0Type.fromJson(
-                json['type'] as String)
-            : null)!,
-        imageUrl: (json['image_url'] != null
-            ? CreateModerationRequestInputItemVariant0ImageUrl.fromJson(
-                json['image_url'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory CreateModerationRequestInputItemVariant0.fromJson(Map<String, dynamic> json) => CreateModerationRequestInputItemVariant0(
+    type_: (json['type'] != null ? CreateModerationRequestInputItemVariant0Type.fromJson(json['type'] as String) : null)!,
+    imageUrl: (json['image_url'] != null ? CreateModerationRequestInputItemVariant0ImageUrl.fromJson(json['image_url'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'image_url': imageUrl.toJson(),
-      };
+    'type': type_.toJson(),
+    'image_url': imageUrl.toJson(),
+  };
 }
 
 /// An object describing text to classify.
 class CreateModerationRequestInputItemVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always `text`.
   final CreateModerationRequestInputItemVariant1Type type_;
-
   /// A string of text to classify.
   final String text;
 
-  const CreateModerationRequestInputItemVariant1(
-      {required this.type_, required this.text});
+  const CreateModerationRequestInputItemVariant1({required this.type_, required this.text});
 
-  CreateModerationRequestInputItemVariant1 Function(
-      {CreateModerationRequestInputItemVariant1Type type_,
-      String text}) get copyWith => _copyWith;
+  CreateModerationRequestInputItemVariant1 Function({CreateModerationRequestInputItemVariant1Type type_, String text}) get copyWith => _copyWith;
 
-  CreateModerationRequestInputItemVariant1 _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      CreateModerationRequestInputItemVariant1(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CreateModerationRequestInputItemVariant1Type,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  CreateModerationRequestInputItemVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => CreateModerationRequestInputItemVariant1(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateModerationRequestInputItemVariant1Type,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory CreateModerationRequestInputItemVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      CreateModerationRequestInputItemVariant1(
-        type_: (json['type'] != null
-            ? CreateModerationRequestInputItemVariant1Type.fromJson(
-                json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory CreateModerationRequestInputItemVariant1.fromJson(Map<String, dynamic> json) => CreateModerationRequestInputItemVariant1(
+    type_: (json['type'] != null ? CreateModerationRequestInputItemVariant1Type.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }
 
 sealed class CreateModerationRequestInputItem {
@@ -226,219 +155,108 @@ sealed class CreateModerationRequestInputItem {
   const CreateModerationRequestInputItem();
   factory CreateModerationRequestInputItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = CreateModerationRequestInputItemVariant0.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant0(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = CreateModerationRequestInputItemVariant1.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant1(
-              value);
-        }
-      } catch (_) {}
+      try { final value = CreateModerationRequestInputItemVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant0(value); } } catch (_) {}
+      try { final value = CreateModerationRequestInputItemVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant1(value); } } catch (_) {}
     }
-    try {
-      return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant0(
-          CreateModerationRequestInputItemVariant0.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant1(
-          CreateModerationRequestInputItemVariant1.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for CreateModerationRequestInputItem");
+    try { return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant0(CreateModerationRequestInputItemVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateModerationRequestInputItemCreateModerationRequestInputItemVariant1(CreateModerationRequestInputItemVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for CreateModerationRequestInputItem");
   }
   Object? toJson();
 }
 
-final class CreateModerationRequestInputItemCreateModerationRequestInputItemVariant0
-    extends CreateModerationRequestInputItem {
+final class CreateModerationRequestInputItemCreateModerationRequestInputItemVariant0 extends CreateModerationRequestInputItem {
   final CreateModerationRequestInputItemVariant0 value;
-  const CreateModerationRequestInputItemCreateModerationRequestInputItemVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateModerationRequestInputItemCreateModerationRequestInputItemVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateModerationRequestInputItemCreateModerationRequestInputItemVariant1
-    extends CreateModerationRequestInputItem {
+final class CreateModerationRequestInputItemCreateModerationRequestInputItemVariant1 extends CreateModerationRequestInputItem {
   final CreateModerationRequestInputItemVariant1 value;
-  const CreateModerationRequestInputItemCreateModerationRequestInputItemVariant1(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateModerationRequestInputItemCreateModerationRequestInputItemVariant1(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A list of the categories, and whether they are flagged or not.
 class CreateModerationResponseResultsItemCategories {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. Hateful content aimed at non-protected groups (e.g., chess players) is harassment.
   final bool hate;
-
   /// Hateful content that also includes violence or serious harm towards the targeted group based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste.
   final bool hateThreatening;
-
   /// Content that expresses, incites, or promotes harassing language towards any target.
   final bool harassment;
-
   /// Harassment content that also includes violence or serious harm towards any target.
   final bool harassmentThreatening;
-
   /// Required `boolean` value serialized in the `illicit` wire field.
   final bool? illicit;
-
   /// Required `boolean` value serialized in the `illicit/violent` wire field.
   final bool? illicitViolent;
-
   /// Content that promotes, encourages, or depicts acts of self-harm, such as suicide, cutting, and eating disorders.
   final bool selfHarm;
-
   /// Content where the speaker expresses that they are engaging or intend to engage in acts of self-harm, such as suicide, cutting, and eating disorders.
   final bool selfHarmIntent;
-
   /// Content that encourages performing acts of self-harm, such as suicide, cutting, and eating disorders, or that gives instructions or advice on how to commit such acts.
   final bool selfHarmInstructions;
-
   /// Content meant to arouse sexual excitement, such as the description of sexual activity, or that promotes sexual services (excluding sex education and wellness).
   final bool sexual;
-
   /// Sexual content that includes an individual who is under 18 years old.
   final bool sexualMinors;
-
   /// Content that depicts death, violence, or physical injury.
   final bool violence;
-
   /// Content that depicts death, violence, or physical injury in graphic detail.
   final bool violenceGraphic;
 
-  const CreateModerationResponseResultsItemCategories(
-      {required this.hate,
-      required this.hateThreatening,
-      required this.harassment,
-      required this.harassmentThreatening,
-      required this.illicit,
-      required this.illicitViolent,
-      required this.selfHarm,
-      required this.selfHarmIntent,
-      required this.selfHarmInstructions,
-      required this.sexual,
-      required this.sexualMinors,
-      required this.violence,
-      required this.violenceGraphic});
+  const CreateModerationResponseResultsItemCategories({required this.hate, required this.hateThreatening, required this.harassment, required this.harassmentThreatening, required this.illicit, required this.illicitViolent, required this.selfHarm, required this.selfHarmIntent, required this.selfHarmInstructions, required this.sexual, required this.sexualMinors, required this.violence, required this.violenceGraphic});
 
-  CreateModerationResponseResultsItemCategories Function(
-      {bool hate,
-      bool hateThreatening,
-      bool harassment,
-      bool harassmentThreatening,
-      bool? illicit,
-      bool? illicitViolent,
-      bool selfHarm,
-      bool selfHarmIntent,
-      bool selfHarmInstructions,
-      bool sexual,
-      bool sexualMinors,
-      bool violence,
-      bool violenceGraphic}) get copyWith => _copyWith;
+  CreateModerationResponseResultsItemCategories Function({bool hate, bool hateThreatening, bool harassment, bool harassmentThreatening, bool? illicit, bool? illicitViolent, bool selfHarm, bool selfHarmIntent, bool selfHarmInstructions, bool sexual, bool sexualMinors, bool violence, bool violenceGraphic}) get copyWith => _copyWith;
 
-  CreateModerationResponseResultsItemCategories _copyWith(
-          {Object? hate = sdkOmittedValue,
-          Object? hateThreatening = sdkOmittedValue,
-          Object? harassment = sdkOmittedValue,
-          Object? harassmentThreatening = sdkOmittedValue,
-          Object? illicit = sdkOmittedValue,
-          Object? illicitViolent = sdkOmittedValue,
-          Object? selfHarm = sdkOmittedValue,
-          Object? selfHarmIntent = sdkOmittedValue,
-          Object? selfHarmInstructions = sdkOmittedValue,
-          Object? sexual = sdkOmittedValue,
-          Object? sexualMinors = sdkOmittedValue,
-          Object? violence = sdkOmittedValue,
-          Object? violenceGraphic = sdkOmittedValue}) =>
-      CreateModerationResponseResultsItemCategories(
-        hate: identical(hate, sdkOmittedValue) ? this.hate : hate as bool,
-        hateThreatening: identical(hateThreatening, sdkOmittedValue)
-            ? this.hateThreatening
-            : hateThreatening as bool,
-        harassment: identical(harassment, sdkOmittedValue)
-            ? this.harassment
-            : harassment as bool,
-        harassmentThreatening: identical(harassmentThreatening, sdkOmittedValue)
-            ? this.harassmentThreatening
-            : harassmentThreatening as bool,
-        illicit: identical(illicit, sdkOmittedValue)
-            ? this.illicit
-            : illicit as bool?,
-        illicitViolent: identical(illicitViolent, sdkOmittedValue)
-            ? this.illicitViolent
-            : illicitViolent as bool?,
-        selfHarm: identical(selfHarm, sdkOmittedValue)
-            ? this.selfHarm
-            : selfHarm as bool,
-        selfHarmIntent: identical(selfHarmIntent, sdkOmittedValue)
-            ? this.selfHarmIntent
-            : selfHarmIntent as bool,
-        selfHarmInstructions: identical(selfHarmInstructions, sdkOmittedValue)
-            ? this.selfHarmInstructions
-            : selfHarmInstructions as bool,
-        sexual:
-            identical(sexual, sdkOmittedValue) ? this.sexual : sexual as bool,
-        sexualMinors: identical(sexualMinors, sdkOmittedValue)
-            ? this.sexualMinors
-            : sexualMinors as bool,
-        violence: identical(violence, sdkOmittedValue)
-            ? this.violence
-            : violence as bool,
-        violenceGraphic: identical(violenceGraphic, sdkOmittedValue)
-            ? this.violenceGraphic
-            : violenceGraphic as bool,
-      );
+  CreateModerationResponseResultsItemCategories _copyWith({Object? hate = sdkOmittedValue, Object? hateThreatening = sdkOmittedValue, Object? harassment = sdkOmittedValue, Object? harassmentThreatening = sdkOmittedValue, Object? illicit = sdkOmittedValue, Object? illicitViolent = sdkOmittedValue, Object? selfHarm = sdkOmittedValue, Object? selfHarmIntent = sdkOmittedValue, Object? selfHarmInstructions = sdkOmittedValue, Object? sexual = sdkOmittedValue, Object? sexualMinors = sdkOmittedValue, Object? violence = sdkOmittedValue, Object? violenceGraphic = sdkOmittedValue}) => CreateModerationResponseResultsItemCategories(
+    hate: identical(hate, sdkOmittedValue) ? this.hate : hate as bool,
+    hateThreatening: identical(hateThreatening, sdkOmittedValue) ? this.hateThreatening : hateThreatening as bool,
+    harassment: identical(harassment, sdkOmittedValue) ? this.harassment : harassment as bool,
+    harassmentThreatening: identical(harassmentThreatening, sdkOmittedValue) ? this.harassmentThreatening : harassmentThreatening as bool,
+    illicit: identical(illicit, sdkOmittedValue) ? this.illicit : illicit as bool?,
+    illicitViolent: identical(illicitViolent, sdkOmittedValue) ? this.illicitViolent : illicitViolent as bool?,
+    selfHarm: identical(selfHarm, sdkOmittedValue) ? this.selfHarm : selfHarm as bool,
+    selfHarmIntent: identical(selfHarmIntent, sdkOmittedValue) ? this.selfHarmIntent : selfHarmIntent as bool,
+    selfHarmInstructions: identical(selfHarmInstructions, sdkOmittedValue) ? this.selfHarmInstructions : selfHarmInstructions as bool,
+    sexual: identical(sexual, sdkOmittedValue) ? this.sexual : sexual as bool,
+    sexualMinors: identical(sexualMinors, sdkOmittedValue) ? this.sexualMinors : sexualMinors as bool,
+    violence: identical(violence, sdkOmittedValue) ? this.violence : violence as bool,
+    violenceGraphic: identical(violenceGraphic, sdkOmittedValue) ? this.violenceGraphic : violenceGraphic as bool,
+  );
 
-  factory CreateModerationResponseResultsItemCategories.fromJson(
-          Map<String, dynamic> json) =>
-      CreateModerationResponseResultsItemCategories(
-        hate: (json['hate'] as bool?)!,
-        hateThreatening: (json['hate/threatening'] as bool?)!,
-        harassment: (json['harassment'] as bool?)!,
-        harassmentThreatening: (json['harassment/threatening'] as bool?)!,
-        illicit: json.containsKey('illicit')
-            ? json['illicit'] as bool?
-            : throw ArgumentError.value(
-                null, 'illicit', 'Required property is missing'),
-        illicitViolent: json.containsKey('illicit/violent')
-            ? json['illicit/violent'] as bool?
-            : throw ArgumentError.value(
-                null, 'illicit/violent', 'Required property is missing'),
-        selfHarm: (json['self-harm'] as bool?)!,
-        selfHarmIntent: (json['self-harm/intent'] as bool?)!,
-        selfHarmInstructions: (json['self-harm/instructions'] as bool?)!,
-        sexual: (json['sexual'] as bool?)!,
-        sexualMinors: (json['sexual/minors'] as bool?)!,
-        violence: (json['violence'] as bool?)!,
-        violenceGraphic: (json['violence/graphic'] as bool?)!,
-      );
+  factory CreateModerationResponseResultsItemCategories.fromJson(Map<String, dynamic> json) => CreateModerationResponseResultsItemCategories(
+    hate: (json['hate'] as bool?)!,
+    hateThreatening: (json['hate/threatening'] as bool?)!,
+    harassment: (json['harassment'] as bool?)!,
+    harassmentThreatening: (json['harassment/threatening'] as bool?)!,
+    illicit: json.containsKey('illicit') ? json['illicit'] as bool? : throw ArgumentError.value(null, 'illicit', 'Required property is missing'),
+    illicitViolent: json.containsKey('illicit/violent') ? json['illicit/violent'] as bool? : throw ArgumentError.value(null, 'illicit/violent', 'Required property is missing'),
+    selfHarm: (json['self-harm'] as bool?)!,
+    selfHarmIntent: (json['self-harm/intent'] as bool?)!,
+    selfHarmInstructions: (json['self-harm/instructions'] as bool?)!,
+    sexual: (json['sexual'] as bool?)!,
+    sexualMinors: (json['sexual/minors'] as bool?)!,
+    violence: (json['violence'] as bool?)!,
+    violenceGraphic: (json['violence/graphic'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'hate': hate,
-        'hate/threatening': hateThreatening,
-        'harassment': harassment,
-        'harassment/threatening': harassmentThreatening,
-        'illicit': illicit,
-        'illicit/violent': illicitViolent,
-        'self-harm': selfHarm,
-        'self-harm/intent': selfHarmIntent,
-        'self-harm/instructions': selfHarmInstructions,
-        'sexual': sexual,
-        'sexual/minors': sexualMinors,
-        'violence': violence,
-        'violence/graphic': violenceGraphic,
-      };
+    'hate': hate,
+    'hate/threatening': hateThreatening,
+    'harassment': harassment,
+    'harassment/threatening': harassmentThreatening,
+    'illicit': illicit,
+    'illicit/violent': illicitViolent,
+    'self-harm': selfHarm,
+    'self-harm/intent': selfHarmIntent,
+    'self-harm/instructions': selfHarmInstructions,
+    'sexual': sexual,
+    'sexual/minors': sexualMinors,
+    'violence': violence,
+    'violence/graphic': violenceGraphic,
+  };
 }

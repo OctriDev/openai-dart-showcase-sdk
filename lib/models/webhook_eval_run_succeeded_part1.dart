@@ -8,7 +8,6 @@ part of 'webhook_eval_run_succeeded.dart';
 class WebhookEvalRunSucceededData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the eval run.
   final String id;
 
@@ -16,106 +15,62 @@ class WebhookEvalRunSucceededData {
 
   WebhookEvalRunSucceededData Function({String id}) get copyWith => _copyWith;
 
-  WebhookEvalRunSucceededData _copyWith({Object? id = sdkOmittedValue}) =>
-      WebhookEvalRunSucceededData(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  WebhookEvalRunSucceededData _copyWith({Object? id = sdkOmittedValue}) => WebhookEvalRunSucceededData(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory WebhookEvalRunSucceededData.fromJson(Map<String, dynamic> json) =>
-      WebhookEvalRunSucceededData(
-        id: (json['id'] as String?)!,
-      );
+  factory WebhookEvalRunSucceededData.fromJson(Map<String, dynamic> json) => WebhookEvalRunSucceededData(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }
 
 /// Sent when an eval run has succeeded.
 class WebhookEvalRunSucceeded {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The Unix timestamp (in seconds) of when the eval run succeeded.
   final int createdAt;
-
   /// The unique ID of the event.
   final String id;
-
   /// Event data payload.
   final WebhookEvalRunSucceededData data;
-
   /// The object of the event. Always `event`.
   final SdkOptional<WebhookEvalRunSucceededObject> object;
-
   /// The type of the event. Always `eval.run.succeeded`.
   final WebhookEvalRunSucceededType type_;
 
-  const WebhookEvalRunSucceeded(
-      {required this.createdAt,
-      required this.id,
-      required this.data,
-      this.object = const SdkOmitted(),
-      required this.type_});
+  const WebhookEvalRunSucceeded({required this.createdAt, required this.id, required this.data, this.object = const SdkOmitted(), required this.type_});
 
-  WebhookEvalRunSucceeded Function(
-      {int createdAt,
-      String id,
-      WebhookEvalRunSucceededData data,
-      SdkOptional<WebhookEvalRunSucceededObject> object,
-      WebhookEvalRunSucceededType type_}) get copyWith => _copyWith;
+  WebhookEvalRunSucceeded Function({int createdAt, String id, WebhookEvalRunSucceededData data, SdkOptional<WebhookEvalRunSucceededObject> object, WebhookEvalRunSucceededType type_}) get copyWith => _copyWith;
 
-  WebhookEvalRunSucceeded _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      WebhookEvalRunSucceeded(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as WebhookEvalRunSucceededData,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<WebhookEvalRunSucceededObject>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebhookEvalRunSucceededType,
-      );
+  WebhookEvalRunSucceeded _copyWith({Object? createdAt = sdkOmittedValue, Object? id = sdkOmittedValue, Object? data = sdkOmittedValue, Object? object = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => WebhookEvalRunSucceeded(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as WebhookEvalRunSucceededData,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<WebhookEvalRunSucceededObject>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookEvalRunSucceededType,
+  );
 
-  factory WebhookEvalRunSucceeded.fromJson(Map<String, dynamic> json) =>
-      WebhookEvalRunSucceeded(
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        id: (json['id'] as String?)!,
-        data: (json['data'] != null
-            ? WebhookEvalRunSucceededData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-        object: json['object'] != null
-            ? SdkPresent((json['object'] != null
-                ? WebhookEvalRunSucceededObject.fromJson(
-                    json['object'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? WebhookEvalRunSucceededType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory WebhookEvalRunSucceeded.fromJson(Map<String, dynamic> json) => WebhookEvalRunSucceeded(
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    id: (json['id'] as String?)!,
+    data: (json['data'] != null ? WebhookEvalRunSucceededData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+    object: json['object'] != null ? SdkPresent((json['object'] != null ? WebhookEvalRunSucceededObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? WebhookEvalRunSucceededType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'created_at': createdAt,
-        'id': id,
-        'data': data.toJson(),
-        ...switch (object) {
-          SdkPresent<WebhookEvalRunSucceededObject>(value: final value) => {
-              'object': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-      };
+    'created_at': createdAt,
+    'id': id,
+    'data': data.toJson(),
+    ...switch (object) {
+      SdkPresent<WebhookEvalRunSucceededObject>(value: final value) => {'object': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+  };
 }

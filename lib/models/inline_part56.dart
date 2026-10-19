@@ -10,17 +10,14 @@ enum HostedPluginResourceInlineType {
 
   static HostedPluginResourceInlineType fromJson(String value) {
     switch (value) {
-      case 'inline':
-        return HostedPluginResourceInlineType.inline;
-      default:
-        throw ArgumentError('Unknown HostedPluginResourceInlineType: $value');
+      case 'inline': return HostedPluginResourceInlineType.inline;
+      default: throw ArgumentError('Unknown HostedPluginResourceInlineType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedPluginResourceInlineType.inline:
-        return 'inline';
+      case HostedPluginResourceInlineType.inline: return 'inline';
     }
   }
 
@@ -34,17 +31,14 @@ enum HostedSkillParamInlineType {
 
   static HostedSkillParamInlineType fromJson(String value) {
     switch (value) {
-      case 'inline':
-        return HostedSkillParamInlineType.inline;
-      default:
-        throw ArgumentError('Unknown HostedSkillParamInlineType: $value');
+      case 'inline': return HostedSkillParamInlineType.inline;
+      default: throw ArgumentError('Unknown HostedSkillParamInlineType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedSkillParamInlineType.inline:
-        return 'inline';
+      case HostedSkillParamInlineType.inline: return 'inline';
     }
   }
 
@@ -58,18 +52,14 @@ enum HostedSkillParamSkillReferenceType {
 
   static HostedSkillParamSkillReferenceType fromJson(String value) {
     switch (value) {
-      case 'skill_reference':
-        return HostedSkillParamSkillReferenceType.skillReference;
-      default:
-        throw ArgumentError(
-            'Unknown HostedSkillParamSkillReferenceType: $value');
+      case 'skill_reference': return HostedSkillParamSkillReferenceType.skillReference;
+      default: throw ArgumentError('Unknown HostedSkillParamSkillReferenceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedSkillParamSkillReferenceType.skillReference:
-        return 'skill_reference';
+      case HostedSkillParamSkillReferenceType.skillReference: return 'skill_reference';
     }
   }
 
@@ -83,17 +73,14 @@ enum HostedSkillResourceInlineType {
 
   static HostedSkillResourceInlineType fromJson(String value) {
     switch (value) {
-      case 'inline':
-        return HostedSkillResourceInlineType.inline;
-      default:
-        throw ArgumentError('Unknown HostedSkillResourceInlineType: $value');
+      case 'inline': return HostedSkillResourceInlineType.inline;
+      default: throw ArgumentError('Unknown HostedSkillResourceInlineType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedSkillResourceInlineType.inline:
-        return 'inline';
+      case HostedSkillResourceInlineType.inline: return 'inline';
     }
   }
 
@@ -107,18 +94,14 @@ enum HostedSkillResourceSkillReferenceType {
 
   static HostedSkillResourceSkillReferenceType fromJson(String value) {
     switch (value) {
-      case 'skill_reference':
-        return HostedSkillResourceSkillReferenceType.skillReference;
-      default:
-        throw ArgumentError(
-            'Unknown HostedSkillResourceSkillReferenceType: $value');
+      case 'skill_reference': return HostedSkillResourceSkillReferenceType.skillReference;
+      default: throw ArgumentError('Unknown HostedSkillResourceSkillReferenceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedSkillResourceSkillReferenceType.skillReference:
-        return 'skill_reference';
+      case HostedSkillResourceSkillReferenceType.skillReference: return 'skill_reference';
     }
   }
 
@@ -132,18 +115,14 @@ enum HostedTemplateFileResourceFileIdType {
 
   static HostedTemplateFileResourceFileIdType fromJson(String value) {
     switch (value) {
-      case 'file_id':
-        return HostedTemplateFileResourceFileIdType.fileId;
-      default:
-        throw ArgumentError(
-            'Unknown HostedTemplateFileResourceFileIdType: $value');
+      case 'file_id': return HostedTemplateFileResourceFileIdType.fileId;
+      default: throw ArgumentError('Unknown HostedTemplateFileResourceFileIdType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedTemplateFileResourceFileIdType.fileId:
-        return 'file_id';
+      case HostedTemplateFileResourceFileIdType.fileId: return 'file_id';
     }
   }
 
@@ -157,18 +136,14 @@ enum HostedTemplateFileResourceInlineType {
 
   static HostedTemplateFileResourceInlineType fromJson(String value) {
     switch (value) {
-      case 'inline':
-        return HostedTemplateFileResourceInlineType.inline;
-      default:
-        throw ArgumentError(
-            'Unknown HostedTemplateFileResourceInlineType: $value');
+      case 'inline': return HostedTemplateFileResourceInlineType.inline;
+      default: throw ArgumentError('Unknown HostedTemplateFileResourceInlineType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedTemplateFileResourceInlineType.inline:
-        return 'inline';
+      case HostedTemplateFileResourceInlineType.inline: return 'inline';
     }
   }
 
@@ -182,18 +157,14 @@ enum HostedTemplateSkillResourceInlineType {
 
   static HostedTemplateSkillResourceInlineType fromJson(String value) {
     switch (value) {
-      case 'inline':
-        return HostedTemplateSkillResourceInlineType.inline;
-      default:
-        throw ArgumentError(
-            'Unknown HostedTemplateSkillResourceInlineType: $value');
+      case 'inline': return HostedTemplateSkillResourceInlineType.inline;
+      default: throw ArgumentError('Unknown HostedTemplateSkillResourceInlineType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedTemplateSkillResourceInlineType.inline:
-        return 'inline';
+      case HostedTemplateSkillResourceInlineType.inline: return 'inline';
     }
   }
 
@@ -207,18 +178,14 @@ enum HostedTemplateSkillResourceSkillReferenceType {
 
   static HostedTemplateSkillResourceSkillReferenceType fromJson(String value) {
     switch (value) {
-      case 'skill_reference':
-        return HostedTemplateSkillResourceSkillReferenceType.skillReference;
-      default:
-        throw ArgumentError(
-            'Unknown HostedTemplateSkillResourceSkillReferenceType: $value');
+      case 'skill_reference': return HostedTemplateSkillResourceSkillReferenceType.skillReference;
+      default: throw ArgumentError('Unknown HostedTemplateSkillResourceSkillReferenceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedTemplateSkillResourceSkillReferenceType.skillReference:
-        return 'skill_reference';
+      case HostedTemplateSkillResourceSkillReferenceType.skillReference: return 'skill_reference';
     }
   }
 
@@ -232,17 +199,14 @@ enum HTTPErrorType {
 
   static HTTPErrorType fromJson(String value) {
     switch (value) {
-      case 'http_error':
-        return HTTPErrorType.httpError;
-      default:
-        throw ArgumentError('Unknown HTTPErrorType: $value');
+      case 'http_error': return HTTPErrorType.httpError;
+      default: throw ArgumentError('Unknown HTTPErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HTTPErrorType.httpError:
-        return 'http_error';
+      case HTTPErrorType.httpError: return 'http_error';
     }
   }
 
@@ -252,12 +216,12 @@ enum HTTPErrorType {
 
 /// The background setting for the edited image.
 final class ImageEditCompletedEventBackground {
+
   final String value;
 
   const ImageEditCompletedEventBackground._(this.value);
 
-  factory ImageEditCompletedEventBackground.fromJson(String value) =>
-      ImageEditCompletedEventBackground._(value);
+  factory ImageEditCompletedEventBackground.fromJson(String value) => ImageEditCompletedEventBackground._(value);
 
   static const transparent = ImageEditCompletedEventBackground._('transparent');
   static const opaque = ImageEditCompletedEventBackground._('opaque');
@@ -265,25 +229,22 @@ final class ImageEditCompletedEventBackground {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageEditCompletedEventBackground && other.value == value;
+  @override bool operator ==(Object other) => other is ImageEditCompletedEventBackground && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The output format for the edited image.
 final class ImageEditCompletedEventOutputFormat {
+
   final String value;
 
   const ImageEditCompletedEventOutputFormat._(this.value);
 
-  factory ImageEditCompletedEventOutputFormat.fromJson(String value) =>
-      ImageEditCompletedEventOutputFormat._(value);
+  factory ImageEditCompletedEventOutputFormat.fromJson(String value) => ImageEditCompletedEventOutputFormat._(value);
 
   static const png = ImageEditCompletedEventOutputFormat._('png');
   static const webp = ImageEditCompletedEventOutputFormat._('webp');
@@ -291,25 +252,22 @@ final class ImageEditCompletedEventOutputFormat {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageEditCompletedEventOutputFormat && other.value == value;
+  @override bool operator ==(Object other) => other is ImageEditCompletedEventOutputFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The quality setting for the edited image.
 final class ImageEditCompletedEventQuality {
+
   final String value;
 
   const ImageEditCompletedEventQuality._(this.value);
 
-  factory ImageEditCompletedEventQuality.fromJson(String value) =>
-      ImageEditCompletedEventQuality._(value);
+  factory ImageEditCompletedEventQuality.fromJson(String value) => ImageEditCompletedEventQuality._(value);
 
   static const low = ImageEditCompletedEventQuality._('low');
   static const medium = ImageEditCompletedEventQuality._('medium');
@@ -320,13 +278,10 @@ final class ImageEditCompletedEventQuality {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageEditCompletedEventQuality && other.value == value;
+  @override bool operator ==(Object other) => other is ImageEditCompletedEventQuality && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

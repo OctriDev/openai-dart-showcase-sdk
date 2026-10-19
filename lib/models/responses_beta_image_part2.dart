@@ -8,382 +8,189 @@ part of 'responses_beta_image.dart';
 class BetaImageGenToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `agent` wire field.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the image generation call. Always `image_generation_call`.
   final BetaImageGenToolCallType type_;
-
   /// The unique ID of the image generation call.
   final String id;
-
   /// The status of the image generation call.
   final BetaImageGenToolCallStatus status;
-
   /// Required `string` value serialized in the `result` wire field.
   final String? result;
-
   /// Details of a moderation failure, when available.
   final SdkOptional<BetaImageGenToolCallError> error;
-
   /// The image dimensions as a `WIDTHxHEIGHT` string, for example `1536x864`.
   final SdkOptional<String?> size;
-
   /// Optional API value serialized in the `quality` wire field.
   final SdkOptional<BetaImageGenToolCallQualityVariant0?> quality;
-
   /// Optional API value serialized in the `action` wire field.
   final SdkOptional<BetaImageGenActionEnum?> action;
-
   /// Optional API value serialized in the `background` wire field.
   final SdkOptional<BetaImageBackground?> background;
-
   /// Optional API value serialized in the `output_format` wire field.
   final SdkOptional<BetaImageOutputFormat?> outputFormat;
-
   /// Optional `string` value serialized in the `revised_prompt` wire field.
   final SdkOptional<String?> revisedPrompt;
 
-  const BetaImageGenToolCall(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.id,
-      required this.status,
-      required this.result,
-      this.error = const SdkOmitted(),
-      this.size = const SdkOmitted(),
-      this.quality = const SdkOmitted(),
-      this.action = const SdkOmitted(),
-      this.background = const SdkOmitted(),
-      this.outputFormat = const SdkOmitted(),
-      this.revisedPrompt = const SdkOmitted()});
+  const BetaImageGenToolCall({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.status, required this.result, this.error = const SdkOmitted(), this.size = const SdkOmitted(), this.quality = const SdkOmitted(), this.action = const SdkOmitted(), this.background = const SdkOmitted(), this.outputFormat = const SdkOmitted(), this.revisedPrompt = const SdkOmitted()});
 
-  BetaImageGenToolCall Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaImageGenToolCallType type_,
-      String id,
-      BetaImageGenToolCallStatus status,
-      String? result,
-      SdkOptional<BetaImageGenToolCallError> error,
-      SdkOptional<String?> size,
-      SdkOptional<BetaImageGenToolCallQualityVariant0?> quality,
-      SdkOptional<BetaImageGenActionEnum?> action,
-      SdkOptional<BetaImageBackground?> background,
-      SdkOptional<BetaImageOutputFormat?> outputFormat,
-      SdkOptional<String?> revisedPrompt}) get copyWith => _copyWith;
+  BetaImageGenToolCall Function({SdkOptional<BetaAgentTag?> agent, BetaImageGenToolCallType type_, String id, BetaImageGenToolCallStatus status, String? result, SdkOptional<BetaImageGenToolCallError> error, SdkOptional<String?> size, SdkOptional<BetaImageGenToolCallQualityVariant0?> quality, SdkOptional<BetaImageGenActionEnum?> action, SdkOptional<BetaImageBackground?> background, SdkOptional<BetaImageOutputFormat?> outputFormat, SdkOptional<String?> revisedPrompt}) get copyWith => _copyWith;
 
-  BetaImageGenToolCall _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? result = sdkOmittedValue,
-          Object? error = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? quality = sdkOmittedValue,
-          Object? action = sdkOmittedValue,
-          Object? background = sdkOmittedValue,
-          Object? outputFormat = sdkOmittedValue,
-          Object? revisedPrompt = sdkOmittedValue}) =>
-      BetaImageGenToolCall(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaImageGenToolCallType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as BetaImageGenToolCallStatus,
-        result: identical(result, sdkOmittedValue)
-            ? this.result
-            : result as String?,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as SdkOptional<BetaImageGenToolCallError>,
-        size: identical(size, sdkOmittedValue)
-            ? this.size
-            : size as SdkOptional<String?>,
-        quality: identical(quality, sdkOmittedValue)
-            ? this.quality
-            : quality as SdkOptional<BetaImageGenToolCallQualityVariant0?>,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<BetaImageGenActionEnum?>,
-        background: identical(background, sdkOmittedValue)
-            ? this.background
-            : background as SdkOptional<BetaImageBackground?>,
-        outputFormat: identical(outputFormat, sdkOmittedValue)
-            ? this.outputFormat
-            : outputFormat as SdkOptional<BetaImageOutputFormat?>,
-        revisedPrompt: identical(revisedPrompt, sdkOmittedValue)
-            ? this.revisedPrompt
-            : revisedPrompt as SdkOptional<String?>,
-      );
+  BetaImageGenToolCall _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? result = sdkOmittedValue, Object? error = sdkOmittedValue, Object? size = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? action = sdkOmittedValue, Object? background = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? revisedPrompt = sdkOmittedValue}) => BetaImageGenToolCall(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaImageGenToolCallType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as BetaImageGenToolCallStatus,
+    result: identical(result, sdkOmittedValue) ? this.result : result as String?,
+    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<BetaImageGenToolCallError>,
+    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String?>,
+    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as SdkOptional<BetaImageGenToolCallQualityVariant0?>,
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<BetaImageGenActionEnum?>,
+    background: identical(background, sdkOmittedValue) ? this.background : background as SdkOptional<BetaImageBackground?>,
+    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as SdkOptional<BetaImageOutputFormat?>,
+    revisedPrompt: identical(revisedPrompt, sdkOmittedValue) ? this.revisedPrompt : revisedPrompt as SdkOptional<String?>,
+  );
 
-  factory BetaImageGenToolCall.fromJson(Map<String, dynamic> json) =>
-      BetaImageGenToolCall(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaImageGenToolCallType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        status: (json['status'] != null
-            ? BetaImageGenToolCallStatus.fromJson(json['status'] as String)
-            : null)!,
-        result: json.containsKey('result')
-            ? json['result'] as String?
-            : throw ArgumentError.value(
-                null, 'result', 'Required property is missing'),
-        error: json['error'] != null
-            ? SdkPresent((json['error'] != null
-                ? BetaImageGenToolCallError.fromJson(
-                    json['error'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        size: json.containsKey('size')
-            ? SdkPresent(json['size'] as String?)
-            : const SdkOmitted(),
-        quality: json.containsKey('quality')
-            ? SdkPresent(json['quality'] != null
-                ? BetaImageGenToolCallQualityVariant0.fromJson(
-                    json['quality'] as String)
-                : null)
-            : const SdkOmitted(),
-        action: json.containsKey('action')
-            ? SdkPresent(json['action'] != null
-                ? BetaImageGenActionEnum.fromJson(json['action'] as String)
-                : null)
-            : const SdkOmitted(),
-        background: json.containsKey('background')
-            ? SdkPresent(json['background'] != null
-                ? BetaImageBackground.fromJson(json['background'] as String)
-                : null)
-            : const SdkOmitted(),
-        outputFormat: json.containsKey('output_format')
-            ? SdkPresent(json['output_format'] != null
-                ? BetaImageOutputFormat.fromJson(
-                    json['output_format'] as String)
-                : null)
-            : const SdkOmitted(),
-        revisedPrompt: json.containsKey('revised_prompt')
-            ? SdkPresent(json['revised_prompt'] as String?)
-            : const SdkOmitted(),
-      );
+  factory BetaImageGenToolCall.fromJson(Map<String, dynamic> json) => BetaImageGenToolCall(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaImageGenToolCallType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    status: (json['status'] != null ? BetaImageGenToolCallStatus.fromJson(json['status'] as String) : null)!,
+    result: json.containsKey('result') ? json['result'] as String? : throw ArgumentError.value(null, 'result', 'Required property is missing'),
+    error: json['error'] != null ? SdkPresent((json['error'] != null ? BetaImageGenToolCallError.fromJson(json['error'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    size: json.containsKey('size') ? SdkPresent(json['size'] as String?) : const SdkOmitted(),
+    quality: json.containsKey('quality') ? SdkPresent(json['quality'] != null ? BetaImageGenToolCallQualityVariant0.fromJson(json['quality'] as String) : null) : const SdkOmitted(),
+    action: json.containsKey('action') ? SdkPresent(json['action'] != null ? BetaImageGenActionEnum.fromJson(json['action'] as String) : null) : const SdkOmitted(),
+    background: json.containsKey('background') ? SdkPresent(json['background'] != null ? BetaImageBackground.fromJson(json['background'] as String) : null) : const SdkOmitted(),
+    outputFormat: json.containsKey('output_format') ? SdkPresent(json['output_format'] != null ? BetaImageOutputFormat.fromJson(json['output_format'] as String) : null) : const SdkOmitted(),
+    revisedPrompt: json.containsKey('revised_prompt') ? SdkPresent(json['revised_prompt'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'id': id,
-        'status': status.toJson(),
-        'result': result,
-        ...switch (error) {
-          SdkPresent<BetaImageGenToolCallError>(value: final value) => {
-              'error': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (size) {
-          SdkPresent<String?>(value: final value) => {
-              'size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (quality) {
-          SdkPresent<BetaImageGenToolCallQualityVariant0?>(
-            value: final value
-          ) =>
-            {
-              'quality': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (action) {
-          SdkPresent<BetaImageGenActionEnum?>(value: final value) => {
-              'action': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (background) {
-          SdkPresent<BetaImageBackground?>(value: final value) => {
-              'background': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputFormat) {
-          SdkPresent<BetaImageOutputFormat?>(value: final value) => {
-              'output_format': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (revisedPrompt) {
-          SdkPresent<String?>(value: final value) => {
-              'revised_prompt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'id': id,
+    'status': status.toJson(),
+    'result': result,
+    ...switch (error) {
+      SdkPresent<BetaImageGenToolCallError>(value: final value) => {'error': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (size) {
+      SdkPresent<String?>(value: final value) => {'size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (quality) {
+      SdkPresent<BetaImageGenToolCallQualityVariant0?>(value: final value) => {'quality': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (action) {
+      SdkPresent<BetaImageGenActionEnum?>(value: final value) => {'action': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (background) {
+      SdkPresent<BetaImageBackground?>(value: final value) => {'background': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputFormat) {
+      SdkPresent<BetaImageOutputFormat?>(value: final value) => {'output_format': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (revisedPrompt) {
+      SdkPresent<String?>(value: final value) => {'revised_prompt': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BetaImageGenToolCallError` API schema.
 class BetaImageGenToolCallError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `code` wire field.
   final String? code;
-
   /// The error type.
   final String type_;
-
   /// A description of the error.
   final String message;
-
   /// Required `string` value serialized in the `param` wire field.
   final String? param;
-
   /// Public details for a `moderation_blocked` error, when available.
   final SdkOptional<BetaImageGenToolCallModerationDetails> moderationDetails;
 
-  const BetaImageGenToolCallError(
-      {required this.code,
-      required this.type_,
-      required this.message,
-      required this.param,
-      this.moderationDetails = const SdkOmitted()});
+  const BetaImageGenToolCallError({required this.code, required this.type_, required this.message, required this.param, this.moderationDetails = const SdkOmitted()});
 
-  BetaImageGenToolCallError Function(
-          {String? code,
-          String type_,
-          String message,
-          String? param,
-          SdkOptional<BetaImageGenToolCallModerationDetails> moderationDetails})
-      get copyWith => _copyWith;
+  BetaImageGenToolCallError Function({String? code, String type_, String message, String? param, SdkOptional<BetaImageGenToolCallModerationDetails> moderationDetails}) get copyWith => _copyWith;
 
-  BetaImageGenToolCallError _copyWith(
-          {Object? code = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? param = sdkOmittedValue,
-          Object? moderationDetails = sdkOmittedValue}) =>
-      BetaImageGenToolCallError(
-        code: identical(code, sdkOmittedValue) ? this.code : code as String?,
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-        param:
-            identical(param, sdkOmittedValue) ? this.param : param as String?,
-        moderationDetails: identical(moderationDetails, sdkOmittedValue)
-            ? this.moderationDetails
-            : moderationDetails
-                as SdkOptional<BetaImageGenToolCallModerationDetails>,
-      );
+  BetaImageGenToolCallError _copyWith({Object? code = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? message = sdkOmittedValue, Object? param = sdkOmittedValue, Object? moderationDetails = sdkOmittedValue}) => BetaImageGenToolCallError(
+    code: identical(code, sdkOmittedValue) ? this.code : code as String?,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+    param: identical(param, sdkOmittedValue) ? this.param : param as String?,
+    moderationDetails: identical(moderationDetails, sdkOmittedValue) ? this.moderationDetails : moderationDetails as SdkOptional<BetaImageGenToolCallModerationDetails>,
+  );
 
-  factory BetaImageGenToolCallError.fromJson(Map<String, dynamic> json) =>
-      BetaImageGenToolCallError(
-        code: json.containsKey('code')
-            ? json['code'] as String?
-            : throw ArgumentError.value(
-                null, 'code', 'Required property is missing'),
-        type_: (json['type'] as String?)!,
-        message: (json['message'] as String?)!,
-        param: json.containsKey('param')
-            ? json['param'] as String?
-            : throw ArgumentError.value(
-                null, 'param', 'Required property is missing'),
-        moderationDetails: json['moderation_details'] != null
-            ? SdkPresent((json['moderation_details'] != null
-                ? BetaImageGenToolCallModerationDetails.fromJson(
-                    json['moderation_details'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory BetaImageGenToolCallError.fromJson(Map<String, dynamic> json) => BetaImageGenToolCallError(
+    code: json.containsKey('code') ? json['code'] as String? : throw ArgumentError.value(null, 'code', 'Required property is missing'),
+    type_: (json['type'] as String?)!,
+    message: (json['message'] as String?)!,
+    param: json.containsKey('param') ? json['param'] as String? : throw ArgumentError.value(null, 'param', 'Required property is missing'),
+    moderationDetails: json['moderation_details'] != null ? SdkPresent((json['moderation_details'] != null ? BetaImageGenToolCallModerationDetails.fromJson(json['moderation_details'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'code': code,
-        'type': type_,
-        'message': message,
-        'param': param,
-        ...switch (moderationDetails) {
-          SdkPresent<BetaImageGenToolCallModerationDetails>(
-            value: final value
-          ) =>
-            {
-              'moderation_details': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'code': code,
+    'type': type_,
+    'message': message,
+    'param': param,
+    ...switch (moderationDetails) {
+      SdkPresent<BetaImageGenToolCallModerationDetails>(value: final value) => {'moderation_details': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BetaImageGenToolCallModerationDetails` API schema.
 class BetaImageGenToolCallModerationDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The stage where moderation blocked the image generation call.
   final BetaImageGenToolCallModerationDetailsModerationStage moderationStage;
-
   /// Public moderation categories. New category values may be added over time.
   final List<String> categories;
 
-  const BetaImageGenToolCallModerationDetails(
-      {required this.moderationStage, required this.categories});
+  const BetaImageGenToolCallModerationDetails({required this.moderationStage, required this.categories});
 
-  BetaImageGenToolCallModerationDetails Function(
-      {BetaImageGenToolCallModerationDetailsModerationStage moderationStage,
-      List<String> categories}) get copyWith => _copyWith;
+  BetaImageGenToolCallModerationDetails Function({BetaImageGenToolCallModerationDetailsModerationStage moderationStage, List<String> categories}) get copyWith => _copyWith;
 
-  BetaImageGenToolCallModerationDetails _copyWith(
-          {Object? moderationStage = sdkOmittedValue,
-          Object? categories = sdkOmittedValue}) =>
-      BetaImageGenToolCallModerationDetails(
-        moderationStage: identical(moderationStage, sdkOmittedValue)
-            ? this.moderationStage
-            : moderationStage
-                as BetaImageGenToolCallModerationDetailsModerationStage,
-        categories: identical(categories, sdkOmittedValue)
-            ? this.categories
-            : categories as List<String>,
-      );
+  BetaImageGenToolCallModerationDetails _copyWith({Object? moderationStage = sdkOmittedValue, Object? categories = sdkOmittedValue}) => BetaImageGenToolCallModerationDetails(
+    moderationStage: identical(moderationStage, sdkOmittedValue) ? this.moderationStage : moderationStage as BetaImageGenToolCallModerationDetailsModerationStage,
+    categories: identical(categories, sdkOmittedValue) ? this.categories : categories as List<String>,
+  );
 
-  factory BetaImageGenToolCallModerationDetails.fromJson(
-          Map<String, dynamic> json) =>
-      BetaImageGenToolCallModerationDetails(
-        moderationStage: (json['moderation_stage'] != null
-            ? BetaImageGenToolCallModerationDetailsModerationStage.fromJson(
-                json['moderation_stage'] as String)
-            : null)!,
-        categories:
-            ((json['categories'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory BetaImageGenToolCallModerationDetails.fromJson(Map<String, dynamic> json) => BetaImageGenToolCallModerationDetails(
+    moderationStage: (json['moderation_stage'] != null ? BetaImageGenToolCallModerationDetailsModerationStage.fromJson(json['moderation_stage'] as String) : null)!,
+    categories: ((json['categories'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'moderation_stage': moderationStage.toJson(),
-        'categories': categories,
-      };
+    'moderation_stage': moderationStage.toJson(),
+    'categories': categories,
+  };
 }
 
 /// Typed representation of the `BetaImageOutputFormat` API schema.
 final class BetaImageOutputFormat {
+
   final String value;
 
   const BetaImageOutputFormat._(this.value);
 
-  factory BetaImageOutputFormat.fromJson(String value) =>
-      BetaImageOutputFormat._(value);
+  factory BetaImageOutputFormat.fromJson(String value) => BetaImageOutputFormat._(value);
 
   static const png = BetaImageOutputFormat._('png');
   static const webp = BetaImageOutputFormat._('webp');
@@ -391,13 +198,10 @@ final class BetaImageOutputFormat {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaImageOutputFormat && other.value == value;
+  @override bool operator ==(Object other) => other is BetaImageOutputFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

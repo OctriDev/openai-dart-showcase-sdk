@@ -8,32 +8,24 @@ part of 'live_live.dart';
 class LiveApplyPatchToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveApplyPatchToolInputParamType type_;
 
   const LiveApplyPatchToolInputParam({required this.type_});
 
-  LiveApplyPatchToolInputParam Function(
-      {LiveApplyPatchToolInputParamType type_}) get copyWith => _copyWith;
+  LiveApplyPatchToolInputParam Function({LiveApplyPatchToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveApplyPatchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      LiveApplyPatchToolInputParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveApplyPatchToolInputParamType,
-      );
+  LiveApplyPatchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveApplyPatchToolInputParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveApplyPatchToolInputParamType,
+  );
 
-  factory LiveApplyPatchToolInputParam.fromJson(Map<String, dynamic> json) =>
-      LiveApplyPatchToolInputParam(
-        type_: (json['type'] != null
-            ? LiveApplyPatchToolInputParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory LiveApplyPatchToolInputParam.fromJson(Map<String, dynamic> json) => LiveApplyPatchToolInputParam(
+    type_: (json['type'] != null ? LiveApplyPatchToolInputParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 sealed class LiveAudioFormat {
@@ -42,148 +34,90 @@ sealed class LiveAudioFormat {
   const LiveAudioFormat();
   factory LiveAudioFormat.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = LiveSessionAudioFormatPCMParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveAudioFormatLiveSessionAudioFormatPCMParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveSessionAudioFormatPCMUParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveAudioFormatLiveSessionAudioFormatPCMUParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveSessionAudioFormatPCMAParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveAudioFormatLiveSessionAudioFormatPCMAParam(value);
-        }
-      } catch (_) {}
+      try { final value = LiveSessionAudioFormatPCMParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveAudioFormatLiveSessionAudioFormatPCMParam(value); } } catch (_) {}
+      try { final value = LiveSessionAudioFormatPCMUParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveAudioFormatLiveSessionAudioFormatPCMUParam(value); } } catch (_) {}
+      try { final value = LiveSessionAudioFormatPCMAParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveAudioFormatLiveSessionAudioFormatPCMAParam(value); } } catch (_) {}
     }
-    try {
-      return LiveAudioFormatLiveSessionAudioFormatPCMParam(
-          LiveSessionAudioFormatPCMParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveAudioFormatLiveSessionAudioFormatPCMUParam(
-          LiveSessionAudioFormatPCMUParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveAudioFormatLiveSessionAudioFormatPCMAParam(
-          LiveSessionAudioFormatPCMAParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"audio/pcm", "audio/pcmu", "audio/pcma"}
-            .contains(json["type"])) {
-      return UnknownLiveAudioFormat(json);
-    }
+    try { return LiveAudioFormatLiveSessionAudioFormatPCMParam(LiveSessionAudioFormatPCMParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveAudioFormatLiveSessionAudioFormatPCMUParam(LiveSessionAudioFormatPCMUParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveAudioFormatLiveSessionAudioFormatPCMAParam(LiveSessionAudioFormatPCMAParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"audio/pcm", "audio/pcmu", "audio/pcma"}.contains(json["type"])) { return UnknownLiveAudioFormat(json); }
     throw FormatException("No variant matched for LiveAudioFormat");
   }
   Object? toJson();
 }
 
-final class LiveAudioFormatLiveSessionAudioFormatPCMParam
-    extends LiveAudioFormat {
+final class LiveAudioFormatLiveSessionAudioFormatPCMParam extends LiveAudioFormat {
   final LiveSessionAudioFormatPCMParam value;
   const LiveAudioFormatLiveSessionAudioFormatPCMParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveAudioFormatLiveSessionAudioFormatPCMUParam
-    extends LiveAudioFormat {
+final class LiveAudioFormatLiveSessionAudioFormatPCMUParam extends LiveAudioFormat {
   final LiveSessionAudioFormatPCMUParam value;
   const LiveAudioFormatLiveSessionAudioFormatPCMUParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveAudioFormatLiveSessionAudioFormatPCMAParam
-    extends LiveAudioFormat {
+final class LiveAudioFormatLiveSessionAudioFormatPCMAParam extends LiveAudioFormat {
   final LiveSessionAudioFormatPCMAParam value;
   const LiveAudioFormatLiveSessionAudioFormatPCMAParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [LiveAudioFormat] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownLiveAudioFormat extends LiveAudioFormat {
   final Map<String, dynamic> raw;
   const UnknownLiveAudioFormat(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Typed representation of the `LiveCodeInterpreterToolInputParam` API schema.
 class LiveCodeInterpreterToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveCodeInterpreterToolInputParamType type_;
 
   const LiveCodeInterpreterToolInputParam({required this.type_});
 
-  LiveCodeInterpreterToolInputParam Function(
-      {LiveCodeInterpreterToolInputParamType type_}) get copyWith => _copyWith;
+  LiveCodeInterpreterToolInputParam Function({LiveCodeInterpreterToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveCodeInterpreterToolInputParam _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      LiveCodeInterpreterToolInputParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveCodeInterpreterToolInputParamType,
-      );
+  LiveCodeInterpreterToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveCodeInterpreterToolInputParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveCodeInterpreterToolInputParamType,
+  );
 
-  factory LiveCodeInterpreterToolInputParam.fromJson(
-          Map<String, dynamic> json) =>
-      LiveCodeInterpreterToolInputParam(
-        type_: (json['type'] != null
-            ? LiveCodeInterpreterToolInputParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory LiveCodeInterpreterToolInputParam.fromJson(Map<String, dynamic> json) => LiveCodeInterpreterToolInputParam(
+    type_: (json['type'] != null ? LiveCodeInterpreterToolInputParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `LiveComputerToolInputParam` API schema.
 class LiveComputerToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveComputerToolInputParamType type_;
 
   const LiveComputerToolInputParam({required this.type_});
 
-  LiveComputerToolInputParam Function({LiveComputerToolInputParamType type_})
-      get copyWith => _copyWith;
+  LiveComputerToolInputParam Function({LiveComputerToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveComputerToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      LiveComputerToolInputParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveComputerToolInputParamType,
-      );
+  LiveComputerToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveComputerToolInputParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveComputerToolInputParamType,
+  );
 
-  factory LiveComputerToolInputParam.fromJson(Map<String, dynamic> json) =>
-      LiveComputerToolInputParam(
-        type_: (json['type'] != null
-            ? LiveComputerToolInputParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory LiveComputerToolInputParam.fromJson(Map<String, dynamic> json) => LiveComputerToolInputParam(
+    type_: (json['type'] != null ? LiveComputerToolInputParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `LiveConnectParams` API schema.
@@ -193,40 +127,35 @@ class LiveConnectParams {
 
   const LiveConnectParams();
 
-  factory LiveConnectParams.fromJson(Map<String, dynamic> json) =>
-      LiveConnectParams();
+  factory LiveConnectParams.fromJson(Map<String, dynamic> json) => LiveConnectParams(
+  );
 
-  Map<String, dynamic> toJson() => {};
+  Map<String, dynamic> toJson() => {
+  };
 }
 
 /// The latest measured context-window usage of the Live model. This is separate from billing usage and delegated Responses token usage.
 class LiveContextWindowUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The latest active context token count divided by the Live model context limit. Can decrease after compaction and may lag between measured audio frames.
   final double usageRatio;
 
   const LiveContextWindowUsage({required this.usageRatio});
 
-  LiveContextWindowUsage Function({double usageRatio}) get copyWith =>
-      _copyWith;
+  LiveContextWindowUsage Function({double usageRatio}) get copyWith => _copyWith;
 
-  LiveContextWindowUsage _copyWith({Object? usageRatio = sdkOmittedValue}) =>
-      LiveContextWindowUsage(
-        usageRatio: identical(usageRatio, sdkOmittedValue)
-            ? this.usageRatio
-            : usageRatio as double,
-      );
+  LiveContextWindowUsage _copyWith({Object? usageRatio = sdkOmittedValue}) => LiveContextWindowUsage(
+    usageRatio: identical(usageRatio, sdkOmittedValue) ? this.usageRatio : usageRatio as double,
+  );
 
-  factory LiveContextWindowUsage.fromJson(Map<String, dynamic> json) =>
-      LiveContextWindowUsage(
-        usageRatio: ((json['usage_ratio'] as num?)?.toDouble())!,
-      );
+  factory LiveContextWindowUsage.fromJson(Map<String, dynamic> json) => LiveContextWindowUsage(
+    usageRatio: ((json['usage_ratio'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'usage_ratio': usageRatio,
-      };
+    'usage_ratio': usageRatio,
+  };
 }
 
 sealed class LiveDataChannelConfigParamAllowedServerEvents {
@@ -234,100 +163,63 @@ sealed class LiveDataChannelConfigParamAllowedServerEvents {
   static const String constructionSurface = 'named';
   const LiveDataChannelConfigParamAllowedServerEvents();
   factory LiveDataChannelConfigParamAllowedServerEvents.fromJson(Object? json) {
-    try {
-      return LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0(
-          LiveDataChannelConfigParamAllowedServerEventsVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    try {
-      return LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam(
-          LiveAllowedServerEventParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for LiveDataChannelConfigParamAllowedServerEvents");
+    try { return LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0(LiveDataChannelConfigParamAllowedServerEventsVariant0.fromJson(json as String)); } catch (_) {}
+    try { return LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam(LiveAllowedServerEventParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for LiveDataChannelConfigParamAllowedServerEvents");
   }
   Object? toJson();
 }
 
-final class LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0
-    extends LiveDataChannelConfigParamAllowedServerEvents {
+final class LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0 extends LiveDataChannelConfigParamAllowedServerEvents {
   final LiveDataChannelConfigParamAllowedServerEventsVariant0 value;
-  const LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam
-    extends LiveDataChannelConfigParamAllowedServerEvents {
+final class LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam extends LiveDataChannelConfigParamAllowedServerEvents {
   final LiveAllowedServerEventParam value;
-  const LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// Control which Live events an untrusted WebRTC frontend can send and receive over its data channel. These restrictions do not apply to trusted sideband connections.
 class LiveDataChannelConfigParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Client event types that the frontend data channel may send. Use 'all' to allow every client event; an empty array allows none. Omission preserves the existing allow-all behavior.
   final SdkOptional<List<String>> allowedClientEvents;
-
   /// Server events that may be sent to the frontend data channel. Use 'all' to allow every server event; an empty array allows none. Omission preserves the existing allow-all behavior. Responses events use an object with type 'response.event' and a response_event selector.
   final SdkOptional<dynamic> allowedServerEvents;
 
-  const LiveDataChannelConfigParam(
-      {this.allowedClientEvents = const SdkOmitted(),
-      this.allowedServerEvents = const SdkOmitted()});
+  const LiveDataChannelConfigParam({this.allowedClientEvents = const SdkOmitted(), this.allowedServerEvents = const SdkOmitted()});
 
-  LiveDataChannelConfigParam Function(
-      {SdkOptional<List<String>> allowedClientEvents,
-      SdkOptional<dynamic> allowedServerEvents}) get copyWith => _copyWith;
+  LiveDataChannelConfigParam Function({SdkOptional<List<String>> allowedClientEvents, SdkOptional<dynamic> allowedServerEvents}) get copyWith => _copyWith;
 
-  LiveDataChannelConfigParam _copyWith(
-          {Object? allowedClientEvents = sdkOmittedValue,
-          Object? allowedServerEvents = sdkOmittedValue}) =>
-      LiveDataChannelConfigParam(
-        allowedClientEvents: identical(allowedClientEvents, sdkOmittedValue)
-            ? this.allowedClientEvents
-            : allowedClientEvents as SdkOptional<List<String>>,
-        allowedServerEvents: identical(allowedServerEvents, sdkOmittedValue)
-            ? this.allowedServerEvents
-            : allowedServerEvents as SdkOptional<dynamic>,
-      );
+  LiveDataChannelConfigParam _copyWith({Object? allowedClientEvents = sdkOmittedValue, Object? allowedServerEvents = sdkOmittedValue}) => LiveDataChannelConfigParam(
+    allowedClientEvents: identical(allowedClientEvents, sdkOmittedValue) ? this.allowedClientEvents : allowedClientEvents as SdkOptional<List<String>>,
+    allowedServerEvents: identical(allowedServerEvents, sdkOmittedValue) ? this.allowedServerEvents : allowedServerEvents as SdkOptional<dynamic>,
+  );
 
-  factory LiveDataChannelConfigParam.fromJson(Map<String, dynamic> json) =>
-      LiveDataChannelConfigParam(
-        allowedClientEvents: json['allowed_client_events'] != null
-            ? SdkPresent(((json['allowed_client_events'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        allowedServerEvents: json['allowed_server_events'] != null
-            ? SdkPresent((json['allowed_server_events'])!)
-            : const SdkOmitted(),
-      );
+  factory LiveDataChannelConfigParam.fromJson(Map<String, dynamic> json) => LiveDataChannelConfigParam(
+    allowedClientEvents: json['allowed_client_events'] != null ? SdkPresent(((json['allowed_client_events'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    allowedServerEvents: json['allowed_server_events'] != null ? SdkPresent((json['allowed_server_events'])!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (allowedClientEvents) {
-          SdkPresent<List<String>>(value: final value) => {
-              'allowed_client_events': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedServerEvents) {
-          SdkPresent<dynamic>(value: final value) => {
-              'allowed_server_events': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (allowedClientEvents) {
+      SdkPresent<List<String>>(value: final value) => {'allowed_client_events': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedServerEvents) {
+      SdkPresent<dynamic>(value: final value) => {'allowed_server_events': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `LiveDetailEnum` API schema.
 final class LiveDetailEnum {
+
   final String value;
 
   const LiveDetailEnum._(this.value);
@@ -341,88 +233,52 @@ final class LiveDetailEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDetailEnum && other.value == value;
+  @override bool operator ==(Object other) => other is LiveDetailEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Reports an error in the Live session, such as an invalid client command. Use error.client_event_id, when present, to identify the command that caused the error.
 class LiveErrorEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the Live server event.
   final String eventId;
-
   /// The event_id of the client command associated with this server event, when supplied.
   final SdkOptional<String> clientEventId;
-
   /// The event type, always `error`.
   final LiveErrorEventType type_;
-
   /// Details of the Live error and the client command that caused it, when known.
   final LiveLiveError error;
 
-  const LiveErrorEvent(
-      {required this.eventId,
-      this.clientEventId = const SdkOmitted(),
-      required this.type_,
-      required this.error});
+  const LiveErrorEvent({required this.eventId, this.clientEventId = const SdkOmitted(), required this.type_, required this.error});
 
-  LiveErrorEvent Function(
-      {String eventId,
-      SdkOptional<String> clientEventId,
-      LiveErrorEventType type_,
-      LiveLiveError error}) get copyWith => _copyWith;
+  LiveErrorEvent Function({String eventId, SdkOptional<String> clientEventId, LiveErrorEventType type_, LiveLiveError error}) get copyWith => _copyWith;
 
-  LiveErrorEvent _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? clientEventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? error = sdkOmittedValue}) =>
-      LiveErrorEvent(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        clientEventId: identical(clientEventId, sdkOmittedValue)
-            ? this.clientEventId
-            : clientEventId as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveErrorEventType,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as LiveLiveError,
-      );
+  LiveErrorEvent _copyWith({Object? eventId = sdkOmittedValue, Object? clientEventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? error = sdkOmittedValue}) => LiveErrorEvent(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    clientEventId: identical(clientEventId, sdkOmittedValue) ? this.clientEventId : clientEventId as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveErrorEventType,
+    error: identical(error, sdkOmittedValue) ? this.error : error as LiveLiveError,
+  );
 
   factory LiveErrorEvent.fromJson(Map<String, dynamic> json) => LiveErrorEvent(
-        eventId: (json['event_id'] as String?)!,
-        clientEventId: json['client_event_id'] != null
-            ? SdkPresent((json['client_event_id'] as String?)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? LiveErrorEventType.fromJson(json['type'] as String)
-            : null)!,
-        error: (json['error'] != null
-            ? LiveLiveError.fromJson(json['error'] as Map<String, dynamic>)
-            : null)!,
-      );
+    eventId: (json['event_id'] as String?)!,
+    clientEventId: json['client_event_id'] != null ? SdkPresent((json['client_event_id'] as String?)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? LiveErrorEventType.fromJson(json['type'] as String) : null)!,
+    error: (json['error'] != null ? LiveLiveError.fromJson(json['error'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        ...switch (clientEventId) {
-          SdkPresent<String>(value: final value) => {
-              'client_event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'error': error.toJson(),
-      };
+    'event_id': eventId,
+    ...switch (clientEventId) {
+      SdkPresent<String>(value: final value) => {'client_event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'error': error.toJson(),
+  };
 }

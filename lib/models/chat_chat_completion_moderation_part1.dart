@@ -8,97 +8,63 @@ part of 'chat_chat_completion_moderation.dart';
 class ChatCompletionModeration {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Moderation for the request input.
   final ChatCompletionModerationInput input;
-
   /// Moderation for the generated output.
   final ChatCompletionModerationOutput output;
 
   const ChatCompletionModeration({required this.input, required this.output});
 
-  ChatCompletionModeration Function(
-      {ChatCompletionModerationInput input,
-      ChatCompletionModerationOutput output}) get copyWith => _copyWith;
+  ChatCompletionModeration Function({ChatCompletionModerationInput input, ChatCompletionModerationOutput output}) get copyWith => _copyWith;
 
-  ChatCompletionModeration _copyWith(
-          {Object? input = sdkOmittedValue,
-          Object? output = sdkOmittedValue}) =>
-      ChatCompletionModeration(
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as ChatCompletionModerationInput,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as ChatCompletionModerationOutput,
-      );
+  ChatCompletionModeration _copyWith({Object? input = sdkOmittedValue, Object? output = sdkOmittedValue}) => ChatCompletionModeration(
+    input: identical(input, sdkOmittedValue) ? this.input : input as ChatCompletionModerationInput,
+    output: identical(output, sdkOmittedValue) ? this.output : output as ChatCompletionModerationOutput,
+  );
 
-  factory ChatCompletionModeration.fromJson(Map<String, dynamic> json) =>
-      ChatCompletionModeration(
-        input: (json['input'] != null
-            ? ChatCompletionModerationInput.fromJson(json['input'])
-            : null)!,
-        output: (json['output'] != null
-            ? ChatCompletionModerationOutput.fromJson(json['output'])
-            : null)!,
-      );
+  factory ChatCompletionModeration.fromJson(Map<String, dynamic> json) => ChatCompletionModeration(
+    input: (json['input'] != null ? ChatCompletionModerationInput.fromJson(json['input']) : null)!,
+    output: (json['output'] != null ? ChatCompletionModerationOutput.fromJson(json['output']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'input': input.toJson(),
-        'output': output.toJson(),
-      };
+    'input': input.toJson(),
+    'output': output.toJson(),
+  };
 }
 
 /// An error produced while attempting moderation.
 class ChatCompletionModerationError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `error`.
   final ChatCompletionModerationErrorType type_;
-
   /// The error code.
   final String code;
-
   /// The error message.
   final String message;
 
-  const ChatCompletionModerationError(
-      {required this.type_, required this.code, required this.message});
+  const ChatCompletionModerationError({required this.type_, required this.code, required this.message});
 
-  ChatCompletionModerationError Function(
-      {ChatCompletionModerationErrorType type_,
-      String code,
-      String message}) get copyWith => _copyWith;
+  ChatCompletionModerationError Function({ChatCompletionModerationErrorType type_, String code, String message}) get copyWith => _copyWith;
 
-  ChatCompletionModerationError _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      ChatCompletionModerationError(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ChatCompletionModerationErrorType,
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  ChatCompletionModerationError _copyWith({Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => ChatCompletionModerationError(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ChatCompletionModerationErrorType,
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
-  factory ChatCompletionModerationError.fromJson(Map<String, dynamic> json) =>
-      ChatCompletionModerationError(
-        type_: (json['type'] != null
-            ? ChatCompletionModerationErrorType.fromJson(json['type'] as String)
-            : null)!,
-        code: (json['code'] as String?)!,
-        message: (json['message'] as String?)!,
-      );
+  factory ChatCompletionModerationError.fromJson(Map<String, dynamic> json) => ChatCompletionModerationError(
+    type_: (json['type'] != null ? ChatCompletionModerationErrorType.fromJson(json['type'] as String) : null)!,
+    code: (json['code'] as String?)!,
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'code': code,
-        'message': message,
-      };
+    'type': type_.toJson(),
+    'code': code,
+    'message': message,
+  };
 }
 
 sealed class ChatCompletionModerationInput {
@@ -107,65 +73,34 @@ sealed class ChatCompletionModerationInput {
   const ChatCompletionModerationInput();
   factory ChatCompletionModerationInput.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ChatCompletionModerationResults.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ChatCompletionModerationInputChatCompletionModerationResults(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = ChatCompletionModerationError.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ChatCompletionModerationInputChatCompletionModerationError(
-              value);
-        }
-      } catch (_) {}
+      try { final value = ChatCompletionModerationResults.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionModerationInputChatCompletionModerationResults(value); } } catch (_) {}
+      try { final value = ChatCompletionModerationError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionModerationInputChatCompletionModerationError(value); } } catch (_) {}
     }
-    try {
-      return ChatCompletionModerationInputChatCompletionModerationResults(
-          ChatCompletionModerationResults.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ChatCompletionModerationInputChatCompletionModerationError(
-          ChatCompletionModerationError.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"moderation_results", "error"}.contains(json["type"])) {
-      return UnknownChatCompletionModerationInput(json);
-    }
-    throw FormatException(
-        "No variant matched for ChatCompletionModerationInput");
+    try { return ChatCompletionModerationInputChatCompletionModerationResults(ChatCompletionModerationResults.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ChatCompletionModerationInputChatCompletionModerationError(ChatCompletionModerationError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"moderation_results", "error"}.contains(json["type"])) { return UnknownChatCompletionModerationInput(json); }
+    throw FormatException("No variant matched for ChatCompletionModerationInput");
   }
   Object? toJson();
 }
 
-final class ChatCompletionModerationInputChatCompletionModerationResults
-    extends ChatCompletionModerationInput {
+final class ChatCompletionModerationInputChatCompletionModerationResults extends ChatCompletionModerationInput {
   final ChatCompletionModerationResults value;
-  const ChatCompletionModerationInputChatCompletionModerationResults(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ChatCompletionModerationInputChatCompletionModerationResults(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionModerationInputChatCompletionModerationError
-    extends ChatCompletionModerationInput {
+final class ChatCompletionModerationInputChatCompletionModerationError extends ChatCompletionModerationInput {
   final ChatCompletionModerationError value;
   const ChatCompletionModerationInputChatCompletionModerationError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ChatCompletionModerationInput] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownChatCompletionModerationInput
-    extends ChatCompletionModerationInput {
+final class UnknownChatCompletionModerationInput extends ChatCompletionModerationInput {
   final Map<String, dynamic> raw;
   const UnknownChatCompletionModerationInput(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 sealed class ChatCompletionModerationOutput {
@@ -174,119 +109,66 @@ sealed class ChatCompletionModerationOutput {
   const ChatCompletionModerationOutput();
   factory ChatCompletionModerationOutput.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ChatCompletionModerationResults.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ChatCompletionModerationOutputChatCompletionModerationResults(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = ChatCompletionModerationError.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ChatCompletionModerationOutputChatCompletionModerationError(
-              value);
-        }
-      } catch (_) {}
+      try { final value = ChatCompletionModerationResults.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionModerationOutputChatCompletionModerationResults(value); } } catch (_) {}
+      try { final value = ChatCompletionModerationError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionModerationOutputChatCompletionModerationError(value); } } catch (_) {}
     }
-    try {
-      return ChatCompletionModerationOutputChatCompletionModerationResults(
-          ChatCompletionModerationResults.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ChatCompletionModerationOutputChatCompletionModerationError(
-          ChatCompletionModerationError.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"moderation_results", "error"}.contains(json["type"])) {
-      return UnknownChatCompletionModerationOutput(json);
-    }
-    throw FormatException(
-        "No variant matched for ChatCompletionModerationOutput");
+    try { return ChatCompletionModerationOutputChatCompletionModerationResults(ChatCompletionModerationResults.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ChatCompletionModerationOutputChatCompletionModerationError(ChatCompletionModerationError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"moderation_results", "error"}.contains(json["type"])) { return UnknownChatCompletionModerationOutput(json); }
+    throw FormatException("No variant matched for ChatCompletionModerationOutput");
   }
   Object? toJson();
 }
 
-final class ChatCompletionModerationOutputChatCompletionModerationResults
-    extends ChatCompletionModerationOutput {
+final class ChatCompletionModerationOutputChatCompletionModerationResults extends ChatCompletionModerationOutput {
   final ChatCompletionModerationResults value;
-  const ChatCompletionModerationOutputChatCompletionModerationResults(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ChatCompletionModerationOutputChatCompletionModerationResults(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionModerationOutputChatCompletionModerationError
-    extends ChatCompletionModerationOutput {
+final class ChatCompletionModerationOutputChatCompletionModerationError extends ChatCompletionModerationOutput {
   final ChatCompletionModerationError value;
   const ChatCompletionModerationOutputChatCompletionModerationError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ChatCompletionModerationOutput] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownChatCompletionModerationOutput
-    extends ChatCompletionModerationOutput {
+final class UnknownChatCompletionModerationOutput extends ChatCompletionModerationOutput {
   final Map<String, dynamic> raw;
   const UnknownChatCompletionModerationOutput(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Successful moderation results for the request input or generated output.
 class ChatCompletionModerationResults {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `moderation_results`.
   final ChatCompletionModerationResultsType type_;
-
   /// The moderation model used to generate the results.
   final String model;
-
   /// A list of moderation results.
   final List<ModerationResultBody> results;
 
-  const ChatCompletionModerationResults(
-      {required this.type_, required this.model, required this.results});
+  const ChatCompletionModerationResults({required this.type_, required this.model, required this.results});
 
-  ChatCompletionModerationResults Function(
-      {ChatCompletionModerationResultsType type_,
-      String model,
-      List<ModerationResultBody> results}) get copyWith => _copyWith;
+  ChatCompletionModerationResults Function({ChatCompletionModerationResultsType type_, String model, List<ModerationResultBody> results}) get copyWith => _copyWith;
 
-  ChatCompletionModerationResults _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? results = sdkOmittedValue}) =>
-      ChatCompletionModerationResults(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ChatCompletionModerationResultsType,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        results: identical(results, sdkOmittedValue)
-            ? this.results
-            : results as List<ModerationResultBody>,
-      );
+  ChatCompletionModerationResults _copyWith({Object? type_ = sdkOmittedValue, Object? model = sdkOmittedValue, Object? results = sdkOmittedValue}) => ChatCompletionModerationResults(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ChatCompletionModerationResultsType,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    results: identical(results, sdkOmittedValue) ? this.results : results as List<ModerationResultBody>,
+  );
 
-  factory ChatCompletionModerationResults.fromJson(Map<String, dynamic> json) =>
-      ChatCompletionModerationResults(
-        type_: (json['type'] != null
-            ? ChatCompletionModerationResultsType.fromJson(
-                json['type'] as String)
-            : null)!,
-        model: (json['model'] as String?)!,
-        results: ((json['results'] as List?)
-            ?.map(
-                (e) => ModerationResultBody.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory ChatCompletionModerationResults.fromJson(Map<String, dynamic> json) => ChatCompletionModerationResults(
+    type_: (json['type'] != null ? ChatCompletionModerationResultsType.fromJson(json['type'] as String) : null)!,
+    model: (json['model'] as String?)!,
+    results: ((json['results'] as List?)?.map((e) => ModerationResultBody.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'model': model,
-        'results': results.map((item) => item.toJson()).toList(),
-      };
+    'type': type_.toJson(),
+    'model': model,
+    'results': results.map((item) => item.toJson()).toList(),
+  };
 }

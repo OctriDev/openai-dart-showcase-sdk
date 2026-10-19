@@ -10,12 +10,11 @@ class CreateImageEditBody {
 
   /// Sent as `application/json`.
   CreateImageEditBody.editImageBodyJsonParam(EditImageBodyJsonParam value)
-      : this._(value, 'application/json');
+    : this._(value, 'application/json');
 
   /// Sent as `multipart/form-data`.
   CreateImageEditBody.createImageEditRequest(CreateImageEditRequest value)
-      : this._(SdkFormValue(value, const {'image', 'mask'}),
-            'multipart/form-data');
+    : this._(SdkFormValue(value, const {'image', 'mask'}), 'multipart/form-data');
 
   /// The value sent, in its wire form.
   final Object value;
@@ -30,12 +29,11 @@ class CreateImageEditStreamBody {
 
   /// Sent as `application/json`.
   CreateImageEditStreamBody.editImageBodyJsonParam(EditImageBodyJsonParam value)
-      : this._(value, 'application/json');
+    : this._(value, 'application/json');
 
   /// Sent as `multipart/form-data`.
   CreateImageEditStreamBody.createImageEditRequest(CreateImageEditRequest value)
-      : this._(SdkFormValue(value, const {'image', 'mask'}),
-            'multipart/form-data');
+    : this._(SdkFormValue(value, const {'image', 'mask'}), 'multipart/form-data');
 
   /// The value sent, in its wire form.
   final Object value;
@@ -48,44 +46,30 @@ class CreateAdminApiKeysRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final String name;
-
   /// The number of seconds until the API key expires. Omit this field for a key that does not expire.
   final SdkOptional<int> expiresInSeconds;
 
-  const CreateAdminApiKeysRequestBody(
-      {required this.name, this.expiresInSeconds = const SdkOmitted()});
+  const CreateAdminApiKeysRequestBody({required this.name, this.expiresInSeconds = const SdkOmitted()});
 
-  CreateAdminApiKeysRequestBody Function(
-      {String name,
-      SdkOptional<int> expiresInSeconds}) get copyWith => _copyWith;
+  CreateAdminApiKeysRequestBody Function({String name, SdkOptional<int> expiresInSeconds}) get copyWith => _copyWith;
 
-  CreateAdminApiKeysRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? expiresInSeconds = sdkOmittedValue}) =>
-      CreateAdminApiKeysRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue)
-            ? this.expiresInSeconds
-            : expiresInSeconds as SdkOptional<int>,
-      );
+  CreateAdminApiKeysRequestBody _copyWith({Object? name = sdkOmittedValue, Object? expiresInSeconds = sdkOmittedValue}) => CreateAdminApiKeysRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue) ? this.expiresInSeconds : expiresInSeconds as SdkOptional<int>,
+  );
 
-  factory CreateAdminApiKeysRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateAdminApiKeysRequestBody(
-        name: (json['name'] as String?)!,
-        expiresInSeconds: json['expires_in_seconds'] != null
-            ? SdkPresent(((json['expires_in_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory CreateAdminApiKeysRequestBody.fromJson(Map<String, dynamic> json) => CreateAdminApiKeysRequestBody(
+    name: (json['name'] as String?)!,
+    expiresInSeconds: json['expires_in_seconds'] != null ? SdkPresent(((json['expires_in_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (expiresInSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'expires_in_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (expiresInSeconds) {
+      SdkPresent<int>(value: final value) => {'expires_in_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class DeleteAdminApiKeysResponse {
@@ -95,131 +79,77 @@ class DeleteAdminApiKeysResponse {
   final DeleteAdminApiKeysResponseObject object;
   final bool deleted;
 
-  const DeleteAdminApiKeysResponse(
-      {required this.id, required this.object, required this.deleted});
+  const DeleteAdminApiKeysResponse({required this.id, required this.object, required this.deleted});
 
-  DeleteAdminApiKeysResponse Function(
-      {String id,
-      DeleteAdminApiKeysResponseObject object,
-      bool deleted}) get copyWith => _copyWith;
+  DeleteAdminApiKeysResponse Function({String id, DeleteAdminApiKeysResponseObject object, bool deleted}) get copyWith => _copyWith;
 
-  DeleteAdminApiKeysResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      DeleteAdminApiKeysResponse(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DeleteAdminApiKeysResponseObject,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-      );
+  DeleteAdminApiKeysResponse _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeleteAdminApiKeysResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteAdminApiKeysResponseObject,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+  );
 
-  factory DeleteAdminApiKeysResponse.fromJson(Map<String, dynamic> json) =>
-      DeleteAdminApiKeysResponse(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? DeleteAdminApiKeysResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        deleted: (json['deleted'] as bool?)!,
-      );
+  factory DeleteAdminApiKeysResponse.fromJson(Map<String, dynamic> json) => DeleteAdminApiKeysResponse(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? DeleteAdminApiKeysResponseObject.fromJson(json['object'] as String) : null)!,
+    deleted: (json['deleted'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'deleted': deleted,
-      };
+    'id': id,
+    'object': object.toJson(),
+    'deleted': deleted,
+  };
 }
 
 class ListAuditLogsEffectiveAt {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Return only events whose `effective_at` (Unix seconds) is greater than this value.
   final SdkOptional<int> gt;
-
   /// Return only events whose `effective_at` (Unix seconds) is greater than or equal to this value.
   final SdkOptional<int> gte;
-
   /// Return only events whose `effective_at` (Unix seconds) is less than this value.
   final SdkOptional<int> lt;
-
   /// Return only events whose `effective_at` (Unix seconds) is less than or equal to this value.
   final SdkOptional<int> lte;
 
-  const ListAuditLogsEffectiveAt(
-      {this.gt = const SdkOmitted(),
-      this.gte = const SdkOmitted(),
-      this.lt = const SdkOmitted(),
-      this.lte = const SdkOmitted()});
+  const ListAuditLogsEffectiveAt({this.gt = const SdkOmitted(), this.gte = const SdkOmitted(), this.lt = const SdkOmitted(), this.lte = const SdkOmitted()});
 
-  ListAuditLogsEffectiveAt Function(
-      {SdkOptional<int> gt,
-      SdkOptional<int> gte,
-      SdkOptional<int> lt,
-      SdkOptional<int> lte}) get copyWith => _copyWith;
+  ListAuditLogsEffectiveAt Function({SdkOptional<int> gt, SdkOptional<int> gte, SdkOptional<int> lt, SdkOptional<int> lte}) get copyWith => _copyWith;
 
-  ListAuditLogsEffectiveAt _copyWith(
-          {Object? gt = sdkOmittedValue,
-          Object? gte = sdkOmittedValue,
-          Object? lt = sdkOmittedValue,
-          Object? lte = sdkOmittedValue}) =>
-      ListAuditLogsEffectiveAt(
-        gt: identical(gt, sdkOmittedValue) ? this.gt : gt as SdkOptional<int>,
-        gte: identical(gte, sdkOmittedValue)
-            ? this.gte
-            : gte as SdkOptional<int>,
-        lt: identical(lt, sdkOmittedValue) ? this.lt : lt as SdkOptional<int>,
-        lte: identical(lte, sdkOmittedValue)
-            ? this.lte
-            : lte as SdkOptional<int>,
-      );
+  ListAuditLogsEffectiveAt _copyWith({Object? gt = sdkOmittedValue, Object? gte = sdkOmittedValue, Object? lt = sdkOmittedValue, Object? lte = sdkOmittedValue}) => ListAuditLogsEffectiveAt(
+    gt: identical(gt, sdkOmittedValue) ? this.gt : gt as SdkOptional<int>,
+    gte: identical(gte, sdkOmittedValue) ? this.gte : gte as SdkOptional<int>,
+    lt: identical(lt, sdkOmittedValue) ? this.lt : lt as SdkOptional<int>,
+    lte: identical(lte, sdkOmittedValue) ? this.lte : lte as SdkOptional<int>,
+  );
 
-  factory ListAuditLogsEffectiveAt.fromJson(Map<String, dynamic> json) =>
-      ListAuditLogsEffectiveAt(
-        gt: json['gt'] != null
-            ? SdkPresent(((json['gt'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        gte: json['gte'] != null
-            ? SdkPresent(((json['gte'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        lt: json['lt'] != null
-            ? SdkPresent(((json['lt'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        lte: json['lte'] != null
-            ? SdkPresent(((json['lte'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ListAuditLogsEffectiveAt.fromJson(Map<String, dynamic> json) => ListAuditLogsEffectiveAt(
+    gt: json['gt'] != null ? SdkPresent(((json['gt'] as num?)?.toInt())!) : const SdkOmitted(),
+    gte: json['gte'] != null ? SdkPresent(((json['gte'] as num?)?.toInt())!) : const SdkOmitted(),
+    lt: json['lt'] != null ? SdkPresent(((json['lt'] as num?)?.toInt())!) : const SdkOmitted(),
+    lte: json['lte'] != null ? SdkPresent(((json['lte'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (gt) {
-          SdkPresent<int>(value: final value) => {
-              'gt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (gte) {
-          SdkPresent<int>(value: final value) => {
-              'gte': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lt) {
-          SdkPresent<int>(value: final value) => {
-              'lt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lte) {
-          SdkPresent<int>(value: final value) => {
-              'lte': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (gt) {
+      SdkPresent<int>(value: final value) => {'gt': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (gte) {
+      SdkPresent<int>(value: final value) => {'gte': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lt) {
+      SdkPresent<int>(value: final value) => {'lt': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lte) {
+      SdkPresent<int>(value: final value) => {'lte': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The request body: one of the values the operation accepts, each sent as its media type.
@@ -227,13 +157,12 @@ class CreateRealtimeCallBody {
   const CreateRealtimeCallBody._(this.value, this.mediaType);
 
   /// Sent as `multipart/form-data`.
-  CreateRealtimeCallBody.realtimeCallCreateRequest(
-      RealtimeCallCreateRequest value)
-      : this._(SdkFormValue(value, const {}), 'multipart/form-data');
+  CreateRealtimeCallBody.realtimeCallCreateRequest(RealtimeCallCreateRequest value)
+    : this._(SdkFormValue(value, const {}), 'multipart/form-data');
 
   /// Sent as `application/sdp`.
   CreateRealtimeCallBody.bytes(List<int> value)
-      : this._(value, 'application/sdp');
+    : this._(value, 'application/sdp');
 
   /// The value sent, in its wire form.
   final Object value;
@@ -249,42 +178,27 @@ class DeleteResponseResponse {
   final bool deleted;
   final String id;
 
-  const DeleteResponseResponse(
-      {required this.object, required this.deleted, required this.id});
+  const DeleteResponseResponse({required this.object, required this.deleted, required this.id});
 
-  DeleteResponseResponse Function(
-      {DeleteResponseResponseObject object,
-      bool deleted,
-      String id}) get copyWith => _copyWith;
+  DeleteResponseResponse Function({DeleteResponseResponseObject object, bool deleted, String id}) get copyWith => _copyWith;
 
-  DeleteResponseResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue,
-          Object? id = sdkOmittedValue}) =>
-      DeleteResponseResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DeleteResponseResponseObject,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  DeleteResponseResponse _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? id = sdkOmittedValue}) => DeleteResponseResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteResponseResponseObject,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory DeleteResponseResponse.fromJson(Map<String, dynamic> json) =>
-      DeleteResponseResponse(
-        object: (json['object'] != null
-            ? DeleteResponseResponseObject.fromJson(json['object'] as String)
-            : null)!,
-        deleted: (json['deleted'] as bool?)!,
-        id: (json['id'] as String?)!,
-      );
+  factory DeleteResponseResponse.fromJson(Map<String, dynamic> json) => DeleteResponseResponse(
+    object: (json['object'] != null ? DeleteResponseResponseObject.fromJson(json['object'] as String) : null)!,
+    deleted: (json['deleted'] as bool?)!,
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'deleted': deleted,
-        'id': id,
-      };
+    'object': object.toJson(),
+    'deleted': deleted,
+    'id': id,
+  };
 }
 
 class BetaDeleteResponseResponse {
@@ -294,43 +208,27 @@ class BetaDeleteResponseResponse {
   final bool deleted;
   final String id;
 
-  const BetaDeleteResponseResponse(
-      {required this.object, required this.deleted, required this.id});
+  const BetaDeleteResponseResponse({required this.object, required this.deleted, required this.id});
 
-  BetaDeleteResponseResponse Function(
-      {BetaDeleteResponseResponseObject object,
-      bool deleted,
-      String id}) get copyWith => _copyWith;
+  BetaDeleteResponseResponse Function({BetaDeleteResponseResponseObject object, bool deleted, String id}) get copyWith => _copyWith;
 
-  BetaDeleteResponseResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue,
-          Object? id = sdkOmittedValue}) =>
-      BetaDeleteResponseResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as BetaDeleteResponseResponseObject,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  BetaDeleteResponseResponse _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? id = sdkOmittedValue}) => BetaDeleteResponseResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as BetaDeleteResponseResponseObject,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory BetaDeleteResponseResponse.fromJson(Map<String, dynamic> json) =>
-      BetaDeleteResponseResponse(
-        object: (json['object'] != null
-            ? BetaDeleteResponseResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        deleted: (json['deleted'] as bool?)!,
-        id: (json['id'] as String?)!,
-      );
+  factory BetaDeleteResponseResponse.fromJson(Map<String, dynamic> json) => BetaDeleteResponseResponse(
+    object: (json['object'] != null ? BetaDeleteResponseResponseObject.fromJson(json['object'] as String) : null)!,
+    deleted: (json['deleted'] as bool?)!,
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'deleted': deleted,
-        'id': id,
-      };
+    'object': object.toJson(),
+    'deleted': deleted,
+    'id': id,
+  };
 }
 
 /// The request body: one of the values the operation accepts, each sent as its media type.
@@ -339,11 +237,11 @@ class CreateVideoBody {
 
   /// Sent as `application/json`.
   CreateVideoBody.createVideoJsonBody(CreateVideoJsonBody value)
-      : this._(value, 'application/json');
+    : this._(value, 'application/json');
 
   /// Sent as `multipart/form-data`.
   CreateVideoBody.createVideoMultipartBody(CreateVideoMultipartBody value)
-      : this._(SdkFormValue(value, const {}), 'multipart/form-data');
+    : this._(SdkFormValue(value, const {}), 'multipart/form-data');
 
   /// The value sent, in its wire form.
   final Object value;
@@ -358,12 +256,11 @@ class CreateVideoEditBody {
 
   /// Sent as `application/json`.
   CreateVideoEditBody.createVideoEditJsonBody(CreateVideoEditJsonBody value)
-      : this._(value, 'application/json');
+    : this._(value, 'application/json');
 
   /// Sent as `multipart/form-data`.
-  CreateVideoEditBody.createVideoEditMultipartBody(
-      CreateVideoEditMultipartBody value)
-      : this._(SdkFormValue(value, const {}), 'multipart/form-data');
+  CreateVideoEditBody.createVideoEditMultipartBody(CreateVideoEditMultipartBody value)
+    : this._(SdkFormValue(value, const {}), 'multipart/form-data');
 
   /// The value sent, in its wire form.
   final Object value;
@@ -377,14 +274,12 @@ class CreateVideoExtendBody {
   const CreateVideoExtendBody._(this.value, this.mediaType);
 
   /// Sent as `application/json`.
-  CreateVideoExtendBody.createVideoExtendJsonBody(
-      CreateVideoExtendJsonBody value)
-      : this._(value, 'application/json');
+  CreateVideoExtendBody.createVideoExtendJsonBody(CreateVideoExtendJsonBody value)
+    : this._(value, 'application/json');
 
   /// Sent as `multipart/form-data`.
-  CreateVideoExtendBody.createVideoExtendMultipartBody(
-      CreateVideoExtendMultipartBody value)
-      : this._(SdkFormValue(value, const {}), 'multipart/form-data');
+  CreateVideoExtendBody.createVideoExtendMultipartBody(CreateVideoExtendMultipartBody value)
+    : this._(SdkFormValue(value, const {}), 'multipart/form-data');
 
   /// The value sent, in its wire form.
   final Object value;

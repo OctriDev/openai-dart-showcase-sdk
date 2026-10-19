@@ -8,506 +8,266 @@ part of 'projects.dart';
 class ProjectModelPermissionsUpdateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The model permissions mode to apply.
   final ProjectModelPermissionsUpdateRequestMode mode;
-
   /// The model IDs included in this permissions policy.
   final List<String> modelIds;
 
-  const ProjectModelPermissionsUpdateRequest(
-      {required this.mode, required this.modelIds});
+  const ProjectModelPermissionsUpdateRequest({required this.mode, required this.modelIds});
 
-  ProjectModelPermissionsUpdateRequest Function(
-      {ProjectModelPermissionsUpdateRequestMode mode,
-      List<String> modelIds}) get copyWith => _copyWith;
+  ProjectModelPermissionsUpdateRequest Function({ProjectModelPermissionsUpdateRequestMode mode, List<String> modelIds}) get copyWith => _copyWith;
 
-  ProjectModelPermissionsUpdateRequest _copyWith(
-          {Object? mode = sdkOmittedValue,
-          Object? modelIds = sdkOmittedValue}) =>
-      ProjectModelPermissionsUpdateRequest(
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as ProjectModelPermissionsUpdateRequestMode,
-        modelIds: identical(modelIds, sdkOmittedValue)
-            ? this.modelIds
-            : modelIds as List<String>,
-      );
+  ProjectModelPermissionsUpdateRequest _copyWith({Object? mode = sdkOmittedValue, Object? modelIds = sdkOmittedValue}) => ProjectModelPermissionsUpdateRequest(
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as ProjectModelPermissionsUpdateRequestMode,
+    modelIds: identical(modelIds, sdkOmittedValue) ? this.modelIds : modelIds as List<String>,
+  );
 
-  factory ProjectModelPermissionsUpdateRequest.fromJson(
-          Map<String, dynamic> json) =>
-      ProjectModelPermissionsUpdateRequest(
-        mode: (json['mode'] != null
-            ? ProjectModelPermissionsUpdateRequestMode.fromJson(
-                json['mode'] as String)
-            : null)!,
-        modelIds:
-            ((json['model_ids'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory ProjectModelPermissionsUpdateRequest.fromJson(Map<String, dynamic> json) => ProjectModelPermissionsUpdateRequest(
+    mode: (json['mode'] != null ? ProjectModelPermissionsUpdateRequestMode.fromJson(json['mode'] as String) : null)!,
+    modelIds: ((json['model_ids'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'mode': mode.toJson(),
-        'model_ids': modelIds,
-      };
+    'mode': mode.toJson(),
+    'model_ids': modelIds,
+  };
 }
 
 /// Represents a project rate limit config.
 class ProjectRateLimit {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `project.rate_limit`
   final ProjectRateLimitObject object;
-
   /// The identifier, which can be referenced in API endpoints.
   final String id;
-
   /// The model this rate limit applies to.
   final String model;
-
   /// The maximum requests per minute.
   final int maxRequestsPer1Minute;
-
   /// The maximum tokens per minute.
   final int maxTokensPer1Minute;
-
   /// The maximum images per minute. Only present for relevant models.
   final SdkOptional<int> maxImagesPer1Minute;
-
   /// The maximum audio megabytes per minute. Only present for relevant models.
   final SdkOptional<int> maxAudioMegabytesPer1Minute;
-
   /// The maximum requests per day. Only present for relevant models.
   final SdkOptional<int> maxRequestsPer1Day;
-
   /// The maximum batch input tokens per day. Only present for relevant models.
   final SdkOptional<int> batch1DayMaxInputTokens;
 
-  const ProjectRateLimit(
-      {required this.object,
-      required this.id,
-      required this.model,
-      required this.maxRequestsPer1Minute,
-      required this.maxTokensPer1Minute,
-      this.maxImagesPer1Minute = const SdkOmitted(),
-      this.maxAudioMegabytesPer1Minute = const SdkOmitted(),
-      this.maxRequestsPer1Day = const SdkOmitted(),
-      this.batch1DayMaxInputTokens = const SdkOmitted()});
+  const ProjectRateLimit({required this.object, required this.id, required this.model, required this.maxRequestsPer1Minute, required this.maxTokensPer1Minute, this.maxImagesPer1Minute = const SdkOmitted(), this.maxAudioMegabytesPer1Minute = const SdkOmitted(), this.maxRequestsPer1Day = const SdkOmitted(), this.batch1DayMaxInputTokens = const SdkOmitted()});
 
-  ProjectRateLimit Function(
-      {ProjectRateLimitObject object,
-      String id,
-      String model,
-      int maxRequestsPer1Minute,
-      int maxTokensPer1Minute,
-      SdkOptional<int> maxImagesPer1Minute,
-      SdkOptional<int> maxAudioMegabytesPer1Minute,
-      SdkOptional<int> maxRequestsPer1Day,
-      SdkOptional<int> batch1DayMaxInputTokens}) get copyWith => _copyWith;
+  ProjectRateLimit Function({ProjectRateLimitObject object, String id, String model, int maxRequestsPer1Minute, int maxTokensPer1Minute, SdkOptional<int> maxImagesPer1Minute, SdkOptional<int> maxAudioMegabytesPer1Minute, SdkOptional<int> maxRequestsPer1Day, SdkOptional<int> batch1DayMaxInputTokens}) get copyWith => _copyWith;
 
-  ProjectRateLimit _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? maxRequestsPer1Minute = sdkOmittedValue,
-          Object? maxTokensPer1Minute = sdkOmittedValue,
-          Object? maxImagesPer1Minute = sdkOmittedValue,
-          Object? maxAudioMegabytesPer1Minute = sdkOmittedValue,
-          Object? maxRequestsPer1Day = sdkOmittedValue,
-          Object? batch1DayMaxInputTokens = sdkOmittedValue}) =>
-      ProjectRateLimit(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ProjectRateLimitObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue)
-            ? this.maxRequestsPer1Minute
-            : maxRequestsPer1Minute as int,
-        maxTokensPer1Minute: identical(maxTokensPer1Minute, sdkOmittedValue)
-            ? this.maxTokensPer1Minute
-            : maxTokensPer1Minute as int,
-        maxImagesPer1Minute: identical(maxImagesPer1Minute, sdkOmittedValue)
-            ? this.maxImagesPer1Minute
-            : maxImagesPer1Minute as SdkOptional<int>,
-        maxAudioMegabytesPer1Minute:
-            identical(maxAudioMegabytesPer1Minute, sdkOmittedValue)
-                ? this.maxAudioMegabytesPer1Minute
-                : maxAudioMegabytesPer1Minute as SdkOptional<int>,
-        maxRequestsPer1Day: identical(maxRequestsPer1Day, sdkOmittedValue)
-            ? this.maxRequestsPer1Day
-            : maxRequestsPer1Day as SdkOptional<int>,
-        batch1DayMaxInputTokens:
-            identical(batch1DayMaxInputTokens, sdkOmittedValue)
-                ? this.batch1DayMaxInputTokens
-                : batch1DayMaxInputTokens as SdkOptional<int>,
-      );
+  ProjectRateLimit _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? model = sdkOmittedValue, Object? maxRequestsPer1Minute = sdkOmittedValue, Object? maxTokensPer1Minute = sdkOmittedValue, Object? maxImagesPer1Minute = sdkOmittedValue, Object? maxAudioMegabytesPer1Minute = sdkOmittedValue, Object? maxRequestsPer1Day = sdkOmittedValue, Object? batch1DayMaxInputTokens = sdkOmittedValue}) => ProjectRateLimit(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectRateLimitObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue) ? this.maxRequestsPer1Minute : maxRequestsPer1Minute as int,
+    maxTokensPer1Minute: identical(maxTokensPer1Minute, sdkOmittedValue) ? this.maxTokensPer1Minute : maxTokensPer1Minute as int,
+    maxImagesPer1Minute: identical(maxImagesPer1Minute, sdkOmittedValue) ? this.maxImagesPer1Minute : maxImagesPer1Minute as SdkOptional<int>,
+    maxAudioMegabytesPer1Minute: identical(maxAudioMegabytesPer1Minute, sdkOmittedValue) ? this.maxAudioMegabytesPer1Minute : maxAudioMegabytesPer1Minute as SdkOptional<int>,
+    maxRequestsPer1Day: identical(maxRequestsPer1Day, sdkOmittedValue) ? this.maxRequestsPer1Day : maxRequestsPer1Day as SdkOptional<int>,
+    batch1DayMaxInputTokens: identical(batch1DayMaxInputTokens, sdkOmittedValue) ? this.batch1DayMaxInputTokens : batch1DayMaxInputTokens as SdkOptional<int>,
+  );
 
-  factory ProjectRateLimit.fromJson(Map<String, dynamic> json) =>
-      ProjectRateLimit(
-        object: (json['object'] != null
-            ? ProjectRateLimitObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        model: (json['model'] as String?)!,
-        maxRequestsPer1Minute:
-            ((json['max_requests_per_1_minute'] as num?)?.toInt())!,
-        maxTokensPer1Minute:
-            ((json['max_tokens_per_1_minute'] as num?)?.toInt())!,
-        maxImagesPer1Minute: json['max_images_per_1_minute'] != null
-            ? SdkPresent(((json['max_images_per_1_minute'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        maxAudioMegabytesPer1Minute: json['max_audio_megabytes_per_1_minute'] !=
-                null
-            ? SdkPresent(
-                ((json['max_audio_megabytes_per_1_minute'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        maxRequestsPer1Day: json['max_requests_per_1_day'] != null
-            ? SdkPresent(((json['max_requests_per_1_day'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        batch1DayMaxInputTokens: json['batch_1_day_max_input_tokens'] != null
-            ? SdkPresent(
-                ((json['batch_1_day_max_input_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ProjectRateLimit.fromJson(Map<String, dynamic> json) => ProjectRateLimit(
+    object: (json['object'] != null ? ProjectRateLimitObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    model: (json['model'] as String?)!,
+    maxRequestsPer1Minute: ((json['max_requests_per_1_minute'] as num?)?.toInt())!,
+    maxTokensPer1Minute: ((json['max_tokens_per_1_minute'] as num?)?.toInt())!,
+    maxImagesPer1Minute: json['max_images_per_1_minute'] != null ? SdkPresent(((json['max_images_per_1_minute'] as num?)?.toInt())!) : const SdkOmitted(),
+    maxAudioMegabytesPer1Minute: json['max_audio_megabytes_per_1_minute'] != null ? SdkPresent(((json['max_audio_megabytes_per_1_minute'] as num?)?.toInt())!) : const SdkOmitted(),
+    maxRequestsPer1Day: json['max_requests_per_1_day'] != null ? SdkPresent(((json['max_requests_per_1_day'] as num?)?.toInt())!) : const SdkOmitted(),
+    batch1DayMaxInputTokens: json['batch_1_day_max_input_tokens'] != null ? SdkPresent(((json['batch_1_day_max_input_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'model': model,
-        'max_requests_per_1_minute': maxRequestsPer1Minute,
-        'max_tokens_per_1_minute': maxTokensPer1Minute,
-        ...switch (maxImagesPer1Minute) {
-          SdkPresent<int>(value: final value) => {
-              'max_images_per_1_minute': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxAudioMegabytesPer1Minute) {
-          SdkPresent<int>(value: final value) => {
-              'max_audio_megabytes_per_1_minute': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxRequestsPer1Day) {
-          SdkPresent<int>(value: final value) => {
-              'max_requests_per_1_day': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (batch1DayMaxInputTokens) {
-          SdkPresent<int>(value: final value) => {
-              'batch_1_day_max_input_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'object': object.toJson(),
+    'id': id,
+    'model': model,
+    'max_requests_per_1_minute': maxRequestsPer1Minute,
+    'max_tokens_per_1_minute': maxTokensPer1Minute,
+    ...switch (maxImagesPer1Minute) {
+      SdkPresent<int>(value: final value) => {'max_images_per_1_minute': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxAudioMegabytesPer1Minute) {
+      SdkPresent<int>(value: final value) => {'max_audio_megabytes_per_1_minute': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxRequestsPer1Day) {
+      SdkPresent<int>(value: final value) => {'max_requests_per_1_day': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (batch1DayMaxInputTokens) {
+      SdkPresent<int>(value: final value) => {'batch_1_day_max_input_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ProjectRateLimitListResponse` API schema.
 class ProjectRateLimitListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final ProjectRateLimitListResponseObject object;
-
   /// Required array value serialized in the `data` wire field.
   final List<ProjectRateLimit> data;
-
   /// Optional `string` value serialized in the `first_id` wire field.
   final SdkOptional<String?> firstId;
-
   /// Optional `string` value serialized in the `last_id` wire field.
   final SdkOptional<String?> lastId;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ProjectRateLimitListResponse(
-      {required this.object,
-      required this.data,
-      this.firstId = const SdkOmitted(),
-      this.lastId = const SdkOmitted(),
-      required this.hasMore});
+  const ProjectRateLimitListResponse({required this.object, required this.data, this.firstId = const SdkOmitted(), this.lastId = const SdkOmitted(), required this.hasMore});
 
-  ProjectRateLimitListResponse Function(
-      {ProjectRateLimitListResponseObject object,
-      List<ProjectRateLimit> data,
-      SdkOptional<String?> firstId,
-      SdkOptional<String?> lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  ProjectRateLimitListResponse Function({ProjectRateLimitListResponseObject object, List<ProjectRateLimit> data, SdkOptional<String?> firstId, SdkOptional<String?> lastId, bool hasMore}) get copyWith => _copyWith;
 
-  ProjectRateLimitListResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      ProjectRateLimitListResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ProjectRateLimitListResponseObject,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<ProjectRateLimit>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as SdkOptional<String?>,
-        lastId: identical(lastId, sdkOmittedValue)
-            ? this.lastId
-            : lastId as SdkOptional<String?>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  ProjectRateLimitListResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ProjectRateLimitListResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectRateLimitListResponseObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<ProjectRateLimit>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as SdkOptional<String?>,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as SdkOptional<String?>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory ProjectRateLimitListResponse.fromJson(Map<String, dynamic> json) =>
-      ProjectRateLimitListResponse(
-        object: (json['object'] != null
-            ? ProjectRateLimitListResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => ProjectRateLimit.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: json.containsKey('first_id')
-            ? SdkPresent(json['first_id'] as String?)
-            : const SdkOmitted(),
-        lastId: json.containsKey('last_id')
-            ? SdkPresent(json['last_id'] as String?)
-            : const SdkOmitted(),
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory ProjectRateLimitListResponse.fromJson(Map<String, dynamic> json) => ProjectRateLimitListResponse(
+    object: (json['object'] != null ? ProjectRateLimitListResponseObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => ProjectRateLimit.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: json.containsKey('first_id') ? SdkPresent(json['first_id'] as String?) : const SdkOmitted(),
+    lastId: json.containsKey('last_id') ? SdkPresent(json['last_id'] as String?) : const SdkOmitted(),
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        ...switch (firstId) {
-          SdkPresent<String?>(value: final value) => {
-              'first_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastId) {
-          SdkPresent<String?>(value: final value) => {
-              'last_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'has_more': hasMore,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    ...switch (firstId) {
+      SdkPresent<String?>(value: final value) => {'first_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastId) {
+      SdkPresent<String?>(value: final value) => {'last_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'has_more': hasMore,
+  };
 }
 
 /// Typed representation of the `ProjectRateLimitUpdateRequest` API schema.
 class ProjectRateLimitUpdateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The maximum requests per minute.
   final SdkOptional<int> maxRequestsPer1Minute;
-
   /// The maximum tokens per minute.
   final SdkOptional<int> maxTokensPer1Minute;
-
   /// The maximum images per minute. Only relevant for certain models.
   final SdkOptional<int> maxImagesPer1Minute;
-
   /// The maximum audio megabytes per minute. Only relevant for certain models.
   final SdkOptional<int> maxAudioMegabytesPer1Minute;
-
   /// The maximum requests per day. Only relevant for certain models.
   final SdkOptional<int> maxRequestsPer1Day;
-
   /// The maximum batch input tokens per day. Only relevant for certain models.
   final SdkOptional<int> batch1DayMaxInputTokens;
 
-  const ProjectRateLimitUpdateRequest(
-      {this.maxRequestsPer1Minute = const SdkOmitted(),
-      this.maxTokensPer1Minute = const SdkOmitted(),
-      this.maxImagesPer1Minute = const SdkOmitted(),
-      this.maxAudioMegabytesPer1Minute = const SdkOmitted(),
-      this.maxRequestsPer1Day = const SdkOmitted(),
-      this.batch1DayMaxInputTokens = const SdkOmitted()});
+  const ProjectRateLimitUpdateRequest({this.maxRequestsPer1Minute = const SdkOmitted(), this.maxTokensPer1Minute = const SdkOmitted(), this.maxImagesPer1Minute = const SdkOmitted(), this.maxAudioMegabytesPer1Minute = const SdkOmitted(), this.maxRequestsPer1Day = const SdkOmitted(), this.batch1DayMaxInputTokens = const SdkOmitted()});
 
-  ProjectRateLimitUpdateRequest Function(
-      {SdkOptional<int> maxRequestsPer1Minute,
-      SdkOptional<int> maxTokensPer1Minute,
-      SdkOptional<int> maxImagesPer1Minute,
-      SdkOptional<int> maxAudioMegabytesPer1Minute,
-      SdkOptional<int> maxRequestsPer1Day,
-      SdkOptional<int> batch1DayMaxInputTokens}) get copyWith => _copyWith;
+  ProjectRateLimitUpdateRequest Function({SdkOptional<int> maxRequestsPer1Minute, SdkOptional<int> maxTokensPer1Minute, SdkOptional<int> maxImagesPer1Minute, SdkOptional<int> maxAudioMegabytesPer1Minute, SdkOptional<int> maxRequestsPer1Day, SdkOptional<int> batch1DayMaxInputTokens}) get copyWith => _copyWith;
 
-  ProjectRateLimitUpdateRequest _copyWith(
-          {Object? maxRequestsPer1Minute = sdkOmittedValue,
-          Object? maxTokensPer1Minute = sdkOmittedValue,
-          Object? maxImagesPer1Minute = sdkOmittedValue,
-          Object? maxAudioMegabytesPer1Minute = sdkOmittedValue,
-          Object? maxRequestsPer1Day = sdkOmittedValue,
-          Object? batch1DayMaxInputTokens = sdkOmittedValue}) =>
-      ProjectRateLimitUpdateRequest(
-        maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue)
-            ? this.maxRequestsPer1Minute
-            : maxRequestsPer1Minute as SdkOptional<int>,
-        maxTokensPer1Minute: identical(maxTokensPer1Minute, sdkOmittedValue)
-            ? this.maxTokensPer1Minute
-            : maxTokensPer1Minute as SdkOptional<int>,
-        maxImagesPer1Minute: identical(maxImagesPer1Minute, sdkOmittedValue)
-            ? this.maxImagesPer1Minute
-            : maxImagesPer1Minute as SdkOptional<int>,
-        maxAudioMegabytesPer1Minute:
-            identical(maxAudioMegabytesPer1Minute, sdkOmittedValue)
-                ? this.maxAudioMegabytesPer1Minute
-                : maxAudioMegabytesPer1Minute as SdkOptional<int>,
-        maxRequestsPer1Day: identical(maxRequestsPer1Day, sdkOmittedValue)
-            ? this.maxRequestsPer1Day
-            : maxRequestsPer1Day as SdkOptional<int>,
-        batch1DayMaxInputTokens:
-            identical(batch1DayMaxInputTokens, sdkOmittedValue)
-                ? this.batch1DayMaxInputTokens
-                : batch1DayMaxInputTokens as SdkOptional<int>,
-      );
+  ProjectRateLimitUpdateRequest _copyWith({Object? maxRequestsPer1Minute = sdkOmittedValue, Object? maxTokensPer1Minute = sdkOmittedValue, Object? maxImagesPer1Minute = sdkOmittedValue, Object? maxAudioMegabytesPer1Minute = sdkOmittedValue, Object? maxRequestsPer1Day = sdkOmittedValue, Object? batch1DayMaxInputTokens = sdkOmittedValue}) => ProjectRateLimitUpdateRequest(
+    maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue) ? this.maxRequestsPer1Minute : maxRequestsPer1Minute as SdkOptional<int>,
+    maxTokensPer1Minute: identical(maxTokensPer1Minute, sdkOmittedValue) ? this.maxTokensPer1Minute : maxTokensPer1Minute as SdkOptional<int>,
+    maxImagesPer1Minute: identical(maxImagesPer1Minute, sdkOmittedValue) ? this.maxImagesPer1Minute : maxImagesPer1Minute as SdkOptional<int>,
+    maxAudioMegabytesPer1Minute: identical(maxAudioMegabytesPer1Minute, sdkOmittedValue) ? this.maxAudioMegabytesPer1Minute : maxAudioMegabytesPer1Minute as SdkOptional<int>,
+    maxRequestsPer1Day: identical(maxRequestsPer1Day, sdkOmittedValue) ? this.maxRequestsPer1Day : maxRequestsPer1Day as SdkOptional<int>,
+    batch1DayMaxInputTokens: identical(batch1DayMaxInputTokens, sdkOmittedValue) ? this.batch1DayMaxInputTokens : batch1DayMaxInputTokens as SdkOptional<int>,
+  );
 
-  factory ProjectRateLimitUpdateRequest.fromJson(Map<String, dynamic> json) =>
-      ProjectRateLimitUpdateRequest(
-        maxRequestsPer1Minute: json['max_requests_per_1_minute'] != null
-            ? SdkPresent(
-                ((json['max_requests_per_1_minute'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        maxTokensPer1Minute: json['max_tokens_per_1_minute'] != null
-            ? SdkPresent(((json['max_tokens_per_1_minute'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        maxImagesPer1Minute: json['max_images_per_1_minute'] != null
-            ? SdkPresent(((json['max_images_per_1_minute'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        maxAudioMegabytesPer1Minute: json['max_audio_megabytes_per_1_minute'] !=
-                null
-            ? SdkPresent(
-                ((json['max_audio_megabytes_per_1_minute'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        maxRequestsPer1Day: json['max_requests_per_1_day'] != null
-            ? SdkPresent(((json['max_requests_per_1_day'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        batch1DayMaxInputTokens: json['batch_1_day_max_input_tokens'] != null
-            ? SdkPresent(
-                ((json['batch_1_day_max_input_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ProjectRateLimitUpdateRequest.fromJson(Map<String, dynamic> json) => ProjectRateLimitUpdateRequest(
+    maxRequestsPer1Minute: json['max_requests_per_1_minute'] != null ? SdkPresent(((json['max_requests_per_1_minute'] as num?)?.toInt())!) : const SdkOmitted(),
+    maxTokensPer1Minute: json['max_tokens_per_1_minute'] != null ? SdkPresent(((json['max_tokens_per_1_minute'] as num?)?.toInt())!) : const SdkOmitted(),
+    maxImagesPer1Minute: json['max_images_per_1_minute'] != null ? SdkPresent(((json['max_images_per_1_minute'] as num?)?.toInt())!) : const SdkOmitted(),
+    maxAudioMegabytesPer1Minute: json['max_audio_megabytes_per_1_minute'] != null ? SdkPresent(((json['max_audio_megabytes_per_1_minute'] as num?)?.toInt())!) : const SdkOmitted(),
+    maxRequestsPer1Day: json['max_requests_per_1_day'] != null ? SdkPresent(((json['max_requests_per_1_day'] as num?)?.toInt())!) : const SdkOmitted(),
+    batch1DayMaxInputTokens: json['batch_1_day_max_input_tokens'] != null ? SdkPresent(((json['batch_1_day_max_input_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (maxRequestsPer1Minute) {
-          SdkPresent<int>(value: final value) => {
-              'max_requests_per_1_minute': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxTokensPer1Minute) {
-          SdkPresent<int>(value: final value) => {
-              'max_tokens_per_1_minute': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxImagesPer1Minute) {
-          SdkPresent<int>(value: final value) => {
-              'max_images_per_1_minute': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxAudioMegabytesPer1Minute) {
-          SdkPresent<int>(value: final value) => {
-              'max_audio_megabytes_per_1_minute': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxRequestsPer1Day) {
-          SdkPresent<int>(value: final value) => {
-              'max_requests_per_1_day': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (batch1DayMaxInputTokens) {
-          SdkPresent<int>(value: final value) => {
-              'batch_1_day_max_input_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (maxRequestsPer1Minute) {
+      SdkPresent<int>(value: final value) => {'max_requests_per_1_minute': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxTokensPer1Minute) {
+      SdkPresent<int>(value: final value) => {'max_tokens_per_1_minute': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxImagesPer1Minute) {
+      SdkPresent<int>(value: final value) => {'max_images_per_1_minute': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxAudioMegabytesPer1Minute) {
+      SdkPresent<int>(value: final value) => {'max_audio_megabytes_per_1_minute': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxRequestsPer1Day) {
+      SdkPresent<int>(value: final value) => {'max_requests_per_1_day': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (batch1DayMaxInputTokens) {
+      SdkPresent<int>(value: final value) => {'batch_1_day_max_input_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Represents an individual service account in a project.
 class ProjectServiceAccount {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `organization.project.service_account`
   final ProjectServiceAccountObject object;
-
   /// The identifier, which can be referenced in API endpoints
   final String id;
-
   /// The name of the service account
   final String name;
-
   /// `owner`, `member`, or `none`
   final ProjectServiceAccountRole role;
-
   /// The Unix timestamp (in seconds) of when the service account was created
   final int createdAt;
 
-  const ProjectServiceAccount(
-      {required this.object,
-      required this.id,
-      required this.name,
-      required this.role,
-      required this.createdAt});
+  const ProjectServiceAccount({required this.object, required this.id, required this.name, required this.role, required this.createdAt});
 
-  ProjectServiceAccount Function(
-      {ProjectServiceAccountObject object,
-      String id,
-      String name,
-      ProjectServiceAccountRole role,
-      int createdAt}) get copyWith => _copyWith;
+  ProjectServiceAccount Function({ProjectServiceAccountObject object, String id, String name, ProjectServiceAccountRole role, int createdAt}) get copyWith => _copyWith;
 
-  ProjectServiceAccount _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      ProjectServiceAccount(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ProjectServiceAccountObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as ProjectServiceAccountRole,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-      );
+  ProjectServiceAccount _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? role = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => ProjectServiceAccount(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectServiceAccountObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    role: identical(role, sdkOmittedValue) ? this.role : role as ProjectServiceAccountRole,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+  );
 
-  factory ProjectServiceAccount.fromJson(Map<String, dynamic> json) =>
-      ProjectServiceAccount(
-        object: (json['object'] != null
-            ? ProjectServiceAccountObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        role: (json['role'] != null
-            ? ProjectServiceAccountRole.fromJson(json['role'] as String)
-            : null)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-      );
+  factory ProjectServiceAccount.fromJson(Map<String, dynamic> json) => ProjectServiceAccount(
+    object: (json['object'] != null ? ProjectServiceAccountObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    role: (json['role'] != null ? ProjectServiceAccountRole.fromJson(json['role'] as String) : null)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'name': name,
-        'role': role.toJson(),
-        'created_at': createdAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'name': name,
+    'role': role.toJson(),
+    'created_at': createdAt,
+  };
 }
 
 sealed class ProjectServiceAccountApiKeyExpiresAt {
@@ -515,19 +275,14 @@ sealed class ProjectServiceAccountApiKeyExpiresAt {
   static const String constructionSurface = 'named';
   const ProjectServiceAccountApiKeyExpiresAt();
   factory ProjectServiceAccountApiKeyExpiresAt.fromJson(Object? json) {
-    if (json is num) {
-      return ProjectServiceAccountApiKeyExpiresAtInt(json.toInt());
-    }
-    throw FormatException(
-        "No variant matched for ProjectServiceAccountApiKeyExpiresAt");
+    if (json is num) { return ProjectServiceAccountApiKeyExpiresAtInt(json.toInt()); }
+    throw FormatException("No variant matched for ProjectServiceAccountApiKeyExpiresAt");
   }
   Object? toJson();
 }
 
-final class ProjectServiceAccountApiKeyExpiresAtInt
-    extends ProjectServiceAccountApiKeyExpiresAt {
+final class ProjectServiceAccountApiKeyExpiresAtInt extends ProjectServiceAccountApiKeyExpiresAt {
   final int value;
   const ProjectServiceAccountApiKeyExpiresAtInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }

@@ -8,524 +8,291 @@ part of 'responses_response.dart';
 class ResponseLogProbTopLogprobsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A possible text token.
   final SdkOptional<String> token;
-
   /// The log probability of this token.
   final SdkOptional<double> logprob;
 
-  const ResponseLogProbTopLogprobsItem(
-      {this.token = const SdkOmitted(), this.logprob = const SdkOmitted()});
+  const ResponseLogProbTopLogprobsItem({this.token = const SdkOmitted(), this.logprob = const SdkOmitted()});
 
-  ResponseLogProbTopLogprobsItem Function(
-      {SdkOptional<String> token,
-      SdkOptional<double> logprob}) get copyWith => _copyWith;
+  ResponseLogProbTopLogprobsItem Function({SdkOptional<String> token, SdkOptional<double> logprob}) get copyWith => _copyWith;
 
-  ResponseLogProbTopLogprobsItem _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue}) =>
-      ResponseLogProbTopLogprobsItem(
-        token: identical(token, sdkOmittedValue)
-            ? this.token
-            : token as SdkOptional<String>,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as SdkOptional<double>,
-      );
+  ResponseLogProbTopLogprobsItem _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue}) => ResponseLogProbTopLogprobsItem(
+    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as SdkOptional<double>,
+  );
 
-  factory ResponseLogProbTopLogprobsItem.fromJson(Map<String, dynamic> json) =>
-      ResponseLogProbTopLogprobsItem(
-        token: json['token'] != null
-            ? SdkPresent((json['token'] as String?)!)
-            : const SdkOmitted(),
-        logprob: json['logprob'] != null
-            ? SdkPresent(((json['logprob'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory ResponseLogProbTopLogprobsItem.fromJson(Map<String, dynamic> json) => ResponseLogProbTopLogprobsItem(
+    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
+    logprob: json['logprob'] != null ? SdkPresent(((json['logprob'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (token) {
-          SdkPresent<String>(value: final value) => {
-              'token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logprob) {
-          SdkPresent<double>(value: final value) => {
-              'logprob': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (token) {
+      SdkPresent<String>(value: final value) => {'token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logprob) {
+      SdkPresent<double>(value: final value) => {'logprob': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A logprob is the logarithmic probability that the model assigns to producing a particular token at a given position in the sequence. Less-negative (higher) logprob values indicate greater model confidence in that token choice.
 class ResponseLogProb {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A possible text token.
   final String token;
-
   /// The log probability of this token.
   final double logprob;
-
   /// The log probabilities of up to 20 of the most likely tokens.
   final SdkOptional<List<ResponseLogProbTopLogprobsItem>> topLogprobs;
 
-  const ResponseLogProb(
-      {required this.token,
-      required this.logprob,
-      this.topLogprobs = const SdkOmitted()});
+  const ResponseLogProb({required this.token, required this.logprob, this.topLogprobs = const SdkOmitted()});
 
-  ResponseLogProb Function(
-          {String token,
-          double logprob,
-          SdkOptional<List<ResponseLogProbTopLogprobsItem>> topLogprobs})
-      get copyWith => _copyWith;
+  ResponseLogProb Function({String token, double logprob, SdkOptional<List<ResponseLogProbTopLogprobsItem>> topLogprobs}) get copyWith => _copyWith;
 
-  ResponseLogProb _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue,
-          Object? topLogprobs = sdkOmittedValue}) =>
-      ResponseLogProb(
-        token: identical(token, sdkOmittedValue) ? this.token : token as String,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as double,
-        topLogprobs: identical(topLogprobs, sdkOmittedValue)
-            ? this.topLogprobs
-            : topLogprobs as SdkOptional<List<ResponseLogProbTopLogprobsItem>>,
-      );
+  ResponseLogProb _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? topLogprobs = sdkOmittedValue}) => ResponseLogProb(
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as double,
+    topLogprobs: identical(topLogprobs, sdkOmittedValue) ? this.topLogprobs : topLogprobs as SdkOptional<List<ResponseLogProbTopLogprobsItem>>,
+  );
 
-  factory ResponseLogProb.fromJson(Map<String, dynamic> json) =>
-      ResponseLogProb(
-        token: (json['token'] as String?)!,
-        logprob: ((json['logprob'] as num?)?.toDouble())!,
-        topLogprobs: json['top_logprobs'] != null
-            ? SdkPresent(((json['top_logprobs'] as List?)
-                ?.map((e) => ResponseLogProbTopLogprobsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ResponseLogProb.fromJson(Map<String, dynamic> json) => ResponseLogProb(
+    token: (json['token'] as String?)!,
+    logprob: ((json['logprob'] as num?)?.toDouble())!,
+    topLogprobs: json['top_logprobs'] != null ? SdkPresent(((json['top_logprobs'] as List?)?.map((e) => ResponseLogProbTopLogprobsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'token': token,
-        'logprob': logprob,
-        ...switch (topLogprobs) {
-          SdkPresent<List<ResponseLogProbTopLogprobsItem>>(
-            value: final value
-          ) =>
-            {
-              'top_logprobs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'token': token,
+    'logprob': logprob,
+    ...switch (topLogprobs) {
+      SdkPresent<List<ResponseLogProbTopLogprobsItem>>(value: final value) => {'top_logprobs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.
 class ResponsePromptCacheOptionsParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The minimum lifetime applied to every implicit and explicit cache breakpoint written by the request. Defaults to `30m`, which is currently the only supported value. The backend may retain cache entries for longer.
   final SdkOptional<PromptCacheTTLEnum> ttl;
-
   /// Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to `implicit`. With `implicit`, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With `explicit`, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.
   final SdkOptional<PromptCacheModeEnum> mode;
-
   /// Prepares the prompt cache without generating output. Defaults to `false`. When set to `true`, overrides the `generate` field to `false`.
   final SdkOptional<bool> prewarm;
-
   /// Optional `string` value serialized in the `comparison_response_id` wire field.
   final SdkOptional<String?> comparisonResponseId;
 
-  const ResponsePromptCacheOptionsParam(
-      {this.ttl = const SdkOmitted(),
-      this.mode = const SdkOmitted(),
-      this.prewarm = const SdkOmitted(),
-      this.comparisonResponseId = const SdkOmitted()});
+  const ResponsePromptCacheOptionsParam({this.ttl = const SdkOmitted(), this.mode = const SdkOmitted(), this.prewarm = const SdkOmitted(), this.comparisonResponseId = const SdkOmitted()});
 
-  ResponsePromptCacheOptionsParam Function(
-      {SdkOptional<PromptCacheTTLEnum> ttl,
-      SdkOptional<PromptCacheModeEnum> mode,
-      SdkOptional<bool> prewarm,
-      SdkOptional<String?> comparisonResponseId}) get copyWith => _copyWith;
+  ResponsePromptCacheOptionsParam Function({SdkOptional<PromptCacheTTLEnum> ttl, SdkOptional<PromptCacheModeEnum> mode, SdkOptional<bool> prewarm, SdkOptional<String?> comparisonResponseId}) get copyWith => _copyWith;
 
-  ResponsePromptCacheOptionsParam _copyWith(
-          {Object? ttl = sdkOmittedValue,
-          Object? mode = sdkOmittedValue,
-          Object? prewarm = sdkOmittedValue,
-          Object? comparisonResponseId = sdkOmittedValue}) =>
-      ResponsePromptCacheOptionsParam(
-        ttl: identical(ttl, sdkOmittedValue)
-            ? this.ttl
-            : ttl as SdkOptional<PromptCacheTTLEnum>,
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as SdkOptional<PromptCacheModeEnum>,
-        prewarm: identical(prewarm, sdkOmittedValue)
-            ? this.prewarm
-            : prewarm as SdkOptional<bool>,
-        comparisonResponseId: identical(comparisonResponseId, sdkOmittedValue)
-            ? this.comparisonResponseId
-            : comparisonResponseId as SdkOptional<String?>,
-      );
+  ResponsePromptCacheOptionsParam _copyWith({Object? ttl = sdkOmittedValue, Object? mode = sdkOmittedValue, Object? prewarm = sdkOmittedValue, Object? comparisonResponseId = sdkOmittedValue}) => ResponsePromptCacheOptionsParam(
+    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as SdkOptional<PromptCacheTTLEnum>,
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as SdkOptional<PromptCacheModeEnum>,
+    prewarm: identical(prewarm, sdkOmittedValue) ? this.prewarm : prewarm as SdkOptional<bool>,
+    comparisonResponseId: identical(comparisonResponseId, sdkOmittedValue) ? this.comparisonResponseId : comparisonResponseId as SdkOptional<String?>,
+  );
 
-  factory ResponsePromptCacheOptionsParam.fromJson(Map<String, dynamic> json) =>
-      ResponsePromptCacheOptionsParam(
-        ttl: json['ttl'] != null
-            ? SdkPresent((json['ttl'] != null
-                ? PromptCacheTTLEnum.fromJson(json['ttl'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        mode: json['mode'] != null
-            ? SdkPresent((json['mode'] != null
-                ? PromptCacheModeEnum.fromJson(json['mode'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        prewarm: json['prewarm'] != null
-            ? SdkPresent((json['prewarm'] as bool?)!)
-            : const SdkOmitted(),
-        comparisonResponseId: json.containsKey('comparison_response_id')
-            ? SdkPresent(json['comparison_response_id'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ResponsePromptCacheOptionsParam.fromJson(Map<String, dynamic> json) => ResponsePromptCacheOptionsParam(
+    ttl: json['ttl'] != null ? SdkPresent((json['ttl'] != null ? PromptCacheTTLEnum.fromJson(json['ttl'] as String) : null)!) : const SdkOmitted(),
+    mode: json['mode'] != null ? SdkPresent((json['mode'] != null ? PromptCacheModeEnum.fromJson(json['mode'] as String) : null)!) : const SdkOmitted(),
+    prewarm: json['prewarm'] != null ? SdkPresent((json['prewarm'] as bool?)!) : const SdkOmitted(),
+    comparisonResponseId: json.containsKey('comparison_response_id') ? SdkPresent(json['comparison_response_id'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (ttl) {
-          SdkPresent<PromptCacheTTLEnum>(value: final value) => {
-              'ttl': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (mode) {
-          SdkPresent<PromptCacheModeEnum>(value: final value) => {
-              'mode': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prewarm) {
-          SdkPresent<bool>(value: final value) => {
-              'prewarm': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (comparisonResponseId) {
-          SdkPresent<String?>(value: final value) => {
-              'comparison_response_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (ttl) {
+      SdkPresent<PromptCacheTTLEnum>(value: final value) => {'ttl': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (mode) {
+      SdkPresent<PromptCacheModeEnum>(value: final value) => {'mode': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prewarm) {
+      SdkPresent<bool>(value: final value) => {'prewarm': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (comparisonResponseId) {
+      SdkPresent<String?>(value: final value) => {'comparison_response_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ResponseProperties` API schema.
 class ResponseProperties {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `previous_response_id` wire field.
   final SdkOptional<String?> previousResponseId;
-
   /// Model ID used to generate the response, like `gpt-6-astra`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models.
   final SdkOptional<ModelIdsResponses> model;
-
   /// Optional `boolean` value serialized in the `background` wire field.
   final SdkOptional<bool?> background;
-
   /// Optional `integer` value serialized in the `max_tool_calls` wire field.
   final SdkOptional<int?> maxToolCalls;
-
   /// Configuration options for a text response from the model. Can be plain text or structured JSON data. Learn more: - [Text inputs and outputs](https://developers.openai.com/api/docs/guides/text) - [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
   final SdkOptional<ResponseTextParam> text;
-
   /// An array of tools the model may call while generating a response. You can specify which tool to use by setting the `tool_choice` parameter. We support the following categories of tools: - **Built-in tools**: Tools that are provided by OpenAI that extend the model's capabilities, like [web search](https://developers.openai.com/api/docs/guides/tools-web-search) or [file search](https://developers.openai.com/api/docs/guides/tools-file-search). Learn more about [built-in tools](https://developers.openai.com/api/docs/guides/tools). - **MCP Tools**: Integrations with third-party systems via custom MCP servers or predefined connectors such as Google Drive and SharePoint. Learn more about [MCP Tools](https://developers.openai.com/api/docs/guides/tools-connectors-mcp). - **Function calls (custom tools)**: Functions that are defined by you, enabling the model to call your own code with strongly typed arguments and outputs. Learn more about [function calling](https://developers.openai.com/api/docs/guides/function-calling). You can also use custom tools to call your own code.
   final SdkOptional<List<Tool>> tools;
-
   /// How the model should select which tool (or tools) to use when generating a response. See the `tools` parameter to see how to specify which tools the model can call.
   final SdkOptional<ToolChoiceParam> toolChoice;
-
   /// Reference to a prompt template and its variables. [Learn more](https://developers.openai.com/api/docs/guides/text?api-mode=responses#version-prompts-in-code).
   final SdkOptional<Prompt?> prompt;
 
-  const ResponseProperties(
-      {this.previousResponseId = const SdkOmitted(),
-      this.model = const SdkOmitted(),
-      this.background = const SdkOmitted(),
-      this.maxToolCalls = const SdkOmitted(),
-      this.text = const SdkOmitted(),
-      this.tools = const SdkOmitted(),
-      this.toolChoice = const SdkOmitted(),
-      this.prompt = const SdkOmitted()});
+  const ResponseProperties({this.previousResponseId = const SdkOmitted(), this.model = const SdkOmitted(), this.background = const SdkOmitted(), this.maxToolCalls = const SdkOmitted(), this.text = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.prompt = const SdkOmitted()});
 
-  ResponseProperties Function(
-      {SdkOptional<String?> previousResponseId,
-      SdkOptional<ModelIdsResponses> model,
-      SdkOptional<bool?> background,
-      SdkOptional<int?> maxToolCalls,
-      SdkOptional<ResponseTextParam> text,
-      SdkOptional<List<Tool>> tools,
-      SdkOptional<ToolChoiceParam> toolChoice,
-      SdkOptional<Prompt?> prompt}) get copyWith => _copyWith;
+  ResponseProperties Function({SdkOptional<String?> previousResponseId, SdkOptional<ModelIdsResponses> model, SdkOptional<bool?> background, SdkOptional<int?> maxToolCalls, SdkOptional<ResponseTextParam> text, SdkOptional<List<Tool>> tools, SdkOptional<ToolChoiceParam> toolChoice, SdkOptional<Prompt?> prompt}) get copyWith => _copyWith;
 
-  ResponseProperties _copyWith(
-          {Object? previousResponseId = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? background = sdkOmittedValue,
-          Object? maxToolCalls = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? toolChoice = sdkOmittedValue,
-          Object? prompt = sdkOmittedValue}) =>
-      ResponseProperties(
-        previousResponseId: identical(previousResponseId, sdkOmittedValue)
-            ? this.previousResponseId
-            : previousResponseId as SdkOptional<String?>,
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<ModelIdsResponses>,
-        background: identical(background, sdkOmittedValue)
-            ? this.background
-            : background as SdkOptional<bool?>,
-        maxToolCalls: identical(maxToolCalls, sdkOmittedValue)
-            ? this.maxToolCalls
-            : maxToolCalls as SdkOptional<int?>,
-        text: identical(text, sdkOmittedValue)
-            ? this.text
-            : text as SdkOptional<ResponseTextParam>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<Tool>>,
-        toolChoice: identical(toolChoice, sdkOmittedValue)
-            ? this.toolChoice
-            : toolChoice as SdkOptional<ToolChoiceParam>,
-        prompt: identical(prompt, sdkOmittedValue)
-            ? this.prompt
-            : prompt as SdkOptional<Prompt?>,
-      );
+  ResponseProperties _copyWith({Object? previousResponseId = sdkOmittedValue, Object? model = sdkOmittedValue, Object? background = sdkOmittedValue, Object? maxToolCalls = sdkOmittedValue, Object? text = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? prompt = sdkOmittedValue}) => ResponseProperties(
+    previousResponseId: identical(previousResponseId, sdkOmittedValue) ? this.previousResponseId : previousResponseId as SdkOptional<String?>,
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<ModelIdsResponses>,
+    background: identical(background, sdkOmittedValue) ? this.background : background as SdkOptional<bool?>,
+    maxToolCalls: identical(maxToolCalls, sdkOmittedValue) ? this.maxToolCalls : maxToolCalls as SdkOptional<int?>,
+    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<ResponseTextParam>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<Tool>>,
+    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<ToolChoiceParam>,
+    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as SdkOptional<Prompt?>,
+  );
 
-  factory ResponseProperties.fromJson(Map<String, dynamic> json) =>
-      ResponseProperties(
-        previousResponseId: json.containsKey('previous_response_id')
-            ? SdkPresent(json['previous_response_id'] as String?)
-            : const SdkOmitted(),
-        model: json['model'] != null
-            ? SdkPresent((json['model'] != null
-                ? ModelIdsResponses.fromJson(json['model'])
-                : null)!)
-            : const SdkOmitted(),
-        background: json.containsKey('background')
-            ? SdkPresent(json['background'] as bool?)
-            : const SdkOmitted(),
-        maxToolCalls: json.containsKey('max_tool_calls')
-            ? SdkPresent((json['max_tool_calls'] as num?)?.toInt())
-            : const SdkOmitted(),
-        text: json['text'] != null
-            ? SdkPresent((json['text'] != null
-                ? ResponseTextParam.fromJson(
-                    json['text'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        tools: json['tools'] != null
-            ? SdkPresent(((json['tools'] as List?)
-                ?.map((e) => Tool.fromJson(e))
-                .toList())!)
-            : const SdkOmitted(),
-        toolChoice: json['tool_choice'] != null
-            ? SdkPresent((json['tool_choice'] != null
-                ? ToolChoiceParam.fromJson(json['tool_choice'])
-                : null)!)
-            : const SdkOmitted(),
-        prompt: json.containsKey('prompt')
-            ? SdkPresent(json['prompt'] != null
-                ? Prompt.fromJson(json['prompt'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory ResponseProperties.fromJson(Map<String, dynamic> json) => ResponseProperties(
+    previousResponseId: json.containsKey('previous_response_id') ? SdkPresent(json['previous_response_id'] as String?) : const SdkOmitted(),
+    model: json['model'] != null ? SdkPresent((json['model'] != null ? ModelIdsResponses.fromJson(json['model']) : null)!) : const SdkOmitted(),
+    background: json.containsKey('background') ? SdkPresent(json['background'] as bool?) : const SdkOmitted(),
+    maxToolCalls: json.containsKey('max_tool_calls') ? SdkPresent((json['max_tool_calls'] as num?)?.toInt()) : const SdkOmitted(),
+    text: json['text'] != null ? SdkPresent((json['text'] != null ? ResponseTextParam.fromJson(json['text'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => Tool.fromJson(e)).toList())!) : const SdkOmitted(),
+    toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] != null ? ToolChoiceParam.fromJson(json['tool_choice']) : null)!) : const SdkOmitted(),
+    prompt: json.containsKey('prompt') ? SdkPresent(json['prompt'] != null ? Prompt.fromJson(json['prompt'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (previousResponseId) {
-          SdkPresent<String?>(value: final value) => {
-              'previous_response_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (model) {
-          SdkPresent<ModelIdsResponses>(value: final value) => {
-              'model': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (background) {
-          SdkPresent<bool?>(value: final value) => {
-              'background': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxToolCalls) {
-          SdkPresent<int?>(value: final value) => {
-              'max_tool_calls': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (text) {
-          SdkPresent<ResponseTextParam>(value: final value) => {
-              'text': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<Tool>>(value: final value) => {
-              'tools': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolChoice) {
-          SdkPresent<ToolChoiceParam>(value: final value) => {
-              'tool_choice': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prompt) {
-          SdkPresent<Prompt?>(value: final value) => {
-              'prompt': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (previousResponseId) {
+      SdkPresent<String?>(value: final value) => {'previous_response_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (model) {
+      SdkPresent<ModelIdsResponses>(value: final value) => {'model': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (background) {
+      SdkPresent<bool?>(value: final value) => {'background': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxToolCalls) {
+      SdkPresent<int?>(value: final value) => {'max_tool_calls': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (text) {
+      SdkPresent<ResponseTextParam>(value: final value) => {'text': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<Tool>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolChoice) {
+      SdkPresent<ToolChoiceParam>(value: final value) => {'tool_choice': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prompt) {
+      SdkPresent<Prompt?>(value: final value) => {'prompt': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Emitted when a response is queued and waiting to be processed.
 class ResponseQueuedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always 'response.queued'.
   final ResponseQueuedEventType type_;
-
   /// The full response object that is queued.
   final Response response;
-
   /// The sequence number for this event.
   final int sequenceNumber;
 
-  const ResponseQueuedEvent(
-      {required this.type_,
-      required this.response,
-      required this.sequenceNumber});
+  const ResponseQueuedEvent({required this.type_, required this.response, required this.sequenceNumber});
 
-  ResponseQueuedEvent Function(
-      {ResponseQueuedEventType type_,
-      Response response,
-      int sequenceNumber}) get copyWith => _copyWith;
+  ResponseQueuedEvent Function({ResponseQueuedEventType type_, Response response, int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseQueuedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? response = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue}) =>
-      ResponseQueuedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseQueuedEventType,
-        response: identical(response, sdkOmittedValue)
-            ? this.response
-            : response as Response,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-      );
+  ResponseQueuedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseQueuedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseQueuedEventType,
+    response: identical(response, sdkOmittedValue) ? this.response : response as Response,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+  );
 
-  factory ResponseQueuedEvent.fromJson(Map<String, dynamic> json) =>
-      ResponseQueuedEvent(
-        type_: (json['type'] != null
-            ? ResponseQueuedEventType.fromJson(json['type'] as String)
-            : null)!,
-        response: (json['response'] != null
-            ? Response.fromJson(json['response'] as Map<String, dynamic>)
-            : null)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-      );
+  factory ResponseQueuedEvent.fromJson(Map<String, dynamic> json) => ResponseQueuedEvent(
+    type_: (json['type'] != null ? ResponseQueuedEventType.fromJson(json['type'] as String) : null)!,
+    response: (json['response'] != null ? Response.fromJson(json['response'] as Map<String, dynamic>) : null)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'response': response.toJson(),
-        'sequence_number': sequenceNumber,
-      };
+    'type': type_.toJson(),
+    'response': response.toJson(),
+    'sequence_number': sequenceNumber,
+  };
 }
 
 /// A detailed breakdown of the input tokens.
 class ResponseUsageInputTokensDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of tokens that were retrieved from the cache. [More on prompt caching](https://developers.openai.com/api/docs/guides/prompt-caching).
   final int cachedTokens;
-
   /// The number of input tokens that were written to the cache.
   final int cacheWriteTokens;
 
-  const ResponseUsageInputTokensDetails(
-      {required this.cachedTokens, required this.cacheWriteTokens});
+  const ResponseUsageInputTokensDetails({required this.cachedTokens, required this.cacheWriteTokens});
 
-  ResponseUsageInputTokensDetails Function(
-      {int cachedTokens, int cacheWriteTokens}) get copyWith => _copyWith;
+  ResponseUsageInputTokensDetails Function({int cachedTokens, int cacheWriteTokens}) get copyWith => _copyWith;
 
-  ResponseUsageInputTokensDetails _copyWith(
-          {Object? cachedTokens = sdkOmittedValue,
-          Object? cacheWriteTokens = sdkOmittedValue}) =>
-      ResponseUsageInputTokensDetails(
-        cachedTokens: identical(cachedTokens, sdkOmittedValue)
-            ? this.cachedTokens
-            : cachedTokens as int,
-        cacheWriteTokens: identical(cacheWriteTokens, sdkOmittedValue)
-            ? this.cacheWriteTokens
-            : cacheWriteTokens as int,
-      );
+  ResponseUsageInputTokensDetails _copyWith({Object? cachedTokens = sdkOmittedValue, Object? cacheWriteTokens = sdkOmittedValue}) => ResponseUsageInputTokensDetails(
+    cachedTokens: identical(cachedTokens, sdkOmittedValue) ? this.cachedTokens : cachedTokens as int,
+    cacheWriteTokens: identical(cacheWriteTokens, sdkOmittedValue) ? this.cacheWriteTokens : cacheWriteTokens as int,
+  );
 
-  factory ResponseUsageInputTokensDetails.fromJson(Map<String, dynamic> json) =>
-      ResponseUsageInputTokensDetails(
-        cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
-        cacheWriteTokens: ((json['cache_write_tokens'] as num?)?.toInt())!,
-      );
+  factory ResponseUsageInputTokensDetails.fromJson(Map<String, dynamic> json) => ResponseUsageInputTokensDetails(
+    cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
+    cacheWriteTokens: ((json['cache_write_tokens'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'cached_tokens': cachedTokens,
-        'cache_write_tokens': cacheWriteTokens,
-      };
+    'cached_tokens': cachedTokens,
+    'cache_write_tokens': cacheWriteTokens,
+  };
 }
 
 /// A detailed breakdown of the output tokens.
 class ResponseUsageOutputTokensDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of reasoning tokens.
   final int reasoningTokens;
 
   const ResponseUsageOutputTokensDetails({required this.reasoningTokens});
 
-  ResponseUsageOutputTokensDetails Function({int reasoningTokens})
-      get copyWith => _copyWith;
+  ResponseUsageOutputTokensDetails Function({int reasoningTokens}) get copyWith => _copyWith;
 
-  ResponseUsageOutputTokensDetails _copyWith(
-          {Object? reasoningTokens = sdkOmittedValue}) =>
-      ResponseUsageOutputTokensDetails(
-        reasoningTokens: identical(reasoningTokens, sdkOmittedValue)
-            ? this.reasoningTokens
-            : reasoningTokens as int,
-      );
+  ResponseUsageOutputTokensDetails _copyWith({Object? reasoningTokens = sdkOmittedValue}) => ResponseUsageOutputTokensDetails(
+    reasoningTokens: identical(reasoningTokens, sdkOmittedValue) ? this.reasoningTokens : reasoningTokens as int,
+  );
 
-  factory ResponseUsageOutputTokensDetails.fromJson(
-          Map<String, dynamic> json) =>
-      ResponseUsageOutputTokensDetails(
-        reasoningTokens: ((json['reasoning_tokens'] as num?)?.toInt())!,
-      );
+  factory ResponseUsageOutputTokensDetails.fromJson(Map<String, dynamic> json) => ResponseUsageOutputTokensDetails(
+    reasoningTokens: ((json['reasoning_tokens'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'reasoning_tokens': reasoningTokens,
-      };
+    'reasoning_tokens': reasoningTokens,
+  };
 }

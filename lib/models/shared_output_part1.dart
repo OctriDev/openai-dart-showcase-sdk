@@ -8,101 +8,52 @@ part of 'shared_output.dart';
 class OutputMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the output message.
   final String id;
-
   /// The type of the output message. Always `message`.
   final OutputMessageType type_;
-
   /// The role of the output message. Always `assistant`.
   final OutputMessageRole role;
-
   /// The content of the output message.
   final List<OutputMessageContent> content;
-
   /// Optional API value serialized in the `phase` wire field.
   final SdkOptional<MessagePhase?> phase;
-
   /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
   final OutputMessageStatus status;
 
-  const OutputMessage(
-      {required this.id,
-      required this.type_,
-      required this.role,
-      required this.content,
-      this.phase = const SdkOmitted(),
-      required this.status});
+  const OutputMessage({required this.id, required this.type_, required this.role, required this.content, this.phase = const SdkOmitted(), required this.status});
 
-  OutputMessage Function(
-      {String id,
-      OutputMessageType type_,
-      OutputMessageRole role,
-      List<OutputMessageContent> content,
-      SdkOptional<MessagePhase?> phase,
-      OutputMessageStatus status}) get copyWith => _copyWith;
+  OutputMessage Function({String id, OutputMessageType type_, OutputMessageRole role, List<OutputMessageContent> content, SdkOptional<MessagePhase?> phase, OutputMessageStatus status}) get copyWith => _copyWith;
 
-  OutputMessage _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? content = sdkOmittedValue,
-          Object? phase = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      OutputMessage(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as OutputMessageType,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as OutputMessageRole,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as List<OutputMessageContent>,
-        phase: identical(phase, sdkOmittedValue)
-            ? this.phase
-            : phase as SdkOptional<MessagePhase?>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as OutputMessageStatus,
-      );
+  OutputMessage _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? role = sdkOmittedValue, Object? content = sdkOmittedValue, Object? phase = sdkOmittedValue, Object? status = sdkOmittedValue}) => OutputMessage(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as OutputMessageType,
+    role: identical(role, sdkOmittedValue) ? this.role : role as OutputMessageRole,
+    content: identical(content, sdkOmittedValue) ? this.content : content as List<OutputMessageContent>,
+    phase: identical(phase, sdkOmittedValue) ? this.phase : phase as SdkOptional<MessagePhase?>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as OutputMessageStatus,
+  );
 
   factory OutputMessage.fromJson(Map<String, dynamic> json) => OutputMessage(
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? OutputMessageType.fromJson(json['type'] as String)
-            : null)!,
-        role: (json['role'] != null
-            ? OutputMessageRole.fromJson(json['role'] as String)
-            : null)!,
-        content: ((json['content'] as List?)
-            ?.map((e) => OutputMessageContent.fromJson(e))
-            .toList())!,
-        phase: json.containsKey('phase')
-            ? SdkPresent(json['phase'] != null
-                ? MessagePhase.fromJson(json['phase'] as String)
-                : null)
-            : const SdkOmitted(),
-        status: (json['status'] != null
-            ? OutputMessageStatus.fromJson(json['status'] as String)
-            : null)!,
-      );
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? OutputMessageType.fromJson(json['type'] as String) : null)!,
+    role: (json['role'] != null ? OutputMessageRole.fromJson(json['role'] as String) : null)!,
+    content: ((json['content'] as List?)?.map((e) => OutputMessageContent.fromJson(e)).toList())!,
+    phase: json.containsKey('phase') ? SdkPresent(json['phase'] != null ? MessagePhase.fromJson(json['phase'] as String) : null) : const SdkOmitted(),
+    status: (json['status'] != null ? OutputMessageStatus.fromJson(json['status'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'type': type_.toJson(),
-        'role': role.toJson(),
-        'content': content.map((item) => item.toJson()).toList(),
-        ...switch (phase) {
-          SdkPresent<MessagePhase?>(value: final value) => {
-              'phase': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'status': status.toJson(),
-      };
+    'id': id,
+    'type': type_.toJson(),
+    'role': role.toJson(),
+    'content': content.map((item) => item.toJson()).toList(),
+    ...switch (phase) {
+      SdkPresent<MessagePhase?>(value: final value) => {'phase': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'status': status.toJson(),
+  };
 }
 
 sealed class OutputMessageContent {
@@ -111,32 +62,12 @@ sealed class OutputMessageContent {
   const OutputMessageContent();
   factory OutputMessageContent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = OutputTextContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return OutputMessageContentOutputTextContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = RefusalContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return OutputMessageContentRefusalContent(value);
-        }
-      } catch (_) {}
+      try { final value = OutputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return OutputMessageContentOutputTextContent(value); } } catch (_) {}
+      try { final value = RefusalContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return OutputMessageContentRefusalContent(value); } } catch (_) {}
     }
-    try {
-      return OutputMessageContentOutputTextContent(
-          OutputTextContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return OutputMessageContentRefusalContent(
-          RefusalContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"output_text", "refusal"}.contains(json["type"])) {
-      return UnknownOutputMessageContent(json);
-    }
+    try { return OutputMessageContentOutputTextContent(OutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return OutputMessageContentRefusalContent(RefusalContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"output_text", "refusal"}.contains(json["type"])) { return UnknownOutputMessageContent(json); }
     throw FormatException("No variant matched for OutputMessageContent");
   }
   Object? toJson();
@@ -145,90 +76,57 @@ sealed class OutputMessageContent {
 final class OutputMessageContentOutputTextContent extends OutputMessageContent {
   final OutputTextContent value;
   const OutputMessageContentOutputTextContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class OutputMessageContentRefusalContent extends OutputMessageContent {
   final RefusalContent value;
   const OutputMessageContentRefusalContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [OutputMessageContent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownOutputMessageContent extends OutputMessageContent {
   final Map<String, dynamic> raw;
   const UnknownOutputMessageContent(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// A text output from the model.
 class OutputTextContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the output text. Always `output_text`.
   final OutputTextContentType type_;
-
   /// The text output from the model.
   final String text;
-
   /// The annotations of the text output.
   final List<Annotation> annotations;
-
   /// Required array value serialized in the `logprobs` wire field.
   final List<LogProb> logprobs;
 
-  const OutputTextContent(
-      {required this.type_,
-      required this.text,
-      required this.annotations,
-      required this.logprobs});
+  const OutputTextContent({required this.type_, required this.text, required this.annotations, required this.logprobs});
 
-  OutputTextContent Function(
-      {OutputTextContentType type_,
-      String text,
-      List<Annotation> annotations,
-      List<LogProb> logprobs}) get copyWith => _copyWith;
+  OutputTextContent Function({OutputTextContentType type_, String text, List<Annotation> annotations, List<LogProb> logprobs}) get copyWith => _copyWith;
 
-  OutputTextContent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? annotations = sdkOmittedValue,
-          Object? logprobs = sdkOmittedValue}) =>
-      OutputTextContent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as OutputTextContentType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-        annotations: identical(annotations, sdkOmittedValue)
-            ? this.annotations
-            : annotations as List<Annotation>,
-        logprobs: identical(logprobs, sdkOmittedValue)
-            ? this.logprobs
-            : logprobs as List<LogProb>,
-      );
+  OutputTextContent _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? annotations = sdkOmittedValue, Object? logprobs = sdkOmittedValue}) => OutputTextContent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as OutputTextContentType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+    annotations: identical(annotations, sdkOmittedValue) ? this.annotations : annotations as List<Annotation>,
+    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as List<LogProb>,
+  );
 
-  factory OutputTextContent.fromJson(Map<String, dynamic> json) =>
-      OutputTextContent(
-        type_: (json['type'] != null
-            ? OutputTextContentType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-        annotations: ((json['annotations'] as List?)
-            ?.map((e) => Annotation.fromJson(e))
-            .toList())!,
-        logprobs: ((json['logprobs'] as List?)
-            ?.map((e) => LogProb.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory OutputTextContent.fromJson(Map<String, dynamic> json) => OutputTextContent(
+    type_: (json['type'] != null ? OutputTextContentType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+    annotations: ((json['annotations'] as List?)?.map((e) => Annotation.fromJson(e)).toList())!,
+    logprobs: ((json['logprobs'] as List?)?.map((e) => LogProb.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-        'annotations': annotations.map((item) => item.toJson()).toList(),
-        'logprobs': logprobs.map((item) => item.toJson()).toList(),
-      };
+    'type': type_.toJson(),
+    'text': text,
+    'annotations': annotations.map((item) => item.toJson()).toList(),
+    'logprobs': logprobs.map((item) => item.toJson()).toList(),
+  };
 }

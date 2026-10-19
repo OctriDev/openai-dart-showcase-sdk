@@ -9,13 +9,8 @@ sealed class BetaConversationParam {
   static const String constructionSurface = 'named';
   const BetaConversationParam();
   factory BetaConversationParam.fromJson(Object? json) {
-    if (json is String) {
-      return BetaConversationParamString(json);
-    }
-    try {
-      return BetaConversationParamBetaConversationParam2(
-          BetaConversationParam2.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    if (json is String) { return BetaConversationParamString(json); }
+    try { return BetaConversationParamBetaConversationParam2(BetaConversationParam2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for BetaConversationParam");
   }
   Object? toJson();
@@ -24,23 +19,19 @@ sealed class BetaConversationParam {
 final class BetaConversationParamString extends BetaConversationParam {
   final String value;
   const BetaConversationParamString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class BetaConversationParamBetaConversationParam2
-    extends BetaConversationParam {
+final class BetaConversationParamBetaConversationParam2 extends BetaConversationParam {
   final BetaConversationParam2 value;
   const BetaConversationParamBetaConversationParam2(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// The conversation that this response belongs to.
 class BetaConversationParam2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the conversation.
   final String id;
 
@@ -48,17 +39,15 @@ class BetaConversationParam2 {
 
   BetaConversationParam2 Function({String id}) get copyWith => _copyWith;
 
-  BetaConversationParam2 _copyWith({Object? id = sdkOmittedValue}) =>
-      BetaConversationParam2(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  BetaConversationParam2 _copyWith({Object? id = sdkOmittedValue}) => BetaConversationParam2(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory BetaConversationParam2.fromJson(Map<String, dynamic> json) =>
-      BetaConversationParam2(
-        id: (json['id'] as String?)!,
-      );
+  factory BetaConversationParam2.fromJson(Map<String, dynamic> json) => BetaConversationParam2(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }

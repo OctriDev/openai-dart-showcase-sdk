@@ -26,32 +26,21 @@ Future<ChatCompletionList> listChatCompletions(ClientConfig config,
   return (await sdkRequest<ChatCompletionList>('GET', '/chat/completions',
           config: config,
           query: {
-            'model': SdkQueryValue(SdkUtils.unwrapOptional(model),
-                style: 'form', explode: true),
-            'metadata': SdkQueryValue(SdkUtils.unwrapOptional(metadata),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true)
+            'model': SdkQueryValue(SdkUtils.unwrapOptional(model), style: 'form', explode: true),
+            'metadata': SdkQueryValue(SdkUtils.unwrapOptional(metadata), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listChatCompletions',
-          fromJsonRaw: (value) =>
-              ChatCompletionList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ChatCompletionList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// List stored Chat Completions. Only Chat Completions that have been stored with the `store` parameter set to `true` will be returned.
 ///
@@ -63,36 +52,13 @@ Future<ChatCompletionList> listChatCompletions(ClientConfig config,
 /// [limit] Number of Chat Completions to retrieve.
 /// [order] Sort order for Chat Completions by timestamp. Use `asc` for
 ///   ascending order or `desc` for descending order. Defaults to `asc`.
-Stream<CreateChatCompletionResponse> listChatCompletionsPaginated(
-    ClientConfig config,
-    {String? model,
-    Map<String, dynamic>? metadata,
-    String? after,
-    int? limit,
-    ListChatCompletionsOrder? order,
-    RequestOptions? requestOptions}) async* {
+Stream<CreateChatCompletionResponse> listChatCompletionsPaginated(ClientConfig config, {String? model, Map<String, dynamic>? metadata, String? after, int? limit, ListChatCompletionsOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listChatCompletions(config,
-        model: model == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(model),
-        metadata: metadata == null
-            ? const SdkOmitted<Map<String, dynamic>?>()
-            : SdkPresent<Map<String, dynamic>?>(metadata),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListChatCompletionsOrder>()
-            : SdkPresent<ListChatCompletionsOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listChatCompletions(config, model: model == null ? const SdkOmitted<String>() : SdkPresent<String>(model), metadata: metadata == null ? const SdkOmitted<Map<String, dynamic>?>() : SdkPresent<Map<String, dynamic>?>(metadata), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListChatCompletionsOrder>() : SdkPresent<ListChatCompletionsOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -100,31 +66,10 @@ Stream<CreateChatCompletionResponse> listChatCompletionsPaginated(
   }
 }
 
-Stream<SdkPage<ChatCompletionList, CreateChatCompletionResponse>>
-    listChatCompletionsPages(ClientConfig config,
-        {String? model,
-        Map<String, dynamic>? metadata,
-        String? after,
-        int? limit,
-        ListChatCompletionsOrder? order,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ChatCompletionList, CreateChatCompletionResponse>> listChatCompletionsPages(ClientConfig config, {String? model, Map<String, dynamic>? metadata, String? after, int? limit, ListChatCompletionsOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listChatCompletions(config,
-        model: model == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(model),
-        metadata: metadata == null
-            ? const SdkOmitted<Map<String, dynamic>?>()
-            : SdkPresent<Map<String, dynamic>?>(metadata),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListChatCompletionsOrder>()
-            : SdkPresent<ListChatCompletionsOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listChatCompletions(config, model: model == null ? const SdkOmitted<String>() : SdkPresent<String>(model), metadata: metadata == null ? const SdkOmitted<Map<String, dynamic>?>() : SdkPresent<Map<String, dynamic>?>(metadata), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListChatCompletionsOrder>() : SdkPresent<ListChatCompletionsOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -134,6 +79,7 @@ Stream<SdkPage<ChatCompletionList, CreateChatCompletionResponse>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Creates a model response for a chat conversation. Supply `model` and at least one item in `messages`; set `stream` to receive server-sent events instead of a single response object. The response contains completion choices and usage information when available.
 ///
@@ -147,27 +93,17 @@ Future<CreateChatCompletionResponse> createChatCompletion(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'createChatCompletion',
-          fromJsonRaw: (value) => CreateChatCompletionResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateChatCompletionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a model response for a chat conversation. Supply `model` and at least one item in `messages`; set `stream` to receive server-sent events instead of a single response object. The response contains completion choices and usage information when available.
 ///
 /// **Starting a new project?** We recommend trying [Responses](https://developers.openai.com/api/reference/resources/responses) to take advantage of the latest OpenAI platform features. Compare [Chat Completions with Responses](https://developers.openai.com/api/docs/guides/migrate-to-responses?api-mode=responses). --- Creates a model response for the given chat conversation. Learn more in the [text generation](https://developers.openai.com/api/docs/guides/text), [vision](https://developers.openai.com/api/docs/guides/images-vision), and [audio](https://developers.openai.com/api/docs/guides/audio) guides. Parameter support can differ depending on the model used to generate the response, particularly for newer reasoning models. Parameters that are only supported for reasoning models are noted below. For the current state of unsupported parameters in reasoning models, [refer to the reasoning guide](https://developers.openai.com/api/docs/guides/reasoning). Returns a chat completion object, or a streamed sequence of chat completion chunk objects if the request is streamed.
-Stream<CreateChatCompletionStreamResponse> createChatCompletionStream(
-    ClientConfig config,
-    {required CreateChatCompletionRequest body,
-    RequestOptions? requestOptions}) async* {
+Stream<CreateChatCompletionStreamResponse> createChatCompletionStream(ClientConfig config, {required CreateChatCompletionRequest body, RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/chat/completions',
@@ -178,21 +114,12 @@ Stream<CreateChatCompletionStreamResponse> createChatCompletionStream(
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {
-      '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-      '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-    },
+    errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
   )) {
     if (event.data == '[DONE]') return;
-    yield sdkDecode(() => CreateChatCompletionStreamResponse.fromJson(
-        event.data as Map<String, dynamic>));
+    yield sdkDecode(() => CreateChatCompletionStreamResponse.fromJson(event.data as Map<String, dynamic>));
   }
 }
-
 /// Get a stored chat completion. Only Chat Completions that have been created with the `store` parameter set to `true` will be returned.
 ///
 /// [completionId] The ID of the chat completion to retrieve.
@@ -203,16 +130,12 @@ Future<CreateChatCompletionResponse> getChatCompletion(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getChatCompletion',
-          fromJsonRaw: (value) => CreateChatCompletionResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateChatCompletionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates the metadata on a stored chat completion. The completion must have been created with `store` set to `true`, and metadata is the only supported modification. Use this operation to attach or replace structured key-value metadata on the completion.
 ///
@@ -234,21 +157,12 @@ Future<CreateChatCompletionResponse> updateChatCompletion(ClientConfig config,
           body: {'metadata': metadata},
           decoder: SdkResponseDecoder.json,
           operationId: 'updateChatCompletion',
-          fromJsonRaw: (value) => CreateChatCompletionResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateChatCompletionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Delete a stored chat completion. Only Chat Completions that have been created with the `store` parameter set to `true` can be deleted.
 ///
@@ -260,16 +174,12 @@ Future<ChatCompletionDeleted> deleteChatCompletion(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteChatCompletion',
-          fromJsonRaw: (value) =>
-              ChatCompletionDeleted.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ChatCompletionDeleted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Get the messages in a stored chat completion. Only Chat Completions that have been created with the `store` parameter set to `true` will be returned.
 ///
@@ -289,30 +199,19 @@ Future<ChatCompletionMessageList> getChatCompletionMessages(ClientConfig config,
           '/chat/completions/${Uri.encodeComponent(completionId.toString())}/messages',
           config: config,
           query: {
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true)
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getChatCompletionMessages',
-          fromJsonRaw: (value) =>
-              ChatCompletionMessageList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ChatCompletionMessageList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Get the messages in a stored chat completion. Only Chat Completions that have been created with the `store` parameter set to `true` will be returned.
 ///
@@ -322,30 +221,13 @@ Future<ChatCompletionMessageList> getChatCompletionMessages(ClientConfig config,
 /// [limit] Number of messages to retrieve.
 /// [order] Sort order for messages by timestamp. Use `asc` for ascending order
 ///   or `desc` for descending order. Defaults to `asc`.
-Stream<ChatCompletionMessageListDataItem> getChatCompletionMessagesPaginated(
-    ClientConfig config,
-    {required String completionId,
-    String? after,
-    int? limit,
-    GetChatCompletionMessagesOrder? order,
-    RequestOptions? requestOptions}) async* {
+Stream<ChatCompletionMessageListDataItem> getChatCompletionMessagesPaginated(ClientConfig config, {required String completionId, String? after, int? limit, GetChatCompletionMessagesOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await getChatCompletionMessages(config,
-        completionId: completionId,
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<GetChatCompletionMessagesOrder>()
-            : SdkPresent<GetChatCompletionMessagesOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await getChatCompletionMessages(config, completionId: completionId, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<GetChatCompletionMessagesOrder>() : SdkPresent<GetChatCompletionMessagesOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -353,25 +235,10 @@ Stream<ChatCompletionMessageListDataItem> getChatCompletionMessagesPaginated(
   }
 }
 
-Stream<SdkPage<ChatCompletionMessageList, ChatCompletionMessageListDataItem>>
-    getChatCompletionMessagesPages(ClientConfig config,
-        {required String completionId,
-        String? after,
-        int? limit,
-        GetChatCompletionMessagesOrder? order,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ChatCompletionMessageList, ChatCompletionMessageListDataItem>> getChatCompletionMessagesPages(ClientConfig config, {required String completionId, String? after, int? limit, GetChatCompletionMessagesOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await getChatCompletionMessages(config,
-        completionId: completionId,
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<GetChatCompletionMessagesOrder>()
-            : SdkPresent<GetChatCompletionMessagesOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await getChatCompletionMessages(config, completionId: completionId, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<GetChatCompletionMessagesOrder>() : SdkPresent<GetChatCompletionMessagesOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;

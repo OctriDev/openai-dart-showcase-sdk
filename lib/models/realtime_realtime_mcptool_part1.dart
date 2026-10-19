@@ -8,130 +8,68 @@ part of 'realtime_realtime_mcptool.dart';
 class RealtimeMCPToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the item. Always `mcp_call`.
   final RealtimeMCPToolCallType type_;
-
   /// The unique ID of the tool call.
   final String id;
-
   /// The label of the MCP server running the tool.
   final String serverLabel;
-
   /// The name of the tool that was run.
   final String name;
-
   /// A JSON string of the arguments passed to the tool.
   final String arguments;
-
   /// Optional `string` value serialized in the `approval_request_id` wire field.
   final SdkOptional<String?> approvalRequestId;
-
   /// Optional `string` value serialized in the `output` wire field.
   final SdkOptional<String?> output;
-
   /// The error from the tool call, if any.
   final SdkOptional<RealtimeMCPToolCallError?> error;
 
-  const RealtimeMCPToolCall(
-      {required this.type_,
-      required this.id,
-      required this.serverLabel,
-      required this.name,
-      required this.arguments,
-      this.approvalRequestId = const SdkOmitted(),
-      this.output = const SdkOmitted(),
-      this.error = const SdkOmitted()});
+  const RealtimeMCPToolCall({required this.type_, required this.id, required this.serverLabel, required this.name, required this.arguments, this.approvalRequestId = const SdkOmitted(), this.output = const SdkOmitted(), this.error = const SdkOmitted()});
 
-  RealtimeMCPToolCall Function(
-      {RealtimeMCPToolCallType type_,
-      String id,
-      String serverLabel,
-      String name,
-      String arguments,
-      SdkOptional<String?> approvalRequestId,
-      SdkOptional<String?> output,
-      SdkOptional<RealtimeMCPToolCallError?> error}) get copyWith => _copyWith;
+  RealtimeMCPToolCall Function({RealtimeMCPToolCallType type_, String id, String serverLabel, String name, String arguments, SdkOptional<String?> approvalRequestId, SdkOptional<String?> output, SdkOptional<RealtimeMCPToolCallError?> error}) get copyWith => _copyWith;
 
-  RealtimeMCPToolCall _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? serverLabel = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? arguments = sdkOmittedValue,
-          Object? approvalRequestId = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? error = sdkOmittedValue}) =>
-      RealtimeMCPToolCall(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeMCPToolCallType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        serverLabel: identical(serverLabel, sdkOmittedValue)
-            ? this.serverLabel
-            : serverLabel as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        arguments: identical(arguments, sdkOmittedValue)
-            ? this.arguments
-            : arguments as String,
-        approvalRequestId: identical(approvalRequestId, sdkOmittedValue)
-            ? this.approvalRequestId
-            : approvalRequestId as SdkOptional<String?>,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as SdkOptional<String?>,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as SdkOptional<RealtimeMCPToolCallError?>,
-      );
+  RealtimeMCPToolCall _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? name = sdkOmittedValue, Object? arguments = sdkOmittedValue, Object? approvalRequestId = sdkOmittedValue, Object? output = sdkOmittedValue, Object? error = sdkOmittedValue}) => RealtimeMCPToolCall(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeMCPToolCallType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as String,
+    approvalRequestId: identical(approvalRequestId, sdkOmittedValue) ? this.approvalRequestId : approvalRequestId as SdkOptional<String?>,
+    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<String?>,
+    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<RealtimeMCPToolCallError?>,
+  );
 
-  factory RealtimeMCPToolCall.fromJson(Map<String, dynamic> json) =>
-      RealtimeMCPToolCall(
-        type_: (json['type'] != null
-            ? RealtimeMCPToolCallType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        serverLabel: (json['server_label'] as String?)!,
-        name: (json['name'] as String?)!,
-        arguments: (json['arguments'] as String?)!,
-        approvalRequestId: json.containsKey('approval_request_id')
-            ? SdkPresent(json['approval_request_id'] as String?)
-            : const SdkOmitted(),
-        output: json.containsKey('output')
-            ? SdkPresent(json['output'] as String?)
-            : const SdkOmitted(),
-        error: json.containsKey('error')
-            ? SdkPresent(json['error'] != null
-                ? RealtimeMCPToolCallError.fromJson(json['error'])
-                : null)
-            : const SdkOmitted(),
-      );
+  factory RealtimeMCPToolCall.fromJson(Map<String, dynamic> json) => RealtimeMCPToolCall(
+    type_: (json['type'] != null ? RealtimeMCPToolCallType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    serverLabel: (json['server_label'] as String?)!,
+    name: (json['name'] as String?)!,
+    arguments: (json['arguments'] as String?)!,
+    approvalRequestId: json.containsKey('approval_request_id') ? SdkPresent(json['approval_request_id'] as String?) : const SdkOmitted(),
+    output: json.containsKey('output') ? SdkPresent(json['output'] as String?) : const SdkOmitted(),
+    error: json.containsKey('error') ? SdkPresent(json['error'] != null ? RealtimeMCPToolCallError.fromJson(json['error']) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'server_label': serverLabel,
-        'name': name,
-        'arguments': arguments,
-        ...switch (approvalRequestId) {
-          SdkPresent<String?>(value: final value) => {
-              'approval_request_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (output) {
-          SdkPresent<String?>(value: final value) => {
-              'output': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (error) {
-          SdkPresent<RealtimeMCPToolCallError?>(value: final value) => {
-              'error': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'server_label': serverLabel,
+    'name': name,
+    'arguments': arguments,
+    ...switch (approvalRequestId) {
+      SdkPresent<String?>(value: final value) => {'approval_request_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (output) {
+      SdkPresent<String?>(value: final value) => {'output': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (error) {
+      SdkPresent<RealtimeMCPToolCallError?>(value: final value) => {'error': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class RealtimeMCPToolCallError {
@@ -140,120 +78,69 @@ sealed class RealtimeMCPToolCallError {
   const RealtimeMCPToolCallError();
   factory RealtimeMCPToolCallError.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = RealtimeMCPProtocolError.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeMCPToolCallErrorRealtimeMCPProtocolError(value);
-        }
-      } catch (_) {}
-      try {
-        final value = RealtimeMCPToolExecutionError.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeMCPToolCallErrorRealtimeMCPToolExecutionError(value);
-        }
-      } catch (_) {}
-      try {
-        final value = RealtimeMCPHTTPError.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeMCPToolCallErrorRealtimeMCPHTTPError(value);
-        }
-      } catch (_) {}
+      try { final value = RealtimeMCPProtocolError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeMCPToolCallErrorRealtimeMCPProtocolError(value); } } catch (_) {}
+      try { final value = RealtimeMCPToolExecutionError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeMCPToolCallErrorRealtimeMCPToolExecutionError(value); } } catch (_) {}
+      try { final value = RealtimeMCPHTTPError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeMCPToolCallErrorRealtimeMCPHTTPError(value); } } catch (_) {}
     }
-    try {
-      return RealtimeMCPToolCallErrorRealtimeMCPProtocolError(
-          RealtimeMCPProtocolError.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RealtimeMCPToolCallErrorRealtimeMCPToolExecutionError(
-          RealtimeMCPToolExecutionError.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RealtimeMCPToolCallErrorRealtimeMCPHTTPError(
-          RealtimeMCPHTTPError.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"protocol_error", "tool_execution_error", "http_error"}
-            .contains(json["type"])) {
-      return UnknownRealtimeMCPToolCallError(json);
-    }
+    try { return RealtimeMCPToolCallErrorRealtimeMCPProtocolError(RealtimeMCPProtocolError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RealtimeMCPToolCallErrorRealtimeMCPToolExecutionError(RealtimeMCPToolExecutionError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RealtimeMCPToolCallErrorRealtimeMCPHTTPError(RealtimeMCPHTTPError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"protocol_error", "tool_execution_error", "http_error"}.contains(json["type"])) { return UnknownRealtimeMCPToolCallError(json); }
     throw FormatException("No variant matched for RealtimeMCPToolCallError");
   }
   Object? toJson();
 }
 
-final class RealtimeMCPToolCallErrorRealtimeMCPProtocolError
-    extends RealtimeMCPToolCallError {
+final class RealtimeMCPToolCallErrorRealtimeMCPProtocolError extends RealtimeMCPToolCallError {
   final RealtimeMCPProtocolError value;
   const RealtimeMCPToolCallErrorRealtimeMCPProtocolError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeMCPToolCallErrorRealtimeMCPToolExecutionError
-    extends RealtimeMCPToolCallError {
+final class RealtimeMCPToolCallErrorRealtimeMCPToolExecutionError extends RealtimeMCPToolCallError {
   final RealtimeMCPToolExecutionError value;
   const RealtimeMCPToolCallErrorRealtimeMCPToolExecutionError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeMCPToolCallErrorRealtimeMCPHTTPError
-    extends RealtimeMCPToolCallError {
+final class RealtimeMCPToolCallErrorRealtimeMCPHTTPError extends RealtimeMCPToolCallError {
   final RealtimeMCPHTTPError value;
   const RealtimeMCPToolCallErrorRealtimeMCPHTTPError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeMCPToolCallError] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownRealtimeMCPToolCallError extends RealtimeMCPToolCallError {
   final Map<String, dynamic> raw;
   const UnknownRealtimeMCPToolCallError(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Typed representation of the `RealtimeMCPToolExecutionError` API schema.
 class RealtimeMCPToolExecutionError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final RealtimeMCPToolExecutionErrorType type_;
-
   /// Required `string` value serialized in the `message` wire field.
   final String message;
 
-  const RealtimeMCPToolExecutionError(
-      {required this.type_, required this.message});
+  const RealtimeMCPToolExecutionError({required this.type_, required this.message});
 
-  RealtimeMCPToolExecutionError Function(
-      {RealtimeMCPToolExecutionErrorType type_,
-      String message}) get copyWith => _copyWith;
+  RealtimeMCPToolExecutionError Function({RealtimeMCPToolExecutionErrorType type_, String message}) get copyWith => _copyWith;
 
-  RealtimeMCPToolExecutionError _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      RealtimeMCPToolExecutionError(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeMCPToolExecutionErrorType,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  RealtimeMCPToolExecutionError _copyWith({Object? type_ = sdkOmittedValue, Object? message = sdkOmittedValue}) => RealtimeMCPToolExecutionError(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeMCPToolExecutionErrorType,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
-  factory RealtimeMCPToolExecutionError.fromJson(Map<String, dynamic> json) =>
-      RealtimeMCPToolExecutionError(
-        type_: (json['type'] != null
-            ? RealtimeMCPToolExecutionErrorType.fromJson(json['type'] as String)
-            : null)!,
-        message: (json['message'] as String?)!,
-      );
+  factory RealtimeMCPToolExecutionError.fromJson(Map<String, dynamic> json) => RealtimeMCPToolExecutionError(
+    type_: (json['type'] != null ? RealtimeMCPToolExecutionErrorType.fromJson(json['type'] as String) : null)!,
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'message': message,
-      };
+    'type': type_.toJson(),
+    'message': message,
+  };
 }

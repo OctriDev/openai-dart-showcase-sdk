@@ -8,92 +8,56 @@ part of 'chat_chat_completion_allowed.dart';
 class ChatCompletionAllowedTools {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Constrains the tools available to the model to a pre-defined set. `auto` allows the model to pick from among the allowed tools and generate a message. `required` requires the model to call one or more of the allowed tools.
   final ChatCompletionAllowedToolsMode mode;
-
   /// A list of tool definitions that the model should be allowed to call. For the Chat Completions API, the list of tool definitions might look like: ```json [ { "type": "function", "function": { "name": "get_weather" } }, { "type": "function", "function": { "name": "get_time" } } ] ```
   final List<Map<String, Object?>> tools;
 
   const ChatCompletionAllowedTools({required this.mode, required this.tools});
 
-  ChatCompletionAllowedTools Function(
-      {ChatCompletionAllowedToolsMode mode,
-      List<Map<String, Object?>> tools}) get copyWith => _copyWith;
+  ChatCompletionAllowedTools Function({ChatCompletionAllowedToolsMode mode, List<Map<String, Object?>> tools}) get copyWith => _copyWith;
 
-  ChatCompletionAllowedTools _copyWith(
-          {Object? mode = sdkOmittedValue, Object? tools = sdkOmittedValue}) =>
-      ChatCompletionAllowedTools(
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as ChatCompletionAllowedToolsMode,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as List<Map<String, Object?>>,
-      );
+  ChatCompletionAllowedTools _copyWith({Object? mode = sdkOmittedValue, Object? tools = sdkOmittedValue}) => ChatCompletionAllowedTools(
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as ChatCompletionAllowedToolsMode,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<Map<String, Object?>>,
+  );
 
-  factory ChatCompletionAllowedTools.fromJson(Map<String, dynamic> json) =>
-      ChatCompletionAllowedTools(
-        mode: (json['mode'] != null
-            ? ChatCompletionAllowedToolsMode.fromJson(json['mode'] as String)
-            : null)!,
-        tools: ((json['tools'] as List?)
-            ?.map((e) => Map<String, dynamic>.from(e as Map)
-                .map((key, value) => MapEntry(key, value)))
-            .toList())!,
-      );
+  factory ChatCompletionAllowedTools.fromJson(Map<String, dynamic> json) => ChatCompletionAllowedTools(
+    mode: (json['mode'] != null ? ChatCompletionAllowedToolsMode.fromJson(json['mode'] as String) : null)!,
+    tools: ((json['tools'] as List?)?.map((e) => Map<String, dynamic>.from(e as Map).map((key, value) => MapEntry(key, value))).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'mode': mode.toJson(),
-        'tools': tools,
-      };
+    'mode': mode.toJson(),
+    'tools': tools,
+  };
 }
 
 /// Constrains the tools available to the model to a pre-defined set.
 class ChatCompletionAllowedToolsChoice {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Allowed tool configuration type. Always `allowed_tools`.
   final ChatCompletionAllowedToolsChoiceType type_;
-
   /// Constrains the tools available to the model to a pre-defined set.
   final ChatCompletionAllowedTools allowedTools;
 
-  const ChatCompletionAllowedToolsChoice(
-      {required this.type_, required this.allowedTools});
+  const ChatCompletionAllowedToolsChoice({required this.type_, required this.allowedTools});
 
-  ChatCompletionAllowedToolsChoice Function(
-      {ChatCompletionAllowedToolsChoiceType type_,
-      ChatCompletionAllowedTools allowedTools}) get copyWith => _copyWith;
+  ChatCompletionAllowedToolsChoice Function({ChatCompletionAllowedToolsChoiceType type_, ChatCompletionAllowedTools allowedTools}) get copyWith => _copyWith;
 
-  ChatCompletionAllowedToolsChoice _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? allowedTools = sdkOmittedValue}) =>
-      ChatCompletionAllowedToolsChoice(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ChatCompletionAllowedToolsChoiceType,
-        allowedTools: identical(allowedTools, sdkOmittedValue)
-            ? this.allowedTools
-            : allowedTools as ChatCompletionAllowedTools,
-      );
+  ChatCompletionAllowedToolsChoice _copyWith({Object? type_ = sdkOmittedValue, Object? allowedTools = sdkOmittedValue}) => ChatCompletionAllowedToolsChoice(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ChatCompletionAllowedToolsChoiceType,
+    allowedTools: identical(allowedTools, sdkOmittedValue) ? this.allowedTools : allowedTools as ChatCompletionAllowedTools,
+  );
 
-  factory ChatCompletionAllowedToolsChoice.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionAllowedToolsChoice(
-        type_: (json['type'] != null
-            ? ChatCompletionAllowedToolsChoiceType.fromJson(
-                json['type'] as String)
-            : null)!,
-        allowedTools: (json['allowed_tools'] != null
-            ? ChatCompletionAllowedTools.fromJson(
-                json['allowed_tools'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ChatCompletionAllowedToolsChoice.fromJson(Map<String, dynamic> json) => ChatCompletionAllowedToolsChoice(
+    type_: (json['type'] != null ? ChatCompletionAllowedToolsChoiceType.fromJson(json['type'] as String) : null)!,
+    allowedTools: (json['allowed_tools'] != null ? ChatCompletionAllowedTools.fromJson(json['allowed_tools'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'allowed_tools': allowedTools.toJson(),
-      };
+    'type': type_.toJson(),
+    'allowed_tools': allowedTools.toJson(),
+  };
 }

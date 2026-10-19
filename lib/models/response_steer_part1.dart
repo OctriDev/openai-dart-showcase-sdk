@@ -8,116 +8,71 @@ part of 'response_steer.dart';
 class ResponseSteerAcceptedEventSteer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID assigned to the steering submission.
   final String id;
-
   /// The ID of the response being steered.
   final String previousResponseId;
 
-  const ResponseSteerAcceptedEventSteer(
-      {required this.id, required this.previousResponseId});
+  const ResponseSteerAcceptedEventSteer({required this.id, required this.previousResponseId});
 
-  ResponseSteerAcceptedEventSteer Function(
-      {String id, String previousResponseId}) get copyWith => _copyWith;
+  ResponseSteerAcceptedEventSteer Function({String id, String previousResponseId}) get copyWith => _copyWith;
 
-  ResponseSteerAcceptedEventSteer _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? previousResponseId = sdkOmittedValue}) =>
-      ResponseSteerAcceptedEventSteer(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        previousResponseId: identical(previousResponseId, sdkOmittedValue)
-            ? this.previousResponseId
-            : previousResponseId as String,
-      );
+  ResponseSteerAcceptedEventSteer _copyWith({Object? id = sdkOmittedValue, Object? previousResponseId = sdkOmittedValue}) => ResponseSteerAcceptedEventSteer(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    previousResponseId: identical(previousResponseId, sdkOmittedValue) ? this.previousResponseId : previousResponseId as String,
+  );
 
-  factory ResponseSteerAcceptedEventSteer.fromJson(Map<String, dynamic> json) =>
-      ResponseSteerAcceptedEventSteer(
-        id: (json['id'] as String?)!,
-        previousResponseId: (json['previous_response_id'] as String?)!,
-      );
+  factory ResponseSteerAcceptedEventSteer.fromJson(Map<String, dynamic> json) => ResponseSteerAcceptedEventSteer(
+    id: (json['id'] as String?)!,
+    previousResponseId: (json['previous_response_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'previous_response_id': previousResponseId,
-      };
+    'id': id,
+    'previous_response_id': previousResponseId,
+  };
 }
 
 /// Emitted when steering input has been validated and queued. Acceptance means the server owns the input, not that it has been applied. The successor's `response.created` event is the commit point. If accepted input cannot be committed, `response.steer.failed` returns it with the same steering ID. When the response stops for client-owned tool output or approval, the input remains queued and `response.steer.pending` is emitted after `response.completed`. Fill the pending event's `required_input` stubs with saved results and send one matching explicit `response.create` per parent. Do not resend accepted input while it is still queued.
 class ResponseSteerAcceptedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event discriminator. Always `response.steer.accepted`.
   final ResponseSteerAcceptedEventType type_;
-
   /// The sequence number for this event.
   final int sequenceNumber;
-
   /// The accepted steering submission.
   final ResponseSteerAcceptedEventSteer steer;
-
   /// The WebSocket lane that emitted this event. This field is present when the target response's `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const ResponseSteerAcceptedEvent(
-      {required this.type_,
-      required this.sequenceNumber,
-      required this.steer,
-      this.streamId = const SdkOmitted()});
+  const ResponseSteerAcceptedEvent({required this.type_, required this.sequenceNumber, required this.steer, this.streamId = const SdkOmitted()});
 
-  ResponseSteerAcceptedEvent Function(
-      {ResponseSteerAcceptedEventType type_,
-      int sequenceNumber,
-      ResponseSteerAcceptedEventSteer steer,
-      SdkOptional<String> streamId}) get copyWith => _copyWith;
+  ResponseSteerAcceptedEvent Function({ResponseSteerAcceptedEventType type_, int sequenceNumber, ResponseSteerAcceptedEventSteer steer, SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  ResponseSteerAcceptedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? steer = sdkOmittedValue,
-          Object? streamId = sdkOmittedValue}) =>
-      ResponseSteerAcceptedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseSteerAcceptedEventType,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        steer: identical(steer, sdkOmittedValue)
-            ? this.steer
-            : steer as ResponseSteerAcceptedEventSteer,
-        streamId: identical(streamId, sdkOmittedValue)
-            ? this.streamId
-            : streamId as SdkOptional<String>,
-      );
+  ResponseSteerAcceptedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? steer = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => ResponseSteerAcceptedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseSteerAcceptedEventType,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    steer: identical(steer, sdkOmittedValue) ? this.steer : steer as ResponseSteerAcceptedEventSteer,
+    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
+  );
 
-  factory ResponseSteerAcceptedEvent.fromJson(Map<String, dynamic> json) =>
-      ResponseSteerAcceptedEvent(
-        type_: (json['type'] != null
-            ? ResponseSteerAcceptedEventType.fromJson(json['type'] as String)
-            : null)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        steer: (json['steer'] != null
-            ? ResponseSteerAcceptedEventSteer.fromJson(
-                json['steer'] as Map<String, dynamic>)
-            : null)!,
-        streamId: json['stream_id'] != null
-            ? SdkPresent((json['stream_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ResponseSteerAcceptedEvent.fromJson(Map<String, dynamic> json) => ResponseSteerAcceptedEvent(
+    type_: (json['type'] != null ? ResponseSteerAcceptedEventType.fromJson(json['type'] as String) : null)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    steer: (json['steer'] != null ? ResponseSteerAcceptedEventSteer.fromJson(json['steer'] as Map<String, dynamic>) : null)!,
+    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'sequence_number': sequenceNumber,
-        'steer': steer.toJson(),
-        ...switch (streamId) {
-          SdkPresent<String>(value: final value) => {
-              'stream_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'sequence_number': sequenceNumber,
+    'steer': steer.toJson(),
+    ...switch (streamId) {
+      SdkPresent<String>(value: final value) => {'stream_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 // ResponseSteerErrorCode = String
@@ -126,264 +81,152 @@ class ResponseSteerAcceptedEvent {
 class ResponseSteerEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event discriminator. Always `response.steer`.
   final ResponseSteerEventType type_;
-
   /// The ID of the response to steer on this WebSocket connection.
   final String previousResponseId;
-
   /// Input to queue for a continuation of the response. Uses the same string or input-item shape as `response.create.input`, with a non-empty array when supplying input items. Steering accepts only messages with the `user` role. Each message may contain only `type`, `role`, and `content`, with `content` as a string or an array of `input_text`, `input_image`, and `input_file` parts. The optional `type` must be `message`. Other roles, tool outputs, and item types are not supported for steering.
   final ResponseSteerInput input;
 
-  const ResponseSteerEvent(
-      {required this.type_,
-      required this.previousResponseId,
-      required this.input});
+  const ResponseSteerEvent({required this.type_, required this.previousResponseId, required this.input});
 
-  ResponseSteerEvent Function(
-      {ResponseSteerEventType type_,
-      String previousResponseId,
-      ResponseSteerInput input}) get copyWith => _copyWith;
+  ResponseSteerEvent Function({ResponseSteerEventType type_, String previousResponseId, ResponseSteerInput input}) get copyWith => _copyWith;
 
-  ResponseSteerEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? previousResponseId = sdkOmittedValue,
-          Object? input = sdkOmittedValue}) =>
-      ResponseSteerEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseSteerEventType,
-        previousResponseId: identical(previousResponseId, sdkOmittedValue)
-            ? this.previousResponseId
-            : previousResponseId as String,
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as ResponseSteerInput,
-      );
+  ResponseSteerEvent _copyWith({Object? type_ = sdkOmittedValue, Object? previousResponseId = sdkOmittedValue, Object? input = sdkOmittedValue}) => ResponseSteerEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseSteerEventType,
+    previousResponseId: identical(previousResponseId, sdkOmittedValue) ? this.previousResponseId : previousResponseId as String,
+    input: identical(input, sdkOmittedValue) ? this.input : input as ResponseSteerInput,
+  );
 
-  factory ResponseSteerEvent.fromJson(Map<String, dynamic> json) =>
-      ResponseSteerEvent(
-        type_: (json['type'] != null
-            ? ResponseSteerEventType.fromJson(json['type'] as String)
-            : null)!,
-        previousResponseId: (json['previous_response_id'] as String?)!,
-        input: (json['input'] != null
-            ? ResponseSteerInput.fromJson(json['input'])
-            : null)!,
-      );
+  factory ResponseSteerEvent.fromJson(Map<String, dynamic> json) => ResponseSteerEvent(
+    type_: (json['type'] != null ? ResponseSteerEventType.fromJson(json['type'] as String) : null)!,
+    previousResponseId: (json['previous_response_id'] as String?)!,
+    input: (json['input'] != null ? ResponseSteerInput.fromJson(json['input']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'previous_response_id': previousResponseId,
-        'input': input.toJson(),
-      };
+    'type': type_.toJson(),
+    'previous_response_id': previousResponseId,
+    'input': input.toJson(),
+  };
 }
 
 /// The steering submission that could not be committed.
 class ResponseSteerFailedEventSteer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID assigned to the steering submission, if one was allocated.
   final SdkOptional<String> id;
-
   /// The ID of the response that was targeted for steering.
   final String previousResponseId;
-
   /// Input to queue for a continuation of the response. Uses the same string or input-item shape as `response.create.input`, with a non-empty array when supplying input items. Steering accepts only messages with the `user` role. Each message may contain only `type`, `role`, and `content`, with `content` as a string or an array of `input_text`, `input_image`, and `input_file` parts. The optional `type` must be `message`. Other roles, tool outputs, and item types are not supported for steering.
   final ResponseSteerInput input;
 
-  const ResponseSteerFailedEventSteer(
-      {this.id = const SdkOmitted(),
-      required this.previousResponseId,
-      required this.input});
+  const ResponseSteerFailedEventSteer({this.id = const SdkOmitted(), required this.previousResponseId, required this.input});
 
-  ResponseSteerFailedEventSteer Function(
-      {SdkOptional<String> id,
-      String previousResponseId,
-      ResponseSteerInput input}) get copyWith => _copyWith;
+  ResponseSteerFailedEventSteer Function({SdkOptional<String> id, String previousResponseId, ResponseSteerInput input}) get copyWith => _copyWith;
 
-  ResponseSteerFailedEventSteer _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? previousResponseId = sdkOmittedValue,
-          Object? input = sdkOmittedValue}) =>
-      ResponseSteerFailedEventSteer(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        previousResponseId: identical(previousResponseId, sdkOmittedValue)
-            ? this.previousResponseId
-            : previousResponseId as String,
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as ResponseSteerInput,
-      );
+  ResponseSteerFailedEventSteer _copyWith({Object? id = sdkOmittedValue, Object? previousResponseId = sdkOmittedValue, Object? input = sdkOmittedValue}) => ResponseSteerFailedEventSteer(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    previousResponseId: identical(previousResponseId, sdkOmittedValue) ? this.previousResponseId : previousResponseId as String,
+    input: identical(input, sdkOmittedValue) ? this.input : input as ResponseSteerInput,
+  );
 
-  factory ResponseSteerFailedEventSteer.fromJson(Map<String, dynamic> json) =>
-      ResponseSteerFailedEventSteer(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        previousResponseId: (json['previous_response_id'] as String?)!,
-        input: (json['input'] != null
-            ? ResponseSteerInput.fromJson(json['input'])
-            : null)!,
-      );
+  factory ResponseSteerFailedEventSteer.fromJson(Map<String, dynamic> json) => ResponseSteerFailedEventSteer(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    previousResponseId: (json['previous_response_id'] as String?)!,
+    input: (json['input'] != null ? ResponseSteerInput.fromJson(json['input']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'previous_response_id': previousResponseId,
-        'input': input.toJson(),
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'previous_response_id': previousResponseId,
+    'input': input.toJson(),
+  };
 }
 
 /// Information about why the input could not be committed.
 class ResponseSteerFailedEventError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The error type. Always `invalid_request_error`.
   final ResponseSteerFailedEventErrorType type_;
-
   /// A machine-readable steering error code. Clients should handle unknown values because additional codes may be introduced. Known values include: - `response_not_found`: The target response is not available on this connection. - `invalid_input`: The event or input failed validation. - `steering_not_supported`: The model or response execution mode does not support steering. - `too_many_pending_steers`: Too much steering input is pending for the response. - `response_already_completed`: The response completed and is no longer accepting steering input. - `response_not_active`: The response is no longer accepting steering input. - `successor_creation_failed`: The successor response could not be created.
   final String code;
-
   /// A human-readable description of the error.
   final String message;
 
-  const ResponseSteerFailedEventError(
-      {required this.type_, required this.code, required this.message});
+  const ResponseSteerFailedEventError({required this.type_, required this.code, required this.message});
 
-  ResponseSteerFailedEventError Function(
-      {ResponseSteerFailedEventErrorType type_,
-      String code,
-      String message}) get copyWith => _copyWith;
+  ResponseSteerFailedEventError Function({ResponseSteerFailedEventErrorType type_, String code, String message}) get copyWith => _copyWith;
 
-  ResponseSteerFailedEventError _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      ResponseSteerFailedEventError(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseSteerFailedEventErrorType,
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  ResponseSteerFailedEventError _copyWith({Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => ResponseSteerFailedEventError(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseSteerFailedEventErrorType,
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
-  factory ResponseSteerFailedEventError.fromJson(Map<String, dynamic> json) =>
-      ResponseSteerFailedEventError(
-        type_: (json['type'] != null
-            ? ResponseSteerFailedEventErrorType.fromJson(json['type'] as String)
-            : null)!,
-        code: (json['code'] as String?)!,
-        message: (json['message'] as String?)!,
-      );
+  factory ResponseSteerFailedEventError.fromJson(Map<String, dynamic> json) => ResponseSteerFailedEventError(
+    type_: (json['type'] != null ? ResponseSteerFailedEventErrorType.fromJson(json['type'] as String) : null)!,
+    code: (json['code'] as String?)!,
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'code': code,
-        'message': message,
-      };
+    'type': type_.toJson(),
+    'code': code,
+    'message': message,
+  };
 }
 
 /// Emitted when steering input is rejected or cannot be committed to a successor response. Returns the original, uncommitted input so the client can carry it into `response.create` when appropriate. Invalid input must be corrected before retrying. Failures after acceptance include the same steering ID. Failures before an ID is allocated omit `steer.id`. A lost connection or missing acknowledgement leaves the outcome unknown; it is not proof that the input was rejected.
 class ResponseSteerFailedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event discriminator. Always `response.steer.failed`.
   final ResponseSteerFailedEventType type_;
-
   /// The sequence number for this event.
   final int sequenceNumber;
-
   /// The steering submission that could not be committed.
   final ResponseSteerFailedEventSteer steer;
-
   /// Information about why the input could not be committed.
   final ResponseSteerFailedEventError error;
-
   /// The WebSocket lane that emitted this event, when the target response is available and its `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const ResponseSteerFailedEvent(
-      {required this.type_,
-      required this.sequenceNumber,
-      required this.steer,
-      required this.error,
-      this.streamId = const SdkOmitted()});
+  const ResponseSteerFailedEvent({required this.type_, required this.sequenceNumber, required this.steer, required this.error, this.streamId = const SdkOmitted()});
 
-  ResponseSteerFailedEvent Function(
-      {ResponseSteerFailedEventType type_,
-      int sequenceNumber,
-      ResponseSteerFailedEventSteer steer,
-      ResponseSteerFailedEventError error,
-      SdkOptional<String> streamId}) get copyWith => _copyWith;
+  ResponseSteerFailedEvent Function({ResponseSteerFailedEventType type_, int sequenceNumber, ResponseSteerFailedEventSteer steer, ResponseSteerFailedEventError error, SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  ResponseSteerFailedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? steer = sdkOmittedValue,
-          Object? error = sdkOmittedValue,
-          Object? streamId = sdkOmittedValue}) =>
-      ResponseSteerFailedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseSteerFailedEventType,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        steer: identical(steer, sdkOmittedValue)
-            ? this.steer
-            : steer as ResponseSteerFailedEventSteer,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as ResponseSteerFailedEventError,
-        streamId: identical(streamId, sdkOmittedValue)
-            ? this.streamId
-            : streamId as SdkOptional<String>,
-      );
+  ResponseSteerFailedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? steer = sdkOmittedValue, Object? error = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => ResponseSteerFailedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseSteerFailedEventType,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    steer: identical(steer, sdkOmittedValue) ? this.steer : steer as ResponseSteerFailedEventSteer,
+    error: identical(error, sdkOmittedValue) ? this.error : error as ResponseSteerFailedEventError,
+    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
+  );
 
-  factory ResponseSteerFailedEvent.fromJson(Map<String, dynamic> json) =>
-      ResponseSteerFailedEvent(
-        type_: (json['type'] != null
-            ? ResponseSteerFailedEventType.fromJson(json['type'] as String)
-            : null)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        steer: (json['steer'] != null
-            ? ResponseSteerFailedEventSteer.fromJson(
-                json['steer'] as Map<String, dynamic>)
-            : null)!,
-        error: (json['error'] != null
-            ? ResponseSteerFailedEventError.fromJson(
-                json['error'] as Map<String, dynamic>)
-            : null)!,
-        streamId: json['stream_id'] != null
-            ? SdkPresent((json['stream_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ResponseSteerFailedEvent.fromJson(Map<String, dynamic> json) => ResponseSteerFailedEvent(
+    type_: (json['type'] != null ? ResponseSteerFailedEventType.fromJson(json['type'] as String) : null)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    steer: (json['steer'] != null ? ResponseSteerFailedEventSteer.fromJson(json['steer'] as Map<String, dynamic>) : null)!,
+    error: (json['error'] != null ? ResponseSteerFailedEventError.fromJson(json['error'] as Map<String, dynamic>) : null)!,
+    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'sequence_number': sequenceNumber,
-        'steer': steer.toJson(),
-        'error': error.toJson(),
-        ...switch (streamId) {
-          SdkPresent<String>(value: final value) => {
-              'stream_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'sequence_number': sequenceNumber,
+    'steer': steer.toJson(),
+    'error': error.toJson(),
+    ...switch (streamId) {
+      SdkPresent<String>(value: final value) => {'stream_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class ResponseSteerInput {
@@ -391,15 +234,8 @@ sealed class ResponseSteerInput {
   static const String constructionSurface = 'named';
   const ResponseSteerInput();
   factory ResponseSteerInput.fromJson(Object? json) {
-    if (json is String) {
-      return ResponseSteerInputString(json);
-    }
-    if (json is List) {
-      return ResponseSteerInputListResponseSteerInputItem(json
-          .map((e) => ResponseSteerInputItem.fromJson(e))
-          .toList()
-          .cast<ResponseSteerInputItem>());
-    }
+    if (json is String) { return ResponseSteerInputString(json); }
+    if (json is List) { return ResponseSteerInputListResponseSteerInputItem(json.map((e) => ResponseSteerInputItem.fromJson(e)).toList().cast<ResponseSteerInputItem>()); }
     throw FormatException("No variant matched for ResponseSteerInput");
   }
   Object? toJson();
@@ -408,16 +244,13 @@ sealed class ResponseSteerInput {
 final class ResponseSteerInputString extends ResponseSteerInput {
   final String value;
   const ResponseSteerInputString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class ResponseSteerInputListResponseSteerInputItem
-    extends ResponseSteerInput {
+final class ResponseSteerInputListResponseSteerInputItem extends ResponseSteerInput {
   final List<ResponseSteerInputItem> value;
   const ResponseSteerInputListResponseSteerInputItem(this.value);
-  @override
-  Object? toJson() => value.map((e) => e.toJson()).toList();
+  @override Object? toJson() => value.map((e) => e.toJson()).toList();
 }
 
 sealed class ResponseSteerInputItem {
@@ -426,59 +259,34 @@ sealed class ResponseSteerInputItem {
   const ResponseSteerInputItem();
   factory ResponseSteerInputItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = UserMessageItemParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ResponseSteerInputItemUserMessageItemParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = FunctionCallOutputItemParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ResponseSteerInputItemFunctionCallOutputItemParam(value);
-        }
-      } catch (_) {}
+      try { final value = UserMessageItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponseSteerInputItemUserMessageItemParam(value); } } catch (_) {}
+      try { final value = FunctionCallOutputItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponseSteerInputItemFunctionCallOutputItemParam(value); } } catch (_) {}
     }
-    try {
-      return ResponseSteerInputItemUserMessageItemParam(
-          UserMessageItemParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ResponseSteerInputItemFunctionCallOutputItemParam(
-          FunctionCallOutputItemParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"message", "function_call_output"}.contains(json["type"])) {
-      return UnknownResponseSteerInputItem(json);
-    }
+    try { return ResponseSteerInputItemUserMessageItemParam(UserMessageItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ResponseSteerInputItemFunctionCallOutputItemParam(FunctionCallOutputItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"message", "function_call_output"}.contains(json["type"])) { return UnknownResponseSteerInputItem(json); }
     throw FormatException("No variant matched for ResponseSteerInputItem");
   }
   Object? toJson();
 }
 
-final class ResponseSteerInputItemUserMessageItemParam
-    extends ResponseSteerInputItem {
+final class ResponseSteerInputItemUserMessageItemParam extends ResponseSteerInputItem {
   final UserMessageItemParam value;
   const ResponseSteerInputItemUserMessageItemParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ResponseSteerInputItemFunctionCallOutputItemParam
-    extends ResponseSteerInputItem {
+final class ResponseSteerInputItemFunctionCallOutputItemParam extends ResponseSteerInputItem {
   final FunctionCallOutputItemParam value;
   const ResponseSteerInputItemFunctionCallOutputItemParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ResponseSteerInputItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownResponseSteerInputItem extends ResponseSteerInputItem {
   final Map<String, dynamic> raw;
   const UnknownResponseSteerInputItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 // ResponseSteerInputItemList = List<ResponseSteerInputItem>

@@ -8,105 +8,63 @@ part of 'assistants_run.dart';
 class RunStepDetailsToolCallsFunctionObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the tool call object.
   final String id;
-
   /// The type of tool call. This is always going to be `function` for this type of tool call.
   final RunStepDetailsToolCallsFunctionObjectType type_;
-
   /// The definition of the function that was called.
   final RunStepDetailsToolCallsFunctionObjectFunction function_;
 
-  const RunStepDetailsToolCallsFunctionObject(
-      {required this.id, required this.type_, required this.function_});
+  const RunStepDetailsToolCallsFunctionObject({required this.id, required this.type_, required this.function_});
 
-  RunStepDetailsToolCallsFunctionObject Function(
-          {String id,
-          RunStepDetailsToolCallsFunctionObjectType type_,
-          RunStepDetailsToolCallsFunctionObjectFunction function_})
-      get copyWith => _copyWith;
+  RunStepDetailsToolCallsFunctionObject Function({String id, RunStepDetailsToolCallsFunctionObjectType type_, RunStepDetailsToolCallsFunctionObjectFunction function_}) get copyWith => _copyWith;
 
-  RunStepDetailsToolCallsFunctionObject _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? function_ = sdkOmittedValue}) =>
-      RunStepDetailsToolCallsFunctionObject(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RunStepDetailsToolCallsFunctionObjectType,
-        function_: identical(function_, sdkOmittedValue)
-            ? this.function_
-            : function_ as RunStepDetailsToolCallsFunctionObjectFunction,
-      );
+  RunStepDetailsToolCallsFunctionObject _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? function_ = sdkOmittedValue}) => RunStepDetailsToolCallsFunctionObject(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepDetailsToolCallsFunctionObjectType,
+    function_: identical(function_, sdkOmittedValue) ? this.function_ : function_ as RunStepDetailsToolCallsFunctionObjectFunction,
+  );
 
-  factory RunStepDetailsToolCallsFunctionObject.fromJson(
-          Map<String, dynamic> json) =>
-      RunStepDetailsToolCallsFunctionObject(
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? RunStepDetailsToolCallsFunctionObjectType.fromJson(
-                json['type'] as String)
-            : null)!,
-        function_: (json['function'] != null
-            ? RunStepDetailsToolCallsFunctionObjectFunction.fromJson(
-                json['function'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory RunStepDetailsToolCallsFunctionObject.fromJson(Map<String, dynamic> json) => RunStepDetailsToolCallsFunctionObject(
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? RunStepDetailsToolCallsFunctionObjectType.fromJson(json['type'] as String) : null)!,
+    function_: (json['function'] != null ? RunStepDetailsToolCallsFunctionObjectFunction.fromJson(json['function'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'type': type_.toJson(),
-        'function': function_.toJson(),
-      };
+    'id': id,
+    'type': type_.toJson(),
+    'function': function_.toJson(),
+  };
 }
 
 /// Details of the tool call.
 class RunStepDetailsToolCallsObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always `tool_calls`.
   final RunStepDetailsToolCallsObjectType type_;
-
   /// An array of tool calls the run step was involved in. These can be associated with one of three types of tools: `code_interpreter`, `file_search`, or `function`.
   final List<RunStepDetailsToolCallsObjectToolCallsItem> toolCalls;
 
-  const RunStepDetailsToolCallsObject(
-      {required this.type_, required this.toolCalls});
+  const RunStepDetailsToolCallsObject({required this.type_, required this.toolCalls});
 
-  RunStepDetailsToolCallsObject Function(
-          {RunStepDetailsToolCallsObjectType type_,
-          List<RunStepDetailsToolCallsObjectToolCallsItem> toolCalls})
-      get copyWith => _copyWith;
+  RunStepDetailsToolCallsObject Function({RunStepDetailsToolCallsObjectType type_, List<RunStepDetailsToolCallsObjectToolCallsItem> toolCalls}) get copyWith => _copyWith;
 
-  RunStepDetailsToolCallsObject _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? toolCalls = sdkOmittedValue}) =>
-      RunStepDetailsToolCallsObject(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RunStepDetailsToolCallsObjectType,
-        toolCalls: identical(toolCalls, sdkOmittedValue)
-            ? this.toolCalls
-            : toolCalls as List<RunStepDetailsToolCallsObjectToolCallsItem>,
-      );
+  RunStepDetailsToolCallsObject _copyWith({Object? type_ = sdkOmittedValue, Object? toolCalls = sdkOmittedValue}) => RunStepDetailsToolCallsObject(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepDetailsToolCallsObjectType,
+    toolCalls: identical(toolCalls, sdkOmittedValue) ? this.toolCalls : toolCalls as List<RunStepDetailsToolCallsObjectToolCallsItem>,
+  );
 
-  factory RunStepDetailsToolCallsObject.fromJson(Map<String, dynamic> json) =>
-      RunStepDetailsToolCallsObject(
-        type_: (json['type'] != null
-            ? RunStepDetailsToolCallsObjectType.fromJson(json['type'] as String)
-            : null)!,
-        toolCalls: ((json['tool_calls'] as List?)
-            ?.map((e) => RunStepDetailsToolCallsObjectToolCallsItem.fromJson(e))
-            .toList())!,
-      );
+  factory RunStepDetailsToolCallsObject.fromJson(Map<String, dynamic> json) => RunStepDetailsToolCallsObject(
+    type_: (json['type'] != null ? RunStepDetailsToolCallsObjectType.fromJson(json['type'] as String) : null)!,
+    toolCalls: ((json['tool_calls'] as List?)?.map((e) => RunStepDetailsToolCallsObjectToolCallsItem.fromJson(e)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'tool_calls': toolCalls.map((item) => item.toJson()).toList(),
-      };
+    'type': type_.toJson(),
+    'tool_calls': toolCalls.map((item) => item.toJson()).toList(),
+  };
 }
 
 sealed class RunStepDetailsToolCallsObjectToolCallsItem {
@@ -115,132 +73,71 @@ sealed class RunStepDetailsToolCallsObjectToolCallsItem {
   const RunStepDetailsToolCallsObjectToolCallsItem();
   factory RunStepDetailsToolCallsObjectToolCallsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = RunStepDetailsToolCallsCodeObject.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsCodeObject(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = RunStepDetailsToolCallsFileSearchObject.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFileSearchObject(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = RunStepDetailsToolCallsFunctionObject.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFunctionObject(
-              value);
-        }
-      } catch (_) {}
+      try { final value = RunStepDetailsToolCallsCodeObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsCodeObject(value); } } catch (_) {}
+      try { final value = RunStepDetailsToolCallsFileSearchObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFileSearchObject(value); } } catch (_) {}
+      try { final value = RunStepDetailsToolCallsFunctionObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFunctionObject(value); } } catch (_) {}
     }
-    try {
-      return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsCodeObject(
-          RunStepDetailsToolCallsCodeObject.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFileSearchObject(
-          RunStepDetailsToolCallsFileSearchObject.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFunctionObject(
-          RunStepDetailsToolCallsFunctionObject.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"code_interpreter", "file_search", "function"}
-            .contains(json["type"])) {
-      return UnknownRunStepDetailsToolCallsObjectToolCallsItem(json);
-    }
-    throw FormatException(
-        "No variant matched for RunStepDetailsToolCallsObjectToolCallsItem");
+    try { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsCodeObject(RunStepDetailsToolCallsCodeObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFileSearchObject(RunStepDetailsToolCallsFileSearchObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFunctionObject(RunStepDetailsToolCallsFunctionObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"code_interpreter", "file_search", "function"}.contains(json["type"])) { return UnknownRunStepDetailsToolCallsObjectToolCallsItem(json); }
+    throw FormatException("No variant matched for RunStepDetailsToolCallsObjectToolCallsItem");
   }
   Object? toJson();
 }
 
-final class RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsCodeObject
-    extends RunStepDetailsToolCallsObjectToolCallsItem {
+final class RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsCodeObject extends RunStepDetailsToolCallsObjectToolCallsItem {
   final RunStepDetailsToolCallsCodeObject value;
-  const RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsCodeObject(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsCodeObject(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFileSearchObject
-    extends RunStepDetailsToolCallsObjectToolCallsItem {
+final class RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFileSearchObject extends RunStepDetailsToolCallsObjectToolCallsItem {
   final RunStepDetailsToolCallsFileSearchObject value;
-  const RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFileSearchObject(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFileSearchObject(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFunctionObject
-    extends RunStepDetailsToolCallsObjectToolCallsItem {
+final class RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFunctionObject extends RunStepDetailsToolCallsObjectToolCallsItem {
   final RunStepDetailsToolCallsFunctionObject value;
-  const RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFunctionObject(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RunStepDetailsToolCallsObjectToolCallsItemRunStepDetailsToolCallsFunctionObject(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [RunStepDetailsToolCallsObjectToolCallsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRunStepDetailsToolCallsObjectToolCallsItem
-    extends RunStepDetailsToolCallsObjectToolCallsItem {
+final class UnknownRunStepDetailsToolCallsObjectToolCallsItem extends RunStepDetailsToolCallsObjectToolCallsItem {
   final Map<String, dynamic> raw;
   const UnknownRunStepDetailsToolCallsObjectToolCallsItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// The last error associated with this run step. Will be `null` if there are no errors.
 class RunStepObjectLastError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// One of `server_error` or `rate_limit_exceeded`.
   final RunStepObjectLastErrorCode code;
-
   /// A human-readable description of the error.
   final String message;
 
   const RunStepObjectLastError({required this.code, required this.message});
 
-  RunStepObjectLastError Function(
-      {RunStepObjectLastErrorCode code,
-      String message}) get copyWith => _copyWith;
+  RunStepObjectLastError Function({RunStepObjectLastErrorCode code, String message}) get copyWith => _copyWith;
 
-  RunStepObjectLastError _copyWith(
-          {Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      RunStepObjectLastError(
-        code: identical(code, sdkOmittedValue)
-            ? this.code
-            : code as RunStepObjectLastErrorCode,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  RunStepObjectLastError _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => RunStepObjectLastError(
+    code: identical(code, sdkOmittedValue) ? this.code : code as RunStepObjectLastErrorCode,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
-  factory RunStepObjectLastError.fromJson(Map<String, dynamic> json) =>
-      RunStepObjectLastError(
-        code: (json['code'] != null
-            ? RunStepObjectLastErrorCode.fromJson(json['code'] as String)
-            : null)!,
-        message: (json['message'] as String?)!,
-      );
+  factory RunStepObjectLastError.fromJson(Map<String, dynamic> json) => RunStepObjectLastError(
+    code: (json['code'] != null ? RunStepObjectLastErrorCode.fromJson(json['code'] as String) : null)!,
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'code': code.toJson(),
-        'message': message,
-      };
+    'code': code.toJson(),
+    'message': message,
+  };
 }
 
 sealed class RunStepObjectExpiredAt {
@@ -248,9 +145,7 @@ sealed class RunStepObjectExpiredAt {
   static const String constructionSurface = 'named';
   const RunStepObjectExpiredAt();
   factory RunStepObjectExpiredAt.fromJson(Object? json) {
-    if (json is num) {
-      return RunStepObjectExpiredAtInt(json.toInt());
-    }
+    if (json is num) { return RunStepObjectExpiredAtInt(json.toInt()); }
     throw FormatException("No variant matched for RunStepObjectExpiredAt");
   }
   Object? toJson();
@@ -259,8 +154,7 @@ sealed class RunStepObjectExpiredAt {
 final class RunStepObjectExpiredAtInt extends RunStepObjectExpiredAt {
   final int value;
   const RunStepObjectExpiredAtInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class RunStepObjectCancelledAt {
@@ -268,9 +162,7 @@ sealed class RunStepObjectCancelledAt {
   static const String constructionSurface = 'named';
   const RunStepObjectCancelledAt();
   factory RunStepObjectCancelledAt.fromJson(Object? json) {
-    if (json is num) {
-      return RunStepObjectCancelledAtInt(json.toInt());
-    }
+    if (json is num) { return RunStepObjectCancelledAtInt(json.toInt()); }
     throw FormatException("No variant matched for RunStepObjectCancelledAt");
   }
   Object? toJson();
@@ -279,8 +171,7 @@ sealed class RunStepObjectCancelledAt {
 final class RunStepObjectCancelledAtInt extends RunStepObjectCancelledAt {
   final int value;
   const RunStepObjectCancelledAtInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class RunStepObjectFailedAt {
@@ -288,9 +179,7 @@ sealed class RunStepObjectFailedAt {
   static const String constructionSurface = 'named';
   const RunStepObjectFailedAt();
   factory RunStepObjectFailedAt.fromJson(Object? json) {
-    if (json is num) {
-      return RunStepObjectFailedAtInt(json.toInt());
-    }
+    if (json is num) { return RunStepObjectFailedAtInt(json.toInt()); }
     throw FormatException("No variant matched for RunStepObjectFailedAt");
   }
   Object? toJson();
@@ -299,8 +188,7 @@ sealed class RunStepObjectFailedAt {
 final class RunStepObjectFailedAtInt extends RunStepObjectFailedAt {
   final int value;
   const RunStepObjectFailedAtInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class RunStepObjectCompletedAt {
@@ -308,9 +196,7 @@ sealed class RunStepObjectCompletedAt {
   static const String constructionSurface = 'named';
   const RunStepObjectCompletedAt();
   factory RunStepObjectCompletedAt.fromJson(Object? json) {
-    if (json is num) {
-      return RunStepObjectCompletedAtInt(json.toInt());
-    }
+    if (json is num) { return RunStepObjectCompletedAtInt(json.toInt()); }
     throw FormatException("No variant matched for RunStepObjectCompletedAt");
   }
   Object? toJson();
@@ -319,6 +205,5 @@ sealed class RunStepObjectCompletedAt {
 final class RunStepObjectCompletedAtInt extends RunStepObjectCompletedAt {
   final int value;
   const RunStepObjectCompletedAtInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }

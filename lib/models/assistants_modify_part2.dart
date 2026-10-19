@@ -8,240 +8,107 @@ part of 'assistants_modify.dart';
 class ModifyAssistantRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// ID of the model to use. You can use the [List models](https://developers.openai.com/api/reference/resources/models/methods/list) API to see all of your available models, or see our [Model overview](https://developers.openai.com/api/docs/models) for descriptions of them.
   final SdkOptional<String> model;
-
   /// Optional API value serialized in the `reasoning_effort` wire field.
   final SdkOptional<ReasoningEffort?> reasoningEffort;
-
   /// Optional API value serialized in the `name` wire field.
   final SdkOptional<String?> name;
-
   /// Optional API value serialized in the `description` wire field.
   final SdkOptional<String?> description;
-
   /// Optional API value serialized in the `instructions` wire field.
   final SdkOptional<String?> instructions;
-
   /// A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types `code_interpreter`, `file_search`, or `function`.
   final SdkOptional<List<ModifyAssistantRequestToolsItem>> tools;
-
   /// A set of resources that are used by the assistant's tools. The resources are specific to the type of tool. For example, the `code_interpreter` tool requires a list of file IDs, while the `file_search` tool requires a list of vector store IDs.
   final SdkOptional<ModifyAssistantRequestToolResources?> toolResources;
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
-
   /// Optional API value serialized in the `temperature` wire field.
   final SdkOptional<double?> temperature;
-
   /// Optional API value serialized in the `top_p` wire field.
   final SdkOptional<double?> topP;
-
   /// Optional API value serialized in the `response_format` wire field.
   final SdkOptional<AssistantsApiResponseFormatOption?> responseFormat;
 
-  const ModifyAssistantRequest(
-      {this.model = const SdkOmitted(),
-      this.reasoningEffort = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.instructions = const SdkOmitted(),
-      this.tools = const SdkOmitted(),
-      this.toolResources = const SdkOmitted(),
-      this.metadata = const SdkOmitted(),
-      this.temperature = const SdkOmitted(),
-      this.topP = const SdkOmitted(),
-      this.responseFormat = const SdkOmitted()});
+  const ModifyAssistantRequest({this.model = const SdkOmitted(), this.reasoningEffort = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.instructions = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolResources = const SdkOmitted(), this.metadata = const SdkOmitted(), this.temperature = const SdkOmitted(), this.topP = const SdkOmitted(), this.responseFormat = const SdkOmitted()});
 
-  ModifyAssistantRequest Function(
-          {SdkOptional<String> model,
-          SdkOptional<ReasoningEffort?> reasoningEffort,
-          SdkOptional<String?> name,
-          SdkOptional<String?> description,
-          SdkOptional<String?> instructions,
-          SdkOptional<List<ModifyAssistantRequestToolsItem>> tools,
-          SdkOptional<ModifyAssistantRequestToolResources?> toolResources,
-          SdkOptional<Map<String, dynamic>?> metadata,
-          SdkOptional<double?> temperature,
-          SdkOptional<double?> topP,
-          SdkOptional<AssistantsApiResponseFormatOption?> responseFormat})
-      get copyWith => _copyWith;
+  ModifyAssistantRequest Function({SdkOptional<String> model, SdkOptional<ReasoningEffort?> reasoningEffort, SdkOptional<String?> name, SdkOptional<String?> description, SdkOptional<String?> instructions, SdkOptional<List<ModifyAssistantRequestToolsItem>> tools, SdkOptional<ModifyAssistantRequestToolResources?> toolResources, SdkOptional<Map<String, dynamic>?> metadata, SdkOptional<double?> temperature, SdkOptional<double?> topP, SdkOptional<AssistantsApiResponseFormatOption?> responseFormat}) get copyWith => _copyWith;
 
-  ModifyAssistantRequest _copyWith(
-          {Object? model = sdkOmittedValue,
-          Object? reasoningEffort = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? toolResources = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue,
-          Object? temperature = sdkOmittedValue,
-          Object? topP = sdkOmittedValue,
-          Object? responseFormat = sdkOmittedValue}) =>
-      ModifyAssistantRequest(
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<String>,
-        reasoningEffort: identical(reasoningEffort, sdkOmittedValue)
-            ? this.reasoningEffort
-            : reasoningEffort as SdkOptional<ReasoningEffort?>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String?>,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as SdkOptional<String?>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<ModifyAssistantRequestToolsItem>>,
-        toolResources: identical(toolResources, sdkOmittedValue)
-            ? this.toolResources
-            : toolResources
-                as SdkOptional<ModifyAssistantRequestToolResources?>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>?>,
-        temperature: identical(temperature, sdkOmittedValue)
-            ? this.temperature
-            : temperature as SdkOptional<double?>,
-        topP: identical(topP, sdkOmittedValue)
-            ? this.topP
-            : topP as SdkOptional<double?>,
-        responseFormat: identical(responseFormat, sdkOmittedValue)
-            ? this.responseFormat
-            : responseFormat as SdkOptional<AssistantsApiResponseFormatOption?>,
-      );
+  ModifyAssistantRequest _copyWith({Object? model = sdkOmittedValue, Object? reasoningEffort = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolResources = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? responseFormat = sdkOmittedValue}) => ModifyAssistantRequest(
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
+    reasoningEffort: identical(reasoningEffort, sdkOmittedValue) ? this.reasoningEffort : reasoningEffort as SdkOptional<ReasoningEffort?>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String?>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<ModifyAssistantRequestToolsItem>>,
+    toolResources: identical(toolResources, sdkOmittedValue) ? this.toolResources : toolResources as SdkOptional<ModifyAssistantRequestToolResources?>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
+    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double?>,
+    topP: identical(topP, sdkOmittedValue) ? this.topP : topP as SdkOptional<double?>,
+    responseFormat: identical(responseFormat, sdkOmittedValue) ? this.responseFormat : responseFormat as SdkOptional<AssistantsApiResponseFormatOption?>,
+  );
 
-  factory ModifyAssistantRequest.fromJson(Map<String, dynamic> json) =>
-      ModifyAssistantRequest(
-        model: json['model'] != null
-            ? SdkPresent((json['model'] as String?)!)
-            : const SdkOmitted(),
-        reasoningEffort: json.containsKey('reasoning_effort')
-            ? SdkPresent(json['reasoning_effort'] != null
-                ? ReasoningEffort.fromJson(json['reasoning_effort'])
-                : null)
-            : const SdkOmitted(),
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-        description: json.containsKey('description')
-            ? SdkPresent(json['description'] as String?)
-            : const SdkOmitted(),
-        instructions: json.containsKey('instructions')
-            ? SdkPresent(json['instructions'] as String?)
-            : const SdkOmitted(),
-        tools: json['tools'] != null
-            ? SdkPresent(((json['tools'] as List?)
-                ?.map((e) => ModifyAssistantRequestToolsItem.fromJson(e))
-                .toList())!)
-            : const SdkOmitted(),
-        toolResources: json.containsKey('tool_resources')
-            ? SdkPresent(json['tool_resources'] != null
-                ? ModifyAssistantRequestToolResources.fromJson(
-                    json['tool_resources'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-        temperature: json.containsKey('temperature')
-            ? SdkPresent((json['temperature'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        topP: json.containsKey('top_p')
-            ? SdkPresent((json['top_p'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        responseFormat: json.containsKey('response_format')
-            ? SdkPresent(json['response_format'] != null
-                ? AssistantsApiResponseFormatOption.fromJson(
-                    json['response_format'])
-                : null)
-            : const SdkOmitted(),
-      );
+  factory ModifyAssistantRequest.fromJson(Map<String, dynamic> json) => ModifyAssistantRequest(
+    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
+    reasoningEffort: json.containsKey('reasoning_effort') ? SdkPresent(json['reasoning_effort'] != null ? ReasoningEffort.fromJson(json['reasoning_effort']) : null) : const SdkOmitted(),
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    instructions: json.containsKey('instructions') ? SdkPresent(json['instructions'] as String?) : const SdkOmitted(),
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => ModifyAssistantRequestToolsItem.fromJson(e)).toList())!) : const SdkOmitted(),
+    toolResources: json.containsKey('tool_resources') ? SdkPresent(json['tool_resources'] != null ? ModifyAssistantRequestToolResources.fromJson(json['tool_resources'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
+    temperature: json.containsKey('temperature') ? SdkPresent((json['temperature'] as num?)?.toDouble()) : const SdkOmitted(),
+    topP: json.containsKey('top_p') ? SdkPresent((json['top_p'] as num?)?.toDouble()) : const SdkOmitted(),
+    responseFormat: json.containsKey('response_format') ? SdkPresent(json['response_format'] != null ? AssistantsApiResponseFormatOption.fromJson(json['response_format']) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (model) {
-          SdkPresent<String>(value: final value) => {
-              'model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reasoningEffort) {
-          SdkPresent<ReasoningEffort?>(value: final value) => {
-              'reasoning_effort': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String?>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (instructions) {
-          SdkPresent<String?>(value: final value) => {
-              'instructions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<ModifyAssistantRequestToolsItem>>(
-            value: final value
-          ) =>
-            {
-              'tools': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolResources) {
-          SdkPresent<ModifyAssistantRequestToolResources?>(
-            value: final value
-          ) =>
-            {
-              'tool_resources': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (temperature) {
-          SdkPresent<double?>(value: final value) => {
-              'temperature': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (topP) {
-          SdkPresent<double?>(value: final value) => {
-              'top_p': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (responseFormat) {
-          SdkPresent<AssistantsApiResponseFormatOption?>(value: final value) =>
-            {
-              'response_format': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (model) {
+      SdkPresent<String>(value: final value) => {'model': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reasoningEffort) {
+      SdkPresent<ReasoningEffort?>(value: final value) => {'reasoning_effort': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (instructions) {
+      SdkPresent<String?>(value: final value) => {'instructions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<ModifyAssistantRequestToolsItem>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolResources) {
+      SdkPresent<ModifyAssistantRequestToolResources?>(value: final value) => {'tool_resources': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (temperature) {
+      SdkPresent<double?>(value: final value) => {'temperature': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (topP) {
+      SdkPresent<double?>(value: final value) => {'top_p': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (responseFormat) {
+      SdkPresent<AssistantsApiResponseFormatOption?>(value: final value) => {'response_format': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class ModifyAssistantRequestToolsItem {
@@ -250,240 +117,148 @@ sealed class ModifyAssistantRequestToolsItem {
   const ModifyAssistantRequestToolsItem();
   factory ModifyAssistantRequestToolsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = AssistantToolsCode.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ModifyAssistantRequestToolsItemAssistantToolsCode(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AssistantToolsFileSearch.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ModifyAssistantRequestToolsItemAssistantToolsFileSearch(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AssistantToolsFunction.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ModifyAssistantRequestToolsItemAssistantToolsFunction(value);
-        }
-      } catch (_) {}
+      try { final value = AssistantToolsCode.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ModifyAssistantRequestToolsItemAssistantToolsCode(value); } } catch (_) {}
+      try { final value = AssistantToolsFileSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ModifyAssistantRequestToolsItemAssistantToolsFileSearch(value); } } catch (_) {}
+      try { final value = AssistantToolsFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ModifyAssistantRequestToolsItemAssistantToolsFunction(value); } } catch (_) {}
     }
-    try {
-      return ModifyAssistantRequestToolsItemAssistantToolsCode(
-          AssistantToolsCode.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ModifyAssistantRequestToolsItemAssistantToolsFileSearch(
-          AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ModifyAssistantRequestToolsItemAssistantToolsFunction(
-          AssistantToolsFunction.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"code_interpreter", "file_search", "function"}
-            .contains(json["type"])) {
-      return UnknownModifyAssistantRequestToolsItem(json);
-    }
-    throw FormatException(
-        "No variant matched for ModifyAssistantRequestToolsItem");
+    try { return ModifyAssistantRequestToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ModifyAssistantRequestToolsItemAssistantToolsFileSearch(AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ModifyAssistantRequestToolsItemAssistantToolsFunction(AssistantToolsFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"code_interpreter", "file_search", "function"}.contains(json["type"])) { return UnknownModifyAssistantRequestToolsItem(json); }
+    throw FormatException("No variant matched for ModifyAssistantRequestToolsItem");
   }
   Object? toJson();
 }
 
-final class ModifyAssistantRequestToolsItemAssistantToolsCode
-    extends ModifyAssistantRequestToolsItem {
+final class ModifyAssistantRequestToolsItemAssistantToolsCode extends ModifyAssistantRequestToolsItem {
   final AssistantToolsCode value;
   const ModifyAssistantRequestToolsItemAssistantToolsCode(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ModifyAssistantRequestToolsItemAssistantToolsFileSearch
-    extends ModifyAssistantRequestToolsItem {
+final class ModifyAssistantRequestToolsItemAssistantToolsFileSearch extends ModifyAssistantRequestToolsItem {
   final AssistantToolsFileSearch value;
   const ModifyAssistantRequestToolsItemAssistantToolsFileSearch(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ModifyAssistantRequestToolsItemAssistantToolsFunction
-    extends ModifyAssistantRequestToolsItem {
+final class ModifyAssistantRequestToolsItemAssistantToolsFunction extends ModifyAssistantRequestToolsItem {
   final AssistantToolsFunction value;
   const ModifyAssistantRequestToolsItemAssistantToolsFunction(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ModifyAssistantRequestToolsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownModifyAssistantRequestToolsItem
-    extends ModifyAssistantRequestToolsItem {
+final class UnknownModifyAssistantRequestToolsItem extends ModifyAssistantRequestToolsItem {
   final Map<String, dynamic> raw;
   const UnknownModifyAssistantRequestToolsItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Typed representation of the `ModifyMessageRequest` API schema.
 class ModifyMessageRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
 
   const ModifyMessageRequest({this.metadata = const SdkOmitted()});
 
-  ModifyMessageRequest Function({SdkOptional<Map<String, dynamic>?> metadata})
-      get copyWith => _copyWith;
+  ModifyMessageRequest Function({SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
 
-  ModifyMessageRequest _copyWith({Object? metadata = sdkOmittedValue}) =>
-      ModifyMessageRequest(
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>?>,
-      );
+  ModifyMessageRequest _copyWith({Object? metadata = sdkOmittedValue}) => ModifyMessageRequest(
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
+  );
 
-  factory ModifyMessageRequest.fromJson(Map<String, dynamic> json) =>
-      ModifyMessageRequest(
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+  factory ModifyMessageRequest.fromJson(Map<String, dynamic> json) => ModifyMessageRequest(
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ModifyRunRequest` API schema.
 class ModifyRunRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
 
   const ModifyRunRequest({this.metadata = const SdkOmitted()});
 
-  ModifyRunRequest Function({SdkOptional<Map<String, dynamic>?> metadata})
-      get copyWith => _copyWith;
+  ModifyRunRequest Function({SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
 
-  ModifyRunRequest _copyWith({Object? metadata = sdkOmittedValue}) =>
-      ModifyRunRequest(
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>?>,
-      );
+  ModifyRunRequest _copyWith({Object? metadata = sdkOmittedValue}) => ModifyRunRequest(
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
+  );
 
-  factory ModifyRunRequest.fromJson(Map<String, dynamic> json) =>
-      ModifyRunRequest(
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+  factory ModifyRunRequest.fromJson(Map<String, dynamic> json) => ModifyRunRequest(
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `code_interpreter` wire field.
 class ModifyThreadRequestToolResourcesCodeInterpreter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A list of [file](https://developers.openai.com/api/reference/resources/files) IDs made available to the `code_interpreter` tool. There can be a maximum of 20 files associated with the tool.
   final SdkOptional<List<String>> fileIds;
 
-  const ModifyThreadRequestToolResourcesCodeInterpreter(
-      {this.fileIds = const SdkOmitted()});
+  const ModifyThreadRequestToolResourcesCodeInterpreter({this.fileIds = const SdkOmitted()});
 
-  ModifyThreadRequestToolResourcesCodeInterpreter Function(
-      {SdkOptional<List<String>> fileIds}) get copyWith => _copyWith;
+  ModifyThreadRequestToolResourcesCodeInterpreter Function({SdkOptional<List<String>> fileIds}) get copyWith => _copyWith;
 
-  ModifyThreadRequestToolResourcesCodeInterpreter _copyWith(
-          {Object? fileIds = sdkOmittedValue}) =>
-      ModifyThreadRequestToolResourcesCodeInterpreter(
-        fileIds: identical(fileIds, sdkOmittedValue)
-            ? this.fileIds
-            : fileIds as SdkOptional<List<String>>,
-      );
+  ModifyThreadRequestToolResourcesCodeInterpreter _copyWith({Object? fileIds = sdkOmittedValue}) => ModifyThreadRequestToolResourcesCodeInterpreter(
+    fileIds: identical(fileIds, sdkOmittedValue) ? this.fileIds : fileIds as SdkOptional<List<String>>,
+  );
 
-  factory ModifyThreadRequestToolResourcesCodeInterpreter.fromJson(
-          Map<String, dynamic> json) =>
-      ModifyThreadRequestToolResourcesCodeInterpreter(
-        fileIds: json['file_ids'] != null
-            ? SdkPresent(((json['file_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ModifyThreadRequestToolResourcesCodeInterpreter.fromJson(Map<String, dynamic> json) => ModifyThreadRequestToolResourcesCodeInterpreter(
+    fileIds: json['file_ids'] != null ? SdkPresent(((json['file_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (fileIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'file_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (fileIds) {
+      SdkPresent<List<String>>(value: final value) => {'file_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `file_search` wire field.
 class ModifyThreadRequestToolResourcesFileSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The [vector store](https://developers.openai.com/api/reference/resources/vector_stores) attached to this thread. There can be a maximum of 1 vector store attached to the thread.
   final SdkOptional<List<String>> vectorStoreIds;
 
-  const ModifyThreadRequestToolResourcesFileSearch(
-      {this.vectorStoreIds = const SdkOmitted()});
+  const ModifyThreadRequestToolResourcesFileSearch({this.vectorStoreIds = const SdkOmitted()});
 
-  ModifyThreadRequestToolResourcesFileSearch Function(
-      {SdkOptional<List<String>> vectorStoreIds}) get copyWith => _copyWith;
+  ModifyThreadRequestToolResourcesFileSearch Function({SdkOptional<List<String>> vectorStoreIds}) get copyWith => _copyWith;
 
-  ModifyThreadRequestToolResourcesFileSearch _copyWith(
-          {Object? vectorStoreIds = sdkOmittedValue}) =>
-      ModifyThreadRequestToolResourcesFileSearch(
-        vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue)
-            ? this.vectorStoreIds
-            : vectorStoreIds as SdkOptional<List<String>>,
-      );
+  ModifyThreadRequestToolResourcesFileSearch _copyWith({Object? vectorStoreIds = sdkOmittedValue}) => ModifyThreadRequestToolResourcesFileSearch(
+    vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue) ? this.vectorStoreIds : vectorStoreIds as SdkOptional<List<String>>,
+  );
 
-  factory ModifyThreadRequestToolResourcesFileSearch.fromJson(
-          Map<String, dynamic> json) =>
-      ModifyThreadRequestToolResourcesFileSearch(
-        vectorStoreIds: json['vector_store_ids'] != null
-            ? SdkPresent(((json['vector_store_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ModifyThreadRequestToolResourcesFileSearch.fromJson(Map<String, dynamic> json) => ModifyThreadRequestToolResourcesFileSearch(
+    vectorStoreIds: json['vector_store_ids'] != null ? SdkPresent(((json['vector_store_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (vectorStoreIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'vector_store_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (vectorStoreIds) {
+      SdkPresent<List<String>>(value: final value) => {'vector_store_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

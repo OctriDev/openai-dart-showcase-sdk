@@ -7,21 +7,18 @@ part of 'responses_output.dart';
 final class OutputItemCustomToolCall extends OutputItem {
   final CustomToolCall value;
   const OutputItemCustomToolCall(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class OutputItemCustomToolCallOutputResource extends OutputItem {
   final CustomToolCallOutputResource value;
   const OutputItemCustomToolCallOutputResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [OutputItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownOutputItem extends OutputItem {
   final Map<String, dynamic> raw;
   const UnknownOutputItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

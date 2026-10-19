@@ -10,17 +10,14 @@ enum CustomGrammarFormatParamType {
 
   static CustomGrammarFormatParamType fromJson(String value) {
     switch (value) {
-      case 'grammar':
-        return CustomGrammarFormatParamType.grammar;
-      default:
-        throw ArgumentError('Unknown CustomGrammarFormatParamType: $value');
+      case 'grammar': return CustomGrammarFormatParamType.grammar;
+      default: throw ArgumentError('Unknown CustomGrammarFormatParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CustomGrammarFormatParamType.grammar:
-        return 'grammar';
+      case CustomGrammarFormatParamType.grammar: return 'grammar';
     }
   }
 
@@ -34,17 +31,14 @@ enum CustomTextFormatParamType {
 
   static CustomTextFormatParamType fromJson(String value) {
     switch (value) {
-      case 'text':
-        return CustomTextFormatParamType.text;
-      default:
-        throw ArgumentError('Unknown CustomTextFormatParamType: $value');
+      case 'text': return CustomTextFormatParamType.text;
+      default: throw ArgumentError('Unknown CustomTextFormatParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CustomTextFormatParamType.text:
-        return 'text';
+      case CustomTextFormatParamType.text: return 'text';
     }
   }
 
@@ -58,17 +52,14 @@ enum CustomToolCallType {
 
   static CustomToolCallType fromJson(String value) {
     switch (value) {
-      case 'custom_tool_call':
-        return CustomToolCallType.customToolCall;
-      default:
-        throw ArgumentError('Unknown CustomToolCallType: $value');
+      case 'custom_tool_call': return CustomToolCallType.customToolCall;
+      default: throw ArgumentError('Unknown CustomToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CustomToolCallType.customToolCall:
-        return 'custom_tool_call';
+      case CustomToolCallType.customToolCall: return 'custom_tool_call';
     }
   }
 
@@ -82,17 +73,14 @@ enum CustomToolCallOutputType {
 
   static CustomToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'custom_tool_call_output':
-        return CustomToolCallOutputType.customToolCallOutput;
-      default:
-        throw ArgumentError('Unknown CustomToolCallOutputType: $value');
+      case 'custom_tool_call_output': return CustomToolCallOutputType.customToolCallOutput;
+      default: throw ArgumentError('Unknown CustomToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CustomToolCallOutputType.customToolCallOutput:
-        return 'custom_tool_call_output';
+      case CustomToolCallOutputType.customToolCallOutput: return 'custom_tool_call_output';
     }
   }
 
@@ -106,17 +94,14 @@ enum CustomToolChatCompletionsType {
 
   static CustomToolChatCompletionsType fromJson(String value) {
     switch (value) {
-      case 'custom':
-        return CustomToolChatCompletionsType.custom;
-      default:
-        throw ArgumentError('Unknown CustomToolChatCompletionsType: $value');
+      case 'custom': return CustomToolChatCompletionsType.custom;
+      default: throw ArgumentError('Unknown CustomToolChatCompletionsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CustomToolChatCompletionsType.custom:
-        return 'custom';
+      case CustomToolChatCompletionsType.custom: return 'custom';
     }
   }
 
@@ -128,21 +113,16 @@ enum CustomToolChatCompletionsType {
 enum CustomToolChatCompletionsCustomFormatVariant0Type {
   text;
 
-  static CustomToolChatCompletionsCustomFormatVariant0Type fromJson(
-      String value) {
+  static CustomToolChatCompletionsCustomFormatVariant0Type fromJson(String value) {
     switch (value) {
-      case 'text':
-        return CustomToolChatCompletionsCustomFormatVariant0Type.text;
-      default:
-        throw ArgumentError(
-            'Unknown CustomToolChatCompletionsCustomFormatVariant0Type: $value');
+      case 'text': return CustomToolChatCompletionsCustomFormatVariant0Type.text;
+      default: throw ArgumentError('Unknown CustomToolChatCompletionsCustomFormatVariant0Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CustomToolChatCompletionsCustomFormatVariant0Type.text:
-        return 'text';
+      case CustomToolChatCompletionsCustomFormatVariant0Type.text: return 'text';
     }
   }
 
@@ -152,53 +132,40 @@ enum CustomToolChatCompletionsCustomFormatVariant0Type {
 
 /// The syntax of the grammar definition. One of `lark` or `regex`.
 final class CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax {
+
   final String value;
 
-  const CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax._(
-      this.value);
+  const CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax._(this.value);
 
-  factory CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax.fromJson(
-          String value) =>
-      CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax._(value);
+  factory CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax.fromJson(String value) => CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax._(value);
 
-  static const lark =
-      CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax._('lark');
-  static const regex =
-      CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax._('regex');
+  static const lark = CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax._('lark');
+  static const regex = CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax._('regex');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CustomToolChatCompletionsCustomFormatVariant1GrammarSyntax && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Grammar format. Always `grammar`.
 enum CustomToolChatCompletionsCustomFormatVariant1Type {
   grammar;
 
-  static CustomToolChatCompletionsCustomFormatVariant1Type fromJson(
-      String value) {
+  static CustomToolChatCompletionsCustomFormatVariant1Type fromJson(String value) {
     switch (value) {
-      case 'grammar':
-        return CustomToolChatCompletionsCustomFormatVariant1Type.grammar;
-      default:
-        throw ArgumentError(
-            'Unknown CustomToolChatCompletionsCustomFormatVariant1Type: $value');
+      case 'grammar': return CustomToolChatCompletionsCustomFormatVariant1Type.grammar;
+      default: throw ArgumentError('Unknown CustomToolChatCompletionsCustomFormatVariant1Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CustomToolChatCompletionsCustomFormatVariant1Type.grammar:
-        return 'grammar';
+      case CustomToolChatCompletionsCustomFormatVariant1Type.grammar: return 'grammar';
     }
   }
 
@@ -212,17 +179,14 @@ enum CustomToolParamType {
 
   static CustomToolParamType fromJson(String value) {
     switch (value) {
-      case 'custom':
-        return CustomToolParamType.custom;
-      default:
-        throw ArgumentError('Unknown CustomToolParamType: $value');
+      case 'custom': return CustomToolParamType.custom;
+      default: throw ArgumentError('Unknown CustomToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CustomToolParamType.custom:
-        return 'custom';
+      case CustomToolParamType.custom: return 'custom';
     }
   }
 
@@ -236,17 +200,14 @@ enum DecisionInputCustomToolCallType {
 
   static DecisionInputCustomToolCallType fromJson(String value) {
     switch (value) {
-      case 'custom_tool_call':
-        return DecisionInputCustomToolCallType.customToolCall;
-      default:
-        throw ArgumentError('Unknown DecisionInputCustomToolCallType: $value');
+      case 'custom_tool_call': return DecisionInputCustomToolCallType.customToolCall;
+      default: throw ArgumentError('Unknown DecisionInputCustomToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DecisionInputCustomToolCallType.customToolCall:
-        return 'custom_tool_call';
+      case DecisionInputCustomToolCallType.customToolCall: return 'custom_tool_call';
     }
   }
 
@@ -260,18 +221,14 @@ enum DecisionInputCustomToolCallOutputType {
 
   static DecisionInputCustomToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'custom_tool_call_output':
-        return DecisionInputCustomToolCallOutputType.customToolCallOutput;
-      default:
-        throw ArgumentError(
-            'Unknown DecisionInputCustomToolCallOutputType: $value');
+      case 'custom_tool_call_output': return DecisionInputCustomToolCallOutputType.customToolCallOutput;
+      default: throw ArgumentError('Unknown DecisionInputCustomToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DecisionInputCustomToolCallOutputType.customToolCallOutput:
-        return 'custom_tool_call_output';
+      case DecisionInputCustomToolCallOutputType.customToolCallOutput: return 'custom_tool_call_output';
     }
   }
 
@@ -285,17 +242,14 @@ enum DecisionInputFunctionCallType {
 
   static DecisionInputFunctionCallType fromJson(String value) {
     switch (value) {
-      case 'function_call':
-        return DecisionInputFunctionCallType.functionCall;
-      default:
-        throw ArgumentError('Unknown DecisionInputFunctionCallType: $value');
+      case 'function_call': return DecisionInputFunctionCallType.functionCall;
+      default: throw ArgumentError('Unknown DecisionInputFunctionCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DecisionInputFunctionCallType.functionCall:
-        return 'function_call';
+      case DecisionInputFunctionCallType.functionCall: return 'function_call';
     }
   }
 
@@ -309,18 +263,14 @@ enum DecisionInputFunctionCallOutputType {
 
   static DecisionInputFunctionCallOutputType fromJson(String value) {
     switch (value) {
-      case 'function_call_output':
-        return DecisionInputFunctionCallOutputType.functionCallOutput;
-      default:
-        throw ArgumentError(
-            'Unknown DecisionInputFunctionCallOutputType: $value');
+      case 'function_call_output': return DecisionInputFunctionCallOutputType.functionCallOutput;
+      default: throw ArgumentError('Unknown DecisionInputFunctionCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DecisionInputFunctionCallOutputType.functionCallOutput:
-        return 'function_call_output';
+      case DecisionInputFunctionCallOutputType.functionCallOutput: return 'function_call_output';
     }
   }
 

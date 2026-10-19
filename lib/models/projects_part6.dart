@@ -8,58 +8,33 @@ part of 'projects.dart';
 class UpdateProjectServiceAccountBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The updated service account name.
   final SdkOptional<String> name;
-
   /// The updated service account role.
   final SdkOptional<UpdateProjectServiceAccountBodyRole> role;
 
-  const UpdateProjectServiceAccountBody(
-      {this.name = const SdkOmitted(), this.role = const SdkOmitted()});
+  const UpdateProjectServiceAccountBody({this.name = const SdkOmitted(), this.role = const SdkOmitted()});
 
-  UpdateProjectServiceAccountBody Function(
-          {SdkOptional<String> name,
-          SdkOptional<UpdateProjectServiceAccountBodyRole> role})
-      get copyWith => _copyWith;
+  UpdateProjectServiceAccountBody Function({SdkOptional<String> name, SdkOptional<UpdateProjectServiceAccountBodyRole> role}) get copyWith => _copyWith;
 
-  UpdateProjectServiceAccountBody _copyWith(
-          {Object? name = sdkOmittedValue, Object? role = sdkOmittedValue}) =>
-      UpdateProjectServiceAccountBody(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as SdkOptional<UpdateProjectServiceAccountBodyRole>,
-      );
+  UpdateProjectServiceAccountBody _copyWith({Object? name = sdkOmittedValue, Object? role = sdkOmittedValue}) => UpdateProjectServiceAccountBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<UpdateProjectServiceAccountBodyRole>,
+  );
 
-  factory UpdateProjectServiceAccountBody.fromJson(Map<String, dynamic> json) =>
-      UpdateProjectServiceAccountBody(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        role: json['role'] != null
-            ? SdkPresent((json['role'] != null
-                ? UpdateProjectServiceAccountBodyRole.fromJson(
-                    json['role'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateProjectServiceAccountBody.fromJson(Map<String, dynamic> json) => UpdateProjectServiceAccountBody(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    role: json['role'] != null ? SdkPresent((json['role'] != null ? UpdateProjectServiceAccountBodyRole.fromJson(json['role'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (role) {
-          SdkPresent<UpdateProjectServiceAccountBodyRole>(value: final value) =>
-            {
-              'role': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (role) {
+      SdkPresent<UpdateProjectServiceAccountBodyRole>(value: final value) => {'role': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -4,389 +4,261 @@
 part of 'beta_responses.dart';
 
 // beta_responses domain models (part 24)
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallSearchingEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallSearchingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseFileSearchCallSearchingEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallSearchingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallSearchingEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDeltaEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseFunctionCallArgumentsDeltaEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseFunctionCallArgumentsDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandAddedStreamingEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandAddedStreamingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseShellCallCommandAddedStreamingEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandAddedStreamingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandAddedStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDeltaStreamingEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDeltaStreamingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseShellCallCommandDeltaStreamingEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDeltaStreamingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDeltaStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDoneStreamingEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDoneStreamingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseShellCallCommandDoneStreamingEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDoneStreamingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDoneStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDeltaStreamingEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDeltaStreamingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseShellCallOutputContentDeltaStreamingEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDeltaStreamingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDeltaStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDoneStreamingEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDoneStreamingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseShellCallOutputContentDoneStreamingEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDoneStreamingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDoneStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseInProgressEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseInProgressEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseInProgressEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseInProgressEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseInProgressEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFailedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFailedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseFailedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFailedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFailedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseIncompleteEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseIncompleteEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseIncompleteEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseIncompleteEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseIncompleteEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemAddedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemAddedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseOutputItemAddedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemAddedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemAddedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseOutputItemDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartAddedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartAddedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseReasoningSummaryPartAddedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartAddedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartAddedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseReasoningSummaryPartDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDeltaEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseReasoningSummaryTextDeltaEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseReasoningSummaryTextDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDeltaEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseReasoningTextDeltaEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseReasoningTextDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDeltaEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseRefusalDeltaEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseRefusalDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDeltaEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseTextDeltaEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseTextDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallCompletedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallCompletedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseWebSearchCallCompletedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallCompletedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallCompletedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallInProgressEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallInProgressEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseWebSearchCallInProgressEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallInProgressEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallInProgressEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallSearchingEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallSearchingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseWebSearchCallSearchingEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallSearchingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallSearchingEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallCompletedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallCompletedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseImageGenCallCompletedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallCompletedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallCompletedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallGeneratingEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallGeneratingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseImageGenCallGeneratingEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallGeneratingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallGeneratingEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallInProgressEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallInProgressEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseImageGenCallInProgressEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallInProgressEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallInProgressEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallPartialImageEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallPartialImageEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseImageGenCallPartialImageEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallPartialImageEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallPartialImageEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDeltaEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseMCPCallArgumentsDeltaEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseMCPCallArgumentsDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallCompletedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallCompletedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseMCPCallCompletedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallCompletedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallCompletedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallFailedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallFailedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseMCPCallFailedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallFailedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallFailedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallInProgressEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallInProgressEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseMCPCallInProgressEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallInProgressEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallInProgressEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsCompletedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsCompletedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseMCPListToolsCompletedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsCompletedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsCompletedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsFailedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsFailedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseMCPListToolsFailedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsFailedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsFailedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsInProgressEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsInProgressEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseMCPListToolsInProgressEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsInProgressEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsInProgressEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputTextAnnotationAddedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputTextAnnotationAddedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseOutputTextAnnotationAddedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputTextAnnotationAddedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputTextAnnotationAddedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseQueuedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseQueuedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseQueuedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseQueuedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseQueuedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDeltaEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseCustomToolCallInputDeltaEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseCustomToolCallInputDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaResponsesWebSocketStreamEventVariant0] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaResponsesWebSocketStreamEventVariant0
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class UnknownBetaResponsesWebSocketStreamEventVariant0 extends BetaResponsesWebSocketStreamEventVariant0 {
   final Map<String, dynamic> raw;
   const UnknownBetaResponsesWebSocketStreamEventVariant0(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

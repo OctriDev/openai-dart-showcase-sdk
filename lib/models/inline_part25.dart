@@ -6,29 +6,23 @@ part of 'inline.dart';
 // Inline operation models (part 25)
 /// Required enumerated value serialized in the `execution` wire field.
 final class BetaResponseSteerRequiredInputVariant5Execution {
+
   final String value;
 
   const BetaResponseSteerRequiredInputVariant5Execution._(this.value);
 
-  factory BetaResponseSteerRequiredInputVariant5Execution.fromJson(
-          String value) =>
-      BetaResponseSteerRequiredInputVariant5Execution._(value);
+  factory BetaResponseSteerRequiredInputVariant5Execution.fromJson(String value) => BetaResponseSteerRequiredInputVariant5Execution._(value);
 
-  static const client =
-      BetaResponseSteerRequiredInputVariant5Execution._('client');
+  static const client = BetaResponseSteerRequiredInputVariant5Execution._('client');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaResponseSteerRequiredInputVariant5Execution &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is BetaResponseSteerRequiredInputVariant5Execution && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -37,18 +31,14 @@ enum BetaResponseSteerRequiredInputVariant5Type {
 
   static BetaResponseSteerRequiredInputVariant5Type fromJson(String value) {
     switch (value) {
-      case 'tool_search_output':
-        return BetaResponseSteerRequiredInputVariant5Type.toolSearchOutput;
-      default:
-        throw ArgumentError(
-            'Unknown BetaResponseSteerRequiredInputVariant5Type: $value');
+      case 'tool_search_output': return BetaResponseSteerRequiredInputVariant5Type.toolSearchOutput;
+      default: throw ArgumentError('Unknown BetaResponseSteerRequiredInputVariant5Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseSteerRequiredInputVariant5Type.toolSearchOutput:
-        return 'tool_search_output';
+      case BetaResponseSteerRequiredInputVariant5Type.toolSearchOutput: return 'tool_search_output';
     }
   }
 
@@ -62,18 +52,14 @@ enum BetaResponseSteerRequiredInputVariant6Type {
 
   static BetaResponseSteerRequiredInputVariant6Type fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_response':
-        return BetaResponseSteerRequiredInputVariant6Type.mcpApprovalResponse;
-      default:
-        throw ArgumentError(
-            'Unknown BetaResponseSteerRequiredInputVariant6Type: $value');
+      case 'mcp_approval_response': return BetaResponseSteerRequiredInputVariant6Type.mcpApprovalResponse;
+      default: throw ArgumentError('Unknown BetaResponseSteerRequiredInputVariant6Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseSteerRequiredInputVariant6Type.mcpApprovalResponse:
-        return 'mcp_approval_response';
+      case BetaResponseSteerRequiredInputVariant6Type.mcpApprovalResponse: return 'mcp_approval_response';
     }
   }
 
@@ -87,17 +73,14 @@ enum BetaResponseTextDeltaEventType {
 
   static BetaResponseTextDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.output_text.delta':
-        return BetaResponseTextDeltaEventType.responseOutputTextDelta;
-      default:
-        throw ArgumentError('Unknown BetaResponseTextDeltaEventType: $value');
+      case 'response.output_text.delta': return BetaResponseTextDeltaEventType.responseOutputTextDelta;
+      default: throw ArgumentError('Unknown BetaResponseTextDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseTextDeltaEventType.responseOutputTextDelta:
-        return 'response.output_text.delta';
+      case BetaResponseTextDeltaEventType.responseOutputTextDelta: return 'response.output_text.delta';
     }
   }
 
@@ -111,17 +94,14 @@ enum BetaResponseTextDoneEventType {
 
   static BetaResponseTextDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.output_text.done':
-        return BetaResponseTextDoneEventType.responseOutputTextDone;
-      default:
-        throw ArgumentError('Unknown BetaResponseTextDoneEventType: $value');
+      case 'response.output_text.done': return BetaResponseTextDoneEventType.responseOutputTextDone;
+      default: throw ArgumentError('Unknown BetaResponseTextDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseTextDoneEventType.responseOutputTextDone:
-        return 'response.output_text.done';
+      case BetaResponseTextDoneEventType.responseOutputTextDone: return 'response.output_text.done';
     }
   }
 
@@ -135,20 +115,14 @@ enum BetaResponseWebSearchCallCompletedEventType {
 
   static BetaResponseWebSearchCallCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.web_search_call.completed':
-        return BetaResponseWebSearchCallCompletedEventType
-            .responseWebSearchCallCompleted;
-      default:
-        throw ArgumentError(
-            'Unknown BetaResponseWebSearchCallCompletedEventType: $value');
+      case 'response.web_search_call.completed': return BetaResponseWebSearchCallCompletedEventType.responseWebSearchCallCompleted;
+      default: throw ArgumentError('Unknown BetaResponseWebSearchCallCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseWebSearchCallCompletedEventType
-            .responseWebSearchCallCompleted:
-        return 'response.web_search_call.completed';
+      case BetaResponseWebSearchCallCompletedEventType.responseWebSearchCallCompleted: return 'response.web_search_call.completed';
     }
   }
 
@@ -162,20 +136,14 @@ enum BetaResponseWebSearchCallInProgressEventType {
 
   static BetaResponseWebSearchCallInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.web_search_call.in_progress':
-        return BetaResponseWebSearchCallInProgressEventType
-            .responseWebSearchCallInProgress;
-      default:
-        throw ArgumentError(
-            'Unknown BetaResponseWebSearchCallInProgressEventType: $value');
+      case 'response.web_search_call.in_progress': return BetaResponseWebSearchCallInProgressEventType.responseWebSearchCallInProgress;
+      default: throw ArgumentError('Unknown BetaResponseWebSearchCallInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseWebSearchCallInProgressEventType
-            .responseWebSearchCallInProgress:
-        return 'response.web_search_call.in_progress';
+      case BetaResponseWebSearchCallInProgressEventType.responseWebSearchCallInProgress: return 'response.web_search_call.in_progress';
     }
   }
 
@@ -189,20 +157,14 @@ enum BetaResponseWebSearchCallSearchingEventType {
 
   static BetaResponseWebSearchCallSearchingEventType fromJson(String value) {
     switch (value) {
-      case 'response.web_search_call.searching':
-        return BetaResponseWebSearchCallSearchingEventType
-            .responseWebSearchCallSearching;
-      default:
-        throw ArgumentError(
-            'Unknown BetaResponseWebSearchCallSearchingEventType: $value');
+      case 'response.web_search_call.searching': return BetaResponseWebSearchCallSearchingEventType.responseWebSearchCallSearching;
+      default: throw ArgumentError('Unknown BetaResponseWebSearchCallSearchingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseWebSearchCallSearchingEventType
-            .responseWebSearchCallSearching:
-        return 'response.web_search_call.searching';
+      case BetaResponseWebSearchCallSearchingEventType.responseWebSearchCallSearching: return 'response.web_search_call.searching';
     }
   }
 
@@ -216,17 +178,14 @@ enum BetaResponseWsErrorType {
 
   static BetaResponseWsErrorType fromJson(String value) {
     switch (value) {
-      case 'error':
-        return BetaResponseWsErrorType.error;
-      default:
-        throw ArgumentError('Unknown BetaResponseWsErrorType: $value');
+      case 'error': return BetaResponseWsErrorType.error;
+      default: throw ArgumentError('Unknown BetaResponseWsErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseWsErrorType.error:
-        return 'error';
+      case BetaResponseWsErrorType.error: return 'error';
     }
   }
 
@@ -240,17 +199,14 @@ enum BetaScreenshotParamType {
 
   static BetaScreenshotParamType fromJson(String value) {
     switch (value) {
-      case 'screenshot':
-        return BetaScreenshotParamType.screenshot;
-      default:
-        throw ArgumentError('Unknown BetaScreenshotParamType: $value');
+      case 'screenshot': return BetaScreenshotParamType.screenshot;
+      default: throw ArgumentError('Unknown BetaScreenshotParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaScreenshotParamType.screenshot:
-        return 'screenshot';
+      case BetaScreenshotParamType.screenshot: return 'screenshot';
     }
   }
 
@@ -264,17 +220,14 @@ enum BetaScrollParamType {
 
   static BetaScrollParamType fromJson(String value) {
     switch (value) {
-      case 'scroll':
-        return BetaScrollParamType.scroll;
-      default:
-        throw ArgumentError('Unknown BetaScrollParamType: $value');
+      case 'scroll': return BetaScrollParamType.scroll;
+      default: throw ArgumentError('Unknown BetaScrollParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaScrollParamType.scroll:
-        return 'scroll';
+      case BetaScrollParamType.scroll: return 'scroll';
     }
   }
 
@@ -284,12 +237,12 @@ enum BetaScrollParamType {
 
 /// Specifies the processing type used for serving the request. - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'. - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model. - If set to '[flex](https://developers.openai.com/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier. - To opt-in to [Fast mode](https://developers.openai.com/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request. - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`. - When not set, the default behavior is 'auto'. When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
 final class BetaServiceTierResponsesVariant0 {
+
   final String value;
 
   const BetaServiceTierResponsesVariant0._(this.value);
 
-  factory BetaServiceTierResponsesVariant0.fromJson(String value) =>
-      BetaServiceTierResponsesVariant0._(value);
+  factory BetaServiceTierResponsesVariant0.fromJson(String value) => BetaServiceTierResponsesVariant0._(value);
 
   static const auto = BetaServiceTierResponsesVariant0._('auto');
   static const default_ = BetaServiceTierResponsesVariant0._('default');
@@ -301,15 +254,12 @@ final class BetaServiceTierResponsesVariant0 {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaServiceTierResponsesVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is BetaServiceTierResponsesVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// References a skill created with the /v1/skills endpoint.
@@ -318,17 +268,14 @@ enum BetaSkillReferenceParamType {
 
   static BetaSkillReferenceParamType fromJson(String value) {
     switch (value) {
-      case 'skill_reference':
-        return BetaSkillReferenceParamType.skillReference;
-      default:
-        throw ArgumentError('Unknown BetaSkillReferenceParamType: $value');
+      case 'skill_reference': return BetaSkillReferenceParamType.skillReference;
+      default: throw ArgumentError('Unknown BetaSkillReferenceParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaSkillReferenceParamType.skillReference:
-        return 'skill_reference';
+      case BetaSkillReferenceParamType.skillReference: return 'skill_reference';
     }
   }
 

@@ -8,138 +8,75 @@ part of 'fine_tuning.dart';
 class FineTuneDPOMethod {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The hyperparameters used for the DPO fine-tuning job.
   final SdkOptional<FineTuneDPOHyperparameters> hyperparameters;
 
   const FineTuneDPOMethod({this.hyperparameters = const SdkOmitted()});
 
-  FineTuneDPOMethod Function(
-          {SdkOptional<FineTuneDPOHyperparameters> hyperparameters})
-      get copyWith => _copyWith;
+  FineTuneDPOMethod Function({SdkOptional<FineTuneDPOHyperparameters> hyperparameters}) get copyWith => _copyWith;
 
-  FineTuneDPOMethod _copyWith({Object? hyperparameters = sdkOmittedValue}) =>
-      FineTuneDPOMethod(
-        hyperparameters: identical(hyperparameters, sdkOmittedValue)
-            ? this.hyperparameters
-            : hyperparameters as SdkOptional<FineTuneDPOHyperparameters>,
-      );
+  FineTuneDPOMethod _copyWith({Object? hyperparameters = sdkOmittedValue}) => FineTuneDPOMethod(
+    hyperparameters: identical(hyperparameters, sdkOmittedValue) ? this.hyperparameters : hyperparameters as SdkOptional<FineTuneDPOHyperparameters>,
+  );
 
-  factory FineTuneDPOMethod.fromJson(Map<String, dynamic> json) =>
-      FineTuneDPOMethod(
-        hyperparameters: json['hyperparameters'] != null
-            ? SdkPresent((json['hyperparameters'] != null
-                ? FineTuneDPOHyperparameters.fromJson(
-                    json['hyperparameters'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory FineTuneDPOMethod.fromJson(Map<String, dynamic> json) => FineTuneDPOMethod(
+    hyperparameters: json['hyperparameters'] != null ? SdkPresent((json['hyperparameters'] != null ? FineTuneDPOHyperparameters.fromJson(json['hyperparameters'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (hyperparameters) {
-          SdkPresent<FineTuneDPOHyperparameters>(value: final value) => {
-              'hyperparameters': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (hyperparameters) {
+      SdkPresent<FineTuneDPOHyperparameters>(value: final value) => {'hyperparameters': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The method used for fine-tuning.
 class FineTuneMethod {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of method. Is either `supervised`, `dpo`, or `reinforcement`.
   final FineTuneMethodType type_;
-
   /// Configuration for the supervised fine-tuning method.
   final SdkOptional<FineTuneSupervisedMethod> supervised;
-
   /// Configuration for the DPO fine-tuning method.
   final SdkOptional<FineTuneDPOMethod> dpo;
-
   /// Configuration for the reinforcement fine-tuning method.
   final SdkOptional<FineTuneReinforcementMethod> reinforcement;
 
-  const FineTuneMethod(
-      {required this.type_,
-      this.supervised = const SdkOmitted(),
-      this.dpo = const SdkOmitted(),
-      this.reinforcement = const SdkOmitted()});
+  const FineTuneMethod({required this.type_, this.supervised = const SdkOmitted(), this.dpo = const SdkOmitted(), this.reinforcement = const SdkOmitted()});
 
-  FineTuneMethod Function(
-          {FineTuneMethodType type_,
-          SdkOptional<FineTuneSupervisedMethod> supervised,
-          SdkOptional<FineTuneDPOMethod> dpo,
-          SdkOptional<FineTuneReinforcementMethod> reinforcement})
-      get copyWith => _copyWith;
+  FineTuneMethod Function({FineTuneMethodType type_, SdkOptional<FineTuneSupervisedMethod> supervised, SdkOptional<FineTuneDPOMethod> dpo, SdkOptional<FineTuneReinforcementMethod> reinforcement}) get copyWith => _copyWith;
 
-  FineTuneMethod _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? supervised = sdkOmittedValue,
-          Object? dpo = sdkOmittedValue,
-          Object? reinforcement = sdkOmittedValue}) =>
-      FineTuneMethod(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as FineTuneMethodType,
-        supervised: identical(supervised, sdkOmittedValue)
-            ? this.supervised
-            : supervised as SdkOptional<FineTuneSupervisedMethod>,
-        dpo: identical(dpo, sdkOmittedValue)
-            ? this.dpo
-            : dpo as SdkOptional<FineTuneDPOMethod>,
-        reinforcement: identical(reinforcement, sdkOmittedValue)
-            ? this.reinforcement
-            : reinforcement as SdkOptional<FineTuneReinforcementMethod>,
-      );
+  FineTuneMethod _copyWith({Object? type_ = sdkOmittedValue, Object? supervised = sdkOmittedValue, Object? dpo = sdkOmittedValue, Object? reinforcement = sdkOmittedValue}) => FineTuneMethod(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FineTuneMethodType,
+    supervised: identical(supervised, sdkOmittedValue) ? this.supervised : supervised as SdkOptional<FineTuneSupervisedMethod>,
+    dpo: identical(dpo, sdkOmittedValue) ? this.dpo : dpo as SdkOptional<FineTuneDPOMethod>,
+    reinforcement: identical(reinforcement, sdkOmittedValue) ? this.reinforcement : reinforcement as SdkOptional<FineTuneReinforcementMethod>,
+  );
 
   factory FineTuneMethod.fromJson(Map<String, dynamic> json) => FineTuneMethod(
-        type_: (json['type'] != null
-            ? FineTuneMethodType.fromJson(json['type'] as String)
-            : null)!,
-        supervised: json['supervised'] != null
-            ? SdkPresent((json['supervised'] != null
-                ? FineTuneSupervisedMethod.fromJson(
-                    json['supervised'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        dpo: json['dpo'] != null
-            ? SdkPresent((json['dpo'] != null
-                ? FineTuneDPOMethod.fromJson(
-                    json['dpo'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        reinforcement: json['reinforcement'] != null
-            ? SdkPresent((json['reinforcement'] != null
-                ? FineTuneReinforcementMethod.fromJson(
-                    json['reinforcement'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    type_: (json['type'] != null ? FineTuneMethodType.fromJson(json['type'] as String) : null)!,
+    supervised: json['supervised'] != null ? SdkPresent((json['supervised'] != null ? FineTuneSupervisedMethod.fromJson(json['supervised'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    dpo: json['dpo'] != null ? SdkPresent((json['dpo'] != null ? FineTuneDPOMethod.fromJson(json['dpo'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    reinforcement: json['reinforcement'] != null ? SdkPresent((json['reinforcement'] != null ? FineTuneReinforcementMethod.fromJson(json['reinforcement'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (supervised) {
-          SdkPresent<FineTuneSupervisedMethod>(value: final value) => {
-              'supervised': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dpo) {
-          SdkPresent<FineTuneDPOMethod>(value: final value) => {
-              'dpo': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reinforcement) {
-          SdkPresent<FineTuneReinforcementMethod>(value: final value) => {
-              'reinforcement': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (supervised) {
+      SdkPresent<FineTuneSupervisedMethod>(value: final value) => {'supervised': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dpo) {
+      SdkPresent<FineTuneDPOMethod>(value: final value) => {'dpo': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reinforcement) {
+      SdkPresent<FineTuneReinforcementMethod>(value: final value) => {'reinforcement': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class FineTuneReinforcementHyperparametersBatchSize {
@@ -147,75 +84,47 @@ sealed class FineTuneReinforcementHyperparametersBatchSize {
   static const String constructionSurface = 'named';
   const FineTuneReinforcementHyperparametersBatchSize();
   factory FineTuneReinforcementHyperparametersBatchSize.fromJson(Object? json) {
-    if (json is num) {
-      return FineTuneReinforcementHyperparametersBatchSizeInt(json.toInt());
-    }
-    try {
-      return FineTuneReinforcementHyperparametersBatchSizeFineTuneReinforcementHyperparametersBatchSizeVariant0(
-          FineTuneReinforcementHyperparametersBatchSizeVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneReinforcementHyperparametersBatchSize");
+    if (json is num) { return FineTuneReinforcementHyperparametersBatchSizeInt(json.toInt()); }
+    try { return FineTuneReinforcementHyperparametersBatchSizeFineTuneReinforcementHyperparametersBatchSizeVariant0(FineTuneReinforcementHyperparametersBatchSizeVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneReinforcementHyperparametersBatchSize");
   }
   Object? toJson();
 }
 
-final class FineTuneReinforcementHyperparametersBatchSizeFineTuneReinforcementHyperparametersBatchSizeVariant0
-    extends FineTuneReinforcementHyperparametersBatchSize {
+final class FineTuneReinforcementHyperparametersBatchSizeFineTuneReinforcementHyperparametersBatchSizeVariant0 extends FineTuneReinforcementHyperparametersBatchSize {
   final FineTuneReinforcementHyperparametersBatchSizeVariant0 value;
-  const FineTuneReinforcementHyperparametersBatchSizeFineTuneReinforcementHyperparametersBatchSizeVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FineTuneReinforcementHyperparametersBatchSizeFineTuneReinforcementHyperparametersBatchSizeVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneReinforcementHyperparametersBatchSizeInt
-    extends FineTuneReinforcementHyperparametersBatchSize {
+final class FineTuneReinforcementHyperparametersBatchSizeInt extends FineTuneReinforcementHyperparametersBatchSize {
   final int value;
   const FineTuneReinforcementHyperparametersBatchSizeInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class FineTuneReinforcementHyperparametersLearningRateMultiplier {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const FineTuneReinforcementHyperparametersLearningRateMultiplier();
-  factory FineTuneReinforcementHyperparametersLearningRateMultiplier.fromJson(
-      Object? json) {
-    if (json is num) {
-      return FineTuneReinforcementHyperparametersLearningRateMultiplierDouble(
-          json.toDouble());
-    }
-    try {
-      return FineTuneReinforcementHyperparametersLearningRateMultiplierFineTuneReinforcementHyperparametersLearningRateMultiplierVariant0(
-          FineTuneReinforcementHyperparametersLearningRateMultiplierVariant0
-              .fromJson(json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneReinforcementHyperparametersLearningRateMultiplier");
+  factory FineTuneReinforcementHyperparametersLearningRateMultiplier.fromJson(Object? json) {
+    if (json is num) { return FineTuneReinforcementHyperparametersLearningRateMultiplierDouble(json.toDouble()); }
+    try { return FineTuneReinforcementHyperparametersLearningRateMultiplierFineTuneReinforcementHyperparametersLearningRateMultiplierVariant0(FineTuneReinforcementHyperparametersLearningRateMultiplierVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneReinforcementHyperparametersLearningRateMultiplier");
   }
   Object? toJson();
 }
 
-final class FineTuneReinforcementHyperparametersLearningRateMultiplierFineTuneReinforcementHyperparametersLearningRateMultiplierVariant0
-    extends FineTuneReinforcementHyperparametersLearningRateMultiplier {
-  final FineTuneReinforcementHyperparametersLearningRateMultiplierVariant0
-      value;
-  const FineTuneReinforcementHyperparametersLearningRateMultiplierFineTuneReinforcementHyperparametersLearningRateMultiplierVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+final class FineTuneReinforcementHyperparametersLearningRateMultiplierFineTuneReinforcementHyperparametersLearningRateMultiplierVariant0 extends FineTuneReinforcementHyperparametersLearningRateMultiplier {
+  final FineTuneReinforcementHyperparametersLearningRateMultiplierVariant0 value;
+  const FineTuneReinforcementHyperparametersLearningRateMultiplierFineTuneReinforcementHyperparametersLearningRateMultiplierVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneReinforcementHyperparametersLearningRateMultiplierDouble
-    extends FineTuneReinforcementHyperparametersLearningRateMultiplier {
+final class FineTuneReinforcementHyperparametersLearningRateMultiplierDouble extends FineTuneReinforcementHyperparametersLearningRateMultiplier {
   final double value;
-  const FineTuneReinforcementHyperparametersLearningRateMultiplierDouble(
-      this.value);
-  @override
-  Object? toJson() => value;
+  const FineTuneReinforcementHyperparametersLearningRateMultiplierDouble(this.value);
+  @override Object? toJson() => value;
 }
 
 sealed class FineTuneReinforcementHyperparametersNEpochs {
@@ -223,145 +132,93 @@ sealed class FineTuneReinforcementHyperparametersNEpochs {
   static const String constructionSurface = 'named';
   const FineTuneReinforcementHyperparametersNEpochs();
   factory FineTuneReinforcementHyperparametersNEpochs.fromJson(Object? json) {
-    if (json is num) {
-      return FineTuneReinforcementHyperparametersNEpochsInt(json.toInt());
-    }
-    try {
-      return FineTuneReinforcementHyperparametersNEpochsFineTuneReinforcementHyperparametersNEpochsVariant0(
-          FineTuneReinforcementHyperparametersNEpochsVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneReinforcementHyperparametersNEpochs");
+    if (json is num) { return FineTuneReinforcementHyperparametersNEpochsInt(json.toInt()); }
+    try { return FineTuneReinforcementHyperparametersNEpochsFineTuneReinforcementHyperparametersNEpochsVariant0(FineTuneReinforcementHyperparametersNEpochsVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneReinforcementHyperparametersNEpochs");
   }
   Object? toJson();
 }
 
-final class FineTuneReinforcementHyperparametersNEpochsFineTuneReinforcementHyperparametersNEpochsVariant0
-    extends FineTuneReinforcementHyperparametersNEpochs {
+final class FineTuneReinforcementHyperparametersNEpochsFineTuneReinforcementHyperparametersNEpochsVariant0 extends FineTuneReinforcementHyperparametersNEpochs {
   final FineTuneReinforcementHyperparametersNEpochsVariant0 value;
-  const FineTuneReinforcementHyperparametersNEpochsFineTuneReinforcementHyperparametersNEpochsVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FineTuneReinforcementHyperparametersNEpochsFineTuneReinforcementHyperparametersNEpochsVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneReinforcementHyperparametersNEpochsInt
-    extends FineTuneReinforcementHyperparametersNEpochs {
+final class FineTuneReinforcementHyperparametersNEpochsInt extends FineTuneReinforcementHyperparametersNEpochs {
   final int value;
   const FineTuneReinforcementHyperparametersNEpochsInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class FineTuneReinforcementHyperparametersComputeMultiplier {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const FineTuneReinforcementHyperparametersComputeMultiplier();
-  factory FineTuneReinforcementHyperparametersComputeMultiplier.fromJson(
-      Object? json) {
-    if (json is num) {
-      return FineTuneReinforcementHyperparametersComputeMultiplierDouble(
-          json.toDouble());
-    }
-    try {
-      return FineTuneReinforcementHyperparametersComputeMultiplierFineTuneReinforcementHyperparametersComputeMultiplierVariant0(
-          FineTuneReinforcementHyperparametersComputeMultiplierVariant0
-              .fromJson(json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneReinforcementHyperparametersComputeMultiplier");
+  factory FineTuneReinforcementHyperparametersComputeMultiplier.fromJson(Object? json) {
+    if (json is num) { return FineTuneReinforcementHyperparametersComputeMultiplierDouble(json.toDouble()); }
+    try { return FineTuneReinforcementHyperparametersComputeMultiplierFineTuneReinforcementHyperparametersComputeMultiplierVariant0(FineTuneReinforcementHyperparametersComputeMultiplierVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneReinforcementHyperparametersComputeMultiplier");
   }
   Object? toJson();
 }
 
-final class FineTuneReinforcementHyperparametersComputeMultiplierFineTuneReinforcementHyperparametersComputeMultiplierVariant0
-    extends FineTuneReinforcementHyperparametersComputeMultiplier {
+final class FineTuneReinforcementHyperparametersComputeMultiplierFineTuneReinforcementHyperparametersComputeMultiplierVariant0 extends FineTuneReinforcementHyperparametersComputeMultiplier {
   final FineTuneReinforcementHyperparametersComputeMultiplierVariant0 value;
-  const FineTuneReinforcementHyperparametersComputeMultiplierFineTuneReinforcementHyperparametersComputeMultiplierVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FineTuneReinforcementHyperparametersComputeMultiplierFineTuneReinforcementHyperparametersComputeMultiplierVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneReinforcementHyperparametersComputeMultiplierDouble
-    extends FineTuneReinforcementHyperparametersComputeMultiplier {
+final class FineTuneReinforcementHyperparametersComputeMultiplierDouble extends FineTuneReinforcementHyperparametersComputeMultiplier {
   final double value;
   const FineTuneReinforcementHyperparametersComputeMultiplierDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class FineTuneReinforcementHyperparametersEvalInterval {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const FineTuneReinforcementHyperparametersEvalInterval();
-  factory FineTuneReinforcementHyperparametersEvalInterval.fromJson(
-      Object? json) {
-    if (json is num) {
-      return FineTuneReinforcementHyperparametersEvalIntervalInt(json.toInt());
-    }
-    try {
-      return FineTuneReinforcementHyperparametersEvalIntervalFineTuneReinforcementHyperparametersEvalIntervalVariant0(
-          FineTuneReinforcementHyperparametersEvalIntervalVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneReinforcementHyperparametersEvalInterval");
+  factory FineTuneReinforcementHyperparametersEvalInterval.fromJson(Object? json) {
+    if (json is num) { return FineTuneReinforcementHyperparametersEvalIntervalInt(json.toInt()); }
+    try { return FineTuneReinforcementHyperparametersEvalIntervalFineTuneReinforcementHyperparametersEvalIntervalVariant0(FineTuneReinforcementHyperparametersEvalIntervalVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneReinforcementHyperparametersEvalInterval");
   }
   Object? toJson();
 }
 
-final class FineTuneReinforcementHyperparametersEvalIntervalFineTuneReinforcementHyperparametersEvalIntervalVariant0
-    extends FineTuneReinforcementHyperparametersEvalInterval {
+final class FineTuneReinforcementHyperparametersEvalIntervalFineTuneReinforcementHyperparametersEvalIntervalVariant0 extends FineTuneReinforcementHyperparametersEvalInterval {
   final FineTuneReinforcementHyperparametersEvalIntervalVariant0 value;
-  const FineTuneReinforcementHyperparametersEvalIntervalFineTuneReinforcementHyperparametersEvalIntervalVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FineTuneReinforcementHyperparametersEvalIntervalFineTuneReinforcementHyperparametersEvalIntervalVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneReinforcementHyperparametersEvalIntervalInt
-    extends FineTuneReinforcementHyperparametersEvalInterval {
+final class FineTuneReinforcementHyperparametersEvalIntervalInt extends FineTuneReinforcementHyperparametersEvalInterval {
   final int value;
   const FineTuneReinforcementHyperparametersEvalIntervalInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class FineTuneReinforcementHyperparametersEvalSamples {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const FineTuneReinforcementHyperparametersEvalSamples();
-  factory FineTuneReinforcementHyperparametersEvalSamples.fromJson(
-      Object? json) {
-    if (json is num) {
-      return FineTuneReinforcementHyperparametersEvalSamplesInt(json.toInt());
-    }
-    try {
-      return FineTuneReinforcementHyperparametersEvalSamplesFineTuneReinforcementHyperparametersEvalSamplesVariant0(
-          FineTuneReinforcementHyperparametersEvalSamplesVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneReinforcementHyperparametersEvalSamples");
+  factory FineTuneReinforcementHyperparametersEvalSamples.fromJson(Object? json) {
+    if (json is num) { return FineTuneReinforcementHyperparametersEvalSamplesInt(json.toInt()); }
+    try { return FineTuneReinforcementHyperparametersEvalSamplesFineTuneReinforcementHyperparametersEvalSamplesVariant0(FineTuneReinforcementHyperparametersEvalSamplesVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneReinforcementHyperparametersEvalSamples");
   }
   Object? toJson();
 }
 
-final class FineTuneReinforcementHyperparametersEvalSamplesFineTuneReinforcementHyperparametersEvalSamplesVariant0
-    extends FineTuneReinforcementHyperparametersEvalSamples {
+final class FineTuneReinforcementHyperparametersEvalSamplesFineTuneReinforcementHyperparametersEvalSamplesVariant0 extends FineTuneReinforcementHyperparametersEvalSamples {
   final FineTuneReinforcementHyperparametersEvalSamplesVariant0 value;
-  const FineTuneReinforcementHyperparametersEvalSamplesFineTuneReinforcementHyperparametersEvalSamplesVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FineTuneReinforcementHyperparametersEvalSamplesFineTuneReinforcementHyperparametersEvalSamplesVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneReinforcementHyperparametersEvalSamplesInt
-    extends FineTuneReinforcementHyperparametersEvalSamples {
+final class FineTuneReinforcementHyperparametersEvalSamplesInt extends FineTuneReinforcementHyperparametersEvalSamples {
   final int value;
   const FineTuneReinforcementHyperparametersEvalSamplesInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }

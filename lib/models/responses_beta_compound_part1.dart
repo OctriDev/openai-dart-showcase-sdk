@@ -8,45 +8,29 @@ part of 'responses_beta_compound.dart';
 class BetaCompoundFilter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of operation: `and` or `or`.
   final BetaCompoundFilterType type_;
-
   /// Array of filters to combine. Items can be `ComparisonFilter` or `CompoundFilter`.
   final List<BetaCompoundFilterFiltersItem> filters;
 
   const BetaCompoundFilter({required this.type_, required this.filters});
 
-  BetaCompoundFilter Function(
-      {BetaCompoundFilterType type_,
-      List<BetaCompoundFilterFiltersItem> filters}) get copyWith => _copyWith;
+  BetaCompoundFilter Function({BetaCompoundFilterType type_, List<BetaCompoundFilterFiltersItem> filters}) get copyWith => _copyWith;
 
-  BetaCompoundFilter _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? filters = sdkOmittedValue}) =>
-      BetaCompoundFilter(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaCompoundFilterType,
-        filters: identical(filters, sdkOmittedValue)
-            ? this.filters
-            : filters as List<BetaCompoundFilterFiltersItem>,
-      );
+  BetaCompoundFilter _copyWith({Object? type_ = sdkOmittedValue, Object? filters = sdkOmittedValue}) => BetaCompoundFilter(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaCompoundFilterType,
+    filters: identical(filters, sdkOmittedValue) ? this.filters : filters as List<BetaCompoundFilterFiltersItem>,
+  );
 
-  factory BetaCompoundFilter.fromJson(Map<String, dynamic> json) =>
-      BetaCompoundFilter(
-        type_: (json['type'] != null
-            ? BetaCompoundFilterType.fromJson(json['type'] as String)
-            : null)!,
-        filters: ((json['filters'] as List?)
-            ?.map((e) => BetaCompoundFilterFiltersItem.fromJson(e))
-            .toList())!,
-      );
+  factory BetaCompoundFilter.fromJson(Map<String, dynamic> json) => BetaCompoundFilter(
+    type_: (json['type'] != null ? BetaCompoundFilterType.fromJson(json['type'] as String) : null)!,
+    filters: ((json['filters'] as List?)?.map((e) => BetaCompoundFilterFiltersItem.fromJson(e)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'filters': filters.map((item) => item.toJson()).toList(),
-      };
+    'type': type_.toJson(),
+    'filters': filters.map((item) => item.toJson()).toList(),
+  };
 }
 
 sealed class BetaCompoundFilterFiltersItem {
@@ -55,60 +39,32 @@ sealed class BetaCompoundFilterFiltersItem {
   const BetaCompoundFilterFiltersItem();
   factory BetaCompoundFilterFiltersItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaComparisonFilter.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaCompoundFilterFiltersItemBetaComparisonFilter(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaCompoundFilter.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaCompoundFilterFiltersItemBetaCompoundFilter(value);
-        }
-      } catch (_) {}
+      try { final value = BetaComparisonFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaCompoundFilterFiltersItemBetaComparisonFilter(value); } } catch (_) {}
+      try { final value = BetaCompoundFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaCompoundFilterFiltersItemBetaCompoundFilter(value); } } catch (_) {}
     }
-    try {
-      return BetaCompoundFilterFiltersItemBetaComparisonFilter(
-          BetaComparisonFilter.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaCompoundFilterFiltersItemBetaCompoundFilter(
-          BetaCompoundFilter.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}
-            .contains(json["type"])) {
-      return UnknownBetaCompoundFilterFiltersItem(json);
-    }
-    throw FormatException(
-        "No variant matched for BetaCompoundFilterFiltersItem");
+    try { return BetaCompoundFilterFiltersItemBetaComparisonFilter(BetaComparisonFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaCompoundFilterFiltersItemBetaCompoundFilter(BetaCompoundFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}.contains(json["type"])) { return UnknownBetaCompoundFilterFiltersItem(json); }
+    throw FormatException("No variant matched for BetaCompoundFilterFiltersItem");
   }
   Object? toJson();
 }
 
-final class BetaCompoundFilterFiltersItemBetaComparisonFilter
-    extends BetaCompoundFilterFiltersItem {
+final class BetaCompoundFilterFiltersItemBetaComparisonFilter extends BetaCompoundFilterFiltersItem {
   final BetaComparisonFilter value;
   const BetaCompoundFilterFiltersItemBetaComparisonFilter(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaCompoundFilterFiltersItemBetaCompoundFilter
-    extends BetaCompoundFilterFiltersItem {
+final class BetaCompoundFilterFiltersItemBetaCompoundFilter extends BetaCompoundFilterFiltersItem {
   final BetaCompoundFilter value;
   const BetaCompoundFilterFiltersItemBetaCompoundFilter(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaCompoundFilterFiltersItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaCompoundFilterFiltersItem
-    extends BetaCompoundFilterFiltersItem {
+final class UnknownBetaCompoundFilterFiltersItem extends BetaCompoundFilterFiltersItem {
   final Map<String, dynamic> raw;
   const UnknownBetaCompoundFilterFiltersItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

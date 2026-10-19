@@ -6,87 +6,67 @@ part of 'inline.dart';
 // Inline operation models (part 95)
 /// Optional enumerated value serialized in the `conversation` wire field.
 final class RealtimeResponseCreateParamsConversationVariant1 {
+
   final String value;
 
   const RealtimeResponseCreateParamsConversationVariant1._(this.value);
 
-  factory RealtimeResponseCreateParamsConversationVariant1.fromJson(
-          String value) =>
-      RealtimeResponseCreateParamsConversationVariant1._(value);
+  factory RealtimeResponseCreateParamsConversationVariant1.fromJson(String value) => RealtimeResponseCreateParamsConversationVariant1._(value);
 
-  static const auto =
-      RealtimeResponseCreateParamsConversationVariant1._('auto');
-  static const none =
-      RealtimeResponseCreateParamsConversationVariant1._('none');
+  static const auto = RealtimeResponseCreateParamsConversationVariant1._('auto');
+  static const none = RealtimeResponseCreateParamsConversationVariant1._('none');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeResponseCreateParamsConversationVariant1 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeResponseCreateParamsConversationVariant1 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `max_output_tokens` wire field.
 final class RealtimeResponseCreateParamsMaxOutputTokensVariant1 {
+
   final String value;
 
   const RealtimeResponseCreateParamsMaxOutputTokensVariant1._(this.value);
 
-  factory RealtimeResponseCreateParamsMaxOutputTokensVariant1.fromJson(
-          String value) =>
-      RealtimeResponseCreateParamsMaxOutputTokensVariant1._(value);
+  factory RealtimeResponseCreateParamsMaxOutputTokensVariant1.fromJson(String value) => RealtimeResponseCreateParamsMaxOutputTokensVariant1._(value);
 
-  static const inf =
-      RealtimeResponseCreateParamsMaxOutputTokensVariant1._('inf');
+  static const inf = RealtimeResponseCreateParamsMaxOutputTokensVariant1._('inf');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeResponseCreateParamsMaxOutputTokensVariant1 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeResponseCreateParamsMaxOutputTokensVariant1 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `output_modalities[]` wire field.
 final class RealtimeResponseCreateParamsOutputModalitiesItem {
+
   final String value;
 
   const RealtimeResponseCreateParamsOutputModalitiesItem._(this.value);
 
-  factory RealtimeResponseCreateParamsOutputModalitiesItem.fromJson(
-          String value) =>
-      RealtimeResponseCreateParamsOutputModalitiesItem._(value);
+  factory RealtimeResponseCreateParamsOutputModalitiesItem.fromJson(String value) => RealtimeResponseCreateParamsOutputModalitiesItem._(value);
 
-  static const text =
-      RealtimeResponseCreateParamsOutputModalitiesItem._('text');
-  static const audio =
-      RealtimeResponseCreateParamsOutputModalitiesItem._('audio');
+  static const text = RealtimeResponseCreateParamsOutputModalitiesItem._('text');
+  static const audio = RealtimeResponseCreateParamsOutputModalitiesItem._('audio');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeResponseCreateParamsOutputModalitiesItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeResponseCreateParamsOutputModalitiesItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type, must be `conversation.created`.
@@ -95,18 +75,14 @@ enum RealtimeServerEventConversationCreatedType {
 
   static RealtimeServerEventConversationCreatedType fromJson(String value) {
     switch (value) {
-      case 'conversation.created':
-        return RealtimeServerEventConversationCreatedType.conversationCreated;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventConversationCreatedType: $value');
+      case 'conversation.created': return RealtimeServerEventConversationCreatedType.conversationCreated;
+      default: throw ArgumentError('Unknown RealtimeServerEventConversationCreatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventConversationCreatedType.conversationCreated:
-        return 'conversation.created';
+      case RealtimeServerEventConversationCreatedType.conversationCreated: return 'conversation.created';
     }
   }
 
@@ -120,19 +96,14 @@ enum RealtimeServerEventConversationItemAddedType {
 
   static RealtimeServerEventConversationItemAddedType fromJson(String value) {
     switch (value) {
-      case 'conversation.item.added':
-        return RealtimeServerEventConversationItemAddedType
-            .conversationItemAdded;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventConversationItemAddedType: $value');
+      case 'conversation.item.added': return RealtimeServerEventConversationItemAddedType.conversationItemAdded;
+      default: throw ArgumentError('Unknown RealtimeServerEventConversationItemAddedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventConversationItemAddedType.conversationItemAdded:
-        return 'conversation.item.added';
+      case RealtimeServerEventConversationItemAddedType.conversationItemAdded: return 'conversation.item.added';
     }
   }
 
@@ -146,20 +117,14 @@ enum RealtimeServerEventConversationItemCreatedType {
 
   static RealtimeServerEventConversationItemCreatedType fromJson(String value) {
     switch (value) {
-      case 'conversation.item.created':
-        return RealtimeServerEventConversationItemCreatedType
-            .conversationItemCreated;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventConversationItemCreatedType: $value');
+      case 'conversation.item.created': return RealtimeServerEventConversationItemCreatedType.conversationItemCreated;
+      default: throw ArgumentError('Unknown RealtimeServerEventConversationItemCreatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventConversationItemCreatedType
-            .conversationItemCreated:
-        return 'conversation.item.created';
+      case RealtimeServerEventConversationItemCreatedType.conversationItemCreated: return 'conversation.item.created';
     }
   }
 
@@ -173,20 +138,14 @@ enum RealtimeServerEventConversationItemDeletedType {
 
   static RealtimeServerEventConversationItemDeletedType fromJson(String value) {
     switch (value) {
-      case 'conversation.item.deleted':
-        return RealtimeServerEventConversationItemDeletedType
-            .conversationItemDeleted;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventConversationItemDeletedType: $value');
+      case 'conversation.item.deleted': return RealtimeServerEventConversationItemDeletedType.conversationItemDeleted;
+      default: throw ArgumentError('Unknown RealtimeServerEventConversationItemDeletedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventConversationItemDeletedType
-            .conversationItemDeleted:
-        return 'conversation.item.deleted';
+      case RealtimeServerEventConversationItemDeletedType.conversationItemDeleted: return 'conversation.item.deleted';
     }
   }
 
@@ -200,18 +159,14 @@ enum RealtimeServerEventConversationItemDoneType {
 
   static RealtimeServerEventConversationItemDoneType fromJson(String value) {
     switch (value) {
-      case 'conversation.item.done':
-        return RealtimeServerEventConversationItemDoneType.conversationItemDone;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventConversationItemDoneType: $value');
+      case 'conversation.item.done': return RealtimeServerEventConversationItemDoneType.conversationItemDone;
+      default: throw ArgumentError('Unknown RealtimeServerEventConversationItemDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventConversationItemDoneType.conversationItemDone:
-        return 'conversation.item.done';
+      case RealtimeServerEventConversationItemDoneType.conversationItemDone: return 'conversation.item.done';
     }
   }
 
@@ -223,23 +178,16 @@ enum RealtimeServerEventConversationItemDoneType {
 enum RealtimeServerEventConversationItemInputAudioTranscriptionCompletedType {
   conversationItemInputAudioTranscriptionCompleted;
 
-  static RealtimeServerEventConversationItemInputAudioTranscriptionCompletedType
-      fromJson(String value) {
+  static RealtimeServerEventConversationItemInputAudioTranscriptionCompletedType fromJson(String value) {
     switch (value) {
-      case 'conversation.item.input_audio_transcription.completed':
-        return RealtimeServerEventConversationItemInputAudioTranscriptionCompletedType
-            .conversationItemInputAudioTranscriptionCompleted;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventConversationItemInputAudioTranscriptionCompletedType: $value');
+      case 'conversation.item.input_audio_transcription.completed': return RealtimeServerEventConversationItemInputAudioTranscriptionCompletedType.conversationItemInputAudioTranscriptionCompleted;
+      default: throw ArgumentError('Unknown RealtimeServerEventConversationItemInputAudioTranscriptionCompletedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventConversationItemInputAudioTranscriptionCompletedType
-            .conversationItemInputAudioTranscriptionCompleted:
-        return 'conversation.item.input_audio_transcription.completed';
+      case RealtimeServerEventConversationItemInputAudioTranscriptionCompletedType.conversationItemInputAudioTranscriptionCompleted: return 'conversation.item.input_audio_transcription.completed';
     }
   }
 
@@ -251,23 +199,16 @@ enum RealtimeServerEventConversationItemInputAudioTranscriptionCompletedType {
 enum RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType {
   conversationItemInputAudioTranscriptionDelta;
 
-  static RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType
-      fromJson(String value) {
+  static RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType fromJson(String value) {
     switch (value) {
-      case 'conversation.item.input_audio_transcription.delta':
-        return RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType
-            .conversationItemInputAudioTranscriptionDelta;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType: $value');
+      case 'conversation.item.input_audio_transcription.delta': return RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType.conversationItemInputAudioTranscriptionDelta;
+      default: throw ArgumentError('Unknown RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType
-            .conversationItemInputAudioTranscriptionDelta:
-        return 'conversation.item.input_audio_transcription.delta';
+      case RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType.conversationItemInputAudioTranscriptionDelta: return 'conversation.item.input_audio_transcription.delta';
     }
   }
 
@@ -279,23 +220,16 @@ enum RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType {
 enum RealtimeServerEventConversationItemInputAudioTranscriptionFailedType {
   conversationItemInputAudioTranscriptionFailed;
 
-  static RealtimeServerEventConversationItemInputAudioTranscriptionFailedType
-      fromJson(String value) {
+  static RealtimeServerEventConversationItemInputAudioTranscriptionFailedType fromJson(String value) {
     switch (value) {
-      case 'conversation.item.input_audio_transcription.failed':
-        return RealtimeServerEventConversationItemInputAudioTranscriptionFailedType
-            .conversationItemInputAudioTranscriptionFailed;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventConversationItemInputAudioTranscriptionFailedType: $value');
+      case 'conversation.item.input_audio_transcription.failed': return RealtimeServerEventConversationItemInputAudioTranscriptionFailedType.conversationItemInputAudioTranscriptionFailed;
+      default: throw ArgumentError('Unknown RealtimeServerEventConversationItemInputAudioTranscriptionFailedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventConversationItemInputAudioTranscriptionFailedType
-            .conversationItemInputAudioTranscriptionFailed:
-        return 'conversation.item.input_audio_transcription.failed';
+      case RealtimeServerEventConversationItemInputAudioTranscriptionFailedType.conversationItemInputAudioTranscriptionFailed: return 'conversation.item.input_audio_transcription.failed';
     }
   }
 
@@ -307,23 +241,16 @@ enum RealtimeServerEventConversationItemInputAudioTranscriptionFailedType {
 enum RealtimeServerEventConversationItemInputAudioTranscriptionSegmentType {
   conversationItemInputAudioTranscriptionSegment;
 
-  static RealtimeServerEventConversationItemInputAudioTranscriptionSegmentType
-      fromJson(String value) {
+  static RealtimeServerEventConversationItemInputAudioTranscriptionSegmentType fromJson(String value) {
     switch (value) {
-      case 'conversation.item.input_audio_transcription.segment':
-        return RealtimeServerEventConversationItemInputAudioTranscriptionSegmentType
-            .conversationItemInputAudioTranscriptionSegment;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventConversationItemInputAudioTranscriptionSegmentType: $value');
+      case 'conversation.item.input_audio_transcription.segment': return RealtimeServerEventConversationItemInputAudioTranscriptionSegmentType.conversationItemInputAudioTranscriptionSegment;
+      default: throw ArgumentError('Unknown RealtimeServerEventConversationItemInputAudioTranscriptionSegmentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventConversationItemInputAudioTranscriptionSegmentType
-            .conversationItemInputAudioTranscriptionSegment:
-        return 'conversation.item.input_audio_transcription.segment';
+      case RealtimeServerEventConversationItemInputAudioTranscriptionSegmentType.conversationItemInputAudioTranscriptionSegment: return 'conversation.item.input_audio_transcription.segment';
     }
   }
 
@@ -335,23 +262,16 @@ enum RealtimeServerEventConversationItemInputAudioTranscriptionSegmentType {
 enum RealtimeServerEventConversationItemRetrievedType {
   conversationItemRetrieved;
 
-  static RealtimeServerEventConversationItemRetrievedType fromJson(
-      String value) {
+  static RealtimeServerEventConversationItemRetrievedType fromJson(String value) {
     switch (value) {
-      case 'conversation.item.retrieved':
-        return RealtimeServerEventConversationItemRetrievedType
-            .conversationItemRetrieved;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventConversationItemRetrievedType: $value');
+      case 'conversation.item.retrieved': return RealtimeServerEventConversationItemRetrievedType.conversationItemRetrieved;
+      default: throw ArgumentError('Unknown RealtimeServerEventConversationItemRetrievedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventConversationItemRetrievedType
-            .conversationItemRetrieved:
-        return 'conversation.item.retrieved';
+      case RealtimeServerEventConversationItemRetrievedType.conversationItemRetrieved: return 'conversation.item.retrieved';
     }
   }
 

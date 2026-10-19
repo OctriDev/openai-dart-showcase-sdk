@@ -17,45 +17,28 @@ enum ToolChoiceTypesType {
 
   static ToolChoiceTypesType fromJson(String value) {
     switch (value) {
-      case 'file_search':
-        return ToolChoiceTypesType.fileSearch;
-      case 'web_search_preview':
-        return ToolChoiceTypesType.webSearchPreview;
-      case 'computer':
-        return ToolChoiceTypesType.computer;
-      case 'computer_use_preview':
-        return ToolChoiceTypesType.computerUsePreview;
-      case 'computer_use':
-        return ToolChoiceTypesType.computerUse;
-      case 'web_search_preview_2025_03_11':
-        return ToolChoiceTypesType.webSearchPreview20250311;
-      case 'image_generation':
-        return ToolChoiceTypesType.imageGeneration;
-      case 'code_interpreter':
-        return ToolChoiceTypesType.codeInterpreter;
-      default:
-        throw ArgumentError('Unknown ToolChoiceTypesType: $value');
+      case 'file_search': return ToolChoiceTypesType.fileSearch;
+      case 'web_search_preview': return ToolChoiceTypesType.webSearchPreview;
+      case 'computer': return ToolChoiceTypesType.computer;
+      case 'computer_use_preview': return ToolChoiceTypesType.computerUsePreview;
+      case 'computer_use': return ToolChoiceTypesType.computerUse;
+      case 'web_search_preview_2025_03_11': return ToolChoiceTypesType.webSearchPreview20250311;
+      case 'image_generation': return ToolChoiceTypesType.imageGeneration;
+      case 'code_interpreter': return ToolChoiceTypesType.codeInterpreter;
+      default: throw ArgumentError('Unknown ToolChoiceTypesType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolChoiceTypesType.fileSearch:
-        return 'file_search';
-      case ToolChoiceTypesType.webSearchPreview:
-        return 'web_search_preview';
-      case ToolChoiceTypesType.computer:
-        return 'computer';
-      case ToolChoiceTypesType.computerUsePreview:
-        return 'computer_use_preview';
-      case ToolChoiceTypesType.computerUse:
-        return 'computer_use';
-      case ToolChoiceTypesType.webSearchPreview20250311:
-        return 'web_search_preview_2025_03_11';
-      case ToolChoiceTypesType.imageGeneration:
-        return 'image_generation';
-      case ToolChoiceTypesType.codeInterpreter:
-        return 'code_interpreter';
+      case ToolChoiceTypesType.fileSearch: return 'file_search';
+      case ToolChoiceTypesType.webSearchPreview: return 'web_search_preview';
+      case ToolChoiceTypesType.computer: return 'computer';
+      case ToolChoiceTypesType.computerUsePreview: return 'computer_use_preview';
+      case ToolChoiceTypesType.computerUse: return 'computer_use';
+      case ToolChoiceTypesType.webSearchPreview20250311: return 'web_search_preview_2025_03_11';
+      case ToolChoiceTypesType.imageGeneration: return 'image_generation';
+      case ToolChoiceTypesType.codeInterpreter: return 'code_interpreter';
     }
   }
 
@@ -69,17 +52,14 @@ enum ToolSearchCallType {
 
   static ToolSearchCallType fromJson(String value) {
     switch (value) {
-      case 'tool_search_call':
-        return ToolSearchCallType.toolSearchCall;
-      default:
-        throw ArgumentError('Unknown ToolSearchCallType: $value');
+      case 'tool_search_call': return ToolSearchCallType.toolSearchCall;
+      default: throw ArgumentError('Unknown ToolSearchCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolSearchCallType.toolSearchCall:
-        return 'tool_search_call';
+      case ToolSearchCallType.toolSearchCall: return 'tool_search_call';
     }
   }
 
@@ -93,17 +73,14 @@ enum ToolSearchCallItemParamType {
 
   static ToolSearchCallItemParamType fromJson(String value) {
     switch (value) {
-      case 'tool_search_call':
-        return ToolSearchCallItemParamType.toolSearchCall;
-      default:
-        throw ArgumentError('Unknown ToolSearchCallItemParamType: $value');
+      case 'tool_search_call': return ToolSearchCallItemParamType.toolSearchCall;
+      default: throw ArgumentError('Unknown ToolSearchCallItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolSearchCallItemParamType.toolSearchCall:
-        return 'tool_search_call';
+      case ToolSearchCallItemParamType.toolSearchCall: return 'tool_search_call';
     }
   }
 
@@ -117,17 +94,14 @@ enum ToolSearchOutputType {
 
   static ToolSearchOutputType fromJson(String value) {
     switch (value) {
-      case 'tool_search_output':
-        return ToolSearchOutputType.toolSearchOutput;
-      default:
-        throw ArgumentError('Unknown ToolSearchOutputType: $value');
+      case 'tool_search_output': return ToolSearchOutputType.toolSearchOutput;
+      default: throw ArgumentError('Unknown ToolSearchOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolSearchOutputType.toolSearchOutput:
-        return 'tool_search_output';
+      case ToolSearchOutputType.toolSearchOutput: return 'tool_search_output';
     }
   }
 
@@ -141,18 +115,14 @@ enum ToolSearchOutputFunctionToolParamType {
 
   static ToolSearchOutputFunctionToolParamType fromJson(String value) {
     switch (value) {
-      case 'function':
-        return ToolSearchOutputFunctionToolParamType.function_;
-      default:
-        throw ArgumentError(
-            'Unknown ToolSearchOutputFunctionToolParamType: $value');
+      case 'function': return ToolSearchOutputFunctionToolParamType.function_;
+      default: throw ArgumentError('Unknown ToolSearchOutputFunctionToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolSearchOutputFunctionToolParamType.function_:
-        return 'function';
+      case ToolSearchOutputFunctionToolParamType.function_: return 'function';
     }
   }
 
@@ -166,17 +136,14 @@ enum ToolSearchOutputItemParamType {
 
   static ToolSearchOutputItemParamType fromJson(String value) {
     switch (value) {
-      case 'tool_search_output':
-        return ToolSearchOutputItemParamType.toolSearchOutput;
-      default:
-        throw ArgumentError('Unknown ToolSearchOutputItemParamType: $value');
+      case 'tool_search_output': return ToolSearchOutputItemParamType.toolSearchOutput;
+      default: throw ArgumentError('Unknown ToolSearchOutputItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolSearchOutputItemParamType.toolSearchOutput:
-        return 'tool_search_output';
+      case ToolSearchOutputItemParamType.toolSearchOutput: return 'tool_search_output';
     }
   }
 
@@ -190,18 +157,14 @@ enum ToolSearchOutputNamespaceToolParamType {
 
   static ToolSearchOutputNamespaceToolParamType fromJson(String value) {
     switch (value) {
-      case 'namespace':
-        return ToolSearchOutputNamespaceToolParamType.namespace;
-      default:
-        throw ArgumentError(
-            'Unknown ToolSearchOutputNamespaceToolParamType: $value');
+      case 'namespace': return ToolSearchOutputNamespaceToolParamType.namespace;
+      default: throw ArgumentError('Unknown ToolSearchOutputNamespaceToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolSearchOutputNamespaceToolParamType.namespace:
-        return 'namespace';
+      case ToolSearchOutputNamespaceToolParamType.namespace: return 'namespace';
     }
   }
 
@@ -215,17 +178,14 @@ enum ToolSearchToolParamType {
 
   static ToolSearchToolParamType fromJson(String value) {
     switch (value) {
-      case 'tool_search':
-        return ToolSearchToolParamType.toolSearch;
-      default:
-        throw ArgumentError('Unknown ToolSearchToolParamType: $value');
+      case 'tool_search': return ToolSearchToolParamType.toolSearch;
+      default: throw ArgumentError('Unknown ToolSearchToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolSearchToolParamType.toolSearch:
-        return 'tool_search';
+      case ToolSearchToolParamType.toolSearch: return 'tool_search';
     }
   }
 
@@ -235,51 +195,44 @@ enum ToolSearchToolParamType {
 
 /// Automatically set chunking parameters based on the audio. Must be set to `"auto"`.
 final class TranscriptionChunkingStrategyVariant0 {
+
   final String value;
 
   const TranscriptionChunkingStrategyVariant0._(this.value);
 
-  factory TranscriptionChunkingStrategyVariant0.fromJson(String value) =>
-      TranscriptionChunkingStrategyVariant0._(value);
+  factory TranscriptionChunkingStrategyVariant0.fromJson(String value) => TranscriptionChunkingStrategyVariant0._(value);
 
   static const auto = TranscriptionChunkingStrategyVariant0._('auto');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TranscriptionChunkingStrategyVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is TranscriptionChunkingStrategyVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the segment. Always `transcript.text.segment`.
 final class TranscriptionDiarizedSegmentType {
+
   final String value;
 
   const TranscriptionDiarizedSegmentType._(this.value);
 
-  factory TranscriptionDiarizedSegmentType.fromJson(String value) =>
-      TranscriptionDiarizedSegmentType._(value);
+  factory TranscriptionDiarizedSegmentType.fromJson(String value) => TranscriptionDiarizedSegmentType._(value);
 
-  static const transcriptTextSegment =
-      TranscriptionDiarizedSegmentType._('transcript.text.segment');
+  static const transcriptTextSegment = TranscriptionDiarizedSegmentType._('transcript.text.segment');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TranscriptionDiarizedSegmentType && other.value == value;
+  @override bool operator ==(Object other) => other is TranscriptionDiarizedSegmentType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always `transcript.text.delta`.
@@ -288,17 +241,14 @@ enum TranscriptTextDeltaEventType {
 
   static TranscriptTextDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'transcript.text.delta':
-        return TranscriptTextDeltaEventType.transcriptTextDelta;
-      default:
-        throw ArgumentError('Unknown TranscriptTextDeltaEventType: $value');
+      case 'transcript.text.delta': return TranscriptTextDeltaEventType.transcriptTextDelta;
+      default: throw ArgumentError('Unknown TranscriptTextDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TranscriptTextDeltaEventType.transcriptTextDelta:
-        return 'transcript.text.delta';
+      case TranscriptTextDeltaEventType.transcriptTextDelta: return 'transcript.text.delta';
     }
   }
 
@@ -312,17 +262,14 @@ enum TranscriptTextDoneEventType {
 
   static TranscriptTextDoneEventType fromJson(String value) {
     switch (value) {
-      case 'transcript.text.done':
-        return TranscriptTextDoneEventType.transcriptTextDone;
-      default:
-        throw ArgumentError('Unknown TranscriptTextDoneEventType: $value');
+      case 'transcript.text.done': return TranscriptTextDoneEventType.transcriptTextDone;
+      default: throw ArgumentError('Unknown TranscriptTextDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TranscriptTextDoneEventType.transcriptTextDone:
-        return 'transcript.text.done';
+      case TranscriptTextDoneEventType.transcriptTextDone: return 'transcript.text.done';
     }
   }
 

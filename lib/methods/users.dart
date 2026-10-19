@@ -25,28 +25,19 @@ Future<UserListResponse> listUsers(ClientConfig config,
   return (await sdkRequest<UserListResponse>('GET', '/organization/users',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'emails': SdkQueryValue(SdkUtils.unwrapOptional(emails),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'emails': SdkQueryValue(SdkUtils.unwrapOptional(emails), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listUsers',
-          fromJsonRaw: (value) =>
-              UserListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UserListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists users in the organization. Use `emails` to filter the list by email address and `limit` and `after` to control the page of results. The response includes pagination fields to help you retrieve additional users.
 ///
@@ -59,27 +50,13 @@ Future<UserListResponse> listUsers(ClientConfig config,
 ///   100 objects, ending with obj_foo, your subsequent call can include
 ///   after=obj_foo in order to fetch the next page of the list.
 /// [emails] Filter by the email address of users.
-Stream<User> listUsersPaginated(ClientConfig config,
-    {int? limit,
-    String? after,
-    List<String>? emails,
-    RequestOptions? requestOptions}) async* {
+Stream<User> listUsersPaginated(ClientConfig config, {int? limit, String? after, List<String>? emails, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listUsers(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        emails: emails == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(emails),
-        requestOptions: requestOptions);
+    final sdkPage = await listUsers(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), emails: emails == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(emails), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -87,22 +64,10 @@ Stream<User> listUsersPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<UserListResponse, User>> listUsersPages(ClientConfig config,
-    {int? limit,
-    String? after,
-    List<String>? emails,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<UserListResponse, User>> listUsersPages(ClientConfig config, {int? limit, String? after, List<String>? emails, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listUsers(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        emails: emails == null
-            ? const SdkOmitted<List<String>>()
-            : SdkPresent<List<String>>(emails),
-        requestOptions: requestOptions);
+    final sdkPage = await listUsers(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), emails: emails == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(emails), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -112,6 +77,7 @@ Stream<SdkPage<UserListResponse, User>> listUsersPages(ClientConfig config,
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Retrieves a user from the organization by their identifier. Use this operation to view the user's organization role, account details, and associated user metadata.
 ///
@@ -127,14 +93,10 @@ Future<User> retrieveUser(ClientConfig config,
           operationId: 'retrieveUser',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates a user's role or metadata in the organization. Supply the body fields you want to change, such as `role`, `role_id`, `technical_level`, or `developer_persona`. The response contains the updated organization user.
 ///
@@ -165,18 +127,10 @@ Future<User> modifyUser(ClientConfig config,
           operationId: 'modifyUser',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a user from the organization. Use this operation to remove a user who is no longer part of the organization. The response confirms deletion and includes the user's ID.
 ///
@@ -190,15 +144,8 @@ Future<UserDeleteResponse> deleteUser(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteUser',
-          fromJsonRaw: (value) =>
-              UserDeleteResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UserDeleteResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

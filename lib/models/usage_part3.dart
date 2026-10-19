@@ -8,438 +8,197 @@ part of 'usage.dart';
 class UsageCompletionsResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// When grouped by `api_source`, `agents_api` identifies attributed Agents API activity and `unlabeled` includes all records without published source attribution, including historical and unknown origins. Unlabeled does not imply direct API usage. Without source grouping, this field is null.
   final SdkOptional<UsageCompletionsResultApiSourceVariant0?> apiSource;
-
   /// Required enumerated value serialized in the `object` wire field.
   final UsageCompletionsResultObject object;
-
   /// The aggregated number of input tokens used, including cached and cache-write tokens. This includes text, audio, and image tokens. For customers subscribed to Scale Tier, this includes Scale Tier tokens.
   final int inputTokens;
-
   /// The aggregated number of cached input tokens used across text, audio, and image inputs. For customers subscribed to Scale Tier, this includes Scale Tier tokens.
   final SdkOptional<int> inputCachedTokens;
-
   /// The aggregated number of input tokens written to the cache with a 30-minute retention period.
   final SdkOptional<int> inputCacheWriteTokens;
-
   /// The aggregated number of input tokens written to the cache with a 12-hour retention period.
   final SdkOptional<int> inputCacheWrite12hTokens;
-
   /// The aggregated number of uncached input tokens used across text, audio, and image inputs, excluding cache-write tokens.
   final SdkOptional<int> inputUncachedTokens;
-
   /// The aggregated number of output tokens used across text, audio, and image outputs. For customers subscribed to Scale Tier, this includes Scale Tier tokens.
   final int outputTokens;
-
   /// The aggregated number of uncached text input tokens used, excluding cache-write tokens.
   final SdkOptional<int> inputTextTokens;
-
   /// The aggregated number of text output tokens used.
   final SdkOptional<int> outputTextTokens;
-
   /// The aggregated number of cached text input tokens used.
   final SdkOptional<int> inputCachedTextTokens;
-
   /// The aggregated number of uncached audio input tokens used.
   final SdkOptional<int> inputAudioTokens;
-
   /// The aggregated number of cached audio input tokens used.
   final SdkOptional<int> inputCachedAudioTokens;
-
   /// The aggregated number of audio output tokens used.
   final SdkOptional<int> outputAudioTokens;
-
   /// The aggregated number of uncached image input tokens used.
   final SdkOptional<int> inputImageTokens;
-
   /// The aggregated number of cached image input tokens used.
   final SdkOptional<int> inputCachedImageTokens;
-
   /// The aggregated number of image output tokens used.
   final SdkOptional<int> outputImageTokens;
-
   /// The count of requests made to the model.
   final int numModelRequests;
-
   /// Optional `string` value serialized in the `project_id` wire field.
   final SdkOptional<String?> projectId;
-
   /// Optional `string` value serialized in the `user_id` wire field.
   final SdkOptional<String?> userId;
-
   /// Optional `string` value serialized in the `api_key_id` wire field.
   final SdkOptional<String?> apiKeyId;
-
   /// Optional `string` value serialized in the `model` wire field.
   final SdkOptional<String?> model;
-
   /// Optional `boolean` value serialized in the `batch` wire field.
   final SdkOptional<bool?> batch;
-
   /// Optional `string` value serialized in the `service_tier` wire field.
   final SdkOptional<String?> serviceTier;
 
-  const UsageCompletionsResult(
-      {this.apiSource = const SdkOmitted(),
-      required this.object,
-      required this.inputTokens,
-      this.inputCachedTokens = const SdkOmitted(),
-      this.inputCacheWriteTokens = const SdkOmitted(),
-      this.inputCacheWrite12hTokens = const SdkOmitted(),
-      this.inputUncachedTokens = const SdkOmitted(),
-      required this.outputTokens,
-      this.inputTextTokens = const SdkOmitted(),
-      this.outputTextTokens = const SdkOmitted(),
-      this.inputCachedTextTokens = const SdkOmitted(),
-      this.inputAudioTokens = const SdkOmitted(),
-      this.inputCachedAudioTokens = const SdkOmitted(),
-      this.outputAudioTokens = const SdkOmitted(),
-      this.inputImageTokens = const SdkOmitted(),
-      this.inputCachedImageTokens = const SdkOmitted(),
-      this.outputImageTokens = const SdkOmitted(),
-      required this.numModelRequests,
-      this.projectId = const SdkOmitted(),
-      this.userId = const SdkOmitted(),
-      this.apiKeyId = const SdkOmitted(),
-      this.model = const SdkOmitted(),
-      this.batch = const SdkOmitted(),
-      this.serviceTier = const SdkOmitted()});
+  const UsageCompletionsResult({this.apiSource = const SdkOmitted(), required this.object, required this.inputTokens, this.inputCachedTokens = const SdkOmitted(), this.inputCacheWriteTokens = const SdkOmitted(), this.inputCacheWrite12hTokens = const SdkOmitted(), this.inputUncachedTokens = const SdkOmitted(), required this.outputTokens, this.inputTextTokens = const SdkOmitted(), this.outputTextTokens = const SdkOmitted(), this.inputCachedTextTokens = const SdkOmitted(), this.inputAudioTokens = const SdkOmitted(), this.inputCachedAudioTokens = const SdkOmitted(), this.outputAudioTokens = const SdkOmitted(), this.inputImageTokens = const SdkOmitted(), this.inputCachedImageTokens = const SdkOmitted(), this.outputImageTokens = const SdkOmitted(), required this.numModelRequests, this.projectId = const SdkOmitted(), this.userId = const SdkOmitted(), this.apiKeyId = const SdkOmitted(), this.model = const SdkOmitted(), this.batch = const SdkOmitted(), this.serviceTier = const SdkOmitted()});
 
-  UsageCompletionsResult Function(
-      {SdkOptional<UsageCompletionsResultApiSourceVariant0?> apiSource,
-      UsageCompletionsResultObject object,
-      int inputTokens,
-      SdkOptional<int> inputCachedTokens,
-      SdkOptional<int> inputCacheWriteTokens,
-      SdkOptional<int> inputCacheWrite12hTokens,
-      SdkOptional<int> inputUncachedTokens,
-      int outputTokens,
-      SdkOptional<int> inputTextTokens,
-      SdkOptional<int> outputTextTokens,
-      SdkOptional<int> inputCachedTextTokens,
-      SdkOptional<int> inputAudioTokens,
-      SdkOptional<int> inputCachedAudioTokens,
-      SdkOptional<int> outputAudioTokens,
-      SdkOptional<int> inputImageTokens,
-      SdkOptional<int> inputCachedImageTokens,
-      SdkOptional<int> outputImageTokens,
-      int numModelRequests,
-      SdkOptional<String?> projectId,
-      SdkOptional<String?> userId,
-      SdkOptional<String?> apiKeyId,
-      SdkOptional<String?> model,
-      SdkOptional<bool?> batch,
-      SdkOptional<String?> serviceTier}) get copyWith => _copyWith;
+  UsageCompletionsResult Function({SdkOptional<UsageCompletionsResultApiSourceVariant0?> apiSource, UsageCompletionsResultObject object, int inputTokens, SdkOptional<int> inputCachedTokens, SdkOptional<int> inputCacheWriteTokens, SdkOptional<int> inputCacheWrite12hTokens, SdkOptional<int> inputUncachedTokens, int outputTokens, SdkOptional<int> inputTextTokens, SdkOptional<int> outputTextTokens, SdkOptional<int> inputCachedTextTokens, SdkOptional<int> inputAudioTokens, SdkOptional<int> inputCachedAudioTokens, SdkOptional<int> outputAudioTokens, SdkOptional<int> inputImageTokens, SdkOptional<int> inputCachedImageTokens, SdkOptional<int> outputImageTokens, int numModelRequests, SdkOptional<String?> projectId, SdkOptional<String?> userId, SdkOptional<String?> apiKeyId, SdkOptional<String?> model, SdkOptional<bool?> batch, SdkOptional<String?> serviceTier}) get copyWith => _copyWith;
 
-  UsageCompletionsResult _copyWith(
-          {Object? apiSource = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? inputTokens = sdkOmittedValue,
-          Object? inputCachedTokens = sdkOmittedValue,
-          Object? inputCacheWriteTokens = sdkOmittedValue,
-          Object? inputCacheWrite12hTokens = sdkOmittedValue,
-          Object? inputUncachedTokens = sdkOmittedValue,
-          Object? outputTokens = sdkOmittedValue,
-          Object? inputTextTokens = sdkOmittedValue,
-          Object? outputTextTokens = sdkOmittedValue,
-          Object? inputCachedTextTokens = sdkOmittedValue,
-          Object? inputAudioTokens = sdkOmittedValue,
-          Object? inputCachedAudioTokens = sdkOmittedValue,
-          Object? outputAudioTokens = sdkOmittedValue,
-          Object? inputImageTokens = sdkOmittedValue,
-          Object? inputCachedImageTokens = sdkOmittedValue,
-          Object? outputImageTokens = sdkOmittedValue,
-          Object? numModelRequests = sdkOmittedValue,
-          Object? projectId = sdkOmittedValue,
-          Object? userId = sdkOmittedValue,
-          Object? apiKeyId = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? batch = sdkOmittedValue,
-          Object? serviceTier = sdkOmittedValue}) =>
-      UsageCompletionsResult(
-        apiSource: identical(apiSource, sdkOmittedValue)
-            ? this.apiSource
-            : apiSource
-                as SdkOptional<UsageCompletionsResultApiSourceVariant0?>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as UsageCompletionsResultObject,
-        inputTokens: identical(inputTokens, sdkOmittedValue)
-            ? this.inputTokens
-            : inputTokens as int,
-        inputCachedTokens: identical(inputCachedTokens, sdkOmittedValue)
-            ? this.inputCachedTokens
-            : inputCachedTokens as SdkOptional<int>,
-        inputCacheWriteTokens: identical(inputCacheWriteTokens, sdkOmittedValue)
-            ? this.inputCacheWriteTokens
-            : inputCacheWriteTokens as SdkOptional<int>,
-        inputCacheWrite12hTokens:
-            identical(inputCacheWrite12hTokens, sdkOmittedValue)
-                ? this.inputCacheWrite12hTokens
-                : inputCacheWrite12hTokens as SdkOptional<int>,
-        inputUncachedTokens: identical(inputUncachedTokens, sdkOmittedValue)
-            ? this.inputUncachedTokens
-            : inputUncachedTokens as SdkOptional<int>,
-        outputTokens: identical(outputTokens, sdkOmittedValue)
-            ? this.outputTokens
-            : outputTokens as int,
-        inputTextTokens: identical(inputTextTokens, sdkOmittedValue)
-            ? this.inputTextTokens
-            : inputTextTokens as SdkOptional<int>,
-        outputTextTokens: identical(outputTextTokens, sdkOmittedValue)
-            ? this.outputTextTokens
-            : outputTextTokens as SdkOptional<int>,
-        inputCachedTextTokens: identical(inputCachedTextTokens, sdkOmittedValue)
-            ? this.inputCachedTextTokens
-            : inputCachedTextTokens as SdkOptional<int>,
-        inputAudioTokens: identical(inputAudioTokens, sdkOmittedValue)
-            ? this.inputAudioTokens
-            : inputAudioTokens as SdkOptional<int>,
-        inputCachedAudioTokens:
-            identical(inputCachedAudioTokens, sdkOmittedValue)
-                ? this.inputCachedAudioTokens
-                : inputCachedAudioTokens as SdkOptional<int>,
-        outputAudioTokens: identical(outputAudioTokens, sdkOmittedValue)
-            ? this.outputAudioTokens
-            : outputAudioTokens as SdkOptional<int>,
-        inputImageTokens: identical(inputImageTokens, sdkOmittedValue)
-            ? this.inputImageTokens
-            : inputImageTokens as SdkOptional<int>,
-        inputCachedImageTokens:
-            identical(inputCachedImageTokens, sdkOmittedValue)
-                ? this.inputCachedImageTokens
-                : inputCachedImageTokens as SdkOptional<int>,
-        outputImageTokens: identical(outputImageTokens, sdkOmittedValue)
-            ? this.outputImageTokens
-            : outputImageTokens as SdkOptional<int>,
-        numModelRequests: identical(numModelRequests, sdkOmittedValue)
-            ? this.numModelRequests
-            : numModelRequests as int,
-        projectId: identical(projectId, sdkOmittedValue)
-            ? this.projectId
-            : projectId as SdkOptional<String?>,
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String?>,
-        apiKeyId: identical(apiKeyId, sdkOmittedValue)
-            ? this.apiKeyId
-            : apiKeyId as SdkOptional<String?>,
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<String?>,
-        batch: identical(batch, sdkOmittedValue)
-            ? this.batch
-            : batch as SdkOptional<bool?>,
-        serviceTier: identical(serviceTier, sdkOmittedValue)
-            ? this.serviceTier
-            : serviceTier as SdkOptional<String?>,
-      );
+  UsageCompletionsResult _copyWith({Object? apiSource = sdkOmittedValue, Object? object = sdkOmittedValue, Object? inputTokens = sdkOmittedValue, Object? inputCachedTokens = sdkOmittedValue, Object? inputCacheWriteTokens = sdkOmittedValue, Object? inputCacheWrite12hTokens = sdkOmittedValue, Object? inputUncachedTokens = sdkOmittedValue, Object? outputTokens = sdkOmittedValue, Object? inputTextTokens = sdkOmittedValue, Object? outputTextTokens = sdkOmittedValue, Object? inputCachedTextTokens = sdkOmittedValue, Object? inputAudioTokens = sdkOmittedValue, Object? inputCachedAudioTokens = sdkOmittedValue, Object? outputAudioTokens = sdkOmittedValue, Object? inputImageTokens = sdkOmittedValue, Object? inputCachedImageTokens = sdkOmittedValue, Object? outputImageTokens = sdkOmittedValue, Object? numModelRequests = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? apiKeyId = sdkOmittedValue, Object? model = sdkOmittedValue, Object? batch = sdkOmittedValue, Object? serviceTier = sdkOmittedValue}) => UsageCompletionsResult(
+    apiSource: identical(apiSource, sdkOmittedValue) ? this.apiSource : apiSource as SdkOptional<UsageCompletionsResultApiSourceVariant0?>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as UsageCompletionsResultObject,
+    inputTokens: identical(inputTokens, sdkOmittedValue) ? this.inputTokens : inputTokens as int,
+    inputCachedTokens: identical(inputCachedTokens, sdkOmittedValue) ? this.inputCachedTokens : inputCachedTokens as SdkOptional<int>,
+    inputCacheWriteTokens: identical(inputCacheWriteTokens, sdkOmittedValue) ? this.inputCacheWriteTokens : inputCacheWriteTokens as SdkOptional<int>,
+    inputCacheWrite12hTokens: identical(inputCacheWrite12hTokens, sdkOmittedValue) ? this.inputCacheWrite12hTokens : inputCacheWrite12hTokens as SdkOptional<int>,
+    inputUncachedTokens: identical(inputUncachedTokens, sdkOmittedValue) ? this.inputUncachedTokens : inputUncachedTokens as SdkOptional<int>,
+    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as int,
+    inputTextTokens: identical(inputTextTokens, sdkOmittedValue) ? this.inputTextTokens : inputTextTokens as SdkOptional<int>,
+    outputTextTokens: identical(outputTextTokens, sdkOmittedValue) ? this.outputTextTokens : outputTextTokens as SdkOptional<int>,
+    inputCachedTextTokens: identical(inputCachedTextTokens, sdkOmittedValue) ? this.inputCachedTextTokens : inputCachedTextTokens as SdkOptional<int>,
+    inputAudioTokens: identical(inputAudioTokens, sdkOmittedValue) ? this.inputAudioTokens : inputAudioTokens as SdkOptional<int>,
+    inputCachedAudioTokens: identical(inputCachedAudioTokens, sdkOmittedValue) ? this.inputCachedAudioTokens : inputCachedAudioTokens as SdkOptional<int>,
+    outputAudioTokens: identical(outputAudioTokens, sdkOmittedValue) ? this.outputAudioTokens : outputAudioTokens as SdkOptional<int>,
+    inputImageTokens: identical(inputImageTokens, sdkOmittedValue) ? this.inputImageTokens : inputImageTokens as SdkOptional<int>,
+    inputCachedImageTokens: identical(inputCachedImageTokens, sdkOmittedValue) ? this.inputCachedImageTokens : inputCachedImageTokens as SdkOptional<int>,
+    outputImageTokens: identical(outputImageTokens, sdkOmittedValue) ? this.outputImageTokens : outputImageTokens as SdkOptional<int>,
+    numModelRequests: identical(numModelRequests, sdkOmittedValue) ? this.numModelRequests : numModelRequests as int,
+    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String?>,
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String?>,
+    apiKeyId: identical(apiKeyId, sdkOmittedValue) ? this.apiKeyId : apiKeyId as SdkOptional<String?>,
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String?>,
+    batch: identical(batch, sdkOmittedValue) ? this.batch : batch as SdkOptional<bool?>,
+    serviceTier: identical(serviceTier, sdkOmittedValue) ? this.serviceTier : serviceTier as SdkOptional<String?>,
+  );
 
-  factory UsageCompletionsResult.fromJson(Map<String, dynamic> json) =>
-      UsageCompletionsResult(
-        apiSource: json.containsKey('api_source')
-            ? SdkPresent(json['api_source'] != null
-                ? UsageCompletionsResultApiSourceVariant0.fromJson(
-                    json['api_source'] as String)
-                : null)
-            : const SdkOmitted(),
-        object: (json['object'] != null
-            ? UsageCompletionsResultObject.fromJson(json['object'] as String)
-            : null)!,
-        inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
-        inputCachedTokens: json['input_cached_tokens'] != null
-            ? SdkPresent(((json['input_cached_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        inputCacheWriteTokens: json['input_cache_write_tokens'] != null
-            ? SdkPresent(((json['input_cache_write_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        inputCacheWrite12hTokens: json['input_cache_write_12h_tokens'] != null
-            ? SdkPresent(
-                ((json['input_cache_write_12h_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        inputUncachedTokens: json['input_uncached_tokens'] != null
-            ? SdkPresent(((json['input_uncached_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
-        inputTextTokens: json['input_text_tokens'] != null
-            ? SdkPresent(((json['input_text_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        outputTextTokens: json['output_text_tokens'] != null
-            ? SdkPresent(((json['output_text_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        inputCachedTextTokens: json['input_cached_text_tokens'] != null
-            ? SdkPresent(((json['input_cached_text_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        inputAudioTokens: json['input_audio_tokens'] != null
-            ? SdkPresent(((json['input_audio_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        inputCachedAudioTokens: json['input_cached_audio_tokens'] != null
-            ? SdkPresent(
-                ((json['input_cached_audio_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        outputAudioTokens: json['output_audio_tokens'] != null
-            ? SdkPresent(((json['output_audio_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        inputImageTokens: json['input_image_tokens'] != null
-            ? SdkPresent(((json['input_image_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        inputCachedImageTokens: json['input_cached_image_tokens'] != null
-            ? SdkPresent(
-                ((json['input_cached_image_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        outputImageTokens: json['output_image_tokens'] != null
-            ? SdkPresent(((json['output_image_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        numModelRequests: ((json['num_model_requests'] as num?)?.toInt())!,
-        projectId: json.containsKey('project_id')
-            ? SdkPresent(json['project_id'] as String?)
-            : const SdkOmitted(),
-        userId: json.containsKey('user_id')
-            ? SdkPresent(json['user_id'] as String?)
-            : const SdkOmitted(),
-        apiKeyId: json.containsKey('api_key_id')
-            ? SdkPresent(json['api_key_id'] as String?)
-            : const SdkOmitted(),
-        model: json.containsKey('model')
-            ? SdkPresent(json['model'] as String?)
-            : const SdkOmitted(),
-        batch: json.containsKey('batch')
-            ? SdkPresent(json['batch'] as bool?)
-            : const SdkOmitted(),
-        serviceTier: json.containsKey('service_tier')
-            ? SdkPresent(json['service_tier'] as String?)
-            : const SdkOmitted(),
-      );
+  factory UsageCompletionsResult.fromJson(Map<String, dynamic> json) => UsageCompletionsResult(
+    apiSource: json.containsKey('api_source') ? SdkPresent(json['api_source'] != null ? UsageCompletionsResultApiSourceVariant0.fromJson(json['api_source'] as String) : null) : const SdkOmitted(),
+    object: (json['object'] != null ? UsageCompletionsResultObject.fromJson(json['object'] as String) : null)!,
+    inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
+    inputCachedTokens: json['input_cached_tokens'] != null ? SdkPresent(((json['input_cached_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    inputCacheWriteTokens: json['input_cache_write_tokens'] != null ? SdkPresent(((json['input_cache_write_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    inputCacheWrite12hTokens: json['input_cache_write_12h_tokens'] != null ? SdkPresent(((json['input_cache_write_12h_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    inputUncachedTokens: json['input_uncached_tokens'] != null ? SdkPresent(((json['input_uncached_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
+    inputTextTokens: json['input_text_tokens'] != null ? SdkPresent(((json['input_text_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    outputTextTokens: json['output_text_tokens'] != null ? SdkPresent(((json['output_text_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    inputCachedTextTokens: json['input_cached_text_tokens'] != null ? SdkPresent(((json['input_cached_text_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    inputAudioTokens: json['input_audio_tokens'] != null ? SdkPresent(((json['input_audio_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    inputCachedAudioTokens: json['input_cached_audio_tokens'] != null ? SdkPresent(((json['input_cached_audio_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    outputAudioTokens: json['output_audio_tokens'] != null ? SdkPresent(((json['output_audio_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    inputImageTokens: json['input_image_tokens'] != null ? SdkPresent(((json['input_image_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    inputCachedImageTokens: json['input_cached_image_tokens'] != null ? SdkPresent(((json['input_cached_image_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    outputImageTokens: json['output_image_tokens'] != null ? SdkPresent(((json['output_image_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    numModelRequests: ((json['num_model_requests'] as num?)?.toInt())!,
+    projectId: json.containsKey('project_id') ? SdkPresent(json['project_id'] as String?) : const SdkOmitted(),
+    userId: json.containsKey('user_id') ? SdkPresent(json['user_id'] as String?) : const SdkOmitted(),
+    apiKeyId: json.containsKey('api_key_id') ? SdkPresent(json['api_key_id'] as String?) : const SdkOmitted(),
+    model: json.containsKey('model') ? SdkPresent(json['model'] as String?) : const SdkOmitted(),
+    batch: json.containsKey('batch') ? SdkPresent(json['batch'] as bool?) : const SdkOmitted(),
+    serviceTier: json.containsKey('service_tier') ? SdkPresent(json['service_tier'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (apiSource) {
-          SdkPresent<UsageCompletionsResultApiSourceVariant0?>(
-            value: final value
-          ) =>
-            {
-              'api_source': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'object': object.toJson(),
-        'input_tokens': inputTokens,
-        ...switch (inputCachedTokens) {
-          SdkPresent<int>(value: final value) => {
-              'input_cached_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputCacheWriteTokens) {
-          SdkPresent<int>(value: final value) => {
-              'input_cache_write_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputCacheWrite12hTokens) {
-          SdkPresent<int>(value: final value) => {
-              'input_cache_write_12h_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputUncachedTokens) {
-          SdkPresent<int>(value: final value) => {
-              'input_uncached_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'output_tokens': outputTokens,
-        ...switch (inputTextTokens) {
-          SdkPresent<int>(value: final value) => {
-              'input_text_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputTextTokens) {
-          SdkPresent<int>(value: final value) => {
-              'output_text_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputCachedTextTokens) {
-          SdkPresent<int>(value: final value) => {
-              'input_cached_text_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputAudioTokens) {
-          SdkPresent<int>(value: final value) => {
-              'input_audio_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputCachedAudioTokens) {
-          SdkPresent<int>(value: final value) => {
-              'input_cached_audio_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputAudioTokens) {
-          SdkPresent<int>(value: final value) => {
-              'output_audio_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputImageTokens) {
-          SdkPresent<int>(value: final value) => {
-              'input_image_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputCachedImageTokens) {
-          SdkPresent<int>(value: final value) => {
-              'input_cached_image_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputImageTokens) {
-          SdkPresent<int>(value: final value) => {
-              'output_image_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'num_model_requests': numModelRequests,
-        ...switch (projectId) {
-          SdkPresent<String?>(value: final value) => {
-              'project_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userId) {
-          SdkPresent<String?>(value: final value) => {
-              'user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (apiKeyId) {
-          SdkPresent<String?>(value: final value) => {
-              'api_key_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (model) {
-          SdkPresent<String?>(value: final value) => {
-              'model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (batch) {
-          SdkPresent<bool?>(value: final value) => {
-              'batch': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serviceTier) {
-          SdkPresent<String?>(value: final value) => {
-              'service_tier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (apiSource) {
+      SdkPresent<UsageCompletionsResultApiSourceVariant0?>(value: final value) => {'api_source': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'object': object.toJson(),
+    'input_tokens': inputTokens,
+    ...switch (inputCachedTokens) {
+      SdkPresent<int>(value: final value) => {'input_cached_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputCacheWriteTokens) {
+      SdkPresent<int>(value: final value) => {'input_cache_write_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputCacheWrite12hTokens) {
+      SdkPresent<int>(value: final value) => {'input_cache_write_12h_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputUncachedTokens) {
+      SdkPresent<int>(value: final value) => {'input_uncached_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    'output_tokens': outputTokens,
+    ...switch (inputTextTokens) {
+      SdkPresent<int>(value: final value) => {'input_text_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputTextTokens) {
+      SdkPresent<int>(value: final value) => {'output_text_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputCachedTextTokens) {
+      SdkPresent<int>(value: final value) => {'input_cached_text_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputAudioTokens) {
+      SdkPresent<int>(value: final value) => {'input_audio_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputCachedAudioTokens) {
+      SdkPresent<int>(value: final value) => {'input_cached_audio_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputAudioTokens) {
+      SdkPresent<int>(value: final value) => {'output_audio_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputImageTokens) {
+      SdkPresent<int>(value: final value) => {'input_image_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputCachedImageTokens) {
+      SdkPresent<int>(value: final value) => {'input_cached_image_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputImageTokens) {
+      SdkPresent<int>(value: final value) => {'output_image_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    'num_model_requests': numModelRequests,
+    ...switch (projectId) {
+      SdkPresent<String?>(value: final value) => {'project_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userId) {
+      SdkPresent<String?>(value: final value) => {'user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (apiKeyId) {
+      SdkPresent<String?>(value: final value) => {'api_key_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (model) {
+      SdkPresent<String?>(value: final value) => {'model': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (batch) {
+      SdkPresent<bool?>(value: final value) => {'batch': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serviceTier) {
+      SdkPresent<String?>(value: final value) => {'service_tier': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

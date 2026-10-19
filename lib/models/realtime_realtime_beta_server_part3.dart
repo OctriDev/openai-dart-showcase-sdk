@@ -8,421 +8,249 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventInputAudioBufferCleared {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `input_audio_buffer.cleared`.
   final RealtimeBetaServerEventInputAudioBufferClearedType type_;
 
-  const RealtimeBetaServerEventInputAudioBufferCleared(
-      {required this.eventId, required this.type_});
+  const RealtimeBetaServerEventInputAudioBufferCleared({required this.eventId, required this.type_});
 
-  RealtimeBetaServerEventInputAudioBufferCleared Function(
-          {String eventId,
-          RealtimeBetaServerEventInputAudioBufferClearedType type_})
-      get copyWith => _copyWith;
+  RealtimeBetaServerEventInputAudioBufferCleared Function({String eventId, RealtimeBetaServerEventInputAudioBufferClearedType type_}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventInputAudioBufferCleared _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      RealtimeBetaServerEventInputAudioBufferCleared(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventInputAudioBufferClearedType,
-      );
+  RealtimeBetaServerEventInputAudioBufferCleared _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeBetaServerEventInputAudioBufferCleared(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventInputAudioBufferClearedType,
+  );
 
-  factory RealtimeBetaServerEventInputAudioBufferCleared.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventInputAudioBufferCleared(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventInputAudioBufferClearedType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory RealtimeBetaServerEventInputAudioBufferCleared.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventInputAudioBufferCleared(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventInputAudioBufferClearedType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+  };
 }
 
 /// Returned when an input audio buffer is committed, either by the client or automatically in server VAD mode. The `item_id` property is the ID of the user message item that will be created, thus a `conversation.item.created` event will also be sent to the client.
 class RealtimeBetaServerEventInputAudioBufferCommitted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `input_audio_buffer.committed`.
   final RealtimeBetaServerEventInputAudioBufferCommittedType type_;
-
   /// Optional `string` value serialized in the `previous_item_id` wire field.
   final SdkOptional<String?> previousItemId;
-
   /// The ID of the user message item that will be created.
   final String itemId;
 
-  const RealtimeBetaServerEventInputAudioBufferCommitted(
-      {required this.eventId,
-      required this.type_,
-      this.previousItemId = const SdkOmitted(),
-      required this.itemId});
+  const RealtimeBetaServerEventInputAudioBufferCommitted({required this.eventId, required this.type_, this.previousItemId = const SdkOmitted(), required this.itemId});
 
-  RealtimeBetaServerEventInputAudioBufferCommitted Function(
-      {String eventId,
-      RealtimeBetaServerEventInputAudioBufferCommittedType type_,
-      SdkOptional<String?> previousItemId,
-      String itemId}) get copyWith => _copyWith;
+  RealtimeBetaServerEventInputAudioBufferCommitted Function({String eventId, RealtimeBetaServerEventInputAudioBufferCommittedType type_, SdkOptional<String?> previousItemId, String itemId}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventInputAudioBufferCommitted _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? previousItemId = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue}) =>
-      RealtimeBetaServerEventInputAudioBufferCommitted(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventInputAudioBufferCommittedType,
-        previousItemId: identical(previousItemId, sdkOmittedValue)
-            ? this.previousItemId
-            : previousItemId as SdkOptional<String?>,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-      );
+  RealtimeBetaServerEventInputAudioBufferCommitted _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? previousItemId = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeBetaServerEventInputAudioBufferCommitted(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventInputAudioBufferCommittedType,
+    previousItemId: identical(previousItemId, sdkOmittedValue) ? this.previousItemId : previousItemId as SdkOptional<String?>,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+  );
 
-  factory RealtimeBetaServerEventInputAudioBufferCommitted.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventInputAudioBufferCommitted(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventInputAudioBufferCommittedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        previousItemId: json.containsKey('previous_item_id')
-            ? SdkPresent(json['previous_item_id'] as String?)
-            : const SdkOmitted(),
-        itemId: (json['item_id'] as String?)!,
-      );
+  factory RealtimeBetaServerEventInputAudioBufferCommitted.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventInputAudioBufferCommitted(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventInputAudioBufferCommittedType.fromJson(json['type'] as String) : null)!,
+    previousItemId: json.containsKey('previous_item_id') ? SdkPresent(json['previous_item_id'] as String?) : const SdkOmitted(),
+    itemId: (json['item_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        ...switch (previousItemId) {
-          SdkPresent<String?>(value: final value) => {
-              'previous_item_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'item_id': itemId,
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    ...switch (previousItemId) {
+      SdkPresent<String?>(value: final value) => {'previous_item_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'item_id': itemId,
+  };
 }
 
 /// Sent by the server when in `server_vad` mode to indicate that speech has been detected in the audio buffer. This can happen any time audio is added to the buffer (unless speech is already detected). The client may want to use this event to interrupt audio playback or provide visual feedback to the user. The client should expect to receive a `input_audio_buffer.speech_stopped` event when speech stops. The `item_id` property is the ID of the user message item that will be created when speech stops and will also be included in the `input_audio_buffer.speech_stopped` event (unless the client manually commits the audio buffer during VAD activation).
 class RealtimeBetaServerEventInputAudioBufferSpeechStarted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `input_audio_buffer.speech_started`.
   final RealtimeBetaServerEventInputAudioBufferSpeechStartedType type_;
-
   /// Milliseconds from the start of all audio written to the buffer during the session when speech was first detected. This will correspond to the beginning of audio sent to the model, and thus includes the `prefix_padding_ms` configured in the Session.
   final int audioStartMs;
-
   /// The ID of the user message item that will be created when speech stops.
   final String itemId;
 
-  const RealtimeBetaServerEventInputAudioBufferSpeechStarted(
-      {required this.eventId,
-      required this.type_,
-      required this.audioStartMs,
-      required this.itemId});
+  const RealtimeBetaServerEventInputAudioBufferSpeechStarted({required this.eventId, required this.type_, required this.audioStartMs, required this.itemId});
 
-  RealtimeBetaServerEventInputAudioBufferSpeechStarted Function(
-      {String eventId,
-      RealtimeBetaServerEventInputAudioBufferSpeechStartedType type_,
-      int audioStartMs,
-      String itemId}) get copyWith => _copyWith;
+  RealtimeBetaServerEventInputAudioBufferSpeechStarted Function({String eventId, RealtimeBetaServerEventInputAudioBufferSpeechStartedType type_, int audioStartMs, String itemId}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventInputAudioBufferSpeechStarted _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? audioStartMs = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue}) =>
-      RealtimeBetaServerEventInputAudioBufferSpeechStarted(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventInputAudioBufferSpeechStartedType,
-        audioStartMs: identical(audioStartMs, sdkOmittedValue)
-            ? this.audioStartMs
-            : audioStartMs as int,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-      );
+  RealtimeBetaServerEventInputAudioBufferSpeechStarted _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? audioStartMs = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeBetaServerEventInputAudioBufferSpeechStarted(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventInputAudioBufferSpeechStartedType,
+    audioStartMs: identical(audioStartMs, sdkOmittedValue) ? this.audioStartMs : audioStartMs as int,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+  );
 
-  factory RealtimeBetaServerEventInputAudioBufferSpeechStarted.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventInputAudioBufferSpeechStarted(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventInputAudioBufferSpeechStartedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        audioStartMs: ((json['audio_start_ms'] as num?)?.toInt())!,
-        itemId: (json['item_id'] as String?)!,
-      );
+  factory RealtimeBetaServerEventInputAudioBufferSpeechStarted.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventInputAudioBufferSpeechStarted(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventInputAudioBufferSpeechStartedType.fromJson(json['type'] as String) : null)!,
+    audioStartMs: ((json['audio_start_ms'] as num?)?.toInt())!,
+    itemId: (json['item_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'audio_start_ms': audioStartMs,
-        'item_id': itemId,
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'audio_start_ms': audioStartMs,
+    'item_id': itemId,
+  };
 }
 
 /// Returned in `server_vad` mode when the server detects the end of speech in the audio buffer. The server will also send an `conversation.item.created` event with the user message item that is created from the audio buffer.
 class RealtimeBetaServerEventInputAudioBufferSpeechStopped {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `input_audio_buffer.speech_stopped`.
   final RealtimeBetaServerEventInputAudioBufferSpeechStoppedType type_;
-
   /// Milliseconds since the session started when speech stopped. This will correspond to the end of audio sent to the model, and thus includes the `min_silence_duration_ms` configured in the Session.
   final int audioEndMs;
-
   /// The ID of the user message item that will be created.
   final String itemId;
 
-  const RealtimeBetaServerEventInputAudioBufferSpeechStopped(
-      {required this.eventId,
-      required this.type_,
-      required this.audioEndMs,
-      required this.itemId});
+  const RealtimeBetaServerEventInputAudioBufferSpeechStopped({required this.eventId, required this.type_, required this.audioEndMs, required this.itemId});
 
-  RealtimeBetaServerEventInputAudioBufferSpeechStopped Function(
-      {String eventId,
-      RealtimeBetaServerEventInputAudioBufferSpeechStoppedType type_,
-      int audioEndMs,
-      String itemId}) get copyWith => _copyWith;
+  RealtimeBetaServerEventInputAudioBufferSpeechStopped Function({String eventId, RealtimeBetaServerEventInputAudioBufferSpeechStoppedType type_, int audioEndMs, String itemId}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventInputAudioBufferSpeechStopped _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? audioEndMs = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue}) =>
-      RealtimeBetaServerEventInputAudioBufferSpeechStopped(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventInputAudioBufferSpeechStoppedType,
-        audioEndMs: identical(audioEndMs, sdkOmittedValue)
-            ? this.audioEndMs
-            : audioEndMs as int,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-      );
+  RealtimeBetaServerEventInputAudioBufferSpeechStopped _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? audioEndMs = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeBetaServerEventInputAudioBufferSpeechStopped(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventInputAudioBufferSpeechStoppedType,
+    audioEndMs: identical(audioEndMs, sdkOmittedValue) ? this.audioEndMs : audioEndMs as int,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+  );
 
-  factory RealtimeBetaServerEventInputAudioBufferSpeechStopped.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventInputAudioBufferSpeechStopped(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventInputAudioBufferSpeechStoppedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        audioEndMs: ((json['audio_end_ms'] as num?)?.toInt())!,
-        itemId: (json['item_id'] as String?)!,
-      );
+  factory RealtimeBetaServerEventInputAudioBufferSpeechStopped.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventInputAudioBufferSpeechStopped(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventInputAudioBufferSpeechStoppedType.fromJson(json['type'] as String) : null)!,
+    audioEndMs: ((json['audio_end_ms'] as num?)?.toInt())!,
+    itemId: (json['item_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'audio_end_ms': audioEndMs,
-        'item_id': itemId,
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'audio_end_ms': audioEndMs,
+    'item_id': itemId,
+  };
 }
 
 /// Returned when listing MCP tools has completed for an item.
 class RealtimeBetaServerEventMCPListToolsCompleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `mcp_list_tools.completed`.
   final RealtimeBetaServerEventMCPListToolsCompletedType type_;
-
   /// The ID of the MCP list tools item.
   final String itemId;
 
-  const RealtimeBetaServerEventMCPListToolsCompleted(
-      {required this.eventId, required this.type_, required this.itemId});
+  const RealtimeBetaServerEventMCPListToolsCompleted({required this.eventId, required this.type_, required this.itemId});
 
-  RealtimeBetaServerEventMCPListToolsCompleted Function(
-      {String eventId,
-      RealtimeBetaServerEventMCPListToolsCompletedType type_,
-      String itemId}) get copyWith => _copyWith;
+  RealtimeBetaServerEventMCPListToolsCompleted Function({String eventId, RealtimeBetaServerEventMCPListToolsCompletedType type_, String itemId}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventMCPListToolsCompleted _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue}) =>
-      RealtimeBetaServerEventMCPListToolsCompleted(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventMCPListToolsCompletedType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-      );
+  RealtimeBetaServerEventMCPListToolsCompleted _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeBetaServerEventMCPListToolsCompleted(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventMCPListToolsCompletedType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+  );
 
-  factory RealtimeBetaServerEventMCPListToolsCompleted.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventMCPListToolsCompleted(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventMCPListToolsCompletedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-      );
+  factory RealtimeBetaServerEventMCPListToolsCompleted.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventMCPListToolsCompleted(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventMCPListToolsCompletedType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'item_id': itemId,
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'item_id': itemId,
+  };
 }
 
 /// Returned when listing MCP tools has failed for an item.
 class RealtimeBetaServerEventMCPListToolsFailed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `mcp_list_tools.failed`.
   final RealtimeBetaServerEventMCPListToolsFailedType type_;
-
   /// The ID of the MCP list tools item.
   final String itemId;
 
-  const RealtimeBetaServerEventMCPListToolsFailed(
-      {required this.eventId, required this.type_, required this.itemId});
+  const RealtimeBetaServerEventMCPListToolsFailed({required this.eventId, required this.type_, required this.itemId});
 
-  RealtimeBetaServerEventMCPListToolsFailed Function(
-      {String eventId,
-      RealtimeBetaServerEventMCPListToolsFailedType type_,
-      String itemId}) get copyWith => _copyWith;
+  RealtimeBetaServerEventMCPListToolsFailed Function({String eventId, RealtimeBetaServerEventMCPListToolsFailedType type_, String itemId}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventMCPListToolsFailed _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue}) =>
-      RealtimeBetaServerEventMCPListToolsFailed(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventMCPListToolsFailedType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-      );
+  RealtimeBetaServerEventMCPListToolsFailed _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeBetaServerEventMCPListToolsFailed(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventMCPListToolsFailedType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+  );
 
-  factory RealtimeBetaServerEventMCPListToolsFailed.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventMCPListToolsFailed(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventMCPListToolsFailedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-      );
+  factory RealtimeBetaServerEventMCPListToolsFailed.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventMCPListToolsFailed(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventMCPListToolsFailedType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'item_id': itemId,
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'item_id': itemId,
+  };
 }
 
 /// Returned when listing MCP tools is in progress for an item.
 class RealtimeBetaServerEventMCPListToolsInProgress {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `mcp_list_tools.in_progress`.
   final RealtimeBetaServerEventMCPListToolsInProgressType type_;
-
   /// The ID of the MCP list tools item.
   final String itemId;
 
-  const RealtimeBetaServerEventMCPListToolsInProgress(
-      {required this.eventId, required this.type_, required this.itemId});
+  const RealtimeBetaServerEventMCPListToolsInProgress({required this.eventId, required this.type_, required this.itemId});
 
-  RealtimeBetaServerEventMCPListToolsInProgress Function(
-      {String eventId,
-      RealtimeBetaServerEventMCPListToolsInProgressType type_,
-      String itemId}) get copyWith => _copyWith;
+  RealtimeBetaServerEventMCPListToolsInProgress Function({String eventId, RealtimeBetaServerEventMCPListToolsInProgressType type_, String itemId}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventMCPListToolsInProgress _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue}) =>
-      RealtimeBetaServerEventMCPListToolsInProgress(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventMCPListToolsInProgressType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-      );
+  RealtimeBetaServerEventMCPListToolsInProgress _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeBetaServerEventMCPListToolsInProgress(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventMCPListToolsInProgressType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+  );
 
-  factory RealtimeBetaServerEventMCPListToolsInProgress.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventMCPListToolsInProgress(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventMCPListToolsInProgressType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-      );
+  factory RealtimeBetaServerEventMCPListToolsInProgress.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventMCPListToolsInProgress(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventMCPListToolsInProgressType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'item_id': itemId,
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'item_id': itemId,
+  };
 }

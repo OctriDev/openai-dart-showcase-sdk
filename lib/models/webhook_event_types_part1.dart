@@ -8,41 +8,27 @@ part of 'webhook_event_types.dart';
 class WebhookEventTypeListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always list.
   final WebhookEventTypeListResourceObject object;
-
   /// The webhook event types available to the authenticated project.
   final List<String> data;
 
-  const WebhookEventTypeListResource(
-      {required this.object, required this.data});
+  const WebhookEventTypeListResource({required this.object, required this.data});
 
-  WebhookEventTypeListResource Function(
-      {WebhookEventTypeListResourceObject object,
-      List<String> data}) get copyWith => _copyWith;
+  WebhookEventTypeListResource Function({WebhookEventTypeListResourceObject object, List<String> data}) get copyWith => _copyWith;
 
-  WebhookEventTypeListResource _copyWith(
-          {Object? object = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
-      WebhookEventTypeListResource(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as WebhookEventTypeListResourceObject,
-        data:
-            identical(data, sdkOmittedValue) ? this.data : data as List<String>,
-      );
+  WebhookEventTypeListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue}) => WebhookEventTypeListResource(
+    object: identical(object, sdkOmittedValue) ? this.object : object as WebhookEventTypeListResourceObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<String>,
+  );
 
-  factory WebhookEventTypeListResource.fromJson(Map<String, dynamic> json) =>
-      WebhookEventTypeListResource(
-        object: (json['object'] != null
-            ? WebhookEventTypeListResourceObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory WebhookEventTypeListResource.fromJson(Map<String, dynamic> json) => WebhookEventTypeListResource(
+    object: (json['object'] != null ? WebhookEventTypeListResourceObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data,
-      };
+    'object': object.toJson(),
+    'data': data,
+  };
 }

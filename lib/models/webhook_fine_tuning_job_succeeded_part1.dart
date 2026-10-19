@@ -8,117 +8,69 @@ part of 'webhook_fine_tuning_job_succeeded.dart';
 class WebhookFineTuningJobSucceededData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the fine-tuning job.
   final String id;
 
   const WebhookFineTuningJobSucceededData({required this.id});
 
-  WebhookFineTuningJobSucceededData Function({String id}) get copyWith =>
-      _copyWith;
+  WebhookFineTuningJobSucceededData Function({String id}) get copyWith => _copyWith;
 
-  WebhookFineTuningJobSucceededData _copyWith({Object? id = sdkOmittedValue}) =>
-      WebhookFineTuningJobSucceededData(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  WebhookFineTuningJobSucceededData _copyWith({Object? id = sdkOmittedValue}) => WebhookFineTuningJobSucceededData(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory WebhookFineTuningJobSucceededData.fromJson(
-          Map<String, dynamic> json) =>
-      WebhookFineTuningJobSucceededData(
-        id: (json['id'] as String?)!,
-      );
+  factory WebhookFineTuningJobSucceededData.fromJson(Map<String, dynamic> json) => WebhookFineTuningJobSucceededData(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }
 
 /// Sent when a fine-tuning job has succeeded.
 class WebhookFineTuningJobSucceeded {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The Unix timestamp (in seconds) of when the fine-tuning job succeeded.
   final int createdAt;
-
   /// The unique ID of the event.
   final String id;
-
   /// Event data payload.
   final WebhookFineTuningJobSucceededData data;
-
   /// The object of the event. Always `event`.
   final SdkOptional<WebhookFineTuningJobSucceededObject> object;
-
   /// The type of the event. Always `fine_tuning.job.succeeded`.
   final WebhookFineTuningJobSucceededType type_;
 
-  const WebhookFineTuningJobSucceeded(
-      {required this.createdAt,
-      required this.id,
-      required this.data,
-      this.object = const SdkOmitted(),
-      required this.type_});
+  const WebhookFineTuningJobSucceeded({required this.createdAt, required this.id, required this.data, this.object = const SdkOmitted(), required this.type_});
 
-  WebhookFineTuningJobSucceeded Function(
-      {int createdAt,
-      String id,
-      WebhookFineTuningJobSucceededData data,
-      SdkOptional<WebhookFineTuningJobSucceededObject> object,
-      WebhookFineTuningJobSucceededType type_}) get copyWith => _copyWith;
+  WebhookFineTuningJobSucceeded Function({int createdAt, String id, WebhookFineTuningJobSucceededData data, SdkOptional<WebhookFineTuningJobSucceededObject> object, WebhookFineTuningJobSucceededType type_}) get copyWith => _copyWith;
 
-  WebhookFineTuningJobSucceeded _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      WebhookFineTuningJobSucceeded(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as WebhookFineTuningJobSucceededData,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<WebhookFineTuningJobSucceededObject>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebhookFineTuningJobSucceededType,
-      );
+  WebhookFineTuningJobSucceeded _copyWith({Object? createdAt = sdkOmittedValue, Object? id = sdkOmittedValue, Object? data = sdkOmittedValue, Object? object = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => WebhookFineTuningJobSucceeded(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as WebhookFineTuningJobSucceededData,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<WebhookFineTuningJobSucceededObject>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookFineTuningJobSucceededType,
+  );
 
-  factory WebhookFineTuningJobSucceeded.fromJson(Map<String, dynamic> json) =>
-      WebhookFineTuningJobSucceeded(
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        id: (json['id'] as String?)!,
-        data: (json['data'] != null
-            ? WebhookFineTuningJobSucceededData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-        object: json['object'] != null
-            ? SdkPresent((json['object'] != null
-                ? WebhookFineTuningJobSucceededObject.fromJson(
-                    json['object'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? WebhookFineTuningJobSucceededType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory WebhookFineTuningJobSucceeded.fromJson(Map<String, dynamic> json) => WebhookFineTuningJobSucceeded(
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    id: (json['id'] as String?)!,
+    data: (json['data'] != null ? WebhookFineTuningJobSucceededData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+    object: json['object'] != null ? SdkPresent((json['object'] != null ? WebhookFineTuningJobSucceededObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? WebhookFineTuningJobSucceededType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'created_at': createdAt,
-        'id': id,
-        'data': data.toJson(),
-        ...switch (object) {
-          SdkPresent<WebhookFineTuningJobSucceededObject>(value: final value) =>
-            {
-              'object': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-      };
+    'created_at': createdAt,
+    'id': id,
+    'data': data.toJson(),
+    ...switch (object) {
+      SdkPresent<WebhookFineTuningJobSucceededObject>(value: final value) => {'object': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+  };
 }

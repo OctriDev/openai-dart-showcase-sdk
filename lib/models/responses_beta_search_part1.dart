@@ -6,37 +6,34 @@ part of 'responses_beta_search.dart';
 // responses_beta_search domain models
 /// Typed representation of the `BetaSearchContentType` API schema.
 final class BetaSearchContentType {
+
   final String value;
 
   const BetaSearchContentType._(this.value);
 
-  factory BetaSearchContentType.fromJson(String value) =>
-      BetaSearchContentType._(value);
+  factory BetaSearchContentType.fromJson(String value) => BetaSearchContentType._(value);
 
   static const text = BetaSearchContentType._('text');
   static const image = BetaSearchContentType._('image');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaSearchContentType && other.value == value;
+  @override bool operator ==(Object other) => other is BetaSearchContentType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `BetaSearchContextSize` API schema.
 final class BetaSearchContextSize {
+
   final String value;
 
   const BetaSearchContextSize._(this.value);
 
-  factory BetaSearchContextSize.fromJson(String value) =>
-      BetaSearchContextSize._(value);
+  factory BetaSearchContextSize.fromJson(String value) => BetaSearchContextSize._(value);
 
   static const low = BetaSearchContextSize._('low');
   static const medium = BetaSearchContextSize._('medium');
@@ -44,13 +41,10 @@ final class BetaSearchContextSize {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaSearchContextSize && other.value == value;
+  @override bool operator ==(Object other) => other is BetaSearchContextSize && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -14,15 +14,12 @@ Future<ListModelsResponse> listModels(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listModels',
-          fromJsonRaw: (value) =>
-              ListModelsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListModelsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves information about a specific model, including its owner and permissioning details. Use the model identifier to look up the model before referencing it in other API requests.
 ///
@@ -38,13 +35,10 @@ Future<Model> retrieveModel(ClientConfig config,
           operationId: 'retrieveModel',
           fromJsonRaw: (value) => Model.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a fine-tuned model. The authenticated user must have the Owner role in the organization and a credential that permits model deletion. Use `model` to identify the fine-tuned model to remove.
 ///
@@ -58,13 +52,8 @@ Future<DeleteModelResponse> deleteModel(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteModel',
-          fromJsonRaw: (value) =>
-              DeleteModelResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteModelResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

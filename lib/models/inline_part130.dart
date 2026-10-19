@@ -6,315 +6,273 @@ part of 'inline.dart';
 // Inline operation models (part 130)
 /// The type of the event. Always `batch.cancelled`.
 final class WebhookBatchCancelledType {
+
   final String value;
 
   const WebhookBatchCancelledType._(this.value);
 
-  factory WebhookBatchCancelledType.fromJson(String value) =>
-      WebhookBatchCancelledType._(value);
+  factory WebhookBatchCancelledType.fromJson(String value) => WebhookBatchCancelledType._(value);
 
   static const batchCancelled = WebhookBatchCancelledType._('batch.cancelled');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookBatchCancelledType && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookBatchCancelledType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object of the event. Always `event`.
 final class WebhookBatchCompletedObject {
+
   final String value;
 
   const WebhookBatchCompletedObject._(this.value);
 
-  factory WebhookBatchCompletedObject.fromJson(String value) =>
-      WebhookBatchCompletedObject._(value);
+  factory WebhookBatchCompletedObject.fromJson(String value) => WebhookBatchCompletedObject._(value);
 
   static const event = WebhookBatchCompletedObject._('event');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookBatchCompletedObject && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookBatchCompletedObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always `batch.completed`.
 final class WebhookBatchCompletedType {
+
   final String value;
 
   const WebhookBatchCompletedType._(this.value);
 
-  factory WebhookBatchCompletedType.fromJson(String value) =>
-      WebhookBatchCompletedType._(value);
+  factory WebhookBatchCompletedType.fromJson(String value) => WebhookBatchCompletedType._(value);
 
   static const batchCompleted = WebhookBatchCompletedType._('batch.completed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookBatchCompletedType && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookBatchCompletedType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object of the event. Always `event`.
 final class WebhookBatchExpiredObject {
+
   final String value;
 
   const WebhookBatchExpiredObject._(this.value);
 
-  factory WebhookBatchExpiredObject.fromJson(String value) =>
-      WebhookBatchExpiredObject._(value);
+  factory WebhookBatchExpiredObject.fromJson(String value) => WebhookBatchExpiredObject._(value);
 
   static const event = WebhookBatchExpiredObject._('event');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookBatchExpiredObject && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookBatchExpiredObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always `batch.expired`.
 final class WebhookBatchExpiredType {
+
   final String value;
 
   const WebhookBatchExpiredType._(this.value);
 
-  factory WebhookBatchExpiredType.fromJson(String value) =>
-      WebhookBatchExpiredType._(value);
+  factory WebhookBatchExpiredType.fromJson(String value) => WebhookBatchExpiredType._(value);
 
   static const batchExpired = WebhookBatchExpiredType._('batch.expired');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookBatchExpiredType && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookBatchExpiredType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object of the event. Always `event`.
 final class WebhookBatchFailedObject {
+
   final String value;
 
   const WebhookBatchFailedObject._(this.value);
 
-  factory WebhookBatchFailedObject.fromJson(String value) =>
-      WebhookBatchFailedObject._(value);
+  factory WebhookBatchFailedObject.fromJson(String value) => WebhookBatchFailedObject._(value);
 
   static const event = WebhookBatchFailedObject._('event');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookBatchFailedObject && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookBatchFailedObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always `batch.failed`.
 final class WebhookBatchFailedType {
+
   final String value;
 
   const WebhookBatchFailedType._(this.value);
 
-  factory WebhookBatchFailedType.fromJson(String value) =>
-      WebhookBatchFailedType._(value);
+  factory WebhookBatchFailedType.fromJson(String value) => WebhookBatchFailedType._(value);
 
   static const batchFailed = WebhookBatchFailedType._('batch.failed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookBatchFailedType && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookBatchFailedType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always webhook_endpoint.
 final class WebhookEndpointBodyObject {
+
   final String value;
 
   const WebhookEndpointBodyObject._(this.value);
 
-  factory WebhookEndpointBodyObject.fromJson(String value) =>
-      WebhookEndpointBodyObject._(value);
+  factory WebhookEndpointBodyObject.fromJson(String value) => WebhookEndpointBodyObject._(value);
 
-  static const webhookEndpoint =
-      WebhookEndpointBodyObject._('webhook_endpoint');
+  static const webhookEndpoint = WebhookEndpointBodyObject._('webhook_endpoint');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookEndpointBodyObject && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookEndpointBodyObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always list.
 final class WebhookEndpointListResourceObject {
+
   final String value;
 
   const WebhookEndpointListResourceObject._(this.value);
 
-  factory WebhookEndpointListResourceObject.fromJson(String value) =>
-      WebhookEndpointListResourceObject._(value);
+  factory WebhookEndpointListResourceObject.fromJson(String value) => WebhookEndpointListResourceObject._(value);
 
   static const list = WebhookEndpointListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookEndpointListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookEndpointListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always webhook_endpoint.test.
 final class WebhookEndpointTestResultResourceObject {
+
   final String value;
 
   const WebhookEndpointTestResultResourceObject._(this.value);
 
-  factory WebhookEndpointTestResultResourceObject.fromJson(String value) =>
-      WebhookEndpointTestResultResourceObject._(value);
+  factory WebhookEndpointTestResultResourceObject.fromJson(String value) => WebhookEndpointTestResultResourceObject._(value);
 
-  static const webhookEndpointTest =
-      WebhookEndpointTestResultResourceObject._('webhook_endpoint.test');
+  static const webhookEndpointTest = WebhookEndpointTestResultResourceObject._('webhook_endpoint.test');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookEndpointTestResultResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookEndpointTestResultResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether the test request completed. Always true for returned results; use status_code to determine the endpoint response.
 final class WebhookEndpointTestResultResourceSuccess {
+
   final bool value;
 
   const WebhookEndpointTestResultResourceSuccess._(this.value);
 
-  factory WebhookEndpointTestResultResourceSuccess.fromJson(bool value) =>
-      WebhookEndpointTestResultResourceSuccess._(value);
+  factory WebhookEndpointTestResultResourceSuccess.fromJson(bool value) => WebhookEndpointTestResultResourceSuccess._(value);
 
   static const true_ = WebhookEndpointTestResultResourceSuccess._(true);
 
   bool toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookEndpointTestResultResourceSuccess && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookEndpointTestResultResourceSuccess && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always webhook_endpoint.
 final class WebhookEndpointWithSecretResourceObject {
+
   final String value;
 
   const WebhookEndpointWithSecretResourceObject._(this.value);
 
-  factory WebhookEndpointWithSecretResourceObject.fromJson(String value) =>
-      WebhookEndpointWithSecretResourceObject._(value);
+  factory WebhookEndpointWithSecretResourceObject.fromJson(String value) => WebhookEndpointWithSecretResourceObject._(value);
 
-  static const webhookEndpoint =
-      WebhookEndpointWithSecretResourceObject._('webhook_endpoint');
+  static const webhookEndpoint = WebhookEndpointWithSecretResourceObject._('webhook_endpoint');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookEndpointWithSecretResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookEndpointWithSecretResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object of the event. Always `event`.
 final class WebhookEvalRunCanceledObject {
+
   final String value;
 
   const WebhookEvalRunCanceledObject._(this.value);
 
-  factory WebhookEvalRunCanceledObject.fromJson(String value) =>
-      WebhookEvalRunCanceledObject._(value);
+  factory WebhookEvalRunCanceledObject.fromJson(String value) => WebhookEvalRunCanceledObject._(value);
 
   static const event = WebhookEvalRunCanceledObject._('event');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookEvalRunCanceledObject && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookEvalRunCanceledObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -6,31 +6,25 @@ part of 'inline.dart';
 // Inline operation models (part 73)
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 final class LocalShellToolCallOutputStatusVariant0 {
+
   final String value;
 
   const LocalShellToolCallOutputStatusVariant0._(this.value);
 
-  factory LocalShellToolCallOutputStatusVariant0.fromJson(String value) =>
-      LocalShellToolCallOutputStatusVariant0._(value);
+  factory LocalShellToolCallOutputStatusVariant0.fromJson(String value) => LocalShellToolCallOutputStatusVariant0._(value);
 
-  static const inProgress =
-      LocalShellToolCallOutputStatusVariant0._('in_progress');
-  static const completed =
-      LocalShellToolCallOutputStatusVariant0._('completed');
-  static const incomplete =
-      LocalShellToolCallOutputStatusVariant0._('incomplete');
+  static const inProgress = LocalShellToolCallOutputStatusVariant0._('in_progress');
+  static const completed = LocalShellToolCallOutputStatusVariant0._('completed');
+  static const incomplete = LocalShellToolCallOutputStatusVariant0._('incomplete');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LocalShellToolCallOutputStatusVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is LocalShellToolCallOutputStatusVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the local shell tool call output. Always `local_shell_call_output`.
@@ -39,17 +33,14 @@ enum LocalShellToolCallOutputType {
 
   static LocalShellToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'local_shell_call_output':
-        return LocalShellToolCallOutputType.localShellCallOutput;
-      default:
-        throw ArgumentError('Unknown LocalShellToolCallOutputType: $value');
+      case 'local_shell_call_output': return LocalShellToolCallOutputType.localShellCallOutput;
+      default: throw ArgumentError('Unknown LocalShellToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LocalShellToolCallOutputType.localShellCallOutput:
-        return 'local_shell_call_output';
+      case LocalShellToolCallOutputType.localShellCallOutput: return 'local_shell_call_output';
     }
   }
 
@@ -63,17 +54,14 @@ enum LocalShellToolParamType {
 
   static LocalShellToolParamType fromJson(String value) {
     switch (value) {
-      case 'local_shell':
-        return LocalShellToolParamType.localShell;
-      default:
-        throw ArgumentError('Unknown LocalShellToolParamType: $value');
+      case 'local_shell': return LocalShellToolParamType.localShell;
+      default: throw ArgumentError('Unknown LocalShellToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LocalShellToolParamType.localShell:
-        return 'local_shell';
+      case LocalShellToolParamType.localShell: return 'local_shell';
     }
   }
 
@@ -87,17 +75,14 @@ enum LockedStatusType {
 
   static LockedStatusType fromJson(String value) {
     switch (value) {
-      case 'locked':
-        return LockedStatusType.locked;
-      default:
-        throw ArgumentError('Unknown LockedStatusType: $value');
+      case 'locked': return LockedStatusType.locked;
+      default: throw ArgumentError('Unknown LockedStatusType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LockedStatusType.locked:
-        return 'locked';
+      case LockedStatusType.locked: return 'locked';
     }
   }
 
@@ -111,17 +96,14 @@ enum MCPApprovalRequestType {
 
   static MCPApprovalRequestType fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_request':
-        return MCPApprovalRequestType.mcpApprovalRequest;
-      default:
-        throw ArgumentError('Unknown MCPApprovalRequestType: $value');
+      case 'mcp_approval_request': return MCPApprovalRequestType.mcpApprovalRequest;
+      default: throw ArgumentError('Unknown MCPApprovalRequestType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPApprovalRequestType.mcpApprovalRequest:
-        return 'mcp_approval_request';
+      case MCPApprovalRequestType.mcpApprovalRequest: return 'mcp_approval_request';
     }
   }
 
@@ -135,17 +117,14 @@ enum MCPApprovalResponseType {
 
   static MCPApprovalResponseType fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_response':
-        return MCPApprovalResponseType.mcpApprovalResponse;
-      default:
-        throw ArgumentError('Unknown MCPApprovalResponseType: $value');
+      case 'mcp_approval_response': return MCPApprovalResponseType.mcpApprovalResponse;
+      default: throw ArgumentError('Unknown MCPApprovalResponseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPApprovalResponseType.mcpApprovalResponse:
-        return 'mcp_approval_response';
+      case MCPApprovalResponseType.mcpApprovalResponse: return 'mcp_approval_response';
     }
   }
 
@@ -159,17 +138,14 @@ enum MCPApprovalResponseResourceType {
 
   static MCPApprovalResponseResourceType fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_response':
-        return MCPApprovalResponseResourceType.mcpApprovalResponse;
-      default:
-        throw ArgumentError('Unknown MCPApprovalResponseResourceType: $value');
+      case 'mcp_approval_response': return MCPApprovalResponseResourceType.mcpApprovalResponse;
+      default: throw ArgumentError('Unknown MCPApprovalResponseResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPApprovalResponseResourceType.mcpApprovalResponse:
-        return 'mcp_approval_response';
+      case MCPApprovalResponseResourceType.mcpApprovalResponse: return 'mcp_approval_response';
     }
   }
 
@@ -183,17 +159,14 @@ enum McpCallItemResourceType {
 
   static McpCallItemResourceType fromJson(String value) {
     switch (value) {
-      case 'mcp_call':
-        return McpCallItemResourceType.mcpCall;
-      default:
-        throw ArgumentError('Unknown McpCallItemResourceType: $value');
+      case 'mcp_call': return McpCallItemResourceType.mcpCall;
+      default: throw ArgumentError('Unknown McpCallItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpCallItemResourceType.mcpCall:
-        return 'mcp_call';
+      case McpCallItemResourceType.mcpCall: return 'mcp_call';
     }
   }
 
@@ -207,17 +180,14 @@ enum MCPListToolsType {
 
   static MCPListToolsType fromJson(String value) {
     switch (value) {
-      case 'mcp_list_tools':
-        return MCPListToolsType.mcpListTools;
-      default:
-        throw ArgumentError('Unknown MCPListToolsType: $value');
+      case 'mcp_list_tools': return MCPListToolsType.mcpListTools;
+      default: throw ArgumentError('Unknown MCPListToolsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPListToolsType.mcpListTools:
-        return 'mcp_list_tools';
+      case MCPListToolsType.mcpListTools: return 'mcp_list_tools';
     }
   }
 
@@ -229,23 +199,16 @@ enum MCPListToolsType {
 enum McpOauthTokenEndpointAuthResourceClientSecretBasicType {
   clientSecretBasic;
 
-  static McpOauthTokenEndpointAuthResourceClientSecretBasicType fromJson(
-      String value) {
+  static McpOauthTokenEndpointAuthResourceClientSecretBasicType fromJson(String value) {
     switch (value) {
-      case 'client_secret_basic':
-        return McpOauthTokenEndpointAuthResourceClientSecretBasicType
-            .clientSecretBasic;
-      default:
-        throw ArgumentError(
-            'Unknown McpOauthTokenEndpointAuthResourceClientSecretBasicType: $value');
+      case 'client_secret_basic': return McpOauthTokenEndpointAuthResourceClientSecretBasicType.clientSecretBasic;
+      default: throw ArgumentError('Unknown McpOauthTokenEndpointAuthResourceClientSecretBasicType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpOauthTokenEndpointAuthResourceClientSecretBasicType
-            .clientSecretBasic:
-        return 'client_secret_basic';
+      case McpOauthTokenEndpointAuthResourceClientSecretBasicType.clientSecretBasic: return 'client_secret_basic';
     }
   }
 
@@ -257,23 +220,16 @@ enum McpOauthTokenEndpointAuthResourceClientSecretBasicType {
 enum McpOauthTokenEndpointAuthResourceClientSecretPostType {
   clientSecretPost;
 
-  static McpOauthTokenEndpointAuthResourceClientSecretPostType fromJson(
-      String value) {
+  static McpOauthTokenEndpointAuthResourceClientSecretPostType fromJson(String value) {
     switch (value) {
-      case 'client_secret_post':
-        return McpOauthTokenEndpointAuthResourceClientSecretPostType
-            .clientSecretPost;
-      default:
-        throw ArgumentError(
-            'Unknown McpOauthTokenEndpointAuthResourceClientSecretPostType: $value');
+      case 'client_secret_post': return McpOauthTokenEndpointAuthResourceClientSecretPostType.clientSecretPost;
+      default: throw ArgumentError('Unknown McpOauthTokenEndpointAuthResourceClientSecretPostType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpOauthTokenEndpointAuthResourceClientSecretPostType
-            .clientSecretPost:
-        return 'client_secret_post';
+      case McpOauthTokenEndpointAuthResourceClientSecretPostType.clientSecretPost: return 'client_secret_post';
     }
   }
 
@@ -287,18 +243,14 @@ enum McpOauthTokenEndpointAuthResourceNoneType {
 
   static McpOauthTokenEndpointAuthResourceNoneType fromJson(String value) {
     switch (value) {
-      case 'none':
-        return McpOauthTokenEndpointAuthResourceNoneType.none;
-      default:
-        throw ArgumentError(
-            'Unknown McpOauthTokenEndpointAuthResourceNoneType: $value');
+      case 'none': return McpOauthTokenEndpointAuthResourceNoneType.none;
+      default: throw ArgumentError('Unknown McpOauthTokenEndpointAuthResourceNoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case McpOauthTokenEndpointAuthResourceNoneType.none:
-        return 'none';
+      case McpOauthTokenEndpointAuthResourceNoneType.none: return 'none';
     }
   }
 
@@ -312,17 +264,14 @@ enum MCPProtocolErrorType {
 
   static MCPProtocolErrorType fromJson(String value) {
     switch (value) {
-      case 'mcp_protocol_error':
-        return MCPProtocolErrorType.mcpProtocolError;
-      default:
-        throw ArgumentError('Unknown MCPProtocolErrorType: $value');
+      case 'mcp_protocol_error': return MCPProtocolErrorType.mcpProtocolError;
+      default: throw ArgumentError('Unknown MCPProtocolErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MCPProtocolErrorType.mcpProtocolError:
-        return 'mcp_protocol_error';
+      case MCPProtocolErrorType.mcpProtocolError: return 'mcp_protocol_error';
     }
   }
 

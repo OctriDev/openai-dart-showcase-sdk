@@ -4,292 +4,131 @@
 part of 'realtime_realtime_response.dart';
 
 // realtime_realtime_response domain models (part 3)
-final class RealtimeResponseCreateParamsConversationString
-    extends RealtimeResponseCreateParamsConversation {
+final class RealtimeResponseCreateParamsConversationString extends RealtimeResponseCreateParamsConversation {
   final String value;
   const RealtimeResponseCreateParamsConversationString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class RealtimeResponseCreateParamsConversationRealtimeResponseCreateParamsConversationVariant1
-    extends RealtimeResponseCreateParamsConversation {
+final class RealtimeResponseCreateParamsConversationRealtimeResponseCreateParamsConversationVariant1 extends RealtimeResponseCreateParamsConversation {
   final RealtimeResponseCreateParamsConversationVariant1 value;
-  const RealtimeResponseCreateParamsConversationRealtimeResponseCreateParamsConversationVariant1(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeResponseCreateParamsConversationRealtimeResponseCreateParamsConversationVariant1(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// Create a new Realtime response with these parameters
 class RealtimeResponseCreateParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The set of modalities the model used to respond, currently the only possible values are `[\"audio\"]`, `[\"text\"]`. Audio output always include a text transcript. Setting the output to mode `text` will disable audio output from the model.
-  final SdkOptional<List<RealtimeResponseCreateParamsOutputModalitiesItem>>
-      outputModalities;
-
+  final SdkOptional<List<RealtimeResponseCreateParamsOutputModalitiesItem>> outputModalities;
   /// The default system instructions (i.e. system message) prepended to model calls. This field allows the client to guide the model on desired responses. The model can be instructed on response content and format, (e.g. "be extremely succinct", "act friendly", "here are examples of good responses") and on audio behavior (e.g. "talk quickly", "inject emotion into your voice", "laugh frequently"). The instructions are not guaranteed to be followed by the model, but they provide guidance to the model on the desired behavior. Note that the server sets default instructions which will be used if this field is not set and are visible in the `session.created` event at the start of the session.
   final SdkOptional<String> instructions;
-
   /// Configuration for audio input and output.
   final SdkOptional<RealtimeResponseCreateParamsAudio> audio;
-
   /// Tools available to the model.
   final SdkOptional<List<RealtimeResponseCreateParamsToolsItem>> tools;
-
   /// How the model chooses tools. Provide one of the string modes or force a specific function/MCP tool.
   final SdkOptional<RealtimeResponseCreateParamsToolChoice> toolChoice;
-
   /// Whether the model may call multiple tools in parallel. Only supported by reasoning Realtime models such as `gpt-realtime-2`.
   final SdkOptional<bool> parallelToolCalls;
-
   /// Configuration for reasoning-capable Realtime models such as `gpt-realtime-2`.
   final SdkOptional<RealtimeReasoning> reasoning;
-
   /// Maximum number of output tokens for a single assistant response, inclusive of tool calls. Provide an integer between 1 and 4096 to limit output tokens, or `inf` for the maximum available tokens for a given model. Defaults to `inf`.
   final SdkOptional<dynamic> maxOutputTokens;
-
   /// Controls which conversation the response is added to. Currently supports `auto` and `none`, with `auto` as the default value. The `auto` value means that the contents of the response will be added to the default conversation. Set this to `none` to create an out-of-band response which will not add items to default conversation.
   final SdkOptional<String> conversation;
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
-
   /// Reference to a prompt template and its variables. [Learn more](https://developers.openai.com/api/docs/guides/text?api-mode=responses#version-prompts-in-code).
   final SdkOptional<Prompt?> prompt;
-
   /// Input items to include in the prompt for the model. Using this field creates a new context for this Response instead of using the default conversation. An empty array `[]` will clear the context for this Response. Note that this can include references to items that previously appeared in the session using their id.
   final SdkOptional<List<RealtimeConversationItem>> input;
 
-  const RealtimeResponseCreateParams(
-      {this.outputModalities = const SdkOmitted(),
-      this.instructions = const SdkOmitted(),
-      this.audio = const SdkOmitted(),
-      this.tools = const SdkOmitted(),
-      this.toolChoice = const SdkOmitted(),
-      this.parallelToolCalls = const SdkOmitted(),
-      this.reasoning = const SdkOmitted(),
-      this.maxOutputTokens = const SdkOmitted(),
-      this.conversation = const SdkOmitted(),
-      this.metadata = const SdkOmitted(),
-      this.prompt = const SdkOmitted(),
-      this.input = const SdkOmitted()});
+  const RealtimeResponseCreateParams({this.outputModalities = const SdkOmitted(), this.instructions = const SdkOmitted(), this.audio = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.parallelToolCalls = const SdkOmitted(), this.reasoning = const SdkOmitted(), this.maxOutputTokens = const SdkOmitted(), this.conversation = const SdkOmitted(), this.metadata = const SdkOmitted(), this.prompt = const SdkOmitted(), this.input = const SdkOmitted()});
 
-  RealtimeResponseCreateParams Function(
-          {SdkOptional<List<RealtimeResponseCreateParamsOutputModalitiesItem>>
-              outputModalities,
-          SdkOptional<String> instructions,
-          SdkOptional<RealtimeResponseCreateParamsAudio> audio,
-          SdkOptional<List<RealtimeResponseCreateParamsToolsItem>> tools,
-          SdkOptional<RealtimeResponseCreateParamsToolChoice> toolChoice,
-          SdkOptional<bool> parallelToolCalls,
-          SdkOptional<RealtimeReasoning> reasoning,
-          SdkOptional<dynamic> maxOutputTokens,
-          SdkOptional<String> conversation,
-          SdkOptional<Map<String, dynamic>?> metadata,
-          SdkOptional<Prompt?> prompt,
-          SdkOptional<List<RealtimeConversationItem>> input})
-      get copyWith => _copyWith;
+  RealtimeResponseCreateParams Function({SdkOptional<List<RealtimeResponseCreateParamsOutputModalitiesItem>> outputModalities, SdkOptional<String> instructions, SdkOptional<RealtimeResponseCreateParamsAudio> audio, SdkOptional<List<RealtimeResponseCreateParamsToolsItem>> tools, SdkOptional<RealtimeResponseCreateParamsToolChoice> toolChoice, SdkOptional<bool> parallelToolCalls, SdkOptional<RealtimeReasoning> reasoning, SdkOptional<dynamic> maxOutputTokens, SdkOptional<String> conversation, SdkOptional<Map<String, dynamic>?> metadata, SdkOptional<Prompt?> prompt, SdkOptional<List<RealtimeConversationItem>> input}) get copyWith => _copyWith;
 
-  RealtimeResponseCreateParams _copyWith(
-          {Object? outputModalities = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue,
-          Object? audio = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? toolChoice = sdkOmittedValue,
-          Object? parallelToolCalls = sdkOmittedValue,
-          Object? reasoning = sdkOmittedValue,
-          Object? maxOutputTokens = sdkOmittedValue,
-          Object? conversation = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue,
-          Object? prompt = sdkOmittedValue,
-          Object? input = sdkOmittedValue}) =>
-      RealtimeResponseCreateParams(
-        outputModalities: identical(outputModalities, sdkOmittedValue)
-            ? this.outputModalities
-            : outputModalities as SdkOptional<
-                List<RealtimeResponseCreateParamsOutputModalitiesItem>>,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as SdkOptional<String>,
-        audio: identical(audio, sdkOmittedValue)
-            ? this.audio
-            : audio as SdkOptional<RealtimeResponseCreateParamsAudio>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<RealtimeResponseCreateParamsToolsItem>>,
-        toolChoice: identical(toolChoice, sdkOmittedValue)
-            ? this.toolChoice
-            : toolChoice as SdkOptional<RealtimeResponseCreateParamsToolChoice>,
-        parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue)
-            ? this.parallelToolCalls
-            : parallelToolCalls as SdkOptional<bool>,
-        reasoning: identical(reasoning, sdkOmittedValue)
-            ? this.reasoning
-            : reasoning as SdkOptional<RealtimeReasoning>,
-        maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue)
-            ? this.maxOutputTokens
-            : maxOutputTokens as SdkOptional<dynamic>,
-        conversation: identical(conversation, sdkOmittedValue)
-            ? this.conversation
-            : conversation as SdkOptional<String>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>?>,
-        prompt: identical(prompt, sdkOmittedValue)
-            ? this.prompt
-            : prompt as SdkOptional<Prompt?>,
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as SdkOptional<List<RealtimeConversationItem>>,
-      );
+  RealtimeResponseCreateParams _copyWith({Object? outputModalities = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? audio = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? parallelToolCalls = sdkOmittedValue, Object? reasoning = sdkOmittedValue, Object? maxOutputTokens = sdkOmittedValue, Object? conversation = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? input = sdkOmittedValue}) => RealtimeResponseCreateParams(
+    outputModalities: identical(outputModalities, sdkOmittedValue) ? this.outputModalities : outputModalities as SdkOptional<List<RealtimeResponseCreateParamsOutputModalitiesItem>>,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String>,
+    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as SdkOptional<RealtimeResponseCreateParamsAudio>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<RealtimeResponseCreateParamsToolsItem>>,
+    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<RealtimeResponseCreateParamsToolChoice>,
+    parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue) ? this.parallelToolCalls : parallelToolCalls as SdkOptional<bool>,
+    reasoning: identical(reasoning, sdkOmittedValue) ? this.reasoning : reasoning as SdkOptional<RealtimeReasoning>,
+    maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue) ? this.maxOutputTokens : maxOutputTokens as SdkOptional<dynamic>,
+    conversation: identical(conversation, sdkOmittedValue) ? this.conversation : conversation as SdkOptional<String>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
+    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as SdkOptional<Prompt?>,
+    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<List<RealtimeConversationItem>>,
+  );
 
-  factory RealtimeResponseCreateParams.fromJson(Map<String, dynamic> json) =>
-      RealtimeResponseCreateParams(
-        outputModalities: json['output_modalities'] != null
-            ? SdkPresent(((json['output_modalities'] as List?)
-                ?.map((e) =>
-                    RealtimeResponseCreateParamsOutputModalitiesItem.fromJson(
-                        e as String))
-                .toList())!)
-            : const SdkOmitted(),
-        instructions: json['instructions'] != null
-            ? SdkPresent((json['instructions'] as String?)!)
-            : const SdkOmitted(),
-        audio: json['audio'] != null
-            ? SdkPresent((json['audio'] != null
-                ? RealtimeResponseCreateParamsAudio.fromJson(
-                    json['audio'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        tools: json['tools'] != null
-            ? SdkPresent(((json['tools'] as List?)
-                ?.map((e) => RealtimeResponseCreateParamsToolsItem.fromJson(e))
-                .toList())!)
-            : const SdkOmitted(),
-        toolChoice: json['tool_choice'] != null
-            ? SdkPresent((json['tool_choice'] != null
-                ? RealtimeResponseCreateParamsToolChoice.fromJson(
-                    json['tool_choice'])
-                : null)!)
-            : const SdkOmitted(),
-        parallelToolCalls: json['parallel_tool_calls'] != null
-            ? SdkPresent((json['parallel_tool_calls'] as bool?)!)
-            : const SdkOmitted(),
-        reasoning: json['reasoning'] != null
-            ? SdkPresent((json['reasoning'] != null
-                ? RealtimeReasoning.fromJson(
-                    json['reasoning'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        maxOutputTokens: json['max_output_tokens'] != null
-            ? SdkPresent((json['max_output_tokens'])!)
-            : const SdkOmitted(),
-        conversation: json['conversation'] != null
-            ? SdkPresent((json['conversation'] as String?)!)
-            : const SdkOmitted(),
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-        prompt: json.containsKey('prompt')
-            ? SdkPresent(json['prompt'] != null
-                ? Prompt.fromJson(json['prompt'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        input: json['input'] != null
-            ? SdkPresent(((json['input'] as List?)
-                ?.map((e) => RealtimeConversationItem.fromJson(e))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeResponseCreateParams.fromJson(Map<String, dynamic> json) => RealtimeResponseCreateParams(
+    outputModalities: json['output_modalities'] != null ? SdkPresent(((json['output_modalities'] as List?)?.map((e) => RealtimeResponseCreateParamsOutputModalitiesItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
+    instructions: json['instructions'] != null ? SdkPresent((json['instructions'] as String?)!) : const SdkOmitted(),
+    audio: json['audio'] != null ? SdkPresent((json['audio'] != null ? RealtimeResponseCreateParamsAudio.fromJson(json['audio'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => RealtimeResponseCreateParamsToolsItem.fromJson(e)).toList())!) : const SdkOmitted(),
+    toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] != null ? RealtimeResponseCreateParamsToolChoice.fromJson(json['tool_choice']) : null)!) : const SdkOmitted(),
+    parallelToolCalls: json['parallel_tool_calls'] != null ? SdkPresent((json['parallel_tool_calls'] as bool?)!) : const SdkOmitted(),
+    reasoning: json['reasoning'] != null ? SdkPresent((json['reasoning'] != null ? RealtimeReasoning.fromJson(json['reasoning'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    maxOutputTokens: json['max_output_tokens'] != null ? SdkPresent((json['max_output_tokens'])!) : const SdkOmitted(),
+    conversation: json['conversation'] != null ? SdkPresent((json['conversation'] as String?)!) : const SdkOmitted(),
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
+    prompt: json.containsKey('prompt') ? SdkPresent(json['prompt'] != null ? Prompt.fromJson(json['prompt'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    input: json['input'] != null ? SdkPresent(((json['input'] as List?)?.map((e) => RealtimeConversationItem.fromJson(e)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (outputModalities) {
-          SdkPresent<List<RealtimeResponseCreateParamsOutputModalitiesItem>>(
-            value: final value
-          ) =>
-            {
-              'output_modalities': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (instructions) {
-          SdkPresent<String>(value: final value) => {
-              'instructions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (audio) {
-          SdkPresent<RealtimeResponseCreateParamsAudio>(value: final value) => {
-              'audio': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<RealtimeResponseCreateParamsToolsItem>>(
-            value: final value
-          ) =>
-            {
-              'tools': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolChoice) {
-          SdkPresent<RealtimeResponseCreateParamsToolChoice>(
-            value: final value
-          ) =>
-            {
-              'tool_choice': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parallelToolCalls) {
-          SdkPresent<bool>(value: final value) => {
-              'parallel_tool_calls': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reasoning) {
-          SdkPresent<RealtimeReasoning>(value: final value) => {
-              'reasoning': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxOutputTokens) {
-          SdkPresent<dynamic>(value: final value) => {
-              'max_output_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (conversation) {
-          SdkPresent<String>(value: final value) => {
-              'conversation': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prompt) {
-          SdkPresent<Prompt?>(value: final value) => {
-              'prompt': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (input) {
-          SdkPresent<List<RealtimeConversationItem>>(value: final value) => {
-              'input': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (outputModalities) {
+      SdkPresent<List<RealtimeResponseCreateParamsOutputModalitiesItem>>(value: final value) => {'output_modalities': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (instructions) {
+      SdkPresent<String>(value: final value) => {'instructions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (audio) {
+      SdkPresent<RealtimeResponseCreateParamsAudio>(value: final value) => {'audio': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<RealtimeResponseCreateParamsToolsItem>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolChoice) {
+      SdkPresent<RealtimeResponseCreateParamsToolChoice>(value: final value) => {'tool_choice': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parallelToolCalls) {
+      SdkPresent<bool>(value: final value) => {'parallel_tool_calls': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reasoning) {
+      SdkPresent<RealtimeReasoning>(value: final value) => {'reasoning': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxOutputTokens) {
+      SdkPresent<dynamic>(value: final value) => {'max_output_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (conversation) {
+      SdkPresent<String>(value: final value) => {'conversation': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prompt) {
+      SdkPresent<Prompt?>(value: final value) => {'prompt': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (input) {
+      SdkPresent<List<RealtimeConversationItem>>(value: final value) => {'input': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class RealtimeResponseCreateParamsToolChoice {
@@ -298,74 +137,41 @@ sealed class RealtimeResponseCreateParamsToolChoice {
   const RealtimeResponseCreateParamsToolChoice();
   factory RealtimeResponseCreateParamsToolChoice.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ToolChoiceFunction.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = ToolChoiceMCP.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(value);
-        }
-      } catch (_) {}
+      try { final value = ToolChoiceFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(value); } } catch (_) {}
+      try { final value = ToolChoiceMCP.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(value); } } catch (_) {}
     }
-    try {
-      return RealtimeResponseCreateParamsToolChoiceToolChoiceOptions(
-          ToolChoiceOptions.fromJson(json as String));
-    } catch (_) {}
-    try {
-      return RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(
-          ToolChoiceFunction.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(
-          ToolChoiceMCP.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"function", "mcp"}.contains(json["type"])) {
-      return UnknownRealtimeResponseCreateParamsToolChoice(json);
-    }
-    throw FormatException(
-        "No variant matched for RealtimeResponseCreateParamsToolChoice");
+    try { return RealtimeResponseCreateParamsToolChoiceToolChoiceOptions(ToolChoiceOptions.fromJson(json as String)); } catch (_) {}
+    try { return RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(ToolChoiceFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(ToolChoiceMCP.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "mcp"}.contains(json["type"])) { return UnknownRealtimeResponseCreateParamsToolChoice(json); }
+    throw FormatException("No variant matched for RealtimeResponseCreateParamsToolChoice");
   }
   Object? toJson();
 }
 
-final class RealtimeResponseCreateParamsToolChoiceToolChoiceOptions
-    extends RealtimeResponseCreateParamsToolChoice {
+final class RealtimeResponseCreateParamsToolChoiceToolChoiceOptions extends RealtimeResponseCreateParamsToolChoice {
   final ToolChoiceOptions value;
   const RealtimeResponseCreateParamsToolChoiceToolChoiceOptions(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeResponseCreateParamsToolChoiceToolChoiceFunction
-    extends RealtimeResponseCreateParamsToolChoice {
+final class RealtimeResponseCreateParamsToolChoiceToolChoiceFunction extends RealtimeResponseCreateParamsToolChoice {
   final ToolChoiceFunction value;
   const RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeResponseCreateParamsToolChoiceToolChoiceMCP
-    extends RealtimeResponseCreateParamsToolChoice {
+final class RealtimeResponseCreateParamsToolChoiceToolChoiceMCP extends RealtimeResponseCreateParamsToolChoice {
   final ToolChoiceMCP value;
   const RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeResponseCreateParamsToolChoice] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeResponseCreateParamsToolChoice
-    extends RealtimeResponseCreateParamsToolChoice {
+final class UnknownRealtimeResponseCreateParamsToolChoice extends RealtimeResponseCreateParamsToolChoice {
   final Map<String, dynamic> raw;
   const UnknownRealtimeResponseCreateParamsToolChoice(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 sealed class RealtimeResponseCreateParamsToolsItem {
@@ -374,46 +180,24 @@ sealed class RealtimeResponseCreateParamsToolsItem {
   const RealtimeResponseCreateParamsToolsItem();
   factory RealtimeResponseCreateParamsToolsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = RealtimeFunctionTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = MCPTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeResponseCreateParamsToolsItemMCPTool(value);
-        }
-      } catch (_) {}
+      try { final value = RealtimeFunctionTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(value); } } catch (_) {}
+      try { final value = MCPTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolsItemMCPTool(value); } } catch (_) {}
     }
-    try {
-      return RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(
-          RealtimeFunctionTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RealtimeResponseCreateParamsToolsItemMCPTool(
-          MCPTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for RealtimeResponseCreateParamsToolsItem");
+    try { return RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(RealtimeFunctionTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RealtimeResponseCreateParamsToolsItemMCPTool(MCPTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for RealtimeResponseCreateParamsToolsItem");
   }
   Object? toJson();
 }
 
-final class RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool
-    extends RealtimeResponseCreateParamsToolsItem {
+final class RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool extends RealtimeResponseCreateParamsToolsItem {
   final RealtimeFunctionTool value;
   const RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeResponseCreateParamsToolsItemMCPTool
-    extends RealtimeResponseCreateParamsToolsItem {
+final class RealtimeResponseCreateParamsToolsItemMCPTool extends RealtimeResponseCreateParamsToolsItem {
   final MCPTool value;
   const RealtimeResponseCreateParamsToolsItemMCPTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

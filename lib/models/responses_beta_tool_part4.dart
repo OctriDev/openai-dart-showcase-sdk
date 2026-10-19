@@ -8,183 +8,85 @@ part of 'responses_beta_tool.dart';
 class BetaToolSearchOutputFunctionToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the loaded function tool.
   final String name;
-
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String?> description;
-
   /// Optional API value serialized in the `parameters` wire field.
   final SdkOptional<Map<String, dynamic>?> parameters;
-
   /// Optional `boolean` value serialized in the `strict` wire field.
   final SdkOptional<bool?> strict;
-
   /// Required enumerated value serialized in the `type` wire field.
   final BetaToolSearchOutputFunctionToolParamType type_;
-
   /// Whether the tool response can be returned asynchronously versus immediately returned on next response creation.
   final SdkOptional<bool> async_;
-
   /// A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
   final SdkOptional<Map<String, dynamic>?> outputSchema;
-
   /// Whether this function should be deferred and discovered via tool search.
   final SdkOptional<bool> deferLoading;
-
   /// The tool invocation context(s).
   final SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers;
 
-  const BetaToolSearchOutputFunctionToolParam(
-      {required this.name,
-      this.description = const SdkOmitted(),
-      this.parameters = const SdkOmitted(),
-      this.strict = const SdkOmitted(),
-      required this.type_,
-      this.async_ = const SdkOmitted(),
-      this.outputSchema = const SdkOmitted(),
-      this.deferLoading = const SdkOmitted(),
-      this.allowedCallers = const SdkOmitted()});
+  const BetaToolSearchOutputFunctionToolParam({required this.name, this.description = const SdkOmitted(), this.parameters = const SdkOmitted(), this.strict = const SdkOmitted(), required this.type_, this.async_ = const SdkOmitted(), this.outputSchema = const SdkOmitted(), this.deferLoading = const SdkOmitted(), this.allowedCallers = const SdkOmitted()});
 
-  BetaToolSearchOutputFunctionToolParam Function(
-          {String name,
-          SdkOptional<String?> description,
-          SdkOptional<Map<String, dynamic>?> parameters,
-          SdkOptional<bool?> strict,
-          BetaToolSearchOutputFunctionToolParamType type_,
-          SdkOptional<bool> async_,
-          SdkOptional<Map<String, dynamic>?> outputSchema,
-          SdkOptional<bool> deferLoading,
-          SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers})
-      get copyWith => _copyWith;
+  BetaToolSearchOutputFunctionToolParam Function({String name, SdkOptional<String?> description, SdkOptional<Map<String, dynamic>?> parameters, SdkOptional<bool?> strict, BetaToolSearchOutputFunctionToolParamType type_, SdkOptional<bool> async_, SdkOptional<Map<String, dynamic>?> outputSchema, SdkOptional<bool> deferLoading, SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
 
-  BetaToolSearchOutputFunctionToolParam _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? parameters = sdkOmittedValue,
-          Object? strict = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? async_ = sdkOmittedValue,
-          Object? outputSchema = sdkOmittedValue,
-          Object? deferLoading = sdkOmittedValue,
-          Object? allowedCallers = sdkOmittedValue}) =>
-      BetaToolSearchOutputFunctionToolParam(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String?>,
-        parameters: identical(parameters, sdkOmittedValue)
-            ? this.parameters
-            : parameters as SdkOptional<Map<String, dynamic>?>,
-        strict: identical(strict, sdkOmittedValue)
-            ? this.strict
-            : strict as SdkOptional<bool?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaToolSearchOutputFunctionToolParamType,
-        async_: identical(async_, sdkOmittedValue)
-            ? this.async_
-            : async_ as SdkOptional<bool>,
-        outputSchema: identical(outputSchema, sdkOmittedValue)
-            ? this.outputSchema
-            : outputSchema as SdkOptional<Map<String, dynamic>?>,
-        deferLoading: identical(deferLoading, sdkOmittedValue)
-            ? this.deferLoading
-            : deferLoading as SdkOptional<bool>,
-        allowedCallers: identical(allowedCallers, sdkOmittedValue)
-            ? this.allowedCallers
-            : allowedCallers
-                as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
-      );
+  BetaToolSearchOutputFunctionToolParam _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? parameters = sdkOmittedValue, Object? strict = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? async_ = sdkOmittedValue, Object? outputSchema = sdkOmittedValue, Object? deferLoading = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue}) => BetaToolSearchOutputFunctionToolParam(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as SdkOptional<Map<String, dynamic>?>,
+    strict: identical(strict, sdkOmittedValue) ? this.strict : strict as SdkOptional<bool?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaToolSearchOutputFunctionToolParamType,
+    async_: identical(async_, sdkOmittedValue) ? this.async_ : async_ as SdkOptional<bool>,
+    outputSchema: identical(outputSchema, sdkOmittedValue) ? this.outputSchema : outputSchema as SdkOptional<Map<String, dynamic>?>,
+    deferLoading: identical(deferLoading, sdkOmittedValue) ? this.deferLoading : deferLoading as SdkOptional<bool>,
+    allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
+  );
 
-  factory BetaToolSearchOutputFunctionToolParam.fromJson(
-          Map<String, dynamic> json) =>
-      BetaToolSearchOutputFunctionToolParam(
-        name: (json['name'] as String?)!,
-        description: json.containsKey('description')
-            ? SdkPresent(json['description'] as String?)
-            : const SdkOmitted(),
-        parameters: json.containsKey('parameters')
-            ? SdkPresent(json['parameters'] == null
-                ? null
-                : json['parameters'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-        strict: json.containsKey('strict')
-            ? SdkPresent(json['strict'] as bool?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaToolSearchOutputFunctionToolParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        async_: json['async'] != null
-            ? SdkPresent((json['async'] as bool?)!)
-            : const SdkOmitted(),
-        outputSchema: json.containsKey('output_schema')
-            ? SdkPresent(json['output_schema'] == null
-                ? null
-                : json['output_schema'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-        deferLoading: json['defer_loading'] != null
-            ? SdkPresent((json['defer_loading'] as bool?)!)
-            : const SdkOmitted(),
-        allowedCallers: json.containsKey('allowed_callers')
-            ? SdkPresent((json['allowed_callers'] as List?)
-                ?.map(
-                    (e) => BetaCallableToolAllowedCaller.fromJson(e as String))
-                .toList())
-            : const SdkOmitted(),
-      );
+  factory BetaToolSearchOutputFunctionToolParam.fromJson(Map<String, dynamic> json) => BetaToolSearchOutputFunctionToolParam(
+    name: (json['name'] as String?)!,
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    parameters: json.containsKey('parameters') ? SdkPresent(json['parameters'] == null ? null : json['parameters'] as Map<String, dynamic>) : const SdkOmitted(),
+    strict: json.containsKey('strict') ? SdkPresent(json['strict'] as bool?) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaToolSearchOutputFunctionToolParamType.fromJson(json['type'] as String) : null)!,
+    async_: json['async'] != null ? SdkPresent((json['async'] as bool?)!) : const SdkOmitted(),
+    outputSchema: json.containsKey('output_schema') ? SdkPresent(json['output_schema'] == null ? null : json['output_schema'] as Map<String, dynamic>) : const SdkOmitted(),
+    deferLoading: json['defer_loading'] != null ? SdkPresent((json['defer_loading'] as bool?)!) : const SdkOmitted(),
+    allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => BetaCallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (description) {
-          SdkPresent<String?>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parameters) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'parameters': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (strict) {
-          SdkPresent<bool?>(value: final value) => {
-              'strict': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        ...switch (async_) {
-          SdkPresent<bool>(value: final value) => {
-              'async': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputSchema) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'output_schema': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deferLoading) {
-          SdkPresent<bool>(value: final value) => {
-              'defer_loading': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedCallers) {
-          SdkPresent<List<BetaCallableToolAllowedCaller>?>(
-            value: final value
-          ) =>
-            {
-              'allowed_callers': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parameters) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'parameters': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (strict) {
+      SdkPresent<bool?>(value: final value) => {'strict': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    ...switch (async_) {
+      SdkPresent<bool>(value: final value) => {'async': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputSchema) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'output_schema': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deferLoading) {
+      SdkPresent<bool>(value: final value) => {'defer_loading': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedCallers) {
+      SdkPresent<List<BetaCallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class BetaToolSearchOutputItemParamCallId {
@@ -192,307 +94,160 @@ sealed class BetaToolSearchOutputItemParamCallId {
   static const String constructionSurface = 'named';
   const BetaToolSearchOutputItemParamCallId();
   factory BetaToolSearchOutputItemParamCallId.fromJson(Object? json) {
-    if (json is String) {
-      return BetaToolSearchOutputItemParamCallIdString(json);
-    }
-    throw FormatException(
-        "No variant matched for BetaToolSearchOutputItemParamCallId");
+    if (json is String) { return BetaToolSearchOutputItemParamCallIdString(json); }
+    throw FormatException("No variant matched for BetaToolSearchOutputItemParamCallId");
   }
   Object? toJson();
 }
 
-final class BetaToolSearchOutputItemParamCallIdString
-    extends BetaToolSearchOutputItemParamCallId {
+final class BetaToolSearchOutputItemParamCallIdString extends BetaToolSearchOutputItemParamCallId {
   final String value;
   const BetaToolSearchOutputItemParamCallIdString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Typed representation of the `BetaToolSearchOutputItemParam` API schema.
 class BetaToolSearchOutputItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `agent` wire field.
   final SdkOptional<BetaAgentTagParam?> agent;
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
-
   /// Optional API value serialized in the `call_id` wire field.
   final SdkOptional<String?> callId;
-
   /// The item type. Always `tool_search_output`.
   final BetaToolSearchOutputItemParamType type_;
-
   /// Whether tool search was executed by the server or by the client.
   final SdkOptional<BetaToolSearchExecutionType> execution;
-
   /// The loaded tool definitions returned by the tool search output.
   final List<BetaToolSearchOutputTool> tools;
-
   /// Optional API value serialized in the `status` wire field.
   final SdkOptional<BetaFunctionCallItemStatus?> status;
 
-  const BetaToolSearchOutputItemParam(
-      {this.agent = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.callId = const SdkOmitted(),
-      required this.type_,
-      this.execution = const SdkOmitted(),
-      required this.tools,
-      this.status = const SdkOmitted()});
+  const BetaToolSearchOutputItemParam({this.agent = const SdkOmitted(), this.id = const SdkOmitted(), this.callId = const SdkOmitted(), required this.type_, this.execution = const SdkOmitted(), required this.tools, this.status = const SdkOmitted()});
 
-  BetaToolSearchOutputItemParam Function(
-          {SdkOptional<BetaAgentTagParam?> agent,
-          SdkOptional<String?> id,
-          SdkOptional<String?> callId,
-          BetaToolSearchOutputItemParamType type_,
-          SdkOptional<BetaToolSearchExecutionType> execution,
-          List<BetaToolSearchOutputTool> tools,
-          SdkOptional<BetaFunctionCallItemStatus?> status})
-      get copyWith => _copyWith;
+  BetaToolSearchOutputItemParam Function({SdkOptional<BetaAgentTagParam?> agent, SdkOptional<String?> id, SdkOptional<String?> callId, BetaToolSearchOutputItemParamType type_, SdkOptional<BetaToolSearchExecutionType> execution, List<BetaToolSearchOutputTool> tools, SdkOptional<BetaFunctionCallItemStatus?> status}) get copyWith => _copyWith;
 
-  BetaToolSearchOutputItemParam _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? execution = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      BetaToolSearchOutputItemParam(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTagParam?>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String?>,
-        callId: identical(callId, sdkOmittedValue)
-            ? this.callId
-            : callId as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaToolSearchOutputItemParamType,
-        execution: identical(execution, sdkOmittedValue)
-            ? this.execution
-            : execution as SdkOptional<BetaToolSearchExecutionType>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as List<BetaToolSearchOutputTool>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<BetaFunctionCallItemStatus?>,
-      );
+  BetaToolSearchOutputItemParam _copyWith({Object? agent = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? execution = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? status = sdkOmittedValue}) => BetaToolSearchOutputItemParam(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTagParam?>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaToolSearchOutputItemParamType,
+    execution: identical(execution, sdkOmittedValue) ? this.execution : execution as SdkOptional<BetaToolSearchExecutionType>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<BetaToolSearchOutputTool>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<BetaFunctionCallItemStatus?>,
+  );
 
-  factory BetaToolSearchOutputItemParam.fromJson(Map<String, dynamic> json) =>
-      BetaToolSearchOutputItemParam(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTagParam.fromJson(
-                    json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        id: json.containsKey('id')
-            ? SdkPresent(json['id'] as String?)
-            : const SdkOmitted(),
-        callId: json.containsKey('call_id')
-            ? SdkPresent(json['call_id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaToolSearchOutputItemParamType.fromJson(json['type'] as String)
-            : null)!,
-        execution: json['execution'] != null
-            ? SdkPresent((json['execution'] != null
-                ? BetaToolSearchExecutionType.fromJson(
-                    json['execution'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        tools: ((json['tools'] as List?)
-            ?.map((e) => BetaToolSearchOutputTool.fromJson(e))
-            .toList())!,
-        status: json.containsKey('status')
-            ? SdkPresent(json['status'] != null
-                ? BetaFunctionCallItemStatus.fromJson(json['status'] as String)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory BetaToolSearchOutputItemParam.fromJson(Map<String, dynamic> json) => BetaToolSearchOutputItemParam(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTagParam.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
+    callId: json.containsKey('call_id') ? SdkPresent(json['call_id'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaToolSearchOutputItemParamType.fromJson(json['type'] as String) : null)!,
+    execution: json['execution'] != null ? SdkPresent((json['execution'] != null ? BetaToolSearchExecutionType.fromJson(json['execution'] as String) : null)!) : const SdkOmitted(),
+    tools: ((json['tools'] as List?)?.map((e) => BetaToolSearchOutputTool.fromJson(e)).toList())!,
+    status: json.containsKey('status') ? SdkPresent(json['status'] != null ? BetaFunctionCallItemStatus.fromJson(json['status'] as String) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTagParam?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String?>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (callId) {
-          SdkPresent<String?>(value: final value) => {
-              'call_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        ...switch (execution) {
-          SdkPresent<BetaToolSearchExecutionType>(value: final value) => {
-              'execution': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'tools': tools.map((item) => item.toJson()).toList(),
-        ...switch (status) {
-          SdkPresent<BetaFunctionCallItemStatus?>(value: final value) => {
-              'status': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTagParam?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String?>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (callId) {
+      SdkPresent<String?>(value: final value) => {'call_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    ...switch (execution) {
+      SdkPresent<BetaToolSearchExecutionType>(value: final value) => {'execution': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'tools': tools.map((item) => item.toJson()).toList(),
+    ...switch (status) {
+      SdkPresent<BetaFunctionCallItemStatus?>(value: final value) => {'status': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Groups function/custom tools under a shared namespace.
 class BetaToolSearchOutputNamespaceToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the tool. Always `namespace`.
   final BetaToolSearchOutputNamespaceToolParamType type_;
-
   /// The namespace name used in tool calls (for example, `crm`).
   final String name;
-
   /// A description of the namespace shown to the model.
   final String description;
-
   /// The function/custom tools loaded inside this namespace.
   final List<BetaToolSearchOutputNamespaceToolParamToolsItem> tools;
 
-  const BetaToolSearchOutputNamespaceToolParam(
-      {required this.type_,
-      required this.name,
-      required this.description,
-      required this.tools});
+  const BetaToolSearchOutputNamespaceToolParam({required this.type_, required this.name, required this.description, required this.tools});
 
-  BetaToolSearchOutputNamespaceToolParam Function(
-          {BetaToolSearchOutputNamespaceToolParamType type_,
-          String name,
-          String description,
-          List<BetaToolSearchOutputNamespaceToolParamToolsItem> tools})
-      get copyWith => _copyWith;
+  BetaToolSearchOutputNamespaceToolParam Function({BetaToolSearchOutputNamespaceToolParamType type_, String name, String description, List<BetaToolSearchOutputNamespaceToolParamToolsItem> tools}) get copyWith => _copyWith;
 
-  BetaToolSearchOutputNamespaceToolParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? tools = sdkOmittedValue}) =>
-      BetaToolSearchOutputNamespaceToolParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaToolSearchOutputNamespaceToolParamType,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as String,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as List<BetaToolSearchOutputNamespaceToolParamToolsItem>,
-      );
+  BetaToolSearchOutputNamespaceToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? tools = sdkOmittedValue}) => BetaToolSearchOutputNamespaceToolParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaToolSearchOutputNamespaceToolParamType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as String,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<BetaToolSearchOutputNamespaceToolParamToolsItem>,
+  );
 
-  factory BetaToolSearchOutputNamespaceToolParam.fromJson(
-          Map<String, dynamic> json) =>
-      BetaToolSearchOutputNamespaceToolParam(
-        type_: (json['type'] != null
-            ? BetaToolSearchOutputNamespaceToolParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        name: (json['name'] as String?)!,
-        description: (json['description'] as String?)!,
-        tools: ((json['tools'] as List?)
-            ?.map((e) =>
-                BetaToolSearchOutputNamespaceToolParamToolsItem.fromJson(e))
-            .toList())!,
-      );
+  factory BetaToolSearchOutputNamespaceToolParam.fromJson(Map<String, dynamic> json) => BetaToolSearchOutputNamespaceToolParam(
+    type_: (json['type'] != null ? BetaToolSearchOutputNamespaceToolParamType.fromJson(json['type'] as String) : null)!,
+    name: (json['name'] as String?)!,
+    description: (json['description'] as String?)!,
+    tools: ((json['tools'] as List?)?.map((e) => BetaToolSearchOutputNamespaceToolParamToolsItem.fromJson(e)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'name': name,
-        'description': description,
-        'tools': tools.map((item) => item.toJson()).toList(),
-      };
+    'type': type_.toJson(),
+    'name': name,
+    'description': description,
+    'tools': tools.map((item) => item.toJson()).toList(),
+  };
 }
 
 sealed class BetaToolSearchOutputNamespaceToolParamToolsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const BetaToolSearchOutputNamespaceToolParamToolsItem();
-  factory BetaToolSearchOutputNamespaceToolParamToolsItem.fromJson(
-      Object? json) {
+  factory BetaToolSearchOutputNamespaceToolParamToolsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaToolSearchOutputFunctionToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputNamespaceToolParamToolsItemBetaToolSearchOutputFunctionToolParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaCustomToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputNamespaceToolParamToolsItemBetaCustomToolParam(
-              value);
-        }
-      } catch (_) {}
+      try { final value = BetaToolSearchOutputFunctionToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputNamespaceToolParamToolsItemBetaToolSearchOutputFunctionToolParam(value); } } catch (_) {}
+      try { final value = BetaCustomToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputNamespaceToolParamToolsItemBetaCustomToolParam(value); } } catch (_) {}
     }
-    try {
-      return BetaToolSearchOutputNamespaceToolParamToolsItemBetaToolSearchOutputFunctionToolParam(
-          BetaToolSearchOutputFunctionToolParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputNamespaceToolParamToolsItemBetaCustomToolParam(
-          BetaCustomToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"function", "custom"}.contains(json["type"])) {
-      return UnknownBetaToolSearchOutputNamespaceToolParamToolsItem(json);
-    }
-    throw FormatException(
-        "No variant matched for BetaToolSearchOutputNamespaceToolParamToolsItem");
+    try { return BetaToolSearchOutputNamespaceToolParamToolsItemBetaToolSearchOutputFunctionToolParam(BetaToolSearchOutputFunctionToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputNamespaceToolParamToolsItemBetaCustomToolParam(BetaCustomToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "custom"}.contains(json["type"])) { return UnknownBetaToolSearchOutputNamespaceToolParamToolsItem(json); }
+    throw FormatException("No variant matched for BetaToolSearchOutputNamespaceToolParamToolsItem");
   }
   Object? toJson();
 }
 
-final class BetaToolSearchOutputNamespaceToolParamToolsItemBetaToolSearchOutputFunctionToolParam
-    extends BetaToolSearchOutputNamespaceToolParamToolsItem {
+final class BetaToolSearchOutputNamespaceToolParamToolsItemBetaToolSearchOutputFunctionToolParam extends BetaToolSearchOutputNamespaceToolParamToolsItem {
   final BetaToolSearchOutputFunctionToolParam value;
-  const BetaToolSearchOutputNamespaceToolParamToolsItemBetaToolSearchOutputFunctionToolParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaToolSearchOutputNamespaceToolParamToolsItemBetaToolSearchOutputFunctionToolParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaToolSearchOutputNamespaceToolParamToolsItemBetaCustomToolParam
-    extends BetaToolSearchOutputNamespaceToolParamToolsItem {
+final class BetaToolSearchOutputNamespaceToolParamToolsItemBetaCustomToolParam extends BetaToolSearchOutputNamespaceToolParamToolsItem {
   final BetaCustomToolParam value;
-  const BetaToolSearchOutputNamespaceToolParamToolsItemBetaCustomToolParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaToolSearchOutputNamespaceToolParamToolsItemBetaCustomToolParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaToolSearchOutputNamespaceToolParamToolsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaToolSearchOutputNamespaceToolParamToolsItem
-    extends BetaToolSearchOutputNamespaceToolParamToolsItem {
+final class UnknownBetaToolSearchOutputNamespaceToolParamToolsItem extends BetaToolSearchOutputNamespaceToolParamToolsItem {
   final Map<String, dynamic> raw;
   const UnknownBetaToolSearchOutputNamespaceToolParamToolsItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 sealed class BetaToolSearchOutputTool {
@@ -501,195 +256,40 @@ sealed class BetaToolSearchOutputTool {
   const BetaToolSearchOutputTool();
   factory BetaToolSearchOutputTool.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaFunctionTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaFunctionTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaFileSearchTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaFileSearchTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaComputerTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaComputerTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaComputerUsePreviewTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaComputerUsePreviewTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaWebSearchTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaWebSearchTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaMCPTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaMCPTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaCodeInterpreterTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaCodeInterpreterTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaProgrammaticToolCallingParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaProgrammaticToolCallingParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaImageGenTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaImageGenTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaLocalShellToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaLocalShellToolParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaFunctionShellToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaFunctionShellToolParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaCustomToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaCustomToolParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaToolSearchOutputNamespaceToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaToolSearchOutputNamespaceToolParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaToolSearchToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaToolSearchToolParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaWebSearchPreviewTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaWebSearchPreviewTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaApplyPatchToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolSearchOutputToolBetaApplyPatchToolParam(value);
-        }
-      } catch (_) {}
+      try { final value = BetaFunctionTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaFunctionTool(value); } } catch (_) {}
+      try { final value = BetaFileSearchTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaFileSearchTool(value); } } catch (_) {}
+      try { final value = BetaComputerTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaComputerTool(value); } } catch (_) {}
+      try { final value = BetaComputerUsePreviewTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaComputerUsePreviewTool(value); } } catch (_) {}
+      try { final value = BetaWebSearchTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaWebSearchTool(value); } } catch (_) {}
+      try { final value = BetaMCPTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaMCPTool(value); } } catch (_) {}
+      try { final value = BetaCodeInterpreterTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaCodeInterpreterTool(value); } } catch (_) {}
+      try { final value = BetaProgrammaticToolCallingParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaProgrammaticToolCallingParam(value); } } catch (_) {}
+      try { final value = BetaImageGenTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaImageGenTool(value); } } catch (_) {}
+      try { final value = BetaLocalShellToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaLocalShellToolParam(value); } } catch (_) {}
+      try { final value = BetaFunctionShellToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaFunctionShellToolParam(value); } } catch (_) {}
+      try { final value = BetaCustomToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaCustomToolParam(value); } } catch (_) {}
+      try { final value = BetaToolSearchOutputNamespaceToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaToolSearchOutputNamespaceToolParam(value); } } catch (_) {}
+      try { final value = BetaToolSearchToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaToolSearchToolParam(value); } } catch (_) {}
+      try { final value = BetaWebSearchPreviewTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaWebSearchPreviewTool(value); } } catch (_) {}
+      try { final value = BetaApplyPatchToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolSearchOutputToolBetaApplyPatchToolParam(value); } } catch (_) {}
     }
-    try {
-      return BetaToolSearchOutputToolBetaFunctionTool(
-          BetaFunctionTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaFileSearchTool(
-          BetaFileSearchTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaComputerTool(
-          BetaComputerTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaComputerUsePreviewTool(
-          BetaComputerUsePreviewTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaWebSearchTool(
-          BetaWebSearchTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaMCPTool(
-          BetaMCPTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaCodeInterpreterTool(
-          BetaCodeInterpreterTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaProgrammaticToolCallingParam(
-          BetaProgrammaticToolCallingParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaImageGenTool(
-          BetaImageGenTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaLocalShellToolParam(
-          BetaLocalShellToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaFunctionShellToolParam(
-          BetaFunctionShellToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaCustomToolParam(
-          BetaCustomToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaToolSearchOutputNamespaceToolParam(
-          BetaToolSearchOutputNamespaceToolParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaToolSearchToolParam(
-          BetaToolSearchToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaWebSearchPreviewTool(
-          BetaWebSearchPreviewTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolSearchOutputToolBetaApplyPatchToolParam(
-          BetaApplyPatchToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "function",
-          "file_search",
-          "computer",
-          "computer_use_preview",
-          "web_search",
-          "web_search_2025_08_26",
-          "mcp",
-          "code_interpreter",
-          "programmatic_tool_calling",
-          "image_generation",
-          "local_shell",
-          "shell",
-          "custom",
-          "namespace",
-          "tool_search",
-          "web_search_preview",
-          "web_search_preview_2025_03_11",
-          "apply_patch"
-        }.contains(json["type"])) {
-      return UnknownBetaToolSearchOutputTool(json);
-    }
+    try { return BetaToolSearchOutputToolBetaFunctionTool(BetaFunctionTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaFileSearchTool(BetaFileSearchTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaComputerTool(BetaComputerTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaComputerUsePreviewTool(BetaComputerUsePreviewTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaWebSearchTool(BetaWebSearchTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaMCPTool(BetaMCPTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaCodeInterpreterTool(BetaCodeInterpreterTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaProgrammaticToolCallingParam(BetaProgrammaticToolCallingParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaImageGenTool(BetaImageGenTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaLocalShellToolParam(BetaLocalShellToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaFunctionShellToolParam(BetaFunctionShellToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaCustomToolParam(BetaCustomToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaToolSearchOutputNamespaceToolParam(BetaToolSearchOutputNamespaceToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaToolSearchToolParam(BetaToolSearchToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaWebSearchPreviewTool(BetaWebSearchPreviewTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolSearchOutputToolBetaApplyPatchToolParam(BetaApplyPatchToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "file_search", "computer", "computer_use_preview", "web_search", "web_search_2025_08_26", "mcp", "code_interpreter", "programmatic_tool_calling", "image_generation", "local_shell", "shell", "custom", "namespace", "tool_search", "web_search_preview", "web_search_preview_2025_03_11", "apply_patch"}.contains(json["type"])) { return UnknownBetaToolSearchOutputTool(json); }
     throw FormatException("No variant matched for BetaToolSearchOutputTool");
   }
   Object? toJson();

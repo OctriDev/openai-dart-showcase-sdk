@@ -9,268 +9,158 @@ sealed class CreateEmbeddingRequestInput {
   static const String constructionSurface = 'named';
   const CreateEmbeddingRequestInput();
   factory CreateEmbeddingRequestInput.fromJson(Object? json) {
-    if (json is String) {
-      return CreateEmbeddingRequestInputString(json);
-    }
-    if (json is List) {
-      return CreateEmbeddingRequestInputListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
-    if (json is List) {
-      return CreateEmbeddingRequestInputListint(
-          json.map((e) => (e as num).toInt()).toList().cast<int>());
-    }
-    if (json is List) {
-      return CreateEmbeddingRequestInputListListInt(
-          json.map((e) => e).toList().cast<List<int>>());
-    }
+    if (json is String) { return CreateEmbeddingRequestInputString(json); }
+    if (json is List) { return CreateEmbeddingRequestInputListString(json.map((e) => e as String).toList().cast<String>()); }
+    if (json is List) { return CreateEmbeddingRequestInputListint(json.map((e) => (e as num).toInt()).toList().cast<int>()); }
+    if (json is List) { return CreateEmbeddingRequestInputListListInt(json.map((e) => e).toList().cast<List<int>>()); }
     throw FormatException("No variant matched for CreateEmbeddingRequestInput");
   }
   Object? toJson();
 }
 
-final class CreateEmbeddingRequestInputString
-    extends CreateEmbeddingRequestInput {
+final class CreateEmbeddingRequestInputString extends CreateEmbeddingRequestInput {
   final String value;
   const CreateEmbeddingRequestInputString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateEmbeddingRequestInputListString
-    extends CreateEmbeddingRequestInput {
+final class CreateEmbeddingRequestInputListString extends CreateEmbeddingRequestInput {
   final List<String> value;
   const CreateEmbeddingRequestInputListString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateEmbeddingRequestInputListint
-    extends CreateEmbeddingRequestInput {
+final class CreateEmbeddingRequestInputListint extends CreateEmbeddingRequestInput {
   final List<int> value;
   const CreateEmbeddingRequestInputListint(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateEmbeddingRequestInputListListInt
-    extends CreateEmbeddingRequestInput {
+final class CreateEmbeddingRequestInputListListInt extends CreateEmbeddingRequestInput {
   final List<List<int>> value;
   const CreateEmbeddingRequestInputListListInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Typed representation of the `CreateEmbeddingRequest` API schema.
 class CreateEmbeddingRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or array of token arrays. The input must not exceed the max input tokens for the model (8192 tokens for all embedding models), cannot be an empty string, and any array must be 2048 dimensions or less. [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken) for counting tokens. In addition to the per-input token limit, all embedding models enforce a maximum of 300,000 tokens summed across all inputs in a single request.
   final dynamic input;
-
   /// ID of the model to use. You can use the [List models](https://developers.openai.com/api/reference/resources/models/methods/list) API to see all of your available models, or see our [Model overview](https://developers.openai.com/api/docs/models) for descriptions of them.
   final String model;
-
   /// The format to return the embeddings in. Can be either `float` or [`base64`](https://pypi.org/project/pybase64/).
   final SdkOptional<CreateEmbeddingRequestEncodingFormat> encodingFormat;
-
   /// The number of dimensions the resulting output embeddings should have. Only supported in `text-embedding-3` and later models.
   final SdkOptional<int> dimensions;
-
   /// A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).
   final SdkOptional<String> user;
 
-  const CreateEmbeddingRequest(
-      {required this.input,
-      required this.model,
-      this.encodingFormat = const SdkOmitted(),
-      this.dimensions = const SdkOmitted(),
-      this.user = const SdkOmitted()});
+  const CreateEmbeddingRequest({required this.input, required this.model, this.encodingFormat = const SdkOmitted(), this.dimensions = const SdkOmitted(), this.user = const SdkOmitted()});
 
-  CreateEmbeddingRequest Function(
-      {dynamic input,
-      String model,
-      SdkOptional<CreateEmbeddingRequestEncodingFormat> encodingFormat,
-      SdkOptional<int> dimensions,
-      SdkOptional<String> user}) get copyWith => _copyWith;
+  CreateEmbeddingRequest Function({dynamic input, String model, SdkOptional<CreateEmbeddingRequestEncodingFormat> encodingFormat, SdkOptional<int> dimensions, SdkOptional<String> user}) get copyWith => _copyWith;
 
-  CreateEmbeddingRequest _copyWith(
-          {Object? input = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? encodingFormat = sdkOmittedValue,
-          Object? dimensions = sdkOmittedValue,
-          Object? user = sdkOmittedValue}) =>
-      CreateEmbeddingRequest(
-        input:
-            identical(input, sdkOmittedValue) ? this.input : input as dynamic,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        encodingFormat: identical(encodingFormat, sdkOmittedValue)
-            ? this.encodingFormat
-            : encodingFormat
-                as SdkOptional<CreateEmbeddingRequestEncodingFormat>,
-        dimensions: identical(dimensions, sdkOmittedValue)
-            ? this.dimensions
-            : dimensions as SdkOptional<int>,
-        user: identical(user, sdkOmittedValue)
-            ? this.user
-            : user as SdkOptional<String>,
-      );
+  CreateEmbeddingRequest _copyWith({Object? input = sdkOmittedValue, Object? model = sdkOmittedValue, Object? encodingFormat = sdkOmittedValue, Object? dimensions = sdkOmittedValue, Object? user = sdkOmittedValue}) => CreateEmbeddingRequest(
+    input: identical(input, sdkOmittedValue) ? this.input : input as dynamic,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    encodingFormat: identical(encodingFormat, sdkOmittedValue) ? this.encodingFormat : encodingFormat as SdkOptional<CreateEmbeddingRequestEncodingFormat>,
+    dimensions: identical(dimensions, sdkOmittedValue) ? this.dimensions : dimensions as SdkOptional<int>,
+    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String>,
+  );
 
-  factory CreateEmbeddingRequest.fromJson(Map<String, dynamic> json) =>
-      CreateEmbeddingRequest(
-        input: (json['input'])!,
-        model: (json['model'] as String?)!,
-        encodingFormat: json['encoding_format'] != null
-            ? SdkPresent((json['encoding_format'] != null
-                ? CreateEmbeddingRequestEncodingFormat.fromJson(
-                    json['encoding_format'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        dimensions: json['dimensions'] != null
-            ? SdkPresent(((json['dimensions'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        user: json['user'] != null
-            ? SdkPresent((json['user'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateEmbeddingRequest.fromJson(Map<String, dynamic> json) => CreateEmbeddingRequest(
+    input: (json['input'])!,
+    model: (json['model'] as String?)!,
+    encodingFormat: json['encoding_format'] != null ? SdkPresent((json['encoding_format'] != null ? CreateEmbeddingRequestEncodingFormat.fromJson(json['encoding_format'] as String) : null)!) : const SdkOmitted(),
+    dimensions: json['dimensions'] != null ? SdkPresent(((json['dimensions'] as num?)?.toInt())!) : const SdkOmitted(),
+    user: json['user'] != null ? SdkPresent((json['user'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'input': input,
-        'model': model,
-        ...switch (encodingFormat) {
-          SdkPresent<CreateEmbeddingRequestEncodingFormat>(
-            value: final value
-          ) =>
-            {
-              'encoding_format': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dimensions) {
-          SdkPresent<int>(value: final value) => {
-              'dimensions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (user) {
-          SdkPresent<String>(value: final value) => {
-              'user': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'input': input,
+    'model': model,
+    ...switch (encodingFormat) {
+      SdkPresent<CreateEmbeddingRequestEncodingFormat>(value: final value) => {'encoding_format': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dimensions) {
+      SdkPresent<int>(value: final value) => {'dimensions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (user) {
+      SdkPresent<String>(value: final value) => {'user': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The usage information for the request.
 class CreateEmbeddingResponseUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of tokens used by the prompt.
   final int promptTokens;
-
   /// The total number of tokens used by the request.
   final int totalTokens;
 
-  const CreateEmbeddingResponseUsage(
-      {required this.promptTokens, required this.totalTokens});
+  const CreateEmbeddingResponseUsage({required this.promptTokens, required this.totalTokens});
 
-  CreateEmbeddingResponseUsage Function({int promptTokens, int totalTokens})
-      get copyWith => _copyWith;
+  CreateEmbeddingResponseUsage Function({int promptTokens, int totalTokens}) get copyWith => _copyWith;
 
-  CreateEmbeddingResponseUsage _copyWith(
-          {Object? promptTokens = sdkOmittedValue,
-          Object? totalTokens = sdkOmittedValue}) =>
-      CreateEmbeddingResponseUsage(
-        promptTokens: identical(promptTokens, sdkOmittedValue)
-            ? this.promptTokens
-            : promptTokens as int,
-        totalTokens: identical(totalTokens, sdkOmittedValue)
-            ? this.totalTokens
-            : totalTokens as int,
-      );
+  CreateEmbeddingResponseUsage _copyWith({Object? promptTokens = sdkOmittedValue, Object? totalTokens = sdkOmittedValue}) => CreateEmbeddingResponseUsage(
+    promptTokens: identical(promptTokens, sdkOmittedValue) ? this.promptTokens : promptTokens as int,
+    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
+  );
 
-  factory CreateEmbeddingResponseUsage.fromJson(Map<String, dynamic> json) =>
-      CreateEmbeddingResponseUsage(
-        promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
-        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-      );
+  factory CreateEmbeddingResponseUsage.fromJson(Map<String, dynamic> json) => CreateEmbeddingResponseUsage(
+    promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
+    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'prompt_tokens': promptTokens,
-        'total_tokens': totalTokens,
-      };
+    'prompt_tokens': promptTokens,
+    'total_tokens': totalTokens,
+  };
 }
 
 /// Typed representation of the `CreateEmbeddingResponse` API schema.
 class CreateEmbeddingResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The list of embeddings generated by the model.
   final List<Embedding> data;
-
   /// The name of the model used to generate the embedding.
   final String model;
-
   /// The object type, which is always "list".
   final CreateEmbeddingResponseObject object;
-
   /// The usage information for the request.
   final CreateEmbeddingResponseUsage usage;
 
-  const CreateEmbeddingResponse(
-      {required this.data,
-      required this.model,
-      required this.object,
-      required this.usage});
+  const CreateEmbeddingResponse({required this.data, required this.model, required this.object, required this.usage});
 
-  CreateEmbeddingResponse Function(
-      {List<Embedding> data,
-      String model,
-      CreateEmbeddingResponseObject object,
-      CreateEmbeddingResponseUsage usage}) get copyWith => _copyWith;
+  CreateEmbeddingResponse Function({List<Embedding> data, String model, CreateEmbeddingResponseObject object, CreateEmbeddingResponseUsage usage}) get copyWith => _copyWith;
 
-  CreateEmbeddingResponse _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? usage = sdkOmittedValue}) =>
-      CreateEmbeddingResponse(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<Embedding>,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as CreateEmbeddingResponseObject,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as CreateEmbeddingResponseUsage,
-      );
+  CreateEmbeddingResponse _copyWith({Object? data = sdkOmittedValue, Object? model = sdkOmittedValue, Object? object = sdkOmittedValue, Object? usage = sdkOmittedValue}) => CreateEmbeddingResponse(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<Embedding>,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as CreateEmbeddingResponseObject,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as CreateEmbeddingResponseUsage,
+  );
 
-  factory CreateEmbeddingResponse.fromJson(Map<String, dynamic> json) =>
-      CreateEmbeddingResponse(
-        data: ((json['data'] as List?)
-            ?.map((e) => Embedding.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        model: (json['model'] as String?)!,
-        object: (json['object'] != null
-            ? CreateEmbeddingResponseObject.fromJson(json['object'] as String)
-            : null)!,
-        usage: (json['usage'] != null
-            ? CreateEmbeddingResponseUsage.fromJson(
-                json['usage'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory CreateEmbeddingResponse.fromJson(Map<String, dynamic> json) => CreateEmbeddingResponse(
+    data: ((json['data'] as List?)?.map((e) => Embedding.fromJson(e as Map<String, dynamic>)).toList())!,
+    model: (json['model'] as String?)!,
+    object: (json['object'] != null ? CreateEmbeddingResponseObject.fromJson(json['object'] as String) : null)!,
+    usage: (json['usage'] != null ? CreateEmbeddingResponseUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'model': model,
-        'object': object.toJson(),
-        'usage': usage.toJson(),
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'model': model,
+    'object': object.toJson(),
+    'usage': usage.toJson(),
+  };
 }
 
 sealed class EmbeddingEmbedding {
@@ -278,13 +168,8 @@ sealed class EmbeddingEmbedding {
   static const String constructionSurface = 'named';
   const EmbeddingEmbedding();
   factory EmbeddingEmbedding.fromJson(Object? json) {
-    if (json is String) {
-      return EmbeddingEmbeddingString(json);
-    }
-    if (json is List) {
-      return EmbeddingEmbeddingListdouble(
-          json.map((e) => (e as num).toDouble()).toList().cast<double>());
-    }
+    if (json is String) { return EmbeddingEmbeddingString(json); }
+    if (json is List) { return EmbeddingEmbeddingListdouble(json.map((e) => (e as num).toDouble()).toList().cast<double>()); }
     throw FormatException("No variant matched for EmbeddingEmbedding");
   }
   Object? toJson();
@@ -293,62 +178,45 @@ sealed class EmbeddingEmbedding {
 final class EmbeddingEmbeddingListdouble extends EmbeddingEmbedding {
   final List<double> value;
   const EmbeddingEmbeddingListdouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class EmbeddingEmbeddingString extends EmbeddingEmbedding {
   final String value;
   const EmbeddingEmbeddingString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Represents an embedding vector returned by embedding endpoint.
 class Embedding {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The index of the embedding in the list of embeddings.
   final int index;
-
   /// The embedding vector, returned as a list of floats when `encoding_format` is `float` (the default), or as a base64-encoded string when `encoding_format` is `base64`. The length of the vector depends on the model as listed in the [embedding guide](https://developers.openai.com/api/docs/guides/embeddings).
   final dynamic embedding;
-
   /// The object type, which is always "embedding".
   final EmbeddingObject object;
 
-  const Embedding(
-      {required this.index, required this.embedding, required this.object});
+  const Embedding({required this.index, required this.embedding, required this.object});
 
-  Embedding Function({int index, dynamic embedding, EmbeddingObject object})
-      get copyWith => _copyWith;
+  Embedding Function({int index, dynamic embedding, EmbeddingObject object}) get copyWith => _copyWith;
 
-  Embedding _copyWith(
-          {Object? index = sdkOmittedValue,
-          Object? embedding = sdkOmittedValue,
-          Object? object = sdkOmittedValue}) =>
-      Embedding(
-        index: identical(index, sdkOmittedValue) ? this.index : index as int,
-        embedding: identical(embedding, sdkOmittedValue)
-            ? this.embedding
-            : embedding as dynamic,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as EmbeddingObject,
-      );
+  Embedding _copyWith({Object? index = sdkOmittedValue, Object? embedding = sdkOmittedValue, Object? object = sdkOmittedValue}) => Embedding(
+    index: identical(index, sdkOmittedValue) ? this.index : index as int,
+    embedding: identical(embedding, sdkOmittedValue) ? this.embedding : embedding as dynamic,
+    object: identical(object, sdkOmittedValue) ? this.object : object as EmbeddingObject,
+  );
 
   factory Embedding.fromJson(Map<String, dynamic> json) => Embedding(
-        index: ((json['index'] as num?)?.toInt())!,
-        embedding: (json['embedding'])!,
-        object: (json['object'] != null
-            ? EmbeddingObject.fromJson(json['object'] as String)
-            : null)!,
-      );
+    index: ((json['index'] as num?)?.toInt())!,
+    embedding: (json['embedding'])!,
+    object: (json['object'] != null ? EmbeddingObject.fromJson(json['object'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'index': index,
-        'embedding': embedding,
-        'object': object.toJson(),
-      };
+    'index': index,
+    'embedding': embedding,
+    'object': object.toJson(),
+  };
 }

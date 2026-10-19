@@ -10,18 +10,14 @@ enum BetaContainerFileCitationBodyType {
 
   static BetaContainerFileCitationBodyType fromJson(String value) {
     switch (value) {
-      case 'container_file_citation':
-        return BetaContainerFileCitationBodyType.containerFileCitation;
-      default:
-        throw ArgumentError(
-            'Unknown BetaContainerFileCitationBodyType: $value');
+      case 'container_file_citation': return BetaContainerFileCitationBodyType.containerFileCitation;
+      default: throw ArgumentError('Unknown BetaContainerFileCitationBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaContainerFileCitationBodyType.containerFileCitation:
-        return 'container_file_citation';
+      case BetaContainerFileCitationBodyType.containerFileCitation: return 'container_file_citation';
     }
   }
 
@@ -35,18 +31,14 @@ enum BetaContainerFileCitationParamType {
 
   static BetaContainerFileCitationParamType fromJson(String value) {
     switch (value) {
-      case 'container_file_citation':
-        return BetaContainerFileCitationParamType.containerFileCitation;
-      default:
-        throw ArgumentError(
-            'Unknown BetaContainerFileCitationParamType: $value');
+      case 'container_file_citation': return BetaContainerFileCitationParamType.containerFileCitation;
+      default: throw ArgumentError('Unknown BetaContainerFileCitationParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaContainerFileCitationParamType.containerFileCitation:
-        return 'container_file_citation';
+      case BetaContainerFileCitationParamType.containerFileCitation: return 'container_file_citation';
     }
   }
 
@@ -60,18 +52,14 @@ enum BetaContainerNetworkPolicyAllowlistParamType {
 
   static BetaContainerNetworkPolicyAllowlistParamType fromJson(String value) {
     switch (value) {
-      case 'allowlist':
-        return BetaContainerNetworkPolicyAllowlistParamType.allowlist;
-      default:
-        throw ArgumentError(
-            'Unknown BetaContainerNetworkPolicyAllowlistParamType: $value');
+      case 'allowlist': return BetaContainerNetworkPolicyAllowlistParamType.allowlist;
+      default: throw ArgumentError('Unknown BetaContainerNetworkPolicyAllowlistParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaContainerNetworkPolicyAllowlistParamType.allowlist:
-        return 'allowlist';
+      case BetaContainerNetworkPolicyAllowlistParamType.allowlist: return 'allowlist';
     }
   }
 
@@ -85,18 +73,14 @@ enum BetaContainerNetworkPolicyDisabledParamType {
 
   static BetaContainerNetworkPolicyDisabledParamType fromJson(String value) {
     switch (value) {
-      case 'disabled':
-        return BetaContainerNetworkPolicyDisabledParamType.disabled;
-      default:
-        throw ArgumentError(
-            'Unknown BetaContainerNetworkPolicyDisabledParamType: $value');
+      case 'disabled': return BetaContainerNetworkPolicyDisabledParamType.disabled;
+      default: throw ArgumentError('Unknown BetaContainerNetworkPolicyDisabledParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaContainerNetworkPolicyDisabledParamType.disabled:
-        return 'disabled';
+      case BetaContainerNetworkPolicyDisabledParamType.disabled: return 'disabled';
     }
   }
 
@@ -110,17 +94,14 @@ enum BetaContainerReferenceParamType {
 
   static BetaContainerReferenceParamType fromJson(String value) {
     switch (value) {
-      case 'container_reference':
-        return BetaContainerReferenceParamType.containerReference;
-      default:
-        throw ArgumentError('Unknown BetaContainerReferenceParamType: $value');
+      case 'container_reference': return BetaContainerReferenceParamType.containerReference;
+      default: throw ArgumentError('Unknown BetaContainerReferenceParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaContainerReferenceParamType.containerReference:
-        return 'container_reference';
+      case BetaContainerReferenceParamType.containerReference: return 'container_reference';
     }
   }
 
@@ -134,18 +115,14 @@ enum BetaContainerReferenceResourceType {
 
   static BetaContainerReferenceResourceType fromJson(String value) {
     switch (value) {
-      case 'container_reference':
-        return BetaContainerReferenceResourceType.containerReference;
-      default:
-        throw ArgumentError(
-            'Unknown BetaContainerReferenceResourceType: $value');
+      case 'container_reference': return BetaContainerReferenceResourceType.containerReference;
+      default: throw ArgumentError('Unknown BetaContainerReferenceResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaContainerReferenceResourceType.containerReference:
-        return 'container_reference';
+      case BetaContainerReferenceResourceType.containerReference: return 'container_reference';
     }
   }
 
@@ -155,29 +132,24 @@ enum BetaContainerReferenceResourceType {
 
 /// The truncation strategy to use for the model response. - `auto`: If the input to this Response exceeds the model's context window size, the model will truncate the response to fit the context window by dropping items from the beginning of the conversation. - `disabled` (default): If the input size will exceed the context window size for a model, the request will fail with a 400 error.
 final class BetaCreateResponseVariant2TruncationVariant0 {
+
   final String value;
 
   const BetaCreateResponseVariant2TruncationVariant0._(this.value);
 
-  factory BetaCreateResponseVariant2TruncationVariant0.fromJson(String value) =>
-      BetaCreateResponseVariant2TruncationVariant0._(value);
+  factory BetaCreateResponseVariant2TruncationVariant0.fromJson(String value) => BetaCreateResponseVariant2TruncationVariant0._(value);
 
   static const auto = BetaCreateResponseVariant2TruncationVariant0._('auto');
-  static const disabled =
-      BetaCreateResponseVariant2TruncationVariant0._('disabled');
+  static const disabled = BetaCreateResponseVariant2TruncationVariant0._('disabled');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaCreateResponseVariant2TruncationVariant0 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is BetaCreateResponseVariant2TruncationVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Grammar format. Always `grammar`.
@@ -186,17 +158,14 @@ enum BetaCustomGrammarFormatParamType {
 
   static BetaCustomGrammarFormatParamType fromJson(String value) {
     switch (value) {
-      case 'grammar':
-        return BetaCustomGrammarFormatParamType.grammar;
-      default:
-        throw ArgumentError('Unknown BetaCustomGrammarFormatParamType: $value');
+      case 'grammar': return BetaCustomGrammarFormatParamType.grammar;
+      default: throw ArgumentError('Unknown BetaCustomGrammarFormatParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCustomGrammarFormatParamType.grammar:
-        return 'grammar';
+      case BetaCustomGrammarFormatParamType.grammar: return 'grammar';
     }
   }
 
@@ -210,17 +179,14 @@ enum BetaCustomTextFormatParamType {
 
   static BetaCustomTextFormatParamType fromJson(String value) {
     switch (value) {
-      case 'text':
-        return BetaCustomTextFormatParamType.text;
-      default:
-        throw ArgumentError('Unknown BetaCustomTextFormatParamType: $value');
+      case 'text': return BetaCustomTextFormatParamType.text;
+      default: throw ArgumentError('Unknown BetaCustomTextFormatParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCustomTextFormatParamType.text:
-        return 'text';
+      case BetaCustomTextFormatParamType.text: return 'text';
     }
   }
 
@@ -234,17 +200,14 @@ enum BetaCustomToolCallType {
 
   static BetaCustomToolCallType fromJson(String value) {
     switch (value) {
-      case 'custom_tool_call':
-        return BetaCustomToolCallType.customToolCall;
-      default:
-        throw ArgumentError('Unknown BetaCustomToolCallType: $value');
+      case 'custom_tool_call': return BetaCustomToolCallType.customToolCall;
+      default: throw ArgumentError('Unknown BetaCustomToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCustomToolCallType.customToolCall:
-        return 'custom_tool_call';
+      case BetaCustomToolCallType.customToolCall: return 'custom_tool_call';
     }
   }
 
@@ -258,17 +221,14 @@ enum BetaCustomToolCallOutputType {
 
   static BetaCustomToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'custom_tool_call_output':
-        return BetaCustomToolCallOutputType.customToolCallOutput;
-      default:
-        throw ArgumentError('Unknown BetaCustomToolCallOutputType: $value');
+      case 'custom_tool_call_output': return BetaCustomToolCallOutputType.customToolCallOutput;
+      default: throw ArgumentError('Unknown BetaCustomToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCustomToolCallOutputType.customToolCallOutput:
-        return 'custom_tool_call_output';
+      case BetaCustomToolCallOutputType.customToolCallOutput: return 'custom_tool_call_output';
     }
   }
 
@@ -282,17 +242,14 @@ enum BetaCustomToolParamType {
 
   static BetaCustomToolParamType fromJson(String value) {
     switch (value) {
-      case 'custom':
-        return BetaCustomToolParamType.custom;
-      default:
-        throw ArgumentError('Unknown BetaCustomToolParamType: $value');
+      case 'custom': return BetaCustomToolParamType.custom;
+      default: throw ArgumentError('Unknown BetaCustomToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCustomToolParamType.custom:
-        return 'custom';
+      case BetaCustomToolParamType.custom: return 'custom';
     }
   }
 
@@ -306,17 +263,14 @@ enum BetaDirectToolCallCallerType {
 
   static BetaDirectToolCallCallerType fromJson(String value) {
     switch (value) {
-      case 'direct':
-        return BetaDirectToolCallCallerType.direct;
-      default:
-        throw ArgumentError('Unknown BetaDirectToolCallCallerType: $value');
+      case 'direct': return BetaDirectToolCallCallerType.direct;
+      default: throw ArgumentError('Unknown BetaDirectToolCallCallerType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaDirectToolCallCallerType.direct:
-        return 'direct';
+      case BetaDirectToolCallCallerType.direct: return 'direct';
     }
   }
 

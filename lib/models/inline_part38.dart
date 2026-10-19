@@ -8,22 +8,16 @@ part of 'inline.dart';
 enum CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type {
   template;
 
-  static CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type fromJson(
-      String value) {
+  static CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type fromJson(String value) {
     switch (value) {
-      case 'template':
-        return CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type
-            .template;
-      default:
-        throw ArgumentError(
-            'Unknown CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type: $value');
+      case 'template': return CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type.template;
+      default: throw ArgumentError('Unknown CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type.template:
-        return 'template';
+      case CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type.template: return 'template';
     }
   }
 
@@ -35,23 +29,16 @@ enum CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type {
 enum CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type {
   itemReference;
 
-  static CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type fromJson(
-      String value) {
+  static CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type fromJson(String value) {
     switch (value) {
-      case 'item_reference':
-        return CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type
-            .itemReference;
-      default:
-        throw ArgumentError(
-            'Unknown CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type: $value');
+      case 'item_reference': return CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type.itemReference;
+      default: throw ArgumentError('Unknown CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type
-            .itemReference:
-        return 'item_reference';
+      case CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type.itemReference: return 'item_reference';
     }
   }
 
@@ -65,18 +52,14 @@ enum CreateEvalCustomDataSourceConfigType {
 
   static CreateEvalCustomDataSourceConfigType fromJson(String value) {
     switch (value) {
-      case 'custom':
-        return CreateEvalCustomDataSourceConfigType.custom;
-      default:
-        throw ArgumentError(
-            'Unknown CreateEvalCustomDataSourceConfigType: $value');
+      case 'custom': return CreateEvalCustomDataSourceConfigType.custom;
+      default: throw ArgumentError('Unknown CreateEvalCustomDataSourceConfigType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEvalCustomDataSourceConfigType.custom:
-        return 'custom';
+      case CreateEvalCustomDataSourceConfigType.custom: return 'custom';
     }
   }
 
@@ -90,17 +73,14 @@ enum CreateEvalJsonlRunDataSourceType {
 
   static CreateEvalJsonlRunDataSourceType fromJson(String value) {
     switch (value) {
-      case 'jsonl':
-        return CreateEvalJsonlRunDataSourceType.jsonl;
-      default:
-        throw ArgumentError('Unknown CreateEvalJsonlRunDataSourceType: $value');
+      case 'jsonl': return CreateEvalJsonlRunDataSourceType.jsonl;
+      default: throw ArgumentError('Unknown CreateEvalJsonlRunDataSourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEvalJsonlRunDataSourceType.jsonl:
-        return 'jsonl';
+      case CreateEvalJsonlRunDataSourceType.jsonl: return 'jsonl';
     }
   }
 
@@ -114,17 +94,14 @@ enum CreateEvalLabelModelGraderType {
 
   static CreateEvalLabelModelGraderType fromJson(String value) {
     switch (value) {
-      case 'label_model':
-        return CreateEvalLabelModelGraderType.labelModel;
-      default:
-        throw ArgumentError('Unknown CreateEvalLabelModelGraderType: $value');
+      case 'label_model': return CreateEvalLabelModelGraderType.labelModel;
+      default: throw ArgumentError('Unknown CreateEvalLabelModelGraderType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEvalLabelModelGraderType.labelModel:
-        return 'label_model';
+      case CreateEvalLabelModelGraderType.labelModel: return 'label_model';
     }
   }
 
@@ -138,18 +115,14 @@ enum CreateEvalLogsDataSourceConfigType {
 
   static CreateEvalLogsDataSourceConfigType fromJson(String value) {
     switch (value) {
-      case 'logs':
-        return CreateEvalLogsDataSourceConfigType.logs;
-      default:
-        throw ArgumentError(
-            'Unknown CreateEvalLogsDataSourceConfigType: $value');
+      case 'logs': return CreateEvalLogsDataSourceConfigType.logs;
+      default: throw ArgumentError('Unknown CreateEvalLogsDataSourceConfigType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEvalLogsDataSourceConfigType.logs:
-        return 'logs';
+      case CreateEvalLogsDataSourceConfigType.logs: return 'logs';
     }
   }
 
@@ -163,18 +136,14 @@ enum CreateEvalResponsesRunDataSourceType {
 
   static CreateEvalResponsesRunDataSourceType fromJson(String value) {
     switch (value) {
-      case 'responses':
-        return CreateEvalResponsesRunDataSourceType.responses;
-      default:
-        throw ArgumentError(
-            'Unknown CreateEvalResponsesRunDataSourceType: $value');
+      case 'responses': return CreateEvalResponsesRunDataSourceType.responses;
+      default: throw ArgumentError('Unknown CreateEvalResponsesRunDataSourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEvalResponsesRunDataSourceType.responses:
-        return 'responses';
+      case CreateEvalResponsesRunDataSourceType.responses: return 'responses';
     }
   }
 
@@ -186,22 +155,16 @@ enum CreateEvalResponsesRunDataSourceType {
 enum CreateEvalResponsesRunDataSourceInputMessagesVariant0Type {
   template;
 
-  static CreateEvalResponsesRunDataSourceInputMessagesVariant0Type fromJson(
-      String value) {
+  static CreateEvalResponsesRunDataSourceInputMessagesVariant0Type fromJson(String value) {
     switch (value) {
-      case 'template':
-        return CreateEvalResponsesRunDataSourceInputMessagesVariant0Type
-            .template;
-      default:
-        throw ArgumentError(
-            'Unknown CreateEvalResponsesRunDataSourceInputMessagesVariant0Type: $value');
+      case 'template': return CreateEvalResponsesRunDataSourceInputMessagesVariant0Type.template;
+      default: throw ArgumentError('Unknown CreateEvalResponsesRunDataSourceInputMessagesVariant0Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEvalResponsesRunDataSourceInputMessagesVariant0Type.template:
-        return 'template';
+      case CreateEvalResponsesRunDataSourceInputMessagesVariant0Type.template: return 'template';
     }
   }
 
@@ -213,23 +176,16 @@ enum CreateEvalResponsesRunDataSourceInputMessagesVariant0Type {
 enum CreateEvalResponsesRunDataSourceInputMessagesVariant1Type {
   itemReference;
 
-  static CreateEvalResponsesRunDataSourceInputMessagesVariant1Type fromJson(
-      String value) {
+  static CreateEvalResponsesRunDataSourceInputMessagesVariant1Type fromJson(String value) {
     switch (value) {
-      case 'item_reference':
-        return CreateEvalResponsesRunDataSourceInputMessagesVariant1Type
-            .itemReference;
-      default:
-        throw ArgumentError(
-            'Unknown CreateEvalResponsesRunDataSourceInputMessagesVariant1Type: $value');
+      case 'item_reference': return CreateEvalResponsesRunDataSourceInputMessagesVariant1Type.itemReference;
+      default: throw ArgumentError('Unknown CreateEvalResponsesRunDataSourceInputMessagesVariant1Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEvalResponsesRunDataSourceInputMessagesVariant1Type
-            .itemReference:
-        return 'item_reference';
+      case CreateEvalResponsesRunDataSourceInputMessagesVariant1Type.itemReference: return 'item_reference';
     }
   }
 
@@ -241,22 +197,16 @@ enum CreateEvalResponsesRunDataSourceInputMessagesVariant1Type {
 enum CreateEvalStoredCompletionsDataSourceConfigType {
   storedCompletions;
 
-  static CreateEvalStoredCompletionsDataSourceConfigType fromJson(
-      String value) {
+  static CreateEvalStoredCompletionsDataSourceConfigType fromJson(String value) {
     switch (value) {
-      case 'stored_completions':
-        return CreateEvalStoredCompletionsDataSourceConfigType
-            .storedCompletions;
-      default:
-        throw ArgumentError(
-            'Unknown CreateEvalStoredCompletionsDataSourceConfigType: $value');
+      case 'stored_completions': return CreateEvalStoredCompletionsDataSourceConfigType.storedCompletions;
+      default: throw ArgumentError('Unknown CreateEvalStoredCompletionsDataSourceConfigType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateEvalStoredCompletionsDataSourceConfigType.storedCompletions:
-        return 'stored_completions';
+      case CreateEvalStoredCompletionsDataSourceConfigType.storedCompletions: return 'stored_completions';
     }
   }
 
@@ -266,12 +216,12 @@ enum CreateEvalStoredCompletionsDataSourceConfigType {
 
 /// The intended purpose of the uploaded file. One of: - `assistants`: Used in the Assistants API - `batch`: Used in the Batch API - `fine-tune`: Used for fine-tuning - `vision`: Images used for vision fine-tuning - `user_data`: Flexible file type for any purpose - `evals`: Used for eval data sets
 final class CreateFileRequestPurpose {
+
   final String value;
 
   const CreateFileRequestPurpose._(this.value);
 
-  factory CreateFileRequestPurpose.fromJson(String value) =>
-      CreateFileRequestPurpose._(value);
+  factory CreateFileRequestPurpose.fromJson(String value) => CreateFileRequestPurpose._(value);
 
   static const assistants = CreateFileRequestPurpose._('assistants');
   static const batch = CreateFileRequestPurpose._('batch');
@@ -282,72 +232,52 @@ final class CreateFileRequestPurpose {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateFileRequestPurpose && other.value == value;
+  @override bool operator ==(Object other) => other is CreateFileRequestPurpose && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `batch_size` wire field.
 final class CreateFineTuningJobRequestHyperparametersBatchSizeVariant0 {
+
   final String value;
 
-  const CreateFineTuningJobRequestHyperparametersBatchSizeVariant0._(
-      this.value);
+  const CreateFineTuningJobRequestHyperparametersBatchSizeVariant0._(this.value);
 
-  factory CreateFineTuningJobRequestHyperparametersBatchSizeVariant0.fromJson(
-          String value) =>
-      CreateFineTuningJobRequestHyperparametersBatchSizeVariant0._(value);
+  factory CreateFineTuningJobRequestHyperparametersBatchSizeVariant0.fromJson(String value) => CreateFineTuningJobRequestHyperparametersBatchSizeVariant0._(value);
 
-  static const auto =
-      CreateFineTuningJobRequestHyperparametersBatchSizeVariant0._('auto');
+  static const auto = CreateFineTuningJobRequestHyperparametersBatchSizeVariant0._('auto');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateFineTuningJobRequestHyperparametersBatchSizeVariant0 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateFineTuningJobRequestHyperparametersBatchSizeVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `learning_rate_multiplier` wire field.
 final class CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0 {
+
   final String value;
 
-  const CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0._(
-      this.value);
+  const CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0._(this.value);
 
-  factory CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0.fromJson(
-          String value) =>
-      CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0._(
-          value);
+  factory CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0.fromJson(String value) => CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0._(value);
 
-  static const auto =
-      CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0._(
-          'auto');
+  static const auto = CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0._('auto');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

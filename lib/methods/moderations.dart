@@ -26,20 +26,8 @@ Future<CreateModerationResponse> createModeration(ClientConfig config,
           body: {'input': input, 'model': SdkUtils.unwrapOptional(model)},
           decoder: SdkResponseDecoder.json,
           operationId: 'createModeration',
-          fromJsonRaw: (value) =>
-              CreateModerationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateModerationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

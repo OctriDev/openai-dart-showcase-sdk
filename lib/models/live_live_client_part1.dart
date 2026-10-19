@@ -8,65 +8,48 @@ part of 'live_live_client.dart';
 class LiveClientConfigParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Client and server event permissions for the WebRTC frontend data channel.
   final LiveDataChannelConfigParam dataChannel;
 
   const LiveClientConfigParam({required this.dataChannel});
 
-  LiveClientConfigParam Function({LiveDataChannelConfigParam dataChannel})
-      get copyWith => _copyWith;
+  LiveClientConfigParam Function({LiveDataChannelConfigParam dataChannel}) get copyWith => _copyWith;
 
-  LiveClientConfigParam _copyWith({Object? dataChannel = sdkOmittedValue}) =>
-      LiveClientConfigParam(
-        dataChannel: identical(dataChannel, sdkOmittedValue)
-            ? this.dataChannel
-            : dataChannel as LiveDataChannelConfigParam,
-      );
+  LiveClientConfigParam _copyWith({Object? dataChannel = sdkOmittedValue}) => LiveClientConfigParam(
+    dataChannel: identical(dataChannel, sdkOmittedValue) ? this.dataChannel : dataChannel as LiveDataChannelConfigParam,
+  );
 
-  factory LiveClientConfigParam.fromJson(Map<String, dynamic> json) =>
-      LiveClientConfigParam(
-        dataChannel: (json['data_channel'] != null
-            ? LiveDataChannelConfigParam.fromJson(
-                json['data_channel'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory LiveClientConfigParam.fromJson(Map<String, dynamic> json) => LiveClientConfigParam(
+    dataChannel: (json['data_channel'] != null ? LiveDataChannelConfigParam.fromJson(json['data_channel'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data_channel': dataChannel.toJson(),
-      };
+    'data_channel': dataChannel.toJson(),
+  };
 }
 
 /// Delegate tasks to your application. The Live session emits delegation events that your backend handles.
 class LiveClientDelegationParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The delegation owner. Always `client` for tasks handled by your application.
   final LiveClientDelegationParamType type_;
 
   const LiveClientDelegationParam({required this.type_});
 
-  LiveClientDelegationParam Function({LiveClientDelegationParamType type_})
-      get copyWith => _copyWith;
+  LiveClientDelegationParam Function({LiveClientDelegationParamType type_}) get copyWith => _copyWith;
 
-  LiveClientDelegationParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      LiveClientDelegationParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveClientDelegationParamType,
-      );
+  LiveClientDelegationParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveClientDelegationParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveClientDelegationParamType,
+  );
 
-  factory LiveClientDelegationParam.fromJson(Map<String, dynamic> json) =>
-      LiveClientDelegationParam(
-        type_: (json['type'] != null
-            ? LiveClientDelegationParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory LiveClientDelegationParam.fromJson(Map<String, dynamic> json) => LiveClientDelegationParam(
+    type_: (json['type'] != null ? LiveClientDelegationParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 sealed class LiveClientEvent {
@@ -75,179 +58,38 @@ sealed class LiveClientEvent {
   const LiveClientEvent();
   factory LiveClientEvent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = LiveSessionStartEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveSessionStartEvent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveSessionUpdateParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveSessionUpdateParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveInputAudioAppendEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveInputAudioAppendEvent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveInputAudioMuteParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveInputAudioMuteParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveInputAudioUnmuteParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveInputAudioUnmuteParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveOutputAudioFixturePlayParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveOutputAudioFixturePlayParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveInstructionsAppendParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveInstructionsAppendParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveThinkingAppendParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveThinkingAppendParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveCommentaryAppendParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveCommentaryAppendParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveDecisionCreateParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveDecisionCreateParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveDecisionItemCreateParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveDecisionItemCreateParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveDecisionItemDeleteParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveDecisionItemDeleteParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveResponseItemCreateParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveResponseItemCreateParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveResponseCreateParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveResponseCreateParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveSessionCloseParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveClientEventLiveSessionCloseParam(value);
-        }
-      } catch (_) {}
+      try { final value = LiveSessionStartEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveSessionStartEvent(value); } } catch (_) {}
+      try { final value = LiveSessionUpdateParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveSessionUpdateParam(value); } } catch (_) {}
+      try { final value = LiveInputAudioAppendEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveInputAudioAppendEvent(value); } } catch (_) {}
+      try { final value = LiveInputAudioMuteParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveInputAudioMuteParam(value); } } catch (_) {}
+      try { final value = LiveInputAudioUnmuteParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveInputAudioUnmuteParam(value); } } catch (_) {}
+      try { final value = LiveOutputAudioFixturePlayParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveOutputAudioFixturePlayParam(value); } } catch (_) {}
+      try { final value = LiveInstructionsAppendParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveInstructionsAppendParam(value); } } catch (_) {}
+      try { final value = LiveThinkingAppendParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveThinkingAppendParam(value); } } catch (_) {}
+      try { final value = LiveCommentaryAppendParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveCommentaryAppendParam(value); } } catch (_) {}
+      try { final value = LiveDecisionCreateParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveDecisionCreateParam(value); } } catch (_) {}
+      try { final value = LiveDecisionItemCreateParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveDecisionItemCreateParam(value); } } catch (_) {}
+      try { final value = LiveDecisionItemDeleteParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveDecisionItemDeleteParam(value); } } catch (_) {}
+      try { final value = LiveResponseItemCreateParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveResponseItemCreateParam(value); } } catch (_) {}
+      try { final value = LiveResponseCreateParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveResponseCreateParam(value); } } catch (_) {}
+      try { final value = LiveSessionCloseParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveClientEventLiveSessionCloseParam(value); } } catch (_) {}
     }
-    try {
-      return LiveClientEventLiveSessionStartEvent(
-          LiveSessionStartEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveSessionUpdateParam(
-          LiveSessionUpdateParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveInputAudioAppendEvent(
-          LiveInputAudioAppendEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveInputAudioMuteParam(
-          LiveInputAudioMuteParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveInputAudioUnmuteParam(
-          LiveInputAudioUnmuteParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveOutputAudioFixturePlayParam(
-          LiveOutputAudioFixturePlayParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveInstructionsAppendParam(
-          LiveInstructionsAppendParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveThinkingAppendParam(
-          LiveThinkingAppendParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveCommentaryAppendParam(
-          LiveCommentaryAppendParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveDecisionCreateParam(
-          LiveDecisionCreateParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveDecisionItemCreateParam(
-          LiveDecisionItemCreateParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveDecisionItemDeleteParam(
-          LiveDecisionItemDeleteParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveResponseItemCreateParam(
-          LiveResponseItemCreateParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveResponseCreateParam(
-          LiveResponseCreateParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveClientEventLiveSessionCloseParam(
-          LiveSessionCloseParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "session.start",
-          "session.update",
-          "session.input_audio.append",
-          "session.input_audio.mute",
-          "session.input_audio.unmute",
-          "session.output_audio.fixture.play",
-          "session.instructions.append",
-          "session.thinking.append",
-          "session.commentary.append",
-          "decision.create",
-          "decision.item.create",
-          "decision.item.delete",
-          "response.item.create",
-          "response.create",
-          "session.close"
-        }.contains(json["type"])) {
-      return UnknownLiveClientEvent(json);
-    }
+    try { return LiveClientEventLiveSessionStartEvent(LiveSessionStartEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveSessionUpdateParam(LiveSessionUpdateParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveInputAudioAppendEvent(LiveInputAudioAppendEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveInputAudioMuteParam(LiveInputAudioMuteParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveInputAudioUnmuteParam(LiveInputAudioUnmuteParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveOutputAudioFixturePlayParam(LiveOutputAudioFixturePlayParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveInstructionsAppendParam(LiveInstructionsAppendParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveThinkingAppendParam(LiveThinkingAppendParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveCommentaryAppendParam(LiveCommentaryAppendParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveDecisionCreateParam(LiveDecisionCreateParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveDecisionItemCreateParam(LiveDecisionItemCreateParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveDecisionItemDeleteParam(LiveDecisionItemDeleteParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveResponseItemCreateParam(LiveResponseItemCreateParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveResponseCreateParam(LiveResponseCreateParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveClientEventLiveSessionCloseParam(LiveSessionCloseParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"session.start", "session.update", "session.input_audio.append", "session.input_audio.mute", "session.input_audio.unmute", "session.output_audio.fixture.play", "session.instructions.append", "session.thinking.append", "session.commentary.append", "decision.create", "decision.item.create", "decision.item.delete", "response.item.create", "response.create", "session.close"}.contains(json["type"])) { return UnknownLiveClientEvent(json); }
     throw FormatException("No variant matched for LiveClientEvent");
   }
   Object? toJson();
@@ -256,113 +98,96 @@ sealed class LiveClientEvent {
 final class LiveClientEventLiveSessionStartEvent extends LiveClientEvent {
   final LiveSessionStartEvent value;
   const LiveClientEventLiveSessionStartEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveSessionUpdateParam extends LiveClientEvent {
   final LiveSessionUpdateParam value;
   const LiveClientEventLiveSessionUpdateParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveInputAudioAppendEvent extends LiveClientEvent {
   final LiveInputAudioAppendEvent value;
   const LiveClientEventLiveInputAudioAppendEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveInputAudioMuteParam extends LiveClientEvent {
   final LiveInputAudioMuteParam value;
   const LiveClientEventLiveInputAudioMuteParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveInputAudioUnmuteParam extends LiveClientEvent {
   final LiveInputAudioUnmuteParam value;
   const LiveClientEventLiveInputAudioUnmuteParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveClientEventLiveOutputAudioFixturePlayParam
-    extends LiveClientEvent {
+final class LiveClientEventLiveOutputAudioFixturePlayParam extends LiveClientEvent {
   final LiveOutputAudioFixturePlayParam value;
   const LiveClientEventLiveOutputAudioFixturePlayParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveInstructionsAppendParam extends LiveClientEvent {
   final LiveInstructionsAppendParam value;
   const LiveClientEventLiveInstructionsAppendParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveThinkingAppendParam extends LiveClientEvent {
   final LiveThinkingAppendParam value;
   const LiveClientEventLiveThinkingAppendParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveCommentaryAppendParam extends LiveClientEvent {
   final LiveCommentaryAppendParam value;
   const LiveClientEventLiveCommentaryAppendParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveDecisionCreateParam extends LiveClientEvent {
   final LiveDecisionCreateParam value;
   const LiveClientEventLiveDecisionCreateParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveDecisionItemCreateParam extends LiveClientEvent {
   final LiveDecisionItemCreateParam value;
   const LiveClientEventLiveDecisionItemCreateParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveDecisionItemDeleteParam extends LiveClientEvent {
   final LiveDecisionItemDeleteParam value;
   const LiveClientEventLiveDecisionItemDeleteParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveResponseItemCreateParam extends LiveClientEvent {
   final LiveResponseItemCreateParam value;
   const LiveClientEventLiveResponseItemCreateParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveResponseCreateParam extends LiveClientEvent {
   final LiveResponseCreateParam value;
   const LiveClientEventLiveResponseCreateParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LiveClientEventLiveSessionCloseParam extends LiveClientEvent {
   final LiveSessionCloseParam value;
   const LiveClientEventLiveSessionCloseParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [LiveClientEvent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownLiveClientEvent extends LiveClientEvent {
   final Map<String, dynamic> raw;
   const UnknownLiveClientEvent(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

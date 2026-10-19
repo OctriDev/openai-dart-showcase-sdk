@@ -6,12 +6,12 @@ part of 'agents_reasoning.dart';
 // agents_reasoning domain models
 /// The amount of reasoning effort the model should use.
 final class ReasoningEffortParam {
+
   final String value;
 
   const ReasoningEffortParam._(this.value);
 
-  factory ReasoningEffortParam.fromJson(String value) =>
-      ReasoningEffortParam._(value);
+  factory ReasoningEffortParam.fromJson(String value) => ReasoningEffortParam._(value);
 
   static const none = ReasoningEffortParam._('none');
   static const minimal = ReasoningEffortParam._('minimal');
@@ -23,25 +23,22 @@ final class ReasoningEffortParam {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ReasoningEffortParam && other.value == value;
+  @override bool operator ==(Object other) => other is ReasoningEffortParam && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The amount of reasoning effort used by an agent.
 final class ReasoningEffortResource {
+
   final String value;
 
   const ReasoningEffortResource._(this.value);
 
-  factory ReasoningEffortResource.fromJson(String value) =>
-      ReasoningEffortResource._(value);
+  factory ReasoningEffortResource.fromJson(String value) => ReasoningEffortResource._(value);
 
   static const none = ReasoningEffortResource._('none');
   static const minimal = ReasoningEffortResource._('minimal');
@@ -53,218 +50,130 @@ final class ReasoningEffortResource {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ReasoningEffortResource && other.value == value;
+  @override bool operator ==(Object other) => other is ReasoningEffortResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A reasoning item produced by the agent.
 class ReasoningItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The item type. Always `reasoning`.
   final ReasoningItemResourceType type_;
-
   /// The ID of the reasoning item.
   final String id;
-
   /// The ID of the turn that contains this item.
   final String turnId;
-
   /// The reasoning summaries produced by the agent.
   final List<SummaryTextResource> summary;
-
   /// The status of the reasoning item.
   final OutputItemStatusResource? status;
 
-  const ReasoningItemResource(
-      {required this.type_,
-      required this.id,
-      required this.turnId,
-      required this.summary,
-      required this.status});
+  const ReasoningItemResource({required this.type_, required this.id, required this.turnId, required this.summary, required this.status});
 
-  ReasoningItemResource Function(
-      {ReasoningItemResourceType type_,
-      String id,
-      String turnId,
-      List<SummaryTextResource> summary,
-      OutputItemStatusResource? status}) get copyWith => _copyWith;
+  ReasoningItemResource Function({ReasoningItemResourceType type_, String id, String turnId, List<SummaryTextResource> summary, OutputItemStatusResource? status}) get copyWith => _copyWith;
 
-  ReasoningItemResource _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? turnId = sdkOmittedValue,
-          Object? summary = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      ReasoningItemResource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ReasoningItemResourceType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        turnId:
-            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-        summary: identical(summary, sdkOmittedValue)
-            ? this.summary
-            : summary as List<SummaryTextResource>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as OutputItemStatusResource?,
-      );
+  ReasoningItemResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? summary = sdkOmittedValue, Object? status = sdkOmittedValue}) => ReasoningItemResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ReasoningItemResourceType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+    summary: identical(summary, sdkOmittedValue) ? this.summary : summary as List<SummaryTextResource>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as OutputItemStatusResource?,
+  );
 
-  factory ReasoningItemResource.fromJson(Map<String, dynamic> json) =>
-      ReasoningItemResource(
-        type_: (json['type'] != null
-            ? ReasoningItemResourceType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        turnId: (json['turn_id'] as String?)!,
-        summary: ((json['summary'] as List?)
-            ?.map(
-                (e) => SummaryTextResource.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        status: json.containsKey('status')
-            ? json['status'] != null
-                ? OutputItemStatusResource.fromJson(json['status'] as String)
-                : null
-            : throw ArgumentError.value(
-                null, 'status', 'Required property is missing'),
-      );
+  factory ReasoningItemResource.fromJson(Map<String, dynamic> json) => ReasoningItemResource(
+    type_: (json['type'] != null ? ReasoningItemResourceType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    turnId: (json['turn_id'] as String?)!,
+    summary: ((json['summary'] as List?)?.map((e) => SummaryTextResource.fromJson(e as Map<String, dynamic>)).toList())!,
+    status: json.containsKey('status') ? json['status'] != null ? OutputItemStatusResource.fromJson(json['status'] as String) : null : throw ArgumentError.value(null, 'status', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'turn_id': turnId,
-        'summary': summary.map((item) => item.toJson()).toList(),
-        'status': status?.toJson(),
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'turn_id': turnId,
+    'summary': summary.map((item) => item.toJson()).toList(),
+    'status': status?.toJson(),
+  };
 }
 
 /// Reasoning configuration for the agent.
 class ReasoningParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The amount of reasoning effort the model should use. Omission lets the model select it.
   final SdkOptional<ReasoningEffortParam?> effort;
-
   /// Controls whether the response includes a reasoning summary.
   final SdkOptional<ReasoningSummaryParam?> summary;
 
-  const ReasoningParam(
-      {this.effort = const SdkOmitted(), this.summary = const SdkOmitted()});
+  const ReasoningParam({this.effort = const SdkOmitted(), this.summary = const SdkOmitted()});
 
-  ReasoningParam Function(
-      {SdkOptional<ReasoningEffortParam?> effort,
-      SdkOptional<ReasoningSummaryParam?> summary}) get copyWith => _copyWith;
+  ReasoningParam Function({SdkOptional<ReasoningEffortParam?> effort, SdkOptional<ReasoningSummaryParam?> summary}) get copyWith => _copyWith;
 
-  ReasoningParam _copyWith(
-          {Object? effort = sdkOmittedValue,
-          Object? summary = sdkOmittedValue}) =>
-      ReasoningParam(
-        effort: identical(effort, sdkOmittedValue)
-            ? this.effort
-            : effort as SdkOptional<ReasoningEffortParam?>,
-        summary: identical(summary, sdkOmittedValue)
-            ? this.summary
-            : summary as SdkOptional<ReasoningSummaryParam?>,
-      );
+  ReasoningParam _copyWith({Object? effort = sdkOmittedValue, Object? summary = sdkOmittedValue}) => ReasoningParam(
+    effort: identical(effort, sdkOmittedValue) ? this.effort : effort as SdkOptional<ReasoningEffortParam?>,
+    summary: identical(summary, sdkOmittedValue) ? this.summary : summary as SdkOptional<ReasoningSummaryParam?>,
+  );
 
   factory ReasoningParam.fromJson(Map<String, dynamic> json) => ReasoningParam(
-        effort: json.containsKey('effort')
-            ? SdkPresent(json['effort'] != null
-                ? ReasoningEffortParam.fromJson(json['effort'] as String)
-                : null)
-            : const SdkOmitted(),
-        summary: json.containsKey('summary')
-            ? SdkPresent(json['summary'] != null
-                ? ReasoningSummaryParam.fromJson(json['summary'] as String)
-                : null)
-            : const SdkOmitted(),
-      );
+    effort: json.containsKey('effort') ? SdkPresent(json['effort'] != null ? ReasoningEffortParam.fromJson(json['effort'] as String) : null) : const SdkOmitted(),
+    summary: json.containsKey('summary') ? SdkPresent(json['summary'] != null ? ReasoningSummaryParam.fromJson(json['summary'] as String) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (effort) {
-          SdkPresent<ReasoningEffortParam?>(value: final value) => {
-              'effort': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (summary) {
-          SdkPresent<ReasoningSummaryParam?>(value: final value) => {
-              'summary': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (effort) {
+      SdkPresent<ReasoningEffortParam?>(value: final value) => {'effort': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (summary) {
+      SdkPresent<ReasoningSummaryParam?>(value: final value) => {'summary': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The reasoning configuration used by an agent.
 class ReasoningResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The requested reasoning effort, or `null` when the model selects its own default.
   final ReasoningEffortResource? effort;
-
   /// The requested reasoning summary format, or `null` when summaries are disabled.
   final ReasoningSummaryResource? summary;
 
   const ReasoningResource({required this.effort, required this.summary});
 
-  ReasoningResource Function(
-      {ReasoningEffortResource? effort,
-      ReasoningSummaryResource? summary}) get copyWith => _copyWith;
+  ReasoningResource Function({ReasoningEffortResource? effort, ReasoningSummaryResource? summary}) get copyWith => _copyWith;
 
-  ReasoningResource _copyWith(
-          {Object? effort = sdkOmittedValue,
-          Object? summary = sdkOmittedValue}) =>
-      ReasoningResource(
-        effort: identical(effort, sdkOmittedValue)
-            ? this.effort
-            : effort as ReasoningEffortResource?,
-        summary: identical(summary, sdkOmittedValue)
-            ? this.summary
-            : summary as ReasoningSummaryResource?,
-      );
+  ReasoningResource _copyWith({Object? effort = sdkOmittedValue, Object? summary = sdkOmittedValue}) => ReasoningResource(
+    effort: identical(effort, sdkOmittedValue) ? this.effort : effort as ReasoningEffortResource?,
+    summary: identical(summary, sdkOmittedValue) ? this.summary : summary as ReasoningSummaryResource?,
+  );
 
-  factory ReasoningResource.fromJson(Map<String, dynamic> json) =>
-      ReasoningResource(
-        effort: json.containsKey('effort')
-            ? json['effort'] != null
-                ? ReasoningEffortResource.fromJson(json['effort'] as String)
-                : null
-            : throw ArgumentError.value(
-                null, 'effort', 'Required property is missing'),
-        summary: json.containsKey('summary')
-            ? json['summary'] != null
-                ? ReasoningSummaryResource.fromJson(json['summary'] as String)
-                : null
-            : throw ArgumentError.value(
-                null, 'summary', 'Required property is missing'),
-      );
+  factory ReasoningResource.fromJson(Map<String, dynamic> json) => ReasoningResource(
+    effort: json.containsKey('effort') ? json['effort'] != null ? ReasoningEffortResource.fromJson(json['effort'] as String) : null : throw ArgumentError.value(null, 'effort', 'Required property is missing'),
+    summary: json.containsKey('summary') ? json['summary'] != null ? ReasoningSummaryResource.fromJson(json['summary'] as String) : null : throw ArgumentError.value(null, 'summary', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'effort': effort?.toJson(),
-        'summary': summary?.toJson(),
-      };
+    'effort': effort?.toJson(),
+    'summary': summary?.toJson(),
+  };
 }
 
 /// The reasoning summary format requested from the model.
 final class ReasoningSummaryParam {
+
   final String value;
 
   const ReasoningSummaryParam._(this.value);
 
-  factory ReasoningSummaryParam.fromJson(String value) =>
-      ReasoningSummaryParam._(value);
+  factory ReasoningSummaryParam.fromJson(String value) => ReasoningSummaryParam._(value);
 
   static const concise = ReasoningSummaryParam._('concise');
   static const detailed = ReasoningSummaryParam._('detailed');
@@ -272,25 +181,22 @@ final class ReasoningSummaryParam {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ReasoningSummaryParam && other.value == value;
+  @override bool operator ==(Object other) => other is ReasoningSummaryParam && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The reasoning summary format requested from an agent.
 final class ReasoningSummaryResource {
+
   final String value;
 
   const ReasoningSummaryResource._(this.value);
 
-  factory ReasoningSummaryResource.fromJson(String value) =>
-      ReasoningSummaryResource._(value);
+  factory ReasoningSummaryResource.fromJson(String value) => ReasoningSummaryResource._(value);
 
   static const concise = ReasoningSummaryResource._('concise');
   static const detailed = ReasoningSummaryResource._('detailed');
@@ -298,13 +204,10 @@ final class ReasoningSummaryResource {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ReasoningSummaryResource && other.value == value;
+  @override bool operator ==(Object other) => other is ReasoningSummaryResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

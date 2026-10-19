@@ -8,302 +8,174 @@ part of 'assistants_list.dart';
 class ListAssistantsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `object` wire field.
   final String object;
-
   /// Required array value serialized in the `data` wire field.
   final List<AssistantObject> data;
-
   /// Required `string` value serialized in the `first_id` wire field.
   final String firstId;
-
   /// Required `string` value serialized in the `last_id` wire field.
   final String lastId;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ListAssistantsResponse(
-      {required this.object,
-      required this.data,
-      required this.firstId,
-      required this.lastId,
-      required this.hasMore});
+  const ListAssistantsResponse({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
 
-  ListAssistantsResponse Function(
-      {String object,
-      List<AssistantObject> data,
-      String firstId,
-      String lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  ListAssistantsResponse Function({String object, List<AssistantObject> data, String firstId, String lastId, bool hasMore}) get copyWith => _copyWith;
 
-  ListAssistantsResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      ListAssistantsResponse(
-        object:
-            identical(object, sdkOmittedValue) ? this.object : object as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<AssistantObject>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as String,
-        lastId:
-            identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  ListAssistantsResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ListAssistantsResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<AssistantObject>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory ListAssistantsResponse.fromJson(Map<String, dynamic> json) =>
-      ListAssistantsResponse(
-        object: (json['object'] as String?)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => AssistantObject.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: (json['first_id'] as String?)!,
-        lastId: (json['last_id'] as String?)!,
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory ListAssistantsResponse.fromJson(Map<String, dynamic> json) => ListAssistantsResponse(
+    object: (json['object'] as String?)!,
+    data: ((json['data'] as List?)?.map((e) => AssistantObject.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: (json['first_id'] as String?)!,
+    lastId: (json['last_id'] as String?)!,
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object,
-        'data': data.map((item) => item.toJson()).toList(),
-        'first_id': firstId,
-        'last_id': lastId,
-        'has_more': hasMore,
-      };
+    'object': object,
+    'data': data.map((item) => item.toJson()).toList(),
+    'first_id': firstId,
+    'last_id': lastId,
+    'has_more': hasMore,
+  };
 }
 
 /// Typed representation of the `ListMessagesResponse` API schema.
 class ListMessagesResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `object` wire field.
   final String object;
-
   /// Required array value serialized in the `data` wire field.
   final List<MessageObject> data;
-
   /// Required `string` value serialized in the `first_id` wire field.
   final String firstId;
-
   /// Required `string` value serialized in the `last_id` wire field.
   final String lastId;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ListMessagesResponse(
-      {required this.object,
-      required this.data,
-      required this.firstId,
-      required this.lastId,
-      required this.hasMore});
+  const ListMessagesResponse({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
 
-  ListMessagesResponse Function(
-      {String object,
-      List<MessageObject> data,
-      String firstId,
-      String lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  ListMessagesResponse Function({String object, List<MessageObject> data, String firstId, String lastId, bool hasMore}) get copyWith => _copyWith;
 
-  ListMessagesResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      ListMessagesResponse(
-        object:
-            identical(object, sdkOmittedValue) ? this.object : object as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<MessageObject>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as String,
-        lastId:
-            identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  ListMessagesResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ListMessagesResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<MessageObject>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory ListMessagesResponse.fromJson(Map<String, dynamic> json) =>
-      ListMessagesResponse(
-        object: (json['object'] as String?)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => MessageObject.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: (json['first_id'] as String?)!,
-        lastId: (json['last_id'] as String?)!,
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory ListMessagesResponse.fromJson(Map<String, dynamic> json) => ListMessagesResponse(
+    object: (json['object'] as String?)!,
+    data: ((json['data'] as List?)?.map((e) => MessageObject.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: (json['first_id'] as String?)!,
+    lastId: (json['last_id'] as String?)!,
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object,
-        'data': data.map((item) => item.toJson()).toList(),
-        'first_id': firstId,
-        'last_id': lastId,
-        'has_more': hasMore,
-      };
+    'object': object,
+    'data': data.map((item) => item.toJson()).toList(),
+    'first_id': firstId,
+    'last_id': lastId,
+    'has_more': hasMore,
+  };
 }
 
 /// Typed representation of the `ListRunsResponse` API schema.
 class ListRunsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `object` wire field.
   final String object;
-
   /// Required array value serialized in the `data` wire field.
   final List<RunObject> data;
-
   /// Required `string` value serialized in the `first_id` wire field.
   final String firstId;
-
   /// Required `string` value serialized in the `last_id` wire field.
   final String lastId;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ListRunsResponse(
-      {required this.object,
-      required this.data,
-      required this.firstId,
-      required this.lastId,
-      required this.hasMore});
+  const ListRunsResponse({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
 
-  ListRunsResponse Function(
-      {String object,
-      List<RunObject> data,
-      String firstId,
-      String lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  ListRunsResponse Function({String object, List<RunObject> data, String firstId, String lastId, bool hasMore}) get copyWith => _copyWith;
 
-  ListRunsResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      ListRunsResponse(
-        object:
-            identical(object, sdkOmittedValue) ? this.object : object as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<RunObject>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as String,
-        lastId:
-            identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  ListRunsResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ListRunsResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<RunObject>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory ListRunsResponse.fromJson(Map<String, dynamic> json) =>
-      ListRunsResponse(
-        object: (json['object'] as String?)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => RunObject.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: (json['first_id'] as String?)!,
-        lastId: (json['last_id'] as String?)!,
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory ListRunsResponse.fromJson(Map<String, dynamic> json) => ListRunsResponse(
+    object: (json['object'] as String?)!,
+    data: ((json['data'] as List?)?.map((e) => RunObject.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: (json['first_id'] as String?)!,
+    lastId: (json['last_id'] as String?)!,
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object,
-        'data': data.map((item) => item.toJson()).toList(),
-        'first_id': firstId,
-        'last_id': lastId,
-        'has_more': hasMore,
-      };
+    'object': object,
+    'data': data.map((item) => item.toJson()).toList(),
+    'first_id': firstId,
+    'last_id': lastId,
+    'has_more': hasMore,
+  };
 }
 
 /// Typed representation of the `ListRunStepsResponse` API schema.
 class ListRunStepsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `object` wire field.
   final String object;
-
   /// Required array value serialized in the `data` wire field.
   final List<RunStepObject> data;
-
   /// Required `string` value serialized in the `first_id` wire field.
   final String firstId;
-
   /// Required `string` value serialized in the `last_id` wire field.
   final String lastId;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ListRunStepsResponse(
-      {required this.object,
-      required this.data,
-      required this.firstId,
-      required this.lastId,
-      required this.hasMore});
+  const ListRunStepsResponse({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
 
-  ListRunStepsResponse Function(
-      {String object,
-      List<RunStepObject> data,
-      String firstId,
-      String lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  ListRunStepsResponse Function({String object, List<RunStepObject> data, String firstId, String lastId, bool hasMore}) get copyWith => _copyWith;
 
-  ListRunStepsResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      ListRunStepsResponse(
-        object:
-            identical(object, sdkOmittedValue) ? this.object : object as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<RunStepObject>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as String,
-        lastId:
-            identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  ListRunStepsResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ListRunStepsResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<RunStepObject>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory ListRunStepsResponse.fromJson(Map<String, dynamic> json) =>
-      ListRunStepsResponse(
-        object: (json['object'] as String?)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => RunStepObject.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: (json['first_id'] as String?)!,
-        lastId: (json['last_id'] as String?)!,
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory ListRunStepsResponse.fromJson(Map<String, dynamic> json) => ListRunStepsResponse(
+    object: (json['object'] as String?)!,
+    data: ((json['data'] as List?)?.map((e) => RunStepObject.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: (json['first_id'] as String?)!,
+    lastId: (json['last_id'] as String?)!,
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object,
-        'data': data.map((item) => item.toJson()).toList(),
-        'first_id': firstId,
-        'last_id': lastId,
-        'has_more': hasMore,
-      };
+    'object': object,
+    'data': data.map((item) => item.toJson()).toList(),
+    'first_id': firstId,
+    'last_id': lastId,
+    'has_more': hasMore,
+  };
 }

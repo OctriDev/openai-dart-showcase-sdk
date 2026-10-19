@@ -8,108 +8,66 @@ part of 'webhook_safety_warning_issued.dart';
 class WebhookSafetyWarningIssuedData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The safety case ID to pass to `GET /v1/safety/cases/{id}`.
   final String id;
 
   const WebhookSafetyWarningIssuedData({required this.id});
 
-  WebhookSafetyWarningIssuedData Function({String id}) get copyWith =>
-      _copyWith;
+  WebhookSafetyWarningIssuedData Function({String id}) get copyWith => _copyWith;
 
-  WebhookSafetyWarningIssuedData _copyWith({Object? id = sdkOmittedValue}) =>
-      WebhookSafetyWarningIssuedData(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  WebhookSafetyWarningIssuedData _copyWith({Object? id = sdkOmittedValue}) => WebhookSafetyWarningIssuedData(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory WebhookSafetyWarningIssuedData.fromJson(Map<String, dynamic> json) =>
-      WebhookSafetyWarningIssuedData(
-        id: (json['id'] as String?)!,
-      );
+  factory WebhookSafetyWarningIssuedData.fromJson(Map<String, dynamic> json) => WebhookSafetyWarningIssuedData(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }
 
 /// Sent when a warning is issued for a safety identifier in your organization.
 class WebhookSafetyWarningIssued {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the webhook event.
   final String id;
-
   /// Always `event`.
   final WebhookSafetyWarningIssuedObject object;
-
   /// The Unix timestamp in seconds when the event was created.
   final int createdAt;
-
   /// Always `safety.warning_issued`.
   final WebhookSafetyWarningIssuedType type_;
-
   /// Required object value serialized in the `data` wire field.
   final WebhookSafetyWarningIssuedData data;
 
-  const WebhookSafetyWarningIssued(
-      {required this.id,
-      required this.object,
-      required this.createdAt,
-      required this.type_,
-      required this.data});
+  const WebhookSafetyWarningIssued({required this.id, required this.object, required this.createdAt, required this.type_, required this.data});
 
-  WebhookSafetyWarningIssued Function(
-      {String id,
-      WebhookSafetyWarningIssuedObject object,
-      int createdAt,
-      WebhookSafetyWarningIssuedType type_,
-      WebhookSafetyWarningIssuedData data}) get copyWith => _copyWith;
+  WebhookSafetyWarningIssued Function({String id, WebhookSafetyWarningIssuedObject object, int createdAt, WebhookSafetyWarningIssuedType type_, WebhookSafetyWarningIssuedData data}) get copyWith => _copyWith;
 
-  WebhookSafetyWarningIssued _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      WebhookSafetyWarningIssued(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as WebhookSafetyWarningIssuedObject,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebhookSafetyWarningIssuedType,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as WebhookSafetyWarningIssuedData,
-      );
+  WebhookSafetyWarningIssued _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => WebhookSafetyWarningIssued(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as WebhookSafetyWarningIssuedObject,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookSafetyWarningIssuedType,
+    data: identical(data, sdkOmittedValue) ? this.data : data as WebhookSafetyWarningIssuedData,
+  );
 
-  factory WebhookSafetyWarningIssued.fromJson(Map<String, dynamic> json) =>
-      WebhookSafetyWarningIssued(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? WebhookSafetyWarningIssuedObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        type_: (json['type'] != null
-            ? WebhookSafetyWarningIssuedType.fromJson(json['type'] as String)
-            : null)!,
-        data: (json['data'] != null
-            ? WebhookSafetyWarningIssuedData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory WebhookSafetyWarningIssued.fromJson(Map<String, dynamic> json) => WebhookSafetyWarningIssued(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? WebhookSafetyWarningIssuedObject.fromJson(json['object'] as String) : null)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    type_: (json['type'] != null ? WebhookSafetyWarningIssuedType.fromJson(json['type'] as String) : null)!,
+    data: (json['data'] != null ? WebhookSafetyWarningIssuedData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'created_at': createdAt,
-        'type': type_.toJson(),
-        'data': data.toJson(),
-      };
+    'id': id,
+    'object': object.toJson(),
+    'created_at': createdAt,
+    'type': type_.toJson(),
+    'data': data.toJson(),
+  };
 }

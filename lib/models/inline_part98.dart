@@ -8,23 +8,16 @@ part of 'inline.dart';
 enum RealtimeServerEventResponseFunctionCallArgumentsDeltaType {
   responseFunctionCallArgumentsDelta;
 
-  static RealtimeServerEventResponseFunctionCallArgumentsDeltaType fromJson(
-      String value) {
+  static RealtimeServerEventResponseFunctionCallArgumentsDeltaType fromJson(String value) {
     switch (value) {
-      case 'response.function_call_arguments.delta':
-        return RealtimeServerEventResponseFunctionCallArgumentsDeltaType
-            .responseFunctionCallArgumentsDelta;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventResponseFunctionCallArgumentsDeltaType: $value');
+      case 'response.function_call_arguments.delta': return RealtimeServerEventResponseFunctionCallArgumentsDeltaType.responseFunctionCallArgumentsDelta;
+      default: throw ArgumentError('Unknown RealtimeServerEventResponseFunctionCallArgumentsDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseFunctionCallArgumentsDeltaType
-            .responseFunctionCallArgumentsDelta:
-        return 'response.function_call_arguments.delta';
+      case RealtimeServerEventResponseFunctionCallArgumentsDeltaType.responseFunctionCallArgumentsDelta: return 'response.function_call_arguments.delta';
     }
   }
 
@@ -36,23 +29,16 @@ enum RealtimeServerEventResponseFunctionCallArgumentsDeltaType {
 enum RealtimeServerEventResponseFunctionCallArgumentsDoneType {
   responseFunctionCallArgumentsDone;
 
-  static RealtimeServerEventResponseFunctionCallArgumentsDoneType fromJson(
-      String value) {
+  static RealtimeServerEventResponseFunctionCallArgumentsDoneType fromJson(String value) {
     switch (value) {
-      case 'response.function_call_arguments.done':
-        return RealtimeServerEventResponseFunctionCallArgumentsDoneType
-            .responseFunctionCallArgumentsDone;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventResponseFunctionCallArgumentsDoneType: $value');
+      case 'response.function_call_arguments.done': return RealtimeServerEventResponseFunctionCallArgumentsDoneType.responseFunctionCallArgumentsDone;
+      default: throw ArgumentError('Unknown RealtimeServerEventResponseFunctionCallArgumentsDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseFunctionCallArgumentsDoneType
-            .responseFunctionCallArgumentsDone:
-        return 'response.function_call_arguments.done';
+      case RealtimeServerEventResponseFunctionCallArgumentsDoneType.responseFunctionCallArgumentsDone: return 'response.function_call_arguments.done';
     }
   }
 
@@ -64,23 +50,16 @@ enum RealtimeServerEventResponseFunctionCallArgumentsDoneType {
 enum RealtimeServerEventResponseMCPCallArgumentsDeltaType {
   responseMcpCallArgumentsDelta;
 
-  static RealtimeServerEventResponseMCPCallArgumentsDeltaType fromJson(
-      String value) {
+  static RealtimeServerEventResponseMCPCallArgumentsDeltaType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call_arguments.delta':
-        return RealtimeServerEventResponseMCPCallArgumentsDeltaType
-            .responseMcpCallArgumentsDelta;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventResponseMCPCallArgumentsDeltaType: $value');
+      case 'response.mcp_call_arguments.delta': return RealtimeServerEventResponseMCPCallArgumentsDeltaType.responseMcpCallArgumentsDelta;
+      default: throw ArgumentError('Unknown RealtimeServerEventResponseMCPCallArgumentsDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseMCPCallArgumentsDeltaType
-            .responseMcpCallArgumentsDelta:
-        return 'response.mcp_call_arguments.delta';
+      case RealtimeServerEventResponseMCPCallArgumentsDeltaType.responseMcpCallArgumentsDelta: return 'response.mcp_call_arguments.delta';
     }
   }
 
@@ -92,23 +71,16 @@ enum RealtimeServerEventResponseMCPCallArgumentsDeltaType {
 enum RealtimeServerEventResponseMCPCallArgumentsDoneType {
   responseMcpCallArgumentsDone;
 
-  static RealtimeServerEventResponseMCPCallArgumentsDoneType fromJson(
-      String value) {
+  static RealtimeServerEventResponseMCPCallArgumentsDoneType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call_arguments.done':
-        return RealtimeServerEventResponseMCPCallArgumentsDoneType
-            .responseMcpCallArgumentsDone;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventResponseMCPCallArgumentsDoneType: $value');
+      case 'response.mcp_call_arguments.done': return RealtimeServerEventResponseMCPCallArgumentsDoneType.responseMcpCallArgumentsDone;
+      default: throw ArgumentError('Unknown RealtimeServerEventResponseMCPCallArgumentsDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseMCPCallArgumentsDoneType
-            .responseMcpCallArgumentsDone:
-        return 'response.mcp_call_arguments.done';
+      case RealtimeServerEventResponseMCPCallArgumentsDoneType.responseMcpCallArgumentsDone: return 'response.mcp_call_arguments.done';
     }
   }
 
@@ -120,23 +92,16 @@ enum RealtimeServerEventResponseMCPCallArgumentsDoneType {
 enum RealtimeServerEventResponseMCPCallCompletedType {
   responseMcpCallCompleted;
 
-  static RealtimeServerEventResponseMCPCallCompletedType fromJson(
-      String value) {
+  static RealtimeServerEventResponseMCPCallCompletedType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call.completed':
-        return RealtimeServerEventResponseMCPCallCompletedType
-            .responseMcpCallCompleted;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventResponseMCPCallCompletedType: $value');
+      case 'response.mcp_call.completed': return RealtimeServerEventResponseMCPCallCompletedType.responseMcpCallCompleted;
+      default: throw ArgumentError('Unknown RealtimeServerEventResponseMCPCallCompletedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseMCPCallCompletedType
-            .responseMcpCallCompleted:
-        return 'response.mcp_call.completed';
+      case RealtimeServerEventResponseMCPCallCompletedType.responseMcpCallCompleted: return 'response.mcp_call.completed';
     }
   }
 
@@ -150,19 +115,14 @@ enum RealtimeServerEventResponseMCPCallFailedType {
 
   static RealtimeServerEventResponseMCPCallFailedType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call.failed':
-        return RealtimeServerEventResponseMCPCallFailedType
-            .responseMcpCallFailed;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventResponseMCPCallFailedType: $value');
+      case 'response.mcp_call.failed': return RealtimeServerEventResponseMCPCallFailedType.responseMcpCallFailed;
+      default: throw ArgumentError('Unknown RealtimeServerEventResponseMCPCallFailedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseMCPCallFailedType.responseMcpCallFailed:
-        return 'response.mcp_call.failed';
+      case RealtimeServerEventResponseMCPCallFailedType.responseMcpCallFailed: return 'response.mcp_call.failed';
     }
   }
 
@@ -174,23 +134,16 @@ enum RealtimeServerEventResponseMCPCallFailedType {
 enum RealtimeServerEventResponseMCPCallInProgressType {
   responseMcpCallInProgress;
 
-  static RealtimeServerEventResponseMCPCallInProgressType fromJson(
-      String value) {
+  static RealtimeServerEventResponseMCPCallInProgressType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call.in_progress':
-        return RealtimeServerEventResponseMCPCallInProgressType
-            .responseMcpCallInProgress;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventResponseMCPCallInProgressType: $value');
+      case 'response.mcp_call.in_progress': return RealtimeServerEventResponseMCPCallInProgressType.responseMcpCallInProgress;
+      default: throw ArgumentError('Unknown RealtimeServerEventResponseMCPCallInProgressType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseMCPCallInProgressType
-            .responseMcpCallInProgress:
-        return 'response.mcp_call.in_progress';
+      case RealtimeServerEventResponseMCPCallInProgressType.responseMcpCallInProgress: return 'response.mcp_call.in_progress';
     }
   }
 
@@ -204,20 +157,14 @@ enum RealtimeServerEventResponseOutputItemAddedType {
 
   static RealtimeServerEventResponseOutputItemAddedType fromJson(String value) {
     switch (value) {
-      case 'response.output_item.added':
-        return RealtimeServerEventResponseOutputItemAddedType
-            .responseOutputItemAdded;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventResponseOutputItemAddedType: $value');
+      case 'response.output_item.added': return RealtimeServerEventResponseOutputItemAddedType.responseOutputItemAdded;
+      default: throw ArgumentError('Unknown RealtimeServerEventResponseOutputItemAddedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseOutputItemAddedType
-            .responseOutputItemAdded:
-        return 'response.output_item.added';
+      case RealtimeServerEventResponseOutputItemAddedType.responseOutputItemAdded: return 'response.output_item.added';
     }
   }
 
@@ -231,19 +178,14 @@ enum RealtimeServerEventResponseOutputItemDoneType {
 
   static RealtimeServerEventResponseOutputItemDoneType fromJson(String value) {
     switch (value) {
-      case 'response.output_item.done':
-        return RealtimeServerEventResponseOutputItemDoneType
-            .responseOutputItemDone;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventResponseOutputItemDoneType: $value');
+      case 'response.output_item.done': return RealtimeServerEventResponseOutputItemDoneType.responseOutputItemDone;
+      default: throw ArgumentError('Unknown RealtimeServerEventResponseOutputItemDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseOutputItemDoneType.responseOutputItemDone:
-        return 'response.output_item.done';
+      case RealtimeServerEventResponseOutputItemDoneType.responseOutputItemDone: return 'response.output_item.done';
     }
   }
 
@@ -257,18 +199,14 @@ enum RealtimeServerEventResponseTextDeltaType {
 
   static RealtimeServerEventResponseTextDeltaType fromJson(String value) {
     switch (value) {
-      case 'response.output_text.delta':
-        return RealtimeServerEventResponseTextDeltaType.responseOutputTextDelta;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventResponseTextDeltaType: $value');
+      case 'response.output_text.delta': return RealtimeServerEventResponseTextDeltaType.responseOutputTextDelta;
+      default: throw ArgumentError('Unknown RealtimeServerEventResponseTextDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseTextDeltaType.responseOutputTextDelta:
-        return 'response.output_text.delta';
+      case RealtimeServerEventResponseTextDeltaType.responseOutputTextDelta: return 'response.output_text.delta';
     }
   }
 
@@ -282,18 +220,14 @@ enum RealtimeServerEventResponseTextDoneType {
 
   static RealtimeServerEventResponseTextDoneType fromJson(String value) {
     switch (value) {
-      case 'response.output_text.done':
-        return RealtimeServerEventResponseTextDoneType.responseOutputTextDone;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventResponseTextDoneType: $value');
+      case 'response.output_text.done': return RealtimeServerEventResponseTextDoneType.responseOutputTextDone;
+      default: throw ArgumentError('Unknown RealtimeServerEventResponseTextDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseTextDoneType.responseOutputTextDone:
-        return 'response.output_text.done';
+      case RealtimeServerEventResponseTextDoneType.responseOutputTextDone: return 'response.output_text.done';
     }
   }
 
@@ -307,18 +241,14 @@ enum RealtimeServerEventSessionCreatedType {
 
   static RealtimeServerEventSessionCreatedType fromJson(String value) {
     switch (value) {
-      case 'session.created':
-        return RealtimeServerEventSessionCreatedType.sessionCreated;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventSessionCreatedType: $value');
+      case 'session.created': return RealtimeServerEventSessionCreatedType.sessionCreated;
+      default: throw ArgumentError('Unknown RealtimeServerEventSessionCreatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventSessionCreatedType.sessionCreated:
-        return 'session.created';
+      case RealtimeServerEventSessionCreatedType.sessionCreated: return 'session.created';
     }
   }
 
@@ -332,18 +262,14 @@ enum RealtimeServerEventSessionUpdatedType {
 
   static RealtimeServerEventSessionUpdatedType fromJson(String value) {
     switch (value) {
-      case 'session.updated':
-        return RealtimeServerEventSessionUpdatedType.sessionUpdated;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeServerEventSessionUpdatedType: $value');
+      case 'session.updated': return RealtimeServerEventSessionUpdatedType.sessionUpdated;
+      default: throw ArgumentError('Unknown RealtimeServerEventSessionUpdatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventSessionUpdatedType.sessionUpdated:
-        return 'session.updated';
+      case RealtimeServerEventSessionUpdatedType.sessionUpdated: return 'session.updated';
     }
   }
 

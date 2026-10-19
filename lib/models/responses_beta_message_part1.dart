@@ -8,121 +8,60 @@ part of 'responses_beta_message.dart';
 class BetaMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag> agent;
-
   /// The type of the message. Always set to `message`.
   final BetaMessageType type_;
-
   /// The unique ID of the message.
   final String id;
-
   /// The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final BetaMessageStatus status;
-
   /// The role of the message. One of `unknown`, `user`, `assistant`, `system`, `critic`, `discriminator`, `developer`, or `tool`.
   final BetaMessageRole role;
-
   /// The content of the message
   final List<BetaMessageContentItem> content;
-
   /// Optional API value serialized in the `phase` wire field.
   final SdkOptional<BetaMessagePhase2?> phase;
 
-  const BetaMessage(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.id,
-      required this.status,
-      required this.role,
-      required this.content,
-      this.phase = const SdkOmitted()});
+  const BetaMessage({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.status, required this.role, required this.content, this.phase = const SdkOmitted()});
 
-  BetaMessage Function(
-      {SdkOptional<BetaAgentTag> agent,
-      BetaMessageType type_,
-      String id,
-      BetaMessageStatus status,
-      BetaMessageRole role,
-      List<BetaMessageContentItem> content,
-      SdkOptional<BetaMessagePhase2?> phase}) get copyWith => _copyWith;
+  BetaMessage Function({SdkOptional<BetaAgentTag> agent, BetaMessageType type_, String id, BetaMessageStatus status, BetaMessageRole role, List<BetaMessageContentItem> content, SdkOptional<BetaMessagePhase2?> phase}) get copyWith => _copyWith;
 
-  BetaMessage _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? content = sdkOmittedValue,
-          Object? phase = sdkOmittedValue}) =>
-      BetaMessage(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaMessageType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as BetaMessageStatus,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as BetaMessageRole,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as List<BetaMessageContentItem>,
-        phase: identical(phase, sdkOmittedValue)
-            ? this.phase
-            : phase as SdkOptional<BetaMessagePhase2?>,
-      );
+  BetaMessage _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? role = sdkOmittedValue, Object? content = sdkOmittedValue, Object? phase = sdkOmittedValue}) => BetaMessage(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaMessageType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as BetaMessageStatus,
+    role: identical(role, sdkOmittedValue) ? this.role : role as BetaMessageRole,
+    content: identical(content, sdkOmittedValue) ? this.content : content as List<BetaMessageContentItem>,
+    phase: identical(phase, sdkOmittedValue) ? this.phase : phase as SdkOptional<BetaMessagePhase2?>,
+  );
 
   factory BetaMessage.fromJson(Map<String, dynamic> json) => BetaMessage(
-        agent: json['agent'] != null
-            ? SdkPresent((json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaMessageType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        status: (json['status'] != null
-            ? BetaMessageStatus.fromJson(json['status'] as String)
-            : null)!,
-        role: (json['role'] != null
-            ? BetaMessageRole.fromJson(json['role'] as String)
-            : null)!,
-        content: ((json['content'] as List?)
-            ?.map((e) => BetaMessageContentItem.fromJson(e))
-            .toList())!,
-        phase: json.containsKey('phase')
-            ? SdkPresent(json['phase'] != null
-                ? BetaMessagePhase2.fromJson(json['phase'] as String)
-                : null)
-            : const SdkOmitted(),
-      );
+    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaMessageType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    status: (json['status'] != null ? BetaMessageStatus.fromJson(json['status'] as String) : null)!,
+    role: (json['role'] != null ? BetaMessageRole.fromJson(json['role'] as String) : null)!,
+    content: ((json['content'] as List?)?.map((e) => BetaMessageContentItem.fromJson(e)).toList())!,
+    phase: json.containsKey('phase') ? SdkPresent(json['phase'] != null ? BetaMessagePhase2.fromJson(json['phase'] as String) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag>(value: final value) => {
-              'agent': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'id': id,
-        'status': status.toJson(),
-        'role': role.toJson(),
-        'content': content.map((item) => item.toJson()).toList(),
-        ...switch (phase) {
-          SdkPresent<BetaMessagePhase2?>(value: final value) => {
-              'phase': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag>(value: final value) => {'agent': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'id': id,
+    'status': status.toJson(),
+    'role': role.toJson(),
+    'content': content.map((item) => item.toJson()).toList(),
+    ...switch (phase) {
+      SdkPresent<BetaMessagePhase2?>(value: final value) => {'phase': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class BetaMessageContentItem {
@@ -131,218 +70,103 @@ sealed class BetaMessageContentItem {
   const BetaMessageContentItem();
   factory BetaMessageContentItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaInputTextContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaMessageContentItemBetaInputTextContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaOutputTextContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaMessageContentItemBetaOutputTextContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaTextContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaMessageContentItemBetaTextContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaSummaryTextContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaMessageContentItemBetaSummaryTextContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaReasoningTextContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaMessageContentItemBetaReasoningTextContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaRefusalContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaMessageContentItemBetaRefusalContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaInputImageContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaMessageContentItemBetaInputImageContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaComputerScreenshotContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaMessageContentItemBetaComputerScreenshotContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaInputFileContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaMessageContentItemBetaInputFileContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaEncryptedContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaMessageContentItemBetaEncryptedContent(value);
-        }
-      } catch (_) {}
+      try { final value = BetaInputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaInputTextContent(value); } } catch (_) {}
+      try { final value = BetaOutputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaOutputTextContent(value); } } catch (_) {}
+      try { final value = BetaTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaTextContent(value); } } catch (_) {}
+      try { final value = BetaSummaryTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaSummaryTextContent(value); } } catch (_) {}
+      try { final value = BetaReasoningTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaReasoningTextContent(value); } } catch (_) {}
+      try { final value = BetaRefusalContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaRefusalContent(value); } } catch (_) {}
+      try { final value = BetaInputImageContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaInputImageContent(value); } } catch (_) {}
+      try { final value = BetaComputerScreenshotContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaComputerScreenshotContent(value); } } catch (_) {}
+      try { final value = BetaInputFileContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaInputFileContent(value); } } catch (_) {}
+      try { final value = BetaEncryptedContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMessageContentItemBetaEncryptedContent(value); } } catch (_) {}
     }
-    try {
-      return BetaMessageContentItemBetaInputTextContent(
-          BetaInputTextContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaMessageContentItemBetaOutputTextContent(
-          BetaOutputTextContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaMessageContentItemBetaTextContent(
-          BetaTextContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaMessageContentItemBetaSummaryTextContent(
-          BetaSummaryTextContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaMessageContentItemBetaReasoningTextContent(
-          BetaReasoningTextContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaMessageContentItemBetaRefusalContent(
-          BetaRefusalContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaMessageContentItemBetaInputImageContent(
-          BetaInputImageContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaMessageContentItemBetaComputerScreenshotContent(
-          BetaComputerScreenshotContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaMessageContentItemBetaInputFileContent(
-          BetaInputFileContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaMessageContentItemBetaEncryptedContent(
-          BetaEncryptedContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "input_text",
-          "output_text",
-          "text",
-          "summary_text",
-          "reasoning_text",
-          "refusal",
-          "input_image",
-          "computer_screenshot",
-          "input_file",
-          "encrypted_content"
-        }.contains(json["type"])) {
-      return UnknownBetaMessageContentItem(json);
-    }
+    try { return BetaMessageContentItemBetaInputTextContent(BetaInputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaMessageContentItemBetaOutputTextContent(BetaOutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaMessageContentItemBetaTextContent(BetaTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaMessageContentItemBetaSummaryTextContent(BetaSummaryTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaMessageContentItemBetaReasoningTextContent(BetaReasoningTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaMessageContentItemBetaRefusalContent(BetaRefusalContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaMessageContentItemBetaInputImageContent(BetaInputImageContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaMessageContentItemBetaComputerScreenshotContent(BetaComputerScreenshotContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaMessageContentItemBetaInputFileContent(BetaInputFileContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaMessageContentItemBetaEncryptedContent(BetaEncryptedContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "output_text", "text", "summary_text", "reasoning_text", "refusal", "input_image", "computer_screenshot", "input_file", "encrypted_content"}.contains(json["type"])) { return UnknownBetaMessageContentItem(json); }
     throw FormatException("No variant matched for BetaMessageContentItem");
   }
   Object? toJson();
 }
 
-final class BetaMessageContentItemBetaInputTextContent
-    extends BetaMessageContentItem {
+final class BetaMessageContentItemBetaInputTextContent extends BetaMessageContentItem {
   final BetaInputTextContent value;
   const BetaMessageContentItemBetaInputTextContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaMessageContentItemBetaOutputTextContent
-    extends BetaMessageContentItem {
+final class BetaMessageContentItemBetaOutputTextContent extends BetaMessageContentItem {
   final BetaOutputTextContent value;
   const BetaMessageContentItemBetaOutputTextContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaMessageContentItemBetaTextContent
-    extends BetaMessageContentItem {
+final class BetaMessageContentItemBetaTextContent extends BetaMessageContentItem {
   final BetaTextContent value;
   const BetaMessageContentItemBetaTextContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaMessageContentItemBetaSummaryTextContent
-    extends BetaMessageContentItem {
+final class BetaMessageContentItemBetaSummaryTextContent extends BetaMessageContentItem {
   final BetaSummaryTextContent value;
   const BetaMessageContentItemBetaSummaryTextContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaMessageContentItemBetaReasoningTextContent
-    extends BetaMessageContentItem {
+final class BetaMessageContentItemBetaReasoningTextContent extends BetaMessageContentItem {
   final BetaReasoningTextContent value;
   const BetaMessageContentItemBetaReasoningTextContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaMessageContentItemBetaRefusalContent
-    extends BetaMessageContentItem {
+final class BetaMessageContentItemBetaRefusalContent extends BetaMessageContentItem {
   final BetaRefusalContent value;
   const BetaMessageContentItemBetaRefusalContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaMessageContentItemBetaInputImageContent
-    extends BetaMessageContentItem {
+final class BetaMessageContentItemBetaInputImageContent extends BetaMessageContentItem {
   final BetaInputImageContent value;
   const BetaMessageContentItemBetaInputImageContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaMessageContentItemBetaComputerScreenshotContent
-    extends BetaMessageContentItem {
+final class BetaMessageContentItemBetaComputerScreenshotContent extends BetaMessageContentItem {
   final BetaComputerScreenshotContent value;
   const BetaMessageContentItemBetaComputerScreenshotContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaMessageContentItemBetaInputFileContent
-    extends BetaMessageContentItem {
+final class BetaMessageContentItemBetaInputFileContent extends BetaMessageContentItem {
   final BetaInputFileContent value;
   const BetaMessageContentItemBetaInputFileContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaMessageContentItemBetaEncryptedContent
-    extends BetaMessageContentItem {
+final class BetaMessageContentItemBetaEncryptedContent extends BetaMessageContentItem {
   final BetaEncryptedContent value;
   const BetaMessageContentItemBetaEncryptedContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaMessageContentItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaMessageContentItem extends BetaMessageContentItem {
   final Map<String, dynamic> raw;
   const UnknownBetaMessageContentItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`). For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend phase on all assistant messages — dropping it can degrade performance. Not used for user messages.
 final class BetaMessagePhase {
+
   final String value;
 
   const BetaMessagePhase._(this.value);
@@ -354,44 +178,39 @@ final class BetaMessagePhase {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaMessagePhase && other.value == value;
+  @override bool operator ==(Object other) => other is BetaMessagePhase && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `BetaMessagePhase2` API schema.
 final class BetaMessagePhase2 {
+
   final String value;
 
   const BetaMessagePhase2._(this.value);
 
-  factory BetaMessagePhase2.fromJson(String value) =>
-      BetaMessagePhase2._(value);
+  factory BetaMessagePhase2.fromJson(String value) => BetaMessagePhase2._(value);
 
   static const commentary = BetaMessagePhase2._('commentary');
   static const finalAnswer = BetaMessagePhase2._('final_answer');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaMessagePhase2 && other.value == value;
+  @override bool operator ==(Object other) => other is BetaMessagePhase2 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `BetaMessageRole` API schema.
 final class BetaMessageRole {
+
   final String value;
 
   const BetaMessageRole._(this.value);
@@ -409,25 +228,22 @@ final class BetaMessageRole {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaMessageRole && other.value == value;
+  @override bool operator ==(Object other) => other is BetaMessageRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `BetaMessageStatus` API schema.
 final class BetaMessageStatus {
+
   final String value;
 
   const BetaMessageStatus._(this.value);
 
-  factory BetaMessageStatus.fromJson(String value) =>
-      BetaMessageStatus._(value);
+  factory BetaMessageStatus.fromJson(String value) => BetaMessageStatus._(value);
 
   static const inProgress = BetaMessageStatus._('in_progress');
   static const completed = BetaMessageStatus._('completed');
@@ -435,13 +251,10 @@ final class BetaMessageStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaMessageStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaMessageStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -4,68 +4,53 @@
 part of 'beta_responses.dart';
 
 // beta_responses domain models (part 23)
-final class BetaResponsesServerEventBetaResponsesServerEventVariant57
-    extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponsesServerEventVariant57 extends BetaResponsesServerEvent {
   final BetaResponsesServerEventVariant57 value;
   const BetaResponsesServerEventBetaResponsesServerEventVariant57(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponseWsError
-    extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponseWsError extends BetaResponsesServerEvent {
   final BetaResponseWsError value;
   const BetaResponsesServerEventBetaResponseWsError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponseSteerAcceptedEvent
-    extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponseSteerAcceptedEvent extends BetaResponsesServerEvent {
   final BetaResponseSteerAcceptedEvent value;
   const BetaResponsesServerEventBetaResponseSteerAcceptedEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponseSteerPendingEvent
-    extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponseSteerPendingEvent extends BetaResponsesServerEvent {
   final BetaResponseSteerPendingEvent value;
   const BetaResponsesServerEventBetaResponseSteerPendingEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponseSteerFailedEvent
-    extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponseSteerFailedEvent extends BetaResponsesServerEvent {
   final BetaResponseSteerFailedEvent value;
   const BetaResponsesServerEventBetaResponseSteerFailedEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponseInjectCreatedEvent
-    extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponseInjectCreatedEvent extends BetaResponsesServerEvent {
   final BetaResponseInjectCreatedEvent value;
   const BetaResponsesServerEventBetaResponseInjectCreatedEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesServerEventBetaResponseInjectFailedEvent
-    extends BetaResponsesServerEvent {
+final class BetaResponsesServerEventBetaResponseInjectFailedEvent extends BetaResponsesServerEvent {
   final BetaResponseInjectFailedEvent value;
   const BetaResponsesServerEventBetaResponseInjectFailedEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaResponsesServerEvent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaResponsesServerEvent extends BetaResponsesServerEvent {
   final Map<String, dynamic> raw;
   const UnknownBetaResponsesServerEvent(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 sealed class BetaResponsesWebSocketStreamEventVariant0 {
@@ -74,914 +59,221 @@ sealed class BetaResponsesWebSocketStreamEventVariant0 {
   const BetaResponsesWebSocketStreamEventVariant0();
   factory BetaResponsesWebSocketStreamEventVariant0.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaResponseAudioDeltaEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDeltaEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseAudioDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseAudioTranscriptDeltaEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDeltaEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseAudioTranscriptDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseCodeInterpreterCallCodeDeltaEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDeltaEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseCodeInterpreterCallCodeDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseCodeInterpreterCallCompletedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCompletedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseCodeInterpreterCallInProgressEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInProgressEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseCodeInterpreterCallInterpretingEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInterpretingEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseCompactionCompactingStreamingEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseCompactionCompactingStreamingEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseCompletedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseCompletedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseContentPartAddedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartAddedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseContentPartDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseCreatedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseCreatedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseFileSearchCallCompletedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallCompletedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseFileSearchCallInProgressEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallInProgressEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseFileSearchCallSearchingEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallSearchingEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseFunctionCallArgumentsDeltaEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDeltaEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseFunctionCallArgumentsDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseShellCallCommandAddedStreamingEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandAddedStreamingEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseShellCallCommandDeltaStreamingEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDeltaStreamingEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseShellCallCommandDoneStreamingEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDoneStreamingEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseShellCallOutputContentDeltaStreamingEvent.fromJson(
-                json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDeltaStreamingEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            BetaResponseShellCallOutputContentDoneStreamingEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDoneStreamingEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseInProgressEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseInProgressEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseFailedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseFailedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseIncompleteEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseIncompleteEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseOutputItemAddedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemAddedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseOutputItemDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseReasoningSummaryPartAddedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartAddedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseReasoningSummaryPartDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseReasoningSummaryTextDeltaEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDeltaEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseReasoningSummaryTextDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseReasoningTextDeltaEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDeltaEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseReasoningTextDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseRefusalDeltaEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDeltaEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseRefusalDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseTextDeltaEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDeltaEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseTextDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseWebSearchCallCompletedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallCompletedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseWebSearchCallInProgressEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallInProgressEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseWebSearchCallSearchingEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallSearchingEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseImageGenCallCompletedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallCompletedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseImageGenCallGeneratingEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallGeneratingEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseImageGenCallInProgressEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallInProgressEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseImageGenCallPartialImageEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallPartialImageEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseMCPCallArgumentsDeltaEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDeltaEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseMCPCallArgumentsDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDoneEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseMCPCallCompletedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallCompletedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseMCPCallFailedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallFailedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseMCPCallInProgressEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallInProgressEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseMCPListToolsCompletedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsCompletedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseMCPListToolsFailedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsFailedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseMCPListToolsInProgressEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsInProgressEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseOutputTextAnnotationAddedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputTextAnnotationAddedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseQueuedEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseQueuedEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseCustomToolCallInputDeltaEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDeltaEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseCustomToolCallInputDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDoneEvent(
-              value);
-        }
-      } catch (_) {}
+      try { final value = BetaResponseAudioDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDeltaEvent(value); } } catch (_) {}
+      try { final value = BetaResponseAudioDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseAudioTranscriptDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDeltaEvent(value); } } catch (_) {}
+      try { final value = BetaResponseAudioTranscriptDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseCodeInterpreterCallCodeDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDeltaEvent(value); } } catch (_) {}
+      try { final value = BetaResponseCodeInterpreterCallCodeDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseCodeInterpreterCallCompletedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCompletedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseCodeInterpreterCallInProgressEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInProgressEvent(value); } } catch (_) {}
+      try { final value = BetaResponseCodeInterpreterCallInterpretingEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInterpretingEvent(value); } } catch (_) {}
+      try { final value = BetaResponseCompactionCompactingStreamingEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCompactionCompactingStreamingEvent(value); } } catch (_) {}
+      try { final value = BetaResponseCompletedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCompletedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseContentPartAddedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartAddedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseContentPartDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseCreatedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCreatedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseFileSearchCallCompletedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallCompletedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseFileSearchCallInProgressEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallInProgressEvent(value); } } catch (_) {}
+      try { final value = BetaResponseFileSearchCallSearchingEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallSearchingEvent(value); } } catch (_) {}
+      try { final value = BetaResponseFunctionCallArgumentsDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDeltaEvent(value); } } catch (_) {}
+      try { final value = BetaResponseFunctionCallArgumentsDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseShellCallCommandAddedStreamingEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandAddedStreamingEvent(value); } } catch (_) {}
+      try { final value = BetaResponseShellCallCommandDeltaStreamingEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDeltaStreamingEvent(value); } } catch (_) {}
+      try { final value = BetaResponseShellCallCommandDoneStreamingEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDoneStreamingEvent(value); } } catch (_) {}
+      try { final value = BetaResponseShellCallOutputContentDeltaStreamingEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDeltaStreamingEvent(value); } } catch (_) {}
+      try { final value = BetaResponseShellCallOutputContentDoneStreamingEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDoneStreamingEvent(value); } } catch (_) {}
+      try { final value = BetaResponseInProgressEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseInProgressEvent(value); } } catch (_) {}
+      try { final value = BetaResponseFailedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFailedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseIncompleteEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseIncompleteEvent(value); } } catch (_) {}
+      try { final value = BetaResponseOutputItemAddedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemAddedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseOutputItemDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseReasoningSummaryPartAddedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartAddedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseReasoningSummaryPartDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseReasoningSummaryTextDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDeltaEvent(value); } } catch (_) {}
+      try { final value = BetaResponseReasoningSummaryTextDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseReasoningTextDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDeltaEvent(value); } } catch (_) {}
+      try { final value = BetaResponseReasoningTextDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseRefusalDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDeltaEvent(value); } } catch (_) {}
+      try { final value = BetaResponseRefusalDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseTextDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDeltaEvent(value); } } catch (_) {}
+      try { final value = BetaResponseTextDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseWebSearchCallCompletedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallCompletedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseWebSearchCallInProgressEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallInProgressEvent(value); } } catch (_) {}
+      try { final value = BetaResponseWebSearchCallSearchingEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallSearchingEvent(value); } } catch (_) {}
+      try { final value = BetaResponseImageGenCallCompletedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallCompletedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseImageGenCallGeneratingEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallGeneratingEvent(value); } } catch (_) {}
+      try { final value = BetaResponseImageGenCallInProgressEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallInProgressEvent(value); } } catch (_) {}
+      try { final value = BetaResponseImageGenCallPartialImageEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallPartialImageEvent(value); } } catch (_) {}
+      try { final value = BetaResponseMCPCallArgumentsDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDeltaEvent(value); } } catch (_) {}
+      try { final value = BetaResponseMCPCallArgumentsDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDoneEvent(value); } } catch (_) {}
+      try { final value = BetaResponseMCPCallCompletedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallCompletedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseMCPCallFailedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallFailedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseMCPCallInProgressEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallInProgressEvent(value); } } catch (_) {}
+      try { final value = BetaResponseMCPListToolsCompletedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsCompletedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseMCPListToolsFailedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsFailedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseMCPListToolsInProgressEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsInProgressEvent(value); } } catch (_) {}
+      try { final value = BetaResponseOutputTextAnnotationAddedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputTextAnnotationAddedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseQueuedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseQueuedEvent(value); } } catch (_) {}
+      try { final value = BetaResponseCustomToolCallInputDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDeltaEvent(value); } } catch (_) {}
+      try { final value = BetaResponseCustomToolCallInputDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDoneEvent(value); } } catch (_) {}
     }
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDeltaEvent(
-          BetaResponseAudioDeltaEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDoneEvent(
-          BetaResponseAudioDoneEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDeltaEvent(
-          BetaResponseAudioTranscriptDeltaEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDoneEvent(
-          BetaResponseAudioTranscriptDoneEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDeltaEvent(
-          BetaResponseCodeInterpreterCallCodeDeltaEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDoneEvent(
-          BetaResponseCodeInterpreterCallCodeDoneEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCompletedEvent(
-          BetaResponseCodeInterpreterCallCompletedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInProgressEvent(
-          BetaResponseCodeInterpreterCallInProgressEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInterpretingEvent(
-          BetaResponseCodeInterpreterCallInterpretingEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseCompactionCompactingStreamingEvent(
-          BetaResponseCompactionCompactingStreamingEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseCompletedEvent(
-          BetaResponseCompletedEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartAddedEvent(
-          BetaResponseContentPartAddedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartDoneEvent(
-          BetaResponseContentPartDoneEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseCreatedEvent(
-          BetaResponseCreatedEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallCompletedEvent(
-          BetaResponseFileSearchCallCompletedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallInProgressEvent(
-          BetaResponseFileSearchCallInProgressEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallSearchingEvent(
-          BetaResponseFileSearchCallSearchingEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDeltaEvent(
-          BetaResponseFunctionCallArgumentsDeltaEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDoneEvent(
-          BetaResponseFunctionCallArgumentsDoneEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandAddedStreamingEvent(
-          BetaResponseShellCallCommandAddedStreamingEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDeltaStreamingEvent(
-          BetaResponseShellCallCommandDeltaStreamingEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDoneStreamingEvent(
-          BetaResponseShellCallCommandDoneStreamingEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDeltaStreamingEvent(
-          BetaResponseShellCallOutputContentDeltaStreamingEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDoneStreamingEvent(
-          BetaResponseShellCallOutputContentDoneStreamingEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseInProgressEvent(
-          BetaResponseInProgressEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseFailedEvent(
-          BetaResponseFailedEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseIncompleteEvent(
-          BetaResponseIncompleteEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemAddedEvent(
-          BetaResponseOutputItemAddedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemDoneEvent(
-          BetaResponseOutputItemDoneEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartAddedEvent(
-          BetaResponseReasoningSummaryPartAddedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartDoneEvent(
-          BetaResponseReasoningSummaryPartDoneEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDeltaEvent(
-          BetaResponseReasoningSummaryTextDeltaEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDoneEvent(
-          BetaResponseReasoningSummaryTextDoneEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDeltaEvent(
-          BetaResponseReasoningTextDeltaEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDoneEvent(
-          BetaResponseReasoningTextDoneEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDeltaEvent(
-          BetaResponseRefusalDeltaEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDoneEvent(
-          BetaResponseRefusalDoneEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDeltaEvent(
-          BetaResponseTextDeltaEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDoneEvent(
-          BetaResponseTextDoneEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallCompletedEvent(
-          BetaResponseWebSearchCallCompletedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallInProgressEvent(
-          BetaResponseWebSearchCallInProgressEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallSearchingEvent(
-          BetaResponseWebSearchCallSearchingEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallCompletedEvent(
-          BetaResponseImageGenCallCompletedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallGeneratingEvent(
-          BetaResponseImageGenCallGeneratingEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallInProgressEvent(
-          BetaResponseImageGenCallInProgressEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallPartialImageEvent(
-          BetaResponseImageGenCallPartialImageEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDeltaEvent(
-          BetaResponseMCPCallArgumentsDeltaEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDoneEvent(
-          BetaResponseMCPCallArgumentsDoneEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallCompletedEvent(
-          BetaResponseMCPCallCompletedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallFailedEvent(
-          BetaResponseMCPCallFailedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallInProgressEvent(
-          BetaResponseMCPCallInProgressEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsCompletedEvent(
-          BetaResponseMCPListToolsCompletedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsFailedEvent(
-          BetaResponseMCPListToolsFailedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsInProgressEvent(
-          BetaResponseMCPListToolsInProgressEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputTextAnnotationAddedEvent(
-          BetaResponseOutputTextAnnotationAddedEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseQueuedEvent(
-          BetaResponseQueuedEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDeltaEvent(
-          BetaResponseCustomToolCallInputDeltaEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDoneEvent(
-          BetaResponseCustomToolCallInputDoneEvent.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "response.audio.delta",
-          "response.audio.done",
-          "response.audio.transcript.delta",
-          "response.audio.transcript.done",
-          "response.code_interpreter_call_code.delta",
-          "response.code_interpreter_call_code.done",
-          "response.code_interpreter_call.completed",
-          "response.code_interpreter_call.in_progress",
-          "response.code_interpreter_call.interpreting",
-          "response.compaction.compacting",
-          "response.completed",
-          "response.content_part.added",
-          "response.content_part.done",
-          "response.created",
-          "response.file_search_call.completed",
-          "response.file_search_call.in_progress",
-          "response.file_search_call.searching",
-          "response.function_call_arguments.delta",
-          "response.function_call_arguments.done",
-          "response.shell_call_command.added",
-          "response.shell_call_command.delta",
-          "response.shell_call_command.done",
-          "response.shell_call_output_content.delta",
-          "response.shell_call_output_content.done",
-          "response.in_progress",
-          "response.failed",
-          "response.incomplete",
-          "response.output_item.added",
-          "response.output_item.done",
-          "response.reasoning_summary_part.added",
-          "response.reasoning_summary_part.done",
-          "response.reasoning_summary_text.delta",
-          "response.reasoning_summary_text.done",
-          "response.reasoning_text.delta",
-          "response.reasoning_text.done",
-          "response.refusal.delta",
-          "response.refusal.done",
-          "response.output_text.delta",
-          "response.output_text.done",
-          "response.web_search_call.completed",
-          "response.web_search_call.in_progress",
-          "response.web_search_call.searching",
-          "response.image_generation_call.completed",
-          "response.image_generation_call.generating",
-          "response.image_generation_call.in_progress",
-          "response.image_generation_call.partial_image",
-          "response.mcp_call_arguments.delta",
-          "response.mcp_call_arguments.done",
-          "response.mcp_call.completed",
-          "response.mcp_call.failed",
-          "response.mcp_call.in_progress",
-          "response.mcp_list_tools.completed",
-          "response.mcp_list_tools.failed",
-          "response.mcp_list_tools.in_progress",
-          "response.output_text.annotation.added",
-          "response.queued",
-          "response.custom_tool_call_input.delta",
-          "response.custom_tool_call_input.done"
-        }.contains(json["type"])) {
-      return UnknownBetaResponsesWebSocketStreamEventVariant0(json);
-    }
-    throw FormatException(
-        "No variant matched for BetaResponsesWebSocketStreamEventVariant0");
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDeltaEvent(BetaResponseAudioDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDoneEvent(BetaResponseAudioDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDeltaEvent(BetaResponseAudioTranscriptDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDoneEvent(BetaResponseAudioTranscriptDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDeltaEvent(BetaResponseCodeInterpreterCallCodeDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDoneEvent(BetaResponseCodeInterpreterCallCodeDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCompletedEvent(BetaResponseCodeInterpreterCallCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInProgressEvent(BetaResponseCodeInterpreterCallInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInterpretingEvent(BetaResponseCodeInterpreterCallInterpretingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCompactionCompactingStreamingEvent(BetaResponseCompactionCompactingStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCompletedEvent(BetaResponseCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartAddedEvent(BetaResponseContentPartAddedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartDoneEvent(BetaResponseContentPartDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCreatedEvent(BetaResponseCreatedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallCompletedEvent(BetaResponseFileSearchCallCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallInProgressEvent(BetaResponseFileSearchCallInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallSearchingEvent(BetaResponseFileSearchCallSearchingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDeltaEvent(BetaResponseFunctionCallArgumentsDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFunctionCallArgumentsDoneEvent(BetaResponseFunctionCallArgumentsDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandAddedStreamingEvent(BetaResponseShellCallCommandAddedStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDeltaStreamingEvent(BetaResponseShellCallCommandDeltaStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallCommandDoneStreamingEvent(BetaResponseShellCallCommandDoneStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDeltaStreamingEvent(BetaResponseShellCallOutputContentDeltaStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseShellCallOutputContentDoneStreamingEvent(BetaResponseShellCallOutputContentDoneStreamingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseInProgressEvent(BetaResponseInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseFailedEvent(BetaResponseFailedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseIncompleteEvent(BetaResponseIncompleteEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemAddedEvent(BetaResponseOutputItemAddedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputItemDoneEvent(BetaResponseOutputItemDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartAddedEvent(BetaResponseReasoningSummaryPartAddedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryPartDoneEvent(BetaResponseReasoningSummaryPartDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDeltaEvent(BetaResponseReasoningSummaryTextDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningSummaryTextDoneEvent(BetaResponseReasoningSummaryTextDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDeltaEvent(BetaResponseReasoningTextDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseReasoningTextDoneEvent(BetaResponseReasoningTextDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDeltaEvent(BetaResponseRefusalDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseRefusalDoneEvent(BetaResponseRefusalDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDeltaEvent(BetaResponseTextDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseTextDoneEvent(BetaResponseTextDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallCompletedEvent(BetaResponseWebSearchCallCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallInProgressEvent(BetaResponseWebSearchCallInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseWebSearchCallSearchingEvent(BetaResponseWebSearchCallSearchingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallCompletedEvent(BetaResponseImageGenCallCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallGeneratingEvent(BetaResponseImageGenCallGeneratingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallInProgressEvent(BetaResponseImageGenCallInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseImageGenCallPartialImageEvent(BetaResponseImageGenCallPartialImageEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDeltaEvent(BetaResponseMCPCallArgumentsDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallArgumentsDoneEvent(BetaResponseMCPCallArgumentsDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallCompletedEvent(BetaResponseMCPCallCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallFailedEvent(BetaResponseMCPCallFailedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPCallInProgressEvent(BetaResponseMCPCallInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsCompletedEvent(BetaResponseMCPListToolsCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsFailedEvent(BetaResponseMCPListToolsFailedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseMCPListToolsInProgressEvent(BetaResponseMCPListToolsInProgressEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseOutputTextAnnotationAddedEvent(BetaResponseOutputTextAnnotationAddedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseQueuedEvent(BetaResponseQueuedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDeltaEvent(BetaResponseCustomToolCallInputDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesWebSocketStreamEventVariant0BetaResponseCustomToolCallInputDoneEvent(BetaResponseCustomToolCallInputDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"response.audio.delta", "response.audio.done", "response.audio.transcript.delta", "response.audio.transcript.done", "response.code_interpreter_call_code.delta", "response.code_interpreter_call_code.done", "response.code_interpreter_call.completed", "response.code_interpreter_call.in_progress", "response.code_interpreter_call.interpreting", "response.compaction.compacting", "response.completed", "response.content_part.added", "response.content_part.done", "response.created", "response.file_search_call.completed", "response.file_search_call.in_progress", "response.file_search_call.searching", "response.function_call_arguments.delta", "response.function_call_arguments.done", "response.shell_call_command.added", "response.shell_call_command.delta", "response.shell_call_command.done", "response.shell_call_output_content.delta", "response.shell_call_output_content.done", "response.in_progress", "response.failed", "response.incomplete", "response.output_item.added", "response.output_item.done", "response.reasoning_summary_part.added", "response.reasoning_summary_part.done", "response.reasoning_summary_text.delta", "response.reasoning_summary_text.done", "response.reasoning_text.delta", "response.reasoning_text.done", "response.refusal.delta", "response.refusal.done", "response.output_text.delta", "response.output_text.done", "response.web_search_call.completed", "response.web_search_call.in_progress", "response.web_search_call.searching", "response.image_generation_call.completed", "response.image_generation_call.generating", "response.image_generation_call.in_progress", "response.image_generation_call.partial_image", "response.mcp_call_arguments.delta", "response.mcp_call_arguments.done", "response.mcp_call.completed", "response.mcp_call.failed", "response.mcp_call.in_progress", "response.mcp_list_tools.completed", "response.mcp_list_tools.failed", "response.mcp_list_tools.in_progress", "response.output_text.annotation.added", "response.queued", "response.custom_tool_call_input.delta", "response.custom_tool_call_input.done"}.contains(json["type"])) { return UnknownBetaResponsesWebSocketStreamEventVariant0(json); }
+    throw FormatException("No variant matched for BetaResponsesWebSocketStreamEventVariant0");
   }
   Object? toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDeltaEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseAudioDeltaEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseAudioDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDeltaEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseAudioTranscriptDeltaEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseAudioTranscriptDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseAudioTranscriptDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDeltaEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDeltaEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseCodeInterpreterCallCodeDeltaEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseCodeInterpreterCallCodeDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCodeDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCompletedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCompletedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseCodeInterpreterCallCompletedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCompletedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallCompletedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInProgressEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInProgressEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseCodeInterpreterCallInProgressEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInProgressEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInProgressEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInterpretingEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInterpretingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseCodeInterpreterCallInterpretingEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInterpretingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCodeInterpreterCallInterpretingEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCompactionCompactingStreamingEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCompactionCompactingStreamingEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseCompactionCompactingStreamingEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCompactionCompactingStreamingEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCompactionCompactingStreamingEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCompletedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCompletedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseCompletedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCompletedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCompletedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartAddedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartAddedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseContentPartAddedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartAddedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartAddedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartDoneEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartDoneEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseContentPartDoneEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseContentPartDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCreatedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseCreatedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseCreatedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCreatedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseCreatedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallCompletedEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallCompletedEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseFileSearchCallCompletedEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallCompletedEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallCompletedEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallInProgressEvent
-    extends BetaResponsesWebSocketStreamEventVariant0 {
+final class BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallInProgressEvent extends BetaResponsesWebSocketStreamEventVariant0 {
   final BetaResponseFileSearchCallInProgressEvent value;
-  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallInProgressEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesWebSocketStreamEventVariant0BetaResponseFileSearchCallInProgressEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }

@@ -16,28 +16,16 @@ Future<VideoResource> createVideo(ClientConfig config,
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<VideoResource>('POST', '/videos',
           config: config,
-          body: (body is SdkPresent<CreateVideoBody>
-              ? body.value.value
-              : sdkOmittedValue),
-          contentType: contentType is SdkPresent<String>
-              ? contentType.value
-              : (body is SdkPresent<CreateVideoBody>
-                  ? body.value.mediaType
-                  : 'application/json'),
+          body: (body is SdkPresent<CreateVideoBody> ? body.value.value : sdkOmittedValue),
+          contentType: contentType is SdkPresent<String> ? contentType.value : (body is SdkPresent<CreateVideoBody> ? body.value.mediaType : 'application/json'),
           decoder: SdkResponseDecoder.json,
           operationId: 'createVideo',
-          fromJsonRaw: (value) =>
-              VideoResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VideoResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// List recently generated videos for the current project.
 ///
@@ -59,26 +47,19 @@ Future<VideoListResource> listVideos(ClientConfig config,
   return (await sdkRequest<VideoListResource>('GET', '/videos',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listVideos',
-          fromJsonRaw: (value) =>
-              VideoListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VideoListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// List recently generated videos for the current project.
 ///
@@ -88,27 +69,13 @@ Future<VideoListResource> listVideos(ClientConfig config,
 /// [after] Identifier for the last item from the previous pagination request
 ///
 /// **Deprecated:** this operation is deprecated and may be removed in a future release.
-Stream<VideoResource> listVideosPaginated(ClientConfig config,
-    {int? limit,
-    OrderEnum? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<VideoResource> listVideosPaginated(ClientConfig config, {int? limit, OrderEnum? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listVideos(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<OrderEnum>()
-            : SdkPresent<OrderEnum>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listVideos(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<OrderEnum>() : SdkPresent<OrderEnum>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -116,23 +83,10 @@ Stream<VideoResource> listVideosPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<VideoListResource, VideoResource>> listVideosPages(
-    ClientConfig config,
-    {int? limit,
-    OrderEnum? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<VideoListResource, VideoResource>> listVideosPages(ClientConfig config, {int? limit, OrderEnum? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listVideos(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<OrderEnum>()
-            : SdkPresent<OrderEnum>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listVideos(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<OrderEnum>() : SdkPresent<OrderEnum>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -142,6 +96,7 @@ Stream<SdkPage<VideoListResource, VideoResource>> listVideosPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Creates a character from an uploaded video. Send the video in `video` and provide a `name` of 1 to 80 characters. This operation is closing down and will be removed on a date not specified in the API definition.
 ///
@@ -163,21 +118,12 @@ Future<VideoCharacterResource> createVideoCharacter(ClientConfig config,
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'createVideoCharacter',
-          fromJsonRaw: (value) =>
-              VideoCharacterResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VideoCharacterResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '504': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '504': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves metadata for a video character. Use `character_id` to identify the character whose details you need. This operation is closing down and will be removed on a date not specified in the API definition.
 ///
@@ -193,15 +139,12 @@ Future<VideoCharacterResource> getVideoCharacter(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getVideoCharacter',
-          fromJsonRaw: (value) =>
-              VideoCharacterResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VideoCharacterResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Create a new video generation job by editing a source video or existing generated video.
 ///
@@ -212,28 +155,16 @@ Future<VideoResource> createVideoEdit(ClientConfig config,
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<VideoResource>('POST', '/videos/edits',
           config: config,
-          body: (body is SdkPresent<CreateVideoEditBody>
-              ? body.value.value
-              : sdkOmittedValue),
-          contentType: contentType is SdkPresent<String>
-              ? contentType.value
-              : (body is SdkPresent<CreateVideoEditBody>
-                  ? body.value.mediaType
-                  : 'application/json'),
+          body: (body is SdkPresent<CreateVideoEditBody> ? body.value.value : sdkOmittedValue),
+          contentType: contentType is SdkPresent<String> ? contentType.value : (body is SdkPresent<CreateVideoEditBody> ? body.value.mediaType : 'application/json'),
           decoder: SdkResponseDecoder.json,
           operationId: 'createVideoEdit',
-          fromJsonRaw: (value) =>
-              VideoResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VideoResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates an extension of a completed video and returns a video generation job. Provide the source video, an updated `prompt`, and `seconds` set to an accepted duration. This operation is closing down and will be removed on a date not specified in the API definition.
 ///
@@ -246,28 +177,16 @@ Future<VideoResource> createVideoExtend(ClientConfig config,
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<VideoResource>('POST', '/videos/extensions',
           config: config,
-          body: (body is SdkPresent<CreateVideoExtendBody>
-              ? body.value.value
-              : sdkOmittedValue),
-          contentType: contentType is SdkPresent<String>
-              ? contentType.value
-              : (body is SdkPresent<CreateVideoExtendBody>
-                  ? body.value.mediaType
-                  : 'application/json'),
+          body: (body is SdkPresent<CreateVideoExtendBody> ? body.value.value : sdkOmittedValue),
+          contentType: contentType is SdkPresent<String> ? contentType.value : (body is SdkPresent<CreateVideoExtendBody> ? body.value.mediaType : 'application/json'),
           decoder: SdkResponseDecoder.json,
           operationId: 'createVideoExtend',
-          fromJsonRaw: (value) =>
-              VideoResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VideoResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the latest metadata for a generated video. Use `video_id` to identify the video job and check its current status, progress, and other job details.
 ///
@@ -283,15 +202,12 @@ Future<VideoResource> getVideo(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getVideo',
-          fromJsonRaw: (value) =>
-              VideoResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VideoResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Permanently delete a completed or failed video and its stored assets.
 ///
@@ -305,16 +221,12 @@ Future<DeletedVideoResource> deleteVideo(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteVideo',
-          fromJsonRaw: (value) =>
-              DeletedVideoResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedVideoResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Download the generated video bytes or a derived preview asset. Streams the rendered video content for the specified video job.
 ///
@@ -330,22 +242,15 @@ Future<List<int>> retrieveVideoContent(ClientConfig config,
           'GET', '/videos/${Uri.encodeComponent(videoId.toString())}/content',
           config: config,
           query: {
-            'variant': SdkQueryValue(SdkUtils.unwrapOptional(variant),
-                style: 'form', explode: true)
+            'variant': SdkQueryValue(SdkUtils.unwrapOptional(variant), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.bytes,
           operationId: 'retrieveVideoContent',
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Create a remix of a completed video using a refreshed prompt.
 ///
@@ -364,25 +269,11 @@ Future<VideoResource> createVideoRemix(ClientConfig config,
           'POST', '/videos/${Uri.encodeComponent(videoId.toString())}/remix',
           config: config,
           body: {'prompt': prompt},
-          contentType: contentType is SdkPresent<String>
-              ? contentType.value
-              : 'application/json',
+          contentType: contentType is SdkPresent<String> ? contentType.value : 'application/json',
           decoder: SdkResponseDecoder.json,
           operationId: 'createVideoRemix',
-          fromJsonRaw: (value) =>
-              VideoResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VideoResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '503': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

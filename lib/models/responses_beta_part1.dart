@@ -10,57 +10,16 @@ sealed class BetaAnnotation {
   const BetaAnnotation();
   factory BetaAnnotation.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaFileCitationBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaAnnotationBetaFileCitationBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaUrlCitationBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaAnnotationBetaUrlCitationBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaContainerFileCitationBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaAnnotationBetaContainerFileCitationBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaFilePath.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaAnnotationBetaFilePath(value);
-        }
-      } catch (_) {}
+      try { final value = BetaFileCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaFileCitationBody(value); } } catch (_) {}
+      try { final value = BetaUrlCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaUrlCitationBody(value); } } catch (_) {}
+      try { final value = BetaContainerFileCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaContainerFileCitationBody(value); } } catch (_) {}
+      try { final value = BetaFilePath.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaFilePath(value); } } catch (_) {}
     }
-    try {
-      return BetaAnnotationBetaFileCitationBody(
-          BetaFileCitationBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaAnnotationBetaUrlCitationBody(
-          BetaUrlCitationBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaAnnotationBetaContainerFileCitationBody(
-          BetaContainerFileCitationBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaAnnotationBetaFilePath(
-          BetaFilePath.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "file_citation",
-          "url_citation",
-          "container_file_citation",
-          "file_path"
-        }.contains(json["type"])) {
-      return UnknownBetaAnnotation(json);
-    }
+    try { return BetaAnnotationBetaFileCitationBody(BetaFileCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaAnnotationBetaUrlCitationBody(BetaUrlCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaAnnotationBetaContainerFileCitationBody(BetaContainerFileCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaAnnotationBetaFilePath(BetaFilePath.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_citation", "url_citation", "container_file_citation", "file_path"}.contains(json["type"])) { return UnknownBetaAnnotation(json); }
     throw FormatException("No variant matched for BetaAnnotation");
   }
   Object? toJson();
@@ -69,206 +28,139 @@ sealed class BetaAnnotation {
 final class BetaAnnotationBetaFileCitationBody extends BetaAnnotation {
   final BetaFileCitationBody value;
   const BetaAnnotationBetaFileCitationBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaAnnotationBetaUrlCitationBody extends BetaAnnotation {
   final BetaUrlCitationBody value;
   const BetaAnnotationBetaUrlCitationBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaAnnotationBetaContainerFileCitationBody extends BetaAnnotation {
   final BetaContainerFileCitationBody value;
   const BetaAnnotationBetaContainerFileCitationBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaAnnotationBetaFilePath extends BetaAnnotation {
   final BetaFilePath value;
   const BetaAnnotationBetaFilePath(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaAnnotation] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaAnnotation extends BetaAnnotation {
   final Map<String, dynamic> raw;
   const UnknownBetaAnnotation(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Typed representation of the `BetaApproximateLocation` API schema.
 class BetaApproximateLocation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of location approximation. Always `approximate`.
   final BetaApproximateLocationType type_;
-
   /// Optional `string` value serialized in the `country` wire field.
   final SdkOptional<String?> country;
-
   /// Optional `string` value serialized in the `region` wire field.
   final SdkOptional<String?> region;
-
   /// Optional `string` value serialized in the `city` wire field.
   final SdkOptional<String?> city;
-
   /// Optional `string` value serialized in the `timezone` wire field.
   final SdkOptional<String?> timezone;
 
-  const BetaApproximateLocation(
-      {required this.type_,
-      this.country = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.city = const SdkOmitted(),
-      this.timezone = const SdkOmitted()});
+  const BetaApproximateLocation({required this.type_, this.country = const SdkOmitted(), this.region = const SdkOmitted(), this.city = const SdkOmitted(), this.timezone = const SdkOmitted()});
 
-  BetaApproximateLocation Function(
-      {BetaApproximateLocationType type_,
-      SdkOptional<String?> country,
-      SdkOptional<String?> region,
-      SdkOptional<String?> city,
-      SdkOptional<String?> timezone}) get copyWith => _copyWith;
+  BetaApproximateLocation Function({BetaApproximateLocationType type_, SdkOptional<String?> country, SdkOptional<String?> region, SdkOptional<String?> city, SdkOptional<String?> timezone}) get copyWith => _copyWith;
 
-  BetaApproximateLocation _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? country = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? city = sdkOmittedValue,
-          Object? timezone = sdkOmittedValue}) =>
-      BetaApproximateLocation(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaApproximateLocationType,
-        country: identical(country, sdkOmittedValue)
-            ? this.country
-            : country as SdkOptional<String?>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String?>,
-        city: identical(city, sdkOmittedValue)
-            ? this.city
-            : city as SdkOptional<String?>,
-        timezone: identical(timezone, sdkOmittedValue)
-            ? this.timezone
-            : timezone as SdkOptional<String?>,
-      );
+  BetaApproximateLocation _copyWith({Object? type_ = sdkOmittedValue, Object? country = sdkOmittedValue, Object? region = sdkOmittedValue, Object? city = sdkOmittedValue, Object? timezone = sdkOmittedValue}) => BetaApproximateLocation(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaApproximateLocationType,
+    country: identical(country, sdkOmittedValue) ? this.country : country as SdkOptional<String?>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String?>,
+    city: identical(city, sdkOmittedValue) ? this.city : city as SdkOptional<String?>,
+    timezone: identical(timezone, sdkOmittedValue) ? this.timezone : timezone as SdkOptional<String?>,
+  );
 
-  factory BetaApproximateLocation.fromJson(Map<String, dynamic> json) =>
-      BetaApproximateLocation(
-        type_: (json['type'] != null
-            ? BetaApproximateLocationType.fromJson(json['type'] as String)
-            : null)!,
-        country: json.containsKey('country')
-            ? SdkPresent(json['country'] as String?)
-            : const SdkOmitted(),
-        region: json.containsKey('region')
-            ? SdkPresent(json['region'] as String?)
-            : const SdkOmitted(),
-        city: json.containsKey('city')
-            ? SdkPresent(json['city'] as String?)
-            : const SdkOmitted(),
-        timezone: json.containsKey('timezone')
-            ? SdkPresent(json['timezone'] as String?)
-            : const SdkOmitted(),
-      );
+  factory BetaApproximateLocation.fromJson(Map<String, dynamic> json) => BetaApproximateLocation(
+    type_: (json['type'] != null ? BetaApproximateLocationType.fromJson(json['type'] as String) : null)!,
+    country: json.containsKey('country') ? SdkPresent(json['country'] as String?) : const SdkOmitted(),
+    region: json.containsKey('region') ? SdkPresent(json['region'] as String?) : const SdkOmitted(),
+    city: json.containsKey('city') ? SdkPresent(json['city'] as String?) : const SdkOmitted(),
+    timezone: json.containsKey('timezone') ? SdkPresent(json['timezone'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (country) {
-          SdkPresent<String?>(value: final value) => {
-              'country': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<String?>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (city) {
-          SdkPresent<String?>(value: final value) => {
-              'city': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timezone) {
-          SdkPresent<String?>(value: final value) => {
-              'timezone': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (country) {
+      SdkPresent<String?>(value: final value) => {'country': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<String?>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (city) {
+      SdkPresent<String?>(value: final value) => {'city': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timezone) {
+      SdkPresent<String?>(value: final value) => {'timezone': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BetaCacheMissReasonTypeEnum` API schema.
 final class BetaCacheMissReasonTypeEnum {
+
   final String value;
 
   const BetaCacheMissReasonTypeEnum._(this.value);
 
-  factory BetaCacheMissReasonTypeEnum.fromJson(String value) =>
-      BetaCacheMissReasonTypeEnum._(value);
+  factory BetaCacheMissReasonTypeEnum.fromJson(String value) => BetaCacheMissReasonTypeEnum._(value);
 
   static const modelChanged = BetaCacheMissReasonTypeEnum._('model_changed');
-  static const promptCacheKeyChanged =
-      BetaCacheMissReasonTypeEnum._('prompt_cache_key_changed');
+  static const promptCacheKeyChanged = BetaCacheMissReasonTypeEnum._('prompt_cache_key_changed');
   static const toolsChanged = BetaCacheMissReasonTypeEnum._('tools_changed');
-  static const textFormatChanged =
-      BetaCacheMissReasonTypeEnum._('text_format_changed');
-  static const reasoningEffortChanged =
-      BetaCacheMissReasonTypeEnum._('reasoning_effort_changed');
-  static const verbosityChanged =
-      BetaCacheMissReasonTypeEnum._('verbosity_changed');
-  static const contextCompacted =
-      BetaCacheMissReasonTypeEnum._('context_compacted');
+  static const textFormatChanged = BetaCacheMissReasonTypeEnum._('text_format_changed');
+  static const reasoningEffortChanged = BetaCacheMissReasonTypeEnum._('reasoning_effort_changed');
+  static const verbosityChanged = BetaCacheMissReasonTypeEnum._('verbosity_changed');
+  static const contextCompacted = BetaCacheMissReasonTypeEnum._('context_compacted');
   static const inputChanged = BetaCacheMissReasonTypeEnum._('input_changed');
-  static const serviceTierChanged =
-      BetaCacheMissReasonTypeEnum._('service_tier_changed');
+  static const serviceTierChanged = BetaCacheMissReasonTypeEnum._('service_tier_changed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaCacheMissReasonTypeEnum && other.value == value;
+  @override bool operator ==(Object other) => other is BetaCacheMissReasonTypeEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `BetaCallableToolAllowedCaller` API schema.
 final class BetaCallableToolAllowedCaller {
+
   final String value;
 
   const BetaCallableToolAllowedCaller._(this.value);
 
-  factory BetaCallableToolAllowedCaller.fromJson(String value) =>
-      BetaCallableToolAllowedCaller._(value);
+  factory BetaCallableToolAllowedCaller.fromJson(String value) => BetaCallableToolAllowedCaller._(value);
 
   static const direct = BetaCallableToolAllowedCaller._('direct');
   static const programmatic = BetaCallableToolAllowedCaller._('programmatic');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaCallableToolAllowedCaller && other.value == value;
+  @override bool operator ==(Object other) => other is BetaCallableToolAllowedCaller && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 sealed class BetaComparisonFilterValue {
@@ -276,19 +168,10 @@ sealed class BetaComparisonFilterValue {
   static const String constructionSurface = 'named';
   const BetaComparisonFilterValue();
   factory BetaComparisonFilterValue.fromJson(Object? json) {
-    if (json is String) {
-      return BetaComparisonFilterValueString(json);
-    }
-    if (json is num) {
-      return BetaComparisonFilterValueDouble(json.toDouble());
-    }
-    if (json is bool) {
-      return BetaComparisonFilterValueBool(json);
-    }
-    if (json is List) {
-      return BetaComparisonFilterValueList(
-          json.map((e) => e).toList().cast<dynamic>());
-    }
+    if (json is String) { return BetaComparisonFilterValueString(json); }
+    if (json is num) { return BetaComparisonFilterValueDouble(json.toDouble()); }
+    if (json is bool) { return BetaComparisonFilterValueBool(json); }
+    if (json is List) { return BetaComparisonFilterValueList(json.map((e) => e).toList().cast<dynamic>()); }
     throw FormatException("No variant matched for BetaComparisonFilterValue");
   }
   Object? toJson();
@@ -297,80 +180,59 @@ sealed class BetaComparisonFilterValue {
 final class BetaComparisonFilterValueString extends BetaComparisonFilterValue {
   final String value;
   const BetaComparisonFilterValueString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class BetaComparisonFilterValueDouble extends BetaComparisonFilterValue {
   final double value;
   const BetaComparisonFilterValueDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class BetaComparisonFilterValueBool extends BetaComparisonFilterValue {
   final bool value;
   const BetaComparisonFilterValueBool(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class BetaComparisonFilterValueList extends BetaComparisonFilterValue {
   final List<dynamic> value;
   const BetaComparisonFilterValueList(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// A filter used to compare a specified attribute key to a given value using a defined comparison operation.
 class BetaComparisonFilter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`, `in`, `nin`. - `eq`: equals - `ne`: not equal - `gt`: greater than - `gte`: greater than or equal - `lt`: less than - `lte`: less than or equal - `in`: in - `nin`: not in
   final BetaComparisonFilterType type_;
-
   /// The key to compare against the value.
   final String key;
-
   /// The value to compare against the attribute key; supports string, number, or boolean types.
   final dynamic value;
 
-  const BetaComparisonFilter(
-      {required this.type_, required this.key, required this.value});
+  const BetaComparisonFilter({required this.type_, required this.key, required this.value});
 
-  BetaComparisonFilter Function(
-      {BetaComparisonFilterType type_,
-      String key,
-      dynamic value}) get copyWith => _copyWith;
+  BetaComparisonFilter Function({BetaComparisonFilterType type_, String key, dynamic value}) get copyWith => _copyWith;
 
-  BetaComparisonFilter _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? value = sdkOmittedValue}) =>
-      BetaComparisonFilter(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaComparisonFilterType,
-        key: identical(key, sdkOmittedValue) ? this.key : key as String,
-        value:
-            identical(value, sdkOmittedValue) ? this.value : value as dynamic,
-      );
+  BetaComparisonFilter _copyWith({Object? type_ = sdkOmittedValue, Object? key = sdkOmittedValue, Object? value = sdkOmittedValue}) => BetaComparisonFilter(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaComparisonFilterType,
+    key: identical(key, sdkOmittedValue) ? this.key : key as String,
+    value: identical(value, sdkOmittedValue) ? this.value : value as dynamic,
+  );
 
-  factory BetaComparisonFilter.fromJson(Map<String, dynamic> json) =>
-      BetaComparisonFilter(
-        type_: (json['type'] != null
-            ? BetaComparisonFilterType.fromJson(json['type'] as String)
-            : null)!,
-        key: (json['key'] as String?)!,
-        value: (json['value'])!,
-      );
+  factory BetaComparisonFilter.fromJson(Map<String, dynamic> json) => BetaComparisonFilter(
+    type_: (json['type'] != null ? BetaComparisonFilterType.fromJson(json['type'] as String) : null)!,
+    key: (json['key'] as String?)!,
+    value: (json['value'])!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'key': key,
-        'value': value,
-      };
+    'type': type_.toJson(),
+    'key': key,
+    'value': value,
+  };
 }
 
 sealed class BetaContextManagementParamCompactThreshold {
@@ -378,66 +240,46 @@ sealed class BetaContextManagementParamCompactThreshold {
   static const String constructionSurface = 'named';
   const BetaContextManagementParamCompactThreshold();
   factory BetaContextManagementParamCompactThreshold.fromJson(Object? json) {
-    if (json is num) {
-      return BetaContextManagementParamCompactThresholdInt(json.toInt());
-    }
-    throw FormatException(
-        "No variant matched for BetaContextManagementParamCompactThreshold");
+    if (json is num) { return BetaContextManagementParamCompactThresholdInt(json.toInt()); }
+    throw FormatException("No variant matched for BetaContextManagementParamCompactThreshold");
   }
   Object? toJson();
 }
 
-final class BetaContextManagementParamCompactThresholdInt
-    extends BetaContextManagementParamCompactThreshold {
+final class BetaContextManagementParamCompactThresholdInt extends BetaContextManagementParamCompactThreshold {
   final int value;
   const BetaContextManagementParamCompactThresholdInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Typed representation of the `BetaContextManagementParam` API schema.
 class BetaContextManagementParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The context management entry type. Currently only 'compaction' is supported.
   final String type_;
-
   /// Optional API value serialized in the `compact_threshold` wire field.
   final SdkOptional<int?> compactThreshold;
 
-  const BetaContextManagementParam(
-      {required this.type_, this.compactThreshold = const SdkOmitted()});
+  const BetaContextManagementParam({required this.type_, this.compactThreshold = const SdkOmitted()});
 
-  BetaContextManagementParam Function(
-      {String type_,
-      SdkOptional<int?> compactThreshold}) get copyWith => _copyWith;
+  BetaContextManagementParam Function({String type_, SdkOptional<int?> compactThreshold}) get copyWith => _copyWith;
 
-  BetaContextManagementParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? compactThreshold = sdkOmittedValue}) =>
-      BetaContextManagementParam(
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-        compactThreshold: identical(compactThreshold, sdkOmittedValue)
-            ? this.compactThreshold
-            : compactThreshold as SdkOptional<int?>,
-      );
+  BetaContextManagementParam _copyWith({Object? type_ = sdkOmittedValue, Object? compactThreshold = sdkOmittedValue}) => BetaContextManagementParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    compactThreshold: identical(compactThreshold, sdkOmittedValue) ? this.compactThreshold : compactThreshold as SdkOptional<int?>,
+  );
 
-  factory BetaContextManagementParam.fromJson(Map<String, dynamic> json) =>
-      BetaContextManagementParam(
-        type_: (json['type'] as String?)!,
-        compactThreshold: json.containsKey('compact_threshold')
-            ? SdkPresent((json['compact_threshold'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory BetaContextManagementParam.fromJson(Map<String, dynamic> json) => BetaContextManagementParam(
+    type_: (json['type'] as String?)!,
+    compactThreshold: json.containsKey('compact_threshold') ? SdkPresent((json['compact_threshold'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_,
-        ...switch (compactThreshold) {
-          SdkPresent<int?>(value: final value) => {
-              'compact_threshold': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_,
+    ...switch (compactThreshold) {
+      SdkPresent<int?>(value: final value) => {'compact_threshold': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

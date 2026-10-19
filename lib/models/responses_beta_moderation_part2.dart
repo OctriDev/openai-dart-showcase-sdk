@@ -8,105 +8,47 @@ part of 'responses_beta_moderation.dart';
 class BetaModerationResultBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which was always `moderation_result` for successful moderation results.
   final BetaModerationResultBodyType type_;
-
   /// The moderation model that produced this result.
   final String model;
-
   /// A boolean indicating whether the content was flagged by any category.
   final bool flagged;
-
   /// A dictionary of moderation categories to booleans, True if the input is flagged under this category.
   final Map<String, bool> categories;
-
   /// A dictionary of moderation categories to scores.
   final Map<String, double> categoryScores;
-
   /// Which modalities of input are reflected by the score for each category.
   final Map<String, List<BetaModerationInputType>> categoryAppliedInputTypes;
 
-  const BetaModerationResultBody(
-      {required this.type_,
-      required this.model,
-      required this.flagged,
-      required this.categories,
-      required this.categoryScores,
-      required this.categoryAppliedInputTypes});
+  const BetaModerationResultBody({required this.type_, required this.model, required this.flagged, required this.categories, required this.categoryScores, required this.categoryAppliedInputTypes});
 
-  BetaModerationResultBody Function(
-          {BetaModerationResultBodyType type_,
-          String model,
-          bool flagged,
-          Map<String, bool> categories,
-          Map<String, double> categoryScores,
-          Map<String, List<BetaModerationInputType>> categoryAppliedInputTypes})
-      get copyWith => _copyWith;
+  BetaModerationResultBody Function({BetaModerationResultBodyType type_, String model, bool flagged, Map<String, bool> categories, Map<String, double> categoryScores, Map<String, List<BetaModerationInputType>> categoryAppliedInputTypes}) get copyWith => _copyWith;
 
-  BetaModerationResultBody _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? flagged = sdkOmittedValue,
-          Object? categories = sdkOmittedValue,
-          Object? categoryScores = sdkOmittedValue,
-          Object? categoryAppliedInputTypes = sdkOmittedValue}) =>
-      BetaModerationResultBody(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaModerationResultBodyType,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        flagged: identical(flagged, sdkOmittedValue)
-            ? this.flagged
-            : flagged as bool,
-        categories: identical(categories, sdkOmittedValue)
-            ? this.categories
-            : categories as Map<String, bool>,
-        categoryScores: identical(categoryScores, sdkOmittedValue)
-            ? this.categoryScores
-            : categoryScores as Map<String, double>,
-        categoryAppliedInputTypes:
-            identical(categoryAppliedInputTypes, sdkOmittedValue)
-                ? this.categoryAppliedInputTypes
-                : categoryAppliedInputTypes
-                    as Map<String, List<BetaModerationInputType>>,
-      );
+  BetaModerationResultBody _copyWith({Object? type_ = sdkOmittedValue, Object? model = sdkOmittedValue, Object? flagged = sdkOmittedValue, Object? categories = sdkOmittedValue, Object? categoryScores = sdkOmittedValue, Object? categoryAppliedInputTypes = sdkOmittedValue}) => BetaModerationResultBody(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaModerationResultBodyType,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    flagged: identical(flagged, sdkOmittedValue) ? this.flagged : flagged as bool,
+    categories: identical(categories, sdkOmittedValue) ? this.categories : categories as Map<String, bool>,
+    categoryScores: identical(categoryScores, sdkOmittedValue) ? this.categoryScores : categoryScores as Map<String, double>,
+    categoryAppliedInputTypes: identical(categoryAppliedInputTypes, sdkOmittedValue) ? this.categoryAppliedInputTypes : categoryAppliedInputTypes as Map<String, List<BetaModerationInputType>>,
+  );
 
-  factory BetaModerationResultBody.fromJson(Map<String, dynamic> json) =>
-      BetaModerationResultBody(
-        type_: (json['type'] != null
-            ? BetaModerationResultBodyType.fromJson(json['type'] as String)
-            : null)!,
-        model: (json['model'] as String?)!,
-        flagged: (json['flagged'] as bool?)!,
-        categories: (json['categories'] == null
-            ? null
-            : Map<String, dynamic>.from(json['categories'] as Map)
-                .map((key, value) => MapEntry(key, value as bool)))!,
-        categoryScores: (json['category_scores'] == null
-            ? null
-            : Map<String, dynamic>.from(json['category_scores'] as Map).map(
-                (key, value) => MapEntry(key, (value as num).toDouble())))!,
-        categoryAppliedInputTypes: (json['category_applied_input_types'] == null
-            ? null
-            : Map<String, dynamic>.from(
-                    json['category_applied_input_types'] as Map)
-                .map((key, value) => MapEntry(
-                    key,
-                    (value as List)
-                        .map((item) =>
-                            BetaModerationInputType.fromJson(item as String))
-                        .toList())))!,
-      );
+  factory BetaModerationResultBody.fromJson(Map<String, dynamic> json) => BetaModerationResultBody(
+    type_: (json['type'] != null ? BetaModerationResultBodyType.fromJson(json['type'] as String) : null)!,
+    model: (json['model'] as String?)!,
+    flagged: (json['flagged'] as bool?)!,
+    categories: (json['categories'] == null ? null : Map<String, dynamic>.from(json['categories'] as Map).map((key, value) => MapEntry(key, value as bool)))!,
+    categoryScores: (json['category_scores'] == null ? null : Map<String, dynamic>.from(json['category_scores'] as Map).map((key, value) => MapEntry(key, (value as num).toDouble())))!,
+    categoryAppliedInputTypes: (json['category_applied_input_types'] == null ? null : Map<String, dynamic>.from(json['category_applied_input_types'] as Map).map((key, value) => MapEntry(key, (value as List).map((item) => BetaModerationInputType.fromJson(item as String)).toList())))!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'model': model,
-        'flagged': flagged,
-        'categories': categories,
-        'category_scores': categoryScores,
-        'category_applied_input_types': categoryAppliedInputTypes.map(
-            (key, value) =>
-                MapEntry(key, value.map((item) => item.toJson()).toList())),
-      };
+    'type': type_.toJson(),
+    'model': model,
+    'flagged': flagged,
+    'categories': categories,
+    'category_scores': categoryScores,
+    'category_applied_input_types': categoryAppliedInputTypes.map((key, value) => MapEntry(key, value.map((item) => item.toJson()).toList())),
+  };
 }

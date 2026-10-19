@@ -10,18 +10,14 @@ enum EnvironmentResourceOpenaiHostedType {
 
   static EnvironmentResourceOpenaiHostedType fromJson(String value) {
     switch (value) {
-      case 'openai_hosted':
-        return EnvironmentResourceOpenaiHostedType.openaiHosted;
-      default:
-        throw ArgumentError(
-            'Unknown EnvironmentResourceOpenaiHostedType: $value');
+      case 'openai_hosted': return EnvironmentResourceOpenaiHostedType.openaiHosted;
+      default: throw ArgumentError('Unknown EnvironmentResourceOpenaiHostedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EnvironmentResourceOpenaiHostedType.openaiHosted:
-        return 'openai_hosted';
+      case EnvironmentResourceOpenaiHostedType.openaiHosted: return 'openai_hosted';
     }
   }
 
@@ -35,18 +31,14 @@ enum EnvironmentResourceSelfHostedType {
 
   static EnvironmentResourceSelfHostedType fromJson(String value) {
     switch (value) {
-      case 'self_hosted':
-        return EnvironmentResourceSelfHostedType.selfHosted;
-      default:
-        throw ArgumentError(
-            'Unknown EnvironmentResourceSelfHostedType: $value');
+      case 'self_hosted': return EnvironmentResourceSelfHostedType.selfHosted;
+      default: throw ArgumentError('Unknown EnvironmentResourceSelfHostedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EnvironmentResourceSelfHostedType.selfHosted:
-        return 'self_hosted';
+      case EnvironmentResourceSelfHostedType.selfHosted: return 'self_hosted';
     }
   }
 
@@ -56,51 +48,44 @@ enum EnvironmentResourceSelfHostedType {
 
 /// The object type, which is always `list`.
 final class EnvironmentTemplateListResourceObject {
+
   final String value;
 
   const EnvironmentTemplateListResourceObject._(this.value);
 
-  factory EnvironmentTemplateListResourceObject.fromJson(String value) =>
-      EnvironmentTemplateListResourceObject._(value);
+  factory EnvironmentTemplateListResourceObject.fromJson(String value) => EnvironmentTemplateListResourceObject._(value);
 
   static const list = EnvironmentTemplateListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is EnvironmentTemplateListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is EnvironmentTemplateListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type. Always `agent.environment.template`.
 final class EnvironmentTemplateResourceObject {
+
   final String value;
 
   const EnvironmentTemplateResourceObject._(this.value);
 
-  factory EnvironmentTemplateResourceObject.fromJson(String value) =>
-      EnvironmentTemplateResourceObject._(value);
+  factory EnvironmentTemplateResourceObject.fromJson(String value) => EnvironmentTemplateResourceObject._(value);
 
-  static const agentEnvironmentTemplate =
-      EnvironmentTemplateResourceObject._('agent.environment.template');
+  static const agentEnvironmentTemplate = EnvironmentTemplateResourceObject._('agent.environment.template');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is EnvironmentTemplateResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is EnvironmentTemplateResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `event` wire field.
@@ -109,17 +94,14 @@ enum ErrorEventEvent {
 
   static ErrorEventEvent fromJson(String value) {
     switch (value) {
-      case 'error':
-        return ErrorEventEvent.error;
-      default:
-        throw ArgumentError('Unknown ErrorEventEvent: $value');
+      case 'error': return ErrorEventEvent.error;
+      default: throw ArgumentError('Unknown ErrorEventEvent: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ErrorEventEvent.error:
-        return 'error';
+      case ErrorEventEvent.error: return 'error';
     }
   }
 
@@ -129,6 +111,7 @@ enum ErrorEventEvent {
 
 /// The object type.
 final class EvalObject {
+
   final String value;
 
   const EvalObject._(this.value);
@@ -139,14 +122,12 @@ final class EvalObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is EvalObject && other.value == value;
+  @override bool operator ==(Object other) => other is EvalObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of data source. Always `custom`.
@@ -155,17 +136,14 @@ enum EvalCustomDataSourceConfigType {
 
   static EvalCustomDataSourceConfigType fromJson(String value) {
     switch (value) {
-      case 'custom':
-        return EvalCustomDataSourceConfigType.custom;
-      default:
-        throw ArgumentError('Unknown EvalCustomDataSourceConfigType: $value');
+      case 'custom': return EvalCustomDataSourceConfigType.custom;
+      default: throw ArgumentError('Unknown EvalCustomDataSourceConfigType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EvalCustomDataSourceConfigType.custom:
-        return 'custom';
+      case EvalCustomDataSourceConfigType.custom: return 'custom';
     }
   }
 
@@ -175,6 +153,7 @@ enum EvalCustomDataSourceConfigType {
 
 /// The role of the message input. One of `user`, `assistant`, `system`, or `developer`.
 final class EvalItemRole {
+
   final String value;
 
   const EvalItemRole._(this.value);
@@ -188,19 +167,17 @@ final class EvalItemRole {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is EvalItemRole && other.value == value;
+  @override bool operator ==(Object other) => other is EvalItemRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the message input. Always `message`.
 final class EvalItemType {
+
   final String value;
 
   const EvalItemType._(this.value);
@@ -211,15 +188,12 @@ final class EvalItemType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is EvalItemType && other.value == value;
+  @override bool operator ==(Object other) => other is EvalItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the output text. Always `output_text`.
@@ -228,17 +202,14 @@ enum EvalItemContentOutputTextType {
 
   static EvalItemContentOutputTextType fromJson(String value) {
     switch (value) {
-      case 'output_text':
-        return EvalItemContentOutputTextType.outputText;
-      default:
-        throw ArgumentError('Unknown EvalItemContentOutputTextType: $value');
+      case 'output_text': return EvalItemContentOutputTextType.outputText;
+      default: throw ArgumentError('Unknown EvalItemContentOutputTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EvalItemContentOutputTextType.outputText:
-        return 'output_text';
+      case EvalItemContentOutputTextType.outputText: return 'output_text';
     }
   }
 
@@ -252,17 +223,14 @@ enum EvalItemInputImageType {
 
   static EvalItemInputImageType fromJson(String value) {
     switch (value) {
-      case 'input_image':
-        return EvalItemInputImageType.inputImage;
-      default:
-        throw ArgumentError('Unknown EvalItemInputImageType: $value');
+      case 'input_image': return EvalItemInputImageType.inputImage;
+      default: throw ArgumentError('Unknown EvalItemInputImageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EvalItemInputImageType.inputImage:
-        return 'input_image';
+      case EvalItemInputImageType.inputImage: return 'input_image';
     }
   }
 
@@ -276,17 +244,14 @@ enum EvalJsonlFileContentSourceType {
 
   static EvalJsonlFileContentSourceType fromJson(String value) {
     switch (value) {
-      case 'file_content':
-        return EvalJsonlFileContentSourceType.fileContent;
-      default:
-        throw ArgumentError('Unknown EvalJsonlFileContentSourceType: $value');
+      case 'file_content': return EvalJsonlFileContentSourceType.fileContent;
+      default: throw ArgumentError('Unknown EvalJsonlFileContentSourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EvalJsonlFileContentSourceType.fileContent:
-        return 'file_content';
+      case EvalJsonlFileContentSourceType.fileContent: return 'file_content';
     }
   }
 
@@ -300,17 +265,14 @@ enum EvalJsonlFileIdSourceType {
 
   static EvalJsonlFileIdSourceType fromJson(String value) {
     switch (value) {
-      case 'file_id':
-        return EvalJsonlFileIdSourceType.fileId;
-      default:
-        throw ArgumentError('Unknown EvalJsonlFileIdSourceType: $value');
+      case 'file_id': return EvalJsonlFileIdSourceType.fileId;
+      default: throw ArgumentError('Unknown EvalJsonlFileIdSourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EvalJsonlFileIdSourceType.fileId:
-        return 'file_id';
+      case EvalJsonlFileIdSourceType.fileId: return 'file_id';
     }
   }
 

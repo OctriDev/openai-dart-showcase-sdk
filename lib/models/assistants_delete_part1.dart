@@ -8,154 +8,100 @@ part of 'assistants_delete.dart';
 class DeleteAssistantResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
-
   /// Required enumerated value serialized in the `object` wire field.
   final DeleteAssistantResponseObject object;
 
-  const DeleteAssistantResponse(
-      {required this.id, required this.deleted, required this.object});
+  const DeleteAssistantResponse({required this.id, required this.deleted, required this.object});
 
-  DeleteAssistantResponse Function(
-      {String id,
-      bool deleted,
-      DeleteAssistantResponseObject object}) get copyWith => _copyWith;
+  DeleteAssistantResponse Function({String id, bool deleted, DeleteAssistantResponseObject object}) get copyWith => _copyWith;
 
-  DeleteAssistantResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue,
-          Object? object = sdkOmittedValue}) =>
-      DeleteAssistantResponse(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DeleteAssistantResponseObject,
-      );
+  DeleteAssistantResponse _copyWith({Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? object = sdkOmittedValue}) => DeleteAssistantResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteAssistantResponseObject,
+  );
 
-  factory DeleteAssistantResponse.fromJson(Map<String, dynamic> json) =>
-      DeleteAssistantResponse(
-        id: (json['id'] as String?)!,
-        deleted: (json['deleted'] as bool?)!,
-        object: (json['object'] != null
-            ? DeleteAssistantResponseObject.fromJson(json['object'] as String)
-            : null)!,
-      );
+  factory DeleteAssistantResponse.fromJson(Map<String, dynamic> json) => DeleteAssistantResponse(
+    id: (json['id'] as String?)!,
+    deleted: (json['deleted'] as bool?)!,
+    object: (json['object'] != null ? DeleteAssistantResponseObject.fromJson(json['object'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'deleted': deleted,
-        'object': object.toJson(),
-      };
+    'id': id,
+    'deleted': deleted,
+    'object': object.toJson(),
+  };
 }
 
 /// Typed representation of the `DeleteMessageResponse` API schema.
 class DeleteMessageResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
-
   /// Required enumerated value serialized in the `object` wire field.
   final DeleteMessageResponseObject object;
 
-  const DeleteMessageResponse(
-      {required this.id, required this.deleted, required this.object});
+  const DeleteMessageResponse({required this.id, required this.deleted, required this.object});
 
-  DeleteMessageResponse Function(
-      {String id,
-      bool deleted,
-      DeleteMessageResponseObject object}) get copyWith => _copyWith;
+  DeleteMessageResponse Function({String id, bool deleted, DeleteMessageResponseObject object}) get copyWith => _copyWith;
 
-  DeleteMessageResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue,
-          Object? object = sdkOmittedValue}) =>
-      DeleteMessageResponse(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DeleteMessageResponseObject,
-      );
+  DeleteMessageResponse _copyWith({Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? object = sdkOmittedValue}) => DeleteMessageResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteMessageResponseObject,
+  );
 
-  factory DeleteMessageResponse.fromJson(Map<String, dynamic> json) =>
-      DeleteMessageResponse(
-        id: (json['id'] as String?)!,
-        deleted: (json['deleted'] as bool?)!,
-        object: (json['object'] != null
-            ? DeleteMessageResponseObject.fromJson(json['object'] as String)
-            : null)!,
-      );
+  factory DeleteMessageResponse.fromJson(Map<String, dynamic> json) => DeleteMessageResponse(
+    id: (json['id'] as String?)!,
+    deleted: (json['deleted'] as bool?)!,
+    object: (json['object'] != null ? DeleteMessageResponseObject.fromJson(json['object'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'deleted': deleted,
-        'object': object.toJson(),
-      };
+    'id': id,
+    'deleted': deleted,
+    'object': object.toJson(),
+  };
 }
 
 /// Typed representation of the `DeleteThreadResponse` API schema.
 class DeleteThreadResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
-
   /// Required enumerated value serialized in the `object` wire field.
   final DeleteThreadResponseObject object;
 
-  const DeleteThreadResponse(
-      {required this.id, required this.deleted, required this.object});
+  const DeleteThreadResponse({required this.id, required this.deleted, required this.object});
 
-  DeleteThreadResponse Function(
-      {String id,
-      bool deleted,
-      DeleteThreadResponseObject object}) get copyWith => _copyWith;
+  DeleteThreadResponse Function({String id, bool deleted, DeleteThreadResponseObject object}) get copyWith => _copyWith;
 
-  DeleteThreadResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue,
-          Object? object = sdkOmittedValue}) =>
-      DeleteThreadResponse(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DeleteThreadResponseObject,
-      );
+  DeleteThreadResponse _copyWith({Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? object = sdkOmittedValue}) => DeleteThreadResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteThreadResponseObject,
+  );
 
-  factory DeleteThreadResponse.fromJson(Map<String, dynamic> json) =>
-      DeleteThreadResponse(
-        id: (json['id'] as String?)!,
-        deleted: (json['deleted'] as bool?)!,
-        object: (json['object'] != null
-            ? DeleteThreadResponseObject.fromJson(json['object'] as String)
-            : null)!,
-      );
+  factory DeleteThreadResponse.fromJson(Map<String, dynamic> json) => DeleteThreadResponse(
+    id: (json['id'] as String?)!,
+    deleted: (json['deleted'] as bool?)!,
+    object: (json['object'] != null ? DeleteThreadResponseObject.fromJson(json['object'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'deleted': deleted,
-        'object': object.toJson(),
-      };
+    'id': id,
+    'deleted': deleted,
+    'object': object.toJson(),
+  };
 }

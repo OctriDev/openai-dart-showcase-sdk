@@ -8,202 +8,115 @@ part of 'responses_response_file.dart';
 class ResponseFileSearchCallCompletedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `response.file_search_call.completed`.
   final ResponseFileSearchCallCompletedEventType type_;
-
   /// The index of the output item that the file search call is initiated.
   final int outputIndex;
-
   /// The ID of the output item that the file search call is initiated.
   final String itemId;
-
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseFileSearchCallCompletedEvent(
-      {required this.type_,
-      required this.outputIndex,
-      required this.itemId,
-      required this.sequenceNumber});
+  const ResponseFileSearchCallCompletedEvent({required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber});
 
-  ResponseFileSearchCallCompletedEvent Function(
-      {ResponseFileSearchCallCompletedEventType type_,
-      int outputIndex,
-      String itemId,
-      int sequenceNumber}) get copyWith => _copyWith;
+  ResponseFileSearchCallCompletedEvent Function({ResponseFileSearchCallCompletedEventType type_, int outputIndex, String itemId, int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseFileSearchCallCompletedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue}) =>
-      ResponseFileSearchCallCompletedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseFileSearchCallCompletedEventType,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-      );
+  ResponseFileSearchCallCompletedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseFileSearchCallCompletedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseFileSearchCallCompletedEventType,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+  );
 
-  factory ResponseFileSearchCallCompletedEvent.fromJson(
-          Map<String, dynamic> json) =>
-      ResponseFileSearchCallCompletedEvent(
-        type_: (json['type'] != null
-            ? ResponseFileSearchCallCompletedEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        itemId: (json['item_id'] as String?)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-      );
+  factory ResponseFileSearchCallCompletedEvent.fromJson(Map<String, dynamic> json) => ResponseFileSearchCallCompletedEvent(
+    type_: (json['type'] != null ? ResponseFileSearchCallCompletedEventType.fromJson(json['type'] as String) : null)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    itemId: (json['item_id'] as String?)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'output_index': outputIndex,
-        'item_id': itemId,
-        'sequence_number': sequenceNumber,
-      };
+    'type': type_.toJson(),
+    'output_index': outputIndex,
+    'item_id': itemId,
+    'sequence_number': sequenceNumber,
+  };
 }
 
 /// Emitted when a file search call is initiated.
 class ResponseFileSearchCallInProgressEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `response.file_search_call.in_progress`.
   final ResponseFileSearchCallInProgressEventType type_;
-
   /// The index of the output item that the file search call is initiated.
   final int outputIndex;
-
   /// The ID of the output item that the file search call is initiated.
   final String itemId;
-
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseFileSearchCallInProgressEvent(
-      {required this.type_,
-      required this.outputIndex,
-      required this.itemId,
-      required this.sequenceNumber});
+  const ResponseFileSearchCallInProgressEvent({required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber});
 
-  ResponseFileSearchCallInProgressEvent Function(
-      {ResponseFileSearchCallInProgressEventType type_,
-      int outputIndex,
-      String itemId,
-      int sequenceNumber}) get copyWith => _copyWith;
+  ResponseFileSearchCallInProgressEvent Function({ResponseFileSearchCallInProgressEventType type_, int outputIndex, String itemId, int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseFileSearchCallInProgressEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue}) =>
-      ResponseFileSearchCallInProgressEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseFileSearchCallInProgressEventType,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-      );
+  ResponseFileSearchCallInProgressEvent _copyWith({Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseFileSearchCallInProgressEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseFileSearchCallInProgressEventType,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+  );
 
-  factory ResponseFileSearchCallInProgressEvent.fromJson(
-          Map<String, dynamic> json) =>
-      ResponseFileSearchCallInProgressEvent(
-        type_: (json['type'] != null
-            ? ResponseFileSearchCallInProgressEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        itemId: (json['item_id'] as String?)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-      );
+  factory ResponseFileSearchCallInProgressEvent.fromJson(Map<String, dynamic> json) => ResponseFileSearchCallInProgressEvent(
+    type_: (json['type'] != null ? ResponseFileSearchCallInProgressEventType.fromJson(json['type'] as String) : null)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    itemId: (json['item_id'] as String?)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'output_index': outputIndex,
-        'item_id': itemId,
-        'sequence_number': sequenceNumber,
-      };
+    'type': type_.toJson(),
+    'output_index': outputIndex,
+    'item_id': itemId,
+    'sequence_number': sequenceNumber,
+  };
 }
 
 /// Emitted when a file search is currently searching.
 class ResponseFileSearchCallSearchingEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `response.file_search_call.searching`.
   final ResponseFileSearchCallSearchingEventType type_;
-
   /// The index of the output item that the file search call is searching.
   final int outputIndex;
-
   /// The ID of the output item that the file search call is initiated.
   final String itemId;
-
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseFileSearchCallSearchingEvent(
-      {required this.type_,
-      required this.outputIndex,
-      required this.itemId,
-      required this.sequenceNumber});
+  const ResponseFileSearchCallSearchingEvent({required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber});
 
-  ResponseFileSearchCallSearchingEvent Function(
-      {ResponseFileSearchCallSearchingEventType type_,
-      int outputIndex,
-      String itemId,
-      int sequenceNumber}) get copyWith => _copyWith;
+  ResponseFileSearchCallSearchingEvent Function({ResponseFileSearchCallSearchingEventType type_, int outputIndex, String itemId, int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseFileSearchCallSearchingEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue}) =>
-      ResponseFileSearchCallSearchingEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseFileSearchCallSearchingEventType,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-      );
+  ResponseFileSearchCallSearchingEvent _copyWith({Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseFileSearchCallSearchingEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseFileSearchCallSearchingEventType,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+  );
 
-  factory ResponseFileSearchCallSearchingEvent.fromJson(
-          Map<String, dynamic> json) =>
-      ResponseFileSearchCallSearchingEvent(
-        type_: (json['type'] != null
-            ? ResponseFileSearchCallSearchingEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        itemId: (json['item_id'] as String?)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-      );
+  factory ResponseFileSearchCallSearchingEvent.fromJson(Map<String, dynamic> json) => ResponseFileSearchCallSearchingEvent(
+    type_: (json['type'] != null ? ResponseFileSearchCallSearchingEventType.fromJson(json['type'] as String) : null)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    itemId: (json['item_id'] as String?)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'output_index': outputIndex,
-        'item_id': itemId,
-        'sequence_number': sequenceNumber,
-      };
+    'type': type_.toJson(),
+    'output_index': outputIndex,
+    'item_id': itemId,
+    'sequence_number': sequenceNumber,
+  };
 }

@@ -10,18 +10,14 @@ enum WaitForSubagentsCallItemResourceType {
 
   static WaitForSubagentsCallItemResourceType fromJson(String value) {
     switch (value) {
-      case 'wait_for_subagents_call':
-        return WaitForSubagentsCallItemResourceType.waitForSubagentsCall;
-      default:
-        throw ArgumentError(
-            'Unknown WaitForSubagentsCallItemResourceType: $value');
+      case 'wait_for_subagents_call': return WaitForSubagentsCallItemResourceType.waitForSubagentsCall;
+      default: throw ArgumentError('Unknown WaitForSubagentsCallItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WaitForSubagentsCallItemResourceType.waitForSubagentsCall:
-        return 'wait_for_subagents_call';
+      case WaitForSubagentsCallItemResourceType.waitForSubagentsCall: return 'wait_for_subagents_call';
     }
   }
 
@@ -35,17 +31,14 @@ enum WaitParamType {
 
   static WaitParamType fromJson(String value) {
     switch (value) {
-      case 'wait':
-        return WaitParamType.wait;
-      default:
-        throw ArgumentError('Unknown WaitParamType: $value');
+      case 'wait': return WaitParamType.wait;
+      default: throw ArgumentError('Unknown WaitParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WaitParamType.wait:
-        return 'wait';
+      case WaitParamType.wait: return 'wait';
     }
   }
 
@@ -55,281 +48,231 @@ enum WaitParamType {
 
 /// The event type. Always `agent.environment.expired`.
 final class WebhookAgentEnvironmentExpiredVariant1Type {
+
   final String value;
 
   const WebhookAgentEnvironmentExpiredVariant1Type._(this.value);
 
-  factory WebhookAgentEnvironmentExpiredVariant1Type.fromJson(String value) =>
-      WebhookAgentEnvironmentExpiredVariant1Type._(value);
+  factory WebhookAgentEnvironmentExpiredVariant1Type.fromJson(String value) => WebhookAgentEnvironmentExpiredVariant1Type._(value);
 
-  static const agentEnvironmentExpired =
-      WebhookAgentEnvironmentExpiredVariant1Type._('agent.environment.expired');
+  static const agentEnvironmentExpired = WebhookAgentEnvironmentExpiredVariant1Type._('agent.environment.expired');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookAgentEnvironmentExpiredVariant1Type &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is WebhookAgentEnvironmentExpiredVariant1Type && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type. Always `agent.environment.failed`.
 final class WebhookAgentEnvironmentFailedVariant1Type {
+
   final String value;
 
   const WebhookAgentEnvironmentFailedVariant1Type._(this.value);
 
-  factory WebhookAgentEnvironmentFailedVariant1Type.fromJson(String value) =>
-      WebhookAgentEnvironmentFailedVariant1Type._(value);
+  factory WebhookAgentEnvironmentFailedVariant1Type.fromJson(String value) => WebhookAgentEnvironmentFailedVariant1Type._(value);
 
-  static const agentEnvironmentFailed =
-      WebhookAgentEnvironmentFailedVariant1Type._('agent.environment.failed');
+  static const agentEnvironmentFailed = WebhookAgentEnvironmentFailedVariant1Type._('agent.environment.failed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookAgentEnvironmentFailedVariant1Type &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is WebhookAgentEnvironmentFailedVariant1Type && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type. Always `agent.environment.ready`.
 final class WebhookAgentEnvironmentReadyVariant1Type {
+
   final String value;
 
   const WebhookAgentEnvironmentReadyVariant1Type._(this.value);
 
-  factory WebhookAgentEnvironmentReadyVariant1Type.fromJson(String value) =>
-      WebhookAgentEnvironmentReadyVariant1Type._(value);
+  factory WebhookAgentEnvironmentReadyVariant1Type.fromJson(String value) => WebhookAgentEnvironmentReadyVariant1Type._(value);
 
-  static const agentEnvironmentReady =
-      WebhookAgentEnvironmentReadyVariant1Type._('agent.environment.ready');
+  static const agentEnvironmentReady = WebhookAgentEnvironmentReadyVariant1Type._('agent.environment.ready');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookAgentEnvironmentReadyVariant1Type && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookAgentEnvironmentReadyVariant1Type && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type. Always `agent.environment.suspended`.
 final class WebhookAgentEnvironmentSuspendedVariant1Type {
+
   final String value;
 
   const WebhookAgentEnvironmentSuspendedVariant1Type._(this.value);
 
-  factory WebhookAgentEnvironmentSuspendedVariant1Type.fromJson(String value) =>
-      WebhookAgentEnvironmentSuspendedVariant1Type._(value);
+  factory WebhookAgentEnvironmentSuspendedVariant1Type.fromJson(String value) => WebhookAgentEnvironmentSuspendedVariant1Type._(value);
 
-  static const agentEnvironmentSuspended =
-      WebhookAgentEnvironmentSuspendedVariant1Type._(
-          'agent.environment.suspended');
+  static const agentEnvironmentSuspended = WebhookAgentEnvironmentSuspendedVariant1Type._('agent.environment.suspended');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookAgentEnvironmentSuspendedVariant1Type &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is WebhookAgentEnvironmentSuspendedVariant1Type && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type. Always `agent.session.action_required`.
 final class WebhookAgentSessionActionRequiredVariant1Type {
+
   final String value;
 
   const WebhookAgentSessionActionRequiredVariant1Type._(this.value);
 
-  factory WebhookAgentSessionActionRequiredVariant1Type.fromJson(
-          String value) =>
-      WebhookAgentSessionActionRequiredVariant1Type._(value);
+  factory WebhookAgentSessionActionRequiredVariant1Type.fromJson(String value) => WebhookAgentSessionActionRequiredVariant1Type._(value);
 
-  static const agentSessionActionRequired =
-      WebhookAgentSessionActionRequiredVariant1Type._(
-          'agent.session.action_required');
+  static const agentSessionActionRequired = WebhookAgentSessionActionRequiredVariant1Type._('agent.session.action_required');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookAgentSessionActionRequiredVariant1Type &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is WebhookAgentSessionActionRequiredVariant1Type && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type. Always `agent.session.created`.
 final class WebhookAgentSessionCreatedVariant1Type {
+
   final String value;
 
   const WebhookAgentSessionCreatedVariant1Type._(this.value);
 
-  factory WebhookAgentSessionCreatedVariant1Type.fromJson(String value) =>
-      WebhookAgentSessionCreatedVariant1Type._(value);
+  factory WebhookAgentSessionCreatedVariant1Type.fromJson(String value) => WebhookAgentSessionCreatedVariant1Type._(value);
 
-  static const agentSessionCreated =
-      WebhookAgentSessionCreatedVariant1Type._('agent.session.created');
+  static const agentSessionCreated = WebhookAgentSessionCreatedVariant1Type._('agent.session.created');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookAgentSessionCreatedVariant1Type && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookAgentSessionCreatedVariant1Type && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type. Always `event`.
 final class WebhookAgentSessionEnvelopeObject {
+
   final String value;
 
   const WebhookAgentSessionEnvelopeObject._(this.value);
 
-  factory WebhookAgentSessionEnvelopeObject.fromJson(String value) =>
-      WebhookAgentSessionEnvelopeObject._(value);
+  factory WebhookAgentSessionEnvelopeObject.fromJson(String value) => WebhookAgentSessionEnvelopeObject._(value);
 
   static const event = WebhookAgentSessionEnvelopeObject._('event');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookAgentSessionEnvelopeObject && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookAgentSessionEnvelopeObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type. Always `agent.session.failed`.
 final class WebhookAgentSessionFailedVariant1Type {
+
   final String value;
 
   const WebhookAgentSessionFailedVariant1Type._(this.value);
 
-  factory WebhookAgentSessionFailedVariant1Type.fromJson(String value) =>
-      WebhookAgentSessionFailedVariant1Type._(value);
+  factory WebhookAgentSessionFailedVariant1Type.fromJson(String value) => WebhookAgentSessionFailedVariant1Type._(value);
 
-  static const agentSessionFailed =
-      WebhookAgentSessionFailedVariant1Type._('agent.session.failed');
+  static const agentSessionFailed = WebhookAgentSessionFailedVariant1Type._('agent.session.failed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookAgentSessionFailedVariant1Type && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookAgentSessionFailedVariant1Type && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type. Always `agent.session.idle`.
 final class WebhookAgentSessionIdleVariant1Type {
+
   final String value;
 
   const WebhookAgentSessionIdleVariant1Type._(this.value);
 
-  factory WebhookAgentSessionIdleVariant1Type.fromJson(String value) =>
-      WebhookAgentSessionIdleVariant1Type._(value);
+  factory WebhookAgentSessionIdleVariant1Type.fromJson(String value) => WebhookAgentSessionIdleVariant1Type._(value);
 
-  static const agentSessionIdle =
-      WebhookAgentSessionIdleVariant1Type._('agent.session.idle');
+  static const agentSessionIdle = WebhookAgentSessionIdleVariant1Type._('agent.session.idle');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookAgentSessionIdleVariant1Type && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookAgentSessionIdleVariant1Type && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type. Always `agent.session.in_progress`.
 final class WebhookAgentSessionInProgressVariant1Type {
+
   final String value;
 
   const WebhookAgentSessionInProgressVariant1Type._(this.value);
 
-  factory WebhookAgentSessionInProgressVariant1Type.fromJson(String value) =>
-      WebhookAgentSessionInProgressVariant1Type._(value);
+  factory WebhookAgentSessionInProgressVariant1Type.fromJson(String value) => WebhookAgentSessionInProgressVariant1Type._(value);
 
-  static const agentSessionInProgress =
-      WebhookAgentSessionInProgressVariant1Type._('agent.session.in_progress');
+  static const agentSessionInProgress = WebhookAgentSessionInProgressVariant1Type._('agent.session.in_progress');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookAgentSessionInProgressVariant1Type &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is WebhookAgentSessionInProgressVariant1Type && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object of the event. Always `event`.
 final class WebhookBatchCancelledObject {
+
   final String value;
 
   const WebhookBatchCancelledObject._(this.value);
 
-  factory WebhookBatchCancelledObject.fromJson(String value) =>
-      WebhookBatchCancelledObject._(value);
+  factory WebhookBatchCancelledObject.fromJson(String value) => WebhookBatchCancelledObject._(value);
 
   static const event = WebhookBatchCancelledObject._('event');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookBatchCancelledObject && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookBatchCancelledObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

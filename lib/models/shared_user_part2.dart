@@ -8,345 +8,170 @@ part of 'shared_user.dart';
 class User {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `organization.user`
   final UserObject object;
-
   /// The identifier, which can be referenced in API endpoints
   final String id;
-
   /// The name of the user
   final SdkOptional<String?> name;
-
   /// The email address of the user
   final SdkOptional<String?> email;
-
   /// `owner` or `reader`
   final SdkOptional<String?> role;
-
   /// The Unix timestamp (in seconds) of when the user was added.
   final int addedAt;
-
   /// Whether this is the organization's default user.
   final SdkOptional<bool> isDefault;
-
   /// The Unix timestamp (in seconds) of when the user was created.
   final SdkOptional<int> created;
-
   /// Nested user details.
   final SdkOptional<UserUser> user;
-
   /// Whether the user is a service account.
   final SdkOptional<bool> isServiceAccount;
-
   /// Whether the user is an authorized purchaser for Scale Tier.
   final SdkOptional<bool?> isScaleTierAuthorizedPurchaser;
-
   /// Whether the user is managed through SCIM.
   final SdkOptional<bool> isScimManaged;
-
   /// The Unix timestamp (in seconds) of the user's last API key usage.
   final SdkOptional<int?> apiKeyLastUsedAt;
-
   /// The technical level metadata for the user.
   final SdkOptional<String?> technicalLevel;
-
   /// The developer persona metadata for the user.
   final SdkOptional<String?> developerPersona;
-
   /// Projects associated with the user, if included.
   final SdkOptional<UserProjects?> projects;
 
-  const User(
-      {required this.object,
-      required this.id,
-      this.name = const SdkOmitted(),
-      this.email = const SdkOmitted(),
-      this.role = const SdkOmitted(),
-      required this.addedAt,
-      this.isDefault = const SdkOmitted(),
-      this.created = const SdkOmitted(),
-      this.user = const SdkOmitted(),
-      this.isServiceAccount = const SdkOmitted(),
-      this.isScaleTierAuthorizedPurchaser = const SdkOmitted(),
-      this.isScimManaged = const SdkOmitted(),
-      this.apiKeyLastUsedAt = const SdkOmitted(),
-      this.technicalLevel = const SdkOmitted(),
-      this.developerPersona = const SdkOmitted(),
-      this.projects = const SdkOmitted()});
+  const User({required this.object, required this.id, this.name = const SdkOmitted(), this.email = const SdkOmitted(), this.role = const SdkOmitted(), required this.addedAt, this.isDefault = const SdkOmitted(), this.created = const SdkOmitted(), this.user = const SdkOmitted(), this.isServiceAccount = const SdkOmitted(), this.isScaleTierAuthorizedPurchaser = const SdkOmitted(), this.isScimManaged = const SdkOmitted(), this.apiKeyLastUsedAt = const SdkOmitted(), this.technicalLevel = const SdkOmitted(), this.developerPersona = const SdkOmitted(), this.projects = const SdkOmitted()});
 
-  User Function(
-      {UserObject object,
-      String id,
-      SdkOptional<String?> name,
-      SdkOptional<String?> email,
-      SdkOptional<String?> role,
-      int addedAt,
-      SdkOptional<bool> isDefault,
-      SdkOptional<int> created,
-      SdkOptional<UserUser> user,
-      SdkOptional<bool> isServiceAccount,
-      SdkOptional<bool?> isScaleTierAuthorizedPurchaser,
-      SdkOptional<bool> isScimManaged,
-      SdkOptional<int?> apiKeyLastUsedAt,
-      SdkOptional<String?> technicalLevel,
-      SdkOptional<String?> developerPersona,
-      SdkOptional<UserProjects?> projects}) get copyWith => _copyWith;
+  User Function({UserObject object, String id, SdkOptional<String?> name, SdkOptional<String?> email, SdkOptional<String?> role, int addedAt, SdkOptional<bool> isDefault, SdkOptional<int> created, SdkOptional<UserUser> user, SdkOptional<bool> isServiceAccount, SdkOptional<bool?> isScaleTierAuthorizedPurchaser, SdkOptional<bool> isScimManaged, SdkOptional<int?> apiKeyLastUsedAt, SdkOptional<String?> technicalLevel, SdkOptional<String?> developerPersona, SdkOptional<UserProjects?> projects}) get copyWith => _copyWith;
 
-  User _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? addedAt = sdkOmittedValue,
-          Object? isDefault = sdkOmittedValue,
-          Object? created = sdkOmittedValue,
-          Object? user = sdkOmittedValue,
-          Object? isServiceAccount = sdkOmittedValue,
-          Object? isScaleTierAuthorizedPurchaser = sdkOmittedValue,
-          Object? isScimManaged = sdkOmittedValue,
-          Object? apiKeyLastUsedAt = sdkOmittedValue,
-          Object? technicalLevel = sdkOmittedValue,
-          Object? developerPersona = sdkOmittedValue,
-          Object? projects = sdkOmittedValue}) =>
-      User(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as UserObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String?>,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as SdkOptional<String?>,
-        addedAt:
-            identical(addedAt, sdkOmittedValue) ? this.addedAt : addedAt as int,
-        isDefault: identical(isDefault, sdkOmittedValue)
-            ? this.isDefault
-            : isDefault as SdkOptional<bool>,
-        created: identical(created, sdkOmittedValue)
-            ? this.created
-            : created as SdkOptional<int>,
-        user: identical(user, sdkOmittedValue)
-            ? this.user
-            : user as SdkOptional<UserUser>,
-        isServiceAccount: identical(isServiceAccount, sdkOmittedValue)
-            ? this.isServiceAccount
-            : isServiceAccount as SdkOptional<bool>,
-        isScaleTierAuthorizedPurchaser:
-            identical(isScaleTierAuthorizedPurchaser, sdkOmittedValue)
-                ? this.isScaleTierAuthorizedPurchaser
-                : isScaleTierAuthorizedPurchaser as SdkOptional<bool?>,
-        isScimManaged: identical(isScimManaged, sdkOmittedValue)
-            ? this.isScimManaged
-            : isScimManaged as SdkOptional<bool>,
-        apiKeyLastUsedAt: identical(apiKeyLastUsedAt, sdkOmittedValue)
-            ? this.apiKeyLastUsedAt
-            : apiKeyLastUsedAt as SdkOptional<int?>,
-        technicalLevel: identical(technicalLevel, sdkOmittedValue)
-            ? this.technicalLevel
-            : technicalLevel as SdkOptional<String?>,
-        developerPersona: identical(developerPersona, sdkOmittedValue)
-            ? this.developerPersona
-            : developerPersona as SdkOptional<String?>,
-        projects: identical(projects, sdkOmittedValue)
-            ? this.projects
-            : projects as SdkOptional<UserProjects?>,
-      );
+  User _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? email = sdkOmittedValue, Object? role = sdkOmittedValue, Object? addedAt = sdkOmittedValue, Object? isDefault = sdkOmittedValue, Object? created = sdkOmittedValue, Object? user = sdkOmittedValue, Object? isServiceAccount = sdkOmittedValue, Object? isScaleTierAuthorizedPurchaser = sdkOmittedValue, Object? isScimManaged = sdkOmittedValue, Object? apiKeyLastUsedAt = sdkOmittedValue, Object? technicalLevel = sdkOmittedValue, Object? developerPersona = sdkOmittedValue, Object? projects = sdkOmittedValue}) => User(
+    object: identical(object, sdkOmittedValue) ? this.object : object as UserObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String?>,
+    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<String?>,
+    addedAt: identical(addedAt, sdkOmittedValue) ? this.addedAt : addedAt as int,
+    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as SdkOptional<bool>,
+    created: identical(created, sdkOmittedValue) ? this.created : created as SdkOptional<int>,
+    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<UserUser>,
+    isServiceAccount: identical(isServiceAccount, sdkOmittedValue) ? this.isServiceAccount : isServiceAccount as SdkOptional<bool>,
+    isScaleTierAuthorizedPurchaser: identical(isScaleTierAuthorizedPurchaser, sdkOmittedValue) ? this.isScaleTierAuthorizedPurchaser : isScaleTierAuthorizedPurchaser as SdkOptional<bool?>,
+    isScimManaged: identical(isScimManaged, sdkOmittedValue) ? this.isScimManaged : isScimManaged as SdkOptional<bool>,
+    apiKeyLastUsedAt: identical(apiKeyLastUsedAt, sdkOmittedValue) ? this.apiKeyLastUsedAt : apiKeyLastUsedAt as SdkOptional<int?>,
+    technicalLevel: identical(technicalLevel, sdkOmittedValue) ? this.technicalLevel : technicalLevel as SdkOptional<String?>,
+    developerPersona: identical(developerPersona, sdkOmittedValue) ? this.developerPersona : developerPersona as SdkOptional<String?>,
+    projects: identical(projects, sdkOmittedValue) ? this.projects : projects as SdkOptional<UserProjects?>,
+  );
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-        object: (json['object'] != null
-            ? UserObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-        email: json.containsKey('email')
-            ? SdkPresent(json['email'] as String?)
-            : const SdkOmitted(),
-        role: json.containsKey('role')
-            ? SdkPresent(json['role'] as String?)
-            : const SdkOmitted(),
-        addedAt: ((json['added_at'] as num?)?.toInt())!,
-        isDefault: json['is_default'] != null
-            ? SdkPresent((json['is_default'] as bool?)!)
-            : const SdkOmitted(),
-        created: json['created'] != null
-            ? SdkPresent(((json['created'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        user: json['user'] != null
-            ? SdkPresent((json['user'] != null
-                ? UserUser.fromJson(json['user'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        isServiceAccount: json['is_service_account'] != null
-            ? SdkPresent((json['is_service_account'] as bool?)!)
-            : const SdkOmitted(),
-        isScaleTierAuthorizedPurchaser: json
-                .containsKey('is_scale_tier_authorized_purchaser')
-            ? SdkPresent(json['is_scale_tier_authorized_purchaser'] as bool?)
-            : const SdkOmitted(),
-        isScimManaged: json['is_scim_managed'] != null
-            ? SdkPresent((json['is_scim_managed'] as bool?)!)
-            : const SdkOmitted(),
-        apiKeyLastUsedAt: json.containsKey('api_key_last_used_at')
-            ? SdkPresent((json['api_key_last_used_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        technicalLevel: json.containsKey('technical_level')
-            ? SdkPresent(json['technical_level'] as String?)
-            : const SdkOmitted(),
-        developerPersona: json.containsKey('developer_persona')
-            ? SdkPresent(json['developer_persona'] as String?)
-            : const SdkOmitted(),
-        projects: json.containsKey('projects')
-            ? SdkPresent(json['projects'] != null
-                ? UserProjects.fromJson(
-                    json['projects'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+    object: (json['object'] != null ? UserObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+    email: json.containsKey('email') ? SdkPresent(json['email'] as String?) : const SdkOmitted(),
+    role: json.containsKey('role') ? SdkPresent(json['role'] as String?) : const SdkOmitted(),
+    addedAt: ((json['added_at'] as num?)?.toInt())!,
+    isDefault: json['is_default'] != null ? SdkPresent((json['is_default'] as bool?)!) : const SdkOmitted(),
+    created: json['created'] != null ? SdkPresent(((json['created'] as num?)?.toInt())!) : const SdkOmitted(),
+    user: json['user'] != null ? SdkPresent((json['user'] != null ? UserUser.fromJson(json['user'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    isServiceAccount: json['is_service_account'] != null ? SdkPresent((json['is_service_account'] as bool?)!) : const SdkOmitted(),
+    isScaleTierAuthorizedPurchaser: json.containsKey('is_scale_tier_authorized_purchaser') ? SdkPresent(json['is_scale_tier_authorized_purchaser'] as bool?) : const SdkOmitted(),
+    isScimManaged: json['is_scim_managed'] != null ? SdkPresent((json['is_scim_managed'] as bool?)!) : const SdkOmitted(),
+    apiKeyLastUsedAt: json.containsKey('api_key_last_used_at') ? SdkPresent((json['api_key_last_used_at'] as num?)?.toInt()) : const SdkOmitted(),
+    technicalLevel: json.containsKey('technical_level') ? SdkPresent(json['technical_level'] as String?) : const SdkOmitted(),
+    developerPersona: json.containsKey('developer_persona') ? SdkPresent(json['developer_persona'] as String?) : const SdkOmitted(),
+    projects: json.containsKey('projects') ? SdkPresent(json['projects'] != null ? UserProjects.fromJson(json['projects'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<String?>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (role) {
-          SdkPresent<String?>(value: final value) => {
-              'role': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'added_at': addedAt,
-        ...switch (isDefault) {
-          SdkPresent<bool>(value: final value) => {
-              'is_default': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (created) {
-          SdkPresent<int>(value: final value) => {
-              'created': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (user) {
-          SdkPresent<UserUser>(value: final value) => {
-              'user': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isServiceAccount) {
-          SdkPresent<bool>(value: final value) => {
-              'is_service_account': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isScaleTierAuthorizedPurchaser) {
-          SdkPresent<bool?>(value: final value) => {
-              'is_scale_tier_authorized_purchaser': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isScimManaged) {
-          SdkPresent<bool>(value: final value) => {
-              'is_scim_managed': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (apiKeyLastUsedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'api_key_last_used_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (technicalLevel) {
-          SdkPresent<String?>(value: final value) => {
-              'technical_level': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (developerPersona) {
-          SdkPresent<String?>(value: final value) => {
-              'developer_persona': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projects) {
-          SdkPresent<UserProjects?>(value: final value) => {
-              'projects': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'object': object.toJson(),
+    'id': id,
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<String?>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (role) {
+      SdkPresent<String?>(value: final value) => {'role': value,},
+      _ => const <String, dynamic>{},
+    },
+    'added_at': addedAt,
+    ...switch (isDefault) {
+      SdkPresent<bool>(value: final value) => {'is_default': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (created) {
+      SdkPresent<int>(value: final value) => {'created': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (user) {
+      SdkPresent<UserUser>(value: final value) => {'user': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isServiceAccount) {
+      SdkPresent<bool>(value: final value) => {'is_service_account': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isScaleTierAuthorizedPurchaser) {
+      SdkPresent<bool?>(value: final value) => {'is_scale_tier_authorized_purchaser': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isScimManaged) {
+      SdkPresent<bool>(value: final value) => {'is_scim_managed': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (apiKeyLastUsedAt) {
+      SdkPresent<int?>(value: final value) => {'api_key_last_used_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (technicalLevel) {
+      SdkPresent<String?>(value: final value) => {'technical_level': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (developerPersona) {
+      SdkPresent<String?>(value: final value) => {'developer_persona': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projects) {
+      SdkPresent<UserProjects?>(value: final value) => {'projects': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Role assignment linking a user to a role.
 class UserRoleAssignment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always `user.role`.
   final UserRoleAssignmentObject object;
-
   /// Represents an individual `user` within an organization.
   final User user;
-
   /// Details about a role that can be assigned through the public Roles API.
   final Role role;
 
-  const UserRoleAssignment(
-      {required this.object, required this.user, required this.role});
+  const UserRoleAssignment({required this.object, required this.user, required this.role});
 
-  UserRoleAssignment Function(
-      {UserRoleAssignmentObject object,
-      User user,
-      Role role}) get copyWith => _copyWith;
+  UserRoleAssignment Function({UserRoleAssignmentObject object, User user, Role role}) get copyWith => _copyWith;
 
-  UserRoleAssignment _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? user = sdkOmittedValue,
-          Object? role = sdkOmittedValue}) =>
-      UserRoleAssignment(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as UserRoleAssignmentObject,
-        user: identical(user, sdkOmittedValue) ? this.user : user as User,
-        role: identical(role, sdkOmittedValue) ? this.role : role as Role,
-      );
+  UserRoleAssignment _copyWith({Object? object = sdkOmittedValue, Object? user = sdkOmittedValue, Object? role = sdkOmittedValue}) => UserRoleAssignment(
+    object: identical(object, sdkOmittedValue) ? this.object : object as UserRoleAssignmentObject,
+    user: identical(user, sdkOmittedValue) ? this.user : user as User,
+    role: identical(role, sdkOmittedValue) ? this.role : role as Role,
+  );
 
-  factory UserRoleAssignment.fromJson(Map<String, dynamic> json) =>
-      UserRoleAssignment(
-        object: (json['object'] != null
-            ? UserRoleAssignmentObject.fromJson(json['object'] as String)
-            : null)!,
-        user: (json['user'] != null
-            ? User.fromJson(json['user'] as Map<String, dynamic>)
-            : null)!,
-        role: (json['role'] != null
-            ? Role.fromJson(json['role'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory UserRoleAssignment.fromJson(Map<String, dynamic> json) => UserRoleAssignment(
+    object: (json['object'] != null ? UserRoleAssignmentObject.fromJson(json['object'] as String) : null)!,
+    user: (json['user'] != null ? User.fromJson(json['user'] as Map<String, dynamic>) : null)!,
+    role: (json['role'] != null ? Role.fromJson(json['role'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'user': user.toJson(),
-        'role': role.toJson(),
-      };
+    'object': object.toJson(),
+    'user': user.toJson(),
+    'role': role.toJson(),
+  };
 }

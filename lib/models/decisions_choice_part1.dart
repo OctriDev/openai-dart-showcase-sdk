@@ -8,95 +8,61 @@ part of 'decisions_choice.dart';
 class ChoiceOptionParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Choice values are typed: a string and a boolean with the same text are distinct.
   final ChoiceValueParam value;
-
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
 
-  const ChoiceOptionParam(
-      {required this.value, this.description = const SdkOmitted()});
+  const ChoiceOptionParam({required this.value, this.description = const SdkOmitted()});
 
-  ChoiceOptionParam Function(
-      {ChoiceValueParam value,
-      SdkOptional<String> description}) get copyWith => _copyWith;
+  ChoiceOptionParam Function({ChoiceValueParam value, SdkOptional<String> description}) get copyWith => _copyWith;
 
-  ChoiceOptionParam _copyWith(
-          {Object? value = sdkOmittedValue,
-          Object? description = sdkOmittedValue}) =>
-      ChoiceOptionParam(
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as ChoiceValueParam,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-      );
+  ChoiceOptionParam _copyWith({Object? value = sdkOmittedValue, Object? description = sdkOmittedValue}) => ChoiceOptionParam(
+    value: identical(value, sdkOmittedValue) ? this.value : value as ChoiceValueParam,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+  );
 
-  factory ChoiceOptionParam.fromJson(Map<String, dynamic> json) =>
-      ChoiceOptionParam(
-        value: (json['value'] != null
-            ? ChoiceValueParam.fromJson(json['value'])
-            : null)!,
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ChoiceOptionParam.fromJson(Map<String, dynamic> json) => ChoiceOptionParam(
+    value: (json['value'] != null ? ChoiceValueParam.fromJson(json['value']) : null)!,
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'value': value.toJson(),
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'value': value.toJson(),
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ChoiceProbabilityResource` API schema.
 class ChoiceProbabilityResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Choice values are typed: a string and a boolean with the same text are distinct.
   final ChoiceValueResource value;
-
   /// Required `number` value serialized in the `probability` wire field.
   final double probability;
 
-  const ChoiceProbabilityResource(
-      {required this.value, required this.probability});
+  const ChoiceProbabilityResource({required this.value, required this.probability});
 
-  ChoiceProbabilityResource Function(
-      {ChoiceValueResource value,
-      double probability}) get copyWith => _copyWith;
+  ChoiceProbabilityResource Function({ChoiceValueResource value, double probability}) get copyWith => _copyWith;
 
-  ChoiceProbabilityResource _copyWith(
-          {Object? value = sdkOmittedValue,
-          Object? probability = sdkOmittedValue}) =>
-      ChoiceProbabilityResource(
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as ChoiceValueResource,
-        probability: identical(probability, sdkOmittedValue)
-            ? this.probability
-            : probability as double,
-      );
+  ChoiceProbabilityResource _copyWith({Object? value = sdkOmittedValue, Object? probability = sdkOmittedValue}) => ChoiceProbabilityResource(
+    value: identical(value, sdkOmittedValue) ? this.value : value as ChoiceValueResource,
+    probability: identical(probability, sdkOmittedValue) ? this.probability : probability as double,
+  );
 
-  factory ChoiceProbabilityResource.fromJson(Map<String, dynamic> json) =>
-      ChoiceProbabilityResource(
-        value: (json['value'] != null
-            ? ChoiceValueResource.fromJson(json['value'])
-            : null)!,
-        probability: ((json['probability'] as num?)?.toDouble())!,
-      );
+  factory ChoiceProbabilityResource.fromJson(Map<String, dynamic> json) => ChoiceProbabilityResource(
+    value: (json['value'] != null ? ChoiceValueResource.fromJson(json['value']) : null)!,
+    probability: ((json['probability'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'value': value.toJson(),
-        'probability': probability,
-      };
+    'value': value.toJson(),
+    'probability': probability,
+  };
 }
 
 sealed class ChoiceValueParam {
@@ -104,12 +70,8 @@ sealed class ChoiceValueParam {
   static const String constructionSurface = 'named';
   const ChoiceValueParam();
   factory ChoiceValueParam.fromJson(Object? json) {
-    if (json is String) {
-      return ChoiceValueParamString(json);
-    }
-    if (json is bool) {
-      return ChoiceValueParamBool(json);
-    }
+    if (json is String) { return ChoiceValueParamString(json); }
+    if (json is bool) { return ChoiceValueParamBool(json); }
     throw FormatException("No variant matched for ChoiceValueParam");
   }
   Object? toJson();
@@ -118,15 +80,13 @@ sealed class ChoiceValueParam {
 final class ChoiceValueParamString extends ChoiceValueParam {
   final String value;
   const ChoiceValueParamString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class ChoiceValueParamBool extends ChoiceValueParam {
   final bool value;
   const ChoiceValueParamBool(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class ChoiceValueResource {
@@ -134,12 +94,8 @@ sealed class ChoiceValueResource {
   static const String constructionSurface = 'named';
   const ChoiceValueResource();
   factory ChoiceValueResource.fromJson(Object? json) {
-    if (json is String) {
-      return ChoiceValueResourceString(json);
-    }
-    if (json is bool) {
-      return ChoiceValueResourceBool(json);
-    }
+    if (json is String) { return ChoiceValueResourceString(json); }
+    if (json is bool) { return ChoiceValueResourceBool(json); }
     throw FormatException("No variant matched for ChoiceValueResource");
   }
   Object? toJson();
@@ -148,13 +104,11 @@ sealed class ChoiceValueResource {
 final class ChoiceValueResourceString extends ChoiceValueResource {
   final String value;
   const ChoiceValueResourceString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class ChoiceValueResourceBool extends ChoiceValueResource {
   final bool value;
   const ChoiceValueResourceBool(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
