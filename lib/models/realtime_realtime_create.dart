@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'realtime_realtime_session.dart';
 import 'realtime_realtime_transcription.dart';
 
-part 'realtime_realtime_create_part1.dart';
+part 'realtime_realtime_create_models.dart';

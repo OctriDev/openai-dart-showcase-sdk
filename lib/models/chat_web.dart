@@ -4,4 +4,4 @@
 // chat_web domain model library.
 import '../sdk_utils.dart';
 
-part 'chat_web_part1.dart';
+part 'chat_web_models.dart';

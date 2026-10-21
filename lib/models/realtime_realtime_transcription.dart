@@ -8,6 +8,6 @@ import 'realtime.dart';
 import 'realtime_audio.dart';
 import 'realtime_realtime.dart';
 
-part 'realtime_realtime_transcription_part1.dart';
-part 'realtime_realtime_transcription_part2.dart';
-part 'realtime_realtime_transcription_part3.dart';
+part 'realtime_realtime_transcription_create_realtime_transcription_session.dart';
+part 'realtime_realtime_transcription_session_create_request_ga.dart';
+part 'realtime_realtime_transcription_session_create_response_ga.dart';

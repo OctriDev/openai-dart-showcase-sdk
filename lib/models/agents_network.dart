@@ -4,4 +4,4 @@
 // agents_network domain model library.
 import '../sdk_utils.dart';
 
-part 'agents_network_part1.dart';
+part 'agents_network_models.dart';

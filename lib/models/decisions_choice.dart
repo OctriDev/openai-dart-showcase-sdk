@@ -4,4 +4,4 @@
 // decisions_choice domain model library.
 import '../sdk_utils.dart';
 
-part 'decisions_choice_part1.dart';
+part 'decisions_choice_models.dart';

@@ -5,5 +5,6 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'admin_api_keys_part1.dart';
-part 'admin_api_keys_part2.dart';
+part 'admin_api_keys_shared.dart';
+part 'admin_api_keys_create_admin_api_keys.dart';
+part 'admin_api_keys_list_admin_api_keys.dart';

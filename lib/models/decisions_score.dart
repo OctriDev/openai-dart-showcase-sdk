@@ -4,4 +4,4 @@
 // decisions_score domain model library.
 import '../sdk_utils.dart';
 
-part 'decisions_score_part1.dart';
+part 'decisions_score_models.dart';

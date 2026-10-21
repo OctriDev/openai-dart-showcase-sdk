@@ -21,5 +21,6 @@ import 'responses_beta_response_shell.dart';
 import 'responses_beta_response_text.dart';
 import 'responses_beta_response_web.dart';
 
-part 'responses_beta_response_stream_part1.dart';
-part 'responses_beta_response_stream_part2.dart';
+part 'responses_beta_response_stream_event.dart';
+part 'responses_beta_response_stream_event_beta_response_shell_call_output_content_done_streaming_even.dart';
+part 'responses_beta_response_stream_beta_create_response.dart';

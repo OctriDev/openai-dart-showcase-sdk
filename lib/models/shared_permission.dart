@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'shared.dart';
 
-part 'shared_permission_part1.dart';
+part 'shared_permission_models.dart';

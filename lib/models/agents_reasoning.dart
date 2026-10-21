@@ -7,4 +7,4 @@ import 'agents.dart';
 import 'agents_output.dart';
 import 'inline.dart';
 
-part 'agents_reasoning_part1.dart';
+part 'agents_reasoning_models.dart';

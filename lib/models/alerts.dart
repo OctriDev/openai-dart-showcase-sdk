@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'alerts_part1.dart';
+part 'alerts_models.dart';

@@ -2,4 +2,4 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // agents_container domain model library.
-part 'agents_container_part1.dart';
+part 'agents_container_models.dart';

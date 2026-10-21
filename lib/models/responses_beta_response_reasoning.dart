@@ -6,5 +6,9 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'responses_beta_agent.dart';
 
-part 'responses_beta_response_reasoning_part1.dart';
-part 'responses_beta_response_reasoning_part2.dart';
+part 'responses_beta_response_reasoning_summary_part_added_event.dart';
+part 'responses_beta_response_reasoning_summary_part_done_event.dart';
+part 'responses_beta_response_reasoning_summary_text_delta_event.dart';
+part 'responses_beta_response_reasoning_summary_text_done_event.dart';
+part 'responses_beta_response_reasoning_text_delta_event.dart';
+part 'responses_beta_response_reasoning_text_done_event.dart';

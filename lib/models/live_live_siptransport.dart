@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'live_live_siptrunk.dart';
 
-part 'live_live_siptransport_part1.dart';
+part 'live_live_siptransport_models.dart';

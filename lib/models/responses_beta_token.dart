@@ -11,4 +11,4 @@ import 'responses_beta_reasoning.dart';
 import 'responses_beta_response_text.dart';
 import 'responses_beta_tool.dart';
 
-part 'responses_beta_token_part1.dart';
+part 'responses_beta_token_models.dart';

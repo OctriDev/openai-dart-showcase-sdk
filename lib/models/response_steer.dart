@@ -7,6 +7,14 @@ import 'inline.dart';
 import 'shared_function.dart';
 import 'user_message_item.dart';
 
-part 'response_steer_part1.dart';
-part 'response_steer_part2.dart';
-part 'response_steer_part3.dart';
+part 'response_steer_accepted_event.dart';
+part 'response_steer_error_code.dart';
+part 'response_steer_event.dart';
+part 'response_steer_failed_event.dart';
+part 'response_steer_input.dart';
+part 'response_steer_input_item.dart';
+part 'response_steer_input_item_list.dart';
+part 'response_steer_pending_event.dart';
+part 'response_steer_pending_reason.dart';
+part 'response_steer_required_input.dart';
+part 'response_steer_unknown_response_steer_required_input.dart';

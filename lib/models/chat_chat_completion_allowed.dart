@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'chat_chat_completion_allowed_part1.dart';
+part 'chat_chat_completion_allowed_models.dart';

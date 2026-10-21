@@ -9,4 +9,4 @@ import 'agents_reasoning.dart';
 import 'agents_service.dart';
 import 'agents_text.dart';
 
-part 'agents_session_agent_part1.dart';
+part 'agents_session_agent_models.dart';

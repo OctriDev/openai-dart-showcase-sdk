@@ -7,5 +7,11 @@ import 'inline.dart';
 import 'responses_beta_agent.dart';
 import 'responses_beta_input.dart';
 
-part 'responses_beta_image_part1.dart';
-part 'responses_beta_image_part2.dart';
+part 'responses_beta_image_background.dart';
+part 'responses_beta_image_detail.dart';
+part 'responses_beta_image_gen_action_enum.dart';
+part 'responses_beta_image_gen_tool.dart';
+part 'responses_beta_image_gen_tool_call.dart';
+part 'responses_beta_image_gen_tool_call_error.dart';
+part 'responses_beta_image_gen_tool_call_moderation_details.dart';
+part 'responses_beta_image_output_format.dart';

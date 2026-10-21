@@ -12,4 +12,4 @@ import 'responses_tool.dart';
 import 'shared_input.dart';
 import 'shared_tool.dart';
 
-part 'responses_token_part1.dart';
+part 'responses_token_models.dart';

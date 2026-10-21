@@ -16,5 +16,5 @@ import 'agents_turn.dart';
 import 'agents_web.dart';
 import 'inline.dart';
 
-part 'agents_session_turn_part1.dart';
-part 'agents_session_turn_part2.dart';
+part 'agents_session_turn_shared.dart';
+part 'agents_session_turn_list_agent_session_traces.dart';

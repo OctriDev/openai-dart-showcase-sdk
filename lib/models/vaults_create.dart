@@ -6,5 +6,14 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'vaults_vault.dart';
 
-part 'vaults_create_part1.dart';
-part 'vaults_create_part2.dart';
+part 'vaults_create_mcp_oauth_refresh_param.dart';
+part 'vaults_create_mcp_oauth_token_endpoint_auth_param.dart';
+part 'vaults_create_mcp_oauth_token_endpoint_auth_param_client_secret_basic.dart';
+part 'vaults_create_mcp_oauth_token_endpoint_auth_param_client_secret_post.dart';
+part 'vaults_create_mcp_oauth_token_endpoint_auth_param_none.dart';
+part 'vaults_create_vault_credential_auth_param.dart';
+part 'vaults_create_vault_credential_auth_param_environment_variable.dart';
+part 'vaults_create_vault_credential_auth_param_mcp_oauth.dart';
+part 'vaults_create_vault_credential_auth_param_static_bearer.dart';
+part 'vaults_create_vault_credential_params.dart';
+part 'vaults_create_vault.dart';

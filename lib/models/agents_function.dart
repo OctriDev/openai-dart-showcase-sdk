@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'agents_input.dart';
 import 'inline.dart';
 
-part 'agents_function_part1.dart';
+part 'agents_function_models.dart';

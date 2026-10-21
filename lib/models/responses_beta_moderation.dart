@@ -5,5 +5,5 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'responses_beta_moderation_part1.dart';
-part 'responses_beta_moderation_part2.dart';
+part 'responses_beta_moderation_shared.dart';
+part 'responses_beta_moderation_beta_create_response.dart';

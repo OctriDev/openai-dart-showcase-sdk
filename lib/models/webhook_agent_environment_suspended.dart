@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'agent.dart';
 import 'inline.dart';
 
-part 'webhook_agent_environment_suspended_part1.dart';
+part 'webhook_agent_environment_suspended_models.dart';

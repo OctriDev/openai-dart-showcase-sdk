@@ -4,4 +4,4 @@
 // shared_voice domain model library.
 import '../sdk_utils.dart';
 
-part 'shared_voice_part1.dart';
+part 'shared_voice_models.dart';

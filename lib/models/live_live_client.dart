@@ -14,4 +14,4 @@ import 'live_live_response.dart';
 import 'live_live_session.dart';
 import 'live_live_thinking.dart';
 
-part 'live_live_client_part1.dart';
+part 'live_live_client_models.dart';

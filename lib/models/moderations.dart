@@ -5,5 +5,7 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'moderations_part1.dart';
-part 'moderations_part2.dart';
+part 'moderations_create_moderation_request.dart';
+part 'moderations_create_moderation_request_input_item.dart';
+part 'moderations_create_moderation_response_results_item_categories.dart';
+part 'moderations_create_moderation_response.dart';

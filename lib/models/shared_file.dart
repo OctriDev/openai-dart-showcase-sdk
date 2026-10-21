@@ -6,5 +6,10 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'shared_file_part1.dart';
-part 'shared_file_part2.dart';
+part 'shared_file_citation_body.dart';
+part 'shared_file_detail_enum.dart';
+part 'shared_file_expiration_after.dart';
+part 'shared_file_input_detail.dart';
+part 'shared_file_path.dart';
+part 'shared_file_search_tool.dart';
+part 'shared_file_search_tool_call.dart';

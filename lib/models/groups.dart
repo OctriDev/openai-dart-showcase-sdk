@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'groups_part1.dart';
+part 'groups_models.dart';

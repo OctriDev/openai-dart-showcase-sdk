@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'webhook_agent_session_envelope_part1.dart';
+part 'webhook_agent_session_envelope_models.dart';

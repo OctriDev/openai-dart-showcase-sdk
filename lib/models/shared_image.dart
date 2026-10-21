@@ -6,5 +6,11 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_input.dart';
 
-part 'shared_image_part1.dart';
-part 'shared_image_part2.dart';
+part 'shared_image_background.dart';
+part 'shared_image_detail.dart';
+part 'shared_image_gen_action_enum.dart';
+part 'shared_image_gen_tool.dart';
+part 'shared_image_gen_tool_call.dart';
+part 'shared_image_gen_tool_call_error.dart';
+part 'shared_image_gen_tool_call_moderation_details.dart';
+part 'shared_image_output_format.dart';

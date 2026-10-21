@@ -9,4 +9,4 @@ import 'live_live_mcptool.dart';
 import 'live_live_specific.dart';
 import 'live_live_tool.dart';
 
-part 'live_live_allowed_part1.dart';
+part 'live_live_allowed_models.dart';

@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'responses.dart';
 
-part 'responses_access_part1.dart';
+part 'responses_access_models.dart';

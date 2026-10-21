@@ -7,4 +7,4 @@ import 'agents_output.dart';
 import 'agents_session.dart';
 import 'inline.dart';
 
-part 'agents_message_part1.dart';
+part 'agents_message_models.dart';

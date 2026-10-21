@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'shared_direct_part1.dart';
+part 'shared_direct_models.dart';

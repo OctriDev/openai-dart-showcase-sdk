@@ -5,5 +5,8 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'spend_alerts_part1.dart';
-part 'spend_alerts_part2.dart';
+part 'spend_alerts_shared.dart';
+part 'spend_alerts_delete_organization_spend_alert.dart';
+part 'spend_alerts_list_organization_spend_alerts.dart';
+part 'spend_alerts_delete_project_spend_alert.dart';
+part 'spend_alerts_list_project_spend_alerts.dart';

@@ -6,5 +6,15 @@ import '../sdk_utils.dart';
 import 'agents_output.dart';
 import 'inline.dart';
 
-part 'agents_web_part1.dart';
-part 'agents_web_part2.dart';
+part 'agents_web_search_action_resource.dart';
+part 'agents_web_search_action_resource_find_in_page.dart';
+part 'agents_web_search_action_resource_open_page.dart';
+part 'agents_web_search_action_resource_other.dart';
+part 'agents_web_search_action_resource_search.dart';
+part 'agents_web_search_call_item_resource.dart';
+part 'agents_web_search_context_size_param.dart';
+part 'agents_web_search_context_size_resource.dart';
+part 'agents_web_search_location_param.dart';
+part 'agents_web_search_location_resource.dart';
+part 'agents_web_search_mode_param.dart';
+part 'agents_web_search_mode_resource.dart';

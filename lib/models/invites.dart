@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'invites_part1.dart';
+part 'invites_models.dart';

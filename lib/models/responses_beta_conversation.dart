@@ -4,4 +4,4 @@
 // responses_beta_conversation domain model library.
 import '../sdk_utils.dart';
 
-part 'responses_beta_conversation_part1.dart';
+part 'responses_beta_conversation_models.dart';

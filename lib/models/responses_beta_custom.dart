@@ -9,6 +9,11 @@ import 'responses_beta_agent.dart';
 import 'responses_beta_function.dart';
 import 'responses_beta_tool.dart';
 
-part 'responses_beta_custom_part1.dart';
-part 'responses_beta_custom_part2.dart';
-part 'responses_beta_custom_part3.dart';
+part 'responses_beta_custom_grammar_format_param.dart';
+part 'responses_beta_custom_text_format_param.dart';
+part 'responses_beta_custom_tool_call.dart';
+part 'responses_beta_custom_tool_call_output.dart';
+part 'responses_beta_custom_tool_call_output_resource.dart';
+part 'responses_beta_custom_tool_param.dart';
+part 'responses_beta_custom_tool_param_format.dart';
+part 'responses_beta_custom_beta_list_input_items.dart';

@@ -19,6 +19,8 @@ import 'shared_moderation.dart';
 import 'shared_prompt.dart';
 import 'shared_tool.dart';
 
-part 'responses_part1.dart';
-part 'responses_part2.dart';
-part 'responses_part3.dart';
+part 'responses_shared.dart';
+part 'responses_context_management_param.dart';
+part 'responses_create_response_variant2_truncation.dart';
+part 'responses_create_response.dart';
+part 'responses_count_responses_input_tokens.dart';

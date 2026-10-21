@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'threads_part1.dart';
+part 'threads_models.dart';

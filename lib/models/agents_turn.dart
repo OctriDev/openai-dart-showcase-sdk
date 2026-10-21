@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'agents.dart';
 import 'agents_session_turn.dart';
 
-part 'agents_turn_part1.dart';
+part 'agents_turn_models.dart';

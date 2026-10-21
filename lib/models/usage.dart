@@ -5,9 +5,17 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'usage_part1.dart';
-part 'usage_part2.dart';
-part 'usage_part3.dart';
-part 'usage_part4.dart';
-part 'usage_part5.dart';
-part 'usage_part6.dart';
+part 'usage_costs_result.dart';
+part 'usage_audio_speeches_result.dart';
+part 'usage_audio_transcriptions_result.dart';
+part 'usage_code_interpreter_sessions_result.dart';
+part 'usage_completions_result.dart';
+part 'usage_embeddings_result.dart';
+part 'usage_file_search_calls_result.dart';
+part 'usage_images_result.dart';
+part 'usage_moderations_result.dart';
+part 'usage_response.dart';
+part 'usage_time_bucket.dart';
+part 'usage_time_bucket_results_item.dart';
+part 'usage_vector_stores_result.dart';
+part 'usage_web_search_calls_result.dart';

@@ -8,4 +8,4 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_file.dart';
 
-part 'uploads_part1.dart';
+part 'uploads_models.dart';

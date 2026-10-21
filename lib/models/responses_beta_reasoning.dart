@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'responses_beta.dart';
 import 'responses_beta_agent.dart';
 
-part 'responses_beta_reasoning_part1.dart';
+part 'responses_beta_reasoning_models.dart';

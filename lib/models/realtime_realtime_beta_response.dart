@@ -9,6 +9,7 @@ import 'shared_prompt.dart';
 import 'shared_tool.dart';
 import 'shared_voice.dart';
 
-part 'realtime_realtime_beta_response_part1.dart';
-part 'realtime_realtime_beta_response_part2.dart';
-part 'realtime_realtime_beta_response_part3.dart';
+part 'realtime_realtime_beta_response2.dart';
+part 'realtime_realtime_beta_response_max_output_tokens_int.dart';
+part 'realtime_realtime_beta_response_create_params.dart';
+part 'realtime_realtime_beta_response_create_params_tool_choice.dart';

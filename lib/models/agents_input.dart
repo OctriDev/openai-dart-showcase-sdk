@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'agents_input_part1.dart';
+part 'agents_input_models.dart';

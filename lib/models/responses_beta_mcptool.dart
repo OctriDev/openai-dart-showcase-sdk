@@ -7,5 +7,10 @@ import 'inline.dart';
 import 'responses_beta.dart';
 import 'responses_beta_agent.dart';
 
-part 'responses_beta_mcptool_part1.dart';
-part 'responses_beta_mcptool_part2.dart';
+part 'responses_beta_mcptool_beta_mcp_tool.dart';
+part 'responses_beta_mcptool_beta_mcp_tool_call.dart';
+part 'responses_beta_mcptool_beta_mcp_tool_call_error.dart';
+part 'responses_beta_mcptool_beta_mcp_tool_call_status.dart';
+part 'responses_beta_mcptool_beta_mcp_tool_execution_error.dart';
+part 'responses_beta_mcptool_beta_mcp_tool_filter.dart';
+part 'responses_beta_mcptool_beta_mcp_tool_require_approval.dart';

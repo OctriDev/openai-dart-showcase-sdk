@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'shared_custom.dart';
 import 'shared_function.dart';
 
-part 'shared_namespace_part1.dart';
+part 'shared_namespace_models.dart';

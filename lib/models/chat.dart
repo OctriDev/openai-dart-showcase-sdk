@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'chat_chat_completion_request.dart';
 import 'inline.dart';
 
-part 'chat_part1.dart';
+part 'chat_models.dart';

@@ -6,5 +6,11 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'responses_beta_agent.dart';
 
-part 'responses_beta_program_part1.dart';
-part 'responses_beta_program_part2.dart';
+part 'responses_beta_program2.dart';
+part 'responses_beta_program_item_param.dart';
+part 'responses_beta_program_output.dart';
+part 'responses_beta_program_output_item_param.dart';
+part 'responses_beta_program_output_item_status.dart';
+part 'responses_beta_program_output_status.dart';
+part 'responses_beta_program_tool_call_caller.dart';
+part 'responses_beta_program_tool_call_caller_param.dart';

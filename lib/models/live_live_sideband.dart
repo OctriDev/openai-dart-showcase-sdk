@@ -15,5 +15,7 @@ import 'live_live_session.dart';
 import 'live_live_thinking.dart';
 import 'live_live_transport.dart';
 
-part 'live_live_sideband_part1.dart';
-part 'live_live_sideband_part2.dart';
+part 'live_live_sideband_client_event.dart';
+part 'live_live_sideband_connect_params.dart';
+part 'live_live_sideband_path_params.dart';
+part 'live_live_sideband_server_event.dart';

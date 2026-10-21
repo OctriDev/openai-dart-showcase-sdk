@@ -15,7 +15,12 @@ import 'live_live_specific.dart';
 import 'live_live_tool.dart';
 import 'live_live_web.dart';
 
-part 'live_live_responses_part1.dart';
-part 'live_live_responses_part2.dart';
-part 'live_live_responses_part3.dart';
-part 'live_live_responses_part4.dart';
+part 'live_live_responses_delegation_param.dart';
+part 'live_live_responses_delegation_settings_input_param.dart';
+part 'live_live_responses_delegation_settings_input_param_tool_choice.dart';
+part 'live_live_responses_delegation_settings_input_param_tools_item.dart';
+part 'live_live_responses_service_tier.dart';
+part 'live_live_responses_delegation_settings_update_input_param.dart';
+part 'live_live_responses_delegation_settings_update_input_param_tool_choice.dart';
+part 'live_live_responses_delegation_settings_update_input_param_tools_item.dart';
+part 'live_live_responses_delegation_update_param.dart';

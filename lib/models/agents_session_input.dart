@@ -8,4 +8,4 @@ import 'agents_function.dart';
 import 'agents_input.dart';
 import 'inline.dart';
 
-part 'agents_session_input_part1.dart';
+part 'agents_session_input_models.dart';

@@ -8,5 +8,6 @@ import 'shared.dart';
 import 'shared_container.dart';
 import 'shared_inline.dart';
 
-part 'containers_part1.dart';
-part 'containers_part2.dart';
+part 'containers_list_containers.dart';
+part 'containers_shared.dart';
+part 'containers_create_container.dart';

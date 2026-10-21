@@ -13,4 +13,4 @@ import 'responses_beta_output.dart';
 import 'responses_beta_reasoning.dart';
 import 'responses_beta_text.dart';
 
-part 'responses_beta_message_part1.dart';
+part 'responses_beta_message_models.dart';

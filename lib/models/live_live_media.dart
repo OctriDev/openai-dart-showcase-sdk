@@ -9,4 +9,4 @@ import 'live_live_decision.dart';
 import 'live_live_initial.dart';
 import 'live_live_responses.dart';
 
-part 'live_live_media_part1.dart';
+part 'live_live_media_models.dart';

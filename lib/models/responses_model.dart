@@ -4,4 +4,4 @@
 // responses_model domain model library.
 import 'inline.dart';
 
-part 'responses_model_part1.dart';
+part 'responses_model_models.dart';

@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_user.dart';
 
-part 'users_part1.dart';
+part 'users_models.dart';

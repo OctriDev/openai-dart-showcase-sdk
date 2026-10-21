@@ -4,4 +4,4 @@
 // shared_misalignment domain model library.
 import '../sdk_utils.dart';
 
-part 'shared_misalignment_part1.dart';
+part 'shared_misalignment_models.dart';

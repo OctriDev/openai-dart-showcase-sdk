@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_auto.dart';
 
-part 'shared_code_part1.dart';
+part 'shared_code_models.dart';

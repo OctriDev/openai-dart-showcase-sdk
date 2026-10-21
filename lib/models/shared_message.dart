@@ -11,4 +11,4 @@ import 'shared_output.dart';
 import 'shared_reasoning.dart';
 import 'shared_text.dart';
 
-part 'shared_message_part1.dart';
+part 'shared_message_models.dart';

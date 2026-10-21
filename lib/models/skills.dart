@@ -6,5 +6,11 @@ import 'dart:convert';
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'skills_part1.dart';
-part 'skills_part2.dart';
+part 'skills_create_skill.dart';
+part 'skills_create_skill_version.dart';
+part 'skills_delete_skill.dart';
+part 'skills_delete_skill_version.dart';
+part 'skills_update_skill_default_version.dart';
+part 'skills_list_skills.dart';
+part 'skills_shared.dart';
+part 'skills_list_skill_versions.dart';

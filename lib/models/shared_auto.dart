@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_container.dart';
 
-part 'shared_auto_part1.dart';
+part 'shared_auto_models.dart';

@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'responses_beta.dart';
 
-part 'responses_beta_compound_part1.dart';
+part 'responses_beta_compound_models.dart';

@@ -4,4 +4,4 @@
 // agents_multi domain model library.
 import '../sdk_utils.dart';
 
-part 'agents_multi_part1.dart';
+part 'agents_multi_models.dart';

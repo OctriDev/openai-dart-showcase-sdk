@@ -7,6 +7,9 @@ import 'assistants_assistant.dart';
 import 'assistants_assistants.dart';
 import 'shared_reasoning.dart';
 
-part 'assistants_modify_part1.dart';
-part 'assistants_modify_part2.dart';
-part 'assistants_modify_part3.dart';
+part 'assistants_modify_assistant_request_model.dart';
+part 'assistants_modify_assistant_request.dart';
+part 'assistants_modify_assistant_request_tools_item.dart';
+part 'assistants_modify_message.dart';
+part 'assistants_modify_run.dart';
+part 'assistants_modify_thread.dart';

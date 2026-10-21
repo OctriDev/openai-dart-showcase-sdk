@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'agents_agent.dart';
 
-part 'agents_subagent_part1.dart';
+part 'agents_subagent_models.dart';

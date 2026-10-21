@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'spend_limit_part1.dart';
+part 'spend_limit_models.dart';

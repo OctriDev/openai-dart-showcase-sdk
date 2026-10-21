@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'webhook_fine_tuning_job_succeeded_part1.dart';
+part 'webhook_fine_tuning_job_succeeded_models.dart';

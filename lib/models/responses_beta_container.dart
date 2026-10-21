@@ -7,5 +7,14 @@ import 'inline.dart';
 import 'responses_beta.dart';
 import 'responses_beta_inline.dart';
 
-part 'responses_beta_container_part1.dart';
-part 'responses_beta_container_part2.dart';
+part 'responses_beta_container_auto_param.dart';
+part 'responses_beta_container_auto_param_network_policy.dart';
+part 'responses_beta_container_auto_param_skills_item.dart';
+part 'responses_beta_container_file_citation_body.dart';
+part 'responses_beta_container_file_citation_param.dart';
+part 'responses_beta_container_memory_limit.dart';
+part 'responses_beta_container_network_policy_allowlist_param.dart';
+part 'responses_beta_container_network_policy_disabled_param.dart';
+part 'responses_beta_container_network_policy_domain_secret_param.dart';
+part 'responses_beta_container_reference_param.dart';
+part 'responses_beta_container_reference_resource.dart';

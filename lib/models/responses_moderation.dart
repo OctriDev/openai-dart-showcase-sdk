@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_moderation.dart';
 
-part 'responses_moderation_part1.dart';
+part 'responses_moderation_models.dart';

@@ -7,5 +7,12 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_search.dart';
 
-part 'shared_web_part1.dart';
-part 'shared_web_part2.dart';
+part 'shared_web_search_action_find.dart';
+part 'shared_web_search_action_open_page.dart';
+part 'shared_web_search_action_search.dart';
+part 'shared_web_search_approximate_location.dart';
+part 'shared_web_search_call_status.dart';
+part 'shared_web_search_preview_tool.dart';
+part 'shared_web_search_tool.dart';
+part 'shared_web_search_tool_call.dart';
+part 'shared_web_search_tool_call_action.dart';

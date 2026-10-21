@@ -4,4 +4,4 @@
 // realtime_realtime_reasoning domain model library.
 import '../sdk_utils.dart';
 
-part 'realtime_realtime_reasoning_part1.dart';
+part 'realtime_realtime_reasoning_models.dart';

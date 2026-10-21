@@ -8,5 +8,9 @@ import 'shared.dart';
 import 'shared_function.dart';
 import 'shared_tool.dart';
 
-part 'shared_custom_part1.dart';
-part 'shared_custom_part2.dart';
+part 'shared_custom_grammar_format_param.dart';
+part 'shared_custom_text_format_param.dart';
+part 'shared_custom_tool_call.dart';
+part 'shared_custom_tool_call_output.dart';
+part 'shared_custom_tool_param.dart';
+part 'shared_custom_tool_param_format.dart';

@@ -7,4 +7,4 @@ import 'assistants_assistant.dart';
 import 'assistants_message.dart';
 import 'assistants_run.dart';
 
-part 'assistants_list_part1.dart';
+part 'assistants_list_models.dart';

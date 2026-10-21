@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'realtime_realtime_session.dart';
 
-part 'realtime_realtime_call_part1.dart';
+part 'realtime_realtime_call_models.dart';

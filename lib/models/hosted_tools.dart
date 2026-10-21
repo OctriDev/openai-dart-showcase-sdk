@@ -4,4 +4,4 @@
 // hosted_tools domain model library.
 import '../sdk_utils.dart';
 
-part 'hosted_tools_part1.dart';
+part 'hosted_tools_models.dart';

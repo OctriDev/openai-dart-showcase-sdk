@@ -6,5 +6,10 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_reasoning.dart';
 
-part 'shared_response_part1.dart';
-part 'shared_response_part2.dart';
+part 'shared_response_configuration_update.dart';
+part 'shared_response_configuration_update_item_param.dart';
+part 'shared_response_format_json_object.dart';
+part 'shared_response_format_json_schema.dart';
+part 'shared_response_format_json_schema_schema.dart';
+part 'shared_response_format_text.dart';
+part 'shared_response_prompt_variables.dart';

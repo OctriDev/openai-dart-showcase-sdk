@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_moderation.dart';
 
-part 'chat_chat_completion_moderation_part1.dart';
+part 'chat_chat_completion_moderation_models.dart';

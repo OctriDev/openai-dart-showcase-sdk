@@ -4,4 +4,4 @@
 // assistants_file domain model library.
 import '../sdk_utils.dart';
 
-part 'assistants_file_part1.dart';
+part 'assistants_file_models.dart';

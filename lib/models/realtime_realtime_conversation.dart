@@ -8,6 +8,10 @@ import 'realtime_realtime.dart';
 import 'realtime_realtime_mcpapproval.dart';
 import 'realtime_realtime_mcptool.dart';
 
-part 'realtime_realtime_conversation_part1.dart';
-part 'realtime_realtime_conversation_part2.dart';
-part 'realtime_realtime_conversation_part3.dart';
+part 'realtime_realtime_conversation_item.dart';
+part 'realtime_realtime_conversation_item_function_call.dart';
+part 'realtime_realtime_conversation_item_function_call_output.dart';
+part 'realtime_realtime_conversation_item_message_assistant.dart';
+part 'realtime_realtime_conversation_item_message_system.dart';
+part 'realtime_realtime_conversation_item_message_user.dart';
+part 'realtime_realtime_conversation_item_with_reference.dart';

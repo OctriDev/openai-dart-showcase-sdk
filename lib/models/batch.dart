@@ -5,6 +5,9 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'batch_part1.dart';
-part 'batch_part2.dart';
-part 'batch_part3.dart';
+part 'batch_errors.dart';
+part 'batch2.dart';
+part 'batch_error.dart';
+part 'batch_request_counts.dart';
+part 'batch_create_batch.dart';
+part 'batch_list_batch.dart';

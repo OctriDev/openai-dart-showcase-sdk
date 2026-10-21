@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_input.dart';
 
-part 'user_message_item_part1.dart';
+part 'user_message_item_models.dart';

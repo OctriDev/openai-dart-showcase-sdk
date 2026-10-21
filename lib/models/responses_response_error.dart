@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_misalignment.dart';
 
-part 'responses_response_error_part1.dart';
+part 'responses_response_error_models.dart';

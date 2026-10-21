@@ -25,5 +25,9 @@ import 'shared_response.dart';
 import 'shared_tool.dart';
 import 'shared_web.dart';
 
-part 'conversations_part1.dart';
-part 'conversations_part2.dart';
+part 'conversations_conversation_item.dart';
+part 'conversations_conversation_item_list.dart';
+part 'conversations_conversation_resource.dart';
+part 'conversations_create_conversation.dart';
+part 'conversations_delete_conversation.dart';
+part 'conversations_update_conversation.dart';

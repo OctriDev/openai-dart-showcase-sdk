@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'responses.dart';
 import 'shared_function.dart';
 
-part 'responses_response_shell_part1.dart';
+part 'responses_response_shell_models.dart';

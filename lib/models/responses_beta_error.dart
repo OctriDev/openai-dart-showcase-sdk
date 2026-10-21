@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'responses_beta_misalignment.dart';
 
-part 'responses_beta_error_part1.dart';
+part 'responses_beta_error_models.dart';
