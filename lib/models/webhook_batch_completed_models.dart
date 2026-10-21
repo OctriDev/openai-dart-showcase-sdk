@@ -8,7 +8,6 @@ part of 'webhook_batch_completed.dart';
 class WebhookBatchCompletedData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the batch API request.
   final String id;
 
@@ -16,105 +15,62 @@ class WebhookBatchCompletedData {
 
   WebhookBatchCompletedData Function({String id}) get copyWith => _copyWith;
 
-  WebhookBatchCompletedData _copyWith({Object? id = sdkOmittedValue}) =>
-      WebhookBatchCompletedData(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  WebhookBatchCompletedData _copyWith({Object? id = sdkOmittedValue}) => WebhookBatchCompletedData(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory WebhookBatchCompletedData.fromJson(Map<String, dynamic> json) =>
-      WebhookBatchCompletedData(
-        id: (json['id'] as String?)!,
-      );
+  factory WebhookBatchCompletedData.fromJson(Map<String, dynamic> json) => WebhookBatchCompletedData(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }
 
 /// Sent when a batch API request has been completed.
 class WebhookBatchCompleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The Unix timestamp (in seconds) of when the batch API request was completed.
   final int createdAt;
-
   /// The unique ID of the event.
   final String id;
-
   /// Event data payload.
   final WebhookBatchCompletedData data;
-
   /// The object of the event. Always `event`.
   final SdkOptional<WebhookBatchCompletedObject> object;
-
   /// The type of the event. Always `batch.completed`.
   final WebhookBatchCompletedType type_;
 
-  const WebhookBatchCompleted(
-      {required this.createdAt,
-      required this.id,
-      required this.data,
-      this.object = const SdkOmitted(),
-      required this.type_});
+  const WebhookBatchCompleted({required this.createdAt, required this.id, required this.data, this.object = const SdkOmitted(), required this.type_});
 
-  WebhookBatchCompleted Function(
-      {int createdAt,
-      String id,
-      WebhookBatchCompletedData data,
-      SdkOptional<WebhookBatchCompletedObject> object,
-      WebhookBatchCompletedType type_}) get copyWith => _copyWith;
+  WebhookBatchCompleted Function({int createdAt, String id, WebhookBatchCompletedData data, SdkOptional<WebhookBatchCompletedObject> object, WebhookBatchCompletedType type_}) get copyWith => _copyWith;
 
-  WebhookBatchCompleted _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      WebhookBatchCompleted(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as WebhookBatchCompletedData,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<WebhookBatchCompletedObject>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebhookBatchCompletedType,
-      );
+  WebhookBatchCompleted _copyWith({Object? createdAt = sdkOmittedValue, Object? id = sdkOmittedValue, Object? data = sdkOmittedValue, Object? object = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => WebhookBatchCompleted(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as WebhookBatchCompletedData,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<WebhookBatchCompletedObject>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookBatchCompletedType,
+  );
 
-  factory WebhookBatchCompleted.fromJson(Map<String, dynamic> json) =>
-      WebhookBatchCompleted(
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        id: (json['id'] as String?)!,
-        data: (json['data'] != null
-            ? WebhookBatchCompletedData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-        object: json['object'] != null
-            ? SdkPresent((json['object'] != null
-                ? WebhookBatchCompletedObject.fromJson(json['object'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? WebhookBatchCompletedType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory WebhookBatchCompleted.fromJson(Map<String, dynamic> json) => WebhookBatchCompleted(
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    id: (json['id'] as String?)!,
+    data: (json['data'] != null ? WebhookBatchCompletedData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+    object: json['object'] != null ? SdkPresent((json['object'] != null ? WebhookBatchCompletedObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? WebhookBatchCompletedType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'created_at': createdAt,
-        'id': id,
-        'data': data.toJson(),
-        ...switch (object) {
-          SdkPresent<WebhookBatchCompletedObject>(value: final value) => {
-              'object': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-      };
+    'created_at': createdAt,
+    'id': id,
+    'data': data.toJson(),
+    ...switch (object) {
+      SdkPresent<WebhookBatchCompletedObject>(value: final value) => {'object': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+  };
 }

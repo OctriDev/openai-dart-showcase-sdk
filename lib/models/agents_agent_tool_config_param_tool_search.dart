@@ -8,31 +8,22 @@ part of 'agents_agent.dart';
 class AgentToolConfigParamToolSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `tool_search`.
   final AgentToolConfigParamToolSearchType type_;
 
   const AgentToolConfigParamToolSearch({required this.type_});
 
-  AgentToolConfigParamToolSearch Function(
-      {AgentToolConfigParamToolSearchType type_}) get copyWith => _copyWith;
+  AgentToolConfigParamToolSearch Function({AgentToolConfigParamToolSearchType type_}) get copyWith => _copyWith;
 
-  AgentToolConfigParamToolSearch _copyWith({Object? type_ = sdkOmittedValue}) =>
-      AgentToolConfigParamToolSearch(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AgentToolConfigParamToolSearchType,
-      );
+  AgentToolConfigParamToolSearch _copyWith({Object? type_ = sdkOmittedValue}) => AgentToolConfigParamToolSearch(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolConfigParamToolSearchType,
+  );
 
-  factory AgentToolConfigParamToolSearch.fromJson(Map<String, dynamic> json) =>
-      AgentToolConfigParamToolSearch(
-        type_: (json['type'] != null
-            ? AgentToolConfigParamToolSearchType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory AgentToolConfigParamToolSearch.fromJson(Map<String, dynamic> json) => AgentToolConfigParamToolSearch(
+    type_: (json['type'] != null ? AgentToolConfigParamToolSearchType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

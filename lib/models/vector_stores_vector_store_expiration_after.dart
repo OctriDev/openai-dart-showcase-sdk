@@ -8,39 +8,27 @@ part of 'vector_stores.dart';
 class VectorStoreExpirationAfter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Anchor timestamp after which the expiration policy applies. Supported anchors: `last_active_at`.
   final VectorStoreExpirationAfterAnchor anchor;
-
   /// The number of days after the anchor time that the vector store will expire.
   final int days;
 
   const VectorStoreExpirationAfter({required this.anchor, required this.days});
 
-  VectorStoreExpirationAfter Function(
-      {VectorStoreExpirationAfterAnchor anchor,
-      int days}) get copyWith => _copyWith;
+  VectorStoreExpirationAfter Function({VectorStoreExpirationAfterAnchor anchor, int days}) get copyWith => _copyWith;
 
-  VectorStoreExpirationAfter _copyWith(
-          {Object? anchor = sdkOmittedValue, Object? days = sdkOmittedValue}) =>
-      VectorStoreExpirationAfter(
-        anchor: identical(anchor, sdkOmittedValue)
-            ? this.anchor
-            : anchor as VectorStoreExpirationAfterAnchor,
-        days: identical(days, sdkOmittedValue) ? this.days : days as int,
-      );
+  VectorStoreExpirationAfter _copyWith({Object? anchor = sdkOmittedValue, Object? days = sdkOmittedValue}) => VectorStoreExpirationAfter(
+    anchor: identical(anchor, sdkOmittedValue) ? this.anchor : anchor as VectorStoreExpirationAfterAnchor,
+    days: identical(days, sdkOmittedValue) ? this.days : days as int,
+  );
 
-  factory VectorStoreExpirationAfter.fromJson(Map<String, dynamic> json) =>
-      VectorStoreExpirationAfter(
-        anchor: (json['anchor'] != null
-            ? VectorStoreExpirationAfterAnchor.fromJson(
-                json['anchor'] as String)
-            : null)!,
-        days: ((json['days'] as num?)?.toInt())!,
-      );
+  factory VectorStoreExpirationAfter.fromJson(Map<String, dynamic> json) => VectorStoreExpirationAfter(
+    anchor: (json['anchor'] != null ? VectorStoreExpirationAfterAnchor.fromJson(json['anchor'] as String) : null)!,
+    days: ((json['days'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'anchor': anchor.toJson(),
-        'days': days,
-      };
+    'anchor': anchor.toJson(),
+    'days': days,
+  };
 }

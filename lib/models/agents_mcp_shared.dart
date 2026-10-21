@@ -8,177 +8,108 @@ part of 'agents_mcp.dart';
 class McpCallItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The item type. Always `mcp_call`.
   final McpCallItemResourceType type_;
-
   /// The ID of the MCP call item.
   final String id;
-
   /// The ID of the turn that contains this item.
   final String turnId;
-
   /// The label of the MCP server.
   final String serverLabel;
-
   /// The name of the MCP tool.
   final String name;
-
   /// The arguments passed to the MCP tool.
   final dynamic arguments;
-
   /// The status of the MCP tool call.
   final FunctionCallStatusResource status;
-
   /// The output returned by the MCP tool, if any.
   final dynamic output;
-
   /// The error returned by the MCP tool, if any.
   final dynamic error;
 
-  const McpCallItemResource(
-      {required this.type_,
-      required this.id,
-      required this.turnId,
-      required this.serverLabel,
-      required this.name,
-      required this.arguments,
-      required this.status,
-      required this.output,
-      required this.error});
+  const McpCallItemResource({required this.type_, required this.id, required this.turnId, required this.serverLabel, required this.name, required this.arguments, required this.status, required this.output, required this.error});
 
-  McpCallItemResource Function(
-      {McpCallItemResourceType type_,
-      String id,
-      String turnId,
-      String serverLabel,
-      String name,
-      dynamic arguments,
-      FunctionCallStatusResource status,
-      dynamic output,
-      dynamic error}) get copyWith => _copyWith;
+  McpCallItemResource Function({McpCallItemResourceType type_, String id, String turnId, String serverLabel, String name, dynamic arguments, FunctionCallStatusResource status, dynamic output, dynamic error}) get copyWith => _copyWith;
 
-  McpCallItemResource _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? turnId = sdkOmittedValue,
-          Object? serverLabel = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? arguments = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? error = sdkOmittedValue}) =>
-      McpCallItemResource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as McpCallItemResourceType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        turnId:
-            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-        serverLabel: identical(serverLabel, sdkOmittedValue)
-            ? this.serverLabel
-            : serverLabel as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        arguments: identical(arguments, sdkOmittedValue)
-            ? this.arguments
-            : arguments as dynamic,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as FunctionCallStatusResource,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as dynamic,
-        error:
-            identical(error, sdkOmittedValue) ? this.error : error as dynamic,
-      );
+  McpCallItemResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? name = sdkOmittedValue, Object? arguments = sdkOmittedValue, Object? status = sdkOmittedValue, Object? output = sdkOmittedValue, Object? error = sdkOmittedValue}) => McpCallItemResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as McpCallItemResourceType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as dynamic,
+    status: identical(status, sdkOmittedValue) ? this.status : status as FunctionCallStatusResource,
+    output: identical(output, sdkOmittedValue) ? this.output : output as dynamic,
+    error: identical(error, sdkOmittedValue) ? this.error : error as dynamic,
+  );
 
-  factory McpCallItemResource.fromJson(Map<String, dynamic> json) =>
-      McpCallItemResource(
-        type_: (json['type'] != null
-            ? McpCallItemResourceType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        turnId: (json['turn_id'] as String?)!,
-        serverLabel: (json['server_label'] as String?)!,
-        name: (json['name'] as String?)!,
-        arguments: json.containsKey('arguments')
-            ? json['arguments']
-            : throw ArgumentError.value(
-                null, 'arguments', 'Required property is missing'),
-        status: (json['status'] != null
-            ? FunctionCallStatusResource.fromJson(json['status'] as String)
-            : null)!,
-        output: json.containsKey('output')
-            ? json['output']
-            : throw ArgumentError.value(
-                null, 'output', 'Required property is missing'),
-        error: json.containsKey('error')
-            ? json['error']
-            : throw ArgumentError.value(
-                null, 'error', 'Required property is missing'),
-      );
+  factory McpCallItemResource.fromJson(Map<String, dynamic> json) => McpCallItemResource(
+    type_: (json['type'] != null ? McpCallItemResourceType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    turnId: (json['turn_id'] as String?)!,
+    serverLabel: (json['server_label'] as String?)!,
+    name: (json['name'] as String?)!,
+    arguments: json.containsKey('arguments') ? json['arguments'] : throw ArgumentError.value(null, 'arguments', 'Required property is missing'),
+    status: (json['status'] != null ? FunctionCallStatusResource.fromJson(json['status'] as String) : null)!,
+    output: json.containsKey('output') ? json['output'] : throw ArgumentError.value(null, 'output', 'Required property is missing'),
+    error: json.containsKey('error') ? json['error'] : throw ArgumentError.value(null, 'error', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'turn_id': turnId,
-        'server_label': serverLabel,
-        'name': name,
-        'arguments': arguments,
-        'status': status.toJson(),
-        'output': output,
-        'error': error,
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'turn_id': turnId,
+    'server_label': serverLabel,
+    'name': name,
+    'arguments': arguments,
+    'status': status.toJson(),
+    'output': output,
+    'error': error,
+  };
 }
 
 /// Where outbound MCP HTTP connections originate.
 final class McpConnectionOriginParam {
+
   final String value;
 
   const McpConnectionOriginParam._(this.value);
 
-  factory McpConnectionOriginParam.fromJson(String value) =>
-      McpConnectionOriginParam._(value);
+  factory McpConnectionOriginParam.fromJson(String value) => McpConnectionOriginParam._(value);
 
   static const service = McpConnectionOriginParam._('service');
   static const environment = McpConnectionOriginParam._('environment');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is McpConnectionOriginParam && other.value == value;
+  @override bool operator ==(Object other) => other is McpConnectionOriginParam && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Where outbound MCP HTTP connections originate.
 final class McpConnectionOriginResource {
+
   final String value;
 
   const McpConnectionOriginResource._(this.value);
 
-  factory McpConnectionOriginResource.fromJson(String value) =>
-      McpConnectionOriginResource._(value);
+  factory McpConnectionOriginResource.fromJson(String value) => McpConnectionOriginResource._(value);
 
   static const service = McpConnectionOriginResource._('service');
   static const environment = McpConnectionOriginResource._('environment');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is McpConnectionOriginResource && other.value == value;
+  @override bool operator ==(Object other) => other is McpConnectionOriginResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 sealed class McpTransportResource {
@@ -187,177 +118,105 @@ sealed class McpTransportResource {
   const McpTransportResource();
   factory McpTransportResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = McpTransportResourceHttp.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return McpTransportResourceMcpTransportResourceHttp(value);
-        }
-      } catch (_) {}
-      try {
-        final value = McpTransportResourceStdio.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return McpTransportResourceMcpTransportResourceStdio(value);
-        }
-      } catch (_) {}
+      try { final value = McpTransportResourceHttp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return McpTransportResourceMcpTransportResourceHttp(value); } } catch (_) {}
+      try { final value = McpTransportResourceStdio.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return McpTransportResourceMcpTransportResourceStdio(value); } } catch (_) {}
     }
-    try {
-      return McpTransportResourceMcpTransportResourceHttp(
-          McpTransportResourceHttp.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return McpTransportResourceMcpTransportResourceStdio(
-          McpTransportResourceStdio.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"http", "stdio"}.contains(json["type"])) {
-      return UnknownMcpTransportResource(json);
-    }
+    try { return McpTransportResourceMcpTransportResourceHttp(McpTransportResourceHttp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return McpTransportResourceMcpTransportResourceStdio(McpTransportResourceStdio.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"http", "stdio"}.contains(json["type"])) { return UnknownMcpTransportResource(json); }
     throw FormatException("No variant matched for McpTransportResource");
   }
   Object? toJson();
 }
 
-final class McpTransportResourceMcpTransportResourceHttp
-    extends McpTransportResource {
+final class McpTransportResourceMcpTransportResourceHttp extends McpTransportResource {
   final McpTransportResourceHttp value;
   const McpTransportResourceMcpTransportResourceHttp(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class McpTransportResourceMcpTransportResourceStdio
-    extends McpTransportResource {
+final class McpTransportResourceMcpTransportResourceStdio extends McpTransportResource {
   final McpTransportResourceStdio value;
   const McpTransportResourceMcpTransportResourceStdio(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [McpTransportResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownMcpTransportResource extends McpTransportResource {
   final Map<String, dynamic> raw;
   const UnknownMcpTransportResource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Connects to an MCP server over HTTP.
 class McpTransportResourceHttp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `http`.
   final McpTransportResourceHttpType type_;
-
   /// The URL of the MCP server.
   final String serverUrl;
 
-  const McpTransportResourceHttp(
-      {required this.type_, required this.serverUrl});
+  const McpTransportResourceHttp({required this.type_, required this.serverUrl});
 
-  McpTransportResourceHttp Function(
-      {McpTransportResourceHttpType type_,
-      String serverUrl}) get copyWith => _copyWith;
+  McpTransportResourceHttp Function({McpTransportResourceHttpType type_, String serverUrl}) get copyWith => _copyWith;
 
-  McpTransportResourceHttp _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? serverUrl = sdkOmittedValue}) =>
-      McpTransportResourceHttp(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as McpTransportResourceHttpType,
-        serverUrl: identical(serverUrl, sdkOmittedValue)
-            ? this.serverUrl
-            : serverUrl as String,
-      );
+  McpTransportResourceHttp _copyWith({Object? type_ = sdkOmittedValue, Object? serverUrl = sdkOmittedValue}) => McpTransportResourceHttp(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as McpTransportResourceHttpType,
+    serverUrl: identical(serverUrl, sdkOmittedValue) ? this.serverUrl : serverUrl as String,
+  );
 
-  factory McpTransportResourceHttp.fromJson(Map<String, dynamic> json) =>
-      McpTransportResourceHttp(
-        type_: (json['type'] != null
-            ? McpTransportResourceHttpType.fromJson(json['type'] as String)
-            : null)!,
-        serverUrl: (json['server_url'] as String?)!,
-      );
+  factory McpTransportResourceHttp.fromJson(Map<String, dynamic> json) => McpTransportResourceHttp(
+    type_: (json['type'] != null ? McpTransportResourceHttpType.fromJson(json['type'] as String) : null)!,
+    serverUrl: (json['server_url'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'server_url': serverUrl,
-      };
+    'type': type_.toJson(),
+    'server_url': serverUrl,
+  };
 }
 
 /// Starts an MCP server as a local process.
 class McpTransportResourceStdio {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `stdio`.
   final McpTransportResourceStdioType type_;
-
   /// The command used to start the MCP server.
   final String command;
-
   /// Arguments passed to the MCP server command.
   final List<String> args;
-
   /// The working directory used to start the MCP server.
   final String cwd;
-
   /// Environment variable names inherited from the execution environment.
   final List<String> envVars;
 
-  const McpTransportResourceStdio(
-      {required this.type_,
-      required this.command,
-      required this.args,
-      required this.cwd,
-      required this.envVars});
+  const McpTransportResourceStdio({required this.type_, required this.command, required this.args, required this.cwd, required this.envVars});
 
-  McpTransportResourceStdio Function(
-      {McpTransportResourceStdioType type_,
-      String command,
-      List<String> args,
-      String cwd,
-      List<String> envVars}) get copyWith => _copyWith;
+  McpTransportResourceStdio Function({McpTransportResourceStdioType type_, String command, List<String> args, String cwd, List<String> envVars}) get copyWith => _copyWith;
 
-  McpTransportResourceStdio _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? command = sdkOmittedValue,
-          Object? args = sdkOmittedValue,
-          Object? cwd = sdkOmittedValue,
-          Object? envVars = sdkOmittedValue}) =>
-      McpTransportResourceStdio(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as McpTransportResourceStdioType,
-        command: identical(command, sdkOmittedValue)
-            ? this.command
-            : command as String,
-        args:
-            identical(args, sdkOmittedValue) ? this.args : args as List<String>,
-        cwd: identical(cwd, sdkOmittedValue) ? this.cwd : cwd as String,
-        envVars: identical(envVars, sdkOmittedValue)
-            ? this.envVars
-            : envVars as List<String>,
-      );
+  McpTransportResourceStdio _copyWith({Object? type_ = sdkOmittedValue, Object? command = sdkOmittedValue, Object? args = sdkOmittedValue, Object? cwd = sdkOmittedValue, Object? envVars = sdkOmittedValue}) => McpTransportResourceStdio(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as McpTransportResourceStdioType,
+    command: identical(command, sdkOmittedValue) ? this.command : command as String,
+    args: identical(args, sdkOmittedValue) ? this.args : args as List<String>,
+    cwd: identical(cwd, sdkOmittedValue) ? this.cwd : cwd as String,
+    envVars: identical(envVars, sdkOmittedValue) ? this.envVars : envVars as List<String>,
+  );
 
-  factory McpTransportResourceStdio.fromJson(Map<String, dynamic> json) =>
-      McpTransportResourceStdio(
-        type_: (json['type'] != null
-            ? McpTransportResourceStdioType.fromJson(json['type'] as String)
-            : null)!,
-        command: (json['command'] as String?)!,
-        args: ((json['args'] as List?)?.map((e) => e as String).toList())!,
-        cwd: (json['cwd'] as String?)!,
-        envVars:
-            ((json['env_vars'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory McpTransportResourceStdio.fromJson(Map<String, dynamic> json) => McpTransportResourceStdio(
+    type_: (json['type'] != null ? McpTransportResourceStdioType.fromJson(json['type'] as String) : null)!,
+    command: (json['command'] as String?)!,
+    args: ((json['args'] as List?)?.map((e) => e as String).toList())!,
+    cwd: (json['cwd'] as String?)!,
+    envVars: ((json['env_vars'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'command': command,
-        'args': args,
-        'cwd': cwd,
-        'env_vars': envVars,
-      };
+    'type': type_.toJson(),
+    'command': command,
+    'args': args,
+    'cwd': cwd,
+    'env_vars': envVars,
+  };
 }

@@ -10,43 +10,14 @@ sealed class BetaInputContent {
   const BetaInputContent();
   factory BetaInputContent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaInputTextContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaInputContentBetaInputTextContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaInputImageContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaInputContentBetaInputImageContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaInputFileContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaInputContentBetaInputFileContent(value);
-        }
-      } catch (_) {}
+      try { final value = BetaInputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaInputContentBetaInputTextContent(value); } } catch (_) {}
+      try { final value = BetaInputImageContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaInputContentBetaInputImageContent(value); } } catch (_) {}
+      try { final value = BetaInputFileContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaInputContentBetaInputFileContent(value); } } catch (_) {}
     }
-    try {
-      return BetaInputContentBetaInputTextContent(
-          BetaInputTextContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaInputContentBetaInputImageContent(
-          BetaInputImageContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaInputContentBetaInputFileContent(
-          BetaInputFileContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"input_text", "input_image", "input_file"}
-            .contains(json["type"])) {
-      return UnknownBetaInputContent(json);
-    }
+    try { return BetaInputContentBetaInputTextContent(BetaInputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaInputContentBetaInputImageContent(BetaInputImageContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaInputContentBetaInputFileContent(BetaInputFileContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image", "input_file"}.contains(json["type"])) { return UnknownBetaInputContent(json); }
     throw FormatException("No variant matched for BetaInputContent");
   }
   Object? toJson();
@@ -55,28 +26,24 @@ sealed class BetaInputContent {
 final class BetaInputContentBetaInputTextContent extends BetaInputContent {
   final BetaInputTextContent value;
   const BetaInputContentBetaInputTextContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaInputContentBetaInputImageContent extends BetaInputContent {
   final BetaInputImageContent value;
   const BetaInputContentBetaInputImageContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaInputContentBetaInputFileContent extends BetaInputContent {
   final BetaInputFileContent value;
   const BetaInputContentBetaInputFileContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaInputContent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaInputContent extends BetaInputContent {
   final Map<String, dynamic> raw;
   const UnknownBetaInputContent(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

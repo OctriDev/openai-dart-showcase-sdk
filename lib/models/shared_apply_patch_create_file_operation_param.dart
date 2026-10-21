@@ -8,50 +8,32 @@ part of 'shared_apply.dart';
 class ApplyPatchCreateFileOperationParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The operation type. Always `create_file`.
   final ApplyPatchCreateFileOperationParamType type_;
-
   /// Path of the file to create relative to the workspace root.
   final String path;
-
   /// Unified diff content to apply when creating the file.
   final String diff;
 
-  const ApplyPatchCreateFileOperationParam(
-      {required this.type_, required this.path, required this.diff});
+  const ApplyPatchCreateFileOperationParam({required this.type_, required this.path, required this.diff});
 
-  ApplyPatchCreateFileOperationParam Function(
-      {ApplyPatchCreateFileOperationParamType type_,
-      String path,
-      String diff}) get copyWith => _copyWith;
+  ApplyPatchCreateFileOperationParam Function({ApplyPatchCreateFileOperationParamType type_, String path, String diff}) get copyWith => _copyWith;
 
-  ApplyPatchCreateFileOperationParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? path = sdkOmittedValue,
-          Object? diff = sdkOmittedValue}) =>
-      ApplyPatchCreateFileOperationParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ApplyPatchCreateFileOperationParamType,
-        path: identical(path, sdkOmittedValue) ? this.path : path as String,
-        diff: identical(diff, sdkOmittedValue) ? this.diff : diff as String,
-      );
+  ApplyPatchCreateFileOperationParam _copyWith({Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue, Object? diff = sdkOmittedValue}) => ApplyPatchCreateFileOperationParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ApplyPatchCreateFileOperationParamType,
+    path: identical(path, sdkOmittedValue) ? this.path : path as String,
+    diff: identical(diff, sdkOmittedValue) ? this.diff : diff as String,
+  );
 
-  factory ApplyPatchCreateFileOperationParam.fromJson(
-          Map<String, dynamic> json) =>
-      ApplyPatchCreateFileOperationParam(
-        type_: (json['type'] != null
-            ? ApplyPatchCreateFileOperationParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        path: (json['path'] as String?)!,
-        diff: (json['diff'] as String?)!,
-      );
+  factory ApplyPatchCreateFileOperationParam.fromJson(Map<String, dynamic> json) => ApplyPatchCreateFileOperationParam(
+    type_: (json['type'] != null ? ApplyPatchCreateFileOperationParamType.fromJson(json['type'] as String) : null)!,
+    path: (json['path'] as String?)!,
+    diff: (json['diff'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'path': path,
-        'diff': diff,
-      };
+    'type': type_.toJson(),
+    'path': path,
+    'diff': diff,
+  };
 }

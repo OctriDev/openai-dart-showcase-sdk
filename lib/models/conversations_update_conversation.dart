@@ -8,33 +8,22 @@ part of 'conversations.dart';
 class UpdateConversationBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final Map<String, dynamic>? metadata;
 
   const UpdateConversationBody({required this.metadata});
 
-  UpdateConversationBody Function({Map<String, dynamic>? metadata})
-      get copyWith => _copyWith;
+  UpdateConversationBody Function({Map<String, dynamic>? metadata}) get copyWith => _copyWith;
 
-  UpdateConversationBody _copyWith({Object? metadata = sdkOmittedValue}) =>
-      UpdateConversationBody(
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as Map<String, dynamic>?,
-      );
+  UpdateConversationBody _copyWith({Object? metadata = sdkOmittedValue}) => UpdateConversationBody(
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, dynamic>?,
+  );
 
-  factory UpdateConversationBody.fromJson(Map<String, dynamic> json) =>
-      UpdateConversationBody(
-        metadata: json.containsKey('metadata')
-            ? json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>
-            : throw ArgumentError.value(
-                null, 'metadata', 'Required property is missing'),
-      );
+  factory UpdateConversationBody.fromJson(Map<String, dynamic> json) => UpdateConversationBody(
+    metadata: json.containsKey('metadata') ? json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic> : throw ArgumentError.value(null, 'metadata', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'metadata': metadata,
-      };
+    'metadata': metadata,
+  };
 }

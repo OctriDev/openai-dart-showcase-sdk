@@ -8,73 +8,41 @@ part of 'projects.dart';
 class ProjectUpdateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The updated name of the project, this name appears in reports.
   final SdkOptional<String?> name;
-
   /// External key ID to associate with the project.
   final SdkOptional<String?> externalKeyId;
-
   /// Geography for the project. Deprecated: use `residency` when creating a project to configure data residency. This field is retained for backward compatibility.
   final SdkOptional<String?> geography;
 
-  const ProjectUpdateRequest(
-      {this.name = const SdkOmitted(),
-      this.externalKeyId = const SdkOmitted(),
-      this.geography = const SdkOmitted()});
+  const ProjectUpdateRequest({this.name = const SdkOmitted(), this.externalKeyId = const SdkOmitted(), this.geography = const SdkOmitted()});
 
-  ProjectUpdateRequest Function(
-      {SdkOptional<String?> name,
-      SdkOptional<String?> externalKeyId,
-      SdkOptional<String?> geography}) get copyWith => _copyWith;
+  ProjectUpdateRequest Function({SdkOptional<String?> name, SdkOptional<String?> externalKeyId, SdkOptional<String?> geography}) get copyWith => _copyWith;
 
-  ProjectUpdateRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? externalKeyId = sdkOmittedValue,
-          Object? geography = sdkOmittedValue}) =>
-      ProjectUpdateRequest(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-        externalKeyId: identical(externalKeyId, sdkOmittedValue)
-            ? this.externalKeyId
-            : externalKeyId as SdkOptional<String?>,
-        geography: identical(geography, sdkOmittedValue)
-            ? this.geography
-            : geography as SdkOptional<String?>,
-      );
+  ProjectUpdateRequest _copyWith({Object? name = sdkOmittedValue, Object? externalKeyId = sdkOmittedValue, Object? geography = sdkOmittedValue}) => ProjectUpdateRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+    externalKeyId: identical(externalKeyId, sdkOmittedValue) ? this.externalKeyId : externalKeyId as SdkOptional<String?>,
+    geography: identical(geography, sdkOmittedValue) ? this.geography : geography as SdkOptional<String?>,
+  );
 
-  factory ProjectUpdateRequest.fromJson(Map<String, dynamic> json) =>
-      ProjectUpdateRequest(
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-        externalKeyId: json.containsKey('external_key_id')
-            ? SdkPresent(json['external_key_id'] as String?)
-            : const SdkOmitted(),
-        geography: json.containsKey('geography')
-            ? SdkPresent(json['geography'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ProjectUpdateRequest.fromJson(Map<String, dynamic> json) => ProjectUpdateRequest(
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+    externalKeyId: json.containsKey('external_key_id') ? SdkPresent(json['external_key_id'] as String?) : const SdkOmitted(),
+    geography: json.containsKey('geography') ? SdkPresent(json['geography'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalKeyId) {
-          SdkPresent<String?>(value: final value) => {
-              'external_key_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (geography) {
-          SdkPresent<String?>(value: final value) => {
-              'geography': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalKeyId) {
+      SdkPresent<String?>(value: final value) => {'external_key_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (geography) {
+      SdkPresent<String?>(value: final value) => {'geography': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

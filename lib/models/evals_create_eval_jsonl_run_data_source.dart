@@ -8,44 +8,27 @@ part of 'evals_create.dart';
 class CreateEvalJsonlRunDataSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of data source. Always `jsonl`.
   final CreateEvalJsonlRunDataSourceType type_;
-
   /// Determines what populates the `item` namespace in the data source.
   final CreateEvalJsonlRunDataSourceSource source;
 
-  const CreateEvalJsonlRunDataSource(
-      {required this.type_, required this.source});
+  const CreateEvalJsonlRunDataSource({required this.type_, required this.source});
 
-  CreateEvalJsonlRunDataSource Function(
-      {CreateEvalJsonlRunDataSourceType type_,
-      CreateEvalJsonlRunDataSourceSource source}) get copyWith => _copyWith;
+  CreateEvalJsonlRunDataSource Function({CreateEvalJsonlRunDataSourceType type_, CreateEvalJsonlRunDataSourceSource source}) get copyWith => _copyWith;
 
-  CreateEvalJsonlRunDataSource _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? source = sdkOmittedValue}) =>
-      CreateEvalJsonlRunDataSource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CreateEvalJsonlRunDataSourceType,
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as CreateEvalJsonlRunDataSourceSource,
-      );
+  CreateEvalJsonlRunDataSource _copyWith({Object? type_ = sdkOmittedValue, Object? source = sdkOmittedValue}) => CreateEvalJsonlRunDataSource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalJsonlRunDataSourceType,
+    source: identical(source, sdkOmittedValue) ? this.source : source as CreateEvalJsonlRunDataSourceSource,
+  );
 
-  factory CreateEvalJsonlRunDataSource.fromJson(Map<String, dynamic> json) =>
-      CreateEvalJsonlRunDataSource(
-        type_: (json['type'] != null
-            ? CreateEvalJsonlRunDataSourceType.fromJson(json['type'] as String)
-            : null)!,
-        source: (json['source'] != null
-            ? CreateEvalJsonlRunDataSourceSource.fromJson(json['source'])
-            : null)!,
-      );
+  factory CreateEvalJsonlRunDataSource.fromJson(Map<String, dynamic> json) => CreateEvalJsonlRunDataSource(
+    type_: (json['type'] != null ? CreateEvalJsonlRunDataSourceType.fromJson(json['type'] as String) : null)!,
+    source: (json['source'] != null ? CreateEvalJsonlRunDataSourceSource.fromJson(json['source']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'source': source.toJson(),
-      };
+    'type': type_.toJson(),
+    'source': source.toJson(),
+  };
 }

@@ -6,25 +6,22 @@ part of 'shared.dart';
 // shared domain models
 /// Typed representation of the `RankerVersionType` API schema.
 final class RankerVersionType {
+
   final String value;
 
   const RankerVersionType._(this.value);
 
-  factory RankerVersionType.fromJson(String value) =>
-      RankerVersionType._(value);
+  factory RankerVersionType.fromJson(String value) => RankerVersionType._(value);
 
   static const auto = RankerVersionType._('auto');
   static const default20241115 = RankerVersionType._('default-2024-11-15');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RankerVersionType && other.value == value;
+  @override bool operator ==(Object other) => other is RankerVersionType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

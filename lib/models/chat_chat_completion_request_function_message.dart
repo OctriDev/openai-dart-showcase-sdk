@@ -8,55 +8,32 @@ part of 'chat_chat_completion_request.dart';
 class ChatCompletionRequestFunctionMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The role of the messages author, in this case `function`.
   final ChatCompletionRequestFunctionMessageRole role;
-
   /// Required `string` value serialized in the `content` wire field.
   final String? content;
-
   /// The name of the function to call.
   final String name;
 
-  const ChatCompletionRequestFunctionMessage(
-      {required this.role, required this.content, required this.name});
+  const ChatCompletionRequestFunctionMessage({required this.role, required this.content, required this.name});
 
-  ChatCompletionRequestFunctionMessage Function(
-      {ChatCompletionRequestFunctionMessageRole role,
-      String? content,
-      String name}) get copyWith => _copyWith;
+  ChatCompletionRequestFunctionMessage Function({ChatCompletionRequestFunctionMessageRole role, String? content, String name}) get copyWith => _copyWith;
 
-  ChatCompletionRequestFunctionMessage _copyWith(
-          {Object? role = sdkOmittedValue,
-          Object? content = sdkOmittedValue,
-          Object? name = sdkOmittedValue}) =>
-      ChatCompletionRequestFunctionMessage(
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as ChatCompletionRequestFunctionMessageRole,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as String?,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-      );
+  ChatCompletionRequestFunctionMessage _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue, Object? name = sdkOmittedValue}) => ChatCompletionRequestFunctionMessage(
+    role: identical(role, sdkOmittedValue) ? this.role : role as ChatCompletionRequestFunctionMessageRole,
+    content: identical(content, sdkOmittedValue) ? this.content : content as String?,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+  );
 
-  factory ChatCompletionRequestFunctionMessage.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionRequestFunctionMessage(
-        role: (json['role'] != null
-            ? ChatCompletionRequestFunctionMessageRole.fromJson(
-                json['role'] as String)
-            : null)!,
-        content: json.containsKey('content')
-            ? json['content'] as String?
-            : throw ArgumentError.value(
-                null, 'content', 'Required property is missing'),
-        name: (json['name'] as String?)!,
-      );
+  factory ChatCompletionRequestFunctionMessage.fromJson(Map<String, dynamic> json) => ChatCompletionRequestFunctionMessage(
+    role: (json['role'] != null ? ChatCompletionRequestFunctionMessageRole.fromJson(json['role'] as String) : null)!,
+    content: json.containsKey('content') ? json['content'] as String? : throw ArgumentError.value(null, 'content', 'Required property is missing'),
+    name: (json['name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'role': role.toJson(),
-        'content': content,
-        'name': name,
-      };
+    'role': role.toJson(),
+    'content': content,
+    'name': name,
+  };
 }

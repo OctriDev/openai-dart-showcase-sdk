@@ -8,365 +8,181 @@ part of 'assistants_create.dart';
 class CreateThreadRequestToolResourcesCodeInterpreter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A list of [file](https://developers.openai.com/api/reference/resources/files) IDs made available to the `code_interpreter` tool. There can be a maximum of 20 files associated with the tool.
   final SdkOptional<List<String>> fileIds;
 
-  const CreateThreadRequestToolResourcesCodeInterpreter(
-      {this.fileIds = const SdkOmitted()});
+  const CreateThreadRequestToolResourcesCodeInterpreter({this.fileIds = const SdkOmitted()});
 
-  CreateThreadRequestToolResourcesCodeInterpreter Function(
-      {SdkOptional<List<String>> fileIds}) get copyWith => _copyWith;
+  CreateThreadRequestToolResourcesCodeInterpreter Function({SdkOptional<List<String>> fileIds}) get copyWith => _copyWith;
 
-  CreateThreadRequestToolResourcesCodeInterpreter _copyWith(
-          {Object? fileIds = sdkOmittedValue}) =>
-      CreateThreadRequestToolResourcesCodeInterpreter(
-        fileIds: identical(fileIds, sdkOmittedValue)
-            ? this.fileIds
-            : fileIds as SdkOptional<List<String>>,
-      );
+  CreateThreadRequestToolResourcesCodeInterpreter _copyWith({Object? fileIds = sdkOmittedValue}) => CreateThreadRequestToolResourcesCodeInterpreter(
+    fileIds: identical(fileIds, sdkOmittedValue) ? this.fileIds : fileIds as SdkOptional<List<String>>,
+  );
 
-  factory CreateThreadRequestToolResourcesCodeInterpreter.fromJson(
-          Map<String, dynamic> json) =>
-      CreateThreadRequestToolResourcesCodeInterpreter(
-        fileIds: json['file_ids'] != null
-            ? SdkPresent(((json['file_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory CreateThreadRequestToolResourcesCodeInterpreter.fromJson(Map<String, dynamic> json) => CreateThreadRequestToolResourcesCodeInterpreter(
+    fileIds: json['file_ids'] != null ? SdkPresent(((json['file_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (fileIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'file_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (fileIds) {
+      SdkPresent<List<String>>(value: final value) => {'file_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `vector_stores[]` wire field.
 class CreateThreadRequestToolResourcesFileSearchVectorStoresItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A list of [file](https://developers.openai.com/api/reference/resources/files) IDs to add to the vector store. For vector stores created before Nov 2025, there can be a maximum of 10,000 files in a vector store. For vector stores created starting in Nov 2025, the limit is 100,000,000 files.
   final SdkOptional<List<String>> fileIds;
-
   /// The chunking strategy used to chunk the file(s). If not set, will use the `auto` strategy.
-  final SdkOptional<
-          CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>
-      chunkingStrategy;
-
+  final SdkOptional<CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy> chunkingStrategy;
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
 
-  const CreateThreadRequestToolResourcesFileSearchVectorStoresItem(
-      {this.fileIds = const SdkOmitted(),
-      this.chunkingStrategy = const SdkOmitted(),
-      this.metadata = const SdkOmitted()});
+  const CreateThreadRequestToolResourcesFileSearchVectorStoresItem({this.fileIds = const SdkOmitted(), this.chunkingStrategy = const SdkOmitted(), this.metadata = const SdkOmitted()});
 
-  CreateThreadRequestToolResourcesFileSearchVectorStoresItem Function(
-      {SdkOptional<List<String>> fileIds,
-      SdkOptional<
-              CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>
-          chunkingStrategy,
-      SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
+  CreateThreadRequestToolResourcesFileSearchVectorStoresItem Function({SdkOptional<List<String>> fileIds, SdkOptional<CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy> chunkingStrategy, SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
 
-  CreateThreadRequestToolResourcesFileSearchVectorStoresItem _copyWith(
-          {Object? fileIds = sdkOmittedValue,
-          Object? chunkingStrategy = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue}) =>
-      CreateThreadRequestToolResourcesFileSearchVectorStoresItem(
-        fileIds: identical(fileIds, sdkOmittedValue)
-            ? this.fileIds
-            : fileIds as SdkOptional<List<String>>,
-        chunkingStrategy: identical(chunkingStrategy, sdkOmittedValue)
-            ? this.chunkingStrategy
-            : chunkingStrategy as SdkOptional<
-                CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>?>,
-      );
+  CreateThreadRequestToolResourcesFileSearchVectorStoresItem _copyWith({Object? fileIds = sdkOmittedValue, Object? chunkingStrategy = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => CreateThreadRequestToolResourcesFileSearchVectorStoresItem(
+    fileIds: identical(fileIds, sdkOmittedValue) ? this.fileIds : fileIds as SdkOptional<List<String>>,
+    chunkingStrategy: identical(chunkingStrategy, sdkOmittedValue) ? this.chunkingStrategy : chunkingStrategy as SdkOptional<CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
+  );
 
-  factory CreateThreadRequestToolResourcesFileSearchVectorStoresItem.fromJson(
-          Map<String, dynamic> json) =>
-      CreateThreadRequestToolResourcesFileSearchVectorStoresItem(
-        fileIds: json['file_ids'] != null
-            ? SdkPresent(((json['file_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        chunkingStrategy: json['chunking_strategy'] != null
-            ? SdkPresent((json['chunking_strategy'] != null
-                ? CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy
-                    .fromJson(json['chunking_strategy'])
-                : null)!)
-            : const SdkOmitted(),
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+  factory CreateThreadRequestToolResourcesFileSearchVectorStoresItem.fromJson(Map<String, dynamic> json) => CreateThreadRequestToolResourcesFileSearchVectorStoresItem(
+    fileIds: json['file_ids'] != null ? SdkPresent(((json['file_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    chunkingStrategy: json['chunking_strategy'] != null ? SdkPresent((json['chunking_strategy'] != null ? CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy.fromJson(json['chunking_strategy']) : null)!) : const SdkOmitted(),
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (fileIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'file_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (chunkingStrategy) {
-          SdkPresent<
-                CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>(
-            value: final value
-          ) =>
-            {
-              'chunking_strategy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (fileIds) {
+      SdkPresent<List<String>>(value: final value) => {'file_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (chunkingStrategy) {
+      SdkPresent<CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>(value: final value) => {'chunking_strategy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `file_search` wire field.
 class CreateThreadRequestToolResourcesFileSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The [vector store](https://developers.openai.com/api/reference/resources/vector_stores) attached to this thread. There can be a maximum of 1 vector store attached to the thread.
   final SdkOptional<List<String>> vectorStoreIds;
-
   /// A helper to create a [vector store](https://developers.openai.com/api/reference/resources/vector_stores) with file_ids and attach it to this thread. There can be a maximum of 1 vector store attached to the thread.
-  final SdkOptional<
-          List<CreateThreadRequestToolResourcesFileSearchVectorStoresItem>>
-      vectorStores;
+  final SdkOptional<List<CreateThreadRequestToolResourcesFileSearchVectorStoresItem>> vectorStores;
 
-  const CreateThreadRequestToolResourcesFileSearch(
-      {this.vectorStoreIds = const SdkOmitted(),
-      this.vectorStores = const SdkOmitted()});
+  const CreateThreadRequestToolResourcesFileSearch({this.vectorStoreIds = const SdkOmitted(), this.vectorStores = const SdkOmitted()});
 
-  CreateThreadRequestToolResourcesFileSearch Function(
-      {SdkOptional<List<String>> vectorStoreIds,
-      SdkOptional<
-              List<CreateThreadRequestToolResourcesFileSearchVectorStoresItem>>
-          vectorStores}) get copyWith => _copyWith;
+  CreateThreadRequestToolResourcesFileSearch Function({SdkOptional<List<String>> vectorStoreIds, SdkOptional<List<CreateThreadRequestToolResourcesFileSearchVectorStoresItem>> vectorStores}) get copyWith => _copyWith;
 
-  CreateThreadRequestToolResourcesFileSearch _copyWith(
-          {Object? vectorStoreIds = sdkOmittedValue,
-          Object? vectorStores = sdkOmittedValue}) =>
-      CreateThreadRequestToolResourcesFileSearch(
-        vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue)
-            ? this.vectorStoreIds
-            : vectorStoreIds as SdkOptional<List<String>>,
-        vectorStores: identical(vectorStores, sdkOmittedValue)
-            ? this.vectorStores
-            : vectorStores as SdkOptional<
-                List<
-                    CreateThreadRequestToolResourcesFileSearchVectorStoresItem>>,
-      );
+  CreateThreadRequestToolResourcesFileSearch _copyWith({Object? vectorStoreIds = sdkOmittedValue, Object? vectorStores = sdkOmittedValue}) => CreateThreadRequestToolResourcesFileSearch(
+    vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue) ? this.vectorStoreIds : vectorStoreIds as SdkOptional<List<String>>,
+    vectorStores: identical(vectorStores, sdkOmittedValue) ? this.vectorStores : vectorStores as SdkOptional<List<CreateThreadRequestToolResourcesFileSearchVectorStoresItem>>,
+  );
 
-  factory CreateThreadRequestToolResourcesFileSearch.fromJson(
-          Map<String, dynamic> json) =>
-      CreateThreadRequestToolResourcesFileSearch(
-        vectorStoreIds: json['vector_store_ids'] != null
-            ? SdkPresent(((json['vector_store_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        vectorStores: json['vector_stores'] != null
-            ? SdkPresent(((json['vector_stores'] as List?)
-                ?.map((e) =>
-                    CreateThreadRequestToolResourcesFileSearchVectorStoresItem
-                        .fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory CreateThreadRequestToolResourcesFileSearch.fromJson(Map<String, dynamic> json) => CreateThreadRequestToolResourcesFileSearch(
+    vectorStoreIds: json['vector_store_ids'] != null ? SdkPresent(((json['vector_store_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    vectorStores: json['vector_stores'] != null ? SdkPresent(((json['vector_stores'] as List?)?.map((e) => CreateThreadRequestToolResourcesFileSearchVectorStoresItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (vectorStoreIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'vector_store_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (vectorStores) {
-          SdkPresent<
-                List<
-                    CreateThreadRequestToolResourcesFileSearchVectorStoresItem>>(
-            value: final value
-          ) =>
-            {
-              'vector_stores': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (vectorStoreIds) {
+      SdkPresent<List<String>>(value: final value) => {'vector_store_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (vectorStores) {
+      SdkPresent<List<CreateThreadRequestToolResourcesFileSearchVectorStoresItem>>(value: final value) => {'vector_stores': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A set of resources that are made available to the assistant's tools in this thread. The resources are specific to the type of tool. For example, the `code_interpreter` tool requires a list of file IDs, while the `file_search` tool requires a list of vector store IDs.
 class CreateThreadRequestToolResources {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `code_interpreter` wire field.
-  final SdkOptional<CreateThreadRequestToolResourcesCodeInterpreter>
-      codeInterpreter;
-
+  final SdkOptional<CreateThreadRequestToolResourcesCodeInterpreter> codeInterpreter;
   /// Optional object value serialized in the `file_search` wire field.
   final SdkOptional<CreateThreadRequestToolResourcesFileSearch> fileSearch;
 
-  const CreateThreadRequestToolResources(
-      {this.codeInterpreter = const SdkOmitted(),
-      this.fileSearch = const SdkOmitted()});
+  const CreateThreadRequestToolResources({this.codeInterpreter = const SdkOmitted(), this.fileSearch = const SdkOmitted()});
 
-  CreateThreadRequestToolResources Function(
-          {SdkOptional<CreateThreadRequestToolResourcesCodeInterpreter>
-              codeInterpreter,
-          SdkOptional<CreateThreadRequestToolResourcesFileSearch> fileSearch})
-      get copyWith => _copyWith;
+  CreateThreadRequestToolResources Function({SdkOptional<CreateThreadRequestToolResourcesCodeInterpreter> codeInterpreter, SdkOptional<CreateThreadRequestToolResourcesFileSearch> fileSearch}) get copyWith => _copyWith;
 
-  CreateThreadRequestToolResources _copyWith(
-          {Object? codeInterpreter = sdkOmittedValue,
-          Object? fileSearch = sdkOmittedValue}) =>
-      CreateThreadRequestToolResources(
-        codeInterpreter: identical(codeInterpreter, sdkOmittedValue)
-            ? this.codeInterpreter
-            : codeInterpreter
-                as SdkOptional<CreateThreadRequestToolResourcesCodeInterpreter>,
-        fileSearch: identical(fileSearch, sdkOmittedValue)
-            ? this.fileSearch
-            : fileSearch
-                as SdkOptional<CreateThreadRequestToolResourcesFileSearch>,
-      );
+  CreateThreadRequestToolResources _copyWith({Object? codeInterpreter = sdkOmittedValue, Object? fileSearch = sdkOmittedValue}) => CreateThreadRequestToolResources(
+    codeInterpreter: identical(codeInterpreter, sdkOmittedValue) ? this.codeInterpreter : codeInterpreter as SdkOptional<CreateThreadRequestToolResourcesCodeInterpreter>,
+    fileSearch: identical(fileSearch, sdkOmittedValue) ? this.fileSearch : fileSearch as SdkOptional<CreateThreadRequestToolResourcesFileSearch>,
+  );
 
-  factory CreateThreadRequestToolResources.fromJson(
-          Map<String, dynamic> json) =>
-      CreateThreadRequestToolResources(
-        codeInterpreter: json['code_interpreter'] != null
-            ? SdkPresent((json['code_interpreter'] != null
-                ? CreateThreadRequestToolResourcesCodeInterpreter.fromJson(
-                    json['code_interpreter'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        fileSearch: json['file_search'] != null
-            ? SdkPresent((json['file_search'] != null
-                ? CreateThreadRequestToolResourcesFileSearch.fromJson(
-                    json['file_search'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory CreateThreadRequestToolResources.fromJson(Map<String, dynamic> json) => CreateThreadRequestToolResources(
+    codeInterpreter: json['code_interpreter'] != null ? SdkPresent((json['code_interpreter'] != null ? CreateThreadRequestToolResourcesCodeInterpreter.fromJson(json['code_interpreter'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    fileSearch: json['file_search'] != null ? SdkPresent((json['file_search'] != null ? CreateThreadRequestToolResourcesFileSearch.fromJson(json['file_search'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (codeInterpreter) {
-          SdkPresent<CreateThreadRequestToolResourcesCodeInterpreter>(
-            value: final value
-          ) =>
-            {
-              'code_interpreter': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fileSearch) {
-          SdkPresent<CreateThreadRequestToolResourcesFileSearch>(
-            value: final value
-          ) =>
-            {
-              'file_search': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (codeInterpreter) {
+      SdkPresent<CreateThreadRequestToolResourcesCodeInterpreter>(value: final value) => {'code_interpreter': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fileSearch) {
+      SdkPresent<CreateThreadRequestToolResourcesFileSearch>(value: final value) => {'file_search': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Options to create a new thread. If no thread is provided when running a request, an empty thread will be created.
 class CreateThreadRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A list of [messages](https://developers.openai.com/api/docs/assistants/migration) to start the thread with.
   final SdkOptional<List<CreateMessageRequest>> messages;
-
   /// A set of resources that are made available to the assistant's tools in this thread. The resources are specific to the type of tool. For example, the `code_interpreter` tool requires a list of file IDs, while the `file_search` tool requires a list of vector store IDs.
   final SdkOptional<CreateThreadRequestToolResources?> toolResources;
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
 
-  const CreateThreadRequest(
-      {this.messages = const SdkOmitted(),
-      this.toolResources = const SdkOmitted(),
-      this.metadata = const SdkOmitted()});
+  const CreateThreadRequest({this.messages = const SdkOmitted(), this.toolResources = const SdkOmitted(), this.metadata = const SdkOmitted()});
 
-  CreateThreadRequest Function(
-      {SdkOptional<List<CreateMessageRequest>> messages,
-      SdkOptional<CreateThreadRequestToolResources?> toolResources,
-      SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
+  CreateThreadRequest Function({SdkOptional<List<CreateMessageRequest>> messages, SdkOptional<CreateThreadRequestToolResources?> toolResources, SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
 
-  CreateThreadRequest _copyWith(
-          {Object? messages = sdkOmittedValue,
-          Object? toolResources = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue}) =>
-      CreateThreadRequest(
-        messages: identical(messages, sdkOmittedValue)
-            ? this.messages
-            : messages as SdkOptional<List<CreateMessageRequest>>,
-        toolResources: identical(toolResources, sdkOmittedValue)
-            ? this.toolResources
-            : toolResources as SdkOptional<CreateThreadRequestToolResources?>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>?>,
-      );
+  CreateThreadRequest _copyWith({Object? messages = sdkOmittedValue, Object? toolResources = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => CreateThreadRequest(
+    messages: identical(messages, sdkOmittedValue) ? this.messages : messages as SdkOptional<List<CreateMessageRequest>>,
+    toolResources: identical(toolResources, sdkOmittedValue) ? this.toolResources : toolResources as SdkOptional<CreateThreadRequestToolResources?>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
+  );
 
-  factory CreateThreadRequest.fromJson(Map<String, dynamic> json) =>
-      CreateThreadRequest(
-        messages: json['messages'] != null
-            ? SdkPresent(((json['messages'] as List?)
-                ?.map((e) =>
-                    CreateMessageRequest.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        toolResources: json.containsKey('tool_resources')
-            ? SdkPresent(json['tool_resources'] != null
-                ? CreateThreadRequestToolResources.fromJson(
-                    json['tool_resources'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+  factory CreateThreadRequest.fromJson(Map<String, dynamic> json) => CreateThreadRequest(
+    messages: json['messages'] != null ? SdkPresent(((json['messages'] as List?)?.map((e) => CreateMessageRequest.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    toolResources: json.containsKey('tool_resources') ? SdkPresent(json['tool_resources'] != null ? CreateThreadRequestToolResources.fromJson(json['tool_resources'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (messages) {
-          SdkPresent<List<CreateMessageRequest>>(value: final value) => {
-              'messages': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolResources) {
-          SdkPresent<CreateThreadRequestToolResources?>(value: final value) => {
-              'tool_resources': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (messages) {
+      SdkPresent<List<CreateMessageRequest>>(value: final value) => {'messages': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolResources) {
+      SdkPresent<CreateThreadRequestToolResources?>(value: final value) => {'tool_resources': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

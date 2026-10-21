@@ -6,25 +6,22 @@ part of 'shared.dart';
 // shared domain models
 /// Typed representation of the `CallableToolAllowedCaller` API schema.
 final class CallableToolAllowedCaller {
+
   final String value;
 
   const CallableToolAllowedCaller._(this.value);
 
-  factory CallableToolAllowedCaller.fromJson(String value) =>
-      CallableToolAllowedCaller._(value);
+  factory CallableToolAllowedCaller.fromJson(String value) => CallableToolAllowedCaller._(value);
 
   static const direct = CallableToolAllowedCaller._('direct');
   static const programmatic = CallableToolAllowedCaller._('programmatic');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CallableToolAllowedCaller && other.value == value;
+  @override bool operator ==(Object other) => other is CallableToolAllowedCaller && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

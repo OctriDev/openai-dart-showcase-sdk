@@ -8,78 +8,42 @@ part of 'agents_persisted.dart';
 class PersistedAgentToolResourceFunction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `function`.
   final PersistedAgentToolResourceFunctionType type_;
-
   /// The name of the function.
   final String name;
-
   /// A description of what the function does.
   final String description;
-
   /// A JSON Schema object describing the function's arguments.
   final Map<String, dynamic> parameters;
-
   /// Whether the function is deferred and discovered through tool search.
   final bool deferLoading;
 
-  const PersistedAgentToolResourceFunction(
-      {required this.type_,
-      required this.name,
-      required this.description,
-      required this.parameters,
-      required this.deferLoading});
+  const PersistedAgentToolResourceFunction({required this.type_, required this.name, required this.description, required this.parameters, required this.deferLoading});
 
-  PersistedAgentToolResourceFunction Function(
-      {PersistedAgentToolResourceFunctionType type_,
-      String name,
-      String description,
-      Map<String, dynamic> parameters,
-      bool deferLoading}) get copyWith => _copyWith;
+  PersistedAgentToolResourceFunction Function({PersistedAgentToolResourceFunctionType type_, String name, String description, Map<String, dynamic> parameters, bool deferLoading}) get copyWith => _copyWith;
 
-  PersistedAgentToolResourceFunction _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? parameters = sdkOmittedValue,
-          Object? deferLoading = sdkOmittedValue}) =>
-      PersistedAgentToolResourceFunction(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as PersistedAgentToolResourceFunctionType,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as String,
-        parameters: identical(parameters, sdkOmittedValue)
-            ? this.parameters
-            : parameters as Map<String, dynamic>,
-        deferLoading: identical(deferLoading, sdkOmittedValue)
-            ? this.deferLoading
-            : deferLoading as bool,
-      );
+  PersistedAgentToolResourceFunction _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? parameters = sdkOmittedValue, Object? deferLoading = sdkOmittedValue}) => PersistedAgentToolResourceFunction(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as PersistedAgentToolResourceFunctionType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as String,
+    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as Map<String, dynamic>,
+    deferLoading: identical(deferLoading, sdkOmittedValue) ? this.deferLoading : deferLoading as bool,
+  );
 
-  factory PersistedAgentToolResourceFunction.fromJson(
-          Map<String, dynamic> json) =>
-      PersistedAgentToolResourceFunction(
-        type_: (json['type'] != null
-            ? PersistedAgentToolResourceFunctionType.fromJson(
-                json['type'] as String)
-            : null)!,
-        name: (json['name'] as String?)!,
-        description: (json['description'] as String?)!,
-        parameters: (json['parameters'] == null
-            ? null
-            : json['parameters'] as Map<String, dynamic>)!,
-        deferLoading: (json['defer_loading'] as bool?)!,
-      );
+  factory PersistedAgentToolResourceFunction.fromJson(Map<String, dynamic> json) => PersistedAgentToolResourceFunction(
+    type_: (json['type'] != null ? PersistedAgentToolResourceFunctionType.fromJson(json['type'] as String) : null)!,
+    name: (json['name'] as String?)!,
+    description: (json['description'] as String?)!,
+    parameters: (json['parameters'] == null ? null : json['parameters'] as Map<String, dynamic>)!,
+    deferLoading: (json['defer_loading'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'name': name,
-        'description': description,
-        'parameters': parameters,
-        'defer_loading': deferLoading,
-      };
+    'type': type_.toJson(),
+    'name': name,
+    'description': description,
+    'parameters': parameters,
+    'defer_loading': deferLoading,
+  };
 }

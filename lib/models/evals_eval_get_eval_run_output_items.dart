@@ -8,77 +8,42 @@ part of 'evals_eval.dart';
 class EvalRunOutputItemList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of this object. It is always set to "list".
   final EvalRunOutputItemListObject object;
-
   /// An array of eval run output item objects.
   final List<EvalRunOutputItem> data;
-
   /// The identifier of the first eval run output item in the data array.
   final String firstId;
-
   /// The identifier of the last eval run output item in the data array.
   final String lastId;
-
   /// Indicates whether there are more eval run output items available.
   final bool hasMore;
 
-  const EvalRunOutputItemList(
-      {required this.object,
-      required this.data,
-      required this.firstId,
-      required this.lastId,
-      required this.hasMore});
+  const EvalRunOutputItemList({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
 
-  EvalRunOutputItemList Function(
-      {EvalRunOutputItemListObject object,
-      List<EvalRunOutputItem> data,
-      String firstId,
-      String lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  EvalRunOutputItemList Function({EvalRunOutputItemListObject object, List<EvalRunOutputItem> data, String firstId, String lastId, bool hasMore}) get copyWith => _copyWith;
 
-  EvalRunOutputItemList _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      EvalRunOutputItemList(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as EvalRunOutputItemListObject,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<EvalRunOutputItem>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as String,
-        lastId:
-            identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  EvalRunOutputItemList _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => EvalRunOutputItemList(
+    object: identical(object, sdkOmittedValue) ? this.object : object as EvalRunOutputItemListObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<EvalRunOutputItem>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory EvalRunOutputItemList.fromJson(Map<String, dynamic> json) =>
-      EvalRunOutputItemList(
-        object: (json['object'] != null
-            ? EvalRunOutputItemListObject.fromJson(json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => EvalRunOutputItem.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: (json['first_id'] as String?)!,
-        lastId: (json['last_id'] as String?)!,
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory EvalRunOutputItemList.fromJson(Map<String, dynamic> json) => EvalRunOutputItemList(
+    object: (json['object'] != null ? EvalRunOutputItemListObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => EvalRunOutputItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: (json['first_id'] as String?)!,
+    lastId: (json['last_id'] as String?)!,
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        'first_id': firstId,
-        'last_id': lastId,
-        'has_more': hasMore,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    'first_id': firstId,
+    'last_id': lastId,
+    'has_more': hasMore,
+  };
 }

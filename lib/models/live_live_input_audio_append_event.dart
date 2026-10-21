@@ -9,80 +9,51 @@ sealed class LiveInputAudioAppendEventEventId {
   static const String constructionSurface = 'named';
   const LiveInputAudioAppendEventEventId();
   factory LiveInputAudioAppendEventEventId.fromJson(Object? json) {
-    if (json is String) {
-      return LiveInputAudioAppendEventEventIdString(json);
-    }
-    throw FormatException(
-        "No variant matched for LiveInputAudioAppendEventEventId");
+    if (json is String) { return LiveInputAudioAppendEventEventIdString(json); }
+    throw FormatException("No variant matched for LiveInputAudioAppendEventEventId");
   }
   Object? toJson();
 }
 
-final class LiveInputAudioAppendEventEventIdString
-    extends LiveInputAudioAppendEventEventId {
+final class LiveInputAudioAppendEventEventIdString extends LiveInputAudioAppendEventEventId {
   final String value;
   const LiveInputAudioAppendEventEventIdString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Send audio to a Live session over its primary WebSocket. WebRTC and SIP sessions send audio over their media transport.
 class LiveInputAudioAppendEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `event_id` wire field.
   final SdkOptional<String?> eventId;
-
   /// The Live client event type. Always `session.input_audio.append`.
   final LiveInputAudioAppendEventType type_;
-
   /// Base64-encoded raw audio in the startup-selected format, without a WAV or other container header. Primary WebSocket only; media transports use their audio track. Audio appends have no acknowledgment. Reflected sideband server events reuse this event type and audio key, with no timestamps or event_id; their audio is always mono PCM16LE at 24 kHz.
   final String audio;
 
-  const LiveInputAudioAppendEvent(
-      {this.eventId = const SdkOmitted(),
-      required this.type_,
-      required this.audio});
+  const LiveInputAudioAppendEvent({this.eventId = const SdkOmitted(), required this.type_, required this.audio});
 
-  LiveInputAudioAppendEvent Function(
-      {SdkOptional<String?> eventId,
-      LiveInputAudioAppendEventType type_,
-      String audio}) get copyWith => _copyWith;
+  LiveInputAudioAppendEvent Function({SdkOptional<String?> eventId, LiveInputAudioAppendEventType type_, String audio}) get copyWith => _copyWith;
 
-  LiveInputAudioAppendEvent _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? audio = sdkOmittedValue}) =>
-      LiveInputAudioAppendEvent(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveInputAudioAppendEventType,
-        audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
-      );
+  LiveInputAudioAppendEvent _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? audio = sdkOmittedValue}) => LiveInputAudioAppendEvent(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveInputAudioAppendEventType,
+    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
+  );
 
-  factory LiveInputAudioAppendEvent.fromJson(Map<String, dynamic> json) =>
-      LiveInputAudioAppendEvent(
-        eventId: json.containsKey('event_id')
-            ? SdkPresent(json['event_id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? LiveInputAudioAppendEventType.fromJson(json['type'] as String)
-            : null)!,
-        audio: (json['audio'] as String?)!,
-      );
+  factory LiveInputAudioAppendEvent.fromJson(Map<String, dynamic> json) => LiveInputAudioAppendEvent(
+    eventId: json.containsKey('event_id') ? SdkPresent(json['event_id'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? LiveInputAudioAppendEventType.fromJson(json['type'] as String) : null)!,
+    audio: (json['audio'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String?>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'audio': audio,
-      };
+    ...switch (eventId) {
+      SdkPresent<String?>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'audio': audio,
+  };
 }

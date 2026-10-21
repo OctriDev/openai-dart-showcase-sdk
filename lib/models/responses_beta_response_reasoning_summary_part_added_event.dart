@@ -8,155 +8,84 @@ part of 'responses_beta_response_reasoning.dart';
 class BetaResponseReasoningSummaryPartAddedEventPart {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the summary part. Always `summary_text`.
   final BetaResponseReasoningSummaryPartAddedEventPartType type_;
-
   /// The text of the summary part.
   final String text;
 
-  const BetaResponseReasoningSummaryPartAddedEventPart(
-      {required this.type_, required this.text});
+  const BetaResponseReasoningSummaryPartAddedEventPart({required this.type_, required this.text});
 
-  BetaResponseReasoningSummaryPartAddedEventPart Function(
-      {BetaResponseReasoningSummaryPartAddedEventPartType type_,
-      String text}) get copyWith => _copyWith;
+  BetaResponseReasoningSummaryPartAddedEventPart Function({BetaResponseReasoningSummaryPartAddedEventPartType type_, String text}) get copyWith => _copyWith;
 
-  BetaResponseReasoningSummaryPartAddedEventPart _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      BetaResponseReasoningSummaryPartAddedEventPart(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseReasoningSummaryPartAddedEventPartType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  BetaResponseReasoningSummaryPartAddedEventPart _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => BetaResponseReasoningSummaryPartAddedEventPart(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseReasoningSummaryPartAddedEventPartType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory BetaResponseReasoningSummaryPartAddedEventPart.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseReasoningSummaryPartAddedEventPart(
-        type_: (json['type'] != null
-            ? BetaResponseReasoningSummaryPartAddedEventPartType.fromJson(
-                json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory BetaResponseReasoningSummaryPartAddedEventPart.fromJson(Map<String, dynamic> json) => BetaResponseReasoningSummaryPartAddedEventPart(
+    type_: (json['type'] != null ? BetaResponseReasoningSummaryPartAddedEventPartType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }
 
 /// Emitted when a new reasoning summary part is added.
 class BetaResponseReasoningSummaryPartAddedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the event. Always `response.reasoning_summary_part.added`.
   final BetaResponseReasoningSummaryPartAddedEventType type_;
-
   /// The ID of the item this summary part is associated with.
   final String itemId;
-
   /// The index of the output item this summary part is associated with.
   final int outputIndex;
-
   /// The index of the summary part within the reasoning summary.
   final int summaryIndex;
-
   /// The sequence number of this event.
   final int sequenceNumber;
-
   /// The summary part that was added.
   final BetaResponseReasoningSummaryPartAddedEventPart part_;
 
-  const BetaResponseReasoningSummaryPartAddedEvent(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.itemId,
-      required this.outputIndex,
-      required this.summaryIndex,
-      required this.sequenceNumber,
-      required this.part_});
+  const BetaResponseReasoningSummaryPartAddedEvent({this.agent = const SdkOmitted(), required this.type_, required this.itemId, required this.outputIndex, required this.summaryIndex, required this.sequenceNumber, required this.part_});
 
-  BetaResponseReasoningSummaryPartAddedEvent Function(
-          {SdkOptional<BetaAgentTag?> agent,
-          BetaResponseReasoningSummaryPartAddedEventType type_,
-          String itemId,
-          int outputIndex,
-          int summaryIndex,
-          int sequenceNumber,
-          BetaResponseReasoningSummaryPartAddedEventPart part_})
-      get copyWith => _copyWith;
+  BetaResponseReasoningSummaryPartAddedEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseReasoningSummaryPartAddedEventType type_, String itemId, int outputIndex, int summaryIndex, int sequenceNumber, BetaResponseReasoningSummaryPartAddedEventPart part_}) get copyWith => _copyWith;
 
-  BetaResponseReasoningSummaryPartAddedEvent _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? summaryIndex = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? part_ = sdkOmittedValue}) =>
-      BetaResponseReasoningSummaryPartAddedEvent(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseReasoningSummaryPartAddedEventType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        summaryIndex: identical(summaryIndex, sdkOmittedValue)
-            ? this.summaryIndex
-            : summaryIndex as int,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        part_: identical(part_, sdkOmittedValue)
-            ? this.part_
-            : part_ as BetaResponseReasoningSummaryPartAddedEventPart,
-      );
+  BetaResponseReasoningSummaryPartAddedEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? summaryIndex = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? part_ = sdkOmittedValue}) => BetaResponseReasoningSummaryPartAddedEvent(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseReasoningSummaryPartAddedEventType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    summaryIndex: identical(summaryIndex, sdkOmittedValue) ? this.summaryIndex : summaryIndex as int,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    part_: identical(part_, sdkOmittedValue) ? this.part_ : part_ as BetaResponseReasoningSummaryPartAddedEventPart,
+  );
 
-  factory BetaResponseReasoningSummaryPartAddedEvent.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseReasoningSummaryPartAddedEvent(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaResponseReasoningSummaryPartAddedEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        part_: (json['part'] != null
-            ? BetaResponseReasoningSummaryPartAddedEventPart.fromJson(
-                json['part'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory BetaResponseReasoningSummaryPartAddedEvent.fromJson(Map<String, dynamic> json) => BetaResponseReasoningSummaryPartAddedEvent(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaResponseReasoningSummaryPartAddedEventType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    part_: (json['part'] != null ? BetaResponseReasoningSummaryPartAddedEventPart.fromJson(json['part'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'summary_index': summaryIndex,
-        'sequence_number': sequenceNumber,
-        'part': part_.toJson(),
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'summary_index': summaryIndex,
+    'sequence_number': sequenceNumber,
+    'part': part_.toJson(),
+  };
 }

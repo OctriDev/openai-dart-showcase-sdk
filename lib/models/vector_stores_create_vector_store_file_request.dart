@@ -8,70 +8,38 @@ part of 'vector_stores.dart';
 class CreateVectorStoreFileRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A [File](https://developers.openai.com/api/reference/resources/files) ID that the vector store should use. Useful for tools like `file_search` that can access files. For multi-file ingestion, we recommend [`file_batches`](https://developers.openai.com/api/reference/resources/vector_stores/subresources/file_batches/methods/create) to minimize per-vector-store write requests.
   final String fileId;
-
   /// The chunking strategy used to chunk the file(s). If not set, will use the `auto` strategy.
   final SdkOptional<ChunkingStrategyRequestParam> chunkingStrategy;
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters, booleans, or numbers.
   final SdkOptional<Map<String, dynamic>?> attributes;
 
-  const CreateVectorStoreFileRequest(
-      {required this.fileId,
-      this.chunkingStrategy = const SdkOmitted(),
-      this.attributes = const SdkOmitted()});
+  const CreateVectorStoreFileRequest({required this.fileId, this.chunkingStrategy = const SdkOmitted(), this.attributes = const SdkOmitted()});
 
-  CreateVectorStoreFileRequest Function(
-      {String fileId,
-      SdkOptional<ChunkingStrategyRequestParam> chunkingStrategy,
-      SdkOptional<Map<String, dynamic>?> attributes}) get copyWith => _copyWith;
+  CreateVectorStoreFileRequest Function({String fileId, SdkOptional<ChunkingStrategyRequestParam> chunkingStrategy, SdkOptional<Map<String, dynamic>?> attributes}) get copyWith => _copyWith;
 
-  CreateVectorStoreFileRequest _copyWith(
-          {Object? fileId = sdkOmittedValue,
-          Object? chunkingStrategy = sdkOmittedValue,
-          Object? attributes = sdkOmittedValue}) =>
-      CreateVectorStoreFileRequest(
-        fileId:
-            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-        chunkingStrategy: identical(chunkingStrategy, sdkOmittedValue)
-            ? this.chunkingStrategy
-            : chunkingStrategy as SdkOptional<ChunkingStrategyRequestParam>,
-        attributes: identical(attributes, sdkOmittedValue)
-            ? this.attributes
-            : attributes as SdkOptional<Map<String, dynamic>?>,
-      );
+  CreateVectorStoreFileRequest _copyWith({Object? fileId = sdkOmittedValue, Object? chunkingStrategy = sdkOmittedValue, Object? attributes = sdkOmittedValue}) => CreateVectorStoreFileRequest(
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+    chunkingStrategy: identical(chunkingStrategy, sdkOmittedValue) ? this.chunkingStrategy : chunkingStrategy as SdkOptional<ChunkingStrategyRequestParam>,
+    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as SdkOptional<Map<String, dynamic>?>,
+  );
 
-  factory CreateVectorStoreFileRequest.fromJson(Map<String, dynamic> json) =>
-      CreateVectorStoreFileRequest(
-        fileId: (json['file_id'] as String?)!,
-        chunkingStrategy: json['chunking_strategy'] != null
-            ? SdkPresent((json['chunking_strategy'] != null
-                ? ChunkingStrategyRequestParam.fromJson(
-                    json['chunking_strategy'])
-                : null)!)
-            : const SdkOmitted(),
-        attributes: json.containsKey('attributes')
-            ? SdkPresent(json['attributes'] == null
-                ? null
-                : json['attributes'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+  factory CreateVectorStoreFileRequest.fromJson(Map<String, dynamic> json) => CreateVectorStoreFileRequest(
+    fileId: (json['file_id'] as String?)!,
+    chunkingStrategy: json['chunking_strategy'] != null ? SdkPresent((json['chunking_strategy'] != null ? ChunkingStrategyRequestParam.fromJson(json['chunking_strategy']) : null)!) : const SdkOmitted(),
+    attributes: json.containsKey('attributes') ? SdkPresent(json['attributes'] == null ? null : json['attributes'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'file_id': fileId,
-        ...switch (chunkingStrategy) {
-          SdkPresent<ChunkingStrategyRequestParam>(value: final value) => {
-              'chunking_strategy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attributes) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'file_id': fileId,
+    ...switch (chunkingStrategy) {
+      SdkPresent<ChunkingStrategyRequestParam>(value: final value) => {'chunking_strategy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attributes) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,222 +8,112 @@ part of 'responses_beta_response_content.dart';
 class BetaResponseContentPartAddedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the event. Always `response.content_part.added`.
   final BetaResponseContentPartAddedEventType type_;
-
   /// The ID of the output item that the content part was added to.
   final String itemId;
-
   /// The index of the output item that the content part was added to.
   final int outputIndex;
-
   /// The index of the content part that was added.
   final int contentIndex;
-
   /// The content part that was added.
   final BetaOutputContent part_;
-
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const BetaResponseContentPartAddedEvent(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.itemId,
-      required this.outputIndex,
-      required this.contentIndex,
-      required this.part_,
-      required this.sequenceNumber});
+  const BetaResponseContentPartAddedEvent({this.agent = const SdkOmitted(), required this.type_, required this.itemId, required this.outputIndex, required this.contentIndex, required this.part_, required this.sequenceNumber});
 
-  BetaResponseContentPartAddedEvent Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaResponseContentPartAddedEventType type_,
-      String itemId,
-      int outputIndex,
-      int contentIndex,
-      BetaOutputContent part_,
-      int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseContentPartAddedEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseContentPartAddedEventType type_, String itemId, int outputIndex, int contentIndex, BetaOutputContent part_, int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseContentPartAddedEvent _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? contentIndex = sdkOmittedValue,
-          Object? part_ = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue}) =>
-      BetaResponseContentPartAddedEvent(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseContentPartAddedEventType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        contentIndex: identical(contentIndex, sdkOmittedValue)
-            ? this.contentIndex
-            : contentIndex as int,
-        part_: identical(part_, sdkOmittedValue)
-            ? this.part_
-            : part_ as BetaOutputContent,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-      );
+  BetaResponseContentPartAddedEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? part_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseContentPartAddedEvent(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseContentPartAddedEventType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
+    part_: identical(part_, sdkOmittedValue) ? this.part_ : part_ as BetaOutputContent,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+  );
 
-  factory BetaResponseContentPartAddedEvent.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseContentPartAddedEvent(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaResponseContentPartAddedEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        contentIndex: ((json['content_index'] as num?)?.toInt())!,
-        part_: (json['part'] != null
-            ? BetaOutputContent.fromJson(json['part'])
-            : null)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-      );
+  factory BetaResponseContentPartAddedEvent.fromJson(Map<String, dynamic> json) => BetaResponseContentPartAddedEvent(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaResponseContentPartAddedEventType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    contentIndex: ((json['content_index'] as num?)?.toInt())!,
+    part_: (json['part'] != null ? BetaOutputContent.fromJson(json['part']) : null)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'content_index': contentIndex,
-        'part': part_.toJson(),
-        'sequence_number': sequenceNumber,
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'content_index': contentIndex,
+    'part': part_.toJson(),
+    'sequence_number': sequenceNumber,
+  };
 }
 
 /// Emitted when a content part is done.
 class BetaResponseContentPartDoneEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the event. Always `response.content_part.done`.
   final BetaResponseContentPartDoneEventType type_;
-
   /// The ID of the output item that the content part was added to.
   final String itemId;
-
   /// The index of the output item that the content part was added to.
   final int outputIndex;
-
   /// The index of the content part that is done.
   final int contentIndex;
-
   /// The sequence number of this event.
   final int sequenceNumber;
-
   /// The content part that is done.
   final BetaOutputContent part_;
 
-  const BetaResponseContentPartDoneEvent(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.itemId,
-      required this.outputIndex,
-      required this.contentIndex,
-      required this.sequenceNumber,
-      required this.part_});
+  const BetaResponseContentPartDoneEvent({this.agent = const SdkOmitted(), required this.type_, required this.itemId, required this.outputIndex, required this.contentIndex, required this.sequenceNumber, required this.part_});
 
-  BetaResponseContentPartDoneEvent Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaResponseContentPartDoneEventType type_,
-      String itemId,
-      int outputIndex,
-      int contentIndex,
-      int sequenceNumber,
-      BetaOutputContent part_}) get copyWith => _copyWith;
+  BetaResponseContentPartDoneEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseContentPartDoneEventType type_, String itemId, int outputIndex, int contentIndex, int sequenceNumber, BetaOutputContent part_}) get copyWith => _copyWith;
 
-  BetaResponseContentPartDoneEvent _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? contentIndex = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? part_ = sdkOmittedValue}) =>
-      BetaResponseContentPartDoneEvent(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseContentPartDoneEventType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        contentIndex: identical(contentIndex, sdkOmittedValue)
-            ? this.contentIndex
-            : contentIndex as int,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        part_: identical(part_, sdkOmittedValue)
-            ? this.part_
-            : part_ as BetaOutputContent,
-      );
+  BetaResponseContentPartDoneEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? part_ = sdkOmittedValue}) => BetaResponseContentPartDoneEvent(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseContentPartDoneEventType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    part_: identical(part_, sdkOmittedValue) ? this.part_ : part_ as BetaOutputContent,
+  );
 
-  factory BetaResponseContentPartDoneEvent.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseContentPartDoneEvent(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaResponseContentPartDoneEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        contentIndex: ((json['content_index'] as num?)?.toInt())!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        part_: (json['part'] != null
-            ? BetaOutputContent.fromJson(json['part'])
-            : null)!,
-      );
+  factory BetaResponseContentPartDoneEvent.fromJson(Map<String, dynamic> json) => BetaResponseContentPartDoneEvent(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaResponseContentPartDoneEventType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    contentIndex: ((json['content_index'] as num?)?.toInt())!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    part_: (json['part'] != null ? BetaOutputContent.fromJson(json['part']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'content_index': contentIndex,
-        'sequence_number': sequenceNumber,
-        'part': part_.toJson(),
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'content_index': contentIndex,
+    'sequence_number': sequenceNumber,
+    'part': part_.toJson(),
+  };
 }

@@ -9,12 +9,8 @@ sealed class DecisionInput {
   static const String constructionSurface = 'named';
   const DecisionInput();
   factory DecisionInput.fromJson(Object? json) {
-    if (json is String) {
-      return DecisionInputString(json);
-    }
-    try {
-      return DecisionInputDecisionInputItem(DecisionInputItem.fromJson(json));
-    } catch (_) {}
+    if (json is String) { return DecisionInputString(json); }
+    try { return DecisionInputDecisionInputItem(DecisionInputItem.fromJson(json)); } catch (_) {}
     throw FormatException("No variant matched for DecisionInput");
   }
   Object? toJson();
@@ -23,13 +19,11 @@ sealed class DecisionInput {
 final class DecisionInputString extends DecisionInput {
   final String value;
   const DecisionInputString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class DecisionInputDecisionInputItem extends DecisionInput {
   final DecisionInputItem value;
   const DecisionInputDecisionInputItem(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

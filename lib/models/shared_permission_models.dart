@@ -8,32 +8,24 @@ part of 'shared_permission.dart';
 class PermissionErrorResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Details about the permission error.
   final PermissionErrorResponseError error;
 
   const PermissionErrorResponse({required this.error});
 
-  PermissionErrorResponse Function({PermissionErrorResponseError error})
-      get copyWith => _copyWith;
+  PermissionErrorResponse Function({PermissionErrorResponseError error}) get copyWith => _copyWith;
 
-  PermissionErrorResponse _copyWith({Object? error = sdkOmittedValue}) =>
-      PermissionErrorResponse(
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as PermissionErrorResponseError,
-      );
+  PermissionErrorResponse _copyWith({Object? error = sdkOmittedValue}) => PermissionErrorResponse(
+    error: identical(error, sdkOmittedValue) ? this.error : error as PermissionErrorResponseError,
+  );
 
-  factory PermissionErrorResponse.fromJson(Map<String, dynamic> json) =>
-      PermissionErrorResponse(
-        error: (json['error'] != null
-            ? PermissionErrorResponseError.fromJson(json['error'])
-            : null)!,
-      );
+  factory PermissionErrorResponse.fromJson(Map<String, dynamic> json) => PermissionErrorResponse(
+    error: (json['error'] != null ? PermissionErrorResponseError.fromJson(json['error']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'error': error.toJson(),
-      };
+    'error': error.toJson(),
+  };
 }
 
 sealed class PermissionErrorResponseError {
@@ -41,31 +33,21 @@ sealed class PermissionErrorResponseError {
   static const String constructionSurface = 'named';
   const PermissionErrorResponseError();
   factory PermissionErrorResponseError.fromJson(Object? json) {
-    if (json is String) {
-      return PermissionErrorResponseErrorString(json);
-    }
-    try {
-      return PermissionErrorResponseErrorError3(
-          Error3.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for PermissionErrorResponseError");
+    if (json is String) { return PermissionErrorResponseErrorString(json); }
+    try { return PermissionErrorResponseErrorError3(Error3.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for PermissionErrorResponseError");
   }
   Object? toJson();
 }
 
-final class PermissionErrorResponseErrorError3
-    extends PermissionErrorResponseError {
+final class PermissionErrorResponseErrorError3 extends PermissionErrorResponseError {
   final Error3 value;
   const PermissionErrorResponseErrorError3(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class PermissionErrorResponseErrorString
-    extends PermissionErrorResponseError {
+final class PermissionErrorResponseErrorString extends PermissionErrorResponseError {
   final String value;
   const PermissionErrorResponseErrorString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }

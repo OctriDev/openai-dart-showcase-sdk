@@ -8,51 +8,30 @@ part of 'agents_persisted.dart';
 class PersistedAgentToolConfigParamProgrammaticToolCalling {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `programmatic_tool_calling`.
   final PersistedAgentToolConfigParamProgrammaticToolCallingType type_;
-
   /// Whether tools can be called from model-generated code. Defaults to `true`.
   final SdkOptional<bool> enabled;
 
-  const PersistedAgentToolConfigParamProgrammaticToolCalling(
-      {required this.type_, this.enabled = const SdkOmitted()});
+  const PersistedAgentToolConfigParamProgrammaticToolCalling({required this.type_, this.enabled = const SdkOmitted()});
 
-  PersistedAgentToolConfigParamProgrammaticToolCalling Function(
-      {PersistedAgentToolConfigParamProgrammaticToolCallingType type_,
-      SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  PersistedAgentToolConfigParamProgrammaticToolCalling Function({PersistedAgentToolConfigParamProgrammaticToolCallingType type_, SdkOptional<bool> enabled}) get copyWith => _copyWith;
 
-  PersistedAgentToolConfigParamProgrammaticToolCalling _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? enabled = sdkOmittedValue}) =>
-      PersistedAgentToolConfigParamProgrammaticToolCalling(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as PersistedAgentToolConfigParamProgrammaticToolCallingType,
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as SdkOptional<bool>,
-      );
+  PersistedAgentToolConfigParamProgrammaticToolCalling _copyWith({Object? type_ = sdkOmittedValue, Object? enabled = sdkOmittedValue}) => PersistedAgentToolConfigParamProgrammaticToolCalling(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as PersistedAgentToolConfigParamProgrammaticToolCallingType,
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
+  );
 
-  factory PersistedAgentToolConfigParamProgrammaticToolCalling.fromJson(
-          Map<String, dynamic> json) =>
-      PersistedAgentToolConfigParamProgrammaticToolCalling(
-        type_: (json['type'] != null
-            ? PersistedAgentToolConfigParamProgrammaticToolCallingType.fromJson(
-                json['type'] as String)
-            : null)!,
-        enabled: json['enabled'] != null
-            ? SdkPresent((json['enabled'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory PersistedAgentToolConfigParamProgrammaticToolCalling.fromJson(Map<String, dynamic> json) => PersistedAgentToolConfigParamProgrammaticToolCalling(
+    type_: (json['type'] != null ? PersistedAgentToolConfigParamProgrammaticToolCallingType.fromJson(json['type'] as String) : null)!,
+    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (enabled) {
-          SdkPresent<bool>(value: final value) => {
-              'enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (enabled) {
+      SdkPresent<bool>(value: final value) => {'enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

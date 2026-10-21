@@ -8,33 +8,22 @@ part of 'responses_beta_prompt.dart';
 class BetaPromptCacheHitDiagnosticsBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final BetaPromptCacheHitDiagnosticsBodyType type_;
 
   const BetaPromptCacheHitDiagnosticsBody({required this.type_});
 
-  BetaPromptCacheHitDiagnosticsBody Function(
-      {BetaPromptCacheHitDiagnosticsBodyType type_}) get copyWith => _copyWith;
+  BetaPromptCacheHitDiagnosticsBody Function({BetaPromptCacheHitDiagnosticsBodyType type_}) get copyWith => _copyWith;
 
-  BetaPromptCacheHitDiagnosticsBody _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      BetaPromptCacheHitDiagnosticsBody(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaPromptCacheHitDiagnosticsBodyType,
-      );
+  BetaPromptCacheHitDiagnosticsBody _copyWith({Object? type_ = sdkOmittedValue}) => BetaPromptCacheHitDiagnosticsBody(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaPromptCacheHitDiagnosticsBodyType,
+  );
 
-  factory BetaPromptCacheHitDiagnosticsBody.fromJson(
-          Map<String, dynamic> json) =>
-      BetaPromptCacheHitDiagnosticsBody(
-        type_: (json['type'] != null
-            ? BetaPromptCacheHitDiagnosticsBodyType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory BetaPromptCacheHitDiagnosticsBody.fromJson(Map<String, dynamic> json) => BetaPromptCacheHitDiagnosticsBody(
+    type_: (json['type'] != null ? BetaPromptCacheHitDiagnosticsBodyType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

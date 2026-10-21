@@ -10,88 +10,40 @@ sealed class CreateVaultCredentialAuthParam {
   const CreateVaultCredentialAuthParam();
   factory CreateVaultCredentialAuthParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = CreateVaultCredentialAuthParamMcpOauth.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = CreateVaultCredentialAuthParamStaticBearer.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            CreateVaultCredentialAuthParamEnvironmentVariable.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(
-              value);
-        }
-      } catch (_) {}
+      try { final value = CreateVaultCredentialAuthParamMcpOauth.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(value); } } catch (_) {}
+      try { final value = CreateVaultCredentialAuthParamStaticBearer.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(value); } } catch (_) {}
+      try { final value = CreateVaultCredentialAuthParamEnvironmentVariable.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(value); } } catch (_) {}
     }
-    try {
-      return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(
-          CreateVaultCredentialAuthParamMcpOauth.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(
-          CreateVaultCredentialAuthParamStaticBearer.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(
-          CreateVaultCredentialAuthParamEnvironmentVariable.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"mcp_oauth", "static_bearer", "environment_variable"}
-            .contains(json["type"])) {
-      return UnknownCreateVaultCredentialAuthParam(json);
-    }
-    throw FormatException(
-        "No variant matched for CreateVaultCredentialAuthParam");
+    try { return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(CreateVaultCredentialAuthParamMcpOauth.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(CreateVaultCredentialAuthParamStaticBearer.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(CreateVaultCredentialAuthParamEnvironmentVariable.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"mcp_oauth", "static_bearer", "environment_variable"}.contains(json["type"])) { return UnknownCreateVaultCredentialAuthParam(json); }
+    throw FormatException("No variant matched for CreateVaultCredentialAuthParam");
   }
   Object? toJson();
 }
 
-final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth
-    extends CreateVaultCredentialAuthParam {
+final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth extends CreateVaultCredentialAuthParam {
   final CreateVaultCredentialAuthParamMcpOauth value;
-  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOauth(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer
-    extends CreateVaultCredentialAuthParam {
+final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer extends CreateVaultCredentialAuthParam {
   final CreateVaultCredentialAuthParamStaticBearer value;
-  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable
-    extends CreateVaultCredentialAuthParam {
+final class CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable extends CreateVaultCredentialAuthParam {
   final CreateVaultCredentialAuthParamEnvironmentVariable value;
-  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [CreateVaultCredentialAuthParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateVaultCredentialAuthParam
-    extends CreateVaultCredentialAuthParam {
+final class UnknownCreateVaultCredentialAuthParam extends CreateVaultCredentialAuthParam {
   final Map<String, dynamic> raw;
   const UnknownCreateVaultCredentialAuthParam(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

@@ -8,75 +8,40 @@ part of 'live_live_session.dart';
 class LiveSessionUpdated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type, always `session.updated`.
   final LiveSessionUpdatedType type_;
-
   /// The unique ID of the Live server event.
   final String eventId;
-
   /// The event_id of the client command associated with this server event, when supplied.
   final SdkOptional<String> clientEventId;
-
   /// The resolved Live session configuration and server-assigned session metadata.
   final LiveSessionResourceParam session;
 
-  const LiveSessionUpdated(
-      {required this.type_,
-      required this.eventId,
-      this.clientEventId = const SdkOmitted(),
-      required this.session});
+  const LiveSessionUpdated({required this.type_, required this.eventId, this.clientEventId = const SdkOmitted(), required this.session});
 
-  LiveSessionUpdated Function(
-      {LiveSessionUpdatedType type_,
-      String eventId,
-      SdkOptional<String> clientEventId,
-      LiveSessionResourceParam session}) get copyWith => _copyWith;
+  LiveSessionUpdated Function({LiveSessionUpdatedType type_, String eventId, SdkOptional<String> clientEventId, LiveSessionResourceParam session}) get copyWith => _copyWith;
 
-  LiveSessionUpdated _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? clientEventId = sdkOmittedValue,
-          Object? session = sdkOmittedValue}) =>
-      LiveSessionUpdated(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveSessionUpdatedType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        clientEventId: identical(clientEventId, sdkOmittedValue)
-            ? this.clientEventId
-            : clientEventId as SdkOptional<String>,
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as LiveSessionResourceParam,
-      );
+  LiveSessionUpdated _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? clientEventId = sdkOmittedValue, Object? session = sdkOmittedValue}) => LiveSessionUpdated(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSessionUpdatedType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    clientEventId: identical(clientEventId, sdkOmittedValue) ? this.clientEventId : clientEventId as SdkOptional<String>,
+    session: identical(session, sdkOmittedValue) ? this.session : session as LiveSessionResourceParam,
+  );
 
-  factory LiveSessionUpdated.fromJson(Map<String, dynamic> json) =>
-      LiveSessionUpdated(
-        type_: (json['type'] != null
-            ? LiveSessionUpdatedType.fromJson(json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        clientEventId: json['client_event_id'] != null
-            ? SdkPresent((json['client_event_id'] as String?)!)
-            : const SdkOmitted(),
-        session: (json['session'] != null
-            ? LiveSessionResourceParam.fromJson(
-                json['session'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory LiveSessionUpdated.fromJson(Map<String, dynamic> json) => LiveSessionUpdated(
+    type_: (json['type'] != null ? LiveSessionUpdatedType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    clientEventId: json['client_event_id'] != null ? SdkPresent((json['client_event_id'] as String?)!) : const SdkOmitted(),
+    session: (json['session'] != null ? LiveSessionResourceParam.fromJson(json['session'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        ...switch (clientEventId) {
-          SdkPresent<String>(value: final value) => {
-              'client_event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'session': session.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    ...switch (clientEventId) {
+      SdkPresent<String>(value: final value) => {'client_event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'session': session.toJson(),
+  };
 }

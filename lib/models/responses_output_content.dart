@@ -10,43 +10,14 @@ sealed class OutputContent {
   const OutputContent();
   factory OutputContent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = OutputTextContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return OutputContentOutputTextContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = RefusalContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return OutputContentRefusalContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ReasoningTextContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return OutputContentReasoningTextContent(value);
-        }
-      } catch (_) {}
+      try { final value = OutputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return OutputContentOutputTextContent(value); } } catch (_) {}
+      try { final value = RefusalContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return OutputContentRefusalContent(value); } } catch (_) {}
+      try { final value = ReasoningTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return OutputContentReasoningTextContent(value); } } catch (_) {}
     }
-    try {
-      return OutputContentOutputTextContent(
-          OutputTextContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return OutputContentRefusalContent(
-          RefusalContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return OutputContentReasoningTextContent(
-          ReasoningTextContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"output_text", "refusal", "reasoning_text"}
-            .contains(json["type"])) {
-      return UnknownOutputContent(json);
-    }
+    try { return OutputContentOutputTextContent(OutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return OutputContentRefusalContent(RefusalContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return OutputContentReasoningTextContent(ReasoningTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"output_text", "refusal", "reasoning_text"}.contains(json["type"])) { return UnknownOutputContent(json); }
     throw FormatException("No variant matched for OutputContent");
   }
   Object? toJson();
@@ -55,28 +26,24 @@ sealed class OutputContent {
 final class OutputContentOutputTextContent extends OutputContent {
   final OutputTextContent value;
   const OutputContentOutputTextContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class OutputContentRefusalContent extends OutputContent {
   final RefusalContent value;
   const OutputContentRefusalContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class OutputContentReasoningTextContent extends OutputContent {
   final ReasoningTextContent value;
   const OutputContentReasoningTextContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [OutputContent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownOutputContent extends OutputContent {
   final Map<String, dynamic> raw;
   const UnknownOutputContent(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

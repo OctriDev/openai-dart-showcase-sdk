@@ -8,64 +8,37 @@ part of 'fine_tuning.dart';
 class FineTuningCheckpointPermission {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The permission identifier, which can be referenced in the API endpoints.
   final String id;
-
   /// The Unix timestamp (in seconds) for when the permission was created.
   final int createdAt;
-
   /// The project identifier that the permission is for.
   final String projectId;
-
   /// The object type, which is always "checkpoint.permission".
   final FineTuningCheckpointPermissionObject object;
 
-  const FineTuningCheckpointPermission(
-      {required this.id,
-      required this.createdAt,
-      required this.projectId,
-      required this.object});
+  const FineTuningCheckpointPermission({required this.id, required this.createdAt, required this.projectId, required this.object});
 
-  FineTuningCheckpointPermission Function(
-      {String id,
-      int createdAt,
-      String projectId,
-      FineTuningCheckpointPermissionObject object}) get copyWith => _copyWith;
+  FineTuningCheckpointPermission Function({String id, int createdAt, String projectId, FineTuningCheckpointPermissionObject object}) get copyWith => _copyWith;
 
-  FineTuningCheckpointPermission _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? projectId = sdkOmittedValue,
-          Object? object = sdkOmittedValue}) =>
-      FineTuningCheckpointPermission(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        projectId: identical(projectId, sdkOmittedValue)
-            ? this.projectId
-            : projectId as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as FineTuningCheckpointPermissionObject,
-      );
+  FineTuningCheckpointPermission _copyWith({Object? id = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? object = sdkOmittedValue}) => FineTuningCheckpointPermission(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as FineTuningCheckpointPermissionObject,
+  );
 
-  factory FineTuningCheckpointPermission.fromJson(Map<String, dynamic> json) =>
-      FineTuningCheckpointPermission(
-        id: (json['id'] as String?)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        projectId: (json['project_id'] as String?)!,
-        object: (json['object'] != null
-            ? FineTuningCheckpointPermissionObject.fromJson(
-                json['object'] as String)
-            : null)!,
-      );
+  factory FineTuningCheckpointPermission.fromJson(Map<String, dynamic> json) => FineTuningCheckpointPermission(
+    id: (json['id'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    projectId: (json['project_id'] as String?)!,
+    object: (json['object'] != null ? FineTuningCheckpointPermissionObject.fromJson(json['object'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'created_at': createdAt,
-        'project_id': projectId,
-        'object': object.toJson(),
-      };
+    'id': id,
+    'created_at': createdAt,
+    'project_id': projectId,
+    'object': object.toJson(),
+  };
 }

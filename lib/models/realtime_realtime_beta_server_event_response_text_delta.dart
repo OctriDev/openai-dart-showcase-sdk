@@ -8,97 +8,52 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventResponseTextDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `response.output_text.delta`.
   final RealtimeBetaServerEventResponseTextDeltaType type_;
-
   /// The ID of the response.
   final String responseId;
-
   /// The ID of the item.
   final String itemId;
-
   /// The index of the output item in the response.
   final int outputIndex;
-
   /// The index of the content part in the item's content array.
   final int contentIndex;
-
   /// The text delta.
   final String delta;
 
-  const RealtimeBetaServerEventResponseTextDelta(
-      {required this.eventId,
-      required this.type_,
-      required this.responseId,
-      required this.itemId,
-      required this.outputIndex,
-      required this.contentIndex,
-      required this.delta});
+  const RealtimeBetaServerEventResponseTextDelta({required this.eventId, required this.type_, required this.responseId, required this.itemId, required this.outputIndex, required this.contentIndex, required this.delta});
 
-  RealtimeBetaServerEventResponseTextDelta Function(
-      {String eventId,
-      RealtimeBetaServerEventResponseTextDeltaType type_,
-      String responseId,
-      String itemId,
-      int outputIndex,
-      int contentIndex,
-      String delta}) get copyWith => _copyWith;
+  RealtimeBetaServerEventResponseTextDelta Function({String eventId, RealtimeBetaServerEventResponseTextDeltaType type_, String responseId, String itemId, int outputIndex, int contentIndex, String delta}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventResponseTextDelta _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? responseId = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? contentIndex = sdkOmittedValue,
-          Object? delta = sdkOmittedValue}) =>
-      RealtimeBetaServerEventResponseTextDelta(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventResponseTextDeltaType,
-        responseId: identical(responseId, sdkOmittedValue)
-            ? this.responseId
-            : responseId as String,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        contentIndex: identical(contentIndex, sdkOmittedValue)
-            ? this.contentIndex
-            : contentIndex as int,
-        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-      );
+  RealtimeBetaServerEventResponseTextDelta _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? delta = sdkOmittedValue}) => RealtimeBetaServerEventResponseTextDelta(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventResponseTextDeltaType,
+    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+  );
 
-  factory RealtimeBetaServerEventResponseTextDelta.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventResponseTextDelta(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventResponseTextDeltaType.fromJson(
-                json['type'] as String)
-            : null)!,
-        responseId: (json['response_id'] as String?)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        contentIndex: ((json['content_index'] as num?)?.toInt())!,
-        delta: (json['delta'] as String?)!,
-      );
+  factory RealtimeBetaServerEventResponseTextDelta.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventResponseTextDelta(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventResponseTextDeltaType.fromJson(json['type'] as String) : null)!,
+    responseId: (json['response_id'] as String?)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    contentIndex: ((json['content_index'] as num?)?.toInt())!,
+    delta: (json['delta'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'response_id': responseId,
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'content_index': contentIndex,
-        'delta': delta,
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'response_id': responseId,
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'content_index': contentIndex,
+    'delta': delta,
+  };
 }

@@ -8,112 +8,62 @@ part of 'assistants_run.dart';
 class RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The [file](https://developers.openai.com/api/reference/resources/files) ID of the image.
   final SdkOptional<String> fileId;
 
-  const RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage(
-      {this.fileId = const SdkOmitted()});
+  const RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage({this.fileId = const SdkOmitted()});
 
-  RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage Function(
-      {SdkOptional<String> fileId}) get copyWith => _copyWith;
+  RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage Function({SdkOptional<String> fileId}) get copyWith => _copyWith;
 
-  RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage _copyWith(
-          {Object? fileId = sdkOmittedValue}) =>
-      RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage(
-        fileId: identical(fileId, sdkOmittedValue)
-            ? this.fileId
-            : fileId as SdkOptional<String>,
-      );
+  RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage _copyWith({Object? fileId = sdkOmittedValue}) => RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage(
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
+  );
 
-  factory RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage.fromJson(
-          Map<String, dynamic> json) =>
-      RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage(
-        fileId: json['file_id'] != null
-            ? SdkPresent((json['file_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage.fromJson(Map<String, dynamic> json) => RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage(
+    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (fileId) {
-          SdkPresent<String>(value: final value) => {
-              'file_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (fileId) {
+      SdkPresent<String>(value: final value) => {'file_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `RunStepDeltaStepDetailsToolCallsCodeOutputImageObject` API schema.
 class RunStepDeltaStepDetailsToolCallsCodeOutputImageObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The index of the output in the outputs array.
   final int index;
-
   /// Always `image`.
   final RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType type_;
-
   /// Optional object value serialized in the `image` wire field.
-  final SdkOptional<RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage>
-      image;
+  final SdkOptional<RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage> image;
 
-  const RunStepDeltaStepDetailsToolCallsCodeOutputImageObject(
-      {required this.index,
-      required this.type_,
-      this.image = const SdkOmitted()});
+  const RunStepDeltaStepDetailsToolCallsCodeOutputImageObject({required this.index, required this.type_, this.image = const SdkOmitted()});
 
-  RunStepDeltaStepDetailsToolCallsCodeOutputImageObject Function(
-      {int index,
-      RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType type_,
-      SdkOptional<RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage>
-          image}) get copyWith => _copyWith;
+  RunStepDeltaStepDetailsToolCallsCodeOutputImageObject Function({int index, RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType type_, SdkOptional<RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage> image}) get copyWith => _copyWith;
 
-  RunStepDeltaStepDetailsToolCallsCodeOutputImageObject _copyWith(
-          {Object? index = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? image = sdkOmittedValue}) =>
-      RunStepDeltaStepDetailsToolCallsCodeOutputImageObject(
-        index: identical(index, sdkOmittedValue) ? this.index : index as int,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType,
-        image: identical(image, sdkOmittedValue)
-            ? this.image
-            : image as SdkOptional<
-                RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage>,
-      );
+  RunStepDeltaStepDetailsToolCallsCodeOutputImageObject _copyWith({Object? index = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? image = sdkOmittedValue}) => RunStepDeltaStepDetailsToolCallsCodeOutputImageObject(
+    index: identical(index, sdkOmittedValue) ? this.index : index as int,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType,
+    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage>,
+  );
 
-  factory RunStepDeltaStepDetailsToolCallsCodeOutputImageObject.fromJson(
-          Map<String, dynamic> json) =>
-      RunStepDeltaStepDetailsToolCallsCodeOutputImageObject(
-        index: ((json['index'] as num?)?.toInt())!,
-        type_: (json['type'] != null
-            ? RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType
-                .fromJson(json['type'] as String)
-            : null)!,
-        image: json['image'] != null
-            ? SdkPresent((json['image'] != null
-                ? RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage
-                    .fromJson(json['image'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RunStepDeltaStepDetailsToolCallsCodeOutputImageObject.fromJson(Map<String, dynamic> json) => RunStepDeltaStepDetailsToolCallsCodeOutputImageObject(
+    index: ((json['index'] as num?)?.toInt())!,
+    type_: (json['type'] != null ? RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType.fromJson(json['type'] as String) : null)!,
+    image: json['image'] != null ? SdkPresent((json['image'] != null ? RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage.fromJson(json['image'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'index': index,
-        'type': type_.toJson(),
-        ...switch (image) {
-          SdkPresent<
-                RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage>(
-            value: final value
-          ) =>
-            {
-              'image': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'index': index,
+    'type': type_.toJson(),
+    ...switch (image) {
+      SdkPresent<RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectImage>(value: final value) => {'image': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

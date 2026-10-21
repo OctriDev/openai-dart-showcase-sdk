@@ -18,51 +18,30 @@ Future<ApiKeyList> listAdminApiKeys(ClientConfig config,
   return (await sdkRequest<ApiKeyList>('GET', '/organization/admin_api_keys',
           config: config,
           query: {
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true)
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAdminApiKeys',
-          fromJsonRaw: (value) =>
-              ApiKeyList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiKeyList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists organization API keys, including keys associated with projects. Use `after` to continue from a key ID and `order` to control creation-time sorting. The response includes pagination metadata to help you determine whether more keys are available.
 ///
 /// List organization API keys
-Stream<AdminApiKey> listAdminApiKeysPaginated(ClientConfig config,
-    {String? after,
-    ListAdminApiKeysOrder? order,
-    int? limit,
-    RequestOptions? requestOptions}) async* {
+Stream<AdminApiKey> listAdminApiKeysPaginated(ClientConfig config, {String? after, ListAdminApiKeysOrder? order, int? limit, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAdminApiKeys(config,
-        after: sdkCursor == null
-            ? const SdkOmitted<String?>()
-            : SdkPresent<String?>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListAdminApiKeysOrder>()
-            : SdkPresent<ListAdminApiKeysOrder>(order),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        requestOptions: requestOptions);
+    final sdkPage = await listAdminApiKeys(config, after: sdkCursor == null ? const SdkOmitted<String?>() : SdkPresent<String?>(sdkCursor), order: order == null ? const SdkOmitted<ListAdminApiKeysOrder>() : SdkPresent<ListAdminApiKeysOrder>(order), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -70,23 +49,10 @@ Stream<AdminApiKey> listAdminApiKeysPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<ApiKeyList, AdminApiKey>> listAdminApiKeysPages(
-    ClientConfig config,
-    {String? after,
-    ListAdminApiKeysOrder? order,
-    int? limit,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ApiKeyList, AdminApiKey>> listAdminApiKeysPages(ClientConfig config, {String? after, ListAdminApiKeysOrder? order, int? limit, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAdminApiKeys(config,
-        after: sdkCursor == null
-            ? const SdkOmitted<String?>()
-            : SdkPresent<String?>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListAdminApiKeysOrder>()
-            : SdkPresent<ListAdminApiKeysOrder>(order),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        requestOptions: requestOptions);
+    final sdkPage = await listAdminApiKeys(config, after: sdkCursor == null ? const SdkOmitted<String?>() : SdkPresent<String?>(sdkCursor), order: order == null ? const SdkOmitted<ListAdminApiKeysOrder>() : SdkPresent<ListAdminApiKeysOrder>(order), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -96,6 +62,7 @@ Stream<SdkPage<ApiKeyList, AdminApiKey>> listAdminApiKeysPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Creates an organization admin API key. Provide a `name` and, optionally, `expires_in_seconds` to set the key's lifetime. The response includes the key value, which is returned only once when the key is created.
 ///
@@ -108,8 +75,7 @@ Future<AdminApiKeyCreateResponse> createAdminApiKeys(ClientConfig config,
     SdkOptional<int> expiresInSeconds = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (expiresInSeconds is SdkPresent<int>) {
-    validateRange('expires_in_seconds', expiresInSeconds.value,
-        min: 1, max: 31536000);
+    validateRange('expires_in_seconds', expiresInSeconds.value, min: 1, max: 31536000);
   }
 
   return (await sdkRequest<AdminApiKeyCreateResponse>(
@@ -121,19 +87,12 @@ Future<AdminApiKeyCreateResponse> createAdminApiKeys(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createAdminApiKeys',
-          fromJsonRaw: (value) =>
-              AdminApiKeyCreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AdminApiKeyCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves details for an organization API key. Use `key_id` to identify the key whose metadata you need. The response includes the redacted key value, creation and expiration timestamps, last-use time, and owner details.
 ///
@@ -145,16 +104,12 @@ Future<AdminApiKey> retrieveAdminApiKeys(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveAdminApiKeys',
-          fromJsonRaw: (value) =>
-              AdminApiKey.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AdminApiKey.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes an organization admin API key. Use `key_id` to identify the key to remove. The response confirms deletion with the key identifier and a `deleted` flag.
 ///
@@ -166,13 +121,8 @@ Future<DeleteAdminApiKeysResponse> deleteAdminApiKeys(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteAdminApiKeys',
-          fromJsonRaw: (value) => DeleteAdminApiKeysResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteAdminApiKeysResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

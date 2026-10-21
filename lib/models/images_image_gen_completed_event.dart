@@ -8,135 +8,65 @@ part of 'images.dart';
 class ImageGenCompletedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The effective safety identifier used for safety monitoring and abuse detection. This is the non-empty `safety_identifier` from the request, or the deprecated `user` value when `safety_identifier` is omitted, null, or empty.
   final SdkOptional<String?> safetyIdentifier;
-
   /// The type of the event. Always `image_generation.completed`.
   final ImageGenCompletedEventType type_;
-
   /// Base64-encoded image data, suitable for rendering as an image.
   final String b64Json;
-
   /// The Unix timestamp when the event was created.
   final int createdAt;
-
   /// The image dimensions as a `WIDTHxHEIGHT` string, for example `1536x864`.
   final String size;
-
   /// The quality setting for the generated image.
   final ImageGenCompletedEventQuality quality;
-
   /// The background setting for the generated image.
   final ImageGenCompletedEventBackground background;
-
   /// The output format for the generated image.
   final ImageGenCompletedEventOutputFormat outputFormat;
-
   /// For the GPT image models only, the token usage information for the image generation.
   final ImagesUsage usage;
 
-  const ImageGenCompletedEvent(
-      {this.safetyIdentifier = const SdkOmitted(),
-      required this.type_,
-      required this.b64Json,
-      required this.createdAt,
-      required this.size,
-      required this.quality,
-      required this.background,
-      required this.outputFormat,
-      required this.usage});
+  const ImageGenCompletedEvent({this.safetyIdentifier = const SdkOmitted(), required this.type_, required this.b64Json, required this.createdAt, required this.size, required this.quality, required this.background, required this.outputFormat, required this.usage});
 
-  ImageGenCompletedEvent Function(
-      {SdkOptional<String?> safetyIdentifier,
-      ImageGenCompletedEventType type_,
-      String b64Json,
-      int createdAt,
-      String size,
-      ImageGenCompletedEventQuality quality,
-      ImageGenCompletedEventBackground background,
-      ImageGenCompletedEventOutputFormat outputFormat,
-      ImagesUsage usage}) get copyWith => _copyWith;
+  ImageGenCompletedEvent Function({SdkOptional<String?> safetyIdentifier, ImageGenCompletedEventType type_, String b64Json, int createdAt, String size, ImageGenCompletedEventQuality quality, ImageGenCompletedEventBackground background, ImageGenCompletedEventOutputFormat outputFormat, ImagesUsage usage}) get copyWith => _copyWith;
 
-  ImageGenCompletedEvent _copyWith(
-          {Object? safetyIdentifier = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? b64Json = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? quality = sdkOmittedValue,
-          Object? background = sdkOmittedValue,
-          Object? outputFormat = sdkOmittedValue,
-          Object? usage = sdkOmittedValue}) =>
-      ImageGenCompletedEvent(
-        safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue)
-            ? this.safetyIdentifier
-            : safetyIdentifier as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ImageGenCompletedEventType,
-        b64Json: identical(b64Json, sdkOmittedValue)
-            ? this.b64Json
-            : b64Json as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        size: identical(size, sdkOmittedValue) ? this.size : size as String,
-        quality: identical(quality, sdkOmittedValue)
-            ? this.quality
-            : quality as ImageGenCompletedEventQuality,
-        background: identical(background, sdkOmittedValue)
-            ? this.background
-            : background as ImageGenCompletedEventBackground,
-        outputFormat: identical(outputFormat, sdkOmittedValue)
-            ? this.outputFormat
-            : outputFormat as ImageGenCompletedEventOutputFormat,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as ImagesUsage,
-      );
+  ImageGenCompletedEvent _copyWith({Object? safetyIdentifier = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? b64Json = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? size = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? background = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? usage = sdkOmittedValue}) => ImageGenCompletedEvent(
+    safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue) ? this.safetyIdentifier : safetyIdentifier as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ImageGenCompletedEventType,
+    b64Json: identical(b64Json, sdkOmittedValue) ? this.b64Json : b64Json as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    size: identical(size, sdkOmittedValue) ? this.size : size as String,
+    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as ImageGenCompletedEventQuality,
+    background: identical(background, sdkOmittedValue) ? this.background : background as ImageGenCompletedEventBackground,
+    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as ImageGenCompletedEventOutputFormat,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as ImagesUsage,
+  );
 
-  factory ImageGenCompletedEvent.fromJson(Map<String, dynamic> json) =>
-      ImageGenCompletedEvent(
-        safetyIdentifier: json.containsKey('safety_identifier')
-            ? SdkPresent(json['safety_identifier'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? ImageGenCompletedEventType.fromJson(json['type'] as String)
-            : null)!,
-        b64Json: (json['b64_json'] as String?)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        size: (json['size'] as String?)!,
-        quality: (json['quality'] != null
-            ? ImageGenCompletedEventQuality.fromJson(json['quality'] as String)
-            : null)!,
-        background: (json['background'] != null
-            ? ImageGenCompletedEventBackground.fromJson(
-                json['background'] as String)
-            : null)!,
-        outputFormat: (json['output_format'] != null
-            ? ImageGenCompletedEventOutputFormat.fromJson(
-                json['output_format'] as String)
-            : null)!,
-        usage: (json['usage'] != null
-            ? ImagesUsage.fromJson(json['usage'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ImageGenCompletedEvent.fromJson(Map<String, dynamic> json) => ImageGenCompletedEvent(
+    safetyIdentifier: json.containsKey('safety_identifier') ? SdkPresent(json['safety_identifier'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? ImageGenCompletedEventType.fromJson(json['type'] as String) : null)!,
+    b64Json: (json['b64_json'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    size: (json['size'] as String?)!,
+    quality: (json['quality'] != null ? ImageGenCompletedEventQuality.fromJson(json['quality'] as String) : null)!,
+    background: (json['background'] != null ? ImageGenCompletedEventBackground.fromJson(json['background'] as String) : null)!,
+    outputFormat: (json['output_format'] != null ? ImageGenCompletedEventOutputFormat.fromJson(json['output_format'] as String) : null)!,
+    usage: (json['usage'] != null ? ImagesUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (safetyIdentifier) {
-          SdkPresent<String?>(value: final value) => {
-              'safety_identifier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'b64_json': b64Json,
-        'created_at': createdAt,
-        'size': size,
-        'quality': quality.toJson(),
-        'background': background.toJson(),
-        'output_format': outputFormat.toJson(),
-        'usage': usage.toJson(),
-      };
+    ...switch (safetyIdentifier) {
+      SdkPresent<String?>(value: final value) => {'safety_identifier': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'b64_json': b64Json,
+    'created_at': createdAt,
+    'size': size,
+    'quality': quality.toJson(),
+    'background': background.toJson(),
+    'output_format': outputFormat.toJson(),
+    'usage': usage.toJson(),
+  };
 }

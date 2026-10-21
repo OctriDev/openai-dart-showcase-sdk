@@ -10,61 +10,32 @@ sealed class DecisionInputToolOutputContentPartsItem {
   const DecisionInputToolOutputContentPartsItem();
   factory DecisionInputToolOutputContentPartsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = DecisionInputText.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DecisionInputToolOutputContentPartsItemDecisionInputText(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = DecisionInputImage.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DecisionInputToolOutputContentPartsItemDecisionInputImage(
-              value);
-        }
-      } catch (_) {}
+      try { final value = DecisionInputText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DecisionInputToolOutputContentPartsItemDecisionInputText(value); } } catch (_) {}
+      try { final value = DecisionInputImage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DecisionInputToolOutputContentPartsItemDecisionInputImage(value); } } catch (_) {}
     }
-    try {
-      return DecisionInputToolOutputContentPartsItemDecisionInputText(
-          DecisionInputText.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DecisionInputToolOutputContentPartsItemDecisionInputImage(
-          DecisionInputImage.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"input_text", "input_image"}.contains(json["type"])) {
-      return UnknownDecisionInputToolOutputContentPartsItem(json);
-    }
-    throw FormatException(
-        "No variant matched for DecisionInputToolOutputContentPartsItem");
+    try { return DecisionInputToolOutputContentPartsItemDecisionInputText(DecisionInputText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DecisionInputToolOutputContentPartsItemDecisionInputImage(DecisionInputImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image"}.contains(json["type"])) { return UnknownDecisionInputToolOutputContentPartsItem(json); }
+    throw FormatException("No variant matched for DecisionInputToolOutputContentPartsItem");
   }
   Object? toJson();
 }
 
-final class DecisionInputToolOutputContentPartsItemDecisionInputText
-    extends DecisionInputToolOutputContentPartsItem {
+final class DecisionInputToolOutputContentPartsItemDecisionInputText extends DecisionInputToolOutputContentPartsItem {
   final DecisionInputText value;
   const DecisionInputToolOutputContentPartsItemDecisionInputText(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DecisionInputToolOutputContentPartsItemDecisionInputImage
-    extends DecisionInputToolOutputContentPartsItem {
+final class DecisionInputToolOutputContentPartsItemDecisionInputImage extends DecisionInputToolOutputContentPartsItem {
   final DecisionInputImage value;
   const DecisionInputToolOutputContentPartsItemDecisionInputImage(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [DecisionInputToolOutputContentPartsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownDecisionInputToolOutputContentPartsItem
-    extends DecisionInputToolOutputContentPartsItem {
+final class UnknownDecisionInputToolOutputContentPartsItem extends DecisionInputToolOutputContentPartsItem {
   final Map<String, dynamic> raw;
   const UnknownDecisionInputToolOutputContentPartsItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

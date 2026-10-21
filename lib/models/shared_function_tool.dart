@@ -8,164 +8,77 @@ part of 'shared_function.dart';
 class FunctionTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the function tool. Always `function`.
   final FunctionToolType type_;
-
   /// The name of the function to call.
   final String name;
-
   /// Optional `boolean` value serialized in the `async` wire field.
   final SdkOptional<bool> async_;
-
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String?> description;
-
   /// A JSON schema object describing the parameters of the function.
   final Map<String, dynamic>? parameters;
-
   /// A JSON schema object describing the JSON value encoded in string outputs for this function.
   final SdkOptional<Map<String, dynamic>?> outputSchema;
-
   /// Required `boolean` value serialized in the `strict` wire field.
   final bool? strict;
-
   /// Whether this function is deferred and loaded via tool search.
   final SdkOptional<bool> deferLoading;
-
   /// The tool invocation context(s).
   final SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers;
 
-  const FunctionTool(
-      {required this.type_,
-      required this.name,
-      this.async_ = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      required this.parameters,
-      this.outputSchema = const SdkOmitted(),
-      required this.strict,
-      this.deferLoading = const SdkOmitted(),
-      this.allowedCallers = const SdkOmitted()});
+  const FunctionTool({required this.type_, required this.name, this.async_ = const SdkOmitted(), this.description = const SdkOmitted(), required this.parameters, this.outputSchema = const SdkOmitted(), required this.strict, this.deferLoading = const SdkOmitted(), this.allowedCallers = const SdkOmitted()});
 
-  FunctionTool Function(
-          {FunctionToolType type_,
-          String name,
-          SdkOptional<bool> async_,
-          SdkOptional<String?> description,
-          Map<String, dynamic>? parameters,
-          SdkOptional<Map<String, dynamic>?> outputSchema,
-          bool? strict,
-          SdkOptional<bool> deferLoading,
-          SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers})
-      get copyWith => _copyWith;
+  FunctionTool Function({FunctionToolType type_, String name, SdkOptional<bool> async_, SdkOptional<String?> description, Map<String, dynamic>? parameters, SdkOptional<Map<String, dynamic>?> outputSchema, bool? strict, SdkOptional<bool> deferLoading, SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
 
-  FunctionTool _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? async_ = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? parameters = sdkOmittedValue,
-          Object? outputSchema = sdkOmittedValue,
-          Object? strict = sdkOmittedValue,
-          Object? deferLoading = sdkOmittedValue,
-          Object? allowedCallers = sdkOmittedValue}) =>
-      FunctionTool(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as FunctionToolType,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        async_: identical(async_, sdkOmittedValue)
-            ? this.async_
-            : async_ as SdkOptional<bool>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String?>,
-        parameters: identical(parameters, sdkOmittedValue)
-            ? this.parameters
-            : parameters as Map<String, dynamic>?,
-        outputSchema: identical(outputSchema, sdkOmittedValue)
-            ? this.outputSchema
-            : outputSchema as SdkOptional<Map<String, dynamic>?>,
-        strict:
-            identical(strict, sdkOmittedValue) ? this.strict : strict as bool?,
-        deferLoading: identical(deferLoading, sdkOmittedValue)
-            ? this.deferLoading
-            : deferLoading as SdkOptional<bool>,
-        allowedCallers: identical(allowedCallers, sdkOmittedValue)
-            ? this.allowedCallers
-            : allowedCallers as SdkOptional<List<CallableToolAllowedCaller>?>,
-      );
+  FunctionTool _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? async_ = sdkOmittedValue, Object? description = sdkOmittedValue, Object? parameters = sdkOmittedValue, Object? outputSchema = sdkOmittedValue, Object? strict = sdkOmittedValue, Object? deferLoading = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue}) => FunctionTool(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FunctionToolType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    async_: identical(async_, sdkOmittedValue) ? this.async_ : async_ as SdkOptional<bool>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as Map<String, dynamic>?,
+    outputSchema: identical(outputSchema, sdkOmittedValue) ? this.outputSchema : outputSchema as SdkOptional<Map<String, dynamic>?>,
+    strict: identical(strict, sdkOmittedValue) ? this.strict : strict as bool?,
+    deferLoading: identical(deferLoading, sdkOmittedValue) ? this.deferLoading : deferLoading as SdkOptional<bool>,
+    allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<CallableToolAllowedCaller>?>,
+  );
 
   factory FunctionTool.fromJson(Map<String, dynamic> json) => FunctionTool(
-        type_: (json['type'] != null
-            ? FunctionToolType.fromJson(json['type'] as String)
-            : null)!,
-        name: (json['name'] as String?)!,
-        async_: json['async'] != null
-            ? SdkPresent((json['async'] as bool?)!)
-            : const SdkOmitted(),
-        description: json.containsKey('description')
-            ? SdkPresent(json['description'] as String?)
-            : const SdkOmitted(),
-        parameters: json.containsKey('parameters')
-            ? json['parameters'] == null
-                ? null
-                : json['parameters'] as Map<String, dynamic>
-            : throw ArgumentError.value(
-                null, 'parameters', 'Required property is missing'),
-        outputSchema: json.containsKey('output_schema')
-            ? SdkPresent(json['output_schema'] == null
-                ? null
-                : json['output_schema'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-        strict: json.containsKey('strict')
-            ? json['strict'] as bool?
-            : throw ArgumentError.value(
-                null, 'strict', 'Required property is missing'),
-        deferLoading: json['defer_loading'] != null
-            ? SdkPresent((json['defer_loading'] as bool?)!)
-            : const SdkOmitted(),
-        allowedCallers: json.containsKey('allowed_callers')
-            ? SdkPresent((json['allowed_callers'] as List?)
-                ?.map((e) => CallableToolAllowedCaller.fromJson(e as String))
-                .toList())
-            : const SdkOmitted(),
-      );
+    type_: (json['type'] != null ? FunctionToolType.fromJson(json['type'] as String) : null)!,
+    name: (json['name'] as String?)!,
+    async_: json['async'] != null ? SdkPresent((json['async'] as bool?)!) : const SdkOmitted(),
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    parameters: json.containsKey('parameters') ? json['parameters'] == null ? null : json['parameters'] as Map<String, dynamic> : throw ArgumentError.value(null, 'parameters', 'Required property is missing'),
+    outputSchema: json.containsKey('output_schema') ? SdkPresent(json['output_schema'] == null ? null : json['output_schema'] as Map<String, dynamic>) : const SdkOmitted(),
+    strict: json.containsKey('strict') ? json['strict'] as bool? : throw ArgumentError.value(null, 'strict', 'Required property is missing'),
+    deferLoading: json['defer_loading'] != null ? SdkPresent((json['defer_loading'] as bool?)!) : const SdkOmitted(),
+    allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => CallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'name': name,
-        ...switch (async_) {
-          SdkPresent<bool>(value: final value) => {
-              'async': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String?>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'parameters': parameters,
-        ...switch (outputSchema) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'output_schema': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'strict': strict,
-        ...switch (deferLoading) {
-          SdkPresent<bool>(value: final value) => {
-              'defer_loading': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedCallers) {
-          SdkPresent<List<CallableToolAllowedCaller>?>(value: final value) => {
-              'allowed_callers': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'name': name,
+    ...switch (async_) {
+      SdkPresent<bool>(value: final value) => {'async': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    'parameters': parameters,
+    ...switch (outputSchema) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'output_schema': value,},
+      _ => const <String, dynamic>{},
+    },
+    'strict': strict,
+    ...switch (deferLoading) {
+      SdkPresent<bool>(value: final value) => {'defer_loading': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedCallers) {
+      SdkPresent<List<CallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

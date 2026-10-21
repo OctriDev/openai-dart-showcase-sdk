@@ -8,31 +8,22 @@ part of 'fine_tuning.dart';
 class CreateFineTuningCheckpointPermissionRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The project identifiers to grant access to.
   final List<String> projectIds;
 
   const CreateFineTuningCheckpointPermissionRequest({required this.projectIds});
 
-  CreateFineTuningCheckpointPermissionRequest Function(
-      {List<String> projectIds}) get copyWith => _copyWith;
+  CreateFineTuningCheckpointPermissionRequest Function({List<String> projectIds}) get copyWith => _copyWith;
 
-  CreateFineTuningCheckpointPermissionRequest _copyWith(
-          {Object? projectIds = sdkOmittedValue}) =>
-      CreateFineTuningCheckpointPermissionRequest(
-        projectIds: identical(projectIds, sdkOmittedValue)
-            ? this.projectIds
-            : projectIds as List<String>,
-      );
+  CreateFineTuningCheckpointPermissionRequest _copyWith({Object? projectIds = sdkOmittedValue}) => CreateFineTuningCheckpointPermissionRequest(
+    projectIds: identical(projectIds, sdkOmittedValue) ? this.projectIds : projectIds as List<String>,
+  );
 
-  factory CreateFineTuningCheckpointPermissionRequest.fromJson(
-          Map<String, dynamic> json) =>
-      CreateFineTuningCheckpointPermissionRequest(
-        projectIds:
-            ((json['project_ids'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory CreateFineTuningCheckpointPermissionRequest.fromJson(Map<String, dynamic> json) => CreateFineTuningCheckpointPermissionRequest(
+    projectIds: ((json['project_ids'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'project_ids': projectIds,
-      };
+    'project_ids': projectIds,
+  };
 }

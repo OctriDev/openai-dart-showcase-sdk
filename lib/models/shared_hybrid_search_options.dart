@@ -8,39 +8,27 @@ part of 'shared.dart';
 class HybridSearchOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The weight of the embedding in the reciprocal ranking fusion.
   final double embeddingWeight;
-
   /// The weight of the text in the reciprocal ranking fusion.
   final double textWeight;
 
-  const HybridSearchOptions(
-      {required this.embeddingWeight, required this.textWeight});
+  const HybridSearchOptions({required this.embeddingWeight, required this.textWeight});
 
-  HybridSearchOptions Function({double embeddingWeight, double textWeight})
-      get copyWith => _copyWith;
+  HybridSearchOptions Function({double embeddingWeight, double textWeight}) get copyWith => _copyWith;
 
-  HybridSearchOptions _copyWith(
-          {Object? embeddingWeight = sdkOmittedValue,
-          Object? textWeight = sdkOmittedValue}) =>
-      HybridSearchOptions(
-        embeddingWeight: identical(embeddingWeight, sdkOmittedValue)
-            ? this.embeddingWeight
-            : embeddingWeight as double,
-        textWeight: identical(textWeight, sdkOmittedValue)
-            ? this.textWeight
-            : textWeight as double,
-      );
+  HybridSearchOptions _copyWith({Object? embeddingWeight = sdkOmittedValue, Object? textWeight = sdkOmittedValue}) => HybridSearchOptions(
+    embeddingWeight: identical(embeddingWeight, sdkOmittedValue) ? this.embeddingWeight : embeddingWeight as double,
+    textWeight: identical(textWeight, sdkOmittedValue) ? this.textWeight : textWeight as double,
+  );
 
-  factory HybridSearchOptions.fromJson(Map<String, dynamic> json) =>
-      HybridSearchOptions(
-        embeddingWeight: ((json['embedding_weight'] as num?)?.toDouble())!,
-        textWeight: ((json['text_weight'] as num?)?.toDouble())!,
-      );
+  factory HybridSearchOptions.fromJson(Map<String, dynamic> json) => HybridSearchOptions(
+    embeddingWeight: ((json['embedding_weight'] as num?)?.toDouble())!,
+    textWeight: ((json['text_weight'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'embedding_weight': embeddingWeight,
-        'text_weight': textWeight,
-      };
+    'embedding_weight': embeddingWeight,
+    'text_weight': textWeight,
+  };
 }

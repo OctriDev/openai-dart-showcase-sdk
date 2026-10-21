@@ -10,190 +10,40 @@ sealed class Tool {
   const Tool();
   factory Tool.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = FunctionTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolFunctionTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = FileSearchTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolFileSearchTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ComputerTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolComputerTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ComputerUsePreviewTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolComputerUsePreviewTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = WebSearchTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolWebSearchTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = MCPTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolMCPTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = CodeInterpreterTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolCodeInterpreterTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ProgrammaticToolCallingParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolProgrammaticToolCallingParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ImageGenTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolImageGenTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LocalShellToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolLocalShellToolParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = FunctionShellToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolFunctionShellToolParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = CustomToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolCustomToolParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = NamespaceToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolNamespaceToolParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ToolSearchToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolToolSearchToolParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = WebSearchPreviewTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolWebSearchPreviewTool(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ApplyPatchToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolApplyPatchToolParam(value);
-        }
-      } catch (_) {}
+      try { final value = FunctionTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolFunctionTool(value); } } catch (_) {}
+      try { final value = FileSearchTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolFileSearchTool(value); } } catch (_) {}
+      try { final value = ComputerTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolComputerTool(value); } } catch (_) {}
+      try { final value = ComputerUsePreviewTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolComputerUsePreviewTool(value); } } catch (_) {}
+      try { final value = WebSearchTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolWebSearchTool(value); } } catch (_) {}
+      try { final value = MCPTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolMCPTool(value); } } catch (_) {}
+      try { final value = CodeInterpreterTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolCodeInterpreterTool(value); } } catch (_) {}
+      try { final value = ProgrammaticToolCallingParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolProgrammaticToolCallingParam(value); } } catch (_) {}
+      try { final value = ImageGenTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolImageGenTool(value); } } catch (_) {}
+      try { final value = LocalShellToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolLocalShellToolParam(value); } } catch (_) {}
+      try { final value = FunctionShellToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolFunctionShellToolParam(value); } } catch (_) {}
+      try { final value = CustomToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolCustomToolParam(value); } } catch (_) {}
+      try { final value = NamespaceToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolNamespaceToolParam(value); } } catch (_) {}
+      try { final value = ToolSearchToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolToolSearchToolParam(value); } } catch (_) {}
+      try { final value = WebSearchPreviewTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolWebSearchPreviewTool(value); } } catch (_) {}
+      try { final value = ApplyPatchToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolApplyPatchToolParam(value); } } catch (_) {}
     }
-    try {
-      return ToolFunctionTool(
-          FunctionTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolFileSearchTool(
-          FileSearchTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolComputerTool(
-          ComputerTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolComputerUsePreviewTool(
-          ComputerUsePreviewTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolWebSearchTool(
-          WebSearchTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolMCPTool(MCPTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolCodeInterpreterTool(
-          CodeInterpreterTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolProgrammaticToolCallingParam(
-          ProgrammaticToolCallingParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolImageGenTool(
-          ImageGenTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolLocalShellToolParam(
-          LocalShellToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolFunctionShellToolParam(
-          FunctionShellToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolCustomToolParam(
-          CustomToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolNamespaceToolParam(
-          NamespaceToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolToolSearchToolParam(
-          ToolSearchToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolWebSearchPreviewTool(
-          WebSearchPreviewTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolApplyPatchToolParam(
-          ApplyPatchToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "function",
-          "file_search",
-          "computer",
-          "computer_use_preview",
-          "web_search",
-          "web_search_2025_08_26",
-          "mcp",
-          "code_interpreter",
-          "programmatic_tool_calling",
-          "image_generation",
-          "local_shell",
-          "shell",
-          "custom",
-          "namespace",
-          "tool_search",
-          "web_search_preview",
-          "web_search_preview_2025_03_11",
-          "apply_patch"
-        }.contains(json["type"])) {
-      return UnknownTool(json);
-    }
+    try { return ToolFunctionTool(FunctionTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolFileSearchTool(FileSearchTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolComputerTool(ComputerTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolComputerUsePreviewTool(ComputerUsePreviewTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolWebSearchTool(WebSearchTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolMCPTool(MCPTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolCodeInterpreterTool(CodeInterpreterTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolProgrammaticToolCallingParam(ProgrammaticToolCallingParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolImageGenTool(ImageGenTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolLocalShellToolParam(LocalShellToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolFunctionShellToolParam(FunctionShellToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolCustomToolParam(CustomToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolNamespaceToolParam(NamespaceToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolToolSearchToolParam(ToolSearchToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolWebSearchPreviewTool(WebSearchPreviewTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolApplyPatchToolParam(ApplyPatchToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "file_search", "computer", "computer_use_preview", "web_search", "web_search_2025_08_26", "mcp", "code_interpreter", "programmatic_tool_calling", "image_generation", "local_shell", "shell", "custom", "namespace", "tool_search", "web_search_preview", "web_search_preview_2025_03_11", "apply_patch"}.contains(json["type"])) { return UnknownTool(json); }
     throw FormatException("No variant matched for Tool");
   }
   Object? toJson();
@@ -202,119 +52,102 @@ sealed class Tool {
 final class ToolFunctionTool extends Tool {
   final FunctionTool value;
   const ToolFunctionTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolFileSearchTool extends Tool {
   final FileSearchTool value;
   const ToolFileSearchTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolComputerTool extends Tool {
   final ComputerTool value;
   const ToolComputerTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolComputerUsePreviewTool extends Tool {
   final ComputerUsePreviewTool value;
   const ToolComputerUsePreviewTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolWebSearchTool extends Tool {
   final WebSearchTool value;
   const ToolWebSearchTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolMCPTool extends Tool {
   final MCPTool value;
   const ToolMCPTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolCodeInterpreterTool extends Tool {
   final CodeInterpreterTool value;
   const ToolCodeInterpreterTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolProgrammaticToolCallingParam extends Tool {
   final ProgrammaticToolCallingParam value;
   const ToolProgrammaticToolCallingParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolImageGenTool extends Tool {
   final ImageGenTool value;
   const ToolImageGenTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolLocalShellToolParam extends Tool {
   final LocalShellToolParam value;
   const ToolLocalShellToolParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolFunctionShellToolParam extends Tool {
   final FunctionShellToolParam value;
   const ToolFunctionShellToolParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolCustomToolParam extends Tool {
   final CustomToolParam value;
   const ToolCustomToolParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolNamespaceToolParam extends Tool {
   final NamespaceToolParam value;
   const ToolNamespaceToolParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolToolSearchToolParam extends Tool {
   final ToolSearchToolParam value;
   const ToolToolSearchToolParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolWebSearchPreviewTool extends Tool {
   final WebSearchPreviewTool value;
   const ToolWebSearchPreviewTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ToolApplyPatchToolParam extends Tool {
   final ApplyPatchToolParam value;
   const ToolApplyPatchToolParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [Tool] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownTool extends Tool {
   final Map<String, dynamic> raw;
   const UnknownTool(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

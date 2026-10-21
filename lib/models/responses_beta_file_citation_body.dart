@@ -8,62 +8,37 @@ part of 'responses_beta_file.dart';
 class BetaFileCitationBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the file citation. Always `file_citation`.
   final BetaFileCitationBodyType type_;
-
   /// The ID of the file.
   final String fileId;
-
   /// The index in the output text at which to insert the file citation.
   final int index;
-
   /// The filename of the file cited.
   final String filename;
 
-  const BetaFileCitationBody(
-      {required this.type_,
-      required this.fileId,
-      required this.index,
-      required this.filename});
+  const BetaFileCitationBody({required this.type_, required this.fileId, required this.index, required this.filename});
 
-  BetaFileCitationBody Function(
-      {BetaFileCitationBodyType type_,
-      String fileId,
-      int index,
-      String filename}) get copyWith => _copyWith;
+  BetaFileCitationBody Function({BetaFileCitationBodyType type_, String fileId, int index, String filename}) get copyWith => _copyWith;
 
-  BetaFileCitationBody _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? fileId = sdkOmittedValue,
-          Object? index = sdkOmittedValue,
-          Object? filename = sdkOmittedValue}) =>
-      BetaFileCitationBody(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaFileCitationBodyType,
-        fileId:
-            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-        index: identical(index, sdkOmittedValue) ? this.index : index as int,
-        filename: identical(filename, sdkOmittedValue)
-            ? this.filename
-            : filename as String,
-      );
+  BetaFileCitationBody _copyWith({Object? type_ = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? index = sdkOmittedValue, Object? filename = sdkOmittedValue}) => BetaFileCitationBody(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFileCitationBodyType,
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+    index: identical(index, sdkOmittedValue) ? this.index : index as int,
+    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String,
+  );
 
-  factory BetaFileCitationBody.fromJson(Map<String, dynamic> json) =>
-      BetaFileCitationBody(
-        type_: (json['type'] != null
-            ? BetaFileCitationBodyType.fromJson(json['type'] as String)
-            : null)!,
-        fileId: (json['file_id'] as String?)!,
-        index: ((json['index'] as num?)?.toInt())!,
-        filename: (json['filename'] as String?)!,
-      );
+  factory BetaFileCitationBody.fromJson(Map<String, dynamic> json) => BetaFileCitationBody(
+    type_: (json['type'] != null ? BetaFileCitationBodyType.fromJson(json['type'] as String) : null)!,
+    fileId: (json['file_id'] as String?)!,
+    index: ((json['index'] as num?)?.toInt())!,
+    filename: (json['filename'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'file_id': fileId,
-        'index': index,
-        'filename': filename,
-      };
+    'type': type_.toJson(),
+    'file_id': fileId,
+    'index': index,
+    'filename': filename,
+  };
 }

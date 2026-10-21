@@ -8,192 +8,101 @@ part of 'agents_session_artifact.dart';
 class SessionArtifactListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `list`.
   final SessionArtifactListResourceObject object;
-
   /// The resources returned in this page, in the requested sort order.
   final List<SessionArtifactResource> data;
-
   /// The ID of the first resource in `data`, or `null` if the page is empty.
   final String? firstId;
-
   /// The ID of the last resource in `data`, or `null` if the page is empty. Pass this as `after` with the same order and filters.
   final String? lastId;
-
   /// Whether there are more resources to retrieve after this page.
   final bool hasMore;
 
-  const SessionArtifactListResource(
-      {required this.object,
-      required this.data,
-      required this.firstId,
-      required this.lastId,
-      required this.hasMore});
+  const SessionArtifactListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
 
-  SessionArtifactListResource Function(
-      {SessionArtifactListResourceObject object,
-      List<SessionArtifactResource> data,
-      String? firstId,
-      String? lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  SessionArtifactListResource Function({SessionArtifactListResourceObject object, List<SessionArtifactResource> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
 
-  SessionArtifactListResource _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      SessionArtifactListResource(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SessionArtifactListResourceObject,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<SessionArtifactResource>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as String?,
-        lastId: identical(lastId, sdkOmittedValue)
-            ? this.lastId
-            : lastId as String?,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  SessionArtifactListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => SessionArtifactListResource(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SessionArtifactListResourceObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<SessionArtifactResource>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory SessionArtifactListResource.fromJson(Map<String, dynamic> json) =>
-      SessionArtifactListResource(
-        object: (json['object'] != null
-            ? SessionArtifactListResourceObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map((e) =>
-                SessionArtifactResource.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: json.containsKey('first_id')
-            ? json['first_id'] as String?
-            : throw ArgumentError.value(
-                null, 'first_id', 'Required property is missing'),
-        lastId: json.containsKey('last_id')
-            ? json['last_id'] as String?
-            : throw ArgumentError.value(
-                null, 'last_id', 'Required property is missing'),
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory SessionArtifactListResource.fromJson(Map<String, dynamic> json) => SessionArtifactListResource(
+    object: (json['object'] != null ? SessionArtifactListResourceObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => SessionArtifactResource.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
+    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        'first_id': firstId,
-        'last_id': lastId,
-        'has_more': hasMore,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    'first_id': firstId,
+    'last_id': lastId,
+    'has_more': hasMore,
+  };
 }
 
 /// An immutable file published by a completed hosted session turn.
 class SessionArtifactResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The immutable artifact ID.
   final String id;
-
   /// The object type. Always `agent.session.artifact`.
   final SessionArtifactResourceObject object;
-
   /// The ID of the session that owns the artifact.
   final String sessionId;
-
   /// The ID of the environment that produced the artifact.
   final String environmentId;
-
   /// The ID of the completed turn that published the artifact.
   final String turnId;
-
   /// The original absolute file path in the execution environment.
   final String path;
-
   /// The immutable artifact size in bytes.
   final int sizeBytes;
-
   /// The Unix timestamp, in seconds, when the artifact was published.
   final int createdAt;
 
-  const SessionArtifactResource(
-      {required this.id,
-      required this.object,
-      required this.sessionId,
-      required this.environmentId,
-      required this.turnId,
-      required this.path,
-      required this.sizeBytes,
-      required this.createdAt});
+  const SessionArtifactResource({required this.id, required this.object, required this.sessionId, required this.environmentId, required this.turnId, required this.path, required this.sizeBytes, required this.createdAt});
 
-  SessionArtifactResource Function(
-      {String id,
-      SessionArtifactResourceObject object,
-      String sessionId,
-      String environmentId,
-      String turnId,
-      String path,
-      int sizeBytes,
-      int createdAt}) get copyWith => _copyWith;
+  SessionArtifactResource Function({String id, SessionArtifactResourceObject object, String sessionId, String environmentId, String turnId, String path, int sizeBytes, int createdAt}) get copyWith => _copyWith;
 
-  SessionArtifactResource _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? sessionId = sdkOmittedValue,
-          Object? environmentId = sdkOmittedValue,
-          Object? turnId = sdkOmittedValue,
-          Object? path = sdkOmittedValue,
-          Object? sizeBytes = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      SessionArtifactResource(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SessionArtifactResourceObject,
-        sessionId: identical(sessionId, sdkOmittedValue)
-            ? this.sessionId
-            : sessionId as String,
-        environmentId: identical(environmentId, sdkOmittedValue)
-            ? this.environmentId
-            : environmentId as String,
-        turnId:
-            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-        path: identical(path, sdkOmittedValue) ? this.path : path as String,
-        sizeBytes: identical(sizeBytes, sdkOmittedValue)
-            ? this.sizeBytes
-            : sizeBytes as int,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-      );
+  SessionArtifactResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? environmentId = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? path = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => SessionArtifactResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SessionArtifactResourceObject,
+    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
+    environmentId: identical(environmentId, sdkOmittedValue) ? this.environmentId : environmentId as String,
+    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+    path: identical(path, sdkOmittedValue) ? this.path : path as String,
+    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as int,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+  );
 
-  factory SessionArtifactResource.fromJson(Map<String, dynamic> json) =>
-      SessionArtifactResource(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? SessionArtifactResourceObject.fromJson(json['object'] as String)
-            : null)!,
-        sessionId: (json['session_id'] as String?)!,
-        environmentId: (json['environment_id'] as String?)!,
-        turnId: (json['turn_id'] as String?)!,
-        path: (json['path'] as String?)!,
-        sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-      );
+  factory SessionArtifactResource.fromJson(Map<String, dynamic> json) => SessionArtifactResource(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? SessionArtifactResourceObject.fromJson(json['object'] as String) : null)!,
+    sessionId: (json['session_id'] as String?)!,
+    environmentId: (json['environment_id'] as String?)!,
+    turnId: (json['turn_id'] as String?)!,
+    path: (json['path'] as String?)!,
+    sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'session_id': sessionId,
-        'environment_id': environmentId,
-        'turn_id': turnId,
-        'path': path,
-        'size_bytes': sizeBytes,
-        'created_at': createdAt,
-      };
+    'id': id,
+    'object': object.toJson(),
+    'session_id': sessionId,
+    'environment_id': environmentId,
+    'turn_id': turnId,
+    'path': path,
+    'size_bytes': sizeBytes,
+    'created_at': createdAt,
+  };
 }

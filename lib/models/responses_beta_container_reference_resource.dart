@@ -8,43 +8,27 @@ part of 'responses_beta_container.dart';
 class BetaContainerReferenceResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The environment type. Always `container_reference`.
   final BetaContainerReferenceResourceType type_;
-
   /// Required `string` value serialized in the `container_id` wire field.
   final String containerId;
 
-  const BetaContainerReferenceResource(
-      {required this.type_, required this.containerId});
+  const BetaContainerReferenceResource({required this.type_, required this.containerId});
 
-  BetaContainerReferenceResource Function(
-      {BetaContainerReferenceResourceType type_,
-      String containerId}) get copyWith => _copyWith;
+  BetaContainerReferenceResource Function({BetaContainerReferenceResourceType type_, String containerId}) get copyWith => _copyWith;
 
-  BetaContainerReferenceResource _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? containerId = sdkOmittedValue}) =>
-      BetaContainerReferenceResource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaContainerReferenceResourceType,
-        containerId: identical(containerId, sdkOmittedValue)
-            ? this.containerId
-            : containerId as String,
-      );
+  BetaContainerReferenceResource _copyWith({Object? type_ = sdkOmittedValue, Object? containerId = sdkOmittedValue}) => BetaContainerReferenceResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaContainerReferenceResourceType,
+    containerId: identical(containerId, sdkOmittedValue) ? this.containerId : containerId as String,
+  );
 
-  factory BetaContainerReferenceResource.fromJson(Map<String, dynamic> json) =>
-      BetaContainerReferenceResource(
-        type_: (json['type'] != null
-            ? BetaContainerReferenceResourceType.fromJson(
-                json['type'] as String)
-            : null)!,
-        containerId: (json['container_id'] as String?)!,
-      );
+  factory BetaContainerReferenceResource.fromJson(Map<String, dynamic> json) => BetaContainerReferenceResource(
+    type_: (json['type'] != null ? BetaContainerReferenceResourceType.fromJson(json['type'] as String) : null)!,
+    containerId: (json['container_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'container_id': containerId,
-      };
+    'type': type_.toJson(),
+    'container_id': containerId,
+  };
 }

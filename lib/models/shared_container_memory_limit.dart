@@ -6,12 +6,12 @@ part of 'shared_container.dart';
 // shared_container domain models
 /// Typed representation of the `ContainerMemoryLimit` API schema.
 final class ContainerMemoryLimit {
+
   final String value;
 
   const ContainerMemoryLimit._(this.value);
 
-  factory ContainerMemoryLimit.fromJson(String value) =>
-      ContainerMemoryLimit._(value);
+  factory ContainerMemoryLimit.fromJson(String value) => ContainerMemoryLimit._(value);
 
   static const v1g = ContainerMemoryLimit._('1g');
   static const v4g = ContainerMemoryLimit._('4g');
@@ -20,13 +20,10 @@ final class ContainerMemoryLimit {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContainerMemoryLimit && other.value == value;
+  @override bool operator ==(Object other) => other is ContainerMemoryLimit && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

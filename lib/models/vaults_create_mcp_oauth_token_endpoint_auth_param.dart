@@ -10,90 +10,40 @@ sealed class CreateMcpOauthTokenEndpointAuthParam {
   const CreateMcpOauthTokenEndpointAuthParam();
   factory CreateMcpOauthTokenEndpointAuthParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = CreateMcpOauthTokenEndpointAuthParamNone.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            CreateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
-                json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            CreateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost(
-              value);
-        }
-      } catch (_) {}
+      try { final value = CreateMcpOauthTokenEndpointAuthParamNone.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(value); } } catch (_) {}
+      try { final value = CreateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic(value); } } catch (_) {}
+      try { final value = CreateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost(value); } } catch (_) {}
     }
-    try {
-      return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(
-          CreateMcpOauthTokenEndpointAuthParamNone.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-          CreateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost(
-          CreateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"none", "client_secret_basic", "client_secret_post"}
-            .contains(json["type"])) {
-      return UnknownCreateMcpOauthTokenEndpointAuthParam(json);
-    }
-    throw FormatException(
-        "No variant matched for CreateMcpOauthTokenEndpointAuthParam");
+    try { return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(CreateMcpOauthTokenEndpointAuthParamNone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic(CreateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost(CreateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"none", "client_secret_basic", "client_secret_post"}.contains(json["type"])) { return UnknownCreateMcpOauthTokenEndpointAuthParam(json); }
+    throw FormatException("No variant matched for CreateMcpOauthTokenEndpointAuthParam");
   }
   Object? toJson();
 }
 
-final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone
-    extends CreateMcpOauthTokenEndpointAuthParam {
+final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone extends CreateMcpOauthTokenEndpointAuthParam {
   final CreateMcpOauthTokenEndpointAuthParamNone value;
-  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamNone(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic
-    extends CreateMcpOauthTokenEndpointAuthParam {
+final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic extends CreateMcpOauthTokenEndpointAuthParam {
   final CreateMcpOauthTokenEndpointAuthParamClientSecretBasic value;
-  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretBasic(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost
-    extends CreateMcpOauthTokenEndpointAuthParam {
+final class CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost extends CreateMcpOauthTokenEndpointAuthParam {
   final CreateMcpOauthTokenEndpointAuthParamClientSecretPost value;
-  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateMcpOauthTokenEndpointAuthParamCreateMcpOauthTokenEndpointAuthParamClientSecretPost(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [CreateMcpOauthTokenEndpointAuthParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateMcpOauthTokenEndpointAuthParam
-    extends CreateMcpOauthTokenEndpointAuthParam {
+final class UnknownCreateMcpOauthTokenEndpointAuthParam extends CreateMcpOauthTokenEndpointAuthParam {
   final Map<String, dynamic> raw;
   const UnknownCreateMcpOauthTokenEndpointAuthParam(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

@@ -6,12 +6,12 @@ part of 'responses_beta_file.dart';
 // responses_beta_file domain models
 /// Typed representation of the `BetaFileDetailEnum` API schema.
 final class BetaFileDetailEnum {
+
   final String value;
 
   const BetaFileDetailEnum._(this.value);
 
-  factory BetaFileDetailEnum.fromJson(String value) =>
-      BetaFileDetailEnum._(value);
+  factory BetaFileDetailEnum.fromJson(String value) => BetaFileDetailEnum._(value);
 
   static const auto = BetaFileDetailEnum._('auto');
   static const low = BetaFileDetailEnum._('low');
@@ -19,13 +19,10 @@ final class BetaFileDetailEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaFileDetailEnum && other.value == value;
+  @override bool operator ==(Object other) => other is BetaFileDetailEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

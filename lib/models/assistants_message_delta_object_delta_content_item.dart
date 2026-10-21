@@ -10,107 +10,48 @@ sealed class MessageDeltaObjectDeltaContentItem {
   const MessageDeltaObjectDeltaContentItem();
   factory MessageDeltaObjectDeltaContentItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = MessageDeltaContentImageFileObject.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = MessageDeltaContentTextObject.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = MessageDeltaContentRefusalObject.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = MessageDeltaContentImageUrlObject.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject(
-              value);
-        }
-      } catch (_) {}
+      try { final value = MessageDeltaContentImageFileObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(value); } } catch (_) {}
+      try { final value = MessageDeltaContentTextObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(value); } } catch (_) {}
+      try { final value = MessageDeltaContentRefusalObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(value); } } catch (_) {}
+      try { final value = MessageDeltaContentImageUrlObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject(value); } } catch (_) {}
     }
-    try {
-      return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(
-          MessageDeltaContentImageFileObject.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(
-          MessageDeltaContentTextObject.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(
-          MessageDeltaContentRefusalObject.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject(
-          MessageDeltaContentImageUrlObject.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"image_file", "text", "refusal", "image_url"}
-            .contains(json["type"])) {
-      return UnknownMessageDeltaObjectDeltaContentItem(json);
-    }
-    throw FormatException(
-        "No variant matched for MessageDeltaObjectDeltaContentItem");
+    try { return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(MessageDeltaContentImageFileObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(MessageDeltaContentTextObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(MessageDeltaContentRefusalObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject(MessageDeltaContentImageUrlObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"image_file", "text", "refusal", "image_url"}.contains(json["type"])) { return UnknownMessageDeltaObjectDeltaContentItem(json); }
+    throw FormatException("No variant matched for MessageDeltaObjectDeltaContentItem");
   }
   Object? toJson();
 }
 
-final class MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject
-    extends MessageDeltaObjectDeltaContentItem {
+final class MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject extends MessageDeltaObjectDeltaContentItem {
   final MessageDeltaContentImageFileObject value;
-  const MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const MessageDeltaObjectDeltaContentItemMessageDeltaContentImageFileObject(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject
-    extends MessageDeltaObjectDeltaContentItem {
+final class MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject extends MessageDeltaObjectDeltaContentItem {
   final MessageDeltaContentTextObject value;
-  const MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const MessageDeltaObjectDeltaContentItemMessageDeltaContentTextObject(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject
-    extends MessageDeltaObjectDeltaContentItem {
+final class MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject extends MessageDeltaObjectDeltaContentItem {
   final MessageDeltaContentRefusalObject value;
-  const MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const MessageDeltaObjectDeltaContentItemMessageDeltaContentRefusalObject(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject
-    extends MessageDeltaObjectDeltaContentItem {
+final class MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject extends MessageDeltaObjectDeltaContentItem {
   final MessageDeltaContentImageUrlObject value;
-  const MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const MessageDeltaObjectDeltaContentItemMessageDeltaContentImageUrlObject(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [MessageDeltaObjectDeltaContentItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownMessageDeltaObjectDeltaContentItem
-    extends MessageDeltaObjectDeltaContentItem {
+final class UnknownMessageDeltaObjectDeltaContentItem extends MessageDeltaObjectDeltaContentItem {
   final Map<String, dynamic> raw;
   const UnknownMessageDeltaObjectDeltaContentItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

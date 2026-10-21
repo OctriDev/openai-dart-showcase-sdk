@@ -8,46 +8,32 @@ part of 'shared.dart';
 class TopLogProb {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `token` wire field.
   final String token;
-
   /// Required `number` value serialized in the `logprob` wire field.
   final double logprob;
-
   /// Required array value serialized in the `bytes` wire field.
   final List<int> bytes;
 
-  const TopLogProb(
-      {required this.token, required this.logprob, required this.bytes});
+  const TopLogProb({required this.token, required this.logprob, required this.bytes});
 
-  TopLogProb Function({String token, double logprob, List<int> bytes})
-      get copyWith => _copyWith;
+  TopLogProb Function({String token, double logprob, List<int> bytes}) get copyWith => _copyWith;
 
-  TopLogProb _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue,
-          Object? bytes = sdkOmittedValue}) =>
-      TopLogProb(
-        token: identical(token, sdkOmittedValue) ? this.token : token as String,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as double,
-        bytes:
-            identical(bytes, sdkOmittedValue) ? this.bytes : bytes as List<int>,
-      );
+  TopLogProb _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? bytes = sdkOmittedValue}) => TopLogProb(
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as double,
+    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as List<int>,
+  );
 
   factory TopLogProb.fromJson(Map<String, dynamic> json) => TopLogProb(
-        token: (json['token'] as String?)!,
-        logprob: ((json['logprob'] as num?)?.toDouble())!,
-        bytes: ((json['bytes'] as List?)
-            ?.map((e) => (e as num).toInt())
-            .toList())!,
-      );
+    token: (json['token'] as String?)!,
+    logprob: ((json['logprob'] as num?)?.toDouble())!,
+    bytes: ((json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'token': token,
-        'logprob': logprob,
-        'bytes': bytes,
-      };
+    'token': token,
+    'logprob': logprob,
+    'bytes': bytes,
+  };
 }

@@ -8,57 +8,32 @@ part of 'agents_session_event.dart';
 class SessionEventAgentSessionSubagentActive {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `agent.session.subagent.active`.
   final SessionEventAgentSessionSubagentActiveType type_;
-
   /// The unique ID of the event.
   final String eventId;
-
   /// The subagent that resumed.
   final SubagentResource subagent;
 
-  const SessionEventAgentSessionSubagentActive(
-      {required this.type_, required this.eventId, required this.subagent});
+  const SessionEventAgentSessionSubagentActive({required this.type_, required this.eventId, required this.subagent});
 
-  SessionEventAgentSessionSubagentActive Function(
-      {SessionEventAgentSessionSubagentActiveType type_,
-      String eventId,
-      SubagentResource subagent}) get copyWith => _copyWith;
+  SessionEventAgentSessionSubagentActive Function({SessionEventAgentSessionSubagentActiveType type_, String eventId, SubagentResource subagent}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionSubagentActive _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? subagent = sdkOmittedValue}) =>
-      SessionEventAgentSessionSubagentActive(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SessionEventAgentSessionSubagentActiveType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        subagent: identical(subagent, sdkOmittedValue)
-            ? this.subagent
-            : subagent as SubagentResource,
-      );
+  SessionEventAgentSessionSubagentActive _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? subagent = sdkOmittedValue}) => SessionEventAgentSessionSubagentActive(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionSubagentActiveType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    subagent: identical(subagent, sdkOmittedValue) ? this.subagent : subagent as SubagentResource,
+  );
 
-  factory SessionEventAgentSessionSubagentActive.fromJson(
-          Map<String, dynamic> json) =>
-      SessionEventAgentSessionSubagentActive(
-        type_: (json['type'] != null
-            ? SessionEventAgentSessionSubagentActiveType.fromJson(
-                json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        subagent: (json['subagent'] != null
-            ? SubagentResource.fromJson(
-                json['subagent'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory SessionEventAgentSessionSubagentActive.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionSubagentActive(
+    type_: (json['type'] != null ? SessionEventAgentSessionSubagentActiveType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    subagent: (json['subagent'] != null ? SubagentResource.fromJson(json['subagent'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        'subagent': subagent.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    'subagent': subagent.toJson(),
+  };
 }

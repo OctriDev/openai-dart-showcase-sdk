@@ -8,62 +8,46 @@ part of 'responses_beta_direct.dart';
 class BetaDirectToolCallCaller {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final BetaDirectToolCallCallerType type_;
 
   const BetaDirectToolCallCaller({required this.type_});
 
-  BetaDirectToolCallCaller Function({BetaDirectToolCallCallerType type_})
-      get copyWith => _copyWith;
+  BetaDirectToolCallCaller Function({BetaDirectToolCallCallerType type_}) get copyWith => _copyWith;
 
-  BetaDirectToolCallCaller _copyWith({Object? type_ = sdkOmittedValue}) =>
-      BetaDirectToolCallCaller(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaDirectToolCallCallerType,
-      );
+  BetaDirectToolCallCaller _copyWith({Object? type_ = sdkOmittedValue}) => BetaDirectToolCallCaller(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaDirectToolCallCallerType,
+  );
 
-  factory BetaDirectToolCallCaller.fromJson(Map<String, dynamic> json) =>
-      BetaDirectToolCallCaller(
-        type_: (json['type'] != null
-            ? BetaDirectToolCallCallerType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory BetaDirectToolCallCaller.fromJson(Map<String, dynamic> json) => BetaDirectToolCallCaller(
+    type_: (json['type'] != null ? BetaDirectToolCallCallerType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `BetaDirectToolCallCallerParam` API schema.
 class BetaDirectToolCallCallerParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The caller type. Always `direct`.
   final BetaDirectToolCallCallerParamType type_;
 
   const BetaDirectToolCallCallerParam({required this.type_});
 
-  BetaDirectToolCallCallerParam Function(
-      {BetaDirectToolCallCallerParamType type_}) get copyWith => _copyWith;
+  BetaDirectToolCallCallerParam Function({BetaDirectToolCallCallerParamType type_}) get copyWith => _copyWith;
 
-  BetaDirectToolCallCallerParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      BetaDirectToolCallCallerParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaDirectToolCallCallerParamType,
-      );
+  BetaDirectToolCallCallerParam _copyWith({Object? type_ = sdkOmittedValue}) => BetaDirectToolCallCallerParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaDirectToolCallCallerParamType,
+  );
 
-  factory BetaDirectToolCallCallerParam.fromJson(Map<String, dynamic> json) =>
-      BetaDirectToolCallCallerParam(
-        type_: (json['type'] != null
-            ? BetaDirectToolCallCallerParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory BetaDirectToolCallCallerParam.fromJson(Map<String, dynamic> json) => BetaDirectToolCallCallerParam(
+    type_: (json['type'] != null ? BetaDirectToolCallCallerParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

@@ -10,57 +10,32 @@ sealed class BetaCustomToolParamFormat {
   const BetaCustomToolParamFormat();
   factory BetaCustomToolParamFormat.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaCustomTextFormatParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaCustomToolParamFormatBetaCustomTextFormatParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaCustomGrammarFormatParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaCustomToolParamFormatBetaCustomGrammarFormatParam(value);
-        }
-      } catch (_) {}
+      try { final value = BetaCustomTextFormatParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaCustomToolParamFormatBetaCustomTextFormatParam(value); } } catch (_) {}
+      try { final value = BetaCustomGrammarFormatParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaCustomToolParamFormatBetaCustomGrammarFormatParam(value); } } catch (_) {}
     }
-    try {
-      return BetaCustomToolParamFormatBetaCustomTextFormatParam(
-          BetaCustomTextFormatParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaCustomToolParamFormatBetaCustomGrammarFormatParam(
-          BetaCustomGrammarFormatParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"text", "grammar"}.contains(json["type"])) {
-      return UnknownBetaCustomToolParamFormat(json);
-    }
+    try { return BetaCustomToolParamFormatBetaCustomTextFormatParam(BetaCustomTextFormatParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaCustomToolParamFormatBetaCustomGrammarFormatParam(BetaCustomGrammarFormatParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "grammar"}.contains(json["type"])) { return UnknownBetaCustomToolParamFormat(json); }
     throw FormatException("No variant matched for BetaCustomToolParamFormat");
   }
   Object? toJson();
 }
 
-final class BetaCustomToolParamFormatBetaCustomTextFormatParam
-    extends BetaCustomToolParamFormat {
+final class BetaCustomToolParamFormatBetaCustomTextFormatParam extends BetaCustomToolParamFormat {
   final BetaCustomTextFormatParam value;
   const BetaCustomToolParamFormatBetaCustomTextFormatParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaCustomToolParamFormatBetaCustomGrammarFormatParam
-    extends BetaCustomToolParamFormat {
+final class BetaCustomToolParamFormatBetaCustomGrammarFormatParam extends BetaCustomToolParamFormat {
   final BetaCustomGrammarFormatParam value;
   const BetaCustomToolParamFormatBetaCustomGrammarFormatParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaCustomToolParamFormat] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaCustomToolParamFormat extends BetaCustomToolParamFormat {
   final Map<String, dynamic> raw;
   const UnknownBetaCustomToolParamFormat(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

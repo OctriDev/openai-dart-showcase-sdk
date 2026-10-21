@@ -11,8 +11,9 @@ class LiveConnectParams {
 
   const LiveConnectParams();
 
-  factory LiveConnectParams.fromJson(Map<String, dynamic> json) =>
-      LiveConnectParams();
+  factory LiveConnectParams.fromJson(Map<String, dynamic> json) => LiveConnectParams(
+  );
 
-  Map<String, dynamic> toJson() => {};
+  Map<String, dynamic> toJson() => {
+  };
 }

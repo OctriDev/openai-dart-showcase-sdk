@@ -10,18 +10,14 @@ enum RunStepDeltaStepDetailsToolCallsCodeObjectType {
 
   static RunStepDeltaStepDetailsToolCallsCodeObjectType fromJson(String value) {
     switch (value) {
-      case 'code_interpreter':
-        return RunStepDeltaStepDetailsToolCallsCodeObjectType.codeInterpreter;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDeltaStepDetailsToolCallsCodeObjectType: $value');
+      case 'code_interpreter': return RunStepDeltaStepDetailsToolCallsCodeObjectType.codeInterpreter;
+      default: throw ArgumentError('Unknown RunStepDeltaStepDetailsToolCallsCodeObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDeltaStepDetailsToolCallsCodeObjectType.codeInterpreter:
-        return 'code_interpreter';
+      case RunStepDeltaStepDetailsToolCallsCodeObjectType.codeInterpreter: return 'code_interpreter';
     }
   }
 
@@ -33,21 +29,16 @@ enum RunStepDeltaStepDetailsToolCallsCodeObjectType {
 enum RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType {
   image;
 
-  static RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType fromJson(
-      String value) {
+  static RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType fromJson(String value) {
     switch (value) {
-      case 'image':
-        return RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType.image;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType: $value');
+      case 'image': return RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType.image;
+      default: throw ArgumentError('Unknown RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType.image:
-        return 'image';
+      case RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType.image: return 'image';
     }
   }
 
@@ -59,21 +50,16 @@ enum RunStepDeltaStepDetailsToolCallsCodeOutputImageObjectType {
 enum RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType {
   logs;
 
-  static RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType fromJson(
-      String value) {
+  static RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType fromJson(String value) {
     switch (value) {
-      case 'logs':
-        return RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType.logs;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType: $value');
+      case 'logs': return RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType.logs;
+      default: throw ArgumentError('Unknown RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType.logs:
-        return 'logs';
+      case RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType.logs: return 'logs';
     }
   }
 
@@ -85,21 +71,16 @@ enum RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType {
 enum RunStepDeltaStepDetailsToolCallsFileSearchObjectType {
   fileSearch;
 
-  static RunStepDeltaStepDetailsToolCallsFileSearchObjectType fromJson(
-      String value) {
+  static RunStepDeltaStepDetailsToolCallsFileSearchObjectType fromJson(String value) {
     switch (value) {
-      case 'file_search':
-        return RunStepDeltaStepDetailsToolCallsFileSearchObjectType.fileSearch;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDeltaStepDetailsToolCallsFileSearchObjectType: $value');
+      case 'file_search': return RunStepDeltaStepDetailsToolCallsFileSearchObjectType.fileSearch;
+      default: throw ArgumentError('Unknown RunStepDeltaStepDetailsToolCallsFileSearchObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDeltaStepDetailsToolCallsFileSearchObjectType.fileSearch:
-        return 'file_search';
+      case RunStepDeltaStepDetailsToolCallsFileSearchObjectType.fileSearch: return 'file_search';
     }
   }
 
@@ -111,21 +92,16 @@ enum RunStepDeltaStepDetailsToolCallsFileSearchObjectType {
 enum RunStepDeltaStepDetailsToolCallsFunctionObjectType {
   function_;
 
-  static RunStepDeltaStepDetailsToolCallsFunctionObjectType fromJson(
-      String value) {
+  static RunStepDeltaStepDetailsToolCallsFunctionObjectType fromJson(String value) {
     switch (value) {
-      case 'function':
-        return RunStepDeltaStepDetailsToolCallsFunctionObjectType.function_;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDeltaStepDetailsToolCallsFunctionObjectType: $value');
+      case 'function': return RunStepDeltaStepDetailsToolCallsFunctionObjectType.function_;
+      default: throw ArgumentError('Unknown RunStepDeltaStepDetailsToolCallsFunctionObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDeltaStepDetailsToolCallsFunctionObjectType.function_:
-        return 'function';
+      case RunStepDeltaStepDetailsToolCallsFunctionObjectType.function_: return 'function';
     }
   }
 
@@ -139,18 +115,14 @@ enum RunStepDeltaStepDetailsToolCallsObjectType {
 
   static RunStepDeltaStepDetailsToolCallsObjectType fromJson(String value) {
     switch (value) {
-      case 'tool_calls':
-        return RunStepDeltaStepDetailsToolCallsObjectType.toolCalls;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDeltaStepDetailsToolCallsObjectType: $value');
+      case 'tool_calls': return RunStepDeltaStepDetailsToolCallsObjectType.toolCalls;
+      default: throw ArgumentError('Unknown RunStepDeltaStepDetailsToolCallsObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDeltaStepDetailsToolCallsObjectType.toolCalls:
-        return 'tool_calls';
+      case RunStepDeltaStepDetailsToolCallsObjectType.toolCalls: return 'tool_calls';
     }
   }
 
@@ -164,18 +136,14 @@ enum RunStepDetailsMessageCreationObjectType {
 
   static RunStepDetailsMessageCreationObjectType fromJson(String value) {
     switch (value) {
-      case 'message_creation':
-        return RunStepDetailsMessageCreationObjectType.messageCreation;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDetailsMessageCreationObjectType: $value');
+      case 'message_creation': return RunStepDetailsMessageCreationObjectType.messageCreation;
+      default: throw ArgumentError('Unknown RunStepDetailsMessageCreationObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDetailsMessageCreationObjectType.messageCreation:
-        return 'message_creation';
+      case RunStepDetailsMessageCreationObjectType.messageCreation: return 'message_creation';
     }
   }
 
@@ -189,18 +157,14 @@ enum RunStepDetailsToolCallsCodeObjectType {
 
   static RunStepDetailsToolCallsCodeObjectType fromJson(String value) {
     switch (value) {
-      case 'code_interpreter':
-        return RunStepDetailsToolCallsCodeObjectType.codeInterpreter;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDetailsToolCallsCodeObjectType: $value');
+      case 'code_interpreter': return RunStepDetailsToolCallsCodeObjectType.codeInterpreter;
+      default: throw ArgumentError('Unknown RunStepDetailsToolCallsCodeObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDetailsToolCallsCodeObjectType.codeInterpreter:
-        return 'code_interpreter';
+      case RunStepDetailsToolCallsCodeObjectType.codeInterpreter: return 'code_interpreter';
     }
   }
 
@@ -212,21 +176,16 @@ enum RunStepDetailsToolCallsCodeObjectType {
 enum RunStepDetailsToolCallsCodeOutputImageObjectType {
   image;
 
-  static RunStepDetailsToolCallsCodeOutputImageObjectType fromJson(
-      String value) {
+  static RunStepDetailsToolCallsCodeOutputImageObjectType fromJson(String value) {
     switch (value) {
-      case 'image':
-        return RunStepDetailsToolCallsCodeOutputImageObjectType.image;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDetailsToolCallsCodeOutputImageObjectType: $value');
+      case 'image': return RunStepDetailsToolCallsCodeOutputImageObjectType.image;
+      default: throw ArgumentError('Unknown RunStepDetailsToolCallsCodeOutputImageObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDetailsToolCallsCodeOutputImageObjectType.image:
-        return 'image';
+      case RunStepDetailsToolCallsCodeOutputImageObjectType.image: return 'image';
     }
   }
 
@@ -238,21 +197,16 @@ enum RunStepDetailsToolCallsCodeOutputImageObjectType {
 enum RunStepDetailsToolCallsCodeOutputLogsObjectType {
   logs;
 
-  static RunStepDetailsToolCallsCodeOutputLogsObjectType fromJson(
-      String value) {
+  static RunStepDetailsToolCallsCodeOutputLogsObjectType fromJson(String value) {
     switch (value) {
-      case 'logs':
-        return RunStepDetailsToolCallsCodeOutputLogsObjectType.logs;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDetailsToolCallsCodeOutputLogsObjectType: $value');
+      case 'logs': return RunStepDetailsToolCallsCodeOutputLogsObjectType.logs;
+      default: throw ArgumentError('Unknown RunStepDetailsToolCallsCodeOutputLogsObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDetailsToolCallsCodeOutputLogsObjectType.logs:
-        return 'logs';
+      case RunStepDetailsToolCallsCodeOutputLogsObjectType.logs: return 'logs';
     }
   }
 
@@ -266,18 +220,14 @@ enum RunStepDetailsToolCallsFileSearchObjectType {
 
   static RunStepDetailsToolCallsFileSearchObjectType fromJson(String value) {
     switch (value) {
-      case 'file_search':
-        return RunStepDetailsToolCallsFileSearchObjectType.fileSearch;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDetailsToolCallsFileSearchObjectType: $value');
+      case 'file_search': return RunStepDetailsToolCallsFileSearchObjectType.fileSearch;
+      default: throw ArgumentError('Unknown RunStepDetailsToolCallsFileSearchObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDetailsToolCallsFileSearchObjectType.fileSearch:
-        return 'file_search';
+      case RunStepDetailsToolCallsFileSearchObjectType.fileSearch: return 'file_search';
     }
   }
 
@@ -287,30 +237,23 @@ enum RunStepDetailsToolCallsFileSearchObjectType {
 
 /// The type of the content.
 final class RunStepDetailsToolCallsFileSearchResultObjectContentItemType {
+
   final String value;
 
-  const RunStepDetailsToolCallsFileSearchResultObjectContentItemType._(
-      this.value);
+  const RunStepDetailsToolCallsFileSearchResultObjectContentItemType._(this.value);
 
-  factory RunStepDetailsToolCallsFileSearchResultObjectContentItemType.fromJson(
-          String value) =>
-      RunStepDetailsToolCallsFileSearchResultObjectContentItemType._(value);
+  factory RunStepDetailsToolCallsFileSearchResultObjectContentItemType.fromJson(String value) => RunStepDetailsToolCallsFileSearchResultObjectContentItemType._(value);
 
-  static const text =
-      RunStepDetailsToolCallsFileSearchResultObjectContentItemType._('text');
+  static const text = RunStepDetailsToolCallsFileSearchResultObjectContentItemType._('text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RunStepDetailsToolCallsFileSearchResultObjectContentItemType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RunStepDetailsToolCallsFileSearchResultObjectContentItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of tool call. This is always going to be `function` for this type of tool call.
@@ -319,18 +262,14 @@ enum RunStepDetailsToolCallsFunctionObjectType {
 
   static RunStepDetailsToolCallsFunctionObjectType fromJson(String value) {
     switch (value) {
-      case 'function':
-        return RunStepDetailsToolCallsFunctionObjectType.function_;
-      default:
-        throw ArgumentError(
-            'Unknown RunStepDetailsToolCallsFunctionObjectType: $value');
+      case 'function': return RunStepDetailsToolCallsFunctionObjectType.function_;
+      default: throw ArgumentError('Unknown RunStepDetailsToolCallsFunctionObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDetailsToolCallsFunctionObjectType.function_:
-        return 'function';
+      case RunStepDetailsToolCallsFunctionObjectType.function_: return 'function';
     }
   }
 

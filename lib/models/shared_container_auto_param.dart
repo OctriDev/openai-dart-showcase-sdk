@@ -8,115 +8,54 @@ part of 'shared_container.dart';
 class ContainerAutoParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Automatically creates a container for this request
   final ContainerAutoParamType type_;
-
   /// An optional list of uploaded files to make available to your code.
   final SdkOptional<List<String>> fileIds;
-
   /// Optional API value serialized in the `memory_limit` wire field.
   final SdkOptional<ContainerMemoryLimit?> memoryLimit;
-
   /// Network access policy for the container.
   final SdkOptional<ContainerAutoParamNetworkPolicy> networkPolicy;
-
   /// An optional list of skills referenced by id or inline data.
   final SdkOptional<List<ContainerAutoParamSkillsItem>> skills;
 
-  const ContainerAutoParam(
-      {required this.type_,
-      this.fileIds = const SdkOmitted(),
-      this.memoryLimit = const SdkOmitted(),
-      this.networkPolicy = const SdkOmitted(),
-      this.skills = const SdkOmitted()});
+  const ContainerAutoParam({required this.type_, this.fileIds = const SdkOmitted(), this.memoryLimit = const SdkOmitted(), this.networkPolicy = const SdkOmitted(), this.skills = const SdkOmitted()});
 
-  ContainerAutoParam Function(
-          {ContainerAutoParamType type_,
-          SdkOptional<List<String>> fileIds,
-          SdkOptional<ContainerMemoryLimit?> memoryLimit,
-          SdkOptional<ContainerAutoParamNetworkPolicy> networkPolicy,
-          SdkOptional<List<ContainerAutoParamSkillsItem>> skills})
-      get copyWith => _copyWith;
+  ContainerAutoParam Function({ContainerAutoParamType type_, SdkOptional<List<String>> fileIds, SdkOptional<ContainerMemoryLimit?> memoryLimit, SdkOptional<ContainerAutoParamNetworkPolicy> networkPolicy, SdkOptional<List<ContainerAutoParamSkillsItem>> skills}) get copyWith => _copyWith;
 
-  ContainerAutoParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? fileIds = sdkOmittedValue,
-          Object? memoryLimit = sdkOmittedValue,
-          Object? networkPolicy = sdkOmittedValue,
-          Object? skills = sdkOmittedValue}) =>
-      ContainerAutoParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ContainerAutoParamType,
-        fileIds: identical(fileIds, sdkOmittedValue)
-            ? this.fileIds
-            : fileIds as SdkOptional<List<String>>,
-        memoryLimit: identical(memoryLimit, sdkOmittedValue)
-            ? this.memoryLimit
-            : memoryLimit as SdkOptional<ContainerMemoryLimit?>,
-        networkPolicy: identical(networkPolicy, sdkOmittedValue)
-            ? this.networkPolicy
-            : networkPolicy as SdkOptional<ContainerAutoParamNetworkPolicy>,
-        skills: identical(skills, sdkOmittedValue)
-            ? this.skills
-            : skills as SdkOptional<List<ContainerAutoParamSkillsItem>>,
-      );
+  ContainerAutoParam _copyWith({Object? type_ = sdkOmittedValue, Object? fileIds = sdkOmittedValue, Object? memoryLimit = sdkOmittedValue, Object? networkPolicy = sdkOmittedValue, Object? skills = sdkOmittedValue}) => ContainerAutoParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContainerAutoParamType,
+    fileIds: identical(fileIds, sdkOmittedValue) ? this.fileIds : fileIds as SdkOptional<List<String>>,
+    memoryLimit: identical(memoryLimit, sdkOmittedValue) ? this.memoryLimit : memoryLimit as SdkOptional<ContainerMemoryLimit?>,
+    networkPolicy: identical(networkPolicy, sdkOmittedValue) ? this.networkPolicy : networkPolicy as SdkOptional<ContainerAutoParamNetworkPolicy>,
+    skills: identical(skills, sdkOmittedValue) ? this.skills : skills as SdkOptional<List<ContainerAutoParamSkillsItem>>,
+  );
 
-  factory ContainerAutoParam.fromJson(Map<String, dynamic> json) =>
-      ContainerAutoParam(
-        type_: (json['type'] != null
-            ? ContainerAutoParamType.fromJson(json['type'] as String)
-            : null)!,
-        fileIds: json['file_ids'] != null
-            ? SdkPresent(((json['file_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        memoryLimit: json.containsKey('memory_limit')
-            ? SdkPresent(json['memory_limit'] != null
-                ? ContainerMemoryLimit.fromJson(json['memory_limit'] as String)
-                : null)
-            : const SdkOmitted(),
-        networkPolicy: json['network_policy'] != null
-            ? SdkPresent((json['network_policy'] != null
-                ? ContainerAutoParamNetworkPolicy.fromJson(
-                    json['network_policy'])
-                : null)!)
-            : const SdkOmitted(),
-        skills: json['skills'] != null
-            ? SdkPresent(((json['skills'] as List?)
-                ?.map((e) => ContainerAutoParamSkillsItem.fromJson(e))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ContainerAutoParam.fromJson(Map<String, dynamic> json) => ContainerAutoParam(
+    type_: (json['type'] != null ? ContainerAutoParamType.fromJson(json['type'] as String) : null)!,
+    fileIds: json['file_ids'] != null ? SdkPresent(((json['file_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    memoryLimit: json.containsKey('memory_limit') ? SdkPresent(json['memory_limit'] != null ? ContainerMemoryLimit.fromJson(json['memory_limit'] as String) : null) : const SdkOmitted(),
+    networkPolicy: json['network_policy'] != null ? SdkPresent((json['network_policy'] != null ? ContainerAutoParamNetworkPolicy.fromJson(json['network_policy']) : null)!) : const SdkOmitted(),
+    skills: json['skills'] != null ? SdkPresent(((json['skills'] as List?)?.map((e) => ContainerAutoParamSkillsItem.fromJson(e)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (fileIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'file_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (memoryLimit) {
-          SdkPresent<ContainerMemoryLimit?>(value: final value) => {
-              'memory_limit': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (networkPolicy) {
-          SdkPresent<ContainerAutoParamNetworkPolicy>(value: final value) => {
-              'network_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (skills) {
-          SdkPresent<List<ContainerAutoParamSkillsItem>>(value: final value) =>
-            {
-              'skills': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (fileIds) {
+      SdkPresent<List<String>>(value: final value) => {'file_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (memoryLimit) {
+      SdkPresent<ContainerMemoryLimit?>(value: final value) => {'memory_limit': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (networkPolicy) {
+      SdkPresent<ContainerAutoParamNetworkPolicy>(value: final value) => {'network_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (skills) {
+      SdkPresent<List<ContainerAutoParamSkillsItem>>(value: final value) => {'skills': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

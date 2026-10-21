@@ -8,84 +8,45 @@ part of 'realtime_realtime_client.dart';
 class RealtimeClientEventConversationItemTruncate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
-
   /// The event type, must be `conversation.item.truncate`.
   final RealtimeClientEventConversationItemTruncateType type_;
-
   /// The ID of the assistant message item to truncate. Only assistant message items can be truncated.
   final String itemId;
-
   /// The index of the content part to truncate. Set this to `0`.
   final int contentIndex;
-
   /// Inclusive duration up to which audio is truncated, in milliseconds. If the audio_end_ms is greater than the actual audio duration, the server will respond with an error.
   final int audioEndMs;
 
-  const RealtimeClientEventConversationItemTruncate(
-      {this.eventId = const SdkOmitted(),
-      required this.type_,
-      required this.itemId,
-      required this.contentIndex,
-      required this.audioEndMs});
+  const RealtimeClientEventConversationItemTruncate({this.eventId = const SdkOmitted(), required this.type_, required this.itemId, required this.contentIndex, required this.audioEndMs});
 
-  RealtimeClientEventConversationItemTruncate Function(
-      {SdkOptional<String> eventId,
-      RealtimeClientEventConversationItemTruncateType type_,
-      String itemId,
-      int contentIndex,
-      int audioEndMs}) get copyWith => _copyWith;
+  RealtimeClientEventConversationItemTruncate Function({SdkOptional<String> eventId, RealtimeClientEventConversationItemTruncateType type_, String itemId, int contentIndex, int audioEndMs}) get copyWith => _copyWith;
 
-  RealtimeClientEventConversationItemTruncate _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? contentIndex = sdkOmittedValue,
-          Object? audioEndMs = sdkOmittedValue}) =>
-      RealtimeClientEventConversationItemTruncate(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeClientEventConversationItemTruncateType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        contentIndex: identical(contentIndex, sdkOmittedValue)
-            ? this.contentIndex
-            : contentIndex as int,
-        audioEndMs: identical(audioEndMs, sdkOmittedValue)
-            ? this.audioEndMs
-            : audioEndMs as int,
-      );
+  RealtimeClientEventConversationItemTruncate _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? audioEndMs = sdkOmittedValue}) => RealtimeClientEventConversationItemTruncate(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventConversationItemTruncateType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
+    audioEndMs: identical(audioEndMs, sdkOmittedValue) ? this.audioEndMs : audioEndMs as int,
+  );
 
-  factory RealtimeClientEventConversationItemTruncate.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeClientEventConversationItemTruncate(
-        eventId: json['event_id'] != null
-            ? SdkPresent((json['event_id'] as String?)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? RealtimeClientEventConversationItemTruncateType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        contentIndex: ((json['content_index'] as num?)?.toInt())!,
-        audioEndMs: ((json['audio_end_ms'] as num?)?.toInt())!,
-      );
+  factory RealtimeClientEventConversationItemTruncate.fromJson(Map<String, dynamic> json) => RealtimeClientEventConversationItemTruncate(
+    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? RealtimeClientEventConversationItemTruncateType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    contentIndex: ((json['content_index'] as num?)?.toInt())!,
+    audioEndMs: ((json['audio_end_ms'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'item_id': itemId,
-        'content_index': contentIndex,
-        'audio_end_ms': audioEndMs,
-      };
+    ...switch (eventId) {
+      SdkPresent<String>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'content_index': contentIndex,
+    'audio_end_ms': audioEndMs,
+  };
 }

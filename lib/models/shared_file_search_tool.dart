@@ -8,103 +8,51 @@ part of 'shared_file.dart';
 class FileSearchTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the file search tool. Always `file_search`.
   final FileSearchToolType type_;
-
   /// The IDs of the vector stores to search.
   final List<String> vectorStoreIds;
-
   /// The maximum number of results to return. This number should be between 1 and 50 inclusive.
   final SdkOptional<int> maxNumResults;
-
   /// Ranking options for search.
   final SdkOptional<RankingOptions> rankingOptions;
-
   /// Optional API value serialized in the `filters` wire field.
   final SdkOptional<Filters?> filters;
 
-  const FileSearchTool(
-      {required this.type_,
-      required this.vectorStoreIds,
-      this.maxNumResults = const SdkOmitted(),
-      this.rankingOptions = const SdkOmitted(),
-      this.filters = const SdkOmitted()});
+  const FileSearchTool({required this.type_, required this.vectorStoreIds, this.maxNumResults = const SdkOmitted(), this.rankingOptions = const SdkOmitted(), this.filters = const SdkOmitted()});
 
-  FileSearchTool Function(
-      {FileSearchToolType type_,
-      List<String> vectorStoreIds,
-      SdkOptional<int> maxNumResults,
-      SdkOptional<RankingOptions> rankingOptions,
-      SdkOptional<Filters?> filters}) get copyWith => _copyWith;
+  FileSearchTool Function({FileSearchToolType type_, List<String> vectorStoreIds, SdkOptional<int> maxNumResults, SdkOptional<RankingOptions> rankingOptions, SdkOptional<Filters?> filters}) get copyWith => _copyWith;
 
-  FileSearchTool _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? vectorStoreIds = sdkOmittedValue,
-          Object? maxNumResults = sdkOmittedValue,
-          Object? rankingOptions = sdkOmittedValue,
-          Object? filters = sdkOmittedValue}) =>
-      FileSearchTool(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as FileSearchToolType,
-        vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue)
-            ? this.vectorStoreIds
-            : vectorStoreIds as List<String>,
-        maxNumResults: identical(maxNumResults, sdkOmittedValue)
-            ? this.maxNumResults
-            : maxNumResults as SdkOptional<int>,
-        rankingOptions: identical(rankingOptions, sdkOmittedValue)
-            ? this.rankingOptions
-            : rankingOptions as SdkOptional<RankingOptions>,
-        filters: identical(filters, sdkOmittedValue)
-            ? this.filters
-            : filters as SdkOptional<Filters?>,
-      );
+  FileSearchTool _copyWith({Object? type_ = sdkOmittedValue, Object? vectorStoreIds = sdkOmittedValue, Object? maxNumResults = sdkOmittedValue, Object? rankingOptions = sdkOmittedValue, Object? filters = sdkOmittedValue}) => FileSearchTool(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FileSearchToolType,
+    vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue) ? this.vectorStoreIds : vectorStoreIds as List<String>,
+    maxNumResults: identical(maxNumResults, sdkOmittedValue) ? this.maxNumResults : maxNumResults as SdkOptional<int>,
+    rankingOptions: identical(rankingOptions, sdkOmittedValue) ? this.rankingOptions : rankingOptions as SdkOptional<RankingOptions>,
+    filters: identical(filters, sdkOmittedValue) ? this.filters : filters as SdkOptional<Filters?>,
+  );
 
   factory FileSearchTool.fromJson(Map<String, dynamic> json) => FileSearchTool(
-        type_: (json['type'] != null
-            ? FileSearchToolType.fromJson(json['type'] as String)
-            : null)!,
-        vectorStoreIds: ((json['vector_store_ids'] as List?)
-            ?.map((e) => e as String)
-            .toList())!,
-        maxNumResults: json['max_num_results'] != null
-            ? SdkPresent(((json['max_num_results'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        rankingOptions: json['ranking_options'] != null
-            ? SdkPresent((json['ranking_options'] != null
-                ? RankingOptions.fromJson(
-                    json['ranking_options'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        filters: json.containsKey('filters')
-            ? SdkPresent(json['filters'] != null
-                ? Filters.fromJson(json['filters'])
-                : null)
-            : const SdkOmitted(),
-      );
+    type_: (json['type'] != null ? FileSearchToolType.fromJson(json['type'] as String) : null)!,
+    vectorStoreIds: ((json['vector_store_ids'] as List?)?.map((e) => e as String).toList())!,
+    maxNumResults: json['max_num_results'] != null ? SdkPresent(((json['max_num_results'] as num?)?.toInt())!) : const SdkOmitted(),
+    rankingOptions: json['ranking_options'] != null ? SdkPresent((json['ranking_options'] != null ? RankingOptions.fromJson(json['ranking_options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    filters: json.containsKey('filters') ? SdkPresent(json['filters'] != null ? Filters.fromJson(json['filters']) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'vector_store_ids': vectorStoreIds,
-        ...switch (maxNumResults) {
-          SdkPresent<int>(value: final value) => {
-              'max_num_results': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rankingOptions) {
-          SdkPresent<RankingOptions>(value: final value) => {
-              'ranking_options': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (filters) {
-          SdkPresent<Filters?>(value: final value) => {
-              'filters': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'vector_store_ids': vectorStoreIds,
+    ...switch (maxNumResults) {
+      SdkPresent<int>(value: final value) => {'max_num_results': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rankingOptions) {
+      SdkPresent<RankingOptions>(value: final value) => {'ranking_options': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (filters) {
+      SdkPresent<Filters?>(value: final value) => {'filters': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

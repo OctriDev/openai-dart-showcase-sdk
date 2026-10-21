@@ -6,6 +6,7 @@ part of 'items.dart';
 // items domain models
 /// Typed representation of the `AttachmentType` API schema.
 final class AttachmentType {
+
   final String value;
 
   const AttachmentType._(this.value);
@@ -17,13 +18,10 @@ final class AttachmentType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AttachmentType && other.value == value;
+  @override bool operator ==(Object other) => other is AttachmentType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

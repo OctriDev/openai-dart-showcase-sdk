@@ -8,92 +8,50 @@ part of 'responses_beta_program.dart';
 class BetaProgramItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `agent` wire field.
   final SdkOptional<BetaAgentTagParam?> agent;
-
   /// The unique ID of this program item.
   final String id;
-
   /// The item type. Always `program`.
   final BetaProgramItemParamType type_;
-
   /// The stable call ID of the program item.
   final String callId;
-
   /// The JavaScript source executed by programmatic tool calling.
   final String code;
-
   /// Opaque program replay fingerprint that must be round-tripped.
   final String fingerprint;
 
-  const BetaProgramItemParam(
-      {this.agent = const SdkOmitted(),
-      required this.id,
-      required this.type_,
-      required this.callId,
-      required this.code,
-      required this.fingerprint});
+  const BetaProgramItemParam({this.agent = const SdkOmitted(), required this.id, required this.type_, required this.callId, required this.code, required this.fingerprint});
 
-  BetaProgramItemParam Function(
-      {SdkOptional<BetaAgentTagParam?> agent,
-      String id,
-      BetaProgramItemParamType type_,
-      String callId,
-      String code,
-      String fingerprint}) get copyWith => _copyWith;
+  BetaProgramItemParam Function({SdkOptional<BetaAgentTagParam?> agent, String id, BetaProgramItemParamType type_, String callId, String code, String fingerprint}) get copyWith => _copyWith;
 
-  BetaProgramItemParam _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? fingerprint = sdkOmittedValue}) =>
-      BetaProgramItemParam(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTagParam?>,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaProgramItemParamType,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        fingerprint: identical(fingerprint, sdkOmittedValue)
-            ? this.fingerprint
-            : fingerprint as String,
-      );
+  BetaProgramItemParam _copyWith({Object? agent = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? code = sdkOmittedValue, Object? fingerprint = sdkOmittedValue}) => BetaProgramItemParam(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTagParam?>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaProgramItemParamType,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    fingerprint: identical(fingerprint, sdkOmittedValue) ? this.fingerprint : fingerprint as String,
+  );
 
-  factory BetaProgramItemParam.fromJson(Map<String, dynamic> json) =>
-      BetaProgramItemParam(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTagParam.fromJson(
-                    json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? BetaProgramItemParamType.fromJson(json['type'] as String)
-            : null)!,
-        callId: (json['call_id'] as String?)!,
-        code: (json['code'] as String?)!,
-        fingerprint: (json['fingerprint'] as String?)!,
-      );
+  factory BetaProgramItemParam.fromJson(Map<String, dynamic> json) => BetaProgramItemParam(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTagParam.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? BetaProgramItemParamType.fromJson(json['type'] as String) : null)!,
+    callId: (json['call_id'] as String?)!,
+    code: (json['code'] as String?)!,
+    fingerprint: (json['fingerprint'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTagParam?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'id': id,
-        'type': type_.toJson(),
-        'call_id': callId,
-        'code': code,
-        'fingerprint': fingerprint,
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTagParam?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'id': id,
+    'type': type_.toJson(),
+    'call_id': callId,
+    'code': code,
+    'fingerprint': fingerprint,
+  };
 }

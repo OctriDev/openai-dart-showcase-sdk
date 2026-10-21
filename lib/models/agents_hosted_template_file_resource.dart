@@ -10,62 +10,32 @@ sealed class HostedTemplateFileResource {
   const HostedTemplateFileResource();
   factory HostedTemplateFileResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = HostedTemplateFileResourceFileId.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return HostedTemplateFileResourceHostedTemplateFileResourceFileId(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = HostedTemplateFileResourceInline.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return HostedTemplateFileResourceHostedTemplateFileResourceInline(
-              value);
-        }
-      } catch (_) {}
+      try { final value = HostedTemplateFileResourceFileId.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateFileResourceHostedTemplateFileResourceFileId(value); } } catch (_) {}
+      try { final value = HostedTemplateFileResourceInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateFileResourceHostedTemplateFileResourceInline(value); } } catch (_) {}
     }
-    try {
-      return HostedTemplateFileResourceHostedTemplateFileResourceFileId(
-          HostedTemplateFileResourceFileId.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return HostedTemplateFileResourceHostedTemplateFileResourceInline(
-          HostedTemplateFileResourceInline.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"file_id", "inline"}.contains(json["type"])) {
-      return UnknownHostedTemplateFileResource(json);
-    }
+    try { return HostedTemplateFileResourceHostedTemplateFileResourceFileId(HostedTemplateFileResourceFileId.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return HostedTemplateFileResourceHostedTemplateFileResourceInline(HostedTemplateFileResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_id", "inline"}.contains(json["type"])) { return UnknownHostedTemplateFileResource(json); }
     throw FormatException("No variant matched for HostedTemplateFileResource");
   }
   Object? toJson();
 }
 
-final class HostedTemplateFileResourceHostedTemplateFileResourceFileId
-    extends HostedTemplateFileResource {
+final class HostedTemplateFileResourceHostedTemplateFileResourceFileId extends HostedTemplateFileResource {
   final HostedTemplateFileResourceFileId value;
   const HostedTemplateFileResourceHostedTemplateFileResourceFileId(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class HostedTemplateFileResourceHostedTemplateFileResourceInline
-    extends HostedTemplateFileResource {
+final class HostedTemplateFileResourceHostedTemplateFileResourceInline extends HostedTemplateFileResource {
   final HostedTemplateFileResourceInline value;
   const HostedTemplateFileResourceHostedTemplateFileResourceInline(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [HostedTemplateFileResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownHostedTemplateFileResource
-    extends HostedTemplateFileResource {
+final class UnknownHostedTemplateFileResource extends HostedTemplateFileResource {
   final Map<String, dynamic> raw;
   const UnknownHostedTemplateFileResource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

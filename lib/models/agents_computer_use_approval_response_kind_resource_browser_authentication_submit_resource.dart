@@ -8,69 +8,32 @@ part of 'agents_computer.dart';
 class ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType
-      type_;
-
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType type_;
   /// Required enumerated value serialized in the `action` wire field.
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction
-      action;
-
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction action;
   /// The chosen sign-in method, or null when no options were offered.
   final String? selectedOption;
 
-  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
-      {required this.type_,
-      required this.action,
-      required this.selectedOption});
+  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource({required this.type_, required this.action, required this.selectedOption});
 
-  ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource Function(
-      {ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType
-          type_,
-      ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction
-          action,
-      String? selectedOption}) get copyWith => _copyWith;
+  ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource Function({ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType type_, ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction action, String? selectedOption}) get copyWith => _copyWith;
 
-  ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource
-      _copyWith(
-              {Object? type_ = sdkOmittedValue,
-              Object? action = sdkOmittedValue,
-              Object? selectedOption = sdkOmittedValue}) =>
-          ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
-            type_: identical(type_, sdkOmittedValue)
-                ? this.type_
-                : type_
-                    as ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType,
-            action: identical(action, sdkOmittedValue)
-                ? this.action
-                : action
-                    as ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction,
-            selectedOption: identical(selectedOption, sdkOmittedValue)
-                ? this.selectedOption
-                : selectedOption as String?,
-          );
+  ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource _copyWith({Object? type_ = sdkOmittedValue, Object? action = sdkOmittedValue, Object? selectedOption = sdkOmittedValue}) => ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType,
+    action: identical(action, sdkOmittedValue) ? this.action : action as ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction,
+    selectedOption: identical(selectedOption, sdkOmittedValue) ? this.selectedOption : selectedOption as String?,
+  );
 
-  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource.fromJson(
-          Map<String, dynamic> json) =>
-      ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
-        type_: (json['type'] != null
-            ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType
-                .fromJson(json['type'] as String)
-            : null)!,
-        action: (json['action'] != null
-            ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction
-                .fromJson(json['action'] as String)
-            : null)!,
-        selectedOption: json.containsKey('selected_option')
-            ? json['selected_option'] as String?
-            : throw ArgumentError.value(
-                null, 'selected_option', 'Required property is missing'),
-      );
+  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource.fromJson(Map<String, dynamic> json) => ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
+    type_: (json['type'] != null ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType.fromJson(json['type'] as String) : null)!,
+    action: (json['action'] != null ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction.fromJson(json['action'] as String) : null)!,
+    selectedOption: json.containsKey('selected_option') ? json['selected_option'] as String? : throw ArgumentError.value(null, 'selected_option', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'action': action.toJson(),
-        'selected_option': selectedOption,
-      };
+    'type': type_.toJson(),
+    'action': action.toJson(),
+    'selected_option': selectedOption,
+  };
 }

@@ -8,44 +8,32 @@ part of 'responses_beta_container.dart';
 class BetaContainerNetworkPolicyDomainSecretParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The domain associated with the secret.
   final String domain;
-
   /// The name of the secret to inject for the domain.
   final String name;
-
   /// The secret value to inject for the domain.
   final String value;
 
-  const BetaContainerNetworkPolicyDomainSecretParam(
-      {required this.domain, required this.name, required this.value});
+  const BetaContainerNetworkPolicyDomainSecretParam({required this.domain, required this.name, required this.value});
 
-  BetaContainerNetworkPolicyDomainSecretParam Function(
-      {String domain, String name, String value}) get copyWith => _copyWith;
+  BetaContainerNetworkPolicyDomainSecretParam Function({String domain, String name, String value}) get copyWith => _copyWith;
 
-  BetaContainerNetworkPolicyDomainSecretParam _copyWith(
-          {Object? domain = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? value = sdkOmittedValue}) =>
-      BetaContainerNetworkPolicyDomainSecretParam(
-        domain:
-            identical(domain, sdkOmittedValue) ? this.domain : domain as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        value: identical(value, sdkOmittedValue) ? this.value : value as String,
-      );
+  BetaContainerNetworkPolicyDomainSecretParam _copyWith({Object? domain = sdkOmittedValue, Object? name = sdkOmittedValue, Object? value = sdkOmittedValue}) => BetaContainerNetworkPolicyDomainSecretParam(
+    domain: identical(domain, sdkOmittedValue) ? this.domain : domain as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    value: identical(value, sdkOmittedValue) ? this.value : value as String,
+  );
 
-  factory BetaContainerNetworkPolicyDomainSecretParam.fromJson(
-          Map<String, dynamic> json) =>
-      BetaContainerNetworkPolicyDomainSecretParam(
-        domain: (json['domain'] as String?)!,
-        name: (json['name'] as String?)!,
-        value: (json['value'] as String?)!,
-      );
+  factory BetaContainerNetworkPolicyDomainSecretParam.fromJson(Map<String, dynamic> json) => BetaContainerNetworkPolicyDomainSecretParam(
+    domain: (json['domain'] as String?)!,
+    name: (json['name'] as String?)!,
+    value: (json['value'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'domain': domain,
-        'name': name,
-        'value': value,
-      };
+    'domain': domain,
+    'name': name,
+    'value': value,
+  };
 }

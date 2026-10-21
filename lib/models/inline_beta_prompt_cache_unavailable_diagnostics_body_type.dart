@@ -10,18 +10,14 @@ enum BetaPromptCacheUnavailableDiagnosticsBodyType {
 
   static BetaPromptCacheUnavailableDiagnosticsBodyType fromJson(String value) {
     switch (value) {
-      case 'unavailable':
-        return BetaPromptCacheUnavailableDiagnosticsBodyType.unavailable;
-      default:
-        throw ArgumentError(
-            'Unknown BetaPromptCacheUnavailableDiagnosticsBodyType: $value');
+      case 'unavailable': return BetaPromptCacheUnavailableDiagnosticsBodyType.unavailable;
+      default: throw ArgumentError('Unknown BetaPromptCacheUnavailableDiagnosticsBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaPromptCacheUnavailableDiagnosticsBodyType.unavailable:
-        return 'unavailable';
+      case BetaPromptCacheUnavailableDiagnosticsBodyType.unavailable: return 'unavailable';
     }
   }
 
@@ -31,12 +27,12 @@ enum BetaPromptCacheUnavailableDiagnosticsBodyType {
 
 /// Controls which reasoning items are rendered back to the model on later turns. If omitted or set to `auto`, the model determines the context mode. The `gpt-5.6` model family defaults to `all_turns`; earlier models default to `current_turn`. When returned on a response, this is the effective reasoning context mode used for the response.
 final class BetaReasoningContextVariant0 {
+
   final String value;
 
   const BetaReasoningContextVariant0._(this.value);
 
-  factory BetaReasoningContextVariant0.fromJson(String value) =>
-      BetaReasoningContextVariant0._(value);
+  factory BetaReasoningContextVariant0.fromJson(String value) => BetaReasoningContextVariant0._(value);
 
   static const auto = BetaReasoningContextVariant0._('auto');
   static const currentTurn = BetaReasoningContextVariant0._('current_turn');
@@ -44,25 +40,22 @@ final class BetaReasoningContextVariant0 {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaReasoningContextVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is BetaReasoningContextVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// **Deprecated:** use `summary` instead. A summary of the reasoning performed by the model. This can be useful for debugging and understanding the model's reasoning process. One of `auto`, `concise`, or `detailed`.
 final class BetaReasoningGenerateSummaryVariant0 {
+
   final String value;
 
   const BetaReasoningGenerateSummaryVariant0._(this.value);
 
-  factory BetaReasoningGenerateSummaryVariant0.fromJson(String value) =>
-      BetaReasoningGenerateSummaryVariant0._(value);
+  factory BetaReasoningGenerateSummaryVariant0.fromJson(String value) => BetaReasoningGenerateSummaryVariant0._(value);
 
   static const auto = BetaReasoningGenerateSummaryVariant0._('auto');
   static const concise = BetaReasoningGenerateSummaryVariant0._('concise');
@@ -70,25 +63,22 @@ final class BetaReasoningGenerateSummaryVariant0 {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaReasoningGenerateSummaryVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is BetaReasoningGenerateSummaryVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A summary of the reasoning performed by the model. This can be useful for debugging and understanding the model's reasoning process. One of `auto`, `concise`, or `detailed`. `concise` is supported for `computer-use-preview` models and all reasoning models after `gpt-5`.
 final class BetaReasoningSummaryVariant0 {
+
   final String value;
 
   const BetaReasoningSummaryVariant0._(this.value);
 
-  factory BetaReasoningSummaryVariant0.fromJson(String value) =>
-      BetaReasoningSummaryVariant0._(value);
+  factory BetaReasoningSummaryVariant0.fromJson(String value) => BetaReasoningSummaryVariant0._(value);
 
   static const auto = BetaReasoningSummaryVariant0._('auto');
   static const concise = BetaReasoningSummaryVariant0._('concise');
@@ -96,25 +86,22 @@ final class BetaReasoningSummaryVariant0 {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaReasoningSummaryVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is BetaReasoningSummaryVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Constrains effort on reasoning for reasoning models. Currently supported values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Not all reasoning models support every value. See the [reasoning guide](https://developers.openai.com/api/docs/guides/reasoning) for model-specific support.
 final class BetaReasoningEffortVariant0 {
+
   final String value;
 
   const BetaReasoningEffortVariant0._(this.value);
 
-  factory BetaReasoningEffortVariant0.fromJson(String value) =>
-      BetaReasoningEffortVariant0._(value);
+  factory BetaReasoningEffortVariant0.fromJson(String value) => BetaReasoningEffortVariant0._(value);
 
   static const none = BetaReasoningEffortVariant0._('none');
   static const minimal = BetaReasoningEffortVariant0._('minimal');
@@ -126,25 +113,22 @@ final class BetaReasoningEffortVariant0 {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaReasoningEffortVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is BetaReasoningEffortVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 final class BetaReasoningItemStatus {
+
   final String value;
 
   const BetaReasoningItemStatus._(this.value);
 
-  factory BetaReasoningItemStatus.fromJson(String value) =>
-      BetaReasoningItemStatus._(value);
+  factory BetaReasoningItemStatus.fromJson(String value) => BetaReasoningItemStatus._(value);
 
   static const inProgress = BetaReasoningItemStatus._('in_progress');
   static const completed = BetaReasoningItemStatus._('completed');
@@ -152,15 +136,12 @@ final class BetaReasoningItemStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaReasoningItemStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaReasoningItemStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object. Always `reasoning`.
@@ -169,17 +150,14 @@ enum BetaReasoningItemType {
 
   static BetaReasoningItemType fromJson(String value) {
     switch (value) {
-      case 'reasoning':
-        return BetaReasoningItemType.reasoning;
-      default:
-        throw ArgumentError('Unknown BetaReasoningItemType: $value');
+      case 'reasoning': return BetaReasoningItemType.reasoning;
+      default: throw ArgumentError('Unknown BetaReasoningItemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaReasoningItemType.reasoning:
-        return 'reasoning';
+      case BetaReasoningItemType.reasoning: return 'reasoning';
     }
   }
 
@@ -193,17 +171,14 @@ enum BetaReasoningTextContentType {
 
   static BetaReasoningTextContentType fromJson(String value) {
     switch (value) {
-      case 'reasoning_text':
-        return BetaReasoningTextContentType.reasoningText;
-      default:
-        throw ArgumentError('Unknown BetaReasoningTextContentType: $value');
+      case 'reasoning_text': return BetaReasoningTextContentType.reasoningText;
+      default: throw ArgumentError('Unknown BetaReasoningTextContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaReasoningTextContentType.reasoningText:
-        return 'reasoning_text';
+      case BetaReasoningTextContentType.reasoningText: return 'reasoning_text';
     }
   }
 
@@ -217,17 +192,14 @@ enum BetaRefusalContentType {
 
   static BetaRefusalContentType fromJson(String value) {
     switch (value) {
-      case 'refusal':
-        return BetaRefusalContentType.refusal;
-      default:
-        throw ArgumentError('Unknown BetaRefusalContentType: $value');
+      case 'refusal': return BetaRefusalContentType.refusal;
+      default: throw ArgumentError('Unknown BetaRefusalContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaRefusalContentType.refusal:
-        return 'refusal';
+      case BetaRefusalContentType.refusal: return 'refusal';
     }
   }
 
@@ -237,68 +209,57 @@ enum BetaRefusalContentType {
 
 /// The reason why the response is incomplete. `steered` means the response stopped at a safe output boundary after a WebSocket `response.steer` event. The server can then create a successor response automatically with the queued input.
 final class BetaResponseVariant2IncompleteDetailsReason {
+
   final String value;
 
   const BetaResponseVariant2IncompleteDetailsReason._(this.value);
 
-  factory BetaResponseVariant2IncompleteDetailsReason.fromJson(String value) =>
-      BetaResponseVariant2IncompleteDetailsReason._(value);
+  factory BetaResponseVariant2IncompleteDetailsReason.fromJson(String value) => BetaResponseVariant2IncompleteDetailsReason._(value);
 
-  static const maxOutputTokens =
-      BetaResponseVariant2IncompleteDetailsReason._('max_output_tokens');
-  static const maxMessages =
-      BetaResponseVariant2IncompleteDetailsReason._('max_messages');
-  static const contentFilter =
-      BetaResponseVariant2IncompleteDetailsReason._('content_filter');
-  static const steered =
-      BetaResponseVariant2IncompleteDetailsReason._('steered');
+  static const maxOutputTokens = BetaResponseVariant2IncompleteDetailsReason._('max_output_tokens');
+  static const maxMessages = BetaResponseVariant2IncompleteDetailsReason._('max_messages');
+  static const contentFilter = BetaResponseVariant2IncompleteDetailsReason._('content_filter');
+  static const steered = BetaResponseVariant2IncompleteDetailsReason._('steered');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaResponseVariant2IncompleteDetailsReason &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is BetaResponseVariant2IncompleteDetailsReason && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type of this resource - always set to `response`.
 final class BetaResponseVariant2Object {
+
   final String value;
 
   const BetaResponseVariant2Object._(this.value);
 
-  factory BetaResponseVariant2Object.fromJson(String value) =>
-      BetaResponseVariant2Object._(value);
+  factory BetaResponseVariant2Object.fromJson(String value) => BetaResponseVariant2Object._(value);
 
   static const response = BetaResponseVariant2Object._('response');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaResponseVariant2Object && other.value == value;
+  @override bool operator ==(Object other) => other is BetaResponseVariant2Object && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the response generation. One of `completed`, `failed`, `in_progress`, `cancelled`, `queued`, or `incomplete`.
 final class BetaResponseVariant2Status {
+
   final String value;
 
   const BetaResponseVariant2Status._(this.value);
 
-  factory BetaResponseVariant2Status.fromJson(String value) =>
-      BetaResponseVariant2Status._(value);
+  factory BetaResponseVariant2Status.fromJson(String value) => BetaResponseVariant2Status._(value);
 
   static const completed = BetaResponseVariant2Status._('completed');
   static const failed = BetaResponseVariant2Status._('failed');
@@ -309,13 +270,10 @@ final class BetaResponseVariant2Status {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaResponseVariant2Status && other.value == value;
+  @override bool operator ==(Object other) => other is BetaResponseVariant2Status && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

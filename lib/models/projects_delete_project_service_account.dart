@@ -8,52 +8,32 @@ part of 'projects.dart';
 class ProjectServiceAccountDeleteResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final ProjectServiceAccountDeleteResponseObject object;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
 
-  const ProjectServiceAccountDeleteResponse(
-      {required this.object, required this.id, required this.deleted});
+  const ProjectServiceAccountDeleteResponse({required this.object, required this.id, required this.deleted});
 
-  ProjectServiceAccountDeleteResponse Function(
-      {ProjectServiceAccountDeleteResponseObject object,
-      String id,
-      bool deleted}) get copyWith => _copyWith;
+  ProjectServiceAccountDeleteResponse Function({ProjectServiceAccountDeleteResponseObject object, String id, bool deleted}) get copyWith => _copyWith;
 
-  ProjectServiceAccountDeleteResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      ProjectServiceAccountDeleteResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ProjectServiceAccountDeleteResponseObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-      );
+  ProjectServiceAccountDeleteResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => ProjectServiceAccountDeleteResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectServiceAccountDeleteResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+  );
 
-  factory ProjectServiceAccountDeleteResponse.fromJson(
-          Map<String, dynamic> json) =>
-      ProjectServiceAccountDeleteResponse(
-        object: (json['object'] != null
-            ? ProjectServiceAccountDeleteResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        deleted: (json['deleted'] as bool?)!,
-      );
+  factory ProjectServiceAccountDeleteResponse.fromJson(Map<String, dynamic> json) => ProjectServiceAccountDeleteResponse(
+    object: (json['object'] != null ? ProjectServiceAccountDeleteResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    deleted: (json['deleted'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'deleted': deleted,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'deleted': deleted,
+  };
 }

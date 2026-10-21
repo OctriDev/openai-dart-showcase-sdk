@@ -8,78 +8,40 @@ part of 'responses_beta_prompt.dart';
 class BetaPromptCacheMissDiagnosticsBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final BetaPromptCacheMissDiagnosticsBodyType type_;
-
   /// The reason prompt cache reuse did not occur.
   final BetaCacheMissReasonTypeEnum reason;
-
   /// The estimated number of input tokens affected after the first detected divergence.
   final int cacheMissedTokens;
-
   /// The raw token count of the reusable prefix in the compared response.
   final SdkOptional<int> comparisonReusableTokens;
 
-  const BetaPromptCacheMissDiagnosticsBody(
-      {required this.type_,
-      required this.reason,
-      required this.cacheMissedTokens,
-      this.comparisonReusableTokens = const SdkOmitted()});
+  const BetaPromptCacheMissDiagnosticsBody({required this.type_, required this.reason, required this.cacheMissedTokens, this.comparisonReusableTokens = const SdkOmitted()});
 
-  BetaPromptCacheMissDiagnosticsBody Function(
-      {BetaPromptCacheMissDiagnosticsBodyType type_,
-      BetaCacheMissReasonTypeEnum reason,
-      int cacheMissedTokens,
-      SdkOptional<int> comparisonReusableTokens}) get copyWith => _copyWith;
+  BetaPromptCacheMissDiagnosticsBody Function({BetaPromptCacheMissDiagnosticsBodyType type_, BetaCacheMissReasonTypeEnum reason, int cacheMissedTokens, SdkOptional<int> comparisonReusableTokens}) get copyWith => _copyWith;
 
-  BetaPromptCacheMissDiagnosticsBody _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? reason = sdkOmittedValue,
-          Object? cacheMissedTokens = sdkOmittedValue,
-          Object? comparisonReusableTokens = sdkOmittedValue}) =>
-      BetaPromptCacheMissDiagnosticsBody(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaPromptCacheMissDiagnosticsBodyType,
-        reason: identical(reason, sdkOmittedValue)
-            ? this.reason
-            : reason as BetaCacheMissReasonTypeEnum,
-        cacheMissedTokens: identical(cacheMissedTokens, sdkOmittedValue)
-            ? this.cacheMissedTokens
-            : cacheMissedTokens as int,
-        comparisonReusableTokens:
-            identical(comparisonReusableTokens, sdkOmittedValue)
-                ? this.comparisonReusableTokens
-                : comparisonReusableTokens as SdkOptional<int>,
-      );
+  BetaPromptCacheMissDiagnosticsBody _copyWith({Object? type_ = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? cacheMissedTokens = sdkOmittedValue, Object? comparisonReusableTokens = sdkOmittedValue}) => BetaPromptCacheMissDiagnosticsBody(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaPromptCacheMissDiagnosticsBodyType,
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as BetaCacheMissReasonTypeEnum,
+    cacheMissedTokens: identical(cacheMissedTokens, sdkOmittedValue) ? this.cacheMissedTokens : cacheMissedTokens as int,
+    comparisonReusableTokens: identical(comparisonReusableTokens, sdkOmittedValue) ? this.comparisonReusableTokens : comparisonReusableTokens as SdkOptional<int>,
+  );
 
-  factory BetaPromptCacheMissDiagnosticsBody.fromJson(
-          Map<String, dynamic> json) =>
-      BetaPromptCacheMissDiagnosticsBody(
-        type_: (json['type'] != null
-            ? BetaPromptCacheMissDiagnosticsBodyType.fromJson(
-                json['type'] as String)
-            : null)!,
-        reason: (json['reason'] != null
-            ? BetaCacheMissReasonTypeEnum.fromJson(json['reason'] as String)
-            : null)!,
-        cacheMissedTokens: ((json['cache_missed_tokens'] as num?)?.toInt())!,
-        comparisonReusableTokens: json['comparison_reusable_tokens'] != null
-            ? SdkPresent(
-                ((json['comparison_reusable_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory BetaPromptCacheMissDiagnosticsBody.fromJson(Map<String, dynamic> json) => BetaPromptCacheMissDiagnosticsBody(
+    type_: (json['type'] != null ? BetaPromptCacheMissDiagnosticsBodyType.fromJson(json['type'] as String) : null)!,
+    reason: (json['reason'] != null ? BetaCacheMissReasonTypeEnum.fromJson(json['reason'] as String) : null)!,
+    cacheMissedTokens: ((json['cache_missed_tokens'] as num?)?.toInt())!,
+    comparisonReusableTokens: json['comparison_reusable_tokens'] != null ? SdkPresent(((json['comparison_reusable_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'reason': reason.toJson(),
-        'cache_missed_tokens': cacheMissedTokens,
-        ...switch (comparisonReusableTokens) {
-          SdkPresent<int>(value: final value) => {
-              'comparison_reusable_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'reason': reason.toJson(),
+    'cache_missed_tokens': cacheMissedTokens,
+    ...switch (comparisonReusableTokens) {
+      SdkPresent<int>(value: final value) => {'comparison_reusable_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

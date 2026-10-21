@@ -8,186 +8,94 @@ part of 'audio.dart';
 class TranscriptTextDoneEventLogprobsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The token that was used to generate the log probability.
   final SdkOptional<String> token;
-
   /// The log probability of the token.
   final SdkOptional<double> logprob;
-
   /// The bytes that were used to generate the log probability.
   final SdkOptional<List<int>> bytes;
 
-  const TranscriptTextDoneEventLogprobsItem(
-      {this.token = const SdkOmitted(),
-      this.logprob = const SdkOmitted(),
-      this.bytes = const SdkOmitted()});
+  const TranscriptTextDoneEventLogprobsItem({this.token = const SdkOmitted(), this.logprob = const SdkOmitted(), this.bytes = const SdkOmitted()});
 
-  TranscriptTextDoneEventLogprobsItem Function(
-      {SdkOptional<String> token,
-      SdkOptional<double> logprob,
-      SdkOptional<List<int>> bytes}) get copyWith => _copyWith;
+  TranscriptTextDoneEventLogprobsItem Function({SdkOptional<String> token, SdkOptional<double> logprob, SdkOptional<List<int>> bytes}) get copyWith => _copyWith;
 
-  TranscriptTextDoneEventLogprobsItem _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue,
-          Object? bytes = sdkOmittedValue}) =>
-      TranscriptTextDoneEventLogprobsItem(
-        token: identical(token, sdkOmittedValue)
-            ? this.token
-            : token as SdkOptional<String>,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as SdkOptional<double>,
-        bytes: identical(bytes, sdkOmittedValue)
-            ? this.bytes
-            : bytes as SdkOptional<List<int>>,
-      );
+  TranscriptTextDoneEventLogprobsItem _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? bytes = sdkOmittedValue}) => TranscriptTextDoneEventLogprobsItem(
+    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as SdkOptional<double>,
+    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as SdkOptional<List<int>>,
+  );
 
-  factory TranscriptTextDoneEventLogprobsItem.fromJson(
-          Map<String, dynamic> json) =>
-      TranscriptTextDoneEventLogprobsItem(
-        token: json['token'] != null
-            ? SdkPresent((json['token'] as String?)!)
-            : const SdkOmitted(),
-        logprob: json['logprob'] != null
-            ? SdkPresent(((json['logprob'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        bytes: json['bytes'] != null
-            ? SdkPresent(((json['bytes'] as List?)
-                ?.map((e) => (e as num).toInt())
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory TranscriptTextDoneEventLogprobsItem.fromJson(Map<String, dynamic> json) => TranscriptTextDoneEventLogprobsItem(
+    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
+    logprob: json['logprob'] != null ? SdkPresent(((json['logprob'] as num?)?.toDouble())!) : const SdkOmitted(),
+    bytes: json['bytes'] != null ? SdkPresent(((json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (token) {
-          SdkPresent<String>(value: final value) => {
-              'token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logprob) {
-          SdkPresent<double>(value: final value) => {
-              'logprob': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (bytes) {
-          SdkPresent<List<int>>(value: final value) => {
-              'bytes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (token) {
+      SdkPresent<String>(value: final value) => {'token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logprob) {
+      SdkPresent<double>(value: final value) => {'logprob': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (bytes) {
+      SdkPresent<List<int>>(value: final value) => {'bytes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Emitted when the transcription is complete. Contains the complete transcription text. Only emitted when you [create a transcription](https://developers.openai.com/api/reference/resources/audio/subresources/transcriptions/methods/create) with the `Stream` parameter set to `true`.
 class TranscriptTextDoneEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `transcript.text.done`.
   final TranscriptTextDoneEventType type_;
-
   /// The text that was transcribed.
   final String text;
-
   /// The languages detected in the audio. Returned by `gpt-transcribe`. An empty array indicates that no language could be reliably detected.
   final SdkOptional<List<TranscriptionLanguage>> languages;
-
   /// The log probabilities of the individual tokens in the transcription. Only included if you [create a transcription](https://developers.openai.com/api/reference/resources/audio/subresources/transcriptions/methods/create) with the `include[]` parameter set to `logprobs`.
   final SdkOptional<List<TranscriptTextDoneEventLogprobsItem>> logprobs;
-
   /// Usage statistics for models billed by token usage.
   final SdkOptional<TranscriptTextUsageTokens> usage;
 
-  const TranscriptTextDoneEvent(
-      {required this.type_,
-      required this.text,
-      this.languages = const SdkOmitted(),
-      this.logprobs = const SdkOmitted(),
-      this.usage = const SdkOmitted()});
+  const TranscriptTextDoneEvent({required this.type_, required this.text, this.languages = const SdkOmitted(), this.logprobs = const SdkOmitted(), this.usage = const SdkOmitted()});
 
-  TranscriptTextDoneEvent Function(
-      {TranscriptTextDoneEventType type_,
-      String text,
-      SdkOptional<List<TranscriptionLanguage>> languages,
-      SdkOptional<List<TranscriptTextDoneEventLogprobsItem>> logprobs,
-      SdkOptional<TranscriptTextUsageTokens> usage}) get copyWith => _copyWith;
+  TranscriptTextDoneEvent Function({TranscriptTextDoneEventType type_, String text, SdkOptional<List<TranscriptionLanguage>> languages, SdkOptional<List<TranscriptTextDoneEventLogprobsItem>> logprobs, SdkOptional<TranscriptTextUsageTokens> usage}) get copyWith => _copyWith;
 
-  TranscriptTextDoneEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? languages = sdkOmittedValue,
-          Object? logprobs = sdkOmittedValue,
-          Object? usage = sdkOmittedValue}) =>
-      TranscriptTextDoneEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as TranscriptTextDoneEventType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-        languages: identical(languages, sdkOmittedValue)
-            ? this.languages
-            : languages as SdkOptional<List<TranscriptionLanguage>>,
-        logprobs: identical(logprobs, sdkOmittedValue)
-            ? this.logprobs
-            : logprobs
-                as SdkOptional<List<TranscriptTextDoneEventLogprobsItem>>,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as SdkOptional<TranscriptTextUsageTokens>,
-      );
+  TranscriptTextDoneEvent _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? languages = sdkOmittedValue, Object? logprobs = sdkOmittedValue, Object? usage = sdkOmittedValue}) => TranscriptTextDoneEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TranscriptTextDoneEventType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+    languages: identical(languages, sdkOmittedValue) ? this.languages : languages as SdkOptional<List<TranscriptionLanguage>>,
+    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as SdkOptional<List<TranscriptTextDoneEventLogprobsItem>>,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<TranscriptTextUsageTokens>,
+  );
 
-  factory TranscriptTextDoneEvent.fromJson(Map<String, dynamic> json) =>
-      TranscriptTextDoneEvent(
-        type_: (json['type'] != null
-            ? TranscriptTextDoneEventType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-        languages: json['languages'] != null
-            ? SdkPresent(((json['languages'] as List?)
-                ?.map((e) =>
-                    TranscriptionLanguage.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        logprobs: json['logprobs'] != null
-            ? SdkPresent(((json['logprobs'] as List?)
-                ?.map((e) => TranscriptTextDoneEventLogprobsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        usage: json['usage'] != null
-            ? SdkPresent((json['usage'] != null
-                ? TranscriptTextUsageTokens.fromJson(
-                    json['usage'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory TranscriptTextDoneEvent.fromJson(Map<String, dynamic> json) => TranscriptTextDoneEvent(
+    type_: (json['type'] != null ? TranscriptTextDoneEventType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+    languages: json['languages'] != null ? SdkPresent(((json['languages'] as List?)?.map((e) => TranscriptionLanguage.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    logprobs: json['logprobs'] != null ? SdkPresent(((json['logprobs'] as List?)?.map((e) => TranscriptTextDoneEventLogprobsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    usage: json['usage'] != null ? SdkPresent((json['usage'] != null ? TranscriptTextUsageTokens.fromJson(json['usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-        ...switch (languages) {
-          SdkPresent<List<TranscriptionLanguage>>(value: final value) => {
-              'languages': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logprobs) {
-          SdkPresent<List<TranscriptTextDoneEventLogprobsItem>>(
-            value: final value
-          ) =>
-            {
-              'logprobs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (usage) {
-          SdkPresent<TranscriptTextUsageTokens>(value: final value) => {
-              'usage': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'text': text,
+    ...switch (languages) {
+      SdkPresent<List<TranscriptionLanguage>>(value: final value) => {'languages': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logprobs) {
+      SdkPresent<List<TranscriptTextDoneEventLogprobsItem>>(value: final value) => {'logprobs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (usage) {
+      SdkPresent<TranscriptTextUsageTokens>(value: final value) => {'usage': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

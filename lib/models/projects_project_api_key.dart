@@ -9,9 +9,7 @@ sealed class ProjectApiKeyExpiresAt {
   static const String constructionSurface = 'named';
   const ProjectApiKeyExpiresAt();
   factory ProjectApiKeyExpiresAt.fromJson(Object? json) {
-    if (json is num) {
-      return ProjectApiKeyExpiresAtInt(json.toInt());
-    }
+    if (json is num) { return ProjectApiKeyExpiresAtInt(json.toInt()); }
     throw FormatException("No variant matched for ProjectApiKeyExpiresAt");
   }
   Object? toJson();
@@ -20,8 +18,7 @@ sealed class ProjectApiKeyExpiresAt {
 final class ProjectApiKeyExpiresAtInt extends ProjectApiKeyExpiresAt {
   final int value;
   const ProjectApiKeyExpiresAtInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class ProjectApiKeyLastUsedAt {
@@ -29,9 +26,7 @@ sealed class ProjectApiKeyLastUsedAt {
   static const String constructionSurface = 'named';
   const ProjectApiKeyLastUsedAt();
   factory ProjectApiKeyLastUsedAt.fromJson(Object? json) {
-    if (json is num) {
-      return ProjectApiKeyLastUsedAtInt(json.toInt());
-    }
+    if (json is num) { return ProjectApiKeyLastUsedAtInt(json.toInt()); }
     throw FormatException("No variant matched for ProjectApiKeyLastUsedAt");
   }
   Object? toJson();
@@ -40,222 +35,115 @@ sealed class ProjectApiKeyLastUsedAt {
 final class ProjectApiKeyLastUsedAtInt extends ProjectApiKeyLastUsedAt {
   final int value;
   const ProjectApiKeyLastUsedAtInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Required object value serialized in the `owner` wire field.
 class ProjectApiKeyOwner {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// `user` or `service_account`
   final SdkOptional<ProjectApiKeyOwnerType> type_;
-
   /// The user that owns a project API key.
   final SdkOptional<ProjectApiKeyOwnerUser> user;
-
   /// The service account that owns a project API key.
   final SdkOptional<ProjectApiKeyOwnerServiceAccount> serviceAccount;
 
-  const ProjectApiKeyOwner(
-      {this.type_ = const SdkOmitted(),
-      this.user = const SdkOmitted(),
-      this.serviceAccount = const SdkOmitted()});
+  const ProjectApiKeyOwner({this.type_ = const SdkOmitted(), this.user = const SdkOmitted(), this.serviceAccount = const SdkOmitted()});
 
-  ProjectApiKeyOwner Function(
-          {SdkOptional<ProjectApiKeyOwnerType> type_,
-          SdkOptional<ProjectApiKeyOwnerUser> user,
-          SdkOptional<ProjectApiKeyOwnerServiceAccount> serviceAccount})
-      get copyWith => _copyWith;
+  ProjectApiKeyOwner Function({SdkOptional<ProjectApiKeyOwnerType> type_, SdkOptional<ProjectApiKeyOwnerUser> user, SdkOptional<ProjectApiKeyOwnerServiceAccount> serviceAccount}) get copyWith => _copyWith;
 
-  ProjectApiKeyOwner _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? user = sdkOmittedValue,
-          Object? serviceAccount = sdkOmittedValue}) =>
-      ProjectApiKeyOwner(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<ProjectApiKeyOwnerType>,
-        user: identical(user, sdkOmittedValue)
-            ? this.user
-            : user as SdkOptional<ProjectApiKeyOwnerUser>,
-        serviceAccount: identical(serviceAccount, sdkOmittedValue)
-            ? this.serviceAccount
-            : serviceAccount as SdkOptional<ProjectApiKeyOwnerServiceAccount>,
-      );
+  ProjectApiKeyOwner _copyWith({Object? type_ = sdkOmittedValue, Object? user = sdkOmittedValue, Object? serviceAccount = sdkOmittedValue}) => ProjectApiKeyOwner(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ProjectApiKeyOwnerType>,
+    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<ProjectApiKeyOwnerUser>,
+    serviceAccount: identical(serviceAccount, sdkOmittedValue) ? this.serviceAccount : serviceAccount as SdkOptional<ProjectApiKeyOwnerServiceAccount>,
+  );
 
-  factory ProjectApiKeyOwner.fromJson(Map<String, dynamic> json) =>
-      ProjectApiKeyOwner(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? ProjectApiKeyOwnerType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        user: json['user'] != null
-            ? SdkPresent((json['user'] != null
-                ? ProjectApiKeyOwnerUser.fromJson(
-                    json['user'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        serviceAccount: json['service_account'] != null
-            ? SdkPresent((json['service_account'] != null
-                ? ProjectApiKeyOwnerServiceAccount.fromJson(
-                    json['service_account'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ProjectApiKeyOwner.fromJson(Map<String, dynamic> json) => ProjectApiKeyOwner(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ProjectApiKeyOwnerType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    user: json['user'] != null ? SdkPresent((json['user'] != null ? ProjectApiKeyOwnerUser.fromJson(json['user'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    serviceAccount: json['service_account'] != null ? SdkPresent((json['service_account'] != null ? ProjectApiKeyOwnerServiceAccount.fromJson(json['service_account'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<ProjectApiKeyOwnerType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (user) {
-          SdkPresent<ProjectApiKeyOwnerUser>(value: final value) => {
-              'user': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serviceAccount) {
-          SdkPresent<ProjectApiKeyOwnerServiceAccount>(value: final value) => {
-              'service_account': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<ProjectApiKeyOwnerType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (user) {
+      SdkPresent<ProjectApiKeyOwnerUser>(value: final value) => {'user': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serviceAccount) {
+      SdkPresent<ProjectApiKeyOwnerServiceAccount>(value: final value) => {'service_account': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Represents an individual API key in a project.
 class ProjectApiKey {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `organization.project.api_key`
   final ProjectApiKeyObject object;
-
   /// The redacted value of the API key
   final String redactedValue;
-
   /// The name of the API key
   final String name;
-
   /// The Unix timestamp (in seconds) of when the API key was created
   final int createdAt;
-
   /// The Unix timestamp (in seconds) when the API key expires, or null if it does not expire.
   final SdkOptional<int?> expiresAt;
-
   /// The Unix timestamp (in seconds) of when the API key was last used.
   final int? lastUsedAt;
-
   /// The identifier, which can be referenced in API endpoints
   final String id;
-
   /// Whether the API key's owner currently has effective access to the project.
   final ProjectApiKeyOwnerProjectAccess ownerProjectAccess;
-
   /// Required object value serialized in the `owner` wire field.
   final ProjectApiKeyOwner owner;
 
-  const ProjectApiKey(
-      {required this.object,
-      required this.redactedValue,
-      required this.name,
-      required this.createdAt,
-      this.expiresAt = const SdkOmitted(),
-      required this.lastUsedAt,
-      required this.id,
-      required this.ownerProjectAccess,
-      required this.owner});
+  const ProjectApiKey({required this.object, required this.redactedValue, required this.name, required this.createdAt, this.expiresAt = const SdkOmitted(), required this.lastUsedAt, required this.id, required this.ownerProjectAccess, required this.owner});
 
-  ProjectApiKey Function(
-      {ProjectApiKeyObject object,
-      String redactedValue,
-      String name,
-      int createdAt,
-      SdkOptional<int?> expiresAt,
-      int? lastUsedAt,
-      String id,
-      ProjectApiKeyOwnerProjectAccess ownerProjectAccess,
-      ProjectApiKeyOwner owner}) get copyWith => _copyWith;
+  ProjectApiKey Function({ProjectApiKeyObject object, String redactedValue, String name, int createdAt, SdkOptional<int?> expiresAt, int? lastUsedAt, String id, ProjectApiKeyOwnerProjectAccess ownerProjectAccess, ProjectApiKeyOwner owner}) get copyWith => _copyWith;
 
-  ProjectApiKey _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? redactedValue = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue,
-          Object? lastUsedAt = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? ownerProjectAccess = sdkOmittedValue,
-          Object? owner = sdkOmittedValue}) =>
-      ProjectApiKey(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ProjectApiKeyObject,
-        redactedValue: identical(redactedValue, sdkOmittedValue)
-            ? this.redactedValue
-            : redactedValue as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<int?>,
-        lastUsedAt: identical(lastUsedAt, sdkOmittedValue)
-            ? this.lastUsedAt
-            : lastUsedAt as int?,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        ownerProjectAccess: identical(ownerProjectAccess, sdkOmittedValue)
-            ? this.ownerProjectAccess
-            : ownerProjectAccess as ProjectApiKeyOwnerProjectAccess,
-        owner: identical(owner, sdkOmittedValue)
-            ? this.owner
-            : owner as ProjectApiKeyOwner,
-      );
+  ProjectApiKey _copyWith({Object? object = sdkOmittedValue, Object? redactedValue = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? id = sdkOmittedValue, Object? ownerProjectAccess = sdkOmittedValue, Object? owner = sdkOmittedValue}) => ProjectApiKey(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectApiKeyObject,
+    redactedValue: identical(redactedValue, sdkOmittedValue) ? this.redactedValue : redactedValue as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int?>,
+    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as int?,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    ownerProjectAccess: identical(ownerProjectAccess, sdkOmittedValue) ? this.ownerProjectAccess : ownerProjectAccess as ProjectApiKeyOwnerProjectAccess,
+    owner: identical(owner, sdkOmittedValue) ? this.owner : owner as ProjectApiKeyOwner,
+  );
 
   factory ProjectApiKey.fromJson(Map<String, dynamic> json) => ProjectApiKey(
-        object: (json['object'] != null
-            ? ProjectApiKeyObject.fromJson(json['object'] as String)
-            : null)!,
-        redactedValue: (json['redacted_value'] as String?)!,
-        name: (json['name'] as String?)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        expiresAt: json.containsKey('expires_at')
-            ? SdkPresent((json['expires_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        lastUsedAt: json.containsKey('last_used_at')
-            ? (json['last_used_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'last_used_at', 'Required property is missing'),
-        id: (json['id'] as String?)!,
-        ownerProjectAccess: (json['owner_project_access'] != null
-            ? ProjectApiKeyOwnerProjectAccess.fromJson(
-                json['owner_project_access'] as String)
-            : null)!,
-        owner: (json['owner'] != null
-            ? ProjectApiKeyOwner.fromJson(json['owner'] as Map<String, dynamic>)
-            : null)!,
-      );
+    object: (json['object'] != null ? ProjectApiKeyObject.fromJson(json['object'] as String) : null)!,
+    redactedValue: (json['redacted_value'] as String?)!,
+    name: (json['name'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    expiresAt: json.containsKey('expires_at') ? SdkPresent((json['expires_at'] as num?)?.toInt()) : const SdkOmitted(),
+    lastUsedAt: json.containsKey('last_used_at') ? (json['last_used_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'last_used_at', 'Required property is missing'),
+    id: (json['id'] as String?)!,
+    ownerProjectAccess: (json['owner_project_access'] != null ? ProjectApiKeyOwnerProjectAccess.fromJson(json['owner_project_access'] as String) : null)!,
+    owner: (json['owner'] != null ? ProjectApiKeyOwner.fromJson(json['owner'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'redacted_value': redactedValue,
-        'name': name,
-        'created_at': createdAt,
-        ...switch (expiresAt) {
-          SdkPresent<int?>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'last_used_at': lastUsedAt,
-        'id': id,
-        'owner_project_access': ownerProjectAccess.toJson(),
-        'owner': owner.toJson(),
-      };
+    'object': object.toJson(),
+    'redacted_value': redactedValue,
+    'name': name,
+    'created_at': createdAt,
+    ...switch (expiresAt) {
+      SdkPresent<int?>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    'last_used_at': lastUsedAt,
+    'id': id,
+    'owner_project_access': ownerProjectAccess.toJson(),
+    'owner': owner.toJson(),
+  };
 }

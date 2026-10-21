@@ -8,35 +8,22 @@ part of 'vector_stores.dart';
 class UpdateVectorStoreFileAttributesRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters, booleans, or numbers.
   final Map<String, dynamic>? attributes;
 
   const UpdateVectorStoreFileAttributesRequest({required this.attributes});
 
-  UpdateVectorStoreFileAttributesRequest Function(
-      {Map<String, dynamic>? attributes}) get copyWith => _copyWith;
+  UpdateVectorStoreFileAttributesRequest Function({Map<String, dynamic>? attributes}) get copyWith => _copyWith;
 
-  UpdateVectorStoreFileAttributesRequest _copyWith(
-          {Object? attributes = sdkOmittedValue}) =>
-      UpdateVectorStoreFileAttributesRequest(
-        attributes: identical(attributes, sdkOmittedValue)
-            ? this.attributes
-            : attributes as Map<String, dynamic>?,
-      );
+  UpdateVectorStoreFileAttributesRequest _copyWith({Object? attributes = sdkOmittedValue}) => UpdateVectorStoreFileAttributesRequest(
+    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as Map<String, dynamic>?,
+  );
 
-  factory UpdateVectorStoreFileAttributesRequest.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateVectorStoreFileAttributesRequest(
-        attributes: json.containsKey('attributes')
-            ? json['attributes'] == null
-                ? null
-                : json['attributes'] as Map<String, dynamic>
-            : throw ArgumentError.value(
-                null, 'attributes', 'Required property is missing'),
-      );
+  factory UpdateVectorStoreFileAttributesRequest.fromJson(Map<String, dynamic> json) => UpdateVectorStoreFileAttributesRequest(
+    attributes: json.containsKey('attributes') ? json['attributes'] == null ? null : json['attributes'] as Map<String, dynamic> : throw ArgumentError.value(null, 'attributes', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'attributes': attributes,
-      };
+    'attributes': attributes,
+  };
 }

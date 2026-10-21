@@ -8,61 +8,35 @@ part of 'live_live.dart';
 class LiveSkillReferenceParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// References a skill created with the /v1/skills endpoint.
   final LiveSkillReferenceParamType type_;
-
   /// The ID of the referenced skill.
   final String skillId;
-
   /// Optional `string` value serialized in the `version` wire field.
   final SdkOptional<String?> version;
 
-  const LiveSkillReferenceParam(
-      {required this.type_,
-      required this.skillId,
-      this.version = const SdkOmitted()});
+  const LiveSkillReferenceParam({required this.type_, required this.skillId, this.version = const SdkOmitted()});
 
-  LiveSkillReferenceParam Function(
-      {LiveSkillReferenceParamType type_,
-      String skillId,
-      SdkOptional<String?> version}) get copyWith => _copyWith;
+  LiveSkillReferenceParam Function({LiveSkillReferenceParamType type_, String skillId, SdkOptional<String?> version}) get copyWith => _copyWith;
 
-  LiveSkillReferenceParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? skillId = sdkOmittedValue,
-          Object? version = sdkOmittedValue}) =>
-      LiveSkillReferenceParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveSkillReferenceParamType,
-        skillId: identical(skillId, sdkOmittedValue)
-            ? this.skillId
-            : skillId as String,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String?>,
-      );
+  LiveSkillReferenceParam _copyWith({Object? type_ = sdkOmittedValue, Object? skillId = sdkOmittedValue, Object? version = sdkOmittedValue}) => LiveSkillReferenceParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSkillReferenceParamType,
+    skillId: identical(skillId, sdkOmittedValue) ? this.skillId : skillId as String,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String?>,
+  );
 
-  factory LiveSkillReferenceParam.fromJson(Map<String, dynamic> json) =>
-      LiveSkillReferenceParam(
-        type_: (json['type'] != null
-            ? LiveSkillReferenceParamType.fromJson(json['type'] as String)
-            : null)!,
-        skillId: (json['skill_id'] as String?)!,
-        version: json.containsKey('version')
-            ? SdkPresent(json['version'] as String?)
-            : const SdkOmitted(),
-      );
+  factory LiveSkillReferenceParam.fromJson(Map<String, dynamic> json) => LiveSkillReferenceParam(
+    type_: (json['type'] != null ? LiveSkillReferenceParamType.fromJson(json['type'] as String) : null)!,
+    skillId: (json['skill_id'] as String?)!,
+    version: json.containsKey('version') ? SdkPresent(json['version'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'skill_id': skillId,
-        ...switch (version) {
-          SdkPresent<String?>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'skill_id': skillId,
+    ...switch (version) {
+      SdkPresent<String?>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

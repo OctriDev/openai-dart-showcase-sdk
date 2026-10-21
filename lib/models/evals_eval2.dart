@@ -8,103 +8,52 @@ part of 'evals_eval.dart';
 class Eval {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type.
   final EvalObject object;
-
   /// Unique identifier for the evaluation.
   final String id;
-
   /// The name of the evaluation.
   final String name;
-
   /// Configuration of data sources used in runs of the evaluation.
   final EvalDataSourceConfig dataSourceConfig;
-
   /// A list of testing criteria.
   final List<EvalTestingCriteriaItem> testingCriteria;
-
   /// The Unix timestamp (in seconds) for when the eval was created.
   final int createdAt;
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final Map<String, dynamic>? metadata;
 
-  const Eval(
-      {required this.object,
-      required this.id,
-      required this.name,
-      required this.dataSourceConfig,
-      required this.testingCriteria,
-      required this.createdAt,
-      required this.metadata});
+  const Eval({required this.object, required this.id, required this.name, required this.dataSourceConfig, required this.testingCriteria, required this.createdAt, required this.metadata});
 
-  Eval Function(
-      {EvalObject object,
-      String id,
-      String name,
-      EvalDataSourceConfig dataSourceConfig,
-      List<EvalTestingCriteriaItem> testingCriteria,
-      int createdAt,
-      Map<String, dynamic>? metadata}) get copyWith => _copyWith;
+  Eval Function({EvalObject object, String id, String name, EvalDataSourceConfig dataSourceConfig, List<EvalTestingCriteriaItem> testingCriteria, int createdAt, Map<String, dynamic>? metadata}) get copyWith => _copyWith;
 
-  Eval _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? dataSourceConfig = sdkOmittedValue,
-          Object? testingCriteria = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue}) =>
-      Eval(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as EvalObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        dataSourceConfig: identical(dataSourceConfig, sdkOmittedValue)
-            ? this.dataSourceConfig
-            : dataSourceConfig as EvalDataSourceConfig,
-        testingCriteria: identical(testingCriteria, sdkOmittedValue)
-            ? this.testingCriteria
-            : testingCriteria as List<EvalTestingCriteriaItem>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as Map<String, dynamic>?,
-      );
+  Eval _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? dataSourceConfig = sdkOmittedValue, Object? testingCriteria = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => Eval(
+    object: identical(object, sdkOmittedValue) ? this.object : object as EvalObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    dataSourceConfig: identical(dataSourceConfig, sdkOmittedValue) ? this.dataSourceConfig : dataSourceConfig as EvalDataSourceConfig,
+    testingCriteria: identical(testingCriteria, sdkOmittedValue) ? this.testingCriteria : testingCriteria as List<EvalTestingCriteriaItem>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, dynamic>?,
+  );
 
   factory Eval.fromJson(Map<String, dynamic> json) => Eval(
-        object: (json['object'] != null
-            ? EvalObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        dataSourceConfig: (json['data_source_config'] != null
-            ? EvalDataSourceConfig.fromJson(json['data_source_config'])
-            : null)!,
-        testingCriteria: ((json['testing_criteria'] as List?)
-            ?.map((e) => EvalTestingCriteriaItem.fromJson(e))
-            .toList())!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        metadata: json.containsKey('metadata')
-            ? json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>
-            : throw ArgumentError.value(
-                null, 'metadata', 'Required property is missing'),
-      );
+    object: (json['object'] != null ? EvalObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    dataSourceConfig: (json['data_source_config'] != null ? EvalDataSourceConfig.fromJson(json['data_source_config']) : null)!,
+    testingCriteria: ((json['testing_criteria'] as List?)?.map((e) => EvalTestingCriteriaItem.fromJson(e)).toList())!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    metadata: json.containsKey('metadata') ? json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic> : throw ArgumentError.value(null, 'metadata', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'name': name,
-        'data_source_config': dataSourceConfig.toJson(),
-        'testing_criteria':
-            testingCriteria.map((item) => item.toJson()).toList(),
-        'created_at': createdAt,
-        'metadata': metadata,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'name': name,
+    'data_source_config': dataSourceConfig.toJson(),
+    'testing_criteria': testingCriteria.map((item) => item.toJson()).toList(),
+    'created_at': createdAt,
+    'metadata': metadata,
+  };
 }

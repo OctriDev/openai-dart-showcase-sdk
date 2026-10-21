@@ -8,89 +8,48 @@ part of 'projects.dart';
 class ProjectUserListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `object` wire field.
   final String object;
-
   /// Required array value serialized in the `data` wire field.
   final List<ProjectUser> data;
-
   /// Optional `string` value serialized in the `first_id` wire field.
   final SdkOptional<String?> firstId;
-
   /// Optional `string` value serialized in the `last_id` wire field.
   final SdkOptional<String?> lastId;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ProjectUserListResponse(
-      {required this.object,
-      required this.data,
-      this.firstId = const SdkOmitted(),
-      this.lastId = const SdkOmitted(),
-      required this.hasMore});
+  const ProjectUserListResponse({required this.object, required this.data, this.firstId = const SdkOmitted(), this.lastId = const SdkOmitted(), required this.hasMore});
 
-  ProjectUserListResponse Function(
-      {String object,
-      List<ProjectUser> data,
-      SdkOptional<String?> firstId,
-      SdkOptional<String?> lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  ProjectUserListResponse Function({String object, List<ProjectUser> data, SdkOptional<String?> firstId, SdkOptional<String?> lastId, bool hasMore}) get copyWith => _copyWith;
 
-  ProjectUserListResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      ProjectUserListResponse(
-        object:
-            identical(object, sdkOmittedValue) ? this.object : object as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<ProjectUser>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as SdkOptional<String?>,
-        lastId: identical(lastId, sdkOmittedValue)
-            ? this.lastId
-            : lastId as SdkOptional<String?>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  ProjectUserListResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ProjectUserListResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<ProjectUser>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as SdkOptional<String?>,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as SdkOptional<String?>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory ProjectUserListResponse.fromJson(Map<String, dynamic> json) =>
-      ProjectUserListResponse(
-        object: (json['object'] as String?)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => ProjectUser.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: json.containsKey('first_id')
-            ? SdkPresent(json['first_id'] as String?)
-            : const SdkOmitted(),
-        lastId: json.containsKey('last_id')
-            ? SdkPresent(json['last_id'] as String?)
-            : const SdkOmitted(),
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory ProjectUserListResponse.fromJson(Map<String, dynamic> json) => ProjectUserListResponse(
+    object: (json['object'] as String?)!,
+    data: ((json['data'] as List?)?.map((e) => ProjectUser.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: json.containsKey('first_id') ? SdkPresent(json['first_id'] as String?) : const SdkOmitted(),
+    lastId: json.containsKey('last_id') ? SdkPresent(json['last_id'] as String?) : const SdkOmitted(),
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object,
-        'data': data.map((item) => item.toJson()).toList(),
-        ...switch (firstId) {
-          SdkPresent<String?>(value: final value) => {
-              'first_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastId) {
-          SdkPresent<String?>(value: final value) => {
-              'last_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'has_more': hasMore,
-      };
+    'object': object,
+    'data': data.map((item) => item.toJson()).toList(),
+    ...switch (firstId) {
+      SdkPresent<String?>(value: final value) => {'first_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastId) {
+      SdkPresent<String?>(value: final value) => {'last_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'has_more': hasMore,
+  };
 }

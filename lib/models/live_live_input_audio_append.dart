@@ -8,37 +8,27 @@ part of 'live_live_input.dart';
 class LiveInputAudioAppend {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type, always `session.input_audio.append`.
   final LiveInputAudioAppendType type_;
-
   /// Base64-encoded raw mono PCM16LE at 24 kHz received from the primary transport, reflected to the sideband before model-input muting. This server event uses the same audio key as the client command, but is not an acknowledgment of it.
   final String audio;
 
   const LiveInputAudioAppend({required this.type_, required this.audio});
 
-  LiveInputAudioAppend Function({LiveInputAudioAppendType type_, String audio})
-      get copyWith => _copyWith;
+  LiveInputAudioAppend Function({LiveInputAudioAppendType type_, String audio}) get copyWith => _copyWith;
 
-  LiveInputAudioAppend _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? audio = sdkOmittedValue}) =>
-      LiveInputAudioAppend(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveInputAudioAppendType,
-        audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
-      );
+  LiveInputAudioAppend _copyWith({Object? type_ = sdkOmittedValue, Object? audio = sdkOmittedValue}) => LiveInputAudioAppend(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveInputAudioAppendType,
+    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
+  );
 
-  factory LiveInputAudioAppend.fromJson(Map<String, dynamic> json) =>
-      LiveInputAudioAppend(
-        type_: (json['type'] != null
-            ? LiveInputAudioAppendType.fromJson(json['type'] as String)
-            : null)!,
-        audio: (json['audio'] as String?)!,
-      );
+  factory LiveInputAudioAppend.fromJson(Map<String, dynamic> json) => LiveInputAudioAppend(
+    type_: (json['type'] != null ? LiveInputAudioAppendType.fromJson(json['type'] as String) : null)!,
+    audio: (json['audio'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'audio': audio,
-      };
+    'type': type_.toJson(),
+    'audio': audio,
+  };
 }

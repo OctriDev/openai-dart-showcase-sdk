@@ -9,10 +9,7 @@ sealed class ReasoningEffort {
   static const String constructionSurface = 'named';
   const ReasoningEffort();
   factory ReasoningEffort.fromJson(Object? json) {
-    try {
-      return ReasoningEffortReasoningEffortVariant0(
-          ReasoningEffortVariant0.fromJson(json as String));
-    } catch (_) {}
+    try { return ReasoningEffortReasoningEffortVariant0(ReasoningEffortVariant0.fromJson(json as String)); } catch (_) {}
     throw FormatException("No variant matched for ReasoningEffort");
   }
   Object? toJson();
@@ -21,159 +18,92 @@ sealed class ReasoningEffort {
 final class ReasoningEffortReasoningEffortVariant0 extends ReasoningEffort {
   final ReasoningEffortVariant0 value;
   const ReasoningEffortReasoningEffortVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A description of the chain of thought used by a reasoning model while generating a response. Be sure to include these items in your `input` to the Responses API for subsequent turns of a conversation if you are manually [managing context](https://developers.openai.com/api/docs/guides/conversation-state).
 class ReasoningItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `reasoning`.
   final ReasoningItemType type_;
-
   /// The unique identifier of the reasoning content.
   final String id;
-
   /// Optional `string` value serialized in the `encrypted_content` wire field.
   final SdkOptional<String?> encryptedContent;
-
   /// Reasoning summary content.
   final List<SummaryTextContent> summary;
-
   /// Reasoning text content.
   final SdkOptional<List<ReasoningTextContent>> content;
-
   /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final SdkOptional<ReasoningItemStatus> status;
 
-  const ReasoningItem(
-      {required this.type_,
-      required this.id,
-      this.encryptedContent = const SdkOmitted(),
-      required this.summary,
-      this.content = const SdkOmitted(),
-      this.status = const SdkOmitted()});
+  const ReasoningItem({required this.type_, required this.id, this.encryptedContent = const SdkOmitted(), required this.summary, this.content = const SdkOmitted(), this.status = const SdkOmitted()});
 
-  ReasoningItem Function(
-      {ReasoningItemType type_,
-      String id,
-      SdkOptional<String?> encryptedContent,
-      List<SummaryTextContent> summary,
-      SdkOptional<List<ReasoningTextContent>> content,
-      SdkOptional<ReasoningItemStatus> status}) get copyWith => _copyWith;
+  ReasoningItem Function({ReasoningItemType type_, String id, SdkOptional<String?> encryptedContent, List<SummaryTextContent> summary, SdkOptional<List<ReasoningTextContent>> content, SdkOptional<ReasoningItemStatus> status}) get copyWith => _copyWith;
 
-  ReasoningItem _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? encryptedContent = sdkOmittedValue,
-          Object? summary = sdkOmittedValue,
-          Object? content = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      ReasoningItem(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ReasoningItemType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        encryptedContent: identical(encryptedContent, sdkOmittedValue)
-            ? this.encryptedContent
-            : encryptedContent as SdkOptional<String?>,
-        summary: identical(summary, sdkOmittedValue)
-            ? this.summary
-            : summary as List<SummaryTextContent>,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as SdkOptional<List<ReasoningTextContent>>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ReasoningItemStatus>,
-      );
+  ReasoningItem _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? encryptedContent = sdkOmittedValue, Object? summary = sdkOmittedValue, Object? content = sdkOmittedValue, Object? status = sdkOmittedValue}) => ReasoningItem(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ReasoningItemType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    encryptedContent: identical(encryptedContent, sdkOmittedValue) ? this.encryptedContent : encryptedContent as SdkOptional<String?>,
+    summary: identical(summary, sdkOmittedValue) ? this.summary : summary as List<SummaryTextContent>,
+    content: identical(content, sdkOmittedValue) ? this.content : content as SdkOptional<List<ReasoningTextContent>>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ReasoningItemStatus>,
+  );
 
   factory ReasoningItem.fromJson(Map<String, dynamic> json) => ReasoningItem(
-        type_: (json['type'] != null
-            ? ReasoningItemType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        encryptedContent: json.containsKey('encrypted_content')
-            ? SdkPresent(json['encrypted_content'] as String?)
-            : const SdkOmitted(),
-        summary: ((json['summary'] as List?)
-            ?.map((e) => SummaryTextContent.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        content: json['content'] != null
-            ? SdkPresent(((json['content'] as List?)
-                ?.map((e) =>
-                    ReasoningTextContent.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ReasoningItemStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    type_: (json['type'] != null ? ReasoningItemType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    encryptedContent: json.containsKey('encrypted_content') ? SdkPresent(json['encrypted_content'] as String?) : const SdkOmitted(),
+    summary: ((json['summary'] as List?)?.map((e) => SummaryTextContent.fromJson(e as Map<String, dynamic>)).toList())!,
+    content: json['content'] != null ? SdkPresent(((json['content'] as List?)?.map((e) => ReasoningTextContent.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ReasoningItemStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        ...switch (encryptedContent) {
-          SdkPresent<String?>(value: final value) => {
-              'encrypted_content': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'summary': summary.map((item) => item.toJson()).toList(),
-        ...switch (content) {
-          SdkPresent<List<ReasoningTextContent>>(value: final value) => {
-              'content': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ReasoningItemStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'id': id,
+    ...switch (encryptedContent) {
+      SdkPresent<String?>(value: final value) => {'encrypted_content': value,},
+      _ => const <String, dynamic>{},
+    },
+    'summary': summary.map((item) => item.toJson()).toList(),
+    ...switch (content) {
+      SdkPresent<List<ReasoningTextContent>>(value: final value) => {'content': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ReasoningItemStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Reasoning text from the model.
 class ReasoningTextContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the reasoning text. Always `reasoning_text`.
   final ReasoningTextContentType type_;
-
   /// The reasoning text from the model.
   final String text;
 
   const ReasoningTextContent({required this.type_, required this.text});
 
-  ReasoningTextContent Function({ReasoningTextContentType type_, String text})
-      get copyWith => _copyWith;
+  ReasoningTextContent Function({ReasoningTextContentType type_, String text}) get copyWith => _copyWith;
 
-  ReasoningTextContent _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      ReasoningTextContent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ReasoningTextContentType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  ReasoningTextContent _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => ReasoningTextContent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ReasoningTextContentType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory ReasoningTextContent.fromJson(Map<String, dynamic> json) =>
-      ReasoningTextContent(
-        type_: (json['type'] != null
-            ? ReasoningTextContentType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory ReasoningTextContent.fromJson(Map<String, dynamic> json) => ReasoningTextContent(
+    type_: (json['type'] != null ? ReasoningTextContentType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }

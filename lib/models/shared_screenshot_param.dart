@@ -8,30 +8,22 @@ part of 'shared.dart';
 class ScreenshotParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a screenshot action, this property is always set to `screenshot`.
   final ScreenshotParamType type_;
 
   const ScreenshotParam({required this.type_});
 
-  ScreenshotParam Function({ScreenshotParamType type_}) get copyWith =>
-      _copyWith;
+  ScreenshotParam Function({ScreenshotParamType type_}) get copyWith => _copyWith;
 
-  ScreenshotParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      ScreenshotParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ScreenshotParamType,
-      );
+  ScreenshotParam _copyWith({Object? type_ = sdkOmittedValue}) => ScreenshotParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ScreenshotParamType,
+  );
 
-  factory ScreenshotParam.fromJson(Map<String, dynamic> json) =>
-      ScreenshotParam(
-        type_: (json['type'] != null
-            ? ScreenshotParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory ScreenshotParam.fromJson(Map<String, dynamic> json) => ScreenshotParam(
+    type_: (json['type'] != null ? ScreenshotParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

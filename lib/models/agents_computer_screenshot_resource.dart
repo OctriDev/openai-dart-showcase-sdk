@@ -8,42 +8,27 @@ part of 'agents_computer.dart';
 class ComputerScreenshotResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The content type. Always `computer_screenshot`.
   final ComputerScreenshotResourceType type_;
-
   /// The complete JPEG image as a base64 data URL.
   final String imageUrl;
 
-  const ComputerScreenshotResource(
-      {required this.type_, required this.imageUrl});
+  const ComputerScreenshotResource({required this.type_, required this.imageUrl});
 
-  ComputerScreenshotResource Function(
-      {ComputerScreenshotResourceType type_,
-      String imageUrl}) get copyWith => _copyWith;
+  ComputerScreenshotResource Function({ComputerScreenshotResourceType type_, String imageUrl}) get copyWith => _copyWith;
 
-  ComputerScreenshotResource _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue}) =>
-      ComputerScreenshotResource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ComputerScreenshotResourceType,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as String,
-      );
+  ComputerScreenshotResource _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue}) => ComputerScreenshotResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerScreenshotResourceType,
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as String,
+  );
 
-  factory ComputerScreenshotResource.fromJson(Map<String, dynamic> json) =>
-      ComputerScreenshotResource(
-        type_: (json['type'] != null
-            ? ComputerScreenshotResourceType.fromJson(json['type'] as String)
-            : null)!,
-        imageUrl: (json['image_url'] as String?)!,
-      );
+  factory ComputerScreenshotResource.fromJson(Map<String, dynamic> json) => ComputerScreenshotResource(
+    type_: (json['type'] != null ? ComputerScreenshotResourceType.fromJson(json['type'] as String) : null)!,
+    imageUrl: (json['image_url'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'image_url': imageUrl,
-      };
+    'type': type_.toJson(),
+    'image_url': imageUrl,
+  };
 }

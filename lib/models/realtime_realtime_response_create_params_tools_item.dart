@@ -10,46 +10,24 @@ sealed class RealtimeResponseCreateParamsToolsItem {
   const RealtimeResponseCreateParamsToolsItem();
   factory RealtimeResponseCreateParamsToolsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = RealtimeFunctionTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = MCPTool.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeResponseCreateParamsToolsItemMCPTool(value);
-        }
-      } catch (_) {}
+      try { final value = RealtimeFunctionTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(value); } } catch (_) {}
+      try { final value = MCPTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolsItemMCPTool(value); } } catch (_) {}
     }
-    try {
-      return RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(
-          RealtimeFunctionTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RealtimeResponseCreateParamsToolsItemMCPTool(
-          MCPTool.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for RealtimeResponseCreateParamsToolsItem");
+    try { return RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(RealtimeFunctionTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RealtimeResponseCreateParamsToolsItemMCPTool(MCPTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for RealtimeResponseCreateParamsToolsItem");
   }
   Object? toJson();
 }
 
-final class RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool
-    extends RealtimeResponseCreateParamsToolsItem {
+final class RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool extends RealtimeResponseCreateParamsToolsItem {
   final RealtimeFunctionTool value;
   const RealtimeResponseCreateParamsToolsItemRealtimeFunctionTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeResponseCreateParamsToolsItemMCPTool
-    extends RealtimeResponseCreateParamsToolsItem {
+final class RealtimeResponseCreateParamsToolsItemMCPTool extends RealtimeResponseCreateParamsToolsItem {
   final MCPTool value;
   const RealtimeResponseCreateParamsToolsItemMCPTool(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

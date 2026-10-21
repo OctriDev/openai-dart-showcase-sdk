@@ -8,35 +8,25 @@ part of 'sessions.dart';
 class AutomaticThreadTitlingParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Enable automatic thread title generation. Defaults to true.
   final SdkOptional<bool> enabled;
 
   const AutomaticThreadTitlingParam({this.enabled = const SdkOmitted()});
 
-  AutomaticThreadTitlingParam Function({SdkOptional<bool> enabled})
-      get copyWith => _copyWith;
+  AutomaticThreadTitlingParam Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
 
-  AutomaticThreadTitlingParam _copyWith({Object? enabled = sdkOmittedValue}) =>
-      AutomaticThreadTitlingParam(
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as SdkOptional<bool>,
-      );
+  AutomaticThreadTitlingParam _copyWith({Object? enabled = sdkOmittedValue}) => AutomaticThreadTitlingParam(
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
+  );
 
-  factory AutomaticThreadTitlingParam.fromJson(Map<String, dynamic> json) =>
-      AutomaticThreadTitlingParam(
-        enabled: json['enabled'] != null
-            ? SdkPresent((json['enabled'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory AutomaticThreadTitlingParam.fromJson(Map<String, dynamic> json) => AutomaticThreadTitlingParam(
+    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (enabled) {
-          SdkPresent<bool>(value: final value) => {
-              'enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (enabled) {
+      SdkPresent<bool>(value: final value) => {'enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

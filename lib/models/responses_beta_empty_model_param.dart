@@ -10,16 +10,13 @@ class BetaEmptyModelParam {
   static const String constructionSurface = 'named';
   final Map<String, dynamic> additionalProperties;
 
-  const BetaEmptyModelParam(
-      {this.additionalProperties = const <String, dynamic>{}});
+  const BetaEmptyModelParam({this.additionalProperties = const <String, dynamic>{}});
 
-  factory BetaEmptyModelParam.fromJson(Map<String, dynamic> json) =>
-      BetaEmptyModelParam(
-        additionalProperties: Map.of(json)
-          ..removeWhere((key, _) => const <String>{}.contains(key)),
-      );
+  factory BetaEmptyModelParam.fromJson(Map<String, dynamic> json) => BetaEmptyModelParam(
+    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{}.contains(key)),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...additionalProperties,
-      };
+    ...additionalProperties,
+  };
 }

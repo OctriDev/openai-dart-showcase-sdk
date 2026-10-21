@@ -8,37 +8,27 @@ part of 'items.dart';
 class UserMessageQuotedText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type discriminator that is always `quoted_text`.
   final UserMessageQuotedTextType type_;
-
   /// Quoted text content.
   final String text;
 
   const UserMessageQuotedText({required this.type_, required this.text});
 
-  UserMessageQuotedText Function({UserMessageQuotedTextType type_, String text})
-      get copyWith => _copyWith;
+  UserMessageQuotedText Function({UserMessageQuotedTextType type_, String text}) get copyWith => _copyWith;
 
-  UserMessageQuotedText _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      UserMessageQuotedText(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as UserMessageQuotedTextType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  UserMessageQuotedText _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => UserMessageQuotedText(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as UserMessageQuotedTextType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory UserMessageQuotedText.fromJson(Map<String, dynamic> json) =>
-      UserMessageQuotedText(
-        type_: (json['type'] != null
-            ? UserMessageQuotedTextType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory UserMessageQuotedText.fromJson(Map<String, dynamic> json) => UserMessageQuotedText(
+    type_: (json['type'] != null ? UserMessageQuotedTextType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }

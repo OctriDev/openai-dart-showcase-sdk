@@ -8,84 +8,42 @@ part of 'videos.dart';
 class VideoListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object returned, must be `list`.
   final VideoListResourceObject object;
-
   /// A list of items
   final List<VideoResource> data;
-
   /// Required `string` value serialized in the `first_id` wire field.
   final String? firstId;
-
   /// Required `string` value serialized in the `last_id` wire field.
   final String? lastId;
-
   /// Whether there are more items available.
   final bool hasMore;
 
-  const VideoListResource(
-      {required this.object,
-      required this.data,
-      required this.firstId,
-      required this.lastId,
-      required this.hasMore});
+  const VideoListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
 
-  VideoListResource Function(
-      {VideoListResourceObject object,
-      List<VideoResource> data,
-      String? firstId,
-      String? lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  VideoListResource Function({VideoListResourceObject object, List<VideoResource> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
 
-  VideoListResource _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      VideoListResource(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as VideoListResourceObject,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<VideoResource>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as String?,
-        lastId: identical(lastId, sdkOmittedValue)
-            ? this.lastId
-            : lastId as String?,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  VideoListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => VideoListResource(
+    object: identical(object, sdkOmittedValue) ? this.object : object as VideoListResourceObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<VideoResource>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory VideoListResource.fromJson(Map<String, dynamic> json) =>
-      VideoListResource(
-        object: (json['object'] != null
-            ? VideoListResourceObject.fromJson(json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => VideoResource.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: json.containsKey('first_id')
-            ? json['first_id'] as String?
-            : throw ArgumentError.value(
-                null, 'first_id', 'Required property is missing'),
-        lastId: json.containsKey('last_id')
-            ? json['last_id'] as String?
-            : throw ArgumentError.value(
-                null, 'last_id', 'Required property is missing'),
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory VideoListResource.fromJson(Map<String, dynamic> json) => VideoListResource(
+    object: (json['object'] != null ? VideoListResourceObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => VideoResource.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
+    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        'first_id': firstId,
-        'last_id': lastId,
-        'has_more': hasMore,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    'first_id': firstId,
+    'last_id': lastId,
+    'has_more': hasMore,
+  };
 }

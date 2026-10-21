@@ -8,74 +8,38 @@ part of 'realtime_realtime_client.dart';
 class RealtimeClientEventResponseCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
-
   /// The event type, must be `response.create`.
   final RealtimeClientEventResponseCreateType type_;
-
   /// Create a new Realtime response with these parameters
   final SdkOptional<RealtimeResponseCreateParams> response;
 
-  const RealtimeClientEventResponseCreate(
-      {this.eventId = const SdkOmitted(),
-      required this.type_,
-      this.response = const SdkOmitted()});
+  const RealtimeClientEventResponseCreate({this.eventId = const SdkOmitted(), required this.type_, this.response = const SdkOmitted()});
 
-  RealtimeClientEventResponseCreate Function(
-          {SdkOptional<String> eventId,
-          RealtimeClientEventResponseCreateType type_,
-          SdkOptional<RealtimeResponseCreateParams> response})
-      get copyWith => _copyWith;
+  RealtimeClientEventResponseCreate Function({SdkOptional<String> eventId, RealtimeClientEventResponseCreateType type_, SdkOptional<RealtimeResponseCreateParams> response}) get copyWith => _copyWith;
 
-  RealtimeClientEventResponseCreate _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? response = sdkOmittedValue}) =>
-      RealtimeClientEventResponseCreate(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeClientEventResponseCreateType,
-        response: identical(response, sdkOmittedValue)
-            ? this.response
-            : response as SdkOptional<RealtimeResponseCreateParams>,
-      );
+  RealtimeClientEventResponseCreate _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue}) => RealtimeClientEventResponseCreate(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventResponseCreateType,
+    response: identical(response, sdkOmittedValue) ? this.response : response as SdkOptional<RealtimeResponseCreateParams>,
+  );
 
-  factory RealtimeClientEventResponseCreate.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeClientEventResponseCreate(
-        eventId: json['event_id'] != null
-            ? SdkPresent((json['event_id'] as String?)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? RealtimeClientEventResponseCreateType.fromJson(
-                json['type'] as String)
-            : null)!,
-        response: json['response'] != null
-            ? SdkPresent((json['response'] != null
-                ? RealtimeResponseCreateParams.fromJson(
-                    json['response'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeClientEventResponseCreate.fromJson(Map<String, dynamic> json) => RealtimeClientEventResponseCreate(
+    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? RealtimeClientEventResponseCreateType.fromJson(json['type'] as String) : null)!,
+    response: json['response'] != null ? SdkPresent((json['response'] != null ? RealtimeResponseCreateParams.fromJson(json['response'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        ...switch (response) {
-          SdkPresent<RealtimeResponseCreateParams>(value: final value) => {
-              'response': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (eventId) {
+      SdkPresent<String>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    ...switch (response) {
+      SdkPresent<RealtimeResponseCreateParams>(value: final value) => {'response': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -17,45 +17,28 @@ enum BetaComparisonFilterType {
 
   static BetaComparisonFilterType fromJson(String value) {
     switch (value) {
-      case 'eq':
-        return BetaComparisonFilterType.eq;
-      case 'ne':
-        return BetaComparisonFilterType.ne;
-      case 'gt':
-        return BetaComparisonFilterType.gt;
-      case 'gte':
-        return BetaComparisonFilterType.gte;
-      case 'lt':
-        return BetaComparisonFilterType.lt;
-      case 'lte':
-        return BetaComparisonFilterType.lte;
-      case 'in':
-        return BetaComparisonFilterType.in_;
-      case 'nin':
-        return BetaComparisonFilterType.nin;
-      default:
-        throw ArgumentError('Unknown BetaComparisonFilterType: $value');
+      case 'eq': return BetaComparisonFilterType.eq;
+      case 'ne': return BetaComparisonFilterType.ne;
+      case 'gt': return BetaComparisonFilterType.gt;
+      case 'gte': return BetaComparisonFilterType.gte;
+      case 'lt': return BetaComparisonFilterType.lt;
+      case 'lte': return BetaComparisonFilterType.lte;
+      case 'in': return BetaComparisonFilterType.in_;
+      case 'nin': return BetaComparisonFilterType.nin;
+      default: throw ArgumentError('Unknown BetaComparisonFilterType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaComparisonFilterType.eq:
-        return 'eq';
-      case BetaComparisonFilterType.ne:
-        return 'ne';
-      case BetaComparisonFilterType.gt:
-        return 'gt';
-      case BetaComparisonFilterType.gte:
-        return 'gte';
-      case BetaComparisonFilterType.lt:
-        return 'lt';
-      case BetaComparisonFilterType.lte:
-        return 'lte';
-      case BetaComparisonFilterType.in_:
-        return 'in';
-      case BetaComparisonFilterType.nin:
-        return 'nin';
+      case BetaComparisonFilterType.eq: return 'eq';
+      case BetaComparisonFilterType.ne: return 'ne';
+      case BetaComparisonFilterType.gt: return 'gt';
+      case BetaComparisonFilterType.gte: return 'gte';
+      case BetaComparisonFilterType.lt: return 'lt';
+      case BetaComparisonFilterType.lte: return 'lte';
+      case BetaComparisonFilterType.in_: return 'in';
+      case BetaComparisonFilterType.nin: return 'nin';
     }
   }
 
@@ -70,21 +53,16 @@ enum BetaCompoundFilterType {
 
   static BetaCompoundFilterType fromJson(String value) {
     switch (value) {
-      case 'and':
-        return BetaCompoundFilterType.and;
-      case 'or':
-        return BetaCompoundFilterType.or;
-      default:
-        throw ArgumentError('Unknown BetaCompoundFilterType: $value');
+      case 'and': return BetaCompoundFilterType.and;
+      case 'or': return BetaCompoundFilterType.or;
+      default: throw ArgumentError('Unknown BetaCompoundFilterType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCompoundFilterType.and:
-        return 'and';
-      case BetaCompoundFilterType.or:
-        return 'or';
+      case BetaCompoundFilterType.and: return 'and';
+      case BetaCompoundFilterType.or: return 'or';
     }
   }
 
@@ -98,18 +76,14 @@ enum BetaComputerCallOutputItemParamType {
 
   static BetaComputerCallOutputItemParamType fromJson(String value) {
     switch (value) {
-      case 'computer_call_output':
-        return BetaComputerCallOutputItemParamType.computerCallOutput;
-      default:
-        throw ArgumentError(
-            'Unknown BetaComputerCallOutputItemParamType: $value');
+      case 'computer_call_output': return BetaComputerCallOutputItemParamType.computerCallOutput;
+      default: throw ArgumentError('Unknown BetaComputerCallOutputItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaComputerCallOutputItemParamType.computerCallOutput:
-        return 'computer_call_output';
+      case BetaComputerCallOutputItemParamType.computerCallOutput: return 'computer_call_output';
     }
   }
 
@@ -123,18 +97,14 @@ enum BetaComputerScreenshotContentType {
 
   static BetaComputerScreenshotContentType fromJson(String value) {
     switch (value) {
-      case 'computer_screenshot':
-        return BetaComputerScreenshotContentType.computerScreenshot;
-      default:
-        throw ArgumentError(
-            'Unknown BetaComputerScreenshotContentType: $value');
+      case 'computer_screenshot': return BetaComputerScreenshotContentType.computerScreenshot;
+      default: throw ArgumentError('Unknown BetaComputerScreenshotContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaComputerScreenshotContentType.computerScreenshot:
-        return 'computer_screenshot';
+      case BetaComputerScreenshotContentType.computerScreenshot: return 'computer_screenshot';
     }
   }
 
@@ -144,27 +114,23 @@ enum BetaComputerScreenshotContentType {
 
 /// Specifies the event type. For a computer screenshot, this property is always set to `computer_screenshot`.
 final class BetaComputerScreenshotImageType {
+
   final String value;
 
   const BetaComputerScreenshotImageType._(this.value);
 
-  factory BetaComputerScreenshotImageType.fromJson(String value) =>
-      BetaComputerScreenshotImageType._(value);
+  factory BetaComputerScreenshotImageType.fromJson(String value) => BetaComputerScreenshotImageType._(value);
 
-  static const computerScreenshot =
-      BetaComputerScreenshotImageType._('computer_screenshot');
+  static const computerScreenshot = BetaComputerScreenshotImageType._('computer_screenshot');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaComputerScreenshotImageType && other.value == value;
+  @override bool operator ==(Object other) => other is BetaComputerScreenshotImageType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the computer tool. Always `computer`.
@@ -173,17 +139,14 @@ enum BetaComputerToolType {
 
   static BetaComputerToolType fromJson(String value) {
     switch (value) {
-      case 'computer':
-        return BetaComputerToolType.computer;
-      default:
-        throw ArgumentError('Unknown BetaComputerToolType: $value');
+      case 'computer': return BetaComputerToolType.computer;
+      default: throw ArgumentError('Unknown BetaComputerToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaComputerToolType.computer:
-        return 'computer';
+      case BetaComputerToolType.computer: return 'computer';
     }
   }
 
@@ -193,12 +156,12 @@ enum BetaComputerToolType {
 
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 final class BetaComputerToolCallStatus {
+
   final String value;
 
   const BetaComputerToolCallStatus._(this.value);
 
-  factory BetaComputerToolCallStatus.fromJson(String value) =>
-      BetaComputerToolCallStatus._(value);
+  factory BetaComputerToolCallStatus.fromJson(String value) => BetaComputerToolCallStatus._(value);
 
   static const inProgress = BetaComputerToolCallStatus._('in_progress');
   static const completed = BetaComputerToolCallStatus._('completed');
@@ -206,15 +169,12 @@ final class BetaComputerToolCallStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaComputerToolCallStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaComputerToolCallStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the computer call. Always `computer_call`.
@@ -223,17 +183,14 @@ enum BetaComputerToolCallType {
 
   static BetaComputerToolCallType fromJson(String value) {
     switch (value) {
-      case 'computer_call':
-        return BetaComputerToolCallType.computerCall;
-      default:
-        throw ArgumentError('Unknown BetaComputerToolCallType: $value');
+      case 'computer_call': return BetaComputerToolCallType.computerCall;
+      default: throw ArgumentError('Unknown BetaComputerToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaComputerToolCallType.computerCall:
-        return 'computer_call';
+      case BetaComputerToolCallType.computerCall: return 'computer_call';
     }
   }
 
@@ -243,12 +200,12 @@ enum BetaComputerToolCallType {
 
 /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
 final class BetaComputerToolCallOutputStatus {
+
   final String value;
 
   const BetaComputerToolCallOutputStatus._(this.value);
 
-  factory BetaComputerToolCallOutputStatus.fromJson(String value) =>
-      BetaComputerToolCallOutputStatus._(value);
+  factory BetaComputerToolCallOutputStatus.fromJson(String value) => BetaComputerToolCallOutputStatus._(value);
 
   static const inProgress = BetaComputerToolCallOutputStatus._('in_progress');
   static const completed = BetaComputerToolCallOutputStatus._('completed');
@@ -256,15 +213,12 @@ final class BetaComputerToolCallOutputStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaComputerToolCallOutputStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaComputerToolCallOutputStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the computer tool call output. Always `computer_call_output`.
@@ -273,17 +227,14 @@ enum BetaComputerToolCallOutputType {
 
   static BetaComputerToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'computer_call_output':
-        return BetaComputerToolCallOutputType.computerCallOutput;
-      default:
-        throw ArgumentError('Unknown BetaComputerToolCallOutputType: $value');
+      case 'computer_call_output': return BetaComputerToolCallOutputType.computerCallOutput;
+      default: throw ArgumentError('Unknown BetaComputerToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaComputerToolCallOutputType.computerCallOutput:
-        return 'computer_call_output';
+      case BetaComputerToolCallOutputType.computerCallOutput: return 'computer_call_output';
     }
   }
 
@@ -297,17 +248,14 @@ enum BetaComputerUsePreviewToolType {
 
   static BetaComputerUsePreviewToolType fromJson(String value) {
     switch (value) {
-      case 'computer_use_preview':
-        return BetaComputerUsePreviewToolType.computerUsePreview;
-      default:
-        throw ArgumentError('Unknown BetaComputerUsePreviewToolType: $value');
+      case 'computer_use_preview': return BetaComputerUsePreviewToolType.computerUsePreview;
+      default: throw ArgumentError('Unknown BetaComputerUsePreviewToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaComputerUsePreviewToolType.computerUsePreview:
-        return 'computer_use_preview';
+      case BetaComputerUsePreviewToolType.computerUsePreview: return 'computer_use_preview';
     }
   }
 
@@ -321,17 +269,14 @@ enum BetaContainerAutoParamType {
 
   static BetaContainerAutoParamType fromJson(String value) {
     switch (value) {
-      case 'container_auto':
-        return BetaContainerAutoParamType.containerAuto;
-      default:
-        throw ArgumentError('Unknown BetaContainerAutoParamType: $value');
+      case 'container_auto': return BetaContainerAutoParamType.containerAuto;
+      default: throw ArgumentError('Unknown BetaContainerAutoParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaContainerAutoParamType.containerAuto:
-        return 'container_auto';
+      case BetaContainerAutoParamType.containerAuto: return 'container_auto';
     }
   }
 

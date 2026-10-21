@@ -6,153 +6,128 @@ part of 'inline.dart';
 // Inline operation models
 /// Required enumerated value serialized in the `object` wire field.
 final class DeleteFileResponseObject {
+
   final String value;
 
   const DeleteFileResponseObject._(this.value);
 
-  factory DeleteFileResponseObject.fromJson(String value) =>
-      DeleteFileResponseObject._(value);
+  factory DeleteFileResponseObject.fromJson(String value) => DeleteFileResponseObject._(value);
 
   static const file = DeleteFileResponseObject._('file');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeleteFileResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeleteFileResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always "checkpoint.permission".
 final class DeleteFineTuningCheckpointPermissionResponseObject {
+
   final String value;
 
   const DeleteFineTuningCheckpointPermissionResponseObject._(this.value);
 
-  factory DeleteFineTuningCheckpointPermissionResponseObject.fromJson(
-          String value) =>
-      DeleteFineTuningCheckpointPermissionResponseObject._(value);
+  factory DeleteFineTuningCheckpointPermissionResponseObject.fromJson(String value) => DeleteFineTuningCheckpointPermissionResponseObject._(value);
 
-  static const checkpointPermission =
-      DeleteFineTuningCheckpointPermissionResponseObject._(
-          'checkpoint.permission');
+  static const checkpointPermission = DeleteFineTuningCheckpointPermissionResponseObject._('checkpoint.permission');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeleteFineTuningCheckpointPermissionResponseObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is DeleteFineTuningCheckpointPermissionResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class DeleteMessageResponseObject {
+
   final String value;
 
   const DeleteMessageResponseObject._(this.value);
 
-  factory DeleteMessageResponseObject.fromJson(String value) =>
-      DeleteMessageResponseObject._(value);
+  factory DeleteMessageResponseObject.fromJson(String value) => DeleteMessageResponseObject._(value);
 
-  static const threadMessageDeleted =
-      DeleteMessageResponseObject._('thread.message.deleted');
+  static const threadMessageDeleted = DeleteMessageResponseObject._('thread.message.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeleteMessageResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeleteMessageResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class DeleteThreadResponseObject {
+
   final String value;
 
   const DeleteThreadResponseObject._(this.value);
 
-  factory DeleteThreadResponseObject.fromJson(String value) =>
-      DeleteThreadResponseObject._(value);
+  factory DeleteThreadResponseObject.fromJson(String value) => DeleteThreadResponseObject._(value);
 
   static const threadDeleted = DeleteThreadResponseObject._('thread.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeleteThreadResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeleteThreadResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class DeleteVectorStoreFileResponseObject {
+
   final String value;
 
   const DeleteVectorStoreFileResponseObject._(this.value);
 
-  factory DeleteVectorStoreFileResponseObject.fromJson(String value) =>
-      DeleteVectorStoreFileResponseObject._(value);
+  factory DeleteVectorStoreFileResponseObject.fromJson(String value) => DeleteVectorStoreFileResponseObject._(value);
 
-  static const vectorStoreFileDeleted =
-      DeleteVectorStoreFileResponseObject._('vector_store.file.deleted');
+  static const vectorStoreFileDeleted = DeleteVectorStoreFileResponseObject._('vector_store.file.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeleteVectorStoreFileResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeleteVectorStoreFileResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class DeleteVectorStoreResponseObject {
+
   final String value;
 
   const DeleteVectorStoreResponseObject._(this.value);
 
-  factory DeleteVectorStoreResponseObject.fromJson(String value) =>
-      DeleteVectorStoreResponseObject._(value);
+  factory DeleteVectorStoreResponseObject.fromJson(String value) => DeleteVectorStoreResponseObject._(value);
 
-  static const vectorStoreDeleted =
-      DeleteVectorStoreResponseObject._('vector_store.deleted');
+  static const vectorStoreDeleted = DeleteVectorStoreResponseObject._('vector_store.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeleteVectorStoreResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is DeleteVectorStoreResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -161,17 +136,14 @@ enum DirectToolCallCallerType {
 
   static DirectToolCallCallerType fromJson(String value) {
     switch (value) {
-      case 'direct':
-        return DirectToolCallCallerType.direct;
-      default:
-        throw ArgumentError('Unknown DirectToolCallCallerType: $value');
+      case 'direct': return DirectToolCallCallerType.direct;
+      default: throw ArgumentError('Unknown DirectToolCallCallerType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DirectToolCallCallerType.direct:
-        return 'direct';
+      case DirectToolCallCallerType.direct: return 'direct';
     }
   }
 
@@ -185,17 +157,14 @@ enum DirectToolCallCallerParamType {
 
   static DirectToolCallCallerParamType fromJson(String value) {
     switch (value) {
-      case 'direct':
-        return DirectToolCallCallerParamType.direct;
-      default:
-        throw ArgumentError('Unknown DirectToolCallCallerParamType: $value');
+      case 'direct': return DirectToolCallCallerParamType.direct;
+      default: throw ArgumentError('Unknown DirectToolCallCallerParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DirectToolCallCallerParamType.direct:
-        return 'direct';
+      case DirectToolCallCallerParamType.direct: return 'direct';
     }
   }
 
@@ -205,6 +174,7 @@ enum DirectToolCallCallerParamType {
 
 /// Required enumerated value serialized in the `data` wire field.
 final class DoneEventData {
+
   final String value;
 
   const DoneEventData._(this.value);
@@ -215,15 +185,12 @@ final class DoneEventData {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DoneEventData && other.value == value;
+  @override bool operator ==(Object other) => other is DoneEventData && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `event` wire field.
@@ -232,17 +199,14 @@ enum DoneEventEvent {
 
   static DoneEventEvent fromJson(String value) {
     switch (value) {
-      case 'done':
-        return DoneEventEvent.done;
-      default:
-        throw ArgumentError('Unknown DoneEventEvent: $value');
+      case 'done': return DoneEventEvent.done;
+      default: throw ArgumentError('Unknown DoneEventEvent: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DoneEventEvent.done:
-        return 'done';
+      case DoneEventEvent.done: return 'done';
     }
   }
 
@@ -256,17 +220,14 @@ enum DoubleClickActionType {
 
   static DoubleClickActionType fromJson(String value) {
     switch (value) {
-      case 'double_click':
-        return DoubleClickActionType.doubleClick;
-      default:
-        throw ArgumentError('Unknown DoubleClickActionType: $value');
+      case 'double_click': return DoubleClickActionType.doubleClick;
+      default: throw ArgumentError('Unknown DoubleClickActionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DoubleClickActionType.doubleClick:
-        return 'double_click';
+      case DoubleClickActionType.doubleClick: return 'double_click';
     }
   }
 
@@ -280,17 +241,14 @@ enum DragParamType {
 
   static DragParamType fromJson(String value) {
     switch (value) {
-      case 'drag':
-        return DragParamType.drag;
-      default:
-        throw ArgumentError('Unknown DragParamType: $value');
+      case 'drag': return DragParamType.drag;
+      default: throw ArgumentError('Unknown DragParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DragParamType.drag:
-        return 'drag';
+      case DragParamType.drag: return 'drag';
     }
   }
 
@@ -300,12 +258,12 @@ enum DragParamType {
 
 /// The role of the message input. One of `user`, `assistant`, `system`, or `developer`.
 final class EasyInputMessageRole {
+
   final String value;
 
   const EasyInputMessageRole._(this.value);
 
-  factory EasyInputMessageRole.fromJson(String value) =>
-      EasyInputMessageRole._(value);
+  factory EasyInputMessageRole.fromJson(String value) => EasyInputMessageRole._(value);
 
   static const user = EasyInputMessageRole._('user');
   static const assistant = EasyInputMessageRole._('assistant');
@@ -314,13 +272,10 @@ final class EasyInputMessageRole {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is EasyInputMessageRole && other.value == value;
+  @override bool operator ==(Object other) => other is EasyInputMessageRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

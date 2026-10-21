@@ -8,47 +8,32 @@ part of 'misc.dart';
 class LogProbProperties {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The token that was used to generate the log probability.
   final String token;
-
   /// The log probability of the token.
   final double logprob;
-
   /// The bytes that were used to generate the log probability.
   final List<int> bytes;
 
-  const LogProbProperties(
-      {required this.token, required this.logprob, required this.bytes});
+  const LogProbProperties({required this.token, required this.logprob, required this.bytes});
 
-  LogProbProperties Function({String token, double logprob, List<int> bytes})
-      get copyWith => _copyWith;
+  LogProbProperties Function({String token, double logprob, List<int> bytes}) get copyWith => _copyWith;
 
-  LogProbProperties _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue,
-          Object? bytes = sdkOmittedValue}) =>
-      LogProbProperties(
-        token: identical(token, sdkOmittedValue) ? this.token : token as String,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as double,
-        bytes:
-            identical(bytes, sdkOmittedValue) ? this.bytes : bytes as List<int>,
-      );
+  LogProbProperties _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? bytes = sdkOmittedValue}) => LogProbProperties(
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as double,
+    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as List<int>,
+  );
 
-  factory LogProbProperties.fromJson(Map<String, dynamic> json) =>
-      LogProbProperties(
-        token: (json['token'] as String?)!,
-        logprob: ((json['logprob'] as num?)?.toDouble())!,
-        bytes: ((json['bytes'] as List?)
-            ?.map((e) => (e as num).toInt())
-            .toList())!,
-      );
+  factory LogProbProperties.fromJson(Map<String, dynamic> json) => LogProbProperties(
+    token: (json['token'] as String?)!,
+    logprob: ((json['logprob'] as num?)?.toDouble())!,
+    bytes: ((json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'token': token,
-        'logprob': logprob,
-        'bytes': bytes,
-      };
+    'token': token,
+    'logprob': logprob,
+    'bytes': bytes,
+  };
 }

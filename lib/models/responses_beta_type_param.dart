@@ -8,36 +8,27 @@ part of 'responses_beta.dart';
 class BetaTypeParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a type action, this property is always set to `type`.
   final BetaTypeParamType type_;
-
   /// The text to type.
   final String text;
 
   const BetaTypeParam({required this.type_, required this.text});
 
-  BetaTypeParam Function({BetaTypeParamType type_, String text}) get copyWith =>
-      _copyWith;
+  BetaTypeParam Function({BetaTypeParamType type_, String text}) get copyWith => _copyWith;
 
-  BetaTypeParam _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      BetaTypeParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaTypeParamType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  BetaTypeParam _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => BetaTypeParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaTypeParamType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
   factory BetaTypeParam.fromJson(Map<String, dynamic> json) => BetaTypeParam(
-        type_: (json['type'] != null
-            ? BetaTypeParamType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+    type_: (json['type'] != null ? BetaTypeParamType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }

@@ -8,96 +8,63 @@ part of 'responses_beta_moderation.dart';
 class BetaModeration {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Moderation for the response input.
   final BetaModerationInput input;
-
   /// Moderation for the response output.
   final BetaModerationOutput output;
 
   const BetaModeration({required this.input, required this.output});
 
-  BetaModeration Function(
-      {BetaModerationInput input,
-      BetaModerationOutput output}) get copyWith => _copyWith;
+  BetaModeration Function({BetaModerationInput input, BetaModerationOutput output}) get copyWith => _copyWith;
 
-  BetaModeration _copyWith(
-          {Object? input = sdkOmittedValue,
-          Object? output = sdkOmittedValue}) =>
-      BetaModeration(
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as BetaModerationInput,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as BetaModerationOutput,
-      );
+  BetaModeration _copyWith({Object? input = sdkOmittedValue, Object? output = sdkOmittedValue}) => BetaModeration(
+    input: identical(input, sdkOmittedValue) ? this.input : input as BetaModerationInput,
+    output: identical(output, sdkOmittedValue) ? this.output : output as BetaModerationOutput,
+  );
 
   factory BetaModeration.fromJson(Map<String, dynamic> json) => BetaModeration(
-        input: (json['input'] != null
-            ? BetaModerationInput.fromJson(json['input'])
-            : null)!,
-        output: (json['output'] != null
-            ? BetaModerationOutput.fromJson(json['output'])
-            : null)!,
-      );
+    input: (json['input'] != null ? BetaModerationInput.fromJson(json['input']) : null)!,
+    output: (json['output'] != null ? BetaModerationOutput.fromJson(json['output']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'input': input.toJson(),
-        'output': output.toJson(),
-      };
+    'input': input.toJson(),
+    'output': output.toJson(),
+  };
 }
 
 /// An error produced while attempting moderation for the response input or output.
 class BetaModerationErrorBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which was always `error` for moderation failures.
   final BetaModerationErrorBodyType type_;
-
   /// The error code.
   final String code;
-
   /// The error message.
   final String message;
 
-  const BetaModerationErrorBody(
-      {required this.type_, required this.code, required this.message});
+  const BetaModerationErrorBody({required this.type_, required this.code, required this.message});
 
-  BetaModerationErrorBody Function(
-      {BetaModerationErrorBodyType type_,
-      String code,
-      String message}) get copyWith => _copyWith;
+  BetaModerationErrorBody Function({BetaModerationErrorBodyType type_, String code, String message}) get copyWith => _copyWith;
 
-  BetaModerationErrorBody _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      BetaModerationErrorBody(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaModerationErrorBodyType,
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  BetaModerationErrorBody _copyWith({Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => BetaModerationErrorBody(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaModerationErrorBodyType,
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
-  factory BetaModerationErrorBody.fromJson(Map<String, dynamic> json) =>
-      BetaModerationErrorBody(
-        type_: (json['type'] != null
-            ? BetaModerationErrorBodyType.fromJson(json['type'] as String)
-            : null)!,
-        code: (json['code'] as String?)!,
-        message: (json['message'] as String?)!,
-      );
+  factory BetaModerationErrorBody.fromJson(Map<String, dynamic> json) => BetaModerationErrorBody(
+    type_: (json['type'] != null ? BetaModerationErrorBodyType.fromJson(json['type'] as String) : null)!,
+    code: (json['code'] as String?)!,
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'code': code,
-        'message': message,
-      };
+    'type': type_.toJson(),
+    'code': code,
+    'message': message,
+  };
 }
 
 sealed class BetaModerationInput {
@@ -106,84 +73,56 @@ sealed class BetaModerationInput {
   const BetaModerationInput();
   factory BetaModerationInput.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaModerationResultBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaModerationInputBetaModerationResultBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaModerationErrorBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaModerationInputBetaModerationErrorBody(value);
-        }
-      } catch (_) {}
+      try { final value = BetaModerationResultBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaModerationInputBetaModerationResultBody(value); } } catch (_) {}
+      try { final value = BetaModerationErrorBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaModerationInputBetaModerationErrorBody(value); } } catch (_) {}
     }
-    try {
-      return BetaModerationInputBetaModerationResultBody(
-          BetaModerationResultBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaModerationInputBetaModerationErrorBody(
-          BetaModerationErrorBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"moderation_result", "error"}.contains(json["type"])) {
-      return UnknownBetaModerationInput(json);
-    }
+    try { return BetaModerationInputBetaModerationResultBody(BetaModerationResultBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaModerationInputBetaModerationErrorBody(BetaModerationErrorBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"moderation_result", "error"}.contains(json["type"])) { return UnknownBetaModerationInput(json); }
     throw FormatException("No variant matched for BetaModerationInput");
   }
   Object? toJson();
 }
 
-final class BetaModerationInputBetaModerationResultBody
-    extends BetaModerationInput {
+final class BetaModerationInputBetaModerationResultBody extends BetaModerationInput {
   final BetaModerationResultBody value;
   const BetaModerationInputBetaModerationResultBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaModerationInputBetaModerationErrorBody
-    extends BetaModerationInput {
+final class BetaModerationInputBetaModerationErrorBody extends BetaModerationInput {
   final BetaModerationErrorBody value;
   const BetaModerationInputBetaModerationErrorBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaModerationInput] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaModerationInput extends BetaModerationInput {
   final Map<String, dynamic> raw;
   const UnknownBetaModerationInput(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Typed representation of the `BetaModerationInputType` API schema.
 final class BetaModerationInputType {
+
   final String value;
 
   const BetaModerationInputType._(this.value);
 
-  factory BetaModerationInputType.fromJson(String value) =>
-      BetaModerationInputType._(value);
+  factory BetaModerationInputType.fromJson(String value) => BetaModerationInputType._(value);
 
   static const text = BetaModerationInputType._('text');
   static const image = BetaModerationInputType._('image');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaModerationInputType && other.value == value;
+  @override bool operator ==(Object other) => other is BetaModerationInputType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 sealed class BetaModerationOutput {
@@ -192,164 +131,81 @@ sealed class BetaModerationOutput {
   const BetaModerationOutput();
   factory BetaModerationOutput.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaModerationResultBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaModerationOutputBetaModerationResultBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaModerationErrorBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaModerationOutputBetaModerationErrorBody(value);
-        }
-      } catch (_) {}
+      try { final value = BetaModerationResultBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaModerationOutputBetaModerationResultBody(value); } } catch (_) {}
+      try { final value = BetaModerationErrorBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaModerationOutputBetaModerationErrorBody(value); } } catch (_) {}
     }
-    try {
-      return BetaModerationOutputBetaModerationResultBody(
-          BetaModerationResultBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaModerationOutputBetaModerationErrorBody(
-          BetaModerationErrorBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"moderation_result", "error"}.contains(json["type"])) {
-      return UnknownBetaModerationOutput(json);
-    }
+    try { return BetaModerationOutputBetaModerationResultBody(BetaModerationResultBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaModerationOutputBetaModerationErrorBody(BetaModerationErrorBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"moderation_result", "error"}.contains(json["type"])) { return UnknownBetaModerationOutput(json); }
     throw FormatException("No variant matched for BetaModerationOutput");
   }
   Object? toJson();
 }
 
-final class BetaModerationOutputBetaModerationResultBody
-    extends BetaModerationOutput {
+final class BetaModerationOutputBetaModerationResultBody extends BetaModerationOutput {
   final BetaModerationResultBody value;
   const BetaModerationOutputBetaModerationResultBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaModerationOutputBetaModerationErrorBody
-    extends BetaModerationOutput {
+final class BetaModerationOutputBetaModerationErrorBody extends BetaModerationOutput {
   final BetaModerationErrorBody value;
   const BetaModerationOutputBetaModerationErrorBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaModerationOutput] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaModerationOutput extends BetaModerationOutput {
   final Map<String, dynamic> raw;
   const UnknownBetaModerationOutput(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// A moderation result produced for the response input or output.
 class BetaModerationResultBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which was always `moderation_result` for successful moderation results.
   final BetaModerationResultBodyType type_;
-
   /// The moderation model that produced this result.
   final String model;
-
   /// A boolean indicating whether the content was flagged by any category.
   final bool flagged;
-
   /// A dictionary of moderation categories to booleans, True if the input is flagged under this category.
   final Map<String, bool> categories;
-
   /// A dictionary of moderation categories to scores.
   final Map<String, double> categoryScores;
-
   /// Which modalities of input are reflected by the score for each category.
   final Map<String, List<BetaModerationInputType>> categoryAppliedInputTypes;
 
-  const BetaModerationResultBody(
-      {required this.type_,
-      required this.model,
-      required this.flagged,
-      required this.categories,
-      required this.categoryScores,
-      required this.categoryAppliedInputTypes});
+  const BetaModerationResultBody({required this.type_, required this.model, required this.flagged, required this.categories, required this.categoryScores, required this.categoryAppliedInputTypes});
 
-  BetaModerationResultBody Function(
-          {BetaModerationResultBodyType type_,
-          String model,
-          bool flagged,
-          Map<String, bool> categories,
-          Map<String, double> categoryScores,
-          Map<String, List<BetaModerationInputType>> categoryAppliedInputTypes})
-      get copyWith => _copyWith;
+  BetaModerationResultBody Function({BetaModerationResultBodyType type_, String model, bool flagged, Map<String, bool> categories, Map<String, double> categoryScores, Map<String, List<BetaModerationInputType>> categoryAppliedInputTypes}) get copyWith => _copyWith;
 
-  BetaModerationResultBody _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? flagged = sdkOmittedValue,
-          Object? categories = sdkOmittedValue,
-          Object? categoryScores = sdkOmittedValue,
-          Object? categoryAppliedInputTypes = sdkOmittedValue}) =>
-      BetaModerationResultBody(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaModerationResultBodyType,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        flagged: identical(flagged, sdkOmittedValue)
-            ? this.flagged
-            : flagged as bool,
-        categories: identical(categories, sdkOmittedValue)
-            ? this.categories
-            : categories as Map<String, bool>,
-        categoryScores: identical(categoryScores, sdkOmittedValue)
-            ? this.categoryScores
-            : categoryScores as Map<String, double>,
-        categoryAppliedInputTypes:
-            identical(categoryAppliedInputTypes, sdkOmittedValue)
-                ? this.categoryAppliedInputTypes
-                : categoryAppliedInputTypes
-                    as Map<String, List<BetaModerationInputType>>,
-      );
+  BetaModerationResultBody _copyWith({Object? type_ = sdkOmittedValue, Object? model = sdkOmittedValue, Object? flagged = sdkOmittedValue, Object? categories = sdkOmittedValue, Object? categoryScores = sdkOmittedValue, Object? categoryAppliedInputTypes = sdkOmittedValue}) => BetaModerationResultBody(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaModerationResultBodyType,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    flagged: identical(flagged, sdkOmittedValue) ? this.flagged : flagged as bool,
+    categories: identical(categories, sdkOmittedValue) ? this.categories : categories as Map<String, bool>,
+    categoryScores: identical(categoryScores, sdkOmittedValue) ? this.categoryScores : categoryScores as Map<String, double>,
+    categoryAppliedInputTypes: identical(categoryAppliedInputTypes, sdkOmittedValue) ? this.categoryAppliedInputTypes : categoryAppliedInputTypes as Map<String, List<BetaModerationInputType>>,
+  );
 
-  factory BetaModerationResultBody.fromJson(Map<String, dynamic> json) =>
-      BetaModerationResultBody(
-        type_: (json['type'] != null
-            ? BetaModerationResultBodyType.fromJson(json['type'] as String)
-            : null)!,
-        model: (json['model'] as String?)!,
-        flagged: (json['flagged'] as bool?)!,
-        categories: (json['categories'] == null
-            ? null
-            : Map<String, dynamic>.from(json['categories'] as Map)
-                .map((key, value) => MapEntry(key, value as bool)))!,
-        categoryScores: (json['category_scores'] == null
-            ? null
-            : Map<String, dynamic>.from(json['category_scores'] as Map).map(
-                (key, value) => MapEntry(key, (value as num).toDouble())))!,
-        categoryAppliedInputTypes: (json['category_applied_input_types'] == null
-            ? null
-            : Map<String, dynamic>.from(
-                    json['category_applied_input_types'] as Map)
-                .map((key, value) => MapEntry(
-                    key,
-                    (value as List)
-                        .map((item) =>
-                            BetaModerationInputType.fromJson(item as String))
-                        .toList())))!,
-      );
+  factory BetaModerationResultBody.fromJson(Map<String, dynamic> json) => BetaModerationResultBody(
+    type_: (json['type'] != null ? BetaModerationResultBodyType.fromJson(json['type'] as String) : null)!,
+    model: (json['model'] as String?)!,
+    flagged: (json['flagged'] as bool?)!,
+    categories: (json['categories'] == null ? null : Map<String, dynamic>.from(json['categories'] as Map).map((key, value) => MapEntry(key, value as bool)))!,
+    categoryScores: (json['category_scores'] == null ? null : Map<String, dynamic>.from(json['category_scores'] as Map).map((key, value) => MapEntry(key, (value as num).toDouble())))!,
+    categoryAppliedInputTypes: (json['category_applied_input_types'] == null ? null : Map<String, dynamic>.from(json['category_applied_input_types'] as Map).map((key, value) => MapEntry(key, (value as List).map((item) => BetaModerationInputType.fromJson(item as String)).toList())))!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'model': model,
-        'flagged': flagged,
-        'categories': categories,
-        'category_scores': categoryScores,
-        'category_applied_input_types': categoryAppliedInputTypes.map(
-            (key, value) =>
-                MapEntry(key, value.map((item) => item.toJson()).toList())),
-      };
+    'type': type_.toJson(),
+    'model': model,
+    'flagged': flagged,
+    'categories': categories,
+    'category_scores': categoryScores,
+    'category_applied_input_types': categoryAppliedInputTypes.map((key, value) => MapEntry(key, value.map((item) => item.toJson()).toList())),
+  };
 }

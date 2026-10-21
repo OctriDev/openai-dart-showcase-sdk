@@ -9,116 +9,61 @@ sealed class ComputerScreenshotContentImageUrl {
   static const String constructionSurface = 'named';
   const ComputerScreenshotContentImageUrl();
   factory ComputerScreenshotContentImageUrl.fromJson(Object? json) {
-    if (json is String) {
-      return ComputerScreenshotContentImageUrlString(json);
-    }
-    throw FormatException(
-        "No variant matched for ComputerScreenshotContentImageUrl");
+    if (json is String) { return ComputerScreenshotContentImageUrlString(json); }
+    throw FormatException("No variant matched for ComputerScreenshotContentImageUrl");
   }
   Object? toJson();
 }
 
-final class ComputerScreenshotContentImageUrlString
-    extends ComputerScreenshotContentImageUrl {
+final class ComputerScreenshotContentImageUrlString extends ComputerScreenshotContentImageUrl {
   final String value;
   const ComputerScreenshotContentImageUrlString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// A screenshot of a computer.
 class ComputerScreenshotContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a computer screenshot, this property is always set to `computer_screenshot`.
   final ComputerScreenshotContentType type_;
-
   /// Required API value serialized in the `image_url` wire field.
   final String? imageUrl;
-
   /// Required `string` value serialized in the `file_id` wire field.
   final String? fileId;
-
   /// The detail level of the screenshot image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.
   final ImageDetail detail;
-
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
   final SdkOptional<PromptCacheBreakpointConfig> promptCacheBreakpoint;
 
-  const ComputerScreenshotContent(
-      {required this.type_,
-      required this.imageUrl,
-      required this.fileId,
-      required this.detail,
-      this.promptCacheBreakpoint = const SdkOmitted()});
+  const ComputerScreenshotContent({required this.type_, required this.imageUrl, required this.fileId, required this.detail, this.promptCacheBreakpoint = const SdkOmitted()});
 
-  ComputerScreenshotContent Function(
-          {ComputerScreenshotContentType type_,
-          String? imageUrl,
-          String? fileId,
-          ImageDetail detail,
-          SdkOptional<PromptCacheBreakpointConfig> promptCacheBreakpoint})
-      get copyWith => _copyWith;
+  ComputerScreenshotContent Function({ComputerScreenshotContentType type_, String? imageUrl, String? fileId, ImageDetail detail, SdkOptional<PromptCacheBreakpointConfig> promptCacheBreakpoint}) get copyWith => _copyWith;
 
-  ComputerScreenshotContent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue,
-          Object? fileId = sdkOmittedValue,
-          Object? detail = sdkOmittedValue,
-          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
-      ComputerScreenshotContent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ComputerScreenshotContentType,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as String?,
-        fileId: identical(fileId, sdkOmittedValue)
-            ? this.fileId
-            : fileId as String?,
-        detail: identical(detail, sdkOmittedValue)
-            ? this.detail
-            : detail as ImageDetail,
-        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
-            ? this.promptCacheBreakpoint
-            : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointConfig>,
-      );
+  ComputerScreenshotContent _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? detail = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => ComputerScreenshotContent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerScreenshotContentType,
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as String?,
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String?,
+    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as ImageDetail,
+    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointConfig>,
+  );
 
-  factory ComputerScreenshotContent.fromJson(Map<String, dynamic> json) =>
-      ComputerScreenshotContent(
-        type_: (json['type'] != null
-            ? ComputerScreenshotContentType.fromJson(json['type'] as String)
-            : null)!,
-        imageUrl: json.containsKey('image_url')
-            ? json['image_url'] as String?
-            : throw ArgumentError.value(
-                null, 'image_url', 'Required property is missing'),
-        fileId: json.containsKey('file_id')
-            ? json['file_id'] as String?
-            : throw ArgumentError.value(
-                null, 'file_id', 'Required property is missing'),
-        detail: (json['detail'] != null
-            ? ImageDetail.fromJson(json['detail'] as String)
-            : null)!,
-        promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null
-            ? SdkPresent((json['prompt_cache_breakpoint'] != null
-                ? PromptCacheBreakpointConfig.fromJson(
-                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ComputerScreenshotContent.fromJson(Map<String, dynamic> json) => ComputerScreenshotContent(
+    type_: (json['type'] != null ? ComputerScreenshotContentType.fromJson(json['type'] as String) : null)!,
+    imageUrl: json.containsKey('image_url') ? json['image_url'] as String? : throw ArgumentError.value(null, 'image_url', 'Required property is missing'),
+    fileId: json.containsKey('file_id') ? json['file_id'] as String? : throw ArgumentError.value(null, 'file_id', 'Required property is missing'),
+    detail: (json['detail'] != null ? ImageDetail.fromJson(json['detail'] as String) : null)!,
+    promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null ? SdkPresent((json['prompt_cache_breakpoint'] != null ? PromptCacheBreakpointConfig.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'image_url': imageUrl,
-        'file_id': fileId,
-        'detail': detail.toJson(),
-        ...switch (promptCacheBreakpoint) {
-          SdkPresent<PromptCacheBreakpointConfig>(value: final value) => {
-              'prompt_cache_breakpoint': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'image_url': imageUrl,
+    'file_id': fileId,
+    'detail': detail.toJson(),
+    ...switch (promptCacheBreakpoint) {
+      SdkPresent<PromptCacheBreakpointConfig>(value: final value) => {'prompt_cache_breakpoint': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

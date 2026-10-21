@@ -4,164 +4,117 @@
 part of 'realtime_realtime_server_event.dart';
 
 // realtime_realtime_server_event domain models
-final class RealtimeServerEventRealtimeServerEventResponseTextDone
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseTextDone extends RealtimeServerEvent {
   final RealtimeServerEventResponseTextDone value;
   const RealtimeServerEventRealtimeServerEventResponseTextDone(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventSessionCreated
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventSessionCreated extends RealtimeServerEvent {
   final RealtimeServerEventSessionCreated value;
   const RealtimeServerEventRealtimeServerEventSessionCreated(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventSessionUpdated
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventSessionUpdated extends RealtimeServerEvent {
   final RealtimeServerEventSessionUpdated value;
   const RealtimeServerEventRealtimeServerEventSessionUpdated(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted extends RealtimeServerEvent {
   final RealtimeServerEventOutputAudioBufferStarted value;
-  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStarted(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped extends RealtimeServerEvent {
   final RealtimeServerEventOutputAudioBufferStopped value;
-  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventOutputAudioBufferStopped(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared extends RealtimeServerEvent {
   final RealtimeServerEventOutputAudioBufferCleared value;
-  const RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventOutputAudioBufferCleared(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventConversationItemAdded
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventConversationItemAdded extends RealtimeServerEvent {
   final RealtimeServerEventConversationItemAdded value;
   const RealtimeServerEventRealtimeServerEventConversationItemAdded(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventConversationItemDone
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventConversationItemDone extends RealtimeServerEvent {
   final RealtimeServerEventConversationItemDone value;
   const RealtimeServerEventRealtimeServerEventConversationItemDone(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventInputAudioBufferTimeoutTriggered
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventInputAudioBufferTimeoutTriggered extends RealtimeServerEvent {
   final RealtimeServerEventInputAudioBufferTimeoutTriggered value;
-  const RealtimeServerEventRealtimeServerEventInputAudioBufferTimeoutTriggered(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventInputAudioBufferTimeoutTriggered(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionSegment
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionSegment extends RealtimeServerEvent {
   final RealtimeServerEventConversationItemInputAudioTranscriptionSegment value;
-  const RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionSegment(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventConversationItemInputAudioTranscriptionSegment(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventMCPListToolsInProgress
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventMCPListToolsInProgress extends RealtimeServerEvent {
   final RealtimeServerEventMCPListToolsInProgress value;
-  const RealtimeServerEventRealtimeServerEventMCPListToolsInProgress(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventMCPListToolsInProgress(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventMCPListToolsCompleted
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventMCPListToolsCompleted extends RealtimeServerEvent {
   final RealtimeServerEventMCPListToolsCompleted value;
   const RealtimeServerEventRealtimeServerEventMCPListToolsCompleted(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventMCPListToolsFailed
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventMCPListToolsFailed extends RealtimeServerEvent {
   final RealtimeServerEventMCPListToolsFailed value;
   const RealtimeServerEventRealtimeServerEventMCPListToolsFailed(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDelta
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDelta extends RealtimeServerEvent {
   final RealtimeServerEventResponseMCPCallArgumentsDelta value;
-  const RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDelta(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDelta(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDone
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDone extends RealtimeServerEvent {
   final RealtimeServerEventResponseMCPCallArgumentsDone value;
-  const RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDone(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseMCPCallArgumentsDone(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseMCPCallInProgress
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseMCPCallInProgress extends RealtimeServerEvent {
   final RealtimeServerEventResponseMCPCallInProgress value;
-  const RealtimeServerEventRealtimeServerEventResponseMCPCallInProgress(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseMCPCallInProgress(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseMCPCallCompleted
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseMCPCallCompleted extends RealtimeServerEvent {
   final RealtimeServerEventResponseMCPCallCompleted value;
-  const RealtimeServerEventRealtimeServerEventResponseMCPCallCompleted(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventRealtimeServerEventResponseMCPCallCompleted(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventRealtimeServerEventResponseMCPCallFailed
-    extends RealtimeServerEvent {
+final class RealtimeServerEventRealtimeServerEventResponseMCPCallFailed extends RealtimeServerEvent {
   final RealtimeServerEventResponseMCPCallFailed value;
   const RealtimeServerEventRealtimeServerEventResponseMCPCallFailed(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeServerEvent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownRealtimeServerEvent extends RealtimeServerEvent {
   final Map<String, dynamic> raw;
   const UnknownRealtimeServerEvent(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

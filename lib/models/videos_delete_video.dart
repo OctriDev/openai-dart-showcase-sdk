@@ -8,50 +8,32 @@ part of 'videos.dart';
 class DeletedVideoResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type that signals the deletion response.
   final DeletedVideoResourceObject object;
-
   /// Indicates that the video resource was deleted.
   final bool deleted;
-
   /// Identifier of the deleted video.
   final String id;
 
-  const DeletedVideoResource(
-      {required this.object, required this.deleted, required this.id});
+  const DeletedVideoResource({required this.object, required this.deleted, required this.id});
 
-  DeletedVideoResource Function(
-      {DeletedVideoResourceObject object,
-      bool deleted,
-      String id}) get copyWith => _copyWith;
+  DeletedVideoResource Function({DeletedVideoResourceObject object, bool deleted, String id}) get copyWith => _copyWith;
 
-  DeletedVideoResource _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue,
-          Object? id = sdkOmittedValue}) =>
-      DeletedVideoResource(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DeletedVideoResourceObject,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  DeletedVideoResource _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? id = sdkOmittedValue}) => DeletedVideoResource(
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeletedVideoResourceObject,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory DeletedVideoResource.fromJson(Map<String, dynamic> json) =>
-      DeletedVideoResource(
-        object: (json['object'] != null
-            ? DeletedVideoResourceObject.fromJson(json['object'] as String)
-            : null)!,
-        deleted: (json['deleted'] as bool?)!,
-        id: (json['id'] as String?)!,
-      );
+  factory DeletedVideoResource.fromJson(Map<String, dynamic> json) => DeletedVideoResource(
+    object: (json['object'] != null ? DeletedVideoResourceObject.fromJson(json['object'] as String) : null)!,
+    deleted: (json['deleted'] as bool?)!,
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'deleted': deleted,
-        'id': id,
-      };
+    'object': object.toJson(),
+    'deleted': deleted,
+    'id': id,
+  };
 }

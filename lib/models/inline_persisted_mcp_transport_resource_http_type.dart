@@ -10,18 +10,14 @@ enum PersistedMcpTransportResourceHttpType {
 
   static PersistedMcpTransportResourceHttpType fromJson(String value) {
     switch (value) {
-      case 'http':
-        return PersistedMcpTransportResourceHttpType.http;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedMcpTransportResourceHttpType: $value');
+      case 'http': return PersistedMcpTransportResourceHttpType.http;
+      default: throw ArgumentError('Unknown PersistedMcpTransportResourceHttpType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedMcpTransportResourceHttpType.http:
-        return 'http';
+      case PersistedMcpTransportResourceHttpType.http: return 'http';
     }
   }
 
@@ -35,18 +31,14 @@ enum PersistedMcpTransportResourceStdioType {
 
   static PersistedMcpTransportResourceStdioType fromJson(String value) {
     switch (value) {
-      case 'stdio':
-        return PersistedMcpTransportResourceStdioType.stdio;
-      default:
-        throw ArgumentError(
-            'Unknown PersistedMcpTransportResourceStdioType: $value');
+      case 'stdio': return PersistedMcpTransportResourceStdioType.stdio;
+      default: throw ArgumentError('Unknown PersistedMcpTransportResourceStdioType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PersistedMcpTransportResourceStdioType.stdio:
-        return 'stdio';
+      case PersistedMcpTransportResourceStdioType.stdio: return 'stdio';
     }
   }
 
@@ -56,26 +48,23 @@ enum PersistedMcpTransportResourceStdioType {
 
 /// The type of the predicted content you want to provide. This type is currently always `content`.
 final class PredictionContentType {
+
   final String value;
 
   const PredictionContentType._(this.value);
 
-  factory PredictionContentType.fromJson(String value) =>
-      PredictionContentType._(value);
+  factory PredictionContentType.fromJson(String value) => PredictionContentType._(value);
 
   static const content = PredictionContentType._('content');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is PredictionContentType && other.value == value;
+  @override bool operator ==(Object other) => other is PredictionContentType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the item. Always `program`.
@@ -84,17 +73,14 @@ enum ProgramType {
 
   static ProgramType fromJson(String value) {
     switch (value) {
-      case 'program':
-        return ProgramType.program;
-      default:
-        throw ArgumentError('Unknown ProgramType: $value');
+      case 'program': return ProgramType.program;
+      default: throw ArgumentError('Unknown ProgramType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ProgramType.program:
-        return 'program';
+      case ProgramType.program: return 'program';
     }
   }
 
@@ -108,17 +94,14 @@ enum ProgramItemParamType {
 
   static ProgramItemParamType fromJson(String value) {
     switch (value) {
-      case 'program':
-        return ProgramItemParamType.program;
-      default:
-        throw ArgumentError('Unknown ProgramItemParamType: $value');
+      case 'program': return ProgramItemParamType.program;
+      default: throw ArgumentError('Unknown ProgramItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ProgramItemParamType.program:
-        return 'program';
+      case ProgramItemParamType.program: return 'program';
     }
   }
 
@@ -132,17 +115,14 @@ enum ProgrammaticToolCallingParamType {
 
   static ProgrammaticToolCallingParamType fromJson(String value) {
     switch (value) {
-      case 'programmatic_tool_calling':
-        return ProgrammaticToolCallingParamType.programmaticToolCalling;
-      default:
-        throw ArgumentError('Unknown ProgrammaticToolCallingParamType: $value');
+      case 'programmatic_tool_calling': return ProgrammaticToolCallingParamType.programmaticToolCalling;
+      default: throw ArgumentError('Unknown ProgrammaticToolCallingParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ProgrammaticToolCallingParamType.programmaticToolCalling:
-        return 'programmatic_tool_calling';
+      case ProgrammaticToolCallingParamType.programmaticToolCalling: return 'programmatic_tool_calling';
     }
   }
 
@@ -156,17 +136,14 @@ enum ProgramOutputType {
 
   static ProgramOutputType fromJson(String value) {
     switch (value) {
-      case 'program_output':
-        return ProgramOutputType.programOutput;
-      default:
-        throw ArgumentError('Unknown ProgramOutputType: $value');
+      case 'program_output': return ProgramOutputType.programOutput;
+      default: throw ArgumentError('Unknown ProgramOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ProgramOutputType.programOutput:
-        return 'program_output';
+      case ProgramOutputType.programOutput: return 'program_output';
     }
   }
 
@@ -180,17 +157,14 @@ enum ProgramOutputItemParamType {
 
   static ProgramOutputItemParamType fromJson(String value) {
     switch (value) {
-      case 'program_output':
-        return ProgramOutputItemParamType.programOutput;
-      default:
-        throw ArgumentError('Unknown ProgramOutputItemParamType: $value');
+      case 'program_output': return ProgramOutputItemParamType.programOutput;
+      default: throw ArgumentError('Unknown ProgramOutputItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ProgramOutputItemParamType.programOutput:
-        return 'program_output';
+      case ProgramOutputItemParamType.programOutput: return 'program_output';
     }
   }
 
@@ -204,17 +178,14 @@ enum ProgramToolCallCallerType {
 
   static ProgramToolCallCallerType fromJson(String value) {
     switch (value) {
-      case 'program':
-        return ProgramToolCallCallerType.program;
-      default:
-        throw ArgumentError('Unknown ProgramToolCallCallerType: $value');
+      case 'program': return ProgramToolCallCallerType.program;
+      default: throw ArgumentError('Unknown ProgramToolCallCallerType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ProgramToolCallCallerType.program:
-        return 'program';
+      case ProgramToolCallCallerType.program: return 'program';
     }
   }
 
@@ -228,17 +199,14 @@ enum ProgramToolCallCallerParamType {
 
   static ProgramToolCallCallerParamType fromJson(String value) {
     switch (value) {
-      case 'program':
-        return ProgramToolCallCallerParamType.program;
-      default:
-        throw ArgumentError('Unknown ProgramToolCallCallerParamType: $value');
+      case 'program': return ProgramToolCallCallerParamType.program;
+      default: throw ArgumentError('Unknown ProgramToolCallCallerParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ProgramToolCallCallerParamType.program:
-        return 'program';
+      case ProgramToolCallCallerParamType.program: return 'program';
     }
   }
 
@@ -248,6 +216,7 @@ enum ProgramToolCallCallerParamType {
 
 /// The object type, which is always `organization.project`
 final class ProjectObject {
+
   final String value;
 
   const ProjectObject._(this.value);
@@ -258,63 +227,53 @@ final class ProjectObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `organization.project.api_key`
 final class ProjectApiKeyObject {
+
   final String value;
 
   const ProjectApiKeyObject._(this.value);
 
-  factory ProjectApiKeyObject.fromJson(String value) =>
-      ProjectApiKeyObject._(value);
+  factory ProjectApiKeyObject.fromJson(String value) => ProjectApiKeyObject._(value);
 
-  static const organizationProjectApiKey =
-      ProjectApiKeyObject._('organization.project.api_key');
+  static const organizationProjectApiKey = ProjectApiKeyObject._('organization.project.api_key');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectApiKeyObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectApiKeyObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether the API key's owner currently has effective access to the project.
 final class ProjectApiKeyOwnerProjectAccess {
+
   final String value;
 
   const ProjectApiKeyOwnerProjectAccess._(this.value);
 
-  factory ProjectApiKeyOwnerProjectAccess.fromJson(String value) =>
-      ProjectApiKeyOwnerProjectAccess._(value);
+  factory ProjectApiKeyOwnerProjectAccess.fromJson(String value) => ProjectApiKeyOwnerProjectAccess._(value);
 
   static const active = ProjectApiKeyOwnerProjectAccess._('active');
   static const inactive = ProjectApiKeyOwnerProjectAccess._('inactive');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectApiKeyOwnerProjectAccess && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectApiKeyOwnerProjectAccess && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -9,152 +9,75 @@ sealed class LiveDecisionEventSourceEventType {
   static const String constructionSurface = 'named';
   const LiveDecisionEventSourceEventType();
   factory LiveDecisionEventSourceEventType.fromJson(Object? json) {
-    try {
-      return LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant0(
-          LiveDecisionEventSourceEventTypeVariant0.fromJson(json as String));
-    } catch (_) {}
-    try {
-      return LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant1(
-          LiveDecisionEventSourceEventTypeVariant1.fromJson(json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for LiveDecisionEventSourceEventType");
+    try { return LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant0(LiveDecisionEventSourceEventTypeVariant0.fromJson(json as String)); } catch (_) {}
+    try { return LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant1(LiveDecisionEventSourceEventTypeVariant1.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for LiveDecisionEventSourceEventType");
   }
   Object? toJson();
 }
 
-final class LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant0
-    extends LiveDecisionEventSourceEventType {
+final class LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant0 extends LiveDecisionEventSourceEventType {
   final LiveDecisionEventSourceEventTypeVariant0 value;
-  const LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant1
-    extends LiveDecisionEventSourceEventType {
+final class LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant1 extends LiveDecisionEventSourceEventType {
   final LiveDecisionEventSourceEventTypeVariant1 value;
-  const LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant1(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const LiveDecisionEventSourceEventTypeLiveDecisionEventSourceEventTypeVariant1(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A Decision API event for a Live delegation or transcript trigger. For a trigger, source_event_id identifies the transcript delta that caused this evaluation.
 class LiveDecisionEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveDecisionEventType type_;
-
   /// The unique ID of this Live server event.
   final String eventId;
-
   /// Required `string` value serialized in the `delegation_id` wire field.
   final String? delegationId;
-
   /// Required `string` value serialized in the `trigger_id` wire field.
   final String? triggerId;
-
   /// Required API value serialized in the `source_event_type` wire field.
   final LiveDecisionEventSourceEventTypeVariant0? sourceEventType;
-
   /// Required `string` value serialized in the `source_event_id` wire field.
   final String? sourceEventId;
-
   /// Required object value serialized in the `event` wire field.
   final LiveDecisionCompleted event;
 
-  const LiveDecisionEvent(
-      {required this.type_,
-      required this.eventId,
-      required this.delegationId,
-      required this.triggerId,
-      required this.sourceEventType,
-      required this.sourceEventId,
-      required this.event});
+  const LiveDecisionEvent({required this.type_, required this.eventId, required this.delegationId, required this.triggerId, required this.sourceEventType, required this.sourceEventId, required this.event});
 
-  LiveDecisionEvent Function(
-      {LiveDecisionEventType type_,
-      String eventId,
-      String? delegationId,
-      String? triggerId,
-      LiveDecisionEventSourceEventTypeVariant0? sourceEventType,
-      String? sourceEventId,
-      LiveDecisionCompleted event}) get copyWith => _copyWith;
+  LiveDecisionEvent Function({LiveDecisionEventType type_, String eventId, String? delegationId, String? triggerId, LiveDecisionEventSourceEventTypeVariant0? sourceEventType, String? sourceEventId, LiveDecisionCompleted event}) get copyWith => _copyWith;
 
-  LiveDecisionEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? delegationId = sdkOmittedValue,
-          Object? triggerId = sdkOmittedValue,
-          Object? sourceEventType = sdkOmittedValue,
-          Object? sourceEventId = sdkOmittedValue,
-          Object? event = sdkOmittedValue}) =>
-      LiveDecisionEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveDecisionEventType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        delegationId: identical(delegationId, sdkOmittedValue)
-            ? this.delegationId
-            : delegationId as String?,
-        triggerId: identical(triggerId, sdkOmittedValue)
-            ? this.triggerId
-            : triggerId as String?,
-        sourceEventType: identical(sourceEventType, sdkOmittedValue)
-            ? this.sourceEventType
-            : sourceEventType as LiveDecisionEventSourceEventTypeVariant0?,
-        sourceEventId: identical(sourceEventId, sdkOmittedValue)
-            ? this.sourceEventId
-            : sourceEventId as String?,
-        event: identical(event, sdkOmittedValue)
-            ? this.event
-            : event as LiveDecisionCompleted,
-      );
+  LiveDecisionEvent _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? delegationId = sdkOmittedValue, Object? triggerId = sdkOmittedValue, Object? sourceEventType = sdkOmittedValue, Object? sourceEventId = sdkOmittedValue, Object? event = sdkOmittedValue}) => LiveDecisionEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveDecisionEventType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    delegationId: identical(delegationId, sdkOmittedValue) ? this.delegationId : delegationId as String?,
+    triggerId: identical(triggerId, sdkOmittedValue) ? this.triggerId : triggerId as String?,
+    sourceEventType: identical(sourceEventType, sdkOmittedValue) ? this.sourceEventType : sourceEventType as LiveDecisionEventSourceEventTypeVariant0?,
+    sourceEventId: identical(sourceEventId, sdkOmittedValue) ? this.sourceEventId : sourceEventId as String?,
+    event: identical(event, sdkOmittedValue) ? this.event : event as LiveDecisionCompleted,
+  );
 
-  factory LiveDecisionEvent.fromJson(Map<String, dynamic> json) =>
-      LiveDecisionEvent(
-        type_: (json['type'] != null
-            ? LiveDecisionEventType.fromJson(json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        delegationId: json.containsKey('delegation_id')
-            ? json['delegation_id'] as String?
-            : throw ArgumentError.value(
-                null, 'delegation_id', 'Required property is missing'),
-        triggerId: json.containsKey('trigger_id')
-            ? json['trigger_id'] as String?
-            : throw ArgumentError.value(
-                null, 'trigger_id', 'Required property is missing'),
-        sourceEventType: json.containsKey('source_event_type')
-            ? json['source_event_type'] != null
-                ? LiveDecisionEventSourceEventTypeVariant0.fromJson(
-                    json['source_event_type'] as String)
-                : null
-            : throw ArgumentError.value(
-                null, 'source_event_type', 'Required property is missing'),
-        sourceEventId: json.containsKey('source_event_id')
-            ? json['source_event_id'] as String?
-            : throw ArgumentError.value(
-                null, 'source_event_id', 'Required property is missing'),
-        event: (json['event'] != null
-            ? LiveDecisionCompleted.fromJson(
-                json['event'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory LiveDecisionEvent.fromJson(Map<String, dynamic> json) => LiveDecisionEvent(
+    type_: (json['type'] != null ? LiveDecisionEventType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    delegationId: json.containsKey('delegation_id') ? json['delegation_id'] as String? : throw ArgumentError.value(null, 'delegation_id', 'Required property is missing'),
+    triggerId: json.containsKey('trigger_id') ? json['trigger_id'] as String? : throw ArgumentError.value(null, 'trigger_id', 'Required property is missing'),
+    sourceEventType: json.containsKey('source_event_type') ? json['source_event_type'] != null ? LiveDecisionEventSourceEventTypeVariant0.fromJson(json['source_event_type'] as String) : null : throw ArgumentError.value(null, 'source_event_type', 'Required property is missing'),
+    sourceEventId: json.containsKey('source_event_id') ? json['source_event_id'] as String? : throw ArgumentError.value(null, 'source_event_id', 'Required property is missing'),
+    event: (json['event'] != null ? LiveDecisionCompleted.fromJson(json['event'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        'delegation_id': delegationId,
-        'trigger_id': triggerId,
-        'source_event_type': sourceEventType?.toJson(),
-        'source_event_id': sourceEventId,
-        'event': event.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    'delegation_id': delegationId,
+    'trigger_id': triggerId,
+    'source_event_type': sourceEventType?.toJson(),
+    'source_event_id': sourceEventId,
+    'event': event.toJson(),
+  };
 }

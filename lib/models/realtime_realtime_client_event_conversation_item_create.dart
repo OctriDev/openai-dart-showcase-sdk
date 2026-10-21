@@ -8,83 +8,43 @@ part of 'realtime_realtime_client.dart';
 class RealtimeClientEventConversationItemCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
-
   /// The event type, must be `conversation.item.create`.
   final RealtimeClientEventConversationItemCreateType type_;
-
   /// The ID of the preceding item after which the new item will be inserted. If not set, the new item will be appended to the end of the conversation. If set to `root`, the new item will be added to the beginning of the conversation. If set to an existing ID, it allows an item to be inserted mid-conversation. If the ID cannot be found, an error will be returned and the item will not be added.
   final SdkOptional<String> previousItemId;
-
   /// A single item within a Realtime conversation.
   final RealtimeConversationItem item;
 
-  const RealtimeClientEventConversationItemCreate(
-      {this.eventId = const SdkOmitted(),
-      required this.type_,
-      this.previousItemId = const SdkOmitted(),
-      required this.item});
+  const RealtimeClientEventConversationItemCreate({this.eventId = const SdkOmitted(), required this.type_, this.previousItemId = const SdkOmitted(), required this.item});
 
-  RealtimeClientEventConversationItemCreate Function(
-      {SdkOptional<String> eventId,
-      RealtimeClientEventConversationItemCreateType type_,
-      SdkOptional<String> previousItemId,
-      RealtimeConversationItem item}) get copyWith => _copyWith;
+  RealtimeClientEventConversationItemCreate Function({SdkOptional<String> eventId, RealtimeClientEventConversationItemCreateType type_, SdkOptional<String> previousItemId, RealtimeConversationItem item}) get copyWith => _copyWith;
 
-  RealtimeClientEventConversationItemCreate _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? previousItemId = sdkOmittedValue,
-          Object? item = sdkOmittedValue}) =>
-      RealtimeClientEventConversationItemCreate(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeClientEventConversationItemCreateType,
-        previousItemId: identical(previousItemId, sdkOmittedValue)
-            ? this.previousItemId
-            : previousItemId as SdkOptional<String>,
-        item: identical(item, sdkOmittedValue)
-            ? this.item
-            : item as RealtimeConversationItem,
-      );
+  RealtimeClientEventConversationItemCreate _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? previousItemId = sdkOmittedValue, Object? item = sdkOmittedValue}) => RealtimeClientEventConversationItemCreate(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventConversationItemCreateType,
+    previousItemId: identical(previousItemId, sdkOmittedValue) ? this.previousItemId : previousItemId as SdkOptional<String>,
+    item: identical(item, sdkOmittedValue) ? this.item : item as RealtimeConversationItem,
+  );
 
-  factory RealtimeClientEventConversationItemCreate.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeClientEventConversationItemCreate(
-        eventId: json['event_id'] != null
-            ? SdkPresent((json['event_id'] as String?)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? RealtimeClientEventConversationItemCreateType.fromJson(
-                json['type'] as String)
-            : null)!,
-        previousItemId: json['previous_item_id'] != null
-            ? SdkPresent((json['previous_item_id'] as String?)!)
-            : const SdkOmitted(),
-        item: (json['item'] != null
-            ? RealtimeConversationItem.fromJson(json['item'])
-            : null)!,
-      );
+  factory RealtimeClientEventConversationItemCreate.fromJson(Map<String, dynamic> json) => RealtimeClientEventConversationItemCreate(
+    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? RealtimeClientEventConversationItemCreateType.fromJson(json['type'] as String) : null)!,
+    previousItemId: json['previous_item_id'] != null ? SdkPresent((json['previous_item_id'] as String?)!) : const SdkOmitted(),
+    item: (json['item'] != null ? RealtimeConversationItem.fromJson(json['item']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        ...switch (previousItemId) {
-          SdkPresent<String>(value: final value) => {
-              'previous_item_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'item': item.toJson(),
-      };
+    ...switch (eventId) {
+      SdkPresent<String>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    ...switch (previousItemId) {
+      SdkPresent<String>(value: final value) => {'previous_item_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'item': item.toJson(),
+  };
 }

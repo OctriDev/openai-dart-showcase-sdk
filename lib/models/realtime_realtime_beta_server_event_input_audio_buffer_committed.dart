@@ -8,73 +8,40 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventInputAudioBufferCommitted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `input_audio_buffer.committed`.
   final RealtimeBetaServerEventInputAudioBufferCommittedType type_;
-
   /// Optional `string` value serialized in the `previous_item_id` wire field.
   final SdkOptional<String?> previousItemId;
-
   /// The ID of the user message item that will be created.
   final String itemId;
 
-  const RealtimeBetaServerEventInputAudioBufferCommitted(
-      {required this.eventId,
-      required this.type_,
-      this.previousItemId = const SdkOmitted(),
-      required this.itemId});
+  const RealtimeBetaServerEventInputAudioBufferCommitted({required this.eventId, required this.type_, this.previousItemId = const SdkOmitted(), required this.itemId});
 
-  RealtimeBetaServerEventInputAudioBufferCommitted Function(
-      {String eventId,
-      RealtimeBetaServerEventInputAudioBufferCommittedType type_,
-      SdkOptional<String?> previousItemId,
-      String itemId}) get copyWith => _copyWith;
+  RealtimeBetaServerEventInputAudioBufferCommitted Function({String eventId, RealtimeBetaServerEventInputAudioBufferCommittedType type_, SdkOptional<String?> previousItemId, String itemId}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventInputAudioBufferCommitted _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? previousItemId = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue}) =>
-      RealtimeBetaServerEventInputAudioBufferCommitted(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventInputAudioBufferCommittedType,
-        previousItemId: identical(previousItemId, sdkOmittedValue)
-            ? this.previousItemId
-            : previousItemId as SdkOptional<String?>,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-      );
+  RealtimeBetaServerEventInputAudioBufferCommitted _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? previousItemId = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeBetaServerEventInputAudioBufferCommitted(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventInputAudioBufferCommittedType,
+    previousItemId: identical(previousItemId, sdkOmittedValue) ? this.previousItemId : previousItemId as SdkOptional<String?>,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+  );
 
-  factory RealtimeBetaServerEventInputAudioBufferCommitted.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventInputAudioBufferCommitted(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventInputAudioBufferCommittedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        previousItemId: json.containsKey('previous_item_id')
-            ? SdkPresent(json['previous_item_id'] as String?)
-            : const SdkOmitted(),
-        itemId: (json['item_id'] as String?)!,
-      );
+  factory RealtimeBetaServerEventInputAudioBufferCommitted.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventInputAudioBufferCommitted(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventInputAudioBufferCommittedType.fromJson(json['type'] as String) : null)!,
+    previousItemId: json.containsKey('previous_item_id') ? SdkPresent(json['previous_item_id'] as String?) : const SdkOmitted(),
+    itemId: (json['item_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        ...switch (previousItemId) {
-          SdkPresent<String?>(value: final value) => {
-              'previous_item_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'item_id': itemId,
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    ...switch (previousItemId) {
+      SdkPresent<String?>(value: final value) => {'previous_item_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'item_id': itemId,
+  };
 }

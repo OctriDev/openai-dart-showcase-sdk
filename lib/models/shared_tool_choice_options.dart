@@ -6,12 +6,12 @@ part of 'shared_tool.dart';
 // shared_tool domain models
 /// Controls which (if any) tool is called by the model. `none` means the model will not call any tool and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools.
 final class ToolChoiceOptions {
+
   final String value;
 
   const ToolChoiceOptions._(this.value);
 
-  factory ToolChoiceOptions.fromJson(String value) =>
-      ToolChoiceOptions._(value);
+  factory ToolChoiceOptions.fromJson(String value) => ToolChoiceOptions._(value);
 
   static const none = ToolChoiceOptions._('none');
   static const auto = ToolChoiceOptions._('auto');
@@ -19,13 +19,10 @@ final class ToolChoiceOptions {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ToolChoiceOptions && other.value == value;
+  @override bool operator ==(Object other) => other is ToolChoiceOptions && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

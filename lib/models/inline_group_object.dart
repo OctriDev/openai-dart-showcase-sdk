@@ -6,6 +6,7 @@ part of 'inline.dart';
 // Inline operation models
 /// Always `group`.
 final class GroupObject {
+
   final String value;
 
   const GroupObject._(this.value);
@@ -16,186 +17,161 @@ final class GroupObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GroupObject && other.value == value;
+  @override bool operator ==(Object other) => other is GroupObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `group.deleted`.
 final class GroupDeletedResourceObject {
+
   final String value;
 
   const GroupDeletedResourceObject._(this.value);
 
-  factory GroupDeletedResourceObject.fromJson(String value) =>
-      GroupDeletedResourceObject._(value);
+  factory GroupDeletedResourceObject.fromJson(String value) => GroupDeletedResourceObject._(value);
 
   static const groupDeleted = GroupDeletedResourceObject._('group.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GroupDeletedResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is GroupDeletedResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `list`.
 final class GroupListResourceObject {
+
   final String value;
 
   const GroupListResourceObject._(this.value);
 
-  factory GroupListResourceObject.fromJson(String value) =>
-      GroupListResourceObject._(value);
+  factory GroupListResourceObject.fromJson(String value) => GroupListResourceObject._(value);
 
   static const list = GroupListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GroupListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is GroupListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of user.
 final class GroupMemberUserUserType {
+
   final String value;
 
   const GroupMemberUserUserType._(this.value);
 
-  factory GroupMemberUserUserType.fromJson(String value) =>
-      GroupMemberUserUserType._(value);
+  factory GroupMemberUserUserType.fromJson(String value) => GroupMemberUserUserType._(value);
 
   static const user = GroupMemberUserUserType._('user');
   static const tenantUser = GroupMemberUserUserType._('tenant_user');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GroupMemberUserUserType && other.value == value;
+  @override bool operator ==(Object other) => other is GroupMemberUserUserType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the group.
 final class GroupResponseGroupType {
+
   final String value;
 
   const GroupResponseGroupType._(this.value);
 
-  factory GroupResponseGroupType.fromJson(String value) =>
-      GroupResponseGroupType._(value);
+  factory GroupResponseGroupType.fromJson(String value) => GroupResponseGroupType._(value);
 
   static const group = GroupResponseGroupType._('group');
   static const tenantGroup = GroupResponseGroupType._('tenant_group');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GroupResponseGroupType && other.value == value;
+  @override bool operator ==(Object other) => other is GroupResponseGroupType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `group.role`.
 final class GroupRoleAssignmentObject {
+
   final String value;
 
   const GroupRoleAssignmentObject._(this.value);
 
-  factory GroupRoleAssignmentObject.fromJson(String value) =>
-      GroupRoleAssignmentObject._(value);
+  factory GroupRoleAssignmentObject.fromJson(String value) => GroupRoleAssignmentObject._(value);
 
   static const groupRole = GroupRoleAssignmentObject._('group.role');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GroupRoleAssignmentObject && other.value == value;
+  @override bool operator ==(Object other) => other is GroupRoleAssignmentObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `group.user`.
 final class GroupUserAssignmentObject {
+
   final String value;
 
   const GroupUserAssignmentObject._(this.value);
 
-  factory GroupUserAssignmentObject.fromJson(String value) =>
-      GroupUserAssignmentObject._(value);
+  factory GroupUserAssignmentObject.fromJson(String value) => GroupUserAssignmentObject._(value);
 
   static const groupUser = GroupUserAssignmentObject._('group.user');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GroupUserAssignmentObject && other.value == value;
+  @override bool operator ==(Object other) => other is GroupUserAssignmentObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `group.user.deleted`.
 final class GroupUserDeletedResourceObject {
+
   final String value;
 
   const GroupUserDeletedResourceObject._(this.value);
 
-  factory GroupUserDeletedResourceObject.fromJson(String value) =>
-      GroupUserDeletedResourceObject._(value);
+  factory GroupUserDeletedResourceObject.fromJson(String value) => GroupUserDeletedResourceObject._(value);
 
-  static const groupUserDeleted =
-      GroupUserDeletedResourceObject._('group.user.deleted');
+  static const groupUserDeleted = GroupUserDeletedResourceObject._('group.user.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GroupUserDeletedResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is GroupUserDeletedResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object. Always `file_id`.
@@ -204,18 +180,14 @@ enum HostedEnvironmentFileParamFileIdType {
 
   static HostedEnvironmentFileParamFileIdType fromJson(String value) {
     switch (value) {
-      case 'file_id':
-        return HostedEnvironmentFileParamFileIdType.fileId;
-      default:
-        throw ArgumentError(
-            'Unknown HostedEnvironmentFileParamFileIdType: $value');
+      case 'file_id': return HostedEnvironmentFileParamFileIdType.fileId;
+      default: throw ArgumentError('Unknown HostedEnvironmentFileParamFileIdType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedEnvironmentFileParamFileIdType.fileId:
-        return 'file_id';
+      case HostedEnvironmentFileParamFileIdType.fileId: return 'file_id';
     }
   }
 
@@ -229,18 +201,14 @@ enum HostedEnvironmentFileParamInlineType {
 
   static HostedEnvironmentFileParamInlineType fromJson(String value) {
     switch (value) {
-      case 'inline':
-        return HostedEnvironmentFileParamInlineType.inline;
-      default:
-        throw ArgumentError(
-            'Unknown HostedEnvironmentFileParamInlineType: $value');
+      case 'inline': return HostedEnvironmentFileParamInlineType.inline;
+      default: throw ArgumentError('Unknown HostedEnvironmentFileParamInlineType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedEnvironmentFileParamInlineType.inline:
-        return 'inline';
+      case HostedEnvironmentFileParamInlineType.inline: return 'inline';
     }
   }
 
@@ -254,18 +222,14 @@ enum HostedEnvironmentFileResourceFileIdType {
 
   static HostedEnvironmentFileResourceFileIdType fromJson(String value) {
     switch (value) {
-      case 'file_id':
-        return HostedEnvironmentFileResourceFileIdType.fileId;
-      default:
-        throw ArgumentError(
-            'Unknown HostedEnvironmentFileResourceFileIdType: $value');
+      case 'file_id': return HostedEnvironmentFileResourceFileIdType.fileId;
+      default: throw ArgumentError('Unknown HostedEnvironmentFileResourceFileIdType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedEnvironmentFileResourceFileIdType.fileId:
-        return 'file_id';
+      case HostedEnvironmentFileResourceFileIdType.fileId: return 'file_id';
     }
   }
 
@@ -279,18 +243,14 @@ enum HostedEnvironmentFileResourceInlineType {
 
   static HostedEnvironmentFileResourceInlineType fromJson(String value) {
     switch (value) {
-      case 'inline':
-        return HostedEnvironmentFileResourceInlineType.inline;
-      default:
-        throw ArgumentError(
-            'Unknown HostedEnvironmentFileResourceInlineType: $value');
+      case 'inline': return HostedEnvironmentFileResourceInlineType.inline;
+      default: throw ArgumentError('Unknown HostedEnvironmentFileResourceInlineType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedEnvironmentFileResourceInlineType.inline:
-        return 'inline';
+      case HostedEnvironmentFileResourceInlineType.inline: return 'inline';
     }
   }
 
@@ -304,17 +264,14 @@ enum HostedPluginParamInlineType {
 
   static HostedPluginParamInlineType fromJson(String value) {
     switch (value) {
-      case 'inline':
-        return HostedPluginParamInlineType.inline;
-      default:
-        throw ArgumentError('Unknown HostedPluginParamInlineType: $value');
+      case 'inline': return HostedPluginParamInlineType.inline;
+      default: throw ArgumentError('Unknown HostedPluginParamInlineType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case HostedPluginParamInlineType.inline:
-        return 'inline';
+      case HostedPluginParamInlineType.inline: return 'inline';
     }
   }
 

@@ -8,39 +8,25 @@ part of 'fine_tuning.dart';
 class FineTuneDPOMethod {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The hyperparameters used for the DPO fine-tuning job.
   final SdkOptional<FineTuneDPOHyperparameters> hyperparameters;
 
   const FineTuneDPOMethod({this.hyperparameters = const SdkOmitted()});
 
-  FineTuneDPOMethod Function(
-          {SdkOptional<FineTuneDPOHyperparameters> hyperparameters})
-      get copyWith => _copyWith;
+  FineTuneDPOMethod Function({SdkOptional<FineTuneDPOHyperparameters> hyperparameters}) get copyWith => _copyWith;
 
-  FineTuneDPOMethod _copyWith({Object? hyperparameters = sdkOmittedValue}) =>
-      FineTuneDPOMethod(
-        hyperparameters: identical(hyperparameters, sdkOmittedValue)
-            ? this.hyperparameters
-            : hyperparameters as SdkOptional<FineTuneDPOHyperparameters>,
-      );
+  FineTuneDPOMethod _copyWith({Object? hyperparameters = sdkOmittedValue}) => FineTuneDPOMethod(
+    hyperparameters: identical(hyperparameters, sdkOmittedValue) ? this.hyperparameters : hyperparameters as SdkOptional<FineTuneDPOHyperparameters>,
+  );
 
-  factory FineTuneDPOMethod.fromJson(Map<String, dynamic> json) =>
-      FineTuneDPOMethod(
-        hyperparameters: json['hyperparameters'] != null
-            ? SdkPresent((json['hyperparameters'] != null
-                ? FineTuneDPOHyperparameters.fromJson(
-                    json['hyperparameters'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory FineTuneDPOMethod.fromJson(Map<String, dynamic> json) => FineTuneDPOMethod(
+    hyperparameters: json['hyperparameters'] != null ? SdkPresent((json['hyperparameters'] != null ? FineTuneDPOHyperparameters.fromJson(json['hyperparameters'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (hyperparameters) {
-          SdkPresent<FineTuneDPOHyperparameters>(value: final value) => {
-              'hyperparameters': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (hyperparameters) {
+      SdkPresent<FineTuneDPOHyperparameters>(value: final value) => {'hyperparameters': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

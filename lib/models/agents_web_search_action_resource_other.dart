@@ -8,30 +8,22 @@ part of 'agents_web.dart';
 class WebSearchActionResourceOther {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `other`.
   final WebSearchActionResourceOtherType type_;
 
   const WebSearchActionResourceOther({required this.type_});
 
-  WebSearchActionResourceOther Function(
-      {WebSearchActionResourceOtherType type_}) get copyWith => _copyWith;
+  WebSearchActionResourceOther Function({WebSearchActionResourceOtherType type_}) get copyWith => _copyWith;
 
-  WebSearchActionResourceOther _copyWith({Object? type_ = sdkOmittedValue}) =>
-      WebSearchActionResourceOther(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebSearchActionResourceOtherType,
-      );
+  WebSearchActionResourceOther _copyWith({Object? type_ = sdkOmittedValue}) => WebSearchActionResourceOther(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchActionResourceOtherType,
+  );
 
-  factory WebSearchActionResourceOther.fromJson(Map<String, dynamic> json) =>
-      WebSearchActionResourceOther(
-        type_: (json['type'] != null
-            ? WebSearchActionResourceOtherType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory WebSearchActionResourceOther.fromJson(Map<String, dynamic> json) => WebSearchActionResourceOther(
+    type_: (json['type'] != null ? WebSearchActionResourceOtherType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

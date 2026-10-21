@@ -9,74 +9,47 @@ sealed class FineTuneSupervisedHyperparametersBatchSize {
   static const String constructionSurface = 'named';
   const FineTuneSupervisedHyperparametersBatchSize();
   factory FineTuneSupervisedHyperparametersBatchSize.fromJson(Object? json) {
-    if (json is num) {
-      return FineTuneSupervisedHyperparametersBatchSizeInt(json.toInt());
-    }
-    try {
-      return FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0(
-          FineTuneSupervisedHyperparametersBatchSizeVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneSupervisedHyperparametersBatchSize");
+    if (json is num) { return FineTuneSupervisedHyperparametersBatchSizeInt(json.toInt()); }
+    try { return FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0(FineTuneSupervisedHyperparametersBatchSizeVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneSupervisedHyperparametersBatchSize");
   }
   Object? toJson();
 }
 
-final class FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0
-    extends FineTuneSupervisedHyperparametersBatchSize {
+final class FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0 extends FineTuneSupervisedHyperparametersBatchSize {
   final FineTuneSupervisedHyperparametersBatchSizeVariant0 value;
-  const FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FineTuneSupervisedHyperparametersBatchSizeFineTuneSupervisedHyperparametersBatchSizeVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneSupervisedHyperparametersBatchSizeInt
-    extends FineTuneSupervisedHyperparametersBatchSize {
+final class FineTuneSupervisedHyperparametersBatchSizeInt extends FineTuneSupervisedHyperparametersBatchSize {
   final int value;
   const FineTuneSupervisedHyperparametersBatchSizeInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class FineTuneSupervisedHyperparametersLearningRateMultiplier {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const FineTuneSupervisedHyperparametersLearningRateMultiplier();
-  factory FineTuneSupervisedHyperparametersLearningRateMultiplier.fromJson(
-      Object? json) {
-    if (json is num) {
-      return FineTuneSupervisedHyperparametersLearningRateMultiplierDouble(
-          json.toDouble());
-    }
-    try {
-      return FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0(
-          FineTuneSupervisedHyperparametersLearningRateMultiplierVariant0
-              .fromJson(json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneSupervisedHyperparametersLearningRateMultiplier");
+  factory FineTuneSupervisedHyperparametersLearningRateMultiplier.fromJson(Object? json) {
+    if (json is num) { return FineTuneSupervisedHyperparametersLearningRateMultiplierDouble(json.toDouble()); }
+    try { return FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0(FineTuneSupervisedHyperparametersLearningRateMultiplierVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneSupervisedHyperparametersLearningRateMultiplier");
   }
   Object? toJson();
 }
 
-final class FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0
-    extends FineTuneSupervisedHyperparametersLearningRateMultiplier {
+final class FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0 extends FineTuneSupervisedHyperparametersLearningRateMultiplier {
   final FineTuneSupervisedHyperparametersLearningRateMultiplierVariant0 value;
-  const FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FineTuneSupervisedHyperparametersLearningRateMultiplierFineTuneSupervisedHyperparametersLearningRateMultiplierVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneSupervisedHyperparametersLearningRateMultiplierDouble
-    extends FineTuneSupervisedHyperparametersLearningRateMultiplier {
+final class FineTuneSupervisedHyperparametersLearningRateMultiplierDouble extends FineTuneSupervisedHyperparametersLearningRateMultiplier {
   final double value;
-  const FineTuneSupervisedHyperparametersLearningRateMultiplierDouble(
-      this.value);
-  @override
-  Object? toJson() => value;
+  const FineTuneSupervisedHyperparametersLearningRateMultiplierDouble(this.value);
+  @override Object? toJson() => value;
 }
 
 sealed class FineTuneSupervisedHyperparametersNEpochs {
@@ -84,110 +57,64 @@ sealed class FineTuneSupervisedHyperparametersNEpochs {
   static const String constructionSurface = 'named';
   const FineTuneSupervisedHyperparametersNEpochs();
   factory FineTuneSupervisedHyperparametersNEpochs.fromJson(Object? json) {
-    if (json is num) {
-      return FineTuneSupervisedHyperparametersNEpochsInt(json.toInt());
-    }
-    try {
-      return FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0(
-          FineTuneSupervisedHyperparametersNEpochsVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for FineTuneSupervisedHyperparametersNEpochs");
+    if (json is num) { return FineTuneSupervisedHyperparametersNEpochsInt(json.toInt()); }
+    try { return FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0(FineTuneSupervisedHyperparametersNEpochsVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for FineTuneSupervisedHyperparametersNEpochs");
   }
   Object? toJson();
 }
 
-final class FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0
-    extends FineTuneSupervisedHyperparametersNEpochs {
+final class FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0 extends FineTuneSupervisedHyperparametersNEpochs {
   final FineTuneSupervisedHyperparametersNEpochsVariant0 value;
-  const FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FineTuneSupervisedHyperparametersNEpochsFineTuneSupervisedHyperparametersNEpochsVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class FineTuneSupervisedHyperparametersNEpochsInt
-    extends FineTuneSupervisedHyperparametersNEpochs {
+final class FineTuneSupervisedHyperparametersNEpochsInt extends FineTuneSupervisedHyperparametersNEpochs {
   final int value;
   const FineTuneSupervisedHyperparametersNEpochsInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// The hyperparameters used for the fine-tuning job.
 class FineTuneSupervisedHyperparameters {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Number of examples in each batch. A larger batch size means that model parameters are updated less frequently, but with lower variance.
   final SdkOptional<dynamic> batchSize;
-
   /// Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting.
   final SdkOptional<dynamic> learningRateMultiplier;
-
   /// The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
   final SdkOptional<dynamic> nEpochs;
 
-  const FineTuneSupervisedHyperparameters(
-      {this.batchSize = const SdkOmitted(),
-      this.learningRateMultiplier = const SdkOmitted(),
-      this.nEpochs = const SdkOmitted()});
+  const FineTuneSupervisedHyperparameters({this.batchSize = const SdkOmitted(), this.learningRateMultiplier = const SdkOmitted(), this.nEpochs = const SdkOmitted()});
 
-  FineTuneSupervisedHyperparameters Function(
-      {SdkOptional<dynamic> batchSize,
-      SdkOptional<dynamic> learningRateMultiplier,
-      SdkOptional<dynamic> nEpochs}) get copyWith => _copyWith;
+  FineTuneSupervisedHyperparameters Function({SdkOptional<dynamic> batchSize, SdkOptional<dynamic> learningRateMultiplier, SdkOptional<dynamic> nEpochs}) get copyWith => _copyWith;
 
-  FineTuneSupervisedHyperparameters _copyWith(
-          {Object? batchSize = sdkOmittedValue,
-          Object? learningRateMultiplier = sdkOmittedValue,
-          Object? nEpochs = sdkOmittedValue}) =>
-      FineTuneSupervisedHyperparameters(
-        batchSize: identical(batchSize, sdkOmittedValue)
-            ? this.batchSize
-            : batchSize as SdkOptional<dynamic>,
-        learningRateMultiplier:
-            identical(learningRateMultiplier, sdkOmittedValue)
-                ? this.learningRateMultiplier
-                : learningRateMultiplier as SdkOptional<dynamic>,
-        nEpochs: identical(nEpochs, sdkOmittedValue)
-            ? this.nEpochs
-            : nEpochs as SdkOptional<dynamic>,
-      );
+  FineTuneSupervisedHyperparameters _copyWith({Object? batchSize = sdkOmittedValue, Object? learningRateMultiplier = sdkOmittedValue, Object? nEpochs = sdkOmittedValue}) => FineTuneSupervisedHyperparameters(
+    batchSize: identical(batchSize, sdkOmittedValue) ? this.batchSize : batchSize as SdkOptional<dynamic>,
+    learningRateMultiplier: identical(learningRateMultiplier, sdkOmittedValue) ? this.learningRateMultiplier : learningRateMultiplier as SdkOptional<dynamic>,
+    nEpochs: identical(nEpochs, sdkOmittedValue) ? this.nEpochs : nEpochs as SdkOptional<dynamic>,
+  );
 
-  factory FineTuneSupervisedHyperparameters.fromJson(
-          Map<String, dynamic> json) =>
-      FineTuneSupervisedHyperparameters(
-        batchSize: json['batch_size'] != null
-            ? SdkPresent((json['batch_size'])!)
-            : const SdkOmitted(),
-        learningRateMultiplier: json['learning_rate_multiplier'] != null
-            ? SdkPresent((json['learning_rate_multiplier'])!)
-            : const SdkOmitted(),
-        nEpochs: json['n_epochs'] != null
-            ? SdkPresent((json['n_epochs'])!)
-            : const SdkOmitted(),
-      );
+  factory FineTuneSupervisedHyperparameters.fromJson(Map<String, dynamic> json) => FineTuneSupervisedHyperparameters(
+    batchSize: json['batch_size'] != null ? SdkPresent((json['batch_size'])!) : const SdkOmitted(),
+    learningRateMultiplier: json['learning_rate_multiplier'] != null ? SdkPresent((json['learning_rate_multiplier'])!) : const SdkOmitted(),
+    nEpochs: json['n_epochs'] != null ? SdkPresent((json['n_epochs'])!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (batchSize) {
-          SdkPresent<dynamic>(value: final value) => {
-              'batch_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (learningRateMultiplier) {
-          SdkPresent<dynamic>(value: final value) => {
-              'learning_rate_multiplier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nEpochs) {
-          SdkPresent<dynamic>(value: final value) => {
-              'n_epochs': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (batchSize) {
+      SdkPresent<dynamic>(value: final value) => {'batch_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (learningRateMultiplier) {
+      SdkPresent<dynamic>(value: final value) => {'learning_rate_multiplier': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nEpochs) {
+      SdkPresent<dynamic>(value: final value) => {'n_epochs': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -10,63 +10,32 @@ sealed class BetaFunctionShellCallItemParamEnvironment {
   const BetaFunctionShellCallItemParamEnvironment();
   factory BetaFunctionShellCallItemParamEnvironment.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaLocalEnvironmentParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaFunctionShellCallItemParamEnvironmentBetaLocalEnvironmentParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaContainerReferenceParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaFunctionShellCallItemParamEnvironmentBetaContainerReferenceParam(
-              value);
-        }
-      } catch (_) {}
+      try { final value = BetaLocalEnvironmentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellCallItemParamEnvironmentBetaLocalEnvironmentParam(value); } } catch (_) {}
+      try { final value = BetaContainerReferenceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellCallItemParamEnvironmentBetaContainerReferenceParam(value); } } catch (_) {}
     }
-    try {
-      return BetaFunctionShellCallItemParamEnvironmentBetaLocalEnvironmentParam(
-          BetaLocalEnvironmentParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaFunctionShellCallItemParamEnvironmentBetaContainerReferenceParam(
-          BetaContainerReferenceParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"local", "container_reference"}.contains(json["type"])) {
-      return UnknownBetaFunctionShellCallItemParamEnvironment(json);
-    }
-    throw FormatException(
-        "No variant matched for BetaFunctionShellCallItemParamEnvironment");
+    try { return BetaFunctionShellCallItemParamEnvironmentBetaLocalEnvironmentParam(BetaLocalEnvironmentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaFunctionShellCallItemParamEnvironmentBetaContainerReferenceParam(BetaContainerReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"local", "container_reference"}.contains(json["type"])) { return UnknownBetaFunctionShellCallItemParamEnvironment(json); }
+    throw FormatException("No variant matched for BetaFunctionShellCallItemParamEnvironment");
   }
   Object? toJson();
 }
 
-final class BetaFunctionShellCallItemParamEnvironmentBetaLocalEnvironmentParam
-    extends BetaFunctionShellCallItemParamEnvironment {
+final class BetaFunctionShellCallItemParamEnvironmentBetaLocalEnvironmentParam extends BetaFunctionShellCallItemParamEnvironment {
   final BetaLocalEnvironmentParam value;
-  const BetaFunctionShellCallItemParamEnvironmentBetaLocalEnvironmentParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaFunctionShellCallItemParamEnvironmentBetaLocalEnvironmentParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaFunctionShellCallItemParamEnvironmentBetaContainerReferenceParam
-    extends BetaFunctionShellCallItemParamEnvironment {
+final class BetaFunctionShellCallItemParamEnvironmentBetaContainerReferenceParam extends BetaFunctionShellCallItemParamEnvironment {
   final BetaContainerReferenceParam value;
-  const BetaFunctionShellCallItemParamEnvironmentBetaContainerReferenceParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaFunctionShellCallItemParamEnvironmentBetaContainerReferenceParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaFunctionShellCallItemParamEnvironment] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaFunctionShellCallItemParamEnvironment
-    extends BetaFunctionShellCallItemParamEnvironment {
+final class UnknownBetaFunctionShellCallItemParamEnvironment extends BetaFunctionShellCallItemParamEnvironment {
   final Map<String, dynamic> raw;
   const UnknownBetaFunctionShellCallItemParamEnvironment(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

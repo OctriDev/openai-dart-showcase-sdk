@@ -8,68 +8,34 @@ sealed class RealtimeServerEventConversationItemInputAudioTranscriptionCompleted
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage();
-  factory RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage.fromJson(
-      Object? json) {
+  factory RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = TranscriptTextUsageTokens.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = TranscriptTextUsageDuration.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(
-              value);
-        }
-      } catch (_) {}
+      try { final value = TranscriptTextUsageTokens.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(value); } } catch (_) {}
+      try { final value = TranscriptTextUsageDuration.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(value); } } catch (_) {}
     }
-    try {
-      return RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(
-          TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(
-          TranscriptTextUsageDuration.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"tokens", "duration"}.contains(json["type"])) {
-      return UnknownRealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage(
-          json);
-    }
-    throw FormatException(
-        "No variant matched for RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage");
+    try { return RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(TranscriptTextUsageDuration.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"tokens", "duration"}.contains(json["type"])) { return UnknownRealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage(json); }
+    throw FormatException("No variant matched for RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage");
   }
   Object? toJson();
 }
 
-final class RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens
-    extends RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage {
+final class RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens extends RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage {
   final TranscriptTextUsageTokens value;
-  const RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration
-    extends RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage {
+final class RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration extends RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage {
   final TranscriptTextUsageDuration value;
-  const RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage
-    extends RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage {
+final class UnknownRealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage extends RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage {
   final Map<String, dynamic> raw;
-  const UnknownRealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage(
-      this.raw);
-  @override
-  Object? toJson() => raw;
+  const UnknownRealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage(this.raw);
+  @override Object? toJson() => raw;
 }

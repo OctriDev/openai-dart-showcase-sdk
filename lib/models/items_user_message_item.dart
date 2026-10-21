@@ -8,119 +8,57 @@ part of 'items.dart';
 class UserMessageItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Identifier of the thread item.
   final String id;
-
   /// Type discriminator that is always `chatkit.thread_item`.
   final UserMessageItemObject object;
-
   /// Unix timestamp (in seconds) for when the item was created.
   final int createdAt;
-
   /// Identifier of the parent thread.
   final String threadId;
-
   /// Required enumerated value serialized in the `type` wire field.
   final UserMessageItemType type_;
-
   /// Ordered content elements supplied by the user.
   final List<UserMessageItemContentItem> content;
-
   /// Attachments associated with the user message. Defaults to an empty list.
   final List<Attachment> attachments;
-
   /// Required API value serialized in the `inference_options` wire field.
   final InferenceOptions? inferenceOptions;
 
-  const UserMessageItem(
-      {required this.id,
-      required this.object,
-      required this.createdAt,
-      required this.threadId,
-      required this.type_,
-      required this.content,
-      required this.attachments,
-      required this.inferenceOptions});
+  const UserMessageItem({required this.id, required this.object, required this.createdAt, required this.threadId, required this.type_, required this.content, required this.attachments, required this.inferenceOptions});
 
-  UserMessageItem Function(
-      {String id,
-      UserMessageItemObject object,
-      int createdAt,
-      String threadId,
-      UserMessageItemType type_,
-      List<UserMessageItemContentItem> content,
-      List<Attachment> attachments,
-      InferenceOptions? inferenceOptions}) get copyWith => _copyWith;
+  UserMessageItem Function({String id, UserMessageItemObject object, int createdAt, String threadId, UserMessageItemType type_, List<UserMessageItemContentItem> content, List<Attachment> attachments, InferenceOptions? inferenceOptions}) get copyWith => _copyWith;
 
-  UserMessageItem _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? threadId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? content = sdkOmittedValue,
-          Object? attachments = sdkOmittedValue,
-          Object? inferenceOptions = sdkOmittedValue}) =>
-      UserMessageItem(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as UserMessageItemObject,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        threadId: identical(threadId, sdkOmittedValue)
-            ? this.threadId
-            : threadId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as UserMessageItemType,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as List<UserMessageItemContentItem>,
-        attachments: identical(attachments, sdkOmittedValue)
-            ? this.attachments
-            : attachments as List<Attachment>,
-        inferenceOptions: identical(inferenceOptions, sdkOmittedValue)
-            ? this.inferenceOptions
-            : inferenceOptions as InferenceOptions?,
-      );
+  UserMessageItem _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? content = sdkOmittedValue, Object? attachments = sdkOmittedValue, Object? inferenceOptions = sdkOmittedValue}) => UserMessageItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as UserMessageItemObject,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as UserMessageItemType,
+    content: identical(content, sdkOmittedValue) ? this.content : content as List<UserMessageItemContentItem>,
+    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as List<Attachment>,
+    inferenceOptions: identical(inferenceOptions, sdkOmittedValue) ? this.inferenceOptions : inferenceOptions as InferenceOptions?,
+  );
 
-  factory UserMessageItem.fromJson(Map<String, dynamic> json) =>
-      UserMessageItem(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? UserMessageItemObject.fromJson(json['object'] as String)
-            : null)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        threadId: (json['thread_id'] as String?)!,
-        type_: (json['type'] != null
-            ? UserMessageItemType.fromJson(json['type'] as String)
-            : null)!,
-        content: ((json['content'] as List?)
-            ?.map((e) => UserMessageItemContentItem.fromJson(e))
-            .toList())!,
-        attachments: ((json['attachments'] as List?)
-            ?.map((e) => Attachment.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        inferenceOptions: json.containsKey('inference_options')
-            ? json['inference_options'] != null
-                ? InferenceOptions.fromJson(
-                    json['inference_options'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'inference_options', 'Required property is missing'),
-      );
+  factory UserMessageItem.fromJson(Map<String, dynamic> json) => UserMessageItem(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? UserMessageItemObject.fromJson(json['object'] as String) : null)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    threadId: (json['thread_id'] as String?)!,
+    type_: (json['type'] != null ? UserMessageItemType.fromJson(json['type'] as String) : null)!,
+    content: ((json['content'] as List?)?.map((e) => UserMessageItemContentItem.fromJson(e)).toList())!,
+    attachments: ((json['attachments'] as List?)?.map((e) => Attachment.fromJson(e as Map<String, dynamic>)).toList())!,
+    inferenceOptions: json.containsKey('inference_options') ? json['inference_options'] != null ? InferenceOptions.fromJson(json['inference_options'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'inference_options', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'created_at': createdAt,
-        'thread_id': threadId,
-        'type': type_.toJson(),
-        'content': content.map((item) => item.toJson()).toList(),
-        'attachments': attachments.map((item) => item.toJson()).toList(),
-        'inference_options': inferenceOptions?.toJson(),
-      };
+    'id': id,
+    'object': object.toJson(),
+    'created_at': createdAt,
+    'thread_id': threadId,
+    'type': type_.toJson(),
+    'content': content.map((item) => item.toJson()).toList(),
+    'attachments': attachments.map((item) => item.toJson()).toList(),
+    'inference_options': inferenceOptions?.toJson(),
+  };
 }

@@ -8,41 +8,27 @@ part of 'responses_beta_apply.dart';
 class BetaApplyPatchDeleteFileOperationParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The operation type. Always `delete_file`.
   final BetaApplyPatchDeleteFileOperationParamType type_;
-
   /// Path of the file to delete relative to the workspace root.
   final String path;
 
-  const BetaApplyPatchDeleteFileOperationParam(
-      {required this.type_, required this.path});
+  const BetaApplyPatchDeleteFileOperationParam({required this.type_, required this.path});
 
-  BetaApplyPatchDeleteFileOperationParam Function(
-      {BetaApplyPatchDeleteFileOperationParamType type_,
-      String path}) get copyWith => _copyWith;
+  BetaApplyPatchDeleteFileOperationParam Function({BetaApplyPatchDeleteFileOperationParamType type_, String path}) get copyWith => _copyWith;
 
-  BetaApplyPatchDeleteFileOperationParam _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue}) =>
-      BetaApplyPatchDeleteFileOperationParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaApplyPatchDeleteFileOperationParamType,
-        path: identical(path, sdkOmittedValue) ? this.path : path as String,
-      );
+  BetaApplyPatchDeleteFileOperationParam _copyWith({Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue}) => BetaApplyPatchDeleteFileOperationParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaApplyPatchDeleteFileOperationParamType,
+    path: identical(path, sdkOmittedValue) ? this.path : path as String,
+  );
 
-  factory BetaApplyPatchDeleteFileOperationParam.fromJson(
-          Map<String, dynamic> json) =>
-      BetaApplyPatchDeleteFileOperationParam(
-        type_: (json['type'] != null
-            ? BetaApplyPatchDeleteFileOperationParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        path: (json['path'] as String?)!,
-      );
+  factory BetaApplyPatchDeleteFileOperationParam.fromJson(Map<String, dynamic> json) => BetaApplyPatchDeleteFileOperationParam(
+    type_: (json['type'] != null ? BetaApplyPatchDeleteFileOperationParamType.fromJson(json['type'] as String) : null)!,
+    path: (json['path'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'path': path,
-      };
+    'type': type_.toJson(),
+    'path': path,
+  };
 }

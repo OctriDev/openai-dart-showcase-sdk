@@ -8,73 +8,44 @@ part of 'vector_stores.dart';
 class VectorStoreObjectFileCounts {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of files that are currently being processed.
   final int inProgress;
-
   /// The number of files that have been successfully processed.
   final int completed;
-
   /// The number of files that have failed to process.
   final int failed;
-
   /// The number of files that were cancelled.
   final int cancelled;
-
   /// The total number of files.
   final int total;
 
-  const VectorStoreObjectFileCounts(
-      {required this.inProgress,
-      required this.completed,
-      required this.failed,
-      required this.cancelled,
-      required this.total});
+  const VectorStoreObjectFileCounts({required this.inProgress, required this.completed, required this.failed, required this.cancelled, required this.total});
 
-  VectorStoreObjectFileCounts Function(
-      {int inProgress,
-      int completed,
-      int failed,
-      int cancelled,
-      int total}) get copyWith => _copyWith;
+  VectorStoreObjectFileCounts Function({int inProgress, int completed, int failed, int cancelled, int total}) get copyWith => _copyWith;
 
-  VectorStoreObjectFileCounts _copyWith(
-          {Object? inProgress = sdkOmittedValue,
-          Object? completed = sdkOmittedValue,
-          Object? failed = sdkOmittedValue,
-          Object? cancelled = sdkOmittedValue,
-          Object? total = sdkOmittedValue}) =>
-      VectorStoreObjectFileCounts(
-        inProgress: identical(inProgress, sdkOmittedValue)
-            ? this.inProgress
-            : inProgress as int,
-        completed: identical(completed, sdkOmittedValue)
-            ? this.completed
-            : completed as int,
-        failed:
-            identical(failed, sdkOmittedValue) ? this.failed : failed as int,
-        cancelled: identical(cancelled, sdkOmittedValue)
-            ? this.cancelled
-            : cancelled as int,
-        total: identical(total, sdkOmittedValue) ? this.total : total as int,
-      );
+  VectorStoreObjectFileCounts _copyWith({Object? inProgress = sdkOmittedValue, Object? completed = sdkOmittedValue, Object? failed = sdkOmittedValue, Object? cancelled = sdkOmittedValue, Object? total = sdkOmittedValue}) => VectorStoreObjectFileCounts(
+    inProgress: identical(inProgress, sdkOmittedValue) ? this.inProgress : inProgress as int,
+    completed: identical(completed, sdkOmittedValue) ? this.completed : completed as int,
+    failed: identical(failed, sdkOmittedValue) ? this.failed : failed as int,
+    cancelled: identical(cancelled, sdkOmittedValue) ? this.cancelled : cancelled as int,
+    total: identical(total, sdkOmittedValue) ? this.total : total as int,
+  );
 
-  factory VectorStoreObjectFileCounts.fromJson(Map<String, dynamic> json) =>
-      VectorStoreObjectFileCounts(
-        inProgress: ((json['in_progress'] as num?)?.toInt())!,
-        completed: ((json['completed'] as num?)?.toInt())!,
-        failed: ((json['failed'] as num?)?.toInt())!,
-        cancelled: ((json['cancelled'] as num?)?.toInt())!,
-        total: ((json['total'] as num?)?.toInt())!,
-      );
+  factory VectorStoreObjectFileCounts.fromJson(Map<String, dynamic> json) => VectorStoreObjectFileCounts(
+    inProgress: ((json['in_progress'] as num?)?.toInt())!,
+    completed: ((json['completed'] as num?)?.toInt())!,
+    failed: ((json['failed'] as num?)?.toInt())!,
+    cancelled: ((json['cancelled'] as num?)?.toInt())!,
+    total: ((json['total'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'in_progress': inProgress,
-        'completed': completed,
-        'failed': failed,
-        'cancelled': cancelled,
-        'total': total,
-      };
+    'in_progress': inProgress,
+    'completed': completed,
+    'failed': failed,
+    'cancelled': cancelled,
+    'total': total,
+  };
 }
 
 sealed class VectorStoreObjectExpiresAt {
@@ -82,9 +53,7 @@ sealed class VectorStoreObjectExpiresAt {
   static const String constructionSurface = 'named';
   const VectorStoreObjectExpiresAt();
   factory VectorStoreObjectExpiresAt.fromJson(Object? json) {
-    if (json is num) {
-      return VectorStoreObjectExpiresAtInt(json.toInt());
-    }
+    if (json is num) { return VectorStoreObjectExpiresAtInt(json.toInt()); }
     throw FormatException("No variant matched for VectorStoreObjectExpiresAt");
   }
   Object? toJson();
@@ -93,8 +62,7 @@ sealed class VectorStoreObjectExpiresAt {
 final class VectorStoreObjectExpiresAtInt extends VectorStoreObjectExpiresAt {
   final int value;
   const VectorStoreObjectExpiresAtInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class VectorStoreObjectLastActiveAt {
@@ -102,189 +70,94 @@ sealed class VectorStoreObjectLastActiveAt {
   static const String constructionSurface = 'named';
   const VectorStoreObjectLastActiveAt();
   factory VectorStoreObjectLastActiveAt.fromJson(Object? json) {
-    if (json is num) {
-      return VectorStoreObjectLastActiveAtInt(json.toInt());
-    }
-    throw FormatException(
-        "No variant matched for VectorStoreObjectLastActiveAt");
+    if (json is num) { return VectorStoreObjectLastActiveAtInt(json.toInt()); }
+    throw FormatException("No variant matched for VectorStoreObjectLastActiveAt");
   }
   Object? toJson();
 }
 
-final class VectorStoreObjectLastActiveAtInt
-    extends VectorStoreObjectLastActiveAt {
+final class VectorStoreObjectLastActiveAtInt extends VectorStoreObjectLastActiveAt {
   final int value;
   const VectorStoreObjectLastActiveAtInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// A vector store is a collection of processed files can be used by the `file_search` tool.
 class VectorStoreObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The identifier, which can be referenced in API endpoints.
   final String id;
-
   /// The object type, which is always `vector_store`.
   final VectorStoreObjectObject object;
-
   /// The Unix timestamp (in seconds) for when the vector store was created.
   final int createdAt;
-
   /// The name of the vector store.
   final String name;
-
   /// The total number of bytes used by the files in the vector store.
   final int usageBytes;
-
   /// Required object value serialized in the `file_counts` wire field.
   final VectorStoreObjectFileCounts fileCounts;
-
   /// The status of the vector store, which can be either `expired`, `in_progress`, or `completed`. A status of `completed` indicates that the vector store is ready for use.
   final VectorStoreObjectStatus status;
-
   /// The expiration policy for a vector store.
   final SdkOptional<VectorStoreExpirationAfter> expiresAfter;
-
   /// Optional API value serialized in the `expires_at` wire field.
   final SdkOptional<int?> expiresAt;
-
   /// Required API value serialized in the `last_active_at` wire field.
   final int? lastActiveAt;
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final Map<String, dynamic>? metadata;
 
-  const VectorStoreObject(
-      {required this.id,
-      required this.object,
-      required this.createdAt,
-      required this.name,
-      required this.usageBytes,
-      required this.fileCounts,
-      required this.status,
-      this.expiresAfter = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted(),
-      required this.lastActiveAt,
-      required this.metadata});
+  const VectorStoreObject({required this.id, required this.object, required this.createdAt, required this.name, required this.usageBytes, required this.fileCounts, required this.status, this.expiresAfter = const SdkOmitted(), this.expiresAt = const SdkOmitted(), required this.lastActiveAt, required this.metadata});
 
-  VectorStoreObject Function(
-      {String id,
-      VectorStoreObjectObject object,
-      int createdAt,
-      String name,
-      int usageBytes,
-      VectorStoreObjectFileCounts fileCounts,
-      VectorStoreObjectStatus status,
-      SdkOptional<VectorStoreExpirationAfter> expiresAfter,
-      SdkOptional<int?> expiresAt,
-      int? lastActiveAt,
-      Map<String, dynamic>? metadata}) get copyWith => _copyWith;
+  VectorStoreObject Function({String id, VectorStoreObjectObject object, int createdAt, String name, int usageBytes, VectorStoreObjectFileCounts fileCounts, VectorStoreObjectStatus status, SdkOptional<VectorStoreExpirationAfter> expiresAfter, SdkOptional<int?> expiresAt, int? lastActiveAt, Map<String, dynamic>? metadata}) get copyWith => _copyWith;
 
-  VectorStoreObject _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? usageBytes = sdkOmittedValue,
-          Object? fileCounts = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? expiresAfter = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue,
-          Object? lastActiveAt = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue}) =>
-      VectorStoreObject(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as VectorStoreObjectObject,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        usageBytes: identical(usageBytes, sdkOmittedValue)
-            ? this.usageBytes
-            : usageBytes as int,
-        fileCounts: identical(fileCounts, sdkOmittedValue)
-            ? this.fileCounts
-            : fileCounts as VectorStoreObjectFileCounts,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as VectorStoreObjectStatus,
-        expiresAfter: identical(expiresAfter, sdkOmittedValue)
-            ? this.expiresAfter
-            : expiresAfter as SdkOptional<VectorStoreExpirationAfter>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<int?>,
-        lastActiveAt: identical(lastActiveAt, sdkOmittedValue)
-            ? this.lastActiveAt
-            : lastActiveAt as int?,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as Map<String, dynamic>?,
-      );
+  VectorStoreObject _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? name = sdkOmittedValue, Object? usageBytes = sdkOmittedValue, Object? fileCounts = sdkOmittedValue, Object? status = sdkOmittedValue, Object? expiresAfter = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? lastActiveAt = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => VectorStoreObject(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as VectorStoreObjectObject,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    usageBytes: identical(usageBytes, sdkOmittedValue) ? this.usageBytes : usageBytes as int,
+    fileCounts: identical(fileCounts, sdkOmittedValue) ? this.fileCounts : fileCounts as VectorStoreObjectFileCounts,
+    status: identical(status, sdkOmittedValue) ? this.status : status as VectorStoreObjectStatus,
+    expiresAfter: identical(expiresAfter, sdkOmittedValue) ? this.expiresAfter : expiresAfter as SdkOptional<VectorStoreExpirationAfter>,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int?>,
+    lastActiveAt: identical(lastActiveAt, sdkOmittedValue) ? this.lastActiveAt : lastActiveAt as int?,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, dynamic>?,
+  );
 
-  factory VectorStoreObject.fromJson(Map<String, dynamic> json) =>
-      VectorStoreObject(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? VectorStoreObjectObject.fromJson(json['object'] as String)
-            : null)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        name: (json['name'] as String?)!,
-        usageBytes: ((json['usage_bytes'] as num?)?.toInt())!,
-        fileCounts: (json['file_counts'] != null
-            ? VectorStoreObjectFileCounts.fromJson(
-                json['file_counts'] as Map<String, dynamic>)
-            : null)!,
-        status: (json['status'] != null
-            ? VectorStoreObjectStatus.fromJson(json['status'] as String)
-            : null)!,
-        expiresAfter: json['expires_after'] != null
-            ? SdkPresent((json['expires_after'] != null
-                ? VectorStoreExpirationAfter.fromJson(
-                    json['expires_after'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        expiresAt: json.containsKey('expires_at')
-            ? SdkPresent((json['expires_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        lastActiveAt: json.containsKey('last_active_at')
-            ? (json['last_active_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'last_active_at', 'Required property is missing'),
-        metadata: json.containsKey('metadata')
-            ? json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>
-            : throw ArgumentError.value(
-                null, 'metadata', 'Required property is missing'),
-      );
+  factory VectorStoreObject.fromJson(Map<String, dynamic> json) => VectorStoreObject(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? VectorStoreObjectObject.fromJson(json['object'] as String) : null)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    name: (json['name'] as String?)!,
+    usageBytes: ((json['usage_bytes'] as num?)?.toInt())!,
+    fileCounts: (json['file_counts'] != null ? VectorStoreObjectFileCounts.fromJson(json['file_counts'] as Map<String, dynamic>) : null)!,
+    status: (json['status'] != null ? VectorStoreObjectStatus.fromJson(json['status'] as String) : null)!,
+    expiresAfter: json['expires_after'] != null ? SdkPresent((json['expires_after'] != null ? VectorStoreExpirationAfter.fromJson(json['expires_after'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    expiresAt: json.containsKey('expires_at') ? SdkPresent((json['expires_at'] as num?)?.toInt()) : const SdkOmitted(),
+    lastActiveAt: json.containsKey('last_active_at') ? (json['last_active_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'last_active_at', 'Required property is missing'),
+    metadata: json.containsKey('metadata') ? json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic> : throw ArgumentError.value(null, 'metadata', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'created_at': createdAt,
-        'name': name,
-        'usage_bytes': usageBytes,
-        'file_counts': fileCounts.toJson(),
-        'status': status.toJson(),
-        ...switch (expiresAfter) {
-          SdkPresent<VectorStoreExpirationAfter>(value: final value) => {
-              'expires_after': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<int?>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'last_active_at': lastActiveAt,
-        'metadata': metadata,
-      };
+    'id': id,
+    'object': object.toJson(),
+    'created_at': createdAt,
+    'name': name,
+    'usage_bytes': usageBytes,
+    'file_counts': fileCounts.toJson(),
+    'status': status.toJson(),
+    ...switch (expiresAfter) {
+      SdkPresent<VectorStoreExpirationAfter>(value: final value) => {'expires_after': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAt) {
+      SdkPresent<int?>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    'last_active_at': lastActiveAt,
+    'metadata': metadata,
+  };
 }

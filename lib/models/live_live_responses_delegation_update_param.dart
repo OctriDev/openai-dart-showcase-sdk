@@ -8,59 +8,30 @@ part of 'live_live_responses.dart';
 class LiveResponsesDelegationUpdateParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The delegation owner. Always `responses` for tasks handled by the Responses API.
   final LiveResponsesDelegationUpdateParamType type_;
-
   /// Responses backend settings to update. Omitted settings keep their existing values.
   final SdkOptional<LiveResponsesDelegationSettingsUpdateInputParam> responses;
 
-  const LiveResponsesDelegationUpdateParam(
-      {required this.type_, this.responses = const SdkOmitted()});
+  const LiveResponsesDelegationUpdateParam({required this.type_, this.responses = const SdkOmitted()});
 
-  LiveResponsesDelegationUpdateParam Function(
-      {LiveResponsesDelegationUpdateParamType type_,
-      SdkOptional<LiveResponsesDelegationSettingsUpdateInputParam>
-          responses}) get copyWith => _copyWith;
+  LiveResponsesDelegationUpdateParam Function({LiveResponsesDelegationUpdateParamType type_, SdkOptional<LiveResponsesDelegationSettingsUpdateInputParam> responses}) get copyWith => _copyWith;
 
-  LiveResponsesDelegationUpdateParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? responses = sdkOmittedValue}) =>
-      LiveResponsesDelegationUpdateParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveResponsesDelegationUpdateParamType,
-        responses: identical(responses, sdkOmittedValue)
-            ? this.responses
-            : responses
-                as SdkOptional<LiveResponsesDelegationSettingsUpdateInputParam>,
-      );
+  LiveResponsesDelegationUpdateParam _copyWith({Object? type_ = sdkOmittedValue, Object? responses = sdkOmittedValue}) => LiveResponsesDelegationUpdateParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveResponsesDelegationUpdateParamType,
+    responses: identical(responses, sdkOmittedValue) ? this.responses : responses as SdkOptional<LiveResponsesDelegationSettingsUpdateInputParam>,
+  );
 
-  factory LiveResponsesDelegationUpdateParam.fromJson(
-          Map<String, dynamic> json) =>
-      LiveResponsesDelegationUpdateParam(
-        type_: (json['type'] != null
-            ? LiveResponsesDelegationUpdateParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        responses: json['responses'] != null
-            ? SdkPresent((json['responses'] != null
-                ? LiveResponsesDelegationSettingsUpdateInputParam.fromJson(
-                    json['responses'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory LiveResponsesDelegationUpdateParam.fromJson(Map<String, dynamic> json) => LiveResponsesDelegationUpdateParam(
+    type_: (json['type'] != null ? LiveResponsesDelegationUpdateParamType.fromJson(json['type'] as String) : null)!,
+    responses: json['responses'] != null ? SdkPresent((json['responses'] != null ? LiveResponsesDelegationSettingsUpdateInputParam.fromJson(json['responses'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (responses) {
-          SdkPresent<LiveResponsesDelegationSettingsUpdateInputParam>(
-            value: final value
-          ) =>
-            {
-              'responses': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (responses) {
+      SdkPresent<LiveResponsesDelegationSettingsUpdateInputParam>(value: final value) => {'responses': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

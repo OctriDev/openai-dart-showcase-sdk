@@ -10,66 +10,32 @@ sealed class VaultCredentialNetworkingResource {
   const VaultCredentialNetworkingResource();
   factory VaultCredentialNetworkingResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value =
-            VaultCredentialNetworkingResourceUnrestricted.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = VaultCredentialNetworkingResourceLimited.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceLimited(
-              value);
-        }
-      } catch (_) {}
+      try { final value = VaultCredentialNetworkingResourceUnrestricted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted(value); } } catch (_) {}
+      try { final value = VaultCredentialNetworkingResourceLimited.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceLimited(value); } } catch (_) {}
     }
-    try {
-      return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted(
-          VaultCredentialNetworkingResourceUnrestricted.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceLimited(
-          VaultCredentialNetworkingResourceLimited.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"unrestricted", "limited"}.contains(json["type"])) {
-      return UnknownVaultCredentialNetworkingResource(json);
-    }
-    throw FormatException(
-        "No variant matched for VaultCredentialNetworkingResource");
+    try { return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted(VaultCredentialNetworkingResourceUnrestricted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceLimited(VaultCredentialNetworkingResourceLimited.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"unrestricted", "limited"}.contains(json["type"])) { return UnknownVaultCredentialNetworkingResource(json); }
+    throw FormatException("No variant matched for VaultCredentialNetworkingResource");
   }
   Object? toJson();
 }
 
-final class VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted
-    extends VaultCredentialNetworkingResource {
+final class VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted extends VaultCredentialNetworkingResource {
   final VaultCredentialNetworkingResourceUnrestricted value;
-  const VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceUnrestricted(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceLimited
-    extends VaultCredentialNetworkingResource {
+final class VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceLimited extends VaultCredentialNetworkingResource {
   final VaultCredentialNetworkingResourceLimited value;
-  const VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceLimited(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const VaultCredentialNetworkingResourceVaultCredentialNetworkingResourceLimited(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [VaultCredentialNetworkingResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownVaultCredentialNetworkingResource
-    extends VaultCredentialNetworkingResource {
+final class UnknownVaultCredentialNetworkingResource extends VaultCredentialNetworkingResource {
   final Map<String, dynamic> raw;
   const UnknownVaultCredentialNetworkingResource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

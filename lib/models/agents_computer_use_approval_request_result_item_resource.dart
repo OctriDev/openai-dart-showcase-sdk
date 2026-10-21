@@ -8,78 +8,42 @@ part of 'agents_computer.dart';
 class ComputerUseApprovalRequestResultItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The stable history item ID.
   final String id;
-
   /// Required enumerated value serialized in the `type` wire field.
   final ComputerUseApprovalRequestResultItemResourceType type_;
-
   /// The ID of the turn that contains this item.
   final String turnId;
-
   /// The registered request answered by this item.
   final String requestId;
-
   /// The admitted response, without submitted credential values.
   final ComputerUseApprovalResponseKindResource response;
 
-  const ComputerUseApprovalRequestResultItemResource(
-      {required this.id,
-      required this.type_,
-      required this.turnId,
-      required this.requestId,
-      required this.response});
+  const ComputerUseApprovalRequestResultItemResource({required this.id, required this.type_, required this.turnId, required this.requestId, required this.response});
 
-  ComputerUseApprovalRequestResultItemResource Function(
-          {String id,
-          ComputerUseApprovalRequestResultItemResourceType type_,
-          String turnId,
-          String requestId,
-          ComputerUseApprovalResponseKindResource response})
-      get copyWith => _copyWith;
+  ComputerUseApprovalRequestResultItemResource Function({String id, ComputerUseApprovalRequestResultItemResourceType type_, String turnId, String requestId, ComputerUseApprovalResponseKindResource response}) get copyWith => _copyWith;
 
-  ComputerUseApprovalRequestResultItemResource _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? turnId = sdkOmittedValue,
-          Object? requestId = sdkOmittedValue,
-          Object? response = sdkOmittedValue}) =>
-      ComputerUseApprovalRequestResultItemResource(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ComputerUseApprovalRequestResultItemResourceType,
-        turnId:
-            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-        requestId: identical(requestId, sdkOmittedValue)
-            ? this.requestId
-            : requestId as String,
-        response: identical(response, sdkOmittedValue)
-            ? this.response
-            : response as ComputerUseApprovalResponseKindResource,
-      );
+  ComputerUseApprovalRequestResultItemResource _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? requestId = sdkOmittedValue, Object? response = sdkOmittedValue}) => ComputerUseApprovalRequestResultItemResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerUseApprovalRequestResultItemResourceType,
+    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+    requestId: identical(requestId, sdkOmittedValue) ? this.requestId : requestId as String,
+    response: identical(response, sdkOmittedValue) ? this.response : response as ComputerUseApprovalResponseKindResource,
+  );
 
-  factory ComputerUseApprovalRequestResultItemResource.fromJson(
-          Map<String, dynamic> json) =>
-      ComputerUseApprovalRequestResultItemResource(
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? ComputerUseApprovalRequestResultItemResourceType.fromJson(
-                json['type'] as String)
-            : null)!,
-        turnId: (json['turn_id'] as String?)!,
-        requestId: (json['request_id'] as String?)!,
-        response: (json['response'] != null
-            ? ComputerUseApprovalResponseKindResource.fromJson(json['response'])
-            : null)!,
-      );
+  factory ComputerUseApprovalRequestResultItemResource.fromJson(Map<String, dynamic> json) => ComputerUseApprovalRequestResultItemResource(
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? ComputerUseApprovalRequestResultItemResourceType.fromJson(json['type'] as String) : null)!,
+    turnId: (json['turn_id'] as String?)!,
+    requestId: (json['request_id'] as String?)!,
+    response: (json['response'] != null ? ComputerUseApprovalResponseKindResource.fromJson(json['response']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'type': type_.toJson(),
-        'turn_id': turnId,
-        'request_id': requestId,
-        'response': response.toJson(),
-      };
+    'id': id,
+    'type': type_.toJson(),
+    'turn_id': turnId,
+    'request_id': requestId,
+    'response': response.toJson(),
+  };
 }

@@ -8,75 +8,42 @@ part of 'audio.dart';
 class CreateVoiceFromConsentRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The voice creation method. Defaults to `audio_sample` when omitted.
   final SdkOptional<CreateVoiceFromConsentRequestType> type_;
-
   /// The name of the new voice.
   final String name;
-
   /// The sample audio recording file. Maximum size is 10 MiB. Supported MIME types: `audio/mpeg`, `audio/wav`, `audio/x-wav`, `audio/ogg`, `audio/aac`, `audio/flac`, `audio/webm`, `audio/mp4`.
   final List<int> audioSample;
-
   /// The consent recording ID (for example, `cons_1234`).
   final String consent;
 
-  const CreateVoiceFromConsentRequest(
-      {this.type_ = const SdkOmitted(),
-      required this.name,
-      required this.audioSample,
-      required this.consent});
+  const CreateVoiceFromConsentRequest({this.type_ = const SdkOmitted(), required this.name, required this.audioSample, required this.consent});
 
-  CreateVoiceFromConsentRequest Function(
-      {SdkOptional<CreateVoiceFromConsentRequestType> type_,
-      String name,
-      List<int> audioSample,
-      String consent}) get copyWith => _copyWith;
+  CreateVoiceFromConsentRequest Function({SdkOptional<CreateVoiceFromConsentRequestType> type_, String name, List<int> audioSample, String consent}) get copyWith => _copyWith;
 
-  CreateVoiceFromConsentRequest _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? audioSample = sdkOmittedValue,
-          Object? consent = sdkOmittedValue}) =>
-      CreateVoiceFromConsentRequest(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<CreateVoiceFromConsentRequestType>,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        audioSample: identical(audioSample, sdkOmittedValue)
-            ? this.audioSample
-            : audioSample as List<int>,
-        consent: identical(consent, sdkOmittedValue)
-            ? this.consent
-            : consent as String,
-      );
+  CreateVoiceFromConsentRequest _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? audioSample = sdkOmittedValue, Object? consent = sdkOmittedValue}) => CreateVoiceFromConsentRequest(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<CreateVoiceFromConsentRequestType>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    audioSample: identical(audioSample, sdkOmittedValue) ? this.audioSample : audioSample as List<int>,
+    consent: identical(consent, sdkOmittedValue) ? this.consent : consent as String,
+  );
 
-  factory CreateVoiceFromConsentRequest.fromJson(Map<String, dynamic> json) =>
-      CreateVoiceFromConsentRequest(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? CreateVoiceFromConsentRequestType.fromJson(
-                    json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        name: (json['name'] as String?)!,
-        audioSample: (json['audio_sample'] != null
-            ? base64Decode(json['audio_sample'] as String)
-            : null)!,
-        consent: (json['consent'] as String?)!,
-      );
+  factory CreateVoiceFromConsentRequest.fromJson(Map<String, dynamic> json) => CreateVoiceFromConsentRequest(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? CreateVoiceFromConsentRequestType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    name: (json['name'] as String?)!,
+    audioSample: (json['audio_sample'] != null ? base64Decode(json['audio_sample'] as String) : null)!,
+    consent: (json['consent'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<CreateVoiceFromConsentRequestType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'name': name,
-        'audio_sample': base64Encode(audioSample),
-        'consent': consent,
-      };
+    ...switch (type_) {
+      SdkPresent<CreateVoiceFromConsentRequestType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'name': name,
+    'audio_sample': base64Encode(audioSample),
+    'consent': consent,
+  };
 }
 
 sealed class CreateVoiceRequest {
@@ -84,107 +51,66 @@ sealed class CreateVoiceRequest {
   static const String constructionSurface = 'named';
   const CreateVoiceRequest();
   factory CreateVoiceRequest.fromJson(Object? json) {
-    try {
-      return CreateVoiceRequestCreateVoiceFromConsentRequest(
-          CreateVoiceFromConsentRequest.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"audio_sample"}.contains(json["type"])) {
-      return UnknownCreateVoiceRequest(json);
-    }
+    try { return CreateVoiceRequestCreateVoiceFromConsentRequest(CreateVoiceFromConsentRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"audio_sample"}.contains(json["type"])) { return UnknownCreateVoiceRequest(json); }
     throw FormatException("No variant matched for CreateVoiceRequest");
   }
   Object? toJson();
 }
 
-final class CreateVoiceRequestCreateVoiceFromConsentRequest
-    extends CreateVoiceRequest {
+final class CreateVoiceRequestCreateVoiceFromConsentRequest extends CreateVoiceRequest {
   final CreateVoiceFromConsentRequest value;
   const CreateVoiceRequestCreateVoiceFromConsentRequest(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [CreateVoiceRequest] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownCreateVoiceRequest extends CreateVoiceRequest {
   final Map<String, dynamic> raw;
   const UnknownCreateVoiceRequest(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// A custom voice that can be used for audio output.
 class VoiceResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `audio.voice`.
   final VoiceResourceObject object;
-
   /// The voice identifier, which can be referenced in API endpoints.
   final String id;
-
   /// How the voice was created.
   final VoiceResourceType type_;
-
   /// The name of the voice.
   final String name;
-
   /// The Unix timestamp (in seconds) for when the voice was created.
   final int createdAt;
 
-  const VoiceResource(
-      {required this.object,
-      required this.id,
-      required this.type_,
-      required this.name,
-      required this.createdAt});
+  const VoiceResource({required this.object, required this.id, required this.type_, required this.name, required this.createdAt});
 
-  VoiceResource Function(
-      {VoiceResourceObject object,
-      String id,
-      VoiceResourceType type_,
-      String name,
-      int createdAt}) get copyWith => _copyWith;
+  VoiceResource Function({VoiceResourceObject object, String id, VoiceResourceType type_, String name, int createdAt}) get copyWith => _copyWith;
 
-  VoiceResource _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      VoiceResource(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as VoiceResourceObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as VoiceResourceType,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-      );
+  VoiceResource _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => VoiceResource(
+    object: identical(object, sdkOmittedValue) ? this.object : object as VoiceResourceObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VoiceResourceType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+  );
 
   factory VoiceResource.fromJson(Map<String, dynamic> json) => VoiceResource(
-        object: (json['object'] != null
-            ? VoiceResourceObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? VoiceResourceType.fromJson(json['type'] as String)
-            : null)!,
-        name: (json['name'] as String?)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-      );
+    object: (json['object'] != null ? VoiceResourceObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? VoiceResourceType.fromJson(json['type'] as String) : null)!,
+    name: (json['name'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'type': type_.toJson(),
-        'name': name,
-        'created_at': createdAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'type': type_.toJson(),
+    'name': name,
+    'created_at': createdAt,
+  };
 }

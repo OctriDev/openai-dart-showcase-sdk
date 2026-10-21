@@ -10,97 +10,48 @@ sealed class WebSearchActionResource {
   const WebSearchActionResource();
   factory WebSearchActionResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = WebSearchActionResourceSearch.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return WebSearchActionResourceWebSearchActionResourceSearch(value);
-        }
-      } catch (_) {}
-      try {
-        final value = WebSearchActionResourceOpenPage.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return WebSearchActionResourceWebSearchActionResourceOpenPage(value);
-        }
-      } catch (_) {}
-      try {
-        final value = WebSearchActionResourceFindInPage.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return WebSearchActionResourceWebSearchActionResourceFindInPage(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = WebSearchActionResourceOther.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return WebSearchActionResourceWebSearchActionResourceOther(value);
-        }
-      } catch (_) {}
+      try { final value = WebSearchActionResourceSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchActionResourceWebSearchActionResourceSearch(value); } } catch (_) {}
+      try { final value = WebSearchActionResourceOpenPage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchActionResourceWebSearchActionResourceOpenPage(value); } } catch (_) {}
+      try { final value = WebSearchActionResourceFindInPage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchActionResourceWebSearchActionResourceFindInPage(value); } } catch (_) {}
+      try { final value = WebSearchActionResourceOther.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchActionResourceWebSearchActionResourceOther(value); } } catch (_) {}
     }
-    try {
-      return WebSearchActionResourceWebSearchActionResourceSearch(
-          WebSearchActionResourceSearch.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return WebSearchActionResourceWebSearchActionResourceOpenPage(
-          WebSearchActionResourceOpenPage.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return WebSearchActionResourceWebSearchActionResourceFindInPage(
-          WebSearchActionResourceFindInPage.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return WebSearchActionResourceWebSearchActionResourceOther(
-          WebSearchActionResourceOther.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"search", "open_page", "find_in_page", "other"}
-            .contains(json["type"])) {
-      return UnknownWebSearchActionResource(json);
-    }
+    try { return WebSearchActionResourceWebSearchActionResourceSearch(WebSearchActionResourceSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return WebSearchActionResourceWebSearchActionResourceOpenPage(WebSearchActionResourceOpenPage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return WebSearchActionResourceWebSearchActionResourceFindInPage(WebSearchActionResourceFindInPage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return WebSearchActionResourceWebSearchActionResourceOther(WebSearchActionResourceOther.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"search", "open_page", "find_in_page", "other"}.contains(json["type"])) { return UnknownWebSearchActionResource(json); }
     throw FormatException("No variant matched for WebSearchActionResource");
   }
   Object? toJson();
 }
 
-final class WebSearchActionResourceWebSearchActionResourceSearch
-    extends WebSearchActionResource {
+final class WebSearchActionResourceWebSearchActionResourceSearch extends WebSearchActionResource {
   final WebSearchActionResourceSearch value;
   const WebSearchActionResourceWebSearchActionResourceSearch(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class WebSearchActionResourceWebSearchActionResourceOpenPage
-    extends WebSearchActionResource {
+final class WebSearchActionResourceWebSearchActionResourceOpenPage extends WebSearchActionResource {
   final WebSearchActionResourceOpenPage value;
   const WebSearchActionResourceWebSearchActionResourceOpenPage(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class WebSearchActionResourceWebSearchActionResourceFindInPage
-    extends WebSearchActionResource {
+final class WebSearchActionResourceWebSearchActionResourceFindInPage extends WebSearchActionResource {
   final WebSearchActionResourceFindInPage value;
   const WebSearchActionResourceWebSearchActionResourceFindInPage(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class WebSearchActionResourceWebSearchActionResourceOther
-    extends WebSearchActionResource {
+final class WebSearchActionResourceWebSearchActionResourceOther extends WebSearchActionResource {
   final WebSearchActionResourceOther value;
   const WebSearchActionResourceWebSearchActionResourceOther(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [WebSearchActionResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownWebSearchActionResource extends WebSearchActionResource {
   final Map<String, dynamic> raw;
   const UnknownWebSearchActionResource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

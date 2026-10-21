@@ -8,31 +8,22 @@ part of 'decisions_decisions.dart';
 class DecisionsUsageErrorResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required object value serialized in the `error` wire field.
   final DecisionsUsageErrorDetails error;
 
   const DecisionsUsageErrorResponse({required this.error});
 
-  DecisionsUsageErrorResponse Function({DecisionsUsageErrorDetails error})
-      get copyWith => _copyWith;
+  DecisionsUsageErrorResponse Function({DecisionsUsageErrorDetails error}) get copyWith => _copyWith;
 
-  DecisionsUsageErrorResponse _copyWith({Object? error = sdkOmittedValue}) =>
-      DecisionsUsageErrorResponse(
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as DecisionsUsageErrorDetails,
-      );
+  DecisionsUsageErrorResponse _copyWith({Object? error = sdkOmittedValue}) => DecisionsUsageErrorResponse(
+    error: identical(error, sdkOmittedValue) ? this.error : error as DecisionsUsageErrorDetails,
+  );
 
-  factory DecisionsUsageErrorResponse.fromJson(Map<String, dynamic> json) =>
-      DecisionsUsageErrorResponse(
-        error: (json['error'] != null
-            ? DecisionsUsageErrorDetails.fromJson(
-                json['error'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory DecisionsUsageErrorResponse.fromJson(Map<String, dynamic> json) => DecisionsUsageErrorResponse(
+    error: (json['error'] != null ? DecisionsUsageErrorDetails.fromJson(json['error'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'error': error.toJson(),
-      };
+    'error': error.toJson(),
+  };
 }

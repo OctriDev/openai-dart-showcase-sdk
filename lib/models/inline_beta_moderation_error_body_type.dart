@@ -10,17 +10,14 @@ enum BetaModerationErrorBodyType {
 
   static BetaModerationErrorBodyType fromJson(String value) {
     switch (value) {
-      case 'error':
-        return BetaModerationErrorBodyType.error;
-      default:
-        throw ArgumentError('Unknown BetaModerationErrorBodyType: $value');
+      case 'error': return BetaModerationErrorBodyType.error;
+      default: throw ArgumentError('Unknown BetaModerationErrorBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaModerationErrorBodyType.error:
-        return 'error';
+      case BetaModerationErrorBodyType.error: return 'error';
     }
   }
 
@@ -34,17 +31,14 @@ enum BetaModerationResultBodyType {
 
   static BetaModerationResultBodyType fromJson(String value) {
     switch (value) {
-      case 'moderation_result':
-        return BetaModerationResultBodyType.moderationResult;
-      default:
-        throw ArgumentError('Unknown BetaModerationResultBodyType: $value');
+      case 'moderation_result': return BetaModerationResultBodyType.moderationResult;
+      default: throw ArgumentError('Unknown BetaModerationResultBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaModerationResultBodyType.moderationResult:
-        return 'moderation_result';
+      case BetaModerationResultBodyType.moderationResult: return 'moderation_result';
     }
   }
 
@@ -58,17 +52,14 @@ enum BetaMoveParamType {
 
   static BetaMoveParamType fromJson(String value) {
     switch (value) {
-      case 'move':
-        return BetaMoveParamType.move;
-      default:
-        throw ArgumentError('Unknown BetaMoveParamType: $value');
+      case 'move': return BetaMoveParamType.move;
+      default: throw ArgumentError('Unknown BetaMoveParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMoveParamType.move:
-        return 'move';
+      case BetaMoveParamType.move: return 'move';
     }
   }
 
@@ -82,17 +73,14 @@ enum BetaMultiAgentCallType {
 
   static BetaMultiAgentCallType fromJson(String value) {
     switch (value) {
-      case 'multi_agent_call':
-        return BetaMultiAgentCallType.multiAgentCall;
-      default:
-        throw ArgumentError('Unknown BetaMultiAgentCallType: $value');
+      case 'multi_agent_call': return BetaMultiAgentCallType.multiAgentCall;
+      default: throw ArgumentError('Unknown BetaMultiAgentCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMultiAgentCallType.multiAgentCall:
-        return 'multi_agent_call';
+      case BetaMultiAgentCallType.multiAgentCall: return 'multi_agent_call';
     }
   }
 
@@ -106,17 +94,14 @@ enum BetaMultiAgentCallItemParamType {
 
   static BetaMultiAgentCallItemParamType fromJson(String value) {
     switch (value) {
-      case 'multi_agent_call':
-        return BetaMultiAgentCallItemParamType.multiAgentCall;
-      default:
-        throw ArgumentError('Unknown BetaMultiAgentCallItemParamType: $value');
+      case 'multi_agent_call': return BetaMultiAgentCallItemParamType.multiAgentCall;
+      default: throw ArgumentError('Unknown BetaMultiAgentCallItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMultiAgentCallItemParamType.multiAgentCall:
-        return 'multi_agent_call';
+      case BetaMultiAgentCallItemParamType.multiAgentCall: return 'multi_agent_call';
     }
   }
 
@@ -130,17 +115,14 @@ enum BetaMultiAgentCallOutputType {
 
   static BetaMultiAgentCallOutputType fromJson(String value) {
     switch (value) {
-      case 'multi_agent_call_output':
-        return BetaMultiAgentCallOutputType.multiAgentCallOutput;
-      default:
-        throw ArgumentError('Unknown BetaMultiAgentCallOutputType: $value');
+      case 'multi_agent_call_output': return BetaMultiAgentCallOutputType.multiAgentCallOutput;
+      default: throw ArgumentError('Unknown BetaMultiAgentCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMultiAgentCallOutputType.multiAgentCallOutput:
-        return 'multi_agent_call_output';
+      case BetaMultiAgentCallOutputType.multiAgentCallOutput: return 'multi_agent_call_output';
     }
   }
 
@@ -154,18 +136,14 @@ enum BetaMultiAgentCallOutputItemParamType {
 
   static BetaMultiAgentCallOutputItemParamType fromJson(String value) {
     switch (value) {
-      case 'multi_agent_call_output':
-        return BetaMultiAgentCallOutputItemParamType.multiAgentCallOutput;
-      default:
-        throw ArgumentError(
-            'Unknown BetaMultiAgentCallOutputItemParamType: $value');
+      case 'multi_agent_call_output': return BetaMultiAgentCallOutputItemParamType.multiAgentCallOutput;
+      default: throw ArgumentError('Unknown BetaMultiAgentCallOutputItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMultiAgentCallOutputItemParamType.multiAgentCallOutput:
-        return 'multi_agent_call_output';
+      case BetaMultiAgentCallOutputItemParamType.multiAgentCallOutput: return 'multi_agent_call_output';
     }
   }
 
@@ -179,17 +157,14 @@ enum BetaNamespaceToolParamType {
 
   static BetaNamespaceToolParamType fromJson(String value) {
     switch (value) {
-      case 'namespace':
-        return BetaNamespaceToolParamType.namespace;
-      default:
-        throw ArgumentError('Unknown BetaNamespaceToolParamType: $value');
+      case 'namespace': return BetaNamespaceToolParamType.namespace;
+      default: throw ArgumentError('Unknown BetaNamespaceToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaNamespaceToolParamType.namespace:
-        return 'namespace';
+      case BetaNamespaceToolParamType.namespace: return 'namespace';
     }
   }
 
@@ -199,60 +174,54 @@ enum BetaNamespaceToolParamType {
 
 /// The type of the output audio. Always `output_audio`.
 final class BetaOutputAudioType {
+
   final String value;
 
   const BetaOutputAudioType._(this.value);
 
-  factory BetaOutputAudioType.fromJson(String value) =>
-      BetaOutputAudioType._(value);
+  factory BetaOutputAudioType.fromJson(String value) => BetaOutputAudioType._(value);
 
   static const outputAudio = BetaOutputAudioType._('output_audio');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaOutputAudioType && other.value == value;
+  @override bool operator ==(Object other) => other is BetaOutputAudioType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The role of the output message. Always `assistant`.
 final class BetaOutputMessageRole {
+
   final String value;
 
   const BetaOutputMessageRole._(this.value);
 
-  factory BetaOutputMessageRole.fromJson(String value) =>
-      BetaOutputMessageRole._(value);
+  factory BetaOutputMessageRole.fromJson(String value) => BetaOutputMessageRole._(value);
 
   static const assistant = BetaOutputMessageRole._('assistant');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaOutputMessageRole && other.value == value;
+  @override bool operator ==(Object other) => other is BetaOutputMessageRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
 final class BetaOutputMessageStatus {
+
   final String value;
 
   const BetaOutputMessageStatus._(this.value);
 
-  factory BetaOutputMessageStatus.fromJson(String value) =>
-      BetaOutputMessageStatus._(value);
+  factory BetaOutputMessageStatus.fromJson(String value) => BetaOutputMessageStatus._(value);
 
   static const inProgress = BetaOutputMessageStatus._('in_progress');
   static const completed = BetaOutputMessageStatus._('completed');
@@ -260,15 +229,12 @@ final class BetaOutputMessageStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaOutputMessageStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaOutputMessageStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the output message. Always `message`.
@@ -277,17 +243,14 @@ enum BetaOutputMessageType {
 
   static BetaOutputMessageType fromJson(String value) {
     switch (value) {
-      case 'message':
-        return BetaOutputMessageType.message;
-      default:
-        throw ArgumentError('Unknown BetaOutputMessageType: $value');
+      case 'message': return BetaOutputMessageType.message;
+      default: throw ArgumentError('Unknown BetaOutputMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaOutputMessageType.message:
-        return 'message';
+      case BetaOutputMessageType.message: return 'message';
     }
   }
 
@@ -301,17 +264,14 @@ enum BetaOutputTextContentType {
 
   static BetaOutputTextContentType fromJson(String value) {
     switch (value) {
-      case 'output_text':
-        return BetaOutputTextContentType.outputText;
-      default:
-        throw ArgumentError('Unknown BetaOutputTextContentType: $value');
+      case 'output_text': return BetaOutputTextContentType.outputText;
+      default: throw ArgumentError('Unknown BetaOutputTextContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaOutputTextContentType.outputText:
-        return 'output_text';
+      case BetaOutputTextContentType.outputText: return 'output_text';
     }
   }
 

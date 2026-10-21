@@ -8,122 +8,57 @@ part of 'agents_agent.dart';
 class AgentToolResourceMcp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `mcp`.
   final AgentToolResourceMcpType type_;
-
   /// A label used to identify the MCP server in tool calls.
   final String serverLabel;
-
   /// The attached vault credential selected for this MCP server, if any. Optional when exactly one attached credential matches the server URL.
   final String? credentialId;
-
   /// The transport used to connect to the MCP server.
   final McpTransportResource transport;
-
   /// Metadata included with requests to this MCP server.
   final Map<String, dynamic> requestMetadata;
-
   /// The MCP tools the agent may call.
   final List<String>? allowedTools;
-
   /// Whether this MCP server must initialize before the first turn.
   final bool required_;
-
   /// Where outbound MCP HTTP connections originate.
   final McpConnectionOriginResource connectionOrigin;
 
-  const AgentToolResourceMcp(
-      {required this.type_,
-      required this.serverLabel,
-      required this.credentialId,
-      required this.transport,
-      required this.requestMetadata,
-      required this.allowedTools,
-      required this.required_,
-      required this.connectionOrigin});
+  const AgentToolResourceMcp({required this.type_, required this.serverLabel, required this.credentialId, required this.transport, required this.requestMetadata, required this.allowedTools, required this.required_, required this.connectionOrigin});
 
-  AgentToolResourceMcp Function(
-      {AgentToolResourceMcpType type_,
-      String serverLabel,
-      String? credentialId,
-      McpTransportResource transport,
-      Map<String, dynamic> requestMetadata,
-      List<String>? allowedTools,
-      bool required_,
-      McpConnectionOriginResource connectionOrigin}) get copyWith => _copyWith;
+  AgentToolResourceMcp Function({AgentToolResourceMcpType type_, String serverLabel, String? credentialId, McpTransportResource transport, Map<String, dynamic> requestMetadata, List<String>? allowedTools, bool required_, McpConnectionOriginResource connectionOrigin}) get copyWith => _copyWith;
 
-  AgentToolResourceMcp _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? serverLabel = sdkOmittedValue,
-          Object? credentialId = sdkOmittedValue,
-          Object? transport = sdkOmittedValue,
-          Object? requestMetadata = sdkOmittedValue,
-          Object? allowedTools = sdkOmittedValue,
-          Object? required_ = sdkOmittedValue,
-          Object? connectionOrigin = sdkOmittedValue}) =>
-      AgentToolResourceMcp(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AgentToolResourceMcpType,
-        serverLabel: identical(serverLabel, sdkOmittedValue)
-            ? this.serverLabel
-            : serverLabel as String,
-        credentialId: identical(credentialId, sdkOmittedValue)
-            ? this.credentialId
-            : credentialId as String?,
-        transport: identical(transport, sdkOmittedValue)
-            ? this.transport
-            : transport as McpTransportResource,
-        requestMetadata: identical(requestMetadata, sdkOmittedValue)
-            ? this.requestMetadata
-            : requestMetadata as Map<String, dynamic>,
-        allowedTools: identical(allowedTools, sdkOmittedValue)
-            ? this.allowedTools
-            : allowedTools as List<String>?,
-        required_: identical(required_, sdkOmittedValue)
-            ? this.required_
-            : required_ as bool,
-        connectionOrigin: identical(connectionOrigin, sdkOmittedValue)
-            ? this.connectionOrigin
-            : connectionOrigin as McpConnectionOriginResource,
-      );
+  AgentToolResourceMcp _copyWith({Object? type_ = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? credentialId = sdkOmittedValue, Object? transport = sdkOmittedValue, Object? requestMetadata = sdkOmittedValue, Object? allowedTools = sdkOmittedValue, Object? required_ = sdkOmittedValue, Object? connectionOrigin = sdkOmittedValue}) => AgentToolResourceMcp(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolResourceMcpType,
+    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
+    credentialId: identical(credentialId, sdkOmittedValue) ? this.credentialId : credentialId as String?,
+    transport: identical(transport, sdkOmittedValue) ? this.transport : transport as McpTransportResource,
+    requestMetadata: identical(requestMetadata, sdkOmittedValue) ? this.requestMetadata : requestMetadata as Map<String, dynamic>,
+    allowedTools: identical(allowedTools, sdkOmittedValue) ? this.allowedTools : allowedTools as List<String>?,
+    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as bool,
+    connectionOrigin: identical(connectionOrigin, sdkOmittedValue) ? this.connectionOrigin : connectionOrigin as McpConnectionOriginResource,
+  );
 
-  factory AgentToolResourceMcp.fromJson(Map<String, dynamic> json) =>
-      AgentToolResourceMcp(
-        type_: (json['type'] != null
-            ? AgentToolResourceMcpType.fromJson(json['type'] as String)
-            : null)!,
-        serverLabel: (json['server_label'] as String?)!,
-        credentialId: json.containsKey('credential_id')
-            ? json['credential_id'] as String?
-            : throw ArgumentError.value(
-                null, 'credential_id', 'Required property is missing'),
-        transport: (json['transport'] != null
-            ? McpTransportResource.fromJson(json['transport'])
-            : null)!,
-        requestMetadata: (json['request_metadata'] == null
-            ? null
-            : json['request_metadata'] as Map<String, dynamic>)!,
-        allowedTools: json.containsKey('allowed_tools')
-            ? (json['allowed_tools'] as List?)?.map((e) => e as String).toList()
-            : throw ArgumentError.value(
-                null, 'allowed_tools', 'Required property is missing'),
-        required_: (json['required'] as bool?)!,
-        connectionOrigin: (json['connection_origin'] != null
-            ? McpConnectionOriginResource.fromJson(
-                json['connection_origin'] as String)
-            : null)!,
-      );
+  factory AgentToolResourceMcp.fromJson(Map<String, dynamic> json) => AgentToolResourceMcp(
+    type_: (json['type'] != null ? AgentToolResourceMcpType.fromJson(json['type'] as String) : null)!,
+    serverLabel: (json['server_label'] as String?)!,
+    credentialId: json.containsKey('credential_id') ? json['credential_id'] as String? : throw ArgumentError.value(null, 'credential_id', 'Required property is missing'),
+    transport: (json['transport'] != null ? McpTransportResource.fromJson(json['transport']) : null)!,
+    requestMetadata: (json['request_metadata'] == null ? null : json['request_metadata'] as Map<String, dynamic>)!,
+    allowedTools: json.containsKey('allowed_tools') ? (json['allowed_tools'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'allowed_tools', 'Required property is missing'),
+    required_: (json['required'] as bool?)!,
+    connectionOrigin: (json['connection_origin'] != null ? McpConnectionOriginResource.fromJson(json['connection_origin'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'server_label': serverLabel,
-        'credential_id': credentialId,
-        'transport': transport.toJson(),
-        'request_metadata': requestMetadata,
-        'allowed_tools': allowedTools,
-        'required': required_,
-        'connection_origin': connectionOrigin.toJson(),
-      };
+    'type': type_.toJson(),
+    'server_label': serverLabel,
+    'credential_id': credentialId,
+    'transport': transport.toJson(),
+    'request_metadata': requestMetadata,
+    'allowed_tools': allowedTools,
+    'required': required_,
+    'connection_origin': connectionOrigin.toJson(),
+  };
 }

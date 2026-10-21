@@ -8,90 +8,64 @@ part of 'decisions_score.dart';
 class ScoreLevelParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `label` wire field.
   final String label;
-
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
 
-  const ScoreLevelParam(
-      {required this.label, this.description = const SdkOmitted()});
+  const ScoreLevelParam({required this.label, this.description = const SdkOmitted()});
 
-  ScoreLevelParam Function({String label, SdkOptional<String> description})
-      get copyWith => _copyWith;
+  ScoreLevelParam Function({String label, SdkOptional<String> description}) get copyWith => _copyWith;
 
-  ScoreLevelParam _copyWith(
-          {Object? label = sdkOmittedValue,
-          Object? description = sdkOmittedValue}) =>
-      ScoreLevelParam(
-        label: identical(label, sdkOmittedValue) ? this.label : label as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-      );
+  ScoreLevelParam _copyWith({Object? label = sdkOmittedValue, Object? description = sdkOmittedValue}) => ScoreLevelParam(
+    label: identical(label, sdkOmittedValue) ? this.label : label as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+  );
 
-  factory ScoreLevelParam.fromJson(Map<String, dynamic> json) =>
-      ScoreLevelParam(
-        label: (json['label'] as String?)!,
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ScoreLevelParam.fromJson(Map<String, dynamic> json) => ScoreLevelParam(
+    label: (json['label'] as String?)!,
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'label': label,
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'label': label,
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ScoreProbabilityResource` API schema.
 class ScoreProbabilityResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `int64`-formatted value serialized in the `value` wire field.
   final int value;
-
   /// Required `string` value serialized in the `label` wire field.
   final String label;
-
   /// Required `number` value serialized in the `probability` wire field.
   final double probability;
 
-  const ScoreProbabilityResource(
-      {required this.value, required this.label, required this.probability});
+  const ScoreProbabilityResource({required this.value, required this.label, required this.probability});
 
-  ScoreProbabilityResource Function(
-      {int value, String label, double probability}) get copyWith => _copyWith;
+  ScoreProbabilityResource Function({int value, String label, double probability}) get copyWith => _copyWith;
 
-  ScoreProbabilityResource _copyWith(
-          {Object? value = sdkOmittedValue,
-          Object? label = sdkOmittedValue,
-          Object? probability = sdkOmittedValue}) =>
-      ScoreProbabilityResource(
-        value: identical(value, sdkOmittedValue) ? this.value : value as int,
-        label: identical(label, sdkOmittedValue) ? this.label : label as String,
-        probability: identical(probability, sdkOmittedValue)
-            ? this.probability
-            : probability as double,
-      );
+  ScoreProbabilityResource _copyWith({Object? value = sdkOmittedValue, Object? label = sdkOmittedValue, Object? probability = sdkOmittedValue}) => ScoreProbabilityResource(
+    value: identical(value, sdkOmittedValue) ? this.value : value as int,
+    label: identical(label, sdkOmittedValue) ? this.label : label as String,
+    probability: identical(probability, sdkOmittedValue) ? this.probability : probability as double,
+  );
 
-  factory ScoreProbabilityResource.fromJson(Map<String, dynamic> json) =>
-      ScoreProbabilityResource(
-        value: ((json['value'] as num?)?.toInt())!,
-        label: (json['label'] as String?)!,
-        probability: ((json['probability'] as num?)?.toDouble())!,
-      );
+  factory ScoreProbabilityResource.fromJson(Map<String, dynamic> json) => ScoreProbabilityResource(
+    value: ((json['value'] as num?)?.toInt())!,
+    label: (json['label'] as String?)!,
+    probability: ((json['probability'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'value': value,
-        'label': label,
-        'probability': probability,
-      };
+    'value': value,
+    'label': label,
+    'probability': probability,
+  };
 }

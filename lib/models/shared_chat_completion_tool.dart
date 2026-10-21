@@ -8,43 +8,27 @@ part of 'shared_chat.dart';
 class ChatCompletionTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the tool. Currently, only `function` is supported.
   final ChatCompletionToolType type_;
-
   /// Required object value serialized in the `function` wire field.
   final FunctionObject function_;
 
   const ChatCompletionTool({required this.type_, required this.function_});
 
-  ChatCompletionTool Function(
-      {ChatCompletionToolType type_,
-      FunctionObject function_}) get copyWith => _copyWith;
+  ChatCompletionTool Function({ChatCompletionToolType type_, FunctionObject function_}) get copyWith => _copyWith;
 
-  ChatCompletionTool _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? function_ = sdkOmittedValue}) =>
-      ChatCompletionTool(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ChatCompletionToolType,
-        function_: identical(function_, sdkOmittedValue)
-            ? this.function_
-            : function_ as FunctionObject,
-      );
+  ChatCompletionTool _copyWith({Object? type_ = sdkOmittedValue, Object? function_ = sdkOmittedValue}) => ChatCompletionTool(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ChatCompletionToolType,
+    function_: identical(function_, sdkOmittedValue) ? this.function_ : function_ as FunctionObject,
+  );
 
-  factory ChatCompletionTool.fromJson(Map<String, dynamic> json) =>
-      ChatCompletionTool(
-        type_: (json['type'] != null
-            ? ChatCompletionToolType.fromJson(json['type'] as String)
-            : null)!,
-        function_: (json['function'] != null
-            ? FunctionObject.fromJson(json['function'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ChatCompletionTool.fromJson(Map<String, dynamic> json) => ChatCompletionTool(
+    type_: (json['type'] != null ? ChatCompletionToolType.fromJson(json['type'] as String) : null)!,
+    function_: (json['function'] != null ? FunctionObject.fromJson(json['function'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'function': function_.toJson(),
-      };
+    'type': type_.toJson(),
+    'function': function_.toJson(),
+  };
 }

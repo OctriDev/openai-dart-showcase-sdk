@@ -10,43 +10,14 @@ sealed class MCPToolCallError {
   const MCPToolCallError();
   factory MCPToolCallError.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = MCPProtocolError.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MCPToolCallErrorMCPProtocolError(value);
-        }
-      } catch (_) {}
-      try {
-        final value = MCPToolExecutionError.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MCPToolCallErrorMCPToolExecutionError(value);
-        }
-      } catch (_) {}
-      try {
-        final value = HTTPError.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MCPToolCallErrorHTTPError(value);
-        }
-      } catch (_) {}
+      try { final value = MCPProtocolError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MCPToolCallErrorMCPProtocolError(value); } } catch (_) {}
+      try { final value = MCPToolExecutionError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MCPToolCallErrorMCPToolExecutionError(value); } } catch (_) {}
+      try { final value = HTTPError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MCPToolCallErrorHTTPError(value); } } catch (_) {}
     }
-    try {
-      return MCPToolCallErrorMCPProtocolError(
-          MCPProtocolError.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MCPToolCallErrorMCPToolExecutionError(
-          MCPToolExecutionError.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MCPToolCallErrorHTTPError(
-          HTTPError.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"mcp_protocol_error", "mcp_tool_execution_error", "http_error"}
-            .contains(json["type"])) {
-      return UnknownMCPToolCallError(json);
-    }
+    try { return MCPToolCallErrorMCPProtocolError(MCPProtocolError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MCPToolCallErrorMCPToolExecutionError(MCPToolExecutionError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MCPToolCallErrorHTTPError(HTTPError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"mcp_protocol_error", "mcp_tool_execution_error", "http_error"}.contains(json["type"])) { return UnknownMCPToolCallError(json); }
     throw FormatException("No variant matched for MCPToolCallError");
   }
   Object? toJson();
@@ -55,28 +26,24 @@ sealed class MCPToolCallError {
 final class MCPToolCallErrorMCPProtocolError extends MCPToolCallError {
   final MCPProtocolError value;
   const MCPToolCallErrorMCPProtocolError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class MCPToolCallErrorMCPToolExecutionError extends MCPToolCallError {
   final MCPToolExecutionError value;
   const MCPToolCallErrorMCPToolExecutionError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class MCPToolCallErrorHTTPError extends MCPToolCallError {
   final HTTPError value;
   const MCPToolCallErrorHTTPError(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [MCPToolCallError] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownMCPToolCallError extends MCPToolCallError {
   final Map<String, dynamic> raw;
   const UnknownMCPToolCallError(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

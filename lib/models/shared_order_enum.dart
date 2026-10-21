@@ -6,6 +6,7 @@ part of 'shared.dart';
 // shared domain models
 /// Typed representation of the `OrderEnum` API schema.
 final class OrderEnum {
+
   final String value;
 
   const OrderEnum._(this.value);
@@ -17,12 +18,10 @@ final class OrderEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is OrderEnum && other.value == value;
+  @override bool operator ==(Object other) => other is OrderEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

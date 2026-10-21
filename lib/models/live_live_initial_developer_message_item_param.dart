@@ -8,111 +8,51 @@ part of 'live_live_initial.dart';
 class LiveInitialDeveloperMessageItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
-
   /// The history item type. Always `message`.
   final SdkOptional<LiveInitialDeveloperMessageItemParamType> type_;
-
   /// Optional API value serialized in the `status` wire field.
   final SdkOptional<LiveInitialMessageStatus?> status;
-
   /// The author of this history message. Always `developer`.
   final LiveInitialDeveloperMessageItemParamRole role;
-
   /// The message content. Supply exactly one text part for the initial Live conversation history.
   final List<LiveInitialInputTextContentPartParam> content;
 
-  const LiveInitialDeveloperMessageItemParam(
-      {this.id = const SdkOmitted(),
-      this.type_ = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      required this.role,
-      required this.content});
+  const LiveInitialDeveloperMessageItemParam({this.id = const SdkOmitted(), this.type_ = const SdkOmitted(), this.status = const SdkOmitted(), required this.role, required this.content});
 
-  LiveInitialDeveloperMessageItemParam Function(
-          {SdkOptional<String?> id,
-          SdkOptional<LiveInitialDeveloperMessageItemParamType> type_,
-          SdkOptional<LiveInitialMessageStatus?> status,
-          LiveInitialDeveloperMessageItemParamRole role,
-          List<LiveInitialInputTextContentPartParam> content})
-      get copyWith => _copyWith;
+  LiveInitialDeveloperMessageItemParam Function({SdkOptional<String?> id, SdkOptional<LiveInitialDeveloperMessageItemParamType> type_, SdkOptional<LiveInitialMessageStatus?> status, LiveInitialDeveloperMessageItemParamRole role, List<LiveInitialInputTextContentPartParam> content}) get copyWith => _copyWith;
 
-  LiveInitialDeveloperMessageItemParam _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? content = sdkOmittedValue}) =>
-      LiveInitialDeveloperMessageItemParam(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<LiveInitialDeveloperMessageItemParamType>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<LiveInitialMessageStatus?>,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as LiveInitialDeveloperMessageItemParamRole,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as List<LiveInitialInputTextContentPartParam>,
-      );
+  LiveInitialDeveloperMessageItemParam _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? status = sdkOmittedValue, Object? role = sdkOmittedValue, Object? content = sdkOmittedValue}) => LiveInitialDeveloperMessageItemParam(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<LiveInitialDeveloperMessageItemParamType>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<LiveInitialMessageStatus?>,
+    role: identical(role, sdkOmittedValue) ? this.role : role as LiveInitialDeveloperMessageItemParamRole,
+    content: identical(content, sdkOmittedValue) ? this.content : content as List<LiveInitialInputTextContentPartParam>,
+  );
 
-  factory LiveInitialDeveloperMessageItemParam.fromJson(
-          Map<String, dynamic> json) =>
-      LiveInitialDeveloperMessageItemParam(
-        id: json.containsKey('id')
-            ? SdkPresent(json['id'] as String?)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? LiveInitialDeveloperMessageItemParamType.fromJson(
-                    json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        status: json.containsKey('status')
-            ? SdkPresent(json['status'] != null
-                ? LiveInitialMessageStatus.fromJson(json['status'] as String)
-                : null)
-            : const SdkOmitted(),
-        role: (json['role'] != null
-            ? LiveInitialDeveloperMessageItemParamRole.fromJson(
-                json['role'] as String)
-            : null)!,
-        content: ((json['content'] as List?)
-            ?.map((e) => LiveInitialInputTextContentPartParam.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory LiveInitialDeveloperMessageItemParam.fromJson(Map<String, dynamic> json) => LiveInitialDeveloperMessageItemParam(
+    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? LiveInitialDeveloperMessageItemParamType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    status: json.containsKey('status') ? SdkPresent(json['status'] != null ? LiveInitialMessageStatus.fromJson(json['status'] as String) : null) : const SdkOmitted(),
+    role: (json['role'] != null ? LiveInitialDeveloperMessageItemParamRole.fromJson(json['role'] as String) : null)!,
+    content: ((json['content'] as List?)?.map((e) => LiveInitialInputTextContentPartParam.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String?>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<LiveInitialDeveloperMessageItemParamType>(
-            value: final value
-          ) =>
-            {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<LiveInitialMessageStatus?>(value: final value) => {
-              'status': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'role': role.toJson(),
-        'content': content.map((item) => item.toJson()).toList(),
-      };
+    ...switch (id) {
+      SdkPresent<String?>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<LiveInitialDeveloperMessageItemParamType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<LiveInitialMessageStatus?>(value: final value) => {'status': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'role': role.toJson(),
+    'content': content.map((item) => item.toJson()).toList(),
+  };
 }

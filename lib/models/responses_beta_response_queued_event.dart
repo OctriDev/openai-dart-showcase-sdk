@@ -8,76 +8,40 @@ part of 'responses_beta_response.dart';
 class BetaResponseQueuedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the event. Always 'response.queued'.
   final BetaResponseQueuedEventType type_;
-
   /// The full response object that is queued.
   final BetaResponse response;
-
   /// The sequence number for this event.
   final int sequenceNumber;
 
-  const BetaResponseQueuedEvent(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.response,
-      required this.sequenceNumber});
+  const BetaResponseQueuedEvent({this.agent = const SdkOmitted(), required this.type_, required this.response, required this.sequenceNumber});
 
-  BetaResponseQueuedEvent Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaResponseQueuedEventType type_,
-      BetaResponse response,
-      int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseQueuedEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseQueuedEventType type_, BetaResponse response, int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseQueuedEvent _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? response = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue}) =>
-      BetaResponseQueuedEvent(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseQueuedEventType,
-        response: identical(response, sdkOmittedValue)
-            ? this.response
-            : response as BetaResponse,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-      );
+  BetaResponseQueuedEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseQueuedEvent(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseQueuedEventType,
+    response: identical(response, sdkOmittedValue) ? this.response : response as BetaResponse,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+  );
 
-  factory BetaResponseQueuedEvent.fromJson(Map<String, dynamic> json) =>
-      BetaResponseQueuedEvent(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaResponseQueuedEventType.fromJson(json['type'] as String)
-            : null)!,
-        response: (json['response'] != null
-            ? BetaResponse.fromJson(json['response'] as Map<String, dynamic>)
-            : null)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-      );
+  factory BetaResponseQueuedEvent.fromJson(Map<String, dynamic> json) => BetaResponseQueuedEvent(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaResponseQueuedEventType.fromJson(json['type'] as String) : null)!,
+    response: (json['response'] != null ? BetaResponse.fromJson(json['response'] as Map<String, dynamic>) : null)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'response': response.toJson(),
-        'sequence_number': sequenceNumber,
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'response': response.toJson(),
+    'sequence_number': sequenceNumber,
+  };
 }

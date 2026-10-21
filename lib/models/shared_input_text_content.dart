@@ -8,63 +8,35 @@ part of 'shared_input.dart';
 class InputTextContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the input item. Always `input_text`.
   final InputTextContentType type_;
-
   /// The text input to the model.
   final String text;
-
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
   final SdkOptional<PromptCacheBreakpointConfig> promptCacheBreakpoint;
 
-  const InputTextContent(
-      {required this.type_,
-      required this.text,
-      this.promptCacheBreakpoint = const SdkOmitted()});
+  const InputTextContent({required this.type_, required this.text, this.promptCacheBreakpoint = const SdkOmitted()});
 
-  InputTextContent Function(
-          {InputTextContentType type_,
-          String text,
-          SdkOptional<PromptCacheBreakpointConfig> promptCacheBreakpoint})
-      get copyWith => _copyWith;
+  InputTextContent Function({InputTextContentType type_, String text, SdkOptional<PromptCacheBreakpointConfig> promptCacheBreakpoint}) get copyWith => _copyWith;
 
-  InputTextContent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
-      InputTextContent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InputTextContentType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
-            ? this.promptCacheBreakpoint
-            : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointConfig>,
-      );
+  InputTextContent _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => InputTextContent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InputTextContentType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointConfig>,
+  );
 
-  factory InputTextContent.fromJson(Map<String, dynamic> json) =>
-      InputTextContent(
-        type_: (json['type'] != null
-            ? InputTextContentType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-        promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null
-            ? SdkPresent((json['prompt_cache_breakpoint'] != null
-                ? PromptCacheBreakpointConfig.fromJson(
-                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory InputTextContent.fromJson(Map<String, dynamic> json) => InputTextContent(
+    type_: (json['type'] != null ? InputTextContentType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+    promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null ? SdkPresent((json['prompt_cache_breakpoint'] != null ? PromptCacheBreakpointConfig.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-        ...switch (promptCacheBreakpoint) {
-          SdkPresent<PromptCacheBreakpointConfig>(value: final value) => {
-              'prompt_cache_breakpoint': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'text': text,
+    ...switch (promptCacheBreakpoint) {
+      SdkPresent<PromptCacheBreakpointConfig>(value: final value) => {'prompt_cache_breakpoint': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

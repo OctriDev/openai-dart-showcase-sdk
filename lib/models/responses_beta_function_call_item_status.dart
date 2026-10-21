@@ -6,12 +6,12 @@ part of 'responses_beta_function.dart';
 // responses_beta_function domain models
 /// Typed representation of the `BetaFunctionCallItemStatus` API schema.
 final class BetaFunctionCallItemStatus {
+
   final String value;
 
   const BetaFunctionCallItemStatus._(this.value);
 
-  factory BetaFunctionCallItemStatus.fromJson(String value) =>
-      BetaFunctionCallItemStatus._(value);
+  factory BetaFunctionCallItemStatus.fromJson(String value) => BetaFunctionCallItemStatus._(value);
 
   static const inProgress = BetaFunctionCallItemStatus._('in_progress');
   static const completed = BetaFunctionCallItemStatus._('completed');
@@ -19,13 +19,10 @@ final class BetaFunctionCallItemStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaFunctionCallItemStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaFunctionCallItemStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

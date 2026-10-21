@@ -6,124 +6,107 @@ part of 'inline.dart';
 // Inline operation models
 /// Required enumerated value serialized in the `object` wire field.
 final class ListFineTuningJobEventsResponseObject {
+
   final String value;
 
   const ListFineTuningJobEventsResponseObject._(this.value);
 
-  factory ListFineTuningJobEventsResponseObject.fromJson(String value) =>
-      ListFineTuningJobEventsResponseObject._(value);
+  factory ListFineTuningJobEventsResponseObject.fromJson(String value) => ListFineTuningJobEventsResponseObject._(value);
 
   static const list = ListFineTuningJobEventsResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListFineTuningJobEventsResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is ListFineTuningJobEventsResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ListModelsResponseObject {
+
   final String value;
 
   const ListModelsResponseObject._(this.value);
 
-  factory ListModelsResponseObject.fromJson(String value) =>
-      ListModelsResponseObject._(value);
+  factory ListModelsResponseObject.fromJson(String value) => ListModelsResponseObject._(value);
 
   static const list = ListModelsResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListModelsResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is ListModelsResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ListPaginatedFineTuningJobsResponseObject {
+
   final String value;
 
   const ListPaginatedFineTuningJobsResponseObject._(this.value);
 
-  factory ListPaginatedFineTuningJobsResponseObject.fromJson(String value) =>
-      ListPaginatedFineTuningJobsResponseObject._(value);
+  factory ListPaginatedFineTuningJobsResponseObject.fromJson(String value) => ListPaginatedFineTuningJobsResponseObject._(value);
 
   static const list = ListPaginatedFineTuningJobsResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListPaginatedFineTuningJobsResponseObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ListPaginatedFineTuningJobsResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ListProjectCertificatesResponseObject {
+
   final String value;
 
   const ListProjectCertificatesResponseObject._(this.value);
 
-  factory ListProjectCertificatesResponseObject.fromJson(String value) =>
-      ListProjectCertificatesResponseObject._(value);
+  factory ListProjectCertificatesResponseObject.fromJson(String value) => ListProjectCertificatesResponseObject._(value);
 
   static const list = ListProjectCertificatesResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListProjectCertificatesResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is ListProjectCertificatesResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The tool choice type. Always `allowed_tools`.
 final class LiveAllowedToolsChoiceParamType {
+
   final String value;
 
   const LiveAllowedToolsChoiceParamType._(this.value);
 
-  factory LiveAllowedToolsChoiceParamType.fromJson(String value) =>
-      LiveAllowedToolsChoiceParamType._(value);
+  factory LiveAllowedToolsChoiceParamType.fromJson(String value) => LiveAllowedToolsChoiceParamType._(value);
 
-  static const allowedTools =
-      LiveAllowedToolsChoiceParamType._('allowed_tools');
+  static const allowedTools = LiveAllowedToolsChoiceParamType._('allowed_tools');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveAllowedToolsChoiceParamType && other.value == value;
+  @override bool operator ==(Object other) => other is LiveAllowedToolsChoiceParamType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -132,17 +115,14 @@ enum LiveApplyPatchToolInputParamType {
 
   static LiveApplyPatchToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'apply_patch':
-        return LiveApplyPatchToolInputParamType.applyPatch;
-      default:
-        throw ArgumentError('Unknown LiveApplyPatchToolInputParamType: $value');
+      case 'apply_patch': return LiveApplyPatchToolInputParamType.applyPatch;
+      default: throw ArgumentError('Unknown LiveApplyPatchToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveApplyPatchToolInputParamType.applyPatch:
-        return 'apply_patch';
+      case LiveApplyPatchToolInputParamType.applyPatch: return 'apply_patch';
     }
   }
 
@@ -152,26 +132,23 @@ enum LiveApplyPatchToolInputParamType {
 
 /// The session type. Always `live`.
 final class LiveCallAcceptSessionType {
+
   final String value;
 
   const LiveCallAcceptSessionType._(this.value);
 
-  factory LiveCallAcceptSessionType.fromJson(String value) =>
-      LiveCallAcceptSessionType._(value);
+  factory LiveCallAcceptSessionType.fromJson(String value) => LiveCallAcceptSessionType._(value);
 
   static const live = LiveCallAcceptSessionType._('live');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveCallAcceptSessionType && other.value == value;
+  @override bool operator ==(Object other) => other is LiveCallAcceptSessionType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The delegation owner. Always `client` for tasks handled by your application.
@@ -180,17 +157,14 @@ enum LiveClientDelegationParamType {
 
   static LiveClientDelegationParamType fromJson(String value) {
     switch (value) {
-      case 'client':
-        return LiveClientDelegationParamType.client;
-      default:
-        throw ArgumentError('Unknown LiveClientDelegationParamType: $value');
+      case 'client': return LiveClientDelegationParamType.client;
+      default: throw ArgumentError('Unknown LiveClientDelegationParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveClientDelegationParamType.client:
-        return 'client';
+      case LiveClientDelegationParamType.client: return 'client';
     }
   }
 
@@ -204,18 +178,14 @@ enum LiveCodeInterpreterToolInputParamType {
 
   static LiveCodeInterpreterToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'code_interpreter':
-        return LiveCodeInterpreterToolInputParamType.codeInterpreter;
-      default:
-        throw ArgumentError(
-            'Unknown LiveCodeInterpreterToolInputParamType: $value');
+      case 'code_interpreter': return LiveCodeInterpreterToolInputParamType.codeInterpreter;
+      default: throw ArgumentError('Unknown LiveCodeInterpreterToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveCodeInterpreterToolInputParamType.codeInterpreter:
-        return 'code_interpreter';
+      case LiveCodeInterpreterToolInputParamType.codeInterpreter: return 'code_interpreter';
     }
   }
 
@@ -229,17 +199,14 @@ enum LiveCommentaryAppendedType {
 
   static LiveCommentaryAppendedType fromJson(String value) {
     switch (value) {
-      case 'session.commentary.appended':
-        return LiveCommentaryAppendedType.sessionCommentaryAppended;
-      default:
-        throw ArgumentError('Unknown LiveCommentaryAppendedType: $value');
+      case 'session.commentary.appended': return LiveCommentaryAppendedType.sessionCommentaryAppended;
+      default: throw ArgumentError('Unknown LiveCommentaryAppendedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveCommentaryAppendedType.sessionCommentaryAppended:
-        return 'session.commentary.appended';
+      case LiveCommentaryAppendedType.sessionCommentaryAppended: return 'session.commentary.appended';
     }
   }
 
@@ -253,17 +220,14 @@ enum LiveCommentaryAppendParamType {
 
   static LiveCommentaryAppendParamType fromJson(String value) {
     switch (value) {
-      case 'session.commentary.append':
-        return LiveCommentaryAppendParamType.sessionCommentaryAppend;
-      default:
-        throw ArgumentError('Unknown LiveCommentaryAppendParamType: $value');
+      case 'session.commentary.append': return LiveCommentaryAppendParamType.sessionCommentaryAppend;
+      default: throw ArgumentError('Unknown LiveCommentaryAppendParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveCommentaryAppendParamType.sessionCommentaryAppend:
-        return 'session.commentary.append';
+      case LiveCommentaryAppendParamType.sessionCommentaryAppend: return 'session.commentary.append';
     }
   }
 
@@ -277,17 +241,14 @@ enum LiveComputerToolInputParamType {
 
   static LiveComputerToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'computer':
-        return LiveComputerToolInputParamType.computer;
-      default:
-        throw ArgumentError('Unknown LiveComputerToolInputParamType: $value');
+      case 'computer': return LiveComputerToolInputParamType.computer;
+      default: throw ArgumentError('Unknown LiveComputerToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveComputerToolInputParamType.computer:
-        return 'computer';
+      case LiveComputerToolInputParamType.computer: return 'computer';
     }
   }
 
@@ -301,18 +262,14 @@ enum LiveContainerNetworkPolicyDisabledParamType {
 
   static LiveContainerNetworkPolicyDisabledParamType fromJson(String value) {
     switch (value) {
-      case 'disabled':
-        return LiveContainerNetworkPolicyDisabledParamType.disabled;
-      default:
-        throw ArgumentError(
-            'Unknown LiveContainerNetworkPolicyDisabledParamType: $value');
+      case 'disabled': return LiveContainerNetworkPolicyDisabledParamType.disabled;
+      default: throw ArgumentError('Unknown LiveContainerNetworkPolicyDisabledParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveContainerNetworkPolicyDisabledParamType.disabled:
-        return 'disabled';
+      case LiveContainerNetworkPolicyDisabledParamType.disabled: return 'disabled';
     }
   }
 

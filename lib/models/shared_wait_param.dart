@@ -8,7 +8,6 @@ part of 'shared.dart';
 class WaitParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a wait action, this property is always set to `wait`.
   final WaitParamType type_;
 
@@ -17,18 +16,14 @@ class WaitParam {
   WaitParam Function({WaitParamType type_}) get copyWith => _copyWith;
 
   WaitParam _copyWith({Object? type_ = sdkOmittedValue}) => WaitParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WaitParamType,
-      );
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WaitParamType,
+  );
 
   factory WaitParam.fromJson(Map<String, dynamic> json) => WaitParam(
-        type_: (json['type'] != null
-            ? WaitParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+    type_: (json['type'] != null ? WaitParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

@@ -8,117 +8,59 @@ part of 'videos.dart';
 class Error2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A machine-readable error code that was returned.
   final String code;
-
   /// Optional `string` value serialized in the `type` wire field.
   final SdkOptional<String?> type_;
-
   /// Optional `string` value serialized in the `param` wire field.
   final SdkOptional<String?> param;
-
   /// A human-readable description of the error that was returned.
   final String message;
-
   /// The Retry-After and Retry-After-Ms headers returned with the original error, if any.
   final SdkOptional<Map<String, String>> headers;
-
   /// Optional object value serialized in the `misalignment` wire field.
   final SdkOptional<MisalignmentErrorDetailsResource> misalignment;
 
-  const Error2(
-      {required this.code,
-      this.type_ = const SdkOmitted(),
-      this.param = const SdkOmitted(),
-      required this.message,
-      this.headers = const SdkOmitted(),
-      this.misalignment = const SdkOmitted()});
+  const Error2({required this.code, this.type_ = const SdkOmitted(), this.param = const SdkOmitted(), required this.message, this.headers = const SdkOmitted(), this.misalignment = const SdkOmitted()});
 
-  Error2 Function(
-          {String code,
-          SdkOptional<String?> type_,
-          SdkOptional<String?> param,
-          String message,
-          SdkOptional<Map<String, String>> headers,
-          SdkOptional<MisalignmentErrorDetailsResource> misalignment})
-      get copyWith => _copyWith;
+  Error2 Function({String code, SdkOptional<String?> type_, SdkOptional<String?> param, String message, SdkOptional<Map<String, String>> headers, SdkOptional<MisalignmentErrorDetailsResource> misalignment}) get copyWith => _copyWith;
 
-  Error2 _copyWith(
-          {Object? code = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? param = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? headers = sdkOmittedValue,
-          Object? misalignment = sdkOmittedValue}) =>
-      Error2(
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String?>,
-        param: identical(param, sdkOmittedValue)
-            ? this.param
-            : param as SdkOptional<String?>,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-        headers: identical(headers, sdkOmittedValue)
-            ? this.headers
-            : headers as SdkOptional<Map<String, String>>,
-        misalignment: identical(misalignment, sdkOmittedValue)
-            ? this.misalignment
-            : misalignment as SdkOptional<MisalignmentErrorDetailsResource>,
-      );
+  Error2 _copyWith({Object? code = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? param = sdkOmittedValue, Object? message = sdkOmittedValue, Object? headers = sdkOmittedValue, Object? misalignment = sdkOmittedValue}) => Error2(
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String?>,
+    param: identical(param, sdkOmittedValue) ? this.param : param as SdkOptional<String?>,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+    headers: identical(headers, sdkOmittedValue) ? this.headers : headers as SdkOptional<Map<String, String>>,
+    misalignment: identical(misalignment, sdkOmittedValue) ? this.misalignment : misalignment as SdkOptional<MisalignmentErrorDetailsResource>,
+  );
 
   factory Error2.fromJson(Map<String, dynamic> json) => Error2(
-        code: (json['code'] as String?)!,
-        type_: json.containsKey('type')
-            ? SdkPresent(json['type'] as String?)
-            : const SdkOmitted(),
-        param: json.containsKey('param')
-            ? SdkPresent(json['param'] as String?)
-            : const SdkOmitted(),
-        message: (json['message'] as String?)!,
-        headers: json['headers'] != null
-            ? SdkPresent((json['headers'] == null
-                ? null
-                : Map<String, dynamic>.from(json['headers'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-        misalignment: json['misalignment'] != null
-            ? SdkPresent((json['misalignment'] != null
-                ? MisalignmentErrorDetailsResource.fromJson(
-                    json['misalignment'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    code: (json['code'] as String?)!,
+    type_: json.containsKey('type') ? SdkPresent(json['type'] as String?) : const SdkOmitted(),
+    param: json.containsKey('param') ? SdkPresent(json['param'] as String?) : const SdkOmitted(),
+    message: (json['message'] as String?)!,
+    headers: json['headers'] != null ? SdkPresent((json['headers'] == null ? null : Map<String, dynamic>.from(json['headers'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+    misalignment: json['misalignment'] != null ? SdkPresent((json['misalignment'] != null ? MisalignmentErrorDetailsResource.fromJson(json['misalignment'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'code': code,
-        ...switch (type_) {
-          SdkPresent<String?>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (param) {
-          SdkPresent<String?>(value: final value) => {
-              'param': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'message': message,
-        ...switch (headers) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'headers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (misalignment) {
-          SdkPresent<MisalignmentErrorDetailsResource>(value: final value) => {
-              'misalignment': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'code': code,
+    ...switch (type_) {
+      SdkPresent<String?>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (param) {
+      SdkPresent<String?>(value: final value) => {'param': value,},
+      _ => const <String, dynamic>{},
+    },
+    'message': message,
+    ...switch (headers) {
+      SdkPresent<Map<String, String>>(value: final value) => {'headers': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (misalignment) {
+      SdkPresent<MisalignmentErrorDetailsResource>(value: final value) => {'misalignment': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

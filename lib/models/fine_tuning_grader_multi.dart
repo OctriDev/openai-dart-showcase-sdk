@@ -10,183 +10,95 @@ sealed class GraderMultiGradersValue {
   const GraderMultiGradersValue();
   factory GraderMultiGradersValue.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = GraderStringCheck.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return GraderMultiGradersValueGraderStringCheck(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderTextSimilarity.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return GraderMultiGradersValueGraderTextSimilarity(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderPython.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return GraderMultiGradersValueGraderPython(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderScoreModel.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return GraderMultiGradersValueGraderScoreModel(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderLabelModel.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return GraderMultiGradersValueGraderLabelModel(value);
-        }
-      } catch (_) {}
+      try { final value = GraderStringCheck.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return GraderMultiGradersValueGraderStringCheck(value); } } catch (_) {}
+      try { final value = GraderTextSimilarity.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return GraderMultiGradersValueGraderTextSimilarity(value); } } catch (_) {}
+      try { final value = GraderPython.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return GraderMultiGradersValueGraderPython(value); } } catch (_) {}
+      try { final value = GraderScoreModel.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return GraderMultiGradersValueGraderScoreModel(value); } } catch (_) {}
+      try { final value = GraderLabelModel.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return GraderMultiGradersValueGraderLabelModel(value); } } catch (_) {}
     }
-    try {
-      return GraderMultiGradersValueGraderStringCheck(
-          GraderStringCheck.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return GraderMultiGradersValueGraderTextSimilarity(
-          GraderTextSimilarity.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return GraderMultiGradersValueGraderPython(
-          GraderPython.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return GraderMultiGradersValueGraderScoreModel(
-          GraderScoreModel.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return GraderMultiGradersValueGraderLabelModel(
-          GraderLabelModel.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "string_check",
-          "text_similarity",
-          "python",
-          "score_model",
-          "label_model"
-        }.contains(json["type"])) {
-      return UnknownGraderMultiGradersValue(json);
-    }
+    try { return GraderMultiGradersValueGraderStringCheck(GraderStringCheck.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return GraderMultiGradersValueGraderTextSimilarity(GraderTextSimilarity.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return GraderMultiGradersValueGraderPython(GraderPython.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return GraderMultiGradersValueGraderScoreModel(GraderScoreModel.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return GraderMultiGradersValueGraderLabelModel(GraderLabelModel.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"string_check", "text_similarity", "python", "score_model", "label_model"}.contains(json["type"])) { return UnknownGraderMultiGradersValue(json); }
     throw FormatException("No variant matched for GraderMultiGradersValue");
   }
   Object? toJson();
 }
 
-final class GraderMultiGradersValueGraderStringCheck
-    extends GraderMultiGradersValue {
+final class GraderMultiGradersValueGraderStringCheck extends GraderMultiGradersValue {
   final GraderStringCheck value;
   const GraderMultiGradersValueGraderStringCheck(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class GraderMultiGradersValueGraderTextSimilarity
-    extends GraderMultiGradersValue {
+final class GraderMultiGradersValueGraderTextSimilarity extends GraderMultiGradersValue {
   final GraderTextSimilarity value;
   const GraderMultiGradersValueGraderTextSimilarity(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class GraderMultiGradersValueGraderPython
-    extends GraderMultiGradersValue {
+final class GraderMultiGradersValueGraderPython extends GraderMultiGradersValue {
   final GraderPython value;
   const GraderMultiGradersValueGraderPython(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class GraderMultiGradersValueGraderScoreModel
-    extends GraderMultiGradersValue {
+final class GraderMultiGradersValueGraderScoreModel extends GraderMultiGradersValue {
   final GraderScoreModel value;
   const GraderMultiGradersValueGraderScoreModel(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class GraderMultiGradersValueGraderLabelModel
-    extends GraderMultiGradersValue {
+final class GraderMultiGradersValueGraderLabelModel extends GraderMultiGradersValue {
   final GraderLabelModel value;
   const GraderMultiGradersValueGraderLabelModel(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [GraderMultiGradersValue] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownGraderMultiGradersValue extends GraderMultiGradersValue {
   final Map<String, dynamic> raw;
   const UnknownGraderMultiGradersValue(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// A MultiGrader object combines the output of multiple graders to produce a single score.
 class GraderMulti {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `multi`.
   final GraderMultiType type_;
-
   /// The name of the grader.
   final String name;
-
   /// Required object value serialized in the `graders` wire field.
   final Map<String, dynamic> graders;
-
   /// A formula to calculate the output based on grader results.
   final String calculateOutput;
 
-  const GraderMulti(
-      {required this.type_,
-      required this.name,
-      required this.graders,
-      required this.calculateOutput});
+  const GraderMulti({required this.type_, required this.name, required this.graders, required this.calculateOutput});
 
-  GraderMulti Function(
-      {GraderMultiType type_,
-      String name,
-      Map<String, dynamic> graders,
-      String calculateOutput}) get copyWith => _copyWith;
+  GraderMulti Function({GraderMultiType type_, String name, Map<String, dynamic> graders, String calculateOutput}) get copyWith => _copyWith;
 
-  GraderMulti _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? graders = sdkOmittedValue,
-          Object? calculateOutput = sdkOmittedValue}) =>
-      GraderMulti(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as GraderMultiType,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        graders: identical(graders, sdkOmittedValue)
-            ? this.graders
-            : graders as Map<String, dynamic>,
-        calculateOutput: identical(calculateOutput, sdkOmittedValue)
-            ? this.calculateOutput
-            : calculateOutput as String,
-      );
+  GraderMulti _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? graders = sdkOmittedValue, Object? calculateOutput = sdkOmittedValue}) => GraderMulti(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as GraderMultiType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    graders: identical(graders, sdkOmittedValue) ? this.graders : graders as Map<String, dynamic>,
+    calculateOutput: identical(calculateOutput, sdkOmittedValue) ? this.calculateOutput : calculateOutput as String,
+  );
 
   factory GraderMulti.fromJson(Map<String, dynamic> json) => GraderMulti(
-        type_: (json['type'] != null
-            ? GraderMultiType.fromJson(json['type'] as String)
-            : null)!,
-        name: (json['name'] as String?)!,
-        graders: (json['graders'] == null
-            ? null
-            : json['graders'] as Map<String, dynamic>)!,
-        calculateOutput: (json['calculate_output'] as String?)!,
-      );
+    type_: (json['type'] != null ? GraderMultiType.fromJson(json['type'] as String) : null)!,
+    name: (json['name'] as String?)!,
+    graders: (json['graders'] == null ? null : json['graders'] as Map<String, dynamic>)!,
+    calculateOutput: (json['calculate_output'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'name': name,
-        'graders': graders,
-        'calculate_output': calculateOutput,
-      };
+    'type': type_.toJson(),
+    'name': name,
+    'graders': graders,
+    'calculate_output': calculateOutput,
+  };
 }

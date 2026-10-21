@@ -6,25 +6,22 @@ part of 'shared_tool.dart';
 // shared_tool domain models
 /// Typed representation of the `ToolSearchExecutionType` API schema.
 final class ToolSearchExecutionType {
+
   final String value;
 
   const ToolSearchExecutionType._(this.value);
 
-  factory ToolSearchExecutionType.fromJson(String value) =>
-      ToolSearchExecutionType._(value);
+  factory ToolSearchExecutionType.fromJson(String value) => ToolSearchExecutionType._(value);
 
   static const server = ToolSearchExecutionType._('server');
   static const client = ToolSearchExecutionType._('client');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ToolSearchExecutionType && other.value == value;
+  @override bool operator ==(Object other) => other is ToolSearchExecutionType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

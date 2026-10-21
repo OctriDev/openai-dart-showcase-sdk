@@ -8,74 +8,42 @@ part of 'evals_eval.dart';
 class EvalList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of this object. It is always set to "list".
   final EvalListObject object;
-
   /// An array of eval objects.
   final List<Eval> data;
-
   /// The identifier of the first eval in the data array.
   final String firstId;
-
   /// The identifier of the last eval in the data array.
   final String lastId;
-
   /// Indicates whether there are more evals available.
   final bool hasMore;
 
-  const EvalList(
-      {required this.object,
-      required this.data,
-      required this.firstId,
-      required this.lastId,
-      required this.hasMore});
+  const EvalList({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
 
-  EvalList Function(
-      {EvalListObject object,
-      List<Eval> data,
-      String firstId,
-      String lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  EvalList Function({EvalListObject object, List<Eval> data, String firstId, String lastId, bool hasMore}) get copyWith => _copyWith;
 
-  EvalList _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      EvalList(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as EvalListObject,
-        data: identical(data, sdkOmittedValue) ? this.data : data as List<Eval>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as String,
-        lastId:
-            identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  EvalList _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => EvalList(
+    object: identical(object, sdkOmittedValue) ? this.object : object as EvalListObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<Eval>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
   factory EvalList.fromJson(Map<String, dynamic> json) => EvalList(
-        object: (json['object'] != null
-            ? EvalListObject.fromJson(json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => Eval.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: (json['first_id'] as String?)!,
-        lastId: (json['last_id'] as String?)!,
-        hasMore: (json['has_more'] as bool?)!,
-      );
+    object: (json['object'] != null ? EvalListObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => Eval.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: (json['first_id'] as String?)!,
+    lastId: (json['last_id'] as String?)!,
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        'first_id': firstId,
-        'last_id': lastId,
-        'has_more': hasMore,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    'first_id': firstId,
+    'last_id': lastId,
+    'has_more': hasMore,
+  };
 }

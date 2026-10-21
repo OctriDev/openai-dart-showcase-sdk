@@ -8,7 +8,6 @@ part of 'live_live_session.dart';
 class LiveSessionUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The cumulative Live audio duration in seconds. Do not sum this value across usage events.
   final double seconds;
 
@@ -16,19 +15,15 @@ class LiveSessionUsage {
 
   LiveSessionUsage Function({double seconds}) get copyWith => _copyWith;
 
-  LiveSessionUsage _copyWith({Object? seconds = sdkOmittedValue}) =>
-      LiveSessionUsage(
-        seconds: identical(seconds, sdkOmittedValue)
-            ? this.seconds
-            : seconds as double,
-      );
+  LiveSessionUsage _copyWith({Object? seconds = sdkOmittedValue}) => LiveSessionUsage(
+    seconds: identical(seconds, sdkOmittedValue) ? this.seconds : seconds as double,
+  );
 
-  factory LiveSessionUsage.fromJson(Map<String, dynamic> json) =>
-      LiveSessionUsage(
-        seconds: ((json['seconds'] as num?)?.toDouble())!,
-      );
+  factory LiveSessionUsage.fromJson(Map<String, dynamic> json) => LiveSessionUsage(
+    seconds: ((json['seconds'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'seconds': seconds,
-      };
+    'seconds': seconds,
+  };
 }

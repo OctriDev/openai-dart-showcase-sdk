@@ -8,30 +8,22 @@ part of 'live_live.dart';
 class LiveNamespaceToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveNamespaceToolInputParamType type_;
 
   const LiveNamespaceToolInputParam({required this.type_});
 
-  LiveNamespaceToolInputParam Function({LiveNamespaceToolInputParamType type_})
-      get copyWith => _copyWith;
+  LiveNamespaceToolInputParam Function({LiveNamespaceToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveNamespaceToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      LiveNamespaceToolInputParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveNamespaceToolInputParamType,
-      );
+  LiveNamespaceToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveNamespaceToolInputParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveNamespaceToolInputParamType,
+  );
 
-  factory LiveNamespaceToolInputParam.fromJson(Map<String, dynamic> json) =>
-      LiveNamespaceToolInputParam(
-        type_: (json['type'] != null
-            ? LiveNamespaceToolInputParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory LiveNamespaceToolInputParam.fromJson(Map<String, dynamic> json) => LiveNamespaceToolInputParam(
+    type_: (json['type'] != null ? LiveNamespaceToolInputParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

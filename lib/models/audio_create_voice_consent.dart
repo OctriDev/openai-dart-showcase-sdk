@@ -8,50 +8,32 @@ part of 'audio.dart';
 class CreateVoiceConsentRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The label to use for this consent recording.
   final String name;
-
   /// The consent audio recording file. Maximum size is 10 MiB. Supported MIME types: `audio/mpeg`, `audio/wav`, `audio/x-wav`, `audio/ogg`, `audio/aac`, `audio/flac`, `audio/webm`, `audio/mp4`.
   final List<int> recording;
-
   /// The BCP 47 language tag for the consent phrase (for example, `en-US`).
   final String language;
 
-  const CreateVoiceConsentRequest(
-      {required this.name, required this.recording, required this.language});
+  const CreateVoiceConsentRequest({required this.name, required this.recording, required this.language});
 
-  CreateVoiceConsentRequest Function(
-      {String name,
-      List<int> recording,
-      String language}) get copyWith => _copyWith;
+  CreateVoiceConsentRequest Function({String name, List<int> recording, String language}) get copyWith => _copyWith;
 
-  CreateVoiceConsentRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? recording = sdkOmittedValue,
-          Object? language = sdkOmittedValue}) =>
-      CreateVoiceConsentRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        recording: identical(recording, sdkOmittedValue)
-            ? this.recording
-            : recording as List<int>,
-        language: identical(language, sdkOmittedValue)
-            ? this.language
-            : language as String,
-      );
+  CreateVoiceConsentRequest _copyWith({Object? name = sdkOmittedValue, Object? recording = sdkOmittedValue, Object? language = sdkOmittedValue}) => CreateVoiceConsentRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    recording: identical(recording, sdkOmittedValue) ? this.recording : recording as List<int>,
+    language: identical(language, sdkOmittedValue) ? this.language : language as String,
+  );
 
-  factory CreateVoiceConsentRequest.fromJson(Map<String, dynamic> json) =>
-      CreateVoiceConsentRequest(
-        name: (json['name'] as String?)!,
-        recording: (json['recording'] != null
-            ? base64Decode(json['recording'] as String)
-            : null)!,
-        language: (json['language'] as String?)!,
-      );
+  factory CreateVoiceConsentRequest.fromJson(Map<String, dynamic> json) => CreateVoiceConsentRequest(
+    name: (json['name'] as String?)!,
+    recording: (json['recording'] != null ? base64Decode(json['recording'] as String) : null)!,
+    language: (json['language'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'recording': base64Encode(recording),
-        'language': language,
-      };
+    'name': name,
+    'recording': base64Encode(recording),
+    'language': language,
+  };
 }

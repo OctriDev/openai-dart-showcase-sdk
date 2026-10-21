@@ -6,26 +6,23 @@ part of 'inline.dart';
 // Inline operation models
 /// The role of the message author. Always `assistant`.
 final class AssistantMessageItemResourceRole {
+
   final String value;
 
   const AssistantMessageItemResourceRole._(this.value);
 
-  factory AssistantMessageItemResourceRole.fromJson(String value) =>
-      AssistantMessageItemResourceRole._(value);
+  factory AssistantMessageItemResourceRole.fromJson(String value) => AssistantMessageItemResourceRole._(value);
 
   static const assistant = AssistantMessageItemResourceRole._('assistant');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AssistantMessageItemResourceRole && other.value == value;
+  @override bool operator ==(Object other) => other is AssistantMessageItemResourceRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The item type. Always `message`.
@@ -34,17 +31,14 @@ enum AssistantMessageItemResourceType {
 
   static AssistantMessageItemResourceType fromJson(String value) {
     switch (value) {
-      case 'message':
-        return AssistantMessageItemResourceType.message;
-      default:
-        throw ArgumentError('Unknown AssistantMessageItemResourceType: $value');
+      case 'message': return AssistantMessageItemResourceType.message;
+      default: throw ArgumentError('Unknown AssistantMessageItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AssistantMessageItemResourceType.message:
-        return 'message';
+      case AssistantMessageItemResourceType.message: return 'message';
     }
   }
 
@@ -54,61 +48,54 @@ enum AssistantMessageItemResourceType {
 
 /// The object type, which is always `assistant`.
 final class AssistantObjectObject {
+
   final String value;
 
   const AssistantObjectObject._(this.value);
 
-  factory AssistantObjectObject.fromJson(String value) =>
-      AssistantObjectObject._(value);
+  factory AssistantObjectObject.fromJson(String value) => AssistantObjectObject._(value);
 
   static const assistant = AssistantObjectObject._('assistant');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AssistantObjectObject && other.value == value;
+  @override bool operator ==(Object other) => other is AssistantObjectObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// `auto` is the default value
 final class AssistantsApiResponseFormatOptionVariant0 {
+
   final String value;
 
   const AssistantsApiResponseFormatOptionVariant0._(this.value);
 
-  factory AssistantsApiResponseFormatOptionVariant0.fromJson(String value) =>
-      AssistantsApiResponseFormatOptionVariant0._(value);
+  factory AssistantsApiResponseFormatOptionVariant0.fromJson(String value) => AssistantsApiResponseFormatOptionVariant0._(value);
 
   static const auto = AssistantsApiResponseFormatOptionVariant0._('auto');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AssistantsApiResponseFormatOptionVariant0 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is AssistantsApiResponseFormatOptionVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// `none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.
 final class AssistantsApiToolChoiceOptionVariant0 {
+
   final String value;
 
   const AssistantsApiToolChoiceOptionVariant0._(this.value);
 
-  factory AssistantsApiToolChoiceOptionVariant0.fromJson(String value) =>
-      AssistantsApiToolChoiceOptionVariant0._(value);
+  factory AssistantsApiToolChoiceOptionVariant0.fromJson(String value) => AssistantsApiToolChoiceOptionVariant0._(value);
 
   static const none = AssistantsApiToolChoiceOptionVariant0._('none');
   static const auto = AssistantsApiToolChoiceOptionVariant0._('auto');
@@ -116,42 +103,35 @@ final class AssistantsApiToolChoiceOptionVariant0 {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AssistantsApiToolChoiceOptionVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is AssistantsApiToolChoiceOptionVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the tool. If type is `function`, the function name must be set
 final class AssistantsNamedToolChoiceType {
+
   final String value;
 
   const AssistantsNamedToolChoiceType._(this.value);
 
-  factory AssistantsNamedToolChoiceType.fromJson(String value) =>
-      AssistantsNamedToolChoiceType._(value);
+  factory AssistantsNamedToolChoiceType.fromJson(String value) => AssistantsNamedToolChoiceType._(value);
 
   static const function_ = AssistantsNamedToolChoiceType._('function');
-  static const codeInterpreter =
-      AssistantsNamedToolChoiceType._('code_interpreter');
+  static const codeInterpreter = AssistantsNamedToolChoiceType._('code_interpreter');
   static const fileSearch = AssistantsNamedToolChoiceType._('file_search');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AssistantsNamedToolChoiceType && other.value == value;
+  @override bool operator ==(Object other) => other is AssistantsNamedToolChoiceType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of tool being defined: `code_interpreter`
@@ -160,17 +140,14 @@ enum AssistantToolsCodeType {
 
   static AssistantToolsCodeType fromJson(String value) {
     switch (value) {
-      case 'code_interpreter':
-        return AssistantToolsCodeType.codeInterpreter;
-      default:
-        throw ArgumentError('Unknown AssistantToolsCodeType: $value');
+      case 'code_interpreter': return AssistantToolsCodeType.codeInterpreter;
+      default: throw ArgumentError('Unknown AssistantToolsCodeType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AssistantToolsCodeType.codeInterpreter:
-        return 'code_interpreter';
+      case AssistantToolsCodeType.codeInterpreter: return 'code_interpreter';
     }
   }
 
@@ -184,17 +161,14 @@ enum AssistantToolsFileSearchType {
 
   static AssistantToolsFileSearchType fromJson(String value) {
     switch (value) {
-      case 'file_search':
-        return AssistantToolsFileSearchType.fileSearch;
-      default:
-        throw ArgumentError('Unknown AssistantToolsFileSearchType: $value');
+      case 'file_search': return AssistantToolsFileSearchType.fileSearch;
+      default: throw ArgumentError('Unknown AssistantToolsFileSearchType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AssistantToolsFileSearchType.fileSearch:
-        return 'file_search';
+      case AssistantToolsFileSearchType.fileSearch: return 'file_search';
     }
   }
 
@@ -208,18 +182,14 @@ enum AssistantToolsFileSearchTypeOnlyType {
 
   static AssistantToolsFileSearchTypeOnlyType fromJson(String value) {
     switch (value) {
-      case 'file_search':
-        return AssistantToolsFileSearchTypeOnlyType.fileSearch;
-      default:
-        throw ArgumentError(
-            'Unknown AssistantToolsFileSearchTypeOnlyType: $value');
+      case 'file_search': return AssistantToolsFileSearchTypeOnlyType.fileSearch;
+      default: throw ArgumentError('Unknown AssistantToolsFileSearchTypeOnlyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AssistantToolsFileSearchTypeOnlyType.fileSearch:
-        return 'file_search';
+      case AssistantToolsFileSearchTypeOnlyType.fileSearch: return 'file_search';
     }
   }
 
@@ -233,17 +203,14 @@ enum AssistantToolsFunctionType {
 
   static AssistantToolsFunctionType fromJson(String value) {
     switch (value) {
-      case 'function':
-        return AssistantToolsFunctionType.function_;
-      default:
-        throw ArgumentError('Unknown AssistantToolsFunctionType: $value');
+      case 'function': return AssistantToolsFunctionType.function_;
+      default: throw ArgumentError('Unknown AssistantToolsFunctionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AssistantToolsFunctionType.function_:
-        return 'function';
+      case AssistantToolsFunctionType.function_: return 'function';
     }
   }
 
@@ -253,12 +220,12 @@ enum AssistantToolsFunctionType {
 
 /// Controls how long the model waits before emitting transcription text. Higher values can improve transcription accuracy at the cost of latency. Only supported with `gpt-realtime-whisper` in GA Realtime sessions.
 final class AudioTranscriptionDelay {
+
   final String value;
 
   const AudioTranscriptionDelay._(this.value);
 
-  factory AudioTranscriptionDelay.fromJson(String value) =>
-      AudioTranscriptionDelay._(value);
+  factory AudioTranscriptionDelay.fromJson(String value) => AudioTranscriptionDelay._(value);
 
   static const minimal = AudioTranscriptionDelay._('minimal');
   static const low = AudioTranscriptionDelay._('low');
@@ -268,77 +235,60 @@ final class AudioTranscriptionDelay {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AudioTranscriptionDelay && other.value == value;
+  @override bool operator ==(Object other) => other is AudioTranscriptionDelay && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The connector role mutation path that produced the event.
 final class AuditLogRoleBoundToResourceSource {
+
   final String value;
 
   const AuditLogRoleBoundToResourceSource._(this.value);
 
-  factory AuditLogRoleBoundToResourceSource.fromJson(String value) =>
-      AuditLogRoleBoundToResourceSource._(value);
+  factory AuditLogRoleBoundToResourceSource.fromJson(String value) => AuditLogRoleBoundToResourceSource._(value);
 
   static const roleToggle = AuditLogRoleBoundToResourceSource._('role_toggle');
-  static const roleConnectorUpdate =
-      AuditLogRoleBoundToResourceSource._('role_connector_update');
+  static const roleConnectorUpdate = AuditLogRoleBoundToResourceSource._('role_connector_update');
   static const roleDelete = AuditLogRoleBoundToResourceSource._('role_delete');
-  static const workspacePermissions =
-      AuditLogRoleBoundToResourceSource._('workspace_permissions');
-  static const connectorPublish =
-      AuditLogRoleBoundToResourceSource._('connector_publish');
+  static const workspacePermissions = AuditLogRoleBoundToResourceSource._('workspace_permissions');
+  static const connectorPublish = AuditLogRoleBoundToResourceSource._('connector_publish');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AuditLogRoleBoundToResourceSource && other.value == value;
+  @override bool operator ==(Object other) => other is AuditLogRoleBoundToResourceSource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The connector role mutation path that produced the event.
 final class AuditLogRoleUnboundFromResourceSource {
+
   final String value;
 
   const AuditLogRoleUnboundFromResourceSource._(this.value);
 
-  factory AuditLogRoleUnboundFromResourceSource.fromJson(String value) =>
-      AuditLogRoleUnboundFromResourceSource._(value);
+  factory AuditLogRoleUnboundFromResourceSource.fromJson(String value) => AuditLogRoleUnboundFromResourceSource._(value);
 
-  static const roleToggle =
-      AuditLogRoleUnboundFromResourceSource._('role_toggle');
-  static const roleConnectorUpdate =
-      AuditLogRoleUnboundFromResourceSource._('role_connector_update');
-  static const roleDelete =
-      AuditLogRoleUnboundFromResourceSource._('role_delete');
-  static const workspacePermissions =
-      AuditLogRoleUnboundFromResourceSource._('workspace_permissions');
-  static const connectorPublish =
-      AuditLogRoleUnboundFromResourceSource._('connector_publish');
+  static const roleToggle = AuditLogRoleUnboundFromResourceSource._('role_toggle');
+  static const roleConnectorUpdate = AuditLogRoleUnboundFromResourceSource._('role_connector_update');
+  static const roleDelete = AuditLogRoleUnboundFromResourceSource._('role_delete');
+  static const workspacePermissions = AuditLogRoleUnboundFromResourceSource._('workspace_permissions');
+  static const connectorPublish = AuditLogRoleUnboundFromResourceSource._('connector_publish');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AuditLogRoleUnboundFromResourceSource && other.value == value;
+  @override bool operator ==(Object other) => other is AuditLogRoleUnboundFromResourceSource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

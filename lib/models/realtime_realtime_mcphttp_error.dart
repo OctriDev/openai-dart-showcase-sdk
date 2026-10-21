@@ -8,50 +8,32 @@ part of 'realtime_realtime.dart';
 class RealtimeMCPHTTPError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final RealtimeMCPHTTPErrorType type_;
-
   /// Required `integer` value serialized in the `code` wire field.
   final int code;
-
   /// Required `string` value serialized in the `message` wire field.
   final String message;
 
-  const RealtimeMCPHTTPError(
-      {required this.type_, required this.code, required this.message});
+  const RealtimeMCPHTTPError({required this.type_, required this.code, required this.message});
 
-  RealtimeMCPHTTPError Function(
-      {RealtimeMCPHTTPErrorType type_,
-      int code,
-      String message}) get copyWith => _copyWith;
+  RealtimeMCPHTTPError Function({RealtimeMCPHTTPErrorType type_, int code, String message}) get copyWith => _copyWith;
 
-  RealtimeMCPHTTPError _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      RealtimeMCPHTTPError(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeMCPHTTPErrorType,
-        code: identical(code, sdkOmittedValue) ? this.code : code as int,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  RealtimeMCPHTTPError _copyWith({Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => RealtimeMCPHTTPError(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeMCPHTTPErrorType,
+    code: identical(code, sdkOmittedValue) ? this.code : code as int,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
-  factory RealtimeMCPHTTPError.fromJson(Map<String, dynamic> json) =>
-      RealtimeMCPHTTPError(
-        type_: (json['type'] != null
-            ? RealtimeMCPHTTPErrorType.fromJson(json['type'] as String)
-            : null)!,
-        code: ((json['code'] as num?)?.toInt())!,
-        message: (json['message'] as String?)!,
-      );
+  factory RealtimeMCPHTTPError.fromJson(Map<String, dynamic> json) => RealtimeMCPHTTPError(
+    type_: (json['type'] != null ? RealtimeMCPHTTPErrorType.fromJson(json['type'] as String) : null)!,
+    code: ((json['code'] as num?)?.toInt())!,
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'code': code,
-        'message': message,
-      };
+    'type': type_.toJson(),
+    'code': code,
+    'message': message,
+  };
 }

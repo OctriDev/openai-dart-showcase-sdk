@@ -8,66 +8,42 @@ part of 'projects.dart';
 class ProjectApiKeyOwnerUser {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The identifier, which can be referenced in API endpoints
   final String id;
-
   /// The email address of the user.
   final String email;
-
   /// The name of the user.
   final String name;
-
   /// The Unix timestamp (in seconds) of when the user was created.
   final int createdAt;
-
   /// The user's project role.
   final String role;
 
-  const ProjectApiKeyOwnerUser(
-      {required this.id,
-      required this.email,
-      required this.name,
-      required this.createdAt,
-      required this.role});
+  const ProjectApiKeyOwnerUser({required this.id, required this.email, required this.name, required this.createdAt, required this.role});
 
-  ProjectApiKeyOwnerUser Function(
-      {String id,
-      String email,
-      String name,
-      int createdAt,
-      String role}) get copyWith => _copyWith;
+  ProjectApiKeyOwnerUser Function({String id, String email, String name, int createdAt, String role}) get copyWith => _copyWith;
 
-  ProjectApiKeyOwnerUser _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? role = sdkOmittedValue}) =>
-      ProjectApiKeyOwnerUser(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        email: identical(email, sdkOmittedValue) ? this.email : email as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        role: identical(role, sdkOmittedValue) ? this.role : role as String,
-      );
+  ProjectApiKeyOwnerUser _copyWith({Object? id = sdkOmittedValue, Object? email = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? role = sdkOmittedValue}) => ProjectApiKeyOwnerUser(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    email: identical(email, sdkOmittedValue) ? this.email : email as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    role: identical(role, sdkOmittedValue) ? this.role : role as String,
+  );
 
-  factory ProjectApiKeyOwnerUser.fromJson(Map<String, dynamic> json) =>
-      ProjectApiKeyOwnerUser(
-        id: (json['id'] as String?)!,
-        email: (json['email'] as String?)!,
-        name: (json['name'] as String?)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        role: (json['role'] as String?)!,
-      );
+  factory ProjectApiKeyOwnerUser.fromJson(Map<String, dynamic> json) => ProjectApiKeyOwnerUser(
+    id: (json['id'] as String?)!,
+    email: (json['email'] as String?)!,
+    name: (json['name'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    role: (json['role'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'email': email,
-        'name': name,
-        'created_at': createdAt,
-        'role': role,
-      };
+    'id': id,
+    'email': email,
+    'name': name,
+    'created_at': createdAt,
+    'role': role,
+  };
 }

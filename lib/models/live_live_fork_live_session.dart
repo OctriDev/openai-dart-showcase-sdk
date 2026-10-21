@@ -8,53 +8,30 @@ part of 'live_live_fork.dart';
 class LiveForkRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional configuration overrides for the new Live session. Omit this object or send an empty object to inherit the stored session's settings.
   final SdkOptional<LiveMediaSessionForkParams> session;
-
   /// WebRTC transport with an SDP offer for the new connection to the forked session.
   final LiveWebRTCTransport transport;
 
-  const LiveForkRequest(
-      {this.session = const SdkOmitted(), required this.transport});
+  const LiveForkRequest({this.session = const SdkOmitted(), required this.transport});
 
-  LiveForkRequest Function(
-      {SdkOptional<LiveMediaSessionForkParams> session,
-      LiveWebRTCTransport transport}) get copyWith => _copyWith;
+  LiveForkRequest Function({SdkOptional<LiveMediaSessionForkParams> session, LiveWebRTCTransport transport}) get copyWith => _copyWith;
 
-  LiveForkRequest _copyWith(
-          {Object? session = sdkOmittedValue,
-          Object? transport = sdkOmittedValue}) =>
-      LiveForkRequest(
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as SdkOptional<LiveMediaSessionForkParams>,
-        transport: identical(transport, sdkOmittedValue)
-            ? this.transport
-            : transport as LiveWebRTCTransport,
-      );
+  LiveForkRequest _copyWith({Object? session = sdkOmittedValue, Object? transport = sdkOmittedValue}) => LiveForkRequest(
+    session: identical(session, sdkOmittedValue) ? this.session : session as SdkOptional<LiveMediaSessionForkParams>,
+    transport: identical(transport, sdkOmittedValue) ? this.transport : transport as LiveWebRTCTransport,
+  );
 
-  factory LiveForkRequest.fromJson(Map<String, dynamic> json) =>
-      LiveForkRequest(
-        session: json['session'] != null
-            ? SdkPresent((json['session'] != null
-                ? LiveMediaSessionForkParams.fromJson(
-                    json['session'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        transport: (json['transport'] != null
-            ? LiveWebRTCTransport.fromJson(
-                json['transport'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory LiveForkRequest.fromJson(Map<String, dynamic> json) => LiveForkRequest(
+    session: json['session'] != null ? SdkPresent((json['session'] != null ? LiveMediaSessionForkParams.fromJson(json['session'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    transport: (json['transport'] != null ? LiveWebRTCTransport.fromJson(json['transport'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (session) {
-          SdkPresent<LiveMediaSessionForkParams>(value: final value) => {
-              'session': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'transport': transport.toJson(),
-      };
+    ...switch (session) {
+      SdkPresent<LiveMediaSessionForkParams>(value: final value) => {'session': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'transport': transport.toJson(),
+  };
 }

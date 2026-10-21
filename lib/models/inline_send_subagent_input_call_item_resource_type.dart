@@ -10,18 +10,14 @@ enum SendSubagentInputCallItemResourceType {
 
   static SendSubagentInputCallItemResourceType fromJson(String value) {
     switch (value) {
-      case 'send_subagent_input_call':
-        return SendSubagentInputCallItemResourceType.sendSubagentInputCall;
-      default:
-        throw ArgumentError(
-            'Unknown SendSubagentInputCallItemResourceType: $value');
+      case 'send_subagent_input_call': return SendSubagentInputCallItemResourceType.sendSubagentInputCall;
+      default: throw ArgumentError('Unknown SendSubagentInputCallItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SendSubagentInputCallItemResourceType.sendSubagentInputCall:
-        return 'send_subagent_input_call';
+      case SendSubagentInputCallItemResourceType.sendSubagentInputCall: return 'send_subagent_input_call';
     }
   }
 
@@ -31,38 +27,33 @@ enum SendSubagentInputCallItemResourceType {
 
 /// The object type, which is always `organization.project.service_account.api_key`
 final class ServiceAccountApiKeyBodyObject {
+
   final String value;
 
   const ServiceAccountApiKeyBodyObject._(this.value);
 
-  factory ServiceAccountApiKeyBodyObject.fromJson(String value) =>
-      ServiceAccountApiKeyBodyObject._(value);
+  factory ServiceAccountApiKeyBodyObject.fromJson(String value) => ServiceAccountApiKeyBodyObject._(value);
 
-  static const organizationProjectServiceAccountApiKey =
-      ServiceAccountApiKeyBodyObject._(
-          'organization.project.service_account.api_key');
+  static const organizationProjectServiceAccountApiKey = ServiceAccountApiKeyBodyObject._('organization.project.service_account.api_key');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ServiceAccountApiKeyBodyObject && other.value == value;
+  @override bool operator ==(Object other) => other is ServiceAccountApiKeyBodyObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Specifies the processing type used for serving the request. - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'. - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model. - If set to '[flex](https://developers.openai.com/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier. - To opt-in to [Fast mode](https://developers.openai.com/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request. - When not set, the default behavior is 'auto'. When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
 final class ServiceTierVariant0 {
+
   final String value;
 
   const ServiceTierVariant0._(this.value);
 
-  factory ServiceTierVariant0.fromJson(String value) =>
-      ServiceTierVariant0._(value);
+  factory ServiceTierVariant0.fromJson(String value) => ServiceTierVariant0._(value);
 
   static const auto = ServiceTierVariant0._('auto');
   static const default_ = ServiceTierVariant0._('default');
@@ -73,25 +64,22 @@ final class ServiceTierVariant0 {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ServiceTierVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is ServiceTierVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Specifies the processing type used for serving the request. - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'. - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model. - If set to '[flex](https://developers.openai.com/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier. - To opt-in to [Fast mode](https://developers.openai.com/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request. - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`. - When not set, the default behavior is 'auto'. When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
 final class ServiceTierResponsesVariant0 {
+
   final String value;
 
   const ServiceTierResponsesVariant0._(this.value);
 
-  factory ServiceTierResponsesVariant0.fromJson(String value) =>
-      ServiceTierResponsesVariant0._(value);
+  factory ServiceTierResponsesVariant0.fromJson(String value) => ServiceTierResponsesVariant0._(value);
 
   static const auto = ServiceTierResponsesVariant0._('auto');
   static const default_ = ServiceTierResponsesVariant0._('default');
@@ -103,87 +91,70 @@ final class ServiceTierResponsesVariant0 {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ServiceTierResponsesVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is ServiceTierResponsesVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `list`.
 final class SessionArtifactListResourceObject {
+
   final String value;
 
   const SessionArtifactListResourceObject._(this.value);
 
-  factory SessionArtifactListResourceObject.fromJson(String value) =>
-      SessionArtifactListResourceObject._(value);
+  factory SessionArtifactListResourceObject.fromJson(String value) => SessionArtifactListResourceObject._(value);
 
   static const list = SessionArtifactListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SessionArtifactListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is SessionArtifactListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type. Always `agent.session.artifact`.
 final class SessionArtifactResourceObject {
+
   final String value;
 
   const SessionArtifactResourceObject._(this.value);
 
-  factory SessionArtifactResourceObject.fromJson(String value) =>
-      SessionArtifactResourceObject._(value);
+  factory SessionArtifactResourceObject.fromJson(String value) => SessionArtifactResourceObject._(value);
 
-  static const agentSessionArtifact =
-      SessionArtifactResourceObject._('agent.session.artifact');
+  static const agentSessionArtifact = SessionArtifactResourceObject._('agent.session.artifact');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SessionArtifactResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is SessionArtifactResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object. Always `agent.output.command_execution_output.delta`.
 enum SessionEventAgentOutputCommandExecutionOutputDeltaType {
   agentOutputCommandExecutionOutputDelta;
 
-  static SessionEventAgentOutputCommandExecutionOutputDeltaType fromJson(
-      String value) {
+  static SessionEventAgentOutputCommandExecutionOutputDeltaType fromJson(String value) {
     switch (value) {
-      case 'agent.output.command_execution_output.delta':
-        return SessionEventAgentOutputCommandExecutionOutputDeltaType
-            .agentOutputCommandExecutionOutputDelta;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentOutputCommandExecutionOutputDeltaType: $value');
+      case 'agent.output.command_execution_output.delta': return SessionEventAgentOutputCommandExecutionOutputDeltaType.agentOutputCommandExecutionOutputDelta;
+      default: throw ArgumentError('Unknown SessionEventAgentOutputCommandExecutionOutputDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentOutputCommandExecutionOutputDeltaType
-            .agentOutputCommandExecutionOutputDelta:
-        return 'agent.output.command_execution_output.delta';
+      case SessionEventAgentOutputCommandExecutionOutputDeltaType.agentOutputCommandExecutionOutputDelta: return 'agent.output.command_execution_output.delta';
     }
   }
 
@@ -197,18 +168,14 @@ enum SessionEventAgentSessionCreatedType {
 
   static SessionEventAgentSessionCreatedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.created':
-        return SessionEventAgentSessionCreatedType.agentSessionCreated;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionCreatedType: $value');
+      case 'agent.session.created': return SessionEventAgentSessionCreatedType.agentSessionCreated;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionCreatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionCreatedType.agentSessionCreated:
-        return 'agent.session.created';
+      case SessionEventAgentSessionCreatedType.agentSessionCreated: return 'agent.session.created';
     }
   }
 
@@ -220,23 +187,16 @@ enum SessionEventAgentSessionCreatedType {
 enum SessionEventAgentSessionEnvironmentConnectedType {
   agentSessionEnvironmentConnected;
 
-  static SessionEventAgentSessionEnvironmentConnectedType fromJson(
-      String value) {
+  static SessionEventAgentSessionEnvironmentConnectedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.environment.connected':
-        return SessionEventAgentSessionEnvironmentConnectedType
-            .agentSessionEnvironmentConnected;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionEnvironmentConnectedType: $value');
+      case 'agent.session.environment.connected': return SessionEventAgentSessionEnvironmentConnectedType.agentSessionEnvironmentConnected;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionEnvironmentConnectedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionEnvironmentConnectedType
-            .agentSessionEnvironmentConnected:
-        return 'agent.session.environment.connected';
+      case SessionEventAgentSessionEnvironmentConnectedType.agentSessionEnvironmentConnected: return 'agent.session.environment.connected';
     }
   }
 
@@ -248,23 +208,16 @@ enum SessionEventAgentSessionEnvironmentConnectedType {
 enum SessionEventAgentSessionEnvironmentDisconnectedType {
   agentSessionEnvironmentDisconnected;
 
-  static SessionEventAgentSessionEnvironmentDisconnectedType fromJson(
-      String value) {
+  static SessionEventAgentSessionEnvironmentDisconnectedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.environment.disconnected':
-        return SessionEventAgentSessionEnvironmentDisconnectedType
-            .agentSessionEnvironmentDisconnected;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionEnvironmentDisconnectedType: $value');
+      case 'agent.session.environment.disconnected': return SessionEventAgentSessionEnvironmentDisconnectedType.agentSessionEnvironmentDisconnected;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionEnvironmentDisconnectedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionEnvironmentDisconnectedType
-            .agentSessionEnvironmentDisconnected:
-        return 'agent.session.environment.disconnected';
+      case SessionEventAgentSessionEnvironmentDisconnectedType.agentSessionEnvironmentDisconnected: return 'agent.session.environment.disconnected';
     }
   }
 
@@ -278,20 +231,14 @@ enum SessionEventAgentSessionEnvironmentExpiredType {
 
   static SessionEventAgentSessionEnvironmentExpiredType fromJson(String value) {
     switch (value) {
-      case 'agent.session.environment.expired':
-        return SessionEventAgentSessionEnvironmentExpiredType
-            .agentSessionEnvironmentExpired;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionEnvironmentExpiredType: $value');
+      case 'agent.session.environment.expired': return SessionEventAgentSessionEnvironmentExpiredType.agentSessionEnvironmentExpired;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionEnvironmentExpiredType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionEnvironmentExpiredType
-            .agentSessionEnvironmentExpired:
-        return 'agent.session.environment.expired';
+      case SessionEventAgentSessionEnvironmentExpiredType.agentSessionEnvironmentExpired: return 'agent.session.environment.expired';
     }
   }
 
@@ -305,20 +252,14 @@ enum SessionEventAgentSessionEnvironmentFailedType {
 
   static SessionEventAgentSessionEnvironmentFailedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.environment.failed':
-        return SessionEventAgentSessionEnvironmentFailedType
-            .agentSessionEnvironmentFailed;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionEnvironmentFailedType: $value');
+      case 'agent.session.environment.failed': return SessionEventAgentSessionEnvironmentFailedType.agentSessionEnvironmentFailed;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionEnvironmentFailedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionEnvironmentFailedType
-            .agentSessionEnvironmentFailed:
-        return 'agent.session.environment.failed';
+      case SessionEventAgentSessionEnvironmentFailedType.agentSessionEnvironmentFailed: return 'agent.session.environment.failed';
     }
   }
 
@@ -332,20 +273,14 @@ enum SessionEventAgentSessionEnvironmentPendingType {
 
   static SessionEventAgentSessionEnvironmentPendingType fromJson(String value) {
     switch (value) {
-      case 'agent.session.environment.pending':
-        return SessionEventAgentSessionEnvironmentPendingType
-            .agentSessionEnvironmentPending;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionEnvironmentPendingType: $value');
+      case 'agent.session.environment.pending': return SessionEventAgentSessionEnvironmentPendingType.agentSessionEnvironmentPending;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionEnvironmentPendingType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionEnvironmentPendingType
-            .agentSessionEnvironmentPending:
-        return 'agent.session.environment.pending';
+      case SessionEventAgentSessionEnvironmentPendingType.agentSessionEnvironmentPending: return 'agent.session.environment.pending';
     }
   }
 

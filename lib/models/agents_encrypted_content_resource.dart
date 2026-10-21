@@ -8,42 +8,27 @@ part of 'agents.dart';
 class EncryptedContentResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The content type. Always `encrypted_content`.
   final EncryptedContentResourceType type_;
-
   /// The encrypted content payload.
   final String encryptedContent;
 
-  const EncryptedContentResource(
-      {required this.type_, required this.encryptedContent});
+  const EncryptedContentResource({required this.type_, required this.encryptedContent});
 
-  EncryptedContentResource Function(
-      {EncryptedContentResourceType type_,
-      String encryptedContent}) get copyWith => _copyWith;
+  EncryptedContentResource Function({EncryptedContentResourceType type_, String encryptedContent}) get copyWith => _copyWith;
 
-  EncryptedContentResource _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? encryptedContent = sdkOmittedValue}) =>
-      EncryptedContentResource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as EncryptedContentResourceType,
-        encryptedContent: identical(encryptedContent, sdkOmittedValue)
-            ? this.encryptedContent
-            : encryptedContent as String,
-      );
+  EncryptedContentResource _copyWith({Object? type_ = sdkOmittedValue, Object? encryptedContent = sdkOmittedValue}) => EncryptedContentResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EncryptedContentResourceType,
+    encryptedContent: identical(encryptedContent, sdkOmittedValue) ? this.encryptedContent : encryptedContent as String,
+  );
 
-  factory EncryptedContentResource.fromJson(Map<String, dynamic> json) =>
-      EncryptedContentResource(
-        type_: (json['type'] != null
-            ? EncryptedContentResourceType.fromJson(json['type'] as String)
-            : null)!,
-        encryptedContent: (json['encrypted_content'] as String?)!,
-      );
+  factory EncryptedContentResource.fromJson(Map<String, dynamic> json) => EncryptedContentResource(
+    type_: (json['type'] != null ? EncryptedContentResourceType.fromJson(json['type'] as String) : null)!,
+    encryptedContent: (json['encrypted_content'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'encrypted_content': encryptedContent,
-      };
+    'type': type_.toJson(),
+    'encrypted_content': encryptedContent,
+  };
 }

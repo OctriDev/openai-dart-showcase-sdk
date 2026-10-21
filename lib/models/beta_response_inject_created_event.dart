@@ -8,73 +8,40 @@ part of 'beta_response.dart';
 class BetaResponseInjectCreatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event discriminator. Always `response.inject.created`.
   final BetaResponseInjectCreatedEventType type_;
-
   /// The ID of the response that accepted the input.
   final String responseId;
-
   /// The sequence number for this event.
   final int sequenceNumber;
-
   /// The multiplexed WebSocket stream that emitted the event. This field is present only when WebSocket multiplexing is enabled separately.
   final SdkOptional<String> streamId;
 
-  const BetaResponseInjectCreatedEvent(
-      {required this.type_,
-      required this.responseId,
-      required this.sequenceNumber,
-      this.streamId = const SdkOmitted()});
+  const BetaResponseInjectCreatedEvent({required this.type_, required this.responseId, required this.sequenceNumber, this.streamId = const SdkOmitted()});
 
-  BetaResponseInjectCreatedEvent Function(
-      {BetaResponseInjectCreatedEventType type_,
-      String responseId,
-      int sequenceNumber,
-      SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponseInjectCreatedEvent Function({BetaResponseInjectCreatedEventType type_, String responseId, int sequenceNumber, SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponseInjectCreatedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? responseId = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? streamId = sdkOmittedValue}) =>
-      BetaResponseInjectCreatedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseInjectCreatedEventType,
-        responseId: identical(responseId, sdkOmittedValue)
-            ? this.responseId
-            : responseId as String,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        streamId: identical(streamId, sdkOmittedValue)
-            ? this.streamId
-            : streamId as SdkOptional<String>,
-      );
+  BetaResponseInjectCreatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => BetaResponseInjectCreatedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseInjectCreatedEventType,
+    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
+  );
 
-  factory BetaResponseInjectCreatedEvent.fromJson(Map<String, dynamic> json) =>
-      BetaResponseInjectCreatedEvent(
-        type_: (json['type'] != null
-            ? BetaResponseInjectCreatedEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        responseId: (json['response_id'] as String?)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        streamId: json['stream_id'] != null
-            ? SdkPresent((json['stream_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory BetaResponseInjectCreatedEvent.fromJson(Map<String, dynamic> json) => BetaResponseInjectCreatedEvent(
+    type_: (json['type'] != null ? BetaResponseInjectCreatedEventType.fromJson(json['type'] as String) : null)!,
+    responseId: (json['response_id'] as String?)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'response_id': responseId,
-        'sequence_number': sequenceNumber,
-        ...switch (streamId) {
-          SdkPresent<String>(value: final value) => {
-              'stream_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'response_id': responseId,
+    'sequence_number': sequenceNumber,
+    ...switch (streamId) {
+      SdkPresent<String>(value: final value) => {'stream_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

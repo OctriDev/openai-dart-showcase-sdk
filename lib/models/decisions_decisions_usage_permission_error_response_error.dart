@@ -9,32 +9,21 @@ sealed class DecisionsUsagePermissionErrorResponseError {
   static const String constructionSurface = 'named';
   const DecisionsUsagePermissionErrorResponseError();
   factory DecisionsUsagePermissionErrorResponseError.fromJson(Object? json) {
-    if (json is String) {
-      return DecisionsUsagePermissionErrorResponseErrorString(json);
-    }
-    try {
-      return DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails(
-          DecisionsUsageErrorDetails.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for DecisionsUsagePermissionErrorResponseError");
+    if (json is String) { return DecisionsUsagePermissionErrorResponseErrorString(json); }
+    try { return DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails(DecisionsUsageErrorDetails.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for DecisionsUsagePermissionErrorResponseError");
   }
   Object? toJson();
 }
 
-final class DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails
-    extends DecisionsUsagePermissionErrorResponseError {
+final class DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails extends DecisionsUsagePermissionErrorResponseError {
   final DecisionsUsageErrorDetails value;
-  const DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const DecisionsUsagePermissionErrorResponseErrorDecisionsUsageErrorDetails(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class DecisionsUsagePermissionErrorResponseErrorString
-    extends DecisionsUsagePermissionErrorResponseError {
+final class DecisionsUsagePermissionErrorResponseErrorString extends DecisionsUsagePermissionErrorResponseError {
   final String value;
   const DecisionsUsagePermissionErrorResponseErrorString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }

@@ -8,48 +8,32 @@ part of 'shared_apply.dart';
 class ApplyPatchUpdateFileOperation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Update an existing file with the provided diff.
   final ApplyPatchUpdateFileOperationType type_;
-
   /// Path of the file to update.
   final String path;
-
   /// Diff to apply.
   final String diff;
 
-  const ApplyPatchUpdateFileOperation(
-      {required this.type_, required this.path, required this.diff});
+  const ApplyPatchUpdateFileOperation({required this.type_, required this.path, required this.diff});
 
-  ApplyPatchUpdateFileOperation Function(
-      {ApplyPatchUpdateFileOperationType type_,
-      String path,
-      String diff}) get copyWith => _copyWith;
+  ApplyPatchUpdateFileOperation Function({ApplyPatchUpdateFileOperationType type_, String path, String diff}) get copyWith => _copyWith;
 
-  ApplyPatchUpdateFileOperation _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? path = sdkOmittedValue,
-          Object? diff = sdkOmittedValue}) =>
-      ApplyPatchUpdateFileOperation(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ApplyPatchUpdateFileOperationType,
-        path: identical(path, sdkOmittedValue) ? this.path : path as String,
-        diff: identical(diff, sdkOmittedValue) ? this.diff : diff as String,
-      );
+  ApplyPatchUpdateFileOperation _copyWith({Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue, Object? diff = sdkOmittedValue}) => ApplyPatchUpdateFileOperation(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ApplyPatchUpdateFileOperationType,
+    path: identical(path, sdkOmittedValue) ? this.path : path as String,
+    diff: identical(diff, sdkOmittedValue) ? this.diff : diff as String,
+  );
 
-  factory ApplyPatchUpdateFileOperation.fromJson(Map<String, dynamic> json) =>
-      ApplyPatchUpdateFileOperation(
-        type_: (json['type'] != null
-            ? ApplyPatchUpdateFileOperationType.fromJson(json['type'] as String)
-            : null)!,
-        path: (json['path'] as String?)!,
-        diff: (json['diff'] as String?)!,
-      );
+  factory ApplyPatchUpdateFileOperation.fromJson(Map<String, dynamic> json) => ApplyPatchUpdateFileOperation(
+    type_: (json['type'] != null ? ApplyPatchUpdateFileOperationType.fromJson(json['type'] as String) : null)!,
+    path: (json['path'] as String?)!,
+    diff: (json['diff'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'path': path,
-        'diff': diff,
-      };
+    'type': type_.toJson(),
+    'path': path,
+    'diff': diff,
+  };
 }

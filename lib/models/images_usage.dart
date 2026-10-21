@@ -8,107 +8,66 @@ part of 'images.dart';
 class ImagesUsageInputTokensDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of text tokens in the input prompt.
   final int textTokens;
-
   /// The number of image tokens in the input prompt.
   final int imageTokens;
 
-  const ImagesUsageInputTokensDetails(
-      {required this.textTokens, required this.imageTokens});
+  const ImagesUsageInputTokensDetails({required this.textTokens, required this.imageTokens});
 
-  ImagesUsageInputTokensDetails Function({int textTokens, int imageTokens})
-      get copyWith => _copyWith;
+  ImagesUsageInputTokensDetails Function({int textTokens, int imageTokens}) get copyWith => _copyWith;
 
-  ImagesUsageInputTokensDetails _copyWith(
-          {Object? textTokens = sdkOmittedValue,
-          Object? imageTokens = sdkOmittedValue}) =>
-      ImagesUsageInputTokensDetails(
-        textTokens: identical(textTokens, sdkOmittedValue)
-            ? this.textTokens
-            : textTokens as int,
-        imageTokens: identical(imageTokens, sdkOmittedValue)
-            ? this.imageTokens
-            : imageTokens as int,
-      );
+  ImagesUsageInputTokensDetails _copyWith({Object? textTokens = sdkOmittedValue, Object? imageTokens = sdkOmittedValue}) => ImagesUsageInputTokensDetails(
+    textTokens: identical(textTokens, sdkOmittedValue) ? this.textTokens : textTokens as int,
+    imageTokens: identical(imageTokens, sdkOmittedValue) ? this.imageTokens : imageTokens as int,
+  );
 
-  factory ImagesUsageInputTokensDetails.fromJson(Map<String, dynamic> json) =>
-      ImagesUsageInputTokensDetails(
-        textTokens: ((json['text_tokens'] as num?)?.toInt())!,
-        imageTokens: ((json['image_tokens'] as num?)?.toInt())!,
-      );
+  factory ImagesUsageInputTokensDetails.fromJson(Map<String, dynamic> json) => ImagesUsageInputTokensDetails(
+    textTokens: ((json['text_tokens'] as num?)?.toInt())!,
+    imageTokens: ((json['image_tokens'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'text_tokens': textTokens,
-        'image_tokens': imageTokens,
-      };
+    'text_tokens': textTokens,
+    'image_tokens': imageTokens,
+  };
 }
 
 /// For the GPT image models only, the token usage information for the image generation.
 class ImagesUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The total number of tokens (images and text) used for the image generation.
   final int totalTokens;
-
   /// The number of tokens (images and text) in the input prompt.
   final int inputTokens;
-
   /// The number of image tokens in the output image.
   final int outputTokens;
-
   /// The input tokens detailed information for the image generation.
   final ImagesUsageInputTokensDetails inputTokensDetails;
 
-  const ImagesUsage(
-      {required this.totalTokens,
-      required this.inputTokens,
-      required this.outputTokens,
-      required this.inputTokensDetails});
+  const ImagesUsage({required this.totalTokens, required this.inputTokens, required this.outputTokens, required this.inputTokensDetails});
 
-  ImagesUsage Function(
-          {int totalTokens,
-          int inputTokens,
-          int outputTokens,
-          ImagesUsageInputTokensDetails inputTokensDetails})
-      get copyWith => _copyWith;
+  ImagesUsage Function({int totalTokens, int inputTokens, int outputTokens, ImagesUsageInputTokensDetails inputTokensDetails}) get copyWith => _copyWith;
 
-  ImagesUsage _copyWith(
-          {Object? totalTokens = sdkOmittedValue,
-          Object? inputTokens = sdkOmittedValue,
-          Object? outputTokens = sdkOmittedValue,
-          Object? inputTokensDetails = sdkOmittedValue}) =>
-      ImagesUsage(
-        totalTokens: identical(totalTokens, sdkOmittedValue)
-            ? this.totalTokens
-            : totalTokens as int,
-        inputTokens: identical(inputTokens, sdkOmittedValue)
-            ? this.inputTokens
-            : inputTokens as int,
-        outputTokens: identical(outputTokens, sdkOmittedValue)
-            ? this.outputTokens
-            : outputTokens as int,
-        inputTokensDetails: identical(inputTokensDetails, sdkOmittedValue)
-            ? this.inputTokensDetails
-            : inputTokensDetails as ImagesUsageInputTokensDetails,
-      );
+  ImagesUsage _copyWith({Object? totalTokens = sdkOmittedValue, Object? inputTokens = sdkOmittedValue, Object? outputTokens = sdkOmittedValue, Object? inputTokensDetails = sdkOmittedValue}) => ImagesUsage(
+    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
+    inputTokens: identical(inputTokens, sdkOmittedValue) ? this.inputTokens : inputTokens as int,
+    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as int,
+    inputTokensDetails: identical(inputTokensDetails, sdkOmittedValue) ? this.inputTokensDetails : inputTokensDetails as ImagesUsageInputTokensDetails,
+  );
 
   factory ImagesUsage.fromJson(Map<String, dynamic> json) => ImagesUsage(
-        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-        inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
-        outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
-        inputTokensDetails: (json['input_tokens_details'] != null
-            ? ImagesUsageInputTokensDetails.fromJson(
-                json['input_tokens_details'] as Map<String, dynamic>)
-            : null)!,
-      );
+    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+    inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
+    outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
+    inputTokensDetails: (json['input_tokens_details'] != null ? ImagesUsageInputTokensDetails.fromJson(json['input_tokens_details'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'total_tokens': totalTokens,
-        'input_tokens': inputTokens,
-        'output_tokens': outputTokens,
-        'input_tokens_details': inputTokensDetails.toJson(),
-      };
+    'total_tokens': totalTokens,
+    'input_tokens': inputTokens,
+    'output_tokens': outputTokens,
+    'input_tokens_details': inputTokensDetails.toJson(),
+  };
 }

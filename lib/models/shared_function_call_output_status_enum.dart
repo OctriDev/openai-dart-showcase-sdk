@@ -6,12 +6,12 @@ part of 'shared_function.dart';
 // shared_function domain models
 /// Typed representation of the `FunctionCallOutputStatusEnum` API schema.
 final class FunctionCallOutputStatusEnum {
+
   final String value;
 
   const FunctionCallOutputStatusEnum._(this.value);
 
-  factory FunctionCallOutputStatusEnum.fromJson(String value) =>
-      FunctionCallOutputStatusEnum._(value);
+  factory FunctionCallOutputStatusEnum.fromJson(String value) => FunctionCallOutputStatusEnum._(value);
 
   static const inProgress = FunctionCallOutputStatusEnum._('in_progress');
   static const completed = FunctionCallOutputStatusEnum._('completed');
@@ -19,13 +19,10 @@ final class FunctionCallOutputStatusEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is FunctionCallOutputStatusEnum && other.value == value;
+  @override bool operator ==(Object other) => other is FunctionCallOutputStatusEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

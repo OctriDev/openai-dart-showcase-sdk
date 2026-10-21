@@ -10,63 +10,32 @@ sealed class ToolSearchOutputNamespaceToolParamToolsItem {
   const ToolSearchOutputNamespaceToolParamToolsItem();
   factory ToolSearchOutputNamespaceToolParamToolsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ToolSearchOutputFunctionToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolSearchOutputNamespaceToolParamToolsItemToolSearchOutputFunctionToolParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = CustomToolParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ToolSearchOutputNamespaceToolParamToolsItemCustomToolParam(
-              value);
-        }
-      } catch (_) {}
+      try { final value = ToolSearchOutputFunctionToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolSearchOutputNamespaceToolParamToolsItemToolSearchOutputFunctionToolParam(value); } } catch (_) {}
+      try { final value = CustomToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolSearchOutputNamespaceToolParamToolsItemCustomToolParam(value); } } catch (_) {}
     }
-    try {
-      return ToolSearchOutputNamespaceToolParamToolsItemToolSearchOutputFunctionToolParam(
-          ToolSearchOutputFunctionToolParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ToolSearchOutputNamespaceToolParamToolsItemCustomToolParam(
-          CustomToolParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"function", "custom"}.contains(json["type"])) {
-      return UnknownToolSearchOutputNamespaceToolParamToolsItem(json);
-    }
-    throw FormatException(
-        "No variant matched for ToolSearchOutputNamespaceToolParamToolsItem");
+    try { return ToolSearchOutputNamespaceToolParamToolsItemToolSearchOutputFunctionToolParam(ToolSearchOutputFunctionToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ToolSearchOutputNamespaceToolParamToolsItemCustomToolParam(CustomToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "custom"}.contains(json["type"])) { return UnknownToolSearchOutputNamespaceToolParamToolsItem(json); }
+    throw FormatException("No variant matched for ToolSearchOutputNamespaceToolParamToolsItem");
   }
   Object? toJson();
 }
 
-final class ToolSearchOutputNamespaceToolParamToolsItemToolSearchOutputFunctionToolParam
-    extends ToolSearchOutputNamespaceToolParamToolsItem {
+final class ToolSearchOutputNamespaceToolParamToolsItemToolSearchOutputFunctionToolParam extends ToolSearchOutputNamespaceToolParamToolsItem {
   final ToolSearchOutputFunctionToolParam value;
-  const ToolSearchOutputNamespaceToolParamToolsItemToolSearchOutputFunctionToolParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ToolSearchOutputNamespaceToolParamToolsItemToolSearchOutputFunctionToolParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class ToolSearchOutputNamespaceToolParamToolsItemCustomToolParam
-    extends ToolSearchOutputNamespaceToolParamToolsItem {
+final class ToolSearchOutputNamespaceToolParamToolsItemCustomToolParam extends ToolSearchOutputNamespaceToolParamToolsItem {
   final CustomToolParam value;
   const ToolSearchOutputNamespaceToolParamToolsItemCustomToolParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ToolSearchOutputNamespaceToolParamToolsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownToolSearchOutputNamespaceToolParamToolsItem
-    extends ToolSearchOutputNamespaceToolParamToolsItem {
+final class UnknownToolSearchOutputNamespaceToolParamToolsItem extends ToolSearchOutputNamespaceToolParamToolsItem {
   final Map<String, dynamic> raw;
   const UnknownToolSearchOutputNamespaceToolParamToolsItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

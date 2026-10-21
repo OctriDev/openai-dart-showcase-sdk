@@ -8,63 +8,35 @@ part of 'usage.dart';
 class UsageCodeInterpreterSessionsResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final UsageCodeInterpreterSessionsResultObject object;
-
   /// The number of code interpreter sessions.
   final int numSessions;
-
   /// Optional `string` value serialized in the `project_id` wire field.
   final SdkOptional<String?> projectId;
 
-  const UsageCodeInterpreterSessionsResult(
-      {required this.object,
-      required this.numSessions,
-      this.projectId = const SdkOmitted()});
+  const UsageCodeInterpreterSessionsResult({required this.object, required this.numSessions, this.projectId = const SdkOmitted()});
 
-  UsageCodeInterpreterSessionsResult Function(
-      {UsageCodeInterpreterSessionsResultObject object,
-      int numSessions,
-      SdkOptional<String?> projectId}) get copyWith => _copyWith;
+  UsageCodeInterpreterSessionsResult Function({UsageCodeInterpreterSessionsResultObject object, int numSessions, SdkOptional<String?> projectId}) get copyWith => _copyWith;
 
-  UsageCodeInterpreterSessionsResult _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? numSessions = sdkOmittedValue,
-          Object? projectId = sdkOmittedValue}) =>
-      UsageCodeInterpreterSessionsResult(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as UsageCodeInterpreterSessionsResultObject,
-        numSessions: identical(numSessions, sdkOmittedValue)
-            ? this.numSessions
-            : numSessions as int,
-        projectId: identical(projectId, sdkOmittedValue)
-            ? this.projectId
-            : projectId as SdkOptional<String?>,
-      );
+  UsageCodeInterpreterSessionsResult _copyWith({Object? object = sdkOmittedValue, Object? numSessions = sdkOmittedValue, Object? projectId = sdkOmittedValue}) => UsageCodeInterpreterSessionsResult(
+    object: identical(object, sdkOmittedValue) ? this.object : object as UsageCodeInterpreterSessionsResultObject,
+    numSessions: identical(numSessions, sdkOmittedValue) ? this.numSessions : numSessions as int,
+    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String?>,
+  );
 
-  factory UsageCodeInterpreterSessionsResult.fromJson(
-          Map<String, dynamic> json) =>
-      UsageCodeInterpreterSessionsResult(
-        object: (json['object'] != null
-            ? UsageCodeInterpreterSessionsResultObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        numSessions: ((json['num_sessions'] as num?)?.toInt())!,
-        projectId: json.containsKey('project_id')
-            ? SdkPresent(json['project_id'] as String?)
-            : const SdkOmitted(),
-      );
+  factory UsageCodeInterpreterSessionsResult.fromJson(Map<String, dynamic> json) => UsageCodeInterpreterSessionsResult(
+    object: (json['object'] != null ? UsageCodeInterpreterSessionsResultObject.fromJson(json['object'] as String) : null)!,
+    numSessions: ((json['num_sessions'] as num?)?.toInt())!,
+    projectId: json.containsKey('project_id') ? SdkPresent(json['project_id'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'num_sessions': numSessions,
-        ...switch (projectId) {
-          SdkPresent<String?>(value: final value) => {
-              'project_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'object': object.toJson(),
+    'num_sessions': numSessions,
+    ...switch (projectId) {
+      SdkPresent<String?>(value: final value) => {'project_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

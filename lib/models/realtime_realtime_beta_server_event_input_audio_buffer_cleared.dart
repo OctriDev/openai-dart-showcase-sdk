@@ -8,45 +8,27 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventInputAudioBufferCleared {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `input_audio_buffer.cleared`.
   final RealtimeBetaServerEventInputAudioBufferClearedType type_;
 
-  const RealtimeBetaServerEventInputAudioBufferCleared(
-      {required this.eventId, required this.type_});
+  const RealtimeBetaServerEventInputAudioBufferCleared({required this.eventId, required this.type_});
 
-  RealtimeBetaServerEventInputAudioBufferCleared Function(
-          {String eventId,
-          RealtimeBetaServerEventInputAudioBufferClearedType type_})
-      get copyWith => _copyWith;
+  RealtimeBetaServerEventInputAudioBufferCleared Function({String eventId, RealtimeBetaServerEventInputAudioBufferClearedType type_}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventInputAudioBufferCleared _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      RealtimeBetaServerEventInputAudioBufferCleared(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventInputAudioBufferClearedType,
-      );
+  RealtimeBetaServerEventInputAudioBufferCleared _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeBetaServerEventInputAudioBufferCleared(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventInputAudioBufferClearedType,
+  );
 
-  factory RealtimeBetaServerEventInputAudioBufferCleared.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventInputAudioBufferCleared(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventInputAudioBufferClearedType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory RealtimeBetaServerEventInputAudioBufferCleared.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventInputAudioBufferCleared(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventInputAudioBufferClearedType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+  };
 }

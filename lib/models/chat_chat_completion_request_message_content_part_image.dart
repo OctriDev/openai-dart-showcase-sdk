@@ -8,127 +8,67 @@ part of 'chat_chat_completion_request.dart';
 class ChatCompletionRequestMessageContentPartImageImageUrl {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Either a URL of the image or the base64 encoded image data.
   final String url;
-
   /// Specifies the detail level of the image. Learn more in the [Vision guide](https://developers.openai.com/api/docs/guides/images-vision#choose-an-image-detail-level).
-  final SdkOptional<ChatCompletionRequestMessageContentPartImageImageUrlDetail>
-      detail;
+  final SdkOptional<ChatCompletionRequestMessageContentPartImageImageUrlDetail> detail;
 
-  const ChatCompletionRequestMessageContentPartImageImageUrl(
-      {required this.url, this.detail = const SdkOmitted()});
+  const ChatCompletionRequestMessageContentPartImageImageUrl({required this.url, this.detail = const SdkOmitted()});
 
-  ChatCompletionRequestMessageContentPartImageImageUrl Function(
-      {String url,
-      SdkOptional<ChatCompletionRequestMessageContentPartImageImageUrlDetail>
-          detail}) get copyWith => _copyWith;
+  ChatCompletionRequestMessageContentPartImageImageUrl Function({String url, SdkOptional<ChatCompletionRequestMessageContentPartImageImageUrlDetail> detail}) get copyWith => _copyWith;
 
-  ChatCompletionRequestMessageContentPartImageImageUrl _copyWith(
-          {Object? url = sdkOmittedValue, Object? detail = sdkOmittedValue}) =>
-      ChatCompletionRequestMessageContentPartImageImageUrl(
-        url: identical(url, sdkOmittedValue) ? this.url : url as String,
-        detail: identical(detail, sdkOmittedValue)
-            ? this.detail
-            : detail as SdkOptional<
-                ChatCompletionRequestMessageContentPartImageImageUrlDetail>,
-      );
+  ChatCompletionRequestMessageContentPartImageImageUrl _copyWith({Object? url = sdkOmittedValue, Object? detail = sdkOmittedValue}) => ChatCompletionRequestMessageContentPartImageImageUrl(
+    url: identical(url, sdkOmittedValue) ? this.url : url as String,
+    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as SdkOptional<ChatCompletionRequestMessageContentPartImageImageUrlDetail>,
+  );
 
-  factory ChatCompletionRequestMessageContentPartImageImageUrl.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionRequestMessageContentPartImageImageUrl(
-        url: (json['url'] as String?)!,
-        detail: json['detail'] != null
-            ? SdkPresent((json['detail'] != null
-                ? ChatCompletionRequestMessageContentPartImageImageUrlDetail
-                    .fromJson(json['detail'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ChatCompletionRequestMessageContentPartImageImageUrl.fromJson(Map<String, dynamic> json) => ChatCompletionRequestMessageContentPartImageImageUrl(
+    url: (json['url'] as String?)!,
+    detail: json['detail'] != null ? SdkPresent((json['detail'] != null ? ChatCompletionRequestMessageContentPartImageImageUrlDetail.fromJson(json['detail'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'url': url,
-        ...switch (detail) {
-          SdkPresent<
-                ChatCompletionRequestMessageContentPartImageImageUrlDetail>(
-            value: final value
-          ) =>
-            {
-              'detail': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'url': url,
+    ...switch (detail) {
+      SdkPresent<ChatCompletionRequestMessageContentPartImageImageUrlDetail>(value: final value) => {'detail': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Learn about [image inputs](https://developers.openai.com/api/docs/guides/images-vision).
 class ChatCompletionRequestMessageContentPartImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the content part.
   final ChatCompletionRequestMessageContentPartImageType type_;
-
   /// Required object value serialized in the `image_url` wire field.
   final ChatCompletionRequestMessageContentPartImageImageUrl imageUrl;
-
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
   final SdkOptional<PromptCacheBreakpointParam> promptCacheBreakpoint;
 
-  const ChatCompletionRequestMessageContentPartImage(
-      {required this.type_,
-      required this.imageUrl,
-      this.promptCacheBreakpoint = const SdkOmitted()});
+  const ChatCompletionRequestMessageContentPartImage({required this.type_, required this.imageUrl, this.promptCacheBreakpoint = const SdkOmitted()});
 
-  ChatCompletionRequestMessageContentPartImage Function(
-          {ChatCompletionRequestMessageContentPartImageType type_,
-          ChatCompletionRequestMessageContentPartImageImageUrl imageUrl,
-          SdkOptional<PromptCacheBreakpointParam> promptCacheBreakpoint})
-      get copyWith => _copyWith;
+  ChatCompletionRequestMessageContentPartImage Function({ChatCompletionRequestMessageContentPartImageType type_, ChatCompletionRequestMessageContentPartImageImageUrl imageUrl, SdkOptional<PromptCacheBreakpointParam> promptCacheBreakpoint}) get copyWith => _copyWith;
 
-  ChatCompletionRequestMessageContentPartImage _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue,
-          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
-      ChatCompletionRequestMessageContentPartImage(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ChatCompletionRequestMessageContentPartImageType,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as ChatCompletionRequestMessageContentPartImageImageUrl,
-        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
-            ? this.promptCacheBreakpoint
-            : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointParam>,
-      );
+  ChatCompletionRequestMessageContentPartImage _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => ChatCompletionRequestMessageContentPartImage(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ChatCompletionRequestMessageContentPartImageType,
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as ChatCompletionRequestMessageContentPartImageImageUrl,
+    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointParam>,
+  );
 
-  factory ChatCompletionRequestMessageContentPartImage.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionRequestMessageContentPartImage(
-        type_: (json['type'] != null
-            ? ChatCompletionRequestMessageContentPartImageType.fromJson(
-                json['type'] as String)
-            : null)!,
-        imageUrl: (json['image_url'] != null
-            ? ChatCompletionRequestMessageContentPartImageImageUrl.fromJson(
-                json['image_url'] as Map<String, dynamic>)
-            : null)!,
-        promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null
-            ? SdkPresent((json['prompt_cache_breakpoint'] != null
-                ? PromptCacheBreakpointParam.fromJson(
-                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ChatCompletionRequestMessageContentPartImage.fromJson(Map<String, dynamic> json) => ChatCompletionRequestMessageContentPartImage(
+    type_: (json['type'] != null ? ChatCompletionRequestMessageContentPartImageType.fromJson(json['type'] as String) : null)!,
+    imageUrl: (json['image_url'] != null ? ChatCompletionRequestMessageContentPartImageImageUrl.fromJson(json['image_url'] as Map<String, dynamic>) : null)!,
+    promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null ? SdkPresent((json['prompt_cache_breakpoint'] != null ? PromptCacheBreakpointParam.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'image_url': imageUrl.toJson(),
-        ...switch (promptCacheBreakpoint) {
-          SdkPresent<PromptCacheBreakpointParam>(value: final value) => {
-              'prompt_cache_breakpoint': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'image_url': imageUrl.toJson(),
+    ...switch (promptCacheBreakpoint) {
+      SdkPresent<PromptCacheBreakpointParam>(value: final value) => {'prompt_cache_breakpoint': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,58 +8,32 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventTranscriptionSessionCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `transcription_session.created`.
   final RealtimeBetaServerEventTranscriptionSessionCreatedType type_;
-
   /// A new Realtime transcription session configuration. When a session is created on the server via REST API, the session object also contains an ephemeral key. Default TTL for keys is 10 minutes. This property is not present when a session is updated via the WebSocket API.
   final RealtimeTranscriptionSessionCreateResponse session;
 
-  const RealtimeBetaServerEventTranscriptionSessionCreated(
-      {required this.eventId, required this.type_, required this.session});
+  const RealtimeBetaServerEventTranscriptionSessionCreated({required this.eventId, required this.type_, required this.session});
 
-  RealtimeBetaServerEventTranscriptionSessionCreated Function(
-          {String eventId,
-          RealtimeBetaServerEventTranscriptionSessionCreatedType type_,
-          RealtimeTranscriptionSessionCreateResponse session})
-      get copyWith => _copyWith;
+  RealtimeBetaServerEventTranscriptionSessionCreated Function({String eventId, RealtimeBetaServerEventTranscriptionSessionCreatedType type_, RealtimeTranscriptionSessionCreateResponse session}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventTranscriptionSessionCreated _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? session = sdkOmittedValue}) =>
-      RealtimeBetaServerEventTranscriptionSessionCreated(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventTranscriptionSessionCreatedType,
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as RealtimeTranscriptionSessionCreateResponse,
-      );
+  RealtimeBetaServerEventTranscriptionSessionCreated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeBetaServerEventTranscriptionSessionCreated(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventTranscriptionSessionCreatedType,
+    session: identical(session, sdkOmittedValue) ? this.session : session as RealtimeTranscriptionSessionCreateResponse,
+  );
 
-  factory RealtimeBetaServerEventTranscriptionSessionCreated.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventTranscriptionSessionCreated(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventTranscriptionSessionCreatedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        session: (json['session'] != null
-            ? RealtimeTranscriptionSessionCreateResponse.fromJson(
-                json['session'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory RealtimeBetaServerEventTranscriptionSessionCreated.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventTranscriptionSessionCreated(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventTranscriptionSessionCreatedType.fromJson(json['type'] as String) : null)!,
+    session: (json['session'] != null ? RealtimeTranscriptionSessionCreateResponse.fromJson(json['session'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'session': session.toJson(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'session': session.toJson(),
+  };
 }

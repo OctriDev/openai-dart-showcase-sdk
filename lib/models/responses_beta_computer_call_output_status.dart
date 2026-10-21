@@ -6,12 +6,12 @@ part of 'responses_beta_computer.dart';
 // responses_beta_computer domain models
 /// Typed representation of the `BetaComputerCallOutputStatus` API schema.
 final class BetaComputerCallOutputStatus {
+
   final String value;
 
   const BetaComputerCallOutputStatus._(this.value);
 
-  factory BetaComputerCallOutputStatus.fromJson(String value) =>
-      BetaComputerCallOutputStatus._(value);
+  factory BetaComputerCallOutputStatus.fromJson(String value) => BetaComputerCallOutputStatus._(value);
 
   static const completed = BetaComputerCallOutputStatus._('completed');
   static const incomplete = BetaComputerCallOutputStatus._('incomplete');
@@ -19,13 +19,10 @@ final class BetaComputerCallOutputStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaComputerCallOutputStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaComputerCallOutputStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

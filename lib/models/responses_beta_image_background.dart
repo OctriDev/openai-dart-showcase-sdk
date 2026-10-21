@@ -6,12 +6,12 @@ part of 'responses_beta_image.dart';
 // responses_beta_image domain models
 /// Typed representation of the `BetaImageBackground` API schema.
 final class BetaImageBackground {
+
   final String value;
 
   const BetaImageBackground._(this.value);
 
-  factory BetaImageBackground.fromJson(String value) =>
-      BetaImageBackground._(value);
+  factory BetaImageBackground.fromJson(String value) => BetaImageBackground._(value);
 
   static const transparent = BetaImageBackground._('transparent');
   static const opaque = BetaImageBackground._('opaque');
@@ -19,13 +19,10 @@ final class BetaImageBackground {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaImageBackground && other.value == value;
+  @override bool operator ==(Object other) => other is BetaImageBackground && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

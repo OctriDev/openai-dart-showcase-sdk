@@ -10,78 +10,40 @@ sealed class LiveInitialItem {
   const LiveInitialItem();
   factory LiveInitialItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = LiveInitialDeveloperMessageItemParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveInitialItemLiveInitialDeveloperMessageItemParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveInitialUserMessageItemParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveInitialItemLiveInitialUserMessageItemParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveInitialAssistantMessageItemParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveInitialItemLiveInitialAssistantMessageItemParam(value);
-        }
-      } catch (_) {}
+      try { final value = LiveInitialDeveloperMessageItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveInitialItemLiveInitialDeveloperMessageItemParam(value); } } catch (_) {}
+      try { final value = LiveInitialUserMessageItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveInitialItemLiveInitialUserMessageItemParam(value); } } catch (_) {}
+      try { final value = LiveInitialAssistantMessageItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveInitialItemLiveInitialAssistantMessageItemParam(value); } } catch (_) {}
     }
-    try {
-      return LiveInitialItemLiveInitialDeveloperMessageItemParam(
-          LiveInitialDeveloperMessageItemParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveInitialItemLiveInitialUserMessageItemParam(
-          LiveInitialUserMessageItemParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveInitialItemLiveInitialAssistantMessageItemParam(
-          LiveInitialAssistantMessageItemParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["role"] is String &&
-        !const {"developer", "user", "assistant"}.contains(json["role"])) {
-      return UnknownLiveInitialItem(json);
-    }
+    try { return LiveInitialItemLiveInitialDeveloperMessageItemParam(LiveInitialDeveloperMessageItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveInitialItemLiveInitialUserMessageItemParam(LiveInitialUserMessageItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveInitialItemLiveInitialAssistantMessageItemParam(LiveInitialAssistantMessageItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["role"] is String && !const {"developer", "user", "assistant"}.contains(json["role"])) { return UnknownLiveInitialItem(json); }
     throw FormatException("No variant matched for LiveInitialItem");
   }
   Object? toJson();
 }
 
-final class LiveInitialItemLiveInitialDeveloperMessageItemParam
-    extends LiveInitialItem {
+final class LiveInitialItemLiveInitialDeveloperMessageItemParam extends LiveInitialItem {
   final LiveInitialDeveloperMessageItemParam value;
   const LiveInitialItemLiveInitialDeveloperMessageItemParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveInitialItemLiveInitialUserMessageItemParam
-    extends LiveInitialItem {
+final class LiveInitialItemLiveInitialUserMessageItemParam extends LiveInitialItem {
   final LiveInitialUserMessageItemParam value;
   const LiveInitialItemLiveInitialUserMessageItemParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveInitialItemLiveInitialAssistantMessageItemParam
-    extends LiveInitialItem {
+final class LiveInitialItemLiveInitialAssistantMessageItemParam extends LiveInitialItem {
   final LiveInitialAssistantMessageItemParam value;
   const LiveInitialItemLiveInitialAssistantMessageItemParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [LiveInitialItem] whose `role` names no branch this SDK knows, kept as received.
 final class UnknownLiveInitialItem extends LiveInitialItem {
   final Map<String, dynamic> raw;
   const UnknownLiveInitialItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

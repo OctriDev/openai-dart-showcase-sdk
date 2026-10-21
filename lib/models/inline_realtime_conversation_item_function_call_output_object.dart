@@ -6,60 +6,46 @@ part of 'inline.dart';
 // Inline operation models
 /// Identifier for the API object being returned - always `realtime.item`. Optional when creating a new item.
 final class RealtimeConversationItemFunctionCallOutputObject {
+
   final String value;
 
   const RealtimeConversationItemFunctionCallOutputObject._(this.value);
 
-  factory RealtimeConversationItemFunctionCallOutputObject.fromJson(
-          String value) =>
-      RealtimeConversationItemFunctionCallOutputObject._(value);
+  factory RealtimeConversationItemFunctionCallOutputObject.fromJson(String value) => RealtimeConversationItemFunctionCallOutputObject._(value);
 
-  static const realtimeItem =
-      RealtimeConversationItemFunctionCallOutputObject._('realtime.item');
+  static const realtimeItem = RealtimeConversationItemFunctionCallOutputObject._('realtime.item');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemFunctionCallOutputObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemFunctionCallOutputObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the item. Has no effect on the conversation.
 final class RealtimeConversationItemFunctionCallOutputStatus {
+
   final String value;
 
   const RealtimeConversationItemFunctionCallOutputStatus._(this.value);
 
-  factory RealtimeConversationItemFunctionCallOutputStatus.fromJson(
-          String value) =>
-      RealtimeConversationItemFunctionCallOutputStatus._(value);
+  factory RealtimeConversationItemFunctionCallOutputStatus.fromJson(String value) => RealtimeConversationItemFunctionCallOutputStatus._(value);
 
-  static const completed =
-      RealtimeConversationItemFunctionCallOutputStatus._('completed');
-  static const incomplete =
-      RealtimeConversationItemFunctionCallOutputStatus._('incomplete');
-  static const inProgress =
-      RealtimeConversationItemFunctionCallOutputStatus._('in_progress');
+  static const completed = RealtimeConversationItemFunctionCallOutputStatus._('completed');
+  static const incomplete = RealtimeConversationItemFunctionCallOutputStatus._('incomplete');
+  static const inProgress = RealtimeConversationItemFunctionCallOutputStatus._('in_progress');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemFunctionCallOutputStatus &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemFunctionCallOutputStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the item. Always `function_call_output`.
@@ -68,19 +54,14 @@ enum RealtimeConversationItemFunctionCallOutputType {
 
   static RealtimeConversationItemFunctionCallOutputType fromJson(String value) {
     switch (value) {
-      case 'function_call_output':
-        return RealtimeConversationItemFunctionCallOutputType
-            .functionCallOutput;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeConversationItemFunctionCallOutputType: $value');
+      case 'function_call_output': return RealtimeConversationItemFunctionCallOutputType.functionCallOutput;
+      default: throw ArgumentError('Unknown RealtimeConversationItemFunctionCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeConversationItemFunctionCallOutputType.functionCallOutput:
-        return 'function_call_output';
+      case RealtimeConversationItemFunctionCallOutputType.functionCallOutput: return 'function_call_output';
     }
   }
 
@@ -90,115 +71,89 @@ enum RealtimeConversationItemFunctionCallOutputType {
 
 /// The content type, `output_text` or `output_audio` depending on the session `output_modalities` configuration.
 final class RealtimeConversationItemMessageAssistantContentItemType {
+
   final String value;
 
   const RealtimeConversationItemMessageAssistantContentItemType._(this.value);
 
-  factory RealtimeConversationItemMessageAssistantContentItemType.fromJson(
-          String value) =>
-      RealtimeConversationItemMessageAssistantContentItemType._(value);
+  factory RealtimeConversationItemMessageAssistantContentItemType.fromJson(String value) => RealtimeConversationItemMessageAssistantContentItemType._(value);
 
-  static const outputText =
-      RealtimeConversationItemMessageAssistantContentItemType._('output_text');
-  static const outputAudio =
-      RealtimeConversationItemMessageAssistantContentItemType._('output_audio');
+  static const outputText = RealtimeConversationItemMessageAssistantContentItemType._('output_text');
+  static const outputAudio = RealtimeConversationItemMessageAssistantContentItemType._('output_audio');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageAssistantContentItemType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageAssistantContentItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Identifier for the API object being returned - always `realtime.item`. Optional when creating a new item.
 final class RealtimeConversationItemMessageAssistantObject {
+
   final String value;
 
   const RealtimeConversationItemMessageAssistantObject._(this.value);
 
-  factory RealtimeConversationItemMessageAssistantObject.fromJson(
-          String value) =>
-      RealtimeConversationItemMessageAssistantObject._(value);
+  factory RealtimeConversationItemMessageAssistantObject.fromJson(String value) => RealtimeConversationItemMessageAssistantObject._(value);
 
-  static const realtimeItem =
-      RealtimeConversationItemMessageAssistantObject._('realtime.item');
+  static const realtimeItem = RealtimeConversationItemMessageAssistantObject._('realtime.item');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageAssistantObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageAssistantObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The role of the message sender. Always `assistant`.
 final class RealtimeConversationItemMessageAssistantRole {
+
   final String value;
 
   const RealtimeConversationItemMessageAssistantRole._(this.value);
 
-  factory RealtimeConversationItemMessageAssistantRole.fromJson(String value) =>
-      RealtimeConversationItemMessageAssistantRole._(value);
+  factory RealtimeConversationItemMessageAssistantRole.fromJson(String value) => RealtimeConversationItemMessageAssistantRole._(value);
 
-  static const assistant =
-      RealtimeConversationItemMessageAssistantRole._('assistant');
+  static const assistant = RealtimeConversationItemMessageAssistantRole._('assistant');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageAssistantRole &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageAssistantRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the item. Has no effect on the conversation.
 final class RealtimeConversationItemMessageAssistantStatus {
+
   final String value;
 
   const RealtimeConversationItemMessageAssistantStatus._(this.value);
 
-  factory RealtimeConversationItemMessageAssistantStatus.fromJson(
-          String value) =>
-      RealtimeConversationItemMessageAssistantStatus._(value);
+  factory RealtimeConversationItemMessageAssistantStatus.fromJson(String value) => RealtimeConversationItemMessageAssistantStatus._(value);
 
-  static const completed =
-      RealtimeConversationItemMessageAssistantStatus._('completed');
-  static const incomplete =
-      RealtimeConversationItemMessageAssistantStatus._('incomplete');
-  static const inProgress =
-      RealtimeConversationItemMessageAssistantStatus._('in_progress');
+  static const completed = RealtimeConversationItemMessageAssistantStatus._('completed');
+  static const incomplete = RealtimeConversationItemMessageAssistantStatus._('incomplete');
+  static const inProgress = RealtimeConversationItemMessageAssistantStatus._('in_progress');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageAssistantStatus &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageAssistantStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the item. Always `message`.
@@ -207,18 +162,14 @@ enum RealtimeConversationItemMessageAssistantType {
 
   static RealtimeConversationItemMessageAssistantType fromJson(String value) {
     switch (value) {
-      case 'message':
-        return RealtimeConversationItemMessageAssistantType.message;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeConversationItemMessageAssistantType: $value');
+      case 'message': return RealtimeConversationItemMessageAssistantType.message;
+      default: throw ArgumentError('Unknown RealtimeConversationItemMessageAssistantType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeConversationItemMessageAssistantType.message:
-        return 'message';
+      case RealtimeConversationItemMessageAssistantType.message: return 'message';
     }
   }
 
@@ -228,110 +179,88 @@ enum RealtimeConversationItemMessageAssistantType {
 
 /// The content type. Always `input_text` for system messages.
 final class RealtimeConversationItemMessageSystemContentItemType {
+
   final String value;
 
   const RealtimeConversationItemMessageSystemContentItemType._(this.value);
 
-  factory RealtimeConversationItemMessageSystemContentItemType.fromJson(
-          String value) =>
-      RealtimeConversationItemMessageSystemContentItemType._(value);
+  factory RealtimeConversationItemMessageSystemContentItemType.fromJson(String value) => RealtimeConversationItemMessageSystemContentItemType._(value);
 
-  static const inputText =
-      RealtimeConversationItemMessageSystemContentItemType._('input_text');
+  static const inputText = RealtimeConversationItemMessageSystemContentItemType._('input_text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageSystemContentItemType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageSystemContentItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Identifier for the API object being returned - always `realtime.item`. Optional when creating a new item.
 final class RealtimeConversationItemMessageSystemObject {
+
   final String value;
 
   const RealtimeConversationItemMessageSystemObject._(this.value);
 
-  factory RealtimeConversationItemMessageSystemObject.fromJson(String value) =>
-      RealtimeConversationItemMessageSystemObject._(value);
+  factory RealtimeConversationItemMessageSystemObject.fromJson(String value) => RealtimeConversationItemMessageSystemObject._(value);
 
-  static const realtimeItem =
-      RealtimeConversationItemMessageSystemObject._('realtime.item');
+  static const realtimeItem = RealtimeConversationItemMessageSystemObject._('realtime.item');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageSystemObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageSystemObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The role of the message sender. Always `system`.
 final class RealtimeConversationItemMessageSystemRole {
+
   final String value;
 
   const RealtimeConversationItemMessageSystemRole._(this.value);
 
-  factory RealtimeConversationItemMessageSystemRole.fromJson(String value) =>
-      RealtimeConversationItemMessageSystemRole._(value);
+  factory RealtimeConversationItemMessageSystemRole.fromJson(String value) => RealtimeConversationItemMessageSystemRole._(value);
 
   static const system = RealtimeConversationItemMessageSystemRole._('system');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageSystemRole &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageSystemRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the item. Has no effect on the conversation.
 final class RealtimeConversationItemMessageSystemStatus {
+
   final String value;
 
   const RealtimeConversationItemMessageSystemStatus._(this.value);
 
-  factory RealtimeConversationItemMessageSystemStatus.fromJson(String value) =>
-      RealtimeConversationItemMessageSystemStatus._(value);
+  factory RealtimeConversationItemMessageSystemStatus.fromJson(String value) => RealtimeConversationItemMessageSystemStatus._(value);
 
-  static const completed =
-      RealtimeConversationItemMessageSystemStatus._('completed');
-  static const incomplete =
-      RealtimeConversationItemMessageSystemStatus._('incomplete');
-  static const inProgress =
-      RealtimeConversationItemMessageSystemStatus._('in_progress');
+  static const completed = RealtimeConversationItemMessageSystemStatus._('completed');
+  static const incomplete = RealtimeConversationItemMessageSystemStatus._('incomplete');
+  static const inProgress = RealtimeConversationItemMessageSystemStatus._('in_progress');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeConversationItemMessageSystemStatus &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeConversationItemMessageSystemStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the item. Always `message`.
@@ -340,18 +269,14 @@ enum RealtimeConversationItemMessageSystemType {
 
   static RealtimeConversationItemMessageSystemType fromJson(String value) {
     switch (value) {
-      case 'message':
-        return RealtimeConversationItemMessageSystemType.message;
-      default:
-        throw ArgumentError(
-            'Unknown RealtimeConversationItemMessageSystemType: $value');
+      case 'message': return RealtimeConversationItemMessageSystemType.message;
+      default: throw ArgumentError('Unknown RealtimeConversationItemMessageSystemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeConversationItemMessageSystemType.message:
-        return 'message';
+      case RealtimeConversationItemMessageSystemType.message: return 'message';
     }
   }
 

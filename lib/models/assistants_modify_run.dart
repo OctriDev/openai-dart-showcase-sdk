@@ -8,37 +8,25 @@ part of 'assistants_modify.dart';
 class ModifyRunRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
 
   const ModifyRunRequest({this.metadata = const SdkOmitted()});
 
-  ModifyRunRequest Function({SdkOptional<Map<String, dynamic>?> metadata})
-      get copyWith => _copyWith;
+  ModifyRunRequest Function({SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
 
-  ModifyRunRequest _copyWith({Object? metadata = sdkOmittedValue}) =>
-      ModifyRunRequest(
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>?>,
-      );
+  ModifyRunRequest _copyWith({Object? metadata = sdkOmittedValue}) => ModifyRunRequest(
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
+  );
 
-  factory ModifyRunRequest.fromJson(Map<String, dynamic> json) =>
-      ModifyRunRequest(
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+  factory ModifyRunRequest.fromJson(Map<String, dynamic> json) => ModifyRunRequest(
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

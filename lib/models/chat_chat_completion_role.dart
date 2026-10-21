@@ -6,12 +6,12 @@ part of 'chat_chat_completion.dart';
 // chat_chat_completion domain models
 /// The role of the author of a message
 final class ChatCompletionRole {
+
   final String value;
 
   const ChatCompletionRole._(this.value);
 
-  factory ChatCompletionRole.fromJson(String value) =>
-      ChatCompletionRole._(value);
+  factory ChatCompletionRole.fromJson(String value) => ChatCompletionRole._(value);
 
   static const developer = ChatCompletionRole._('developer');
   static const system = ChatCompletionRole._('system');
@@ -22,13 +22,10 @@ final class ChatCompletionRole {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ChatCompletionRole && other.value == value;
+  @override bool operator ==(Object other) => other is ChatCompletionRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

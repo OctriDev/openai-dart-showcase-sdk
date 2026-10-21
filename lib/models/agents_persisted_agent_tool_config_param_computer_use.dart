@@ -8,51 +8,30 @@ part of 'agents_persisted.dart';
 class PersistedAgentToolConfigParamComputerUse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `computer_use`.
   final PersistedAgentToolConfigParamComputerUseType type_;
-
   /// Whether computer tool outputs include screenshots. Defaults to `false`.
   final SdkOptional<bool> includeScreenshots;
 
-  const PersistedAgentToolConfigParamComputerUse(
-      {required this.type_, this.includeScreenshots = const SdkOmitted()});
+  const PersistedAgentToolConfigParamComputerUse({required this.type_, this.includeScreenshots = const SdkOmitted()});
 
-  PersistedAgentToolConfigParamComputerUse Function(
-      {PersistedAgentToolConfigParamComputerUseType type_,
-      SdkOptional<bool> includeScreenshots}) get copyWith => _copyWith;
+  PersistedAgentToolConfigParamComputerUse Function({PersistedAgentToolConfigParamComputerUseType type_, SdkOptional<bool> includeScreenshots}) get copyWith => _copyWith;
 
-  PersistedAgentToolConfigParamComputerUse _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? includeScreenshots = sdkOmittedValue}) =>
-      PersistedAgentToolConfigParamComputerUse(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as PersistedAgentToolConfigParamComputerUseType,
-        includeScreenshots: identical(includeScreenshots, sdkOmittedValue)
-            ? this.includeScreenshots
-            : includeScreenshots as SdkOptional<bool>,
-      );
+  PersistedAgentToolConfigParamComputerUse _copyWith({Object? type_ = sdkOmittedValue, Object? includeScreenshots = sdkOmittedValue}) => PersistedAgentToolConfigParamComputerUse(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as PersistedAgentToolConfigParamComputerUseType,
+    includeScreenshots: identical(includeScreenshots, sdkOmittedValue) ? this.includeScreenshots : includeScreenshots as SdkOptional<bool>,
+  );
 
-  factory PersistedAgentToolConfigParamComputerUse.fromJson(
-          Map<String, dynamic> json) =>
-      PersistedAgentToolConfigParamComputerUse(
-        type_: (json['type'] != null
-            ? PersistedAgentToolConfigParamComputerUseType.fromJson(
-                json['type'] as String)
-            : null)!,
-        includeScreenshots: json['include_screenshots'] != null
-            ? SdkPresent((json['include_screenshots'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory PersistedAgentToolConfigParamComputerUse.fromJson(Map<String, dynamic> json) => PersistedAgentToolConfigParamComputerUse(
+    type_: (json['type'] != null ? PersistedAgentToolConfigParamComputerUseType.fromJson(json['type'] as String) : null)!,
+    includeScreenshots: json['include_screenshots'] != null ? SdkPresent((json['include_screenshots'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (includeScreenshots) {
-          SdkPresent<bool>(value: final value) => {
-              'include_screenshots': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (includeScreenshots) {
+      SdkPresent<bool>(value: final value) => {'include_screenshots': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

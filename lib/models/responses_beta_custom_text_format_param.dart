@@ -8,30 +8,22 @@ part of 'responses_beta_custom.dart';
 class BetaCustomTextFormatParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unconstrained text format. Always `text`.
   final BetaCustomTextFormatParamType type_;
 
   const BetaCustomTextFormatParam({required this.type_});
 
-  BetaCustomTextFormatParam Function({BetaCustomTextFormatParamType type_})
-      get copyWith => _copyWith;
+  BetaCustomTextFormatParam Function({BetaCustomTextFormatParamType type_}) get copyWith => _copyWith;
 
-  BetaCustomTextFormatParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      BetaCustomTextFormatParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaCustomTextFormatParamType,
-      );
+  BetaCustomTextFormatParam _copyWith({Object? type_ = sdkOmittedValue}) => BetaCustomTextFormatParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaCustomTextFormatParamType,
+  );
 
-  factory BetaCustomTextFormatParam.fromJson(Map<String, dynamic> json) =>
-      BetaCustomTextFormatParam(
-        type_: (json['type'] != null
-            ? BetaCustomTextFormatParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory BetaCustomTextFormatParam.fromJson(Map<String, dynamic> json) => BetaCustomTextFormatParam(
+    type_: (json['type'] != null ? BetaCustomTextFormatParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

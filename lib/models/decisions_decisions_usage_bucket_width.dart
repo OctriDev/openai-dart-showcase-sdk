@@ -6,12 +6,12 @@ part of 'decisions_decisions.dart';
 // decisions_decisions domain models
 /// Typed representation of the `DecisionsUsageBucketWidth` API schema.
 final class DecisionsUsageBucketWidth {
+
   final String value;
 
   const DecisionsUsageBucketWidth._(this.value);
 
-  factory DecisionsUsageBucketWidth.fromJson(String value) =>
-      DecisionsUsageBucketWidth._(value);
+  factory DecisionsUsageBucketWidth.fromJson(String value) => DecisionsUsageBucketWidth._(value);
 
   static const v1m = DecisionsUsageBucketWidth._('1m');
   static const v1h = DecisionsUsageBucketWidth._('1h');
@@ -19,13 +19,10 @@ final class DecisionsUsageBucketWidth {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DecisionsUsageBucketWidth && other.value == value;
+  @override bool operator ==(Object other) => other is DecisionsUsageBucketWidth && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

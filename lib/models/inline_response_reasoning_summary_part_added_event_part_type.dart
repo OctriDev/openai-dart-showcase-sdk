@@ -6,29 +6,23 @@ part of 'inline.dart';
 // Inline operation models
 /// The type of the summary part. Always `summary_text`.
 final class ResponseReasoningSummaryPartAddedEventPartType {
+
   final String value;
 
   const ResponseReasoningSummaryPartAddedEventPartType._(this.value);
 
-  factory ResponseReasoningSummaryPartAddedEventPartType.fromJson(
-          String value) =>
-      ResponseReasoningSummaryPartAddedEventPartType._(value);
+  factory ResponseReasoningSummaryPartAddedEventPartType.fromJson(String value) => ResponseReasoningSummaryPartAddedEventPartType._(value);
 
-  static const summaryText =
-      ResponseReasoningSummaryPartAddedEventPartType._('summary_text');
+  static const summaryText = ResponseReasoningSummaryPartAddedEventPartType._('summary_text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResponseReasoningSummaryPartAddedEventPartType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ResponseReasoningSummaryPartAddedEventPartType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always `response.reasoning_summary_part.added`.
@@ -37,20 +31,14 @@ enum ResponseReasoningSummaryPartAddedEventType {
 
   static ResponseReasoningSummaryPartAddedEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_summary_part.added':
-        return ResponseReasoningSummaryPartAddedEventType
-            .responseReasoningSummaryPartAdded;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseReasoningSummaryPartAddedEventType: $value');
+      case 'response.reasoning_summary_part.added': return ResponseReasoningSummaryPartAddedEventType.responseReasoningSummaryPartAdded;
+      default: throw ArgumentError('Unknown ResponseReasoningSummaryPartAddedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseReasoningSummaryPartAddedEventType
-            .responseReasoningSummaryPartAdded:
-        return 'response.reasoning_summary_part.added';
+      case ResponseReasoningSummaryPartAddedEventType.responseReasoningSummaryPartAdded: return 'response.reasoning_summary_part.added';
     }
   }
 
@@ -60,55 +48,44 @@ enum ResponseReasoningSummaryPartAddedEventType {
 
 /// The type of the summary part. Always `summary_text`.
 final class ResponseReasoningSummaryPartDoneEventPartType {
+
   final String value;
 
   const ResponseReasoningSummaryPartDoneEventPartType._(this.value);
 
-  factory ResponseReasoningSummaryPartDoneEventPartType.fromJson(
-          String value) =>
-      ResponseReasoningSummaryPartDoneEventPartType._(value);
+  factory ResponseReasoningSummaryPartDoneEventPartType.fromJson(String value) => ResponseReasoningSummaryPartDoneEventPartType._(value);
 
-  static const summaryText =
-      ResponseReasoningSummaryPartDoneEventPartType._('summary_text');
+  static const summaryText = ResponseReasoningSummaryPartDoneEventPartType._('summary_text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResponseReasoningSummaryPartDoneEventPartType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ResponseReasoningSummaryPartDoneEventPartType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The completion status of the summary part. Omitted when the part completed normally and set to `incomplete` when generation was interrupted.
 final class ResponseReasoningSummaryPartDoneEventStatus {
+
   final String value;
 
   const ResponseReasoningSummaryPartDoneEventStatus._(this.value);
 
-  factory ResponseReasoningSummaryPartDoneEventStatus.fromJson(String value) =>
-      ResponseReasoningSummaryPartDoneEventStatus._(value);
+  factory ResponseReasoningSummaryPartDoneEventStatus.fromJson(String value) => ResponseReasoningSummaryPartDoneEventStatus._(value);
 
-  static const incomplete =
-      ResponseReasoningSummaryPartDoneEventStatus._('incomplete');
+  static const incomplete = ResponseReasoningSummaryPartDoneEventStatus._('incomplete');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResponseReasoningSummaryPartDoneEventStatus &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ResponseReasoningSummaryPartDoneEventStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the event. Always `response.reasoning_summary_part.done`.
@@ -117,20 +94,14 @@ enum ResponseReasoningSummaryPartDoneEventType {
 
   static ResponseReasoningSummaryPartDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_summary_part.done':
-        return ResponseReasoningSummaryPartDoneEventType
-            .responseReasoningSummaryPartDone;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseReasoningSummaryPartDoneEventType: $value');
+      case 'response.reasoning_summary_part.done': return ResponseReasoningSummaryPartDoneEventType.responseReasoningSummaryPartDone;
+      default: throw ArgumentError('Unknown ResponseReasoningSummaryPartDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseReasoningSummaryPartDoneEventType
-            .responseReasoningSummaryPartDone:
-        return 'response.reasoning_summary_part.done';
+      case ResponseReasoningSummaryPartDoneEventType.responseReasoningSummaryPartDone: return 'response.reasoning_summary_part.done';
     }
   }
 
@@ -144,20 +115,14 @@ enum ResponseReasoningSummaryTextDeltaEventType {
 
   static ResponseReasoningSummaryTextDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_summary_text.delta':
-        return ResponseReasoningSummaryTextDeltaEventType
-            .responseReasoningSummaryTextDelta;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseReasoningSummaryTextDeltaEventType: $value');
+      case 'response.reasoning_summary_text.delta': return ResponseReasoningSummaryTextDeltaEventType.responseReasoningSummaryTextDelta;
+      default: throw ArgumentError('Unknown ResponseReasoningSummaryTextDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseReasoningSummaryTextDeltaEventType
-            .responseReasoningSummaryTextDelta:
-        return 'response.reasoning_summary_text.delta';
+      case ResponseReasoningSummaryTextDeltaEventType.responseReasoningSummaryTextDelta: return 'response.reasoning_summary_text.delta';
     }
   }
 
@@ -171,20 +136,14 @@ enum ResponseReasoningSummaryTextDoneEventType {
 
   static ResponseReasoningSummaryTextDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_summary_text.done':
-        return ResponseReasoningSummaryTextDoneEventType
-            .responseReasoningSummaryTextDone;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseReasoningSummaryTextDoneEventType: $value');
+      case 'response.reasoning_summary_text.done': return ResponseReasoningSummaryTextDoneEventType.responseReasoningSummaryTextDone;
+      default: throw ArgumentError('Unknown ResponseReasoningSummaryTextDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseReasoningSummaryTextDoneEventType
-            .responseReasoningSummaryTextDone:
-        return 'response.reasoning_summary_text.done';
+      case ResponseReasoningSummaryTextDoneEventType.responseReasoningSummaryTextDone: return 'response.reasoning_summary_text.done';
     }
   }
 
@@ -198,18 +157,14 @@ enum ResponseReasoningTextDeltaEventType {
 
   static ResponseReasoningTextDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_text.delta':
-        return ResponseReasoningTextDeltaEventType.responseReasoningTextDelta;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseReasoningTextDeltaEventType: $value');
+      case 'response.reasoning_text.delta': return ResponseReasoningTextDeltaEventType.responseReasoningTextDelta;
+      default: throw ArgumentError('Unknown ResponseReasoningTextDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseReasoningTextDeltaEventType.responseReasoningTextDelta:
-        return 'response.reasoning_text.delta';
+      case ResponseReasoningTextDeltaEventType.responseReasoningTextDelta: return 'response.reasoning_text.delta';
     }
   }
 
@@ -223,18 +178,14 @@ enum ResponseReasoningTextDoneEventType {
 
   static ResponseReasoningTextDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_text.done':
-        return ResponseReasoningTextDoneEventType.responseReasoningTextDone;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseReasoningTextDoneEventType: $value');
+      case 'response.reasoning_text.done': return ResponseReasoningTextDoneEventType.responseReasoningTextDone;
+      default: throw ArgumentError('Unknown ResponseReasoningTextDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseReasoningTextDoneEventType.responseReasoningTextDone:
-        return 'response.reasoning_text.done';
+      case ResponseReasoningTextDoneEventType.responseReasoningTextDone: return 'response.reasoning_text.done';
     }
   }
 
@@ -248,17 +199,14 @@ enum ResponseRefusalDeltaEventType {
 
   static ResponseRefusalDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.refusal.delta':
-        return ResponseRefusalDeltaEventType.responseRefusalDelta;
-      default:
-        throw ArgumentError('Unknown ResponseRefusalDeltaEventType: $value');
+      case 'response.refusal.delta': return ResponseRefusalDeltaEventType.responseRefusalDelta;
+      default: throw ArgumentError('Unknown ResponseRefusalDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseRefusalDeltaEventType.responseRefusalDelta:
-        return 'response.refusal.delta';
+      case ResponseRefusalDeltaEventType.responseRefusalDelta: return 'response.refusal.delta';
     }
   }
 
@@ -272,17 +220,14 @@ enum ResponseRefusalDoneEventType {
 
   static ResponseRefusalDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.refusal.done':
-        return ResponseRefusalDoneEventType.responseRefusalDone;
-      default:
-        throw ArgumentError('Unknown ResponseRefusalDoneEventType: $value');
+      case 'response.refusal.done': return ResponseRefusalDoneEventType.responseRefusalDone;
+      default: throw ArgumentError('Unknown ResponseRefusalDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseRefusalDoneEventType.responseRefusalDone:
-        return 'response.refusal.done';
+      case ResponseRefusalDoneEventType.responseRefusalDone: return 'response.refusal.done';
     }
   }
 
@@ -296,18 +241,14 @@ enum ResponsesClientEventResponseCreateVariant0Type {
 
   static ResponsesClientEventResponseCreateVariant0Type fromJson(String value) {
     switch (value) {
-      case 'response.create':
-        return ResponsesClientEventResponseCreateVariant0Type.responseCreate;
-      default:
-        throw ArgumentError(
-            'Unknown ResponsesClientEventResponseCreateVariant0Type: $value');
+      case 'response.create': return ResponsesClientEventResponseCreateVariant0Type.responseCreate;
+      default: throw ArgumentError('Unknown ResponsesClientEventResponseCreateVariant0Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponsesClientEventResponseCreateVariant0Type.responseCreate:
-        return 'response.create';
+      case ResponsesClientEventResponseCreateVariant0Type.responseCreate: return 'response.create';
     }
   }
 
@@ -319,23 +260,16 @@ enum ResponsesClientEventResponseCreateVariant0Type {
 enum ResponseShellCallCommandAddedStreamingEventType {
   responseShellCallCommandAdded;
 
-  static ResponseShellCallCommandAddedStreamingEventType fromJson(
-      String value) {
+  static ResponseShellCallCommandAddedStreamingEventType fromJson(String value) {
     switch (value) {
-      case 'response.shell_call_command.added':
-        return ResponseShellCallCommandAddedStreamingEventType
-            .responseShellCallCommandAdded;
-      default:
-        throw ArgumentError(
-            'Unknown ResponseShellCallCommandAddedStreamingEventType: $value');
+      case 'response.shell_call_command.added': return ResponseShellCallCommandAddedStreamingEventType.responseShellCallCommandAdded;
+      default: throw ArgumentError('Unknown ResponseShellCallCommandAddedStreamingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseShellCallCommandAddedStreamingEventType
-            .responseShellCallCommandAdded:
-        return 'response.shell_call_command.added';
+      case ResponseShellCallCommandAddedStreamingEventType.responseShellCallCommandAdded: return 'response.shell_call_command.added';
     }
   }
 

@@ -10,17 +10,14 @@ enum LiveDecisionItemCreatedType {
 
   static LiveDecisionItemCreatedType fromJson(String value) {
     switch (value) {
-      case 'decision.item.created':
-        return LiveDecisionItemCreatedType.decisionItemCreated;
-      default:
-        throw ArgumentError('Unknown LiveDecisionItemCreatedType: $value');
+      case 'decision.item.created': return LiveDecisionItemCreatedType.decisionItemCreated;
+      default: throw ArgumentError('Unknown LiveDecisionItemCreatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionItemCreatedType.decisionItemCreated:
-        return 'decision.item.created';
+      case LiveDecisionItemCreatedType.decisionItemCreated: return 'decision.item.created';
     }
   }
 
@@ -34,17 +31,14 @@ enum LiveDecisionItemCreateParamType {
 
   static LiveDecisionItemCreateParamType fromJson(String value) {
     switch (value) {
-      case 'decision.item.create':
-        return LiveDecisionItemCreateParamType.decisionItemCreate;
-      default:
-        throw ArgumentError('Unknown LiveDecisionItemCreateParamType: $value');
+      case 'decision.item.create': return LiveDecisionItemCreateParamType.decisionItemCreate;
+      default: throw ArgumentError('Unknown LiveDecisionItemCreateParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionItemCreateParamType.decisionItemCreate:
-        return 'decision.item.create';
+      case LiveDecisionItemCreateParamType.decisionItemCreate: return 'decision.item.create';
     }
   }
 
@@ -58,17 +52,14 @@ enum LiveDecisionItemDeletedType {
 
   static LiveDecisionItemDeletedType fromJson(String value) {
     switch (value) {
-      case 'decision.item.deleted':
-        return LiveDecisionItemDeletedType.decisionItemDeleted;
-      default:
-        throw ArgumentError('Unknown LiveDecisionItemDeletedType: $value');
+      case 'decision.item.deleted': return LiveDecisionItemDeletedType.decisionItemDeleted;
+      default: throw ArgumentError('Unknown LiveDecisionItemDeletedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionItemDeletedType.decisionItemDeleted:
-        return 'decision.item.deleted';
+      case LiveDecisionItemDeletedType.decisionItemDeleted: return 'decision.item.deleted';
     }
   }
 
@@ -82,17 +73,14 @@ enum LiveDecisionItemDeleteParamType {
 
   static LiveDecisionItemDeleteParamType fromJson(String value) {
     switch (value) {
-      case 'decision.item.delete':
-        return LiveDecisionItemDeleteParamType.decisionItemDelete;
-      default:
-        throw ArgumentError('Unknown LiveDecisionItemDeleteParamType: $value');
+      case 'decision.item.delete': return LiveDecisionItemDeleteParamType.decisionItemDelete;
+      default: throw ArgumentError('Unknown LiveDecisionItemDeleteParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionItemDeleteParamType.decisionItemDelete:
-        return 'decision.item.delete';
+      case LiveDecisionItemDeleteParamType.decisionItemDelete: return 'decision.item.delete';
     }
   }
 
@@ -106,18 +94,14 @@ enum LiveDecisionPredicateQuestionParamType {
 
   static LiveDecisionPredicateQuestionParamType fromJson(String value) {
     switch (value) {
-      case 'predicate':
-        return LiveDecisionPredicateQuestionParamType.predicate;
-      default:
-        throw ArgumentError(
-            'Unknown LiveDecisionPredicateQuestionParamType: $value');
+      case 'predicate': return LiveDecisionPredicateQuestionParamType.predicate;
+      default: throw ArgumentError('Unknown LiveDecisionPredicateQuestionParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionPredicateQuestionParamType.predicate:
-        return 'predicate';
+      case LiveDecisionPredicateQuestionParamType.predicate: return 'predicate';
     }
   }
 
@@ -131,18 +115,14 @@ enum LiveDecisionScoreQuestionParamType {
 
   static LiveDecisionScoreQuestionParamType fromJson(String value) {
     switch (value) {
-      case 'score':
-        return LiveDecisionScoreQuestionParamType.score;
-      default:
-        throw ArgumentError(
-            'Unknown LiveDecisionScoreQuestionParamType: $value');
+      case 'score': return LiveDecisionScoreQuestionParamType.score;
+      default: throw ArgumentError('Unknown LiveDecisionScoreQuestionParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionScoreQuestionParamType.score:
-        return 'score';
+      case LiveDecisionScoreQuestionParamType.score: return 'score';
     }
   }
 
@@ -156,17 +136,14 @@ enum LiveDecisionsDelegationParamType {
 
   static LiveDecisionsDelegationParamType fromJson(String value) {
     switch (value) {
-      case 'decisions':
-        return LiveDecisionsDelegationParamType.decisions;
-      default:
-        throw ArgumentError('Unknown LiveDecisionsDelegationParamType: $value');
+      case 'decisions': return LiveDecisionsDelegationParamType.decisions;
+      default: throw ArgumentError('Unknown LiveDecisionsDelegationParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionsDelegationParamType.decisions:
-        return 'decisions';
+      case LiveDecisionsDelegationParamType.decisions: return 'decisions';
     }
   }
 
@@ -180,18 +157,14 @@ enum LiveDecisionsDelegationParam2Type {
 
   static LiveDecisionsDelegationParam2Type fromJson(String value) {
     switch (value) {
-      case 'decisions':
-        return LiveDecisionsDelegationParam2Type.decisions;
-      default:
-        throw ArgumentError(
-            'Unknown LiveDecisionsDelegationParam2Type: $value');
+      case 'decisions': return LiveDecisionsDelegationParam2Type.decisions;
+      default: throw ArgumentError('Unknown LiveDecisionsDelegationParam2Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionsDelegationParam2Type.decisions:
-        return 'decisions';
+      case LiveDecisionsDelegationParam2Type.decisions: return 'decisions';
     }
   }
 
@@ -205,18 +178,14 @@ enum LiveDecisionsDelegationUpdateParamType {
 
   static LiveDecisionsDelegationUpdateParamType fromJson(String value) {
     switch (value) {
-      case 'decisions':
-        return LiveDecisionsDelegationUpdateParamType.decisions;
-      default:
-        throw ArgumentError(
-            'Unknown LiveDecisionsDelegationUpdateParamType: $value');
+      case 'decisions': return LiveDecisionsDelegationUpdateParamType.decisions;
+      default: throw ArgumentError('Unknown LiveDecisionsDelegationUpdateParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionsDelegationUpdateParamType.decisions:
-        return 'decisions';
+      case LiveDecisionsDelegationUpdateParamType.decisions: return 'decisions';
     }
   }
 
@@ -226,101 +195,85 @@ enum LiveDecisionsDelegationUpdateParamType {
 
 /// The message role. Always `user`.
 final class LiveDecisionStoredInputItemParamRole {
+
   final String value;
 
   const LiveDecisionStoredInputItemParamRole._(this.value);
 
-  factory LiveDecisionStoredInputItemParamRole.fromJson(String value) =>
-      LiveDecisionStoredInputItemParamRole._(value);
+  factory LiveDecisionStoredInputItemParamRole.fromJson(String value) => LiveDecisionStoredInputItemParamRole._(value);
 
   static const user = LiveDecisionStoredInputItemParamRole._('user');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDecisionStoredInputItemParamRole && other.value == value;
+  @override bool operator ==(Object other) => other is LiveDecisionStoredInputItemParamRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `type` wire field.
 final class LiveDecisionStoredInputItemParamType {
+
   final String value;
 
   const LiveDecisionStoredInputItemParamType._(this.value);
 
-  factory LiveDecisionStoredInputItemParamType.fromJson(String value) =>
-      LiveDecisionStoredInputItemParamType._(value);
+  factory LiveDecisionStoredInputItemParamType.fromJson(String value) => LiveDecisionStoredInputItemParamType._(value);
 
   static const message = LiveDecisionStoredInputItemParamType._('message');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDecisionStoredInputItemParamType && other.value == value;
+  @override bool operator ==(Object other) => other is LiveDecisionStoredInputItemParamType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `event_type` wire field.
 final class LiveDecisionTriggerInputParamEventType {
+
   final String value;
 
   const LiveDecisionTriggerInputParamEventType._(this.value);
 
-  factory LiveDecisionTriggerInputParamEventType.fromJson(String value) =>
-      LiveDecisionTriggerInputParamEventType._(value);
+  factory LiveDecisionTriggerInputParamEventType.fromJson(String value) => LiveDecisionTriggerInputParamEventType._(value);
 
-  static const sessionInputTranscriptDelta =
-      LiveDecisionTriggerInputParamEventType._(
-          'session.input_transcript.delta');
-  static const sessionOutputTranscriptDelta =
-      LiveDecisionTriggerInputParamEventType._(
-          'session.output_transcript.delta');
+  static const sessionInputTranscriptDelta = LiveDecisionTriggerInputParamEventType._('session.input_transcript.delta');
+  static const sessionOutputTranscriptDelta = LiveDecisionTriggerInputParamEventType._('session.output_transcript.delta');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDecisionTriggerInputParamEventType && other.value == value;
+  @override bool operator ==(Object other) => other is LiveDecisionTriggerInputParamEventType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 final class LiveDecisionTriggerInputParamType {
+
   final String value;
 
   const LiveDecisionTriggerInputParamType._(this.value);
 
-  factory LiveDecisionTriggerInputParamType.fromJson(String value) =>
-      LiveDecisionTriggerInputParamType._(value);
+  factory LiveDecisionTriggerInputParamType.fromJson(String value) => LiveDecisionTriggerInputParamType._(value);
 
   static const decisions = LiveDecisionTriggerInputParamType._('decisions');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDecisionTriggerInputParamType && other.value == value;
+  @override bool operator ==(Object other) => other is LiveDecisionTriggerInputParamType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

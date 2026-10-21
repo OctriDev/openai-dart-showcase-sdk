@@ -6,6 +6,7 @@ part of 'agents_verbosity.dart';
 // agents_verbosity domain models
 /// The amount of text the model should produce.
 final class VerbosityParam {
+
   final String value;
 
   const VerbosityParam._(this.value);
@@ -18,25 +19,22 @@ final class VerbosityParam {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerbosityParam && other.value == value;
+  @override bool operator ==(Object other) => other is VerbosityParam && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The amount of text produced by an agent.
 final class VerbosityResource {
+
   final String value;
 
   const VerbosityResource._(this.value);
 
-  factory VerbosityResource.fromJson(String value) =>
-      VerbosityResource._(value);
+  factory VerbosityResource.fromJson(String value) => VerbosityResource._(value);
 
   static const low = VerbosityResource._('low');
   static const medium = VerbosityResource._('medium');
@@ -44,13 +42,10 @@ final class VerbosityResource {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerbosityResource && other.value == value;
+  @override bool operator ==(Object other) => other is VerbosityResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -20,8 +20,7 @@ Future<RoleListResource> listProjectGroupRoleAssignments(ClientConfig config,
     required String groupId,
     SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<ListProjectGroupRoleAssignmentsOrder> order =
-        const SdkOmitted(),
+    SdkOptional<ListProjectGroupRoleAssignmentsOrder> order = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 0, max: 1000);
@@ -31,30 +30,19 @@ Future<RoleListResource> listProjectGroupRoleAssignments(ClientConfig config,
           '/projects/${Uri.encodeComponent(projectId.toString())}/groups/${Uri.encodeComponent(groupId.toString())}/roles',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listProjectGroupRoleAssignments',
-          fromJsonRaw: (value) =>
-              RoleListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RoleListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists the project roles assigned to a group within a project.
 ///
@@ -64,32 +52,13 @@ Future<RoleListResource> listProjectGroupRoleAssignments(ClientConfig config,
 /// [after] Cursor for pagination. Provide the value from the previous
 ///   response's `next` field to continue listing project roles.
 /// [order] Sort order for the returned project roles.
-Stream<AssignedRoleDetails> listProjectGroupRoleAssignmentsPaginated(
-    ClientConfig config,
-    {required String projectId,
-    required String groupId,
-    int? limit,
-    String? after,
-    ListProjectGroupRoleAssignmentsOrder? order,
-    RequestOptions? requestOptions}) async* {
+Stream<AssignedRoleDetails> listProjectGroupRoleAssignmentsPaginated(ClientConfig config, {required String projectId, required String groupId, int? limit, String? after, ListProjectGroupRoleAssignmentsOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectGroupRoleAssignments(config,
-        projectId: projectId,
-        groupId: groupId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListProjectGroupRoleAssignmentsOrder>()
-            : SdkPresent<ListProjectGroupRoleAssignmentsOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listProjectGroupRoleAssignments(config, projectId: projectId, groupId: groupId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListProjectGroupRoleAssignmentsOrder>() : SdkPresent<ListProjectGroupRoleAssignmentsOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.next;
     if (sdkNext == null) return;
@@ -97,27 +66,10 @@ Stream<AssignedRoleDetails> listProjectGroupRoleAssignmentsPaginated(
   }
 }
 
-Stream<SdkPage<RoleListResource, AssignedRoleDetails>>
-    listProjectGroupRoleAssignmentsPages(ClientConfig config,
-        {required String projectId,
-        required String groupId,
-        int? limit,
-        String? after,
-        ListProjectGroupRoleAssignmentsOrder? order,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<RoleListResource, AssignedRoleDetails>> listProjectGroupRoleAssignmentsPages(ClientConfig config, {required String projectId, required String groupId, int? limit, String? after, ListProjectGroupRoleAssignmentsOrder? order, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectGroupRoleAssignments(config,
-        projectId: projectId,
-        groupId: groupId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        order: order == null
-            ? const SdkOmitted<ListProjectGroupRoleAssignmentsOrder>()
-            : SdkPresent<ListProjectGroupRoleAssignmentsOrder>(order),
-        requestOptions: requestOptions);
+    final sdkPage = await listProjectGroupRoleAssignments(config, projectId: projectId, groupId: groupId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListProjectGroupRoleAssignmentsOrder>() : SdkPresent<ListProjectGroupRoleAssignmentsOrder>(order), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.next;
@@ -127,6 +79,7 @@ Stream<SdkPage<RoleListResource, AssignedRoleDetails>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Assigns a project role to a group within a project.
 ///
@@ -144,21 +97,12 @@ Future<GroupRoleAssignment> assignProjectGroupRole(ClientConfig config,
           body: {'role_id': roleId},
           decoder: SdkResponseDecoder.json,
           operationId: 'assignProjectGroupRole',
-          fromJsonRaw: (value) =>
-              GroupRoleAssignment.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GroupRoleAssignment.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a role assigned to a group within a project. Use the project, group, and role identifiers to locate the assignment and inspect its permissions and assignment details.
 ///
@@ -177,18 +121,12 @@ Future<AssignedRoleDetails> retrieveProjectGroupRole(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveProjectGroupRole',
-          fromJsonRaw: (value) =>
-              AssignedRoleDetails.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AssignedRoleDetails.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Unassigns a project role from a group within a project.
 ///
@@ -196,26 +134,19 @@ Future<AssignedRoleDetails> retrieveProjectGroupRole(ClientConfig config,
 /// [groupId] The ID of the group whose project role assignment should be
 ///   removed.
 /// [roleId] The ID of the project role to remove from the group.
-Future<DeletedRoleAssignmentResource> unassignProjectGroupRole(
-    ClientConfig config,
-    {required String projectId,
-    required String groupId,
-    required String roleId,
-    RequestOptions? requestOptions}) async {
+Future<DeletedRoleAssignmentResource>
+    unassignProjectGroupRole(ClientConfig config,
+        {required String projectId,
+        required String groupId,
+        required String roleId,
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<DeletedRoleAssignmentResource>('DELETE',
           '/projects/${Uri.encodeComponent(projectId.toString())}/groups/${Uri.encodeComponent(groupId.toString())}/roles/${Uri.encodeComponent(roleId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'unassignProjectGroupRole',
-          fromJsonRaw: (value) => DeletedRoleAssignmentResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedRoleAssignmentResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '403': (value) =>
-            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

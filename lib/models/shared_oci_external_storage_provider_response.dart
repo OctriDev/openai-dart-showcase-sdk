@@ -8,65 +8,37 @@ part of 'shared.dart';
 class OciExternalStorageProviderResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final OciExternalStorageProviderResponseType type_;
-
   /// Required `string` value serialized in the `tenancy_ocid` wire field.
   final String tenancyOcid;
-
   /// Required `string` value serialized in the `region` wire field.
   final String region;
-
   /// Required `string` value serialized in the `bucket` wire field.
   final String bucket;
 
-  const OciExternalStorageProviderResponse(
-      {required this.type_,
-      required this.tenancyOcid,
-      required this.region,
-      required this.bucket});
+  const OciExternalStorageProviderResponse({required this.type_, required this.tenancyOcid, required this.region, required this.bucket});
 
-  OciExternalStorageProviderResponse Function(
-      {OciExternalStorageProviderResponseType type_,
-      String tenancyOcid,
-      String region,
-      String bucket}) get copyWith => _copyWith;
+  OciExternalStorageProviderResponse Function({OciExternalStorageProviderResponseType type_, String tenancyOcid, String region, String bucket}) get copyWith => _copyWith;
 
-  OciExternalStorageProviderResponse _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? tenancyOcid = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? bucket = sdkOmittedValue}) =>
-      OciExternalStorageProviderResponse(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as OciExternalStorageProviderResponseType,
-        tenancyOcid: identical(tenancyOcid, sdkOmittedValue)
-            ? this.tenancyOcid
-            : tenancyOcid as String,
-        region:
-            identical(region, sdkOmittedValue) ? this.region : region as String,
-        bucket:
-            identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
-      );
+  OciExternalStorageProviderResponse _copyWith({Object? type_ = sdkOmittedValue, Object? tenancyOcid = sdkOmittedValue, Object? region = sdkOmittedValue, Object? bucket = sdkOmittedValue}) => OciExternalStorageProviderResponse(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as OciExternalStorageProviderResponseType,
+    tenancyOcid: identical(tenancyOcid, sdkOmittedValue) ? this.tenancyOcid : tenancyOcid as String,
+    region: identical(region, sdkOmittedValue) ? this.region : region as String,
+    bucket: identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
+  );
 
-  factory OciExternalStorageProviderResponse.fromJson(
-          Map<String, dynamic> json) =>
-      OciExternalStorageProviderResponse(
-        type_: (json['type'] != null
-            ? OciExternalStorageProviderResponseType.fromJson(
-                json['type'] as String)
-            : null)!,
-        tenancyOcid: (json['tenancy_ocid'] as String?)!,
-        region: (json['region'] as String?)!,
-        bucket: (json['bucket'] as String?)!,
-      );
+  factory OciExternalStorageProviderResponse.fromJson(Map<String, dynamic> json) => OciExternalStorageProviderResponse(
+    type_: (json['type'] != null ? OciExternalStorageProviderResponseType.fromJson(json['type'] as String) : null)!,
+    tenancyOcid: (json['tenancy_ocid'] as String?)!,
+    region: (json['region'] as String?)!,
+    bucket: (json['bucket'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'tenancy_ocid': tenancyOcid,
-        'region': region,
-        'bucket': bucket,
-      };
+    'type': type_.toJson(),
+    'tenancy_ocid': tenancyOcid,
+    'region': region,
+    'bucket': bucket,
+  };
 }

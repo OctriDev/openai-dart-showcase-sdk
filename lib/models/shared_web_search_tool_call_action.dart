@@ -10,75 +10,40 @@ sealed class WebSearchToolCallAction {
   const WebSearchToolCallAction();
   factory WebSearchToolCallAction.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = WebSearchActionSearch.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return WebSearchToolCallActionWebSearchActionSearch(value);
-        }
-      } catch (_) {}
-      try {
-        final value = WebSearchActionOpenPage.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return WebSearchToolCallActionWebSearchActionOpenPage(value);
-        }
-      } catch (_) {}
-      try {
-        final value = WebSearchActionFind.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return WebSearchToolCallActionWebSearchActionFind(value);
-        }
-      } catch (_) {}
+      try { final value = WebSearchActionSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchToolCallActionWebSearchActionSearch(value); } } catch (_) {}
+      try { final value = WebSearchActionOpenPage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchToolCallActionWebSearchActionOpenPage(value); } } catch (_) {}
+      try { final value = WebSearchActionFind.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return WebSearchToolCallActionWebSearchActionFind(value); } } catch (_) {}
     }
-    try {
-      return WebSearchToolCallActionWebSearchActionSearch(
-          WebSearchActionSearch.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return WebSearchToolCallActionWebSearchActionOpenPage(
-          WebSearchActionOpenPage.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return WebSearchToolCallActionWebSearchActionFind(
-          WebSearchActionFind.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"search", "open_page", "find_in_page"}.contains(json["type"])) {
-      return UnknownWebSearchToolCallAction(json);
-    }
+    try { return WebSearchToolCallActionWebSearchActionSearch(WebSearchActionSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return WebSearchToolCallActionWebSearchActionOpenPage(WebSearchActionOpenPage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return WebSearchToolCallActionWebSearchActionFind(WebSearchActionFind.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"search", "open_page", "find_in_page"}.contains(json["type"])) { return UnknownWebSearchToolCallAction(json); }
     throw FormatException("No variant matched for WebSearchToolCallAction");
   }
   Object? toJson();
 }
 
-final class WebSearchToolCallActionWebSearchActionSearch
-    extends WebSearchToolCallAction {
+final class WebSearchToolCallActionWebSearchActionSearch extends WebSearchToolCallAction {
   final WebSearchActionSearch value;
   const WebSearchToolCallActionWebSearchActionSearch(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class WebSearchToolCallActionWebSearchActionOpenPage
-    extends WebSearchToolCallAction {
+final class WebSearchToolCallActionWebSearchActionOpenPage extends WebSearchToolCallAction {
   final WebSearchActionOpenPage value;
   const WebSearchToolCallActionWebSearchActionOpenPage(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class WebSearchToolCallActionWebSearchActionFind
-    extends WebSearchToolCallAction {
+final class WebSearchToolCallActionWebSearchActionFind extends WebSearchToolCallAction {
   final WebSearchActionFind value;
   const WebSearchToolCallActionWebSearchActionFind(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [WebSearchToolCallAction] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownWebSearchToolCallAction extends WebSearchToolCallAction {
   final Map<String, dynamic> raw;
   const UnknownWebSearchToolCallAction(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

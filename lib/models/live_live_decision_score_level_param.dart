@@ -8,45 +8,30 @@ part of 'live_live_decision.dart';
 class LiveDecisionScoreLevelParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `label` wire field.
   final String label;
-
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
 
-  const LiveDecisionScoreLevelParam(
-      {required this.label, this.description = const SdkOmitted()});
+  const LiveDecisionScoreLevelParam({required this.label, this.description = const SdkOmitted()});
 
-  LiveDecisionScoreLevelParam Function(
-      {String label,
-      SdkOptional<String> description}) get copyWith => _copyWith;
+  LiveDecisionScoreLevelParam Function({String label, SdkOptional<String> description}) get copyWith => _copyWith;
 
-  LiveDecisionScoreLevelParam _copyWith(
-          {Object? label = sdkOmittedValue,
-          Object? description = sdkOmittedValue}) =>
-      LiveDecisionScoreLevelParam(
-        label: identical(label, sdkOmittedValue) ? this.label : label as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-      );
+  LiveDecisionScoreLevelParam _copyWith({Object? label = sdkOmittedValue, Object? description = sdkOmittedValue}) => LiveDecisionScoreLevelParam(
+    label: identical(label, sdkOmittedValue) ? this.label : label as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+  );
 
-  factory LiveDecisionScoreLevelParam.fromJson(Map<String, dynamic> json) =>
-      LiveDecisionScoreLevelParam(
-        label: (json['label'] as String?)!,
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory LiveDecisionScoreLevelParam.fromJson(Map<String, dynamic> json) => LiveDecisionScoreLevelParam(
+    label: (json['label'] as String?)!,
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'label': label,
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'label': label,
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

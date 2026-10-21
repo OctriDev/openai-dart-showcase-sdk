@@ -8,63 +8,37 @@ part of 'agents_hosted.dart';
 class HostedEnvironmentFileResourceInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `inline`.
   final HostedEnvironmentFileResourceInlineType type_;
-
   /// The session-scoped ID of the file in the execution environment.
   final String id;
-
   /// The file's absolute path inside the environment.
   final String path;
-
   /// The decoded file size in bytes.
   final int sizeBytes;
 
-  const HostedEnvironmentFileResourceInline(
-      {required this.type_,
-      required this.id,
-      required this.path,
-      required this.sizeBytes});
+  const HostedEnvironmentFileResourceInline({required this.type_, required this.id, required this.path, required this.sizeBytes});
 
-  HostedEnvironmentFileResourceInline Function(
-      {HostedEnvironmentFileResourceInlineType type_,
-      String id,
-      String path,
-      int sizeBytes}) get copyWith => _copyWith;
+  HostedEnvironmentFileResourceInline Function({HostedEnvironmentFileResourceInlineType type_, String id, String path, int sizeBytes}) get copyWith => _copyWith;
 
-  HostedEnvironmentFileResourceInline _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? path = sdkOmittedValue,
-          Object? sizeBytes = sdkOmittedValue}) =>
-      HostedEnvironmentFileResourceInline(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as HostedEnvironmentFileResourceInlineType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        path: identical(path, sdkOmittedValue) ? this.path : path as String,
-        sizeBytes: identical(sizeBytes, sdkOmittedValue)
-            ? this.sizeBytes
-            : sizeBytes as int,
-      );
+  HostedEnvironmentFileResourceInline _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? path = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue}) => HostedEnvironmentFileResourceInline(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedEnvironmentFileResourceInlineType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    path: identical(path, sdkOmittedValue) ? this.path : path as String,
+    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as int,
+  );
 
-  factory HostedEnvironmentFileResourceInline.fromJson(
-          Map<String, dynamic> json) =>
-      HostedEnvironmentFileResourceInline(
-        type_: (json['type'] != null
-            ? HostedEnvironmentFileResourceInlineType.fromJson(
-                json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        path: (json['path'] as String?)!,
-        sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
-      );
+  factory HostedEnvironmentFileResourceInline.fromJson(Map<String, dynamic> json) => HostedEnvironmentFileResourceInline(
+    type_: (json['type'] != null ? HostedEnvironmentFileResourceInlineType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    path: (json['path'] as String?)!,
+    sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'path': path,
-        'size_bytes': sizeBytes,
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'path': path,
+    'size_bytes': sizeBytes,
+  };
 }

@@ -6,12 +6,12 @@ part of 'agents_web.dart';
 // agents_web domain models
 /// The source used for web search results.
 final class WebSearchModeResource {
+
   final String value;
 
   const WebSearchModeResource._(this.value);
 
-  factory WebSearchModeResource.fromJson(String value) =>
-      WebSearchModeResource._(value);
+  factory WebSearchModeResource.fromJson(String value) => WebSearchModeResource._(value);
 
   static const disabled = WebSearchModeResource._('disabled');
   static const cached = WebSearchModeResource._('cached');
@@ -19,13 +19,10 @@ final class WebSearchModeResource {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebSearchModeResource && other.value == value;
+  @override bool operator ==(Object other) => other is WebSearchModeResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

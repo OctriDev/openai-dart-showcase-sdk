@@ -8,144 +8,89 @@ part of 'realtime_realtime.dart';
 class RealtimeAudioFormatsVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The audio format. Always `audio/pcm`.
   final SdkOptional<RealtimeAudioFormatsVariant0Type> type_;
-
   /// The sample rate of the audio. Always `24000`.
   final SdkOptional<RealtimeAudioFormatsVariant0Rate> rate;
 
-  const RealtimeAudioFormatsVariant0(
-      {this.type_ = const SdkOmitted(), this.rate = const SdkOmitted()});
+  const RealtimeAudioFormatsVariant0({this.type_ = const SdkOmitted(), this.rate = const SdkOmitted()});
 
-  RealtimeAudioFormatsVariant0 Function(
-          {SdkOptional<RealtimeAudioFormatsVariant0Type> type_,
-          SdkOptional<RealtimeAudioFormatsVariant0Rate> rate})
-      get copyWith => _copyWith;
+  RealtimeAudioFormatsVariant0 Function({SdkOptional<RealtimeAudioFormatsVariant0Type> type_, SdkOptional<RealtimeAudioFormatsVariant0Rate> rate}) get copyWith => _copyWith;
 
-  RealtimeAudioFormatsVariant0 _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? rate = sdkOmittedValue}) =>
-      RealtimeAudioFormatsVariant0(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<RealtimeAudioFormatsVariant0Type>,
-        rate: identical(rate, sdkOmittedValue)
-            ? this.rate
-            : rate as SdkOptional<RealtimeAudioFormatsVariant0Rate>,
-      );
+  RealtimeAudioFormatsVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? rate = sdkOmittedValue}) => RealtimeAudioFormatsVariant0(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<RealtimeAudioFormatsVariant0Type>,
+    rate: identical(rate, sdkOmittedValue) ? this.rate : rate as SdkOptional<RealtimeAudioFormatsVariant0Rate>,
+  );
 
-  factory RealtimeAudioFormatsVariant0.fromJson(Map<String, dynamic> json) =>
-      RealtimeAudioFormatsVariant0(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? RealtimeAudioFormatsVariant0Type.fromJson(
-                    json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        rate: json['rate'] != null
-            ? SdkPresent((json['rate'] != null
-                ? RealtimeAudioFormatsVariant0Rate.fromJson(
-                    (json['rate'] as num).toInt())
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeAudioFormatsVariant0.fromJson(Map<String, dynamic> json) => RealtimeAudioFormatsVariant0(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? RealtimeAudioFormatsVariant0Type.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    rate: json['rate'] != null ? SdkPresent((json['rate'] != null ? RealtimeAudioFormatsVariant0Rate.fromJson((json['rate'] as num).toInt()) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<RealtimeAudioFormatsVariant0Type>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rate) {
-          SdkPresent<RealtimeAudioFormatsVariant0Rate>(value: final value) => {
-              'rate': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<RealtimeAudioFormatsVariant0Type>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rate) {
+      SdkPresent<RealtimeAudioFormatsVariant0Rate>(value: final value) => {'rate': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The G.711 μ-law format.
 class RealtimeAudioFormatsVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The audio format. Always `audio/pcmu`.
   final SdkOptional<RealtimeAudioFormatsVariant1Type> type_;
 
   const RealtimeAudioFormatsVariant1({this.type_ = const SdkOmitted()});
 
-  RealtimeAudioFormatsVariant1 Function(
-          {SdkOptional<RealtimeAudioFormatsVariant1Type> type_})
-      get copyWith => _copyWith;
+  RealtimeAudioFormatsVariant1 Function({SdkOptional<RealtimeAudioFormatsVariant1Type> type_}) get copyWith => _copyWith;
 
-  RealtimeAudioFormatsVariant1 _copyWith({Object? type_ = sdkOmittedValue}) =>
-      RealtimeAudioFormatsVariant1(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<RealtimeAudioFormatsVariant1Type>,
-      );
+  RealtimeAudioFormatsVariant1 _copyWith({Object? type_ = sdkOmittedValue}) => RealtimeAudioFormatsVariant1(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<RealtimeAudioFormatsVariant1Type>,
+  );
 
-  factory RealtimeAudioFormatsVariant1.fromJson(Map<String, dynamic> json) =>
-      RealtimeAudioFormatsVariant1(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? RealtimeAudioFormatsVariant1Type.fromJson(
-                    json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeAudioFormatsVariant1.fromJson(Map<String, dynamic> json) => RealtimeAudioFormatsVariant1(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? RealtimeAudioFormatsVariant1Type.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<RealtimeAudioFormatsVariant1Type>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<RealtimeAudioFormatsVariant1Type>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The G.711 A-law format.
 class RealtimeAudioFormatsVariant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The audio format. Always `audio/pcma`.
   final SdkOptional<RealtimeAudioFormatsVariant2Type> type_;
 
   const RealtimeAudioFormatsVariant2({this.type_ = const SdkOmitted()});
 
-  RealtimeAudioFormatsVariant2 Function(
-          {SdkOptional<RealtimeAudioFormatsVariant2Type> type_})
-      get copyWith => _copyWith;
+  RealtimeAudioFormatsVariant2 Function({SdkOptional<RealtimeAudioFormatsVariant2Type> type_}) get copyWith => _copyWith;
 
-  RealtimeAudioFormatsVariant2 _copyWith({Object? type_ = sdkOmittedValue}) =>
-      RealtimeAudioFormatsVariant2(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<RealtimeAudioFormatsVariant2Type>,
-      );
+  RealtimeAudioFormatsVariant2 _copyWith({Object? type_ = sdkOmittedValue}) => RealtimeAudioFormatsVariant2(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<RealtimeAudioFormatsVariant2Type>,
+  );
 
-  factory RealtimeAudioFormatsVariant2.fromJson(Map<String, dynamic> json) =>
-      RealtimeAudioFormatsVariant2(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? RealtimeAudioFormatsVariant2Type.fromJson(
-                    json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeAudioFormatsVariant2.fromJson(Map<String, dynamic> json) => RealtimeAudioFormatsVariant2(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? RealtimeAudioFormatsVariant2Type.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<RealtimeAudioFormatsVariant2Type>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<RealtimeAudioFormatsVariant2Type>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class RealtimeAudioFormats {
@@ -154,62 +99,32 @@ sealed class RealtimeAudioFormats {
   const RealtimeAudioFormats();
   factory RealtimeAudioFormats.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = RealtimeAudioFormatsVariant0.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeAudioFormatsRealtimeAudioFormatsVariant0(value);
-        }
-      } catch (_) {}
-      try {
-        final value = RealtimeAudioFormatsVariant1.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeAudioFormatsRealtimeAudioFormatsVariant1(value);
-        }
-      } catch (_) {}
-      try {
-        final value = RealtimeAudioFormatsVariant2.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RealtimeAudioFormatsRealtimeAudioFormatsVariant2(value);
-        }
-      } catch (_) {}
+      try { final value = RealtimeAudioFormatsVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeAudioFormatsRealtimeAudioFormatsVariant0(value); } } catch (_) {}
+      try { final value = RealtimeAudioFormatsVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeAudioFormatsRealtimeAudioFormatsVariant1(value); } } catch (_) {}
+      try { final value = RealtimeAudioFormatsVariant2.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeAudioFormatsRealtimeAudioFormatsVariant2(value); } } catch (_) {}
     }
-    try {
-      return RealtimeAudioFormatsRealtimeAudioFormatsVariant0(
-          RealtimeAudioFormatsVariant0.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RealtimeAudioFormatsRealtimeAudioFormatsVariant1(
-          RealtimeAudioFormatsVariant1.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RealtimeAudioFormatsRealtimeAudioFormatsVariant2(
-          RealtimeAudioFormatsVariant2.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return RealtimeAudioFormatsRealtimeAudioFormatsVariant0(RealtimeAudioFormatsVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RealtimeAudioFormatsRealtimeAudioFormatsVariant1(RealtimeAudioFormatsVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RealtimeAudioFormatsRealtimeAudioFormatsVariant2(RealtimeAudioFormatsVariant2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for RealtimeAudioFormats");
   }
   Object? toJson();
 }
 
-final class RealtimeAudioFormatsRealtimeAudioFormatsVariant0
-    extends RealtimeAudioFormats {
+final class RealtimeAudioFormatsRealtimeAudioFormatsVariant0 extends RealtimeAudioFormats {
   final RealtimeAudioFormatsVariant0 value;
   const RealtimeAudioFormatsRealtimeAudioFormatsVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeAudioFormatsRealtimeAudioFormatsVariant1
-    extends RealtimeAudioFormats {
+final class RealtimeAudioFormatsRealtimeAudioFormatsVariant1 extends RealtimeAudioFormats {
   final RealtimeAudioFormatsVariant1 value;
   const RealtimeAudioFormatsRealtimeAudioFormatsVariant1(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeAudioFormatsRealtimeAudioFormatsVariant2
-    extends RealtimeAudioFormats {
+final class RealtimeAudioFormatsRealtimeAudioFormatsVariant2 extends RealtimeAudioFormats {
   final RealtimeAudioFormatsVariant2 value;
   const RealtimeAudioFormatsRealtimeAudioFormatsVariant2(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

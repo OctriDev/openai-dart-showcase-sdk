@@ -8,50 +8,32 @@ part of 'videos.dart';
 class VideoCharacterResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `id` wire field.
   final String? id;
-
   /// Required `string` value serialized in the `name` wire field.
   final String? name;
-
   /// Unix timestamp (in seconds) when the character was created.
   final int createdAt;
 
-  const VideoCharacterResource(
-      {required this.id, required this.name, required this.createdAt});
+  const VideoCharacterResource({required this.id, required this.name, required this.createdAt});
 
-  VideoCharacterResource Function({String? id, String? name, int createdAt})
-      get copyWith => _copyWith;
+  VideoCharacterResource Function({String? id, String? name, int createdAt}) get copyWith => _copyWith;
 
-  VideoCharacterResource _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      VideoCharacterResource(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String?,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-      );
+  VideoCharacterResource _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => VideoCharacterResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String?,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+  );
 
-  factory VideoCharacterResource.fromJson(Map<String, dynamic> json) =>
-      VideoCharacterResource(
-        id: json.containsKey('id')
-            ? json['id'] as String?
-            : throw ArgumentError.value(
-                null, 'id', 'Required property is missing'),
-        name: json.containsKey('name')
-            ? json['name'] as String?
-            : throw ArgumentError.value(
-                null, 'name', 'Required property is missing'),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-      );
+  factory VideoCharacterResource.fromJson(Map<String, dynamic> json) => VideoCharacterResource(
+    id: json.containsKey('id') ? json['id'] as String? : throw ArgumentError.value(null, 'id', 'Required property is missing'),
+    name: json.containsKey('name') ? json['name'] as String? : throw ArgumentError.value(null, 'name', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'created_at': createdAt,
-      };
+    'id': id,
+    'name': name,
+    'created_at': createdAt,
+  };
 }

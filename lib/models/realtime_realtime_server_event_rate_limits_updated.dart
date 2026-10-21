@@ -8,162 +8,83 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventRateLimitsUpdatedRateLimitsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the rate limit (`requests`, `tokens`).
-  final SdkOptional<RealtimeServerEventRateLimitsUpdatedRateLimitsItemName>
-      name;
-
+  final SdkOptional<RealtimeServerEventRateLimitsUpdatedRateLimitsItemName> name;
   /// The maximum allowed value for the rate limit.
   final SdkOptional<int> limit;
-
   /// The remaining value before the limit is reached.
   final SdkOptional<int> remaining;
-
   /// Seconds until the rate limit resets.
   final SdkOptional<double> resetSeconds;
 
-  const RealtimeServerEventRateLimitsUpdatedRateLimitsItem(
-      {this.name = const SdkOmitted(),
-      this.limit = const SdkOmitted(),
-      this.remaining = const SdkOmitted(),
-      this.resetSeconds = const SdkOmitted()});
+  const RealtimeServerEventRateLimitsUpdatedRateLimitsItem({this.name = const SdkOmitted(), this.limit = const SdkOmitted(), this.remaining = const SdkOmitted(), this.resetSeconds = const SdkOmitted()});
 
-  RealtimeServerEventRateLimitsUpdatedRateLimitsItem Function(
-      {SdkOptional<RealtimeServerEventRateLimitsUpdatedRateLimitsItemName> name,
-      SdkOptional<int> limit,
-      SdkOptional<int> remaining,
-      SdkOptional<double> resetSeconds}) get copyWith => _copyWith;
+  RealtimeServerEventRateLimitsUpdatedRateLimitsItem Function({SdkOptional<RealtimeServerEventRateLimitsUpdatedRateLimitsItemName> name, SdkOptional<int> limit, SdkOptional<int> remaining, SdkOptional<double> resetSeconds}) get copyWith => _copyWith;
 
-  RealtimeServerEventRateLimitsUpdatedRateLimitsItem _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? limit = sdkOmittedValue,
-          Object? remaining = sdkOmittedValue,
-          Object? resetSeconds = sdkOmittedValue}) =>
-      RealtimeServerEventRateLimitsUpdatedRateLimitsItem(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<
-                RealtimeServerEventRateLimitsUpdatedRateLimitsItemName>,
-        limit: identical(limit, sdkOmittedValue)
-            ? this.limit
-            : limit as SdkOptional<int>,
-        remaining: identical(remaining, sdkOmittedValue)
-            ? this.remaining
-            : remaining as SdkOptional<int>,
-        resetSeconds: identical(resetSeconds, sdkOmittedValue)
-            ? this.resetSeconds
-            : resetSeconds as SdkOptional<double>,
-      );
+  RealtimeServerEventRateLimitsUpdatedRateLimitsItem _copyWith({Object? name = sdkOmittedValue, Object? limit = sdkOmittedValue, Object? remaining = sdkOmittedValue, Object? resetSeconds = sdkOmittedValue}) => RealtimeServerEventRateLimitsUpdatedRateLimitsItem(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<RealtimeServerEventRateLimitsUpdatedRateLimitsItemName>,
+    limit: identical(limit, sdkOmittedValue) ? this.limit : limit as SdkOptional<int>,
+    remaining: identical(remaining, sdkOmittedValue) ? this.remaining : remaining as SdkOptional<int>,
+    resetSeconds: identical(resetSeconds, sdkOmittedValue) ? this.resetSeconds : resetSeconds as SdkOptional<double>,
+  );
 
-  factory RealtimeServerEventRateLimitsUpdatedRateLimitsItem.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeServerEventRateLimitsUpdatedRateLimitsItem(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] != null
-                ? RealtimeServerEventRateLimitsUpdatedRateLimitsItemName
-                    .fromJson(json['name'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        limit: json['limit'] != null
-            ? SdkPresent(((json['limit'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        remaining: json['remaining'] != null
-            ? SdkPresent(((json['remaining'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        resetSeconds: json['reset_seconds'] != null
-            ? SdkPresent(((json['reset_seconds'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeServerEventRateLimitsUpdatedRateLimitsItem.fromJson(Map<String, dynamic> json) => RealtimeServerEventRateLimitsUpdatedRateLimitsItem(
+    name: json['name'] != null ? SdkPresent((json['name'] != null ? RealtimeServerEventRateLimitsUpdatedRateLimitsItemName.fromJson(json['name'] as String) : null)!) : const SdkOmitted(),
+    limit: json['limit'] != null ? SdkPresent(((json['limit'] as num?)?.toInt())!) : const SdkOmitted(),
+    remaining: json['remaining'] != null ? SdkPresent(((json['remaining'] as num?)?.toInt())!) : const SdkOmitted(),
+    resetSeconds: json['reset_seconds'] != null ? SdkPresent(((json['reset_seconds'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<RealtimeServerEventRateLimitsUpdatedRateLimitsItemName>(
-            value: final value
-          ) =>
-            {
-              'name': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (limit) {
-          SdkPresent<int>(value: final value) => {
-              'limit': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (remaining) {
-          SdkPresent<int>(value: final value) => {
-              'remaining': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resetSeconds) {
-          SdkPresent<double>(value: final value) => {
-              'reset_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<RealtimeServerEventRateLimitsUpdatedRateLimitsItemName>(value: final value) => {'name': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (limit) {
+      SdkPresent<int>(value: final value) => {'limit': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (remaining) {
+      SdkPresent<int>(value: final value) => {'remaining': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resetSeconds) {
+      SdkPresent<double>(value: final value) => {'reset_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Emitted at the beginning of a Response to indicate the updated rate limits. When a Response is created some tokens will be "reserved" for the output tokens, the rate limits shown here reflect that reservation, which is then adjusted accordingly once the Response is completed.
 class RealtimeServerEventRateLimitsUpdated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `rate_limits.updated`.
   final RealtimeServerEventRateLimitsUpdatedType type_;
-
   /// List of rate limit information.
   final List<RealtimeServerEventRateLimitsUpdatedRateLimitsItem> rateLimits;
 
-  const RealtimeServerEventRateLimitsUpdated(
-      {required this.eventId, required this.type_, required this.rateLimits});
+  const RealtimeServerEventRateLimitsUpdated({required this.eventId, required this.type_, required this.rateLimits});
 
-  RealtimeServerEventRateLimitsUpdated Function(
-          {String eventId,
-          RealtimeServerEventRateLimitsUpdatedType type_,
-          List<RealtimeServerEventRateLimitsUpdatedRateLimitsItem> rateLimits})
-      get copyWith => _copyWith;
+  RealtimeServerEventRateLimitsUpdated Function({String eventId, RealtimeServerEventRateLimitsUpdatedType type_, List<RealtimeServerEventRateLimitsUpdatedRateLimitsItem> rateLimits}) get copyWith => _copyWith;
 
-  RealtimeServerEventRateLimitsUpdated _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? rateLimits = sdkOmittedValue}) =>
-      RealtimeServerEventRateLimitsUpdated(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeServerEventRateLimitsUpdatedType,
-        rateLimits: identical(rateLimits, sdkOmittedValue)
-            ? this.rateLimits
-            : rateLimits
-                as List<RealtimeServerEventRateLimitsUpdatedRateLimitsItem>,
-      );
+  RealtimeServerEventRateLimitsUpdated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? rateLimits = sdkOmittedValue}) => RealtimeServerEventRateLimitsUpdated(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventRateLimitsUpdatedType,
+    rateLimits: identical(rateLimits, sdkOmittedValue) ? this.rateLimits : rateLimits as List<RealtimeServerEventRateLimitsUpdatedRateLimitsItem>,
+  );
 
-  factory RealtimeServerEventRateLimitsUpdated.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeServerEventRateLimitsUpdated(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeServerEventRateLimitsUpdatedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        rateLimits: ((json['rate_limits'] as List?)
-            ?.map((e) =>
-                RealtimeServerEventRateLimitsUpdatedRateLimitsItem.fromJson(
-                    e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory RealtimeServerEventRateLimitsUpdated.fromJson(Map<String, dynamic> json) => RealtimeServerEventRateLimitsUpdated(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeServerEventRateLimitsUpdatedType.fromJson(json['type'] as String) : null)!,
+    rateLimits: ((json['rate_limits'] as List?)?.map((e) => RealtimeServerEventRateLimitsUpdatedRateLimitsItem.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'rate_limits': rateLimits.map((item) => item.toJson()).toList(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'rate_limits': rateLimits.map((item) => item.toJson()).toList(),
+  };
 }

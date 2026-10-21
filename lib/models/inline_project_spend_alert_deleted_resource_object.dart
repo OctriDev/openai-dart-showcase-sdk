@@ -6,222 +6,186 @@ part of 'inline.dart';
 // Inline operation models
 /// Always `project.spend_alert.deleted`.
 final class ProjectSpendAlertDeletedResourceObject {
+
   final String value;
 
   const ProjectSpendAlertDeletedResourceObject._(this.value);
 
-  factory ProjectSpendAlertDeletedResourceObject.fromJson(String value) =>
-      ProjectSpendAlertDeletedResourceObject._(value);
+  factory ProjectSpendAlertDeletedResourceObject.fromJson(String value) => ProjectSpendAlertDeletedResourceObject._(value);
 
-  static const projectSpendAlertDeleted =
-      ProjectSpendAlertDeletedResourceObject._('project.spend_alert.deleted');
+  static const projectSpendAlertDeleted = ProjectSpendAlertDeletedResourceObject._('project.spend_alert.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectSpendAlertDeletedResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectSpendAlertDeletedResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `list`.
 final class ProjectSpendAlertListResourceObject {
+
   final String value;
 
   const ProjectSpendAlertListResourceObject._(this.value);
 
-  factory ProjectSpendAlertListResourceObject.fromJson(String value) =>
-      ProjectSpendAlertListResourceObject._(value);
+  factory ProjectSpendAlertListResourceObject.fromJson(String value) => ProjectSpendAlertListResourceObject._(value);
 
   static const list = ProjectSpendAlertListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectSpendAlertListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectSpendAlertListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `project.spend_limit.deleted`.
 final class ProjectSpendLimitDeletedResourceObject {
+
   final String value;
 
   const ProjectSpendLimitDeletedResourceObject._(this.value);
 
-  factory ProjectSpendLimitDeletedResourceObject.fromJson(String value) =>
-      ProjectSpendLimitDeletedResourceObject._(value);
+  factory ProjectSpendLimitDeletedResourceObject.fromJson(String value) => ProjectSpendLimitDeletedResourceObject._(value);
 
-  static const projectSpendLimitDeleted =
-      ProjectSpendLimitDeletedResourceObject._('project.spend_limit.deleted');
+  static const projectSpendLimitDeleted = ProjectSpendLimitDeletedResourceObject._('project.spend_limit.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectSpendLimitDeletedResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectSpendLimitDeletedResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `project.spend_limit`.
 final class ProjectSpendLimitResourceObject {
+
   final String value;
 
   const ProjectSpendLimitResourceObject._(this.value);
 
-  factory ProjectSpendLimitResourceObject.fromJson(String value) =>
-      ProjectSpendLimitResourceObject._(value);
+  factory ProjectSpendLimitResourceObject.fromJson(String value) => ProjectSpendLimitResourceObject._(value);
 
-  static const projectSpendLimit =
-      ProjectSpendLimitResourceObject._('project.spend_limit');
+  static const projectSpendLimit = ProjectSpendLimitResourceObject._('project.spend_limit');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectSpendLimitResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectSpendLimitResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `organization.project.user`
 final class ProjectUserObject {
+
   final String value;
 
   const ProjectUserObject._(this.value);
 
-  factory ProjectUserObject.fromJson(String value) =>
-      ProjectUserObject._(value);
+  factory ProjectUserObject.fromJson(String value) => ProjectUserObject._(value);
 
-  static const organizationProjectUser =
-      ProjectUserObject._('organization.project.user');
+  static const organizationProjectUser = ProjectUserObject._('organization.project.user');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectUserObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectUserObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ProjectUserDeleteResponseObject {
+
   final String value;
 
   const ProjectUserDeleteResponseObject._(this.value);
 
-  factory ProjectUserDeleteResponseObject.fromJson(String value) =>
-      ProjectUserDeleteResponseObject._(value);
+  factory ProjectUserDeleteResponseObject.fromJson(String value) => ProjectUserDeleteResponseObject._(value);
 
-  static const organizationProjectUserDeleted =
-      ProjectUserDeleteResponseObject._('organization.project.user.deleted');
+  static const organizationProjectUserDeleted = ProjectUserDeleteResponseObject._('organization.project.user.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectUserDeleteResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectUserDeleteResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The breakpoint mode. Always `explicit`.
 final class PromptCacheBreakpointConfigMode {
+
   final String value;
 
   const PromptCacheBreakpointConfigMode._(this.value);
 
-  factory PromptCacheBreakpointConfigMode.fromJson(String value) =>
-      PromptCacheBreakpointConfigMode._(value);
+  factory PromptCacheBreakpointConfigMode.fromJson(String value) => PromptCacheBreakpointConfigMode._(value);
 
   static const explicit = PromptCacheBreakpointConfigMode._('explicit');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is PromptCacheBreakpointConfigMode && other.value == value;
+  @override bool operator ==(Object other) => other is PromptCacheBreakpointConfigMode && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The breakpoint mode. Always `explicit`.
 final class PromptCacheBreakpointParamMode {
+
   final String value;
 
   const PromptCacheBreakpointParamMode._(this.value);
 
-  factory PromptCacheBreakpointParamMode.fromJson(String value) =>
-      PromptCacheBreakpointParamMode._(value);
+  factory PromptCacheBreakpointParamMode.fromJson(String value) => PromptCacheBreakpointParamMode._(value);
 
   static const explicit = PromptCacheBreakpointParamMode._('explicit');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is PromptCacheBreakpointParamMode && other.value == value;
+  @override bool operator ==(Object other) => other is PromptCacheBreakpointParamMode && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 enum PromptCacheComparisonResponseNotFoundDiagnosticsBodyType {
   comparisonResponseNotFound;
 
-  static PromptCacheComparisonResponseNotFoundDiagnosticsBodyType fromJson(
-      String value) {
+  static PromptCacheComparisonResponseNotFoundDiagnosticsBodyType fromJson(String value) {
     switch (value) {
-      case 'comparison_response_not_found':
-        return PromptCacheComparisonResponseNotFoundDiagnosticsBodyType
-            .comparisonResponseNotFound;
-      default:
-        throw ArgumentError(
-            'Unknown PromptCacheComparisonResponseNotFoundDiagnosticsBodyType: $value');
+      case 'comparison_response_not_found': return PromptCacheComparisonResponseNotFoundDiagnosticsBodyType.comparisonResponseNotFound;
+      default: throw ArgumentError('Unknown PromptCacheComparisonResponseNotFoundDiagnosticsBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PromptCacheComparisonResponseNotFoundDiagnosticsBodyType
-            .comparisonResponseNotFound:
-        return 'comparison_response_not_found';
+      case PromptCacheComparisonResponseNotFoundDiagnosticsBodyType.comparisonResponseNotFound: return 'comparison_response_not_found';
     }
   }
 
@@ -235,18 +199,14 @@ enum PromptCacheHitDiagnosticsBodyType {
 
   static PromptCacheHitDiagnosticsBodyType fromJson(String value) {
     switch (value) {
-      case 'cache_hit':
-        return PromptCacheHitDiagnosticsBodyType.cacheHit;
-      default:
-        throw ArgumentError(
-            'Unknown PromptCacheHitDiagnosticsBodyType: $value');
+      case 'cache_hit': return PromptCacheHitDiagnosticsBodyType.cacheHit;
+      default: throw ArgumentError('Unknown PromptCacheHitDiagnosticsBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PromptCacheHitDiagnosticsBodyType.cacheHit:
-        return 'cache_hit';
+      case PromptCacheHitDiagnosticsBodyType.cacheHit: return 'cache_hit';
     }
   }
 
@@ -260,18 +220,14 @@ enum PromptCacheMissDiagnosticsBodyType {
 
   static PromptCacheMissDiagnosticsBodyType fromJson(String value) {
     switch (value) {
-      case 'cache_miss':
-        return PromptCacheMissDiagnosticsBodyType.cacheMiss;
-      default:
-        throw ArgumentError(
-            'Unknown PromptCacheMissDiagnosticsBodyType: $value');
+      case 'cache_miss': return PromptCacheMissDiagnosticsBodyType.cacheMiss;
+      default: throw ArgumentError('Unknown PromptCacheMissDiagnosticsBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PromptCacheMissDiagnosticsBodyType.cacheMiss:
-        return 'cache_miss';
+      case PromptCacheMissDiagnosticsBodyType.cacheMiss: return 'cache_miss';
     }
   }
 
@@ -285,18 +241,14 @@ enum PromptCacheUnavailableDiagnosticsBodyType {
 
   static PromptCacheUnavailableDiagnosticsBodyType fromJson(String value) {
     switch (value) {
-      case 'unavailable':
-        return PromptCacheUnavailableDiagnosticsBodyType.unavailable;
-      default:
-        throw ArgumentError(
-            'Unknown PromptCacheUnavailableDiagnosticsBodyType: $value');
+      case 'unavailable': return PromptCacheUnavailableDiagnosticsBodyType.unavailable;
+      default: throw ArgumentError('Unknown PromptCacheUnavailableDiagnosticsBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case PromptCacheUnavailableDiagnosticsBodyType.unavailable:
-        return 'unavailable';
+      case PromptCacheUnavailableDiagnosticsBodyType.unavailable: return 'unavailable';
     }
   }
 
@@ -306,25 +258,21 @@ enum PromptCacheUnavailableDiagnosticsBodyType {
 
 /// Required enumerated value serialized in the `object` wire field.
 final class PublicDecisionsUsageResponseResourceObject {
+
   final String value;
 
   const PublicDecisionsUsageResponseResourceObject._(this.value);
 
-  factory PublicDecisionsUsageResponseResourceObject.fromJson(String value) =>
-      PublicDecisionsUsageResponseResourceObject._(value);
+  factory PublicDecisionsUsageResponseResourceObject.fromJson(String value) => PublicDecisionsUsageResponseResourceObject._(value);
 
   static const page = PublicDecisionsUsageResponseResourceObject._('page');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is PublicDecisionsUsageResponseResourceObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is PublicDecisionsUsageResponseResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

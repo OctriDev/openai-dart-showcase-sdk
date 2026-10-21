@@ -8,101 +8,57 @@ part of 'assistants_run.dart';
 class RunStepDeltaStepDetailsMessageCreationObjectMessageCreation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the message that was created by this run step.
   final SdkOptional<String> messageId;
 
-  const RunStepDeltaStepDetailsMessageCreationObjectMessageCreation(
-      {this.messageId = const SdkOmitted()});
+  const RunStepDeltaStepDetailsMessageCreationObjectMessageCreation({this.messageId = const SdkOmitted()});
 
-  RunStepDeltaStepDetailsMessageCreationObjectMessageCreation Function(
-      {SdkOptional<String> messageId}) get copyWith => _copyWith;
+  RunStepDeltaStepDetailsMessageCreationObjectMessageCreation Function({SdkOptional<String> messageId}) get copyWith => _copyWith;
 
-  RunStepDeltaStepDetailsMessageCreationObjectMessageCreation _copyWith(
-          {Object? messageId = sdkOmittedValue}) =>
-      RunStepDeltaStepDetailsMessageCreationObjectMessageCreation(
-        messageId: identical(messageId, sdkOmittedValue)
-            ? this.messageId
-            : messageId as SdkOptional<String>,
-      );
+  RunStepDeltaStepDetailsMessageCreationObjectMessageCreation _copyWith({Object? messageId = sdkOmittedValue}) => RunStepDeltaStepDetailsMessageCreationObjectMessageCreation(
+    messageId: identical(messageId, sdkOmittedValue) ? this.messageId : messageId as SdkOptional<String>,
+  );
 
-  factory RunStepDeltaStepDetailsMessageCreationObjectMessageCreation.fromJson(
-          Map<String, dynamic> json) =>
-      RunStepDeltaStepDetailsMessageCreationObjectMessageCreation(
-        messageId: json['message_id'] != null
-            ? SdkPresent((json['message_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory RunStepDeltaStepDetailsMessageCreationObjectMessageCreation.fromJson(Map<String, dynamic> json) => RunStepDeltaStepDetailsMessageCreationObjectMessageCreation(
+    messageId: json['message_id'] != null ? SdkPresent((json['message_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (messageId) {
-          SdkPresent<String>(value: final value) => {
-              'message_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (messageId) {
+      SdkPresent<String>(value: final value) => {'message_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Details of the message creation by the run step.
 class RunStepDeltaStepDetailsMessageCreationObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always `message_creation`.
   final RunStepDeltaStepDetailsMessageCreationObjectType type_;
-
   /// Optional object value serialized in the `message_creation` wire field.
-  final SdkOptional<RunStepDeltaStepDetailsMessageCreationObjectMessageCreation>
-      messageCreation;
+  final SdkOptional<RunStepDeltaStepDetailsMessageCreationObjectMessageCreation> messageCreation;
 
-  const RunStepDeltaStepDetailsMessageCreationObject(
-      {required this.type_, this.messageCreation = const SdkOmitted()});
+  const RunStepDeltaStepDetailsMessageCreationObject({required this.type_, this.messageCreation = const SdkOmitted()});
 
-  RunStepDeltaStepDetailsMessageCreationObject Function(
-      {RunStepDeltaStepDetailsMessageCreationObjectType type_,
-      SdkOptional<RunStepDeltaStepDetailsMessageCreationObjectMessageCreation>
-          messageCreation}) get copyWith => _copyWith;
+  RunStepDeltaStepDetailsMessageCreationObject Function({RunStepDeltaStepDetailsMessageCreationObjectType type_, SdkOptional<RunStepDeltaStepDetailsMessageCreationObjectMessageCreation> messageCreation}) get copyWith => _copyWith;
 
-  RunStepDeltaStepDetailsMessageCreationObject _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? messageCreation = sdkOmittedValue}) =>
-      RunStepDeltaStepDetailsMessageCreationObject(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RunStepDeltaStepDetailsMessageCreationObjectType,
-        messageCreation: identical(messageCreation, sdkOmittedValue)
-            ? this.messageCreation
-            : messageCreation as SdkOptional<
-                RunStepDeltaStepDetailsMessageCreationObjectMessageCreation>,
-      );
+  RunStepDeltaStepDetailsMessageCreationObject _copyWith({Object? type_ = sdkOmittedValue, Object? messageCreation = sdkOmittedValue}) => RunStepDeltaStepDetailsMessageCreationObject(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepDeltaStepDetailsMessageCreationObjectType,
+    messageCreation: identical(messageCreation, sdkOmittedValue) ? this.messageCreation : messageCreation as SdkOptional<RunStepDeltaStepDetailsMessageCreationObjectMessageCreation>,
+  );
 
-  factory RunStepDeltaStepDetailsMessageCreationObject.fromJson(
-          Map<String, dynamic> json) =>
-      RunStepDeltaStepDetailsMessageCreationObject(
-        type_: (json['type'] != null
-            ? RunStepDeltaStepDetailsMessageCreationObjectType.fromJson(
-                json['type'] as String)
-            : null)!,
-        messageCreation: json['message_creation'] != null
-            ? SdkPresent((json['message_creation'] != null
-                ? RunStepDeltaStepDetailsMessageCreationObjectMessageCreation
-                    .fromJson(json['message_creation'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RunStepDeltaStepDetailsMessageCreationObject.fromJson(Map<String, dynamic> json) => RunStepDeltaStepDetailsMessageCreationObject(
+    type_: (json['type'] != null ? RunStepDeltaStepDetailsMessageCreationObjectType.fromJson(json['type'] as String) : null)!,
+    messageCreation: json['message_creation'] != null ? SdkPresent((json['message_creation'] != null ? RunStepDeltaStepDetailsMessageCreationObjectMessageCreation.fromJson(json['message_creation'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (messageCreation) {
-          SdkPresent<
-                RunStepDeltaStepDetailsMessageCreationObjectMessageCreation>(
-            value: final value
-          ) =>
-            {
-              'message_creation': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (messageCreation) {
+      SdkPresent<RunStepDeltaStepDetailsMessageCreationObjectMessageCreation>(value: final value) => {'message_creation': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

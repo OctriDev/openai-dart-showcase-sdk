@@ -8,34 +8,22 @@ part of 'vaults_create.dart';
 class CreateMcpOauthTokenEndpointAuthParamNone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `none`.
   final CreateMcpOauthTokenEndpointAuthParamNoneType type_;
 
   const CreateMcpOauthTokenEndpointAuthParamNone({required this.type_});
 
-  CreateMcpOauthTokenEndpointAuthParamNone Function(
-          {CreateMcpOauthTokenEndpointAuthParamNoneType type_})
-      get copyWith => _copyWith;
+  CreateMcpOauthTokenEndpointAuthParamNone Function({CreateMcpOauthTokenEndpointAuthParamNoneType type_}) get copyWith => _copyWith;
 
-  CreateMcpOauthTokenEndpointAuthParamNone _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      CreateMcpOauthTokenEndpointAuthParamNone(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CreateMcpOauthTokenEndpointAuthParamNoneType,
-      );
+  CreateMcpOauthTokenEndpointAuthParamNone _copyWith({Object? type_ = sdkOmittedValue}) => CreateMcpOauthTokenEndpointAuthParamNone(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateMcpOauthTokenEndpointAuthParamNoneType,
+  );
 
-  factory CreateMcpOauthTokenEndpointAuthParamNone.fromJson(
-          Map<String, dynamic> json) =>
-      CreateMcpOauthTokenEndpointAuthParamNone(
-        type_: (json['type'] != null
-            ? CreateMcpOauthTokenEndpointAuthParamNoneType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory CreateMcpOauthTokenEndpointAuthParamNone.fromJson(Map<String, dynamic> json) => CreateMcpOauthTokenEndpointAuthParamNone(
+    type_: (json['type'] != null ? CreateMcpOauthTokenEndpointAuthParamNoneType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

@@ -8,37 +8,25 @@ part of 'sessions.dart';
 class RateLimitsParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Maximum number of requests allowed per minute for the session. Defaults to 10.
   final SdkOptional<int> maxRequestsPer1Minute;
 
   const RateLimitsParam({this.maxRequestsPer1Minute = const SdkOmitted()});
 
-  RateLimitsParam Function({SdkOptional<int> maxRequestsPer1Minute})
-      get copyWith => _copyWith;
+  RateLimitsParam Function({SdkOptional<int> maxRequestsPer1Minute}) get copyWith => _copyWith;
 
-  RateLimitsParam _copyWith(
-          {Object? maxRequestsPer1Minute = sdkOmittedValue}) =>
-      RateLimitsParam(
-        maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue)
-            ? this.maxRequestsPer1Minute
-            : maxRequestsPer1Minute as SdkOptional<int>,
-      );
+  RateLimitsParam _copyWith({Object? maxRequestsPer1Minute = sdkOmittedValue}) => RateLimitsParam(
+    maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue) ? this.maxRequestsPer1Minute : maxRequestsPer1Minute as SdkOptional<int>,
+  );
 
-  factory RateLimitsParam.fromJson(Map<String, dynamic> json) =>
-      RateLimitsParam(
-        maxRequestsPer1Minute: json['max_requests_per_1_minute'] != null
-            ? SdkPresent(
-                ((json['max_requests_per_1_minute'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory RateLimitsParam.fromJson(Map<String, dynamic> json) => RateLimitsParam(
+    maxRequestsPer1Minute: json['max_requests_per_1_minute'] != null ? SdkPresent(((json['max_requests_per_1_minute'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (maxRequestsPer1Minute) {
-          SdkPresent<int>(value: final value) => {
-              'max_requests_per_1_minute': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (maxRequestsPer1Minute) {
+      SdkPresent<int>(value: final value) => {'max_requests_per_1_minute': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -10,18 +10,14 @@ enum FunctionCallOutputItemResourceType {
 
   static FunctionCallOutputItemResourceType fromJson(String value) {
     switch (value) {
-      case 'function_call_output':
-        return FunctionCallOutputItemResourceType.functionCallOutput;
-      default:
-        throw ArgumentError(
-            'Unknown FunctionCallOutputItemResourceType: $value');
+      case 'function_call_output': return FunctionCallOutputItemResourceType.functionCallOutput;
+      default: throw ArgumentError('Unknown FunctionCallOutputItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionCallOutputItemResourceType.functionCallOutput:
-        return 'function_call_output';
+      case FunctionCallOutputItemResourceType.functionCallOutput: return 'function_call_output';
     }
   }
 
@@ -35,17 +31,14 @@ enum FunctionShellCallType {
 
   static FunctionShellCallType fromJson(String value) {
     switch (value) {
-      case 'shell_call':
-        return FunctionShellCallType.shellCall;
-      default:
-        throw ArgumentError('Unknown FunctionShellCallType: $value');
+      case 'shell_call': return FunctionShellCallType.shellCall;
+      default: throw ArgumentError('Unknown FunctionShellCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionShellCallType.shellCall:
-        return 'shell_call';
+      case FunctionShellCallType.shellCall: return 'shell_call';
     }
   }
 
@@ -59,17 +52,14 @@ enum FunctionShellCallItemParamType {
 
   static FunctionShellCallItemParamType fromJson(String value) {
     switch (value) {
-      case 'shell_call':
-        return FunctionShellCallItemParamType.shellCall;
-      default:
-        throw ArgumentError('Unknown FunctionShellCallItemParamType: $value');
+      case 'shell_call': return FunctionShellCallItemParamType.shellCall;
+      default: throw ArgumentError('Unknown FunctionShellCallItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionShellCallItemParamType.shellCall:
-        return 'shell_call';
+      case FunctionShellCallItemParamType.shellCall: return 'shell_call';
     }
   }
 
@@ -83,17 +73,14 @@ enum FunctionShellCallOutputType {
 
   static FunctionShellCallOutputType fromJson(String value) {
     switch (value) {
-      case 'shell_call_output':
-        return FunctionShellCallOutputType.shellCallOutput;
-      default:
-        throw ArgumentError('Unknown FunctionShellCallOutputType: $value');
+      case 'shell_call_output': return FunctionShellCallOutputType.shellCallOutput;
+      default: throw ArgumentError('Unknown FunctionShellCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionShellCallOutputType.shellCallOutput:
-        return 'shell_call_output';
+      case FunctionShellCallOutputType.shellCallOutput: return 'shell_call_output';
     }
   }
 
@@ -107,18 +94,14 @@ enum FunctionShellCallOutputExitOutcomeType {
 
   static FunctionShellCallOutputExitOutcomeType fromJson(String value) {
     switch (value) {
-      case 'exit':
-        return FunctionShellCallOutputExitOutcomeType.exit;
-      default:
-        throw ArgumentError(
-            'Unknown FunctionShellCallOutputExitOutcomeType: $value');
+      case 'exit': return FunctionShellCallOutputExitOutcomeType.exit;
+      default: throw ArgumentError('Unknown FunctionShellCallOutputExitOutcomeType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionShellCallOutputExitOutcomeType.exit:
-        return 'exit';
+      case FunctionShellCallOutputExitOutcomeType.exit: return 'exit';
     }
   }
 
@@ -132,18 +115,14 @@ enum FunctionShellCallOutputExitOutcomeParamType {
 
   static FunctionShellCallOutputExitOutcomeParamType fromJson(String value) {
     switch (value) {
-      case 'exit':
-        return FunctionShellCallOutputExitOutcomeParamType.exit;
-      default:
-        throw ArgumentError(
-            'Unknown FunctionShellCallOutputExitOutcomeParamType: $value');
+      case 'exit': return FunctionShellCallOutputExitOutcomeParamType.exit;
+      default: throw ArgumentError('Unknown FunctionShellCallOutputExitOutcomeParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionShellCallOutputExitOutcomeParamType.exit:
-        return 'exit';
+      case FunctionShellCallOutputExitOutcomeParamType.exit: return 'exit';
     }
   }
 
@@ -157,18 +136,14 @@ enum FunctionShellCallOutputItemParamType {
 
   static FunctionShellCallOutputItemParamType fromJson(String value) {
     switch (value) {
-      case 'shell_call_output':
-        return FunctionShellCallOutputItemParamType.shellCallOutput;
-      default:
-        throw ArgumentError(
-            'Unknown FunctionShellCallOutputItemParamType: $value');
+      case 'shell_call_output': return FunctionShellCallOutputItemParamType.shellCallOutput;
+      default: throw ArgumentError('Unknown FunctionShellCallOutputItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionShellCallOutputItemParamType.shellCallOutput:
-        return 'shell_call_output';
+      case FunctionShellCallOutputItemParamType.shellCallOutput: return 'shell_call_output';
     }
   }
 
@@ -182,18 +157,14 @@ enum FunctionShellCallOutputTimeoutOutcomeType {
 
   static FunctionShellCallOutputTimeoutOutcomeType fromJson(String value) {
     switch (value) {
-      case 'timeout':
-        return FunctionShellCallOutputTimeoutOutcomeType.timeout;
-      default:
-        throw ArgumentError(
-            'Unknown FunctionShellCallOutputTimeoutOutcomeType: $value');
+      case 'timeout': return FunctionShellCallOutputTimeoutOutcomeType.timeout;
+      default: throw ArgumentError('Unknown FunctionShellCallOutputTimeoutOutcomeType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionShellCallOutputTimeoutOutcomeType.timeout:
-        return 'timeout';
+      case FunctionShellCallOutputTimeoutOutcomeType.timeout: return 'timeout';
     }
   }
 
@@ -207,18 +178,14 @@ enum FunctionShellCallOutputTimeoutOutcomeParamType {
 
   static FunctionShellCallOutputTimeoutOutcomeParamType fromJson(String value) {
     switch (value) {
-      case 'timeout':
-        return FunctionShellCallOutputTimeoutOutcomeParamType.timeout;
-      default:
-        throw ArgumentError(
-            'Unknown FunctionShellCallOutputTimeoutOutcomeParamType: $value');
+      case 'timeout': return FunctionShellCallOutputTimeoutOutcomeParamType.timeout;
+      default: throw ArgumentError('Unknown FunctionShellCallOutputTimeoutOutcomeParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionShellCallOutputTimeoutOutcomeParamType.timeout:
-        return 'timeout';
+      case FunctionShellCallOutputTimeoutOutcomeParamType.timeout: return 'timeout';
     }
   }
 
@@ -232,17 +199,14 @@ enum FunctionShellToolParamType {
 
   static FunctionShellToolParamType fromJson(String value) {
     switch (value) {
-      case 'shell':
-        return FunctionShellToolParamType.shell;
-      default:
-        throw ArgumentError('Unknown FunctionShellToolParamType: $value');
+      case 'shell': return FunctionShellToolParamType.shell;
+      default: throw ArgumentError('Unknown FunctionShellToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionShellToolParamType.shell:
-        return 'shell';
+      case FunctionShellToolParamType.shell: return 'shell';
     }
   }
 
@@ -256,17 +220,14 @@ enum FunctionToolType {
 
   static FunctionToolType fromJson(String value) {
     switch (value) {
-      case 'function':
-        return FunctionToolType.function_;
-      default:
-        throw ArgumentError('Unknown FunctionToolType: $value');
+      case 'function': return FunctionToolType.function_;
+      default: throw ArgumentError('Unknown FunctionToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionToolType.function_:
-        return 'function';
+      case FunctionToolType.function_: return 'function';
     }
   }
 
@@ -276,12 +237,12 @@ enum FunctionToolType {
 
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 final class FunctionToolCallStatus {
+
   final String value;
 
   const FunctionToolCallStatus._(this.value);
 
-  factory FunctionToolCallStatus.fromJson(String value) =>
-      FunctionToolCallStatus._(value);
+  factory FunctionToolCallStatus.fromJson(String value) => FunctionToolCallStatus._(value);
 
   static const inProgress = FunctionToolCallStatus._('in_progress');
   static const completed = FunctionToolCallStatus._('completed');
@@ -289,15 +250,12 @@ final class FunctionToolCallStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is FunctionToolCallStatus && other.value == value;
+  @override bool operator ==(Object other) => other is FunctionToolCallStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the function tool call. Always `function_call`.
@@ -306,17 +264,14 @@ enum FunctionToolCallType {
 
   static FunctionToolCallType fromJson(String value) {
     switch (value) {
-      case 'function_call':
-        return FunctionToolCallType.functionCall;
-      default:
-        throw ArgumentError('Unknown FunctionToolCallType: $value');
+      case 'function_call': return FunctionToolCallType.functionCall;
+      default: throw ArgumentError('Unknown FunctionToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FunctionToolCallType.functionCall:
-        return 'function_call';
+      case FunctionToolCallType.functionCall: return 'function_call';
     }
   }
 

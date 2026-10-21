@@ -8,104 +8,55 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventResponseMCPCallArgumentsDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `response.mcp_call_arguments.delta`.
   final RealtimeBetaServerEventResponseMCPCallArgumentsDeltaType type_;
-
   /// The ID of the response.
   final String responseId;
-
   /// The ID of the MCP tool call item.
   final String itemId;
-
   /// The index of the output item in the response.
   final int outputIndex;
-
   /// The JSON-encoded arguments delta.
   final String delta;
-
   /// Optional `string` value serialized in the `obfuscation` wire field.
   final SdkOptional<String?> obfuscation;
 
-  const RealtimeBetaServerEventResponseMCPCallArgumentsDelta(
-      {required this.eventId,
-      required this.type_,
-      required this.responseId,
-      required this.itemId,
-      required this.outputIndex,
-      required this.delta,
-      this.obfuscation = const SdkOmitted()});
+  const RealtimeBetaServerEventResponseMCPCallArgumentsDelta({required this.eventId, required this.type_, required this.responseId, required this.itemId, required this.outputIndex, required this.delta, this.obfuscation = const SdkOmitted()});
 
-  RealtimeBetaServerEventResponseMCPCallArgumentsDelta Function(
-      {String eventId,
-      RealtimeBetaServerEventResponseMCPCallArgumentsDeltaType type_,
-      String responseId,
-      String itemId,
-      int outputIndex,
-      String delta,
-      SdkOptional<String?> obfuscation}) get copyWith => _copyWith;
+  RealtimeBetaServerEventResponseMCPCallArgumentsDelta Function({String eventId, RealtimeBetaServerEventResponseMCPCallArgumentsDeltaType type_, String responseId, String itemId, int outputIndex, String delta, SdkOptional<String?> obfuscation}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventResponseMCPCallArgumentsDelta _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? responseId = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? obfuscation = sdkOmittedValue}) =>
-      RealtimeBetaServerEventResponseMCPCallArgumentsDelta(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaServerEventResponseMCPCallArgumentsDeltaType,
-        responseId: identical(responseId, sdkOmittedValue)
-            ? this.responseId
-            : responseId as String,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-        obfuscation: identical(obfuscation, sdkOmittedValue)
-            ? this.obfuscation
-            : obfuscation as SdkOptional<String?>,
-      );
+  RealtimeBetaServerEventResponseMCPCallArgumentsDelta _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? obfuscation = sdkOmittedValue}) => RealtimeBetaServerEventResponseMCPCallArgumentsDelta(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventResponseMCPCallArgumentsDeltaType,
+    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+    obfuscation: identical(obfuscation, sdkOmittedValue) ? this.obfuscation : obfuscation as SdkOptional<String?>,
+  );
 
-  factory RealtimeBetaServerEventResponseMCPCallArgumentsDelta.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaServerEventResponseMCPCallArgumentsDelta(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeBetaServerEventResponseMCPCallArgumentsDeltaType.fromJson(
-                json['type'] as String)
-            : null)!,
-        responseId: (json['response_id'] as String?)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        delta: (json['delta'] as String?)!,
-        obfuscation: json.containsKey('obfuscation')
-            ? SdkPresent(json['obfuscation'] as String?)
-            : const SdkOmitted(),
-      );
+  factory RealtimeBetaServerEventResponseMCPCallArgumentsDelta.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventResponseMCPCallArgumentsDelta(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeBetaServerEventResponseMCPCallArgumentsDeltaType.fromJson(json['type'] as String) : null)!,
+    responseId: (json['response_id'] as String?)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    delta: (json['delta'] as String?)!,
+    obfuscation: json.containsKey('obfuscation') ? SdkPresent(json['obfuscation'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'response_id': responseId,
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'delta': delta,
-        ...switch (obfuscation) {
-          SdkPresent<String?>(value: final value) => {
-              'obfuscation': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'response_id': responseId,
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'delta': delta,
+    ...switch (obfuscation) {
+      SdkPresent<String?>(value: final value) => {'obfuscation': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

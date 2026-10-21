@@ -10,79 +10,40 @@ sealed class BetaResponsesClientEvent {
   const BetaResponsesClientEvent();
   factory BetaResponsesClientEvent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaResponsesClientEventResponseCreate.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesClientEventBetaResponsesClientEventResponseCreate(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseSteerEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesClientEventBetaResponseSteerEvent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaResponseInjectEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponsesClientEventBetaResponseInjectEvent(value);
-        }
-      } catch (_) {}
+      try { final value = BetaResponsesClientEventResponseCreate.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesClientEventBetaResponsesClientEventResponseCreate(value); } } catch (_) {}
+      try { final value = BetaResponseSteerEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesClientEventBetaResponseSteerEvent(value); } } catch (_) {}
+      try { final value = BetaResponseInjectEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponsesClientEventBetaResponseInjectEvent(value); } } catch (_) {}
     }
-    try {
-      return BetaResponsesClientEventBetaResponsesClientEventResponseCreate(
-          BetaResponsesClientEventResponseCreate.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesClientEventBetaResponseSteerEvent(
-          BetaResponseSteerEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponsesClientEventBetaResponseInjectEvent(
-          BetaResponseInjectEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"response.create", "response.steer", "response.inject"}
-            .contains(json["type"])) {
-      return UnknownBetaResponsesClientEvent(json);
-    }
+    try { return BetaResponsesClientEventBetaResponsesClientEventResponseCreate(BetaResponsesClientEventResponseCreate.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesClientEventBetaResponseSteerEvent(BetaResponseSteerEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponsesClientEventBetaResponseInjectEvent(BetaResponseInjectEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"response.create", "response.steer", "response.inject"}.contains(json["type"])) { return UnknownBetaResponsesClientEvent(json); }
     throw FormatException("No variant matched for BetaResponsesClientEvent");
   }
   Object? toJson();
 }
 
-final class BetaResponsesClientEventBetaResponsesClientEventResponseCreate
-    extends BetaResponsesClientEvent {
+final class BetaResponsesClientEventBetaResponsesClientEventResponseCreate extends BetaResponsesClientEvent {
   final BetaResponsesClientEventResponseCreate value;
-  const BetaResponsesClientEventBetaResponsesClientEventResponseCreate(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaResponsesClientEventBetaResponsesClientEventResponseCreate(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesClientEventBetaResponseSteerEvent
-    extends BetaResponsesClientEvent {
+final class BetaResponsesClientEventBetaResponseSteerEvent extends BetaResponsesClientEvent {
   final BetaResponseSteerEvent value;
   const BetaResponsesClientEventBetaResponseSteerEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponsesClientEventBetaResponseInjectEvent
-    extends BetaResponsesClientEvent {
+final class BetaResponsesClientEventBetaResponseInjectEvent extends BetaResponsesClientEvent {
   final BetaResponseInjectEvent value;
   const BetaResponsesClientEventBetaResponseInjectEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaResponsesClientEvent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaResponsesClientEvent extends BetaResponsesClientEvent {
   final Map<String, dynamic> raw;
   const UnknownBetaResponsesClientEvent(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

@@ -6,6 +6,7 @@ part of 'shared_file.dart';
 // shared_file domain models
 /// Typed representation of the `FileDetailEnum` API schema.
 final class FileDetailEnum {
+
   final String value;
 
   const FileDetailEnum._(this.value);
@@ -18,13 +19,10 @@ final class FileDetailEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is FileDetailEnum && other.value == value;
+  @override bool operator ==(Object other) => other is FileDetailEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

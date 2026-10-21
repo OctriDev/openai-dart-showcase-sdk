@@ -8,47 +8,27 @@ part of 'vector_stores.dart';
 class StaticChunkingStrategyResponseParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always `static`.
   final StaticChunkingStrategyResponseParamType type_;
-
   /// Required object value serialized in the `static` wire field.
   final StaticChunkingStrategy static_;
 
-  const StaticChunkingStrategyResponseParam(
-      {required this.type_, required this.static_});
+  const StaticChunkingStrategyResponseParam({required this.type_, required this.static_});
 
-  StaticChunkingStrategyResponseParam Function(
-      {StaticChunkingStrategyResponseParamType type_,
-      StaticChunkingStrategy static_}) get copyWith => _copyWith;
+  StaticChunkingStrategyResponseParam Function({StaticChunkingStrategyResponseParamType type_, StaticChunkingStrategy static_}) get copyWith => _copyWith;
 
-  StaticChunkingStrategyResponseParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? static_ = sdkOmittedValue}) =>
-      StaticChunkingStrategyResponseParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as StaticChunkingStrategyResponseParamType,
-        static_: identical(static_, sdkOmittedValue)
-            ? this.static_
-            : static_ as StaticChunkingStrategy,
-      );
+  StaticChunkingStrategyResponseParam _copyWith({Object? type_ = sdkOmittedValue, Object? static_ = sdkOmittedValue}) => StaticChunkingStrategyResponseParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as StaticChunkingStrategyResponseParamType,
+    static_: identical(static_, sdkOmittedValue) ? this.static_ : static_ as StaticChunkingStrategy,
+  );
 
-  factory StaticChunkingStrategyResponseParam.fromJson(
-          Map<String, dynamic> json) =>
-      StaticChunkingStrategyResponseParam(
-        type_: (json['type'] != null
-            ? StaticChunkingStrategyResponseParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        static_: (json['static'] != null
-            ? StaticChunkingStrategy.fromJson(
-                json['static'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory StaticChunkingStrategyResponseParam.fromJson(Map<String, dynamic> json) => StaticChunkingStrategyResponseParam(
+    type_: (json['type'] != null ? StaticChunkingStrategyResponseParamType.fromJson(json['type'] as String) : null)!,
+    static_: (json['static'] != null ? StaticChunkingStrategy.fromJson(json['static'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'static': static_.toJson(),
-      };
+    'type': type_.toJson(),
+    'static': static_.toJson(),
+  };
 }

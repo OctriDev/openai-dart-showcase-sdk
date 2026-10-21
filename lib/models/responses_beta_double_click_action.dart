@@ -8,64 +8,37 @@ part of 'responses_beta.dart';
 class BetaDoubleClickAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a double click action, this property is always set to `double_click`.
   final BetaDoubleClickActionType type_;
-
   /// The x-coordinate where the double click occurred.
   final int x;
-
   /// The y-coordinate where the double click occurred.
   final int y;
-
   /// The keys being held while double-clicking.
   final List<String>? keys;
 
-  const BetaDoubleClickAction(
-      {required this.type_,
-      required this.x,
-      required this.y,
-      required this.keys});
+  const BetaDoubleClickAction({required this.type_, required this.x, required this.y, required this.keys});
 
-  BetaDoubleClickAction Function(
-      {BetaDoubleClickActionType type_,
-      int x,
-      int y,
-      List<String>? keys}) get copyWith => _copyWith;
+  BetaDoubleClickAction Function({BetaDoubleClickActionType type_, int x, int y, List<String>? keys}) get copyWith => _copyWith;
 
-  BetaDoubleClickAction _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? x = sdkOmittedValue,
-          Object? y = sdkOmittedValue,
-          Object? keys = sdkOmittedValue}) =>
-      BetaDoubleClickAction(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaDoubleClickActionType,
-        x: identical(x, sdkOmittedValue) ? this.x : x as int,
-        y: identical(y, sdkOmittedValue) ? this.y : y as int,
-        keys: identical(keys, sdkOmittedValue)
-            ? this.keys
-            : keys as List<String>?,
-      );
+  BetaDoubleClickAction _copyWith({Object? type_ = sdkOmittedValue, Object? x = sdkOmittedValue, Object? y = sdkOmittedValue, Object? keys = sdkOmittedValue}) => BetaDoubleClickAction(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaDoubleClickActionType,
+    x: identical(x, sdkOmittedValue) ? this.x : x as int,
+    y: identical(y, sdkOmittedValue) ? this.y : y as int,
+    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as List<String>?,
+  );
 
-  factory BetaDoubleClickAction.fromJson(Map<String, dynamic> json) =>
-      BetaDoubleClickAction(
-        type_: (json['type'] != null
-            ? BetaDoubleClickActionType.fromJson(json['type'] as String)
-            : null)!,
-        x: ((json['x'] as num?)?.toInt())!,
-        y: ((json['y'] as num?)?.toInt())!,
-        keys: json.containsKey('keys')
-            ? (json['keys'] as List?)?.map((e) => e as String).toList()
-            : throw ArgumentError.value(
-                null, 'keys', 'Required property is missing'),
-      );
+  factory BetaDoubleClickAction.fromJson(Map<String, dynamic> json) => BetaDoubleClickAction(
+    type_: (json['type'] != null ? BetaDoubleClickActionType.fromJson(json['type'] as String) : null)!,
+    x: ((json['x'] as num?)?.toInt())!,
+    y: ((json['y'] as num?)?.toInt())!,
+    keys: json.containsKey('keys') ? (json['keys'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'keys', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'x': x,
-        'y': y,
-        'keys': keys,
-      };
+    'type': type_.toJson(),
+    'x': x,
+    'y': y,
+    'keys': keys,
+  };
 }

@@ -8,7 +8,6 @@ part of 'shared_computer.dart';
 class ComputerTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the computer tool. Always `computer`.
   final ComputerToolType type_;
 
@@ -17,18 +16,14 @@ class ComputerTool {
   ComputerTool Function({ComputerToolType type_}) get copyWith => _copyWith;
 
   ComputerTool _copyWith({Object? type_ = sdkOmittedValue}) => ComputerTool(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ComputerToolType,
-      );
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerToolType,
+  );
 
   factory ComputerTool.fromJson(Map<String, dynamic> json) => ComputerTool(
-        type_: (json['type'] != null
-            ? ComputerToolType.fromJson(json['type'] as String)
-            : null)!,
-      );
+    type_: (json['type'] != null ? ComputerToolType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

@@ -8,35 +8,25 @@ part of 'certificates.dart';
 class ModifyCertificateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The updated name for the certificate
   final SdkOptional<String> name;
 
   const ModifyCertificateRequest({this.name = const SdkOmitted()});
 
-  ModifyCertificateRequest Function({SdkOptional<String> name}) get copyWith =>
-      _copyWith;
+  ModifyCertificateRequest Function({SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ModifyCertificateRequest _copyWith({Object? name = sdkOmittedValue}) =>
-      ModifyCertificateRequest(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  ModifyCertificateRequest _copyWith({Object? name = sdkOmittedValue}) => ModifyCertificateRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory ModifyCertificateRequest.fromJson(Map<String, dynamic> json) =>
-      ModifyCertificateRequest(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ModifyCertificateRequest.fromJson(Map<String, dynamic> json) => ModifyCertificateRequest(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -10,58 +10,32 @@ sealed class BetaToolCallCallerParam {
   const BetaToolCallCallerParam();
   factory BetaToolCallCallerParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaDirectToolCallCallerParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolCallCallerParamBetaDirectToolCallCallerParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaProgramToolCallCallerParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaToolCallCallerParamBetaProgramToolCallCallerParam(value);
-        }
-      } catch (_) {}
+      try { final value = BetaDirectToolCallCallerParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolCallCallerParamBetaDirectToolCallCallerParam(value); } } catch (_) {}
+      try { final value = BetaProgramToolCallCallerParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolCallCallerParamBetaProgramToolCallCallerParam(value); } } catch (_) {}
     }
-    try {
-      return BetaToolCallCallerParamBetaDirectToolCallCallerParam(
-          BetaDirectToolCallCallerParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaToolCallCallerParamBetaProgramToolCallCallerParam(
-          BetaProgramToolCallCallerParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"direct", "program"}.contains(json["type"])) {
-      return UnknownBetaToolCallCallerParam(json);
-    }
+    try { return BetaToolCallCallerParamBetaDirectToolCallCallerParam(BetaDirectToolCallCallerParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaToolCallCallerParamBetaProgramToolCallCallerParam(BetaProgramToolCallCallerParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"direct", "program"}.contains(json["type"])) { return UnknownBetaToolCallCallerParam(json); }
     throw FormatException("No variant matched for BetaToolCallCallerParam");
   }
   Object? toJson();
 }
 
-final class BetaToolCallCallerParamBetaDirectToolCallCallerParam
-    extends BetaToolCallCallerParam {
+final class BetaToolCallCallerParamBetaDirectToolCallCallerParam extends BetaToolCallCallerParam {
   final BetaDirectToolCallCallerParam value;
   const BetaToolCallCallerParamBetaDirectToolCallCallerParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaToolCallCallerParamBetaProgramToolCallCallerParam
-    extends BetaToolCallCallerParam {
+final class BetaToolCallCallerParamBetaProgramToolCallCallerParam extends BetaToolCallCallerParam {
   final BetaProgramToolCallCallerParam value;
   const BetaToolCallCallerParamBetaProgramToolCallCallerParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaToolCallCallerParam] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaToolCallCallerParam extends BetaToolCallCallerParam {
   final Map<String, dynamic> raw;
   const UnknownBetaToolCallCallerParam(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

@@ -8,66 +8,35 @@ part of 'evals_create.dart';
 class CreateEvalCustomDataSourceConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of data source. Always `custom`.
   final CreateEvalCustomDataSourceConfigType type_;
-
   /// The json schema for each row in the data source.
   final Map<String, Object?> itemSchema;
-
   /// Whether the eval should expect you to populate the sample namespace (ie, by generating responses off of your data source)
   final SdkOptional<bool> includeSampleSchema;
 
-  const CreateEvalCustomDataSourceConfig(
-      {required this.type_,
-      required this.itemSchema,
-      this.includeSampleSchema = const SdkOmitted()});
+  const CreateEvalCustomDataSourceConfig({required this.type_, required this.itemSchema, this.includeSampleSchema = const SdkOmitted()});
 
-  CreateEvalCustomDataSourceConfig Function(
-      {CreateEvalCustomDataSourceConfigType type_,
-      Map<String, Object?> itemSchema,
-      SdkOptional<bool> includeSampleSchema}) get copyWith => _copyWith;
+  CreateEvalCustomDataSourceConfig Function({CreateEvalCustomDataSourceConfigType type_, Map<String, Object?> itemSchema, SdkOptional<bool> includeSampleSchema}) get copyWith => _copyWith;
 
-  CreateEvalCustomDataSourceConfig _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? itemSchema = sdkOmittedValue,
-          Object? includeSampleSchema = sdkOmittedValue}) =>
-      CreateEvalCustomDataSourceConfig(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CreateEvalCustomDataSourceConfigType,
-        itemSchema: identical(itemSchema, sdkOmittedValue)
-            ? this.itemSchema
-            : itemSchema as Map<String, Object?>,
-        includeSampleSchema: identical(includeSampleSchema, sdkOmittedValue)
-            ? this.includeSampleSchema
-            : includeSampleSchema as SdkOptional<bool>,
-      );
+  CreateEvalCustomDataSourceConfig _copyWith({Object? type_ = sdkOmittedValue, Object? itemSchema = sdkOmittedValue, Object? includeSampleSchema = sdkOmittedValue}) => CreateEvalCustomDataSourceConfig(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalCustomDataSourceConfigType,
+    itemSchema: identical(itemSchema, sdkOmittedValue) ? this.itemSchema : itemSchema as Map<String, Object?>,
+    includeSampleSchema: identical(includeSampleSchema, sdkOmittedValue) ? this.includeSampleSchema : includeSampleSchema as SdkOptional<bool>,
+  );
 
-  factory CreateEvalCustomDataSourceConfig.fromJson(
-          Map<String, dynamic> json) =>
-      CreateEvalCustomDataSourceConfig(
-        type_: (json['type'] != null
-            ? CreateEvalCustomDataSourceConfigType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemSchema: (json['item_schema'] == null
-            ? null
-            : Map<String, dynamic>.from(json['item_schema'] as Map)
-                .map((key, value) => MapEntry(key, value)))!,
-        includeSampleSchema: json['include_sample_schema'] != null
-            ? SdkPresent((json['include_sample_schema'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateEvalCustomDataSourceConfig.fromJson(Map<String, dynamic> json) => CreateEvalCustomDataSourceConfig(
+    type_: (json['type'] != null ? CreateEvalCustomDataSourceConfigType.fromJson(json['type'] as String) : null)!,
+    itemSchema: (json['item_schema'] == null ? null : Map<String, dynamic>.from(json['item_schema'] as Map).map((key, value) => MapEntry(key, value)))!,
+    includeSampleSchema: json['include_sample_schema'] != null ? SdkPresent((json['include_sample_schema'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'item_schema': itemSchema,
-        ...switch (includeSampleSchema) {
-          SdkPresent<bool>(value: final value) => {
-              'include_sample_schema': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'item_schema': itemSchema,
+    ...switch (includeSampleSchema) {
+      SdkPresent<bool>(value: final value) => {'include_sample_schema': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

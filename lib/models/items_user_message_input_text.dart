@@ -8,37 +8,27 @@ part of 'items.dart';
 class UserMessageInputText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type discriminator that is always `input_text`.
   final UserMessageInputTextType type_;
-
   /// Plain-text content supplied by the user.
   final String text;
 
   const UserMessageInputText({required this.type_, required this.text});
 
-  UserMessageInputText Function({UserMessageInputTextType type_, String text})
-      get copyWith => _copyWith;
+  UserMessageInputText Function({UserMessageInputTextType type_, String text}) get copyWith => _copyWith;
 
-  UserMessageInputText _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      UserMessageInputText(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as UserMessageInputTextType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  UserMessageInputText _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => UserMessageInputText(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as UserMessageInputTextType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory UserMessageInputText.fromJson(Map<String, dynamic> json) =>
-      UserMessageInputText(
-        type_: (json['type'] != null
-            ? UserMessageInputTextType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory UserMessageInputText.fromJson(Map<String, dynamic> json) => UserMessageInputText(
+    type_: (json['type'] != null ? UserMessageInputTextType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }

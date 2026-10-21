@@ -9,15 +9,8 @@ sealed class DecisionInputContent {
   static const String constructionSurface = 'named';
   const DecisionInputContent();
   factory DecisionInputContent.fromJson(Object? json) {
-    if (json is String) {
-      return DecisionInputContentString(json);
-    }
-    if (json is List) {
-      return DecisionInputContentListDecisionInputContentPartsItem(json
-          .map((e) => DecisionInputContentPartsItem.fromJson(e))
-          .toList()
-          .cast<DecisionInputContentPartsItem>());
-    }
+    if (json is String) { return DecisionInputContentString(json); }
+    if (json is List) { return DecisionInputContentListDecisionInputContentPartsItem(json.map((e) => DecisionInputContentPartsItem.fromJson(e)).toList().cast<DecisionInputContentPartsItem>()); }
     throw FormatException("No variant matched for DecisionInputContent");
   }
   Object? toJson();
@@ -26,14 +19,11 @@ sealed class DecisionInputContent {
 final class DecisionInputContentString extends DecisionInputContent {
   final String value;
   const DecisionInputContentString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class DecisionInputContentListDecisionInputContentPartsItem
-    extends DecisionInputContent {
+final class DecisionInputContentListDecisionInputContentPartsItem extends DecisionInputContent {
   final List<DecisionInputContentPartsItem> value;
   const DecisionInputContentListDecisionInputContentPartsItem(this.value);
-  @override
-  Object? toJson() => value.map((e) => e.toJson()).toList();
+  @override Object? toJson() => value.map((e) => e.toJson()).toList();
 }

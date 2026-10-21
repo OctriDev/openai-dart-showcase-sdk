@@ -8,114 +8,54 @@ part of 'agents_agent.dart';
 class AgentToolConfigParamWebSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `web_search`.
   final AgentToolConfigParamWebSearchType type_;
-
   /// The source used for web search results. Defaults to `live`.
   final SdkOptional<WebSearchModeParam?> mode;
-
   /// The amount of search context made available to the model. Defaults to `medium`.
   final SdkOptional<WebSearchContextSizeParam?> contextSize;
-
   /// Domains the search may include.
   final SdkOptional<List<String>?> allowedDomains;
-
   /// Approximate location used to localize search results.
   final SdkOptional<WebSearchLocationParam?> location;
 
-  const AgentToolConfigParamWebSearch(
-      {required this.type_,
-      this.mode = const SdkOmitted(),
-      this.contextSize = const SdkOmitted(),
-      this.allowedDomains = const SdkOmitted(),
-      this.location = const SdkOmitted()});
+  const AgentToolConfigParamWebSearch({required this.type_, this.mode = const SdkOmitted(), this.contextSize = const SdkOmitted(), this.allowedDomains = const SdkOmitted(), this.location = const SdkOmitted()});
 
-  AgentToolConfigParamWebSearch Function(
-      {AgentToolConfigParamWebSearchType type_,
-      SdkOptional<WebSearchModeParam?> mode,
-      SdkOptional<WebSearchContextSizeParam?> contextSize,
-      SdkOptional<List<String>?> allowedDomains,
-      SdkOptional<WebSearchLocationParam?> location}) get copyWith => _copyWith;
+  AgentToolConfigParamWebSearch Function({AgentToolConfigParamWebSearchType type_, SdkOptional<WebSearchModeParam?> mode, SdkOptional<WebSearchContextSizeParam?> contextSize, SdkOptional<List<String>?> allowedDomains, SdkOptional<WebSearchLocationParam?> location}) get copyWith => _copyWith;
 
-  AgentToolConfigParamWebSearch _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? mode = sdkOmittedValue,
-          Object? contextSize = sdkOmittedValue,
-          Object? allowedDomains = sdkOmittedValue,
-          Object? location = sdkOmittedValue}) =>
-      AgentToolConfigParamWebSearch(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AgentToolConfigParamWebSearchType,
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as SdkOptional<WebSearchModeParam?>,
-        contextSize: identical(contextSize, sdkOmittedValue)
-            ? this.contextSize
-            : contextSize as SdkOptional<WebSearchContextSizeParam?>,
-        allowedDomains: identical(allowedDomains, sdkOmittedValue)
-            ? this.allowedDomains
-            : allowedDomains as SdkOptional<List<String>?>,
-        location: identical(location, sdkOmittedValue)
-            ? this.location
-            : location as SdkOptional<WebSearchLocationParam?>,
-      );
+  AgentToolConfigParamWebSearch _copyWith({Object? type_ = sdkOmittedValue, Object? mode = sdkOmittedValue, Object? contextSize = sdkOmittedValue, Object? allowedDomains = sdkOmittedValue, Object? location = sdkOmittedValue}) => AgentToolConfigParamWebSearch(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolConfigParamWebSearchType,
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as SdkOptional<WebSearchModeParam?>,
+    contextSize: identical(contextSize, sdkOmittedValue) ? this.contextSize : contextSize as SdkOptional<WebSearchContextSizeParam?>,
+    allowedDomains: identical(allowedDomains, sdkOmittedValue) ? this.allowedDomains : allowedDomains as SdkOptional<List<String>?>,
+    location: identical(location, sdkOmittedValue) ? this.location : location as SdkOptional<WebSearchLocationParam?>,
+  );
 
-  factory AgentToolConfigParamWebSearch.fromJson(Map<String, dynamic> json) =>
-      AgentToolConfigParamWebSearch(
-        type_: (json['type'] != null
-            ? AgentToolConfigParamWebSearchType.fromJson(json['type'] as String)
-            : null)!,
-        mode: json.containsKey('mode')
-            ? SdkPresent(json['mode'] != null
-                ? WebSearchModeParam.fromJson(json['mode'] as String)
-                : null)
-            : const SdkOmitted(),
-        contextSize: json.containsKey('context_size')
-            ? SdkPresent(json['context_size'] != null
-                ? WebSearchContextSizeParam.fromJson(
-                    json['context_size'] as String)
-                : null)
-            : const SdkOmitted(),
-        allowedDomains: json.containsKey('allowed_domains')
-            ? SdkPresent((json['allowed_domains'] as List?)
-                ?.map((e) => e as String)
-                .toList())
-            : const SdkOmitted(),
-        location: json.containsKey('location')
-            ? SdkPresent(json['location'] != null
-                ? WebSearchLocationParam.fromJson(
-                    json['location'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory AgentToolConfigParamWebSearch.fromJson(Map<String, dynamic> json) => AgentToolConfigParamWebSearch(
+    type_: (json['type'] != null ? AgentToolConfigParamWebSearchType.fromJson(json['type'] as String) : null)!,
+    mode: json.containsKey('mode') ? SdkPresent(json['mode'] != null ? WebSearchModeParam.fromJson(json['mode'] as String) : null) : const SdkOmitted(),
+    contextSize: json.containsKey('context_size') ? SdkPresent(json['context_size'] != null ? WebSearchContextSizeParam.fromJson(json['context_size'] as String) : null) : const SdkOmitted(),
+    allowedDomains: json.containsKey('allowed_domains') ? SdkPresent((json['allowed_domains'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    location: json.containsKey('location') ? SdkPresent(json['location'] != null ? WebSearchLocationParam.fromJson(json['location'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (mode) {
-          SdkPresent<WebSearchModeParam?>(value: final value) => {
-              'mode': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contextSize) {
-          SdkPresent<WebSearchContextSizeParam?>(value: final value) => {
-              'context_size': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedDomains) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'allowed_domains': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (location) {
-          SdkPresent<WebSearchLocationParam?>(value: final value) => {
-              'location': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (mode) {
+      SdkPresent<WebSearchModeParam?>(value: final value) => {'mode': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contextSize) {
+      SdkPresent<WebSearchContextSizeParam?>(value: final value) => {'context_size': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedDomains) {
+      SdkPresent<List<String>?>(value: final value) => {'allowed_domains': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (location) {
+      SdkPresent<WebSearchLocationParam?>(value: final value) => {'location': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

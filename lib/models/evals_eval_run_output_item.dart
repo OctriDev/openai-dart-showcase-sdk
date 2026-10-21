@@ -8,436 +8,239 @@ part of 'evals_eval.dart';
 class EvalRunOutputItemSampleUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The total number of tokens used.
   final int totalTokens;
-
   /// The number of completion tokens generated.
   final int completionTokens;
-
   /// The number of prompt tokens used.
   final int promptTokens;
-
   /// The number of tokens retrieved from cache.
   final int cachedTokens;
 
-  const EvalRunOutputItemSampleUsage(
-      {required this.totalTokens,
-      required this.completionTokens,
-      required this.promptTokens,
-      required this.cachedTokens});
+  const EvalRunOutputItemSampleUsage({required this.totalTokens, required this.completionTokens, required this.promptTokens, required this.cachedTokens});
 
-  EvalRunOutputItemSampleUsage Function(
-      {int totalTokens,
-      int completionTokens,
-      int promptTokens,
-      int cachedTokens}) get copyWith => _copyWith;
+  EvalRunOutputItemSampleUsage Function({int totalTokens, int completionTokens, int promptTokens, int cachedTokens}) get copyWith => _copyWith;
 
-  EvalRunOutputItemSampleUsage _copyWith(
-          {Object? totalTokens = sdkOmittedValue,
-          Object? completionTokens = sdkOmittedValue,
-          Object? promptTokens = sdkOmittedValue,
-          Object? cachedTokens = sdkOmittedValue}) =>
-      EvalRunOutputItemSampleUsage(
-        totalTokens: identical(totalTokens, sdkOmittedValue)
-            ? this.totalTokens
-            : totalTokens as int,
-        completionTokens: identical(completionTokens, sdkOmittedValue)
-            ? this.completionTokens
-            : completionTokens as int,
-        promptTokens: identical(promptTokens, sdkOmittedValue)
-            ? this.promptTokens
-            : promptTokens as int,
-        cachedTokens: identical(cachedTokens, sdkOmittedValue)
-            ? this.cachedTokens
-            : cachedTokens as int,
-      );
+  EvalRunOutputItemSampleUsage _copyWith({Object? totalTokens = sdkOmittedValue, Object? completionTokens = sdkOmittedValue, Object? promptTokens = sdkOmittedValue, Object? cachedTokens = sdkOmittedValue}) => EvalRunOutputItemSampleUsage(
+    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
+    completionTokens: identical(completionTokens, sdkOmittedValue) ? this.completionTokens : completionTokens as int,
+    promptTokens: identical(promptTokens, sdkOmittedValue) ? this.promptTokens : promptTokens as int,
+    cachedTokens: identical(cachedTokens, sdkOmittedValue) ? this.cachedTokens : cachedTokens as int,
+  );
 
-  factory EvalRunOutputItemSampleUsage.fromJson(Map<String, dynamic> json) =>
-      EvalRunOutputItemSampleUsage(
-        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-        completionTokens: ((json['completion_tokens'] as num?)?.toInt())!,
-        promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
-        cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
-      );
+  factory EvalRunOutputItemSampleUsage.fromJson(Map<String, dynamic> json) => EvalRunOutputItemSampleUsage(
+    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+    completionTokens: ((json['completion_tokens'] as num?)?.toInt())!,
+    promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
+    cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'total_tokens': totalTokens,
-        'completion_tokens': completionTokens,
-        'prompt_tokens': promptTokens,
-        'cached_tokens': cachedTokens,
-      };
+    'total_tokens': totalTokens,
+    'completion_tokens': completionTokens,
+    'prompt_tokens': promptTokens,
+    'cached_tokens': cachedTokens,
+  };
 }
 
 /// An input message.
 class EvalRunOutputItemSampleInputItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The role of the message sender (e.g., system, user, developer).
   final String role;
-
   /// The content of the message.
   final String content;
 
-  const EvalRunOutputItemSampleInputItem(
-      {required this.role, required this.content});
+  const EvalRunOutputItemSampleInputItem({required this.role, required this.content});
 
-  EvalRunOutputItemSampleInputItem Function({String role, String content})
-      get copyWith => _copyWith;
+  EvalRunOutputItemSampleInputItem Function({String role, String content}) get copyWith => _copyWith;
 
-  EvalRunOutputItemSampleInputItem _copyWith(
-          {Object? role = sdkOmittedValue,
-          Object? content = sdkOmittedValue}) =>
-      EvalRunOutputItemSampleInputItem(
-        role: identical(role, sdkOmittedValue) ? this.role : role as String,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as String,
-      );
+  EvalRunOutputItemSampleInputItem _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue}) => EvalRunOutputItemSampleInputItem(
+    role: identical(role, sdkOmittedValue) ? this.role : role as String,
+    content: identical(content, sdkOmittedValue) ? this.content : content as String,
+  );
 
-  factory EvalRunOutputItemSampleInputItem.fromJson(
-          Map<String, dynamic> json) =>
-      EvalRunOutputItemSampleInputItem(
-        role: (json['role'] as String?)!,
-        content: (json['content'] as String?)!,
-      );
+  factory EvalRunOutputItemSampleInputItem.fromJson(Map<String, dynamic> json) => EvalRunOutputItemSampleInputItem(
+    role: (json['role'] as String?)!,
+    content: (json['content'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'role': role,
-        'content': content,
-      };
+    'role': role,
+    'content': content,
+  };
 }
 
 /// Required object value serialized in the `output[]` wire field.
 class EvalRunOutputItemSampleOutputItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The role of the message (e.g. "system", "assistant", "user").
   final SdkOptional<String> role;
-
   /// The content of the message.
   final SdkOptional<String> content;
 
-  const EvalRunOutputItemSampleOutputItem(
-      {this.role = const SdkOmitted(), this.content = const SdkOmitted()});
+  const EvalRunOutputItemSampleOutputItem({this.role = const SdkOmitted(), this.content = const SdkOmitted()});
 
-  EvalRunOutputItemSampleOutputItem Function(
-      {SdkOptional<String> role,
-      SdkOptional<String> content}) get copyWith => _copyWith;
+  EvalRunOutputItemSampleOutputItem Function({SdkOptional<String> role, SdkOptional<String> content}) get copyWith => _copyWith;
 
-  EvalRunOutputItemSampleOutputItem _copyWith(
-          {Object? role = sdkOmittedValue,
-          Object? content = sdkOmittedValue}) =>
-      EvalRunOutputItemSampleOutputItem(
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as SdkOptional<String>,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as SdkOptional<String>,
-      );
+  EvalRunOutputItemSampleOutputItem _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue}) => EvalRunOutputItemSampleOutputItem(
+    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<String>,
+    content: identical(content, sdkOmittedValue) ? this.content : content as SdkOptional<String>,
+  );
 
-  factory EvalRunOutputItemSampleOutputItem.fromJson(
-          Map<String, dynamic> json) =>
-      EvalRunOutputItemSampleOutputItem(
-        role: json['role'] != null
-            ? SdkPresent((json['role'] as String?)!)
-            : const SdkOmitted(),
-        content: json['content'] != null
-            ? SdkPresent((json['content'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory EvalRunOutputItemSampleOutputItem.fromJson(Map<String, dynamic> json) => EvalRunOutputItemSampleOutputItem(
+    role: json['role'] != null ? SdkPresent((json['role'] as String?)!) : const SdkOmitted(),
+    content: json['content'] != null ? SdkPresent((json['content'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (role) {
-          SdkPresent<String>(value: final value) => {
-              'role': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (content) {
-          SdkPresent<String>(value: final value) => {
-              'content': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (role) {
+      SdkPresent<String>(value: final value) => {'role': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (content) {
+      SdkPresent<String>(value: final value) => {'content': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A sample containing the input and output of the evaluation run.
 class EvalRunOutputItemSample {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of input messages.
   final List<EvalRunOutputItemSampleInputItem> input;
-
   /// An array of output messages.
   final List<EvalRunOutputItemSampleOutputItem> output;
-
   /// The reason why the sample generation was finished.
   final String finishReason;
-
   /// The model used for generating the sample.
   final String model;
-
   /// Token usage details for the sample.
   final EvalRunOutputItemSampleUsage usage;
-
   /// Required API value serialized in the `error` wire field.
   final EvalApiError? error;
-
   /// The sampling temperature used.
   final double temperature;
-
   /// The maximum number of tokens allowed for completion.
   final int maxCompletionTokens;
-
   /// The top_p value used for sampling.
   final double topP;
-
   /// The seed used for generating the sample.
   final int seed;
 
-  const EvalRunOutputItemSample(
-      {required this.input,
-      required this.output,
-      required this.finishReason,
-      required this.model,
-      required this.usage,
-      required this.error,
-      required this.temperature,
-      required this.maxCompletionTokens,
-      required this.topP,
-      required this.seed});
+  const EvalRunOutputItemSample({required this.input, required this.output, required this.finishReason, required this.model, required this.usage, required this.error, required this.temperature, required this.maxCompletionTokens, required this.topP, required this.seed});
 
-  EvalRunOutputItemSample Function(
-      {List<EvalRunOutputItemSampleInputItem> input,
-      List<EvalRunOutputItemSampleOutputItem> output,
-      String finishReason,
-      String model,
-      EvalRunOutputItemSampleUsage usage,
-      EvalApiError? error,
-      double temperature,
-      int maxCompletionTokens,
-      double topP,
-      int seed}) get copyWith => _copyWith;
+  EvalRunOutputItemSample Function({List<EvalRunOutputItemSampleInputItem> input, List<EvalRunOutputItemSampleOutputItem> output, String finishReason, String model, EvalRunOutputItemSampleUsage usage, EvalApiError? error, double temperature, int maxCompletionTokens, double topP, int seed}) get copyWith => _copyWith;
 
-  EvalRunOutputItemSample _copyWith(
-          {Object? input = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? finishReason = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? usage = sdkOmittedValue,
-          Object? error = sdkOmittedValue,
-          Object? temperature = sdkOmittedValue,
-          Object? maxCompletionTokens = sdkOmittedValue,
-          Object? topP = sdkOmittedValue,
-          Object? seed = sdkOmittedValue}) =>
-      EvalRunOutputItemSample(
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as List<EvalRunOutputItemSampleInputItem>,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as List<EvalRunOutputItemSampleOutputItem>,
-        finishReason: identical(finishReason, sdkOmittedValue)
-            ? this.finishReason
-            : finishReason as String,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as EvalRunOutputItemSampleUsage,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as EvalApiError?,
-        temperature: identical(temperature, sdkOmittedValue)
-            ? this.temperature
-            : temperature as double,
-        maxCompletionTokens: identical(maxCompletionTokens, sdkOmittedValue)
-            ? this.maxCompletionTokens
-            : maxCompletionTokens as int,
-        topP: identical(topP, sdkOmittedValue) ? this.topP : topP as double,
-        seed: identical(seed, sdkOmittedValue) ? this.seed : seed as int,
-      );
+  EvalRunOutputItemSample _copyWith({Object? input = sdkOmittedValue, Object? output = sdkOmittedValue, Object? finishReason = sdkOmittedValue, Object? model = sdkOmittedValue, Object? usage = sdkOmittedValue, Object? error = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? maxCompletionTokens = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? seed = sdkOmittedValue}) => EvalRunOutputItemSample(
+    input: identical(input, sdkOmittedValue) ? this.input : input as List<EvalRunOutputItemSampleInputItem>,
+    output: identical(output, sdkOmittedValue) ? this.output : output as List<EvalRunOutputItemSampleOutputItem>,
+    finishReason: identical(finishReason, sdkOmittedValue) ? this.finishReason : finishReason as String,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as EvalRunOutputItemSampleUsage,
+    error: identical(error, sdkOmittedValue) ? this.error : error as EvalApiError?,
+    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as double,
+    maxCompletionTokens: identical(maxCompletionTokens, sdkOmittedValue) ? this.maxCompletionTokens : maxCompletionTokens as int,
+    topP: identical(topP, sdkOmittedValue) ? this.topP : topP as double,
+    seed: identical(seed, sdkOmittedValue) ? this.seed : seed as int,
+  );
 
-  factory EvalRunOutputItemSample.fromJson(Map<String, dynamic> json) =>
-      EvalRunOutputItemSample(
-        input: ((json['input'] as List?)
-            ?.map((e) => EvalRunOutputItemSampleInputItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-        output: ((json['output'] as List?)
-            ?.map((e) => EvalRunOutputItemSampleOutputItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-        finishReason: (json['finish_reason'] as String?)!,
-        model: (json['model'] as String?)!,
-        usage: (json['usage'] != null
-            ? EvalRunOutputItemSampleUsage.fromJson(
-                json['usage'] as Map<String, dynamic>)
-            : null)!,
-        error: json.containsKey('error')
-            ? json['error'] != null
-                ? EvalApiError.fromJson(json['error'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'error', 'Required property is missing'),
-        temperature: ((json['temperature'] as num?)?.toDouble())!,
-        maxCompletionTokens:
-            ((json['max_completion_tokens'] as num?)?.toInt())!,
-        topP: ((json['top_p'] as num?)?.toDouble())!,
-        seed: ((json['seed'] as num?)?.toInt())!,
-      );
+  factory EvalRunOutputItemSample.fromJson(Map<String, dynamic> json) => EvalRunOutputItemSample(
+    input: ((json['input'] as List?)?.map((e) => EvalRunOutputItemSampleInputItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    output: ((json['output'] as List?)?.map((e) => EvalRunOutputItemSampleOutputItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    finishReason: (json['finish_reason'] as String?)!,
+    model: (json['model'] as String?)!,
+    usage: (json['usage'] != null ? EvalRunOutputItemSampleUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!,
+    error: json.containsKey('error') ? json['error'] != null ? EvalApiError.fromJson(json['error'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'error', 'Required property is missing'),
+    temperature: ((json['temperature'] as num?)?.toDouble())!,
+    maxCompletionTokens: ((json['max_completion_tokens'] as num?)?.toInt())!,
+    topP: ((json['top_p'] as num?)?.toDouble())!,
+    seed: ((json['seed'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'input': input.map((item) => item.toJson()).toList(),
-        'output': output.map((item) => item.toJson()).toList(),
-        'finish_reason': finishReason,
-        'model': model,
-        'usage': usage.toJson(),
-        'error': error?.toJson(),
-        'temperature': temperature,
-        'max_completion_tokens': maxCompletionTokens,
-        'top_p': topP,
-        'seed': seed,
-      };
+    'input': input.map((item) => item.toJson()).toList(),
+    'output': output.map((item) => item.toJson()).toList(),
+    'finish_reason': finishReason,
+    'model': model,
+    'usage': usage.toJson(),
+    'error': error?.toJson(),
+    'temperature': temperature,
+    'max_completion_tokens': maxCompletionTokens,
+    'top_p': topP,
+    'seed': seed,
+  };
 }
 
 /// A schema representing an evaluation run output item.
 class EvalRunOutputItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always "eval.run.output_item".
   final EvalRunOutputItemObject object;
-
   /// Unique identifier for the evaluation run output item.
   final String id;
-
   /// The identifier of the evaluation run associated with this output item.
   final String runId;
-
   /// The identifier of the evaluation group.
   final String evalId;
-
   /// Unix timestamp (in seconds) when the evaluation run was created.
   final int createdAt;
-
   /// The status of the evaluation run.
   final String status;
-
   /// The identifier for the data source item.
   final int datasourceItemId;
-
   /// Details of the input data source item.
   final Map<String, Object?> datasourceItem;
-
   /// A list of grader results for this output item.
   final List<EvalRunOutputItemResult> results;
-
   /// A sample containing the input and output of the evaluation run.
   final EvalRunOutputItemSample sample;
 
-  const EvalRunOutputItem(
-      {required this.object,
-      required this.id,
-      required this.runId,
-      required this.evalId,
-      required this.createdAt,
-      required this.status,
-      required this.datasourceItemId,
-      required this.datasourceItem,
-      required this.results,
-      required this.sample});
+  const EvalRunOutputItem({required this.object, required this.id, required this.runId, required this.evalId, required this.createdAt, required this.status, required this.datasourceItemId, required this.datasourceItem, required this.results, required this.sample});
 
-  EvalRunOutputItem Function(
-      {EvalRunOutputItemObject object,
-      String id,
-      String runId,
-      String evalId,
-      int createdAt,
-      String status,
-      int datasourceItemId,
-      Map<String, Object?> datasourceItem,
-      List<EvalRunOutputItemResult> results,
-      EvalRunOutputItemSample sample}) get copyWith => _copyWith;
+  EvalRunOutputItem Function({EvalRunOutputItemObject object, String id, String runId, String evalId, int createdAt, String status, int datasourceItemId, Map<String, Object?> datasourceItem, List<EvalRunOutputItemResult> results, EvalRunOutputItemSample sample}) get copyWith => _copyWith;
 
-  EvalRunOutputItem _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? runId = sdkOmittedValue,
-          Object? evalId = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? datasourceItemId = sdkOmittedValue,
-          Object? datasourceItem = sdkOmittedValue,
-          Object? results = sdkOmittedValue,
-          Object? sample = sdkOmittedValue}) =>
-      EvalRunOutputItem(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as EvalRunOutputItemObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        runId: identical(runId, sdkOmittedValue) ? this.runId : runId as String,
-        evalId:
-            identical(evalId, sdkOmittedValue) ? this.evalId : evalId as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        status:
-            identical(status, sdkOmittedValue) ? this.status : status as String,
-        datasourceItemId: identical(datasourceItemId, sdkOmittedValue)
-            ? this.datasourceItemId
-            : datasourceItemId as int,
-        datasourceItem: identical(datasourceItem, sdkOmittedValue)
-            ? this.datasourceItem
-            : datasourceItem as Map<String, Object?>,
-        results: identical(results, sdkOmittedValue)
-            ? this.results
-            : results as List<EvalRunOutputItemResult>,
-        sample: identical(sample, sdkOmittedValue)
-            ? this.sample
-            : sample as EvalRunOutputItemSample,
-      );
+  EvalRunOutputItem _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? runId = sdkOmittedValue, Object? evalId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? datasourceItemId = sdkOmittedValue, Object? datasourceItem = sdkOmittedValue, Object? results = sdkOmittedValue, Object? sample = sdkOmittedValue}) => EvalRunOutputItem(
+    object: identical(object, sdkOmittedValue) ? this.object : object as EvalRunOutputItemObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    runId: identical(runId, sdkOmittedValue) ? this.runId : runId as String,
+    evalId: identical(evalId, sdkOmittedValue) ? this.evalId : evalId as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    status: identical(status, sdkOmittedValue) ? this.status : status as String,
+    datasourceItemId: identical(datasourceItemId, sdkOmittedValue) ? this.datasourceItemId : datasourceItemId as int,
+    datasourceItem: identical(datasourceItem, sdkOmittedValue) ? this.datasourceItem : datasourceItem as Map<String, Object?>,
+    results: identical(results, sdkOmittedValue) ? this.results : results as List<EvalRunOutputItemResult>,
+    sample: identical(sample, sdkOmittedValue) ? this.sample : sample as EvalRunOutputItemSample,
+  );
 
-  factory EvalRunOutputItem.fromJson(Map<String, dynamic> json) =>
-      EvalRunOutputItem(
-        object: (json['object'] != null
-            ? EvalRunOutputItemObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        runId: (json['run_id'] as String?)!,
-        evalId: (json['eval_id'] as String?)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        status: (json['status'] as String?)!,
-        datasourceItemId: ((json['datasource_item_id'] as num?)?.toInt())!,
-        datasourceItem: (json['datasource_item'] == null
-            ? null
-            : Map<String, dynamic>.from(json['datasource_item'] as Map)
-                .map((key, value) => MapEntry(key, value)))!,
-        results: ((json['results'] as List?)
-            ?.map((e) =>
-                EvalRunOutputItemResult.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        sample: (json['sample'] != null
-            ? EvalRunOutputItemSample.fromJson(
-                json['sample'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory EvalRunOutputItem.fromJson(Map<String, dynamic> json) => EvalRunOutputItem(
+    object: (json['object'] != null ? EvalRunOutputItemObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    runId: (json['run_id'] as String?)!,
+    evalId: (json['eval_id'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    status: (json['status'] as String?)!,
+    datasourceItemId: ((json['datasource_item_id'] as num?)?.toInt())!,
+    datasourceItem: (json['datasource_item'] == null ? null : Map<String, dynamic>.from(json['datasource_item'] as Map).map((key, value) => MapEntry(key, value)))!,
+    results: ((json['results'] as List?)?.map((e) => EvalRunOutputItemResult.fromJson(e as Map<String, dynamic>)).toList())!,
+    sample: (json['sample'] != null ? EvalRunOutputItemSample.fromJson(json['sample'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'run_id': runId,
-        'eval_id': evalId,
-        'created_at': createdAt,
-        'status': status,
-        'datasource_item_id': datasourceItemId,
-        'datasource_item': datasourceItem,
-        'results': results.map((item) => item.toJson()).toList(),
-        'sample': sample.toJson(),
-      };
+    'object': object.toJson(),
+    'id': id,
+    'run_id': runId,
+    'eval_id': evalId,
+    'created_at': createdAt,
+    'status': status,
+    'datasource_item_id': datasourceItemId,
+    'datasource_item': datasourceItem,
+    'results': results.map((item) => item.toJson()).toList(),
+    'sample': sample.toJson(),
+  };
 }

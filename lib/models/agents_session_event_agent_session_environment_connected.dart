@@ -8,84 +8,42 @@ part of 'agents_session_event.dart';
 class SessionEventAgentSessionEnvironmentConnected {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `agent.session.environment.connected`.
   final SessionEventAgentSessionEnvironmentConnectedType type_;
-
   /// The unique ID of the event.
   final String eventId;
-
   /// The ID of the session associated with the event.
   final String sessionId;
-
   /// The ID of the turn associated with the event, when applicable.
   final String? turnId;
-
   /// The current environment state.
   final SessionEnvironmentStateResource environment;
 
-  const SessionEventAgentSessionEnvironmentConnected(
-      {required this.type_,
-      required this.eventId,
-      required this.sessionId,
-      required this.turnId,
-      required this.environment});
+  const SessionEventAgentSessionEnvironmentConnected({required this.type_, required this.eventId, required this.sessionId, required this.turnId, required this.environment});
 
-  SessionEventAgentSessionEnvironmentConnected Function(
-      {SessionEventAgentSessionEnvironmentConnectedType type_,
-      String eventId,
-      String sessionId,
-      String? turnId,
-      SessionEnvironmentStateResource environment}) get copyWith => _copyWith;
+  SessionEventAgentSessionEnvironmentConnected Function({SessionEventAgentSessionEnvironmentConnectedType type_, String eventId, String sessionId, String? turnId, SessionEnvironmentStateResource environment}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionEnvironmentConnected _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? sessionId = sdkOmittedValue,
-          Object? turnId = sdkOmittedValue,
-          Object? environment = sdkOmittedValue}) =>
-      SessionEventAgentSessionEnvironmentConnected(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SessionEventAgentSessionEnvironmentConnectedType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        sessionId: identical(sessionId, sdkOmittedValue)
-            ? this.sessionId
-            : sessionId as String,
-        turnId: identical(turnId, sdkOmittedValue)
-            ? this.turnId
-            : turnId as String?,
-        environment: identical(environment, sdkOmittedValue)
-            ? this.environment
-            : environment as SessionEnvironmentStateResource,
-      );
+  SessionEventAgentSessionEnvironmentConnected _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? environment = sdkOmittedValue}) => SessionEventAgentSessionEnvironmentConnected(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionEnvironmentConnectedType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
+    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String?,
+    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as SessionEnvironmentStateResource,
+  );
 
-  factory SessionEventAgentSessionEnvironmentConnected.fromJson(
-          Map<String, dynamic> json) =>
-      SessionEventAgentSessionEnvironmentConnected(
-        type_: (json['type'] != null
-            ? SessionEventAgentSessionEnvironmentConnectedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        sessionId: (json['session_id'] as String?)!,
-        turnId: json.containsKey('turn_id')
-            ? json['turn_id'] as String?
-            : throw ArgumentError.value(
-                null, 'turn_id', 'Required property is missing'),
-        environment: (json['environment'] != null
-            ? SessionEnvironmentStateResource.fromJson(
-                json['environment'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory SessionEventAgentSessionEnvironmentConnected.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionEnvironmentConnected(
+    type_: (json['type'] != null ? SessionEventAgentSessionEnvironmentConnectedType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    sessionId: (json['session_id'] as String?)!,
+    turnId: json.containsKey('turn_id') ? json['turn_id'] as String? : throw ArgumentError.value(null, 'turn_id', 'Required property is missing'),
+    environment: (json['environment'] != null ? SessionEnvironmentStateResource.fromJson(json['environment'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        'session_id': sessionId,
-        'turn_id': turnId,
-        'environment': environment.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    'session_id': sessionId,
+    'turn_id': turnId,
+    'environment': environment.toJson(),
+  };
 }

@@ -8,38 +8,27 @@ part of 'certificates.dart';
 class DeleteCertificateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, must be `certificate.deleted`.
   final DeleteCertificateResponseObject object;
-
   /// The ID of the certificate that was deleted.
   final String id;
 
   const DeleteCertificateResponse({required this.object, required this.id});
 
-  DeleteCertificateResponse Function(
-      {DeleteCertificateResponseObject object,
-      String id}) get copyWith => _copyWith;
+  DeleteCertificateResponse Function({DeleteCertificateResponseObject object, String id}) get copyWith => _copyWith;
 
-  DeleteCertificateResponse _copyWith(
-          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      DeleteCertificateResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DeleteCertificateResponseObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  DeleteCertificateResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => DeleteCertificateResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteCertificateResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory DeleteCertificateResponse.fromJson(Map<String, dynamic> json) =>
-      DeleteCertificateResponse(
-        object: (json['object'] != null
-            ? DeleteCertificateResponseObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-      );
+  factory DeleteCertificateResponse.fromJson(Map<String, dynamic> json) => DeleteCertificateResponse(
+    object: (json['object'] != null ? DeleteCertificateResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-      };
+    'object': object.toJson(),
+    'id': id,
+  };
 }

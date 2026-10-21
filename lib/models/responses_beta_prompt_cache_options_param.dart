@@ -8,57 +8,33 @@ part of 'responses_beta_prompt.dart';
 class BetaPromptCacheOptionsParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The minimum lifetime applied to every implicit and explicit cache breakpoint written by the request. Defaults to `30m`, which is currently the only supported value. The backend may retain cache entries for longer.
   final SdkOptional<BetaPromptCacheTTLEnum> ttl;
-
   /// Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to `implicit`. With `implicit`, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With `explicit`, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.
   final SdkOptional<BetaPromptCacheModeEnum> mode;
 
-  const BetaPromptCacheOptionsParam(
-      {this.ttl = const SdkOmitted(), this.mode = const SdkOmitted()});
+  const BetaPromptCacheOptionsParam({this.ttl = const SdkOmitted(), this.mode = const SdkOmitted()});
 
-  BetaPromptCacheOptionsParam Function(
-      {SdkOptional<BetaPromptCacheTTLEnum> ttl,
-      SdkOptional<BetaPromptCacheModeEnum> mode}) get copyWith => _copyWith;
+  BetaPromptCacheOptionsParam Function({SdkOptional<BetaPromptCacheTTLEnum> ttl, SdkOptional<BetaPromptCacheModeEnum> mode}) get copyWith => _copyWith;
 
-  BetaPromptCacheOptionsParam _copyWith(
-          {Object? ttl = sdkOmittedValue, Object? mode = sdkOmittedValue}) =>
-      BetaPromptCacheOptionsParam(
-        ttl: identical(ttl, sdkOmittedValue)
-            ? this.ttl
-            : ttl as SdkOptional<BetaPromptCacheTTLEnum>,
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as SdkOptional<BetaPromptCacheModeEnum>,
-      );
+  BetaPromptCacheOptionsParam _copyWith({Object? ttl = sdkOmittedValue, Object? mode = sdkOmittedValue}) => BetaPromptCacheOptionsParam(
+    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as SdkOptional<BetaPromptCacheTTLEnum>,
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as SdkOptional<BetaPromptCacheModeEnum>,
+  );
 
-  factory BetaPromptCacheOptionsParam.fromJson(Map<String, dynamic> json) =>
-      BetaPromptCacheOptionsParam(
-        ttl: json['ttl'] != null
-            ? SdkPresent((json['ttl'] != null
-                ? BetaPromptCacheTTLEnum.fromJson(json['ttl'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        mode: json['mode'] != null
-            ? SdkPresent((json['mode'] != null
-                ? BetaPromptCacheModeEnum.fromJson(json['mode'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory BetaPromptCacheOptionsParam.fromJson(Map<String, dynamic> json) => BetaPromptCacheOptionsParam(
+    ttl: json['ttl'] != null ? SdkPresent((json['ttl'] != null ? BetaPromptCacheTTLEnum.fromJson(json['ttl'] as String) : null)!) : const SdkOmitted(),
+    mode: json['mode'] != null ? SdkPresent((json['mode'] != null ? BetaPromptCacheModeEnum.fromJson(json['mode'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (ttl) {
-          SdkPresent<BetaPromptCacheTTLEnum>(value: final value) => {
-              'ttl': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (mode) {
-          SdkPresent<BetaPromptCacheModeEnum>(value: final value) => {
-              'mode': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (ttl) {
+      SdkPresent<BetaPromptCacheTTLEnum>(value: final value) => {'ttl': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (mode) {
+      SdkPresent<BetaPromptCacheModeEnum>(value: final value) => {'mode': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -31,27 +31,17 @@ Future<ConversationItemList> createConversationItems(ClientConfig config,
           '/conversations/${Uri.encodeComponent(conversationId.toString())}/items',
           config: config,
           query: {
-            'include': SdkQueryValue(SdkUtils.unwrapOptional(include),
-                style: 'form', explode: true)
+            'include': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true)
           },
           body: {'items': items},
           decoder: SdkResponseDecoder.json,
           operationId: 'createConversationItems',
-          fromJsonRaw: (value) =>
-              ConversationItemList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ConversationItemList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists the items in a conversation. Use `after` to continue from an item ID, `limit` to control the number of results, and `order` to choose the direction of the results.
 ///
@@ -89,30 +79,20 @@ Future<ConversationItemList> listConversationItems(ClientConfig config,
           '/conversations/${Uri.encodeComponent(conversationId.toString())}/items',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'include': SdkQueryValue(SdkUtils.unwrapOptional(include),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'include': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listConversationItems',
-          fromJsonRaw: (value) =>
-              ConversationItemList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ConversationItemList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists the items in a conversation. Use `after` to continue from an item ID, `limit` to control the number of results, and `order` to choose the direction of the results.
 ///
@@ -139,62 +119,23 @@ Future<ConversationItemList> listConversationItems(ClientConfig config,
 ///   using the Responses API statelessly (like when the `store` parameter is set
 ///   to `false`, or when an organization is enrolled in the zero data retention
 ///   program).
-Stream<ConversationItem> listConversationItemsPaginated(ClientConfig config,
-    {required String conversationId,
-    int? limit,
-    ListConversationItemsOrder? order,
-    String? after,
-    List<IncludeEnum>? include,
-    RequestOptions? requestOptions}) async* {
+Stream<ConversationItem> listConversationItemsPaginated(ClientConfig config, {required String conversationId, int? limit, ListConversationItemsOrder? order, String? after, List<IncludeEnum>? include, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listConversationItems(config,
-        conversationId: conversationId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListConversationItemsOrder>()
-            : SdkPresent<ListConversationItemsOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        include: include == null
-            ? const SdkOmitted<List<IncludeEnum>>()
-            : SdkPresent<List<IncludeEnum>>(include),
-        requestOptions: requestOptions);
+    final sdkPage = await listConversationItems(config, conversationId: conversationId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListConversationItemsOrder>() : SdkPresent<ListConversationItemsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), include: include == null ? const SdkOmitted<List<IncludeEnum>>() : SdkPresent<List<IncludeEnum>>(include), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ConversationItemList, ConversationItem>>
-    listConversationItemsPages(ClientConfig config,
-        {required String conversationId,
-        int? limit,
-        ListConversationItemsOrder? order,
-        String? after,
-        List<IncludeEnum>? include,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ConversationItemList, ConversationItem>> listConversationItemsPages(ClientConfig config, {required String conversationId, int? limit, ListConversationItemsOrder? order, String? after, List<IncludeEnum>? include, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listConversationItems(config,
-        conversationId: conversationId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListConversationItemsOrder>()
-            : SdkPresent<ListConversationItemsOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        include: include == null
-            ? const SdkOmitted<List<IncludeEnum>>()
-            : SdkPresent<List<IncludeEnum>>(include),
-        requestOptions: requestOptions);
+    final sdkPage = await listConversationItems(config, conversationId: conversationId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListConversationItemsOrder>() : SdkPresent<ListConversationItemsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), include: include == null ? const SdkOmitted<List<IncludeEnum>>() : SdkPresent<List<IncludeEnum>>(include), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -204,6 +145,7 @@ Stream<SdkPage<ConversationItemList, ConversationItem>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Retrieves a single item from a conversation. Use `conversation_id` and `item_id` to identify the conversation and the item you want to inspect.
 ///
@@ -226,21 +168,16 @@ Future<ConversationItem> getConversationItem(ClientConfig config,
           '/conversations/${Uri.encodeComponent(conversationId.toString())}/items/${Uri.encodeComponent(itemId.toString())}',
           config: config,
           query: {
-            'include': SdkQueryValue(SdkUtils.unwrapOptional(include),
-                style: 'form', explode: true)
+            'include': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getConversationItem',
           fromJsonRaw: (value) => ConversationItem.fromJson(value),
           options: requestOptions,
-          errors: {
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes an item from a conversation. Use `conversation_id` and `item_id` to identify the item to remove.
 ///
@@ -257,17 +194,12 @@ Future<ConversationResource> deleteConversationItem(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteConversationItem',
-          fromJsonRaw: (value) =>
-              ConversationResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ConversationResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a conversation that can include metadata and initial context items. Use `items` to seed the conversation with up to 20 items; metadata can store additional key-value information.
 ///
@@ -295,19 +227,12 @@ Future<ConversationResource> createConversation(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createConversation',
-          fromJsonRaw: (value) =>
-              ConversationResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ConversationResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a conversation by its identifier. Use `conversation_id` to get the conversation's metadata and creation time.
 ///
@@ -321,15 +246,12 @@ Future<ConversationResource> getConversation(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getConversation',
-          fromJsonRaw: (value) =>
-              ConversationResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ConversationResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Delete a conversation. Items in the conversation will not be deleted.
 ///
@@ -341,15 +263,12 @@ Future<DeletedConversationResource> deleteConversation(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteConversation',
-          fromJsonRaw: (value) => DeletedConversationResource.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedConversationResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates the metadata associated with a conversation. Supply the complete `metadata` value to replace the conversation's existing metadata, or use `null` to clear it.
 ///
@@ -371,18 +290,8 @@ Future<ConversationResource> updateConversation(ClientConfig config,
           body: {'metadata': metadata},
           decoder: SdkResponseDecoder.json,
           operationId: 'updateConversation',
-          fromJsonRaw: (value) =>
-              ConversationResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ConversationResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

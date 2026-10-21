@@ -8,152 +8,84 @@ part of 'evals_create.dart';
 class CreateEvalCompletionsRunDataSourceInputMessagesVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of input messages. Always `template`.
   final CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type type_;
-
   /// A list of chat messages forming the prompt or context. May include variable references to the `item` namespace, ie {{item.name}}.
   final List<dynamic> template;
 
-  const CreateEvalCompletionsRunDataSourceInputMessagesVariant0(
-      {required this.type_, required this.template});
+  const CreateEvalCompletionsRunDataSourceInputMessagesVariant0({required this.type_, required this.template});
 
-  CreateEvalCompletionsRunDataSourceInputMessagesVariant0 Function(
-      {CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type type_,
-      List<dynamic> template}) get copyWith => _copyWith;
+  CreateEvalCompletionsRunDataSourceInputMessagesVariant0 Function({CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type type_, List<dynamic> template}) get copyWith => _copyWith;
 
-  CreateEvalCompletionsRunDataSourceInputMessagesVariant0 _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? template = sdkOmittedValue}) =>
-      CreateEvalCompletionsRunDataSourceInputMessagesVariant0(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type,
-        template: identical(template, sdkOmittedValue)
-            ? this.template
-            : template as List<dynamic>,
-      );
+  CreateEvalCompletionsRunDataSourceInputMessagesVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? template = sdkOmittedValue}) => CreateEvalCompletionsRunDataSourceInputMessagesVariant0(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type,
+    template: identical(template, sdkOmittedValue) ? this.template : template as List<dynamic>,
+  );
 
-  factory CreateEvalCompletionsRunDataSourceInputMessagesVariant0.fromJson(
-          Map<String, dynamic> json) =>
-      CreateEvalCompletionsRunDataSourceInputMessagesVariant0(
-        type_: (json['type'] != null
-            ? CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type
-                .fromJson(json['type'] as String)
-            : null)!,
-        template: ((json['template'] as List?)?.map((e) => e).toList())!,
-      );
+  factory CreateEvalCompletionsRunDataSourceInputMessagesVariant0.fromJson(Map<String, dynamic> json) => CreateEvalCompletionsRunDataSourceInputMessagesVariant0(
+    type_: (json['type'] != null ? CreateEvalCompletionsRunDataSourceInputMessagesVariant0Type.fromJson(json['type'] as String) : null)!,
+    template: ((json['template'] as List?)?.map((e) => e).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'template': template,
-      };
+    'type': type_.toJson(),
+    'template': template,
+  };
 }
 
 /// Optional object value serialized in the `input_messages` wire field.
 class CreateEvalCompletionsRunDataSourceInputMessagesVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of input messages. Always `item_reference`.
   final CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type type_;
-
   /// A reference to a variable in the `item` namespace. Ie, "item.input_trajectory"
   final String itemReference;
 
-  const CreateEvalCompletionsRunDataSourceInputMessagesVariant1(
-      {required this.type_, required this.itemReference});
+  const CreateEvalCompletionsRunDataSourceInputMessagesVariant1({required this.type_, required this.itemReference});
 
-  CreateEvalCompletionsRunDataSourceInputMessagesVariant1 Function(
-      {CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type type_,
-      String itemReference}) get copyWith => _copyWith;
+  CreateEvalCompletionsRunDataSourceInputMessagesVariant1 Function({CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type type_, String itemReference}) get copyWith => _copyWith;
 
-  CreateEvalCompletionsRunDataSourceInputMessagesVariant1 _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? itemReference = sdkOmittedValue}) =>
-      CreateEvalCompletionsRunDataSourceInputMessagesVariant1(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type,
-        itemReference: identical(itemReference, sdkOmittedValue)
-            ? this.itemReference
-            : itemReference as String,
-      );
+  CreateEvalCompletionsRunDataSourceInputMessagesVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? itemReference = sdkOmittedValue}) => CreateEvalCompletionsRunDataSourceInputMessagesVariant1(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type,
+    itemReference: identical(itemReference, sdkOmittedValue) ? this.itemReference : itemReference as String,
+  );
 
-  factory CreateEvalCompletionsRunDataSourceInputMessagesVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      CreateEvalCompletionsRunDataSourceInputMessagesVariant1(
-        type_: (json['type'] != null
-            ? CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type
-                .fromJson(json['type'] as String)
-            : null)!,
-        itemReference: (json['item_reference'] as String?)!,
-      );
+  factory CreateEvalCompletionsRunDataSourceInputMessagesVariant1.fromJson(Map<String, dynamic> json) => CreateEvalCompletionsRunDataSourceInputMessagesVariant1(
+    type_: (json['type'] != null ? CreateEvalCompletionsRunDataSourceInputMessagesVariant1Type.fromJson(json['type'] as String) : null)!,
+    itemReference: (json['item_reference'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'item_reference': itemReference,
-      };
+    'type': type_.toJson(),
+    'item_reference': itemReference,
+  };
 }
 
 sealed class CreateEvalCompletionsRunDataSourceInputMessages {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const CreateEvalCompletionsRunDataSourceInputMessages();
-  factory CreateEvalCompletionsRunDataSourceInputMessages.fromJson(
-      Object? json) {
+  factory CreateEvalCompletionsRunDataSourceInputMessages.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value =
-            CreateEvalCompletionsRunDataSourceInputMessagesVariant0.fromJson(
-                json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant0(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            CreateEvalCompletionsRunDataSourceInputMessagesVariant1.fromJson(
-                json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant1(
-              value);
-        }
-      } catch (_) {}
+      try { final value = CreateEvalCompletionsRunDataSourceInputMessagesVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant0(value); } } catch (_) {}
+      try { final value = CreateEvalCompletionsRunDataSourceInputMessagesVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant1(value); } } catch (_) {}
     }
-    try {
-      return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant0(
-          CreateEvalCompletionsRunDataSourceInputMessagesVariant0.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant1(
-          CreateEvalCompletionsRunDataSourceInputMessagesVariant1.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for CreateEvalCompletionsRunDataSourceInputMessages");
+    try { return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant0(CreateEvalCompletionsRunDataSourceInputMessagesVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant1(CreateEvalCompletionsRunDataSourceInputMessagesVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for CreateEvalCompletionsRunDataSourceInputMessages");
   }
   Object? toJson();
 }
 
-final class CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant0
-    extends CreateEvalCompletionsRunDataSourceInputMessages {
+final class CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant0 extends CreateEvalCompletionsRunDataSourceInputMessages {
   final CreateEvalCompletionsRunDataSourceInputMessagesVariant0 value;
-  const CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant1
-    extends CreateEvalCompletionsRunDataSourceInputMessages {
+final class CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant1 extends CreateEvalCompletionsRunDataSourceInputMessages {
   final CreateEvalCompletionsRunDataSourceInputMessagesVariant1 value;
-  const CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant1(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateEvalCompletionsRunDataSourceInputMessagesCreateEvalCompletionsRunDataSourceInputMessagesVariant1(this.value);
+  @override Object? toJson() => value.toJson();
 }

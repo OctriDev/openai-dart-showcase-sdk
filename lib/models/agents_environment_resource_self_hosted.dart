@@ -8,76 +8,42 @@ part of 'agents_environment.dart';
 class EnvironmentResourceSelfHosted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `self_hosted`.
   final EnvironmentResourceSelfHostedType type_;
-
   /// Pass this URL unchanged to `codex exec-server --remote` when connecting this environment.
   final String remoteUrl;
-
   /// The public ID of the environment.
   final String id;
-
   /// The absolute project directory inside the environment. Defaults to `/workspace`.
   final String workspaceDirectory;
-
   /// Directories that contain capabilities exposed to the agent.
   final List<String> capabilityDirectories;
 
-  const EnvironmentResourceSelfHosted(
-      {required this.type_,
-      required this.remoteUrl,
-      required this.id,
-      required this.workspaceDirectory,
-      required this.capabilityDirectories});
+  const EnvironmentResourceSelfHosted({required this.type_, required this.remoteUrl, required this.id, required this.workspaceDirectory, required this.capabilityDirectories});
 
-  EnvironmentResourceSelfHosted Function(
-      {EnvironmentResourceSelfHostedType type_,
-      String remoteUrl,
-      String id,
-      String workspaceDirectory,
-      List<String> capabilityDirectories}) get copyWith => _copyWith;
+  EnvironmentResourceSelfHosted Function({EnvironmentResourceSelfHostedType type_, String remoteUrl, String id, String workspaceDirectory, List<String> capabilityDirectories}) get copyWith => _copyWith;
 
-  EnvironmentResourceSelfHosted _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? remoteUrl = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? workspaceDirectory = sdkOmittedValue,
-          Object? capabilityDirectories = sdkOmittedValue}) =>
-      EnvironmentResourceSelfHosted(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as EnvironmentResourceSelfHostedType,
-        remoteUrl: identical(remoteUrl, sdkOmittedValue)
-            ? this.remoteUrl
-            : remoteUrl as String,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        workspaceDirectory: identical(workspaceDirectory, sdkOmittedValue)
-            ? this.workspaceDirectory
-            : workspaceDirectory as String,
-        capabilityDirectories: identical(capabilityDirectories, sdkOmittedValue)
-            ? this.capabilityDirectories
-            : capabilityDirectories as List<String>,
-      );
+  EnvironmentResourceSelfHosted _copyWith({Object? type_ = sdkOmittedValue, Object? remoteUrl = sdkOmittedValue, Object? id = sdkOmittedValue, Object? workspaceDirectory = sdkOmittedValue, Object? capabilityDirectories = sdkOmittedValue}) => EnvironmentResourceSelfHosted(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EnvironmentResourceSelfHostedType,
+    remoteUrl: identical(remoteUrl, sdkOmittedValue) ? this.remoteUrl : remoteUrl as String,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    workspaceDirectory: identical(workspaceDirectory, sdkOmittedValue) ? this.workspaceDirectory : workspaceDirectory as String,
+    capabilityDirectories: identical(capabilityDirectories, sdkOmittedValue) ? this.capabilityDirectories : capabilityDirectories as List<String>,
+  );
 
-  factory EnvironmentResourceSelfHosted.fromJson(Map<String, dynamic> json) =>
-      EnvironmentResourceSelfHosted(
-        type_: (json['type'] != null
-            ? EnvironmentResourceSelfHostedType.fromJson(json['type'] as String)
-            : null)!,
-        remoteUrl: (json['remote_url'] as String?)!,
-        id: (json['id'] as String?)!,
-        workspaceDirectory: (json['workspace_directory'] as String?)!,
-        capabilityDirectories: ((json['capability_directories'] as List?)
-            ?.map((e) => e as String)
-            .toList())!,
-      );
+  factory EnvironmentResourceSelfHosted.fromJson(Map<String, dynamic> json) => EnvironmentResourceSelfHosted(
+    type_: (json['type'] != null ? EnvironmentResourceSelfHostedType.fromJson(json['type'] as String) : null)!,
+    remoteUrl: (json['remote_url'] as String?)!,
+    id: (json['id'] as String?)!,
+    workspaceDirectory: (json['workspace_directory'] as String?)!,
+    capabilityDirectories: ((json['capability_directories'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'remote_url': remoteUrl,
-        'id': id,
-        'workspace_directory': workspaceDirectory,
-        'capability_directories': capabilityDirectories,
-      };
+    'type': type_.toJson(),
+    'remote_url': remoteUrl,
+    'id': id,
+    'workspace_directory': workspaceDirectory,
+    'capability_directories': capabilityDirectories,
+  };
 }

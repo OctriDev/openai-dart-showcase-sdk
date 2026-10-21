@@ -8,135 +8,65 @@ part of 'images.dart';
 class ImageEditCompletedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The effective safety identifier used for safety monitoring and abuse detection. This is the non-empty `safety_identifier` from the request, or the deprecated `user` value when `safety_identifier` is omitted, null, or empty.
   final SdkOptional<String?> safetyIdentifier;
-
   /// The type of the event. Always `image_edit.completed`.
   final ImageEditCompletedEventType type_;
-
   /// Base64-encoded final edited image data, suitable for rendering as an image.
   final String b64Json;
-
   /// The Unix timestamp when the event was created.
   final int createdAt;
-
   /// The image dimensions as a `WIDTHxHEIGHT` string, for example `1536x864`.
   final String size;
-
   /// The quality setting for the edited image.
   final ImageEditCompletedEventQuality quality;
-
   /// The background setting for the edited image.
   final ImageEditCompletedEventBackground background;
-
   /// The output format for the edited image.
   final ImageEditCompletedEventOutputFormat outputFormat;
-
   /// For the GPT image models only, the token usage information for the image generation.
   final ImagesUsage usage;
 
-  const ImageEditCompletedEvent(
-      {this.safetyIdentifier = const SdkOmitted(),
-      required this.type_,
-      required this.b64Json,
-      required this.createdAt,
-      required this.size,
-      required this.quality,
-      required this.background,
-      required this.outputFormat,
-      required this.usage});
+  const ImageEditCompletedEvent({this.safetyIdentifier = const SdkOmitted(), required this.type_, required this.b64Json, required this.createdAt, required this.size, required this.quality, required this.background, required this.outputFormat, required this.usage});
 
-  ImageEditCompletedEvent Function(
-      {SdkOptional<String?> safetyIdentifier,
-      ImageEditCompletedEventType type_,
-      String b64Json,
-      int createdAt,
-      String size,
-      ImageEditCompletedEventQuality quality,
-      ImageEditCompletedEventBackground background,
-      ImageEditCompletedEventOutputFormat outputFormat,
-      ImagesUsage usage}) get copyWith => _copyWith;
+  ImageEditCompletedEvent Function({SdkOptional<String?> safetyIdentifier, ImageEditCompletedEventType type_, String b64Json, int createdAt, String size, ImageEditCompletedEventQuality quality, ImageEditCompletedEventBackground background, ImageEditCompletedEventOutputFormat outputFormat, ImagesUsage usage}) get copyWith => _copyWith;
 
-  ImageEditCompletedEvent _copyWith(
-          {Object? safetyIdentifier = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? b64Json = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? quality = sdkOmittedValue,
-          Object? background = sdkOmittedValue,
-          Object? outputFormat = sdkOmittedValue,
-          Object? usage = sdkOmittedValue}) =>
-      ImageEditCompletedEvent(
-        safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue)
-            ? this.safetyIdentifier
-            : safetyIdentifier as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ImageEditCompletedEventType,
-        b64Json: identical(b64Json, sdkOmittedValue)
-            ? this.b64Json
-            : b64Json as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        size: identical(size, sdkOmittedValue) ? this.size : size as String,
-        quality: identical(quality, sdkOmittedValue)
-            ? this.quality
-            : quality as ImageEditCompletedEventQuality,
-        background: identical(background, sdkOmittedValue)
-            ? this.background
-            : background as ImageEditCompletedEventBackground,
-        outputFormat: identical(outputFormat, sdkOmittedValue)
-            ? this.outputFormat
-            : outputFormat as ImageEditCompletedEventOutputFormat,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as ImagesUsage,
-      );
+  ImageEditCompletedEvent _copyWith({Object? safetyIdentifier = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? b64Json = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? size = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? background = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? usage = sdkOmittedValue}) => ImageEditCompletedEvent(
+    safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue) ? this.safetyIdentifier : safetyIdentifier as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ImageEditCompletedEventType,
+    b64Json: identical(b64Json, sdkOmittedValue) ? this.b64Json : b64Json as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    size: identical(size, sdkOmittedValue) ? this.size : size as String,
+    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as ImageEditCompletedEventQuality,
+    background: identical(background, sdkOmittedValue) ? this.background : background as ImageEditCompletedEventBackground,
+    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as ImageEditCompletedEventOutputFormat,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as ImagesUsage,
+  );
 
-  factory ImageEditCompletedEvent.fromJson(Map<String, dynamic> json) =>
-      ImageEditCompletedEvent(
-        safetyIdentifier: json.containsKey('safety_identifier')
-            ? SdkPresent(json['safety_identifier'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? ImageEditCompletedEventType.fromJson(json['type'] as String)
-            : null)!,
-        b64Json: (json['b64_json'] as String?)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        size: (json['size'] as String?)!,
-        quality: (json['quality'] != null
-            ? ImageEditCompletedEventQuality.fromJson(json['quality'] as String)
-            : null)!,
-        background: (json['background'] != null
-            ? ImageEditCompletedEventBackground.fromJson(
-                json['background'] as String)
-            : null)!,
-        outputFormat: (json['output_format'] != null
-            ? ImageEditCompletedEventOutputFormat.fromJson(
-                json['output_format'] as String)
-            : null)!,
-        usage: (json['usage'] != null
-            ? ImagesUsage.fromJson(json['usage'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ImageEditCompletedEvent.fromJson(Map<String, dynamic> json) => ImageEditCompletedEvent(
+    safetyIdentifier: json.containsKey('safety_identifier') ? SdkPresent(json['safety_identifier'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? ImageEditCompletedEventType.fromJson(json['type'] as String) : null)!,
+    b64Json: (json['b64_json'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    size: (json['size'] as String?)!,
+    quality: (json['quality'] != null ? ImageEditCompletedEventQuality.fromJson(json['quality'] as String) : null)!,
+    background: (json['background'] != null ? ImageEditCompletedEventBackground.fromJson(json['background'] as String) : null)!,
+    outputFormat: (json['output_format'] != null ? ImageEditCompletedEventOutputFormat.fromJson(json['output_format'] as String) : null)!,
+    usage: (json['usage'] != null ? ImagesUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (safetyIdentifier) {
-          SdkPresent<String?>(value: final value) => {
-              'safety_identifier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'b64_json': b64Json,
-        'created_at': createdAt,
-        'size': size,
-        'quality': quality.toJson(),
-        'background': background.toJson(),
-        'output_format': outputFormat.toJson(),
-        'usage': usage.toJson(),
-      };
+    ...switch (safetyIdentifier) {
+      SdkPresent<String?>(value: final value) => {'safety_identifier': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'b64_json': b64Json,
+    'created_at': createdAt,
+    'size': size,
+    'quality': quality.toJson(),
+    'background': background.toJson(),
+    'output_format': outputFormat.toJson(),
+    'usage': usage.toJson(),
+  };
 }

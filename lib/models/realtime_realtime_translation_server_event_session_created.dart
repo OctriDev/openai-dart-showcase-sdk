@@ -8,57 +8,32 @@ part of 'realtime_realtime_translation.dart';
 class RealtimeTranslationServerEventSessionCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `session.created`.
   final RealtimeTranslationServerEventSessionCreatedType type_;
-
   /// The translation session configuration.
   final RealtimeTranslationSession session;
 
-  const RealtimeTranslationServerEventSessionCreated(
-      {required this.eventId, required this.type_, required this.session});
+  const RealtimeTranslationServerEventSessionCreated({required this.eventId, required this.type_, required this.session});
 
-  RealtimeTranslationServerEventSessionCreated Function(
-      {String eventId,
-      RealtimeTranslationServerEventSessionCreatedType type_,
-      RealtimeTranslationSession session}) get copyWith => _copyWith;
+  RealtimeTranslationServerEventSessionCreated Function({String eventId, RealtimeTranslationServerEventSessionCreatedType type_, RealtimeTranslationSession session}) get copyWith => _copyWith;
 
-  RealtimeTranslationServerEventSessionCreated _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? session = sdkOmittedValue}) =>
-      RealtimeTranslationServerEventSessionCreated(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeTranslationServerEventSessionCreatedType,
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as RealtimeTranslationSession,
-      );
+  RealtimeTranslationServerEventSessionCreated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeTranslationServerEventSessionCreated(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTranslationServerEventSessionCreatedType,
+    session: identical(session, sdkOmittedValue) ? this.session : session as RealtimeTranslationSession,
+  );
 
-  factory RealtimeTranslationServerEventSessionCreated.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeTranslationServerEventSessionCreated(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeTranslationServerEventSessionCreatedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        session: (json['session'] != null
-            ? RealtimeTranslationSession.fromJson(
-                json['session'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory RealtimeTranslationServerEventSessionCreated.fromJson(Map<String, dynamic> json) => RealtimeTranslationServerEventSessionCreated(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeTranslationServerEventSessionCreatedType.fromJson(json['type'] as String) : null)!,
+    session: (json['session'] != null ? RealtimeTranslationSession.fromJson(json['session'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'session': session.toJson(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'session': session.toJson(),
+  };
 }

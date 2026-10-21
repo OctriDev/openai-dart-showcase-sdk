@@ -9,88 +9,55 @@ sealed class ChatCompletionRequestToolMessageContent {
   static const String constructionSurface = 'named';
   const ChatCompletionRequestToolMessageContent();
   factory ChatCompletionRequestToolMessageContent.fromJson(Object? json) {
-    if (json is String) {
-      return ChatCompletionRequestToolMessageContentString(json);
-    }
-    try {
-      return ChatCompletionRequestToolMessageContentChatCompletionRequestToolMessageContentPart(
-          ChatCompletionRequestToolMessageContentPart.fromJson(json));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for ChatCompletionRequestToolMessageContent");
+    if (json is String) { return ChatCompletionRequestToolMessageContentString(json); }
+    try { return ChatCompletionRequestToolMessageContentChatCompletionRequestToolMessageContentPart(ChatCompletionRequestToolMessageContentPart.fromJson(json)); } catch (_) {}
+    throw FormatException("No variant matched for ChatCompletionRequestToolMessageContent");
   }
   Object? toJson();
 }
 
-final class ChatCompletionRequestToolMessageContentString
-    extends ChatCompletionRequestToolMessageContent {
+final class ChatCompletionRequestToolMessageContentString extends ChatCompletionRequestToolMessageContent {
   final String value;
   const ChatCompletionRequestToolMessageContentString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class ChatCompletionRequestToolMessageContentChatCompletionRequestToolMessageContentPart
-    extends ChatCompletionRequestToolMessageContent {
+final class ChatCompletionRequestToolMessageContentChatCompletionRequestToolMessageContentPart extends ChatCompletionRequestToolMessageContent {
   final ChatCompletionRequestToolMessageContentPart value;
-  const ChatCompletionRequestToolMessageContentChatCompletionRequestToolMessageContentPart(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ChatCompletionRequestToolMessageContentChatCompletionRequestToolMessageContentPart(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `ChatCompletionRequestToolMessage` API schema.
 class ChatCompletionRequestToolMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The role of the messages author, in this case `tool`.
   final ChatCompletionRequestToolMessageRole role;
-
   /// The contents of the tool message.
   final dynamic content;
-
   /// Tool call that this message is responding to.
   final String toolCallId;
 
-  const ChatCompletionRequestToolMessage(
-      {required this.role, required this.content, required this.toolCallId});
+  const ChatCompletionRequestToolMessage({required this.role, required this.content, required this.toolCallId});
 
-  ChatCompletionRequestToolMessage Function(
-      {ChatCompletionRequestToolMessageRole role,
-      dynamic content,
-      String toolCallId}) get copyWith => _copyWith;
+  ChatCompletionRequestToolMessage Function({ChatCompletionRequestToolMessageRole role, dynamic content, String toolCallId}) get copyWith => _copyWith;
 
-  ChatCompletionRequestToolMessage _copyWith(
-          {Object? role = sdkOmittedValue,
-          Object? content = sdkOmittedValue,
-          Object? toolCallId = sdkOmittedValue}) =>
-      ChatCompletionRequestToolMessage(
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as ChatCompletionRequestToolMessageRole,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as dynamic,
-        toolCallId: identical(toolCallId, sdkOmittedValue)
-            ? this.toolCallId
-            : toolCallId as String,
-      );
+  ChatCompletionRequestToolMessage _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue, Object? toolCallId = sdkOmittedValue}) => ChatCompletionRequestToolMessage(
+    role: identical(role, sdkOmittedValue) ? this.role : role as ChatCompletionRequestToolMessageRole,
+    content: identical(content, sdkOmittedValue) ? this.content : content as dynamic,
+    toolCallId: identical(toolCallId, sdkOmittedValue) ? this.toolCallId : toolCallId as String,
+  );
 
-  factory ChatCompletionRequestToolMessage.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionRequestToolMessage(
-        role: (json['role'] != null
-            ? ChatCompletionRequestToolMessageRole.fromJson(
-                json['role'] as String)
-            : null)!,
-        content: (json['content'])!,
-        toolCallId: (json['tool_call_id'] as String?)!,
-      );
+  factory ChatCompletionRequestToolMessage.fromJson(Map<String, dynamic> json) => ChatCompletionRequestToolMessage(
+    role: (json['role'] != null ? ChatCompletionRequestToolMessageRole.fromJson(json['role'] as String) : null)!,
+    content: (json['content'])!,
+    toolCallId: (json['tool_call_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'role': role.toJson(),
-        'content': content,
-        'tool_call_id': toolCallId,
-      };
+    'role': role.toJson(),
+    'content': content,
+    'tool_call_id': toolCallId,
+  };
 }

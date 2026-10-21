@@ -6,110 +6,74 @@ part of 'agents_session_turn.dart';
 // agents_session_turn domain models
 /// Stable public categories for session request failures.
 final class SessionTurnErrorCodeResource {
+
   final String value;
 
   const SessionTurnErrorCodeResource._(this.value);
 
-  factory SessionTurnErrorCodeResource.fromJson(String value) =>
-      SessionTurnErrorCodeResource._(value);
+  factory SessionTurnErrorCodeResource.fromJson(String value) => SessionTurnErrorCodeResource._(value);
 
-  static const contextLengthExceeded =
-      SessionTurnErrorCodeResource._('context_length_exceeded');
-  static const sessionBudgetExceeded =
-      SessionTurnErrorCodeResource._('session_budget_exceeded');
-  static const usageLimitExceeded =
-      SessionTurnErrorCodeResource._('usage_limit_exceeded');
-  static const projectSpendLimitExceeded =
-      SessionTurnErrorCodeResource._('project_spend_limit_exceeded');
-  static const organizationSpendLimitExceeded =
-      SessionTurnErrorCodeResource._('organization_spend_limit_exceeded');
-  static const organizationUsageLimitExceeded =
-      SessionTurnErrorCodeResource._('organization_usage_limit_exceeded');
-  static const billingNotActive =
-      SessionTurnErrorCodeResource._('billing_not_active');
-  static const creditBalanceExhausted =
-      SessionTurnErrorCodeResource._('credit_balance_exhausted');
-  static const rateLimitExceeded =
-      SessionTurnErrorCodeResource._('rate_limit_exceeded');
-  static const flexUnavailable =
-      SessionTurnErrorCodeResource._('flex_unavailable');
-  static const serverOverloaded =
-      SessionTurnErrorCodeResource._('server_overloaded');
+  static const contextLengthExceeded = SessionTurnErrorCodeResource._('context_length_exceeded');
+  static const sessionBudgetExceeded = SessionTurnErrorCodeResource._('session_budget_exceeded');
+  static const usageLimitExceeded = SessionTurnErrorCodeResource._('usage_limit_exceeded');
+  static const projectSpendLimitExceeded = SessionTurnErrorCodeResource._('project_spend_limit_exceeded');
+  static const organizationSpendLimitExceeded = SessionTurnErrorCodeResource._('organization_spend_limit_exceeded');
+  static const organizationUsageLimitExceeded = SessionTurnErrorCodeResource._('organization_usage_limit_exceeded');
+  static const billingNotActive = SessionTurnErrorCodeResource._('billing_not_active');
+  static const creditBalanceExhausted = SessionTurnErrorCodeResource._('credit_balance_exhausted');
+  static const rateLimitExceeded = SessionTurnErrorCodeResource._('rate_limit_exceeded');
+  static const flexUnavailable = SessionTurnErrorCodeResource._('flex_unavailable');
+  static const serverOverloaded = SessionTurnErrorCodeResource._('server_overloaded');
   static const cyberPolicy = SessionTurnErrorCodeResource._('cyber_policy');
-  static const misalignmentPolicyViolation =
-      SessionTurnErrorCodeResource._('misalignment_policy_violation');
-  static const connectionFailed =
-      SessionTurnErrorCodeResource._('connection_failed');
+  static const misalignmentPolicyViolation = SessionTurnErrorCodeResource._('misalignment_policy_violation');
+  static const connectionFailed = SessionTurnErrorCodeResource._('connection_failed');
   static const serverError = SessionTurnErrorCodeResource._('server_error');
-  static const authenticationError =
-      SessionTurnErrorCodeResource._('authentication_error');
-  static const invalidRequest =
-      SessionTurnErrorCodeResource._('invalid_request');
-  static const resourceNotFound =
-      SessionTurnErrorCodeResource._('resource_not_found');
+  static const authenticationError = SessionTurnErrorCodeResource._('authentication_error');
+  static const invalidRequest = SessionTurnErrorCodeResource._('invalid_request');
+  static const resourceNotFound = SessionTurnErrorCodeResource._('resource_not_found');
   static const sandboxError = SessionTurnErrorCodeResource._('sandbox_error');
-  static const executorVersionIncompatible =
-      SessionTurnErrorCodeResource._('executor_version_incompatible');
-  static const activeTurnNotSteerable =
-      SessionTurnErrorCodeResource._('active_turn_not_steerable');
-  static const requestTimeout =
-      SessionTurnErrorCodeResource._('request_timeout');
+  static const executorVersionIncompatible = SessionTurnErrorCodeResource._('executor_version_incompatible');
+  static const activeTurnNotSteerable = SessionTurnErrorCodeResource._('active_turn_not_steerable');
+  static const requestTimeout = SessionTurnErrorCodeResource._('request_timeout');
   static const internalError = SessionTurnErrorCodeResource._('internal_error');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SessionTurnErrorCodeResource && other.value == value;
+  @override bool operator ==(Object other) => other is SessionTurnErrorCodeResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A customer-safe error describing why a session request failed.
 class SessionTurnErrorResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A stable, machine-readable failure category.
   final SessionTurnErrorCodeResource code;
-
   /// A customer-safe explanation of the failure.
   final String message;
 
   const SessionTurnErrorResource({required this.code, required this.message});
 
-  SessionTurnErrorResource Function(
-      {SessionTurnErrorCodeResource code,
-      String message}) get copyWith => _copyWith;
+  SessionTurnErrorResource Function({SessionTurnErrorCodeResource code, String message}) get copyWith => _copyWith;
 
-  SessionTurnErrorResource _copyWith(
-          {Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      SessionTurnErrorResource(
-        code: identical(code, sdkOmittedValue)
-            ? this.code
-            : code as SessionTurnErrorCodeResource,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  SessionTurnErrorResource _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => SessionTurnErrorResource(
+    code: identical(code, sdkOmittedValue) ? this.code : code as SessionTurnErrorCodeResource,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
-  factory SessionTurnErrorResource.fromJson(Map<String, dynamic> json) =>
-      SessionTurnErrorResource(
-        code: (json['code'] != null
-            ? SessionTurnErrorCodeResource.fromJson(json['code'] as String)
-            : null)!,
-        message: (json['message'] as String?)!,
-      );
+  factory SessionTurnErrorResource.fromJson(Map<String, dynamic> json) => SessionTurnErrorResource(
+    code: (json['code'] != null ? SessionTurnErrorCodeResource.fromJson(json['code'] as String) : null)!,
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'code': code.toJson(),
-        'message': message,
-      };
+    'code': code.toJson(),
+    'message': message,
+  };
 }
 
 sealed class SessionTurnItemResource {
@@ -118,446 +82,196 @@ sealed class SessionTurnItemResource {
   const SessionTurnItemResource();
   factory SessionTurnItemResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = MessageItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceMessageItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ReasoningItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceReasoningItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = FunctionCallItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceFunctionCallItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = FunctionCallOutputItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceFunctionCallOutputItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AgentMessageItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceAgentMessageItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = McpCallItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceMcpCallItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ComputerUseCallItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceComputerUseCallItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BrowserAuthenticationRequestItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceBrowserAuthenticationRequestItemResource(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            ComputerUseApprovalRequestResultItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceComputerUseApprovalRequestResultItemResource(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = WebSearchCallItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceWebSearchCallItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = CommandExecutionItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceCommandExecutionItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = CreateSubagentCallItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceCreateSubagentCallItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = SendSubagentInputCallItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceSendSubagentInputCallItemResource(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = ResumeSubagentCallItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceResumeSubagentCallItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = WaitForSubagentsCallItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceWaitForSubagentsCallItemResource(value);
-        }
-      } catch (_) {}
-      try {
-        final value = InterruptSubagentCallItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceInterruptSubagentCallItemResource(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = CloseSubagentCallItemResource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SessionTurnItemResourceCloseSubagentCallItemResource(value);
-        }
-      } catch (_) {}
+      try { final value = MessageItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceMessageItemResource(value); } } catch (_) {}
+      try { final value = ReasoningItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceReasoningItemResource(value); } } catch (_) {}
+      try { final value = FunctionCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceFunctionCallItemResource(value); } } catch (_) {}
+      try { final value = FunctionCallOutputItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceFunctionCallOutputItemResource(value); } } catch (_) {}
+      try { final value = AgentMessageItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceAgentMessageItemResource(value); } } catch (_) {}
+      try { final value = McpCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceMcpCallItemResource(value); } } catch (_) {}
+      try { final value = ComputerUseCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceComputerUseCallItemResource(value); } } catch (_) {}
+      try { final value = BrowserAuthenticationRequestItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceBrowserAuthenticationRequestItemResource(value); } } catch (_) {}
+      try { final value = ComputerUseApprovalRequestResultItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceComputerUseApprovalRequestResultItemResource(value); } } catch (_) {}
+      try { final value = WebSearchCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceWebSearchCallItemResource(value); } } catch (_) {}
+      try { final value = CommandExecutionItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceCommandExecutionItemResource(value); } } catch (_) {}
+      try { final value = CreateSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceCreateSubagentCallItemResource(value); } } catch (_) {}
+      try { final value = SendSubagentInputCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceSendSubagentInputCallItemResource(value); } } catch (_) {}
+      try { final value = ResumeSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceResumeSubagentCallItemResource(value); } } catch (_) {}
+      try { final value = WaitForSubagentsCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceWaitForSubagentsCallItemResource(value); } } catch (_) {}
+      try { final value = InterruptSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceInterruptSubagentCallItemResource(value); } } catch (_) {}
+      try { final value = CloseSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionTurnItemResourceCloseSubagentCallItemResource(value); } } catch (_) {}
     }
-    try {
-      return SessionTurnItemResourceMessageItemResource(
-          MessageItemResource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceReasoningItemResource(
-          ReasoningItemResource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceFunctionCallItemResource(
-          FunctionCallItemResource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceFunctionCallOutputItemResource(
-          FunctionCallOutputItemResource.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceAgentMessageItemResource(
-          AgentMessageItemResource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceMcpCallItemResource(
-          McpCallItemResource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceComputerUseCallItemResource(
-          ComputerUseCallItemResource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceBrowserAuthenticationRequestItemResource(
-          BrowserAuthenticationRequestItemResource.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceComputerUseApprovalRequestResultItemResource(
-          ComputerUseApprovalRequestResultItemResource.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceWebSearchCallItemResource(
-          WebSearchCallItemResource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceCommandExecutionItemResource(
-          CommandExecutionItemResource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceCreateSubagentCallItemResource(
-          CreateSubagentCallItemResource.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceSendSubagentInputCallItemResource(
-          SendSubagentInputCallItemResource.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceResumeSubagentCallItemResource(
-          ResumeSubagentCallItemResource.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceWaitForSubagentsCallItemResource(
-          WaitForSubagentsCallItemResource.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceInterruptSubagentCallItemResource(
-          InterruptSubagentCallItemResource.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SessionTurnItemResourceCloseSubagentCallItemResource(
-          CloseSubagentCallItemResource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "message",
-          "reasoning",
-          "function_call",
-          "function_call_output",
-          "agent_message",
-          "mcp_call",
-          "computer_use_call",
-          "computer_use_approval_request",
-          "computer_use_approval_request_result",
-          "web_search_call",
-          "command_execution",
-          "interrupt_subagent_call",
-          "create_subagent_call",
-          "send_subagent_input_call",
-          "resume_subagent_call",
-          "wait_for_subagents_call",
-          "close_subagent_call"
-        }.contains(json["type"])) {
-      return UnknownSessionTurnItemResource(json);
-    }
+    try { return SessionTurnItemResourceMessageItemResource(MessageItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceReasoningItemResource(ReasoningItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceFunctionCallItemResource(FunctionCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceFunctionCallOutputItemResource(FunctionCallOutputItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceAgentMessageItemResource(AgentMessageItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceMcpCallItemResource(McpCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceComputerUseCallItemResource(ComputerUseCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceBrowserAuthenticationRequestItemResource(BrowserAuthenticationRequestItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceComputerUseApprovalRequestResultItemResource(ComputerUseApprovalRequestResultItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceWebSearchCallItemResource(WebSearchCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceCommandExecutionItemResource(CommandExecutionItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceCreateSubagentCallItemResource(CreateSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceSendSubagentInputCallItemResource(SendSubagentInputCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceResumeSubagentCallItemResource(ResumeSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceWaitForSubagentsCallItemResource(WaitForSubagentsCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceInterruptSubagentCallItemResource(InterruptSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SessionTurnItemResourceCloseSubagentCallItemResource(CloseSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"message", "reasoning", "function_call", "function_call_output", "agent_message", "mcp_call", "computer_use_call", "computer_use_approval_request", "computer_use_approval_request_result", "web_search_call", "command_execution", "interrupt_subagent_call", "create_subagent_call", "send_subagent_input_call", "resume_subagent_call", "wait_for_subagents_call", "close_subagent_call"}.contains(json["type"])) { return UnknownSessionTurnItemResource(json); }
     throw FormatException("No variant matched for SessionTurnItemResource");
   }
   Object? toJson();
 }
 
-final class SessionTurnItemResourceMessageItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceMessageItemResource extends SessionTurnItemResource {
   final MessageItemResource value;
   const SessionTurnItemResourceMessageItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceReasoningItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceReasoningItemResource extends SessionTurnItemResource {
   final ReasoningItemResource value;
   const SessionTurnItemResourceReasoningItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceFunctionCallItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceFunctionCallItemResource extends SessionTurnItemResource {
   final FunctionCallItemResource value;
   const SessionTurnItemResourceFunctionCallItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceFunctionCallOutputItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceFunctionCallOutputItemResource extends SessionTurnItemResource {
   final FunctionCallOutputItemResource value;
   const SessionTurnItemResourceFunctionCallOutputItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceAgentMessageItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceAgentMessageItemResource extends SessionTurnItemResource {
   final AgentMessageItemResource value;
   const SessionTurnItemResourceAgentMessageItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceMcpCallItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceMcpCallItemResource extends SessionTurnItemResource {
   final McpCallItemResource value;
   const SessionTurnItemResourceMcpCallItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceComputerUseCallItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceComputerUseCallItemResource extends SessionTurnItemResource {
   final ComputerUseCallItemResource value;
   const SessionTurnItemResourceComputerUseCallItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceBrowserAuthenticationRequestItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceBrowserAuthenticationRequestItemResource extends SessionTurnItemResource {
   final BrowserAuthenticationRequestItemResource value;
-  const SessionTurnItemResourceBrowserAuthenticationRequestItemResource(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const SessionTurnItemResourceBrowserAuthenticationRequestItemResource(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceComputerUseApprovalRequestResultItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceComputerUseApprovalRequestResultItemResource extends SessionTurnItemResource {
   final ComputerUseApprovalRequestResultItemResource value;
-  const SessionTurnItemResourceComputerUseApprovalRequestResultItemResource(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const SessionTurnItemResourceComputerUseApprovalRequestResultItemResource(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceWebSearchCallItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceWebSearchCallItemResource extends SessionTurnItemResource {
   final WebSearchCallItemResource value;
   const SessionTurnItemResourceWebSearchCallItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceCommandExecutionItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceCommandExecutionItemResource extends SessionTurnItemResource {
   final CommandExecutionItemResource value;
   const SessionTurnItemResourceCommandExecutionItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceCreateSubagentCallItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceCreateSubagentCallItemResource extends SessionTurnItemResource {
   final CreateSubagentCallItemResource value;
   const SessionTurnItemResourceCreateSubagentCallItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceSendSubagentInputCallItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceSendSubagentInputCallItemResource extends SessionTurnItemResource {
   final SendSubagentInputCallItemResource value;
   const SessionTurnItemResourceSendSubagentInputCallItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceResumeSubagentCallItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceResumeSubagentCallItemResource extends SessionTurnItemResource {
   final ResumeSubagentCallItemResource value;
   const SessionTurnItemResourceResumeSubagentCallItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceWaitForSubagentsCallItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceWaitForSubagentsCallItemResource extends SessionTurnItemResource {
   final WaitForSubagentsCallItemResource value;
   const SessionTurnItemResourceWaitForSubagentsCallItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceInterruptSubagentCallItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceInterruptSubagentCallItemResource extends SessionTurnItemResource {
   final InterruptSubagentCallItemResource value;
   const SessionTurnItemResourceInterruptSubagentCallItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SessionTurnItemResourceCloseSubagentCallItemResource
-    extends SessionTurnItemResource {
+final class SessionTurnItemResourceCloseSubagentCallItemResource extends SessionTurnItemResource {
   final CloseSubagentCallItemResource value;
   const SessionTurnItemResourceCloseSubagentCallItemResource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [SessionTurnItemResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownSessionTurnItemResource extends SessionTurnItemResource {
   final Map<String, dynamic> raw;
   const UnknownSessionTurnItemResource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// A page of Agents API resources, with IDs for retrieving additional pages.
 class SessionTurnListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `list`.
   final SessionTurnListResourceObject object;
-
   /// The resources returned in this page, in the requested sort order.
   final List<TurnResource> data;
-
   /// The ID of the first resource in `data`, or `null` if the page is empty.
   final String? firstId;
-
   /// The ID of the last resource in `data`, or `null` if the page is empty. Pass this as `after` with the same order and filters.
   final String? lastId;
-
   /// Whether there are more resources to retrieve after this page.
   final bool hasMore;
 
-  const SessionTurnListResource(
-      {required this.object,
-      required this.data,
-      required this.firstId,
-      required this.lastId,
-      required this.hasMore});
+  const SessionTurnListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
 
-  SessionTurnListResource Function(
-      {SessionTurnListResourceObject object,
-      List<TurnResource> data,
-      String? firstId,
-      String? lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  SessionTurnListResource Function({SessionTurnListResourceObject object, List<TurnResource> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
 
-  SessionTurnListResource _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      SessionTurnListResource(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SessionTurnListResourceObject,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<TurnResource>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as String?,
-        lastId: identical(lastId, sdkOmittedValue)
-            ? this.lastId
-            : lastId as String?,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  SessionTurnListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => SessionTurnListResource(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SessionTurnListResourceObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<TurnResource>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory SessionTurnListResource.fromJson(Map<String, dynamic> json) =>
-      SessionTurnListResource(
-        object: (json['object'] != null
-            ? SessionTurnListResourceObject.fromJson(json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => TurnResource.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: json.containsKey('first_id')
-            ? json['first_id'] as String?
-            : throw ArgumentError.value(
-                null, 'first_id', 'Required property is missing'),
-        lastId: json.containsKey('last_id')
-            ? json['last_id'] as String?
-            : throw ArgumentError.value(
-                null, 'last_id', 'Required property is missing'),
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory SessionTurnListResource.fromJson(Map<String, dynamic> json) => SessionTurnListResource(
+    object: (json['object'] != null ? SessionTurnListResourceObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => TurnResource.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
+    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        'first_id': firstId,
-        'last_id': lastId,
-        'has_more': hasMore,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    'first_id': firstId,
+    'last_id': lastId,
+    'has_more': hasMore,
+  };
 }

@@ -9,45 +9,28 @@ sealed class LiveInitialSessionAudioOutputParamVoice {
   static const String constructionSurface = 'named';
   const LiveInitialSessionAudioOutputParamVoice();
   factory LiveInitialSessionAudioOutputParamVoice.fromJson(Object? json) {
-    if (json is String) {
-      return LiveInitialSessionAudioOutputParamVoiceString(json);
-    }
-    try {
-      return LiveInitialSessionAudioOutputParamVoiceLiveInitialSessionAudioOutputParamVoiceVariant1(
-          LiveInitialSessionAudioOutputParamVoiceVariant1.fromJson(
-              json as String));
-    } catch (_) {}
-    try {
-      return LiveInitialSessionAudioOutputParamVoiceLiveCustomVoiceParam(
-          LiveCustomVoiceParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for LiveInitialSessionAudioOutputParamVoice");
+    if (json is String) { return LiveInitialSessionAudioOutputParamVoiceString(json); }
+    try { return LiveInitialSessionAudioOutputParamVoiceLiveInitialSessionAudioOutputParamVoiceVariant1(LiveInitialSessionAudioOutputParamVoiceVariant1.fromJson(json as String)); } catch (_) {}
+    try { return LiveInitialSessionAudioOutputParamVoiceLiveCustomVoiceParam(LiveCustomVoiceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for LiveInitialSessionAudioOutputParamVoice");
   }
   Object? toJson();
 }
 
-final class LiveInitialSessionAudioOutputParamVoiceString
-    extends LiveInitialSessionAudioOutputParamVoice {
+final class LiveInitialSessionAudioOutputParamVoiceString extends LiveInitialSessionAudioOutputParamVoice {
   final String value;
   const LiveInitialSessionAudioOutputParamVoiceString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class LiveInitialSessionAudioOutputParamVoiceLiveInitialSessionAudioOutputParamVoiceVariant1
-    extends LiveInitialSessionAudioOutputParamVoice {
+final class LiveInitialSessionAudioOutputParamVoiceLiveInitialSessionAudioOutputParamVoiceVariant1 extends LiveInitialSessionAudioOutputParamVoice {
   final LiveInitialSessionAudioOutputParamVoiceVariant1 value;
-  const LiveInitialSessionAudioOutputParamVoiceLiveInitialSessionAudioOutputParamVoiceVariant1(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const LiveInitialSessionAudioOutputParamVoiceLiveInitialSessionAudioOutputParamVoiceVariant1(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveInitialSessionAudioOutputParamVoiceLiveCustomVoiceParam
-    extends LiveInitialSessionAudioOutputParamVoice {
+final class LiveInitialSessionAudioOutputParamVoiceLiveCustomVoiceParam extends LiveInitialSessionAudioOutputParamVoice {
   final LiveCustomVoiceParam value;
   const LiveInitialSessionAudioOutputParamVoiceLiveCustomVoiceParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

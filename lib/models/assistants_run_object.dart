@@ -8,564 +8,267 @@ part of 'assistants_run.dart';
 class RunObjectRequiredActionSubmitToolOutputs {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A list of the relevant tool calls.
   final List<RunToolCallObject> toolCalls;
 
   const RunObjectRequiredActionSubmitToolOutputs({required this.toolCalls});
 
-  RunObjectRequiredActionSubmitToolOutputs Function(
-      {List<RunToolCallObject> toolCalls}) get copyWith => _copyWith;
+  RunObjectRequiredActionSubmitToolOutputs Function({List<RunToolCallObject> toolCalls}) get copyWith => _copyWith;
 
-  RunObjectRequiredActionSubmitToolOutputs _copyWith(
-          {Object? toolCalls = sdkOmittedValue}) =>
-      RunObjectRequiredActionSubmitToolOutputs(
-        toolCalls: identical(toolCalls, sdkOmittedValue)
-            ? this.toolCalls
-            : toolCalls as List<RunToolCallObject>,
-      );
+  RunObjectRequiredActionSubmitToolOutputs _copyWith({Object? toolCalls = sdkOmittedValue}) => RunObjectRequiredActionSubmitToolOutputs(
+    toolCalls: identical(toolCalls, sdkOmittedValue) ? this.toolCalls : toolCalls as List<RunToolCallObject>,
+  );
 
-  factory RunObjectRequiredActionSubmitToolOutputs.fromJson(
-          Map<String, dynamic> json) =>
-      RunObjectRequiredActionSubmitToolOutputs(
-        toolCalls: ((json['tool_calls'] as List?)
-            ?.map((e) => RunToolCallObject.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory RunObjectRequiredActionSubmitToolOutputs.fromJson(Map<String, dynamic> json) => RunObjectRequiredActionSubmitToolOutputs(
+    toolCalls: ((json['tool_calls'] as List?)?.map((e) => RunToolCallObject.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'tool_calls': toolCalls.map((item) => item.toJson()).toList(),
-      };
+    'tool_calls': toolCalls.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Details on the action required to continue the run. Will be `null` if no action is required.
 class RunObjectRequiredAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// For now, this is always `submit_tool_outputs`.
   final RunObjectRequiredActionType type_;
-
   /// Details on the tool outputs needed for this run to continue.
   final RunObjectRequiredActionSubmitToolOutputs submitToolOutputs;
 
-  const RunObjectRequiredAction(
-      {required this.type_, required this.submitToolOutputs});
+  const RunObjectRequiredAction({required this.type_, required this.submitToolOutputs});
 
-  RunObjectRequiredAction Function(
-          {RunObjectRequiredActionType type_,
-          RunObjectRequiredActionSubmitToolOutputs submitToolOutputs})
-      get copyWith => _copyWith;
+  RunObjectRequiredAction Function({RunObjectRequiredActionType type_, RunObjectRequiredActionSubmitToolOutputs submitToolOutputs}) get copyWith => _copyWith;
 
-  RunObjectRequiredAction _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? submitToolOutputs = sdkOmittedValue}) =>
-      RunObjectRequiredAction(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RunObjectRequiredActionType,
-        submitToolOutputs: identical(submitToolOutputs, sdkOmittedValue)
-            ? this.submitToolOutputs
-            : submitToolOutputs as RunObjectRequiredActionSubmitToolOutputs,
-      );
+  RunObjectRequiredAction _copyWith({Object? type_ = sdkOmittedValue, Object? submitToolOutputs = sdkOmittedValue}) => RunObjectRequiredAction(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunObjectRequiredActionType,
+    submitToolOutputs: identical(submitToolOutputs, sdkOmittedValue) ? this.submitToolOutputs : submitToolOutputs as RunObjectRequiredActionSubmitToolOutputs,
+  );
 
-  factory RunObjectRequiredAction.fromJson(Map<String, dynamic> json) =>
-      RunObjectRequiredAction(
-        type_: (json['type'] != null
-            ? RunObjectRequiredActionType.fromJson(json['type'] as String)
-            : null)!,
-        submitToolOutputs: (json['submit_tool_outputs'] != null
-            ? RunObjectRequiredActionSubmitToolOutputs.fromJson(
-                json['submit_tool_outputs'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory RunObjectRequiredAction.fromJson(Map<String, dynamic> json) => RunObjectRequiredAction(
+    type_: (json['type'] != null ? RunObjectRequiredActionType.fromJson(json['type'] as String) : null)!,
+    submitToolOutputs: (json['submit_tool_outputs'] != null ? RunObjectRequiredActionSubmitToolOutputs.fromJson(json['submit_tool_outputs'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'submit_tool_outputs': submitToolOutputs.toJson(),
-      };
+    'type': type_.toJson(),
+    'submit_tool_outputs': submitToolOutputs.toJson(),
+  };
 }
 
 /// The last error associated with this run. Will be `null` if there are no errors.
 class RunObjectLastError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// One of `server_error`, `rate_limit_exceeded`, or `invalid_prompt`.
   final RunObjectLastErrorCode code;
-
   /// A human-readable description of the error.
   final String message;
 
   const RunObjectLastError({required this.code, required this.message});
 
-  RunObjectLastError Function({RunObjectLastErrorCode code, String message})
-      get copyWith => _copyWith;
+  RunObjectLastError Function({RunObjectLastErrorCode code, String message}) get copyWith => _copyWith;
 
-  RunObjectLastError _copyWith(
-          {Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      RunObjectLastError(
-        code: identical(code, sdkOmittedValue)
-            ? this.code
-            : code as RunObjectLastErrorCode,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  RunObjectLastError _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => RunObjectLastError(
+    code: identical(code, sdkOmittedValue) ? this.code : code as RunObjectLastErrorCode,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
-  factory RunObjectLastError.fromJson(Map<String, dynamic> json) =>
-      RunObjectLastError(
-        code: (json['code'] != null
-            ? RunObjectLastErrorCode.fromJson(json['code'] as String)
-            : null)!,
-        message: (json['message'] as String?)!,
-      );
+  factory RunObjectLastError.fromJson(Map<String, dynamic> json) => RunObjectLastError(
+    code: (json['code'] != null ? RunObjectLastErrorCode.fromJson(json['code'] as String) : null)!,
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'code': code.toJson(),
-        'message': message,
-      };
+    'code': code.toJson(),
+    'message': message,
+  };
 }
 
 /// Details on why the run is incomplete. Will be `null` if the run is not incomplete.
 class RunObjectIncompleteDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The reason why the run is incomplete. This will point to which specific token limit was reached over the course of the run.
   final SdkOptional<RunObjectIncompleteDetailsReason> reason;
 
   const RunObjectIncompleteDetails({this.reason = const SdkOmitted()});
 
-  RunObjectIncompleteDetails Function(
-          {SdkOptional<RunObjectIncompleteDetailsReason> reason})
-      get copyWith => _copyWith;
+  RunObjectIncompleteDetails Function({SdkOptional<RunObjectIncompleteDetailsReason> reason}) get copyWith => _copyWith;
 
-  RunObjectIncompleteDetails _copyWith({Object? reason = sdkOmittedValue}) =>
-      RunObjectIncompleteDetails(
-        reason: identical(reason, sdkOmittedValue)
-            ? this.reason
-            : reason as SdkOptional<RunObjectIncompleteDetailsReason>,
-      );
+  RunObjectIncompleteDetails _copyWith({Object? reason = sdkOmittedValue}) => RunObjectIncompleteDetails(
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as SdkOptional<RunObjectIncompleteDetailsReason>,
+  );
 
-  factory RunObjectIncompleteDetails.fromJson(Map<String, dynamic> json) =>
-      RunObjectIncompleteDetails(
-        reason: json['reason'] != null
-            ? SdkPresent((json['reason'] != null
-                ? RunObjectIncompleteDetailsReason.fromJson(
-                    json['reason'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RunObjectIncompleteDetails.fromJson(Map<String, dynamic> json) => RunObjectIncompleteDetails(
+    reason: json['reason'] != null ? SdkPresent((json['reason'] != null ? RunObjectIncompleteDetailsReason.fromJson(json['reason'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (reason) {
-          SdkPresent<RunObjectIncompleteDetailsReason>(value: final value) => {
-              'reason': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (reason) {
+      SdkPresent<RunObjectIncompleteDetailsReason>(value: final value) => {'reason': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Represents an execution run on a [thread](https://developers.openai.com/api/docs/assistants/migration).
 class RunObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The identifier, which can be referenced in API endpoints.
   final String id;
-
   /// The object type, which is always `thread.run`.
   final RunObjectObject object;
-
   /// The Unix timestamp (in seconds) for when the run was created.
   final int createdAt;
-
   /// The ID of the [thread](https://developers.openai.com/api/docs/assistants/migration) that was executed on as a part of this run.
   final String threadId;
-
   /// The ID of the [assistant](https://developers.openai.com/api/docs/assistants/migration) used for execution of this run.
   final String assistantId;
-
   /// The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.
   final RunObjectStatus status;
-
   /// Details on the action required to continue the run. Will be `null` if no action is required.
   final RunObjectRequiredAction? requiredAction;
-
   /// The last error associated with this run. Will be `null` if there are no errors.
   final RunObjectLastError? lastError;
-
   /// The Unix timestamp (in seconds) for when the run will expire.
   final int? expiresAt;
-
   /// The Unix timestamp (in seconds) for when the run was started.
   final int? startedAt;
-
   /// The Unix timestamp (in seconds) for when the run was cancelled.
   final int? cancelledAt;
-
   /// The Unix timestamp (in seconds) for when the run failed.
   final int? failedAt;
-
   /// The Unix timestamp (in seconds) for when the run was completed.
   final int? completedAt;
-
   /// Details on why the run is incomplete. Will be `null` if the run is not incomplete.
   final RunObjectIncompleteDetails? incompleteDetails;
-
   /// The model that the [assistant](https://developers.openai.com/api/docs/assistants/migration) used for this run.
   final String model;
-
   /// The instructions that the [assistant](https://developers.openai.com/api/docs/assistants/migration) used for this run.
   final String instructions;
-
   /// The list of tools that the [assistant](https://developers.openai.com/api/docs/assistants/migration) used for this run.
   final List<RunObjectToolsItem> tools;
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final Map<String, dynamic>? metadata;
-
   /// Usage statistics related to the run. This value will be `null` if the run is not in a terminal state (i.e. `in_progress`, `queued`, etc.).
   final RunCompletionUsage? usage;
-
   /// The sampling temperature used for this run. If not set, defaults to 1.
   final SdkOptional<double?> temperature;
-
   /// The nucleus sampling value used for this run. If not set, defaults to 1.
   final SdkOptional<double?> topP;
-
   /// The maximum number of prompt tokens specified to have been used over the course of the run.
   final int? maxPromptTokens;
-
   /// The maximum number of completion tokens specified to have been used over the course of the run.
   final int? maxCompletionTokens;
-
   /// Required API value serialized in the `truncation_strategy` wire field.
   final TruncationObject? truncationStrategy;
-
   /// Required API value serialized in the `tool_choice` wire field.
   final AssistantsApiToolChoiceOption? toolChoice;
-
   /// Whether to enable [parallel function calling](https://developers.openai.com/api/docs/guides/function-calling#parallel-function-calling) during tool use.
   final bool parallelToolCalls;
-
   /// Required API value serialized in the `response_format` wire field.
   final AssistantsApiResponseFormatOption? responseFormat;
 
-  const RunObject(
-      {required this.id,
-      required this.object,
-      required this.createdAt,
-      required this.threadId,
-      required this.assistantId,
-      required this.status,
-      required this.requiredAction,
-      required this.lastError,
-      required this.expiresAt,
-      required this.startedAt,
-      required this.cancelledAt,
-      required this.failedAt,
-      required this.completedAt,
-      required this.incompleteDetails,
-      required this.model,
-      required this.instructions,
-      required this.tools,
-      required this.metadata,
-      required this.usage,
-      this.temperature = const SdkOmitted(),
-      this.topP = const SdkOmitted(),
-      required this.maxPromptTokens,
-      required this.maxCompletionTokens,
-      required this.truncationStrategy,
-      required this.toolChoice,
-      required this.parallelToolCalls,
-      required this.responseFormat});
+  const RunObject({required this.id, required this.object, required this.createdAt, required this.threadId, required this.assistantId, required this.status, required this.requiredAction, required this.lastError, required this.expiresAt, required this.startedAt, required this.cancelledAt, required this.failedAt, required this.completedAt, required this.incompleteDetails, required this.model, required this.instructions, required this.tools, required this.metadata, required this.usage, this.temperature = const SdkOmitted(), this.topP = const SdkOmitted(), required this.maxPromptTokens, required this.maxCompletionTokens, required this.truncationStrategy, required this.toolChoice, required this.parallelToolCalls, required this.responseFormat});
 
-  RunObject Function(
-          {String id,
-          RunObjectObject object,
-          int createdAt,
-          String threadId,
-          String assistantId,
-          RunObjectStatus status,
-          RunObjectRequiredAction? requiredAction,
-          RunObjectLastError? lastError,
-          int? expiresAt,
-          int? startedAt,
-          int? cancelledAt,
-          int? failedAt,
-          int? completedAt,
-          RunObjectIncompleteDetails? incompleteDetails,
-          String model,
-          String instructions,
-          List<RunObjectToolsItem> tools,
-          Map<String, dynamic>? metadata,
-          RunCompletionUsage? usage,
-          SdkOptional<double?> temperature,
-          SdkOptional<double?> topP,
-          int? maxPromptTokens,
-          int? maxCompletionTokens,
-          TruncationObject? truncationStrategy,
-          AssistantsApiToolChoiceOption? toolChoice,
-          bool parallelToolCalls,
-          AssistantsApiResponseFormatOption? responseFormat})
-      get copyWith => _copyWith;
+  RunObject Function({String id, RunObjectObject object, int createdAt, String threadId, String assistantId, RunObjectStatus status, RunObjectRequiredAction? requiredAction, RunObjectLastError? lastError, int? expiresAt, int? startedAt, int? cancelledAt, int? failedAt, int? completedAt, RunObjectIncompleteDetails? incompleteDetails, String model, String instructions, List<RunObjectToolsItem> tools, Map<String, dynamic>? metadata, RunCompletionUsage? usage, SdkOptional<double?> temperature, SdkOptional<double?> topP, int? maxPromptTokens, int? maxCompletionTokens, TruncationObject? truncationStrategy, AssistantsApiToolChoiceOption? toolChoice, bool parallelToolCalls, AssistantsApiResponseFormatOption? responseFormat}) get copyWith => _copyWith;
 
-  RunObject _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? threadId = sdkOmittedValue,
-          Object? assistantId = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? requiredAction = sdkOmittedValue,
-          Object? lastError = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue,
-          Object? startedAt = sdkOmittedValue,
-          Object? cancelledAt = sdkOmittedValue,
-          Object? failedAt = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? incompleteDetails = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue,
-          Object? usage = sdkOmittedValue,
-          Object? temperature = sdkOmittedValue,
-          Object? topP = sdkOmittedValue,
-          Object? maxPromptTokens = sdkOmittedValue,
-          Object? maxCompletionTokens = sdkOmittedValue,
-          Object? truncationStrategy = sdkOmittedValue,
-          Object? toolChoice = sdkOmittedValue,
-          Object? parallelToolCalls = sdkOmittedValue,
-          Object? responseFormat = sdkOmittedValue}) =>
-      RunObject(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as RunObjectObject,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        threadId: identical(threadId, sdkOmittedValue)
-            ? this.threadId
-            : threadId as String,
-        assistantId: identical(assistantId, sdkOmittedValue)
-            ? this.assistantId
-            : assistantId as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as RunObjectStatus,
-        requiredAction: identical(requiredAction, sdkOmittedValue)
-            ? this.requiredAction
-            : requiredAction as RunObjectRequiredAction?,
-        lastError: identical(lastError, sdkOmittedValue)
-            ? this.lastError
-            : lastError as RunObjectLastError?,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as int?,
-        startedAt: identical(startedAt, sdkOmittedValue)
-            ? this.startedAt
-            : startedAt as int?,
-        cancelledAt: identical(cancelledAt, sdkOmittedValue)
-            ? this.cancelledAt
-            : cancelledAt as int?,
-        failedAt: identical(failedAt, sdkOmittedValue)
-            ? this.failedAt
-            : failedAt as int?,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as int?,
-        incompleteDetails: identical(incompleteDetails, sdkOmittedValue)
-            ? this.incompleteDetails
-            : incompleteDetails as RunObjectIncompleteDetails?,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as String,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as List<RunObjectToolsItem>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as Map<String, dynamic>?,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as RunCompletionUsage?,
-        temperature: identical(temperature, sdkOmittedValue)
-            ? this.temperature
-            : temperature as SdkOptional<double?>,
-        topP: identical(topP, sdkOmittedValue)
-            ? this.topP
-            : topP as SdkOptional<double?>,
-        maxPromptTokens: identical(maxPromptTokens, sdkOmittedValue)
-            ? this.maxPromptTokens
-            : maxPromptTokens as int?,
-        maxCompletionTokens: identical(maxCompletionTokens, sdkOmittedValue)
-            ? this.maxCompletionTokens
-            : maxCompletionTokens as int?,
-        truncationStrategy: identical(truncationStrategy, sdkOmittedValue)
-            ? this.truncationStrategy
-            : truncationStrategy as TruncationObject?,
-        toolChoice: identical(toolChoice, sdkOmittedValue)
-            ? this.toolChoice
-            : toolChoice as AssistantsApiToolChoiceOption?,
-        parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue)
-            ? this.parallelToolCalls
-            : parallelToolCalls as bool,
-        responseFormat: identical(responseFormat, sdkOmittedValue)
-            ? this.responseFormat
-            : responseFormat as AssistantsApiResponseFormatOption?,
-      );
+  RunObject _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? assistantId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? requiredAction = sdkOmittedValue, Object? lastError = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? cancelledAt = sdkOmittedValue, Object? failedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? incompleteDetails = sdkOmittedValue, Object? model = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? usage = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? maxPromptTokens = sdkOmittedValue, Object? maxCompletionTokens = sdkOmittedValue, Object? truncationStrategy = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? parallelToolCalls = sdkOmittedValue, Object? responseFormat = sdkOmittedValue}) => RunObject(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as RunObjectObject,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
+    assistantId: identical(assistantId, sdkOmittedValue) ? this.assistantId : assistantId as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as RunObjectStatus,
+    requiredAction: identical(requiredAction, sdkOmittedValue) ? this.requiredAction : requiredAction as RunObjectRequiredAction?,
+    lastError: identical(lastError, sdkOmittedValue) ? this.lastError : lastError as RunObjectLastError?,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as int?,
+    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as int?,
+    cancelledAt: identical(cancelledAt, sdkOmittedValue) ? this.cancelledAt : cancelledAt as int?,
+    failedAt: identical(failedAt, sdkOmittedValue) ? this.failedAt : failedAt as int?,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as int?,
+    incompleteDetails: identical(incompleteDetails, sdkOmittedValue) ? this.incompleteDetails : incompleteDetails as RunObjectIncompleteDetails?,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as String,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<RunObjectToolsItem>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, dynamic>?,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as RunCompletionUsage?,
+    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double?>,
+    topP: identical(topP, sdkOmittedValue) ? this.topP : topP as SdkOptional<double?>,
+    maxPromptTokens: identical(maxPromptTokens, sdkOmittedValue) ? this.maxPromptTokens : maxPromptTokens as int?,
+    maxCompletionTokens: identical(maxCompletionTokens, sdkOmittedValue) ? this.maxCompletionTokens : maxCompletionTokens as int?,
+    truncationStrategy: identical(truncationStrategy, sdkOmittedValue) ? this.truncationStrategy : truncationStrategy as TruncationObject?,
+    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as AssistantsApiToolChoiceOption?,
+    parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue) ? this.parallelToolCalls : parallelToolCalls as bool,
+    responseFormat: identical(responseFormat, sdkOmittedValue) ? this.responseFormat : responseFormat as AssistantsApiResponseFormatOption?,
+  );
 
   factory RunObject.fromJson(Map<String, dynamic> json) => RunObject(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? RunObjectObject.fromJson(json['object'] as String)
-            : null)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        threadId: (json['thread_id'] as String?)!,
-        assistantId: (json['assistant_id'] as String?)!,
-        status: (json['status'] != null
-            ? RunObjectStatus.fromJson(json['status'] as String)
-            : null)!,
-        requiredAction: json.containsKey('required_action')
-            ? json['required_action'] != null
-                ? RunObjectRequiredAction.fromJson(
-                    json['required_action'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'required_action', 'Required property is missing'),
-        lastError: json.containsKey('last_error')
-            ? json['last_error'] != null
-                ? RunObjectLastError.fromJson(
-                    json['last_error'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'last_error', 'Required property is missing'),
-        expiresAt: json.containsKey('expires_at')
-            ? (json['expires_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'expires_at', 'Required property is missing'),
-        startedAt: json.containsKey('started_at')
-            ? (json['started_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'started_at', 'Required property is missing'),
-        cancelledAt: json.containsKey('cancelled_at')
-            ? (json['cancelled_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'cancelled_at', 'Required property is missing'),
-        failedAt: json.containsKey('failed_at')
-            ? (json['failed_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'failed_at', 'Required property is missing'),
-        completedAt: json.containsKey('completed_at')
-            ? (json['completed_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'completed_at', 'Required property is missing'),
-        incompleteDetails: json.containsKey('incomplete_details')
-            ? json['incomplete_details'] != null
-                ? RunObjectIncompleteDetails.fromJson(
-                    json['incomplete_details'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'incomplete_details', 'Required property is missing'),
-        model: (json['model'] as String?)!,
-        instructions: (json['instructions'] as String?)!,
-        tools: ((json['tools'] as List?)
-            ?.map((e) => RunObjectToolsItem.fromJson(e))
-            .toList())!,
-        metadata: json.containsKey('metadata')
-            ? json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>
-            : throw ArgumentError.value(
-                null, 'metadata', 'Required property is missing'),
-        usage: json.containsKey('usage')
-            ? json['usage'] != null
-                ? RunCompletionUsage.fromJson(
-                    json['usage'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'usage', 'Required property is missing'),
-        temperature: json.containsKey('temperature')
-            ? SdkPresent((json['temperature'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        topP: json.containsKey('top_p')
-            ? SdkPresent((json['top_p'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        maxPromptTokens: json.containsKey('max_prompt_tokens')
-            ? (json['max_prompt_tokens'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'max_prompt_tokens', 'Required property is missing'),
-        maxCompletionTokens: json.containsKey('max_completion_tokens')
-            ? (json['max_completion_tokens'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'max_completion_tokens', 'Required property is missing'),
-        truncationStrategy: json.containsKey('truncation_strategy')
-            ? json['truncation_strategy'] != null
-                ? TruncationObject.fromJson(
-                    json['truncation_strategy'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'truncation_strategy', 'Required property is missing'),
-        toolChoice: json.containsKey('tool_choice')
-            ? json['tool_choice'] != null
-                ? AssistantsApiToolChoiceOption.fromJson(json['tool_choice'])
-                : null
-            : throw ArgumentError.value(
-                null, 'tool_choice', 'Required property is missing'),
-        parallelToolCalls: (json['parallel_tool_calls'] as bool?)!,
-        responseFormat: json.containsKey('response_format')
-            ? json['response_format'] != null
-                ? AssistantsApiResponseFormatOption.fromJson(
-                    json['response_format'])
-                : null
-            : throw ArgumentError.value(
-                null, 'response_format', 'Required property is missing'),
-      );
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? RunObjectObject.fromJson(json['object'] as String) : null)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    threadId: (json['thread_id'] as String?)!,
+    assistantId: (json['assistant_id'] as String?)!,
+    status: (json['status'] != null ? RunObjectStatus.fromJson(json['status'] as String) : null)!,
+    requiredAction: json.containsKey('required_action') ? json['required_action'] != null ? RunObjectRequiredAction.fromJson(json['required_action'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'required_action', 'Required property is missing'),
+    lastError: json.containsKey('last_error') ? json['last_error'] != null ? RunObjectLastError.fromJson(json['last_error'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'last_error', 'Required property is missing'),
+    expiresAt: json.containsKey('expires_at') ? (json['expires_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'expires_at', 'Required property is missing'),
+    startedAt: json.containsKey('started_at') ? (json['started_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'started_at', 'Required property is missing'),
+    cancelledAt: json.containsKey('cancelled_at') ? (json['cancelled_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'cancelled_at', 'Required property is missing'),
+    failedAt: json.containsKey('failed_at') ? (json['failed_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'failed_at', 'Required property is missing'),
+    completedAt: json.containsKey('completed_at') ? (json['completed_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'completed_at', 'Required property is missing'),
+    incompleteDetails: json.containsKey('incomplete_details') ? json['incomplete_details'] != null ? RunObjectIncompleteDetails.fromJson(json['incomplete_details'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'incomplete_details', 'Required property is missing'),
+    model: (json['model'] as String?)!,
+    instructions: (json['instructions'] as String?)!,
+    tools: ((json['tools'] as List?)?.map((e) => RunObjectToolsItem.fromJson(e)).toList())!,
+    metadata: json.containsKey('metadata') ? json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic> : throw ArgumentError.value(null, 'metadata', 'Required property is missing'),
+    usage: json.containsKey('usage') ? json['usage'] != null ? RunCompletionUsage.fromJson(json['usage'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'usage', 'Required property is missing'),
+    temperature: json.containsKey('temperature') ? SdkPresent((json['temperature'] as num?)?.toDouble()) : const SdkOmitted(),
+    topP: json.containsKey('top_p') ? SdkPresent((json['top_p'] as num?)?.toDouble()) : const SdkOmitted(),
+    maxPromptTokens: json.containsKey('max_prompt_tokens') ? (json['max_prompt_tokens'] as num?)?.toInt() : throw ArgumentError.value(null, 'max_prompt_tokens', 'Required property is missing'),
+    maxCompletionTokens: json.containsKey('max_completion_tokens') ? (json['max_completion_tokens'] as num?)?.toInt() : throw ArgumentError.value(null, 'max_completion_tokens', 'Required property is missing'),
+    truncationStrategy: json.containsKey('truncation_strategy') ? json['truncation_strategy'] != null ? TruncationObject.fromJson(json['truncation_strategy'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'truncation_strategy', 'Required property is missing'),
+    toolChoice: json.containsKey('tool_choice') ? json['tool_choice'] != null ? AssistantsApiToolChoiceOption.fromJson(json['tool_choice']) : null : throw ArgumentError.value(null, 'tool_choice', 'Required property is missing'),
+    parallelToolCalls: (json['parallel_tool_calls'] as bool?)!,
+    responseFormat: json.containsKey('response_format') ? json['response_format'] != null ? AssistantsApiResponseFormatOption.fromJson(json['response_format']) : null : throw ArgumentError.value(null, 'response_format', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'created_at': createdAt,
-        'thread_id': threadId,
-        'assistant_id': assistantId,
-        'status': status.toJson(),
-        'required_action': requiredAction?.toJson(),
-        'last_error': lastError?.toJson(),
-        'expires_at': expiresAt,
-        'started_at': startedAt,
-        'cancelled_at': cancelledAt,
-        'failed_at': failedAt,
-        'completed_at': completedAt,
-        'incomplete_details': incompleteDetails?.toJson(),
-        'model': model,
-        'instructions': instructions,
-        'tools': tools.map((item) => item.toJson()).toList(),
-        'metadata': metadata,
-        'usage': usage?.toJson(),
-        ...switch (temperature) {
-          SdkPresent<double?>(value: final value) => {
-              'temperature': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (topP) {
-          SdkPresent<double?>(value: final value) => {
-              'top_p': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'max_prompt_tokens': maxPromptTokens,
-        'max_completion_tokens': maxCompletionTokens,
-        'truncation_strategy': truncationStrategy?.toJson(),
-        'tool_choice': toolChoice?.toJson(),
-        'parallel_tool_calls': parallelToolCalls,
-        'response_format': responseFormat?.toJson(),
-      };
+    'id': id,
+    'object': object.toJson(),
+    'created_at': createdAt,
+    'thread_id': threadId,
+    'assistant_id': assistantId,
+    'status': status.toJson(),
+    'required_action': requiredAction?.toJson(),
+    'last_error': lastError?.toJson(),
+    'expires_at': expiresAt,
+    'started_at': startedAt,
+    'cancelled_at': cancelledAt,
+    'failed_at': failedAt,
+    'completed_at': completedAt,
+    'incomplete_details': incompleteDetails?.toJson(),
+    'model': model,
+    'instructions': instructions,
+    'tools': tools.map((item) => item.toJson()).toList(),
+    'metadata': metadata,
+    'usage': usage?.toJson(),
+    ...switch (temperature) {
+      SdkPresent<double?>(value: final value) => {'temperature': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (topP) {
+      SdkPresent<double?>(value: final value) => {'top_p': value,},
+      _ => const <String, dynamic>{},
+    },
+    'max_prompt_tokens': maxPromptTokens,
+    'max_completion_tokens': maxCompletionTokens,
+    'truncation_strategy': truncationStrategy?.toJson(),
+    'tool_choice': toolChoice?.toJson(),
+    'parallel_tool_calls': parallelToolCalls,
+    'response_format': responseFormat?.toJson(),
+  };
 }

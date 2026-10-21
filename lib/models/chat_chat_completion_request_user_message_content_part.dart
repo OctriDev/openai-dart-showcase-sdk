@@ -10,112 +10,48 @@ sealed class ChatCompletionRequestUserMessageContentPart {
   const ChatCompletionRequestUserMessageContentPart();
   factory ChatCompletionRequestUserMessageContentPart.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value =
-            ChatCompletionRequestMessageContentPartText.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartText(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            ChatCompletionRequestMessageContentPartImage.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartImage(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            ChatCompletionRequestMessageContentPartAudio.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartAudio(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            ChatCompletionRequestMessageContentPartFile.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartFile(
-              value);
-        }
-      } catch (_) {}
+      try { final value = ChatCompletionRequestMessageContentPartText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartText(value); } } catch (_) {}
+      try { final value = ChatCompletionRequestMessageContentPartImage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartImage(value); } } catch (_) {}
+      try { final value = ChatCompletionRequestMessageContentPartAudio.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartAudio(value); } } catch (_) {}
+      try { final value = ChatCompletionRequestMessageContentPartFile.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartFile(value); } } catch (_) {}
     }
-    try {
-      return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartText(
-          ChatCompletionRequestMessageContentPartText.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartImage(
-          ChatCompletionRequestMessageContentPartImage.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartAudio(
-          ChatCompletionRequestMessageContentPartAudio.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartFile(
-          ChatCompletionRequestMessageContentPartFile.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"text", "image_url", "input_audio", "file"}
-            .contains(json["type"])) {
-      return UnknownChatCompletionRequestUserMessageContentPart(json);
-    }
-    throw FormatException(
-        "No variant matched for ChatCompletionRequestUserMessageContentPart");
+    try { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartText(ChatCompletionRequestMessageContentPartText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartImage(ChatCompletionRequestMessageContentPartImage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartAudio(ChatCompletionRequestMessageContentPartAudio.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartFile(ChatCompletionRequestMessageContentPartFile.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "image_url", "input_audio", "file"}.contains(json["type"])) { return UnknownChatCompletionRequestUserMessageContentPart(json); }
+    throw FormatException("No variant matched for ChatCompletionRequestUserMessageContentPart");
   }
   Object? toJson();
 }
 
-final class ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartText
-    extends ChatCompletionRequestUserMessageContentPart {
+final class ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartText extends ChatCompletionRequestUserMessageContentPart {
   final ChatCompletionRequestMessageContentPartText value;
-  const ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartText(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartText(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartImage
-    extends ChatCompletionRequestUserMessageContentPart {
+final class ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartImage extends ChatCompletionRequestUserMessageContentPart {
   final ChatCompletionRequestMessageContentPartImage value;
-  const ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartImage(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartImage(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartAudio
-    extends ChatCompletionRequestUserMessageContentPart {
+final class ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartAudio extends ChatCompletionRequestUserMessageContentPart {
   final ChatCompletionRequestMessageContentPartAudio value;
-  const ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartAudio(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartAudio(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartFile
-    extends ChatCompletionRequestUserMessageContentPart {
+final class ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartFile extends ChatCompletionRequestUserMessageContentPart {
   final ChatCompletionRequestMessageContentPartFile value;
-  const ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartFile(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ChatCompletionRequestUserMessageContentPartChatCompletionRequestMessageContentPartFile(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ChatCompletionRequestUserMessageContentPart] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownChatCompletionRequestUserMessageContentPart
-    extends ChatCompletionRequestUserMessageContentPart {
+final class UnknownChatCompletionRequestUserMessageContentPart extends ChatCompletionRequestUserMessageContentPart {
   final Map<String, dynamic> raw;
   const UnknownChatCompletionRequestUserMessageContentPart(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

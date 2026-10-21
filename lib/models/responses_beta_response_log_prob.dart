@@ -8,122 +8,70 @@ part of 'responses_beta_response.dart';
 class BetaResponseLogProbTopLogprobsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A possible text token.
   final SdkOptional<String> token;
-
   /// The log probability of this token.
   final SdkOptional<double> logprob;
 
-  const BetaResponseLogProbTopLogprobsItem(
-      {this.token = const SdkOmitted(), this.logprob = const SdkOmitted()});
+  const BetaResponseLogProbTopLogprobsItem({this.token = const SdkOmitted(), this.logprob = const SdkOmitted()});
 
-  BetaResponseLogProbTopLogprobsItem Function(
-      {SdkOptional<String> token,
-      SdkOptional<double> logprob}) get copyWith => _copyWith;
+  BetaResponseLogProbTopLogprobsItem Function({SdkOptional<String> token, SdkOptional<double> logprob}) get copyWith => _copyWith;
 
-  BetaResponseLogProbTopLogprobsItem _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue}) =>
-      BetaResponseLogProbTopLogprobsItem(
-        token: identical(token, sdkOmittedValue)
-            ? this.token
-            : token as SdkOptional<String>,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as SdkOptional<double>,
-      );
+  BetaResponseLogProbTopLogprobsItem _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue}) => BetaResponseLogProbTopLogprobsItem(
+    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as SdkOptional<double>,
+  );
 
-  factory BetaResponseLogProbTopLogprobsItem.fromJson(
-          Map<String, dynamic> json) =>
-      BetaResponseLogProbTopLogprobsItem(
-        token: json['token'] != null
-            ? SdkPresent((json['token'] as String?)!)
-            : const SdkOmitted(),
-        logprob: json['logprob'] != null
-            ? SdkPresent(((json['logprob'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory BetaResponseLogProbTopLogprobsItem.fromJson(Map<String, dynamic> json) => BetaResponseLogProbTopLogprobsItem(
+    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
+    logprob: json['logprob'] != null ? SdkPresent(((json['logprob'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (token) {
-          SdkPresent<String>(value: final value) => {
-              'token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logprob) {
-          SdkPresent<double>(value: final value) => {
-              'logprob': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (token) {
+      SdkPresent<String>(value: final value) => {'token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logprob) {
+      SdkPresent<double>(value: final value) => {'logprob': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A logprob is the logarithmic probability that the model assigns to producing a particular token at a given position in the sequence. Less-negative (higher) logprob values indicate greater model confidence in that token choice.
 class BetaResponseLogProb {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A possible text token.
   final String token;
-
   /// The log probability of this token.
   final double logprob;
-
   /// The log probabilities of up to 20 of the most likely tokens.
   final SdkOptional<List<BetaResponseLogProbTopLogprobsItem>> topLogprobs;
 
-  const BetaResponseLogProb(
-      {required this.token,
-      required this.logprob,
-      this.topLogprobs = const SdkOmitted()});
+  const BetaResponseLogProb({required this.token, required this.logprob, this.topLogprobs = const SdkOmitted()});
 
-  BetaResponseLogProb Function(
-          {String token,
-          double logprob,
-          SdkOptional<List<BetaResponseLogProbTopLogprobsItem>> topLogprobs})
-      get copyWith => _copyWith;
+  BetaResponseLogProb Function({String token, double logprob, SdkOptional<List<BetaResponseLogProbTopLogprobsItem>> topLogprobs}) get copyWith => _copyWith;
 
-  BetaResponseLogProb _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue,
-          Object? topLogprobs = sdkOmittedValue}) =>
-      BetaResponseLogProb(
-        token: identical(token, sdkOmittedValue) ? this.token : token as String,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as double,
-        topLogprobs: identical(topLogprobs, sdkOmittedValue)
-            ? this.topLogprobs
-            : topLogprobs
-                as SdkOptional<List<BetaResponseLogProbTopLogprobsItem>>,
-      );
+  BetaResponseLogProb _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? topLogprobs = sdkOmittedValue}) => BetaResponseLogProb(
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as double,
+    topLogprobs: identical(topLogprobs, sdkOmittedValue) ? this.topLogprobs : topLogprobs as SdkOptional<List<BetaResponseLogProbTopLogprobsItem>>,
+  );
 
-  factory BetaResponseLogProb.fromJson(Map<String, dynamic> json) =>
-      BetaResponseLogProb(
-        token: (json['token'] as String?)!,
-        logprob: ((json['logprob'] as num?)?.toDouble())!,
-        topLogprobs: json['top_logprobs'] != null
-            ? SdkPresent(((json['top_logprobs'] as List?)
-                ?.map((e) => BetaResponseLogProbTopLogprobsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory BetaResponseLogProb.fromJson(Map<String, dynamic> json) => BetaResponseLogProb(
+    token: (json['token'] as String?)!,
+    logprob: ((json['logprob'] as num?)?.toDouble())!,
+    topLogprobs: json['top_logprobs'] != null ? SdkPresent(((json['top_logprobs'] as List?)?.map((e) => BetaResponseLogProbTopLogprobsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'token': token,
-        'logprob': logprob,
-        ...switch (topLogprobs) {
-          SdkPresent<List<BetaResponseLogProbTopLogprobsItem>>(
-            value: final value
-          ) =>
-            {
-              'top_logprobs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'token': token,
+    'logprob': logprob,
+    ...switch (topLogprobs) {
+      SdkPresent<List<BetaResponseLogProbTopLogprobsItem>>(value: final value) => {'top_logprobs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

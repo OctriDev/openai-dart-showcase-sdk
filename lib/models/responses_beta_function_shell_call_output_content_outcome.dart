@@ -10,65 +10,32 @@ sealed class BetaFunctionShellCallOutputContentOutcome {
   const BetaFunctionShellCallOutputContentOutcome();
   factory BetaFunctionShellCallOutputContentOutcome.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaFunctionShellCallOutputTimeoutOutcome.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputTimeoutOutcome(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaFunctionShellCallOutputExitOutcome.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputExitOutcome(
-              value);
-        }
-      } catch (_) {}
+      try { final value = BetaFunctionShellCallOutputTimeoutOutcome.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputTimeoutOutcome(value); } } catch (_) {}
+      try { final value = BetaFunctionShellCallOutputExitOutcome.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputExitOutcome(value); } } catch (_) {}
     }
-    try {
-      return BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputTimeoutOutcome(
-          BetaFunctionShellCallOutputTimeoutOutcome.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputExitOutcome(
-          BetaFunctionShellCallOutputExitOutcome.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"timeout", "exit"}.contains(json["type"])) {
-      return UnknownBetaFunctionShellCallOutputContentOutcome(json);
-    }
-    throw FormatException(
-        "No variant matched for BetaFunctionShellCallOutputContentOutcome");
+    try { return BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputTimeoutOutcome(BetaFunctionShellCallOutputTimeoutOutcome.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputExitOutcome(BetaFunctionShellCallOutputExitOutcome.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"timeout", "exit"}.contains(json["type"])) { return UnknownBetaFunctionShellCallOutputContentOutcome(json); }
+    throw FormatException("No variant matched for BetaFunctionShellCallOutputContentOutcome");
   }
   Object? toJson();
 }
 
-final class BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputTimeoutOutcome
-    extends BetaFunctionShellCallOutputContentOutcome {
+final class BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputTimeoutOutcome extends BetaFunctionShellCallOutputContentOutcome {
   final BetaFunctionShellCallOutputTimeoutOutcome value;
-  const BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputTimeoutOutcome(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputTimeoutOutcome(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputExitOutcome
-    extends BetaFunctionShellCallOutputContentOutcome {
+final class BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputExitOutcome extends BetaFunctionShellCallOutputContentOutcome {
   final BetaFunctionShellCallOutputExitOutcome value;
-  const BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputExitOutcome(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaFunctionShellCallOutputContentOutcomeBetaFunctionShellCallOutputExitOutcome(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaFunctionShellCallOutputContentOutcome] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaFunctionShellCallOutputContentOutcome
-    extends BetaFunctionShellCallOutputContentOutcome {
+final class UnknownBetaFunctionShellCallOutputContentOutcome extends BetaFunctionShellCallOutputContentOutcome {
   final Map<String, dynamic> raw;
   const UnknownBetaFunctionShellCallOutputContentOutcome(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

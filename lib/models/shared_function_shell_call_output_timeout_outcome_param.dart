@@ -8,34 +8,22 @@ part of 'shared_function.dart';
 class FunctionShellCallOutputTimeoutOutcomeParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The outcome type. Always `timeout`.
   final FunctionShellCallOutputTimeoutOutcomeParamType type_;
 
   const FunctionShellCallOutputTimeoutOutcomeParam({required this.type_});
 
-  FunctionShellCallOutputTimeoutOutcomeParam Function(
-          {FunctionShellCallOutputTimeoutOutcomeParamType type_})
-      get copyWith => _copyWith;
+  FunctionShellCallOutputTimeoutOutcomeParam Function({FunctionShellCallOutputTimeoutOutcomeParamType type_}) get copyWith => _copyWith;
 
-  FunctionShellCallOutputTimeoutOutcomeParam _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      FunctionShellCallOutputTimeoutOutcomeParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as FunctionShellCallOutputTimeoutOutcomeParamType,
-      );
+  FunctionShellCallOutputTimeoutOutcomeParam _copyWith({Object? type_ = sdkOmittedValue}) => FunctionShellCallOutputTimeoutOutcomeParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FunctionShellCallOutputTimeoutOutcomeParamType,
+  );
 
-  factory FunctionShellCallOutputTimeoutOutcomeParam.fromJson(
-          Map<String, dynamic> json) =>
-      FunctionShellCallOutputTimeoutOutcomeParam(
-        type_: (json['type'] != null
-            ? FunctionShellCallOutputTimeoutOutcomeParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory FunctionShellCallOutputTimeoutOutcomeParam.fromJson(Map<String, dynamic> json) => FunctionShellCallOutputTimeoutOutcomeParam(
+    type_: (json['type'] != null ? FunctionShellCallOutputTimeoutOutcomeParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

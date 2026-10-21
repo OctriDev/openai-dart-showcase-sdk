@@ -12,14 +12,13 @@ class VectorStoreFileAttributes {
 
   const VectorStoreFileAttributes({this.value = const <String, dynamic>{}});
 
-  factory VectorStoreFileAttributes.fromJson(Map<String, dynamic> json) =>
-      VectorStoreFileAttributes(
-        value: json.map((key, value) => MapEntry(key, value)),
-      );
+  factory VectorStoreFileAttributes.fromJson(Map<String, dynamic> json) => VectorStoreFileAttributes(
+    value: json.map((key, value) => MapEntry(key, value)),
+  );
 
   Map<String, dynamic> toJson() => value.map(
-        (key, value) => MapEntry(key, value),
-      );
+    (key, value) => MapEntry(key, value),
+  );
 
   dynamic operator [](String key) => value[key];
   Iterable<String> get keys => value.keys;

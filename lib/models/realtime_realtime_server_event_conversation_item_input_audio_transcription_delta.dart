@@ -8,115 +8,56 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventConversationItemInputAudioTranscriptionDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `conversation.item.input_audio_transcription.delta`.
-  final RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType
-      type_;
-
+  final RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType type_;
   /// The ID of the item containing the audio that is being transcribed.
   final String itemId;
-
   /// The index of the content part in the item's content array.
   final SdkOptional<int> contentIndex;
-
   /// The text delta.
   final SdkOptional<String> delta;
-
   /// The log probabilities of the transcription. These can be enabled by configurating the session with `"include": ["item.input_audio_transcription.logprobs"]`. Each entry in the array corresponds a log probability of which token would be selected for this chunk of transcription. This can help to identify if it was possible there were multiple valid options for a given chunk of transcription.
   final SdkOptional<List<LogProbProperties>?> logprobs;
 
-  const RealtimeServerEventConversationItemInputAudioTranscriptionDelta(
-      {required this.eventId,
-      required this.type_,
-      required this.itemId,
-      this.contentIndex = const SdkOmitted(),
-      this.delta = const SdkOmitted(),
-      this.logprobs = const SdkOmitted()});
+  const RealtimeServerEventConversationItemInputAudioTranscriptionDelta({required this.eventId, required this.type_, required this.itemId, this.contentIndex = const SdkOmitted(), this.delta = const SdkOmitted(), this.logprobs = const SdkOmitted()});
 
-  RealtimeServerEventConversationItemInputAudioTranscriptionDelta Function(
-      {String eventId,
-      RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType type_,
-      String itemId,
-      SdkOptional<int> contentIndex,
-      SdkOptional<String> delta,
-      SdkOptional<List<LogProbProperties>?>
-          logprobs}) get copyWith => _copyWith;
+  RealtimeServerEventConversationItemInputAudioTranscriptionDelta Function({String eventId, RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType type_, String itemId, SdkOptional<int> contentIndex, SdkOptional<String> delta, SdkOptional<List<LogProbProperties>?> logprobs}) get copyWith => _copyWith;
 
-  RealtimeServerEventConversationItemInputAudioTranscriptionDelta _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? contentIndex = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? logprobs = sdkOmittedValue}) =>
-      RealtimeServerEventConversationItemInputAudioTranscriptionDelta(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        contentIndex: identical(contentIndex, sdkOmittedValue)
-            ? this.contentIndex
-            : contentIndex as SdkOptional<int>,
-        delta: identical(delta, sdkOmittedValue)
-            ? this.delta
-            : delta as SdkOptional<String>,
-        logprobs: identical(logprobs, sdkOmittedValue)
-            ? this.logprobs
-            : logprobs as SdkOptional<List<LogProbProperties>?>,
-      );
+  RealtimeServerEventConversationItemInputAudioTranscriptionDelta _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? logprobs = sdkOmittedValue}) => RealtimeServerEventConversationItemInputAudioTranscriptionDelta(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as SdkOptional<int>,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as SdkOptional<String>,
+    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as SdkOptional<List<LogProbProperties>?>,
+  );
 
-  factory RealtimeServerEventConversationItemInputAudioTranscriptionDelta.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeServerEventConversationItemInputAudioTranscriptionDelta(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType
-                .fromJson(json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        contentIndex: json['content_index'] != null
-            ? SdkPresent(((json['content_index'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        delta: json['delta'] != null
-            ? SdkPresent((json['delta'] as String?)!)
-            : const SdkOmitted(),
-        logprobs: json.containsKey('logprobs')
-            ? SdkPresent((json['logprobs'] as List?)
-                ?.map((e) =>
-                    LogProbProperties.fromJson(e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-      );
+  factory RealtimeServerEventConversationItemInputAudioTranscriptionDelta.fromJson(Map<String, dynamic> json) => RealtimeServerEventConversationItemInputAudioTranscriptionDelta(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeServerEventConversationItemInputAudioTranscriptionDeltaType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    contentIndex: json['content_index'] != null ? SdkPresent(((json['content_index'] as num?)?.toInt())!) : const SdkOmitted(),
+    delta: json['delta'] != null ? SdkPresent((json['delta'] as String?)!) : const SdkOmitted(),
+    logprobs: json.containsKey('logprobs') ? SdkPresent((json['logprobs'] as List?)?.map((e) => LogProbProperties.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'item_id': itemId,
-        ...switch (contentIndex) {
-          SdkPresent<int>(value: final value) => {
-              'content_index': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (delta) {
-          SdkPresent<String>(value: final value) => {
-              'delta': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logprobs) {
-          SdkPresent<List<LogProbProperties>?>(value: final value) => {
-              'logprobs': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'item_id': itemId,
+    ...switch (contentIndex) {
+      SdkPresent<int>(value: final value) => {'content_index': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (delta) {
+      SdkPresent<String>(value: final value) => {'delta': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logprobs) {
+      SdkPresent<List<LogProbProperties>?>(value: final value) => {'logprobs': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

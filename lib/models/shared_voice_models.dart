@@ -8,7 +8,6 @@ part of 'shared_voice.dart';
 class VoiceIdsOrCustomVoiceVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The custom voice ID, e.g. `voice_1234`.
   final String id;
 
@@ -16,19 +15,17 @@ class VoiceIdsOrCustomVoiceVariant1 {
 
   VoiceIdsOrCustomVoiceVariant1 Function({String id}) get copyWith => _copyWith;
 
-  VoiceIdsOrCustomVoiceVariant1 _copyWith({Object? id = sdkOmittedValue}) =>
-      VoiceIdsOrCustomVoiceVariant1(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  VoiceIdsOrCustomVoiceVariant1 _copyWith({Object? id = sdkOmittedValue}) => VoiceIdsOrCustomVoiceVariant1(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory VoiceIdsOrCustomVoiceVariant1.fromJson(Map<String, dynamic> json) =>
-      VoiceIdsOrCustomVoiceVariant1(
-        id: (json['id'] as String?)!,
-      );
+  factory VoiceIdsOrCustomVoiceVariant1.fromJson(Map<String, dynamic> json) => VoiceIdsOrCustomVoiceVariant1(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }
 
 sealed class VoiceIdsOrCustomVoice {
@@ -36,13 +33,8 @@ sealed class VoiceIdsOrCustomVoice {
   static const String constructionSurface = 'named';
   const VoiceIdsOrCustomVoice();
   factory VoiceIdsOrCustomVoice.fromJson(Object? json) {
-    if (json is String) {
-      return VoiceIdsOrCustomVoiceString(json);
-    }
-    try {
-      return VoiceIdsOrCustomVoiceVoiceIdsOrCustomVoiceVariant1(
-          VoiceIdsOrCustomVoiceVariant1.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    if (json is String) { return VoiceIdsOrCustomVoiceString(json); }
+    try { return VoiceIdsOrCustomVoiceVoiceIdsOrCustomVoiceVariant1(VoiceIdsOrCustomVoiceVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for VoiceIdsOrCustomVoice");
   }
   Object? toJson();
@@ -51,16 +43,13 @@ sealed class VoiceIdsOrCustomVoice {
 final class VoiceIdsOrCustomVoiceString extends VoiceIdsOrCustomVoice {
   final String value;
   const VoiceIdsOrCustomVoiceString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class VoiceIdsOrCustomVoiceVoiceIdsOrCustomVoiceVariant1
-    extends VoiceIdsOrCustomVoice {
+final class VoiceIdsOrCustomVoiceVoiceIdsOrCustomVoiceVariant1 extends VoiceIdsOrCustomVoice {
   final VoiceIdsOrCustomVoiceVariant1 value;
   const VoiceIdsOrCustomVoiceVoiceIdsOrCustomVoiceVariant1(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 // VoiceIdsShared = String

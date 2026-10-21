@@ -8,69 +8,37 @@ part of 'usage.dart';
 class UsageResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final UsageResponseObject object;
-
   /// Required array value serialized in the `data` wire field.
   final List<UsageTimeBucket> data;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
-
   /// Required `string` value serialized in the `next_page` wire field.
   final String? nextPage;
 
-  const UsageResponse(
-      {required this.object,
-      required this.data,
-      required this.hasMore,
-      required this.nextPage});
+  const UsageResponse({required this.object, required this.data, required this.hasMore, required this.nextPage});
 
-  UsageResponse Function(
-      {UsageResponseObject object,
-      List<UsageTimeBucket> data,
-      bool hasMore,
-      String? nextPage}) get copyWith => _copyWith;
+  UsageResponse Function({UsageResponseObject object, List<UsageTimeBucket> data, bool hasMore, String? nextPage}) get copyWith => _copyWith;
 
-  UsageResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? nextPage = sdkOmittedValue}) =>
-      UsageResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as UsageResponseObject,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<UsageTimeBucket>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-        nextPage: identical(nextPage, sdkOmittedValue)
-            ? this.nextPage
-            : nextPage as String?,
-      );
+  UsageResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? nextPage = sdkOmittedValue}) => UsageResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as UsageResponseObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<UsageTimeBucket>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+    nextPage: identical(nextPage, sdkOmittedValue) ? this.nextPage : nextPage as String?,
+  );
 
   factory UsageResponse.fromJson(Map<String, dynamic> json) => UsageResponse(
-        object: (json['object'] != null
-            ? UsageResponseObject.fromJson(json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => UsageTimeBucket.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        hasMore: (json['has_more'] as bool?)!,
-        nextPage: json.containsKey('next_page')
-            ? json['next_page'] as String?
-            : throw ArgumentError.value(
-                null, 'next_page', 'Required property is missing'),
-      );
+    object: (json['object'] != null ? UsageResponseObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => UsageTimeBucket.fromJson(e as Map<String, dynamic>)).toList())!,
+    hasMore: (json['has_more'] as bool?)!,
+    nextPage: json.containsKey('next_page') ? json['next_page'] as String? : throw ArgumentError.value(null, 'next_page', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        'has_more': hasMore,
-        'next_page': nextPage,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    'has_more': hasMore,
+    'next_page': nextPage,
+  };
 }

@@ -8,44 +8,27 @@ part of 'vaults_rotate.dart';
 class RotateVaultCredentialAuthParamEnvironmentVariable {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `environment_variable`.
   final RotateVaultCredentialAuthParamEnvironmentVariableType type_;
-
   /// The write-only replacement secret. Never returned in credential resources or supplied directly to sandbox code. Must be nonempty and must not contain carriage returns, newlines, or NUL bytes.
   final String secretValue;
 
-  const RotateVaultCredentialAuthParamEnvironmentVariable(
-      {required this.type_, required this.secretValue});
+  const RotateVaultCredentialAuthParamEnvironmentVariable({required this.type_, required this.secretValue});
 
-  RotateVaultCredentialAuthParamEnvironmentVariable Function(
-      {RotateVaultCredentialAuthParamEnvironmentVariableType type_,
-      String secretValue}) get copyWith => _copyWith;
+  RotateVaultCredentialAuthParamEnvironmentVariable Function({RotateVaultCredentialAuthParamEnvironmentVariableType type_, String secretValue}) get copyWith => _copyWith;
 
-  RotateVaultCredentialAuthParamEnvironmentVariable _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? secretValue = sdkOmittedValue}) =>
-      RotateVaultCredentialAuthParamEnvironmentVariable(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RotateVaultCredentialAuthParamEnvironmentVariableType,
-        secretValue: identical(secretValue, sdkOmittedValue)
-            ? this.secretValue
-            : secretValue as String,
-      );
+  RotateVaultCredentialAuthParamEnvironmentVariable _copyWith({Object? type_ = sdkOmittedValue, Object? secretValue = sdkOmittedValue}) => RotateVaultCredentialAuthParamEnvironmentVariable(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RotateVaultCredentialAuthParamEnvironmentVariableType,
+    secretValue: identical(secretValue, sdkOmittedValue) ? this.secretValue : secretValue as String,
+  );
 
-  factory RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(
-          Map<String, dynamic> json) =>
-      RotateVaultCredentialAuthParamEnvironmentVariable(
-        type_: (json['type'] != null
-            ? RotateVaultCredentialAuthParamEnvironmentVariableType.fromJson(
-                json['type'] as String)
-            : null)!,
-        secretValue: (json['secret_value'] as String?)!,
-      );
+  factory RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(Map<String, dynamic> json) => RotateVaultCredentialAuthParamEnvironmentVariable(
+    type_: (json['type'] != null ? RotateVaultCredentialAuthParamEnvironmentVariableType.fromJson(json['type'] as String) : null)!,
+    secretValue: (json['secret_value'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'secret_value': secretValue,
-      };
+    'type': type_.toJson(),
+    'secret_value': secretValue,
+  };
 }

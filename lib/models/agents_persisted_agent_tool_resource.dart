@@ -10,153 +10,64 @@ sealed class PersistedAgentToolResource {
   const PersistedAgentToolResource();
   factory PersistedAgentToolResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = PersistedAgentToolResourceFunction.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return PersistedAgentToolResourcePersistedAgentToolResourceFunction(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = PersistedAgentToolResourceToolSearch.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return PersistedAgentToolResourcePersistedAgentToolResourceToolSearch(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            PersistedAgentToolResourceProgrammaticToolCalling.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return PersistedAgentToolResourcePersistedAgentToolResourceProgrammaticToolCalling(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = PersistedAgentToolResourceMcp.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return PersistedAgentToolResourcePersistedAgentToolResourceMcp(value);
-        }
-      } catch (_) {}
-      try {
-        final value = PersistedAgentToolResourceWebSearch.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return PersistedAgentToolResourcePersistedAgentToolResourceWebSearch(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = PersistedAgentToolResourceComputerUse.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return PersistedAgentToolResourcePersistedAgentToolResourceComputerUse(
-              value);
-        }
-      } catch (_) {}
+      try { final value = PersistedAgentToolResourceFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolResourcePersistedAgentToolResourceFunction(value); } } catch (_) {}
+      try { final value = PersistedAgentToolResourceToolSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolResourcePersistedAgentToolResourceToolSearch(value); } } catch (_) {}
+      try { final value = PersistedAgentToolResourceProgrammaticToolCalling.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolResourcePersistedAgentToolResourceProgrammaticToolCalling(value); } } catch (_) {}
+      try { final value = PersistedAgentToolResourceMcp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolResourcePersistedAgentToolResourceMcp(value); } } catch (_) {}
+      try { final value = PersistedAgentToolResourceWebSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolResourcePersistedAgentToolResourceWebSearch(value); } } catch (_) {}
+      try { final value = PersistedAgentToolResourceComputerUse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolResourcePersistedAgentToolResourceComputerUse(value); } } catch (_) {}
     }
-    try {
-      return PersistedAgentToolResourcePersistedAgentToolResourceFunction(
-          PersistedAgentToolResourceFunction.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return PersistedAgentToolResourcePersistedAgentToolResourceToolSearch(
-          PersistedAgentToolResourceToolSearch.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return PersistedAgentToolResourcePersistedAgentToolResourceProgrammaticToolCalling(
-          PersistedAgentToolResourceProgrammaticToolCalling.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return PersistedAgentToolResourcePersistedAgentToolResourceMcp(
-          PersistedAgentToolResourceMcp.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return PersistedAgentToolResourcePersistedAgentToolResourceWebSearch(
-          PersistedAgentToolResourceWebSearch.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return PersistedAgentToolResourcePersistedAgentToolResourceComputerUse(
-          PersistedAgentToolResourceComputerUse.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "function",
-          "tool_search",
-          "programmatic_tool_calling",
-          "mcp",
-          "web_search",
-          "computer_use"
-        }.contains(json["type"])) {
-      return UnknownPersistedAgentToolResource(json);
-    }
+    try { return PersistedAgentToolResourcePersistedAgentToolResourceFunction(PersistedAgentToolResourceFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return PersistedAgentToolResourcePersistedAgentToolResourceToolSearch(PersistedAgentToolResourceToolSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return PersistedAgentToolResourcePersistedAgentToolResourceProgrammaticToolCalling(PersistedAgentToolResourceProgrammaticToolCalling.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return PersistedAgentToolResourcePersistedAgentToolResourceMcp(PersistedAgentToolResourceMcp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return PersistedAgentToolResourcePersistedAgentToolResourceWebSearch(PersistedAgentToolResourceWebSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return PersistedAgentToolResourcePersistedAgentToolResourceComputerUse(PersistedAgentToolResourceComputerUse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "tool_search", "programmatic_tool_calling", "mcp", "web_search", "computer_use"}.contains(json["type"])) { return UnknownPersistedAgentToolResource(json); }
     throw FormatException("No variant matched for PersistedAgentToolResource");
   }
   Object? toJson();
 }
 
-final class PersistedAgentToolResourcePersistedAgentToolResourceFunction
-    extends PersistedAgentToolResource {
+final class PersistedAgentToolResourcePersistedAgentToolResourceFunction extends PersistedAgentToolResource {
   final PersistedAgentToolResourceFunction value;
-  const PersistedAgentToolResourcePersistedAgentToolResourceFunction(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const PersistedAgentToolResourcePersistedAgentToolResourceFunction(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class PersistedAgentToolResourcePersistedAgentToolResourceToolSearch
-    extends PersistedAgentToolResource {
+final class PersistedAgentToolResourcePersistedAgentToolResourceToolSearch extends PersistedAgentToolResource {
   final PersistedAgentToolResourceToolSearch value;
-  const PersistedAgentToolResourcePersistedAgentToolResourceToolSearch(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const PersistedAgentToolResourcePersistedAgentToolResourceToolSearch(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class PersistedAgentToolResourcePersistedAgentToolResourceProgrammaticToolCalling
-    extends PersistedAgentToolResource {
+final class PersistedAgentToolResourcePersistedAgentToolResourceProgrammaticToolCalling extends PersistedAgentToolResource {
   final PersistedAgentToolResourceProgrammaticToolCalling value;
-  const PersistedAgentToolResourcePersistedAgentToolResourceProgrammaticToolCalling(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const PersistedAgentToolResourcePersistedAgentToolResourceProgrammaticToolCalling(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class PersistedAgentToolResourcePersistedAgentToolResourceMcp
-    extends PersistedAgentToolResource {
+final class PersistedAgentToolResourcePersistedAgentToolResourceMcp extends PersistedAgentToolResource {
   final PersistedAgentToolResourceMcp value;
   const PersistedAgentToolResourcePersistedAgentToolResourceMcp(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class PersistedAgentToolResourcePersistedAgentToolResourceWebSearch
-    extends PersistedAgentToolResource {
+final class PersistedAgentToolResourcePersistedAgentToolResourceWebSearch extends PersistedAgentToolResource {
   final PersistedAgentToolResourceWebSearch value;
-  const PersistedAgentToolResourcePersistedAgentToolResourceWebSearch(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const PersistedAgentToolResourcePersistedAgentToolResourceWebSearch(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class PersistedAgentToolResourcePersistedAgentToolResourceComputerUse
-    extends PersistedAgentToolResource {
+final class PersistedAgentToolResourcePersistedAgentToolResourceComputerUse extends PersistedAgentToolResource {
   final PersistedAgentToolResourceComputerUse value;
-  const PersistedAgentToolResourcePersistedAgentToolResourceComputerUse(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const PersistedAgentToolResourcePersistedAgentToolResourceComputerUse(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [PersistedAgentToolResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownPersistedAgentToolResource
-    extends PersistedAgentToolResource {
+final class UnknownPersistedAgentToolResource extends PersistedAgentToolResource {
   final Map<String, dynamic> raw;
   const UnknownPersistedAgentToolResource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

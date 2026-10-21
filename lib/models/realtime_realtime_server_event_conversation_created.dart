@@ -8,115 +8,67 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventConversationCreatedConversation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the conversation.
   final SdkOptional<String> id;
-
   /// The object type, must be `realtime.conversation`.
   final SdkOptional<String> object;
 
-  const RealtimeServerEventConversationCreatedConversation(
-      {this.id = const SdkOmitted(), this.object = const SdkOmitted()});
+  const RealtimeServerEventConversationCreatedConversation({this.id = const SdkOmitted(), this.object = const SdkOmitted()});
 
-  RealtimeServerEventConversationCreatedConversation Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> object}) get copyWith => _copyWith;
+  RealtimeServerEventConversationCreatedConversation Function({SdkOptional<String> id, SdkOptional<String> object}) get copyWith => _copyWith;
 
-  RealtimeServerEventConversationCreatedConversation _copyWith(
-          {Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) =>
-      RealtimeServerEventConversationCreatedConversation(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-      );
+  RealtimeServerEventConversationCreatedConversation _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) => RealtimeServerEventConversationCreatedConversation(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+  );
 
-  factory RealtimeServerEventConversationCreatedConversation.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeServerEventConversationCreatedConversation(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeServerEventConversationCreatedConversation.fromJson(Map<String, dynamic> json) => RealtimeServerEventConversationCreatedConversation(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Returned when a conversation is created. Emitted right after session creation.
 class RealtimeServerEventConversationCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `conversation.created`.
   final RealtimeServerEventConversationCreatedType type_;
-
   /// The conversation resource.
   final RealtimeServerEventConversationCreatedConversation conversation;
 
-  const RealtimeServerEventConversationCreated(
-      {required this.eventId, required this.type_, required this.conversation});
+  const RealtimeServerEventConversationCreated({required this.eventId, required this.type_, required this.conversation});
 
-  RealtimeServerEventConversationCreated Function(
-          {String eventId,
-          RealtimeServerEventConversationCreatedType type_,
-          RealtimeServerEventConversationCreatedConversation conversation})
-      get copyWith => _copyWith;
+  RealtimeServerEventConversationCreated Function({String eventId, RealtimeServerEventConversationCreatedType type_, RealtimeServerEventConversationCreatedConversation conversation}) get copyWith => _copyWith;
 
-  RealtimeServerEventConversationCreated _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? conversation = sdkOmittedValue}) =>
-      RealtimeServerEventConversationCreated(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeServerEventConversationCreatedType,
-        conversation: identical(conversation, sdkOmittedValue)
-            ? this.conversation
-            : conversation
-                as RealtimeServerEventConversationCreatedConversation,
-      );
+  RealtimeServerEventConversationCreated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? conversation = sdkOmittedValue}) => RealtimeServerEventConversationCreated(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventConversationCreatedType,
+    conversation: identical(conversation, sdkOmittedValue) ? this.conversation : conversation as RealtimeServerEventConversationCreatedConversation,
+  );
 
-  factory RealtimeServerEventConversationCreated.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeServerEventConversationCreated(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeServerEventConversationCreatedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        conversation: (json['conversation'] != null
-            ? RealtimeServerEventConversationCreatedConversation.fromJson(
-                json['conversation'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory RealtimeServerEventConversationCreated.fromJson(Map<String, dynamic> json) => RealtimeServerEventConversationCreated(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeServerEventConversationCreatedType.fromJson(json['type'] as String) : null)!,
+    conversation: (json['conversation'] != null ? RealtimeServerEventConversationCreatedConversation.fromJson(json['conversation'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'conversation': conversation.toJson(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'conversation': conversation.toJson(),
+  };
 }

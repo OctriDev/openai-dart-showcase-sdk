@@ -8,111 +8,66 @@ part of 'webhook_safety_deactivation_issued.dart';
 class WebhookSafetyDeactivationIssuedData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The safety case ID to pass to `GET /v1/safety/cases/{id}`.
   final String id;
 
   const WebhookSafetyDeactivationIssuedData({required this.id});
 
-  WebhookSafetyDeactivationIssuedData Function({String id}) get copyWith =>
-      _copyWith;
+  WebhookSafetyDeactivationIssuedData Function({String id}) get copyWith => _copyWith;
 
-  WebhookSafetyDeactivationIssuedData _copyWith(
-          {Object? id = sdkOmittedValue}) =>
-      WebhookSafetyDeactivationIssuedData(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  WebhookSafetyDeactivationIssuedData _copyWith({Object? id = sdkOmittedValue}) => WebhookSafetyDeactivationIssuedData(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory WebhookSafetyDeactivationIssuedData.fromJson(
-          Map<String, dynamic> json) =>
-      WebhookSafetyDeactivationIssuedData(
-        id: (json['id'] as String?)!,
-      );
+  factory WebhookSafetyDeactivationIssuedData.fromJson(Map<String, dynamic> json) => WebhookSafetyDeactivationIssuedData(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }
 
 /// Sent when a deactivation is issued for a safety identifier in your organization.
 class WebhookSafetyDeactivationIssued {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the webhook event.
   final String id;
-
   /// Always `event`.
   final WebhookSafetyDeactivationIssuedObject object;
-
   /// The Unix timestamp in seconds when the event was created.
   final int createdAt;
-
   /// Always `safety.deactivation_issued`.
   final WebhookSafetyDeactivationIssuedType type_;
-
   /// Required object value serialized in the `data` wire field.
   final WebhookSafetyDeactivationIssuedData data;
 
-  const WebhookSafetyDeactivationIssued(
-      {required this.id,
-      required this.object,
-      required this.createdAt,
-      required this.type_,
-      required this.data});
+  const WebhookSafetyDeactivationIssued({required this.id, required this.object, required this.createdAt, required this.type_, required this.data});
 
-  WebhookSafetyDeactivationIssued Function(
-      {String id,
-      WebhookSafetyDeactivationIssuedObject object,
-      int createdAt,
-      WebhookSafetyDeactivationIssuedType type_,
-      WebhookSafetyDeactivationIssuedData data}) get copyWith => _copyWith;
+  WebhookSafetyDeactivationIssued Function({String id, WebhookSafetyDeactivationIssuedObject object, int createdAt, WebhookSafetyDeactivationIssuedType type_, WebhookSafetyDeactivationIssuedData data}) get copyWith => _copyWith;
 
-  WebhookSafetyDeactivationIssued _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      WebhookSafetyDeactivationIssued(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as WebhookSafetyDeactivationIssuedObject,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebhookSafetyDeactivationIssuedType,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as WebhookSafetyDeactivationIssuedData,
-      );
+  WebhookSafetyDeactivationIssued _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => WebhookSafetyDeactivationIssued(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as WebhookSafetyDeactivationIssuedObject,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookSafetyDeactivationIssuedType,
+    data: identical(data, sdkOmittedValue) ? this.data : data as WebhookSafetyDeactivationIssuedData,
+  );
 
-  factory WebhookSafetyDeactivationIssued.fromJson(Map<String, dynamic> json) =>
-      WebhookSafetyDeactivationIssued(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? WebhookSafetyDeactivationIssuedObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        type_: (json['type'] != null
-            ? WebhookSafetyDeactivationIssuedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        data: (json['data'] != null
-            ? WebhookSafetyDeactivationIssuedData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory WebhookSafetyDeactivationIssued.fromJson(Map<String, dynamic> json) => WebhookSafetyDeactivationIssued(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? WebhookSafetyDeactivationIssuedObject.fromJson(json['object'] as String) : null)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    type_: (json['type'] != null ? WebhookSafetyDeactivationIssuedType.fromJson(json['type'] as String) : null)!,
+    data: (json['data'] != null ? WebhookSafetyDeactivationIssuedData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'created_at': createdAt,
-        'type': type_.toJson(),
-        'data': data.toJson(),
-      };
+    'id': id,
+    'object': object.toJson(),
+    'created_at': createdAt,
+    'type': type_.toJson(),
+    'data': data.toJson(),
+  };
 }

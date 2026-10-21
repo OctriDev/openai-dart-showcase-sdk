@@ -8,43 +8,27 @@ part of 'agents_web.dart';
 class WebSearchActionResourceOpenPage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `open_page`.
   final WebSearchActionResourceOpenPageType type_;
-
   /// The URL of the page that was opened.
   final String? url;
 
-  const WebSearchActionResourceOpenPage(
-      {required this.type_, required this.url});
+  const WebSearchActionResourceOpenPage({required this.type_, required this.url});
 
-  WebSearchActionResourceOpenPage Function(
-      {WebSearchActionResourceOpenPageType type_,
-      String? url}) get copyWith => _copyWith;
+  WebSearchActionResourceOpenPage Function({WebSearchActionResourceOpenPageType type_, String? url}) get copyWith => _copyWith;
 
-  WebSearchActionResourceOpenPage _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) =>
-      WebSearchActionResourceOpenPage(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebSearchActionResourceOpenPageType,
-        url: identical(url, sdkOmittedValue) ? this.url : url as String?,
-      );
+  WebSearchActionResourceOpenPage _copyWith({Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) => WebSearchActionResourceOpenPage(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchActionResourceOpenPageType,
+    url: identical(url, sdkOmittedValue) ? this.url : url as String?,
+  );
 
-  factory WebSearchActionResourceOpenPage.fromJson(Map<String, dynamic> json) =>
-      WebSearchActionResourceOpenPage(
-        type_: (json['type'] != null
-            ? WebSearchActionResourceOpenPageType.fromJson(
-                json['type'] as String)
-            : null)!,
-        url: json.containsKey('url')
-            ? json['url'] as String?
-            : throw ArgumentError.value(
-                null, 'url', 'Required property is missing'),
-      );
+  factory WebSearchActionResourceOpenPage.fromJson(Map<String, dynamic> json) => WebSearchActionResourceOpenPage(
+    type_: (json['type'] != null ? WebSearchActionResourceOpenPageType.fromJson(json['type'] as String) : null)!,
+    url: json.containsKey('url') ? json['url'] as String? : throw ArgumentError.value(null, 'url', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'url': url,
-      };
+    'type': type_.toJson(),
+    'url': url,
+  };
 }

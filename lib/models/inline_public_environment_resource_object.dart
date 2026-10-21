@@ -6,51 +6,44 @@ part of 'inline.dart';
 // Inline operation models
 /// The object type. Always `agent.environment`.
 final class PublicEnvironmentResourceObject {
+
   final String value;
 
   const PublicEnvironmentResourceObject._(this.value);
 
-  factory PublicEnvironmentResourceObject.fromJson(String value) =>
-      PublicEnvironmentResourceObject._(value);
+  factory PublicEnvironmentResourceObject.fromJson(String value) => PublicEnvironmentResourceObject._(value);
 
-  static const agentEnvironment =
-      PublicEnvironmentResourceObject._('agent.environment');
+  static const agentEnvironment = PublicEnvironmentResourceObject._('agent.environment');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is PublicEnvironmentResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is PublicEnvironmentResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `list`.
 final class PublicRoleListResourceObject {
+
   final String value;
 
   const PublicRoleListResourceObject._(this.value);
 
-  factory PublicRoleListResourceObject.fromJson(String value) =>
-      PublicRoleListResourceObject._(value);
+  factory PublicRoleListResourceObject.fromJson(String value) => PublicRoleListResourceObject._(value);
 
   static const list = PublicRoleListResourceObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is PublicRoleListResourceObject && other.value == value;
+  @override bool operator ==(Object other) => other is PublicRoleListResourceObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object. Always `choice`.
@@ -59,17 +52,14 @@ enum QuestionParamChoiceType {
 
   static QuestionParamChoiceType fromJson(String value) {
     switch (value) {
-      case 'choice':
-        return QuestionParamChoiceType.choice;
-      default:
-        throw ArgumentError('Unknown QuestionParamChoiceType: $value');
+      case 'choice': return QuestionParamChoiceType.choice;
+      default: throw ArgumentError('Unknown QuestionParamChoiceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case QuestionParamChoiceType.choice:
-        return 'choice';
+      case QuestionParamChoiceType.choice: return 'choice';
     }
   }
 
@@ -83,17 +73,14 @@ enum QuestionParamPredicateType {
 
   static QuestionParamPredicateType fromJson(String value) {
     switch (value) {
-      case 'predicate':
-        return QuestionParamPredicateType.predicate;
-      default:
-        throw ArgumentError('Unknown QuestionParamPredicateType: $value');
+      case 'predicate': return QuestionParamPredicateType.predicate;
+      default: throw ArgumentError('Unknown QuestionParamPredicateType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case QuestionParamPredicateType.predicate:
-        return 'predicate';
+      case QuestionParamPredicateType.predicate: return 'predicate';
     }
   }
 
@@ -107,17 +94,14 @@ enum QuestionParamScoreType {
 
   static QuestionParamScoreType fromJson(String value) {
     switch (value) {
-      case 'score':
-        return QuestionParamScoreType.score;
-      default:
-        throw ArgumentError('Unknown QuestionParamScoreType: $value');
+      case 'score': return QuestionParamScoreType.score;
+      default: throw ArgumentError('Unknown QuestionParamScoreType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case QuestionParamScoreType.score:
-        return 'score';
+      case QuestionParamScoreType.score: return 'score';
     }
   }
 
@@ -127,26 +111,23 @@ enum QuestionParamScoreType {
 
 /// The sample rate of the audio. Always `24000`.
 final class RealtimeAudioFormatsVariant0Rate {
+
   final int value;
 
   const RealtimeAudioFormatsVariant0Rate._(this.value);
 
-  factory RealtimeAudioFormatsVariant0Rate.fromJson(int value) =>
-      RealtimeAudioFormatsVariant0Rate._(value);
+  factory RealtimeAudioFormatsVariant0Rate.fromJson(int value) => RealtimeAudioFormatsVariant0Rate._(value);
 
   static const v24000 = RealtimeAudioFormatsVariant0Rate._(24000);
 
   int toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeAudioFormatsVariant0Rate && other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeAudioFormatsVariant0Rate && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The audio format. Always `audio/pcm`.
@@ -155,17 +136,14 @@ enum RealtimeAudioFormatsVariant0Type {
 
   static RealtimeAudioFormatsVariant0Type fromJson(String value) {
     switch (value) {
-      case 'audio/pcm':
-        return RealtimeAudioFormatsVariant0Type.audioPcm;
-      default:
-        throw ArgumentError('Unknown RealtimeAudioFormatsVariant0Type: $value');
+      case 'audio/pcm': return RealtimeAudioFormatsVariant0Type.audioPcm;
+      default: throw ArgumentError('Unknown RealtimeAudioFormatsVariant0Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeAudioFormatsVariant0Type.audioPcm:
-        return 'audio/pcm';
+      case RealtimeAudioFormatsVariant0Type.audioPcm: return 'audio/pcm';
     }
   }
 
@@ -179,17 +157,14 @@ enum RealtimeAudioFormatsVariant1Type {
 
   static RealtimeAudioFormatsVariant1Type fromJson(String value) {
     switch (value) {
-      case 'audio/pcmu':
-        return RealtimeAudioFormatsVariant1Type.audioPcmu;
-      default:
-        throw ArgumentError('Unknown RealtimeAudioFormatsVariant1Type: $value');
+      case 'audio/pcmu': return RealtimeAudioFormatsVariant1Type.audioPcmu;
+      default: throw ArgumentError('Unknown RealtimeAudioFormatsVariant1Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeAudioFormatsVariant1Type.audioPcmu:
-        return 'audio/pcmu';
+      case RealtimeAudioFormatsVariant1Type.audioPcmu: return 'audio/pcmu';
     }
   }
 
@@ -203,17 +178,14 @@ enum RealtimeAudioFormatsVariant2Type {
 
   static RealtimeAudioFormatsVariant2Type fromJson(String value) {
     switch (value) {
-      case 'audio/pcma':
-        return RealtimeAudioFormatsVariant2Type.audioPcma;
-      default:
-        throw ArgumentError('Unknown RealtimeAudioFormatsVariant2Type: $value');
+      case 'audio/pcma': return RealtimeAudioFormatsVariant2Type.audioPcma;
+      default: throw ArgumentError('Unknown RealtimeAudioFormatsVariant2Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeAudioFormatsVariant2Type.audioPcma:
-        return 'audio/pcma';
+      case RealtimeAudioFormatsVariant2Type.audioPcma: return 'audio/pcma';
     }
   }
 
@@ -223,112 +195,84 @@ enum RealtimeAudioFormatsVariant2Type {
 
 /// The event type, must be `conversation.item.create`.
 final class RealtimeBetaClientEventConversationItemCreateType {
+
   final String value;
 
   const RealtimeBetaClientEventConversationItemCreateType._(this.value);
 
-  factory RealtimeBetaClientEventConversationItemCreateType.fromJson(
-          String value) =>
-      RealtimeBetaClientEventConversationItemCreateType._(value);
+  factory RealtimeBetaClientEventConversationItemCreateType.fromJson(String value) => RealtimeBetaClientEventConversationItemCreateType._(value);
 
-  static const conversationItemCreate =
-      RealtimeBetaClientEventConversationItemCreateType._(
-          'conversation.item.create');
+  static const conversationItemCreate = RealtimeBetaClientEventConversationItemCreateType._('conversation.item.create');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventConversationItemCreateType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventConversationItemCreateType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type, must be `conversation.item.delete`.
 final class RealtimeBetaClientEventConversationItemDeleteType {
+
   final String value;
 
   const RealtimeBetaClientEventConversationItemDeleteType._(this.value);
 
-  factory RealtimeBetaClientEventConversationItemDeleteType.fromJson(
-          String value) =>
-      RealtimeBetaClientEventConversationItemDeleteType._(value);
+  factory RealtimeBetaClientEventConversationItemDeleteType.fromJson(String value) => RealtimeBetaClientEventConversationItemDeleteType._(value);
 
-  static const conversationItemDelete =
-      RealtimeBetaClientEventConversationItemDeleteType._(
-          'conversation.item.delete');
+  static const conversationItemDelete = RealtimeBetaClientEventConversationItemDeleteType._('conversation.item.delete');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventConversationItemDeleteType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventConversationItemDeleteType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type, must be `conversation.item.retrieve`.
 final class RealtimeBetaClientEventConversationItemRetrieveType {
+
   final String value;
 
   const RealtimeBetaClientEventConversationItemRetrieveType._(this.value);
 
-  factory RealtimeBetaClientEventConversationItemRetrieveType.fromJson(
-          String value) =>
-      RealtimeBetaClientEventConversationItemRetrieveType._(value);
+  factory RealtimeBetaClientEventConversationItemRetrieveType.fromJson(String value) => RealtimeBetaClientEventConversationItemRetrieveType._(value);
 
-  static const conversationItemRetrieve =
-      RealtimeBetaClientEventConversationItemRetrieveType._(
-          'conversation.item.retrieve');
+  static const conversationItemRetrieve = RealtimeBetaClientEventConversationItemRetrieveType._('conversation.item.retrieve');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventConversationItemRetrieveType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventConversationItemRetrieveType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type, must be `conversation.item.truncate`.
 final class RealtimeBetaClientEventConversationItemTruncateType {
+
   final String value;
 
   const RealtimeBetaClientEventConversationItemTruncateType._(this.value);
 
-  factory RealtimeBetaClientEventConversationItemTruncateType.fromJson(
-          String value) =>
-      RealtimeBetaClientEventConversationItemTruncateType._(value);
+  factory RealtimeBetaClientEventConversationItemTruncateType.fromJson(String value) => RealtimeBetaClientEventConversationItemTruncateType._(value);
 
-  static const conversationItemTruncate =
-      RealtimeBetaClientEventConversationItemTruncateType._(
-          'conversation.item.truncate');
+  static const conversationItemTruncate = RealtimeBetaClientEventConversationItemTruncateType._('conversation.item.truncate');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventConversationItemTruncateType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventConversationItemTruncateType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

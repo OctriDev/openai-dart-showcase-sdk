@@ -8,61 +8,35 @@ part of 'realtime_realtime_client.dart';
 class RealtimeClientEventInputAudioBufferAppend {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
-
   /// The event type, must be `input_audio_buffer.append`.
   final RealtimeClientEventInputAudioBufferAppendType type_;
-
   /// Base64-encoded audio bytes. This must be in the format specified by the `input_audio_format` field in the session configuration.
   final String audio;
 
-  const RealtimeClientEventInputAudioBufferAppend(
-      {this.eventId = const SdkOmitted(),
-      required this.type_,
-      required this.audio});
+  const RealtimeClientEventInputAudioBufferAppend({this.eventId = const SdkOmitted(), required this.type_, required this.audio});
 
-  RealtimeClientEventInputAudioBufferAppend Function(
-      {SdkOptional<String> eventId,
-      RealtimeClientEventInputAudioBufferAppendType type_,
-      String audio}) get copyWith => _copyWith;
+  RealtimeClientEventInputAudioBufferAppend Function({SdkOptional<String> eventId, RealtimeClientEventInputAudioBufferAppendType type_, String audio}) get copyWith => _copyWith;
 
-  RealtimeClientEventInputAudioBufferAppend _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? audio = sdkOmittedValue}) =>
-      RealtimeClientEventInputAudioBufferAppend(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeClientEventInputAudioBufferAppendType,
-        audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
-      );
+  RealtimeClientEventInputAudioBufferAppend _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? audio = sdkOmittedValue}) => RealtimeClientEventInputAudioBufferAppend(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventInputAudioBufferAppendType,
+    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
+  );
 
-  factory RealtimeClientEventInputAudioBufferAppend.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeClientEventInputAudioBufferAppend(
-        eventId: json['event_id'] != null
-            ? SdkPresent((json['event_id'] as String?)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? RealtimeClientEventInputAudioBufferAppendType.fromJson(
-                json['type'] as String)
-            : null)!,
-        audio: (json['audio'] as String?)!,
-      );
+  factory RealtimeClientEventInputAudioBufferAppend.fromJson(Map<String, dynamic> json) => RealtimeClientEventInputAudioBufferAppend(
+    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? RealtimeClientEventInputAudioBufferAppendType.fromJson(json['type'] as String) : null)!,
+    audio: (json['audio'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'audio': audio,
-      };
+    ...switch (eventId) {
+      SdkPresent<String>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'audio': audio,
+  };
 }

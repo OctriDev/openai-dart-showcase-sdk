@@ -8,37 +8,25 @@ part of 'live_live_fork.dart';
 class LiveForkAudioParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Audio encoding and sample rate for audio sent and received over a Live WebSocket connection. WebRTC and SIP negotiate their media format separately.
   final SdkOptional<LiveAudioFormat> format;
 
   const LiveForkAudioParam({this.format = const SdkOmitted()});
 
-  LiveForkAudioParam Function({SdkOptional<LiveAudioFormat> format})
-      get copyWith => _copyWith;
+  LiveForkAudioParam Function({SdkOptional<LiveAudioFormat> format}) get copyWith => _copyWith;
 
-  LiveForkAudioParam _copyWith({Object? format = sdkOmittedValue}) =>
-      LiveForkAudioParam(
-        format: identical(format, sdkOmittedValue)
-            ? this.format
-            : format as SdkOptional<LiveAudioFormat>,
-      );
+  LiveForkAudioParam _copyWith({Object? format = sdkOmittedValue}) => LiveForkAudioParam(
+    format: identical(format, sdkOmittedValue) ? this.format : format as SdkOptional<LiveAudioFormat>,
+  );
 
-  factory LiveForkAudioParam.fromJson(Map<String, dynamic> json) =>
-      LiveForkAudioParam(
-        format: json['format'] != null
-            ? SdkPresent((json['format'] != null
-                ? LiveAudioFormat.fromJson(json['format'])
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory LiveForkAudioParam.fromJson(Map<String, dynamic> json) => LiveForkAudioParam(
+    format: json['format'] != null ? SdkPresent((json['format'] != null ? LiveAudioFormat.fromJson(json['format']) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (format) {
-          SdkPresent<LiveAudioFormat>(value: final value) => {
-              'format': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (format) {
+      SdkPresent<LiveAudioFormat>(value: final value) => {'format': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

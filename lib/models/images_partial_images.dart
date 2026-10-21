@@ -9,9 +9,7 @@ sealed class PartialImages {
   static const String constructionSurface = 'named';
   const PartialImages();
   factory PartialImages.fromJson(Object? json) {
-    if (json is num) {
-      return PartialImagesInt(json.toInt());
-    }
+    if (json is num) { return PartialImagesInt(json.toInt()); }
     throw FormatException("No variant matched for PartialImages");
   }
   Object? toJson();
@@ -20,6 +18,5 @@ sealed class PartialImages {
 final class PartialImagesInt extends PartialImages {
   final int value;
   const PartialImagesInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }

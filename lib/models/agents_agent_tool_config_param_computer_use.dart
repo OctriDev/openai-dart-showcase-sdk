@@ -8,50 +8,30 @@ part of 'agents_agent.dart';
 class AgentToolConfigParamComputerUse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `computer_use`.
   final AgentToolConfigParamComputerUseType type_;
-
   /// Whether computer tool outputs include screenshots. Defaults to `false`.
   final SdkOptional<bool> includeScreenshots;
 
-  const AgentToolConfigParamComputerUse(
-      {required this.type_, this.includeScreenshots = const SdkOmitted()});
+  const AgentToolConfigParamComputerUse({required this.type_, this.includeScreenshots = const SdkOmitted()});
 
-  AgentToolConfigParamComputerUse Function(
-      {AgentToolConfigParamComputerUseType type_,
-      SdkOptional<bool> includeScreenshots}) get copyWith => _copyWith;
+  AgentToolConfigParamComputerUse Function({AgentToolConfigParamComputerUseType type_, SdkOptional<bool> includeScreenshots}) get copyWith => _copyWith;
 
-  AgentToolConfigParamComputerUse _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? includeScreenshots = sdkOmittedValue}) =>
-      AgentToolConfigParamComputerUse(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AgentToolConfigParamComputerUseType,
-        includeScreenshots: identical(includeScreenshots, sdkOmittedValue)
-            ? this.includeScreenshots
-            : includeScreenshots as SdkOptional<bool>,
-      );
+  AgentToolConfigParamComputerUse _copyWith({Object? type_ = sdkOmittedValue, Object? includeScreenshots = sdkOmittedValue}) => AgentToolConfigParamComputerUse(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolConfigParamComputerUseType,
+    includeScreenshots: identical(includeScreenshots, sdkOmittedValue) ? this.includeScreenshots : includeScreenshots as SdkOptional<bool>,
+  );
 
-  factory AgentToolConfigParamComputerUse.fromJson(Map<String, dynamic> json) =>
-      AgentToolConfigParamComputerUse(
-        type_: (json['type'] != null
-            ? AgentToolConfigParamComputerUseType.fromJson(
-                json['type'] as String)
-            : null)!,
-        includeScreenshots: json['include_screenshots'] != null
-            ? SdkPresent((json['include_screenshots'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory AgentToolConfigParamComputerUse.fromJson(Map<String, dynamic> json) => AgentToolConfigParamComputerUse(
+    type_: (json['type'] != null ? AgentToolConfigParamComputerUseType.fromJson(json['type'] as String) : null)!,
+    includeScreenshots: json['include_screenshots'] != null ? SdkPresent((json['include_screenshots'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (includeScreenshots) {
-          SdkPresent<bool>(value: final value) => {
-              'include_screenshots': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (includeScreenshots) {
+      SdkPresent<bool>(value: final value) => {'include_screenshots': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

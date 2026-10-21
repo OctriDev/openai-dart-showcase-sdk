@@ -8,228 +8,116 @@ part of 'realtime_audio.dart';
 class AudioTranscription {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The model to use for transcription. Current options are `whisper-1`, `gpt-transcribe`, `gpt-live-transcribe`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`. Use `gpt-4o-transcribe-diarize` when you need diarization with speaker labels.
   final SdkOptional<String> model;
-
   /// The language of the input audio. Supplying the input language in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (e.g. `en`) format will improve accuracy and latency.
   final SdkOptional<String> language;
-
   /// Possible languages of the input audio, in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format. Supported by `gpt-transcribe` and `gpt-live-transcribe`.
   final SdkOptional<List<String>> languages;
-
   /// Words or phrases to guide transcription of the input audio. Supported by `gpt-transcribe` and `gpt-live-transcribe`.
   final SdkOptional<List<String>> keywords;
-
   /// An optional text to guide the model's style or continue a previous audio segment. For `whisper-1`, the [prompt is a list of keywords](https://developers.openai.com/api/docs/guides/speech-to-text#prompting). For `gpt-4o-transcribe` models (excluding `gpt-4o-transcribe-diarize`), the prompt is a free text string, for example "expect words related to technology". Prompt is not supported with `gpt-realtime-whisper` in GA Realtime sessions.
   final SdkOptional<String> prompt;
-
   /// Controls how long the model waits before emitting transcription text. Higher values can improve transcription accuracy at the cost of latency. Only supported with `gpt-realtime-whisper` in GA Realtime sessions.
   final SdkOptional<AudioTranscriptionDelay> delay;
 
-  const AudioTranscription(
-      {this.model = const SdkOmitted(),
-      this.language = const SdkOmitted(),
-      this.languages = const SdkOmitted(),
-      this.keywords = const SdkOmitted(),
-      this.prompt = const SdkOmitted(),
-      this.delay = const SdkOmitted()});
+  const AudioTranscription({this.model = const SdkOmitted(), this.language = const SdkOmitted(), this.languages = const SdkOmitted(), this.keywords = const SdkOmitted(), this.prompt = const SdkOmitted(), this.delay = const SdkOmitted()});
 
-  AudioTranscription Function(
-      {SdkOptional<String> model,
-      SdkOptional<String> language,
-      SdkOptional<List<String>> languages,
-      SdkOptional<List<String>> keywords,
-      SdkOptional<String> prompt,
-      SdkOptional<AudioTranscriptionDelay> delay}) get copyWith => _copyWith;
+  AudioTranscription Function({SdkOptional<String> model, SdkOptional<String> language, SdkOptional<List<String>> languages, SdkOptional<List<String>> keywords, SdkOptional<String> prompt, SdkOptional<AudioTranscriptionDelay> delay}) get copyWith => _copyWith;
 
-  AudioTranscription _copyWith(
-          {Object? model = sdkOmittedValue,
-          Object? language = sdkOmittedValue,
-          Object? languages = sdkOmittedValue,
-          Object? keywords = sdkOmittedValue,
-          Object? prompt = sdkOmittedValue,
-          Object? delay = sdkOmittedValue}) =>
-      AudioTranscription(
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<String>,
-        language: identical(language, sdkOmittedValue)
-            ? this.language
-            : language as SdkOptional<String>,
-        languages: identical(languages, sdkOmittedValue)
-            ? this.languages
-            : languages as SdkOptional<List<String>>,
-        keywords: identical(keywords, sdkOmittedValue)
-            ? this.keywords
-            : keywords as SdkOptional<List<String>>,
-        prompt: identical(prompt, sdkOmittedValue)
-            ? this.prompt
-            : prompt as SdkOptional<String>,
-        delay: identical(delay, sdkOmittedValue)
-            ? this.delay
-            : delay as SdkOptional<AudioTranscriptionDelay>,
-      );
+  AudioTranscription _copyWith({Object? model = sdkOmittedValue, Object? language = sdkOmittedValue, Object? languages = sdkOmittedValue, Object? keywords = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? delay = sdkOmittedValue}) => AudioTranscription(
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
+    language: identical(language, sdkOmittedValue) ? this.language : language as SdkOptional<String>,
+    languages: identical(languages, sdkOmittedValue) ? this.languages : languages as SdkOptional<List<String>>,
+    keywords: identical(keywords, sdkOmittedValue) ? this.keywords : keywords as SdkOptional<List<String>>,
+    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as SdkOptional<String>,
+    delay: identical(delay, sdkOmittedValue) ? this.delay : delay as SdkOptional<AudioTranscriptionDelay>,
+  );
 
-  factory AudioTranscription.fromJson(Map<String, dynamic> json) =>
-      AudioTranscription(
-        model: json['model'] != null
-            ? SdkPresent((json['model'] as String?)!)
-            : const SdkOmitted(),
-        language: json['language'] != null
-            ? SdkPresent((json['language'] as String?)!)
-            : const SdkOmitted(),
-        languages: json['languages'] != null
-            ? SdkPresent(((json['languages'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        keywords: json['keywords'] != null
-            ? SdkPresent(((json['keywords'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        prompt: json['prompt'] != null
-            ? SdkPresent((json['prompt'] as String?)!)
-            : const SdkOmitted(),
-        delay: json['delay'] != null
-            ? SdkPresent((json['delay'] != null
-                ? AudioTranscriptionDelay.fromJson(json['delay'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AudioTranscription.fromJson(Map<String, dynamic> json) => AudioTranscription(
+    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
+    language: json['language'] != null ? SdkPresent((json['language'] as String?)!) : const SdkOmitted(),
+    languages: json['languages'] != null ? SdkPresent(((json['languages'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    keywords: json['keywords'] != null ? SdkPresent(((json['keywords'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    prompt: json['prompt'] != null ? SdkPresent((json['prompt'] as String?)!) : const SdkOmitted(),
+    delay: json['delay'] != null ? SdkPresent((json['delay'] != null ? AudioTranscriptionDelay.fromJson(json['delay'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (model) {
-          SdkPresent<String>(value: final value) => {
-              'model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (language) {
-          SdkPresent<String>(value: final value) => {
-              'language': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (languages) {
-          SdkPresent<List<String>>(value: final value) => {
-              'languages': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (keywords) {
-          SdkPresent<List<String>>(value: final value) => {
-              'keywords': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prompt) {
-          SdkPresent<String>(value: final value) => {
-              'prompt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (delay) {
-          SdkPresent<AudioTranscriptionDelay>(value: final value) => {
-              'delay': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (model) {
+      SdkPresent<String>(value: final value) => {'model': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (language) {
+      SdkPresent<String>(value: final value) => {'language': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (languages) {
+      SdkPresent<List<String>>(value: final value) => {'languages': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (keywords) {
+      SdkPresent<List<String>>(value: final value) => {'keywords': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prompt) {
+      SdkPresent<String>(value: final value) => {'prompt': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (delay) {
+      SdkPresent<AudioTranscriptionDelay>(value: final value) => {'delay': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AudioTranscriptionResponse` API schema.
 class AudioTranscriptionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The model used for transcription. Current options are `whisper-1`, `gpt-transcribe`, `gpt-live-transcribe`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`.
   final SdkOptional<String> model;
-
   /// The language of the input audio.
   final SdkOptional<String?> language;
-
   /// The possible input audio languages configured for transcription, in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format.
   final SdkOptional<List<String>> languages;
-
   /// The prompt configured for input audio transcription, when present.
   final SdkOptional<String> prompt;
 
-  const AudioTranscriptionResponse(
-      {this.model = const SdkOmitted(),
-      this.language = const SdkOmitted(),
-      this.languages = const SdkOmitted(),
-      this.prompt = const SdkOmitted()});
+  const AudioTranscriptionResponse({this.model = const SdkOmitted(), this.language = const SdkOmitted(), this.languages = const SdkOmitted(), this.prompt = const SdkOmitted()});
 
-  AudioTranscriptionResponse Function(
-      {SdkOptional<String> model,
-      SdkOptional<String?> language,
-      SdkOptional<List<String>> languages,
-      SdkOptional<String> prompt}) get copyWith => _copyWith;
+  AudioTranscriptionResponse Function({SdkOptional<String> model, SdkOptional<String?> language, SdkOptional<List<String>> languages, SdkOptional<String> prompt}) get copyWith => _copyWith;
 
-  AudioTranscriptionResponse _copyWith(
-          {Object? model = sdkOmittedValue,
-          Object? language = sdkOmittedValue,
-          Object? languages = sdkOmittedValue,
-          Object? prompt = sdkOmittedValue}) =>
-      AudioTranscriptionResponse(
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<String>,
-        language: identical(language, sdkOmittedValue)
-            ? this.language
-            : language as SdkOptional<String?>,
-        languages: identical(languages, sdkOmittedValue)
-            ? this.languages
-            : languages as SdkOptional<List<String>>,
-        prompt: identical(prompt, sdkOmittedValue)
-            ? this.prompt
-            : prompt as SdkOptional<String>,
-      );
+  AudioTranscriptionResponse _copyWith({Object? model = sdkOmittedValue, Object? language = sdkOmittedValue, Object? languages = sdkOmittedValue, Object? prompt = sdkOmittedValue}) => AudioTranscriptionResponse(
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
+    language: identical(language, sdkOmittedValue) ? this.language : language as SdkOptional<String?>,
+    languages: identical(languages, sdkOmittedValue) ? this.languages : languages as SdkOptional<List<String>>,
+    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as SdkOptional<String>,
+  );
 
-  factory AudioTranscriptionResponse.fromJson(Map<String, dynamic> json) =>
-      AudioTranscriptionResponse(
-        model: json['model'] != null
-            ? SdkPresent((json['model'] as String?)!)
-            : const SdkOmitted(),
-        language: json.containsKey('language')
-            ? SdkPresent(json['language'] as String?)
-            : const SdkOmitted(),
-        languages: json['languages'] != null
-            ? SdkPresent(((json['languages'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        prompt: json['prompt'] != null
-            ? SdkPresent((json['prompt'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AudioTranscriptionResponse.fromJson(Map<String, dynamic> json) => AudioTranscriptionResponse(
+    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
+    language: json.containsKey('language') ? SdkPresent(json['language'] as String?) : const SdkOmitted(),
+    languages: json['languages'] != null ? SdkPresent(((json['languages'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    prompt: json['prompt'] != null ? SdkPresent((json['prompt'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (model) {
-          SdkPresent<String>(value: final value) => {
-              'model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (language) {
-          SdkPresent<String?>(value: final value) => {
-              'language': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (languages) {
-          SdkPresent<List<String>>(value: final value) => {
-              'languages': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prompt) {
-          SdkPresent<String>(value: final value) => {
-              'prompt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (model) {
+      SdkPresent<String>(value: final value) => {'model': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (language) {
+      SdkPresent<String?>(value: final value) => {'language': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (languages) {
+      SdkPresent<List<String>>(value: final value) => {'languages': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prompt) {
+      SdkPresent<String>(value: final value) => {'prompt': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

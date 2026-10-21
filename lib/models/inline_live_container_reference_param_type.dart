@@ -10,17 +10,14 @@ enum LiveContainerReferenceParamType {
 
   static LiveContainerReferenceParamType fromJson(String value) {
     switch (value) {
-      case 'container_reference':
-        return LiveContainerReferenceParamType.containerReference;
-      default:
-        throw ArgumentError('Unknown LiveContainerReferenceParamType: $value');
+      case 'container_reference': return LiveContainerReferenceParamType.containerReference;
+      default: throw ArgumentError('Unknown LiveContainerReferenceParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveContainerReferenceParamType.containerReference:
-        return 'container_reference';
+      case LiveContainerReferenceParamType.containerReference: return 'container_reference';
     }
   }
 
@@ -34,17 +31,14 @@ enum LiveCustomToolInputParamType {
 
   static LiveCustomToolInputParamType fromJson(String value) {
     switch (value) {
-      case 'custom':
-        return LiveCustomToolInputParamType.custom;
-      default:
-        throw ArgumentError('Unknown LiveCustomToolInputParamType: $value');
+      case 'custom': return LiveCustomToolInputParamType.custom;
+      default: throw ArgumentError('Unknown LiveCustomToolInputParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveCustomToolInputParamType.custom:
-        return 'custom';
+      case LiveCustomToolInputParamType.custom: return 'custom';
     }
   }
 
@@ -54,29 +48,23 @@ enum LiveCustomToolInputParamType {
 
 /// Optional enumerated value serialized in the `allowed_server_events` wire field.
 final class LiveDataChannelConfigParamAllowedServerEventsVariant0 {
+
   final String value;
 
   const LiveDataChannelConfigParamAllowedServerEventsVariant0._(this.value);
 
-  factory LiveDataChannelConfigParamAllowedServerEventsVariant0.fromJson(
-          String value) =>
-      LiveDataChannelConfigParamAllowedServerEventsVariant0._(value);
+  factory LiveDataChannelConfigParamAllowedServerEventsVariant0.fromJson(String value) => LiveDataChannelConfigParamAllowedServerEventsVariant0._(value);
 
-  static const all =
-      LiveDataChannelConfigParamAllowedServerEventsVariant0._('all');
+  static const all = LiveDataChannelConfigParamAllowedServerEventsVariant0._('all');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDataChannelConfigParamAllowedServerEventsVariant0 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is LiveDataChannelConfigParamAllowedServerEventsVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -85,18 +73,14 @@ enum LiveDecisionChoiceQuestionParamType {
 
   static LiveDecisionChoiceQuestionParamType fromJson(String value) {
     switch (value) {
-      case 'choice':
-        return LiveDecisionChoiceQuestionParamType.choice;
-      default:
-        throw ArgumentError(
-            'Unknown LiveDecisionChoiceQuestionParamType: $value');
+      case 'choice': return LiveDecisionChoiceQuestionParamType.choice;
+      default: throw ArgumentError('Unknown LiveDecisionChoiceQuestionParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionChoiceQuestionParamType.choice:
-        return 'choice';
+      case LiveDecisionChoiceQuestionParamType.choice: return 'choice';
     }
   }
 
@@ -106,27 +90,23 @@ enum LiveDecisionChoiceQuestionParamType {
 
 /// Required enumerated value serialized in the `type` wire field.
 final class LiveDecisionCompletedType {
+
   final String value;
 
   const LiveDecisionCompletedType._(this.value);
 
-  factory LiveDecisionCompletedType.fromJson(String value) =>
-      LiveDecisionCompletedType._(value);
+  factory LiveDecisionCompletedType.fromJson(String value) => LiveDecisionCompletedType._(value);
 
-  static const decisionCompleted =
-      LiveDecisionCompletedType._('decision.completed');
+  static const decisionCompleted = LiveDecisionCompletedType._('decision.completed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDecisionCompletedType && other.value == value;
+  @override bool operator ==(Object other) => other is LiveDecisionCompletedType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -135,17 +115,14 @@ enum LiveDecisionCreateParamType {
 
   static LiveDecisionCreateParamType fromJson(String value) {
     switch (value) {
-      case 'decision.create':
-        return LiveDecisionCreateParamType.decisionCreate;
-      default:
-        throw ArgumentError('Unknown LiveDecisionCreateParamType: $value');
+      case 'decision.create': return LiveDecisionCreateParamType.decisionCreate;
+      default: throw ArgumentError('Unknown LiveDecisionCreateParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionCreateParamType.decisionCreate:
-        return 'decision.create';
+      case LiveDecisionCreateParamType.decisionCreate: return 'decision.create';
     }
   }
 
@@ -155,54 +132,44 @@ enum LiveDecisionCreateParamType {
 
 /// Required enumerated value serialized in the `source_event_type` wire field.
 final class LiveDecisionEventSourceEventTypeVariant0 {
+
   final String value;
 
   const LiveDecisionEventSourceEventTypeVariant0._(this.value);
 
-  factory LiveDecisionEventSourceEventTypeVariant0.fromJson(String value) =>
-      LiveDecisionEventSourceEventTypeVariant0._(value);
+  factory LiveDecisionEventSourceEventTypeVariant0.fromJson(String value) => LiveDecisionEventSourceEventTypeVariant0._(value);
 
-  static const sessionInputTranscriptDelta =
-      LiveDecisionEventSourceEventTypeVariant0._(
-          'session.input_transcript.delta');
+  static const sessionInputTranscriptDelta = LiveDecisionEventSourceEventTypeVariant0._('session.input_transcript.delta');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDecisionEventSourceEventTypeVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is LiveDecisionEventSourceEventTypeVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `source_event_type` wire field.
 final class LiveDecisionEventSourceEventTypeVariant1 {
+
   final String value;
 
   const LiveDecisionEventSourceEventTypeVariant1._(this.value);
 
-  factory LiveDecisionEventSourceEventTypeVariant1.fromJson(String value) =>
-      LiveDecisionEventSourceEventTypeVariant1._(value);
+  factory LiveDecisionEventSourceEventTypeVariant1.fromJson(String value) => LiveDecisionEventSourceEventTypeVariant1._(value);
 
-  static const sessionOutputTranscriptDelta =
-      LiveDecisionEventSourceEventTypeVariant1._(
-          'session.output_transcript.delta');
+  static const sessionOutputTranscriptDelta = LiveDecisionEventSourceEventTypeVariant1._('session.output_transcript.delta');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDecisionEventSourceEventTypeVariant1 && other.value == value;
+  @override bool operator ==(Object other) => other is LiveDecisionEventSourceEventTypeVariant1 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -211,17 +178,14 @@ enum LiveDecisionEventType {
 
   static LiveDecisionEventType fromJson(String value) {
     switch (value) {
-      case 'decision.event':
-        return LiveDecisionEventType.decisionEvent;
-      default:
-        throw ArgumentError('Unknown LiveDecisionEventType: $value');
+      case 'decision.event': return LiveDecisionEventType.decisionEvent;
+      default: throw ArgumentError('Unknown LiveDecisionEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionEventType.decisionEvent:
-        return 'decision.event';
+      case LiveDecisionEventType.decisionEvent: return 'decision.event';
     }
   }
 
@@ -235,17 +199,14 @@ enum LiveDecisionInputImageParamType {
 
   static LiveDecisionInputImageParamType fromJson(String value) {
     switch (value) {
-      case 'input_image':
-        return LiveDecisionInputImageParamType.inputImage;
-      default:
-        throw ArgumentError('Unknown LiveDecisionInputImageParamType: $value');
+      case 'input_image': return LiveDecisionInputImageParamType.inputImage;
+      default: throw ArgumentError('Unknown LiveDecisionInputImageParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionInputImageParamType.inputImage:
-        return 'input_image';
+      case LiveDecisionInputImageParamType.inputImage: return 'input_image';
     }
   }
 
@@ -255,50 +216,44 @@ enum LiveDecisionInputImageParamType {
 
 /// The message role. Always `user`.
 final class LiveDecisionInputItemParamRole {
+
   final String value;
 
   const LiveDecisionInputItemParamRole._(this.value);
 
-  factory LiveDecisionInputItemParamRole.fromJson(String value) =>
-      LiveDecisionInputItemParamRole._(value);
+  factory LiveDecisionInputItemParamRole.fromJson(String value) => LiveDecisionInputItemParamRole._(value);
 
   static const user = LiveDecisionInputItemParamRole._('user');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDecisionInputItemParamRole && other.value == value;
+  @override bool operator ==(Object other) => other is LiveDecisionInputItemParamRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `type` wire field.
 final class LiveDecisionInputItemParamType {
+
   final String value;
 
   const LiveDecisionInputItemParamType._(this.value);
 
-  factory LiveDecisionInputItemParamType.fromJson(String value) =>
-      LiveDecisionInputItemParamType._(value);
+  factory LiveDecisionInputItemParamType.fromJson(String value) => LiveDecisionInputItemParamType._(value);
 
   static const message = LiveDecisionInputItemParamType._('message');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LiveDecisionInputItemParamType && other.value == value;
+  @override bool operator ==(Object other) => other is LiveDecisionInputItemParamType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the input item. Always `input_text`.
@@ -307,17 +262,14 @@ enum LiveDecisionInputTextParamType {
 
   static LiveDecisionInputTextParamType fromJson(String value) {
     switch (value) {
-      case 'input_text':
-        return LiveDecisionInputTextParamType.inputText;
-      default:
-        throw ArgumentError('Unknown LiveDecisionInputTextParamType: $value');
+      case 'input_text': return LiveDecisionInputTextParamType.inputText;
+      default: throw ArgumentError('Unknown LiveDecisionInputTextParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case LiveDecisionInputTextParamType.inputText:
-        return 'input_text';
+      case LiveDecisionInputTextParamType.inputText: return 'input_text';
     }
   }
 

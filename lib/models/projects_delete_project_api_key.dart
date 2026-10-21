@@ -8,51 +8,32 @@ part of 'projects.dart';
 class ProjectApiKeyDeleteResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final ProjectApiKeyDeleteResponseObject object;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
 
-  const ProjectApiKeyDeleteResponse(
-      {required this.object, required this.id, required this.deleted});
+  const ProjectApiKeyDeleteResponse({required this.object, required this.id, required this.deleted});
 
-  ProjectApiKeyDeleteResponse Function(
-      {ProjectApiKeyDeleteResponseObject object,
-      String id,
-      bool deleted}) get copyWith => _copyWith;
+  ProjectApiKeyDeleteResponse Function({ProjectApiKeyDeleteResponseObject object, String id, bool deleted}) get copyWith => _copyWith;
 
-  ProjectApiKeyDeleteResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      ProjectApiKeyDeleteResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ProjectApiKeyDeleteResponseObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-      );
+  ProjectApiKeyDeleteResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => ProjectApiKeyDeleteResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectApiKeyDeleteResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+  );
 
-  factory ProjectApiKeyDeleteResponse.fromJson(Map<String, dynamic> json) =>
-      ProjectApiKeyDeleteResponse(
-        object: (json['object'] != null
-            ? ProjectApiKeyDeleteResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        deleted: (json['deleted'] as bool?)!,
-      );
+  factory ProjectApiKeyDeleteResponse.fromJson(Map<String, dynamic> json) => ProjectApiKeyDeleteResponse(
+    object: (json['object'] != null ? ProjectApiKeyDeleteResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    deleted: (json['deleted'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'deleted': deleted,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'deleted': deleted,
+  };
 }

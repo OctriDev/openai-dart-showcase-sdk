@@ -8,557 +8,282 @@ part of 'realtime_realtime_beta_response.dart';
 class RealtimeBetaResponseStatusDetailsError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of error.
   final SdkOptional<String> type_;
-
   /// Error code, if any.
   final SdkOptional<String> code;
-
   /// A human-readable error message.
   final SdkOptional<String> message;
 
-  const RealtimeBetaResponseStatusDetailsError(
-      {this.type_ = const SdkOmitted(),
-      this.code = const SdkOmitted(),
-      this.message = const SdkOmitted()});
+  const RealtimeBetaResponseStatusDetailsError({this.type_ = const SdkOmitted(), this.code = const SdkOmitted(), this.message = const SdkOmitted()});
 
-  RealtimeBetaResponseStatusDetailsError Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> code,
-      SdkOptional<String> message}) get copyWith => _copyWith;
+  RealtimeBetaResponseStatusDetailsError Function({SdkOptional<String> type_, SdkOptional<String> code, SdkOptional<String> message}) get copyWith => _copyWith;
 
-  RealtimeBetaResponseStatusDetailsError _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      RealtimeBetaResponseStatusDetailsError(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        code: identical(code, sdkOmittedValue)
-            ? this.code
-            : code as SdkOptional<String>,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as SdkOptional<String>,
-      );
+  RealtimeBetaResponseStatusDetailsError _copyWith({Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => RealtimeBetaResponseStatusDetailsError(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    code: identical(code, sdkOmittedValue) ? this.code : code as SdkOptional<String>,
+    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
+  );
 
-  factory RealtimeBetaResponseStatusDetailsError.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaResponseStatusDetailsError(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        code: json['code'] != null
-            ? SdkPresent((json['code'] as String?)!)
-            : const SdkOmitted(),
-        message: json['message'] != null
-            ? SdkPresent((json['message'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeBetaResponseStatusDetailsError.fromJson(Map<String, dynamic> json) => RealtimeBetaResponseStatusDetailsError(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    code: json['code'] != null ? SdkPresent((json['code'] as String?)!) : const SdkOmitted(),
+    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (code) {
-          SdkPresent<String>(value: final value) => {
-              'code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (message) {
-          SdkPresent<String>(value: final value) => {
-              'message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (code) {
+      SdkPresent<String>(value: final value) => {'code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (message) {
+      SdkPresent<String>(value: final value) => {'message': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Additional details about the status.
 class RealtimeBetaResponseStatusDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of error that caused the response to fail, corresponding with the `status` field (`completed`, `cancelled`, `incomplete`, `failed`).
   final SdkOptional<RealtimeBetaResponseStatusDetailsType> type_;
-
   /// The reason the Response did not complete. For a `cancelled` Response, one of `turn_detected` (the server VAD detected a new start of speech) or `client_cancelled` (the client sent a cancel event). For an `incomplete` Response, one of `max_output_tokens` or `content_filter` (the server-side safety filter activated and cut off the response).
   final SdkOptional<RealtimeBetaResponseStatusDetailsReason> reason;
-
   /// A description of the error that caused the response to fail, populated when the `status` is `failed`.
   final SdkOptional<RealtimeBetaResponseStatusDetailsError> error;
 
-  const RealtimeBetaResponseStatusDetails(
-      {this.type_ = const SdkOmitted(),
-      this.reason = const SdkOmitted(),
-      this.error = const SdkOmitted()});
+  const RealtimeBetaResponseStatusDetails({this.type_ = const SdkOmitted(), this.reason = const SdkOmitted(), this.error = const SdkOmitted()});
 
-  RealtimeBetaResponseStatusDetails Function(
-          {SdkOptional<RealtimeBetaResponseStatusDetailsType> type_,
-          SdkOptional<RealtimeBetaResponseStatusDetailsReason> reason,
-          SdkOptional<RealtimeBetaResponseStatusDetailsError> error})
-      get copyWith => _copyWith;
+  RealtimeBetaResponseStatusDetails Function({SdkOptional<RealtimeBetaResponseStatusDetailsType> type_, SdkOptional<RealtimeBetaResponseStatusDetailsReason> reason, SdkOptional<RealtimeBetaResponseStatusDetailsError> error}) get copyWith => _copyWith;
 
-  RealtimeBetaResponseStatusDetails _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? reason = sdkOmittedValue,
-          Object? error = sdkOmittedValue}) =>
-      RealtimeBetaResponseStatusDetails(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<RealtimeBetaResponseStatusDetailsType>,
-        reason: identical(reason, sdkOmittedValue)
-            ? this.reason
-            : reason as SdkOptional<RealtimeBetaResponseStatusDetailsReason>,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as SdkOptional<RealtimeBetaResponseStatusDetailsError>,
-      );
+  RealtimeBetaResponseStatusDetails _copyWith({Object? type_ = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? error = sdkOmittedValue}) => RealtimeBetaResponseStatusDetails(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<RealtimeBetaResponseStatusDetailsType>,
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as SdkOptional<RealtimeBetaResponseStatusDetailsReason>,
+    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<RealtimeBetaResponseStatusDetailsError>,
+  );
 
-  factory RealtimeBetaResponseStatusDetails.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaResponseStatusDetails(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? RealtimeBetaResponseStatusDetailsType.fromJson(
-                    json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        reason: json['reason'] != null
-            ? SdkPresent((json['reason'] != null
-                ? RealtimeBetaResponseStatusDetailsReason.fromJson(
-                    json['reason'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        error: json['error'] != null
-            ? SdkPresent((json['error'] != null
-                ? RealtimeBetaResponseStatusDetailsError.fromJson(
-                    json['error'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeBetaResponseStatusDetails.fromJson(Map<String, dynamic> json) => RealtimeBetaResponseStatusDetails(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? RealtimeBetaResponseStatusDetailsType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    reason: json['reason'] != null ? SdkPresent((json['reason'] != null ? RealtimeBetaResponseStatusDetailsReason.fromJson(json['reason'] as String) : null)!) : const SdkOmitted(),
+    error: json['error'] != null ? SdkPresent((json['error'] != null ? RealtimeBetaResponseStatusDetailsError.fromJson(json['error'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<RealtimeBetaResponseStatusDetailsType>(
-            value: final value
-          ) =>
-            {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reason) {
-          SdkPresent<RealtimeBetaResponseStatusDetailsReason>(
-            value: final value
-          ) =>
-            {
-              'reason': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (error) {
-          SdkPresent<RealtimeBetaResponseStatusDetailsError>(
-            value: final value
-          ) =>
-            {
-              'error': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<RealtimeBetaResponseStatusDetailsType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reason) {
+      SdkPresent<RealtimeBetaResponseStatusDetailsReason>(value: final value) => {'reason': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (error) {
+      SdkPresent<RealtimeBetaResponseStatusDetailsError>(value: final value) => {'error': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Details about the cached tokens used as input for the Response.
 class RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of cached text tokens used as input for the Response.
   final SdkOptional<int> textTokens;
-
   /// The number of cached image tokens used as input for the Response.
   final SdkOptional<int> imageTokens;
-
   /// The number of cached audio tokens used as input for the Response.
   final SdkOptional<int> audioTokens;
 
-  const RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails(
-      {this.textTokens = const SdkOmitted(),
-      this.imageTokens = const SdkOmitted(),
-      this.audioTokens = const SdkOmitted()});
+  const RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails({this.textTokens = const SdkOmitted(), this.imageTokens = const SdkOmitted(), this.audioTokens = const SdkOmitted()});
 
-  RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails Function(
-      {SdkOptional<int> textTokens,
-      SdkOptional<int> imageTokens,
-      SdkOptional<int> audioTokens}) get copyWith => _copyWith;
+  RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails Function({SdkOptional<int> textTokens, SdkOptional<int> imageTokens, SdkOptional<int> audioTokens}) get copyWith => _copyWith;
 
-  RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails _copyWith(
-          {Object? textTokens = sdkOmittedValue,
-          Object? imageTokens = sdkOmittedValue,
-          Object? audioTokens = sdkOmittedValue}) =>
-      RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails(
-        textTokens: identical(textTokens, sdkOmittedValue)
-            ? this.textTokens
-            : textTokens as SdkOptional<int>,
-        imageTokens: identical(imageTokens, sdkOmittedValue)
-            ? this.imageTokens
-            : imageTokens as SdkOptional<int>,
-        audioTokens: identical(audioTokens, sdkOmittedValue)
-            ? this.audioTokens
-            : audioTokens as SdkOptional<int>,
-      );
+  RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails _copyWith({Object? textTokens = sdkOmittedValue, Object? imageTokens = sdkOmittedValue, Object? audioTokens = sdkOmittedValue}) => RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails(
+    textTokens: identical(textTokens, sdkOmittedValue) ? this.textTokens : textTokens as SdkOptional<int>,
+    imageTokens: identical(imageTokens, sdkOmittedValue) ? this.imageTokens : imageTokens as SdkOptional<int>,
+    audioTokens: identical(audioTokens, sdkOmittedValue) ? this.audioTokens : audioTokens as SdkOptional<int>,
+  );
 
-  factory RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails(
-        textTokens: json['text_tokens'] != null
-            ? SdkPresent(((json['text_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        imageTokens: json['image_tokens'] != null
-            ? SdkPresent(((json['image_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        audioTokens: json['audio_tokens'] != null
-            ? SdkPresent(((json['audio_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails.fromJson(Map<String, dynamic> json) => RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails(
+    textTokens: json['text_tokens'] != null ? SdkPresent(((json['text_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    imageTokens: json['image_tokens'] != null ? SdkPresent(((json['image_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    audioTokens: json['audio_tokens'] != null ? SdkPresent(((json['audio_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (textTokens) {
-          SdkPresent<int>(value: final value) => {
-              'text_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (imageTokens) {
-          SdkPresent<int>(value: final value) => {
-              'image_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (audioTokens) {
-          SdkPresent<int>(value: final value) => {
-              'audio_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (textTokens) {
+      SdkPresent<int>(value: final value) => {'text_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (imageTokens) {
+      SdkPresent<int>(value: final value) => {'image_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (audioTokens) {
+      SdkPresent<int>(value: final value) => {'audio_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Details about the input tokens used in the Response.
 class RealtimeBetaResponseUsageInputTokenDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of cached tokens used as input for the Response.
   final SdkOptional<int> cachedTokens;
-
   /// The number of text tokens used as input for the Response.
   final SdkOptional<int> textTokens;
-
   /// The number of image tokens used as input for the Response.
   final SdkOptional<int> imageTokens;
-
   /// The number of audio tokens used as input for the Response.
   final SdkOptional<int> audioTokens;
-
   /// Details about the cached tokens used as input for the Response.
-  final SdkOptional<
-          RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails>
-      cachedTokensDetails;
+  final SdkOptional<RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails> cachedTokensDetails;
 
-  const RealtimeBetaResponseUsageInputTokenDetails(
-      {this.cachedTokens = const SdkOmitted(),
-      this.textTokens = const SdkOmitted(),
-      this.imageTokens = const SdkOmitted(),
-      this.audioTokens = const SdkOmitted(),
-      this.cachedTokensDetails = const SdkOmitted()});
+  const RealtimeBetaResponseUsageInputTokenDetails({this.cachedTokens = const SdkOmitted(), this.textTokens = const SdkOmitted(), this.imageTokens = const SdkOmitted(), this.audioTokens = const SdkOmitted(), this.cachedTokensDetails = const SdkOmitted()});
 
-  RealtimeBetaResponseUsageInputTokenDetails Function(
-      {SdkOptional<int> cachedTokens,
-      SdkOptional<int> textTokens,
-      SdkOptional<int> imageTokens,
-      SdkOptional<int> audioTokens,
-      SdkOptional<RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails>
-          cachedTokensDetails}) get copyWith => _copyWith;
+  RealtimeBetaResponseUsageInputTokenDetails Function({SdkOptional<int> cachedTokens, SdkOptional<int> textTokens, SdkOptional<int> imageTokens, SdkOptional<int> audioTokens, SdkOptional<RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails> cachedTokensDetails}) get copyWith => _copyWith;
 
-  RealtimeBetaResponseUsageInputTokenDetails _copyWith(
-          {Object? cachedTokens = sdkOmittedValue,
-          Object? textTokens = sdkOmittedValue,
-          Object? imageTokens = sdkOmittedValue,
-          Object? audioTokens = sdkOmittedValue,
-          Object? cachedTokensDetails = sdkOmittedValue}) =>
-      RealtimeBetaResponseUsageInputTokenDetails(
-        cachedTokens: identical(cachedTokens, sdkOmittedValue)
-            ? this.cachedTokens
-            : cachedTokens as SdkOptional<int>,
-        textTokens: identical(textTokens, sdkOmittedValue)
-            ? this.textTokens
-            : textTokens as SdkOptional<int>,
-        imageTokens: identical(imageTokens, sdkOmittedValue)
-            ? this.imageTokens
-            : imageTokens as SdkOptional<int>,
-        audioTokens: identical(audioTokens, sdkOmittedValue)
-            ? this.audioTokens
-            : audioTokens as SdkOptional<int>,
-        cachedTokensDetails: identical(cachedTokensDetails, sdkOmittedValue)
-            ? this.cachedTokensDetails
-            : cachedTokensDetails as SdkOptional<
-                RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails>,
-      );
+  RealtimeBetaResponseUsageInputTokenDetails _copyWith({Object? cachedTokens = sdkOmittedValue, Object? textTokens = sdkOmittedValue, Object? imageTokens = sdkOmittedValue, Object? audioTokens = sdkOmittedValue, Object? cachedTokensDetails = sdkOmittedValue}) => RealtimeBetaResponseUsageInputTokenDetails(
+    cachedTokens: identical(cachedTokens, sdkOmittedValue) ? this.cachedTokens : cachedTokens as SdkOptional<int>,
+    textTokens: identical(textTokens, sdkOmittedValue) ? this.textTokens : textTokens as SdkOptional<int>,
+    imageTokens: identical(imageTokens, sdkOmittedValue) ? this.imageTokens : imageTokens as SdkOptional<int>,
+    audioTokens: identical(audioTokens, sdkOmittedValue) ? this.audioTokens : audioTokens as SdkOptional<int>,
+    cachedTokensDetails: identical(cachedTokensDetails, sdkOmittedValue) ? this.cachedTokensDetails : cachedTokensDetails as SdkOptional<RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails>,
+  );
 
-  factory RealtimeBetaResponseUsageInputTokenDetails.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaResponseUsageInputTokenDetails(
-        cachedTokens: json['cached_tokens'] != null
-            ? SdkPresent(((json['cached_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        textTokens: json['text_tokens'] != null
-            ? SdkPresent(((json['text_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        imageTokens: json['image_tokens'] != null
-            ? SdkPresent(((json['image_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        audioTokens: json['audio_tokens'] != null
-            ? SdkPresent(((json['audio_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        cachedTokensDetails: json['cached_tokens_details'] != null
-            ? SdkPresent((json['cached_tokens_details'] != null
-                ? RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails
-                    .fromJson(
-                        json['cached_tokens_details'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeBetaResponseUsageInputTokenDetails.fromJson(Map<String, dynamic> json) => RealtimeBetaResponseUsageInputTokenDetails(
+    cachedTokens: json['cached_tokens'] != null ? SdkPresent(((json['cached_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    textTokens: json['text_tokens'] != null ? SdkPresent(((json['text_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    imageTokens: json['image_tokens'] != null ? SdkPresent(((json['image_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    audioTokens: json['audio_tokens'] != null ? SdkPresent(((json['audio_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    cachedTokensDetails: json['cached_tokens_details'] != null ? SdkPresent((json['cached_tokens_details'] != null ? RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails.fromJson(json['cached_tokens_details'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (cachedTokens) {
-          SdkPresent<int>(value: final value) => {
-              'cached_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (textTokens) {
-          SdkPresent<int>(value: final value) => {
-              'text_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (imageTokens) {
-          SdkPresent<int>(value: final value) => {
-              'image_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (audioTokens) {
-          SdkPresent<int>(value: final value) => {
-              'audio_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cachedTokensDetails) {
-          SdkPresent<
-                RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails>(
-            value: final value
-          ) =>
-            {
-              'cached_tokens_details': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (cachedTokens) {
+      SdkPresent<int>(value: final value) => {'cached_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (textTokens) {
+      SdkPresent<int>(value: final value) => {'text_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (imageTokens) {
+      SdkPresent<int>(value: final value) => {'image_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (audioTokens) {
+      SdkPresent<int>(value: final value) => {'audio_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cachedTokensDetails) {
+      SdkPresent<RealtimeBetaResponseUsageInputTokenDetailsCachedTokensDetails>(value: final value) => {'cached_tokens_details': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Details about the output tokens used in the Response.
 class RealtimeBetaResponseUsageOutputTokenDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of text tokens used in the Response.
   final SdkOptional<int> textTokens;
-
   /// The number of audio tokens used in the Response.
   final SdkOptional<int> audioTokens;
 
-  const RealtimeBetaResponseUsageOutputTokenDetails(
-      {this.textTokens = const SdkOmitted(),
-      this.audioTokens = const SdkOmitted()});
+  const RealtimeBetaResponseUsageOutputTokenDetails({this.textTokens = const SdkOmitted(), this.audioTokens = const SdkOmitted()});
 
-  RealtimeBetaResponseUsageOutputTokenDetails Function(
-      {SdkOptional<int> textTokens,
-      SdkOptional<int> audioTokens}) get copyWith => _copyWith;
+  RealtimeBetaResponseUsageOutputTokenDetails Function({SdkOptional<int> textTokens, SdkOptional<int> audioTokens}) get copyWith => _copyWith;
 
-  RealtimeBetaResponseUsageOutputTokenDetails _copyWith(
-          {Object? textTokens = sdkOmittedValue,
-          Object? audioTokens = sdkOmittedValue}) =>
-      RealtimeBetaResponseUsageOutputTokenDetails(
-        textTokens: identical(textTokens, sdkOmittedValue)
-            ? this.textTokens
-            : textTokens as SdkOptional<int>,
-        audioTokens: identical(audioTokens, sdkOmittedValue)
-            ? this.audioTokens
-            : audioTokens as SdkOptional<int>,
-      );
+  RealtimeBetaResponseUsageOutputTokenDetails _copyWith({Object? textTokens = sdkOmittedValue, Object? audioTokens = sdkOmittedValue}) => RealtimeBetaResponseUsageOutputTokenDetails(
+    textTokens: identical(textTokens, sdkOmittedValue) ? this.textTokens : textTokens as SdkOptional<int>,
+    audioTokens: identical(audioTokens, sdkOmittedValue) ? this.audioTokens : audioTokens as SdkOptional<int>,
+  );
 
-  factory RealtimeBetaResponseUsageOutputTokenDetails.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaResponseUsageOutputTokenDetails(
-        textTokens: json['text_tokens'] != null
-            ? SdkPresent(((json['text_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        audioTokens: json['audio_tokens'] != null
-            ? SdkPresent(((json['audio_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeBetaResponseUsageOutputTokenDetails.fromJson(Map<String, dynamic> json) => RealtimeBetaResponseUsageOutputTokenDetails(
+    textTokens: json['text_tokens'] != null ? SdkPresent(((json['text_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    audioTokens: json['audio_tokens'] != null ? SdkPresent(((json['audio_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (textTokens) {
-          SdkPresent<int>(value: final value) => {
-              'text_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (audioTokens) {
-          SdkPresent<int>(value: final value) => {
-              'audio_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (textTokens) {
+      SdkPresent<int>(value: final value) => {'text_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (audioTokens) {
+      SdkPresent<int>(value: final value) => {'audio_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Usage statistics for the Response, this will correspond to billing. A Realtime API session will maintain a conversation context and append new Items to the Conversation, thus output from previous turns (text and audio tokens) will become the input for later turns.
 class RealtimeBetaResponseUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The total number of tokens in the Response including input and output text and audio tokens.
   final SdkOptional<int> totalTokens;
-
   /// The number of input tokens used in the Response, including text and audio tokens.
   final SdkOptional<int> inputTokens;
-
   /// The number of output tokens sent in the Response, including text and audio tokens.
   final SdkOptional<int> outputTokens;
-
   /// Details about the input tokens used in the Response.
-  final SdkOptional<RealtimeBetaResponseUsageInputTokenDetails>
-      inputTokenDetails;
-
+  final SdkOptional<RealtimeBetaResponseUsageInputTokenDetails> inputTokenDetails;
   /// Details about the output tokens used in the Response.
-  final SdkOptional<RealtimeBetaResponseUsageOutputTokenDetails>
-      outputTokenDetails;
+  final SdkOptional<RealtimeBetaResponseUsageOutputTokenDetails> outputTokenDetails;
 
-  const RealtimeBetaResponseUsage(
-      {this.totalTokens = const SdkOmitted(),
-      this.inputTokens = const SdkOmitted(),
-      this.outputTokens = const SdkOmitted(),
-      this.inputTokenDetails = const SdkOmitted(),
-      this.outputTokenDetails = const SdkOmitted()});
+  const RealtimeBetaResponseUsage({this.totalTokens = const SdkOmitted(), this.inputTokens = const SdkOmitted(), this.outputTokens = const SdkOmitted(), this.inputTokenDetails = const SdkOmitted(), this.outputTokenDetails = const SdkOmitted()});
 
-  RealtimeBetaResponseUsage Function(
-      {SdkOptional<int> totalTokens,
-      SdkOptional<int> inputTokens,
-      SdkOptional<int> outputTokens,
-      SdkOptional<RealtimeBetaResponseUsageInputTokenDetails> inputTokenDetails,
-      SdkOptional<RealtimeBetaResponseUsageOutputTokenDetails>
-          outputTokenDetails}) get copyWith => _copyWith;
+  RealtimeBetaResponseUsage Function({SdkOptional<int> totalTokens, SdkOptional<int> inputTokens, SdkOptional<int> outputTokens, SdkOptional<RealtimeBetaResponseUsageInputTokenDetails> inputTokenDetails, SdkOptional<RealtimeBetaResponseUsageOutputTokenDetails> outputTokenDetails}) get copyWith => _copyWith;
 
-  RealtimeBetaResponseUsage _copyWith(
-          {Object? totalTokens = sdkOmittedValue,
-          Object? inputTokens = sdkOmittedValue,
-          Object? outputTokens = sdkOmittedValue,
-          Object? inputTokenDetails = sdkOmittedValue,
-          Object? outputTokenDetails = sdkOmittedValue}) =>
-      RealtimeBetaResponseUsage(
-        totalTokens: identical(totalTokens, sdkOmittedValue)
-            ? this.totalTokens
-            : totalTokens as SdkOptional<int>,
-        inputTokens: identical(inputTokens, sdkOmittedValue)
-            ? this.inputTokens
-            : inputTokens as SdkOptional<int>,
-        outputTokens: identical(outputTokens, sdkOmittedValue)
-            ? this.outputTokens
-            : outputTokens as SdkOptional<int>,
-        inputTokenDetails: identical(inputTokenDetails, sdkOmittedValue)
-            ? this.inputTokenDetails
-            : inputTokenDetails
-                as SdkOptional<RealtimeBetaResponseUsageInputTokenDetails>,
-        outputTokenDetails: identical(outputTokenDetails, sdkOmittedValue)
-            ? this.outputTokenDetails
-            : outputTokenDetails
-                as SdkOptional<RealtimeBetaResponseUsageOutputTokenDetails>,
-      );
+  RealtimeBetaResponseUsage _copyWith({Object? totalTokens = sdkOmittedValue, Object? inputTokens = sdkOmittedValue, Object? outputTokens = sdkOmittedValue, Object? inputTokenDetails = sdkOmittedValue, Object? outputTokenDetails = sdkOmittedValue}) => RealtimeBetaResponseUsage(
+    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as SdkOptional<int>,
+    inputTokens: identical(inputTokens, sdkOmittedValue) ? this.inputTokens : inputTokens as SdkOptional<int>,
+    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as SdkOptional<int>,
+    inputTokenDetails: identical(inputTokenDetails, sdkOmittedValue) ? this.inputTokenDetails : inputTokenDetails as SdkOptional<RealtimeBetaResponseUsageInputTokenDetails>,
+    outputTokenDetails: identical(outputTokenDetails, sdkOmittedValue) ? this.outputTokenDetails : outputTokenDetails as SdkOptional<RealtimeBetaResponseUsageOutputTokenDetails>,
+  );
 
-  factory RealtimeBetaResponseUsage.fromJson(Map<String, dynamic> json) =>
-      RealtimeBetaResponseUsage(
-        totalTokens: json['total_tokens'] != null
-            ? SdkPresent(((json['total_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        inputTokens: json['input_tokens'] != null
-            ? SdkPresent(((json['input_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        outputTokens: json['output_tokens'] != null
-            ? SdkPresent(((json['output_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        inputTokenDetails: json['input_token_details'] != null
-            ? SdkPresent((json['input_token_details'] != null
-                ? RealtimeBetaResponseUsageInputTokenDetails.fromJson(
-                    json['input_token_details'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        outputTokenDetails: json['output_token_details'] != null
-            ? SdkPresent((json['output_token_details'] != null
-                ? RealtimeBetaResponseUsageOutputTokenDetails.fromJson(
-                    json['output_token_details'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeBetaResponseUsage.fromJson(Map<String, dynamic> json) => RealtimeBetaResponseUsage(
+    totalTokens: json['total_tokens'] != null ? SdkPresent(((json['total_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    inputTokens: json['input_tokens'] != null ? SdkPresent(((json['input_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    outputTokens: json['output_tokens'] != null ? SdkPresent(((json['output_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    inputTokenDetails: json['input_token_details'] != null ? SdkPresent((json['input_token_details'] != null ? RealtimeBetaResponseUsageInputTokenDetails.fromJson(json['input_token_details'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    outputTokenDetails: json['output_token_details'] != null ? SdkPresent((json['output_token_details'] != null ? RealtimeBetaResponseUsageOutputTokenDetails.fromJson(json['output_token_details'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (totalTokens) {
-          SdkPresent<int>(value: final value) => {
-              'total_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputTokens) {
-          SdkPresent<int>(value: final value) => {
-              'input_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputTokens) {
-          SdkPresent<int>(value: final value) => {
-              'output_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputTokenDetails) {
-          SdkPresent<RealtimeBetaResponseUsageInputTokenDetails>(
-            value: final value
-          ) =>
-            {
-              'input_token_details': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputTokenDetails) {
-          SdkPresent<RealtimeBetaResponseUsageOutputTokenDetails>(
-            value: final value
-          ) =>
-            {
-              'output_token_details': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (totalTokens) {
+      SdkPresent<int>(value: final value) => {'total_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputTokens) {
+      SdkPresent<int>(value: final value) => {'input_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputTokens) {
+      SdkPresent<int>(value: final value) => {'output_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputTokenDetails) {
+      SdkPresent<RealtimeBetaResponseUsageInputTokenDetails>(value: final value) => {'input_token_details': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputTokenDetails) {
+      SdkPresent<RealtimeBetaResponseUsageOutputTokenDetails>(value: final value) => {'output_token_details': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class RealtimeBetaResponseMaxOutputTokens {
@@ -566,15 +291,9 @@ sealed class RealtimeBetaResponseMaxOutputTokens {
   static const String constructionSurface = 'named';
   const RealtimeBetaResponseMaxOutputTokens();
   factory RealtimeBetaResponseMaxOutputTokens.fromJson(Object? json) {
-    if (json is num) {
-      return RealtimeBetaResponseMaxOutputTokensInt(json.toInt());
-    }
-    try {
-      return RealtimeBetaResponseMaxOutputTokensRealtimeBetaResponseMaxOutputTokensVariant1(
-          RealtimeBetaResponseMaxOutputTokensVariant1.fromJson(json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for RealtimeBetaResponseMaxOutputTokens");
+    if (json is num) { return RealtimeBetaResponseMaxOutputTokensInt(json.toInt()); }
+    try { return RealtimeBetaResponseMaxOutputTokensRealtimeBetaResponseMaxOutputTokensVariant1(RealtimeBetaResponseMaxOutputTokensVariant1.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for RealtimeBetaResponseMaxOutputTokens");
   }
   Object? toJson();
 }

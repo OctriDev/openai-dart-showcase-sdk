@@ -8,661 +8,268 @@ part of 'responses_beta_response.dart';
 class BetaResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final Map<String, dynamic>? metadata;
-
   /// Optional API value serialized in the `top_logprobs` wire field.
   final SdkOptional<int?> topLogprobs;
-
   /// Optional API value serialized in the `temperature` wire field.
   final double? temperature;
-
   /// Optional API value serialized in the `top_p` wire field.
   final double? topP;
-
   /// This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations. A stable identifier for your end-users. Used to boost cache hit rates by better bucketing similar requests and to help OpenAI detect and prevent abuse. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).
   final SdkOptional<String?> user;
-
   /// Optional API value serialized in the `safety_identifier` wire field.
   final SdkOptional<String?> safetyIdentifier;
-
   /// Optional `string` value serialized in the `prompt_cache_key` wire field.
   final SdkOptional<String?> promptCacheKey;
-
   /// Optional API value serialized in the `prompt_cache_retention` wire field.
-  final SdkOptional<BetaModelResponsePropertiesPromptCacheRetentionVariant0?>
-      promptCacheRetention;
-
+  final SdkOptional<BetaModelResponsePropertiesPromptCacheRetentionVariant0?> promptCacheRetention;
   /// Optional `string` value serialized in the `previous_response_id` wire field.
   final SdkOptional<String?> previousResponseId;
-
   /// Model ID used to generate the response, like `gpt-6-astra`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models.
   final BetaModelIdsResponses model;
-
   /// Optional `boolean` value serialized in the `background` wire field.
   final SdkOptional<bool?> background;
-
   /// Optional `integer` value serialized in the `max_tool_calls` wire field.
   final SdkOptional<int?> maxToolCalls;
-
   /// Configuration options for a text response from the model. Can be plain text or structured JSON data. Learn more: - [Text inputs and outputs](https://developers.openai.com/api/docs/guides/text) - [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
   final SdkOptional<BetaResponseTextParam> text;
-
   /// An array of tools the model may call while generating a response. You can specify which tool to use by setting the `tool_choice` parameter. We support the following categories of tools: - **Built-in tools**: Tools that are provided by OpenAI that extend the model's capabilities, like [web search](https://developers.openai.com/api/docs/guides/tools-web-search) or [file search](https://developers.openai.com/api/docs/guides/tools-file-search). Learn more about [built-in tools](https://developers.openai.com/api/docs/guides/tools). - **MCP Tools**: Integrations with third-party systems via custom MCP servers or predefined connectors such as Google Drive and SharePoint. Learn more about [MCP Tools](https://developers.openai.com/api/docs/guides/tools-connectors-mcp). - **Function calls (custom tools)**: Functions that are defined by you, enabling the model to call your own code with strongly typed arguments and outputs. Learn more about [function calling](https://developers.openai.com/api/docs/guides/function-calling). You can also use custom tools to call your own code.
   final List<BetaTool> tools;
-
   /// How the model should select which tool (or tools) to use when generating a response. See the `tools` parameter to see how to specify which tools the model can call.
   final BetaToolChoiceParam toolChoice;
-
   /// Reference to a prompt template and its variables. [Learn more](https://developers.openai.com/api/docs/guides/text?api-mode=responses#version-prompts-in-code).
   final SdkOptional<BetaPrompt?> prompt;
-
   /// Optional API value serialized in the `service_tier` wire field.
   final SdkOptional<BetaServiceTierResponses?> serviceTier;
-
   /// Optional API value serialized in the `truncation` wire field.
   final SdkOptional<BetaResponseVariant2TruncationVariant0?> truncation;
-
   /// Unique identifier for this Response.
   final String id;
-
   /// The object type of this resource - always set to `response`.
   final BetaResponseVariant2Object object;
-
   /// The status of the response generation. One of `completed`, `failed`, `in_progress`, `cancelled`, `queued`, or `incomplete`.
   final SdkOptional<BetaResponseVariant2Status> status;
-
   /// Required API value serialized in the `access_programs` wire field.
   final BetaAccessProgramsBody? accessPrograms;
-
   /// Unix timestamp (in seconds) of when this Response was created.
   final double createdAt;
-
   /// Optional API value serialized in the `completed_at` wire field.
   final SdkOptional<double?> completedAt;
-
   /// An error object returned when the model fails to generate a Response.
   final BetaResponseError? error;
-
   /// Details about why the response is incomplete.
   final BetaResponseVariant2IncompleteDetails? incompleteDetails;
-
   /// An array of content items generated by the model. - The length and order of items in the `output` array is dependent on the model's response. - Rather than accessing the first item in the `output` array and assuming it's an `assistant` message with the content generated by the model, you might consider using the `output_text` property where supported in SDKs.
   final List<BetaOutputItem> output;
-
   /// Optional API value serialized in the `reasoning` wire field.
   final SdkOptional<BetaReasoning?> reasoning;
-
   /// A system (or developer) message inserted into the model's context. When using along with `previous_response_id`, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses.
   final dynamic instructions;
-
   /// Optional API value serialized in the `output_text` wire field.
   final SdkOptional<String?> outputText;
-
   /// Optional API value serialized in the `usage` wire field.
   final SdkOptional<BetaResponseUsage?> usage;
-
   /// The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
   final SdkOptional<BetaPromptCacheOptions> promptCacheOptions;
-
   /// Prompt cache diagnostics requested for this response.
   final SdkOptional<BetaPromptCacheDiagnostics> promptCacheDiagnostics;
-
   /// Optional API value serialized in the `moderation` wire field.
   final SdkOptional<BetaModeration?> moderation;
-
   /// Whether to allow the model to run tool calls in parallel.
   final bool parallelToolCalls;
-
   /// Optional API value serialized in the `conversation` wire field.
   final SdkOptional<BetaResponseConversation?> conversation;
-
   /// Optional `integer` value serialized in the `max_output_tokens` wire field.
   final SdkOptional<int?> maxOutputTokens;
 
-  const BetaResponse(
-      {required this.metadata,
-      this.topLogprobs = const SdkOmitted(),
-      required this.temperature,
-      required this.topP,
-      this.user = const SdkOmitted(),
-      this.safetyIdentifier = const SdkOmitted(),
-      this.promptCacheKey = const SdkOmitted(),
-      this.promptCacheRetention = const SdkOmitted(),
-      this.previousResponseId = const SdkOmitted(),
-      required this.model,
-      this.background = const SdkOmitted(),
-      this.maxToolCalls = const SdkOmitted(),
-      this.text = const SdkOmitted(),
-      required this.tools,
-      required this.toolChoice,
-      this.prompt = const SdkOmitted(),
-      this.serviceTier = const SdkOmitted(),
-      this.truncation = const SdkOmitted(),
-      required this.id,
-      required this.object,
-      this.status = const SdkOmitted(),
-      required this.accessPrograms,
-      required this.createdAt,
-      this.completedAt = const SdkOmitted(),
-      required this.error,
-      required this.incompleteDetails,
-      required this.output,
-      this.reasoning = const SdkOmitted(),
-      required this.instructions,
-      this.outputText = const SdkOmitted(),
-      this.usage = const SdkOmitted(),
-      this.promptCacheOptions = const SdkOmitted(),
-      this.promptCacheDiagnostics = const SdkOmitted(),
-      this.moderation = const SdkOmitted(),
-      required this.parallelToolCalls,
-      this.conversation = const SdkOmitted(),
-      this.maxOutputTokens = const SdkOmitted()});
+  const BetaResponse({required this.metadata, this.topLogprobs = const SdkOmitted(), required this.temperature, required this.topP, this.user = const SdkOmitted(), this.safetyIdentifier = const SdkOmitted(), this.promptCacheKey = const SdkOmitted(), this.promptCacheRetention = const SdkOmitted(), this.previousResponseId = const SdkOmitted(), required this.model, this.background = const SdkOmitted(), this.maxToolCalls = const SdkOmitted(), this.text = const SdkOmitted(), required this.tools, required this.toolChoice, this.prompt = const SdkOmitted(), this.serviceTier = const SdkOmitted(), this.truncation = const SdkOmitted(), required this.id, required this.object, this.status = const SdkOmitted(), required this.accessPrograms, required this.createdAt, this.completedAt = const SdkOmitted(), required this.error, required this.incompleteDetails, required this.output, this.reasoning = const SdkOmitted(), required this.instructions, this.outputText = const SdkOmitted(), this.usage = const SdkOmitted(), this.promptCacheOptions = const SdkOmitted(), this.promptCacheDiagnostics = const SdkOmitted(), this.moderation = const SdkOmitted(), required this.parallelToolCalls, this.conversation = const SdkOmitted(), this.maxOutputTokens = const SdkOmitted()});
 
-  BetaResponse Function(
-      {Map<String, dynamic>? metadata,
-      SdkOptional<int?> topLogprobs,
-      double? temperature,
-      double? topP,
-      SdkOptional<String?> user,
-      SdkOptional<String?> safetyIdentifier,
-      SdkOptional<String?> promptCacheKey,
-      SdkOptional<BetaModelResponsePropertiesPromptCacheRetentionVariant0?>
-          promptCacheRetention,
-      SdkOptional<String?> previousResponseId,
-      BetaModelIdsResponses model,
-      SdkOptional<bool?> background,
-      SdkOptional<int?> maxToolCalls,
-      SdkOptional<BetaResponseTextParam> text,
-      List<BetaTool> tools,
-      BetaToolChoiceParam toolChoice,
-      SdkOptional<BetaPrompt?> prompt,
-      SdkOptional<BetaServiceTierResponses?> serviceTier,
-      SdkOptional<BetaResponseVariant2TruncationVariant0?> truncation,
-      String id,
-      BetaResponseVariant2Object object,
-      SdkOptional<BetaResponseVariant2Status> status,
-      BetaAccessProgramsBody? accessPrograms,
-      double createdAt,
-      SdkOptional<double?> completedAt,
-      BetaResponseError? error,
-      BetaResponseVariant2IncompleteDetails? incompleteDetails,
-      List<BetaOutputItem> output,
-      SdkOptional<BetaReasoning?> reasoning,
-      dynamic instructions,
-      SdkOptional<String?> outputText,
-      SdkOptional<BetaResponseUsage?> usage,
-      SdkOptional<BetaPromptCacheOptions> promptCacheOptions,
-      SdkOptional<BetaPromptCacheDiagnostics> promptCacheDiagnostics,
-      SdkOptional<BetaModeration?> moderation,
-      bool parallelToolCalls,
-      SdkOptional<BetaResponseConversation?> conversation,
-      SdkOptional<int?> maxOutputTokens}) get copyWith => _copyWith;
+  BetaResponse Function({Map<String, dynamic>? metadata, SdkOptional<int?> topLogprobs, double? temperature, double? topP, SdkOptional<String?> user, SdkOptional<String?> safetyIdentifier, SdkOptional<String?> promptCacheKey, SdkOptional<BetaModelResponsePropertiesPromptCacheRetentionVariant0?> promptCacheRetention, SdkOptional<String?> previousResponseId, BetaModelIdsResponses model, SdkOptional<bool?> background, SdkOptional<int?> maxToolCalls, SdkOptional<BetaResponseTextParam> text, List<BetaTool> tools, BetaToolChoiceParam toolChoice, SdkOptional<BetaPrompt?> prompt, SdkOptional<BetaServiceTierResponses?> serviceTier, SdkOptional<BetaResponseVariant2TruncationVariant0?> truncation, String id, BetaResponseVariant2Object object, SdkOptional<BetaResponseVariant2Status> status, BetaAccessProgramsBody? accessPrograms, double createdAt, SdkOptional<double?> completedAt, BetaResponseError? error, BetaResponseVariant2IncompleteDetails? incompleteDetails, List<BetaOutputItem> output, SdkOptional<BetaReasoning?> reasoning, dynamic instructions, SdkOptional<String?> outputText, SdkOptional<BetaResponseUsage?> usage, SdkOptional<BetaPromptCacheOptions> promptCacheOptions, SdkOptional<BetaPromptCacheDiagnostics> promptCacheDiagnostics, SdkOptional<BetaModeration?> moderation, bool parallelToolCalls, SdkOptional<BetaResponseConversation?> conversation, SdkOptional<int?> maxOutputTokens}) get copyWith => _copyWith;
 
-  BetaResponse _copyWith(
-          {Object? metadata = sdkOmittedValue,
-          Object? topLogprobs = sdkOmittedValue,
-          Object? temperature = sdkOmittedValue,
-          Object? topP = sdkOmittedValue,
-          Object? user = sdkOmittedValue,
-          Object? safetyIdentifier = sdkOmittedValue,
-          Object? promptCacheKey = sdkOmittedValue,
-          Object? promptCacheRetention = sdkOmittedValue,
-          Object? previousResponseId = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? background = sdkOmittedValue,
-          Object? maxToolCalls = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? toolChoice = sdkOmittedValue,
-          Object? prompt = sdkOmittedValue,
-          Object? serviceTier = sdkOmittedValue,
-          Object? truncation = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? accessPrograms = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? error = sdkOmittedValue,
-          Object? incompleteDetails = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? reasoning = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue,
-          Object? outputText = sdkOmittedValue,
-          Object? usage = sdkOmittedValue,
-          Object? promptCacheOptions = sdkOmittedValue,
-          Object? promptCacheDiagnostics = sdkOmittedValue,
-          Object? moderation = sdkOmittedValue,
-          Object? parallelToolCalls = sdkOmittedValue,
-          Object? conversation = sdkOmittedValue,
-          Object? maxOutputTokens = sdkOmittedValue}) =>
-      BetaResponse(
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as Map<String, dynamic>?,
-        topLogprobs: identical(topLogprobs, sdkOmittedValue)
-            ? this.topLogprobs
-            : topLogprobs as SdkOptional<int?>,
-        temperature: identical(temperature, sdkOmittedValue)
-            ? this.temperature
-            : temperature as double?,
-        topP: identical(topP, sdkOmittedValue) ? this.topP : topP as double?,
-        user: identical(user, sdkOmittedValue)
-            ? this.user
-            : user as SdkOptional<String?>,
-        safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue)
-            ? this.safetyIdentifier
-            : safetyIdentifier as SdkOptional<String?>,
-        promptCacheKey: identical(promptCacheKey, sdkOmittedValue)
-            ? this.promptCacheKey
-            : promptCacheKey as SdkOptional<String?>,
-        promptCacheRetention: identical(promptCacheRetention, sdkOmittedValue)
-            ? this.promptCacheRetention
-            : promptCacheRetention as SdkOptional<
-                BetaModelResponsePropertiesPromptCacheRetentionVariant0?>,
-        previousResponseId: identical(previousResponseId, sdkOmittedValue)
-            ? this.previousResponseId
-            : previousResponseId as SdkOptional<String?>,
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as BetaModelIdsResponses,
-        background: identical(background, sdkOmittedValue)
-            ? this.background
-            : background as SdkOptional<bool?>,
-        maxToolCalls: identical(maxToolCalls, sdkOmittedValue)
-            ? this.maxToolCalls
-            : maxToolCalls as SdkOptional<int?>,
-        text: identical(text, sdkOmittedValue)
-            ? this.text
-            : text as SdkOptional<BetaResponseTextParam>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as List<BetaTool>,
-        toolChoice: identical(toolChoice, sdkOmittedValue)
-            ? this.toolChoice
-            : toolChoice as BetaToolChoiceParam,
-        prompt: identical(prompt, sdkOmittedValue)
-            ? this.prompt
-            : prompt as SdkOptional<BetaPrompt?>,
-        serviceTier: identical(serviceTier, sdkOmittedValue)
-            ? this.serviceTier
-            : serviceTier as SdkOptional<BetaServiceTierResponses?>,
-        truncation: identical(truncation, sdkOmittedValue)
-            ? this.truncation
-            : truncation
-                as SdkOptional<BetaResponseVariant2TruncationVariant0?>,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as BetaResponseVariant2Object,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<BetaResponseVariant2Status>,
-        accessPrograms: identical(accessPrograms, sdkOmittedValue)
-            ? this.accessPrograms
-            : accessPrograms as BetaAccessProgramsBody?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as double,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as SdkOptional<double?>,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as BetaResponseError?,
-        incompleteDetails: identical(incompleteDetails, sdkOmittedValue)
-            ? this.incompleteDetails
-            : incompleteDetails as BetaResponseVariant2IncompleteDetails?,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as List<BetaOutputItem>,
-        reasoning: identical(reasoning, sdkOmittedValue)
-            ? this.reasoning
-            : reasoning as SdkOptional<BetaReasoning?>,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as dynamic,
-        outputText: identical(outputText, sdkOmittedValue)
-            ? this.outputText
-            : outputText as SdkOptional<String?>,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as SdkOptional<BetaResponseUsage?>,
-        promptCacheOptions: identical(promptCacheOptions, sdkOmittedValue)
-            ? this.promptCacheOptions
-            : promptCacheOptions as SdkOptional<BetaPromptCacheOptions>,
-        promptCacheDiagnostics: identical(
-                promptCacheDiagnostics, sdkOmittedValue)
-            ? this.promptCacheDiagnostics
-            : promptCacheDiagnostics as SdkOptional<BetaPromptCacheDiagnostics>,
-        moderation: identical(moderation, sdkOmittedValue)
-            ? this.moderation
-            : moderation as SdkOptional<BetaModeration?>,
-        parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue)
-            ? this.parallelToolCalls
-            : parallelToolCalls as bool,
-        conversation: identical(conversation, sdkOmittedValue)
-            ? this.conversation
-            : conversation as SdkOptional<BetaResponseConversation?>,
-        maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue)
-            ? this.maxOutputTokens
-            : maxOutputTokens as SdkOptional<int?>,
-      );
+  BetaResponse _copyWith({Object? metadata = sdkOmittedValue, Object? topLogprobs = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? user = sdkOmittedValue, Object? safetyIdentifier = sdkOmittedValue, Object? promptCacheKey = sdkOmittedValue, Object? promptCacheRetention = sdkOmittedValue, Object? previousResponseId = sdkOmittedValue, Object? model = sdkOmittedValue, Object? background = sdkOmittedValue, Object? maxToolCalls = sdkOmittedValue, Object? text = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? serviceTier = sdkOmittedValue, Object? truncation = sdkOmittedValue, Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? status = sdkOmittedValue, Object? accessPrograms = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? error = sdkOmittedValue, Object? incompleteDetails = sdkOmittedValue, Object? output = sdkOmittedValue, Object? reasoning = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? outputText = sdkOmittedValue, Object? usage = sdkOmittedValue, Object? promptCacheOptions = sdkOmittedValue, Object? promptCacheDiagnostics = sdkOmittedValue, Object? moderation = sdkOmittedValue, Object? parallelToolCalls = sdkOmittedValue, Object? conversation = sdkOmittedValue, Object? maxOutputTokens = sdkOmittedValue}) => BetaResponse(
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, dynamic>?,
+    topLogprobs: identical(topLogprobs, sdkOmittedValue) ? this.topLogprobs : topLogprobs as SdkOptional<int?>,
+    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as double?,
+    topP: identical(topP, sdkOmittedValue) ? this.topP : topP as double?,
+    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String?>,
+    safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue) ? this.safetyIdentifier : safetyIdentifier as SdkOptional<String?>,
+    promptCacheKey: identical(promptCacheKey, sdkOmittedValue) ? this.promptCacheKey : promptCacheKey as SdkOptional<String?>,
+    promptCacheRetention: identical(promptCacheRetention, sdkOmittedValue) ? this.promptCacheRetention : promptCacheRetention as SdkOptional<BetaModelResponsePropertiesPromptCacheRetentionVariant0?>,
+    previousResponseId: identical(previousResponseId, sdkOmittedValue) ? this.previousResponseId : previousResponseId as SdkOptional<String?>,
+    model: identical(model, sdkOmittedValue) ? this.model : model as BetaModelIdsResponses,
+    background: identical(background, sdkOmittedValue) ? this.background : background as SdkOptional<bool?>,
+    maxToolCalls: identical(maxToolCalls, sdkOmittedValue) ? this.maxToolCalls : maxToolCalls as SdkOptional<int?>,
+    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<BetaResponseTextParam>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<BetaTool>,
+    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as BetaToolChoiceParam,
+    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as SdkOptional<BetaPrompt?>,
+    serviceTier: identical(serviceTier, sdkOmittedValue) ? this.serviceTier : serviceTier as SdkOptional<BetaServiceTierResponses?>,
+    truncation: identical(truncation, sdkOmittedValue) ? this.truncation : truncation as SdkOptional<BetaResponseVariant2TruncationVariant0?>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as BetaResponseVariant2Object,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<BetaResponseVariant2Status>,
+    accessPrograms: identical(accessPrograms, sdkOmittedValue) ? this.accessPrograms : accessPrograms as BetaAccessProgramsBody?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<double?>,
+    error: identical(error, sdkOmittedValue) ? this.error : error as BetaResponseError?,
+    incompleteDetails: identical(incompleteDetails, sdkOmittedValue) ? this.incompleteDetails : incompleteDetails as BetaResponseVariant2IncompleteDetails?,
+    output: identical(output, sdkOmittedValue) ? this.output : output as List<BetaOutputItem>,
+    reasoning: identical(reasoning, sdkOmittedValue) ? this.reasoning : reasoning as SdkOptional<BetaReasoning?>,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as dynamic,
+    outputText: identical(outputText, sdkOmittedValue) ? this.outputText : outputText as SdkOptional<String?>,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<BetaResponseUsage?>,
+    promptCacheOptions: identical(promptCacheOptions, sdkOmittedValue) ? this.promptCacheOptions : promptCacheOptions as SdkOptional<BetaPromptCacheOptions>,
+    promptCacheDiagnostics: identical(promptCacheDiagnostics, sdkOmittedValue) ? this.promptCacheDiagnostics : promptCacheDiagnostics as SdkOptional<BetaPromptCacheDiagnostics>,
+    moderation: identical(moderation, sdkOmittedValue) ? this.moderation : moderation as SdkOptional<BetaModeration?>,
+    parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue) ? this.parallelToolCalls : parallelToolCalls as bool,
+    conversation: identical(conversation, sdkOmittedValue) ? this.conversation : conversation as SdkOptional<BetaResponseConversation?>,
+    maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue) ? this.maxOutputTokens : maxOutputTokens as SdkOptional<int?>,
+  );
 
   factory BetaResponse.fromJson(Map<String, dynamic> json) => BetaResponse(
-        metadata: json.containsKey('metadata')
-            ? json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>
-            : throw ArgumentError.value(
-                null, 'metadata', 'Required property is missing'),
-        topLogprobs: json.containsKey('top_logprobs')
-            ? SdkPresent((json['top_logprobs'] as num?)?.toInt())
-            : const SdkOmitted(),
-        temperature: json.containsKey('temperature')
-            ? (json['temperature'] as num?)?.toDouble()
-            : throw ArgumentError.value(
-                null, 'temperature', 'Required property is missing'),
-        topP: json.containsKey('top_p')
-            ? (json['top_p'] as num?)?.toDouble()
-            : throw ArgumentError.value(
-                null, 'top_p', 'Required property is missing'),
-        user: json.containsKey('user')
-            ? SdkPresent(json['user'] as String?)
-            : const SdkOmitted(),
-        safetyIdentifier: json.containsKey('safety_identifier')
-            ? SdkPresent(json['safety_identifier'] as String?)
-            : const SdkOmitted(),
-        promptCacheKey: json.containsKey('prompt_cache_key')
-            ? SdkPresent(json['prompt_cache_key'] as String?)
-            : const SdkOmitted(),
-        promptCacheRetention: json.containsKey('prompt_cache_retention')
-            ? SdkPresent(json['prompt_cache_retention'] != null
-                ? BetaModelResponsePropertiesPromptCacheRetentionVariant0
-                    .fromJson(json['prompt_cache_retention'] as String)
-                : null)
-            : const SdkOmitted(),
-        previousResponseId: json.containsKey('previous_response_id')
-            ? SdkPresent(json['previous_response_id'] as String?)
-            : const SdkOmitted(),
-        model: (json['model'] != null
-            ? BetaModelIdsResponses.fromJson(json['model'])
-            : null)!,
-        background: json.containsKey('background')
-            ? SdkPresent(json['background'] as bool?)
-            : const SdkOmitted(),
-        maxToolCalls: json.containsKey('max_tool_calls')
-            ? SdkPresent((json['max_tool_calls'] as num?)?.toInt())
-            : const SdkOmitted(),
-        text: json['text'] != null
-            ? SdkPresent((json['text'] != null
-                ? BetaResponseTextParam.fromJson(
-                    json['text'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        tools: ((json['tools'] as List?)
-            ?.map((e) => BetaTool.fromJson(e))
-            .toList())!,
-        toolChoice: (json['tool_choice'] != null
-            ? BetaToolChoiceParam.fromJson(json['tool_choice'])
-            : null)!,
-        prompt: json.containsKey('prompt')
-            ? SdkPresent(json['prompt'] != null
-                ? BetaPrompt.fromJson(json['prompt'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        serviceTier: json.containsKey('service_tier')
-            ? SdkPresent(json['service_tier'] != null
-                ? BetaServiceTierResponses.fromJson(json['service_tier'])
-                : null)
-            : const SdkOmitted(),
-        truncation: json.containsKey('truncation')
-            ? SdkPresent(json['truncation'] != null
-                ? BetaResponseVariant2TruncationVariant0.fromJson(
-                    json['truncation'] as String)
-                : null)
-            : const SdkOmitted(),
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? BetaResponseVariant2Object.fromJson(json['object'] as String)
-            : null)!,
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? BetaResponseVariant2Status.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        accessPrograms: json.containsKey('access_programs')
-            ? json['access_programs'] != null
-                ? BetaAccessProgramsBody.fromJson(
-                    json['access_programs'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'access_programs', 'Required property is missing'),
-        createdAt: ((json['created_at'] as num?)?.toDouble())!,
-        completedAt: json.containsKey('completed_at')
-            ? SdkPresent((json['completed_at'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        error: json.containsKey('error')
-            ? json['error'] != null
-                ? BetaResponseError.fromJson(
-                    json['error'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'error', 'Required property is missing'),
-        incompleteDetails: json.containsKey('incomplete_details')
-            ? json['incomplete_details'] != null
-                ? BetaResponseVariant2IncompleteDetails.fromJson(
-                    json['incomplete_details'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'incomplete_details', 'Required property is missing'),
-        output: ((json['output'] as List?)
-            ?.map((e) => BetaOutputItem.fromJson(e))
-            .toList())!,
-        reasoning: json.containsKey('reasoning')
-            ? SdkPresent(json['reasoning'] != null
-                ? BetaReasoning.fromJson(
-                    json['reasoning'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        instructions: json.containsKey('instructions')
-            ? json['instructions']
-            : throw ArgumentError.value(
-                null, 'instructions', 'Required property is missing'),
-        outputText: json.containsKey('output_text')
-            ? SdkPresent(json['output_text'] as String?)
-            : const SdkOmitted(),
-        usage: json.containsKey('usage')
-            ? SdkPresent(json['usage'] != null
-                ? BetaResponseUsage.fromJson(
-                    json['usage'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        promptCacheOptions: json['prompt_cache_options'] != null
-            ? SdkPresent((json['prompt_cache_options'] != null
-                ? BetaPromptCacheOptions.fromJson(
-                    json['prompt_cache_options'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        promptCacheDiagnostics: json['prompt_cache_diagnostics'] != null
-            ? SdkPresent((json['prompt_cache_diagnostics'] != null
-                ? BetaPromptCacheDiagnostics.fromJson(
-                    json['prompt_cache_diagnostics'])
-                : null)!)
-            : const SdkOmitted(),
-        moderation: json.containsKey('moderation')
-            ? SdkPresent(json['moderation'] != null
-                ? BetaModeration.fromJson(
-                    json['moderation'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        parallelToolCalls: (json['parallel_tool_calls'] as bool?)!,
-        conversation: json.containsKey('conversation')
-            ? SdkPresent(json['conversation'] != null
-                ? BetaResponseConversation.fromJson(
-                    json['conversation'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        maxOutputTokens: json.containsKey('max_output_tokens')
-            ? SdkPresent((json['max_output_tokens'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+    metadata: json.containsKey('metadata') ? json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic> : throw ArgumentError.value(null, 'metadata', 'Required property is missing'),
+    topLogprobs: json.containsKey('top_logprobs') ? SdkPresent((json['top_logprobs'] as num?)?.toInt()) : const SdkOmitted(),
+    temperature: json.containsKey('temperature') ? (json['temperature'] as num?)?.toDouble() : throw ArgumentError.value(null, 'temperature', 'Required property is missing'),
+    topP: json.containsKey('top_p') ? (json['top_p'] as num?)?.toDouble() : throw ArgumentError.value(null, 'top_p', 'Required property is missing'),
+    user: json.containsKey('user') ? SdkPresent(json['user'] as String?) : const SdkOmitted(),
+    safetyIdentifier: json.containsKey('safety_identifier') ? SdkPresent(json['safety_identifier'] as String?) : const SdkOmitted(),
+    promptCacheKey: json.containsKey('prompt_cache_key') ? SdkPresent(json['prompt_cache_key'] as String?) : const SdkOmitted(),
+    promptCacheRetention: json.containsKey('prompt_cache_retention') ? SdkPresent(json['prompt_cache_retention'] != null ? BetaModelResponsePropertiesPromptCacheRetentionVariant0.fromJson(json['prompt_cache_retention'] as String) : null) : const SdkOmitted(),
+    previousResponseId: json.containsKey('previous_response_id') ? SdkPresent(json['previous_response_id'] as String?) : const SdkOmitted(),
+    model: (json['model'] != null ? BetaModelIdsResponses.fromJson(json['model']) : null)!,
+    background: json.containsKey('background') ? SdkPresent(json['background'] as bool?) : const SdkOmitted(),
+    maxToolCalls: json.containsKey('max_tool_calls') ? SdkPresent((json['max_tool_calls'] as num?)?.toInt()) : const SdkOmitted(),
+    text: json['text'] != null ? SdkPresent((json['text'] != null ? BetaResponseTextParam.fromJson(json['text'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    tools: ((json['tools'] as List?)?.map((e) => BetaTool.fromJson(e)).toList())!,
+    toolChoice: (json['tool_choice'] != null ? BetaToolChoiceParam.fromJson(json['tool_choice']) : null)!,
+    prompt: json.containsKey('prompt') ? SdkPresent(json['prompt'] != null ? BetaPrompt.fromJson(json['prompt'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    serviceTier: json.containsKey('service_tier') ? SdkPresent(json['service_tier'] != null ? BetaServiceTierResponses.fromJson(json['service_tier']) : null) : const SdkOmitted(),
+    truncation: json.containsKey('truncation') ? SdkPresent(json['truncation'] != null ? BetaResponseVariant2TruncationVariant0.fromJson(json['truncation'] as String) : null) : const SdkOmitted(),
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? BetaResponseVariant2Object.fromJson(json['object'] as String) : null)!,
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? BetaResponseVariant2Status.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    accessPrograms: json.containsKey('access_programs') ? json['access_programs'] != null ? BetaAccessProgramsBody.fromJson(json['access_programs'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'access_programs', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    completedAt: json.containsKey('completed_at') ? SdkPresent((json['completed_at'] as num?)?.toDouble()) : const SdkOmitted(),
+    error: json.containsKey('error') ? json['error'] != null ? BetaResponseError.fromJson(json['error'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'error', 'Required property is missing'),
+    incompleteDetails: json.containsKey('incomplete_details') ? json['incomplete_details'] != null ? BetaResponseVariant2IncompleteDetails.fromJson(json['incomplete_details'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'incomplete_details', 'Required property is missing'),
+    output: ((json['output'] as List?)?.map((e) => BetaOutputItem.fromJson(e)).toList())!,
+    reasoning: json.containsKey('reasoning') ? SdkPresent(json['reasoning'] != null ? BetaReasoning.fromJson(json['reasoning'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    instructions: json.containsKey('instructions') ? json['instructions'] : throw ArgumentError.value(null, 'instructions', 'Required property is missing'),
+    outputText: json.containsKey('output_text') ? SdkPresent(json['output_text'] as String?) : const SdkOmitted(),
+    usage: json.containsKey('usage') ? SdkPresent(json['usage'] != null ? BetaResponseUsage.fromJson(json['usage'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    promptCacheOptions: json['prompt_cache_options'] != null ? SdkPresent((json['prompt_cache_options'] != null ? BetaPromptCacheOptions.fromJson(json['prompt_cache_options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    promptCacheDiagnostics: json['prompt_cache_diagnostics'] != null ? SdkPresent((json['prompt_cache_diagnostics'] != null ? BetaPromptCacheDiagnostics.fromJson(json['prompt_cache_diagnostics']) : null)!) : const SdkOmitted(),
+    moderation: json.containsKey('moderation') ? SdkPresent(json['moderation'] != null ? BetaModeration.fromJson(json['moderation'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    parallelToolCalls: (json['parallel_tool_calls'] as bool?)!,
+    conversation: json.containsKey('conversation') ? SdkPresent(json['conversation'] != null ? BetaResponseConversation.fromJson(json['conversation'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    maxOutputTokens: json.containsKey('max_output_tokens') ? SdkPresent((json['max_output_tokens'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'metadata': metadata,
-        ...switch (topLogprobs) {
-          SdkPresent<int?>(value: final value) => {
-              'top_logprobs': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'temperature': temperature,
-        'top_p': topP,
-        ...switch (user) {
-          SdkPresent<String?>(value: final value) => {
-              'user': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (safetyIdentifier) {
-          SdkPresent<String?>(value: final value) => {
-              'safety_identifier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptCacheKey) {
-          SdkPresent<String?>(value: final value) => {
-              'prompt_cache_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptCacheRetention) {
-          SdkPresent<BetaModelResponsePropertiesPromptCacheRetentionVariant0?>(
-            value: final value
-          ) =>
-            {
-              'prompt_cache_retention': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (previousResponseId) {
-          SdkPresent<String?>(value: final value) => {
-              'previous_response_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'model': model.toJson(),
-        ...switch (background) {
-          SdkPresent<bool?>(value: final value) => {
-              'background': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxToolCalls) {
-          SdkPresent<int?>(value: final value) => {
-              'max_tool_calls': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (text) {
-          SdkPresent<BetaResponseTextParam>(value: final value) => {
-              'text': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'tools': tools.map((item) => item.toJson()).toList(),
-        'tool_choice': toolChoice.toJson(),
-        ...switch (prompt) {
-          SdkPresent<BetaPrompt?>(value: final value) => {
-              'prompt': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serviceTier) {
-          SdkPresent<BetaServiceTierResponses?>(value: final value) => {
-              'service_tier': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (truncation) {
-          SdkPresent<BetaResponseVariant2TruncationVariant0?>(
-            value: final value
-          ) =>
-            {
-              'truncation': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'id': id,
-        'object': object.toJson(),
-        ...switch (status) {
-          SdkPresent<BetaResponseVariant2Status>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'access_programs': accessPrograms?.toJson(),
-        'created_at': createdAt,
-        ...switch (completedAt) {
-          SdkPresent<double?>(value: final value) => {
-              'completed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'error': error?.toJson(),
-        'incomplete_details': incompleteDetails?.toJson(),
-        'output': output.map((item) => item.toJson()).toList(),
-        ...switch (reasoning) {
-          SdkPresent<BetaReasoning?>(value: final value) => {
-              'reasoning': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'instructions': instructions,
-        ...switch (outputText) {
-          SdkPresent<String?>(value: final value) => {
-              'output_text': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (usage) {
-          SdkPresent<BetaResponseUsage?>(value: final value) => {
-              'usage': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptCacheOptions) {
-          SdkPresent<BetaPromptCacheOptions>(value: final value) => {
-              'prompt_cache_options': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptCacheDiagnostics) {
-          SdkPresent<BetaPromptCacheDiagnostics>(value: final value) => {
-              'prompt_cache_diagnostics': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (moderation) {
-          SdkPresent<BetaModeration?>(value: final value) => {
-              'moderation': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'parallel_tool_calls': parallelToolCalls,
-        ...switch (conversation) {
-          SdkPresent<BetaResponseConversation?>(value: final value) => {
-              'conversation': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxOutputTokens) {
-          SdkPresent<int?>(value: final value) => {
-              'max_output_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'metadata': metadata,
+    ...switch (topLogprobs) {
+      SdkPresent<int?>(value: final value) => {'top_logprobs': value,},
+      _ => const <String, dynamic>{},
+    },
+    'temperature': temperature,
+    'top_p': topP,
+    ...switch (user) {
+      SdkPresent<String?>(value: final value) => {'user': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (safetyIdentifier) {
+      SdkPresent<String?>(value: final value) => {'safety_identifier': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptCacheKey) {
+      SdkPresent<String?>(value: final value) => {'prompt_cache_key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptCacheRetention) {
+      SdkPresent<BetaModelResponsePropertiesPromptCacheRetentionVariant0?>(value: final value) => {'prompt_cache_retention': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (previousResponseId) {
+      SdkPresent<String?>(value: final value) => {'previous_response_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'model': model.toJson(),
+    ...switch (background) {
+      SdkPresent<bool?>(value: final value) => {'background': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxToolCalls) {
+      SdkPresent<int?>(value: final value) => {'max_tool_calls': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (text) {
+      SdkPresent<BetaResponseTextParam>(value: final value) => {'text': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'tools': tools.map((item) => item.toJson()).toList(),
+    'tool_choice': toolChoice.toJson(),
+    ...switch (prompt) {
+      SdkPresent<BetaPrompt?>(value: final value) => {'prompt': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serviceTier) {
+      SdkPresent<BetaServiceTierResponses?>(value: final value) => {'service_tier': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (truncation) {
+      SdkPresent<BetaResponseVariant2TruncationVariant0?>(value: final value) => {'truncation': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'id': id,
+    'object': object.toJson(),
+    ...switch (status) {
+      SdkPresent<BetaResponseVariant2Status>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'access_programs': accessPrograms?.toJson(),
+    'created_at': createdAt,
+    ...switch (completedAt) {
+      SdkPresent<double?>(value: final value) => {'completed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    'error': error?.toJson(),
+    'incomplete_details': incompleteDetails?.toJson(),
+    'output': output.map((item) => item.toJson()).toList(),
+    ...switch (reasoning) {
+      SdkPresent<BetaReasoning?>(value: final value) => {'reasoning': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'instructions': instructions,
+    ...switch (outputText) {
+      SdkPresent<String?>(value: final value) => {'output_text': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (usage) {
+      SdkPresent<BetaResponseUsage?>(value: final value) => {'usage': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptCacheOptions) {
+      SdkPresent<BetaPromptCacheOptions>(value: final value) => {'prompt_cache_options': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptCacheDiagnostics) {
+      SdkPresent<BetaPromptCacheDiagnostics>(value: final value) => {'prompt_cache_diagnostics': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (moderation) {
+      SdkPresent<BetaModeration?>(value: final value) => {'moderation': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'parallel_tool_calls': parallelToolCalls,
+    ...switch (conversation) {
+      SdkPresent<BetaResponseConversation?>(value: final value) => {'conversation': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxOutputTokens) {
+      SdkPresent<int?>(value: final value) => {'max_output_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

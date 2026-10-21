@@ -9,19 +9,14 @@ sealed class VaultStatusFilterParam {
   static const String constructionSurface = 'named';
   const VaultStatusFilterParam();
   factory VaultStatusFilterParam.fromJson(Object? json) {
-    try {
-      return VaultStatusFilterParamVaultStatusParam(
-          VaultStatusParam.fromJson(json as String));
-    } catch (_) {}
+    try { return VaultStatusFilterParamVaultStatusParam(VaultStatusParam.fromJson(json as String)); } catch (_) {}
     throw FormatException("No variant matched for VaultStatusFilterParam");
   }
   Object? toJson();
 }
 
-final class VaultStatusFilterParamVaultStatusParam
-    extends VaultStatusFilterParam {
+final class VaultStatusFilterParamVaultStatusParam extends VaultStatusFilterParam {
   final VaultStatusParam value;
   const VaultStatusFilterParamVaultStatusParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

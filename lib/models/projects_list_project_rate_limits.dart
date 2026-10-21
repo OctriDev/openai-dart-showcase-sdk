@@ -8,93 +8,48 @@ part of 'projects.dart';
 class ProjectRateLimitListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final ProjectRateLimitListResponseObject object;
-
   /// Required array value serialized in the `data` wire field.
   final List<ProjectRateLimit> data;
-
   /// Optional `string` value serialized in the `first_id` wire field.
   final SdkOptional<String?> firstId;
-
   /// Optional `string` value serialized in the `last_id` wire field.
   final SdkOptional<String?> lastId;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ProjectRateLimitListResponse(
-      {required this.object,
-      required this.data,
-      this.firstId = const SdkOmitted(),
-      this.lastId = const SdkOmitted(),
-      required this.hasMore});
+  const ProjectRateLimitListResponse({required this.object, required this.data, this.firstId = const SdkOmitted(), this.lastId = const SdkOmitted(), required this.hasMore});
 
-  ProjectRateLimitListResponse Function(
-      {ProjectRateLimitListResponseObject object,
-      List<ProjectRateLimit> data,
-      SdkOptional<String?> firstId,
-      SdkOptional<String?> lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  ProjectRateLimitListResponse Function({ProjectRateLimitListResponseObject object, List<ProjectRateLimit> data, SdkOptional<String?> firstId, SdkOptional<String?> lastId, bool hasMore}) get copyWith => _copyWith;
 
-  ProjectRateLimitListResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      ProjectRateLimitListResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ProjectRateLimitListResponseObject,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<ProjectRateLimit>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as SdkOptional<String?>,
-        lastId: identical(lastId, sdkOmittedValue)
-            ? this.lastId
-            : lastId as SdkOptional<String?>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  ProjectRateLimitListResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ProjectRateLimitListResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectRateLimitListResponseObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<ProjectRateLimit>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as SdkOptional<String?>,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as SdkOptional<String?>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory ProjectRateLimitListResponse.fromJson(Map<String, dynamic> json) =>
-      ProjectRateLimitListResponse(
-        object: (json['object'] != null
-            ? ProjectRateLimitListResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => ProjectRateLimit.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: json.containsKey('first_id')
-            ? SdkPresent(json['first_id'] as String?)
-            : const SdkOmitted(),
-        lastId: json.containsKey('last_id')
-            ? SdkPresent(json['last_id'] as String?)
-            : const SdkOmitted(),
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory ProjectRateLimitListResponse.fromJson(Map<String, dynamic> json) => ProjectRateLimitListResponse(
+    object: (json['object'] != null ? ProjectRateLimitListResponseObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => ProjectRateLimit.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: json.containsKey('first_id') ? SdkPresent(json['first_id'] as String?) : const SdkOmitted(),
+    lastId: json.containsKey('last_id') ? SdkPresent(json['last_id'] as String?) : const SdkOmitted(),
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        ...switch (firstId) {
-          SdkPresent<String?>(value: final value) => {
-              'first_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastId) {
-          SdkPresent<String?>(value: final value) => {
-              'last_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'has_more': hasMore,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    ...switch (firstId) {
+      SdkPresent<String?>(value: final value) => {'first_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastId) {
+      SdkPresent<String?>(value: final value) => {'last_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'has_more': hasMore,
+  };
 }

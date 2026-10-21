@@ -8,83 +8,38 @@ part of 'responses_beta_function.dart';
 class BetaFunctionShellToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the shell tool. Always `shell`.
   final BetaFunctionShellToolParamType type_;
-
   /// Optional API value serialized in the `environment` wire field.
   final SdkOptional<BetaFunctionShellToolParamEnvironment?> environment;
-
   /// The tool invocation context(s).
   final SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers;
 
-  const BetaFunctionShellToolParam(
-      {required this.type_,
-      this.environment = const SdkOmitted(),
-      this.allowedCallers = const SdkOmitted()});
+  const BetaFunctionShellToolParam({required this.type_, this.environment = const SdkOmitted(), this.allowedCallers = const SdkOmitted()});
 
-  BetaFunctionShellToolParam Function(
-          {BetaFunctionShellToolParamType type_,
-          SdkOptional<BetaFunctionShellToolParamEnvironment?> environment,
-          SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers})
-      get copyWith => _copyWith;
+  BetaFunctionShellToolParam Function({BetaFunctionShellToolParamType type_, SdkOptional<BetaFunctionShellToolParamEnvironment?> environment, SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
 
-  BetaFunctionShellToolParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? environment = sdkOmittedValue,
-          Object? allowedCallers = sdkOmittedValue}) =>
-      BetaFunctionShellToolParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaFunctionShellToolParamType,
-        environment: identical(environment, sdkOmittedValue)
-            ? this.environment
-            : environment
-                as SdkOptional<BetaFunctionShellToolParamEnvironment?>,
-        allowedCallers: identical(allowedCallers, sdkOmittedValue)
-            ? this.allowedCallers
-            : allowedCallers
-                as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
-      );
+  BetaFunctionShellToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue}) => BetaFunctionShellToolParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFunctionShellToolParamType,
+    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as SdkOptional<BetaFunctionShellToolParamEnvironment?>,
+    allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
+  );
 
-  factory BetaFunctionShellToolParam.fromJson(Map<String, dynamic> json) =>
-      BetaFunctionShellToolParam(
-        type_: (json['type'] != null
-            ? BetaFunctionShellToolParamType.fromJson(json['type'] as String)
-            : null)!,
-        environment: json.containsKey('environment')
-            ? SdkPresent(json['environment'] != null
-                ? BetaFunctionShellToolParamEnvironment.fromJson(
-                    json['environment'])
-                : null)
-            : const SdkOmitted(),
-        allowedCallers: json.containsKey('allowed_callers')
-            ? SdkPresent((json['allowed_callers'] as List?)
-                ?.map(
-                    (e) => BetaCallableToolAllowedCaller.fromJson(e as String))
-                .toList())
-            : const SdkOmitted(),
-      );
+  factory BetaFunctionShellToolParam.fromJson(Map<String, dynamic> json) => BetaFunctionShellToolParam(
+    type_: (json['type'] != null ? BetaFunctionShellToolParamType.fromJson(json['type'] as String) : null)!,
+    environment: json.containsKey('environment') ? SdkPresent(json['environment'] != null ? BetaFunctionShellToolParamEnvironment.fromJson(json['environment']) : null) : const SdkOmitted(),
+    allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => BetaCallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (environment) {
-          SdkPresent<BetaFunctionShellToolParamEnvironment?>(
-            value: final value
-          ) =>
-            {
-              'environment': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedCallers) {
-          SdkPresent<List<BetaCallableToolAllowedCaller>?>(
-            value: final value
-          ) =>
-            {
-              'allowed_callers': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (environment) {
+      SdkPresent<BetaFunctionShellToolParamEnvironment?>(value: final value) => {'environment': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedCallers) {
+      SdkPresent<List<BetaCallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

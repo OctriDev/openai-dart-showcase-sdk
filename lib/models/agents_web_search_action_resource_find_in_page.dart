@@ -8,58 +8,32 @@ part of 'agents_web.dart';
 class WebSearchActionResourceFindInPage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `find_in_page`.
   final WebSearchActionResourceFindInPageType type_;
-
   /// The URL of the page that was searched.
   final String? url;
-
   /// The text pattern that was searched for.
   final String? pattern;
 
-  const WebSearchActionResourceFindInPage(
-      {required this.type_, required this.url, required this.pattern});
+  const WebSearchActionResourceFindInPage({required this.type_, required this.url, required this.pattern});
 
-  WebSearchActionResourceFindInPage Function(
-      {WebSearchActionResourceFindInPageType type_,
-      String? url,
-      String? pattern}) get copyWith => _copyWith;
+  WebSearchActionResourceFindInPage Function({WebSearchActionResourceFindInPageType type_, String? url, String? pattern}) get copyWith => _copyWith;
 
-  WebSearchActionResourceFindInPage _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? pattern = sdkOmittedValue}) =>
-      WebSearchActionResourceFindInPage(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebSearchActionResourceFindInPageType,
-        url: identical(url, sdkOmittedValue) ? this.url : url as String?,
-        pattern: identical(pattern, sdkOmittedValue)
-            ? this.pattern
-            : pattern as String?,
-      );
+  WebSearchActionResourceFindInPage _copyWith({Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue, Object? pattern = sdkOmittedValue}) => WebSearchActionResourceFindInPage(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchActionResourceFindInPageType,
+    url: identical(url, sdkOmittedValue) ? this.url : url as String?,
+    pattern: identical(pattern, sdkOmittedValue) ? this.pattern : pattern as String?,
+  );
 
-  factory WebSearchActionResourceFindInPage.fromJson(
-          Map<String, dynamic> json) =>
-      WebSearchActionResourceFindInPage(
-        type_: (json['type'] != null
-            ? WebSearchActionResourceFindInPageType.fromJson(
-                json['type'] as String)
-            : null)!,
-        url: json.containsKey('url')
-            ? json['url'] as String?
-            : throw ArgumentError.value(
-                null, 'url', 'Required property is missing'),
-        pattern: json.containsKey('pattern')
-            ? json['pattern'] as String?
-            : throw ArgumentError.value(
-                null, 'pattern', 'Required property is missing'),
-      );
+  factory WebSearchActionResourceFindInPage.fromJson(Map<String, dynamic> json) => WebSearchActionResourceFindInPage(
+    type_: (json['type'] != null ? WebSearchActionResourceFindInPageType.fromJson(json['type'] as String) : null)!,
+    url: json.containsKey('url') ? json['url'] as String? : throw ArgumentError.value(null, 'url', 'Required property is missing'),
+    pattern: json.containsKey('pattern') ? json['pattern'] as String? : throw ArgumentError.value(null, 'pattern', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'url': url,
-        'pattern': pattern,
-      };
+    'type': type_.toJson(),
+    'url': url,
+    'pattern': pattern,
+  };
 }

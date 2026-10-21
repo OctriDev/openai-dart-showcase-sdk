@@ -6,6 +6,7 @@ part of 'shared_image.dart';
 // shared_image domain models
 /// Typed representation of the `ImageDetail` API schema.
 final class ImageDetail {
+
   final String value;
 
   const ImageDetail._(this.value);
@@ -19,13 +20,10 @@ final class ImageDetail {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageDetail && other.value == value;
+  @override bool operator ==(Object other) => other is ImageDetail && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

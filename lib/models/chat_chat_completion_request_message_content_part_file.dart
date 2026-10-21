@@ -8,146 +8,78 @@ part of 'chat_chat_completion_request.dart';
 class ChatCompletionRequestMessageContentPartFileFile {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the file, used when passing the file to the model as a string.
   final SdkOptional<String> filename;
-
   /// The base64 encoded file data, used when passing the file to the model as a string.
   final SdkOptional<String> fileData;
-
   /// The ID of an uploaded file to use as input.
   final SdkOptional<String> fileId;
 
-  const ChatCompletionRequestMessageContentPartFileFile(
-      {this.filename = const SdkOmitted(),
-      this.fileData = const SdkOmitted(),
-      this.fileId = const SdkOmitted()});
+  const ChatCompletionRequestMessageContentPartFileFile({this.filename = const SdkOmitted(), this.fileData = const SdkOmitted(), this.fileId = const SdkOmitted()});
 
-  ChatCompletionRequestMessageContentPartFileFile Function(
-      {SdkOptional<String> filename,
-      SdkOptional<String> fileData,
-      SdkOptional<String> fileId}) get copyWith => _copyWith;
+  ChatCompletionRequestMessageContentPartFileFile Function({SdkOptional<String> filename, SdkOptional<String> fileData, SdkOptional<String> fileId}) get copyWith => _copyWith;
 
-  ChatCompletionRequestMessageContentPartFileFile _copyWith(
-          {Object? filename = sdkOmittedValue,
-          Object? fileData = sdkOmittedValue,
-          Object? fileId = sdkOmittedValue}) =>
-      ChatCompletionRequestMessageContentPartFileFile(
-        filename: identical(filename, sdkOmittedValue)
-            ? this.filename
-            : filename as SdkOptional<String>,
-        fileData: identical(fileData, sdkOmittedValue)
-            ? this.fileData
-            : fileData as SdkOptional<String>,
-        fileId: identical(fileId, sdkOmittedValue)
-            ? this.fileId
-            : fileId as SdkOptional<String>,
-      );
+  ChatCompletionRequestMessageContentPartFileFile _copyWith({Object? filename = sdkOmittedValue, Object? fileData = sdkOmittedValue, Object? fileId = sdkOmittedValue}) => ChatCompletionRequestMessageContentPartFileFile(
+    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as SdkOptional<String>,
+    fileData: identical(fileData, sdkOmittedValue) ? this.fileData : fileData as SdkOptional<String>,
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
+  );
 
-  factory ChatCompletionRequestMessageContentPartFileFile.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionRequestMessageContentPartFileFile(
-        filename: json['filename'] != null
-            ? SdkPresent((json['filename'] as String?)!)
-            : const SdkOmitted(),
-        fileData: json['file_data'] != null
-            ? SdkPresent((json['file_data'] as String?)!)
-            : const SdkOmitted(),
-        fileId: json['file_id'] != null
-            ? SdkPresent((json['file_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ChatCompletionRequestMessageContentPartFileFile.fromJson(Map<String, dynamic> json) => ChatCompletionRequestMessageContentPartFileFile(
+    filename: json['filename'] != null ? SdkPresent((json['filename'] as String?)!) : const SdkOmitted(),
+    fileData: json['file_data'] != null ? SdkPresent((json['file_data'] as String?)!) : const SdkOmitted(),
+    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (filename) {
-          SdkPresent<String>(value: final value) => {
-              'filename': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fileData) {
-          SdkPresent<String>(value: final value) => {
-              'file_data': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fileId) {
-          SdkPresent<String>(value: final value) => {
-              'file_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (filename) {
+      SdkPresent<String>(value: final value) => {'filename': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fileData) {
+      SdkPresent<String>(value: final value) => {'file_data': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fileId) {
+      SdkPresent<String>(value: final value) => {'file_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Learn about [file inputs](https://developers.openai.com/api/docs/guides/text) for text generation.
 class ChatCompletionRequestMessageContentPartFile {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the content part. Always `file`.
   final ChatCompletionRequestMessageContentPartFileType type_;
-
   /// Required object value serialized in the `file` wire field.
   final ChatCompletionRequestMessageContentPartFileFile file;
-
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
   final SdkOptional<PromptCacheBreakpointParam> promptCacheBreakpoint;
 
-  const ChatCompletionRequestMessageContentPartFile(
-      {required this.type_,
-      required this.file,
-      this.promptCacheBreakpoint = const SdkOmitted()});
+  const ChatCompletionRequestMessageContentPartFile({required this.type_, required this.file, this.promptCacheBreakpoint = const SdkOmitted()});
 
-  ChatCompletionRequestMessageContentPartFile Function(
-          {ChatCompletionRequestMessageContentPartFileType type_,
-          ChatCompletionRequestMessageContentPartFileFile file,
-          SdkOptional<PromptCacheBreakpointParam> promptCacheBreakpoint})
-      get copyWith => _copyWith;
+  ChatCompletionRequestMessageContentPartFile Function({ChatCompletionRequestMessageContentPartFileType type_, ChatCompletionRequestMessageContentPartFileFile file, SdkOptional<PromptCacheBreakpointParam> promptCacheBreakpoint}) get copyWith => _copyWith;
 
-  ChatCompletionRequestMessageContentPartFile _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? file = sdkOmittedValue,
-          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
-      ChatCompletionRequestMessageContentPartFile(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ChatCompletionRequestMessageContentPartFileType,
-        file: identical(file, sdkOmittedValue)
-            ? this.file
-            : file as ChatCompletionRequestMessageContentPartFileFile,
-        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
-            ? this.promptCacheBreakpoint
-            : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointParam>,
-      );
+  ChatCompletionRequestMessageContentPartFile _copyWith({Object? type_ = sdkOmittedValue, Object? file = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => ChatCompletionRequestMessageContentPartFile(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ChatCompletionRequestMessageContentPartFileType,
+    file: identical(file, sdkOmittedValue) ? this.file : file as ChatCompletionRequestMessageContentPartFileFile,
+    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointParam>,
+  );
 
-  factory ChatCompletionRequestMessageContentPartFile.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionRequestMessageContentPartFile(
-        type_: (json['type'] != null
-            ? ChatCompletionRequestMessageContentPartFileType.fromJson(
-                json['type'] as String)
-            : null)!,
-        file: (json['file'] != null
-            ? ChatCompletionRequestMessageContentPartFileFile.fromJson(
-                json['file'] as Map<String, dynamic>)
-            : null)!,
-        promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null
-            ? SdkPresent((json['prompt_cache_breakpoint'] != null
-                ? PromptCacheBreakpointParam.fromJson(
-                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ChatCompletionRequestMessageContentPartFile.fromJson(Map<String, dynamic> json) => ChatCompletionRequestMessageContentPartFile(
+    type_: (json['type'] != null ? ChatCompletionRequestMessageContentPartFileType.fromJson(json['type'] as String) : null)!,
+    file: (json['file'] != null ? ChatCompletionRequestMessageContentPartFileFile.fromJson(json['file'] as Map<String, dynamic>) : null)!,
+    promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null ? SdkPresent((json['prompt_cache_breakpoint'] != null ? PromptCacheBreakpointParam.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'file': file.toJson(),
-        ...switch (promptCacheBreakpoint) {
-          SdkPresent<PromptCacheBreakpointParam>(value: final value) => {
-              'prompt_cache_breakpoint': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'file': file.toJson(),
+    ...switch (promptCacheBreakpoint) {
+      SdkPresent<PromptCacheBreakpointParam>(value: final value) => {'prompt_cache_breakpoint': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

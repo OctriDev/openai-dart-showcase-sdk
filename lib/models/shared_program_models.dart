@@ -8,431 +8,276 @@ part of 'shared_program.dart';
 class Program {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the item. Always `program`.
   final ProgramType type_;
-
   /// The unique ID of the program item.
   final String id;
-
   /// The stable call ID of the program item.
   final String callId;
-
   /// The JavaScript source executed by programmatic tool calling.
   final String code;
-
   /// Opaque program replay fingerprint that must be round-tripped.
   final String fingerprint;
 
-  const Program(
-      {required this.type_,
-      required this.id,
-      required this.callId,
-      required this.code,
-      required this.fingerprint});
+  const Program({required this.type_, required this.id, required this.callId, required this.code, required this.fingerprint});
 
-  Program Function(
-      {ProgramType type_,
-      String id,
-      String callId,
-      String code,
-      String fingerprint}) get copyWith => _copyWith;
+  Program Function({ProgramType type_, String id, String callId, String code, String fingerprint}) get copyWith => _copyWith;
 
-  Program _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? fingerprint = sdkOmittedValue}) =>
-      Program(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ProgramType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        fingerprint: identical(fingerprint, sdkOmittedValue)
-            ? this.fingerprint
-            : fingerprint as String,
-      );
+  Program _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? code = sdkOmittedValue, Object? fingerprint = sdkOmittedValue}) => Program(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ProgramType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    fingerprint: identical(fingerprint, sdkOmittedValue) ? this.fingerprint : fingerprint as String,
+  );
 
   factory Program.fromJson(Map<String, dynamic> json) => Program(
-        type_: (json['type'] != null
-            ? ProgramType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        callId: (json['call_id'] as String?)!,
-        code: (json['code'] as String?)!,
-        fingerprint: (json['fingerprint'] as String?)!,
-      );
+    type_: (json['type'] != null ? ProgramType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    callId: (json['call_id'] as String?)!,
+    code: (json['code'] as String?)!,
+    fingerprint: (json['fingerprint'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'call_id': callId,
-        'code': code,
-        'fingerprint': fingerprint,
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'call_id': callId,
+    'code': code,
+    'fingerprint': fingerprint,
+  };
 }
 
 /// Typed representation of the `ProgramItemParam` API schema.
 class ProgramItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of this program item.
   final String id;
-
   /// The item type. Always `program`.
   final ProgramItemParamType type_;
-
   /// The stable call ID of the program item.
   final String callId;
-
   /// The JavaScript source executed by programmatic tool calling.
   final String code;
-
   /// Opaque program replay fingerprint that must be round-tripped.
   final String fingerprint;
 
-  const ProgramItemParam(
-      {required this.id,
-      required this.type_,
-      required this.callId,
-      required this.code,
-      required this.fingerprint});
+  const ProgramItemParam({required this.id, required this.type_, required this.callId, required this.code, required this.fingerprint});
 
-  ProgramItemParam Function(
-      {String id,
-      ProgramItemParamType type_,
-      String callId,
-      String code,
-      String fingerprint}) get copyWith => _copyWith;
+  ProgramItemParam Function({String id, ProgramItemParamType type_, String callId, String code, String fingerprint}) get copyWith => _copyWith;
 
-  ProgramItemParam _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? fingerprint = sdkOmittedValue}) =>
-      ProgramItemParam(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ProgramItemParamType,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        fingerprint: identical(fingerprint, sdkOmittedValue)
-            ? this.fingerprint
-            : fingerprint as String,
-      );
+  ProgramItemParam _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? code = sdkOmittedValue, Object? fingerprint = sdkOmittedValue}) => ProgramItemParam(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ProgramItemParamType,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    fingerprint: identical(fingerprint, sdkOmittedValue) ? this.fingerprint : fingerprint as String,
+  );
 
-  factory ProgramItemParam.fromJson(Map<String, dynamic> json) =>
-      ProgramItemParam(
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? ProgramItemParamType.fromJson(json['type'] as String)
-            : null)!,
-        callId: (json['call_id'] as String?)!,
-        code: (json['code'] as String?)!,
-        fingerprint: (json['fingerprint'] as String?)!,
-      );
+  factory ProgramItemParam.fromJson(Map<String, dynamic> json) => ProgramItemParam(
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? ProgramItemParamType.fromJson(json['type'] as String) : null)!,
+    callId: (json['call_id'] as String?)!,
+    code: (json['code'] as String?)!,
+    fingerprint: (json['fingerprint'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'type': type_.toJson(),
-        'call_id': callId,
-        'code': code,
-        'fingerprint': fingerprint,
-      };
+    'id': id,
+    'type': type_.toJson(),
+    'call_id': callId,
+    'code': code,
+    'fingerprint': fingerprint,
+  };
 }
 
 /// Typed representation of the `ProgramOutput` API schema.
 class ProgramOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the item. Always `program_output`.
   final ProgramOutputType type_;
-
   /// The unique ID of the program output item.
   final String id;
-
   /// The call ID of the program item.
   final String callId;
-
   /// The result produced by the program item.
   final String result;
-
   /// The terminal status of the program output item.
   final ProgramOutputStatus status;
 
-  const ProgramOutput(
-      {required this.type_,
-      required this.id,
-      required this.callId,
-      required this.result,
-      required this.status});
+  const ProgramOutput({required this.type_, required this.id, required this.callId, required this.result, required this.status});
 
-  ProgramOutput Function(
-      {ProgramOutputType type_,
-      String id,
-      String callId,
-      String result,
-      ProgramOutputStatus status}) get copyWith => _copyWith;
+  ProgramOutput Function({ProgramOutputType type_, String id, String callId, String result, ProgramOutputStatus status}) get copyWith => _copyWith;
 
-  ProgramOutput _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? result = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      ProgramOutput(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ProgramOutputType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        result:
-            identical(result, sdkOmittedValue) ? this.result : result as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as ProgramOutputStatus,
-      );
+  ProgramOutput _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? result = sdkOmittedValue, Object? status = sdkOmittedValue}) => ProgramOutput(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ProgramOutputType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    result: identical(result, sdkOmittedValue) ? this.result : result as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as ProgramOutputStatus,
+  );
 
   factory ProgramOutput.fromJson(Map<String, dynamic> json) => ProgramOutput(
-        type_: (json['type'] != null
-            ? ProgramOutputType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        callId: (json['call_id'] as String?)!,
-        result: (json['result'] as String?)!,
-        status: (json['status'] != null
-            ? ProgramOutputStatus.fromJson(json['status'] as String)
-            : null)!,
-      );
+    type_: (json['type'] != null ? ProgramOutputType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    callId: (json['call_id'] as String?)!,
+    result: (json['result'] as String?)!,
+    status: (json['status'] != null ? ProgramOutputStatus.fromJson(json['status'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'call_id': callId,
-        'result': result,
-        'status': status.toJson(),
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'call_id': callId,
+    'result': result,
+    'status': status.toJson(),
+  };
 }
 
 /// Typed representation of the `ProgramOutputItemParam` API schema.
 class ProgramOutputItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of this program output item.
   final String id;
-
   /// The item type. Always `program_output`.
   final ProgramOutputItemParamType type_;
-
   /// The call ID of the program item.
   final String callId;
-
   /// The result produced by the program item.
   final String result;
-
   /// The terminal status of the program output.
   final ProgramOutputItemStatus status;
 
-  const ProgramOutputItemParam(
-      {required this.id,
-      required this.type_,
-      required this.callId,
-      required this.result,
-      required this.status});
+  const ProgramOutputItemParam({required this.id, required this.type_, required this.callId, required this.result, required this.status});
 
-  ProgramOutputItemParam Function(
-      {String id,
-      ProgramOutputItemParamType type_,
-      String callId,
-      String result,
-      ProgramOutputItemStatus status}) get copyWith => _copyWith;
+  ProgramOutputItemParam Function({String id, ProgramOutputItemParamType type_, String callId, String result, ProgramOutputItemStatus status}) get copyWith => _copyWith;
 
-  ProgramOutputItemParam _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? result = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      ProgramOutputItemParam(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ProgramOutputItemParamType,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        result:
-            identical(result, sdkOmittedValue) ? this.result : result as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as ProgramOutputItemStatus,
-      );
+  ProgramOutputItemParam _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? result = sdkOmittedValue, Object? status = sdkOmittedValue}) => ProgramOutputItemParam(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ProgramOutputItemParamType,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    result: identical(result, sdkOmittedValue) ? this.result : result as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as ProgramOutputItemStatus,
+  );
 
-  factory ProgramOutputItemParam.fromJson(Map<String, dynamic> json) =>
-      ProgramOutputItemParam(
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? ProgramOutputItemParamType.fromJson(json['type'] as String)
-            : null)!,
-        callId: (json['call_id'] as String?)!,
-        result: (json['result'] as String?)!,
-        status: (json['status'] != null
-            ? ProgramOutputItemStatus.fromJson(json['status'] as String)
-            : null)!,
-      );
+  factory ProgramOutputItemParam.fromJson(Map<String, dynamic> json) => ProgramOutputItemParam(
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? ProgramOutputItemParamType.fromJson(json['type'] as String) : null)!,
+    callId: (json['call_id'] as String?)!,
+    result: (json['result'] as String?)!,
+    status: (json['status'] != null ? ProgramOutputItemStatus.fromJson(json['status'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'type': type_.toJson(),
-        'call_id': callId,
-        'result': result,
-        'status': status.toJson(),
-      };
+    'id': id,
+    'type': type_.toJson(),
+    'call_id': callId,
+    'result': result,
+    'status': status.toJson(),
+  };
 }
 
 /// Typed representation of the `ProgramOutputItemStatus` API schema.
 final class ProgramOutputItemStatus {
+
   final String value;
 
   const ProgramOutputItemStatus._(this.value);
 
-  factory ProgramOutputItemStatus.fromJson(String value) =>
-      ProgramOutputItemStatus._(value);
+  factory ProgramOutputItemStatus.fromJson(String value) => ProgramOutputItemStatus._(value);
 
   static const completed = ProgramOutputItemStatus._('completed');
   static const incomplete = ProgramOutputItemStatus._('incomplete');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProgramOutputItemStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ProgramOutputItemStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `ProgramOutputStatus` API schema.
 final class ProgramOutputStatus {
+
   final String value;
 
   const ProgramOutputStatus._(this.value);
 
-  factory ProgramOutputStatus.fromJson(String value) =>
-      ProgramOutputStatus._(value);
+  factory ProgramOutputStatus.fromJson(String value) => ProgramOutputStatus._(value);
 
   static const completed = ProgramOutputStatus._('completed');
   static const incomplete = ProgramOutputStatus._('incomplete');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProgramOutputStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ProgramOutputStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `ProgramToolCallCaller` API schema.
 class ProgramToolCallCaller {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final ProgramToolCallCallerType type_;
-
   /// The call ID of the program item that produced this tool call.
   final String callerId;
 
   const ProgramToolCallCaller({required this.type_, required this.callerId});
 
-  ProgramToolCallCaller Function(
-      {ProgramToolCallCallerType type_,
-      String callerId}) get copyWith => _copyWith;
+  ProgramToolCallCaller Function({ProgramToolCallCallerType type_, String callerId}) get copyWith => _copyWith;
 
-  ProgramToolCallCaller _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? callerId = sdkOmittedValue}) =>
-      ProgramToolCallCaller(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ProgramToolCallCallerType,
-        callerId: identical(callerId, sdkOmittedValue)
-            ? this.callerId
-            : callerId as String,
-      );
+  ProgramToolCallCaller _copyWith({Object? type_ = sdkOmittedValue, Object? callerId = sdkOmittedValue}) => ProgramToolCallCaller(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ProgramToolCallCallerType,
+    callerId: identical(callerId, sdkOmittedValue) ? this.callerId : callerId as String,
+  );
 
-  factory ProgramToolCallCaller.fromJson(Map<String, dynamic> json) =>
-      ProgramToolCallCaller(
-        type_: (json['type'] != null
-            ? ProgramToolCallCallerType.fromJson(json['type'] as String)
-            : null)!,
-        callerId: (json['caller_id'] as String?)!,
-      );
+  factory ProgramToolCallCaller.fromJson(Map<String, dynamic> json) => ProgramToolCallCaller(
+    type_: (json['type'] != null ? ProgramToolCallCallerType.fromJson(json['type'] as String) : null)!,
+    callerId: (json['caller_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'caller_id': callerId,
-      };
+    'type': type_.toJson(),
+    'caller_id': callerId,
+  };
 }
 
 /// Typed representation of the `ProgramToolCallCallerParam` API schema.
 class ProgramToolCallCallerParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The caller type. Always `program`.
   final ProgramToolCallCallerParamType type_;
-
   /// The call ID of the program item that produced this tool call.
   final String callerId;
 
-  const ProgramToolCallCallerParam(
-      {required this.type_, required this.callerId});
+  const ProgramToolCallCallerParam({required this.type_, required this.callerId});
 
-  ProgramToolCallCallerParam Function(
-      {ProgramToolCallCallerParamType type_,
-      String callerId}) get copyWith => _copyWith;
+  ProgramToolCallCallerParam Function({ProgramToolCallCallerParamType type_, String callerId}) get copyWith => _copyWith;
 
-  ProgramToolCallCallerParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? callerId = sdkOmittedValue}) =>
-      ProgramToolCallCallerParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ProgramToolCallCallerParamType,
-        callerId: identical(callerId, sdkOmittedValue)
-            ? this.callerId
-            : callerId as String,
-      );
+  ProgramToolCallCallerParam _copyWith({Object? type_ = sdkOmittedValue, Object? callerId = sdkOmittedValue}) => ProgramToolCallCallerParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ProgramToolCallCallerParamType,
+    callerId: identical(callerId, sdkOmittedValue) ? this.callerId : callerId as String,
+  );
 
-  factory ProgramToolCallCallerParam.fromJson(Map<String, dynamic> json) =>
-      ProgramToolCallCallerParam(
-        type_: (json['type'] != null
-            ? ProgramToolCallCallerParamType.fromJson(json['type'] as String)
-            : null)!,
-        callerId: (json['caller_id'] as String?)!,
-      );
+  factory ProgramToolCallCallerParam.fromJson(Map<String, dynamic> json) => ProgramToolCallCallerParam(
+    type_: (json['type'] != null ? ProgramToolCallCallerParamType.fromJson(json['type'] as String) : null)!,
+    callerId: (json['caller_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'caller_id': callerId,
-      };
+    'type': type_.toJson(),
+    'caller_id': callerId,
+  };
 }

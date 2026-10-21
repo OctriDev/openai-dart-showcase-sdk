@@ -10,62 +10,32 @@ sealed class FunctionShellCallItemParamEnvironment {
   const FunctionShellCallItemParamEnvironment();
   factory FunctionShellCallItemParamEnvironment.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = LocalEnvironmentParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FunctionShellCallItemParamEnvironmentLocalEnvironmentParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = ContainerReferenceParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FunctionShellCallItemParamEnvironmentContainerReferenceParam(
-              value);
-        }
-      } catch (_) {}
+      try { final value = LocalEnvironmentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallItemParamEnvironmentLocalEnvironmentParam(value); } } catch (_) {}
+      try { final value = ContainerReferenceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallItemParamEnvironmentContainerReferenceParam(value); } } catch (_) {}
     }
-    try {
-      return FunctionShellCallItemParamEnvironmentLocalEnvironmentParam(
-          LocalEnvironmentParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return FunctionShellCallItemParamEnvironmentContainerReferenceParam(
-          ContainerReferenceParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"local", "container_reference"}.contains(json["type"])) {
-      return UnknownFunctionShellCallItemParamEnvironment(json);
-    }
-    throw FormatException(
-        "No variant matched for FunctionShellCallItemParamEnvironment");
+    try { return FunctionShellCallItemParamEnvironmentLocalEnvironmentParam(LocalEnvironmentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return FunctionShellCallItemParamEnvironmentContainerReferenceParam(ContainerReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"local", "container_reference"}.contains(json["type"])) { return UnknownFunctionShellCallItemParamEnvironment(json); }
+    throw FormatException("No variant matched for FunctionShellCallItemParamEnvironment");
   }
   Object? toJson();
 }
 
-final class FunctionShellCallItemParamEnvironmentLocalEnvironmentParam
-    extends FunctionShellCallItemParamEnvironment {
+final class FunctionShellCallItemParamEnvironmentLocalEnvironmentParam extends FunctionShellCallItemParamEnvironment {
   final LocalEnvironmentParam value;
   const FunctionShellCallItemParamEnvironmentLocalEnvironmentParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class FunctionShellCallItemParamEnvironmentContainerReferenceParam
-    extends FunctionShellCallItemParamEnvironment {
+final class FunctionShellCallItemParamEnvironmentContainerReferenceParam extends FunctionShellCallItemParamEnvironment {
   final ContainerReferenceParam value;
-  const FunctionShellCallItemParamEnvironmentContainerReferenceParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const FunctionShellCallItemParamEnvironmentContainerReferenceParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [FunctionShellCallItemParamEnvironment] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownFunctionShellCallItemParamEnvironment
-    extends FunctionShellCallItemParamEnvironment {
+final class UnknownFunctionShellCallItemParamEnvironment extends FunctionShellCallItemParamEnvironment {
   final Map<String, dynamic> raw;
   const UnknownFunctionShellCallItemParamEnvironment(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

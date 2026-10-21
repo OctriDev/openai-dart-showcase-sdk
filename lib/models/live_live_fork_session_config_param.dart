@@ -8,101 +8,49 @@ part of 'live_live_fork.dart';
 class LiveForkSessionConfigParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Audio format for a WebSocket fork. WebRTC forks negotiate their audio format and must omit this field.
   final SdkOptional<LiveForkAudioParam> audio;
-
   /// Overrides for the stored session’s Responses backend. Only supported when the stored session already uses Responses delegation; the delegation type cannot change.
   final SdkOptional<LiveResponsesDelegationUpdateParam> delegation;
-
   /// Whether to store the forked session. Omission inherits the stored session's setting.
   final SdkOptional<bool> store;
-
   /// Frontend data-channel permissions for a WebRTC fork. Omitted permissions inherit the stored values. Not supported for WebSocket forks.
   final SdkOptional<LiveClientConfigParam> client;
 
-  const LiveForkSessionConfigParam(
-      {this.audio = const SdkOmitted(),
-      this.delegation = const SdkOmitted(),
-      this.store = const SdkOmitted(),
-      this.client = const SdkOmitted()});
+  const LiveForkSessionConfigParam({this.audio = const SdkOmitted(), this.delegation = const SdkOmitted(), this.store = const SdkOmitted(), this.client = const SdkOmitted()});
 
-  LiveForkSessionConfigParam Function(
-      {SdkOptional<LiveForkAudioParam> audio,
-      SdkOptional<LiveResponsesDelegationUpdateParam> delegation,
-      SdkOptional<bool> store,
-      SdkOptional<LiveClientConfigParam> client}) get copyWith => _copyWith;
+  LiveForkSessionConfigParam Function({SdkOptional<LiveForkAudioParam> audio, SdkOptional<LiveResponsesDelegationUpdateParam> delegation, SdkOptional<bool> store, SdkOptional<LiveClientConfigParam> client}) get copyWith => _copyWith;
 
-  LiveForkSessionConfigParam _copyWith(
-          {Object? audio = sdkOmittedValue,
-          Object? delegation = sdkOmittedValue,
-          Object? store = sdkOmittedValue,
-          Object? client = sdkOmittedValue}) =>
-      LiveForkSessionConfigParam(
-        audio: identical(audio, sdkOmittedValue)
-            ? this.audio
-            : audio as SdkOptional<LiveForkAudioParam>,
-        delegation: identical(delegation, sdkOmittedValue)
-            ? this.delegation
-            : delegation as SdkOptional<LiveResponsesDelegationUpdateParam>,
-        store: identical(store, sdkOmittedValue)
-            ? this.store
-            : store as SdkOptional<bool>,
-        client: identical(client, sdkOmittedValue)
-            ? this.client
-            : client as SdkOptional<LiveClientConfigParam>,
-      );
+  LiveForkSessionConfigParam _copyWith({Object? audio = sdkOmittedValue, Object? delegation = sdkOmittedValue, Object? store = sdkOmittedValue, Object? client = sdkOmittedValue}) => LiveForkSessionConfigParam(
+    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as SdkOptional<LiveForkAudioParam>,
+    delegation: identical(delegation, sdkOmittedValue) ? this.delegation : delegation as SdkOptional<LiveResponsesDelegationUpdateParam>,
+    store: identical(store, sdkOmittedValue) ? this.store : store as SdkOptional<bool>,
+    client: identical(client, sdkOmittedValue) ? this.client : client as SdkOptional<LiveClientConfigParam>,
+  );
 
-  factory LiveForkSessionConfigParam.fromJson(Map<String, dynamic> json) =>
-      LiveForkSessionConfigParam(
-        audio: json['audio'] != null
-            ? SdkPresent((json['audio'] != null
-                ? LiveForkAudioParam.fromJson(
-                    json['audio'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        delegation: json['delegation'] != null
-            ? SdkPresent((json['delegation'] != null
-                ? LiveResponsesDelegationUpdateParam.fromJson(
-                    json['delegation'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        store: json['store'] != null
-            ? SdkPresent((json['store'] as bool?)!)
-            : const SdkOmitted(),
-        client: json['client'] != null
-            ? SdkPresent((json['client'] != null
-                ? LiveClientConfigParam.fromJson(
-                    json['client'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory LiveForkSessionConfigParam.fromJson(Map<String, dynamic> json) => LiveForkSessionConfigParam(
+    audio: json['audio'] != null ? SdkPresent((json['audio'] != null ? LiveForkAudioParam.fromJson(json['audio'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    delegation: json['delegation'] != null ? SdkPresent((json['delegation'] != null ? LiveResponsesDelegationUpdateParam.fromJson(json['delegation'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    store: json['store'] != null ? SdkPresent((json['store'] as bool?)!) : const SdkOmitted(),
+    client: json['client'] != null ? SdkPresent((json['client'] != null ? LiveClientConfigParam.fromJson(json['client'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (audio) {
-          SdkPresent<LiveForkAudioParam>(value: final value) => {
-              'audio': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (delegation) {
-          SdkPresent<LiveResponsesDelegationUpdateParam>(value: final value) =>
-            {
-              'delegation': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (store) {
-          SdkPresent<bool>(value: final value) => {
-              'store': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (client) {
-          SdkPresent<LiveClientConfigParam>(value: final value) => {
-              'client': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (audio) {
+      SdkPresent<LiveForkAudioParam>(value: final value) => {'audio': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (delegation) {
+      SdkPresent<LiveResponsesDelegationUpdateParam>(value: final value) => {'delegation': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (store) {
+      SdkPresent<bool>(value: final value) => {'store': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (client) {
+      SdkPresent<LiveClientConfigParam>(value: final value) => {'client': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

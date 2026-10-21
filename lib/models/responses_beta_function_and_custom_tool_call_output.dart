@@ -10,79 +10,40 @@ sealed class BetaFunctionAndCustomToolCallOutput {
   const BetaFunctionAndCustomToolCallOutput();
   factory BetaFunctionAndCustomToolCallOutput.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaInputTextContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaFunctionAndCustomToolCallOutputBetaInputTextContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaInputImageContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaFunctionAndCustomToolCallOutputBetaInputImageContent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaInputFileContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaFunctionAndCustomToolCallOutputBetaInputFileContent(value);
-        }
-      } catch (_) {}
+      try { final value = BetaInputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionAndCustomToolCallOutputBetaInputTextContent(value); } } catch (_) {}
+      try { final value = BetaInputImageContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionAndCustomToolCallOutputBetaInputImageContent(value); } } catch (_) {}
+      try { final value = BetaInputFileContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionAndCustomToolCallOutputBetaInputFileContent(value); } } catch (_) {}
     }
-    try {
-      return BetaFunctionAndCustomToolCallOutputBetaInputTextContent(
-          BetaInputTextContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaFunctionAndCustomToolCallOutputBetaInputImageContent(
-          BetaInputImageContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaFunctionAndCustomToolCallOutputBetaInputFileContent(
-          BetaInputFileContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"input_text", "input_image", "input_file"}
-            .contains(json["type"])) {
-      return UnknownBetaFunctionAndCustomToolCallOutput(json);
-    }
-    throw FormatException(
-        "No variant matched for BetaFunctionAndCustomToolCallOutput");
+    try { return BetaFunctionAndCustomToolCallOutputBetaInputTextContent(BetaInputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaFunctionAndCustomToolCallOutputBetaInputImageContent(BetaInputImageContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaFunctionAndCustomToolCallOutputBetaInputFileContent(BetaInputFileContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image", "input_file"}.contains(json["type"])) { return UnknownBetaFunctionAndCustomToolCallOutput(json); }
+    throw FormatException("No variant matched for BetaFunctionAndCustomToolCallOutput");
   }
   Object? toJson();
 }
 
-final class BetaFunctionAndCustomToolCallOutputBetaInputTextContent
-    extends BetaFunctionAndCustomToolCallOutput {
+final class BetaFunctionAndCustomToolCallOutputBetaInputTextContent extends BetaFunctionAndCustomToolCallOutput {
   final BetaInputTextContent value;
   const BetaFunctionAndCustomToolCallOutputBetaInputTextContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaFunctionAndCustomToolCallOutputBetaInputImageContent
-    extends BetaFunctionAndCustomToolCallOutput {
+final class BetaFunctionAndCustomToolCallOutputBetaInputImageContent extends BetaFunctionAndCustomToolCallOutput {
   final BetaInputImageContent value;
   const BetaFunctionAndCustomToolCallOutputBetaInputImageContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaFunctionAndCustomToolCallOutputBetaInputFileContent
-    extends BetaFunctionAndCustomToolCallOutput {
+final class BetaFunctionAndCustomToolCallOutputBetaInputFileContent extends BetaFunctionAndCustomToolCallOutput {
   final BetaInputFileContent value;
   const BetaFunctionAndCustomToolCallOutputBetaInputFileContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaFunctionAndCustomToolCallOutput] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaFunctionAndCustomToolCallOutput
-    extends BetaFunctionAndCustomToolCallOutput {
+final class UnknownBetaFunctionAndCustomToolCallOutput extends BetaFunctionAndCustomToolCallOutput {
   final Map<String, dynamic> raw;
   const UnknownBetaFunctionAndCustomToolCallOutput(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

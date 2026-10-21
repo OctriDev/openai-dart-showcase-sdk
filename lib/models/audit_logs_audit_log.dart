@@ -8,1394 +8,504 @@ part of 'audit_logs.dart';
 class AuditLog {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of this log.
   final String id;
-
   /// The event type.
   final AuditLogEventType type_;
-
   /// The Unix timestamp (in seconds) of the event.
   final int effectiveAt;
-
   /// The project that the action was scoped to. Absent for actions not scoped to projects. Note that any admin actions taken via Admin API keys are associated with the default project.
   final SdkOptional<AuditLogProject> project;
-
   /// Optional API value serialized in the `actor` wire field.
   final SdkOptional<AuditLogActor?> actor;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogApiKeyCreated> apiKeyCreated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogApiKeyUpdated> apiKeyUpdated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogApiKeyDeleted> apiKeyDeleted;
-
   /// The project and fine-tuned model checkpoint that the checkpoint permission was created for.
-  final SdkOptional<AuditLogCheckpointPermissionCreated>
-      checkpointPermissionCreated;
-
+  final SdkOptional<AuditLogCheckpointPermissionCreated> checkpointPermissionCreated;
   /// The details for events with this `type`.
-  final SdkOptional<AuditLogCheckpointPermissionDeleted>
-      checkpointPermissionDeleted;
-
+  final SdkOptional<AuditLogCheckpointPermissionDeleted> checkpointPermissionDeleted;
   /// The details for events with this `type`.
   final SdkOptional<AuditLogExternalKeyRegistered> externalKeyRegistered;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogExternalKeyRemoved> externalKeyRemoved;
-
   /// The details for events with this `type`.
-  final SdkOptional<AuditLogExternalStorageRegistered>
-      externalStorageRegistered;
-
+  final SdkOptional<AuditLogExternalStorageRegistered> externalStorageRegistered;
   /// The details for events with this `type`.
   final SdkOptional<AuditLogExternalStorageRemoved> externalStorageRemoved;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogGroupCreated> groupCreated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogGroupUpdated> groupUpdated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogGroupDeleted> groupDeleted;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogScimEnabled> scimEnabled;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogScimDisabled> scimDisabled;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogInviteSent> inviteSent;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogInviteAccepted> inviteAccepted;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogInviteDeleted> inviteDeleted;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogIpAllowlistCreated> ipAllowlistCreated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogIpAllowlistUpdated> ipAllowlistUpdated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogIpAllowlistDeleted> ipAllowlistDeleted;
-
   /// The details for events with this `type`.
-  final SdkOptional<AuditLogIpAllowlistConfigActivated>
-      ipAllowlistConfigActivated;
-
+  final SdkOptional<AuditLogIpAllowlistConfigActivated> ipAllowlistConfigActivated;
   /// The details for events with this `type`.
-  final SdkOptional<AuditLogIpAllowlistConfigDeactivated>
-      ipAllowlistConfigDeactivated;
-
+  final SdkOptional<AuditLogIpAllowlistConfigDeactivated> ipAllowlistConfigDeactivated;
   /// This event has no additional fields beyond the standard audit log attributes.
   final SdkOptional<Map<String, dynamic>> loginSucceeded;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogLoginFailed> loginFailed;
-
   /// This event has no additional fields beyond the standard audit log attributes.
   final SdkOptional<Map<String, dynamic>> logoutSucceeded;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogLogoutFailed> logoutFailed;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogOrganizationUpdated> organizationUpdated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogProjectCreated> projectCreated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogProjectUpdated> projectUpdated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogProjectArchived> projectArchived;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogProjectDeleted> projectDeleted;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogRateLimitUpdated> rateLimitUpdated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogRateLimitDeleted> rateLimitDeleted;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogRoleCreated> roleCreated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogRoleUpdated> roleUpdated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogRoleDeleted> roleDeleted;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogRoleAssignmentCreated> roleAssignmentCreated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogRoleAssignmentDeleted> roleAssignmentDeleted;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogRoleBoundToResource> roleBoundToResource;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogRoleUnboundFromResource> roleUnboundFromResource;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogServiceAccountCreated> serviceAccountCreated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogServiceAccountUpdated> serviceAccountUpdated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogServiceAccountDeleted> serviceAccountDeleted;
-
   /// The details for events with this `type`.
-  final SdkOptional<AuditLogWorkloadIdentityProviderCreated>
-      workloadIdentityProviderCreated;
-
+  final SdkOptional<AuditLogWorkloadIdentityProviderCreated> workloadIdentityProviderCreated;
   /// The details for events with this `type`.
-  final SdkOptional<AuditLogWorkloadIdentityProviderUpdated>
-      workloadIdentityProviderUpdated;
-
+  final SdkOptional<AuditLogWorkloadIdentityProviderUpdated> workloadIdentityProviderUpdated;
   /// The details for events with this `type`.
-  final SdkOptional<AuditLogWorkloadIdentityProviderDeleted>
-      workloadIdentityProviderDeleted;
-
+  final SdkOptional<AuditLogWorkloadIdentityProviderDeleted> workloadIdentityProviderDeleted;
   /// The details for events with this `type`.
-  final SdkOptional<AuditLogWorkloadIdentityProviderMappingCreated>
-      workloadIdentityProviderMappingCreated;
-
+  final SdkOptional<AuditLogWorkloadIdentityProviderMappingCreated> workloadIdentityProviderMappingCreated;
   /// The details for events with this `type`.
-  final SdkOptional<AuditLogWorkloadIdentityProviderMappingUpdated>
-      workloadIdentityProviderMappingUpdated;
-
+  final SdkOptional<AuditLogWorkloadIdentityProviderMappingUpdated> workloadIdentityProviderMappingUpdated;
   /// The details for events with this `type`.
-  final SdkOptional<AuditLogWorkloadIdentityProviderMappingDeleted>
-      workloadIdentityProviderMappingDeleted;
-
+  final SdkOptional<AuditLogWorkloadIdentityProviderMappingDeleted> workloadIdentityProviderMappingDeleted;
   /// The details for events with this `type`.
   final SdkOptional<AuditLogUserAdded> userAdded;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogUserUpdated> userUpdated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogUserDeleted> userDeleted;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogCertificateCreated> certificateCreated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogCertificateUpdated> certificateUpdated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogCertificateDeleted> certificateDeleted;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogCertificatesActivated> certificatesActivated;
-
   /// The details for events with this `type`.
   final SdkOptional<AuditLogCertificatesDeactivated> certificatesDeactivated;
 
-  const AuditLog(
-      {required this.id,
-      required this.type_,
-      required this.effectiveAt,
-      this.project = const SdkOmitted(),
-      this.actor = const SdkOmitted(),
-      this.apiKeyCreated = const SdkOmitted(),
-      this.apiKeyUpdated = const SdkOmitted(),
-      this.apiKeyDeleted = const SdkOmitted(),
-      this.checkpointPermissionCreated = const SdkOmitted(),
-      this.checkpointPermissionDeleted = const SdkOmitted(),
-      this.externalKeyRegistered = const SdkOmitted(),
-      this.externalKeyRemoved = const SdkOmitted(),
-      this.externalStorageRegistered = const SdkOmitted(),
-      this.externalStorageRemoved = const SdkOmitted(),
-      this.groupCreated = const SdkOmitted(),
-      this.groupUpdated = const SdkOmitted(),
-      this.groupDeleted = const SdkOmitted(),
-      this.scimEnabled = const SdkOmitted(),
-      this.scimDisabled = const SdkOmitted(),
-      this.inviteSent = const SdkOmitted(),
-      this.inviteAccepted = const SdkOmitted(),
-      this.inviteDeleted = const SdkOmitted(),
-      this.ipAllowlistCreated = const SdkOmitted(),
-      this.ipAllowlistUpdated = const SdkOmitted(),
-      this.ipAllowlistDeleted = const SdkOmitted(),
-      this.ipAllowlistConfigActivated = const SdkOmitted(),
-      this.ipAllowlistConfigDeactivated = const SdkOmitted(),
-      this.loginSucceeded = const SdkOmitted(),
-      this.loginFailed = const SdkOmitted(),
-      this.logoutSucceeded = const SdkOmitted(),
-      this.logoutFailed = const SdkOmitted(),
-      this.organizationUpdated = const SdkOmitted(),
-      this.projectCreated = const SdkOmitted(),
-      this.projectUpdated = const SdkOmitted(),
-      this.projectArchived = const SdkOmitted(),
-      this.projectDeleted = const SdkOmitted(),
-      this.rateLimitUpdated = const SdkOmitted(),
-      this.rateLimitDeleted = const SdkOmitted(),
-      this.roleCreated = const SdkOmitted(),
-      this.roleUpdated = const SdkOmitted(),
-      this.roleDeleted = const SdkOmitted(),
-      this.roleAssignmentCreated = const SdkOmitted(),
-      this.roleAssignmentDeleted = const SdkOmitted(),
-      this.roleBoundToResource = const SdkOmitted(),
-      this.roleUnboundFromResource = const SdkOmitted(),
-      this.serviceAccountCreated = const SdkOmitted(),
-      this.serviceAccountUpdated = const SdkOmitted(),
-      this.serviceAccountDeleted = const SdkOmitted(),
-      this.workloadIdentityProviderCreated = const SdkOmitted(),
-      this.workloadIdentityProviderUpdated = const SdkOmitted(),
-      this.workloadIdentityProviderDeleted = const SdkOmitted(),
-      this.workloadIdentityProviderMappingCreated = const SdkOmitted(),
-      this.workloadIdentityProviderMappingUpdated = const SdkOmitted(),
-      this.workloadIdentityProviderMappingDeleted = const SdkOmitted(),
-      this.userAdded = const SdkOmitted(),
-      this.userUpdated = const SdkOmitted(),
-      this.userDeleted = const SdkOmitted(),
-      this.certificateCreated = const SdkOmitted(),
-      this.certificateUpdated = const SdkOmitted(),
-      this.certificateDeleted = const SdkOmitted(),
-      this.certificatesActivated = const SdkOmitted(),
-      this.certificatesDeactivated = const SdkOmitted()});
+  const AuditLog({required this.id, required this.type_, required this.effectiveAt, this.project = const SdkOmitted(), this.actor = const SdkOmitted(), this.apiKeyCreated = const SdkOmitted(), this.apiKeyUpdated = const SdkOmitted(), this.apiKeyDeleted = const SdkOmitted(), this.checkpointPermissionCreated = const SdkOmitted(), this.checkpointPermissionDeleted = const SdkOmitted(), this.externalKeyRegistered = const SdkOmitted(), this.externalKeyRemoved = const SdkOmitted(), this.externalStorageRegistered = const SdkOmitted(), this.externalStorageRemoved = const SdkOmitted(), this.groupCreated = const SdkOmitted(), this.groupUpdated = const SdkOmitted(), this.groupDeleted = const SdkOmitted(), this.scimEnabled = const SdkOmitted(), this.scimDisabled = const SdkOmitted(), this.inviteSent = const SdkOmitted(), this.inviteAccepted = const SdkOmitted(), this.inviteDeleted = const SdkOmitted(), this.ipAllowlistCreated = const SdkOmitted(), this.ipAllowlistUpdated = const SdkOmitted(), this.ipAllowlistDeleted = const SdkOmitted(), this.ipAllowlistConfigActivated = const SdkOmitted(), this.ipAllowlistConfigDeactivated = const SdkOmitted(), this.loginSucceeded = const SdkOmitted(), this.loginFailed = const SdkOmitted(), this.logoutSucceeded = const SdkOmitted(), this.logoutFailed = const SdkOmitted(), this.organizationUpdated = const SdkOmitted(), this.projectCreated = const SdkOmitted(), this.projectUpdated = const SdkOmitted(), this.projectArchived = const SdkOmitted(), this.projectDeleted = const SdkOmitted(), this.rateLimitUpdated = const SdkOmitted(), this.rateLimitDeleted = const SdkOmitted(), this.roleCreated = const SdkOmitted(), this.roleUpdated = const SdkOmitted(), this.roleDeleted = const SdkOmitted(), this.roleAssignmentCreated = const SdkOmitted(), this.roleAssignmentDeleted = const SdkOmitted(), this.roleBoundToResource = const SdkOmitted(), this.roleUnboundFromResource = const SdkOmitted(), this.serviceAccountCreated = const SdkOmitted(), this.serviceAccountUpdated = const SdkOmitted(), this.serviceAccountDeleted = const SdkOmitted(), this.workloadIdentityProviderCreated = const SdkOmitted(), this.workloadIdentityProviderUpdated = const SdkOmitted(), this.workloadIdentityProviderDeleted = const SdkOmitted(), this.workloadIdentityProviderMappingCreated = const SdkOmitted(), this.workloadIdentityProviderMappingUpdated = const SdkOmitted(), this.workloadIdentityProviderMappingDeleted = const SdkOmitted(), this.userAdded = const SdkOmitted(), this.userUpdated = const SdkOmitted(), this.userDeleted = const SdkOmitted(), this.certificateCreated = const SdkOmitted(), this.certificateUpdated = const SdkOmitted(), this.certificateDeleted = const SdkOmitted(), this.certificatesActivated = const SdkOmitted(), this.certificatesDeactivated = const SdkOmitted()});
 
-  AuditLog Function(
-      {String id,
-      AuditLogEventType type_,
-      int effectiveAt,
-      SdkOptional<AuditLogProject> project,
-      SdkOptional<AuditLogActor?> actor,
-      SdkOptional<AuditLogApiKeyCreated> apiKeyCreated,
-      SdkOptional<AuditLogApiKeyUpdated> apiKeyUpdated,
-      SdkOptional<AuditLogApiKeyDeleted> apiKeyDeleted,
-      SdkOptional<AuditLogCheckpointPermissionCreated>
-          checkpointPermissionCreated,
-      SdkOptional<AuditLogCheckpointPermissionDeleted>
-          checkpointPermissionDeleted,
-      SdkOptional<AuditLogExternalKeyRegistered> externalKeyRegistered,
-      SdkOptional<AuditLogExternalKeyRemoved> externalKeyRemoved,
-      SdkOptional<AuditLogExternalStorageRegistered> externalStorageRegistered,
-      SdkOptional<AuditLogExternalStorageRemoved> externalStorageRemoved,
-      SdkOptional<AuditLogGroupCreated> groupCreated,
-      SdkOptional<AuditLogGroupUpdated> groupUpdated,
-      SdkOptional<AuditLogGroupDeleted> groupDeleted,
-      SdkOptional<AuditLogScimEnabled> scimEnabled,
-      SdkOptional<AuditLogScimDisabled> scimDisabled,
-      SdkOptional<AuditLogInviteSent> inviteSent,
-      SdkOptional<AuditLogInviteAccepted> inviteAccepted,
-      SdkOptional<AuditLogInviteDeleted> inviteDeleted,
-      SdkOptional<AuditLogIpAllowlistCreated> ipAllowlistCreated,
-      SdkOptional<AuditLogIpAllowlistUpdated> ipAllowlistUpdated,
-      SdkOptional<AuditLogIpAllowlistDeleted> ipAllowlistDeleted,
-      SdkOptional<AuditLogIpAllowlistConfigActivated>
-          ipAllowlistConfigActivated,
-      SdkOptional<AuditLogIpAllowlistConfigDeactivated>
-          ipAllowlistConfigDeactivated,
-      SdkOptional<Map<String, dynamic>> loginSucceeded,
-      SdkOptional<AuditLogLoginFailed> loginFailed,
-      SdkOptional<Map<String, dynamic>> logoutSucceeded,
-      SdkOptional<AuditLogLogoutFailed> logoutFailed,
-      SdkOptional<AuditLogOrganizationUpdated> organizationUpdated,
-      SdkOptional<AuditLogProjectCreated> projectCreated,
-      SdkOptional<AuditLogProjectUpdated> projectUpdated,
-      SdkOptional<AuditLogProjectArchived> projectArchived,
-      SdkOptional<AuditLogProjectDeleted> projectDeleted,
-      SdkOptional<AuditLogRateLimitUpdated> rateLimitUpdated,
-      SdkOptional<AuditLogRateLimitDeleted> rateLimitDeleted,
-      SdkOptional<AuditLogRoleCreated> roleCreated,
-      SdkOptional<AuditLogRoleUpdated> roleUpdated,
-      SdkOptional<AuditLogRoleDeleted> roleDeleted,
-      SdkOptional<AuditLogRoleAssignmentCreated> roleAssignmentCreated,
-      SdkOptional<AuditLogRoleAssignmentDeleted> roleAssignmentDeleted,
-      SdkOptional<AuditLogRoleBoundToResource> roleBoundToResource,
-      SdkOptional<AuditLogRoleUnboundFromResource> roleUnboundFromResource,
-      SdkOptional<AuditLogServiceAccountCreated> serviceAccountCreated,
-      SdkOptional<AuditLogServiceAccountUpdated> serviceAccountUpdated,
-      SdkOptional<AuditLogServiceAccountDeleted> serviceAccountDeleted,
-      SdkOptional<AuditLogWorkloadIdentityProviderCreated>
-          workloadIdentityProviderCreated,
-      SdkOptional<AuditLogWorkloadIdentityProviderUpdated>
-          workloadIdentityProviderUpdated,
-      SdkOptional<AuditLogWorkloadIdentityProviderDeleted>
-          workloadIdentityProviderDeleted,
-      SdkOptional<AuditLogWorkloadIdentityProviderMappingCreated>
-          workloadIdentityProviderMappingCreated,
-      SdkOptional<AuditLogWorkloadIdentityProviderMappingUpdated>
-          workloadIdentityProviderMappingUpdated,
-      SdkOptional<AuditLogWorkloadIdentityProviderMappingDeleted>
-          workloadIdentityProviderMappingDeleted,
-      SdkOptional<AuditLogUserAdded> userAdded,
-      SdkOptional<AuditLogUserUpdated> userUpdated,
-      SdkOptional<AuditLogUserDeleted> userDeleted,
-      SdkOptional<AuditLogCertificateCreated> certificateCreated,
-      SdkOptional<AuditLogCertificateUpdated> certificateUpdated,
-      SdkOptional<AuditLogCertificateDeleted> certificateDeleted,
-      SdkOptional<AuditLogCertificatesActivated> certificatesActivated,
-      SdkOptional<AuditLogCertificatesDeactivated>
-          certificatesDeactivated}) get copyWith => _copyWith;
+  AuditLog Function({String id, AuditLogEventType type_, int effectiveAt, SdkOptional<AuditLogProject> project, SdkOptional<AuditLogActor?> actor, SdkOptional<AuditLogApiKeyCreated> apiKeyCreated, SdkOptional<AuditLogApiKeyUpdated> apiKeyUpdated, SdkOptional<AuditLogApiKeyDeleted> apiKeyDeleted, SdkOptional<AuditLogCheckpointPermissionCreated> checkpointPermissionCreated, SdkOptional<AuditLogCheckpointPermissionDeleted> checkpointPermissionDeleted, SdkOptional<AuditLogExternalKeyRegistered> externalKeyRegistered, SdkOptional<AuditLogExternalKeyRemoved> externalKeyRemoved, SdkOptional<AuditLogExternalStorageRegistered> externalStorageRegistered, SdkOptional<AuditLogExternalStorageRemoved> externalStorageRemoved, SdkOptional<AuditLogGroupCreated> groupCreated, SdkOptional<AuditLogGroupUpdated> groupUpdated, SdkOptional<AuditLogGroupDeleted> groupDeleted, SdkOptional<AuditLogScimEnabled> scimEnabled, SdkOptional<AuditLogScimDisabled> scimDisabled, SdkOptional<AuditLogInviteSent> inviteSent, SdkOptional<AuditLogInviteAccepted> inviteAccepted, SdkOptional<AuditLogInviteDeleted> inviteDeleted, SdkOptional<AuditLogIpAllowlistCreated> ipAllowlistCreated, SdkOptional<AuditLogIpAllowlistUpdated> ipAllowlistUpdated, SdkOptional<AuditLogIpAllowlistDeleted> ipAllowlistDeleted, SdkOptional<AuditLogIpAllowlistConfigActivated> ipAllowlistConfigActivated, SdkOptional<AuditLogIpAllowlistConfigDeactivated> ipAllowlistConfigDeactivated, SdkOptional<Map<String, dynamic>> loginSucceeded, SdkOptional<AuditLogLoginFailed> loginFailed, SdkOptional<Map<String, dynamic>> logoutSucceeded, SdkOptional<AuditLogLogoutFailed> logoutFailed, SdkOptional<AuditLogOrganizationUpdated> organizationUpdated, SdkOptional<AuditLogProjectCreated> projectCreated, SdkOptional<AuditLogProjectUpdated> projectUpdated, SdkOptional<AuditLogProjectArchived> projectArchived, SdkOptional<AuditLogProjectDeleted> projectDeleted, SdkOptional<AuditLogRateLimitUpdated> rateLimitUpdated, SdkOptional<AuditLogRateLimitDeleted> rateLimitDeleted, SdkOptional<AuditLogRoleCreated> roleCreated, SdkOptional<AuditLogRoleUpdated> roleUpdated, SdkOptional<AuditLogRoleDeleted> roleDeleted, SdkOptional<AuditLogRoleAssignmentCreated> roleAssignmentCreated, SdkOptional<AuditLogRoleAssignmentDeleted> roleAssignmentDeleted, SdkOptional<AuditLogRoleBoundToResource> roleBoundToResource, SdkOptional<AuditLogRoleUnboundFromResource> roleUnboundFromResource, SdkOptional<AuditLogServiceAccountCreated> serviceAccountCreated, SdkOptional<AuditLogServiceAccountUpdated> serviceAccountUpdated, SdkOptional<AuditLogServiceAccountDeleted> serviceAccountDeleted, SdkOptional<AuditLogWorkloadIdentityProviderCreated> workloadIdentityProviderCreated, SdkOptional<AuditLogWorkloadIdentityProviderUpdated> workloadIdentityProviderUpdated, SdkOptional<AuditLogWorkloadIdentityProviderDeleted> workloadIdentityProviderDeleted, SdkOptional<AuditLogWorkloadIdentityProviderMappingCreated> workloadIdentityProviderMappingCreated, SdkOptional<AuditLogWorkloadIdentityProviderMappingUpdated> workloadIdentityProviderMappingUpdated, SdkOptional<AuditLogWorkloadIdentityProviderMappingDeleted> workloadIdentityProviderMappingDeleted, SdkOptional<AuditLogUserAdded> userAdded, SdkOptional<AuditLogUserUpdated> userUpdated, SdkOptional<AuditLogUserDeleted> userDeleted, SdkOptional<AuditLogCertificateCreated> certificateCreated, SdkOptional<AuditLogCertificateUpdated> certificateUpdated, SdkOptional<AuditLogCertificateDeleted> certificateDeleted, SdkOptional<AuditLogCertificatesActivated> certificatesActivated, SdkOptional<AuditLogCertificatesDeactivated> certificatesDeactivated}) get copyWith => _copyWith;
 
-  AuditLog _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? effectiveAt = sdkOmittedValue,
-          Object? project = sdkOmittedValue,
-          Object? actor = sdkOmittedValue,
-          Object? apiKeyCreated = sdkOmittedValue,
-          Object? apiKeyUpdated = sdkOmittedValue,
-          Object? apiKeyDeleted = sdkOmittedValue,
-          Object? checkpointPermissionCreated = sdkOmittedValue,
-          Object? checkpointPermissionDeleted = sdkOmittedValue,
-          Object? externalKeyRegistered = sdkOmittedValue,
-          Object? externalKeyRemoved = sdkOmittedValue,
-          Object? externalStorageRegistered = sdkOmittedValue,
-          Object? externalStorageRemoved = sdkOmittedValue,
-          Object? groupCreated = sdkOmittedValue,
-          Object? groupUpdated = sdkOmittedValue,
-          Object? groupDeleted = sdkOmittedValue,
-          Object? scimEnabled = sdkOmittedValue,
-          Object? scimDisabled = sdkOmittedValue,
-          Object? inviteSent = sdkOmittedValue,
-          Object? inviteAccepted = sdkOmittedValue,
-          Object? inviteDeleted = sdkOmittedValue,
-          Object? ipAllowlistCreated = sdkOmittedValue,
-          Object? ipAllowlistUpdated = sdkOmittedValue,
-          Object? ipAllowlistDeleted = sdkOmittedValue,
-          Object? ipAllowlistConfigActivated = sdkOmittedValue,
-          Object? ipAllowlistConfigDeactivated = sdkOmittedValue,
-          Object? loginSucceeded = sdkOmittedValue,
-          Object? loginFailed = sdkOmittedValue,
-          Object? logoutSucceeded = sdkOmittedValue,
-          Object? logoutFailed = sdkOmittedValue,
-          Object? organizationUpdated = sdkOmittedValue,
-          Object? projectCreated = sdkOmittedValue,
-          Object? projectUpdated = sdkOmittedValue,
-          Object? projectArchived = sdkOmittedValue,
-          Object? projectDeleted = sdkOmittedValue,
-          Object? rateLimitUpdated = sdkOmittedValue,
-          Object? rateLimitDeleted = sdkOmittedValue,
-          Object? roleCreated = sdkOmittedValue,
-          Object? roleUpdated = sdkOmittedValue,
-          Object? roleDeleted = sdkOmittedValue,
-          Object? roleAssignmentCreated = sdkOmittedValue,
-          Object? roleAssignmentDeleted = sdkOmittedValue,
-          Object? roleBoundToResource = sdkOmittedValue,
-          Object? roleUnboundFromResource = sdkOmittedValue,
-          Object? serviceAccountCreated = sdkOmittedValue,
-          Object? serviceAccountUpdated = sdkOmittedValue,
-          Object? serviceAccountDeleted = sdkOmittedValue,
-          Object? workloadIdentityProviderCreated = sdkOmittedValue,
-          Object? workloadIdentityProviderUpdated = sdkOmittedValue,
-          Object? workloadIdentityProviderDeleted = sdkOmittedValue,
-          Object? workloadIdentityProviderMappingCreated = sdkOmittedValue,
-          Object? workloadIdentityProviderMappingUpdated = sdkOmittedValue,
-          Object? workloadIdentityProviderMappingDeleted = sdkOmittedValue,
-          Object? userAdded = sdkOmittedValue,
-          Object? userUpdated = sdkOmittedValue,
-          Object? userDeleted = sdkOmittedValue,
-          Object? certificateCreated = sdkOmittedValue,
-          Object? certificateUpdated = sdkOmittedValue,
-          Object? certificateDeleted = sdkOmittedValue,
-          Object? certificatesActivated = sdkOmittedValue,
-          Object? certificatesDeactivated = sdkOmittedValue}) =>
-      AuditLog(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AuditLogEventType,
-        effectiveAt: identical(effectiveAt, sdkOmittedValue)
-            ? this.effectiveAt
-            : effectiveAt as int,
-        project: identical(project, sdkOmittedValue)
-            ? this.project
-            : project as SdkOptional<AuditLogProject>,
-        actor: identical(actor, sdkOmittedValue)
-            ? this.actor
-            : actor as SdkOptional<AuditLogActor?>,
-        apiKeyCreated: identical(apiKeyCreated, sdkOmittedValue)
-            ? this.apiKeyCreated
-            : apiKeyCreated as SdkOptional<AuditLogApiKeyCreated>,
-        apiKeyUpdated: identical(apiKeyUpdated, sdkOmittedValue)
-            ? this.apiKeyUpdated
-            : apiKeyUpdated as SdkOptional<AuditLogApiKeyUpdated>,
-        apiKeyDeleted: identical(apiKeyDeleted, sdkOmittedValue)
-            ? this.apiKeyDeleted
-            : apiKeyDeleted as SdkOptional<AuditLogApiKeyDeleted>,
-        checkpointPermissionCreated:
-            identical(checkpointPermissionCreated, sdkOmittedValue)
-                ? this.checkpointPermissionCreated
-                : checkpointPermissionCreated
-                    as SdkOptional<AuditLogCheckpointPermissionCreated>,
-        checkpointPermissionDeleted:
-            identical(checkpointPermissionDeleted, sdkOmittedValue)
-                ? this.checkpointPermissionDeleted
-                : checkpointPermissionDeleted
-                    as SdkOptional<AuditLogCheckpointPermissionDeleted>,
-        externalKeyRegistered: identical(externalKeyRegistered, sdkOmittedValue)
-            ? this.externalKeyRegistered
-            : externalKeyRegistered
-                as SdkOptional<AuditLogExternalKeyRegistered>,
-        externalKeyRemoved: identical(externalKeyRemoved, sdkOmittedValue)
-            ? this.externalKeyRemoved
-            : externalKeyRemoved as SdkOptional<AuditLogExternalKeyRemoved>,
-        externalStorageRegistered:
-            identical(externalStorageRegistered, sdkOmittedValue)
-                ? this.externalStorageRegistered
-                : externalStorageRegistered
-                    as SdkOptional<AuditLogExternalStorageRegistered>,
-        externalStorageRemoved:
-            identical(externalStorageRemoved, sdkOmittedValue)
-                ? this.externalStorageRemoved
-                : externalStorageRemoved
-                    as SdkOptional<AuditLogExternalStorageRemoved>,
-        groupCreated: identical(groupCreated, sdkOmittedValue)
-            ? this.groupCreated
-            : groupCreated as SdkOptional<AuditLogGroupCreated>,
-        groupUpdated: identical(groupUpdated, sdkOmittedValue)
-            ? this.groupUpdated
-            : groupUpdated as SdkOptional<AuditLogGroupUpdated>,
-        groupDeleted: identical(groupDeleted, sdkOmittedValue)
-            ? this.groupDeleted
-            : groupDeleted as SdkOptional<AuditLogGroupDeleted>,
-        scimEnabled: identical(scimEnabled, sdkOmittedValue)
-            ? this.scimEnabled
-            : scimEnabled as SdkOptional<AuditLogScimEnabled>,
-        scimDisabled: identical(scimDisabled, sdkOmittedValue)
-            ? this.scimDisabled
-            : scimDisabled as SdkOptional<AuditLogScimDisabled>,
-        inviteSent: identical(inviteSent, sdkOmittedValue)
-            ? this.inviteSent
-            : inviteSent as SdkOptional<AuditLogInviteSent>,
-        inviteAccepted: identical(inviteAccepted, sdkOmittedValue)
-            ? this.inviteAccepted
-            : inviteAccepted as SdkOptional<AuditLogInviteAccepted>,
-        inviteDeleted: identical(inviteDeleted, sdkOmittedValue)
-            ? this.inviteDeleted
-            : inviteDeleted as SdkOptional<AuditLogInviteDeleted>,
-        ipAllowlistCreated: identical(ipAllowlistCreated, sdkOmittedValue)
-            ? this.ipAllowlistCreated
-            : ipAllowlistCreated as SdkOptional<AuditLogIpAllowlistCreated>,
-        ipAllowlistUpdated: identical(ipAllowlistUpdated, sdkOmittedValue)
-            ? this.ipAllowlistUpdated
-            : ipAllowlistUpdated as SdkOptional<AuditLogIpAllowlistUpdated>,
-        ipAllowlistDeleted: identical(ipAllowlistDeleted, sdkOmittedValue)
-            ? this.ipAllowlistDeleted
-            : ipAllowlistDeleted as SdkOptional<AuditLogIpAllowlistDeleted>,
-        ipAllowlistConfigActivated:
-            identical(ipAllowlistConfigActivated, sdkOmittedValue)
-                ? this.ipAllowlistConfigActivated
-                : ipAllowlistConfigActivated
-                    as SdkOptional<AuditLogIpAllowlistConfigActivated>,
-        ipAllowlistConfigDeactivated:
-            identical(ipAllowlistConfigDeactivated, sdkOmittedValue)
-                ? this.ipAllowlistConfigDeactivated
-                : ipAllowlistConfigDeactivated
-                    as SdkOptional<AuditLogIpAllowlistConfigDeactivated>,
-        loginSucceeded: identical(loginSucceeded, sdkOmittedValue)
-            ? this.loginSucceeded
-            : loginSucceeded as SdkOptional<Map<String, dynamic>>,
-        loginFailed: identical(loginFailed, sdkOmittedValue)
-            ? this.loginFailed
-            : loginFailed as SdkOptional<AuditLogLoginFailed>,
-        logoutSucceeded: identical(logoutSucceeded, sdkOmittedValue)
-            ? this.logoutSucceeded
-            : logoutSucceeded as SdkOptional<Map<String, dynamic>>,
-        logoutFailed: identical(logoutFailed, sdkOmittedValue)
-            ? this.logoutFailed
-            : logoutFailed as SdkOptional<AuditLogLogoutFailed>,
-        organizationUpdated: identical(organizationUpdated, sdkOmittedValue)
-            ? this.organizationUpdated
-            : organizationUpdated as SdkOptional<AuditLogOrganizationUpdated>,
-        projectCreated: identical(projectCreated, sdkOmittedValue)
-            ? this.projectCreated
-            : projectCreated as SdkOptional<AuditLogProjectCreated>,
-        projectUpdated: identical(projectUpdated, sdkOmittedValue)
-            ? this.projectUpdated
-            : projectUpdated as SdkOptional<AuditLogProjectUpdated>,
-        projectArchived: identical(projectArchived, sdkOmittedValue)
-            ? this.projectArchived
-            : projectArchived as SdkOptional<AuditLogProjectArchived>,
-        projectDeleted: identical(projectDeleted, sdkOmittedValue)
-            ? this.projectDeleted
-            : projectDeleted as SdkOptional<AuditLogProjectDeleted>,
-        rateLimitUpdated: identical(rateLimitUpdated, sdkOmittedValue)
-            ? this.rateLimitUpdated
-            : rateLimitUpdated as SdkOptional<AuditLogRateLimitUpdated>,
-        rateLimitDeleted: identical(rateLimitDeleted, sdkOmittedValue)
-            ? this.rateLimitDeleted
-            : rateLimitDeleted as SdkOptional<AuditLogRateLimitDeleted>,
-        roleCreated: identical(roleCreated, sdkOmittedValue)
-            ? this.roleCreated
-            : roleCreated as SdkOptional<AuditLogRoleCreated>,
-        roleUpdated: identical(roleUpdated, sdkOmittedValue)
-            ? this.roleUpdated
-            : roleUpdated as SdkOptional<AuditLogRoleUpdated>,
-        roleDeleted: identical(roleDeleted, sdkOmittedValue)
-            ? this.roleDeleted
-            : roleDeleted as SdkOptional<AuditLogRoleDeleted>,
-        roleAssignmentCreated: identical(roleAssignmentCreated, sdkOmittedValue)
-            ? this.roleAssignmentCreated
-            : roleAssignmentCreated
-                as SdkOptional<AuditLogRoleAssignmentCreated>,
-        roleAssignmentDeleted: identical(roleAssignmentDeleted, sdkOmittedValue)
-            ? this.roleAssignmentDeleted
-            : roleAssignmentDeleted
-                as SdkOptional<AuditLogRoleAssignmentDeleted>,
-        roleBoundToResource: identical(roleBoundToResource, sdkOmittedValue)
-            ? this.roleBoundToResource
-            : roleBoundToResource as SdkOptional<AuditLogRoleBoundToResource>,
-        roleUnboundFromResource:
-            identical(roleUnboundFromResource, sdkOmittedValue)
-                ? this.roleUnboundFromResource
-                : roleUnboundFromResource
-                    as SdkOptional<AuditLogRoleUnboundFromResource>,
-        serviceAccountCreated: identical(serviceAccountCreated, sdkOmittedValue)
-            ? this.serviceAccountCreated
-            : serviceAccountCreated
-                as SdkOptional<AuditLogServiceAccountCreated>,
-        serviceAccountUpdated: identical(serviceAccountUpdated, sdkOmittedValue)
-            ? this.serviceAccountUpdated
-            : serviceAccountUpdated
-                as SdkOptional<AuditLogServiceAccountUpdated>,
-        serviceAccountDeleted: identical(serviceAccountDeleted, sdkOmittedValue)
-            ? this.serviceAccountDeleted
-            : serviceAccountDeleted
-                as SdkOptional<AuditLogServiceAccountDeleted>,
-        workloadIdentityProviderCreated:
-            identical(workloadIdentityProviderCreated, sdkOmittedValue)
-                ? this.workloadIdentityProviderCreated
-                : workloadIdentityProviderCreated
-                    as SdkOptional<AuditLogWorkloadIdentityProviderCreated>,
-        workloadIdentityProviderUpdated:
-            identical(workloadIdentityProviderUpdated, sdkOmittedValue)
-                ? this.workloadIdentityProviderUpdated
-                : workloadIdentityProviderUpdated
-                    as SdkOptional<AuditLogWorkloadIdentityProviderUpdated>,
-        workloadIdentityProviderDeleted:
-            identical(workloadIdentityProviderDeleted, sdkOmittedValue)
-                ? this.workloadIdentityProviderDeleted
-                : workloadIdentityProviderDeleted
-                    as SdkOptional<AuditLogWorkloadIdentityProviderDeleted>,
-        workloadIdentityProviderMappingCreated: identical(
-                workloadIdentityProviderMappingCreated, sdkOmittedValue)
-            ? this.workloadIdentityProviderMappingCreated
-            : workloadIdentityProviderMappingCreated
-                as SdkOptional<AuditLogWorkloadIdentityProviderMappingCreated>,
-        workloadIdentityProviderMappingUpdated: identical(
-                workloadIdentityProviderMappingUpdated, sdkOmittedValue)
-            ? this.workloadIdentityProviderMappingUpdated
-            : workloadIdentityProviderMappingUpdated
-                as SdkOptional<AuditLogWorkloadIdentityProviderMappingUpdated>,
-        workloadIdentityProviderMappingDeleted: identical(
-                workloadIdentityProviderMappingDeleted, sdkOmittedValue)
-            ? this.workloadIdentityProviderMappingDeleted
-            : workloadIdentityProviderMappingDeleted
-                as SdkOptional<AuditLogWorkloadIdentityProviderMappingDeleted>,
-        userAdded: identical(userAdded, sdkOmittedValue)
-            ? this.userAdded
-            : userAdded as SdkOptional<AuditLogUserAdded>,
-        userUpdated: identical(userUpdated, sdkOmittedValue)
-            ? this.userUpdated
-            : userUpdated as SdkOptional<AuditLogUserUpdated>,
-        userDeleted: identical(userDeleted, sdkOmittedValue)
-            ? this.userDeleted
-            : userDeleted as SdkOptional<AuditLogUserDeleted>,
-        certificateCreated: identical(certificateCreated, sdkOmittedValue)
-            ? this.certificateCreated
-            : certificateCreated as SdkOptional<AuditLogCertificateCreated>,
-        certificateUpdated: identical(certificateUpdated, sdkOmittedValue)
-            ? this.certificateUpdated
-            : certificateUpdated as SdkOptional<AuditLogCertificateUpdated>,
-        certificateDeleted: identical(certificateDeleted, sdkOmittedValue)
-            ? this.certificateDeleted
-            : certificateDeleted as SdkOptional<AuditLogCertificateDeleted>,
-        certificatesActivated: identical(certificatesActivated, sdkOmittedValue)
-            ? this.certificatesActivated
-            : certificatesActivated
-                as SdkOptional<AuditLogCertificatesActivated>,
-        certificatesDeactivated:
-            identical(certificatesDeactivated, sdkOmittedValue)
-                ? this.certificatesDeactivated
-                : certificatesDeactivated
-                    as SdkOptional<AuditLogCertificatesDeactivated>,
-      );
+  AuditLog _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? effectiveAt = sdkOmittedValue, Object? project = sdkOmittedValue, Object? actor = sdkOmittedValue, Object? apiKeyCreated = sdkOmittedValue, Object? apiKeyUpdated = sdkOmittedValue, Object? apiKeyDeleted = sdkOmittedValue, Object? checkpointPermissionCreated = sdkOmittedValue, Object? checkpointPermissionDeleted = sdkOmittedValue, Object? externalKeyRegistered = sdkOmittedValue, Object? externalKeyRemoved = sdkOmittedValue, Object? externalStorageRegistered = sdkOmittedValue, Object? externalStorageRemoved = sdkOmittedValue, Object? groupCreated = sdkOmittedValue, Object? groupUpdated = sdkOmittedValue, Object? groupDeleted = sdkOmittedValue, Object? scimEnabled = sdkOmittedValue, Object? scimDisabled = sdkOmittedValue, Object? inviteSent = sdkOmittedValue, Object? inviteAccepted = sdkOmittedValue, Object? inviteDeleted = sdkOmittedValue, Object? ipAllowlistCreated = sdkOmittedValue, Object? ipAllowlistUpdated = sdkOmittedValue, Object? ipAllowlistDeleted = sdkOmittedValue, Object? ipAllowlistConfigActivated = sdkOmittedValue, Object? ipAllowlistConfigDeactivated = sdkOmittedValue, Object? loginSucceeded = sdkOmittedValue, Object? loginFailed = sdkOmittedValue, Object? logoutSucceeded = sdkOmittedValue, Object? logoutFailed = sdkOmittedValue, Object? organizationUpdated = sdkOmittedValue, Object? projectCreated = sdkOmittedValue, Object? projectUpdated = sdkOmittedValue, Object? projectArchived = sdkOmittedValue, Object? projectDeleted = sdkOmittedValue, Object? rateLimitUpdated = sdkOmittedValue, Object? rateLimitDeleted = sdkOmittedValue, Object? roleCreated = sdkOmittedValue, Object? roleUpdated = sdkOmittedValue, Object? roleDeleted = sdkOmittedValue, Object? roleAssignmentCreated = sdkOmittedValue, Object? roleAssignmentDeleted = sdkOmittedValue, Object? roleBoundToResource = sdkOmittedValue, Object? roleUnboundFromResource = sdkOmittedValue, Object? serviceAccountCreated = sdkOmittedValue, Object? serviceAccountUpdated = sdkOmittedValue, Object? serviceAccountDeleted = sdkOmittedValue, Object? workloadIdentityProviderCreated = sdkOmittedValue, Object? workloadIdentityProviderUpdated = sdkOmittedValue, Object? workloadIdentityProviderDeleted = sdkOmittedValue, Object? workloadIdentityProviderMappingCreated = sdkOmittedValue, Object? workloadIdentityProviderMappingUpdated = sdkOmittedValue, Object? workloadIdentityProviderMappingDeleted = sdkOmittedValue, Object? userAdded = sdkOmittedValue, Object? userUpdated = sdkOmittedValue, Object? userDeleted = sdkOmittedValue, Object? certificateCreated = sdkOmittedValue, Object? certificateUpdated = sdkOmittedValue, Object? certificateDeleted = sdkOmittedValue, Object? certificatesActivated = sdkOmittedValue, Object? certificatesDeactivated = sdkOmittedValue}) => AuditLog(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AuditLogEventType,
+    effectiveAt: identical(effectiveAt, sdkOmittedValue) ? this.effectiveAt : effectiveAt as int,
+    project: identical(project, sdkOmittedValue) ? this.project : project as SdkOptional<AuditLogProject>,
+    actor: identical(actor, sdkOmittedValue) ? this.actor : actor as SdkOptional<AuditLogActor?>,
+    apiKeyCreated: identical(apiKeyCreated, sdkOmittedValue) ? this.apiKeyCreated : apiKeyCreated as SdkOptional<AuditLogApiKeyCreated>,
+    apiKeyUpdated: identical(apiKeyUpdated, sdkOmittedValue) ? this.apiKeyUpdated : apiKeyUpdated as SdkOptional<AuditLogApiKeyUpdated>,
+    apiKeyDeleted: identical(apiKeyDeleted, sdkOmittedValue) ? this.apiKeyDeleted : apiKeyDeleted as SdkOptional<AuditLogApiKeyDeleted>,
+    checkpointPermissionCreated: identical(checkpointPermissionCreated, sdkOmittedValue) ? this.checkpointPermissionCreated : checkpointPermissionCreated as SdkOptional<AuditLogCheckpointPermissionCreated>,
+    checkpointPermissionDeleted: identical(checkpointPermissionDeleted, sdkOmittedValue) ? this.checkpointPermissionDeleted : checkpointPermissionDeleted as SdkOptional<AuditLogCheckpointPermissionDeleted>,
+    externalKeyRegistered: identical(externalKeyRegistered, sdkOmittedValue) ? this.externalKeyRegistered : externalKeyRegistered as SdkOptional<AuditLogExternalKeyRegistered>,
+    externalKeyRemoved: identical(externalKeyRemoved, sdkOmittedValue) ? this.externalKeyRemoved : externalKeyRemoved as SdkOptional<AuditLogExternalKeyRemoved>,
+    externalStorageRegistered: identical(externalStorageRegistered, sdkOmittedValue) ? this.externalStorageRegistered : externalStorageRegistered as SdkOptional<AuditLogExternalStorageRegistered>,
+    externalStorageRemoved: identical(externalStorageRemoved, sdkOmittedValue) ? this.externalStorageRemoved : externalStorageRemoved as SdkOptional<AuditLogExternalStorageRemoved>,
+    groupCreated: identical(groupCreated, sdkOmittedValue) ? this.groupCreated : groupCreated as SdkOptional<AuditLogGroupCreated>,
+    groupUpdated: identical(groupUpdated, sdkOmittedValue) ? this.groupUpdated : groupUpdated as SdkOptional<AuditLogGroupUpdated>,
+    groupDeleted: identical(groupDeleted, sdkOmittedValue) ? this.groupDeleted : groupDeleted as SdkOptional<AuditLogGroupDeleted>,
+    scimEnabled: identical(scimEnabled, sdkOmittedValue) ? this.scimEnabled : scimEnabled as SdkOptional<AuditLogScimEnabled>,
+    scimDisabled: identical(scimDisabled, sdkOmittedValue) ? this.scimDisabled : scimDisabled as SdkOptional<AuditLogScimDisabled>,
+    inviteSent: identical(inviteSent, sdkOmittedValue) ? this.inviteSent : inviteSent as SdkOptional<AuditLogInviteSent>,
+    inviteAccepted: identical(inviteAccepted, sdkOmittedValue) ? this.inviteAccepted : inviteAccepted as SdkOptional<AuditLogInviteAccepted>,
+    inviteDeleted: identical(inviteDeleted, sdkOmittedValue) ? this.inviteDeleted : inviteDeleted as SdkOptional<AuditLogInviteDeleted>,
+    ipAllowlistCreated: identical(ipAllowlistCreated, sdkOmittedValue) ? this.ipAllowlistCreated : ipAllowlistCreated as SdkOptional<AuditLogIpAllowlistCreated>,
+    ipAllowlistUpdated: identical(ipAllowlistUpdated, sdkOmittedValue) ? this.ipAllowlistUpdated : ipAllowlistUpdated as SdkOptional<AuditLogIpAllowlistUpdated>,
+    ipAllowlistDeleted: identical(ipAllowlistDeleted, sdkOmittedValue) ? this.ipAllowlistDeleted : ipAllowlistDeleted as SdkOptional<AuditLogIpAllowlistDeleted>,
+    ipAllowlistConfigActivated: identical(ipAllowlistConfigActivated, sdkOmittedValue) ? this.ipAllowlistConfigActivated : ipAllowlistConfigActivated as SdkOptional<AuditLogIpAllowlistConfigActivated>,
+    ipAllowlistConfigDeactivated: identical(ipAllowlistConfigDeactivated, sdkOmittedValue) ? this.ipAllowlistConfigDeactivated : ipAllowlistConfigDeactivated as SdkOptional<AuditLogIpAllowlistConfigDeactivated>,
+    loginSucceeded: identical(loginSucceeded, sdkOmittedValue) ? this.loginSucceeded : loginSucceeded as SdkOptional<Map<String, dynamic>>,
+    loginFailed: identical(loginFailed, sdkOmittedValue) ? this.loginFailed : loginFailed as SdkOptional<AuditLogLoginFailed>,
+    logoutSucceeded: identical(logoutSucceeded, sdkOmittedValue) ? this.logoutSucceeded : logoutSucceeded as SdkOptional<Map<String, dynamic>>,
+    logoutFailed: identical(logoutFailed, sdkOmittedValue) ? this.logoutFailed : logoutFailed as SdkOptional<AuditLogLogoutFailed>,
+    organizationUpdated: identical(organizationUpdated, sdkOmittedValue) ? this.organizationUpdated : organizationUpdated as SdkOptional<AuditLogOrganizationUpdated>,
+    projectCreated: identical(projectCreated, sdkOmittedValue) ? this.projectCreated : projectCreated as SdkOptional<AuditLogProjectCreated>,
+    projectUpdated: identical(projectUpdated, sdkOmittedValue) ? this.projectUpdated : projectUpdated as SdkOptional<AuditLogProjectUpdated>,
+    projectArchived: identical(projectArchived, sdkOmittedValue) ? this.projectArchived : projectArchived as SdkOptional<AuditLogProjectArchived>,
+    projectDeleted: identical(projectDeleted, sdkOmittedValue) ? this.projectDeleted : projectDeleted as SdkOptional<AuditLogProjectDeleted>,
+    rateLimitUpdated: identical(rateLimitUpdated, sdkOmittedValue) ? this.rateLimitUpdated : rateLimitUpdated as SdkOptional<AuditLogRateLimitUpdated>,
+    rateLimitDeleted: identical(rateLimitDeleted, sdkOmittedValue) ? this.rateLimitDeleted : rateLimitDeleted as SdkOptional<AuditLogRateLimitDeleted>,
+    roleCreated: identical(roleCreated, sdkOmittedValue) ? this.roleCreated : roleCreated as SdkOptional<AuditLogRoleCreated>,
+    roleUpdated: identical(roleUpdated, sdkOmittedValue) ? this.roleUpdated : roleUpdated as SdkOptional<AuditLogRoleUpdated>,
+    roleDeleted: identical(roleDeleted, sdkOmittedValue) ? this.roleDeleted : roleDeleted as SdkOptional<AuditLogRoleDeleted>,
+    roleAssignmentCreated: identical(roleAssignmentCreated, sdkOmittedValue) ? this.roleAssignmentCreated : roleAssignmentCreated as SdkOptional<AuditLogRoleAssignmentCreated>,
+    roleAssignmentDeleted: identical(roleAssignmentDeleted, sdkOmittedValue) ? this.roleAssignmentDeleted : roleAssignmentDeleted as SdkOptional<AuditLogRoleAssignmentDeleted>,
+    roleBoundToResource: identical(roleBoundToResource, sdkOmittedValue) ? this.roleBoundToResource : roleBoundToResource as SdkOptional<AuditLogRoleBoundToResource>,
+    roleUnboundFromResource: identical(roleUnboundFromResource, sdkOmittedValue) ? this.roleUnboundFromResource : roleUnboundFromResource as SdkOptional<AuditLogRoleUnboundFromResource>,
+    serviceAccountCreated: identical(serviceAccountCreated, sdkOmittedValue) ? this.serviceAccountCreated : serviceAccountCreated as SdkOptional<AuditLogServiceAccountCreated>,
+    serviceAccountUpdated: identical(serviceAccountUpdated, sdkOmittedValue) ? this.serviceAccountUpdated : serviceAccountUpdated as SdkOptional<AuditLogServiceAccountUpdated>,
+    serviceAccountDeleted: identical(serviceAccountDeleted, sdkOmittedValue) ? this.serviceAccountDeleted : serviceAccountDeleted as SdkOptional<AuditLogServiceAccountDeleted>,
+    workloadIdentityProviderCreated: identical(workloadIdentityProviderCreated, sdkOmittedValue) ? this.workloadIdentityProviderCreated : workloadIdentityProviderCreated as SdkOptional<AuditLogWorkloadIdentityProviderCreated>,
+    workloadIdentityProviderUpdated: identical(workloadIdentityProviderUpdated, sdkOmittedValue) ? this.workloadIdentityProviderUpdated : workloadIdentityProviderUpdated as SdkOptional<AuditLogWorkloadIdentityProviderUpdated>,
+    workloadIdentityProviderDeleted: identical(workloadIdentityProviderDeleted, sdkOmittedValue) ? this.workloadIdentityProviderDeleted : workloadIdentityProviderDeleted as SdkOptional<AuditLogWorkloadIdentityProviderDeleted>,
+    workloadIdentityProviderMappingCreated: identical(workloadIdentityProviderMappingCreated, sdkOmittedValue) ? this.workloadIdentityProviderMappingCreated : workloadIdentityProviderMappingCreated as SdkOptional<AuditLogWorkloadIdentityProviderMappingCreated>,
+    workloadIdentityProviderMappingUpdated: identical(workloadIdentityProviderMappingUpdated, sdkOmittedValue) ? this.workloadIdentityProviderMappingUpdated : workloadIdentityProviderMappingUpdated as SdkOptional<AuditLogWorkloadIdentityProviderMappingUpdated>,
+    workloadIdentityProviderMappingDeleted: identical(workloadIdentityProviderMappingDeleted, sdkOmittedValue) ? this.workloadIdentityProviderMappingDeleted : workloadIdentityProviderMappingDeleted as SdkOptional<AuditLogWorkloadIdentityProviderMappingDeleted>,
+    userAdded: identical(userAdded, sdkOmittedValue) ? this.userAdded : userAdded as SdkOptional<AuditLogUserAdded>,
+    userUpdated: identical(userUpdated, sdkOmittedValue) ? this.userUpdated : userUpdated as SdkOptional<AuditLogUserUpdated>,
+    userDeleted: identical(userDeleted, sdkOmittedValue) ? this.userDeleted : userDeleted as SdkOptional<AuditLogUserDeleted>,
+    certificateCreated: identical(certificateCreated, sdkOmittedValue) ? this.certificateCreated : certificateCreated as SdkOptional<AuditLogCertificateCreated>,
+    certificateUpdated: identical(certificateUpdated, sdkOmittedValue) ? this.certificateUpdated : certificateUpdated as SdkOptional<AuditLogCertificateUpdated>,
+    certificateDeleted: identical(certificateDeleted, sdkOmittedValue) ? this.certificateDeleted : certificateDeleted as SdkOptional<AuditLogCertificateDeleted>,
+    certificatesActivated: identical(certificatesActivated, sdkOmittedValue) ? this.certificatesActivated : certificatesActivated as SdkOptional<AuditLogCertificatesActivated>,
+    certificatesDeactivated: identical(certificatesDeactivated, sdkOmittedValue) ? this.certificatesDeactivated : certificatesDeactivated as SdkOptional<AuditLogCertificatesDeactivated>,
+  );
 
   factory AuditLog.fromJson(Map<String, dynamic> json) => AuditLog(
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? AuditLogEventType.fromJson(json['type'] as String)
-            : null)!,
-        effectiveAt: ((json['effective_at'] as num?)?.toInt())!,
-        project: json['project'] != null
-            ? SdkPresent((json['project'] != null
-                ? AuditLogProject.fromJson(
-                    json['project'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        actor: json.containsKey('actor')
-            ? SdkPresent(json['actor'] != null
-                ? AuditLogActor.fromJson(json['actor'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        apiKeyCreated: json['api_key.created'] != null
-            ? SdkPresent((json['api_key.created'] != null
-                ? AuditLogApiKeyCreated.fromJson(
-                    json['api_key.created'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        apiKeyUpdated: json['api_key.updated'] != null
-            ? SdkPresent((json['api_key.updated'] != null
-                ? AuditLogApiKeyUpdated.fromJson(
-                    json['api_key.updated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        apiKeyDeleted: json['api_key.deleted'] != null
-            ? SdkPresent((json['api_key.deleted'] != null
-                ? AuditLogApiKeyDeleted.fromJson(
-                    json['api_key.deleted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        checkpointPermissionCreated:
-            json['checkpoint.permission.created'] != null
-                ? SdkPresent((json['checkpoint.permission.created'] != null
-                    ? AuditLogCheckpointPermissionCreated.fromJson(
-                        json['checkpoint.permission.created']
-                            as Map<String, dynamic>)
-                    : null)!)
-                : const SdkOmitted(),
-        checkpointPermissionDeleted:
-            json['checkpoint.permission.deleted'] != null
-                ? SdkPresent((json['checkpoint.permission.deleted'] != null
-                    ? AuditLogCheckpointPermissionDeleted.fromJson(
-                        json['checkpoint.permission.deleted']
-                            as Map<String, dynamic>)
-                    : null)!)
-                : const SdkOmitted(),
-        externalKeyRegistered: json['external_key.registered'] != null
-            ? SdkPresent((json['external_key.registered'] != null
-                ? AuditLogExternalKeyRegistered.fromJson(
-                    json['external_key.registered'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        externalKeyRemoved: json['external_key.removed'] != null
-            ? SdkPresent((json['external_key.removed'] != null
-                ? AuditLogExternalKeyRemoved.fromJson(
-                    json['external_key.removed'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        externalStorageRegistered: json['external_storage.registered'] != null
-            ? SdkPresent((json['external_storage.registered'] != null
-                ? AuditLogExternalStorageRegistered.fromJson(
-                    json['external_storage.registered'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        externalStorageRemoved: json['external_storage.removed'] != null
-            ? SdkPresent((json['external_storage.removed'] != null
-                ? AuditLogExternalStorageRemoved.fromJson(
-                    json['external_storage.removed'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        groupCreated: json['group.created'] != null
-            ? SdkPresent((json['group.created'] != null
-                ? AuditLogGroupCreated.fromJson(
-                    json['group.created'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        groupUpdated: json['group.updated'] != null
-            ? SdkPresent((json['group.updated'] != null
-                ? AuditLogGroupUpdated.fromJson(
-                    json['group.updated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        groupDeleted: json['group.deleted'] != null
-            ? SdkPresent((json['group.deleted'] != null
-                ? AuditLogGroupDeleted.fromJson(
-                    json['group.deleted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        scimEnabled: json['scim.enabled'] != null
-            ? SdkPresent((json['scim.enabled'] != null
-                ? AuditLogScimEnabled.fromJson(
-                    json['scim.enabled'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        scimDisabled: json['scim.disabled'] != null
-            ? SdkPresent((json['scim.disabled'] != null
-                ? AuditLogScimDisabled.fromJson(
-                    json['scim.disabled'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        inviteSent: json['invite.sent'] != null
-            ? SdkPresent((json['invite.sent'] != null
-                ? AuditLogInviteSent.fromJson(
-                    json['invite.sent'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        inviteAccepted: json['invite.accepted'] != null
-            ? SdkPresent((json['invite.accepted'] != null
-                ? AuditLogInviteAccepted.fromJson(
-                    json['invite.accepted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        inviteDeleted: json['invite.deleted'] != null
-            ? SdkPresent((json['invite.deleted'] != null
-                ? AuditLogInviteDeleted.fromJson(
-                    json['invite.deleted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        ipAllowlistCreated: json['ip_allowlist.created'] != null
-            ? SdkPresent((json['ip_allowlist.created'] != null
-                ? AuditLogIpAllowlistCreated.fromJson(
-                    json['ip_allowlist.created'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        ipAllowlistUpdated: json['ip_allowlist.updated'] != null
-            ? SdkPresent((json['ip_allowlist.updated'] != null
-                ? AuditLogIpAllowlistUpdated.fromJson(
-                    json['ip_allowlist.updated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        ipAllowlistDeleted: json['ip_allowlist.deleted'] != null
-            ? SdkPresent((json['ip_allowlist.deleted'] != null
-                ? AuditLogIpAllowlistDeleted.fromJson(
-                    json['ip_allowlist.deleted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        ipAllowlistConfigActivated:
-            json['ip_allowlist.config.activated'] != null
-                ? SdkPresent((json['ip_allowlist.config.activated'] != null
-                    ? AuditLogIpAllowlistConfigActivated.fromJson(
-                        json['ip_allowlist.config.activated']
-                            as Map<String, dynamic>)
-                    : null)!)
-                : const SdkOmitted(),
-        ipAllowlistConfigDeactivated:
-            json['ip_allowlist.config.deactivated'] != null
-                ? SdkPresent((json['ip_allowlist.config.deactivated'] != null
-                    ? AuditLogIpAllowlistConfigDeactivated.fromJson(
-                        json['ip_allowlist.config.deactivated']
-                            as Map<String, dynamic>)
-                    : null)!)
-                : const SdkOmitted(),
-        loginSucceeded: json['login.succeeded'] != null
-            ? SdkPresent((json['login.succeeded'] == null
-                ? null
-                : json['login.succeeded'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        loginFailed: json['login.failed'] != null
-            ? SdkPresent((json['login.failed'] != null
-                ? AuditLogLoginFailed.fromJson(
-                    json['login.failed'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        logoutSucceeded: json['logout.succeeded'] != null
-            ? SdkPresent((json['logout.succeeded'] == null
-                ? null
-                : json['logout.succeeded'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        logoutFailed: json['logout.failed'] != null
-            ? SdkPresent((json['logout.failed'] != null
-                ? AuditLogLogoutFailed.fromJson(
-                    json['logout.failed'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        organizationUpdated: json['organization.updated'] != null
-            ? SdkPresent((json['organization.updated'] != null
-                ? AuditLogOrganizationUpdated.fromJson(
-                    json['organization.updated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        projectCreated: json['project.created'] != null
-            ? SdkPresent((json['project.created'] != null
-                ? AuditLogProjectCreated.fromJson(
-                    json['project.created'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        projectUpdated: json['project.updated'] != null
-            ? SdkPresent((json['project.updated'] != null
-                ? AuditLogProjectUpdated.fromJson(
-                    json['project.updated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        projectArchived: json['project.archived'] != null
-            ? SdkPresent((json['project.archived'] != null
-                ? AuditLogProjectArchived.fromJson(
-                    json['project.archived'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        projectDeleted: json['project.deleted'] != null
-            ? SdkPresent((json['project.deleted'] != null
-                ? AuditLogProjectDeleted.fromJson(
-                    json['project.deleted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        rateLimitUpdated: json['rate_limit.updated'] != null
-            ? SdkPresent((json['rate_limit.updated'] != null
-                ? AuditLogRateLimitUpdated.fromJson(
-                    json['rate_limit.updated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        rateLimitDeleted: json['rate_limit.deleted'] != null
-            ? SdkPresent((json['rate_limit.deleted'] != null
-                ? AuditLogRateLimitDeleted.fromJson(
-                    json['rate_limit.deleted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        roleCreated: json['role.created'] != null
-            ? SdkPresent((json['role.created'] != null
-                ? AuditLogRoleCreated.fromJson(
-                    json['role.created'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        roleUpdated: json['role.updated'] != null
-            ? SdkPresent((json['role.updated'] != null
-                ? AuditLogRoleUpdated.fromJson(
-                    json['role.updated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        roleDeleted: json['role.deleted'] != null
-            ? SdkPresent((json['role.deleted'] != null
-                ? AuditLogRoleDeleted.fromJson(
-                    json['role.deleted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        roleAssignmentCreated: json['role.assignment.created'] != null
-            ? SdkPresent((json['role.assignment.created'] != null
-                ? AuditLogRoleAssignmentCreated.fromJson(
-                    json['role.assignment.created'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        roleAssignmentDeleted: json['role.assignment.deleted'] != null
-            ? SdkPresent((json['role.assignment.deleted'] != null
-                ? AuditLogRoleAssignmentDeleted.fromJson(
-                    json['role.assignment.deleted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        roleBoundToResource: json['role.bound_to_resource'] != null
-            ? SdkPresent((json['role.bound_to_resource'] != null
-                ? AuditLogRoleBoundToResource.fromJson(
-                    json['role.bound_to_resource'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        roleUnboundFromResource: json['role.unbound_from_resource'] != null
-            ? SdkPresent((json['role.unbound_from_resource'] != null
-                ? AuditLogRoleUnboundFromResource.fromJson(
-                    json['role.unbound_from_resource'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        serviceAccountCreated: json['service_account.created'] != null
-            ? SdkPresent((json['service_account.created'] != null
-                ? AuditLogServiceAccountCreated.fromJson(
-                    json['service_account.created'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        serviceAccountUpdated: json['service_account.updated'] != null
-            ? SdkPresent((json['service_account.updated'] != null
-                ? AuditLogServiceAccountUpdated.fromJson(
-                    json['service_account.updated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        serviceAccountDeleted: json['service_account.deleted'] != null
-            ? SdkPresent((json['service_account.deleted'] != null
-                ? AuditLogServiceAccountDeleted.fromJson(
-                    json['service_account.deleted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        workloadIdentityProviderCreated:
-            json['workload_identity_provider.created'] != null
-                ? SdkPresent((json['workload_identity_provider.created'] != null
-                    ? AuditLogWorkloadIdentityProviderCreated.fromJson(
-                        json['workload_identity_provider.created']
-                            as Map<String, dynamic>)
-                    : null)!)
-                : const SdkOmitted(),
-        workloadIdentityProviderUpdated:
-            json['workload_identity_provider.updated'] != null
-                ? SdkPresent((json['workload_identity_provider.updated'] != null
-                    ? AuditLogWorkloadIdentityProviderUpdated.fromJson(
-                        json['workload_identity_provider.updated']
-                            as Map<String, dynamic>)
-                    : null)!)
-                : const SdkOmitted(),
-        workloadIdentityProviderDeleted:
-            json['workload_identity_provider.deleted'] != null
-                ? SdkPresent((json['workload_identity_provider.deleted'] != null
-                    ? AuditLogWorkloadIdentityProviderDeleted.fromJson(
-                        json['workload_identity_provider.deleted']
-                            as Map<String, dynamic>)
-                    : null)!)
-                : const SdkOmitted(),
-        workloadIdentityProviderMappingCreated: json[
-                    'workload_identity_provider_mapping.created'] !=
-                null
-            ? SdkPresent(
-                (json['workload_identity_provider_mapping.created'] != null
-                    ? AuditLogWorkloadIdentityProviderMappingCreated.fromJson(
-                        json['workload_identity_provider_mapping.created']
-                            as Map<String, dynamic>)
-                    : null)!)
-            : const SdkOmitted(),
-        workloadIdentityProviderMappingUpdated: json[
-                    'workload_identity_provider_mapping.updated'] !=
-                null
-            ? SdkPresent(
-                (json['workload_identity_provider_mapping.updated'] != null
-                    ? AuditLogWorkloadIdentityProviderMappingUpdated.fromJson(
-                        json['workload_identity_provider_mapping.updated']
-                            as Map<String, dynamic>)
-                    : null)!)
-            : const SdkOmitted(),
-        workloadIdentityProviderMappingDeleted: json[
-                    'workload_identity_provider_mapping.deleted'] !=
-                null
-            ? SdkPresent(
-                (json['workload_identity_provider_mapping.deleted'] != null
-                    ? AuditLogWorkloadIdentityProviderMappingDeleted.fromJson(
-                        json['workload_identity_provider_mapping.deleted']
-                            as Map<String, dynamic>)
-                    : null)!)
-            : const SdkOmitted(),
-        userAdded: json['user.added'] != null
-            ? SdkPresent((json['user.added'] != null
-                ? AuditLogUserAdded.fromJson(
-                    json['user.added'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        userUpdated: json['user.updated'] != null
-            ? SdkPresent((json['user.updated'] != null
-                ? AuditLogUserUpdated.fromJson(
-                    json['user.updated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        userDeleted: json['user.deleted'] != null
-            ? SdkPresent((json['user.deleted'] != null
-                ? AuditLogUserDeleted.fromJson(
-                    json['user.deleted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        certificateCreated: json['certificate.created'] != null
-            ? SdkPresent((json['certificate.created'] != null
-                ? AuditLogCertificateCreated.fromJson(
-                    json['certificate.created'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        certificateUpdated: json['certificate.updated'] != null
-            ? SdkPresent((json['certificate.updated'] != null
-                ? AuditLogCertificateUpdated.fromJson(
-                    json['certificate.updated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        certificateDeleted: json['certificate.deleted'] != null
-            ? SdkPresent((json['certificate.deleted'] != null
-                ? AuditLogCertificateDeleted.fromJson(
-                    json['certificate.deleted'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        certificatesActivated: json['certificates.activated'] != null
-            ? SdkPresent((json['certificates.activated'] != null
-                ? AuditLogCertificatesActivated.fromJson(
-                    json['certificates.activated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        certificatesDeactivated: json['certificates.deactivated'] != null
-            ? SdkPresent((json['certificates.deactivated'] != null
-                ? AuditLogCertificatesDeactivated.fromJson(
-                    json['certificates.deactivated'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? AuditLogEventType.fromJson(json['type'] as String) : null)!,
+    effectiveAt: ((json['effective_at'] as num?)?.toInt())!,
+    project: json['project'] != null ? SdkPresent((json['project'] != null ? AuditLogProject.fromJson(json['project'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    actor: json.containsKey('actor') ? SdkPresent(json['actor'] != null ? AuditLogActor.fromJson(json['actor'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    apiKeyCreated: json['api_key.created'] != null ? SdkPresent((json['api_key.created'] != null ? AuditLogApiKeyCreated.fromJson(json['api_key.created'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    apiKeyUpdated: json['api_key.updated'] != null ? SdkPresent((json['api_key.updated'] != null ? AuditLogApiKeyUpdated.fromJson(json['api_key.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    apiKeyDeleted: json['api_key.deleted'] != null ? SdkPresent((json['api_key.deleted'] != null ? AuditLogApiKeyDeleted.fromJson(json['api_key.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    checkpointPermissionCreated: json['checkpoint.permission.created'] != null ? SdkPresent((json['checkpoint.permission.created'] != null ? AuditLogCheckpointPermissionCreated.fromJson(json['checkpoint.permission.created'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    checkpointPermissionDeleted: json['checkpoint.permission.deleted'] != null ? SdkPresent((json['checkpoint.permission.deleted'] != null ? AuditLogCheckpointPermissionDeleted.fromJson(json['checkpoint.permission.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    externalKeyRegistered: json['external_key.registered'] != null ? SdkPresent((json['external_key.registered'] != null ? AuditLogExternalKeyRegistered.fromJson(json['external_key.registered'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    externalKeyRemoved: json['external_key.removed'] != null ? SdkPresent((json['external_key.removed'] != null ? AuditLogExternalKeyRemoved.fromJson(json['external_key.removed'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    externalStorageRegistered: json['external_storage.registered'] != null ? SdkPresent((json['external_storage.registered'] != null ? AuditLogExternalStorageRegistered.fromJson(json['external_storage.registered'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    externalStorageRemoved: json['external_storage.removed'] != null ? SdkPresent((json['external_storage.removed'] != null ? AuditLogExternalStorageRemoved.fromJson(json['external_storage.removed'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    groupCreated: json['group.created'] != null ? SdkPresent((json['group.created'] != null ? AuditLogGroupCreated.fromJson(json['group.created'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    groupUpdated: json['group.updated'] != null ? SdkPresent((json['group.updated'] != null ? AuditLogGroupUpdated.fromJson(json['group.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    groupDeleted: json['group.deleted'] != null ? SdkPresent((json['group.deleted'] != null ? AuditLogGroupDeleted.fromJson(json['group.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    scimEnabled: json['scim.enabled'] != null ? SdkPresent((json['scim.enabled'] != null ? AuditLogScimEnabled.fromJson(json['scim.enabled'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    scimDisabled: json['scim.disabled'] != null ? SdkPresent((json['scim.disabled'] != null ? AuditLogScimDisabled.fromJson(json['scim.disabled'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    inviteSent: json['invite.sent'] != null ? SdkPresent((json['invite.sent'] != null ? AuditLogInviteSent.fromJson(json['invite.sent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    inviteAccepted: json['invite.accepted'] != null ? SdkPresent((json['invite.accepted'] != null ? AuditLogInviteAccepted.fromJson(json['invite.accepted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    inviteDeleted: json['invite.deleted'] != null ? SdkPresent((json['invite.deleted'] != null ? AuditLogInviteDeleted.fromJson(json['invite.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    ipAllowlistCreated: json['ip_allowlist.created'] != null ? SdkPresent((json['ip_allowlist.created'] != null ? AuditLogIpAllowlistCreated.fromJson(json['ip_allowlist.created'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    ipAllowlistUpdated: json['ip_allowlist.updated'] != null ? SdkPresent((json['ip_allowlist.updated'] != null ? AuditLogIpAllowlistUpdated.fromJson(json['ip_allowlist.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    ipAllowlistDeleted: json['ip_allowlist.deleted'] != null ? SdkPresent((json['ip_allowlist.deleted'] != null ? AuditLogIpAllowlistDeleted.fromJson(json['ip_allowlist.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    ipAllowlistConfigActivated: json['ip_allowlist.config.activated'] != null ? SdkPresent((json['ip_allowlist.config.activated'] != null ? AuditLogIpAllowlistConfigActivated.fromJson(json['ip_allowlist.config.activated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    ipAllowlistConfigDeactivated: json['ip_allowlist.config.deactivated'] != null ? SdkPresent((json['ip_allowlist.config.deactivated'] != null ? AuditLogIpAllowlistConfigDeactivated.fromJson(json['ip_allowlist.config.deactivated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    loginSucceeded: json['login.succeeded'] != null ? SdkPresent((json['login.succeeded'] == null ? null : json['login.succeeded'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    loginFailed: json['login.failed'] != null ? SdkPresent((json['login.failed'] != null ? AuditLogLoginFailed.fromJson(json['login.failed'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    logoutSucceeded: json['logout.succeeded'] != null ? SdkPresent((json['logout.succeeded'] == null ? null : json['logout.succeeded'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    logoutFailed: json['logout.failed'] != null ? SdkPresent((json['logout.failed'] != null ? AuditLogLogoutFailed.fromJson(json['logout.failed'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    organizationUpdated: json['organization.updated'] != null ? SdkPresent((json['organization.updated'] != null ? AuditLogOrganizationUpdated.fromJson(json['organization.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    projectCreated: json['project.created'] != null ? SdkPresent((json['project.created'] != null ? AuditLogProjectCreated.fromJson(json['project.created'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    projectUpdated: json['project.updated'] != null ? SdkPresent((json['project.updated'] != null ? AuditLogProjectUpdated.fromJson(json['project.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    projectArchived: json['project.archived'] != null ? SdkPresent((json['project.archived'] != null ? AuditLogProjectArchived.fromJson(json['project.archived'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    projectDeleted: json['project.deleted'] != null ? SdkPresent((json['project.deleted'] != null ? AuditLogProjectDeleted.fromJson(json['project.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    rateLimitUpdated: json['rate_limit.updated'] != null ? SdkPresent((json['rate_limit.updated'] != null ? AuditLogRateLimitUpdated.fromJson(json['rate_limit.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    rateLimitDeleted: json['rate_limit.deleted'] != null ? SdkPresent((json['rate_limit.deleted'] != null ? AuditLogRateLimitDeleted.fromJson(json['rate_limit.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    roleCreated: json['role.created'] != null ? SdkPresent((json['role.created'] != null ? AuditLogRoleCreated.fromJson(json['role.created'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    roleUpdated: json['role.updated'] != null ? SdkPresent((json['role.updated'] != null ? AuditLogRoleUpdated.fromJson(json['role.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    roleDeleted: json['role.deleted'] != null ? SdkPresent((json['role.deleted'] != null ? AuditLogRoleDeleted.fromJson(json['role.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    roleAssignmentCreated: json['role.assignment.created'] != null ? SdkPresent((json['role.assignment.created'] != null ? AuditLogRoleAssignmentCreated.fromJson(json['role.assignment.created'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    roleAssignmentDeleted: json['role.assignment.deleted'] != null ? SdkPresent((json['role.assignment.deleted'] != null ? AuditLogRoleAssignmentDeleted.fromJson(json['role.assignment.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    roleBoundToResource: json['role.bound_to_resource'] != null ? SdkPresent((json['role.bound_to_resource'] != null ? AuditLogRoleBoundToResource.fromJson(json['role.bound_to_resource'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    roleUnboundFromResource: json['role.unbound_from_resource'] != null ? SdkPresent((json['role.unbound_from_resource'] != null ? AuditLogRoleUnboundFromResource.fromJson(json['role.unbound_from_resource'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    serviceAccountCreated: json['service_account.created'] != null ? SdkPresent((json['service_account.created'] != null ? AuditLogServiceAccountCreated.fromJson(json['service_account.created'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    serviceAccountUpdated: json['service_account.updated'] != null ? SdkPresent((json['service_account.updated'] != null ? AuditLogServiceAccountUpdated.fromJson(json['service_account.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    serviceAccountDeleted: json['service_account.deleted'] != null ? SdkPresent((json['service_account.deleted'] != null ? AuditLogServiceAccountDeleted.fromJson(json['service_account.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    workloadIdentityProviderCreated: json['workload_identity_provider.created'] != null ? SdkPresent((json['workload_identity_provider.created'] != null ? AuditLogWorkloadIdentityProviderCreated.fromJson(json['workload_identity_provider.created'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    workloadIdentityProviderUpdated: json['workload_identity_provider.updated'] != null ? SdkPresent((json['workload_identity_provider.updated'] != null ? AuditLogWorkloadIdentityProviderUpdated.fromJson(json['workload_identity_provider.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    workloadIdentityProviderDeleted: json['workload_identity_provider.deleted'] != null ? SdkPresent((json['workload_identity_provider.deleted'] != null ? AuditLogWorkloadIdentityProviderDeleted.fromJson(json['workload_identity_provider.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    workloadIdentityProviderMappingCreated: json['workload_identity_provider_mapping.created'] != null ? SdkPresent((json['workload_identity_provider_mapping.created'] != null ? AuditLogWorkloadIdentityProviderMappingCreated.fromJson(json['workload_identity_provider_mapping.created'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    workloadIdentityProviderMappingUpdated: json['workload_identity_provider_mapping.updated'] != null ? SdkPresent((json['workload_identity_provider_mapping.updated'] != null ? AuditLogWorkloadIdentityProviderMappingUpdated.fromJson(json['workload_identity_provider_mapping.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    workloadIdentityProviderMappingDeleted: json['workload_identity_provider_mapping.deleted'] != null ? SdkPresent((json['workload_identity_provider_mapping.deleted'] != null ? AuditLogWorkloadIdentityProviderMappingDeleted.fromJson(json['workload_identity_provider_mapping.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    userAdded: json['user.added'] != null ? SdkPresent((json['user.added'] != null ? AuditLogUserAdded.fromJson(json['user.added'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    userUpdated: json['user.updated'] != null ? SdkPresent((json['user.updated'] != null ? AuditLogUserUpdated.fromJson(json['user.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    userDeleted: json['user.deleted'] != null ? SdkPresent((json['user.deleted'] != null ? AuditLogUserDeleted.fromJson(json['user.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    certificateCreated: json['certificate.created'] != null ? SdkPresent((json['certificate.created'] != null ? AuditLogCertificateCreated.fromJson(json['certificate.created'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    certificateUpdated: json['certificate.updated'] != null ? SdkPresent((json['certificate.updated'] != null ? AuditLogCertificateUpdated.fromJson(json['certificate.updated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    certificateDeleted: json['certificate.deleted'] != null ? SdkPresent((json['certificate.deleted'] != null ? AuditLogCertificateDeleted.fromJson(json['certificate.deleted'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    certificatesActivated: json['certificates.activated'] != null ? SdkPresent((json['certificates.activated'] != null ? AuditLogCertificatesActivated.fromJson(json['certificates.activated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    certificatesDeactivated: json['certificates.deactivated'] != null ? SdkPresent((json['certificates.deactivated'] != null ? AuditLogCertificatesDeactivated.fromJson(json['certificates.deactivated'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'type': type_.toJson(),
-        'effective_at': effectiveAt,
-        ...switch (project) {
-          SdkPresent<AuditLogProject>(value: final value) => {
-              'project': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (actor) {
-          SdkPresent<AuditLogActor?>(value: final value) => {
-              'actor': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (apiKeyCreated) {
-          SdkPresent<AuditLogApiKeyCreated>(value: final value) => {
-              'api_key.created': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (apiKeyUpdated) {
-          SdkPresent<AuditLogApiKeyUpdated>(value: final value) => {
-              'api_key.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (apiKeyDeleted) {
-          SdkPresent<AuditLogApiKeyDeleted>(value: final value) => {
-              'api_key.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (checkpointPermissionCreated) {
-          SdkPresent<AuditLogCheckpointPermissionCreated>(value: final value) =>
-            {
-              'checkpoint.permission.created': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (checkpointPermissionDeleted) {
-          SdkPresent<AuditLogCheckpointPermissionDeleted>(value: final value) =>
-            {
-              'checkpoint.permission.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalKeyRegistered) {
-          SdkPresent<AuditLogExternalKeyRegistered>(value: final value) => {
-              'external_key.registered': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalKeyRemoved) {
-          SdkPresent<AuditLogExternalKeyRemoved>(value: final value) => {
-              'external_key.removed': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalStorageRegistered) {
-          SdkPresent<AuditLogExternalStorageRegistered>(value: final value) => {
-              'external_storage.registered': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalStorageRemoved) {
-          SdkPresent<AuditLogExternalStorageRemoved>(value: final value) => {
-              'external_storage.removed': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (groupCreated) {
-          SdkPresent<AuditLogGroupCreated>(value: final value) => {
-              'group.created': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (groupUpdated) {
-          SdkPresent<AuditLogGroupUpdated>(value: final value) => {
-              'group.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (groupDeleted) {
-          SdkPresent<AuditLogGroupDeleted>(value: final value) => {
-              'group.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scimEnabled) {
-          SdkPresent<AuditLogScimEnabled>(value: final value) => {
-              'scim.enabled': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scimDisabled) {
-          SdkPresent<AuditLogScimDisabled>(value: final value) => {
-              'scim.disabled': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inviteSent) {
-          SdkPresent<AuditLogInviteSent>(value: final value) => {
-              'invite.sent': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inviteAccepted) {
-          SdkPresent<AuditLogInviteAccepted>(value: final value) => {
-              'invite.accepted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inviteDeleted) {
-          SdkPresent<AuditLogInviteDeleted>(value: final value) => {
-              'invite.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ipAllowlistCreated) {
-          SdkPresent<AuditLogIpAllowlistCreated>(value: final value) => {
-              'ip_allowlist.created': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ipAllowlistUpdated) {
-          SdkPresent<AuditLogIpAllowlistUpdated>(value: final value) => {
-              'ip_allowlist.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ipAllowlistDeleted) {
-          SdkPresent<AuditLogIpAllowlistDeleted>(value: final value) => {
-              'ip_allowlist.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ipAllowlistConfigActivated) {
-          SdkPresent<AuditLogIpAllowlistConfigActivated>(value: final value) =>
-            {
-              'ip_allowlist.config.activated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ipAllowlistConfigDeactivated) {
-          SdkPresent<AuditLogIpAllowlistConfigDeactivated>(
-            value: final value
-          ) =>
-            {
-              'ip_allowlist.config.deactivated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (loginSucceeded) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'login.succeeded': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (loginFailed) {
-          SdkPresent<AuditLogLoginFailed>(value: final value) => {
-              'login.failed': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logoutSucceeded) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'logout.succeeded': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logoutFailed) {
-          SdkPresent<AuditLogLogoutFailed>(value: final value) => {
-              'logout.failed': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (organizationUpdated) {
-          SdkPresent<AuditLogOrganizationUpdated>(value: final value) => {
-              'organization.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectCreated) {
-          SdkPresent<AuditLogProjectCreated>(value: final value) => {
-              'project.created': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectUpdated) {
-          SdkPresent<AuditLogProjectUpdated>(value: final value) => {
-              'project.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectArchived) {
-          SdkPresent<AuditLogProjectArchived>(value: final value) => {
-              'project.archived': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectDeleted) {
-          SdkPresent<AuditLogProjectDeleted>(value: final value) => {
-              'project.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rateLimitUpdated) {
-          SdkPresent<AuditLogRateLimitUpdated>(value: final value) => {
-              'rate_limit.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rateLimitDeleted) {
-          SdkPresent<AuditLogRateLimitDeleted>(value: final value) => {
-              'rate_limit.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (roleCreated) {
-          SdkPresent<AuditLogRoleCreated>(value: final value) => {
-              'role.created': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (roleUpdated) {
-          SdkPresent<AuditLogRoleUpdated>(value: final value) => {
-              'role.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (roleDeleted) {
-          SdkPresent<AuditLogRoleDeleted>(value: final value) => {
-              'role.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (roleAssignmentCreated) {
-          SdkPresent<AuditLogRoleAssignmentCreated>(value: final value) => {
-              'role.assignment.created': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (roleAssignmentDeleted) {
-          SdkPresent<AuditLogRoleAssignmentDeleted>(value: final value) => {
-              'role.assignment.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (roleBoundToResource) {
-          SdkPresent<AuditLogRoleBoundToResource>(value: final value) => {
-              'role.bound_to_resource': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (roleUnboundFromResource) {
-          SdkPresent<AuditLogRoleUnboundFromResource>(value: final value) => {
-              'role.unbound_from_resource': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serviceAccountCreated) {
-          SdkPresent<AuditLogServiceAccountCreated>(value: final value) => {
-              'service_account.created': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serviceAccountUpdated) {
-          SdkPresent<AuditLogServiceAccountUpdated>(value: final value) => {
-              'service_account.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serviceAccountDeleted) {
-          SdkPresent<AuditLogServiceAccountDeleted>(value: final value) => {
-              'service_account.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workloadIdentityProviderCreated) {
-          SdkPresent<AuditLogWorkloadIdentityProviderCreated>(
-            value: final value
-          ) =>
-            {
-              'workload_identity_provider.created': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workloadIdentityProviderUpdated) {
-          SdkPresent<AuditLogWorkloadIdentityProviderUpdated>(
-            value: final value
-          ) =>
-            {
-              'workload_identity_provider.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workloadIdentityProviderDeleted) {
-          SdkPresent<AuditLogWorkloadIdentityProviderDeleted>(
-            value: final value
-          ) =>
-            {
-              'workload_identity_provider.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workloadIdentityProviderMappingCreated) {
-          SdkPresent<AuditLogWorkloadIdentityProviderMappingCreated>(
-            value: final value
-          ) =>
-            {
-              'workload_identity_provider_mapping.created': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workloadIdentityProviderMappingUpdated) {
-          SdkPresent<AuditLogWorkloadIdentityProviderMappingUpdated>(
-            value: final value
-          ) =>
-            {
-              'workload_identity_provider_mapping.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workloadIdentityProviderMappingDeleted) {
-          SdkPresent<AuditLogWorkloadIdentityProviderMappingDeleted>(
-            value: final value
-          ) =>
-            {
-              'workload_identity_provider_mapping.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userAdded) {
-          SdkPresent<AuditLogUserAdded>(value: final value) => {
-              'user.added': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userUpdated) {
-          SdkPresent<AuditLogUserUpdated>(value: final value) => {
-              'user.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userDeleted) {
-          SdkPresent<AuditLogUserDeleted>(value: final value) => {
-              'user.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (certificateCreated) {
-          SdkPresent<AuditLogCertificateCreated>(value: final value) => {
-              'certificate.created': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (certificateUpdated) {
-          SdkPresent<AuditLogCertificateUpdated>(value: final value) => {
-              'certificate.updated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (certificateDeleted) {
-          SdkPresent<AuditLogCertificateDeleted>(value: final value) => {
-              'certificate.deleted': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (certificatesActivated) {
-          SdkPresent<AuditLogCertificatesActivated>(value: final value) => {
-              'certificates.activated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (certificatesDeactivated) {
-          SdkPresent<AuditLogCertificatesDeactivated>(value: final value) => {
-              'certificates.deactivated': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    'type': type_.toJson(),
+    'effective_at': effectiveAt,
+    ...switch (project) {
+      SdkPresent<AuditLogProject>(value: final value) => {'project': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (actor) {
+      SdkPresent<AuditLogActor?>(value: final value) => {'actor': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (apiKeyCreated) {
+      SdkPresent<AuditLogApiKeyCreated>(value: final value) => {'api_key.created': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (apiKeyUpdated) {
+      SdkPresent<AuditLogApiKeyUpdated>(value: final value) => {'api_key.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (apiKeyDeleted) {
+      SdkPresent<AuditLogApiKeyDeleted>(value: final value) => {'api_key.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (checkpointPermissionCreated) {
+      SdkPresent<AuditLogCheckpointPermissionCreated>(value: final value) => {'checkpoint.permission.created': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (checkpointPermissionDeleted) {
+      SdkPresent<AuditLogCheckpointPermissionDeleted>(value: final value) => {'checkpoint.permission.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalKeyRegistered) {
+      SdkPresent<AuditLogExternalKeyRegistered>(value: final value) => {'external_key.registered': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalKeyRemoved) {
+      SdkPresent<AuditLogExternalKeyRemoved>(value: final value) => {'external_key.removed': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalStorageRegistered) {
+      SdkPresent<AuditLogExternalStorageRegistered>(value: final value) => {'external_storage.registered': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalStorageRemoved) {
+      SdkPresent<AuditLogExternalStorageRemoved>(value: final value) => {'external_storage.removed': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (groupCreated) {
+      SdkPresent<AuditLogGroupCreated>(value: final value) => {'group.created': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (groupUpdated) {
+      SdkPresent<AuditLogGroupUpdated>(value: final value) => {'group.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (groupDeleted) {
+      SdkPresent<AuditLogGroupDeleted>(value: final value) => {'group.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scimEnabled) {
+      SdkPresent<AuditLogScimEnabled>(value: final value) => {'scim.enabled': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scimDisabled) {
+      SdkPresent<AuditLogScimDisabled>(value: final value) => {'scim.disabled': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inviteSent) {
+      SdkPresent<AuditLogInviteSent>(value: final value) => {'invite.sent': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inviteAccepted) {
+      SdkPresent<AuditLogInviteAccepted>(value: final value) => {'invite.accepted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inviteDeleted) {
+      SdkPresent<AuditLogInviteDeleted>(value: final value) => {'invite.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ipAllowlistCreated) {
+      SdkPresent<AuditLogIpAllowlistCreated>(value: final value) => {'ip_allowlist.created': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ipAllowlistUpdated) {
+      SdkPresent<AuditLogIpAllowlistUpdated>(value: final value) => {'ip_allowlist.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ipAllowlistDeleted) {
+      SdkPresent<AuditLogIpAllowlistDeleted>(value: final value) => {'ip_allowlist.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ipAllowlistConfigActivated) {
+      SdkPresent<AuditLogIpAllowlistConfigActivated>(value: final value) => {'ip_allowlist.config.activated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ipAllowlistConfigDeactivated) {
+      SdkPresent<AuditLogIpAllowlistConfigDeactivated>(value: final value) => {'ip_allowlist.config.deactivated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (loginSucceeded) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'login.succeeded': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (loginFailed) {
+      SdkPresent<AuditLogLoginFailed>(value: final value) => {'login.failed': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logoutSucceeded) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'logout.succeeded': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logoutFailed) {
+      SdkPresent<AuditLogLogoutFailed>(value: final value) => {'logout.failed': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (organizationUpdated) {
+      SdkPresent<AuditLogOrganizationUpdated>(value: final value) => {'organization.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectCreated) {
+      SdkPresent<AuditLogProjectCreated>(value: final value) => {'project.created': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectUpdated) {
+      SdkPresent<AuditLogProjectUpdated>(value: final value) => {'project.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectArchived) {
+      SdkPresent<AuditLogProjectArchived>(value: final value) => {'project.archived': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectDeleted) {
+      SdkPresent<AuditLogProjectDeleted>(value: final value) => {'project.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rateLimitUpdated) {
+      SdkPresent<AuditLogRateLimitUpdated>(value: final value) => {'rate_limit.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rateLimitDeleted) {
+      SdkPresent<AuditLogRateLimitDeleted>(value: final value) => {'rate_limit.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (roleCreated) {
+      SdkPresent<AuditLogRoleCreated>(value: final value) => {'role.created': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (roleUpdated) {
+      SdkPresent<AuditLogRoleUpdated>(value: final value) => {'role.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (roleDeleted) {
+      SdkPresent<AuditLogRoleDeleted>(value: final value) => {'role.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (roleAssignmentCreated) {
+      SdkPresent<AuditLogRoleAssignmentCreated>(value: final value) => {'role.assignment.created': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (roleAssignmentDeleted) {
+      SdkPresent<AuditLogRoleAssignmentDeleted>(value: final value) => {'role.assignment.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (roleBoundToResource) {
+      SdkPresent<AuditLogRoleBoundToResource>(value: final value) => {'role.bound_to_resource': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (roleUnboundFromResource) {
+      SdkPresent<AuditLogRoleUnboundFromResource>(value: final value) => {'role.unbound_from_resource': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serviceAccountCreated) {
+      SdkPresent<AuditLogServiceAccountCreated>(value: final value) => {'service_account.created': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serviceAccountUpdated) {
+      SdkPresent<AuditLogServiceAccountUpdated>(value: final value) => {'service_account.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serviceAccountDeleted) {
+      SdkPresent<AuditLogServiceAccountDeleted>(value: final value) => {'service_account.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workloadIdentityProviderCreated) {
+      SdkPresent<AuditLogWorkloadIdentityProviderCreated>(value: final value) => {'workload_identity_provider.created': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workloadIdentityProviderUpdated) {
+      SdkPresent<AuditLogWorkloadIdentityProviderUpdated>(value: final value) => {'workload_identity_provider.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workloadIdentityProviderDeleted) {
+      SdkPresent<AuditLogWorkloadIdentityProviderDeleted>(value: final value) => {'workload_identity_provider.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workloadIdentityProviderMappingCreated) {
+      SdkPresent<AuditLogWorkloadIdentityProviderMappingCreated>(value: final value) => {'workload_identity_provider_mapping.created': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workloadIdentityProviderMappingUpdated) {
+      SdkPresent<AuditLogWorkloadIdentityProviderMappingUpdated>(value: final value) => {'workload_identity_provider_mapping.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workloadIdentityProviderMappingDeleted) {
+      SdkPresent<AuditLogWorkloadIdentityProviderMappingDeleted>(value: final value) => {'workload_identity_provider_mapping.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userAdded) {
+      SdkPresent<AuditLogUserAdded>(value: final value) => {'user.added': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userUpdated) {
+      SdkPresent<AuditLogUserUpdated>(value: final value) => {'user.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userDeleted) {
+      SdkPresent<AuditLogUserDeleted>(value: final value) => {'user.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (certificateCreated) {
+      SdkPresent<AuditLogCertificateCreated>(value: final value) => {'certificate.created': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (certificateUpdated) {
+      SdkPresent<AuditLogCertificateUpdated>(value: final value) => {'certificate.updated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (certificateDeleted) {
+      SdkPresent<AuditLogCertificateDeleted>(value: final value) => {'certificate.deleted': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (certificatesActivated) {
+      SdkPresent<AuditLogCertificatesActivated>(value: final value) => {'certificates.activated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (certificatesDeactivated) {
+      SdkPresent<AuditLogCertificatesDeactivated>(value: final value) => {'certificates.deactivated': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

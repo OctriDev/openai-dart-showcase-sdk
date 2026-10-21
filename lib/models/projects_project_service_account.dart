@@ -8,74 +8,42 @@ part of 'projects.dart';
 class ProjectServiceAccount {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `organization.project.service_account`
   final ProjectServiceAccountObject object;
-
   /// The identifier, which can be referenced in API endpoints
   final String id;
-
   /// The name of the service account
   final String name;
-
   /// `owner`, `member`, or `none`
   final ProjectServiceAccountRole role;
-
   /// The Unix timestamp (in seconds) of when the service account was created
   final int createdAt;
 
-  const ProjectServiceAccount(
-      {required this.object,
-      required this.id,
-      required this.name,
-      required this.role,
-      required this.createdAt});
+  const ProjectServiceAccount({required this.object, required this.id, required this.name, required this.role, required this.createdAt});
 
-  ProjectServiceAccount Function(
-      {ProjectServiceAccountObject object,
-      String id,
-      String name,
-      ProjectServiceAccountRole role,
-      int createdAt}) get copyWith => _copyWith;
+  ProjectServiceAccount Function({ProjectServiceAccountObject object, String id, String name, ProjectServiceAccountRole role, int createdAt}) get copyWith => _copyWith;
 
-  ProjectServiceAccount _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      ProjectServiceAccount(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ProjectServiceAccountObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as ProjectServiceAccountRole,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-      );
+  ProjectServiceAccount _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? role = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => ProjectServiceAccount(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectServiceAccountObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    role: identical(role, sdkOmittedValue) ? this.role : role as ProjectServiceAccountRole,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+  );
 
-  factory ProjectServiceAccount.fromJson(Map<String, dynamic> json) =>
-      ProjectServiceAccount(
-        object: (json['object'] != null
-            ? ProjectServiceAccountObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        role: (json['role'] != null
-            ? ProjectServiceAccountRole.fromJson(json['role'] as String)
-            : null)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-      );
+  factory ProjectServiceAccount.fromJson(Map<String, dynamic> json) => ProjectServiceAccount(
+    object: (json['object'] != null ? ProjectServiceAccountObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    role: (json['role'] != null ? ProjectServiceAccountRole.fromJson(json['role'] as String) : null)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'name': name,
-        'role': role.toJson(),
-        'created_at': createdAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'name': name,
+    'role': role.toJson(),
+    'created_at': createdAt,
+  };
 }

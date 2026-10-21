@@ -8,162 +8,86 @@ part of 'audio.dart';
 class TranscriptTextDeltaEventLogprobsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The token that was used to generate the log probability.
   final SdkOptional<String> token;
-
   /// The log probability of the token.
   final SdkOptional<double> logprob;
-
   /// The bytes that were used to generate the log probability.
   final SdkOptional<List<int>> bytes;
 
-  const TranscriptTextDeltaEventLogprobsItem(
-      {this.token = const SdkOmitted(),
-      this.logprob = const SdkOmitted(),
-      this.bytes = const SdkOmitted()});
+  const TranscriptTextDeltaEventLogprobsItem({this.token = const SdkOmitted(), this.logprob = const SdkOmitted(), this.bytes = const SdkOmitted()});
 
-  TranscriptTextDeltaEventLogprobsItem Function(
-      {SdkOptional<String> token,
-      SdkOptional<double> logprob,
-      SdkOptional<List<int>> bytes}) get copyWith => _copyWith;
+  TranscriptTextDeltaEventLogprobsItem Function({SdkOptional<String> token, SdkOptional<double> logprob, SdkOptional<List<int>> bytes}) get copyWith => _copyWith;
 
-  TranscriptTextDeltaEventLogprobsItem _copyWith(
-          {Object? token = sdkOmittedValue,
-          Object? logprob = sdkOmittedValue,
-          Object? bytes = sdkOmittedValue}) =>
-      TranscriptTextDeltaEventLogprobsItem(
-        token: identical(token, sdkOmittedValue)
-            ? this.token
-            : token as SdkOptional<String>,
-        logprob: identical(logprob, sdkOmittedValue)
-            ? this.logprob
-            : logprob as SdkOptional<double>,
-        bytes: identical(bytes, sdkOmittedValue)
-            ? this.bytes
-            : bytes as SdkOptional<List<int>>,
-      );
+  TranscriptTextDeltaEventLogprobsItem _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? bytes = sdkOmittedValue}) => TranscriptTextDeltaEventLogprobsItem(
+    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
+    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as SdkOptional<double>,
+    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as SdkOptional<List<int>>,
+  );
 
-  factory TranscriptTextDeltaEventLogprobsItem.fromJson(
-          Map<String, dynamic> json) =>
-      TranscriptTextDeltaEventLogprobsItem(
-        token: json['token'] != null
-            ? SdkPresent((json['token'] as String?)!)
-            : const SdkOmitted(),
-        logprob: json['logprob'] != null
-            ? SdkPresent(((json['logprob'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        bytes: json['bytes'] != null
-            ? SdkPresent(((json['bytes'] as List?)
-                ?.map((e) => (e as num).toInt())
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory TranscriptTextDeltaEventLogprobsItem.fromJson(Map<String, dynamic> json) => TranscriptTextDeltaEventLogprobsItem(
+    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
+    logprob: json['logprob'] != null ? SdkPresent(((json['logprob'] as num?)?.toDouble())!) : const SdkOmitted(),
+    bytes: json['bytes'] != null ? SdkPresent(((json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (token) {
-          SdkPresent<String>(value: final value) => {
-              'token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logprob) {
-          SdkPresent<double>(value: final value) => {
-              'logprob': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (bytes) {
-          SdkPresent<List<int>>(value: final value) => {
-              'bytes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (token) {
+      SdkPresent<String>(value: final value) => {'token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logprob) {
+      SdkPresent<double>(value: final value) => {'logprob': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (bytes) {
+      SdkPresent<List<int>>(value: final value) => {'bytes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Emitted when there is an additional text delta. This is also the first event emitted when the transcription starts. Only emitted when you [create a transcription](https://developers.openai.com/api/reference/resources/audio/subresources/transcriptions/methods/create) with the `Stream` parameter set to `true`.
 class TranscriptTextDeltaEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `transcript.text.delta`.
   final TranscriptTextDeltaEventType type_;
-
   /// The text delta that was additionally transcribed.
   final String delta;
-
   /// The log probabilities of the delta. Only included if you [create a transcription](https://developers.openai.com/api/reference/resources/audio/subresources/transcriptions/methods/create) with the `include[]` parameter set to `logprobs`.
   final SdkOptional<List<TranscriptTextDeltaEventLogprobsItem>> logprobs;
-
   /// Identifier of the diarized segment that this delta belongs to. Only present when using `gpt-4o-transcribe-diarize`.
   final SdkOptional<String> segmentId;
 
-  const TranscriptTextDeltaEvent(
-      {required this.type_,
-      required this.delta,
-      this.logprobs = const SdkOmitted(),
-      this.segmentId = const SdkOmitted()});
+  const TranscriptTextDeltaEvent({required this.type_, required this.delta, this.logprobs = const SdkOmitted(), this.segmentId = const SdkOmitted()});
 
-  TranscriptTextDeltaEvent Function(
-      {TranscriptTextDeltaEventType type_,
-      String delta,
-      SdkOptional<List<TranscriptTextDeltaEventLogprobsItem>> logprobs,
-      SdkOptional<String> segmentId}) get copyWith => _copyWith;
+  TranscriptTextDeltaEvent Function({TranscriptTextDeltaEventType type_, String delta, SdkOptional<List<TranscriptTextDeltaEventLogprobsItem>> logprobs, SdkOptional<String> segmentId}) get copyWith => _copyWith;
 
-  TranscriptTextDeltaEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? logprobs = sdkOmittedValue,
-          Object? segmentId = sdkOmittedValue}) =>
-      TranscriptTextDeltaEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as TranscriptTextDeltaEventType,
-        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-        logprobs: identical(logprobs, sdkOmittedValue)
-            ? this.logprobs
-            : logprobs
-                as SdkOptional<List<TranscriptTextDeltaEventLogprobsItem>>,
-        segmentId: identical(segmentId, sdkOmittedValue)
-            ? this.segmentId
-            : segmentId as SdkOptional<String>,
-      );
+  TranscriptTextDeltaEvent _copyWith({Object? type_ = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? logprobs = sdkOmittedValue, Object? segmentId = sdkOmittedValue}) => TranscriptTextDeltaEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TranscriptTextDeltaEventType,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as SdkOptional<List<TranscriptTextDeltaEventLogprobsItem>>,
+    segmentId: identical(segmentId, sdkOmittedValue) ? this.segmentId : segmentId as SdkOptional<String>,
+  );
 
-  factory TranscriptTextDeltaEvent.fromJson(Map<String, dynamic> json) =>
-      TranscriptTextDeltaEvent(
-        type_: (json['type'] != null
-            ? TranscriptTextDeltaEventType.fromJson(json['type'] as String)
-            : null)!,
-        delta: (json['delta'] as String?)!,
-        logprobs: json['logprobs'] != null
-            ? SdkPresent(((json['logprobs'] as List?)
-                ?.map((e) => TranscriptTextDeltaEventLogprobsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        segmentId: json['segment_id'] != null
-            ? SdkPresent((json['segment_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory TranscriptTextDeltaEvent.fromJson(Map<String, dynamic> json) => TranscriptTextDeltaEvent(
+    type_: (json['type'] != null ? TranscriptTextDeltaEventType.fromJson(json['type'] as String) : null)!,
+    delta: (json['delta'] as String?)!,
+    logprobs: json['logprobs'] != null ? SdkPresent(((json['logprobs'] as List?)?.map((e) => TranscriptTextDeltaEventLogprobsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    segmentId: json['segment_id'] != null ? SdkPresent((json['segment_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'delta': delta,
-        ...switch (logprobs) {
-          SdkPresent<List<TranscriptTextDeltaEventLogprobsItem>>(
-            value: final value
-          ) =>
-            {
-              'logprobs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (segmentId) {
-          SdkPresent<String>(value: final value) => {
-              'segment_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'delta': delta,
+    ...switch (logprobs) {
+      SdkPresent<List<TranscriptTextDeltaEventLogprobsItem>>(value: final value) => {'logprobs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (segmentId) {
+      SdkPresent<String>(value: final value) => {'segment_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

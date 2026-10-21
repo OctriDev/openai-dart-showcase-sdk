@@ -8,60 +8,35 @@ part of 'shared_mcptool.dart';
 class MCPToolRequireApprovalVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A filter object to specify which tools are allowed.
   final SdkOptional<MCPToolFilter> always;
-
   /// A filter object to specify which tools are allowed.
   final SdkOptional<MCPToolFilter> never;
 
-  const MCPToolRequireApprovalVariant0(
-      {this.always = const SdkOmitted(), this.never = const SdkOmitted()});
+  const MCPToolRequireApprovalVariant0({this.always = const SdkOmitted(), this.never = const SdkOmitted()});
 
-  MCPToolRequireApprovalVariant0 Function(
-      {SdkOptional<MCPToolFilter> always,
-      SdkOptional<MCPToolFilter> never}) get copyWith => _copyWith;
+  MCPToolRequireApprovalVariant0 Function({SdkOptional<MCPToolFilter> always, SdkOptional<MCPToolFilter> never}) get copyWith => _copyWith;
 
-  MCPToolRequireApprovalVariant0 _copyWith(
-          {Object? always = sdkOmittedValue,
-          Object? never = sdkOmittedValue}) =>
-      MCPToolRequireApprovalVariant0(
-        always: identical(always, sdkOmittedValue)
-            ? this.always
-            : always as SdkOptional<MCPToolFilter>,
-        never: identical(never, sdkOmittedValue)
-            ? this.never
-            : never as SdkOptional<MCPToolFilter>,
-      );
+  MCPToolRequireApprovalVariant0 _copyWith({Object? always = sdkOmittedValue, Object? never = sdkOmittedValue}) => MCPToolRequireApprovalVariant0(
+    always: identical(always, sdkOmittedValue) ? this.always : always as SdkOptional<MCPToolFilter>,
+    never: identical(never, sdkOmittedValue) ? this.never : never as SdkOptional<MCPToolFilter>,
+  );
 
-  factory MCPToolRequireApprovalVariant0.fromJson(Map<String, dynamic> json) =>
-      MCPToolRequireApprovalVariant0(
-        always: json['always'] != null
-            ? SdkPresent((json['always'] != null
-                ? MCPToolFilter.fromJson(json['always'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        never: json['never'] != null
-            ? SdkPresent((json['never'] != null
-                ? MCPToolFilter.fromJson(json['never'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory MCPToolRequireApprovalVariant0.fromJson(Map<String, dynamic> json) => MCPToolRequireApprovalVariant0(
+    always: json['always'] != null ? SdkPresent((json['always'] != null ? MCPToolFilter.fromJson(json['always'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    never: json['never'] != null ? SdkPresent((json['never'] != null ? MCPToolFilter.fromJson(json['never'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (always) {
-          SdkPresent<MCPToolFilter>(value: final value) => {
-              'always': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (never) {
-          SdkPresent<MCPToolFilter>(value: final value) => {
-              'never': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (always) {
+      SdkPresent<MCPToolFilter>(value: final value) => {'always': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (never) {
+      SdkPresent<MCPToolFilter>(value: final value) => {'never': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class MCPToolRequireApproval {
@@ -69,32 +44,21 @@ sealed class MCPToolRequireApproval {
   static const String constructionSurface = 'named';
   const MCPToolRequireApproval();
   factory MCPToolRequireApproval.fromJson(Object? json) {
-    try {
-      return MCPToolRequireApprovalMCPToolRequireApprovalVariant0(
-          MCPToolRequireApprovalVariant0.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MCPToolRequireApprovalMCPToolRequireApprovalVariant1(
-          MCPToolRequireApprovalVariant1.fromJson(json as String));
-    } catch (_) {}
+    try { return MCPToolRequireApprovalMCPToolRequireApprovalVariant0(MCPToolRequireApprovalVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MCPToolRequireApprovalMCPToolRequireApprovalVariant1(MCPToolRequireApprovalVariant1.fromJson(json as String)); } catch (_) {}
     throw FormatException("No variant matched for MCPToolRequireApproval");
   }
   Object? toJson();
 }
 
-final class MCPToolRequireApprovalMCPToolRequireApprovalVariant0
-    extends MCPToolRequireApproval {
+final class MCPToolRequireApprovalMCPToolRequireApprovalVariant0 extends MCPToolRequireApproval {
   final MCPToolRequireApprovalVariant0 value;
   const MCPToolRequireApprovalMCPToolRequireApprovalVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class MCPToolRequireApprovalMCPToolRequireApprovalVariant1
-    extends MCPToolRequireApproval {
+final class MCPToolRequireApprovalMCPToolRequireApprovalVariant1 extends MCPToolRequireApproval {
   final MCPToolRequireApprovalVariant1 value;
   const MCPToolRequireApprovalMCPToolRequireApprovalVariant1(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

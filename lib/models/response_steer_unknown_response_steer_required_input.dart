@@ -5,10 +5,8 @@ part of 'response_steer.dart';
 
 // response_steer domain models
 /// A [ResponseSteerRequiredInput] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownResponseSteerRequiredInput
-    extends ResponseSteerRequiredInput {
+final class UnknownResponseSteerRequiredInput extends ResponseSteerRequiredInput {
   final Map<String, dynamic> raw;
   const UnknownResponseSteerRequiredInput(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

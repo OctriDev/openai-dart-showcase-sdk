@@ -10,79 +10,40 @@ sealed class LiveAudioFormat {
   const LiveAudioFormat();
   factory LiveAudioFormat.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = LiveSessionAudioFormatPCMParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveAudioFormatLiveSessionAudioFormatPCMParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveSessionAudioFormatPCMUParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveAudioFormatLiveSessionAudioFormatPCMUParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveSessionAudioFormatPCMAParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveAudioFormatLiveSessionAudioFormatPCMAParam(value);
-        }
-      } catch (_) {}
+      try { final value = LiveSessionAudioFormatPCMParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveAudioFormatLiveSessionAudioFormatPCMParam(value); } } catch (_) {}
+      try { final value = LiveSessionAudioFormatPCMUParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveAudioFormatLiveSessionAudioFormatPCMUParam(value); } } catch (_) {}
+      try { final value = LiveSessionAudioFormatPCMAParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveAudioFormatLiveSessionAudioFormatPCMAParam(value); } } catch (_) {}
     }
-    try {
-      return LiveAudioFormatLiveSessionAudioFormatPCMParam(
-          LiveSessionAudioFormatPCMParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveAudioFormatLiveSessionAudioFormatPCMUParam(
-          LiveSessionAudioFormatPCMUParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveAudioFormatLiveSessionAudioFormatPCMAParam(
-          LiveSessionAudioFormatPCMAParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"audio/pcm", "audio/pcmu", "audio/pcma"}
-            .contains(json["type"])) {
-      return UnknownLiveAudioFormat(json);
-    }
+    try { return LiveAudioFormatLiveSessionAudioFormatPCMParam(LiveSessionAudioFormatPCMParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveAudioFormatLiveSessionAudioFormatPCMUParam(LiveSessionAudioFormatPCMUParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveAudioFormatLiveSessionAudioFormatPCMAParam(LiveSessionAudioFormatPCMAParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"audio/pcm", "audio/pcmu", "audio/pcma"}.contains(json["type"])) { return UnknownLiveAudioFormat(json); }
     throw FormatException("No variant matched for LiveAudioFormat");
   }
   Object? toJson();
 }
 
-final class LiveAudioFormatLiveSessionAudioFormatPCMParam
-    extends LiveAudioFormat {
+final class LiveAudioFormatLiveSessionAudioFormatPCMParam extends LiveAudioFormat {
   final LiveSessionAudioFormatPCMParam value;
   const LiveAudioFormatLiveSessionAudioFormatPCMParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveAudioFormatLiveSessionAudioFormatPCMUParam
-    extends LiveAudioFormat {
+final class LiveAudioFormatLiveSessionAudioFormatPCMUParam extends LiveAudioFormat {
   final LiveSessionAudioFormatPCMUParam value;
   const LiveAudioFormatLiveSessionAudioFormatPCMUParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveAudioFormatLiveSessionAudioFormatPCMAParam
-    extends LiveAudioFormat {
+final class LiveAudioFormatLiveSessionAudioFormatPCMAParam extends LiveAudioFormat {
   final LiveSessionAudioFormatPCMAParam value;
   const LiveAudioFormatLiveSessionAudioFormatPCMAParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [LiveAudioFormat] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownLiveAudioFormat extends LiveAudioFormat {
   final Map<String, dynamic> raw;
   const UnknownLiveAudioFormat(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

@@ -8,103 +8,59 @@ part of 'assistants_message.dart';
 class MessageContentImageFileObjectImageFile {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The [File](https://developers.openai.com/api/reference/resources/files) ID of the image in the message content. Set `purpose="vision"` when uploading the File if you need to later display the file content.
   final String fileId;
-
   /// Specifies the detail level of the image if specified by the user. `low` uses fewer tokens, you can opt in to high resolution using `high`.
   final SdkOptional<MessageContentImageFileObjectImageFileDetail> detail;
 
-  const MessageContentImageFileObjectImageFile(
-      {required this.fileId, this.detail = const SdkOmitted()});
+  const MessageContentImageFileObjectImageFile({required this.fileId, this.detail = const SdkOmitted()});
 
-  MessageContentImageFileObjectImageFile Function(
-          {String fileId,
-          SdkOptional<MessageContentImageFileObjectImageFileDetail> detail})
-      get copyWith => _copyWith;
+  MessageContentImageFileObjectImageFile Function({String fileId, SdkOptional<MessageContentImageFileObjectImageFileDetail> detail}) get copyWith => _copyWith;
 
-  MessageContentImageFileObjectImageFile _copyWith(
-          {Object? fileId = sdkOmittedValue,
-          Object? detail = sdkOmittedValue}) =>
-      MessageContentImageFileObjectImageFile(
-        fileId:
-            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-        detail: identical(detail, sdkOmittedValue)
-            ? this.detail
-            : detail
-                as SdkOptional<MessageContentImageFileObjectImageFileDetail>,
-      );
+  MessageContentImageFileObjectImageFile _copyWith({Object? fileId = sdkOmittedValue, Object? detail = sdkOmittedValue}) => MessageContentImageFileObjectImageFile(
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as SdkOptional<MessageContentImageFileObjectImageFileDetail>,
+  );
 
-  factory MessageContentImageFileObjectImageFile.fromJson(
-          Map<String, dynamic> json) =>
-      MessageContentImageFileObjectImageFile(
-        fileId: (json['file_id'] as String?)!,
-        detail: json['detail'] != null
-            ? SdkPresent((json['detail'] != null
-                ? MessageContentImageFileObjectImageFileDetail.fromJson(
-                    json['detail'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory MessageContentImageFileObjectImageFile.fromJson(Map<String, dynamic> json) => MessageContentImageFileObjectImageFile(
+    fileId: (json['file_id'] as String?)!,
+    detail: json['detail'] != null ? SdkPresent((json['detail'] != null ? MessageContentImageFileObjectImageFileDetail.fromJson(json['detail'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'file_id': fileId,
-        ...switch (detail) {
-          SdkPresent<MessageContentImageFileObjectImageFileDetail>(
-            value: final value
-          ) =>
-            {
-              'detail': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'file_id': fileId,
+    ...switch (detail) {
+      SdkPresent<MessageContentImageFileObjectImageFileDetail>(value: final value) => {'detail': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// References an image [File](https://developers.openai.com/api/reference/resources/files) in the content of a message.
 class MessageContentImageFileObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always `image_file`.
   final MessageContentImageFileObjectType type_;
-
   /// Required object value serialized in the `image_file` wire field.
   final MessageContentImageFileObjectImageFile imageFile;
 
-  const MessageContentImageFileObject(
-      {required this.type_, required this.imageFile});
+  const MessageContentImageFileObject({required this.type_, required this.imageFile});
 
-  MessageContentImageFileObject Function(
-          {MessageContentImageFileObjectType type_,
-          MessageContentImageFileObjectImageFile imageFile})
-      get copyWith => _copyWith;
+  MessageContentImageFileObject Function({MessageContentImageFileObjectType type_, MessageContentImageFileObjectImageFile imageFile}) get copyWith => _copyWith;
 
-  MessageContentImageFileObject _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? imageFile = sdkOmittedValue}) =>
-      MessageContentImageFileObject(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MessageContentImageFileObjectType,
-        imageFile: identical(imageFile, sdkOmittedValue)
-            ? this.imageFile
-            : imageFile as MessageContentImageFileObjectImageFile,
-      );
+  MessageContentImageFileObject _copyWith({Object? type_ = sdkOmittedValue, Object? imageFile = sdkOmittedValue}) => MessageContentImageFileObject(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageContentImageFileObjectType,
+    imageFile: identical(imageFile, sdkOmittedValue) ? this.imageFile : imageFile as MessageContentImageFileObjectImageFile,
+  );
 
-  factory MessageContentImageFileObject.fromJson(Map<String, dynamic> json) =>
-      MessageContentImageFileObject(
-        type_: (json['type'] != null
-            ? MessageContentImageFileObjectType.fromJson(json['type'] as String)
-            : null)!,
-        imageFile: (json['image_file'] != null
-            ? MessageContentImageFileObjectImageFile.fromJson(
-                json['image_file'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory MessageContentImageFileObject.fromJson(Map<String, dynamic> json) => MessageContentImageFileObject(
+    type_: (json['type'] != null ? MessageContentImageFileObjectType.fromJson(json['type'] as String) : null)!,
+    imageFile: (json['image_file'] != null ? MessageContentImageFileObjectImageFile.fromJson(json['image_file'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'image_file': imageFile.toJson(),
-      };
+    'type': type_.toJson(),
+    'image_file': imageFile.toJson(),
+  };
 }

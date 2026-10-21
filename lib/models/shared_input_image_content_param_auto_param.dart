@@ -9,132 +9,70 @@ sealed class InputImageContentParamAutoParamImageUrl {
   static const String constructionSurface = 'named';
   const InputImageContentParamAutoParamImageUrl();
   factory InputImageContentParamAutoParamImageUrl.fromJson(Object? json) {
-    if (json is String) {
-      return InputImageContentParamAutoParamImageUrlString(json);
-    }
-    throw FormatException(
-        "No variant matched for InputImageContentParamAutoParamImageUrl");
+    if (json is String) { return InputImageContentParamAutoParamImageUrlString(json); }
+    throw FormatException("No variant matched for InputImageContentParamAutoParamImageUrl");
   }
   Object? toJson();
 }
 
-final class InputImageContentParamAutoParamImageUrlString
-    extends InputImageContentParamAutoParamImageUrl {
+final class InputImageContentParamAutoParamImageUrlString extends InputImageContentParamAutoParamImageUrl {
   final String value;
   const InputImageContentParamAutoParamImageUrlString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// An image input to the model. Learn about [image inputs](https://developers.openai.com/api/docs/guides/images-vision)
 class InputImageContentParamAutoParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the input item. Always `input_image`.
   final InputImageContentParamAutoParamType type_;
-
   /// Optional API value serialized in the `image_url` wire field.
   final SdkOptional<String?> imageUrl;
-
   /// Optional `string` value serialized in the `file_id` wire field.
   final SdkOptional<String?> fileId;
-
   /// Optional API value serialized in the `detail` wire field.
   final SdkOptional<DetailEnum?> detail;
-
   /// Optional API value serialized in the `prompt_cache_breakpoint` wire field.
   final SdkOptional<PromptCacheBreakpointParam?> promptCacheBreakpoint;
 
-  const InputImageContentParamAutoParam(
-      {required this.type_,
-      this.imageUrl = const SdkOmitted(),
-      this.fileId = const SdkOmitted(),
-      this.detail = const SdkOmitted(),
-      this.promptCacheBreakpoint = const SdkOmitted()});
+  const InputImageContentParamAutoParam({required this.type_, this.imageUrl = const SdkOmitted(), this.fileId = const SdkOmitted(), this.detail = const SdkOmitted(), this.promptCacheBreakpoint = const SdkOmitted()});
 
-  InputImageContentParamAutoParam Function(
-          {InputImageContentParamAutoParamType type_,
-          SdkOptional<String?> imageUrl,
-          SdkOptional<String?> fileId,
-          SdkOptional<DetailEnum?> detail,
-          SdkOptional<PromptCacheBreakpointParam?> promptCacheBreakpoint})
-      get copyWith => _copyWith;
+  InputImageContentParamAutoParam Function({InputImageContentParamAutoParamType type_, SdkOptional<String?> imageUrl, SdkOptional<String?> fileId, SdkOptional<DetailEnum?> detail, SdkOptional<PromptCacheBreakpointParam?> promptCacheBreakpoint}) get copyWith => _copyWith;
 
-  InputImageContentParamAutoParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue,
-          Object? fileId = sdkOmittedValue,
-          Object? detail = sdkOmittedValue,
-          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
-      InputImageContentParamAutoParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InputImageContentParamAutoParamType,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as SdkOptional<String?>,
-        fileId: identical(fileId, sdkOmittedValue)
-            ? this.fileId
-            : fileId as SdkOptional<String?>,
-        detail: identical(detail, sdkOmittedValue)
-            ? this.detail
-            : detail as SdkOptional<DetailEnum?>,
-        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
-            ? this.promptCacheBreakpoint
-            : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointParam?>,
-      );
+  InputImageContentParamAutoParam _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? detail = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => InputImageContentParamAutoParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InputImageContentParamAutoParamType,
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<String?>,
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String?>,
+    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as SdkOptional<DetailEnum?>,
+    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointParam?>,
+  );
 
-  factory InputImageContentParamAutoParam.fromJson(Map<String, dynamic> json) =>
-      InputImageContentParamAutoParam(
-        type_: (json['type'] != null
-            ? InputImageContentParamAutoParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        imageUrl: json.containsKey('image_url')
-            ? SdkPresent(json['image_url'] as String?)
-            : const SdkOmitted(),
-        fileId: json.containsKey('file_id')
-            ? SdkPresent(json['file_id'] as String?)
-            : const SdkOmitted(),
-        detail: json.containsKey('detail')
-            ? SdkPresent(json['detail'] != null
-                ? DetailEnum.fromJson(json['detail'] as String)
-                : null)
-            : const SdkOmitted(),
-        promptCacheBreakpoint: json.containsKey('prompt_cache_breakpoint')
-            ? SdkPresent(json['prompt_cache_breakpoint'] != null
-                ? PromptCacheBreakpointParam.fromJson(
-                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory InputImageContentParamAutoParam.fromJson(Map<String, dynamic> json) => InputImageContentParamAutoParam(
+    type_: (json['type'] != null ? InputImageContentParamAutoParamType.fromJson(json['type'] as String) : null)!,
+    imageUrl: json.containsKey('image_url') ? SdkPresent(json['image_url'] as String?) : const SdkOmitted(),
+    fileId: json.containsKey('file_id') ? SdkPresent(json['file_id'] as String?) : const SdkOmitted(),
+    detail: json.containsKey('detail') ? SdkPresent(json['detail'] != null ? DetailEnum.fromJson(json['detail'] as String) : null) : const SdkOmitted(),
+    promptCacheBreakpoint: json.containsKey('prompt_cache_breakpoint') ? SdkPresent(json['prompt_cache_breakpoint'] != null ? PromptCacheBreakpointParam.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (imageUrl) {
-          SdkPresent<String?>(value: final value) => {
-              'image_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fileId) {
-          SdkPresent<String?>(value: final value) => {
-              'file_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (detail) {
-          SdkPresent<DetailEnum?>(value: final value) => {
-              'detail': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptCacheBreakpoint) {
-          SdkPresent<PromptCacheBreakpointParam?>(value: final value) => {
-              'prompt_cache_breakpoint': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (imageUrl) {
+      SdkPresent<String?>(value: final value) => {'image_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fileId) {
+      SdkPresent<String?>(value: final value) => {'file_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (detail) {
+      SdkPresent<DetailEnum?>(value: final value) => {'detail': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptCacheBreakpoint) {
+      SdkPresent<PromptCacheBreakpointParam?>(value: final value) => {'prompt_cache_breakpoint': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

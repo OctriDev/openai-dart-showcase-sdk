@@ -8,54 +8,32 @@ part of 'beta_response.dart';
 class BetaResponseInjectEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event discriminator. Always `response.inject`.
   final BetaResponseInjectEventType type_;
-
   /// The ID of the active response that should receive the input.
   final String responseId;
-
   /// Input items to inject into the active response.
   final List<BetaInputItem> input;
 
-  const BetaResponseInjectEvent(
-      {required this.type_, required this.responseId, required this.input});
+  const BetaResponseInjectEvent({required this.type_, required this.responseId, required this.input});
 
-  BetaResponseInjectEvent Function(
-      {BetaResponseInjectEventType type_,
-      String responseId,
-      List<BetaInputItem> input}) get copyWith => _copyWith;
+  BetaResponseInjectEvent Function({BetaResponseInjectEventType type_, String responseId, List<BetaInputItem> input}) get copyWith => _copyWith;
 
-  BetaResponseInjectEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? responseId = sdkOmittedValue,
-          Object? input = sdkOmittedValue}) =>
-      BetaResponseInjectEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaResponseInjectEventType,
-        responseId: identical(responseId, sdkOmittedValue)
-            ? this.responseId
-            : responseId as String,
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as List<BetaInputItem>,
-      );
+  BetaResponseInjectEvent _copyWith({Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? input = sdkOmittedValue}) => BetaResponseInjectEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseInjectEventType,
+    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
+    input: identical(input, sdkOmittedValue) ? this.input : input as List<BetaInputItem>,
+  );
 
-  factory BetaResponseInjectEvent.fromJson(Map<String, dynamic> json) =>
-      BetaResponseInjectEvent(
-        type_: (json['type'] != null
-            ? BetaResponseInjectEventType.fromJson(json['type'] as String)
-            : null)!,
-        responseId: (json['response_id'] as String?)!,
-        input: ((json['input'] as List?)
-            ?.map((e) => BetaInputItem.fromJson(e))
-            .toList())!,
-      );
+  factory BetaResponseInjectEvent.fromJson(Map<String, dynamic> json) => BetaResponseInjectEvent(
+    type_: (json['type'] != null ? BetaResponseInjectEventType.fromJson(json['type'] as String) : null)!,
+    responseId: (json['response_id'] as String?)!,
+    input: ((json['input'] as List?)?.map((e) => BetaInputItem.fromJson(e)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'response_id': responseId,
-        'input': input.map((item) => item.toJson()).toList(),
-      };
+    'type': type_.toJson(),
+    'response_id': responseId,
+    'input': input.map((item) => item.toJson()).toList(),
+  };
 }

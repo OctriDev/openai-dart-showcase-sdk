@@ -9,12 +9,8 @@ sealed class ModelIds {
   static const String constructionSurface = 'named';
   const ModelIds();
   factory ModelIds.fromJson(Object? json) {
-    if (json is String) {
-      return ModelIdsString(json);
-    }
-    try {
-      return ModelIdsModelIdsResponses(ModelIdsResponses.fromJson(json));
-    } catch (_) {}
+    if (json is String) { return ModelIdsString(json); }
+    try { return ModelIdsModelIdsResponses(ModelIdsResponses.fromJson(json)); } catch (_) {}
     throw FormatException("No variant matched for ModelIds");
   }
   Object? toJson();
@@ -23,13 +19,11 @@ sealed class ModelIds {
 final class ModelIdsString extends ModelIds {
   final String value;
   const ModelIdsString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class ModelIdsModelIdsResponses extends ModelIds {
   final ModelIdsResponses value;
   const ModelIdsModelIdsResponses(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

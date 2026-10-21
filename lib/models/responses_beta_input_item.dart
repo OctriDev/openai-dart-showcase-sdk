@@ -10,61 +10,18 @@ sealed class BetaInputItem {
   const BetaInputItem();
   factory BetaInputItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaEasyInputMessage.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaInputItemBetaEasyInputMessage(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaCompactionTriggerItemParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaInputItemBetaCompactionTriggerItemParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaItemReferenceParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaInputItemBetaItemReferenceParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaProgramItemParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaInputItemBetaProgramItemParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaProgramOutputItemParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaInputItemBetaProgramOutputItemParam(value);
-        }
-      } catch (_) {}
+      try { final value = BetaEasyInputMessage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaInputItemBetaEasyInputMessage(value); } } catch (_) {}
+      try { final value = BetaCompactionTriggerItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaInputItemBetaCompactionTriggerItemParam(value); } } catch (_) {}
+      try { final value = BetaItemReferenceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaInputItemBetaItemReferenceParam(value); } } catch (_) {}
+      try { final value = BetaProgramItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaInputItemBetaProgramItemParam(value); } } catch (_) {}
+      try { final value = BetaProgramOutputItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaInputItemBetaProgramOutputItemParam(value); } } catch (_) {}
     }
-    try {
-      return BetaInputItemBetaEasyInputMessage(
-          BetaEasyInputMessage.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaInputItemBetaItem(BetaItem.fromJson(json));
-    } catch (_) {}
-    try {
-      return BetaInputItemBetaCompactionTriggerItemParam(
-          BetaCompactionTriggerItemParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaInputItemBetaItemReferenceParam(
-          BetaItemReferenceParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaInputItemBetaProgramItemParam(
-          BetaProgramItemParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaInputItemBetaProgramOutputItemParam(
-          BetaProgramOutputItemParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return BetaInputItemBetaEasyInputMessage(BetaEasyInputMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaInputItemBetaItem(BetaItem.fromJson(json)); } catch (_) {}
+    try { return BetaInputItemBetaCompactionTriggerItemParam(BetaCompactionTriggerItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaInputItemBetaItemReferenceParam(BetaItemReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaInputItemBetaProgramItemParam(BetaProgramItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaInputItemBetaProgramOutputItemParam(BetaProgramOutputItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for BetaInputItem");
   }
   Object? toJson();
@@ -73,41 +30,35 @@ sealed class BetaInputItem {
 final class BetaInputItemBetaEasyInputMessage extends BetaInputItem {
   final BetaEasyInputMessage value;
   const BetaInputItemBetaEasyInputMessage(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaInputItemBetaItem extends BetaInputItem {
   final BetaItem value;
   const BetaInputItemBetaItem(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaInputItemBetaCompactionTriggerItemParam extends BetaInputItem {
   final BetaCompactionTriggerItemParam value;
   const BetaInputItemBetaCompactionTriggerItemParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaInputItemBetaItemReferenceParam extends BetaInputItem {
   final BetaItemReferenceParam value;
   const BetaInputItemBetaItemReferenceParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaInputItemBetaProgramItemParam extends BetaInputItem {
   final BetaProgramItemParam value;
   const BetaInputItemBetaProgramItemParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaInputItemBetaProgramOutputItemParam extends BetaInputItem {
   final BetaProgramOutputItemParam value;
   const BetaInputItemBetaProgramOutputItemParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

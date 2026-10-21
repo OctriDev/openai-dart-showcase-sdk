@@ -8,195 +8,111 @@ part of 'audio.dart';
 class TranscriptionSegment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique identifier of the segment.
   final int id;
-
   /// Seek offset of the segment.
   final int seek;
-
   /// Start time of the segment in seconds.
   final double start;
-
   /// End time of the segment in seconds.
   final double end;
-
   /// Text content of the segment.
   final String text;
-
   /// Array of token IDs for the text content.
   final List<int> tokens;
-
   /// Temperature parameter used for generating the segment.
   final double temperature;
-
   /// Average logprob of the segment. If the value is lower than -1, consider the logprobs failed.
   final double avgLogprob;
-
   /// Compression ratio of the segment. If the value is greater than 2.4, consider the compression failed.
   final double compressionRatio;
-
   /// Probability of no speech in the segment. If the value is higher than 1.0 and the `avg_logprob` is below -1, consider this segment silent.
   final double noSpeechProb;
 
-  const TranscriptionSegment(
-      {required this.id,
-      required this.seek,
-      required this.start,
-      required this.end,
-      required this.text,
-      required this.tokens,
-      required this.temperature,
-      required this.avgLogprob,
-      required this.compressionRatio,
-      required this.noSpeechProb});
+  const TranscriptionSegment({required this.id, required this.seek, required this.start, required this.end, required this.text, required this.tokens, required this.temperature, required this.avgLogprob, required this.compressionRatio, required this.noSpeechProb});
 
-  TranscriptionSegment Function(
-      {int id,
-      int seek,
-      double start,
-      double end,
-      String text,
-      List<int> tokens,
-      double temperature,
-      double avgLogprob,
-      double compressionRatio,
-      double noSpeechProb}) get copyWith => _copyWith;
+  TranscriptionSegment Function({int id, int seek, double start, double end, String text, List<int> tokens, double temperature, double avgLogprob, double compressionRatio, double noSpeechProb}) get copyWith => _copyWith;
 
-  TranscriptionSegment _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? seek = sdkOmittedValue,
-          Object? start = sdkOmittedValue,
-          Object? end = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? tokens = sdkOmittedValue,
-          Object? temperature = sdkOmittedValue,
-          Object? avgLogprob = sdkOmittedValue,
-          Object? compressionRatio = sdkOmittedValue,
-          Object? noSpeechProb = sdkOmittedValue}) =>
-      TranscriptionSegment(
-        id: identical(id, sdkOmittedValue) ? this.id : id as int,
-        seek: identical(seek, sdkOmittedValue) ? this.seek : seek as int,
-        start: identical(start, sdkOmittedValue) ? this.start : start as double,
-        end: identical(end, sdkOmittedValue) ? this.end : end as double,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-        tokens: identical(tokens, sdkOmittedValue)
-            ? this.tokens
-            : tokens as List<int>,
-        temperature: identical(temperature, sdkOmittedValue)
-            ? this.temperature
-            : temperature as double,
-        avgLogprob: identical(avgLogprob, sdkOmittedValue)
-            ? this.avgLogprob
-            : avgLogprob as double,
-        compressionRatio: identical(compressionRatio, sdkOmittedValue)
-            ? this.compressionRatio
-            : compressionRatio as double,
-        noSpeechProb: identical(noSpeechProb, sdkOmittedValue)
-            ? this.noSpeechProb
-            : noSpeechProb as double,
-      );
+  TranscriptionSegment _copyWith({Object? id = sdkOmittedValue, Object? seek = sdkOmittedValue, Object? start = sdkOmittedValue, Object? end = sdkOmittedValue, Object? text = sdkOmittedValue, Object? tokens = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? avgLogprob = sdkOmittedValue, Object? compressionRatio = sdkOmittedValue, Object? noSpeechProb = sdkOmittedValue}) => TranscriptionSegment(
+    id: identical(id, sdkOmittedValue) ? this.id : id as int,
+    seek: identical(seek, sdkOmittedValue) ? this.seek : seek as int,
+    start: identical(start, sdkOmittedValue) ? this.start : start as double,
+    end: identical(end, sdkOmittedValue) ? this.end : end as double,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+    tokens: identical(tokens, sdkOmittedValue) ? this.tokens : tokens as List<int>,
+    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as double,
+    avgLogprob: identical(avgLogprob, sdkOmittedValue) ? this.avgLogprob : avgLogprob as double,
+    compressionRatio: identical(compressionRatio, sdkOmittedValue) ? this.compressionRatio : compressionRatio as double,
+    noSpeechProb: identical(noSpeechProb, sdkOmittedValue) ? this.noSpeechProb : noSpeechProb as double,
+  );
 
-  factory TranscriptionSegment.fromJson(Map<String, dynamic> json) =>
-      TranscriptionSegment(
-        id: ((json['id'] as num?)?.toInt())!,
-        seek: ((json['seek'] as num?)?.toInt())!,
-        start: ((json['start'] as num?)?.toDouble())!,
-        end: ((json['end'] as num?)?.toDouble())!,
-        text: (json['text'] as String?)!,
-        tokens: ((json['tokens'] as List?)
-            ?.map((e) => (e as num).toInt())
-            .toList())!,
-        temperature: ((json['temperature'] as num?)?.toDouble())!,
-        avgLogprob: ((json['avg_logprob'] as num?)?.toDouble())!,
-        compressionRatio: ((json['compression_ratio'] as num?)?.toDouble())!,
-        noSpeechProb: ((json['no_speech_prob'] as num?)?.toDouble())!,
-      );
+  factory TranscriptionSegment.fromJson(Map<String, dynamic> json) => TranscriptionSegment(
+    id: ((json['id'] as num?)?.toInt())!,
+    seek: ((json['seek'] as num?)?.toInt())!,
+    start: ((json['start'] as num?)?.toDouble())!,
+    end: ((json['end'] as num?)?.toDouble())!,
+    text: (json['text'] as String?)!,
+    tokens: ((json['tokens'] as List?)?.map((e) => (e as num).toInt()).toList())!,
+    temperature: ((json['temperature'] as num?)?.toDouble())!,
+    avgLogprob: ((json['avg_logprob'] as num?)?.toDouble())!,
+    compressionRatio: ((json['compression_ratio'] as num?)?.toDouble())!,
+    noSpeechProb: ((json['no_speech_prob'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'seek': seek,
-        'start': start,
-        'end': end,
-        'text': text,
-        'tokens': tokens,
-        'temperature': temperature,
-        'avg_logprob': avgLogprob,
-        'compression_ratio': compressionRatio,
-        'no_speech_prob': noSpeechProb,
-      };
+    'id': id,
+    'seek': seek,
+    'start': start,
+    'end': end,
+    'text': text,
+    'tokens': tokens,
+    'temperature': temperature,
+    'avg_logprob': avgLogprob,
+    'compression_ratio': compressionRatio,
+    'no_speech_prob': noSpeechProb,
+  };
 }
 
 /// A consent recording used to authorize creation of a custom voice.
 class VoiceConsentResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `audio.voice_consent`.
   final VoiceConsentResourceObject object;
-
   /// The consent recording identifier.
   final String id;
-
   /// The label provided when the consent recording was uploaded.
   final String name;
-
   /// The BCP 47 language tag for the consent phrase (for example, `en-US`).
   final String language;
-
   /// The Unix timestamp (in seconds) for when the consent recording was created.
   final int createdAt;
 
-  const VoiceConsentResource(
-      {required this.object,
-      required this.id,
-      required this.name,
-      required this.language,
-      required this.createdAt});
+  const VoiceConsentResource({required this.object, required this.id, required this.name, required this.language, required this.createdAt});
 
-  VoiceConsentResource Function(
-      {VoiceConsentResourceObject object,
-      String id,
-      String name,
-      String language,
-      int createdAt}) get copyWith => _copyWith;
+  VoiceConsentResource Function({VoiceConsentResourceObject object, String id, String name, String language, int createdAt}) get copyWith => _copyWith;
 
-  VoiceConsentResource _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? language = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      VoiceConsentResource(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as VoiceConsentResourceObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        language: identical(language, sdkOmittedValue)
-            ? this.language
-            : language as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-      );
+  VoiceConsentResource _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? language = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => VoiceConsentResource(
+    object: identical(object, sdkOmittedValue) ? this.object : object as VoiceConsentResourceObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    language: identical(language, sdkOmittedValue) ? this.language : language as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+  );
 
-  factory VoiceConsentResource.fromJson(Map<String, dynamic> json) =>
-      VoiceConsentResource(
-        object: (json['object'] != null
-            ? VoiceConsentResourceObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        language: (json['language'] as String?)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-      );
+  factory VoiceConsentResource.fromJson(Map<String, dynamic> json) => VoiceConsentResource(
+    object: (json['object'] != null ? VoiceConsentResourceObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    language: (json['language'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'name': name,
-        'language': language,
-        'created_at': createdAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'name': name,
+    'language': language,
+    'created_at': createdAt,
+  };
 }

@@ -8,53 +8,33 @@ part of 'images.dart';
 class ImageRefParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A fully qualified URL or base64-encoded data URL.
   final SdkOptional<String> imageUrl;
-
   /// The File API ID of an uploaded image to use as input.
   final SdkOptional<String> fileId;
 
-  const ImageRefParam(
-      {this.imageUrl = const SdkOmitted(), this.fileId = const SdkOmitted()});
+  const ImageRefParam({this.imageUrl = const SdkOmitted(), this.fileId = const SdkOmitted()});
 
-  ImageRefParam Function(
-      {SdkOptional<String> imageUrl,
-      SdkOptional<String> fileId}) get copyWith => _copyWith;
+  ImageRefParam Function({SdkOptional<String> imageUrl, SdkOptional<String> fileId}) get copyWith => _copyWith;
 
-  ImageRefParam _copyWith(
-          {Object? imageUrl = sdkOmittedValue,
-          Object? fileId = sdkOmittedValue}) =>
-      ImageRefParam(
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as SdkOptional<String>,
-        fileId: identical(fileId, sdkOmittedValue)
-            ? this.fileId
-            : fileId as SdkOptional<String>,
-      );
+  ImageRefParam _copyWith({Object? imageUrl = sdkOmittedValue, Object? fileId = sdkOmittedValue}) => ImageRefParam(
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<String>,
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
+  );
 
   factory ImageRefParam.fromJson(Map<String, dynamic> json) => ImageRefParam(
-        imageUrl: json['image_url'] != null
-            ? SdkPresent((json['image_url'] as String?)!)
-            : const SdkOmitted(),
-        fileId: json['file_id'] != null
-            ? SdkPresent((json['file_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    imageUrl: json['image_url'] != null ? SdkPresent((json['image_url'] as String?)!) : const SdkOmitted(),
+    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (imageUrl) {
-          SdkPresent<String>(value: final value) => {
-              'image_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fileId) {
-          SdkPresent<String>(value: final value) => {
-              'file_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (imageUrl) {
+      SdkPresent<String>(value: final value) => {'image_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fileId) {
+      SdkPresent<String>(value: final value) => {'file_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

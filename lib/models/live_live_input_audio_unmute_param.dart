@@ -9,70 +9,46 @@ sealed class LiveInputAudioUnmuteParamEventId {
   static const String constructionSurface = 'named';
   const LiveInputAudioUnmuteParamEventId();
   factory LiveInputAudioUnmuteParamEventId.fromJson(Object? json) {
-    if (json is String) {
-      return LiveInputAudioUnmuteParamEventIdString(json);
-    }
-    throw FormatException(
-        "No variant matched for LiveInputAudioUnmuteParamEventId");
+    if (json is String) { return LiveInputAudioUnmuteParamEventIdString(json); }
+    throw FormatException("No variant matched for LiveInputAudioUnmuteParamEventId");
   }
   Object? toJson();
 }
 
-final class LiveInputAudioUnmuteParamEventIdString
-    extends LiveInputAudioUnmuteParamEventId {
+final class LiveInputAudioUnmuteParamEventIdString extends LiveInputAudioUnmuteParamEventId {
   final String value;
   const LiveInputAudioUnmuteParamEventIdString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Resume audio input to a Live model after muting it. The server acknowledges with `session.input_audio.unmuted`. An active audio fixture still pauses inference until playback finishes.
 class LiveInputAudioUnmuteParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `event_id` wire field.
   final SdkOptional<String?> eventId;
-
   /// The Live client event type. Always `session.input_audio.unmute`.
   final LiveInputAudioUnmuteParamType type_;
 
-  const LiveInputAudioUnmuteParam(
-      {this.eventId = const SdkOmitted(), required this.type_});
+  const LiveInputAudioUnmuteParam({this.eventId = const SdkOmitted(), required this.type_});
 
-  LiveInputAudioUnmuteParam Function(
-      {SdkOptional<String?> eventId,
-      LiveInputAudioUnmuteParamType type_}) get copyWith => _copyWith;
+  LiveInputAudioUnmuteParam Function({SdkOptional<String?> eventId, LiveInputAudioUnmuteParamType type_}) get copyWith => _copyWith;
 
-  LiveInputAudioUnmuteParam _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      LiveInputAudioUnmuteParam(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveInputAudioUnmuteParamType,
-      );
+  LiveInputAudioUnmuteParam _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => LiveInputAudioUnmuteParam(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveInputAudioUnmuteParamType,
+  );
 
-  factory LiveInputAudioUnmuteParam.fromJson(Map<String, dynamic> json) =>
-      LiveInputAudioUnmuteParam(
-        eventId: json.containsKey('event_id')
-            ? SdkPresent(json['event_id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? LiveInputAudioUnmuteParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory LiveInputAudioUnmuteParam.fromJson(Map<String, dynamic> json) => LiveInputAudioUnmuteParam(
+    eventId: json.containsKey('event_id') ? SdkPresent(json['event_id'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? LiveInputAudioUnmuteParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String?>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-      };
+    ...switch (eventId) {
+      SdkPresent<String?>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+  };
 }

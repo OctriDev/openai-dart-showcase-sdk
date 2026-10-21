@@ -8,74 +8,40 @@ part of 'shared_web.dart';
 class WebSearchToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the web search tool call.
   final String id;
-
   /// The type of the web search tool call. Always `web_search_call`.
   final WebSearchToolCallType type_;
-
   /// The status of the web search tool call.
   final WebSearchCallStatus status;
-
   /// An object describing the specific action taken in this web search call. Includes details on how the model used the web (search, open_page, find_in_page).
   final SdkOptional<WebSearchToolCallAction> action;
 
-  const WebSearchToolCall(
-      {required this.id,
-      required this.type_,
-      required this.status,
-      this.action = const SdkOmitted()});
+  const WebSearchToolCall({required this.id, required this.type_, required this.status, this.action = const SdkOmitted()});
 
-  WebSearchToolCall Function(
-      {String id,
-      WebSearchToolCallType type_,
-      WebSearchCallStatus status,
-      SdkOptional<WebSearchToolCallAction> action}) get copyWith => _copyWith;
+  WebSearchToolCall Function({String id, WebSearchToolCallType type_, WebSearchCallStatus status, SdkOptional<WebSearchToolCallAction> action}) get copyWith => _copyWith;
 
-  WebSearchToolCall _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? action = sdkOmittedValue}) =>
-      WebSearchToolCall(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebSearchToolCallType,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as WebSearchCallStatus,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<WebSearchToolCallAction>,
-      );
+  WebSearchToolCall _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? status = sdkOmittedValue, Object? action = sdkOmittedValue}) => WebSearchToolCall(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchToolCallType,
+    status: identical(status, sdkOmittedValue) ? this.status : status as WebSearchCallStatus,
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<WebSearchToolCallAction>,
+  );
 
-  factory WebSearchToolCall.fromJson(Map<String, dynamic> json) =>
-      WebSearchToolCall(
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? WebSearchToolCallType.fromJson(json['type'] as String)
-            : null)!,
-        status: (json['status'] != null
-            ? WebSearchCallStatus.fromJson(json['status'] as String)
-            : null)!,
-        action: json['action'] != null
-            ? SdkPresent((json['action'] != null
-                ? WebSearchToolCallAction.fromJson(json['action'])
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory WebSearchToolCall.fromJson(Map<String, dynamic> json) => WebSearchToolCall(
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? WebSearchToolCallType.fromJson(json['type'] as String) : null)!,
+    status: (json['status'] != null ? WebSearchCallStatus.fromJson(json['status'] as String) : null)!,
+    action: json['action'] != null ? SdkPresent((json['action'] != null ? WebSearchToolCallAction.fromJson(json['action']) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'type': type_.toJson(),
-        'status': status.toJson(),
-        ...switch (action) {
-          SdkPresent<WebSearchToolCallAction>(value: final value) => {
-              'action': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    'type': type_.toJson(),
+    'status': status.toJson(),
+    ...switch (action) {
+      SdkPresent<WebSearchToolCallAction>(value: final value) => {'action': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

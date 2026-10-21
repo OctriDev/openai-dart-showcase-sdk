@@ -10,16 +10,13 @@ class EmptyModelParam {
   static const String constructionSurface = 'named';
   final Map<String, dynamic> additionalProperties;
 
-  const EmptyModelParam(
-      {this.additionalProperties = const <String, dynamic>{}});
+  const EmptyModelParam({this.additionalProperties = const <String, dynamic>{}});
 
-  factory EmptyModelParam.fromJson(Map<String, dynamic> json) =>
-      EmptyModelParam(
-        additionalProperties: Map.of(json)
-          ..removeWhere((key, _) => const <String>{}.contains(key)),
-      );
+  factory EmptyModelParam.fromJson(Map<String, dynamic> json) => EmptyModelParam(
+    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{}.contains(key)),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...additionalProperties,
-      };
+    ...additionalProperties,
+  };
 }

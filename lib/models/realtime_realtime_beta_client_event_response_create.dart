@@ -8,74 +8,38 @@ part of 'realtime_realtime_beta_client.dart';
 class RealtimeBetaClientEventResponseCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
-
   /// The event type, must be `response.create`.
   final RealtimeBetaClientEventResponseCreateType type_;
-
   /// Create a new Realtime response with these parameters
   final SdkOptional<RealtimeBetaResponseCreateParams> response;
 
-  const RealtimeBetaClientEventResponseCreate(
-      {this.eventId = const SdkOmitted(),
-      required this.type_,
-      this.response = const SdkOmitted()});
+  const RealtimeBetaClientEventResponseCreate({this.eventId = const SdkOmitted(), required this.type_, this.response = const SdkOmitted()});
 
-  RealtimeBetaClientEventResponseCreate Function(
-          {SdkOptional<String> eventId,
-          RealtimeBetaClientEventResponseCreateType type_,
-          SdkOptional<RealtimeBetaResponseCreateParams> response})
-      get copyWith => _copyWith;
+  RealtimeBetaClientEventResponseCreate Function({SdkOptional<String> eventId, RealtimeBetaClientEventResponseCreateType type_, SdkOptional<RealtimeBetaResponseCreateParams> response}) get copyWith => _copyWith;
 
-  RealtimeBetaClientEventResponseCreate _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? response = sdkOmittedValue}) =>
-      RealtimeBetaClientEventResponseCreate(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeBetaClientEventResponseCreateType,
-        response: identical(response, sdkOmittedValue)
-            ? this.response
-            : response as SdkOptional<RealtimeBetaResponseCreateParams>,
-      );
+  RealtimeBetaClientEventResponseCreate _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue}) => RealtimeBetaClientEventResponseCreate(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaClientEventResponseCreateType,
+    response: identical(response, sdkOmittedValue) ? this.response : response as SdkOptional<RealtimeBetaResponseCreateParams>,
+  );
 
-  factory RealtimeBetaClientEventResponseCreate.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeBetaClientEventResponseCreate(
-        eventId: json['event_id'] != null
-            ? SdkPresent((json['event_id'] as String?)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? RealtimeBetaClientEventResponseCreateType.fromJson(
-                json['type'] as String)
-            : null)!,
-        response: json['response'] != null
-            ? SdkPresent((json['response'] != null
-                ? RealtimeBetaResponseCreateParams.fromJson(
-                    json['response'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeBetaClientEventResponseCreate.fromJson(Map<String, dynamic> json) => RealtimeBetaClientEventResponseCreate(
+    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? RealtimeBetaClientEventResponseCreateType.fromJson(json['type'] as String) : null)!,
+    response: json['response'] != null ? SdkPresent((json['response'] != null ? RealtimeBetaResponseCreateParams.fromJson(json['response'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        ...switch (response) {
-          SdkPresent<RealtimeBetaResponseCreateParams>(value: final value) => {
-              'response': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (eventId) {
+      SdkPresent<String>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    ...switch (response) {
+      SdkPresent<RealtimeBetaResponseCreateParams>(value: final value) => {'response': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

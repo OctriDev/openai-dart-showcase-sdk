@@ -8,52 +8,32 @@ part of 'spend_alerts.dart';
 class OrganizationSpendAlertDeletedResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The deleted spend alert ID.
   final String id;
-
   /// Always `organization.spend_alert.deleted`.
   final OrganizationSpendAlertDeletedResourceObject object;
-
   /// Whether the spend alert was deleted.
   final bool deleted;
 
-  const OrganizationSpendAlertDeletedResource(
-      {required this.id, required this.object, required this.deleted});
+  const OrganizationSpendAlertDeletedResource({required this.id, required this.object, required this.deleted});
 
-  OrganizationSpendAlertDeletedResource Function(
-      {String id,
-      OrganizationSpendAlertDeletedResourceObject object,
-      bool deleted}) get copyWith => _copyWith;
+  OrganizationSpendAlertDeletedResource Function({String id, OrganizationSpendAlertDeletedResourceObject object, bool deleted}) get copyWith => _copyWith;
 
-  OrganizationSpendAlertDeletedResource _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      OrganizationSpendAlertDeletedResource(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as OrganizationSpendAlertDeletedResourceObject,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-      );
+  OrganizationSpendAlertDeletedResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => OrganizationSpendAlertDeletedResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as OrganizationSpendAlertDeletedResourceObject,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+  );
 
-  factory OrganizationSpendAlertDeletedResource.fromJson(
-          Map<String, dynamic> json) =>
-      OrganizationSpendAlertDeletedResource(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? OrganizationSpendAlertDeletedResourceObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        deleted: (json['deleted'] as bool?)!,
-      );
+  factory OrganizationSpendAlertDeletedResource.fromJson(Map<String, dynamic> json) => OrganizationSpendAlertDeletedResource(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? OrganizationSpendAlertDeletedResourceObject.fromJson(json['object'] as String) : null)!,
+    deleted: (json['deleted'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'deleted': deleted,
-      };
+    'id': id,
+    'object': object.toJson(),
+    'deleted': deleted,
+  };
 }

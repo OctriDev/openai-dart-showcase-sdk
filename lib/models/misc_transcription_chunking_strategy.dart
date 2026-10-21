@@ -9,33 +9,21 @@ sealed class TranscriptionChunkingStrategy {
   static const String constructionSurface = 'named';
   const TranscriptionChunkingStrategy();
   factory TranscriptionChunkingStrategy.fromJson(Object? json) {
-    try {
-      return TranscriptionChunkingStrategyTranscriptionChunkingStrategyVariant0(
-          TranscriptionChunkingStrategyVariant0.fromJson(json as String));
-    } catch (_) {}
-    try {
-      return TranscriptionChunkingStrategyVadConfig(
-          VadConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for TranscriptionChunkingStrategy");
+    try { return TranscriptionChunkingStrategyTranscriptionChunkingStrategyVariant0(TranscriptionChunkingStrategyVariant0.fromJson(json as String)); } catch (_) {}
+    try { return TranscriptionChunkingStrategyVadConfig(VadConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for TranscriptionChunkingStrategy");
   }
   Object? toJson();
 }
 
-final class TranscriptionChunkingStrategyTranscriptionChunkingStrategyVariant0
-    extends TranscriptionChunkingStrategy {
+final class TranscriptionChunkingStrategyTranscriptionChunkingStrategyVariant0 extends TranscriptionChunkingStrategy {
   final TranscriptionChunkingStrategyVariant0 value;
-  const TranscriptionChunkingStrategyTranscriptionChunkingStrategyVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const TranscriptionChunkingStrategyTranscriptionChunkingStrategyVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class TranscriptionChunkingStrategyVadConfig
-    extends TranscriptionChunkingStrategy {
+final class TranscriptionChunkingStrategyVadConfig extends TranscriptionChunkingStrategy {
   final VadConfig value;
   const TranscriptionChunkingStrategyVadConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

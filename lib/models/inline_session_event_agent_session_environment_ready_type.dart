@@ -10,20 +10,14 @@ enum SessionEventAgentSessionEnvironmentReadyType {
 
   static SessionEventAgentSessionEnvironmentReadyType fromJson(String value) {
     switch (value) {
-      case 'agent.session.environment.ready':
-        return SessionEventAgentSessionEnvironmentReadyType
-            .agentSessionEnvironmentReady;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionEnvironmentReadyType: $value');
+      case 'agent.session.environment.ready': return SessionEventAgentSessionEnvironmentReadyType.agentSessionEnvironmentReady;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionEnvironmentReadyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionEnvironmentReadyType
-            .agentSessionEnvironmentReady:
-        return 'agent.session.environment.ready';
+      case SessionEventAgentSessionEnvironmentReadyType.agentSessionEnvironmentReady: return 'agent.session.environment.ready';
     }
   }
 
@@ -37,20 +31,14 @@ enum SessionEventAgentSessionEnvironmentResetType {
 
   static SessionEventAgentSessionEnvironmentResetType fromJson(String value) {
     switch (value) {
-      case 'agent.session.environment.reset':
-        return SessionEventAgentSessionEnvironmentResetType
-            .agentSessionEnvironmentReset;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionEnvironmentResetType: $value');
+      case 'agent.session.environment.reset': return SessionEventAgentSessionEnvironmentResetType.agentSessionEnvironmentReset;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionEnvironmentResetType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionEnvironmentResetType
-            .agentSessionEnvironmentReset:
-        return 'agent.session.environment.reset';
+      case SessionEventAgentSessionEnvironmentResetType.agentSessionEnvironmentReset: return 'agent.session.environment.reset';
     }
   }
 
@@ -62,23 +50,16 @@ enum SessionEventAgentSessionEnvironmentResetType {
 enum SessionEventAgentSessionEnvironmentSuspendedType {
   agentSessionEnvironmentSuspended;
 
-  static SessionEventAgentSessionEnvironmentSuspendedType fromJson(
-      String value) {
+  static SessionEventAgentSessionEnvironmentSuspendedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.environment.suspended':
-        return SessionEventAgentSessionEnvironmentSuspendedType
-            .agentSessionEnvironmentSuspended;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionEnvironmentSuspendedType: $value');
+      case 'agent.session.environment.suspended': return SessionEventAgentSessionEnvironmentSuspendedType.agentSessionEnvironmentSuspended;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionEnvironmentSuspendedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionEnvironmentSuspendedType
-            .agentSessionEnvironmentSuspended:
-        return 'agent.session.environment.suspended';
+      case SessionEventAgentSessionEnvironmentSuspendedType.agentSessionEnvironmentSuspended: return 'agent.session.environment.suspended';
     }
   }
 
@@ -92,18 +73,14 @@ enum SessionEventAgentSessionFailedType {
 
   static SessionEventAgentSessionFailedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.failed':
-        return SessionEventAgentSessionFailedType.agentSessionFailed;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionFailedType: $value');
+      case 'agent.session.failed': return SessionEventAgentSessionFailedType.agentSessionFailed;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionFailedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionFailedType.agentSessionFailed:
-        return 'agent.session.failed';
+      case SessionEventAgentSessionFailedType.agentSessionFailed: return 'agent.session.failed';
     }
   }
 
@@ -117,17 +94,14 @@ enum SessionEventAgentSessionIdleType {
 
   static SessionEventAgentSessionIdleType fromJson(String value) {
     switch (value) {
-      case 'agent.session.idle':
-        return SessionEventAgentSessionIdleType.agentSessionIdle;
-      default:
-        throw ArgumentError('Unknown SessionEventAgentSessionIdleType: $value');
+      case 'agent.session.idle': return SessionEventAgentSessionIdleType.agentSessionIdle;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionIdleType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionIdleType.agentSessionIdle:
-        return 'agent.session.idle';
+      case SessionEventAgentSessionIdleType.agentSessionIdle: return 'agent.session.idle';
     }
   }
 
@@ -141,18 +115,14 @@ enum SessionEventAgentSessionInProgressType {
 
   static SessionEventAgentSessionInProgressType fromJson(String value) {
     switch (value) {
-      case 'agent.session.in_progress':
-        return SessionEventAgentSessionInProgressType.agentSessionInProgress;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionInProgressType: $value');
+      case 'agent.session.in_progress': return SessionEventAgentSessionInProgressType.agentSessionInProgress;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionInProgressType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionInProgressType.agentSessionInProgress:
-        return 'agent.session.in_progress';
+      case SessionEventAgentSessionInProgressType.agentSessionInProgress: return 'agent.session.in_progress';
     }
   }
 
@@ -166,20 +136,14 @@ enum SessionEventAgentSessionRequiresActionType {
 
   static SessionEventAgentSessionRequiresActionType fromJson(String value) {
     switch (value) {
-      case 'agent.session.requires_action':
-        return SessionEventAgentSessionRequiresActionType
-            .agentSessionRequiresAction;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionRequiresActionType: $value');
+      case 'agent.session.requires_action': return SessionEventAgentSessionRequiresActionType.agentSessionRequiresAction;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionRequiresActionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionRequiresActionType
-            .agentSessionRequiresAction:
-        return 'agent.session.requires_action';
+      case SessionEventAgentSessionRequiresActionType.agentSessionRequiresAction: return 'agent.session.requires_action';
     }
   }
 
@@ -193,20 +157,14 @@ enum SessionEventAgentSessionSubagentActiveType {
 
   static SessionEventAgentSessionSubagentActiveType fromJson(String value) {
     switch (value) {
-      case 'agent.session.subagent.active':
-        return SessionEventAgentSessionSubagentActiveType
-            .agentSessionSubagentActive;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionSubagentActiveType: $value');
+      case 'agent.session.subagent.active': return SessionEventAgentSessionSubagentActiveType.agentSessionSubagentActive;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionSubagentActiveType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionSubagentActiveType
-            .agentSessionSubagentActive:
-        return 'agent.session.subagent.active';
+      case SessionEventAgentSessionSubagentActiveType.agentSessionSubagentActive: return 'agent.session.subagent.active';
     }
   }
 
@@ -220,20 +178,14 @@ enum SessionEventAgentSessionSubagentClosedType {
 
   static SessionEventAgentSessionSubagentClosedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.subagent.closed':
-        return SessionEventAgentSessionSubagentClosedType
-            .agentSessionSubagentClosed;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionSubagentClosedType: $value');
+      case 'agent.session.subagent.closed': return SessionEventAgentSessionSubagentClosedType.agentSessionSubagentClosed;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionSubagentClosedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionSubagentClosedType
-            .agentSessionSubagentClosed:
-        return 'agent.session.subagent.closed';
+      case SessionEventAgentSessionSubagentClosedType.agentSessionSubagentClosed: return 'agent.session.subagent.closed';
     }
   }
 
@@ -247,20 +199,14 @@ enum SessionEventAgentSessionSubagentCreatedType {
 
   static SessionEventAgentSessionSubagentCreatedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.subagent.created':
-        return SessionEventAgentSessionSubagentCreatedType
-            .agentSessionSubagentCreated;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionSubagentCreatedType: $value');
+      case 'agent.session.subagent.created': return SessionEventAgentSessionSubagentCreatedType.agentSessionSubagentCreated;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionSubagentCreatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionSubagentCreatedType
-            .agentSessionSubagentCreated:
-        return 'agent.session.subagent.created';
+      case SessionEventAgentSessionSubagentCreatedType.agentSessionSubagentCreated: return 'agent.session.subagent.created';
     }
   }
 
@@ -274,19 +220,14 @@ enum SessionEventAgentSessionTurnCancelledType {
 
   static SessionEventAgentSessionTurnCancelledType fromJson(String value) {
     switch (value) {
-      case 'agent.session.turn.cancelled':
-        return SessionEventAgentSessionTurnCancelledType
-            .agentSessionTurnCancelled;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionTurnCancelledType: $value');
+      case 'agent.session.turn.cancelled': return SessionEventAgentSessionTurnCancelledType.agentSessionTurnCancelled;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnCancelledType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnCancelledType.agentSessionTurnCancelled:
-        return 'agent.session.turn.cancelled';
+      case SessionEventAgentSessionTurnCancelledType.agentSessionTurnCancelled: return 'agent.session.turn.cancelled';
     }
   }
 
@@ -300,19 +241,14 @@ enum SessionEventAgentSessionTurnCompletedType {
 
   static SessionEventAgentSessionTurnCompletedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.turn.completed':
-        return SessionEventAgentSessionTurnCompletedType
-            .agentSessionTurnCompleted;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionTurnCompletedType: $value');
+      case 'agent.session.turn.completed': return SessionEventAgentSessionTurnCompletedType.agentSessionTurnCompleted;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnCompletedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnCompletedType.agentSessionTurnCompleted:
-        return 'agent.session.turn.completed';
+      case SessionEventAgentSessionTurnCompletedType.agentSessionTurnCompleted: return 'agent.session.turn.completed';
     }
   }
 
@@ -324,23 +260,16 @@ enum SessionEventAgentSessionTurnCompletedType {
 enum SessionEventAgentSessionTurnContentPartAddedType {
   agentSessionTurnContentPartAdded;
 
-  static SessionEventAgentSessionTurnContentPartAddedType fromJson(
-      String value) {
+  static SessionEventAgentSessionTurnContentPartAddedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.turn.content_part.added':
-        return SessionEventAgentSessionTurnContentPartAddedType
-            .agentSessionTurnContentPartAdded;
-      default:
-        throw ArgumentError(
-            'Unknown SessionEventAgentSessionTurnContentPartAddedType: $value');
+      case 'agent.session.turn.content_part.added': return SessionEventAgentSessionTurnContentPartAddedType.agentSessionTurnContentPartAdded;
+      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnContentPartAddedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnContentPartAddedType
-            .agentSessionTurnContentPartAdded:
-        return 'agent.session.turn.content_part.added';
+      case SessionEventAgentSessionTurnContentPartAddedType.agentSessionTurnContentPartAdded: return 'agent.session.turn.content_part.added';
     }
   }
 

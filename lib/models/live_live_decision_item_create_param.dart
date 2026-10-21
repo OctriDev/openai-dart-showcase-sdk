@@ -9,85 +9,51 @@ sealed class LiveDecisionItemCreateParamEventId {
   static const String constructionSurface = 'named';
   const LiveDecisionItemCreateParamEventId();
   factory LiveDecisionItemCreateParamEventId.fromJson(Object? json) {
-    if (json is String) {
-      return LiveDecisionItemCreateParamEventIdString(json);
-    }
-    throw FormatException(
-        "No variant matched for LiveDecisionItemCreateParamEventId");
+    if (json is String) { return LiveDecisionItemCreateParamEventIdString(json); }
+    throw FormatException("No variant matched for LiveDecisionItemCreateParamEventId");
   }
   Object? toJson();
 }
 
-final class LiveDecisionItemCreateParamEventIdString
-    extends LiveDecisionItemCreateParamEventId {
+final class LiveDecisionItemCreateParamEventIdString extends LiveDecisionItemCreateParamEventId {
   final String value;
   const LiveDecisionItemCreateParamEventIdString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Append an input item for future decisions without starting an evaluation or changing Live voice context.
 class LiveDecisionItemCreateParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `event_id` wire field.
   final SdkOptional<String?> eventId;
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveDecisionItemCreateParamType type_;
-
   /// Required object value serialized in the `item` wire field.
   final LiveDecisionInputItemParam item;
 
-  const LiveDecisionItemCreateParam(
-      {this.eventId = const SdkOmitted(),
-      required this.type_,
-      required this.item});
+  const LiveDecisionItemCreateParam({this.eventId = const SdkOmitted(), required this.type_, required this.item});
 
-  LiveDecisionItemCreateParam Function(
-      {SdkOptional<String?> eventId,
-      LiveDecisionItemCreateParamType type_,
-      LiveDecisionInputItemParam item}) get copyWith => _copyWith;
+  LiveDecisionItemCreateParam Function({SdkOptional<String?> eventId, LiveDecisionItemCreateParamType type_, LiveDecisionInputItemParam item}) get copyWith => _copyWith;
 
-  LiveDecisionItemCreateParam _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? item = sdkOmittedValue}) =>
-      LiveDecisionItemCreateParam(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveDecisionItemCreateParamType,
-        item: identical(item, sdkOmittedValue)
-            ? this.item
-            : item as LiveDecisionInputItemParam,
-      );
+  LiveDecisionItemCreateParam _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? item = sdkOmittedValue}) => LiveDecisionItemCreateParam(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveDecisionItemCreateParamType,
+    item: identical(item, sdkOmittedValue) ? this.item : item as LiveDecisionInputItemParam,
+  );
 
-  factory LiveDecisionItemCreateParam.fromJson(Map<String, dynamic> json) =>
-      LiveDecisionItemCreateParam(
-        eventId: json.containsKey('event_id')
-            ? SdkPresent(json['event_id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? LiveDecisionItemCreateParamType.fromJson(json['type'] as String)
-            : null)!,
-        item: (json['item'] != null
-            ? LiveDecisionInputItemParam.fromJson(
-                json['item'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory LiveDecisionItemCreateParam.fromJson(Map<String, dynamic> json) => LiveDecisionItemCreateParam(
+    eventId: json.containsKey('event_id') ? SdkPresent(json['event_id'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? LiveDecisionItemCreateParamType.fromJson(json['type'] as String) : null)!,
+    item: (json['item'] != null ? LiveDecisionInputItemParam.fromJson(json['item'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String?>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'item': item.toJson(),
-      };
+    ...switch (eventId) {
+      SdkPresent<String?>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'item': item.toJson(),
+  };
 }

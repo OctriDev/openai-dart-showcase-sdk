@@ -8,33 +8,22 @@ part of 'vector_stores.dart';
 class AutoChunkingStrategyRequestParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always `auto`.
   final AutoChunkingStrategyRequestParamType type_;
 
   const AutoChunkingStrategyRequestParam({required this.type_});
 
-  AutoChunkingStrategyRequestParam Function(
-      {AutoChunkingStrategyRequestParamType type_}) get copyWith => _copyWith;
+  AutoChunkingStrategyRequestParam Function({AutoChunkingStrategyRequestParamType type_}) get copyWith => _copyWith;
 
-  AutoChunkingStrategyRequestParam _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      AutoChunkingStrategyRequestParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AutoChunkingStrategyRequestParamType,
-      );
+  AutoChunkingStrategyRequestParam _copyWith({Object? type_ = sdkOmittedValue}) => AutoChunkingStrategyRequestParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AutoChunkingStrategyRequestParamType,
+  );
 
-  factory AutoChunkingStrategyRequestParam.fromJson(
-          Map<String, dynamic> json) =>
-      AutoChunkingStrategyRequestParam(
-        type_: (json['type'] != null
-            ? AutoChunkingStrategyRequestParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory AutoChunkingStrategyRequestParam.fromJson(Map<String, dynamic> json) => AutoChunkingStrategyRequestParam(
+    type_: (json['type'] != null ? AutoChunkingStrategyRequestParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

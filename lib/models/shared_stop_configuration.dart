@@ -9,13 +9,8 @@ sealed class StopConfiguration {
   static const String constructionSurface = 'named';
   const StopConfiguration();
   factory StopConfiguration.fromJson(Object? json) {
-    if (json is String) {
-      return StopConfigurationString(json);
-    }
-    if (json is List) {
-      return StopConfigurationListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
+    if (json is String) { return StopConfigurationString(json); }
+    if (json is List) { return StopConfigurationListString(json.map((e) => e as String).toList().cast<String>()); }
     throw FormatException("No variant matched for StopConfiguration");
   }
   Object? toJson();
@@ -24,13 +19,11 @@ sealed class StopConfiguration {
 final class StopConfigurationString extends StopConfiguration {
   final String value;
   const StopConfigurationString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class StopConfigurationListString extends StopConfiguration {
   final List<String> value;
   const StopConfigurationListString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }

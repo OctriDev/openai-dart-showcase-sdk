@@ -6,25 +6,22 @@ part of 'items.dart';
 // items domain models
 /// Typed representation of the `ClientToolCallStatus` API schema.
 final class ClientToolCallStatus {
+
   final String value;
 
   const ClientToolCallStatus._(this.value);
 
-  factory ClientToolCallStatus.fromJson(String value) =>
-      ClientToolCallStatus._(value);
+  factory ClientToolCallStatus.fromJson(String value) => ClientToolCallStatus._(value);
 
   static const inProgress = ClientToolCallStatus._('in_progress');
   static const completed = ClientToolCallStatus._('completed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ClientToolCallStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ClientToolCallStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -8,199 +8,108 @@ part of 'assistants_create.dart';
 class CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always `auto`.
-  final CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
-      type_;
+  final CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type type_;
 
-  const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
-      {required this.type_});
+  const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0({required this.type_});
 
-  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 Function(
-      {CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
-          type_}) get copyWith => _copyWith;
+  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 Function({CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type type_}) get copyWith => _copyWith;
 
-  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0
-      _copyWith({Object? type_ = sdkOmittedValue}) =>
-          CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
-            type_: identical(type_, sdkOmittedValue)
-                ? this.type_
-                : type_
-                    as CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type,
-          );
+  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 _copyWith({Object? type_ = sdkOmittedValue}) => CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type,
+  );
 
-  factory CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(
-          Map<String, dynamic> json) =>
-      CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
-        type_: (json['type'] != null
-            ? CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
-                .fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(Map<String, dynamic> json) => CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
+    type_: (json['type'] != null ? CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Required object value serialized in the `static` wire field.
 class CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The maximum number of tokens in each chunk. The default value is `800`. The minimum value is `100` and the maximum value is `4096`.
   final int maxChunkSizeTokens;
-
   /// The number of tokens that overlap between chunks. The default value is `400`. Note that the overlap must not exceed half of `max_chunk_size_tokens`.
   final int chunkOverlapTokens;
 
-  const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static(
-      {required this.maxChunkSizeTokens, required this.chunkOverlapTokens});
+  const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static({required this.maxChunkSizeTokens, required this.chunkOverlapTokens});
 
-  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static
-          Function({int maxChunkSizeTokens, int chunkOverlapTokens})
-      get copyWith => _copyWith;
+  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static Function({int maxChunkSizeTokens, int chunkOverlapTokens}) get copyWith => _copyWith;
 
-  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static
-      _copyWith(
-              {Object? maxChunkSizeTokens = sdkOmittedValue,
-              Object? chunkOverlapTokens = sdkOmittedValue}) =>
-          CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static(
-            maxChunkSizeTokens: identical(maxChunkSizeTokens, sdkOmittedValue)
-                ? this.maxChunkSizeTokens
-                : maxChunkSizeTokens as int,
-            chunkOverlapTokens: identical(chunkOverlapTokens, sdkOmittedValue)
-                ? this.chunkOverlapTokens
-                : chunkOverlapTokens as int,
-          );
+  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static _copyWith({Object? maxChunkSizeTokens = sdkOmittedValue, Object? chunkOverlapTokens = sdkOmittedValue}) => CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static(
+    maxChunkSizeTokens: identical(maxChunkSizeTokens, sdkOmittedValue) ? this.maxChunkSizeTokens : maxChunkSizeTokens as int,
+    chunkOverlapTokens: identical(chunkOverlapTokens, sdkOmittedValue) ? this.chunkOverlapTokens : chunkOverlapTokens as int,
+  );
 
-  factory CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static.fromJson(
-          Map<String, dynamic> json) =>
-      CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static(
-        maxChunkSizeTokens: ((json['max_chunk_size_tokens'] as num?)?.toInt())!,
-        chunkOverlapTokens: ((json['chunk_overlap_tokens'] as num?)?.toInt())!,
-      );
+  factory CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static.fromJson(Map<String, dynamic> json) => CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static(
+    maxChunkSizeTokens: ((json['max_chunk_size_tokens'] as num?)?.toInt())!,
+    chunkOverlapTokens: ((json['chunk_overlap_tokens'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'max_chunk_size_tokens': maxChunkSizeTokens,
-        'chunk_overlap_tokens': chunkOverlapTokens,
-      };
+    'max_chunk_size_tokens': maxChunkSizeTokens,
+    'chunk_overlap_tokens': chunkOverlapTokens,
+  };
 }
 
 /// Optional object value serialized in the `chunking_strategy` wire field.
 class CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always `static`.
-  final CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
-      type_;
-
+  final CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type type_;
   /// Required object value serialized in the `static` wire field.
-  final CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static
-      static_;
+  final CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static static_;
 
-  const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
-      {required this.type_, required this.static_});
+  const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1({required this.type_, required this.static_});
 
-  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 Function(
-      {CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
-          type_,
-      CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static
-          static_}) get copyWith => _copyWith;
+  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 Function({CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type type_, CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static static_}) get copyWith => _copyWith;
 
-  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1
-      _copyWith(
-              {Object? type_ = sdkOmittedValue,
-              Object? static_ = sdkOmittedValue}) =>
-          CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
-            type_: identical(type_, sdkOmittedValue)
-                ? this.type_
-                : type_
-                    as CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type,
-            static_: identical(static_, sdkOmittedValue)
-                ? this.static_
-                : static_
-                    as CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static,
-          );
+  CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? static_ = sdkOmittedValue}) => CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type,
+    static_: identical(static_, sdkOmittedValue) ? this.static_ : static_ as CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static,
+  );
 
-  factory CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
-        type_: (json['type'] != null
-            ? CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
-                .fromJson(json['type'] as String)
-            : null)!,
-        static_: (json['static'] != null
-            ? CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static
-                .fromJson(json['static'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(Map<String, dynamic> json) => CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
+    type_: (json['type'] != null ? CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type.fromJson(json['type'] as String) : null)!,
+    static_: (json['static'] != null ? CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static.fromJson(json['static'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'static': static_.toJson(),
-      };
+    'type': type_.toJson(),
+    'static': static_.toJson(),
+  };
 }
 
 sealed class CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy();
-  factory CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy.fromJson(
-      Object? json) {
+  factory CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value =
-            CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0
-                .fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1
-                .fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
-              value);
-        }
-      } catch (_) {}
+      try { final value = CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(value); } } catch (_) {}
+      try { final value = CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(value); } } catch (_) {}
     }
-    try {
-      return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
-          CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0
-              .fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
-          CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1
-              .fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy");
+    try { return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy");
   }
   Object? toJson();
 }
 
-final class CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0
-    extends CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy {
-  final CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0
-      value;
-  const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+final class CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 extends CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy {
+  final CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 value;
+  const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1
-    extends CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy {
-  final CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1
-      value;
-  const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+final class CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 extends CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy {
+  final CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 value;
+  const CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(this.value);
+  @override Object? toJson() => value.toJson();
 }

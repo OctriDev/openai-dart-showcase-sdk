@@ -9,32 +9,23 @@ sealed class ModifyAssistantRequestModel {
   static const String constructionSurface = 'named';
   const ModifyAssistantRequestModel();
   factory ModifyAssistantRequestModel.fromJson(Object? json) {
-    if (json is String) {
-      return ModifyAssistantRequestModelString(json);
-    }
-    try {
-      return ModifyAssistantRequestModelAssistantSupportedModels(
-          AssistantSupportedModels.fromJson(json as String));
-    } catch (_) {}
+    if (json is String) { return ModifyAssistantRequestModelString(json); }
+    try { return ModifyAssistantRequestModelAssistantSupportedModels(AssistantSupportedModels.fromJson(json as String)); } catch (_) {}
     throw FormatException("No variant matched for ModifyAssistantRequestModel");
   }
   Object? toJson();
 }
 
-final class ModifyAssistantRequestModelString
-    extends ModifyAssistantRequestModel {
+final class ModifyAssistantRequestModelString extends ModifyAssistantRequestModel {
   final String value;
   const ModifyAssistantRequestModelString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class ModifyAssistantRequestModelAssistantSupportedModels
-    extends ModifyAssistantRequestModel {
+final class ModifyAssistantRequestModelAssistantSupportedModels extends ModifyAssistantRequestModel {
   final AssistantSupportedModels value;
   const ModifyAssistantRequestModelAssistantSupportedModels(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 sealed class ModifyAssistantRequestName {
@@ -42,20 +33,16 @@ sealed class ModifyAssistantRequestName {
   static const String constructionSurface = 'named';
   const ModifyAssistantRequestName();
   factory ModifyAssistantRequestName.fromJson(Object? json) {
-    if (json is String) {
-      return ModifyAssistantRequestNameString(json);
-    }
+    if (json is String) { return ModifyAssistantRequestNameString(json); }
     throw FormatException("No variant matched for ModifyAssistantRequestName");
   }
   Object? toJson();
 }
 
-final class ModifyAssistantRequestNameString
-    extends ModifyAssistantRequestName {
+final class ModifyAssistantRequestNameString extends ModifyAssistantRequestName {
   final String value;
   const ModifyAssistantRequestNameString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class ModifyAssistantRequestDescription {
@@ -63,21 +50,16 @@ sealed class ModifyAssistantRequestDescription {
   static const String constructionSurface = 'named';
   const ModifyAssistantRequestDescription();
   factory ModifyAssistantRequestDescription.fromJson(Object? json) {
-    if (json is String) {
-      return ModifyAssistantRequestDescriptionString(json);
-    }
-    throw FormatException(
-        "No variant matched for ModifyAssistantRequestDescription");
+    if (json is String) { return ModifyAssistantRequestDescriptionString(json); }
+    throw FormatException("No variant matched for ModifyAssistantRequestDescription");
   }
   Object? toJson();
 }
 
-final class ModifyAssistantRequestDescriptionString
-    extends ModifyAssistantRequestDescription {
+final class ModifyAssistantRequestDescriptionString extends ModifyAssistantRequestDescription {
   final String value;
   const ModifyAssistantRequestDescriptionString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class ModifyAssistantRequestInstructions {
@@ -85,180 +67,105 @@ sealed class ModifyAssistantRequestInstructions {
   static const String constructionSurface = 'named';
   const ModifyAssistantRequestInstructions();
   factory ModifyAssistantRequestInstructions.fromJson(Object? json) {
-    if (json is String) {
-      return ModifyAssistantRequestInstructionsString(json);
-    }
-    throw FormatException(
-        "No variant matched for ModifyAssistantRequestInstructions");
+    if (json is String) { return ModifyAssistantRequestInstructionsString(json); }
+    throw FormatException("No variant matched for ModifyAssistantRequestInstructions");
   }
   Object? toJson();
 }
 
-final class ModifyAssistantRequestInstructionsString
-    extends ModifyAssistantRequestInstructions {
+final class ModifyAssistantRequestInstructionsString extends ModifyAssistantRequestInstructions {
   final String value;
   const ModifyAssistantRequestInstructionsString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Optional object value serialized in the `code_interpreter` wire field.
 class ModifyAssistantRequestToolResourcesCodeInterpreter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Overrides the list of [file](https://developers.openai.com/api/reference/resources/files) IDs made available to the `code_interpreter` tool. There can be a maximum of 20 files associated with the tool.
   final SdkOptional<List<String>> fileIds;
 
-  const ModifyAssistantRequestToolResourcesCodeInterpreter(
-      {this.fileIds = const SdkOmitted()});
+  const ModifyAssistantRequestToolResourcesCodeInterpreter({this.fileIds = const SdkOmitted()});
 
-  ModifyAssistantRequestToolResourcesCodeInterpreter Function(
-      {SdkOptional<List<String>> fileIds}) get copyWith => _copyWith;
+  ModifyAssistantRequestToolResourcesCodeInterpreter Function({SdkOptional<List<String>> fileIds}) get copyWith => _copyWith;
 
-  ModifyAssistantRequestToolResourcesCodeInterpreter _copyWith(
-          {Object? fileIds = sdkOmittedValue}) =>
-      ModifyAssistantRequestToolResourcesCodeInterpreter(
-        fileIds: identical(fileIds, sdkOmittedValue)
-            ? this.fileIds
-            : fileIds as SdkOptional<List<String>>,
-      );
+  ModifyAssistantRequestToolResourcesCodeInterpreter _copyWith({Object? fileIds = sdkOmittedValue}) => ModifyAssistantRequestToolResourcesCodeInterpreter(
+    fileIds: identical(fileIds, sdkOmittedValue) ? this.fileIds : fileIds as SdkOptional<List<String>>,
+  );
 
-  factory ModifyAssistantRequestToolResourcesCodeInterpreter.fromJson(
-          Map<String, dynamic> json) =>
-      ModifyAssistantRequestToolResourcesCodeInterpreter(
-        fileIds: json['file_ids'] != null
-            ? SdkPresent(((json['file_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ModifyAssistantRequestToolResourcesCodeInterpreter.fromJson(Map<String, dynamic> json) => ModifyAssistantRequestToolResourcesCodeInterpreter(
+    fileIds: json['file_ids'] != null ? SdkPresent(((json['file_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (fileIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'file_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (fileIds) {
+      SdkPresent<List<String>>(value: final value) => {'file_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `file_search` wire field.
 class ModifyAssistantRequestToolResourcesFileSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Overrides the [vector store](https://developers.openai.com/api/reference/resources/vector_stores) attached to this assistant. There can be a maximum of 1 vector store attached to the assistant.
   final SdkOptional<List<String>> vectorStoreIds;
 
-  const ModifyAssistantRequestToolResourcesFileSearch(
-      {this.vectorStoreIds = const SdkOmitted()});
+  const ModifyAssistantRequestToolResourcesFileSearch({this.vectorStoreIds = const SdkOmitted()});
 
-  ModifyAssistantRequestToolResourcesFileSearch Function(
-      {SdkOptional<List<String>> vectorStoreIds}) get copyWith => _copyWith;
+  ModifyAssistantRequestToolResourcesFileSearch Function({SdkOptional<List<String>> vectorStoreIds}) get copyWith => _copyWith;
 
-  ModifyAssistantRequestToolResourcesFileSearch _copyWith(
-          {Object? vectorStoreIds = sdkOmittedValue}) =>
-      ModifyAssistantRequestToolResourcesFileSearch(
-        vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue)
-            ? this.vectorStoreIds
-            : vectorStoreIds as SdkOptional<List<String>>,
-      );
+  ModifyAssistantRequestToolResourcesFileSearch _copyWith({Object? vectorStoreIds = sdkOmittedValue}) => ModifyAssistantRequestToolResourcesFileSearch(
+    vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue) ? this.vectorStoreIds : vectorStoreIds as SdkOptional<List<String>>,
+  );
 
-  factory ModifyAssistantRequestToolResourcesFileSearch.fromJson(
-          Map<String, dynamic> json) =>
-      ModifyAssistantRequestToolResourcesFileSearch(
-        vectorStoreIds: json['vector_store_ids'] != null
-            ? SdkPresent(((json['vector_store_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ModifyAssistantRequestToolResourcesFileSearch.fromJson(Map<String, dynamic> json) => ModifyAssistantRequestToolResourcesFileSearch(
+    vectorStoreIds: json['vector_store_ids'] != null ? SdkPresent(((json['vector_store_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (vectorStoreIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'vector_store_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (vectorStoreIds) {
+      SdkPresent<List<String>>(value: final value) => {'vector_store_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A set of resources that are used by the assistant's tools. The resources are specific to the type of tool. For example, the `code_interpreter` tool requires a list of file IDs, while the `file_search` tool requires a list of vector store IDs.
 class ModifyAssistantRequestToolResources {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `code_interpreter` wire field.
-  final SdkOptional<ModifyAssistantRequestToolResourcesCodeInterpreter>
-      codeInterpreter;
-
+  final SdkOptional<ModifyAssistantRequestToolResourcesCodeInterpreter> codeInterpreter;
   /// Optional object value serialized in the `file_search` wire field.
   final SdkOptional<ModifyAssistantRequestToolResourcesFileSearch> fileSearch;
 
-  const ModifyAssistantRequestToolResources(
-      {this.codeInterpreter = const SdkOmitted(),
-      this.fileSearch = const SdkOmitted()});
+  const ModifyAssistantRequestToolResources({this.codeInterpreter = const SdkOmitted(), this.fileSearch = const SdkOmitted()});
 
-  ModifyAssistantRequestToolResources Function(
-      {SdkOptional<ModifyAssistantRequestToolResourcesCodeInterpreter>
-          codeInterpreter,
-      SdkOptional<ModifyAssistantRequestToolResourcesFileSearch>
-          fileSearch}) get copyWith => _copyWith;
+  ModifyAssistantRequestToolResources Function({SdkOptional<ModifyAssistantRequestToolResourcesCodeInterpreter> codeInterpreter, SdkOptional<ModifyAssistantRequestToolResourcesFileSearch> fileSearch}) get copyWith => _copyWith;
 
-  ModifyAssistantRequestToolResources _copyWith(
-          {Object? codeInterpreter = sdkOmittedValue,
-          Object? fileSearch = sdkOmittedValue}) =>
-      ModifyAssistantRequestToolResources(
-        codeInterpreter: identical(codeInterpreter, sdkOmittedValue)
-            ? this.codeInterpreter
-            : codeInterpreter as SdkOptional<
-                ModifyAssistantRequestToolResourcesCodeInterpreter>,
-        fileSearch: identical(fileSearch, sdkOmittedValue)
-            ? this.fileSearch
-            : fileSearch
-                as SdkOptional<ModifyAssistantRequestToolResourcesFileSearch>,
-      );
+  ModifyAssistantRequestToolResources _copyWith({Object? codeInterpreter = sdkOmittedValue, Object? fileSearch = sdkOmittedValue}) => ModifyAssistantRequestToolResources(
+    codeInterpreter: identical(codeInterpreter, sdkOmittedValue) ? this.codeInterpreter : codeInterpreter as SdkOptional<ModifyAssistantRequestToolResourcesCodeInterpreter>,
+    fileSearch: identical(fileSearch, sdkOmittedValue) ? this.fileSearch : fileSearch as SdkOptional<ModifyAssistantRequestToolResourcesFileSearch>,
+  );
 
-  factory ModifyAssistantRequestToolResources.fromJson(
-          Map<String, dynamic> json) =>
-      ModifyAssistantRequestToolResources(
-        codeInterpreter: json['code_interpreter'] != null
-            ? SdkPresent((json['code_interpreter'] != null
-                ? ModifyAssistantRequestToolResourcesCodeInterpreter.fromJson(
-                    json['code_interpreter'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        fileSearch: json['file_search'] != null
-            ? SdkPresent((json['file_search'] != null
-                ? ModifyAssistantRequestToolResourcesFileSearch.fromJson(
-                    json['file_search'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ModifyAssistantRequestToolResources.fromJson(Map<String, dynamic> json) => ModifyAssistantRequestToolResources(
+    codeInterpreter: json['code_interpreter'] != null ? SdkPresent((json['code_interpreter'] != null ? ModifyAssistantRequestToolResourcesCodeInterpreter.fromJson(json['code_interpreter'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    fileSearch: json['file_search'] != null ? SdkPresent((json['file_search'] != null ? ModifyAssistantRequestToolResourcesFileSearch.fromJson(json['file_search'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (codeInterpreter) {
-          SdkPresent<ModifyAssistantRequestToolResourcesCodeInterpreter>(
-            value: final value
-          ) =>
-            {
-              'code_interpreter': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fileSearch) {
-          SdkPresent<ModifyAssistantRequestToolResourcesFileSearch>(
-            value: final value
-          ) =>
-            {
-              'file_search': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (codeInterpreter) {
+      SdkPresent<ModifyAssistantRequestToolResourcesCodeInterpreter>(value: final value) => {'code_interpreter': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fileSearch) {
+      SdkPresent<ModifyAssistantRequestToolResourcesFileSearch>(value: final value) => {'file_search': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class ModifyAssistantRequestTemperature {
@@ -266,21 +173,16 @@ sealed class ModifyAssistantRequestTemperature {
   static const String constructionSurface = 'named';
   const ModifyAssistantRequestTemperature();
   factory ModifyAssistantRequestTemperature.fromJson(Object? json) {
-    if (json is num) {
-      return ModifyAssistantRequestTemperatureDouble(json.toDouble());
-    }
-    throw FormatException(
-        "No variant matched for ModifyAssistantRequestTemperature");
+    if (json is num) { return ModifyAssistantRequestTemperatureDouble(json.toDouble()); }
+    throw FormatException("No variant matched for ModifyAssistantRequestTemperature");
   }
   Object? toJson();
 }
 
-final class ModifyAssistantRequestTemperatureDouble
-    extends ModifyAssistantRequestTemperature {
+final class ModifyAssistantRequestTemperatureDouble extends ModifyAssistantRequestTemperature {
   final double value;
   const ModifyAssistantRequestTemperatureDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class ModifyAssistantRequestTopP {
@@ -288,18 +190,14 @@ sealed class ModifyAssistantRequestTopP {
   static const String constructionSurface = 'named';
   const ModifyAssistantRequestTopP();
   factory ModifyAssistantRequestTopP.fromJson(Object? json) {
-    if (json is num) {
-      return ModifyAssistantRequestTopPDouble(json.toDouble());
-    }
+    if (json is num) { return ModifyAssistantRequestTopPDouble(json.toDouble()); }
     throw FormatException("No variant matched for ModifyAssistantRequestTopP");
   }
   Object? toJson();
 }
 
-final class ModifyAssistantRequestTopPDouble
-    extends ModifyAssistantRequestTopP {
+final class ModifyAssistantRequestTopPDouble extends ModifyAssistantRequestTopP {
   final double value;
   const ModifyAssistantRequestTopPDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }

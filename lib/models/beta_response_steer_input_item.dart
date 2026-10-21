@@ -10,60 +10,32 @@ sealed class BetaResponseSteerInputItem {
   const BetaResponseSteerInputItem();
   factory BetaResponseSteerInputItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaUserMessageItemParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponseSteerInputItemBetaUserMessageItemParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaFunctionCallOutputItemParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaResponseSteerInputItemBetaFunctionCallOutputItemParam(
-              value);
-        }
-      } catch (_) {}
+      try { final value = BetaUserMessageItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponseSteerInputItemBetaUserMessageItemParam(value); } } catch (_) {}
+      try { final value = BetaFunctionCallOutputItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaResponseSteerInputItemBetaFunctionCallOutputItemParam(value); } } catch (_) {}
     }
-    try {
-      return BetaResponseSteerInputItemBetaUserMessageItemParam(
-          BetaUserMessageItemParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaResponseSteerInputItemBetaFunctionCallOutputItemParam(
-          BetaFunctionCallOutputItemParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"message", "function_call_output"}.contains(json["type"])) {
-      return UnknownBetaResponseSteerInputItem(json);
-    }
+    try { return BetaResponseSteerInputItemBetaUserMessageItemParam(BetaUserMessageItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaResponseSteerInputItemBetaFunctionCallOutputItemParam(BetaFunctionCallOutputItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"message", "function_call_output"}.contains(json["type"])) { return UnknownBetaResponseSteerInputItem(json); }
     throw FormatException("No variant matched for BetaResponseSteerInputItem");
   }
   Object? toJson();
 }
 
-final class BetaResponseSteerInputItemBetaUserMessageItemParam
-    extends BetaResponseSteerInputItem {
+final class BetaResponseSteerInputItemBetaUserMessageItemParam extends BetaResponseSteerInputItem {
   final BetaUserMessageItemParam value;
   const BetaResponseSteerInputItemBetaUserMessageItemParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaResponseSteerInputItemBetaFunctionCallOutputItemParam
-    extends BetaResponseSteerInputItem {
+final class BetaResponseSteerInputItemBetaFunctionCallOutputItemParam extends BetaResponseSteerInputItem {
   final BetaFunctionCallOutputItemParam value;
   const BetaResponseSteerInputItemBetaFunctionCallOutputItemParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaResponseSteerInputItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaResponseSteerInputItem
-    extends BetaResponseSteerInputItem {
+final class UnknownBetaResponseSteerInputItem extends BetaResponseSteerInputItem {
   final Map<String, dynamic> raw;
   const UnknownBetaResponseSteerInputItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

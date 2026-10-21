@@ -8,70 +8,34 @@ sealed class MessageDeltaContentTextObjectTextAnnotationsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const MessageDeltaContentTextObjectTextAnnotationsItem();
-  factory MessageDeltaContentTextObjectTextAnnotationsItem.fromJson(
-      Object? json) {
+  factory MessageDeltaContentTextObjectTextAnnotationsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value =
-            MessageDeltaContentTextAnnotationsFileCitationObject.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            MessageDeltaContentTextAnnotationsFilePathObject.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFilePathObject(
-              value);
-        }
-      } catch (_) {}
+      try { final value = MessageDeltaContentTextAnnotationsFileCitationObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject(value); } } catch (_) {}
+      try { final value = MessageDeltaContentTextAnnotationsFilePathObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFilePathObject(value); } } catch (_) {}
     }
-    try {
-      return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject(
-          MessageDeltaContentTextAnnotationsFileCitationObject.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFilePathObject(
-          MessageDeltaContentTextAnnotationsFilePathObject.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"file_citation", "file_path"}.contains(json["type"])) {
-      return UnknownMessageDeltaContentTextObjectTextAnnotationsItem(json);
-    }
-    throw FormatException(
-        "No variant matched for MessageDeltaContentTextObjectTextAnnotationsItem");
+    try { return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject(MessageDeltaContentTextAnnotationsFileCitationObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFilePathObject(MessageDeltaContentTextAnnotationsFilePathObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_citation", "file_path"}.contains(json["type"])) { return UnknownMessageDeltaContentTextObjectTextAnnotationsItem(json); }
+    throw FormatException("No variant matched for MessageDeltaContentTextObjectTextAnnotationsItem");
   }
   Object? toJson();
 }
 
-final class MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject
-    extends MessageDeltaContentTextObjectTextAnnotationsItem {
+final class MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject extends MessageDeltaContentTextObjectTextAnnotationsItem {
   final MessageDeltaContentTextAnnotationsFileCitationObject value;
-  const MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFileCitationObject(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFilePathObject
-    extends MessageDeltaContentTextObjectTextAnnotationsItem {
+final class MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFilePathObject extends MessageDeltaContentTextObjectTextAnnotationsItem {
   final MessageDeltaContentTextAnnotationsFilePathObject value;
-  const MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFilePathObject(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const MessageDeltaContentTextObjectTextAnnotationsItemMessageDeltaContentTextAnnotationsFilePathObject(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [MessageDeltaContentTextObjectTextAnnotationsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownMessageDeltaContentTextObjectTextAnnotationsItem
-    extends MessageDeltaContentTextObjectTextAnnotationsItem {
+final class UnknownMessageDeltaContentTextObjectTextAnnotationsItem extends MessageDeltaContentTextObjectTextAnnotationsItem {
   final Map<String, dynamic> raw;
   const UnknownMessageDeltaContentTextObjectTextAnnotationsItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

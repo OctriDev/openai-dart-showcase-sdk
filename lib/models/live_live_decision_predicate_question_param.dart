@@ -8,63 +8,35 @@ part of 'live_live_decision.dart';
 class LiveDecisionPredicateQuestionParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveDecisionPredicateQuestionParamType type_;
-
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
-
   /// Required `string` value serialized in the `instructions` wire field.
   final String instructions;
 
-  const LiveDecisionPredicateQuestionParam(
-      {required this.type_,
-      this.name = const SdkOmitted(),
-      required this.instructions});
+  const LiveDecisionPredicateQuestionParam({required this.type_, this.name = const SdkOmitted(), required this.instructions});
 
-  LiveDecisionPredicateQuestionParam Function(
-      {LiveDecisionPredicateQuestionParamType type_,
-      SdkOptional<String> name,
-      String instructions}) get copyWith => _copyWith;
+  LiveDecisionPredicateQuestionParam Function({LiveDecisionPredicateQuestionParamType type_, SdkOptional<String> name, String instructions}) get copyWith => _copyWith;
 
-  LiveDecisionPredicateQuestionParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue}) =>
-      LiveDecisionPredicateQuestionParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveDecisionPredicateQuestionParamType,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as String,
-      );
+  LiveDecisionPredicateQuestionParam _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? instructions = sdkOmittedValue}) => LiveDecisionPredicateQuestionParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveDecisionPredicateQuestionParamType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as String,
+  );
 
-  factory LiveDecisionPredicateQuestionParam.fromJson(
-          Map<String, dynamic> json) =>
-      LiveDecisionPredicateQuestionParam(
-        type_: (json['type'] != null
-            ? LiveDecisionPredicateQuestionParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        instructions: (json['instructions'] as String?)!,
-      );
+  factory LiveDecisionPredicateQuestionParam.fromJson(Map<String, dynamic> json) => LiveDecisionPredicateQuestionParam(
+    type_: (json['type'] != null ? LiveDecisionPredicateQuestionParamType.fromJson(json['type'] as String) : null)!,
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    instructions: (json['instructions'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'instructions': instructions,
-      };
+    'type': type_.toJson(),
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    'instructions': instructions,
+  };
 }

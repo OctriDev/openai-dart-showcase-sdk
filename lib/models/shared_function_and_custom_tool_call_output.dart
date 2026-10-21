@@ -10,78 +10,40 @@ sealed class FunctionAndCustomToolCallOutput {
   const FunctionAndCustomToolCallOutput();
   factory FunctionAndCustomToolCallOutput.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = InputTextContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FunctionAndCustomToolCallOutputInputTextContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = InputImageContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FunctionAndCustomToolCallOutputInputImageContent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = InputFileContent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FunctionAndCustomToolCallOutputInputFileContent(value);
-        }
-      } catch (_) {}
+      try { final value = InputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionAndCustomToolCallOutputInputTextContent(value); } } catch (_) {}
+      try { final value = InputImageContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionAndCustomToolCallOutputInputImageContent(value); } } catch (_) {}
+      try { final value = InputFileContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionAndCustomToolCallOutputInputFileContent(value); } } catch (_) {}
     }
-    try {
-      return FunctionAndCustomToolCallOutputInputTextContent(
-          InputTextContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return FunctionAndCustomToolCallOutputInputImageContent(
-          InputImageContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return FunctionAndCustomToolCallOutputInputFileContent(
-          InputFileContent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"input_text", "input_image", "input_file"}
-            .contains(json["type"])) {
-      return UnknownFunctionAndCustomToolCallOutput(json);
-    }
-    throw FormatException(
-        "No variant matched for FunctionAndCustomToolCallOutput");
+    try { return FunctionAndCustomToolCallOutputInputTextContent(InputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return FunctionAndCustomToolCallOutputInputImageContent(InputImageContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return FunctionAndCustomToolCallOutputInputFileContent(InputFileContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image", "input_file"}.contains(json["type"])) { return UnknownFunctionAndCustomToolCallOutput(json); }
+    throw FormatException("No variant matched for FunctionAndCustomToolCallOutput");
   }
   Object? toJson();
 }
 
-final class FunctionAndCustomToolCallOutputInputTextContent
-    extends FunctionAndCustomToolCallOutput {
+final class FunctionAndCustomToolCallOutputInputTextContent extends FunctionAndCustomToolCallOutput {
   final InputTextContent value;
   const FunctionAndCustomToolCallOutputInputTextContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class FunctionAndCustomToolCallOutputInputImageContent
-    extends FunctionAndCustomToolCallOutput {
+final class FunctionAndCustomToolCallOutputInputImageContent extends FunctionAndCustomToolCallOutput {
   final InputImageContent value;
   const FunctionAndCustomToolCallOutputInputImageContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class FunctionAndCustomToolCallOutputInputFileContent
-    extends FunctionAndCustomToolCallOutput {
+final class FunctionAndCustomToolCallOutputInputFileContent extends FunctionAndCustomToolCallOutput {
   final InputFileContent value;
   const FunctionAndCustomToolCallOutputInputFileContent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [FunctionAndCustomToolCallOutput] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownFunctionAndCustomToolCallOutput
-    extends FunctionAndCustomToolCallOutput {
+final class UnknownFunctionAndCustomToolCallOutput extends FunctionAndCustomToolCallOutput {
   final Map<String, dynamic> raw;
   const UnknownFunctionAndCustomToolCallOutput(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

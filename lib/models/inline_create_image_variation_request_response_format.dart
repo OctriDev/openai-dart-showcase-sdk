@@ -6,39 +6,34 @@ part of 'inline.dart';
 // Inline operation models
 /// The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated.
 final class CreateImageVariationRequestResponseFormat {
+
   final String value;
 
   const CreateImageVariationRequestResponseFormat._(this.value);
 
-  factory CreateImageVariationRequestResponseFormat.fromJson(String value) =>
-      CreateImageVariationRequestResponseFormat._(value);
+  factory CreateImageVariationRequestResponseFormat.fromJson(String value) => CreateImageVariationRequestResponseFormat._(value);
 
   static const url = CreateImageVariationRequestResponseFormat._('url');
-  static const b64Json =
-      CreateImageVariationRequestResponseFormat._('b64_json');
+  static const b64Json = CreateImageVariationRequestResponseFormat._('b64_json');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateImageVariationRequestResponseFormat &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateImageVariationRequestResponseFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
 final class CreateImageVariationRequestSize {
+
   final String value;
 
   const CreateImageVariationRequestSize._(this.value);
 
-  factory CreateImageVariationRequestSize.fromJson(String value) =>
-      CreateImageVariationRequestSize._(value);
+  factory CreateImageVariationRequestSize.fromJson(String value) => CreateImageVariationRequestSize._(value);
 
   static const v256x256 = CreateImageVariationRequestSize._('256x256');
   static const v512x512 = CreateImageVariationRequestSize._('512x512');
@@ -46,38 +41,28 @@ final class CreateImageVariationRequestSize {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateImageVariationRequestSize && other.value == value;
+  @override bool operator ==(Object other) => other is CreateImageVariationRequestSize && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object. Always `client_secret_basic`.
 enum CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType {
   clientSecretBasic;
 
-  static CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType fromJson(
-      String value) {
+  static CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType fromJson(String value) {
     switch (value) {
-      case 'client_secret_basic':
-        return CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType
-            .clientSecretBasic;
-      default:
-        throw ArgumentError(
-            'Unknown CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType: $value');
+      case 'client_secret_basic': return CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType.clientSecretBasic;
+      default: throw ArgumentError('Unknown CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType
-            .clientSecretBasic:
-        return 'client_secret_basic';
+      case CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType.clientSecretBasic: return 'client_secret_basic';
     }
   }
 
@@ -89,23 +74,16 @@ enum CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType {
 enum CreateMcpOauthTokenEndpointAuthParamClientSecretPostType {
   clientSecretPost;
 
-  static CreateMcpOauthTokenEndpointAuthParamClientSecretPostType fromJson(
-      String value) {
+  static CreateMcpOauthTokenEndpointAuthParamClientSecretPostType fromJson(String value) {
     switch (value) {
-      case 'client_secret_post':
-        return CreateMcpOauthTokenEndpointAuthParamClientSecretPostType
-            .clientSecretPost;
-      default:
-        throw ArgumentError(
-            'Unknown CreateMcpOauthTokenEndpointAuthParamClientSecretPostType: $value');
+      case 'client_secret_post': return CreateMcpOauthTokenEndpointAuthParamClientSecretPostType.clientSecretPost;
+      default: throw ArgumentError('Unknown CreateMcpOauthTokenEndpointAuthParamClientSecretPostType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateMcpOauthTokenEndpointAuthParamClientSecretPostType
-            .clientSecretPost:
-        return 'client_secret_post';
+      case CreateMcpOauthTokenEndpointAuthParamClientSecretPostType.clientSecretPost: return 'client_secret_post';
     }
   }
 
@@ -119,18 +97,14 @@ enum CreateMcpOauthTokenEndpointAuthParamNoneType {
 
   static CreateMcpOauthTokenEndpointAuthParamNoneType fromJson(String value) {
     switch (value) {
-      case 'none':
-        return CreateMcpOauthTokenEndpointAuthParamNoneType.none;
-      default:
-        throw ArgumentError(
-            'Unknown CreateMcpOauthTokenEndpointAuthParamNoneType: $value');
+      case 'none': return CreateMcpOauthTokenEndpointAuthParamNoneType.none;
+      default: throw ArgumentError('Unknown CreateMcpOauthTokenEndpointAuthParamNoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateMcpOauthTokenEndpointAuthParamNoneType.none:
-        return 'none';
+      case CreateMcpOauthTokenEndpointAuthParamNoneType.none: return 'none';
     }
   }
 
@@ -140,27 +114,24 @@ enum CreateMcpOauthTokenEndpointAuthParamNoneType {
 
 /// The role of the entity that is creating the message. Allowed values include: - `user`: Indicates the message is sent by an actual user and should be used in most cases to represent user-generated messages. - `assistant`: Indicates the message is generated by the assistant. Use this value to insert messages from the assistant into the conversation.
 final class CreateMessageRequestRole {
+
   final String value;
 
   const CreateMessageRequestRole._(this.value);
 
-  factory CreateMessageRequestRole.fromJson(String value) =>
-      CreateMessageRequestRole._(value);
+  factory CreateMessageRequestRole.fromJson(String value) => CreateMessageRequestRole._(value);
 
   static const user = CreateMessageRequestRole._('user');
   static const assistant = CreateMessageRequestRole._('assistant');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateMessageRequestRole && other.value == value;
+  @override bool operator ==(Object other) => other is CreateMessageRequestRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `image_url`.
@@ -169,18 +140,14 @@ enum CreateModerationRequestInputItemVariant0Type {
 
   static CreateModerationRequestInputItemVariant0Type fromJson(String value) {
     switch (value) {
-      case 'image_url':
-        return CreateModerationRequestInputItemVariant0Type.imageUrl;
-      default:
-        throw ArgumentError(
-            'Unknown CreateModerationRequestInputItemVariant0Type: $value');
+      case 'image_url': return CreateModerationRequestInputItemVariant0Type.imageUrl;
+      default: throw ArgumentError('Unknown CreateModerationRequestInputItemVariant0Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateModerationRequestInputItemVariant0Type.imageUrl:
-        return 'image_url';
+      case CreateModerationRequestInputItemVariant0Type.imageUrl: return 'image_url';
     }
   }
 
@@ -194,18 +161,14 @@ enum CreateModerationRequestInputItemVariant1Type {
 
   static CreateModerationRequestInputItemVariant1Type fromJson(String value) {
     switch (value) {
-      case 'text':
-        return CreateModerationRequestInputItemVariant1Type.text;
-      default:
-        throw ArgumentError(
-            'Unknown CreateModerationRequestInputItemVariant1Type: $value');
+      case 'text': return CreateModerationRequestInputItemVariant1Type.text;
+      default: throw ArgumentError('Unknown CreateModerationRequestInputItemVariant1Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateModerationRequestInputItemVariant1Type.text:
-        return 'text';
+      case CreateModerationRequestInputItemVariant1Type.text: return 'text';
     }
   }
 
@@ -215,155 +178,105 @@ enum CreateModerationRequestInputItemVariant1Type {
 
 /// Required enumerated value serialized in the `harassment[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem
-          ._(value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem
-          ._('text');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem._('text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `harassment/threatening[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem
-          ._(value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem
-          ._('text');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem._('text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `hate[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem._(
-          value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem._(
-          'text');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem._('text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `hate/threatening[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem
-          ._(value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem
-          ._('text');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem._('text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `illicit[]` wire field.
 final class CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem {
+
   final String value;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem._(
-      this.value);
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem._(this.value);
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem.fromJson(
-          String value) =>
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem._(
-          value);
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem.fromJson(String value) => CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem._(value);
 
-  static const text =
-      CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem._(
-          'text');
+  static const text = CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem._('text');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

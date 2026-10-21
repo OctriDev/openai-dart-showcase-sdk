@@ -8,38 +8,27 @@ part of 'live_live_decision.dart';
 class LiveDecisionInputTextParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the input item. Always `input_text`.
   final LiveDecisionInputTextParamType type_;
-
   /// The text input to the model.
   final String text;
 
   const LiveDecisionInputTextParam({required this.type_, required this.text});
 
-  LiveDecisionInputTextParam Function(
-      {LiveDecisionInputTextParamType type_,
-      String text}) get copyWith => _copyWith;
+  LiveDecisionInputTextParam Function({LiveDecisionInputTextParamType type_, String text}) get copyWith => _copyWith;
 
-  LiveDecisionInputTextParam _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      LiveDecisionInputTextParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveDecisionInputTextParamType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  LiveDecisionInputTextParam _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => LiveDecisionInputTextParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveDecisionInputTextParamType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory LiveDecisionInputTextParam.fromJson(Map<String, dynamic> json) =>
-      LiveDecisionInputTextParam(
-        type_: (json['type'] != null
-            ? LiveDecisionInputTextParamType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory LiveDecisionInputTextParam.fromJson(Map<String, dynamic> json) => LiveDecisionInputTextParam(
+    type_: (json['type'] != null ? LiveDecisionInputTextParamType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }

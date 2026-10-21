@@ -8,143 +8,67 @@ part of 'vector_stores.dart';
 class CreateVectorStoreRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A list of [File](https://developers.openai.com/api/reference/resources/files) IDs that the vector store should use. Useful for tools like `file_search` that can access files.
   final SdkOptional<List<String>> fileIds;
-
   /// The name of the vector store.
   final SdkOptional<String> name;
-
   /// A description for the vector store. Can be used to describe the vector store's purpose.
   final SdkOptional<String> description;
-
   /// The expiration policy for a vector store.
   final SdkOptional<VectorStoreExpirationAfter> expiresAfter;
-
   /// The chunking strategy used to chunk the file(s). If not set, will use the `auto` strategy. Only applicable if `file_ids` is non-empty.
   final SdkOptional<CreateVectorStoreRequestChunkingStrategy> chunkingStrategy;
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
 
-  const CreateVectorStoreRequest(
-      {this.fileIds = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.expiresAfter = const SdkOmitted(),
-      this.chunkingStrategy = const SdkOmitted(),
-      this.metadata = const SdkOmitted()});
+  const CreateVectorStoreRequest({this.fileIds = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.expiresAfter = const SdkOmitted(), this.chunkingStrategy = const SdkOmitted(), this.metadata = const SdkOmitted()});
 
-  CreateVectorStoreRequest Function(
-      {SdkOptional<List<String>> fileIds,
-      SdkOptional<String> name,
-      SdkOptional<String> description,
-      SdkOptional<VectorStoreExpirationAfter> expiresAfter,
-      SdkOptional<CreateVectorStoreRequestChunkingStrategy> chunkingStrategy,
-      SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
+  CreateVectorStoreRequest Function({SdkOptional<List<String>> fileIds, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<VectorStoreExpirationAfter> expiresAfter, SdkOptional<CreateVectorStoreRequestChunkingStrategy> chunkingStrategy, SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
 
-  CreateVectorStoreRequest _copyWith(
-          {Object? fileIds = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? expiresAfter = sdkOmittedValue,
-          Object? chunkingStrategy = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue}) =>
-      CreateVectorStoreRequest(
-        fileIds: identical(fileIds, sdkOmittedValue)
-            ? this.fileIds
-            : fileIds as SdkOptional<List<String>>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        expiresAfter: identical(expiresAfter, sdkOmittedValue)
-            ? this.expiresAfter
-            : expiresAfter as SdkOptional<VectorStoreExpirationAfter>,
-        chunkingStrategy: identical(chunkingStrategy, sdkOmittedValue)
-            ? this.chunkingStrategy
-            : chunkingStrategy
-                as SdkOptional<CreateVectorStoreRequestChunkingStrategy>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>?>,
-      );
+  CreateVectorStoreRequest _copyWith({Object? fileIds = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? expiresAfter = sdkOmittedValue, Object? chunkingStrategy = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => CreateVectorStoreRequest(
+    fileIds: identical(fileIds, sdkOmittedValue) ? this.fileIds : fileIds as SdkOptional<List<String>>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    expiresAfter: identical(expiresAfter, sdkOmittedValue) ? this.expiresAfter : expiresAfter as SdkOptional<VectorStoreExpirationAfter>,
+    chunkingStrategy: identical(chunkingStrategy, sdkOmittedValue) ? this.chunkingStrategy : chunkingStrategy as SdkOptional<CreateVectorStoreRequestChunkingStrategy>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
+  );
 
-  factory CreateVectorStoreRequest.fromJson(Map<String, dynamic> json) =>
-      CreateVectorStoreRequest(
-        fileIds: json['file_ids'] != null
-            ? SdkPresent(((json['file_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        expiresAfter: json['expires_after'] != null
-            ? SdkPresent((json['expires_after'] != null
-                ? VectorStoreExpirationAfter.fromJson(
-                    json['expires_after'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        chunkingStrategy: json['chunking_strategy'] != null
-            ? SdkPresent((json['chunking_strategy'] != null
-                ? CreateVectorStoreRequestChunkingStrategy.fromJson(
-                    json['chunking_strategy'])
-                : null)!)
-            : const SdkOmitted(),
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+  factory CreateVectorStoreRequest.fromJson(Map<String, dynamic> json) => CreateVectorStoreRequest(
+    fileIds: json['file_ids'] != null ? SdkPresent(((json['file_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    expiresAfter: json['expires_after'] != null ? SdkPresent((json['expires_after'] != null ? VectorStoreExpirationAfter.fromJson(json['expires_after'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    chunkingStrategy: json['chunking_strategy'] != null ? SdkPresent((json['chunking_strategy'] != null ? CreateVectorStoreRequestChunkingStrategy.fromJson(json['chunking_strategy']) : null)!) : const SdkOmitted(),
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (fileIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'file_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAfter) {
-          SdkPresent<VectorStoreExpirationAfter>(value: final value) => {
-              'expires_after': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (chunkingStrategy) {
-          SdkPresent<CreateVectorStoreRequestChunkingStrategy>(
-            value: final value
-          ) =>
-            {
-              'chunking_strategy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (fileIds) {
+      SdkPresent<List<String>>(value: final value) => {'file_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAfter) {
+      SdkPresent<VectorStoreExpirationAfter>(value: final value) => {'expires_after': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (chunkingStrategy) {
+      SdkPresent<CreateVectorStoreRequestChunkingStrategy>(value: final value) => {'chunking_strategy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class CreateVectorStoreRequestChunkingStrategy {
@@ -153,65 +77,32 @@ sealed class CreateVectorStoreRequestChunkingStrategy {
   const CreateVectorStoreRequestChunkingStrategy();
   factory CreateVectorStoreRequestChunkingStrategy.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = AutoChunkingStrategyRequestParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = StaticChunkingStrategyRequestParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateVectorStoreRequestChunkingStrategyStaticChunkingStrategyRequestParam(
-              value);
-        }
-      } catch (_) {}
+      try { final value = AutoChunkingStrategyRequestParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam(value); } } catch (_) {}
+      try { final value = StaticChunkingStrategyRequestParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateVectorStoreRequestChunkingStrategyStaticChunkingStrategyRequestParam(value); } } catch (_) {}
     }
-    try {
-      return CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam(
-          AutoChunkingStrategyRequestParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateVectorStoreRequestChunkingStrategyStaticChunkingStrategyRequestParam(
-          StaticChunkingStrategyRequestParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"auto", "static"}.contains(json["type"])) {
-      return UnknownCreateVectorStoreRequestChunkingStrategy(json);
-    }
-    throw FormatException(
-        "No variant matched for CreateVectorStoreRequestChunkingStrategy");
+    try { return CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam(AutoChunkingStrategyRequestParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateVectorStoreRequestChunkingStrategyStaticChunkingStrategyRequestParam(StaticChunkingStrategyRequestParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"auto", "static"}.contains(json["type"])) { return UnknownCreateVectorStoreRequestChunkingStrategy(json); }
+    throw FormatException("No variant matched for CreateVectorStoreRequestChunkingStrategy");
   }
   Object? toJson();
 }
 
-final class CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam
-    extends CreateVectorStoreRequestChunkingStrategy {
+final class CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam extends CreateVectorStoreRequestChunkingStrategy {
   final AutoChunkingStrategyRequestParam value;
-  const CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateVectorStoreRequestChunkingStrategyAutoChunkingStrategyRequestParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateVectorStoreRequestChunkingStrategyStaticChunkingStrategyRequestParam
-    extends CreateVectorStoreRequestChunkingStrategy {
+final class CreateVectorStoreRequestChunkingStrategyStaticChunkingStrategyRequestParam extends CreateVectorStoreRequestChunkingStrategy {
   final StaticChunkingStrategyRequestParam value;
-  const CreateVectorStoreRequestChunkingStrategyStaticChunkingStrategyRequestParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateVectorStoreRequestChunkingStrategyStaticChunkingStrategyRequestParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [CreateVectorStoreRequestChunkingStrategy] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateVectorStoreRequestChunkingStrategy
-    extends CreateVectorStoreRequestChunkingStrategy {
+final class UnknownCreateVectorStoreRequestChunkingStrategy extends CreateVectorStoreRequestChunkingStrategy {
   final Map<String, dynamic> raw;
   const UnknownCreateVectorStoreRequestChunkingStrategy(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

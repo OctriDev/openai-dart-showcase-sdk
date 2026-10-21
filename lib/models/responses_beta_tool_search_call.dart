@@ -8,133 +8,63 @@ part of 'responses_beta_tool.dart';
 class BetaToolSearchCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag> agent;
-
   /// The type of the item. Always `tool_search_call`.
   final BetaToolSearchCallType type_;
-
   /// The unique ID of the tool search call item.
   final String id;
-
   /// Required `string` value serialized in the `call_id` wire field.
   final String? callId;
-
   /// Whether tool search was executed by the server or by the client.
   final BetaToolSearchExecutionType execution;
-
   /// Arguments used for the tool search call.
   final dynamic arguments;
-
   /// The status of the tool search call item that was recorded.
   final BetaFunctionCallStatus status;
-
   /// The identifier of the actor that created the item.
   final SdkOptional<String> createdBy;
 
-  const BetaToolSearchCall(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.id,
-      required this.callId,
-      required this.execution,
-      required this.arguments,
-      required this.status,
-      this.createdBy = const SdkOmitted()});
+  const BetaToolSearchCall({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.callId, required this.execution, required this.arguments, required this.status, this.createdBy = const SdkOmitted()});
 
-  BetaToolSearchCall Function(
-      {SdkOptional<BetaAgentTag> agent,
-      BetaToolSearchCallType type_,
-      String id,
-      String? callId,
-      BetaToolSearchExecutionType execution,
-      dynamic arguments,
-      BetaFunctionCallStatus status,
-      SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  BetaToolSearchCall Function({SdkOptional<BetaAgentTag> agent, BetaToolSearchCallType type_, String id, String? callId, BetaToolSearchExecutionType execution, dynamic arguments, BetaFunctionCallStatus status, SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  BetaToolSearchCall _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? execution = sdkOmittedValue,
-          Object? arguments = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? createdBy = sdkOmittedValue}) =>
-      BetaToolSearchCall(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaToolSearchCallType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        callId: identical(callId, sdkOmittedValue)
-            ? this.callId
-            : callId as String?,
-        execution: identical(execution, sdkOmittedValue)
-            ? this.execution
-            : execution as BetaToolSearchExecutionType,
-        arguments: identical(arguments, sdkOmittedValue)
-            ? this.arguments
-            : arguments as dynamic,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as BetaFunctionCallStatus,
-        createdBy: identical(createdBy, sdkOmittedValue)
-            ? this.createdBy
-            : createdBy as SdkOptional<String>,
-      );
+  BetaToolSearchCall _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? execution = sdkOmittedValue, Object? arguments = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => BetaToolSearchCall(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaToolSearchCallType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String?,
+    execution: identical(execution, sdkOmittedValue) ? this.execution : execution as BetaToolSearchExecutionType,
+    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as dynamic,
+    status: identical(status, sdkOmittedValue) ? this.status : status as BetaFunctionCallStatus,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
+  );
 
-  factory BetaToolSearchCall.fromJson(Map<String, dynamic> json) =>
-      BetaToolSearchCall(
-        agent: json['agent'] != null
-            ? SdkPresent((json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaToolSearchCallType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        callId: json.containsKey('call_id')
-            ? json['call_id'] as String?
-            : throw ArgumentError.value(
-                null, 'call_id', 'Required property is missing'),
-        execution: (json['execution'] != null
-            ? BetaToolSearchExecutionType.fromJson(json['execution'] as String)
-            : null)!,
-        arguments: json.containsKey('arguments')
-            ? json['arguments']
-            : throw ArgumentError.value(
-                null, 'arguments', 'Required property is missing'),
-        status: (json['status'] != null
-            ? BetaFunctionCallStatus.fromJson(json['status'] as String)
-            : null)!,
-        createdBy: json['created_by'] != null
-            ? SdkPresent((json['created_by'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory BetaToolSearchCall.fromJson(Map<String, dynamic> json) => BetaToolSearchCall(
+    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaToolSearchCallType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    callId: json.containsKey('call_id') ? json['call_id'] as String? : throw ArgumentError.value(null, 'call_id', 'Required property is missing'),
+    execution: (json['execution'] != null ? BetaToolSearchExecutionType.fromJson(json['execution'] as String) : null)!,
+    arguments: json.containsKey('arguments') ? json['arguments'] : throw ArgumentError.value(null, 'arguments', 'Required property is missing'),
+    status: (json['status'] != null ? BetaFunctionCallStatus.fromJson(json['status'] as String) : null)!,
+    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag>(value: final value) => {
-              'agent': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'id': id,
-        'call_id': callId,
-        'execution': execution.toJson(),
-        'arguments': arguments,
-        'status': status.toJson(),
-        ...switch (createdBy) {
-          SdkPresent<String>(value: final value) => {
-              'created_by': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag>(value: final value) => {'agent': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'id': id,
+    'call_id': callId,
+    'execution': execution.toJson(),
+    'arguments': arguments,
+    'status': status.toJson(),
+    ...switch (createdBy) {
+      SdkPresent<String>(value: final value) => {'created_by': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

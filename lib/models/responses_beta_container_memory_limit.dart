@@ -6,12 +6,12 @@ part of 'responses_beta_container.dart';
 // responses_beta_container domain models
 /// Typed representation of the `BetaContainerMemoryLimit` API schema.
 final class BetaContainerMemoryLimit {
+
   final String value;
 
   const BetaContainerMemoryLimit._(this.value);
 
-  factory BetaContainerMemoryLimit.fromJson(String value) =>
-      BetaContainerMemoryLimit._(value);
+  factory BetaContainerMemoryLimit.fromJson(String value) => BetaContainerMemoryLimit._(value);
 
   static const v1g = BetaContainerMemoryLimit._('1g');
   static const v4g = BetaContainerMemoryLimit._('4g');
@@ -20,13 +20,10 @@ final class BetaContainerMemoryLimit {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaContainerMemoryLimit && other.value == value;
+  @override bool operator ==(Object other) => other is BetaContainerMemoryLimit && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -8,52 +8,30 @@ part of 'shared_apply.dart';
 class ApplyPatchToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the tool. Always `apply_patch`.
   final ApplyPatchToolParamType type_;
-
   /// The tool invocation context(s).
   final SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers;
 
-  const ApplyPatchToolParam(
-      {required this.type_, this.allowedCallers = const SdkOmitted()});
+  const ApplyPatchToolParam({required this.type_, this.allowedCallers = const SdkOmitted()});
 
-  ApplyPatchToolParam Function(
-          {ApplyPatchToolParamType type_,
-          SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers})
-      get copyWith => _copyWith;
+  ApplyPatchToolParam Function({ApplyPatchToolParamType type_, SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
 
-  ApplyPatchToolParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? allowedCallers = sdkOmittedValue}) =>
-      ApplyPatchToolParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ApplyPatchToolParamType,
-        allowedCallers: identical(allowedCallers, sdkOmittedValue)
-            ? this.allowedCallers
-            : allowedCallers as SdkOptional<List<CallableToolAllowedCaller>?>,
-      );
+  ApplyPatchToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue}) => ApplyPatchToolParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ApplyPatchToolParamType,
+    allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<CallableToolAllowedCaller>?>,
+  );
 
-  factory ApplyPatchToolParam.fromJson(Map<String, dynamic> json) =>
-      ApplyPatchToolParam(
-        type_: (json['type'] != null
-            ? ApplyPatchToolParamType.fromJson(json['type'] as String)
-            : null)!,
-        allowedCallers: json.containsKey('allowed_callers')
-            ? SdkPresent((json['allowed_callers'] as List?)
-                ?.map((e) => CallableToolAllowedCaller.fromJson(e as String))
-                .toList())
-            : const SdkOmitted(),
-      );
+  factory ApplyPatchToolParam.fromJson(Map<String, dynamic> json) => ApplyPatchToolParam(
+    type_: (json['type'] != null ? ApplyPatchToolParamType.fromJson(json['type'] as String) : null)!,
+    allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => CallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (allowedCallers) {
-          SdkPresent<List<CallableToolAllowedCaller>?>(value: final value) => {
-              'allowed_callers': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (allowedCallers) {
+      SdkPresent<List<CallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

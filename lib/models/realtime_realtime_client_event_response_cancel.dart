@@ -8,70 +8,38 @@ part of 'realtime_realtime_client.dart';
 class RealtimeClientEventResponseCancel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
-
   /// The event type, must be `response.cancel`.
   final RealtimeClientEventResponseCancelType type_;
-
   /// A specific response ID to cancel - if not provided, will cancel an in-progress response in the default conversation.
   final SdkOptional<String> responseId;
 
-  const RealtimeClientEventResponseCancel(
-      {this.eventId = const SdkOmitted(),
-      required this.type_,
-      this.responseId = const SdkOmitted()});
+  const RealtimeClientEventResponseCancel({this.eventId = const SdkOmitted(), required this.type_, this.responseId = const SdkOmitted()});
 
-  RealtimeClientEventResponseCancel Function(
-      {SdkOptional<String> eventId,
-      RealtimeClientEventResponseCancelType type_,
-      SdkOptional<String> responseId}) get copyWith => _copyWith;
+  RealtimeClientEventResponseCancel Function({SdkOptional<String> eventId, RealtimeClientEventResponseCancelType type_, SdkOptional<String> responseId}) get copyWith => _copyWith;
 
-  RealtimeClientEventResponseCancel _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? responseId = sdkOmittedValue}) =>
-      RealtimeClientEventResponseCancel(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeClientEventResponseCancelType,
-        responseId: identical(responseId, sdkOmittedValue)
-            ? this.responseId
-            : responseId as SdkOptional<String>,
-      );
+  RealtimeClientEventResponseCancel _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue}) => RealtimeClientEventResponseCancel(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventResponseCancelType,
+    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as SdkOptional<String>,
+  );
 
-  factory RealtimeClientEventResponseCancel.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeClientEventResponseCancel(
-        eventId: json['event_id'] != null
-            ? SdkPresent((json['event_id'] as String?)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? RealtimeClientEventResponseCancelType.fromJson(
-                json['type'] as String)
-            : null)!,
-        responseId: json['response_id'] != null
-            ? SdkPresent((json['response_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeClientEventResponseCancel.fromJson(Map<String, dynamic> json) => RealtimeClientEventResponseCancel(
+    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? RealtimeClientEventResponseCancelType.fromJson(json['type'] as String) : null)!,
+    responseId: json['response_id'] != null ? SdkPresent((json['response_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        ...switch (responseId) {
-          SdkPresent<String>(value: final value) => {
-              'response_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (eventId) {
+      SdkPresent<String>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    ...switch (responseId) {
+      SdkPresent<String>(value: final value) => {'response_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

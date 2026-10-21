@@ -8,50 +8,32 @@ part of 'vector_stores.dart';
 class DeleteVectorStoreResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
-
   /// Required enumerated value serialized in the `object` wire field.
   final DeleteVectorStoreResponseObject object;
 
-  const DeleteVectorStoreResponse(
-      {required this.id, required this.deleted, required this.object});
+  const DeleteVectorStoreResponse({required this.id, required this.deleted, required this.object});
 
-  DeleteVectorStoreResponse Function(
-      {String id,
-      bool deleted,
-      DeleteVectorStoreResponseObject object}) get copyWith => _copyWith;
+  DeleteVectorStoreResponse Function({String id, bool deleted, DeleteVectorStoreResponseObject object}) get copyWith => _copyWith;
 
-  DeleteVectorStoreResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue,
-          Object? object = sdkOmittedValue}) =>
-      DeleteVectorStoreResponse(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DeleteVectorStoreResponseObject,
-      );
+  DeleteVectorStoreResponse _copyWith({Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? object = sdkOmittedValue}) => DeleteVectorStoreResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteVectorStoreResponseObject,
+  );
 
-  factory DeleteVectorStoreResponse.fromJson(Map<String, dynamic> json) =>
-      DeleteVectorStoreResponse(
-        id: (json['id'] as String?)!,
-        deleted: (json['deleted'] as bool?)!,
-        object: (json['object'] != null
-            ? DeleteVectorStoreResponseObject.fromJson(json['object'] as String)
-            : null)!,
-      );
+  factory DeleteVectorStoreResponse.fromJson(Map<String, dynamic> json) => DeleteVectorStoreResponse(
+    id: (json['id'] as String?)!,
+    deleted: (json['deleted'] as bool?)!,
+    object: (json['object'] != null ? DeleteVectorStoreResponseObject.fromJson(json['object'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'deleted': deleted,
-        'object': object.toJson(),
-      };
+    'id': id,
+    'deleted': deleted,
+    'object': object.toJson(),
+  };
 }

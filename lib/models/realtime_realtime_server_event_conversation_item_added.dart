@@ -8,76 +8,40 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventConversationItemAdded {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `conversation.item.added`.
   final RealtimeServerEventConversationItemAddedType type_;
-
   /// Optional `string` value serialized in the `previous_item_id` wire field.
   final SdkOptional<String?> previousItemId;
-
   /// A single item within a Realtime conversation.
   final RealtimeConversationItem item;
 
-  const RealtimeServerEventConversationItemAdded(
-      {required this.eventId,
-      required this.type_,
-      this.previousItemId = const SdkOmitted(),
-      required this.item});
+  const RealtimeServerEventConversationItemAdded({required this.eventId, required this.type_, this.previousItemId = const SdkOmitted(), required this.item});
 
-  RealtimeServerEventConversationItemAdded Function(
-      {String eventId,
-      RealtimeServerEventConversationItemAddedType type_,
-      SdkOptional<String?> previousItemId,
-      RealtimeConversationItem item}) get copyWith => _copyWith;
+  RealtimeServerEventConversationItemAdded Function({String eventId, RealtimeServerEventConversationItemAddedType type_, SdkOptional<String?> previousItemId, RealtimeConversationItem item}) get copyWith => _copyWith;
 
-  RealtimeServerEventConversationItemAdded _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? previousItemId = sdkOmittedValue,
-          Object? item = sdkOmittedValue}) =>
-      RealtimeServerEventConversationItemAdded(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeServerEventConversationItemAddedType,
-        previousItemId: identical(previousItemId, sdkOmittedValue)
-            ? this.previousItemId
-            : previousItemId as SdkOptional<String?>,
-        item: identical(item, sdkOmittedValue)
-            ? this.item
-            : item as RealtimeConversationItem,
-      );
+  RealtimeServerEventConversationItemAdded _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? previousItemId = sdkOmittedValue, Object? item = sdkOmittedValue}) => RealtimeServerEventConversationItemAdded(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventConversationItemAddedType,
+    previousItemId: identical(previousItemId, sdkOmittedValue) ? this.previousItemId : previousItemId as SdkOptional<String?>,
+    item: identical(item, sdkOmittedValue) ? this.item : item as RealtimeConversationItem,
+  );
 
-  factory RealtimeServerEventConversationItemAdded.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeServerEventConversationItemAdded(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeServerEventConversationItemAddedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        previousItemId: json.containsKey('previous_item_id')
-            ? SdkPresent(json['previous_item_id'] as String?)
-            : const SdkOmitted(),
-        item: (json['item'] != null
-            ? RealtimeConversationItem.fromJson(json['item'])
-            : null)!,
-      );
+  factory RealtimeServerEventConversationItemAdded.fromJson(Map<String, dynamic> json) => RealtimeServerEventConversationItemAdded(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeServerEventConversationItemAddedType.fromJson(json['type'] as String) : null)!,
+    previousItemId: json.containsKey('previous_item_id') ? SdkPresent(json['previous_item_id'] as String?) : const SdkOmitted(),
+    item: (json['item'] != null ? RealtimeConversationItem.fromJson(json['item']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        ...switch (previousItemId) {
-          SdkPresent<String?>(value: final value) => {
-              'previous_item_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'item': item.toJson(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    ...switch (previousItemId) {
+      SdkPresent<String?>(value: final value) => {'previous_item_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'item': item.toJson(),
+  };
 }

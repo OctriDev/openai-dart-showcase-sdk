@@ -9,85 +9,51 @@ sealed class LiveSessionUpdateParamEventId {
   static const String constructionSurface = 'named';
   const LiveSessionUpdateParamEventId();
   factory LiveSessionUpdateParamEventId.fromJson(Object? json) {
-    if (json is String) {
-      return LiveSessionUpdateParamEventIdString(json);
-    }
-    throw FormatException(
-        "No variant matched for LiveSessionUpdateParamEventId");
+    if (json is String) { return LiveSessionUpdateParamEventIdString(json); }
+    throw FormatException("No variant matched for LiveSessionUpdateParamEventId");
   }
   Object? toJson();
 }
 
-final class LiveSessionUpdateParamEventIdString
-    extends LiveSessionUpdateParamEventId {
+final class LiveSessionUpdateParamEventIdString extends LiveSessionUpdateParamEventId {
   final String value;
   const LiveSessionUpdateParamEventIdString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Update the delegation settings or transcript triggers of an active Live session. The server acknowledges accepted changes with `session.updated`.
 class LiveSessionUpdateParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `event_id` wire field.
   final SdkOptional<String?> eventId;
-
   /// The Live client event type. Always `session.update`.
   final LiveSessionUpdateParamType type_;
-
   /// Sparse delegation and trigger updates. Omitted settings retain their values. The delegation type cannot change. Model, frontend instructions, audio, and startup input are immutable.
   final LiveSessionUpdateParams session;
 
-  const LiveSessionUpdateParam(
-      {this.eventId = const SdkOmitted(),
-      required this.type_,
-      required this.session});
+  const LiveSessionUpdateParam({this.eventId = const SdkOmitted(), required this.type_, required this.session});
 
-  LiveSessionUpdateParam Function(
-      {SdkOptional<String?> eventId,
-      LiveSessionUpdateParamType type_,
-      LiveSessionUpdateParams session}) get copyWith => _copyWith;
+  LiveSessionUpdateParam Function({SdkOptional<String?> eventId, LiveSessionUpdateParamType type_, LiveSessionUpdateParams session}) get copyWith => _copyWith;
 
-  LiveSessionUpdateParam _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? session = sdkOmittedValue}) =>
-      LiveSessionUpdateParam(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveSessionUpdateParamType,
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as LiveSessionUpdateParams,
-      );
+  LiveSessionUpdateParam _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => LiveSessionUpdateParam(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSessionUpdateParamType,
+    session: identical(session, sdkOmittedValue) ? this.session : session as LiveSessionUpdateParams,
+  );
 
-  factory LiveSessionUpdateParam.fromJson(Map<String, dynamic> json) =>
-      LiveSessionUpdateParam(
-        eventId: json.containsKey('event_id')
-            ? SdkPresent(json['event_id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? LiveSessionUpdateParamType.fromJson(json['type'] as String)
-            : null)!,
-        session: (json['session'] != null
-            ? LiveSessionUpdateParams.fromJson(
-                json['session'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory LiveSessionUpdateParam.fromJson(Map<String, dynamic> json) => LiveSessionUpdateParam(
+    eventId: json.containsKey('event_id') ? SdkPresent(json['event_id'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? LiveSessionUpdateParamType.fromJson(json['type'] as String) : null)!,
+    session: (json['session'] != null ? LiveSessionUpdateParams.fromJson(json['session'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String?>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'session': session.toJson(),
-      };
+    ...switch (eventId) {
+      SdkPresent<String?>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'session': session.toJson(),
+  };
 }

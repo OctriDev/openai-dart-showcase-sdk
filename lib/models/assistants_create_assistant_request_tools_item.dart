@@ -10,78 +10,40 @@ sealed class CreateAssistantRequestToolsItem {
   const CreateAssistantRequestToolsItem();
   factory CreateAssistantRequestToolsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = AssistantToolsCode.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateAssistantRequestToolsItemAssistantToolsCode(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AssistantToolsFileSearch.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateAssistantRequestToolsItemAssistantToolsFileSearch(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AssistantToolsFunction.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateAssistantRequestToolsItemAssistantToolsFunction(value);
-        }
-      } catch (_) {}
+      try { final value = AssistantToolsCode.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateAssistantRequestToolsItemAssistantToolsCode(value); } } catch (_) {}
+      try { final value = AssistantToolsFileSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateAssistantRequestToolsItemAssistantToolsFileSearch(value); } } catch (_) {}
+      try { final value = AssistantToolsFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateAssistantRequestToolsItemAssistantToolsFunction(value); } } catch (_) {}
     }
-    try {
-      return CreateAssistantRequestToolsItemAssistantToolsCode(
-          AssistantToolsCode.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateAssistantRequestToolsItemAssistantToolsFileSearch(
-          AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateAssistantRequestToolsItemAssistantToolsFunction(
-          AssistantToolsFunction.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"code_interpreter", "file_search", "function"}
-            .contains(json["type"])) {
-      return UnknownCreateAssistantRequestToolsItem(json);
-    }
-    throw FormatException(
-        "No variant matched for CreateAssistantRequestToolsItem");
+    try { return CreateAssistantRequestToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateAssistantRequestToolsItemAssistantToolsFileSearch(AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateAssistantRequestToolsItemAssistantToolsFunction(AssistantToolsFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"code_interpreter", "file_search", "function"}.contains(json["type"])) { return UnknownCreateAssistantRequestToolsItem(json); }
+    throw FormatException("No variant matched for CreateAssistantRequestToolsItem");
   }
   Object? toJson();
 }
 
-final class CreateAssistantRequestToolsItemAssistantToolsCode
-    extends CreateAssistantRequestToolsItem {
+final class CreateAssistantRequestToolsItemAssistantToolsCode extends CreateAssistantRequestToolsItem {
   final AssistantToolsCode value;
   const CreateAssistantRequestToolsItemAssistantToolsCode(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateAssistantRequestToolsItemAssistantToolsFileSearch
-    extends CreateAssistantRequestToolsItem {
+final class CreateAssistantRequestToolsItemAssistantToolsFileSearch extends CreateAssistantRequestToolsItem {
   final AssistantToolsFileSearch value;
   const CreateAssistantRequestToolsItemAssistantToolsFileSearch(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateAssistantRequestToolsItemAssistantToolsFunction
-    extends CreateAssistantRequestToolsItem {
+final class CreateAssistantRequestToolsItemAssistantToolsFunction extends CreateAssistantRequestToolsItem {
   final AssistantToolsFunction value;
   const CreateAssistantRequestToolsItemAssistantToolsFunction(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [CreateAssistantRequestToolsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateAssistantRequestToolsItem
-    extends CreateAssistantRequestToolsItem {
+final class UnknownCreateAssistantRequestToolsItem extends CreateAssistantRequestToolsItem {
   final Map<String, dynamic> raw;
   const UnknownCreateAssistantRequestToolsItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

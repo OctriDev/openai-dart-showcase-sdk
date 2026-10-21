@@ -8,40 +8,27 @@ part of 'live_live_session.dart';
 class LiveSessionAudioFormatPCMUParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The audio encoding. Always `audio/pcmu`.
   final LiveSessionAudioFormatPCMUParamType type_;
-
   /// Audio sample rate in hertz. G.711 audio uses 8000 Hz.
   final int rate;
 
-  const LiveSessionAudioFormatPCMUParam(
-      {required this.type_, required this.rate});
+  const LiveSessionAudioFormatPCMUParam({required this.type_, required this.rate});
 
-  LiveSessionAudioFormatPCMUParam Function(
-      {LiveSessionAudioFormatPCMUParamType type_,
-      int rate}) get copyWith => _copyWith;
+  LiveSessionAudioFormatPCMUParam Function({LiveSessionAudioFormatPCMUParamType type_, int rate}) get copyWith => _copyWith;
 
-  LiveSessionAudioFormatPCMUParam _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? rate = sdkOmittedValue}) =>
-      LiveSessionAudioFormatPCMUParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveSessionAudioFormatPCMUParamType,
-        rate: identical(rate, sdkOmittedValue) ? this.rate : rate as int,
-      );
+  LiveSessionAudioFormatPCMUParam _copyWith({Object? type_ = sdkOmittedValue, Object? rate = sdkOmittedValue}) => LiveSessionAudioFormatPCMUParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSessionAudioFormatPCMUParamType,
+    rate: identical(rate, sdkOmittedValue) ? this.rate : rate as int,
+  );
 
-  factory LiveSessionAudioFormatPCMUParam.fromJson(Map<String, dynamic> json) =>
-      LiveSessionAudioFormatPCMUParam(
-        type_: (json['type'] != null
-            ? LiveSessionAudioFormatPCMUParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        rate: ((json['rate'] as num?)?.toInt())!,
-      );
+  factory LiveSessionAudioFormatPCMUParam.fromJson(Map<String, dynamic> json) => LiveSessionAudioFormatPCMUParam(
+    type_: (json['type'] != null ? LiveSessionAudioFormatPCMUParamType.fromJson(json['type'] as String) : null)!,
+    rate: ((json['rate'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'rate': rate,
-      };
+    'type': type_.toJson(),
+    'rate': rate,
+  };
 }

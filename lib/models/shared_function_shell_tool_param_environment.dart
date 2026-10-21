@@ -10,79 +10,40 @@ sealed class FunctionShellToolParamEnvironment {
   const FunctionShellToolParamEnvironment();
   factory FunctionShellToolParamEnvironment.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ContainerAutoParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FunctionShellToolParamEnvironmentContainerAutoParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LocalEnvironmentParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FunctionShellToolParamEnvironmentLocalEnvironmentParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ContainerReferenceParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return FunctionShellToolParamEnvironmentContainerReferenceParam(
-              value);
-        }
-      } catch (_) {}
+      try { final value = ContainerAutoParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellToolParamEnvironmentContainerAutoParam(value); } } catch (_) {}
+      try { final value = LocalEnvironmentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellToolParamEnvironmentLocalEnvironmentParam(value); } } catch (_) {}
+      try { final value = ContainerReferenceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellToolParamEnvironmentContainerReferenceParam(value); } } catch (_) {}
     }
-    try {
-      return FunctionShellToolParamEnvironmentContainerAutoParam(
-          ContainerAutoParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return FunctionShellToolParamEnvironmentLocalEnvironmentParam(
-          LocalEnvironmentParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return FunctionShellToolParamEnvironmentContainerReferenceParam(
-          ContainerReferenceParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"container_auto", "local", "container_reference"}
-            .contains(json["type"])) {
-      return UnknownFunctionShellToolParamEnvironment(json);
-    }
-    throw FormatException(
-        "No variant matched for FunctionShellToolParamEnvironment");
+    try { return FunctionShellToolParamEnvironmentContainerAutoParam(ContainerAutoParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return FunctionShellToolParamEnvironmentLocalEnvironmentParam(LocalEnvironmentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return FunctionShellToolParamEnvironmentContainerReferenceParam(ContainerReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"container_auto", "local", "container_reference"}.contains(json["type"])) { return UnknownFunctionShellToolParamEnvironment(json); }
+    throw FormatException("No variant matched for FunctionShellToolParamEnvironment");
   }
   Object? toJson();
 }
 
-final class FunctionShellToolParamEnvironmentContainerAutoParam
-    extends FunctionShellToolParamEnvironment {
+final class FunctionShellToolParamEnvironmentContainerAutoParam extends FunctionShellToolParamEnvironment {
   final ContainerAutoParam value;
   const FunctionShellToolParamEnvironmentContainerAutoParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class FunctionShellToolParamEnvironmentLocalEnvironmentParam
-    extends FunctionShellToolParamEnvironment {
+final class FunctionShellToolParamEnvironmentLocalEnvironmentParam extends FunctionShellToolParamEnvironment {
   final LocalEnvironmentParam value;
   const FunctionShellToolParamEnvironmentLocalEnvironmentParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class FunctionShellToolParamEnvironmentContainerReferenceParam
-    extends FunctionShellToolParamEnvironment {
+final class FunctionShellToolParamEnvironmentContainerReferenceParam extends FunctionShellToolParamEnvironment {
   final ContainerReferenceParam value;
   const FunctionShellToolParamEnvironmentContainerReferenceParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [FunctionShellToolParamEnvironment] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownFunctionShellToolParamEnvironment
-    extends FunctionShellToolParamEnvironment {
+final class UnknownFunctionShellToolParamEnvironment extends FunctionShellToolParamEnvironment {
   final Map<String, dynamic> raw;
   const UnknownFunctionShellToolParamEnvironment(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

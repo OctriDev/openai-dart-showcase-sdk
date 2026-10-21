@@ -8,57 +8,32 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventSessionUpdated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `session.updated`.
   final RealtimeServerEventSessionUpdatedType type_;
-
   /// The session configuration.
   final RealtimeServerEventSessionUpdatedSession session;
 
-  const RealtimeServerEventSessionUpdated(
-      {required this.eventId, required this.type_, required this.session});
+  const RealtimeServerEventSessionUpdated({required this.eventId, required this.type_, required this.session});
 
-  RealtimeServerEventSessionUpdated Function(
-          {String eventId,
-          RealtimeServerEventSessionUpdatedType type_,
-          RealtimeServerEventSessionUpdatedSession session})
-      get copyWith => _copyWith;
+  RealtimeServerEventSessionUpdated Function({String eventId, RealtimeServerEventSessionUpdatedType type_, RealtimeServerEventSessionUpdatedSession session}) get copyWith => _copyWith;
 
-  RealtimeServerEventSessionUpdated _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? session = sdkOmittedValue}) =>
-      RealtimeServerEventSessionUpdated(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeServerEventSessionUpdatedType,
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as RealtimeServerEventSessionUpdatedSession,
-      );
+  RealtimeServerEventSessionUpdated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeServerEventSessionUpdated(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventSessionUpdatedType,
+    session: identical(session, sdkOmittedValue) ? this.session : session as RealtimeServerEventSessionUpdatedSession,
+  );
 
-  factory RealtimeServerEventSessionUpdated.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeServerEventSessionUpdated(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeServerEventSessionUpdatedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        session: (json['session'] != null
-            ? RealtimeServerEventSessionUpdatedSession.fromJson(json['session'])
-            : null)!,
-      );
+  factory RealtimeServerEventSessionUpdated.fromJson(Map<String, dynamic> json) => RealtimeServerEventSessionUpdated(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeServerEventSessionUpdatedType.fromJson(json['type'] as String) : null)!,
+    session: (json['session'] != null ? RealtimeServerEventSessionUpdatedSession.fromJson(json['session']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'session': session.toJson(),
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'session': session.toJson(),
+  };
 }

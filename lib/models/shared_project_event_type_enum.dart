@@ -6,12 +6,12 @@ part of 'shared.dart';
 // shared domain models
 /// Typed representation of the `ProjectEventTypeEnum` API schema.
 final class ProjectEventTypeEnum {
+
   final String value;
 
   const ProjectEventTypeEnum._(this.value);
 
-  factory ProjectEventTypeEnum.fromJson(String value) =>
-      ProjectEventTypeEnum._(value);
+  factory ProjectEventTypeEnum.fromJson(String value) => ProjectEventTypeEnum._(value);
 
   static const batchCompleted = ProjectEventTypeEnum._('batch.completed');
   static const batchFailed = ProjectEventTypeEnum._('batch.failed');
@@ -20,50 +20,33 @@ final class ProjectEventTypeEnum {
   static const responseCompleted = ProjectEventTypeEnum._('response.completed');
   static const responseFailed = ProjectEventTypeEnum._('response.failed');
   static const responseCancelled = ProjectEventTypeEnum._('response.cancelled');
-  static const responseIncomplete =
-      ProjectEventTypeEnum._('response.incomplete');
+  static const responseIncomplete = ProjectEventTypeEnum._('response.incomplete');
   static const evalRunSucceeded = ProjectEventTypeEnum._('eval.run.succeeded');
   static const evalRunFailed = ProjectEventTypeEnum._('eval.run.failed');
   static const evalRunCanceled = ProjectEventTypeEnum._('eval.run.canceled');
-  static const fineTuningJobSucceeded =
-      ProjectEventTypeEnum._('fine_tuning.job.succeeded');
-  static const fineTuningJobFailed =
-      ProjectEventTypeEnum._('fine_tuning.job.failed');
-  static const fineTuningJobCancelled =
-      ProjectEventTypeEnum._('fine_tuning.job.cancelled');
-  static const realtimeCallIncoming =
-      ProjectEventTypeEnum._('realtime.call.incoming');
+  static const fineTuningJobSucceeded = ProjectEventTypeEnum._('fine_tuning.job.succeeded');
+  static const fineTuningJobFailed = ProjectEventTypeEnum._('fine_tuning.job.failed');
+  static const fineTuningJobCancelled = ProjectEventTypeEnum._('fine_tuning.job.cancelled');
+  static const realtimeCallIncoming = ProjectEventTypeEnum._('realtime.call.incoming');
   static const videoCompleted = ProjectEventTypeEnum._('video.completed');
   static const videoFailed = ProjectEventTypeEnum._('video.failed');
-  static const agentEnvironmentReady =
-      ProjectEventTypeEnum._('agent.environment.ready');
-  static const agentEnvironmentFailed =
-      ProjectEventTypeEnum._('agent.environment.failed');
-  static const agentEnvironmentSuspended =
-      ProjectEventTypeEnum._('agent.environment.suspended');
-  static const agentEnvironmentExpired =
-      ProjectEventTypeEnum._('agent.environment.expired');
-  static const agentSessionCreated =
-      ProjectEventTypeEnum._('agent.session.created');
-  static const agentSessionActionRequired =
-      ProjectEventTypeEnum._('agent.session.action_required');
-  static const agentSessionInProgress =
-      ProjectEventTypeEnum._('agent.session.in_progress');
+  static const agentEnvironmentReady = ProjectEventTypeEnum._('agent.environment.ready');
+  static const agentEnvironmentFailed = ProjectEventTypeEnum._('agent.environment.failed');
+  static const agentEnvironmentSuspended = ProjectEventTypeEnum._('agent.environment.suspended');
+  static const agentEnvironmentExpired = ProjectEventTypeEnum._('agent.environment.expired');
+  static const agentSessionCreated = ProjectEventTypeEnum._('agent.session.created');
+  static const agentSessionActionRequired = ProjectEventTypeEnum._('agent.session.action_required');
+  static const agentSessionInProgress = ProjectEventTypeEnum._('agent.session.in_progress');
   static const agentSessionIdle = ProjectEventTypeEnum._('agent.session.idle');
-  static const agentSessionFailed =
-      ProjectEventTypeEnum._('agent.session.failed');
-  static const safetyAlertCreated =
-      ProjectEventTypeEnum._('safety.alert.created');
+  static const agentSessionFailed = ProjectEventTypeEnum._('agent.session.failed');
+  static const safetyAlertCreated = ProjectEventTypeEnum._('safety.alert.created');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectEventTypeEnum && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectEventTypeEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

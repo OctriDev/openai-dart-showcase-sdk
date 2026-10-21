@@ -9,22 +9,16 @@ sealed class ResponseVariant2Truncation {
   static const String constructionSurface = 'named';
   const ResponseVariant2Truncation();
   factory ResponseVariant2Truncation.fromJson(Object? json) {
-    try {
-      return ResponseVariant2TruncationResponseVariant2TruncationVariant0(
-          ResponseVariant2TruncationVariant0.fromJson(json as String));
-    } catch (_) {}
+    try { return ResponseVariant2TruncationResponseVariant2TruncationVariant0(ResponseVariant2TruncationVariant0.fromJson(json as String)); } catch (_) {}
     throw FormatException("No variant matched for ResponseVariant2Truncation");
   }
   Object? toJson();
 }
 
-final class ResponseVariant2TruncationResponseVariant2TruncationVariant0
-    extends ResponseVariant2Truncation {
+final class ResponseVariant2TruncationResponseVariant2TruncationVariant0 extends ResponseVariant2Truncation {
   final ResponseVariant2TruncationVariant0 value;
-  const ResponseVariant2TruncationResponseVariant2TruncationVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ResponseVariant2TruncationResponseVariant2TruncationVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 sealed class ResponseVariant2CompletedAt {
@@ -32,66 +26,43 @@ sealed class ResponseVariant2CompletedAt {
   static const String constructionSurface = 'named';
   const ResponseVariant2CompletedAt();
   factory ResponseVariant2CompletedAt.fromJson(Object? json) {
-    if (json is num) {
-      return ResponseVariant2CompletedAtDouble(json.toDouble());
-    }
+    if (json is num) { return ResponseVariant2CompletedAtDouble(json.toDouble()); }
     throw FormatException("No variant matched for ResponseVariant2CompletedAt");
   }
   Object? toJson();
 }
 
-final class ResponseVariant2CompletedAtDouble
-    extends ResponseVariant2CompletedAt {
+final class ResponseVariant2CompletedAtDouble extends ResponseVariant2CompletedAt {
   final double value;
   const ResponseVariant2CompletedAtDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Details about why the response is incomplete.
 class ResponseVariant2IncompleteDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The reason why the response is incomplete. `steered` means the response stopped at a safe output boundary after a WebSocket `response.steer` event. The server can then create a successor response automatically with the queued input.
   final SdkOptional<ResponseVariant2IncompleteDetailsReason> reason;
 
   const ResponseVariant2IncompleteDetails({this.reason = const SdkOmitted()});
 
-  ResponseVariant2IncompleteDetails Function(
-          {SdkOptional<ResponseVariant2IncompleteDetailsReason> reason})
-      get copyWith => _copyWith;
+  ResponseVariant2IncompleteDetails Function({SdkOptional<ResponseVariant2IncompleteDetailsReason> reason}) get copyWith => _copyWith;
 
-  ResponseVariant2IncompleteDetails _copyWith(
-          {Object? reason = sdkOmittedValue}) =>
-      ResponseVariant2IncompleteDetails(
-        reason: identical(reason, sdkOmittedValue)
-            ? this.reason
-            : reason as SdkOptional<ResponseVariant2IncompleteDetailsReason>,
-      );
+  ResponseVariant2IncompleteDetails _copyWith({Object? reason = sdkOmittedValue}) => ResponseVariant2IncompleteDetails(
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as SdkOptional<ResponseVariant2IncompleteDetailsReason>,
+  );
 
-  factory ResponseVariant2IncompleteDetails.fromJson(
-          Map<String, dynamic> json) =>
-      ResponseVariant2IncompleteDetails(
-        reason: json['reason'] != null
-            ? SdkPresent((json['reason'] != null
-                ? ResponseVariant2IncompleteDetailsReason.fromJson(
-                    json['reason'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ResponseVariant2IncompleteDetails.fromJson(Map<String, dynamic> json) => ResponseVariant2IncompleteDetails(
+    reason: json['reason'] != null ? SdkPresent((json['reason'] != null ? ResponseVariant2IncompleteDetailsReason.fromJson(json['reason'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (reason) {
-          SdkPresent<ResponseVariant2IncompleteDetailsReason>(
-            value: final value
-          ) =>
-            {
-              'reason': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (reason) {
+      SdkPresent<ResponseVariant2IncompleteDetailsReason>(value: final value) => {'reason': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class ResponseVariant2Instructions {
@@ -99,32 +70,23 @@ sealed class ResponseVariant2Instructions {
   static const String constructionSurface = 'named';
   const ResponseVariant2Instructions();
   factory ResponseVariant2Instructions.fromJson(Object? json) {
-    if (json is String) {
-      return ResponseVariant2InstructionsString(json);
-    }
-    try {
-      return ResponseVariant2InstructionsInputItem(InputItem.fromJson(json));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for ResponseVariant2Instructions");
+    if (json is String) { return ResponseVariant2InstructionsString(json); }
+    try { return ResponseVariant2InstructionsInputItem(InputItem.fromJson(json)); } catch (_) {}
+    throw FormatException("No variant matched for ResponseVariant2Instructions");
   }
   Object? toJson();
 }
 
-final class ResponseVariant2InstructionsString
-    extends ResponseVariant2Instructions {
+final class ResponseVariant2InstructionsString extends ResponseVariant2Instructions {
   final String value;
   const ResponseVariant2InstructionsString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class ResponseVariant2InstructionsInputItem
-    extends ResponseVariant2Instructions {
+final class ResponseVariant2InstructionsInputItem extends ResponseVariant2Instructions {
   final InputItem value;
   const ResponseVariant2InstructionsInputItem(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 sealed class ResponseVariant2OutputText {
@@ -132,401 +94,174 @@ sealed class ResponseVariant2OutputText {
   static const String constructionSurface = 'named';
   const ResponseVariant2OutputText();
   factory ResponseVariant2OutputText.fromJson(Object? json) {
-    if (json is String) {
-      return ResponseVariant2OutputTextString(json);
-    }
+    if (json is String) { return ResponseVariant2OutputTextString(json); }
     throw FormatException("No variant matched for ResponseVariant2OutputText");
   }
   Object? toJson();
 }
 
-final class ResponseVariant2OutputTextString
-    extends ResponseVariant2OutputText {
+final class ResponseVariant2OutputTextString extends ResponseVariant2OutputText {
   final String value;
   const ResponseVariant2OutputTextString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Required object value serialized in the `response` wire field.
 class ResponseVariant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `service_tier` wire field.
   final SdkOptional<ServiceTierResponses?> serviceTier;
-
   /// Optional API value serialized in the `truncation` wire field.
   final SdkOptional<ResponseVariant2TruncationVariant0?> truncation;
-
   /// Unique identifier for this Response.
   final String id;
-
   /// The object type of this resource - always set to `response`.
   final ResponseVariant2Object object;
-
   /// The status of the response generation. One of `completed`, `failed`, `in_progress`, `cancelled`, `queued`, or `incomplete`.
   final SdkOptional<ResponseVariant2Status> status;
-
   /// Required API value serialized in the `access_programs` wire field.
   final AccessProgramsBody? accessPrograms;
-
   /// Unix timestamp (in seconds) of when this Response was created.
   final double createdAt;
-
   /// Optional API value serialized in the `completed_at` wire field.
   final SdkOptional<double?> completedAt;
-
   /// An error object returned when the model fails to generate a Response.
   final ResponseError? error;
-
   /// Details about why the response is incomplete.
   final ResponseVariant2IncompleteDetails? incompleteDetails;
-
   /// An array of content items generated by the model. - The length and order of items in the `output` array is dependent on the model's response. - Rather than accessing the first item in the `output` array and assuming it's an `assistant` message with the content generated by the model, you might consider using the `output_text` property where supported in SDKs.
   final List<OutputItem> output;
-
   /// Optional API value serialized in the `reasoning` wire field.
   final SdkOptional<Reasoning?> reasoning;
-
   /// A system (or developer) message inserted into the model's context. When using along with `previous_response_id`, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses.
   final dynamic instructions;
-
   /// Optional API value serialized in the `output_text` wire field.
   final SdkOptional<String?> outputText;
-
   /// Optional API value serialized in the `usage` wire field.
   final SdkOptional<ResponseUsage?> usage;
-
   /// The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
   final SdkOptional<PromptCacheOptions> promptCacheOptions;
-
   /// Prompt cache diagnostics requested for this response.
   final SdkOptional<PromptCacheDiagnostics> promptCacheDiagnostics;
-
   /// Optional API value serialized in the `moderation` wire field.
   final SdkOptional<Moderation?> moderation;
-
   /// Whether to allow the model to run tool calls in parallel.
   final bool parallelToolCalls;
-
   /// Optional API value serialized in the `conversation` wire field.
   final SdkOptional<ResponseConversation?> conversation;
-
   /// Optional `integer` value serialized in the `max_output_tokens` wire field.
   final SdkOptional<int?> maxOutputTokens;
 
-  const ResponseVariant2(
-      {this.serviceTier = const SdkOmitted(),
-      this.truncation = const SdkOmitted(),
-      required this.id,
-      required this.object,
-      this.status = const SdkOmitted(),
-      required this.accessPrograms,
-      required this.createdAt,
-      this.completedAt = const SdkOmitted(),
-      required this.error,
-      required this.incompleteDetails,
-      required this.output,
-      this.reasoning = const SdkOmitted(),
-      required this.instructions,
-      this.outputText = const SdkOmitted(),
-      this.usage = const SdkOmitted(),
-      this.promptCacheOptions = const SdkOmitted(),
-      this.promptCacheDiagnostics = const SdkOmitted(),
-      this.moderation = const SdkOmitted(),
-      required this.parallelToolCalls,
-      this.conversation = const SdkOmitted(),
-      this.maxOutputTokens = const SdkOmitted()});
+  const ResponseVariant2({this.serviceTier = const SdkOmitted(), this.truncation = const SdkOmitted(), required this.id, required this.object, this.status = const SdkOmitted(), required this.accessPrograms, required this.createdAt, this.completedAt = const SdkOmitted(), required this.error, required this.incompleteDetails, required this.output, this.reasoning = const SdkOmitted(), required this.instructions, this.outputText = const SdkOmitted(), this.usage = const SdkOmitted(), this.promptCacheOptions = const SdkOmitted(), this.promptCacheDiagnostics = const SdkOmitted(), this.moderation = const SdkOmitted(), required this.parallelToolCalls, this.conversation = const SdkOmitted(), this.maxOutputTokens = const SdkOmitted()});
 
-  ResponseVariant2 Function(
-      {SdkOptional<ServiceTierResponses?> serviceTier,
-      SdkOptional<ResponseVariant2TruncationVariant0?> truncation,
-      String id,
-      ResponseVariant2Object object,
-      SdkOptional<ResponseVariant2Status> status,
-      AccessProgramsBody? accessPrograms,
-      double createdAt,
-      SdkOptional<double?> completedAt,
-      ResponseError? error,
-      ResponseVariant2IncompleteDetails? incompleteDetails,
-      List<OutputItem> output,
-      SdkOptional<Reasoning?> reasoning,
-      dynamic instructions,
-      SdkOptional<String?> outputText,
-      SdkOptional<ResponseUsage?> usage,
-      SdkOptional<PromptCacheOptions> promptCacheOptions,
-      SdkOptional<PromptCacheDiagnostics> promptCacheDiagnostics,
-      SdkOptional<Moderation?> moderation,
-      bool parallelToolCalls,
-      SdkOptional<ResponseConversation?> conversation,
-      SdkOptional<int?> maxOutputTokens}) get copyWith => _copyWith;
+  ResponseVariant2 Function({SdkOptional<ServiceTierResponses?> serviceTier, SdkOptional<ResponseVariant2TruncationVariant0?> truncation, String id, ResponseVariant2Object object, SdkOptional<ResponseVariant2Status> status, AccessProgramsBody? accessPrograms, double createdAt, SdkOptional<double?> completedAt, ResponseError? error, ResponseVariant2IncompleteDetails? incompleteDetails, List<OutputItem> output, SdkOptional<Reasoning?> reasoning, dynamic instructions, SdkOptional<String?> outputText, SdkOptional<ResponseUsage?> usage, SdkOptional<PromptCacheOptions> promptCacheOptions, SdkOptional<PromptCacheDiagnostics> promptCacheDiagnostics, SdkOptional<Moderation?> moderation, bool parallelToolCalls, SdkOptional<ResponseConversation?> conversation, SdkOptional<int?> maxOutputTokens}) get copyWith => _copyWith;
 
-  ResponseVariant2 _copyWith(
-          {Object? serviceTier = sdkOmittedValue,
-          Object? truncation = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? accessPrograms = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? error = sdkOmittedValue,
-          Object? incompleteDetails = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? reasoning = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue,
-          Object? outputText = sdkOmittedValue,
-          Object? usage = sdkOmittedValue,
-          Object? promptCacheOptions = sdkOmittedValue,
-          Object? promptCacheDiagnostics = sdkOmittedValue,
-          Object? moderation = sdkOmittedValue,
-          Object? parallelToolCalls = sdkOmittedValue,
-          Object? conversation = sdkOmittedValue,
-          Object? maxOutputTokens = sdkOmittedValue}) =>
-      ResponseVariant2(
-        serviceTier: identical(serviceTier, sdkOmittedValue)
-            ? this.serviceTier
-            : serviceTier as SdkOptional<ServiceTierResponses?>,
-        truncation: identical(truncation, sdkOmittedValue)
-            ? this.truncation
-            : truncation as SdkOptional<ResponseVariant2TruncationVariant0?>,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ResponseVariant2Object,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ResponseVariant2Status>,
-        accessPrograms: identical(accessPrograms, sdkOmittedValue)
-            ? this.accessPrograms
-            : accessPrograms as AccessProgramsBody?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as double,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as SdkOptional<double?>,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as ResponseError?,
-        incompleteDetails: identical(incompleteDetails, sdkOmittedValue)
-            ? this.incompleteDetails
-            : incompleteDetails as ResponseVariant2IncompleteDetails?,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as List<OutputItem>,
-        reasoning: identical(reasoning, sdkOmittedValue)
-            ? this.reasoning
-            : reasoning as SdkOptional<Reasoning?>,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as dynamic,
-        outputText: identical(outputText, sdkOmittedValue)
-            ? this.outputText
-            : outputText as SdkOptional<String?>,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as SdkOptional<ResponseUsage?>,
-        promptCacheOptions: identical(promptCacheOptions, sdkOmittedValue)
-            ? this.promptCacheOptions
-            : promptCacheOptions as SdkOptional<PromptCacheOptions>,
-        promptCacheDiagnostics:
-            identical(promptCacheDiagnostics, sdkOmittedValue)
-                ? this.promptCacheDiagnostics
-                : promptCacheDiagnostics as SdkOptional<PromptCacheDiagnostics>,
-        moderation: identical(moderation, sdkOmittedValue)
-            ? this.moderation
-            : moderation as SdkOptional<Moderation?>,
-        parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue)
-            ? this.parallelToolCalls
-            : parallelToolCalls as bool,
-        conversation: identical(conversation, sdkOmittedValue)
-            ? this.conversation
-            : conversation as SdkOptional<ResponseConversation?>,
-        maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue)
-            ? this.maxOutputTokens
-            : maxOutputTokens as SdkOptional<int?>,
-      );
+  ResponseVariant2 _copyWith({Object? serviceTier = sdkOmittedValue, Object? truncation = sdkOmittedValue, Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? status = sdkOmittedValue, Object? accessPrograms = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? error = sdkOmittedValue, Object? incompleteDetails = sdkOmittedValue, Object? output = sdkOmittedValue, Object? reasoning = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? outputText = sdkOmittedValue, Object? usage = sdkOmittedValue, Object? promptCacheOptions = sdkOmittedValue, Object? promptCacheDiagnostics = sdkOmittedValue, Object? moderation = sdkOmittedValue, Object? parallelToolCalls = sdkOmittedValue, Object? conversation = sdkOmittedValue, Object? maxOutputTokens = sdkOmittedValue}) => ResponseVariant2(
+    serviceTier: identical(serviceTier, sdkOmittedValue) ? this.serviceTier : serviceTier as SdkOptional<ServiceTierResponses?>,
+    truncation: identical(truncation, sdkOmittedValue) ? this.truncation : truncation as SdkOptional<ResponseVariant2TruncationVariant0?>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as ResponseVariant2Object,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ResponseVariant2Status>,
+    accessPrograms: identical(accessPrograms, sdkOmittedValue) ? this.accessPrograms : accessPrograms as AccessProgramsBody?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<double?>,
+    error: identical(error, sdkOmittedValue) ? this.error : error as ResponseError?,
+    incompleteDetails: identical(incompleteDetails, sdkOmittedValue) ? this.incompleteDetails : incompleteDetails as ResponseVariant2IncompleteDetails?,
+    output: identical(output, sdkOmittedValue) ? this.output : output as List<OutputItem>,
+    reasoning: identical(reasoning, sdkOmittedValue) ? this.reasoning : reasoning as SdkOptional<Reasoning?>,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as dynamic,
+    outputText: identical(outputText, sdkOmittedValue) ? this.outputText : outputText as SdkOptional<String?>,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<ResponseUsage?>,
+    promptCacheOptions: identical(promptCacheOptions, sdkOmittedValue) ? this.promptCacheOptions : promptCacheOptions as SdkOptional<PromptCacheOptions>,
+    promptCacheDiagnostics: identical(promptCacheDiagnostics, sdkOmittedValue) ? this.promptCacheDiagnostics : promptCacheDiagnostics as SdkOptional<PromptCacheDiagnostics>,
+    moderation: identical(moderation, sdkOmittedValue) ? this.moderation : moderation as SdkOptional<Moderation?>,
+    parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue) ? this.parallelToolCalls : parallelToolCalls as bool,
+    conversation: identical(conversation, sdkOmittedValue) ? this.conversation : conversation as SdkOptional<ResponseConversation?>,
+    maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue) ? this.maxOutputTokens : maxOutputTokens as SdkOptional<int?>,
+  );
 
-  factory ResponseVariant2.fromJson(Map<String, dynamic> json) =>
-      ResponseVariant2(
-        serviceTier: json.containsKey('service_tier')
-            ? SdkPresent(json['service_tier'] != null
-                ? ServiceTierResponses.fromJson(json['service_tier'])
-                : null)
-            : const SdkOmitted(),
-        truncation: json.containsKey('truncation')
-            ? SdkPresent(json['truncation'] != null
-                ? ResponseVariant2TruncationVariant0.fromJson(
-                    json['truncation'] as String)
-                : null)
-            : const SdkOmitted(),
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? ResponseVariant2Object.fromJson(json['object'] as String)
-            : null)!,
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ResponseVariant2Status.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        accessPrograms: json.containsKey('access_programs')
-            ? json['access_programs'] != null
-                ? AccessProgramsBody.fromJson(
-                    json['access_programs'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'access_programs', 'Required property is missing'),
-        createdAt: ((json['created_at'] as num?)?.toDouble())!,
-        completedAt: json.containsKey('completed_at')
-            ? SdkPresent((json['completed_at'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        error: json.containsKey('error')
-            ? json['error'] != null
-                ? ResponseError.fromJson(json['error'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'error', 'Required property is missing'),
-        incompleteDetails: json.containsKey('incomplete_details')
-            ? json['incomplete_details'] != null
-                ? ResponseVariant2IncompleteDetails.fromJson(
-                    json['incomplete_details'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'incomplete_details', 'Required property is missing'),
-        output: ((json['output'] as List?)
-            ?.map((e) => OutputItem.fromJson(e))
-            .toList())!,
-        reasoning: json.containsKey('reasoning')
-            ? SdkPresent(json['reasoning'] != null
-                ? Reasoning.fromJson(json['reasoning'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        instructions: json.containsKey('instructions')
-            ? json['instructions']
-            : throw ArgumentError.value(
-                null, 'instructions', 'Required property is missing'),
-        outputText: json.containsKey('output_text')
-            ? SdkPresent(json['output_text'] as String?)
-            : const SdkOmitted(),
-        usage: json.containsKey('usage')
-            ? SdkPresent(json['usage'] != null
-                ? ResponseUsage.fromJson(json['usage'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        promptCacheOptions: json['prompt_cache_options'] != null
-            ? SdkPresent((json['prompt_cache_options'] != null
-                ? PromptCacheOptions.fromJson(
-                    json['prompt_cache_options'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        promptCacheDiagnostics: json['prompt_cache_diagnostics'] != null
-            ? SdkPresent((json['prompt_cache_diagnostics'] != null
-                ? PromptCacheDiagnostics.fromJson(
-                    json['prompt_cache_diagnostics'])
-                : null)!)
-            : const SdkOmitted(),
-        moderation: json.containsKey('moderation')
-            ? SdkPresent(json['moderation'] != null
-                ? Moderation.fromJson(
-                    json['moderation'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        parallelToolCalls: (json['parallel_tool_calls'] as bool?)!,
-        conversation: json.containsKey('conversation')
-            ? SdkPresent(json['conversation'] != null
-                ? ResponseConversation.fromJson(
-                    json['conversation'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        maxOutputTokens: json.containsKey('max_output_tokens')
-            ? SdkPresent((json['max_output_tokens'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory ResponseVariant2.fromJson(Map<String, dynamic> json) => ResponseVariant2(
+    serviceTier: json.containsKey('service_tier') ? SdkPresent(json['service_tier'] != null ? ServiceTierResponses.fromJson(json['service_tier']) : null) : const SdkOmitted(),
+    truncation: json.containsKey('truncation') ? SdkPresent(json['truncation'] != null ? ResponseVariant2TruncationVariant0.fromJson(json['truncation'] as String) : null) : const SdkOmitted(),
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? ResponseVariant2Object.fromJson(json['object'] as String) : null)!,
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ResponseVariant2Status.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    accessPrograms: json.containsKey('access_programs') ? json['access_programs'] != null ? AccessProgramsBody.fromJson(json['access_programs'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'access_programs', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    completedAt: json.containsKey('completed_at') ? SdkPresent((json['completed_at'] as num?)?.toDouble()) : const SdkOmitted(),
+    error: json.containsKey('error') ? json['error'] != null ? ResponseError.fromJson(json['error'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'error', 'Required property is missing'),
+    incompleteDetails: json.containsKey('incomplete_details') ? json['incomplete_details'] != null ? ResponseVariant2IncompleteDetails.fromJson(json['incomplete_details'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'incomplete_details', 'Required property is missing'),
+    output: ((json['output'] as List?)?.map((e) => OutputItem.fromJson(e)).toList())!,
+    reasoning: json.containsKey('reasoning') ? SdkPresent(json['reasoning'] != null ? Reasoning.fromJson(json['reasoning'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    instructions: json.containsKey('instructions') ? json['instructions'] : throw ArgumentError.value(null, 'instructions', 'Required property is missing'),
+    outputText: json.containsKey('output_text') ? SdkPresent(json['output_text'] as String?) : const SdkOmitted(),
+    usage: json.containsKey('usage') ? SdkPresent(json['usage'] != null ? ResponseUsage.fromJson(json['usage'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    promptCacheOptions: json['prompt_cache_options'] != null ? SdkPresent((json['prompt_cache_options'] != null ? PromptCacheOptions.fromJson(json['prompt_cache_options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    promptCacheDiagnostics: json['prompt_cache_diagnostics'] != null ? SdkPresent((json['prompt_cache_diagnostics'] != null ? PromptCacheDiagnostics.fromJson(json['prompt_cache_diagnostics']) : null)!) : const SdkOmitted(),
+    moderation: json.containsKey('moderation') ? SdkPresent(json['moderation'] != null ? Moderation.fromJson(json['moderation'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    parallelToolCalls: (json['parallel_tool_calls'] as bool?)!,
+    conversation: json.containsKey('conversation') ? SdkPresent(json['conversation'] != null ? ResponseConversation.fromJson(json['conversation'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    maxOutputTokens: json.containsKey('max_output_tokens') ? SdkPresent((json['max_output_tokens'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (serviceTier) {
-          SdkPresent<ServiceTierResponses?>(value: final value) => {
-              'service_tier': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (truncation) {
-          SdkPresent<ResponseVariant2TruncationVariant0?>(value: final value) =>
-            {
-              'truncation': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'id': id,
-        'object': object.toJson(),
-        ...switch (status) {
-          SdkPresent<ResponseVariant2Status>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'access_programs': accessPrograms?.toJson(),
-        'created_at': createdAt,
-        ...switch (completedAt) {
-          SdkPresent<double?>(value: final value) => {
-              'completed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'error': error?.toJson(),
-        'incomplete_details': incompleteDetails?.toJson(),
-        'output': output.map((item) => item.toJson()).toList(),
-        ...switch (reasoning) {
-          SdkPresent<Reasoning?>(value: final value) => {
-              'reasoning': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'instructions': instructions,
-        ...switch (outputText) {
-          SdkPresent<String?>(value: final value) => {
-              'output_text': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (usage) {
-          SdkPresent<ResponseUsage?>(value: final value) => {
-              'usage': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptCacheOptions) {
-          SdkPresent<PromptCacheOptions>(value: final value) => {
-              'prompt_cache_options': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptCacheDiagnostics) {
-          SdkPresent<PromptCacheDiagnostics>(value: final value) => {
-              'prompt_cache_diagnostics': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (moderation) {
-          SdkPresent<Moderation?>(value: final value) => {
-              'moderation': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'parallel_tool_calls': parallelToolCalls,
-        ...switch (conversation) {
-          SdkPresent<ResponseConversation?>(value: final value) => {
-              'conversation': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxOutputTokens) {
-          SdkPresent<int?>(value: final value) => {
-              'max_output_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (serviceTier) {
+      SdkPresent<ServiceTierResponses?>(value: final value) => {'service_tier': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (truncation) {
+      SdkPresent<ResponseVariant2TruncationVariant0?>(value: final value) => {'truncation': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'id': id,
+    'object': object.toJson(),
+    ...switch (status) {
+      SdkPresent<ResponseVariant2Status>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'access_programs': accessPrograms?.toJson(),
+    'created_at': createdAt,
+    ...switch (completedAt) {
+      SdkPresent<double?>(value: final value) => {'completed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    'error': error?.toJson(),
+    'incomplete_details': incompleteDetails?.toJson(),
+    'output': output.map((item) => item.toJson()).toList(),
+    ...switch (reasoning) {
+      SdkPresent<Reasoning?>(value: final value) => {'reasoning': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'instructions': instructions,
+    ...switch (outputText) {
+      SdkPresent<String?>(value: final value) => {'output_text': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (usage) {
+      SdkPresent<ResponseUsage?>(value: final value) => {'usage': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptCacheOptions) {
+      SdkPresent<PromptCacheOptions>(value: final value) => {'prompt_cache_options': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptCacheDiagnostics) {
+      SdkPresent<PromptCacheDiagnostics>(value: final value) => {'prompt_cache_diagnostics': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (moderation) {
+      SdkPresent<Moderation?>(value: final value) => {'moderation': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'parallel_tool_calls': parallelToolCalls,
+    ...switch (conversation) {
+      SdkPresent<ResponseConversation?>(value: final value) => {'conversation': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxOutputTokens) {
+      SdkPresent<int?>(value: final value) => {'max_output_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

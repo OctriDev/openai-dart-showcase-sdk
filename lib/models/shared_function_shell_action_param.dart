@@ -8,67 +8,38 @@ part of 'shared_function.dart';
 class FunctionShellActionParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Ordered shell commands for the execution environment to run.
   final List<String> commands;
-
   /// Optional `integer` value serialized in the `timeout_ms` wire field.
   final SdkOptional<int?> timeoutMs;
-
   /// Optional `integer` value serialized in the `max_output_length` wire field.
   final SdkOptional<int?> maxOutputLength;
 
-  const FunctionShellActionParam(
-      {required this.commands,
-      this.timeoutMs = const SdkOmitted(),
-      this.maxOutputLength = const SdkOmitted()});
+  const FunctionShellActionParam({required this.commands, this.timeoutMs = const SdkOmitted(), this.maxOutputLength = const SdkOmitted()});
 
-  FunctionShellActionParam Function(
-      {List<String> commands,
-      SdkOptional<int?> timeoutMs,
-      SdkOptional<int?> maxOutputLength}) get copyWith => _copyWith;
+  FunctionShellActionParam Function({List<String> commands, SdkOptional<int?> timeoutMs, SdkOptional<int?> maxOutputLength}) get copyWith => _copyWith;
 
-  FunctionShellActionParam _copyWith(
-          {Object? commands = sdkOmittedValue,
-          Object? timeoutMs = sdkOmittedValue,
-          Object? maxOutputLength = sdkOmittedValue}) =>
-      FunctionShellActionParam(
-        commands: identical(commands, sdkOmittedValue)
-            ? this.commands
-            : commands as List<String>,
-        timeoutMs: identical(timeoutMs, sdkOmittedValue)
-            ? this.timeoutMs
-            : timeoutMs as SdkOptional<int?>,
-        maxOutputLength: identical(maxOutputLength, sdkOmittedValue)
-            ? this.maxOutputLength
-            : maxOutputLength as SdkOptional<int?>,
-      );
+  FunctionShellActionParam _copyWith({Object? commands = sdkOmittedValue, Object? timeoutMs = sdkOmittedValue, Object? maxOutputLength = sdkOmittedValue}) => FunctionShellActionParam(
+    commands: identical(commands, sdkOmittedValue) ? this.commands : commands as List<String>,
+    timeoutMs: identical(timeoutMs, sdkOmittedValue) ? this.timeoutMs : timeoutMs as SdkOptional<int?>,
+    maxOutputLength: identical(maxOutputLength, sdkOmittedValue) ? this.maxOutputLength : maxOutputLength as SdkOptional<int?>,
+  );
 
-  factory FunctionShellActionParam.fromJson(Map<String, dynamic> json) =>
-      FunctionShellActionParam(
-        commands:
-            ((json['commands'] as List?)?.map((e) => e as String).toList())!,
-        timeoutMs: json.containsKey('timeout_ms')
-            ? SdkPresent((json['timeout_ms'] as num?)?.toInt())
-            : const SdkOmitted(),
-        maxOutputLength: json.containsKey('max_output_length')
-            ? SdkPresent((json['max_output_length'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory FunctionShellActionParam.fromJson(Map<String, dynamic> json) => FunctionShellActionParam(
+    commands: ((json['commands'] as List?)?.map((e) => e as String).toList())!,
+    timeoutMs: json.containsKey('timeout_ms') ? SdkPresent((json['timeout_ms'] as num?)?.toInt()) : const SdkOmitted(),
+    maxOutputLength: json.containsKey('max_output_length') ? SdkPresent((json['max_output_length'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'commands': commands,
-        ...switch (timeoutMs) {
-          SdkPresent<int?>(value: final value) => {
-              'timeout_ms': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxOutputLength) {
-          SdkPresent<int?>(value: final value) => {
-              'max_output_length': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'commands': commands,
+    ...switch (timeoutMs) {
+      SdkPresent<int?>(value: final value) => {'timeout_ms': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxOutputLength) {
+      SdkPresent<int?>(value: final value) => {'max_output_length': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

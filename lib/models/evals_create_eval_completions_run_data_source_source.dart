@@ -10,84 +10,40 @@ sealed class CreateEvalCompletionsRunDataSourceSource {
   const CreateEvalCompletionsRunDataSourceSource();
   factory CreateEvalCompletionsRunDataSourceSource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = EvalJsonlFileContentSource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = EvalJsonlFileIdSource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = EvalStoredCompletionsSource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource(
-              value);
-        }
-      } catch (_) {}
+      try { final value = EvalJsonlFileContentSource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource(value); } } catch (_) {}
+      try { final value = EvalJsonlFileIdSource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource(value); } } catch (_) {}
+      try { final value = EvalStoredCompletionsSource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource(value); } } catch (_) {}
     }
-    try {
-      return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource(
-          EvalJsonlFileContentSource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource(
-          EvalJsonlFileIdSource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource(
-          EvalStoredCompletionsSource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"file_content", "file_id", "stored_completions"}
-            .contains(json["type"])) {
-      return UnknownCreateEvalCompletionsRunDataSourceSource(json);
-    }
-    throw FormatException(
-        "No variant matched for CreateEvalCompletionsRunDataSourceSource");
+    try { return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource(EvalJsonlFileContentSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource(EvalJsonlFileIdSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource(EvalStoredCompletionsSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_content", "file_id", "stored_completions"}.contains(json["type"])) { return UnknownCreateEvalCompletionsRunDataSourceSource(json); }
+    throw FormatException("No variant matched for CreateEvalCompletionsRunDataSourceSource");
   }
   Object? toJson();
 }
 
-final class CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource
-    extends CreateEvalCompletionsRunDataSourceSource {
+final class CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource extends CreateEvalCompletionsRunDataSourceSource {
   final EvalJsonlFileContentSource value;
-  const CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileContentSource(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource
-    extends CreateEvalCompletionsRunDataSourceSource {
+final class CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource extends CreateEvalCompletionsRunDataSourceSource {
   final EvalJsonlFileIdSource value;
-  const CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateEvalCompletionsRunDataSourceSourceEvalJsonlFileIdSource(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource
-    extends CreateEvalCompletionsRunDataSourceSource {
+final class CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource extends CreateEvalCompletionsRunDataSourceSource {
   final EvalStoredCompletionsSource value;
-  const CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateEvalCompletionsRunDataSourceSourceEvalStoredCompletionsSource(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [CreateEvalCompletionsRunDataSourceSource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateEvalCompletionsRunDataSourceSource
-    extends CreateEvalCompletionsRunDataSourceSource {
+final class UnknownCreateEvalCompletionsRunDataSourceSource extends CreateEvalCompletionsRunDataSourceSource {
   final Map<String, dynamic> raw;
   const UnknownCreateEvalCompletionsRunDataSourceSource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

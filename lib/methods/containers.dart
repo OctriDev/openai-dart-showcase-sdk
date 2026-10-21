@@ -28,28 +28,20 @@ Future<ContainerListResource> listContainers(ClientConfig config,
   return (await sdkRequest<ContainerListResource>('GET', '/containers',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'name': SdkQueryValue(SdkUtils.unwrapOptional(name),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'name': SdkQueryValue(SdkUtils.unwrapOptional(name), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listContainers',
-          fromJsonRaw: (value) =>
-              ContainerListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ContainerListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists containers available to the authenticated user. Filter the results by `name` and use `after` to continue from a container ID returned in a previous page. Results are ordered by creation time, descending by default.
 ///
@@ -64,58 +56,23 @@ Future<ContainerListResource> listContainers(ClientConfig config,
 ///   100 objects, ending with obj_foo, your subsequent call can include
 ///   after=obj_foo in order to fetch the next page of the list.
 /// [name] Filter results by container name.
-Stream<ContainerResource> listContainersPaginated(ClientConfig config,
-    {int? limit,
-    ListContainersOrder? order,
-    String? after,
-    String? name,
-    RequestOptions? requestOptions}) async* {
+Stream<ContainerResource> listContainersPaginated(ClientConfig config, {int? limit, ListContainersOrder? order, String? after, String? name, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listContainers(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListContainersOrder>()
-            : SdkPresent<ListContainersOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        name: name == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(name),
-        requestOptions: requestOptions);
+    final sdkPage = await listContainers(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListContainersOrder>() : SdkPresent<ListContainersOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), name: name == null ? const SdkOmitted<String>() : SdkPresent<String>(name), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ContainerListResource, ContainerResource>> listContainersPages(
-    ClientConfig config,
-    {int? limit,
-    ListContainersOrder? order,
-    String? after,
-    String? name,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ContainerListResource, ContainerResource>> listContainersPages(ClientConfig config, {int? limit, ListContainersOrder? order, String? after, String? name, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listContainers(config,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListContainersOrder>()
-            : SdkPresent<ListContainersOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        name: name == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(name),
-        requestOptions: requestOptions);
+    final sdkPage = await listContainers(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListContainersOrder>() : SdkPresent<ListContainersOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), name: name == null ? const SdkOmitted<String>() : SdkPresent<String>(name), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -125,6 +82,7 @@ Stream<SdkPage<ContainerListResource, ContainerResource>> listContainersPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Creates a container with the specified name and optional configuration. Use `file_ids` to copy files into the container and configure expiration, memory, network access, or skills as needed. The memory limit defaults to `1g` when omitted.
 ///
@@ -140,14 +98,10 @@ Stream<SdkPage<ContainerListResource, ContainerResource>> listContainersPages(
 Future<ContainerResource> createContainer(ClientConfig config,
     {required String name,
     SdkOptional<List<String>> fileIds = const SdkOmitted(),
-    SdkOptional<CreateContainerBodyExpiresAfter> expiresAfter =
-        const SdkOmitted(),
-    SdkOptional<List<CreateContainerBodySkillsItem>> skills =
-        const SdkOmitted(),
-    SdkOptional<CreateContainerBodyMemoryLimit> memoryLimit =
-        const SdkOmitted(),
-    SdkOptional<CreateContainerBodyNetworkPolicy> networkPolicy =
-        const SdkOmitted(),
+    SdkOptional<CreateContainerBodyExpiresAfter> expiresAfter = const SdkOmitted(),
+    SdkOptional<List<CreateContainerBodySkillsItem>> skills = const SdkOmitted(),
+    SdkOptional<CreateContainerBodyMemoryLimit> memoryLimit = const SdkOmitted(),
+    SdkOptional<CreateContainerBodyNetworkPolicy> networkPolicy = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ContainerResource>('POST', '/containers',
           config: config,
@@ -161,17 +115,12 @@ Future<ContainerResource> createContainer(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createContainer',
-          fromJsonRaw: (value) =>
-              ContainerResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ContainerResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a container by its unique identifier. Use this operation to inspect the container's status and configuration, including its expiration, memory limit, and network policy.
 ///
@@ -183,15 +132,12 @@ Future<ContainerResource> retrieveContainer(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveContainer',
-          fromJsonRaw: (value) =>
-              ContainerResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ContainerResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a container by its unique identifier. Use this operation when the container is no longer needed; the response confirms whether the container was deleted.
 ///
@@ -205,15 +151,12 @@ Future<DeleteContainerResponse> deleteContainer(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteContainer',
-          fromJsonRaw: (value) =>
-              DeleteContainerResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteContainerResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a file in a container from raw multipart file content or a file ID supplied in a JSON request. Choose the request format based on whether you are uploading file content or referencing a file, and use `container_id` to identify the destination container.
 ///
@@ -234,24 +177,15 @@ Future<ContainerFileResource> createContainerFile(ClientConfig config,
             'file_id': SdkUtils.unwrapOptional(fileId),
             'file': SdkUtils.upload(file, 'file')
           },
-          contentType: contentType is SdkPresent<String>
-              ? contentType.value
-              : 'application/json',
+          contentType: contentType is SdkPresent<String> ? contentType.value : 'application/json',
           decoder: SdkResponseDecoder.json,
           operationId: 'createContainerFile',
-          fromJsonRaw: (value) =>
-              ContainerFileResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ContainerFileResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists files associated with a container. Use `after` to continue from a file ID returned in a previous page, and `limit` and `order` to control the result page. The container must exist and must not have expired.
 ///
@@ -275,26 +209,19 @@ Future<ContainerFileListResource> listContainerFiles(ClientConfig config,
           '/containers/${Uri.encodeComponent(containerId.toString())}/files',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listContainerFiles',
-          fromJsonRaw: (value) =>
-              ContainerFileListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ContainerFileListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '404': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ErrorResponse.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Lists files associated with a container. Use `after` to continue from a file ID returned in a previous page, and `limit` and `order` to control the result page. The container must exist and must not have expired.
 ///
@@ -308,54 +235,23 @@ Future<ContainerFileListResource> listContainerFiles(ClientConfig config,
 ///   your place in the list. For instance, if you make a list request and receive
 ///   100 objects, ending with obj_foo, your subsequent call can include
 ///   after=obj_foo in order to fetch the next page of the list.
-Stream<ContainerFileResource> listContainerFilesPaginated(ClientConfig config,
-    {required String containerId,
-    int? limit,
-    ListContainerFilesOrder? order,
-    String? after,
-    RequestOptions? requestOptions}) async* {
+Stream<ContainerFileResource> listContainerFilesPaginated(ClientConfig config, {required String containerId, int? limit, ListContainerFilesOrder? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listContainerFiles(config,
-        containerId: containerId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListContainerFilesOrder>()
-            : SdkPresent<ListContainerFilesOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listContainerFiles(config, containerId: containerId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListContainerFilesOrder>() : SdkPresent<ListContainerFilesOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ContainerFileListResource, ContainerFileResource>>
-    listContainerFilesPages(ClientConfig config,
-        {required String containerId,
-        int? limit,
-        ListContainerFilesOrder? order,
-        String? after,
-        RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ContainerFileListResource, ContainerFileResource>> listContainerFilesPages(ClientConfig config, {required String containerId, int? limit, ListContainerFilesOrder? order, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listContainerFiles(config,
-        containerId: containerId,
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        order: order == null
-            ? const SdkOmitted<ListContainerFilesOrder>()
-            : SdkPresent<ListContainerFilesOrder>(order),
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        requestOptions: requestOptions);
+    final sdkPage = await listContainerFiles(config, containerId: containerId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListContainerFilesOrder>() : SdkPresent<ListContainerFilesOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -365,6 +261,7 @@ Stream<SdkPage<ContainerFileListResource, ContainerFileResource>>
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Retrieves a file's metadata from a container. Use `container_id` and `file_id` to identify the container and file whose details you need.
 ///
@@ -378,15 +275,12 @@ Future<ContainerFileResource> retrieveContainerFile(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveContainerFile',
-          fromJsonRaw: (value) =>
-              ContainerFileResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ContainerFileResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a file from a container. Use `container_id` and `file_id` to identify the file to remove.
 ///
@@ -400,15 +294,12 @@ Future<DeleteContainerFileResponse> deleteContainerFile(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteContainerFile',
-          fromJsonRaw: (value) => DeleteContainerFileResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteContainerFileResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the raw content of a file in a container. Use `container_id` and `file_id` to identify the file whose content you want to download.
 ///
@@ -423,9 +314,6 @@ Future<List<int>> retrieveContainerFileContent(ClientConfig config,
           decoder: SdkResponseDecoder.bytes,
           operationId: 'retrieveContainerFileContent',
           options: requestOptions,
-          errors: {
-        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
-        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

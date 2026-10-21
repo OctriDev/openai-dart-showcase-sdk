@@ -8,122 +8,56 @@ part of 'shared_computer.dart';
 class ComputerToolCallOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the computer tool call output. Always `computer_call_output`.
   final ComputerToolCallOutputType type_;
-
   /// The ID of the computer tool call output.
   final SdkOptional<String> id;
-
   /// The ID of the computer tool call that produced the output.
   final String callId;
-
   /// The safety checks reported by the API that have been acknowledged by the developer.
-  final SdkOptional<List<ComputerCallSafetyCheckParam>>
-      acknowledgedSafetyChecks;
-
+  final SdkOptional<List<ComputerCallSafetyCheckParam>> acknowledgedSafetyChecks;
   /// A computer screenshot image used with the computer use tool.
   final ComputerScreenshotImage output;
-
   /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
   final SdkOptional<ComputerToolCallOutputStatus> status;
 
-  const ComputerToolCallOutput(
-      {required this.type_,
-      this.id = const SdkOmitted(),
-      required this.callId,
-      this.acknowledgedSafetyChecks = const SdkOmitted(),
-      required this.output,
-      this.status = const SdkOmitted()});
+  const ComputerToolCallOutput({required this.type_, this.id = const SdkOmitted(), required this.callId, this.acknowledgedSafetyChecks = const SdkOmitted(), required this.output, this.status = const SdkOmitted()});
 
-  ComputerToolCallOutput Function(
-      {ComputerToolCallOutputType type_,
-      SdkOptional<String> id,
-      String callId,
-      SdkOptional<List<ComputerCallSafetyCheckParam>> acknowledgedSafetyChecks,
-      ComputerScreenshotImage output,
-      SdkOptional<ComputerToolCallOutputStatus>
-          status}) get copyWith => _copyWith;
+  ComputerToolCallOutput Function({ComputerToolCallOutputType type_, SdkOptional<String> id, String callId, SdkOptional<List<ComputerCallSafetyCheckParam>> acknowledgedSafetyChecks, ComputerScreenshotImage output, SdkOptional<ComputerToolCallOutputStatus> status}) get copyWith => _copyWith;
 
-  ComputerToolCallOutput _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? acknowledgedSafetyChecks = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      ComputerToolCallOutput(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ComputerToolCallOutputType,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        acknowledgedSafetyChecks:
-            identical(acknowledgedSafetyChecks, sdkOmittedValue)
-                ? this.acknowledgedSafetyChecks
-                : acknowledgedSafetyChecks
-                    as SdkOptional<List<ComputerCallSafetyCheckParam>>,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as ComputerScreenshotImage,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ComputerToolCallOutputStatus>,
-      );
+  ComputerToolCallOutput _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? acknowledgedSafetyChecks = sdkOmittedValue, Object? output = sdkOmittedValue, Object? status = sdkOmittedValue}) => ComputerToolCallOutput(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerToolCallOutputType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    acknowledgedSafetyChecks: identical(acknowledgedSafetyChecks, sdkOmittedValue) ? this.acknowledgedSafetyChecks : acknowledgedSafetyChecks as SdkOptional<List<ComputerCallSafetyCheckParam>>,
+    output: identical(output, sdkOmittedValue) ? this.output : output as ComputerScreenshotImage,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ComputerToolCallOutputStatus>,
+  );
 
-  factory ComputerToolCallOutput.fromJson(Map<String, dynamic> json) =>
-      ComputerToolCallOutput(
-        type_: (json['type'] != null
-            ? ComputerToolCallOutputType.fromJson(json['type'] as String)
-            : null)!,
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        callId: (json['call_id'] as String?)!,
-        acknowledgedSafetyChecks: json['acknowledged_safety_checks'] != null
-            ? SdkPresent(((json['acknowledged_safety_checks'] as List?)
-                ?.map((e) => ComputerCallSafetyCheckParam.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        output: (json['output'] != null
-            ? ComputerScreenshotImage.fromJson(
-                json['output'] as Map<String, dynamic>)
-            : null)!,
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ComputerToolCallOutputStatus.fromJson(
-                    json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ComputerToolCallOutput.fromJson(Map<String, dynamic> json) => ComputerToolCallOutput(
+    type_: (json['type'] != null ? ComputerToolCallOutputType.fromJson(json['type'] as String) : null)!,
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    callId: (json['call_id'] as String?)!,
+    acknowledgedSafetyChecks: json['acknowledged_safety_checks'] != null ? SdkPresent(((json['acknowledged_safety_checks'] as List?)?.map((e) => ComputerCallSafetyCheckParam.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    output: (json['output'] != null ? ComputerScreenshotImage.fromJson(json['output'] as Map<String, dynamic>) : null)!,
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ComputerToolCallOutputStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'call_id': callId,
-        ...switch (acknowledgedSafetyChecks) {
-          SdkPresent<List<ComputerCallSafetyCheckParam>>(value: final value) =>
-            {
-              'acknowledged_safety_checks':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'output': output.toJson(),
-        ...switch (status) {
-          SdkPresent<ComputerToolCallOutputStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'call_id': callId,
+    ...switch (acknowledgedSafetyChecks) {
+      SdkPresent<List<ComputerCallSafetyCheckParam>>(value: final value) => {'acknowledged_safety_checks': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    'output': output.toJson(),
+    ...switch (status) {
+      SdkPresent<ComputerToolCallOutputStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

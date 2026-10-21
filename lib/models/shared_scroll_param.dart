@@ -8,88 +8,50 @@ part of 'shared.dart';
 class ScrollParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a scroll action, this property is always set to `scroll`.
   final ScrollParamType type_;
-
   /// The x-coordinate where the scroll occurred.
   final int x;
-
   /// The y-coordinate where the scroll occurred.
   final int y;
-
   /// The horizontal scroll distance.
   final int scrollX;
-
   /// The vertical scroll distance.
   final int scrollY;
-
   /// The keys being held while scrolling.
   final SdkOptional<List<String>?> keys;
 
-  const ScrollParam(
-      {required this.type_,
-      required this.x,
-      required this.y,
-      required this.scrollX,
-      required this.scrollY,
-      this.keys = const SdkOmitted()});
+  const ScrollParam({required this.type_, required this.x, required this.y, required this.scrollX, required this.scrollY, this.keys = const SdkOmitted()});
 
-  ScrollParam Function(
-      {ScrollParamType type_,
-      int x,
-      int y,
-      int scrollX,
-      int scrollY,
-      SdkOptional<List<String>?> keys}) get copyWith => _copyWith;
+  ScrollParam Function({ScrollParamType type_, int x, int y, int scrollX, int scrollY, SdkOptional<List<String>?> keys}) get copyWith => _copyWith;
 
-  ScrollParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? x = sdkOmittedValue,
-          Object? y = sdkOmittedValue,
-          Object? scrollX = sdkOmittedValue,
-          Object? scrollY = sdkOmittedValue,
-          Object? keys = sdkOmittedValue}) =>
-      ScrollParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ScrollParamType,
-        x: identical(x, sdkOmittedValue) ? this.x : x as int,
-        y: identical(y, sdkOmittedValue) ? this.y : y as int,
-        scrollX:
-            identical(scrollX, sdkOmittedValue) ? this.scrollX : scrollX as int,
-        scrollY:
-            identical(scrollY, sdkOmittedValue) ? this.scrollY : scrollY as int,
-        keys: identical(keys, sdkOmittedValue)
-            ? this.keys
-            : keys as SdkOptional<List<String>?>,
-      );
+  ScrollParam _copyWith({Object? type_ = sdkOmittedValue, Object? x = sdkOmittedValue, Object? y = sdkOmittedValue, Object? scrollX = sdkOmittedValue, Object? scrollY = sdkOmittedValue, Object? keys = sdkOmittedValue}) => ScrollParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ScrollParamType,
+    x: identical(x, sdkOmittedValue) ? this.x : x as int,
+    y: identical(y, sdkOmittedValue) ? this.y : y as int,
+    scrollX: identical(scrollX, sdkOmittedValue) ? this.scrollX : scrollX as int,
+    scrollY: identical(scrollY, sdkOmittedValue) ? this.scrollY : scrollY as int,
+    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as SdkOptional<List<String>?>,
+  );
 
   factory ScrollParam.fromJson(Map<String, dynamic> json) => ScrollParam(
-        type_: (json['type'] != null
-            ? ScrollParamType.fromJson(json['type'] as String)
-            : null)!,
-        x: ((json['x'] as num?)?.toInt())!,
-        y: ((json['y'] as num?)?.toInt())!,
-        scrollX: ((json['scroll_x'] as num?)?.toInt())!,
-        scrollY: ((json['scroll_y'] as num?)?.toInt())!,
-        keys: json.containsKey('keys')
-            ? SdkPresent(
-                (json['keys'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-      );
+    type_: (json['type'] != null ? ScrollParamType.fromJson(json['type'] as String) : null)!,
+    x: ((json['x'] as num?)?.toInt())!,
+    y: ((json['y'] as num?)?.toInt())!,
+    scrollX: ((json['scroll_x'] as num?)?.toInt())!,
+    scrollY: ((json['scroll_y'] as num?)?.toInt())!,
+    keys: json.containsKey('keys') ? SdkPresent((json['keys'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'x': x,
-        'y': y,
-        'scroll_x': scrollX,
-        'scroll_y': scrollY,
-        ...switch (keys) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'keys': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'x': x,
+    'y': y,
+    'scroll_x': scrollX,
+    'scroll_y': scrollY,
+    ...switch (keys) {
+      SdkPresent<List<String>?>(value: final value) => {'keys': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

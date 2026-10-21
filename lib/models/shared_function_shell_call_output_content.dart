@@ -8,70 +8,40 @@ part of 'shared_function.dart';
 class FunctionShellCallOutputContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The standard output that was captured.
   final String stdout;
-
   /// The standard error output that was captured.
   final String stderr;
-
   /// Represents either an exit outcome (with an exit code) or a timeout outcome for a shell call output chunk.
   final FunctionShellCallOutputContentOutcome outcome;
-
   /// The identifier of the actor that created the item.
   final SdkOptional<String> createdBy;
 
-  const FunctionShellCallOutputContent(
-      {required this.stdout,
-      required this.stderr,
-      required this.outcome,
-      this.createdBy = const SdkOmitted()});
+  const FunctionShellCallOutputContent({required this.stdout, required this.stderr, required this.outcome, this.createdBy = const SdkOmitted()});
 
-  FunctionShellCallOutputContent Function(
-      {String stdout,
-      String stderr,
-      FunctionShellCallOutputContentOutcome outcome,
-      SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  FunctionShellCallOutputContent Function({String stdout, String stderr, FunctionShellCallOutputContentOutcome outcome, SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  FunctionShellCallOutputContent _copyWith(
-          {Object? stdout = sdkOmittedValue,
-          Object? stderr = sdkOmittedValue,
-          Object? outcome = sdkOmittedValue,
-          Object? createdBy = sdkOmittedValue}) =>
-      FunctionShellCallOutputContent(
-        stdout:
-            identical(stdout, sdkOmittedValue) ? this.stdout : stdout as String,
-        stderr:
-            identical(stderr, sdkOmittedValue) ? this.stderr : stderr as String,
-        outcome: identical(outcome, sdkOmittedValue)
-            ? this.outcome
-            : outcome as FunctionShellCallOutputContentOutcome,
-        createdBy: identical(createdBy, sdkOmittedValue)
-            ? this.createdBy
-            : createdBy as SdkOptional<String>,
-      );
+  FunctionShellCallOutputContent _copyWith({Object? stdout = sdkOmittedValue, Object? stderr = sdkOmittedValue, Object? outcome = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => FunctionShellCallOutputContent(
+    stdout: identical(stdout, sdkOmittedValue) ? this.stdout : stdout as String,
+    stderr: identical(stderr, sdkOmittedValue) ? this.stderr : stderr as String,
+    outcome: identical(outcome, sdkOmittedValue) ? this.outcome : outcome as FunctionShellCallOutputContentOutcome,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
+  );
 
-  factory FunctionShellCallOutputContent.fromJson(Map<String, dynamic> json) =>
-      FunctionShellCallOutputContent(
-        stdout: (json['stdout'] as String?)!,
-        stderr: (json['stderr'] as String?)!,
-        outcome: (json['outcome'] != null
-            ? FunctionShellCallOutputContentOutcome.fromJson(json['outcome'])
-            : null)!,
-        createdBy: json['created_by'] != null
-            ? SdkPresent((json['created_by'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory FunctionShellCallOutputContent.fromJson(Map<String, dynamic> json) => FunctionShellCallOutputContent(
+    stdout: (json['stdout'] as String?)!,
+    stderr: (json['stderr'] as String?)!,
+    outcome: (json['outcome'] != null ? FunctionShellCallOutputContentOutcome.fromJson(json['outcome']) : null)!,
+    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'stdout': stdout,
-        'stderr': stderr,
-        'outcome': outcome.toJson(),
-        ...switch (createdBy) {
-          SdkPresent<String>(value: final value) => {
-              'created_by': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'stdout': stdout,
+    'stderr': stderr,
+    'outcome': outcome.toJson(),
+    ...switch (createdBy) {
+      SdkPresent<String>(value: final value) => {'created_by': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

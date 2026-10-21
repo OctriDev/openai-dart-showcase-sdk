@@ -8,44 +8,27 @@ part of 'evals_eval.dart';
 class EvalCustomDataSourceConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of data source. Always `custom`.
   final EvalCustomDataSourceConfigType type_;
-
   /// The json schema for the run data source items. Learn how to build JSON schemas [here](https://json-schema.org/).
   final Map<String, Object?> schema;
 
   const EvalCustomDataSourceConfig({required this.type_, required this.schema});
 
-  EvalCustomDataSourceConfig Function(
-      {EvalCustomDataSourceConfigType type_,
-      Map<String, Object?> schema}) get copyWith => _copyWith;
+  EvalCustomDataSourceConfig Function({EvalCustomDataSourceConfigType type_, Map<String, Object?> schema}) get copyWith => _copyWith;
 
-  EvalCustomDataSourceConfig _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? schema = sdkOmittedValue}) =>
-      EvalCustomDataSourceConfig(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as EvalCustomDataSourceConfigType,
-        schema: identical(schema, sdkOmittedValue)
-            ? this.schema
-            : schema as Map<String, Object?>,
-      );
+  EvalCustomDataSourceConfig _copyWith({Object? type_ = sdkOmittedValue, Object? schema = sdkOmittedValue}) => EvalCustomDataSourceConfig(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EvalCustomDataSourceConfigType,
+    schema: identical(schema, sdkOmittedValue) ? this.schema : schema as Map<String, Object?>,
+  );
 
-  factory EvalCustomDataSourceConfig.fromJson(Map<String, dynamic> json) =>
-      EvalCustomDataSourceConfig(
-        type_: (json['type'] != null
-            ? EvalCustomDataSourceConfigType.fromJson(json['type'] as String)
-            : null)!,
-        schema: (json['schema'] == null
-            ? null
-            : Map<String, dynamic>.from(json['schema'] as Map)
-                .map((key, value) => MapEntry(key, value)))!,
-      );
+  factory EvalCustomDataSourceConfig.fromJson(Map<String, dynamic> json) => EvalCustomDataSourceConfig(
+    type_: (json['type'] != null ? EvalCustomDataSourceConfigType.fromJson(json['type'] as String) : null)!,
+    schema: (json['schema'] == null ? null : Map<String, dynamic>.from(json['schema'] as Map).map((key, value) => MapEntry(key, value)))!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'schema': schema,
-      };
+    'type': type_.toJson(),
+    'schema': schema,
+  };
 }

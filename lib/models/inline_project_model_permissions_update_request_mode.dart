@@ -6,113 +6,97 @@ part of 'inline.dart';
 // Inline operation models
 /// The model permissions mode to apply.
 final class ProjectModelPermissionsUpdateRequestMode {
+
   final String value;
 
   const ProjectModelPermissionsUpdateRequestMode._(this.value);
 
-  factory ProjectModelPermissionsUpdateRequestMode.fromJson(String value) =>
-      ProjectModelPermissionsUpdateRequestMode._(value);
+  factory ProjectModelPermissionsUpdateRequestMode.fromJson(String value) => ProjectModelPermissionsUpdateRequestMode._(value);
 
-  static const allowList =
-      ProjectModelPermissionsUpdateRequestMode._('allow_list');
-  static const denyList =
-      ProjectModelPermissionsUpdateRequestMode._('deny_list');
+  static const allowList = ProjectModelPermissionsUpdateRequestMode._('allow_list');
+  static const denyList = ProjectModelPermissionsUpdateRequestMode._('deny_list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectModelPermissionsUpdateRequestMode && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectModelPermissionsUpdateRequestMode && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `project.rate_limit`
 final class ProjectRateLimitObject {
+
   final String value;
 
   const ProjectRateLimitObject._(this.value);
 
-  factory ProjectRateLimitObject.fromJson(String value) =>
-      ProjectRateLimitObject._(value);
+  factory ProjectRateLimitObject.fromJson(String value) => ProjectRateLimitObject._(value);
 
-  static const projectRateLimit =
-      ProjectRateLimitObject._('project.rate_limit');
+  static const projectRateLimit = ProjectRateLimitObject._('project.rate_limit');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectRateLimitObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectRateLimitObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ProjectRateLimitListResponseObject {
+
   final String value;
 
   const ProjectRateLimitListResponseObject._(this.value);
 
-  factory ProjectRateLimitListResponseObject.fromJson(String value) =>
-      ProjectRateLimitListResponseObject._(value);
+  factory ProjectRateLimitListResponseObject.fromJson(String value) => ProjectRateLimitListResponseObject._(value);
 
   static const list = ProjectRateLimitListResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectRateLimitListResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectRateLimitListResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `organization.project.service_account`
 final class ProjectServiceAccountObject {
+
   final String value;
 
   const ProjectServiceAccountObject._(this.value);
 
-  factory ProjectServiceAccountObject.fromJson(String value) =>
-      ProjectServiceAccountObject._(value);
+  factory ProjectServiceAccountObject.fromJson(String value) => ProjectServiceAccountObject._(value);
 
-  static const organizationProjectServiceAccount =
-      ProjectServiceAccountObject._('organization.project.service_account');
+  static const organizationProjectServiceAccount = ProjectServiceAccountObject._('organization.project.service_account');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectServiceAccountObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectServiceAccountObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// `owner`, `member`, or `none`
 final class ProjectServiceAccountRole {
+
   final String value;
 
   const ProjectServiceAccountRole._(this.value);
 
-  factory ProjectServiceAccountRole.fromJson(String value) =>
-      ProjectServiceAccountRole._(value);
+  factory ProjectServiceAccountRole.fromJson(String value) => ProjectServiceAccountRole._(value);
 
   static const owner = ProjectServiceAccountRole._('owner');
   static const member = ProjectServiceAccountRole._('member');
@@ -120,215 +104,179 @@ final class ProjectServiceAccountRole {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectServiceAccountRole && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectServiceAccountRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `organization.project.service_account.api_key`
 final class ProjectServiceAccountApiKeyObject {
+
   final String value;
 
   const ProjectServiceAccountApiKeyObject._(this.value);
 
-  factory ProjectServiceAccountApiKeyObject.fromJson(String value) =>
-      ProjectServiceAccountApiKeyObject._(value);
+  factory ProjectServiceAccountApiKeyObject.fromJson(String value) => ProjectServiceAccountApiKeyObject._(value);
 
-  static const organizationProjectServiceAccountApiKey =
-      ProjectServiceAccountApiKeyObject._(
-          'organization.project.service_account.api_key');
+  static const organizationProjectServiceAccountApiKey = ProjectServiceAccountApiKeyObject._('organization.project.service_account.api_key');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectServiceAccountApiKeyObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectServiceAccountApiKeyObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ProjectServiceAccountCreateResponseObject {
+
   final String value;
 
   const ProjectServiceAccountCreateResponseObject._(this.value);
 
-  factory ProjectServiceAccountCreateResponseObject.fromJson(String value) =>
-      ProjectServiceAccountCreateResponseObject._(value);
+  factory ProjectServiceAccountCreateResponseObject.fromJson(String value) => ProjectServiceAccountCreateResponseObject._(value);
 
-  static const organizationProjectServiceAccount =
-      ProjectServiceAccountCreateResponseObject._(
-          'organization.project.service_account');
+  static const organizationProjectServiceAccount = ProjectServiceAccountCreateResponseObject._('organization.project.service_account');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectServiceAccountCreateResponseObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ProjectServiceAccountCreateResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Service accounts created with default project membership have role `member`. Accounts created with `create_service_account_only` have role `none`.
 final class ProjectServiceAccountCreateResponseRole {
+
   final String value;
 
   const ProjectServiceAccountCreateResponseRole._(this.value);
 
-  factory ProjectServiceAccountCreateResponseRole.fromJson(String value) =>
-      ProjectServiceAccountCreateResponseRole._(value);
+  factory ProjectServiceAccountCreateResponseRole.fromJson(String value) => ProjectServiceAccountCreateResponseRole._(value);
 
   static const member = ProjectServiceAccountCreateResponseRole._('member');
   static const none = ProjectServiceAccountCreateResponseRole._('none');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectServiceAccountCreateResponseRole && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectServiceAccountCreateResponseRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ProjectServiceAccountDeleteResponseObject {
+
   final String value;
 
   const ProjectServiceAccountDeleteResponseObject._(this.value);
 
-  factory ProjectServiceAccountDeleteResponseObject.fromJson(String value) =>
-      ProjectServiceAccountDeleteResponseObject._(value);
+  factory ProjectServiceAccountDeleteResponseObject.fromJson(String value) => ProjectServiceAccountDeleteResponseObject._(value);
 
-  static const organizationProjectServiceAccountDeleted =
-      ProjectServiceAccountDeleteResponseObject._(
-          'organization.project.service_account.deleted');
+  static const organizationProjectServiceAccountDeleted = ProjectServiceAccountDeleteResponseObject._('organization.project.service_account.deleted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectServiceAccountDeleteResponseObject &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ProjectServiceAccountDeleteResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ProjectServiceAccountListResponseObject {
+
   final String value;
 
   const ProjectServiceAccountListResponseObject._(this.value);
 
-  factory ProjectServiceAccountListResponseObject.fromJson(String value) =>
-      ProjectServiceAccountListResponseObject._(value);
+  factory ProjectServiceAccountListResponseObject.fromJson(String value) => ProjectServiceAccountListResponseObject._(value);
 
   static const list = ProjectServiceAccountListResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectServiceAccountListResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectServiceAccountListResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The currency for the threshold amount.
 final class ProjectSpendAlertCurrency {
+
   final String value;
 
   const ProjectSpendAlertCurrency._(this.value);
 
-  factory ProjectSpendAlertCurrency.fromJson(String value) =>
-      ProjectSpendAlertCurrency._(value);
+  factory ProjectSpendAlertCurrency.fromJson(String value) => ProjectSpendAlertCurrency._(value);
 
   static const usd = ProjectSpendAlertCurrency._('USD');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectSpendAlertCurrency && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectSpendAlertCurrency && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The time interval for evaluating spend against the threshold.
 final class ProjectSpendAlertInterval {
+
   final String value;
 
   const ProjectSpendAlertInterval._(this.value);
 
-  factory ProjectSpendAlertInterval.fromJson(String value) =>
-      ProjectSpendAlertInterval._(value);
+  factory ProjectSpendAlertInterval.fromJson(String value) => ProjectSpendAlertInterval._(value);
 
   static const month = ProjectSpendAlertInterval._('month');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectSpendAlertInterval && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectSpendAlertInterval && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always `project.spend_alert`.
 final class ProjectSpendAlertObject {
+
   final String value;
 
   const ProjectSpendAlertObject._(this.value);
 
-  factory ProjectSpendAlertObject.fromJson(String value) =>
-      ProjectSpendAlertObject._(value);
+  factory ProjectSpendAlertObject.fromJson(String value) => ProjectSpendAlertObject._(value);
 
-  static const projectSpendAlert =
-      ProjectSpendAlertObject._('project.spend_alert');
+  static const projectSpendAlert = ProjectSpendAlertObject._('project.spend_alert');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectSpendAlertObject && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectSpendAlertObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

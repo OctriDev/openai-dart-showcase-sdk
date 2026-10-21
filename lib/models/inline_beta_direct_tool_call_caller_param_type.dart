@@ -10,18 +10,14 @@ enum BetaDirectToolCallCallerParamType {
 
   static BetaDirectToolCallCallerParamType fromJson(String value) {
     switch (value) {
-      case 'direct':
-        return BetaDirectToolCallCallerParamType.direct;
-      default:
-        throw ArgumentError(
-            'Unknown BetaDirectToolCallCallerParamType: $value');
+      case 'direct': return BetaDirectToolCallCallerParamType.direct;
+      default: throw ArgumentError('Unknown BetaDirectToolCallCallerParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaDirectToolCallCallerParamType.direct:
-        return 'direct';
+      case BetaDirectToolCallCallerParamType.direct: return 'direct';
     }
   }
 
@@ -35,17 +31,14 @@ enum BetaDoubleClickActionType {
 
   static BetaDoubleClickActionType fromJson(String value) {
     switch (value) {
-      case 'double_click':
-        return BetaDoubleClickActionType.doubleClick;
-      default:
-        throw ArgumentError('Unknown BetaDoubleClickActionType: $value');
+      case 'double_click': return BetaDoubleClickActionType.doubleClick;
+      default: throw ArgumentError('Unknown BetaDoubleClickActionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaDoubleClickActionType.doubleClick:
-        return 'double_click';
+      case BetaDoubleClickActionType.doubleClick: return 'double_click';
     }
   }
 
@@ -59,17 +52,14 @@ enum BetaDragParamType {
 
   static BetaDragParamType fromJson(String value) {
     switch (value) {
-      case 'drag':
-        return BetaDragParamType.drag;
-      default:
-        throw ArgumentError('Unknown BetaDragParamType: $value');
+      case 'drag': return BetaDragParamType.drag;
+      default: throw ArgumentError('Unknown BetaDragParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaDragParamType.drag:
-        return 'drag';
+      case BetaDragParamType.drag: return 'drag';
     }
   }
 
@@ -79,12 +69,12 @@ enum BetaDragParamType {
 
 /// The role of the message input. One of `user`, `assistant`, `system`, or `developer`.
 final class BetaEasyInputMessageRole {
+
   final String value;
 
   const BetaEasyInputMessageRole._(this.value);
 
-  factory BetaEasyInputMessageRole.fromJson(String value) =>
-      BetaEasyInputMessageRole._(value);
+  factory BetaEasyInputMessageRole.fromJson(String value) => BetaEasyInputMessageRole._(value);
 
   static const user = BetaEasyInputMessageRole._('user');
   static const assistant = BetaEasyInputMessageRole._('assistant');
@@ -93,15 +83,12 @@ final class BetaEasyInputMessageRole {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaEasyInputMessageRole && other.value == value;
+  @override bool operator ==(Object other) => other is BetaEasyInputMessageRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the message input. Always `message`.
@@ -110,17 +97,14 @@ enum BetaEasyInputMessageType {
 
   static BetaEasyInputMessageType fromJson(String value) {
     switch (value) {
-      case 'message':
-        return BetaEasyInputMessageType.message;
-      default:
-        throw ArgumentError('Unknown BetaEasyInputMessageType: $value');
+      case 'message': return BetaEasyInputMessageType.message;
+      default: throw ArgumentError('Unknown BetaEasyInputMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaEasyInputMessageType.message:
-        return 'message';
+      case BetaEasyInputMessageType.message: return 'message';
     }
   }
 
@@ -134,17 +118,14 @@ enum BetaEncryptedContentType {
 
   static BetaEncryptedContentType fromJson(String value) {
     switch (value) {
-      case 'encrypted_content':
-        return BetaEncryptedContentType.encryptedContent;
-      default:
-        throw ArgumentError('Unknown BetaEncryptedContentType: $value');
+      case 'encrypted_content': return BetaEncryptedContentType.encryptedContent;
+      default: throw ArgumentError('Unknown BetaEncryptedContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaEncryptedContentType.encryptedContent:
-        return 'encrypted_content';
+      case BetaEncryptedContentType.encryptedContent: return 'encrypted_content';
     }
   }
 
@@ -158,17 +139,14 @@ enum BetaEncryptedContentParamType {
 
   static BetaEncryptedContentParamType fromJson(String value) {
     switch (value) {
-      case 'encrypted_content':
-        return BetaEncryptedContentParamType.encryptedContent;
-      default:
-        throw ArgumentError('Unknown BetaEncryptedContentParamType: $value');
+      case 'encrypted_content': return BetaEncryptedContentParamType.encryptedContent;
+      default: throw ArgumentError('Unknown BetaEncryptedContentParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaEncryptedContentParamType.encryptedContent:
-        return 'encrypted_content';
+      case BetaEncryptedContentParamType.encryptedContent: return 'encrypted_content';
     }
   }
 
@@ -182,17 +160,14 @@ enum BetaFileCitationBodyType {
 
   static BetaFileCitationBodyType fromJson(String value) {
     switch (value) {
-      case 'file_citation':
-        return BetaFileCitationBodyType.fileCitation;
-      default:
-        throw ArgumentError('Unknown BetaFileCitationBodyType: $value');
+      case 'file_citation': return BetaFileCitationBodyType.fileCitation;
+      default: throw ArgumentError('Unknown BetaFileCitationBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFileCitationBodyType.fileCitation:
-        return 'file_citation';
+      case BetaFileCitationBodyType.fileCitation: return 'file_citation';
     }
   }
 
@@ -206,17 +181,14 @@ enum BetaFileCitationParamType {
 
   static BetaFileCitationParamType fromJson(String value) {
     switch (value) {
-      case 'file_citation':
-        return BetaFileCitationParamType.fileCitation;
-      default:
-        throw ArgumentError('Unknown BetaFileCitationParamType: $value');
+      case 'file_citation': return BetaFileCitationParamType.fileCitation;
+      default: throw ArgumentError('Unknown BetaFileCitationParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFileCitationParamType.fileCitation:
-        return 'file_citation';
+      case BetaFileCitationParamType.fileCitation: return 'file_citation';
     }
   }
 
@@ -230,17 +202,14 @@ enum BetaFilePathType {
 
   static BetaFilePathType fromJson(String value) {
     switch (value) {
-      case 'file_path':
-        return BetaFilePathType.filePath;
-      default:
-        throw ArgumentError('Unknown BetaFilePathType: $value');
+      case 'file_path': return BetaFilePathType.filePath;
+      default: throw ArgumentError('Unknown BetaFilePathType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFilePathType.filePath:
-        return 'file_path';
+      case BetaFilePathType.filePath: return 'file_path';
     }
   }
 
@@ -254,17 +223,14 @@ enum BetaFileSearchToolType {
 
   static BetaFileSearchToolType fromJson(String value) {
     switch (value) {
-      case 'file_search':
-        return BetaFileSearchToolType.fileSearch;
-      default:
-        throw ArgumentError('Unknown BetaFileSearchToolType: $value');
+      case 'file_search': return BetaFileSearchToolType.fileSearch;
+      default: throw ArgumentError('Unknown BetaFileSearchToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFileSearchToolType.fileSearch:
-        return 'file_search';
+      case BetaFileSearchToolType.fileSearch: return 'file_search';
     }
   }
 
@@ -274,12 +240,12 @@ enum BetaFileSearchToolType {
 
 /// The status of the file search tool call. One of `in_progress`, `searching`, `incomplete` or `failed`,
 final class BetaFileSearchToolCallStatus {
+
   final String value;
 
   const BetaFileSearchToolCallStatus._(this.value);
 
-  factory BetaFileSearchToolCallStatus.fromJson(String value) =>
-      BetaFileSearchToolCallStatus._(value);
+  factory BetaFileSearchToolCallStatus.fromJson(String value) => BetaFileSearchToolCallStatus._(value);
 
   static const inProgress = BetaFileSearchToolCallStatus._('in_progress');
   static const searching = BetaFileSearchToolCallStatus._('searching');
@@ -289,15 +255,12 @@ final class BetaFileSearchToolCallStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaFileSearchToolCallStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaFileSearchToolCallStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the file search tool call. Always `file_search_call`.
@@ -306,17 +269,14 @@ enum BetaFileSearchToolCallType {
 
   static BetaFileSearchToolCallType fromJson(String value) {
     switch (value) {
-      case 'file_search_call':
-        return BetaFileSearchToolCallType.fileSearchCall;
-      default:
-        throw ArgumentError('Unknown BetaFileSearchToolCallType: $value');
+      case 'file_search_call': return BetaFileSearchToolCallType.fileSearchCall;
+      default: throw ArgumentError('Unknown BetaFileSearchToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFileSearchToolCallType.fileSearchCall:
-        return 'file_search_call';
+      case BetaFileSearchToolCallType.fileSearchCall: return 'file_search_call';
     }
   }
 

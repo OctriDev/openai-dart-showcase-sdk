@@ -10,65 +10,32 @@ sealed class HostedEnvironmentFileResource {
   const HostedEnvironmentFileResource();
   factory HostedEnvironmentFileResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = HostedEnvironmentFileResourceFileId.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = HostedEnvironmentFileResourceInline.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(
-              value);
-        }
-      } catch (_) {}
+      try { final value = HostedEnvironmentFileResourceFileId.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(value); } } catch (_) {}
+      try { final value = HostedEnvironmentFileResourceInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(value); } } catch (_) {}
     }
-    try {
-      return HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(
-          HostedEnvironmentFileResourceFileId.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(
-          HostedEnvironmentFileResourceInline.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"file_id", "inline"}.contains(json["type"])) {
-      return UnknownHostedEnvironmentFileResource(json);
-    }
-    throw FormatException(
-        "No variant matched for HostedEnvironmentFileResource");
+    try { return HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(HostedEnvironmentFileResourceFileId.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(HostedEnvironmentFileResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_id", "inline"}.contains(json["type"])) { return UnknownHostedEnvironmentFileResource(json); }
+    throw FormatException("No variant matched for HostedEnvironmentFileResource");
   }
   Object? toJson();
 }
 
-final class HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId
-    extends HostedEnvironmentFileResource {
+final class HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId extends HostedEnvironmentFileResource {
   final HostedEnvironmentFileResourceFileId value;
-  const HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const HostedEnvironmentFileResourceHostedEnvironmentFileResourceFileId(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline
-    extends HostedEnvironmentFileResource {
+final class HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline extends HostedEnvironmentFileResource {
   final HostedEnvironmentFileResourceInline value;
-  const HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const HostedEnvironmentFileResourceHostedEnvironmentFileResourceInline(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [HostedEnvironmentFileResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownHostedEnvironmentFileResource
-    extends HostedEnvironmentFileResource {
+final class UnknownHostedEnvironmentFileResource extends HostedEnvironmentFileResource {
   final Map<String, dynamic> raw;
   const UnknownHostedEnvironmentFileResource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

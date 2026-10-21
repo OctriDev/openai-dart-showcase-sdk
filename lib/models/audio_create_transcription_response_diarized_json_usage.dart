@@ -10,63 +10,32 @@ sealed class CreateTranscriptionResponseDiarizedJsonUsage {
   const CreateTranscriptionResponseDiarizedJsonUsage();
   factory CreateTranscriptionResponseDiarizedJsonUsage.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = TranscriptTextUsageTokens.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageTokens(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = TranscriptTextUsageDuration.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageDuration(
-              value);
-        }
-      } catch (_) {}
+      try { final value = TranscriptTextUsageTokens.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageTokens(value); } } catch (_) {}
+      try { final value = TranscriptTextUsageDuration.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageDuration(value); } } catch (_) {}
     }
-    try {
-      return CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageTokens(
-          TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageDuration(
-          TranscriptTextUsageDuration.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"tokens", "duration"}.contains(json["type"])) {
-      return UnknownCreateTranscriptionResponseDiarizedJsonUsage(json);
-    }
-    throw FormatException(
-        "No variant matched for CreateTranscriptionResponseDiarizedJsonUsage");
+    try { return CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageTokens(TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageDuration(TranscriptTextUsageDuration.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"tokens", "duration"}.contains(json["type"])) { return UnknownCreateTranscriptionResponseDiarizedJsonUsage(json); }
+    throw FormatException("No variant matched for CreateTranscriptionResponseDiarizedJsonUsage");
   }
   Object? toJson();
 }
 
-final class CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageTokens
-    extends CreateTranscriptionResponseDiarizedJsonUsage {
+final class CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageTokens extends CreateTranscriptionResponseDiarizedJsonUsage {
   final TranscriptTextUsageTokens value;
-  const CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageTokens(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageTokens(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageDuration
-    extends CreateTranscriptionResponseDiarizedJsonUsage {
+final class CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageDuration extends CreateTranscriptionResponseDiarizedJsonUsage {
   final TranscriptTextUsageDuration value;
-  const CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageDuration(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateTranscriptionResponseDiarizedJsonUsageTranscriptTextUsageDuration(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [CreateTranscriptionResponseDiarizedJsonUsage] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateTranscriptionResponseDiarizedJsonUsage
-    extends CreateTranscriptionResponseDiarizedJsonUsage {
+final class UnknownCreateTranscriptionResponseDiarizedJsonUsage extends CreateTranscriptionResponseDiarizedJsonUsage {
   final Map<String, dynamic> raw;
   const UnknownCreateTranscriptionResponseDiarizedJsonUsage(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

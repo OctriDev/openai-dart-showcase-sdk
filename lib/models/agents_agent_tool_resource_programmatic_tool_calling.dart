@@ -8,44 +8,27 @@ part of 'agents_agent.dart';
 class AgentToolResourceProgrammaticToolCalling {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `programmatic_tool_calling`.
   final AgentToolResourceProgrammaticToolCallingType type_;
-
   /// Whether tools can be called from model-generated code.
   final bool enabled;
 
-  const AgentToolResourceProgrammaticToolCalling(
-      {required this.type_, required this.enabled});
+  const AgentToolResourceProgrammaticToolCalling({required this.type_, required this.enabled});
 
-  AgentToolResourceProgrammaticToolCalling Function(
-      {AgentToolResourceProgrammaticToolCallingType type_,
-      bool enabled}) get copyWith => _copyWith;
+  AgentToolResourceProgrammaticToolCalling Function({AgentToolResourceProgrammaticToolCallingType type_, bool enabled}) get copyWith => _copyWith;
 
-  AgentToolResourceProgrammaticToolCalling _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? enabled = sdkOmittedValue}) =>
-      AgentToolResourceProgrammaticToolCalling(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AgentToolResourceProgrammaticToolCallingType,
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as bool,
-      );
+  AgentToolResourceProgrammaticToolCalling _copyWith({Object? type_ = sdkOmittedValue, Object? enabled = sdkOmittedValue}) => AgentToolResourceProgrammaticToolCalling(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolResourceProgrammaticToolCallingType,
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
+  );
 
-  factory AgentToolResourceProgrammaticToolCalling.fromJson(
-          Map<String, dynamic> json) =>
-      AgentToolResourceProgrammaticToolCalling(
-        type_: (json['type'] != null
-            ? AgentToolResourceProgrammaticToolCallingType.fromJson(
-                json['type'] as String)
-            : null)!,
-        enabled: (json['enabled'] as bool?)!,
-      );
+  factory AgentToolResourceProgrammaticToolCalling.fromJson(Map<String, dynamic> json) => AgentToolResourceProgrammaticToolCalling(
+    type_: (json['type'] != null ? AgentToolResourceProgrammaticToolCallingType.fromJson(json['type'] as String) : null)!,
+    enabled: (json['enabled'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'enabled': enabled,
-      };
+    'type': type_.toJson(),
+    'enabled': enabled,
+  };
 }

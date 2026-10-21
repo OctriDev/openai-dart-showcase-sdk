@@ -5,10 +5,8 @@ part of 'beta_response.dart';
 
 // beta_response domain models
 /// A [BetaResponseSteerRequiredInput] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaResponseSteerRequiredInput
-    extends BetaResponseSteerRequiredInput {
+final class UnknownBetaResponseSteerRequiredInput extends BetaResponseSteerRequiredInput {
   final Map<String, dynamic> raw;
   const UnknownBetaResponseSteerRequiredInput(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

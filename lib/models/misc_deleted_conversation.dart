@@ -8,51 +8,32 @@ part of 'misc.dart';
 class DeletedConversation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final DeletedConversationResourceObject object;
-
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
 
-  const DeletedConversation(
-      {required this.object, required this.deleted, required this.id});
+  const DeletedConversation({required this.object, required this.deleted, required this.id});
 
-  DeletedConversation Function(
-      {DeletedConversationResourceObject object,
-      bool deleted,
-      String id}) get copyWith => _copyWith;
+  DeletedConversation Function({DeletedConversationResourceObject object, bool deleted, String id}) get copyWith => _copyWith;
 
-  DeletedConversation _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue,
-          Object? id = sdkOmittedValue}) =>
-      DeletedConversation(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DeletedConversationResourceObject,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  DeletedConversation _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? id = sdkOmittedValue}) => DeletedConversation(
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeletedConversationResourceObject,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory DeletedConversation.fromJson(Map<String, dynamic> json) =>
-      DeletedConversation(
-        object: (json['object'] != null
-            ? DeletedConversationResourceObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        deleted: (json['deleted'] as bool?)!,
-        id: (json['id'] as String?)!,
-      );
+  factory DeletedConversation.fromJson(Map<String, dynamic> json) => DeletedConversation(
+    object: (json['object'] != null ? DeletedConversationResourceObject.fromJson(json['object'] as String) : null)!,
+    deleted: (json['deleted'] as bool?)!,
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'deleted': deleted,
-        'id': id,
-      };
+    'object': object.toJson(),
+    'deleted': deleted,
+    'id': id,
+  };
 }

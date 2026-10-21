@@ -8,7 +8,6 @@ part of 'live_live_fork.dart';
 class LiveForkPathParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the stored Live session to fork.
   final String sessionId;
 
@@ -16,19 +15,15 @@ class LiveForkPathParams {
 
   LiveForkPathParams Function({String sessionId}) get copyWith => _copyWith;
 
-  LiveForkPathParams _copyWith({Object? sessionId = sdkOmittedValue}) =>
-      LiveForkPathParams(
-        sessionId: identical(sessionId, sdkOmittedValue)
-            ? this.sessionId
-            : sessionId as String,
-      );
+  LiveForkPathParams _copyWith({Object? sessionId = sdkOmittedValue}) => LiveForkPathParams(
+    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
+  );
 
-  factory LiveForkPathParams.fromJson(Map<String, dynamic> json) =>
-      LiveForkPathParams(
-        sessionId: (json['session_id'] as String?)!,
-      );
+  factory LiveForkPathParams.fromJson(Map<String, dynamic> json) => LiveForkPathParams(
+    sessionId: (json['session_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'session_id': sessionId,
-      };
+    'session_id': sessionId,
+  };
 }

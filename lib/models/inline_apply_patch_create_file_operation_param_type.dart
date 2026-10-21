@@ -10,18 +10,14 @@ enum ApplyPatchCreateFileOperationParamType {
 
   static ApplyPatchCreateFileOperationParamType fromJson(String value) {
     switch (value) {
-      case 'create_file':
-        return ApplyPatchCreateFileOperationParamType.createFile;
-      default:
-        throw ArgumentError(
-            'Unknown ApplyPatchCreateFileOperationParamType: $value');
+      case 'create_file': return ApplyPatchCreateFileOperationParamType.createFile;
+      default: throw ArgumentError('Unknown ApplyPatchCreateFileOperationParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ApplyPatchCreateFileOperationParamType.createFile:
-        return 'create_file';
+      case ApplyPatchCreateFileOperationParamType.createFile: return 'create_file';
     }
   }
 
@@ -35,18 +31,14 @@ enum ApplyPatchDeleteFileOperationType {
 
   static ApplyPatchDeleteFileOperationType fromJson(String value) {
     switch (value) {
-      case 'delete_file':
-        return ApplyPatchDeleteFileOperationType.deleteFile;
-      default:
-        throw ArgumentError(
-            'Unknown ApplyPatchDeleteFileOperationType: $value');
+      case 'delete_file': return ApplyPatchDeleteFileOperationType.deleteFile;
+      default: throw ArgumentError('Unknown ApplyPatchDeleteFileOperationType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ApplyPatchDeleteFileOperationType.deleteFile:
-        return 'delete_file';
+      case ApplyPatchDeleteFileOperationType.deleteFile: return 'delete_file';
     }
   }
 
@@ -60,18 +52,14 @@ enum ApplyPatchDeleteFileOperationParamType {
 
   static ApplyPatchDeleteFileOperationParamType fromJson(String value) {
     switch (value) {
-      case 'delete_file':
-        return ApplyPatchDeleteFileOperationParamType.deleteFile;
-      default:
-        throw ArgumentError(
-            'Unknown ApplyPatchDeleteFileOperationParamType: $value');
+      case 'delete_file': return ApplyPatchDeleteFileOperationParamType.deleteFile;
+      default: throw ArgumentError('Unknown ApplyPatchDeleteFileOperationParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ApplyPatchDeleteFileOperationParamType.deleteFile:
-        return 'delete_file';
+      case ApplyPatchDeleteFileOperationParamType.deleteFile: return 'delete_file';
     }
   }
 
@@ -85,17 +73,14 @@ enum ApplyPatchToolCallType {
 
   static ApplyPatchToolCallType fromJson(String value) {
     switch (value) {
-      case 'apply_patch_call':
-        return ApplyPatchToolCallType.applyPatchCall;
-      default:
-        throw ArgumentError('Unknown ApplyPatchToolCallType: $value');
+      case 'apply_patch_call': return ApplyPatchToolCallType.applyPatchCall;
+      default: throw ArgumentError('Unknown ApplyPatchToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ApplyPatchToolCallType.applyPatchCall:
-        return 'apply_patch_call';
+      case ApplyPatchToolCallType.applyPatchCall: return 'apply_patch_call';
     }
   }
 
@@ -109,17 +94,14 @@ enum ApplyPatchToolCallItemParamType {
 
   static ApplyPatchToolCallItemParamType fromJson(String value) {
     switch (value) {
-      case 'apply_patch_call':
-        return ApplyPatchToolCallItemParamType.applyPatchCall;
-      default:
-        throw ArgumentError('Unknown ApplyPatchToolCallItemParamType: $value');
+      case 'apply_patch_call': return ApplyPatchToolCallItemParamType.applyPatchCall;
+      default: throw ArgumentError('Unknown ApplyPatchToolCallItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ApplyPatchToolCallItemParamType.applyPatchCall:
-        return 'apply_patch_call';
+      case ApplyPatchToolCallItemParamType.applyPatchCall: return 'apply_patch_call';
     }
   }
 
@@ -133,17 +115,14 @@ enum ApplyPatchToolCallOutputType {
 
   static ApplyPatchToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'apply_patch_call_output':
-        return ApplyPatchToolCallOutputType.applyPatchCallOutput;
-      default:
-        throw ArgumentError('Unknown ApplyPatchToolCallOutputType: $value');
+      case 'apply_patch_call_output': return ApplyPatchToolCallOutputType.applyPatchCallOutput;
+      default: throw ArgumentError('Unknown ApplyPatchToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ApplyPatchToolCallOutputType.applyPatchCallOutput:
-        return 'apply_patch_call_output';
+      case ApplyPatchToolCallOutputType.applyPatchCallOutput: return 'apply_patch_call_output';
     }
   }
 
@@ -157,18 +136,14 @@ enum ApplyPatchToolCallOutputItemParamType {
 
   static ApplyPatchToolCallOutputItemParamType fromJson(String value) {
     switch (value) {
-      case 'apply_patch_call_output':
-        return ApplyPatchToolCallOutputItemParamType.applyPatchCallOutput;
-      default:
-        throw ArgumentError(
-            'Unknown ApplyPatchToolCallOutputItemParamType: $value');
+      case 'apply_patch_call_output': return ApplyPatchToolCallOutputItemParamType.applyPatchCallOutput;
+      default: throw ArgumentError('Unknown ApplyPatchToolCallOutputItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ApplyPatchToolCallOutputItemParamType.applyPatchCallOutput:
-        return 'apply_patch_call_output';
+      case ApplyPatchToolCallOutputItemParamType.applyPatchCallOutput: return 'apply_patch_call_output';
     }
   }
 
@@ -182,17 +157,14 @@ enum ApplyPatchToolParamType {
 
   static ApplyPatchToolParamType fromJson(String value) {
     switch (value) {
-      case 'apply_patch':
-        return ApplyPatchToolParamType.applyPatch;
-      default:
-        throw ArgumentError('Unknown ApplyPatchToolParamType: $value');
+      case 'apply_patch': return ApplyPatchToolParamType.applyPatch;
+      default: throw ArgumentError('Unknown ApplyPatchToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ApplyPatchToolParamType.applyPatch:
-        return 'apply_patch';
+      case ApplyPatchToolParamType.applyPatch: return 'apply_patch';
     }
   }
 
@@ -206,18 +178,14 @@ enum ApplyPatchUpdateFileOperationType {
 
   static ApplyPatchUpdateFileOperationType fromJson(String value) {
     switch (value) {
-      case 'update_file':
-        return ApplyPatchUpdateFileOperationType.updateFile;
-      default:
-        throw ArgumentError(
-            'Unknown ApplyPatchUpdateFileOperationType: $value');
+      case 'update_file': return ApplyPatchUpdateFileOperationType.updateFile;
+      default: throw ArgumentError('Unknown ApplyPatchUpdateFileOperationType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ApplyPatchUpdateFileOperationType.updateFile:
-        return 'update_file';
+      case ApplyPatchUpdateFileOperationType.updateFile: return 'update_file';
     }
   }
 
@@ -231,18 +199,14 @@ enum ApplyPatchUpdateFileOperationParamType {
 
   static ApplyPatchUpdateFileOperationParamType fromJson(String value) {
     switch (value) {
-      case 'update_file':
-        return ApplyPatchUpdateFileOperationParamType.updateFile;
-      default:
-        throw ArgumentError(
-            'Unknown ApplyPatchUpdateFileOperationParamType: $value');
+      case 'update_file': return ApplyPatchUpdateFileOperationParamType.updateFile;
+      default: throw ArgumentError('Unknown ApplyPatchUpdateFileOperationParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ApplyPatchUpdateFileOperationParamType.updateFile:
-        return 'update_file';
+      case ApplyPatchUpdateFileOperationParamType.updateFile: return 'update_file';
     }
   }
 
@@ -252,51 +216,44 @@ enum ApplyPatchUpdateFileOperationParamType {
 
 /// The type of location approximation. Always `approximate`.
 final class ApproximateLocationType {
+
   final String value;
 
   const ApproximateLocationType._(this.value);
 
-  factory ApproximateLocationType.fromJson(String value) =>
-      ApproximateLocationType._(value);
+  factory ApproximateLocationType.fromJson(String value) => ApproximateLocationType._(value);
 
   static const approximate = ApproximateLocationType._('approximate');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApproximateLocationType && other.value == value;
+  @override bool operator ==(Object other) => other is ApproximateLocationType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Type discriminator that is always `chatkit.thread_item`.
 final class AssistantMessageItemObject {
+
   final String value;
 
   const AssistantMessageItemObject._(this.value);
 
-  factory AssistantMessageItemObject.fromJson(String value) =>
-      AssistantMessageItemObject._(value);
+  factory AssistantMessageItemObject.fromJson(String value) => AssistantMessageItemObject._(value);
 
-  static const chatkitThreadItem =
-      AssistantMessageItemObject._('chatkit.thread_item');
+  static const chatkitThreadItem = AssistantMessageItemObject._('chatkit.thread_item');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AssistantMessageItemObject && other.value == value;
+  @override bool operator ==(Object other) => other is AssistantMessageItemObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Type discriminator that is always `chatkit.assistant_message`.
@@ -305,17 +262,14 @@ enum AssistantMessageItemType {
 
   static AssistantMessageItemType fromJson(String value) {
     switch (value) {
-      case 'chatkit.assistant_message':
-        return AssistantMessageItemType.chatkitAssistantMessage;
-      default:
-        throw ArgumentError('Unknown AssistantMessageItemType: $value');
+      case 'chatkit.assistant_message': return AssistantMessageItemType.chatkitAssistantMessage;
+      default: throw ArgumentError('Unknown AssistantMessageItemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AssistantMessageItemType.chatkitAssistantMessage:
-        return 'chatkit.assistant_message';
+      case AssistantMessageItemType.chatkitAssistantMessage: return 'chatkit.assistant_message';
     }
   }
 

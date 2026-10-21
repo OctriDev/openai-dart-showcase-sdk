@@ -10,62 +10,32 @@ sealed class MessageObjectAttachmentsItemToolsItem {
   const MessageObjectAttachmentsItemToolsItem();
   factory MessageObjectAttachmentsItemToolsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = AssistantToolsCode.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessageObjectAttachmentsItemToolsItemAssistantToolsCode(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AssistantToolsFileSearchTypeOnly.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessageObjectAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly(
-              value);
-        }
-      } catch (_) {}
+      try { final value = AssistantToolsCode.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageObjectAttachmentsItemToolsItemAssistantToolsCode(value); } } catch (_) {}
+      try { final value = AssistantToolsFileSearchTypeOnly.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessageObjectAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly(value); } } catch (_) {}
     }
-    try {
-      return MessageObjectAttachmentsItemToolsItemAssistantToolsCode(
-          AssistantToolsCode.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MessageObjectAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly(
-          AssistantToolsFileSearchTypeOnly.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"code_interpreter", "file_search"}.contains(json["type"])) {
-      return UnknownMessageObjectAttachmentsItemToolsItem(json);
-    }
-    throw FormatException(
-        "No variant matched for MessageObjectAttachmentsItemToolsItem");
+    try { return MessageObjectAttachmentsItemToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MessageObjectAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly(AssistantToolsFileSearchTypeOnly.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"code_interpreter", "file_search"}.contains(json["type"])) { return UnknownMessageObjectAttachmentsItemToolsItem(json); }
+    throw FormatException("No variant matched for MessageObjectAttachmentsItemToolsItem");
   }
   Object? toJson();
 }
 
-final class MessageObjectAttachmentsItemToolsItemAssistantToolsCode
-    extends MessageObjectAttachmentsItemToolsItem {
+final class MessageObjectAttachmentsItemToolsItemAssistantToolsCode extends MessageObjectAttachmentsItemToolsItem {
   final AssistantToolsCode value;
   const MessageObjectAttachmentsItemToolsItemAssistantToolsCode(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class MessageObjectAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly
-    extends MessageObjectAttachmentsItemToolsItem {
+final class MessageObjectAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly extends MessageObjectAttachmentsItemToolsItem {
   final AssistantToolsFileSearchTypeOnly value;
-  const MessageObjectAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const MessageObjectAttachmentsItemToolsItemAssistantToolsFileSearchTypeOnly(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [MessageObjectAttachmentsItemToolsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownMessageObjectAttachmentsItemToolsItem
-    extends MessageObjectAttachmentsItemToolsItem {
+final class UnknownMessageObjectAttachmentsItemToolsItem extends MessageObjectAttachmentsItemToolsItem {
   final Map<String, dynamic> raw;
   const UnknownMessageObjectAttachmentsItemToolsItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

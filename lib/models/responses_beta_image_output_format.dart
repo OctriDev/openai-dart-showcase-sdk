@@ -6,12 +6,12 @@ part of 'responses_beta_image.dart';
 // responses_beta_image domain models
 /// Typed representation of the `BetaImageOutputFormat` API schema.
 final class BetaImageOutputFormat {
+
   final String value;
 
   const BetaImageOutputFormat._(this.value);
 
-  factory BetaImageOutputFormat.fromJson(String value) =>
-      BetaImageOutputFormat._(value);
+  factory BetaImageOutputFormat.fromJson(String value) => BetaImageOutputFormat._(value);
 
   static const png = BetaImageOutputFormat._('png');
   static const webp = BetaImageOutputFormat._('webp');
@@ -19,13 +19,10 @@ final class BetaImageOutputFormat {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaImageOutputFormat && other.value == value;
+  @override bool operator ==(Object other) => other is BetaImageOutputFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

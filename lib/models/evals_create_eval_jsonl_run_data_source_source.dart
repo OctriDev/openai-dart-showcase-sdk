@@ -10,61 +10,32 @@ sealed class CreateEvalJsonlRunDataSourceSource {
   const CreateEvalJsonlRunDataSourceSource();
   factory CreateEvalJsonlRunDataSourceSource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = EvalJsonlFileContentSource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = EvalJsonlFileIdSource.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource(value);
-        }
-      } catch (_) {}
+      try { final value = EvalJsonlFileContentSource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource(value); } } catch (_) {}
+      try { final value = EvalJsonlFileIdSource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource(value); } } catch (_) {}
     }
-    try {
-      return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource(
-          EvalJsonlFileContentSource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource(
-          EvalJsonlFileIdSource.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"file_content", "file_id"}.contains(json["type"])) {
-      return UnknownCreateEvalJsonlRunDataSourceSource(json);
-    }
-    throw FormatException(
-        "No variant matched for CreateEvalJsonlRunDataSourceSource");
+    try { return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource(EvalJsonlFileContentSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource(EvalJsonlFileIdSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_content", "file_id"}.contains(json["type"])) { return UnknownCreateEvalJsonlRunDataSourceSource(json); }
+    throw FormatException("No variant matched for CreateEvalJsonlRunDataSourceSource");
   }
   Object? toJson();
 }
 
-final class CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource
-    extends CreateEvalJsonlRunDataSourceSource {
+final class CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource extends CreateEvalJsonlRunDataSourceSource {
   final EvalJsonlFileContentSource value;
-  const CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateEvalJsonlRunDataSourceSourceEvalJsonlFileContentSource(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource
-    extends CreateEvalJsonlRunDataSourceSource {
+final class CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource extends CreateEvalJsonlRunDataSourceSource {
   final EvalJsonlFileIdSource value;
   const CreateEvalJsonlRunDataSourceSourceEvalJsonlFileIdSource(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [CreateEvalJsonlRunDataSourceSource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateEvalJsonlRunDataSourceSource
-    extends CreateEvalJsonlRunDataSourceSource {
+final class UnknownCreateEvalJsonlRunDataSourceSource extends CreateEvalJsonlRunDataSourceSource {
   final Map<String, dynamic> raw;
   const UnknownCreateEvalJsonlRunDataSourceSource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

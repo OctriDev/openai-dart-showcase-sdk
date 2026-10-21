@@ -10,79 +10,20 @@ sealed class ThreadItem {
   const ThreadItem();
   factory ThreadItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = UserMessageItem.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ThreadItemUserMessageItem(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AssistantMessageItem.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ThreadItemAssistantMessageItem(value);
-        }
-      } catch (_) {}
-      try {
-        final value = WidgetMessageItem.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ThreadItemWidgetMessageItem(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ClientToolCallItem.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ThreadItemClientToolCallItem(value);
-        }
-      } catch (_) {}
-      try {
-        final value = TaskItem.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ThreadItemTaskItem(value);
-        }
-      } catch (_) {}
-      try {
-        final value = TaskGroupItem.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ThreadItemTaskGroupItem(value);
-        }
-      } catch (_) {}
+      try { final value = UserMessageItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemUserMessageItem(value); } } catch (_) {}
+      try { final value = AssistantMessageItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemAssistantMessageItem(value); } } catch (_) {}
+      try { final value = WidgetMessageItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemWidgetMessageItem(value); } } catch (_) {}
+      try { final value = ClientToolCallItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemClientToolCallItem(value); } } catch (_) {}
+      try { final value = TaskItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemTaskItem(value); } } catch (_) {}
+      try { final value = TaskGroupItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ThreadItemTaskGroupItem(value); } } catch (_) {}
     }
-    try {
-      return ThreadItemUserMessageItem(
-          UserMessageItem.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ThreadItemAssistantMessageItem(
-          AssistantMessageItem.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ThreadItemWidgetMessageItem(
-          WidgetMessageItem.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ThreadItemClientToolCallItem(
-          ClientToolCallItem.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ThreadItemTaskItem(
-          TaskItem.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ThreadItemTaskGroupItem(
-          TaskGroupItem.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "chatkit.user_message",
-          "chatkit.assistant_message",
-          "chatkit.widget",
-          "chatkit.client_tool_call",
-          "chatkit.task",
-          "chatkit.task_group"
-        }.contains(json["type"])) {
-      return UnknownThreadItem(json);
-    }
+    try { return ThreadItemUserMessageItem(UserMessageItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ThreadItemAssistantMessageItem(AssistantMessageItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ThreadItemWidgetMessageItem(WidgetMessageItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ThreadItemClientToolCallItem(ClientToolCallItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ThreadItemTaskItem(TaskItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ThreadItemTaskGroupItem(TaskGroupItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"chatkit.user_message", "chatkit.assistant_message", "chatkit.widget", "chatkit.client_tool_call", "chatkit.task", "chatkit.task_group"}.contains(json["type"])) { return UnknownThreadItem(json); }
     throw FormatException("No variant matched for ThreadItem");
   }
   Object? toJson();
@@ -91,49 +32,42 @@ sealed class ThreadItem {
 final class ThreadItemUserMessageItem extends ThreadItem {
   final UserMessageItem value;
   const ThreadItemUserMessageItem(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ThreadItemAssistantMessageItem extends ThreadItem {
   final AssistantMessageItem value;
   const ThreadItemAssistantMessageItem(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ThreadItemWidgetMessageItem extends ThreadItem {
   final WidgetMessageItem value;
   const ThreadItemWidgetMessageItem(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ThreadItemClientToolCallItem extends ThreadItem {
   final ClientToolCallItem value;
   const ThreadItemClientToolCallItem(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ThreadItemTaskItem extends ThreadItem {
   final TaskItem value;
   const ThreadItemTaskItem(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ThreadItemTaskGroupItem extends ThreadItem {
   final TaskGroupItem value;
   const ThreadItemTaskGroupItem(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ThreadItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownThreadItem extends ThreadItem {
   final Map<String, dynamic> raw;
   const UnknownThreadItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

@@ -8,136 +8,77 @@ part of 'responses_beta_input.dart';
 class BetaInputMessageResourceVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the message input.
   final String id;
 
   const BetaInputMessageResourceVariant1({required this.id});
 
-  BetaInputMessageResourceVariant1 Function({String id}) get copyWith =>
-      _copyWith;
+  BetaInputMessageResourceVariant1 Function({String id}) get copyWith => _copyWith;
 
-  BetaInputMessageResourceVariant1 _copyWith({Object? id = sdkOmittedValue}) =>
-      BetaInputMessageResourceVariant1(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  BetaInputMessageResourceVariant1 _copyWith({Object? id = sdkOmittedValue}) => BetaInputMessageResourceVariant1(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory BetaInputMessageResourceVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      BetaInputMessageResourceVariant1(
-        id: (json['id'] as String?)!,
-      );
+  factory BetaInputMessageResourceVariant1.fromJson(Map<String, dynamic> json) => BetaInputMessageResourceVariant1(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }
 
 /// Typed representation of the `BetaInputMessageResource` API schema.
 class BetaInputMessageResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
-
   /// The type of the message input. Always set to `message`.
   final BetaInputMessageType type_;
-
   /// The role of the message input. One of `user`, `system`, or `developer`.
   final BetaInputMessageRole role;
-
   /// The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final SdkOptional<BetaInputMessageStatus> status;
-
   /// A list of one or many input items to the model, containing different content types.
   final List<BetaInputContent> content;
-
   /// The unique ID of the message input.
   final String id;
 
-  const BetaInputMessageResource(
-      {this.agent = const SdkOmitted(),
-      required this.type_,
-      required this.role,
-      this.status = const SdkOmitted(),
-      required this.content,
-      required this.id});
+  const BetaInputMessageResource({this.agent = const SdkOmitted(), required this.type_, required this.role, this.status = const SdkOmitted(), required this.content, required this.id});
 
-  BetaInputMessageResource Function(
-      {SdkOptional<BetaAgentTag?> agent,
-      BetaInputMessageType type_,
-      BetaInputMessageRole role,
-      SdkOptional<BetaInputMessageStatus> status,
-      List<BetaInputContent> content,
-      String id}) get copyWith => _copyWith;
+  BetaInputMessageResource Function({SdkOptional<BetaAgentTag?> agent, BetaInputMessageType type_, BetaInputMessageRole role, SdkOptional<BetaInputMessageStatus> status, List<BetaInputContent> content, String id}) get copyWith => _copyWith;
 
-  BetaInputMessageResource _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? content = sdkOmittedValue,
-          Object? id = sdkOmittedValue}) =>
-      BetaInputMessageResource(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTag?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaInputMessageType,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as BetaInputMessageRole,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<BetaInputMessageStatus>,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as List<BetaInputContent>,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  BetaInputMessageResource _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? role = sdkOmittedValue, Object? status = sdkOmittedValue, Object? content = sdkOmittedValue, Object? id = sdkOmittedValue}) => BetaInputMessageResource(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaInputMessageType,
+    role: identical(role, sdkOmittedValue) ? this.role : role as BetaInputMessageRole,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<BetaInputMessageStatus>,
+    content: identical(content, sdkOmittedValue) ? this.content : content as List<BetaInputContent>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory BetaInputMessageResource.fromJson(Map<String, dynamic> json) =>
-      BetaInputMessageResource(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaInputMessageType.fromJson(json['type'] as String)
-            : null)!,
-        role: (json['role'] != null
-            ? BetaInputMessageRole.fromJson(json['role'] as String)
-            : null)!,
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? BetaInputMessageStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        content: ((json['content'] as List?)
-            ?.map((e) => BetaInputContent.fromJson(e))
-            .toList())!,
-        id: (json['id'] as String?)!,
-      );
+  factory BetaInputMessageResource.fromJson(Map<String, dynamic> json) => BetaInputMessageResource(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaInputMessageType.fromJson(json['type'] as String) : null)!,
+    role: (json['role'] != null ? BetaInputMessageRole.fromJson(json['role'] as String) : null)!,
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? BetaInputMessageStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    content: ((json['content'] as List?)?.map((e) => BetaInputContent.fromJson(e)).toList())!,
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTag?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'role': role.toJson(),
-        ...switch (status) {
-          SdkPresent<BetaInputMessageStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'content': content.map((item) => item.toJson()).toList(),
-        'id': id,
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'role': role.toJson(),
+    ...switch (status) {
+      SdkPresent<BetaInputMessageStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'content': content.map((item) => item.toJson()).toList(),
+    'id': id,
+  };
 }

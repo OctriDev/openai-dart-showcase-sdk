@@ -8,92 +8,46 @@ part of 'vaults_rotate.dart';
 class RotateVaultCredentialAuthParamMcpOauth {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `mcp_oauth`.
   final RotateVaultCredentialAuthParamMcpOauthType type_;
-
   /// A write-only replacement OAuth access token.
   final SdkOptional<String?> accessToken;
-
   /// The replacement expiry as an RFC 3339 timestamp, or `null` to clear it. Omitting this field preserves the expiry unless a new access token is supplied, in which case the expiry is cleared.
   final SdkOptional<String?> expiresAt;
-
   /// Optional write-only refresh-token and client-secret updates.
   final SdkOptional<RotateMcpOauthRefreshParam?> refresh;
 
-  const RotateVaultCredentialAuthParamMcpOauth(
-      {required this.type_,
-      this.accessToken = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted(),
-      this.refresh = const SdkOmitted()});
+  const RotateVaultCredentialAuthParamMcpOauth({required this.type_, this.accessToken = const SdkOmitted(), this.expiresAt = const SdkOmitted(), this.refresh = const SdkOmitted()});
 
-  RotateVaultCredentialAuthParamMcpOauth Function(
-          {RotateVaultCredentialAuthParamMcpOauthType type_,
-          SdkOptional<String?> accessToken,
-          SdkOptional<String?> expiresAt,
-          SdkOptional<RotateMcpOauthRefreshParam?> refresh})
-      get copyWith => _copyWith;
+  RotateVaultCredentialAuthParamMcpOauth Function({RotateVaultCredentialAuthParamMcpOauthType type_, SdkOptional<String?> accessToken, SdkOptional<String?> expiresAt, SdkOptional<RotateMcpOauthRefreshParam?> refresh}) get copyWith => _copyWith;
 
-  RotateVaultCredentialAuthParamMcpOauth _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? accessToken = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue,
-          Object? refresh = sdkOmittedValue}) =>
-      RotateVaultCredentialAuthParamMcpOauth(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RotateVaultCredentialAuthParamMcpOauthType,
-        accessToken: identical(accessToken, sdkOmittedValue)
-            ? this.accessToken
-            : accessToken as SdkOptional<String?>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<String?>,
-        refresh: identical(refresh, sdkOmittedValue)
-            ? this.refresh
-            : refresh as SdkOptional<RotateMcpOauthRefreshParam?>,
-      );
+  RotateVaultCredentialAuthParamMcpOauth _copyWith({Object? type_ = sdkOmittedValue, Object? accessToken = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? refresh = sdkOmittedValue}) => RotateVaultCredentialAuthParamMcpOauth(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RotateVaultCredentialAuthParamMcpOauthType,
+    accessToken: identical(accessToken, sdkOmittedValue) ? this.accessToken : accessToken as SdkOptional<String?>,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String?>,
+    refresh: identical(refresh, sdkOmittedValue) ? this.refresh : refresh as SdkOptional<RotateMcpOauthRefreshParam?>,
+  );
 
-  factory RotateVaultCredentialAuthParamMcpOauth.fromJson(
-          Map<String, dynamic> json) =>
-      RotateVaultCredentialAuthParamMcpOauth(
-        type_: (json['type'] != null
-            ? RotateVaultCredentialAuthParamMcpOauthType.fromJson(
-                json['type'] as String)
-            : null)!,
-        accessToken: json.containsKey('access_token')
-            ? SdkPresent(json['access_token'] as String?)
-            : const SdkOmitted(),
-        expiresAt: json.containsKey('expires_at')
-            ? SdkPresent(json['expires_at'] as String?)
-            : const SdkOmitted(),
-        refresh: json.containsKey('refresh')
-            ? SdkPresent(json['refresh'] != null
-                ? RotateMcpOauthRefreshParam.fromJson(
-                    json['refresh'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory RotateVaultCredentialAuthParamMcpOauth.fromJson(Map<String, dynamic> json) => RotateVaultCredentialAuthParamMcpOauth(
+    type_: (json['type'] != null ? RotateVaultCredentialAuthParamMcpOauthType.fromJson(json['type'] as String) : null)!,
+    accessToken: json.containsKey('access_token') ? SdkPresent(json['access_token'] as String?) : const SdkOmitted(),
+    expiresAt: json.containsKey('expires_at') ? SdkPresent(json['expires_at'] as String?) : const SdkOmitted(),
+    refresh: json.containsKey('refresh') ? SdkPresent(json['refresh'] != null ? RotateMcpOauthRefreshParam.fromJson(json['refresh'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (accessToken) {
-          SdkPresent<String?>(value: final value) => {
-              'access_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<String?>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (refresh) {
-          SdkPresent<RotateMcpOauthRefreshParam?>(value: final value) => {
-              'refresh': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (accessToken) {
+      SdkPresent<String?>(value: final value) => {'access_token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAt) {
+      SdkPresent<String?>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (refresh) {
+      SdkPresent<RotateMcpOauthRefreshParam?>(value: final value) => {'refresh': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

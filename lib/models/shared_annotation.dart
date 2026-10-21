@@ -10,57 +10,16 @@ sealed class Annotation {
   const Annotation();
   factory Annotation.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = FileCitationBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AnnotationFileCitationBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = UrlCitationBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AnnotationUrlCitationBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ContainerFileCitationBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AnnotationContainerFileCitationBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = FilePath.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AnnotationFilePath(value);
-        }
-      } catch (_) {}
+      try { final value = FileCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AnnotationFileCitationBody(value); } } catch (_) {}
+      try { final value = UrlCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AnnotationUrlCitationBody(value); } } catch (_) {}
+      try { final value = ContainerFileCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AnnotationContainerFileCitationBody(value); } } catch (_) {}
+      try { final value = FilePath.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AnnotationFilePath(value); } } catch (_) {}
     }
-    try {
-      return AnnotationFileCitationBody(
-          FileCitationBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return AnnotationUrlCitationBody(
-          UrlCitationBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return AnnotationContainerFileCitationBody(
-          ContainerFileCitationBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return AnnotationFilePath(
-          FilePath.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "file_citation",
-          "url_citation",
-          "container_file_citation",
-          "file_path"
-        }.contains(json["type"])) {
-      return UnknownAnnotation(json);
-    }
+    try { return AnnotationFileCitationBody(FileCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return AnnotationUrlCitationBody(UrlCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return AnnotationContainerFileCitationBody(ContainerFileCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return AnnotationFilePath(FilePath.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_citation", "url_citation", "container_file_citation", "file_path"}.contains(json["type"])) { return UnknownAnnotation(json); }
     throw FormatException("No variant matched for Annotation");
   }
   Object? toJson();
@@ -69,35 +28,30 @@ sealed class Annotation {
 final class AnnotationFileCitationBody extends Annotation {
   final FileCitationBody value;
   const AnnotationFileCitationBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class AnnotationUrlCitationBody extends Annotation {
   final UrlCitationBody value;
   const AnnotationUrlCitationBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class AnnotationContainerFileCitationBody extends Annotation {
   final ContainerFileCitationBody value;
   const AnnotationContainerFileCitationBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class AnnotationFilePath extends Annotation {
   final FilePath value;
   const AnnotationFilePath(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [Annotation] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownAnnotation extends Annotation {
   final Map<String, dynamic> raw;
   const UnknownAnnotation(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

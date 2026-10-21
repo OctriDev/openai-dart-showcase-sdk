@@ -9,135 +9,82 @@ sealed class ChatkitWorkflowStateVariablesValue {
   static const String constructionSurface = 'named';
   const ChatkitWorkflowStateVariablesValue();
   factory ChatkitWorkflowStateVariablesValue.fromJson(Object? json) {
-    if (json is String) {
-      return ChatkitWorkflowStateVariablesValueString(json);
-    }
-    if (json is num) {
-      return ChatkitWorkflowStateVariablesValueInt(json.toInt());
-    }
-    if (json is bool) {
-      return ChatkitWorkflowStateVariablesValueBool(json);
-    }
-    if (json is num) {
-      return ChatkitWorkflowStateVariablesValueDouble(json.toDouble());
-    }
-    throw FormatException(
-        "No variant matched for ChatkitWorkflowStateVariablesValue");
+    if (json is String) { return ChatkitWorkflowStateVariablesValueString(json); }
+    if (json is num) { return ChatkitWorkflowStateVariablesValueInt(json.toInt()); }
+    if (json is bool) { return ChatkitWorkflowStateVariablesValueBool(json); }
+    if (json is num) { return ChatkitWorkflowStateVariablesValueDouble(json.toDouble()); }
+    throw FormatException("No variant matched for ChatkitWorkflowStateVariablesValue");
   }
   Object? toJson();
 }
 
-final class ChatkitWorkflowStateVariablesValueString
-    extends ChatkitWorkflowStateVariablesValue {
+final class ChatkitWorkflowStateVariablesValueString extends ChatkitWorkflowStateVariablesValue {
   final String value;
   const ChatkitWorkflowStateVariablesValueString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class ChatkitWorkflowStateVariablesValueInt
-    extends ChatkitWorkflowStateVariablesValue {
+final class ChatkitWorkflowStateVariablesValueInt extends ChatkitWorkflowStateVariablesValue {
   final int value;
   const ChatkitWorkflowStateVariablesValueInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class ChatkitWorkflowStateVariablesValueBool
-    extends ChatkitWorkflowStateVariablesValue {
+final class ChatkitWorkflowStateVariablesValueBool extends ChatkitWorkflowStateVariablesValue {
   final bool value;
   const ChatkitWorkflowStateVariablesValueBool(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class ChatkitWorkflowStateVariablesValueDouble
-    extends ChatkitWorkflowStateVariablesValue {
+final class ChatkitWorkflowStateVariablesValueDouble extends ChatkitWorkflowStateVariablesValue {
   final double value;
   const ChatkitWorkflowStateVariablesValueDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Workflow metadata and state returned for the session.
 class ChatkitWorkflow {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Identifier of the workflow backing the session.
   final String id;
-
   /// Required `string` value serialized in the `version` wire field.
   final String? version;
-
   /// State variable key-value pairs applied when invoking the workflow. Defaults to null when no overrides were provided.
   final Map<String, dynamic>? stateVariables;
-
   /// Tracing settings applied to the workflow.
   final ChatkitWorkflowTracing tracing;
 
-  const ChatkitWorkflow(
-      {required this.id,
-      required this.version,
-      required this.stateVariables,
-      required this.tracing});
+  const ChatkitWorkflow({required this.id, required this.version, required this.stateVariables, required this.tracing});
 
-  ChatkitWorkflow Function(
-      {String id,
-      String? version,
-      Map<String, dynamic>? stateVariables,
-      ChatkitWorkflowTracing tracing}) get copyWith => _copyWith;
+  ChatkitWorkflow Function({String id, String? version, Map<String, dynamic>? stateVariables, ChatkitWorkflowTracing tracing}) get copyWith => _copyWith;
 
-  ChatkitWorkflow _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? version = sdkOmittedValue,
-          Object? stateVariables = sdkOmittedValue,
-          Object? tracing = sdkOmittedValue}) =>
-      ChatkitWorkflow(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as String?,
-        stateVariables: identical(stateVariables, sdkOmittedValue)
-            ? this.stateVariables
-            : stateVariables as Map<String, dynamic>?,
-        tracing: identical(tracing, sdkOmittedValue)
-            ? this.tracing
-            : tracing as ChatkitWorkflowTracing,
-      );
+  ChatkitWorkflow _copyWith({Object? id = sdkOmittedValue, Object? version = sdkOmittedValue, Object? stateVariables = sdkOmittedValue, Object? tracing = sdkOmittedValue}) => ChatkitWorkflow(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    version: identical(version, sdkOmittedValue) ? this.version : version as String?,
+    stateVariables: identical(stateVariables, sdkOmittedValue) ? this.stateVariables : stateVariables as Map<String, dynamic>?,
+    tracing: identical(tracing, sdkOmittedValue) ? this.tracing : tracing as ChatkitWorkflowTracing,
+  );
 
-  factory ChatkitWorkflow.fromJson(Map<String, dynamic> json) =>
-      ChatkitWorkflow(
-        id: (json['id'] as String?)!,
-        version: json.containsKey('version')
-            ? json['version'] as String?
-            : throw ArgumentError.value(
-                null, 'version', 'Required property is missing'),
-        stateVariables: json.containsKey('state_variables')
-            ? json['state_variables'] == null
-                ? null
-                : json['state_variables'] as Map<String, dynamic>
-            : throw ArgumentError.value(
-                null, 'state_variables', 'Required property is missing'),
-        tracing: (json['tracing'] != null
-            ? ChatkitWorkflowTracing.fromJson(
-                json['tracing'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ChatkitWorkflow.fromJson(Map<String, dynamic> json) => ChatkitWorkflow(
+    id: (json['id'] as String?)!,
+    version: json.containsKey('version') ? json['version'] as String? : throw ArgumentError.value(null, 'version', 'Required property is missing'),
+    stateVariables: json.containsKey('state_variables') ? json['state_variables'] == null ? null : json['state_variables'] as Map<String, dynamic> : throw ArgumentError.value(null, 'state_variables', 'Required property is missing'),
+    tracing: (json['tracing'] != null ? ChatkitWorkflowTracing.fromJson(json['tracing'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'version': version,
-        'state_variables': stateVariables,
-        'tracing': tracing.toJson(),
-      };
+    'id': id,
+    'version': version,
+    'state_variables': stateVariables,
+    'tracing': tracing.toJson(),
+  };
 }
 
 /// Controls diagnostic tracing during the session.
 class ChatkitWorkflowTracing {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Indicates whether tracing is enabled.
   final bool enabled;
 
@@ -145,19 +92,15 @@ class ChatkitWorkflowTracing {
 
   ChatkitWorkflowTracing Function({bool enabled}) get copyWith => _copyWith;
 
-  ChatkitWorkflowTracing _copyWith({Object? enabled = sdkOmittedValue}) =>
-      ChatkitWorkflowTracing(
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as bool,
-      );
+  ChatkitWorkflowTracing _copyWith({Object? enabled = sdkOmittedValue}) => ChatkitWorkflowTracing(
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
+  );
 
-  factory ChatkitWorkflowTracing.fromJson(Map<String, dynamic> json) =>
-      ChatkitWorkflowTracing(
-        enabled: (json['enabled'] as bool?)!,
-      );
+  factory ChatkitWorkflowTracing.fromJson(Map<String, dynamic> json) => ChatkitWorkflowTracing(
+    enabled: (json['enabled'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'enabled': enabled,
-      };
+    'enabled': enabled,
+  };
 }

@@ -8,33 +8,22 @@ part of 'live_live.dart';
 class LiveCodeInterpreterToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final LiveCodeInterpreterToolInputParamType type_;
 
   const LiveCodeInterpreterToolInputParam({required this.type_});
 
-  LiveCodeInterpreterToolInputParam Function(
-      {LiveCodeInterpreterToolInputParamType type_}) get copyWith => _copyWith;
+  LiveCodeInterpreterToolInputParam Function({LiveCodeInterpreterToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveCodeInterpreterToolInputParam _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      LiveCodeInterpreterToolInputParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveCodeInterpreterToolInputParamType,
-      );
+  LiveCodeInterpreterToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveCodeInterpreterToolInputParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveCodeInterpreterToolInputParamType,
+  );
 
-  factory LiveCodeInterpreterToolInputParam.fromJson(
-          Map<String, dynamic> json) =>
-      LiveCodeInterpreterToolInputParam(
-        type_: (json['type'] != null
-            ? LiveCodeInterpreterToolInputParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory LiveCodeInterpreterToolInputParam.fromJson(Map<String, dynamic> json) => LiveCodeInterpreterToolInputParam(
+    type_: (json['type'] != null ? LiveCodeInterpreterToolInputParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

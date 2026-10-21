@@ -9,19 +9,10 @@ sealed class BetaComparisonFilterValue {
   static const String constructionSurface = 'named';
   const BetaComparisonFilterValue();
   factory BetaComparisonFilterValue.fromJson(Object? json) {
-    if (json is String) {
-      return BetaComparisonFilterValueString(json);
-    }
-    if (json is num) {
-      return BetaComparisonFilterValueDouble(json.toDouble());
-    }
-    if (json is bool) {
-      return BetaComparisonFilterValueBool(json);
-    }
-    if (json is List) {
-      return BetaComparisonFilterValueList(
-          json.map((e) => e).toList().cast<dynamic>());
-    }
+    if (json is String) { return BetaComparisonFilterValueString(json); }
+    if (json is num) { return BetaComparisonFilterValueDouble(json.toDouble()); }
+    if (json is bool) { return BetaComparisonFilterValueBool(json); }
+    if (json is List) { return BetaComparisonFilterValueList(json.map((e) => e).toList().cast<dynamic>()); }
     throw FormatException("No variant matched for BetaComparisonFilterValue");
   }
   Object? toJson();
@@ -30,78 +21,57 @@ sealed class BetaComparisonFilterValue {
 final class BetaComparisonFilterValueString extends BetaComparisonFilterValue {
   final String value;
   const BetaComparisonFilterValueString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class BetaComparisonFilterValueDouble extends BetaComparisonFilterValue {
   final double value;
   const BetaComparisonFilterValueDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class BetaComparisonFilterValueBool extends BetaComparisonFilterValue {
   final bool value;
   const BetaComparisonFilterValueBool(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class BetaComparisonFilterValueList extends BetaComparisonFilterValue {
   final List<dynamic> value;
   const BetaComparisonFilterValueList(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// A filter used to compare a specified attribute key to a given value using a defined comparison operation.
 class BetaComparisonFilter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`, `in`, `nin`. - `eq`: equals - `ne`: not equal - `gt`: greater than - `gte`: greater than or equal - `lt`: less than - `lte`: less than or equal - `in`: in - `nin`: not in
   final BetaComparisonFilterType type_;
-
   /// The key to compare against the value.
   final String key;
-
   /// The value to compare against the attribute key; supports string, number, or boolean types.
   final dynamic value;
 
-  const BetaComparisonFilter(
-      {required this.type_, required this.key, required this.value});
+  const BetaComparisonFilter({required this.type_, required this.key, required this.value});
 
-  BetaComparisonFilter Function(
-      {BetaComparisonFilterType type_,
-      String key,
-      dynamic value}) get copyWith => _copyWith;
+  BetaComparisonFilter Function({BetaComparisonFilterType type_, String key, dynamic value}) get copyWith => _copyWith;
 
-  BetaComparisonFilter _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? value = sdkOmittedValue}) =>
-      BetaComparisonFilter(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaComparisonFilterType,
-        key: identical(key, sdkOmittedValue) ? this.key : key as String,
-        value:
-            identical(value, sdkOmittedValue) ? this.value : value as dynamic,
-      );
+  BetaComparisonFilter _copyWith({Object? type_ = sdkOmittedValue, Object? key = sdkOmittedValue, Object? value = sdkOmittedValue}) => BetaComparisonFilter(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaComparisonFilterType,
+    key: identical(key, sdkOmittedValue) ? this.key : key as String,
+    value: identical(value, sdkOmittedValue) ? this.value : value as dynamic,
+  );
 
-  factory BetaComparisonFilter.fromJson(Map<String, dynamic> json) =>
-      BetaComparisonFilter(
-        type_: (json['type'] != null
-            ? BetaComparisonFilterType.fromJson(json['type'] as String)
-            : null)!,
-        key: (json['key'] as String?)!,
-        value: (json['value'])!,
-      );
+  factory BetaComparisonFilter.fromJson(Map<String, dynamic> json) => BetaComparisonFilter(
+    type_: (json['type'] != null ? BetaComparisonFilterType.fromJson(json['type'] as String) : null)!,
+    key: (json['key'] as String?)!,
+    value: (json['value'])!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'key': key,
-        'value': value,
-      };
+    'type': type_.toJson(),
+    'key': key,
+    'value': value,
+  };
 }

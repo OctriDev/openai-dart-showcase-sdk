@@ -8,127 +8,65 @@ part of 'shared.dart';
 class WebhookEndpointWithSecretResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the webhook endpoint.
   final String id;
-
   /// The object type, which is always webhook_endpoint.
   final WebhookEndpointWithSecretResourceObject object;
-
   /// The Unix timestamp when the endpoint was created.
   final int createdAt;
-
   /// The Unix timestamp of the last endpoint configuration or signing-secret change. Initialized at creation; tests and unchanged updates do not advance it.
   final SdkOptional<int> updatedAt;
-
   /// The human-readable name of the endpoint.
   final String name;
-
   /// The HTTPS URL that receives webhook deliveries.
   final String url;
-
   /// The event types that trigger deliveries to this endpoint.
   final List<String> eventTypes;
-
   /// Required `string` value serialized in the `signing_secret_hint` wire field.
   final String? signingSecretHint;
-
   /// The endpoint's signing secret. This is returned only when the endpoint is created or the secret is rotated.
   final String signingSecret;
 
-  const WebhookEndpointWithSecretResource(
-      {required this.id,
-      required this.object,
-      required this.createdAt,
-      this.updatedAt = const SdkOmitted(),
-      required this.name,
-      required this.url,
-      required this.eventTypes,
-      required this.signingSecretHint,
-      required this.signingSecret});
+  const WebhookEndpointWithSecretResource({required this.id, required this.object, required this.createdAt, this.updatedAt = const SdkOmitted(), required this.name, required this.url, required this.eventTypes, required this.signingSecretHint, required this.signingSecret});
 
-  WebhookEndpointWithSecretResource Function(
-      {String id,
-      WebhookEndpointWithSecretResourceObject object,
-      int createdAt,
-      SdkOptional<int> updatedAt,
-      String name,
-      String url,
-      List<String> eventTypes,
-      String? signingSecretHint,
-      String signingSecret}) get copyWith => _copyWith;
+  WebhookEndpointWithSecretResource Function({String id, WebhookEndpointWithSecretResourceObject object, int createdAt, SdkOptional<int> updatedAt, String name, String url, List<String> eventTypes, String? signingSecretHint, String signingSecret}) get copyWith => _copyWith;
 
-  WebhookEndpointWithSecretResource _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? eventTypes = sdkOmittedValue,
-          Object? signingSecretHint = sdkOmittedValue,
-          Object? signingSecret = sdkOmittedValue}) =>
-      WebhookEndpointWithSecretResource(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as WebhookEndpointWithSecretResourceObject,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<int>,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        url: identical(url, sdkOmittedValue) ? this.url : url as String,
-        eventTypes: identical(eventTypes, sdkOmittedValue)
-            ? this.eventTypes
-            : eventTypes as List<String>,
-        signingSecretHint: identical(signingSecretHint, sdkOmittedValue)
-            ? this.signingSecretHint
-            : signingSecretHint as String?,
-        signingSecret: identical(signingSecret, sdkOmittedValue)
-            ? this.signingSecret
-            : signingSecret as String,
-      );
+  WebhookEndpointWithSecretResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? name = sdkOmittedValue, Object? url = sdkOmittedValue, Object? eventTypes = sdkOmittedValue, Object? signingSecretHint = sdkOmittedValue, Object? signingSecret = sdkOmittedValue}) => WebhookEndpointWithSecretResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as WebhookEndpointWithSecretResourceObject,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    url: identical(url, sdkOmittedValue) ? this.url : url as String,
+    eventTypes: identical(eventTypes, sdkOmittedValue) ? this.eventTypes : eventTypes as List<String>,
+    signingSecretHint: identical(signingSecretHint, sdkOmittedValue) ? this.signingSecretHint : signingSecretHint as String?,
+    signingSecret: identical(signingSecret, sdkOmittedValue) ? this.signingSecret : signingSecret as String,
+  );
 
-  factory WebhookEndpointWithSecretResource.fromJson(
-          Map<String, dynamic> json) =>
-      WebhookEndpointWithSecretResource(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? WebhookEndpointWithSecretResourceObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        name: (json['name'] as String?)!,
-        url: (json['url'] as String?)!,
-        eventTypes:
-            ((json['event_types'] as List?)?.map((e) => e as String).toList())!,
-        signingSecretHint: json.containsKey('signing_secret_hint')
-            ? json['signing_secret_hint'] as String?
-            : throw ArgumentError.value(
-                null, 'signing_secret_hint', 'Required property is missing'),
-        signingSecret: (json['signing_secret'] as String?)!,
-      );
+  factory WebhookEndpointWithSecretResource.fromJson(Map<String, dynamic> json) => WebhookEndpointWithSecretResource(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? WebhookEndpointWithSecretResourceObject.fromJson(json['object'] as String) : null)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    name: (json['name'] as String?)!,
+    url: (json['url'] as String?)!,
+    eventTypes: ((json['event_types'] as List?)?.map((e) => e as String).toList())!,
+    signingSecretHint: json.containsKey('signing_secret_hint') ? json['signing_secret_hint'] as String? : throw ArgumentError.value(null, 'signing_secret_hint', 'Required property is missing'),
+    signingSecret: (json['signing_secret'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'created_at': createdAt,
-        ...switch (updatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'name': name,
-        'url': url,
-        'event_types': eventTypes,
-        'signing_secret_hint': signingSecretHint,
-        'signing_secret': signingSecret,
-      };
+    'id': id,
+    'object': object.toJson(),
+    'created_at': createdAt,
+    ...switch (updatedAt) {
+      SdkPresent<int>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    'name': name,
+    'url': url,
+    'event_types': eventTypes,
+    'signing_secret_hint': signingSecretHint,
+    'signing_secret': signingSecret,
+  };
 }

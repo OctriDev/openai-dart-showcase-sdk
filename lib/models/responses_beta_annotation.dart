@@ -10,57 +10,16 @@ sealed class BetaAnnotation {
   const BetaAnnotation();
   factory BetaAnnotation.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaFileCitationBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaAnnotationBetaFileCitationBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaUrlCitationBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaAnnotationBetaUrlCitationBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaContainerFileCitationBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaAnnotationBetaContainerFileCitationBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaFilePath.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaAnnotationBetaFilePath(value);
-        }
-      } catch (_) {}
+      try { final value = BetaFileCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaFileCitationBody(value); } } catch (_) {}
+      try { final value = BetaUrlCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaUrlCitationBody(value); } } catch (_) {}
+      try { final value = BetaContainerFileCitationBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaContainerFileCitationBody(value); } } catch (_) {}
+      try { final value = BetaFilePath.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAnnotationBetaFilePath(value); } } catch (_) {}
     }
-    try {
-      return BetaAnnotationBetaFileCitationBody(
-          BetaFileCitationBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaAnnotationBetaUrlCitationBody(
-          BetaUrlCitationBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaAnnotationBetaContainerFileCitationBody(
-          BetaContainerFileCitationBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaAnnotationBetaFilePath(
-          BetaFilePath.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "file_citation",
-          "url_citation",
-          "container_file_citation",
-          "file_path"
-        }.contains(json["type"])) {
-      return UnknownBetaAnnotation(json);
-    }
+    try { return BetaAnnotationBetaFileCitationBody(BetaFileCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaAnnotationBetaUrlCitationBody(BetaUrlCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaAnnotationBetaContainerFileCitationBody(BetaContainerFileCitationBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaAnnotationBetaFilePath(BetaFilePath.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_citation", "url_citation", "container_file_citation", "file_path"}.contains(json["type"])) { return UnknownBetaAnnotation(json); }
     throw FormatException("No variant matched for BetaAnnotation");
   }
   Object? toJson();
@@ -69,35 +28,30 @@ sealed class BetaAnnotation {
 final class BetaAnnotationBetaFileCitationBody extends BetaAnnotation {
   final BetaFileCitationBody value;
   const BetaAnnotationBetaFileCitationBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaAnnotationBetaUrlCitationBody extends BetaAnnotation {
   final BetaUrlCitationBody value;
   const BetaAnnotationBetaUrlCitationBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaAnnotationBetaContainerFileCitationBody extends BetaAnnotation {
   final BetaContainerFileCitationBody value;
   const BetaAnnotationBetaContainerFileCitationBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class BetaAnnotationBetaFilePath extends BetaAnnotation {
   final BetaFilePath value;
   const BetaAnnotationBetaFilePath(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaAnnotation] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaAnnotation extends BetaAnnotation {
   final Map<String, dynamic> raw;
   const UnknownBetaAnnotation(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

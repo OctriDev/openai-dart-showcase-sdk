@@ -8,89 +8,47 @@ part of 'items.dart';
 class AssistantMessageItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Identifier of the thread item.
   final String id;
-
   /// Type discriminator that is always `chatkit.thread_item`.
   final AssistantMessageItemObject object;
-
   /// Unix timestamp (in seconds) for when the item was created.
   final int createdAt;
-
   /// Identifier of the parent thread.
   final String threadId;
-
   /// Type discriminator that is always `chatkit.assistant_message`.
   final AssistantMessageItemType type_;
-
   /// Ordered assistant response segments.
   final List<ResponseOutputText> content;
 
-  const AssistantMessageItem(
-      {required this.id,
-      required this.object,
-      required this.createdAt,
-      required this.threadId,
-      required this.type_,
-      required this.content});
+  const AssistantMessageItem({required this.id, required this.object, required this.createdAt, required this.threadId, required this.type_, required this.content});
 
-  AssistantMessageItem Function(
-      {String id,
-      AssistantMessageItemObject object,
-      int createdAt,
-      String threadId,
-      AssistantMessageItemType type_,
-      List<ResponseOutputText> content}) get copyWith => _copyWith;
+  AssistantMessageItem Function({String id, AssistantMessageItemObject object, int createdAt, String threadId, AssistantMessageItemType type_, List<ResponseOutputText> content}) get copyWith => _copyWith;
 
-  AssistantMessageItem _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? threadId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? content = sdkOmittedValue}) =>
-      AssistantMessageItem(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as AssistantMessageItemObject,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        threadId: identical(threadId, sdkOmittedValue)
-            ? this.threadId
-            : threadId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AssistantMessageItemType,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as List<ResponseOutputText>,
-      );
+  AssistantMessageItem _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? content = sdkOmittedValue}) => AssistantMessageItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as AssistantMessageItemObject,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AssistantMessageItemType,
+    content: identical(content, sdkOmittedValue) ? this.content : content as List<ResponseOutputText>,
+  );
 
-  factory AssistantMessageItem.fromJson(Map<String, dynamic> json) =>
-      AssistantMessageItem(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? AssistantMessageItemObject.fromJson(json['object'] as String)
-            : null)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        threadId: (json['thread_id'] as String?)!,
-        type_: (json['type'] != null
-            ? AssistantMessageItemType.fromJson(json['type'] as String)
-            : null)!,
-        content: ((json['content'] as List?)
-            ?.map((e) => ResponseOutputText.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory AssistantMessageItem.fromJson(Map<String, dynamic> json) => AssistantMessageItem(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? AssistantMessageItemObject.fromJson(json['object'] as String) : null)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    threadId: (json['thread_id'] as String?)!,
+    type_: (json['type'] != null ? AssistantMessageItemType.fromJson(json['type'] as String) : null)!,
+    content: ((json['content'] as List?)?.map((e) => ResponseOutputText.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'created_at': createdAt,
-        'thread_id': threadId,
-        'type': type_.toJson(),
-        'content': content.map((item) => item.toJson()).toList(),
-      };
+    'id': id,
+    'object': object.toJson(),
+    'created_at': createdAt,
+    'thread_id': threadId,
+    'type': type_.toJson(),
+    'content': content.map((item) => item.toJson()).toList(),
+  };
 }

@@ -8,10 +8,8 @@ part of 'responses_beta.dart';
 class BetaCoordParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The x-coordinate.
   final int x;
-
   /// The y-coordinate.
   final int y;
 
@@ -19,20 +17,18 @@ class BetaCoordParam {
 
   BetaCoordParam Function({int x, int y}) get copyWith => _copyWith;
 
-  BetaCoordParam _copyWith(
-          {Object? x = sdkOmittedValue, Object? y = sdkOmittedValue}) =>
-      BetaCoordParam(
-        x: identical(x, sdkOmittedValue) ? this.x : x as int,
-        y: identical(y, sdkOmittedValue) ? this.y : y as int,
-      );
+  BetaCoordParam _copyWith({Object? x = sdkOmittedValue, Object? y = sdkOmittedValue}) => BetaCoordParam(
+    x: identical(x, sdkOmittedValue) ? this.x : x as int,
+    y: identical(y, sdkOmittedValue) ? this.y : y as int,
+  );
 
   factory BetaCoordParam.fromJson(Map<String, dynamic> json) => BetaCoordParam(
-        x: ((json['x'] as num?)?.toInt())!,
-        y: ((json['y'] as num?)?.toInt())!,
-      );
+    x: ((json['x'] as num?)?.toInt())!,
+    y: ((json['y'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'x': x,
-        'y': y,
-      };
+    'x': x,
+    'y': y,
+  };
 }

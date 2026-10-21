@@ -6,12 +6,12 @@ part of 'responses_beta.dart';
 // responses_beta domain models
 /// Typed representation of the `BetaCyberAccessProgramEnum` API schema.
 final class BetaCyberAccessProgramEnum {
+
   final String value;
 
   const BetaCyberAccessProgramEnum._(this.value);
 
-  factory BetaCyberAccessProgramEnum.fromJson(String value) =>
-      BetaCyberAccessProgramEnum._(value);
+  factory BetaCyberAccessProgramEnum.fromJson(String value) => BetaCyberAccessProgramEnum._(value);
 
   static const standard = BetaCyberAccessProgramEnum._('standard');
   static const daybreakBlue = BetaCyberAccessProgramEnum._('daybreak_blue');
@@ -19,13 +19,10 @@ final class BetaCyberAccessProgramEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaCyberAccessProgramEnum && other.value == value;
+  @override bool operator ==(Object other) => other is BetaCyberAccessProgramEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -10,17 +10,14 @@ enum BetaMCPApprovalResponseType {
 
   static BetaMCPApprovalResponseType fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_response':
-        return BetaMCPApprovalResponseType.mcpApprovalResponse;
-      default:
-        throw ArgumentError('Unknown BetaMCPApprovalResponseType: $value');
+      case 'mcp_approval_response': return BetaMCPApprovalResponseType.mcpApprovalResponse;
+      default: throw ArgumentError('Unknown BetaMCPApprovalResponseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMCPApprovalResponseType.mcpApprovalResponse:
-        return 'mcp_approval_response';
+      case BetaMCPApprovalResponseType.mcpApprovalResponse: return 'mcp_approval_response';
     }
   }
 
@@ -34,18 +31,14 @@ enum BetaMCPApprovalResponseResourceType {
 
   static BetaMCPApprovalResponseResourceType fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_response':
-        return BetaMCPApprovalResponseResourceType.mcpApprovalResponse;
-      default:
-        throw ArgumentError(
-            'Unknown BetaMCPApprovalResponseResourceType: $value');
+      case 'mcp_approval_response': return BetaMCPApprovalResponseResourceType.mcpApprovalResponse;
+      default: throw ArgumentError('Unknown BetaMCPApprovalResponseResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMCPApprovalResponseResourceType.mcpApprovalResponse:
-        return 'mcp_approval_response';
+      case BetaMCPApprovalResponseResourceType.mcpApprovalResponse: return 'mcp_approval_response';
     }
   }
 
@@ -59,17 +52,14 @@ enum BetaMCPListToolsType {
 
   static BetaMCPListToolsType fromJson(String value) {
     switch (value) {
-      case 'mcp_list_tools':
-        return BetaMCPListToolsType.mcpListTools;
-      default:
-        throw ArgumentError('Unknown BetaMCPListToolsType: $value');
+      case 'mcp_list_tools': return BetaMCPListToolsType.mcpListTools;
+      default: throw ArgumentError('Unknown BetaMCPListToolsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMCPListToolsType.mcpListTools:
-        return 'mcp_list_tools';
+      case BetaMCPListToolsType.mcpListTools: return 'mcp_list_tools';
     }
   }
 
@@ -83,17 +73,14 @@ enum BetaMCPProtocolErrorType {
 
   static BetaMCPProtocolErrorType fromJson(String value) {
     switch (value) {
-      case 'mcp_protocol_error':
-        return BetaMCPProtocolErrorType.mcpProtocolError;
-      default:
-        throw ArgumentError('Unknown BetaMCPProtocolErrorType: $value');
+      case 'mcp_protocol_error': return BetaMCPProtocolErrorType.mcpProtocolError;
+      default: throw ArgumentError('Unknown BetaMCPProtocolErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMCPProtocolErrorType.mcpProtocolError:
-        return 'mcp_protocol_error';
+      case BetaMCPProtocolErrorType.mcpProtocolError: return 'mcp_protocol_error';
     }
   }
 
@@ -103,39 +90,30 @@ enum BetaMCPProtocolErrorType {
 
 /// Identifier for service connectors, like those available in ChatGPT. One of `server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more about service connectors [here](https://developers.openai.com/api/docs/guides/tools-connectors-mcp#connectors). This field is deprecated for models released after September 1, 2026. Use `server_url` to connect to a remote MCP server, or `tunnel_id` to connect through a Secure MCP Tunnel. Currently supported `connector_id` values are: - Dropbox: `connector_dropbox` - Gmail: `connector_gmail` - Google Calendar: `connector_googlecalendar` - Google Drive: `connector_googledrive` - Microsoft Teams: `connector_microsoftteams` - Outlook Calendar: `connector_outlookcalendar` - Outlook Email: `connector_outlookemail` - SharePoint: `connector_sharepoint`
 final class BetaMCPToolConnectorId {
+
   final String value;
 
   const BetaMCPToolConnectorId._(this.value);
 
-  factory BetaMCPToolConnectorId.fromJson(String value) =>
-      BetaMCPToolConnectorId._(value);
+  factory BetaMCPToolConnectorId.fromJson(String value) => BetaMCPToolConnectorId._(value);
 
   static const connectorDropbox = BetaMCPToolConnectorId._('connector_dropbox');
   static const connectorGmail = BetaMCPToolConnectorId._('connector_gmail');
-  static const connectorGooglecalendar =
-      BetaMCPToolConnectorId._('connector_googlecalendar');
-  static const connectorGoogledrive =
-      BetaMCPToolConnectorId._('connector_googledrive');
-  static const connectorMicrosoftteams =
-      BetaMCPToolConnectorId._('connector_microsoftteams');
-  static const connectorOutlookcalendar =
-      BetaMCPToolConnectorId._('connector_outlookcalendar');
-  static const connectorOutlookemail =
-      BetaMCPToolConnectorId._('connector_outlookemail');
-  static const connectorSharepoint =
-      BetaMCPToolConnectorId._('connector_sharepoint');
+  static const connectorGooglecalendar = BetaMCPToolConnectorId._('connector_googlecalendar');
+  static const connectorGoogledrive = BetaMCPToolConnectorId._('connector_googledrive');
+  static const connectorMicrosoftteams = BetaMCPToolConnectorId._('connector_microsoftteams');
+  static const connectorOutlookcalendar = BetaMCPToolConnectorId._('connector_outlookcalendar');
+  static const connectorOutlookemail = BetaMCPToolConnectorId._('connector_outlookemail');
+  static const connectorSharepoint = BetaMCPToolConnectorId._('connector_sharepoint');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaMCPToolConnectorId && other.value == value;
+  @override bool operator ==(Object other) => other is BetaMCPToolConnectorId && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the MCP tool. Always `mcp`.
@@ -144,17 +122,14 @@ enum BetaMCPToolType {
 
   static BetaMCPToolType fromJson(String value) {
     switch (value) {
-      case 'mcp':
-        return BetaMCPToolType.mcp;
-      default:
-        throw ArgumentError('Unknown BetaMCPToolType: $value');
+      case 'mcp': return BetaMCPToolType.mcp;
+      default: throw ArgumentError('Unknown BetaMCPToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMCPToolType.mcp:
-        return 'mcp';
+      case BetaMCPToolType.mcp: return 'mcp';
     }
   }
 
@@ -168,17 +143,14 @@ enum BetaMCPToolCallType {
 
   static BetaMCPToolCallType fromJson(String value) {
     switch (value) {
-      case 'mcp_call':
-        return BetaMCPToolCallType.mcpCall;
-      default:
-        throw ArgumentError('Unknown BetaMCPToolCallType: $value');
+      case 'mcp_call': return BetaMCPToolCallType.mcpCall;
+      default: throw ArgumentError('Unknown BetaMCPToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMCPToolCallType.mcpCall:
-        return 'mcp_call';
+      case BetaMCPToolCallType.mcpCall: return 'mcp_call';
     }
   }
 
@@ -192,17 +164,14 @@ enum BetaMCPToolExecutionErrorType {
 
   static BetaMCPToolExecutionErrorType fromJson(String value) {
     switch (value) {
-      case 'mcp_tool_execution_error':
-        return BetaMCPToolExecutionErrorType.mcpToolExecutionError;
-      default:
-        throw ArgumentError('Unknown BetaMCPToolExecutionErrorType: $value');
+      case 'mcp_tool_execution_error': return BetaMCPToolExecutionErrorType.mcpToolExecutionError;
+      default: throw ArgumentError('Unknown BetaMCPToolExecutionErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMCPToolExecutionErrorType.mcpToolExecutionError:
-        return 'mcp_tool_execution_error';
+      case BetaMCPToolExecutionErrorType.mcpToolExecutionError: return 'mcp_tool_execution_error';
     }
   }
 
@@ -212,27 +181,24 @@ enum BetaMCPToolExecutionErrorType {
 
 /// Specify a single approval policy for all tools. One of `always` or `never`. When set to `always`, all tools will require approval. When set to `never`, all tools will not require approval.
 final class BetaMCPToolRequireApprovalVariant1 {
+
   final String value;
 
   const BetaMCPToolRequireApprovalVariant1._(this.value);
 
-  factory BetaMCPToolRequireApprovalVariant1.fromJson(String value) =>
-      BetaMCPToolRequireApprovalVariant1._(value);
+  factory BetaMCPToolRequireApprovalVariant1.fromJson(String value) => BetaMCPToolRequireApprovalVariant1._(value);
 
   static const always = BetaMCPToolRequireApprovalVariant1._('always');
   static const never = BetaMCPToolRequireApprovalVariant1._('never');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaMCPToolRequireApprovalVariant1 && other.value == value;
+  @override bool operator ==(Object other) => other is BetaMCPToolRequireApprovalVariant1 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the message. Always set to `message`.
@@ -241,17 +207,14 @@ enum BetaMessageType {
 
   static BetaMessageType fromJson(String value) {
     switch (value) {
-      case 'message':
-        return BetaMessageType.message;
-      default:
-        throw ArgumentError('Unknown BetaMessageType: $value');
+      case 'message': return BetaMessageType.message;
+      default: throw ArgumentError('Unknown BetaMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMessageType.message:
-        return 'message';
+      case BetaMessageType.message: return 'message';
     }
   }
 
@@ -261,86 +224,62 @@ enum BetaMessageType {
 
 /// Required enumerated value serialized in the `model` wire field.
 final class BetaModelIdsResponsesVariant1 {
+
   final String value;
 
   const BetaModelIdsResponsesVariant1._(this.value);
 
-  factory BetaModelIdsResponsesVariant1.fromJson(String value) =>
-      BetaModelIdsResponsesVariant1._(value);
+  factory BetaModelIdsResponsesVariant1.fromJson(String value) => BetaModelIdsResponsesVariant1._(value);
 
   static const o1Pro = BetaModelIdsResponsesVariant1._('o1-pro');
-  static const o1Pro20250319 =
-      BetaModelIdsResponsesVariant1._('o1-pro-2025-03-19');
+  static const o1Pro20250319 = BetaModelIdsResponsesVariant1._('o1-pro-2025-03-19');
   static const o3Pro = BetaModelIdsResponsesVariant1._('o3-pro');
-  static const o3Pro20250610 =
-      BetaModelIdsResponsesVariant1._('o3-pro-2025-06-10');
-  static const o3DeepResearch =
-      BetaModelIdsResponsesVariant1._('o3-deep-research');
-  static const o3DeepResearch20250626 =
-      BetaModelIdsResponsesVariant1._('o3-deep-research-2025-06-26');
-  static const o4MiniDeepResearch =
-      BetaModelIdsResponsesVariant1._('o4-mini-deep-research');
-  static const o4MiniDeepResearch20250626 =
-      BetaModelIdsResponsesVariant1._('o4-mini-deep-research-2025-06-26');
-  static const computerUsePreview =
-      BetaModelIdsResponsesVariant1._('computer-use-preview');
-  static const computerUsePreview20250311 =
-      BetaModelIdsResponsesVariant1._('computer-use-preview-2025-03-11');
+  static const o3Pro20250610 = BetaModelIdsResponsesVariant1._('o3-pro-2025-06-10');
+  static const o3DeepResearch = BetaModelIdsResponsesVariant1._('o3-deep-research');
+  static const o3DeepResearch20250626 = BetaModelIdsResponsesVariant1._('o3-deep-research-2025-06-26');
+  static const o4MiniDeepResearch = BetaModelIdsResponsesVariant1._('o4-mini-deep-research');
+  static const o4MiniDeepResearch20250626 = BetaModelIdsResponsesVariant1._('o4-mini-deep-research-2025-06-26');
+  static const computerUsePreview = BetaModelIdsResponsesVariant1._('computer-use-preview');
+  static const computerUsePreview20250311 = BetaModelIdsResponsesVariant1._('computer-use-preview-2025-03-11');
   static const gpt55Pro = BetaModelIdsResponsesVariant1._('gpt-5.5-pro');
-  static const gpt55Pro20260423 =
-      BetaModelIdsResponsesVariant1._('gpt-5.5-pro-2026-04-23');
+  static const gpt55Pro20260423 = BetaModelIdsResponsesVariant1._('gpt-5.5-pro-2026-04-23');
   static const gpt5Codex = BetaModelIdsResponsesVariant1._('gpt-5-codex');
   static const gpt5Pro = BetaModelIdsResponsesVariant1._('gpt-5-pro');
-  static const gpt5Pro20251006 =
-      BetaModelIdsResponsesVariant1._('gpt-5-pro-2025-10-06');
-  static const gpt51CodexMax =
-      BetaModelIdsResponsesVariant1._('gpt-5.1-codex-max');
-  static const gptDaybreakBlueLatest =
-      BetaModelIdsResponsesVariant1._('gpt-daybreak-blue-latest');
-  static const gptDaybreakRedLatest =
-      BetaModelIdsResponsesVariant1._('gpt-daybreak-red-latest');
+  static const gpt5Pro20251006 = BetaModelIdsResponsesVariant1._('gpt-5-pro-2025-10-06');
+  static const gpt51CodexMax = BetaModelIdsResponsesVariant1._('gpt-5.1-codex-max');
+  static const gptDaybreakBlueLatest = BetaModelIdsResponsesVariant1._('gpt-daybreak-blue-latest');
+  static const gptDaybreakRedLatest = BetaModelIdsResponsesVariant1._('gpt-daybreak-red-latest');
   static const gpt56Cyber = BetaModelIdsResponsesVariant1._('gpt-5.6-cyber');
-  static const gptRosalindResearch =
-      BetaModelIdsResponsesVariant1._('gpt-rosalind-research');
+  static const gptRosalindResearch = BetaModelIdsResponsesVariant1._('gpt-rosalind-research');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaModelIdsResponsesVariant1 && other.value == value;
+  @override bool operator ==(Object other) => other is BetaModelIdsResponsesVariant1 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Deprecated. Use `prompt_cache_options.ttl` instead. The retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](https://developers.openai.com/api/docs/guides/prompt-caching#prompt-cache-retention). This field expresses a maximum retention policy, while `prompt_cache_options.ttl` expresses a minimum cache lifetime. The two fields are independent and do not interact. For `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported. For older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy: - Organizations without ZDR enabled default to `24h`. - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.
 final class BetaModelResponsePropertiesPromptCacheRetentionVariant0 {
+
   final String value;
 
   const BetaModelResponsePropertiesPromptCacheRetentionVariant0._(this.value);
 
-  factory BetaModelResponsePropertiesPromptCacheRetentionVariant0.fromJson(
-          String value) =>
-      BetaModelResponsePropertiesPromptCacheRetentionVariant0._(value);
+  factory BetaModelResponsePropertiesPromptCacheRetentionVariant0.fromJson(String value) => BetaModelResponsePropertiesPromptCacheRetentionVariant0._(value);
 
-  static const inMemory =
-      BetaModelResponsePropertiesPromptCacheRetentionVariant0._('in_memory');
-  static const v24h =
-      BetaModelResponsePropertiesPromptCacheRetentionVariant0._('24h');
+  static const inMemory = BetaModelResponsePropertiesPromptCacheRetentionVariant0._('in_memory');
+  static const v24h = BetaModelResponsePropertiesPromptCacheRetentionVariant0._('24h');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaModelResponsePropertiesPromptCacheRetentionVariant0 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is BetaModelResponsePropertiesPromptCacheRetentionVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

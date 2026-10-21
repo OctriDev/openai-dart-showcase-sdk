@@ -8,56 +8,32 @@ part of 'responses_response.dart';
 class ResponseFailedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `response.failed`.
   final ResponseFailedEventType type_;
-
   /// The sequence number of this event.
   final int sequenceNumber;
-
   /// The response that failed.
   final Response response;
 
-  const ResponseFailedEvent(
-      {required this.type_,
-      required this.sequenceNumber,
-      required this.response});
+  const ResponseFailedEvent({required this.type_, required this.sequenceNumber, required this.response});
 
-  ResponseFailedEvent Function(
-      {ResponseFailedEventType type_,
-      int sequenceNumber,
-      Response response}) get copyWith => _copyWith;
+  ResponseFailedEvent Function({ResponseFailedEventType type_, int sequenceNumber, Response response}) get copyWith => _copyWith;
 
-  ResponseFailedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue,
-          Object? response = sdkOmittedValue}) =>
-      ResponseFailedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseFailedEventType,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-        response: identical(response, sdkOmittedValue)
-            ? this.response
-            : response as Response,
-      );
+  ResponseFailedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? response = sdkOmittedValue}) => ResponseFailedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseFailedEventType,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+    response: identical(response, sdkOmittedValue) ? this.response : response as Response,
+  );
 
-  factory ResponseFailedEvent.fromJson(Map<String, dynamic> json) =>
-      ResponseFailedEvent(
-        type_: (json['type'] != null
-            ? ResponseFailedEventType.fromJson(json['type'] as String)
-            : null)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-        response: (json['response'] != null
-            ? Response.fromJson(json['response'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ResponseFailedEvent.fromJson(Map<String, dynamic> json) => ResponseFailedEvent(
+    type_: (json['type'] != null ? ResponseFailedEventType.fromJson(json['type'] as String) : null)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+    response: (json['response'] != null ? Response.fromJson(json['response'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'sequence_number': sequenceNumber,
-        'response': response.toJson(),
-      };
+    'type': type_.toJson(),
+    'sequence_number': sequenceNumber,
+    'response': response.toJson(),
+  };
 }

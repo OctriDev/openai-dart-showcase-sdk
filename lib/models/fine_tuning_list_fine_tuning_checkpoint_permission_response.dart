@@ -8,95 +8,48 @@ part of 'fine_tuning.dart';
 class ListFineTuningCheckpointPermissionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `data` wire field.
   final List<FineTuningCheckpointPermission> data;
-
   /// Required enumerated value serialized in the `object` wire field.
   final ListFineTuningCheckpointPermissionResponseObject object;
-
   /// Optional `string` value serialized in the `first_id` wire field.
   final SdkOptional<String?> firstId;
-
   /// Optional `string` value serialized in the `last_id` wire field.
   final SdkOptional<String?> lastId;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ListFineTuningCheckpointPermissionResponse(
-      {required this.data,
-      required this.object,
-      this.firstId = const SdkOmitted(),
-      this.lastId = const SdkOmitted(),
-      required this.hasMore});
+  const ListFineTuningCheckpointPermissionResponse({required this.data, required this.object, this.firstId = const SdkOmitted(), this.lastId = const SdkOmitted(), required this.hasMore});
 
-  ListFineTuningCheckpointPermissionResponse Function(
-      {List<FineTuningCheckpointPermission> data,
-      ListFineTuningCheckpointPermissionResponseObject object,
-      SdkOptional<String?> firstId,
-      SdkOptional<String?> lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  ListFineTuningCheckpointPermissionResponse Function({List<FineTuningCheckpointPermission> data, ListFineTuningCheckpointPermissionResponseObject object, SdkOptional<String?> firstId, SdkOptional<String?> lastId, bool hasMore}) get copyWith => _copyWith;
 
-  ListFineTuningCheckpointPermissionResponse _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      ListFineTuningCheckpointPermissionResponse(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<FineTuningCheckpointPermission>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ListFineTuningCheckpointPermissionResponseObject,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as SdkOptional<String?>,
-        lastId: identical(lastId, sdkOmittedValue)
-            ? this.lastId
-            : lastId as SdkOptional<String?>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  ListFineTuningCheckpointPermissionResponse _copyWith({Object? data = sdkOmittedValue, Object? object = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ListFineTuningCheckpointPermissionResponse(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<FineTuningCheckpointPermission>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as ListFineTuningCheckpointPermissionResponseObject,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as SdkOptional<String?>,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as SdkOptional<String?>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory ListFineTuningCheckpointPermissionResponse.fromJson(
-          Map<String, dynamic> json) =>
-      ListFineTuningCheckpointPermissionResponse(
-        data: ((json['data'] as List?)
-            ?.map((e) => FineTuningCheckpointPermission.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-        object: (json['object'] != null
-            ? ListFineTuningCheckpointPermissionResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        firstId: json.containsKey('first_id')
-            ? SdkPresent(json['first_id'] as String?)
-            : const SdkOmitted(),
-        lastId: json.containsKey('last_id')
-            ? SdkPresent(json['last_id'] as String?)
-            : const SdkOmitted(),
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory ListFineTuningCheckpointPermissionResponse.fromJson(Map<String, dynamic> json) => ListFineTuningCheckpointPermissionResponse(
+    data: ((json['data'] as List?)?.map((e) => FineTuningCheckpointPermission.fromJson(e as Map<String, dynamic>)).toList())!,
+    object: (json['object'] != null ? ListFineTuningCheckpointPermissionResponseObject.fromJson(json['object'] as String) : null)!,
+    firstId: json.containsKey('first_id') ? SdkPresent(json['first_id'] as String?) : const SdkOmitted(),
+    lastId: json.containsKey('last_id') ? SdkPresent(json['last_id'] as String?) : const SdkOmitted(),
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'object': object.toJson(),
-        ...switch (firstId) {
-          SdkPresent<String?>(value: final value) => {
-              'first_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastId) {
-          SdkPresent<String?>(value: final value) => {
-              'last_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'has_more': hasMore,
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'object': object.toJson(),
+    ...switch (firstId) {
+      SdkPresent<String?>(value: final value) => {'first_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastId) {
+      SdkPresent<String?>(value: final value) => {'last_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'has_more': hasMore,
+  };
 }

@@ -8,40 +8,27 @@ part of 'responses_beta.dart';
 class BetaRefusalContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the refusal. Always `refusal`.
   final BetaRefusalContentType type_;
-
   /// The refusal explanation from the model.
   final String refusal;
 
   const BetaRefusalContent({required this.type_, required this.refusal});
 
-  BetaRefusalContent Function({BetaRefusalContentType type_, String refusal})
-      get copyWith => _copyWith;
+  BetaRefusalContent Function({BetaRefusalContentType type_, String refusal}) get copyWith => _copyWith;
 
-  BetaRefusalContent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? refusal = sdkOmittedValue}) =>
-      BetaRefusalContent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaRefusalContentType,
-        refusal: identical(refusal, sdkOmittedValue)
-            ? this.refusal
-            : refusal as String,
-      );
+  BetaRefusalContent _copyWith({Object? type_ = sdkOmittedValue, Object? refusal = sdkOmittedValue}) => BetaRefusalContent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaRefusalContentType,
+    refusal: identical(refusal, sdkOmittedValue) ? this.refusal : refusal as String,
+  );
 
-  factory BetaRefusalContent.fromJson(Map<String, dynamic> json) =>
-      BetaRefusalContent(
-        type_: (json['type'] != null
-            ? BetaRefusalContentType.fromJson(json['type'] as String)
-            : null)!,
-        refusal: (json['refusal'] as String?)!,
-      );
+  factory BetaRefusalContent.fromJson(Map<String, dynamic> json) => BetaRefusalContent(
+    type_: (json['type'] != null ? BetaRefusalContentType.fromJson(json['type'] as String) : null)!,
+    refusal: (json['refusal'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'refusal': refusal,
-      };
+    'type': type_.toJson(),
+    'refusal': refusal,
+  };
 }

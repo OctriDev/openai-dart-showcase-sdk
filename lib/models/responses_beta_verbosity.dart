@@ -9,10 +9,7 @@ sealed class BetaVerbosity {
   static const String constructionSurface = 'named';
   const BetaVerbosity();
   factory BetaVerbosity.fromJson(Object? json) {
-    try {
-      return BetaVerbosityBetaVerbosityVariant0(
-          BetaVerbosityVariant0.fromJson(json as String));
-    } catch (_) {}
+    try { return BetaVerbosityBetaVerbosityVariant0(BetaVerbosityVariant0.fromJson(json as String)); } catch (_) {}
     throw FormatException("No variant matched for BetaVerbosity");
   }
   Object? toJson();
@@ -21,6 +18,5 @@ sealed class BetaVerbosity {
 final class BetaVerbosityBetaVerbosityVariant0 extends BetaVerbosity {
   final BetaVerbosityVariant0 value;
   const BetaVerbosityBetaVerbosityVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

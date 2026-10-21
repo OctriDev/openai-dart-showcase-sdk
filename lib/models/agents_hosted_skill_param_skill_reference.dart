@@ -8,62 +8,35 @@ part of 'agents_hosted.dart';
 class HostedSkillParamSkillReference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `skill_reference`.
   final HostedSkillParamSkillReferenceType type_;
-
   /// The ID of the skill created through `/v1/skills`.
   final String skillId;
-
   /// The skill version, a positive integer or `latest`; omission selects the default.
   final SdkOptional<String?> version;
 
-  const HostedSkillParamSkillReference(
-      {required this.type_,
-      required this.skillId,
-      this.version = const SdkOmitted()});
+  const HostedSkillParamSkillReference({required this.type_, required this.skillId, this.version = const SdkOmitted()});
 
-  HostedSkillParamSkillReference Function(
-      {HostedSkillParamSkillReferenceType type_,
-      String skillId,
-      SdkOptional<String?> version}) get copyWith => _copyWith;
+  HostedSkillParamSkillReference Function({HostedSkillParamSkillReferenceType type_, String skillId, SdkOptional<String?> version}) get copyWith => _copyWith;
 
-  HostedSkillParamSkillReference _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? skillId = sdkOmittedValue,
-          Object? version = sdkOmittedValue}) =>
-      HostedSkillParamSkillReference(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as HostedSkillParamSkillReferenceType,
-        skillId: identical(skillId, sdkOmittedValue)
-            ? this.skillId
-            : skillId as String,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String?>,
-      );
+  HostedSkillParamSkillReference _copyWith({Object? type_ = sdkOmittedValue, Object? skillId = sdkOmittedValue, Object? version = sdkOmittedValue}) => HostedSkillParamSkillReference(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedSkillParamSkillReferenceType,
+    skillId: identical(skillId, sdkOmittedValue) ? this.skillId : skillId as String,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String?>,
+  );
 
-  factory HostedSkillParamSkillReference.fromJson(Map<String, dynamic> json) =>
-      HostedSkillParamSkillReference(
-        type_: (json['type'] != null
-            ? HostedSkillParamSkillReferenceType.fromJson(
-                json['type'] as String)
-            : null)!,
-        skillId: (json['skill_id'] as String?)!,
-        version: json.containsKey('version')
-            ? SdkPresent(json['version'] as String?)
-            : const SdkOmitted(),
-      );
+  factory HostedSkillParamSkillReference.fromJson(Map<String, dynamic> json) => HostedSkillParamSkillReference(
+    type_: (json['type'] != null ? HostedSkillParamSkillReferenceType.fromJson(json['type'] as String) : null)!,
+    skillId: (json['skill_id'] as String?)!,
+    version: json.containsKey('version') ? SdkPresent(json['version'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'skill_id': skillId,
-        ...switch (version) {
-          SdkPresent<String?>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'skill_id': skillId,
+    ...switch (version) {
+      SdkPresent<String?>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

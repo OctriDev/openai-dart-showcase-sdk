@@ -9,22 +9,14 @@ sealed class ModelResponsePropertiesPromptCacheRetention {
   static const String constructionSurface = 'named';
   const ModelResponsePropertiesPromptCacheRetention();
   factory ModelResponsePropertiesPromptCacheRetention.fromJson(Object? json) {
-    try {
-      return ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0(
-          ModelResponsePropertiesPromptCacheRetentionVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for ModelResponsePropertiesPromptCacheRetention");
+    try { return ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0(ModelResponsePropertiesPromptCacheRetentionVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for ModelResponsePropertiesPromptCacheRetention");
   }
   Object? toJson();
 }
 
-final class ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0
-    extends ModelResponsePropertiesPromptCacheRetention {
+final class ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0 extends ModelResponsePropertiesPromptCacheRetention {
   final ModelResponsePropertiesPromptCacheRetentionVariant0 value;
-  const ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ModelResponsePropertiesPromptCacheRetentionModelResponsePropertiesPromptCacheRetentionVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }

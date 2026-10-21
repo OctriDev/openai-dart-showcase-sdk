@@ -8,64 +8,37 @@ part of 'shared.dart';
 class DoubleClickAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a double click action, this property is always set to `double_click`.
   final DoubleClickActionType type_;
-
   /// The x-coordinate where the double click occurred.
   final int x;
-
   /// The y-coordinate where the double click occurred.
   final int y;
-
   /// The keys being held while double-clicking.
   final List<String>? keys;
 
-  const DoubleClickAction(
-      {required this.type_,
-      required this.x,
-      required this.y,
-      required this.keys});
+  const DoubleClickAction({required this.type_, required this.x, required this.y, required this.keys});
 
-  DoubleClickAction Function(
-      {DoubleClickActionType type_,
-      int x,
-      int y,
-      List<String>? keys}) get copyWith => _copyWith;
+  DoubleClickAction Function({DoubleClickActionType type_, int x, int y, List<String>? keys}) get copyWith => _copyWith;
 
-  DoubleClickAction _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? x = sdkOmittedValue,
-          Object? y = sdkOmittedValue,
-          Object? keys = sdkOmittedValue}) =>
-      DoubleClickAction(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as DoubleClickActionType,
-        x: identical(x, sdkOmittedValue) ? this.x : x as int,
-        y: identical(y, sdkOmittedValue) ? this.y : y as int,
-        keys: identical(keys, sdkOmittedValue)
-            ? this.keys
-            : keys as List<String>?,
-      );
+  DoubleClickAction _copyWith({Object? type_ = sdkOmittedValue, Object? x = sdkOmittedValue, Object? y = sdkOmittedValue, Object? keys = sdkOmittedValue}) => DoubleClickAction(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DoubleClickActionType,
+    x: identical(x, sdkOmittedValue) ? this.x : x as int,
+    y: identical(y, sdkOmittedValue) ? this.y : y as int,
+    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as List<String>?,
+  );
 
-  factory DoubleClickAction.fromJson(Map<String, dynamic> json) =>
-      DoubleClickAction(
-        type_: (json['type'] != null
-            ? DoubleClickActionType.fromJson(json['type'] as String)
-            : null)!,
-        x: ((json['x'] as num?)?.toInt())!,
-        y: ((json['y'] as num?)?.toInt())!,
-        keys: json.containsKey('keys')
-            ? (json['keys'] as List?)?.map((e) => e as String).toList()
-            : throw ArgumentError.value(
-                null, 'keys', 'Required property is missing'),
-      );
+  factory DoubleClickAction.fromJson(Map<String, dynamic> json) => DoubleClickAction(
+    type_: (json['type'] != null ? DoubleClickActionType.fromJson(json['type'] as String) : null)!,
+    x: ((json['x'] as num?)?.toInt())!,
+    y: ((json['y'] as num?)?.toInt())!,
+    keys: json.containsKey('keys') ? (json['keys'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'keys', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'x': x,
-        'y': y,
-        'keys': keys,
-      };
+    'type': type_.toJson(),
+    'x': x,
+    'y': y,
+    'keys': keys,
+  };
 }

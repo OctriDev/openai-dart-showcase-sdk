@@ -10,87 +10,40 @@ sealed class CreateTranscriptionResponseStreamEvent {
   const CreateTranscriptionResponseStreamEvent();
   factory CreateTranscriptionResponseStreamEvent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = TranscriptTextSegmentEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateTranscriptionResponseStreamEventTranscriptTextSegmentEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = TranscriptTextDeltaEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateTranscriptionResponseStreamEventTranscriptTextDeltaEvent(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = TranscriptTextDoneEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateTranscriptionResponseStreamEventTranscriptTextDoneEvent(
-              value);
-        }
-      } catch (_) {}
+      try { final value = TranscriptTextSegmentEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateTranscriptionResponseStreamEventTranscriptTextSegmentEvent(value); } } catch (_) {}
+      try { final value = TranscriptTextDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateTranscriptionResponseStreamEventTranscriptTextDeltaEvent(value); } } catch (_) {}
+      try { final value = TranscriptTextDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateTranscriptionResponseStreamEventTranscriptTextDoneEvent(value); } } catch (_) {}
     }
-    try {
-      return CreateTranscriptionResponseStreamEventTranscriptTextSegmentEvent(
-          TranscriptTextSegmentEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateTranscriptionResponseStreamEventTranscriptTextDeltaEvent(
-          TranscriptTextDeltaEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateTranscriptionResponseStreamEventTranscriptTextDoneEvent(
-          TranscriptTextDoneEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "transcript.text.segment",
-          "transcript.text.delta",
-          "transcript.text.done"
-        }.contains(json["type"])) {
-      return UnknownCreateTranscriptionResponseStreamEvent(json);
-    }
-    throw FormatException(
-        "No variant matched for CreateTranscriptionResponseStreamEvent");
+    try { return CreateTranscriptionResponseStreamEventTranscriptTextSegmentEvent(TranscriptTextSegmentEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateTranscriptionResponseStreamEventTranscriptTextDeltaEvent(TranscriptTextDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateTranscriptionResponseStreamEventTranscriptTextDoneEvent(TranscriptTextDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"transcript.text.segment", "transcript.text.delta", "transcript.text.done"}.contains(json["type"])) { return UnknownCreateTranscriptionResponseStreamEvent(json); }
+    throw FormatException("No variant matched for CreateTranscriptionResponseStreamEvent");
   }
   Object? toJson();
 }
 
-final class CreateTranscriptionResponseStreamEventTranscriptTextSegmentEvent
-    extends CreateTranscriptionResponseStreamEvent {
+final class CreateTranscriptionResponseStreamEventTranscriptTextSegmentEvent extends CreateTranscriptionResponseStreamEvent {
   final TranscriptTextSegmentEvent value;
-  const CreateTranscriptionResponseStreamEventTranscriptTextSegmentEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateTranscriptionResponseStreamEventTranscriptTextSegmentEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateTranscriptionResponseStreamEventTranscriptTextDeltaEvent
-    extends CreateTranscriptionResponseStreamEvent {
+final class CreateTranscriptionResponseStreamEventTranscriptTextDeltaEvent extends CreateTranscriptionResponseStreamEvent {
   final TranscriptTextDeltaEvent value;
-  const CreateTranscriptionResponseStreamEventTranscriptTextDeltaEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateTranscriptionResponseStreamEventTranscriptTextDeltaEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateTranscriptionResponseStreamEventTranscriptTextDoneEvent
-    extends CreateTranscriptionResponseStreamEvent {
+final class CreateTranscriptionResponseStreamEventTranscriptTextDoneEvent extends CreateTranscriptionResponseStreamEvent {
   final TranscriptTextDoneEvent value;
-  const CreateTranscriptionResponseStreamEventTranscriptTextDoneEvent(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateTranscriptionResponseStreamEventTranscriptTextDoneEvent(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [CreateTranscriptionResponseStreamEvent] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateTranscriptionResponseStreamEvent
-    extends CreateTranscriptionResponseStreamEvent {
+final class UnknownCreateTranscriptionResponseStreamEvent extends CreateTranscriptionResponseStreamEvent {
   final Map<String, dynamic> raw;
   const UnknownCreateTranscriptionResponseStreamEvent(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

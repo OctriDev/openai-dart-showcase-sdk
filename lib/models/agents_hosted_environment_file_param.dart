@@ -10,62 +10,32 @@ sealed class HostedEnvironmentFileParam {
   const HostedEnvironmentFileParam();
   factory HostedEnvironmentFileParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = HostedEnvironmentFileParamFileId.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return HostedEnvironmentFileParamHostedEnvironmentFileParamFileId(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = HostedEnvironmentFileParamInline.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return HostedEnvironmentFileParamHostedEnvironmentFileParamInline(
-              value);
-        }
-      } catch (_) {}
+      try { final value = HostedEnvironmentFileParamFileId.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedEnvironmentFileParamHostedEnvironmentFileParamFileId(value); } } catch (_) {}
+      try { final value = HostedEnvironmentFileParamInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedEnvironmentFileParamHostedEnvironmentFileParamInline(value); } } catch (_) {}
     }
-    try {
-      return HostedEnvironmentFileParamHostedEnvironmentFileParamFileId(
-          HostedEnvironmentFileParamFileId.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return HostedEnvironmentFileParamHostedEnvironmentFileParamInline(
-          HostedEnvironmentFileParamInline.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"file_id", "inline"}.contains(json["type"])) {
-      return UnknownHostedEnvironmentFileParam(json);
-    }
+    try { return HostedEnvironmentFileParamHostedEnvironmentFileParamFileId(HostedEnvironmentFileParamFileId.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return HostedEnvironmentFileParamHostedEnvironmentFileParamInline(HostedEnvironmentFileParamInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_id", "inline"}.contains(json["type"])) { return UnknownHostedEnvironmentFileParam(json); }
     throw FormatException("No variant matched for HostedEnvironmentFileParam");
   }
   Object? toJson();
 }
 
-final class HostedEnvironmentFileParamHostedEnvironmentFileParamFileId
-    extends HostedEnvironmentFileParam {
+final class HostedEnvironmentFileParamHostedEnvironmentFileParamFileId extends HostedEnvironmentFileParam {
   final HostedEnvironmentFileParamFileId value;
   const HostedEnvironmentFileParamHostedEnvironmentFileParamFileId(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class HostedEnvironmentFileParamHostedEnvironmentFileParamInline
-    extends HostedEnvironmentFileParam {
+final class HostedEnvironmentFileParamHostedEnvironmentFileParamInline extends HostedEnvironmentFileParam {
   final HostedEnvironmentFileParamInline value;
   const HostedEnvironmentFileParamHostedEnvironmentFileParamInline(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [HostedEnvironmentFileParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownHostedEnvironmentFileParam
-    extends HostedEnvironmentFileParam {
+final class UnknownHostedEnvironmentFileParam extends HostedEnvironmentFileParam {
   final Map<String, dynamic> raw;
   const UnknownHostedEnvironmentFileParam(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

@@ -10,85 +10,40 @@ sealed class BetaOutputTextContentParamAnnotationsItem {
   const BetaOutputTextContentParamAnnotationsItem();
   factory BetaOutputTextContentParamAnnotationsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = BetaFileCitationParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaUrlCitationParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = BetaContainerFileCitationParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam(
-              value);
-        }
-      } catch (_) {}
+      try { final value = BetaFileCitationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(value); } } catch (_) {}
+      try { final value = BetaUrlCitationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam(value); } } catch (_) {}
+      try { final value = BetaContainerFileCitationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam(value); } } catch (_) {}
     }
-    try {
-      return BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(
-          BetaFileCitationParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam(
-          BetaUrlCitationParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam(
-          BetaContainerFileCitationParam.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"file_citation", "url_citation", "container_file_citation"}
-            .contains(json["type"])) {
-      return UnknownBetaOutputTextContentParamAnnotationsItem(json);
-    }
-    throw FormatException(
-        "No variant matched for BetaOutputTextContentParamAnnotationsItem");
+    try { return BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(BetaFileCitationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam(BetaUrlCitationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam(BetaContainerFileCitationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_citation", "url_citation", "container_file_citation"}.contains(json["type"])) { return UnknownBetaOutputTextContentParamAnnotationsItem(json); }
+    throw FormatException("No variant matched for BetaOutputTextContentParamAnnotationsItem");
   }
   Object? toJson();
 }
 
-final class BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam
-    extends BetaOutputTextContentParamAnnotationsItem {
+final class BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam extends BetaOutputTextContentParamAnnotationsItem {
   final BetaFileCitationParam value;
-  const BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaOutputTextContentParamAnnotationsItemBetaFileCitationParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam
-    extends BetaOutputTextContentParamAnnotationsItem {
+final class BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam extends BetaOutputTextContentParamAnnotationsItem {
   final BetaUrlCitationParam value;
-  const BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaOutputTextContentParamAnnotationsItemBetaUrlCitationParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam
-    extends BetaOutputTextContentParamAnnotationsItem {
+final class BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam extends BetaOutputTextContentParamAnnotationsItem {
   final BetaContainerFileCitationParam value;
-  const BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const BetaOutputTextContentParamAnnotationsItemBetaContainerFileCitationParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [BetaOutputTextContentParamAnnotationsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaOutputTextContentParamAnnotationsItem
-    extends BetaOutputTextContentParamAnnotationsItem {
+final class UnknownBetaOutputTextContentParamAnnotationsItem extends BetaOutputTextContentParamAnnotationsItem {
   final Map<String, dynamic> raw;
   const UnknownBetaOutputTextContentParamAnnotationsItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

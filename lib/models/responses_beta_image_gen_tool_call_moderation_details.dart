@@ -8,46 +8,27 @@ part of 'responses_beta_image.dart';
 class BetaImageGenToolCallModerationDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The stage where moderation blocked the image generation call.
   final BetaImageGenToolCallModerationDetailsModerationStage moderationStage;
-
   /// Public moderation categories. New category values may be added over time.
   final List<String> categories;
 
-  const BetaImageGenToolCallModerationDetails(
-      {required this.moderationStage, required this.categories});
+  const BetaImageGenToolCallModerationDetails({required this.moderationStage, required this.categories});
 
-  BetaImageGenToolCallModerationDetails Function(
-      {BetaImageGenToolCallModerationDetailsModerationStage moderationStage,
-      List<String> categories}) get copyWith => _copyWith;
+  BetaImageGenToolCallModerationDetails Function({BetaImageGenToolCallModerationDetailsModerationStage moderationStage, List<String> categories}) get copyWith => _copyWith;
 
-  BetaImageGenToolCallModerationDetails _copyWith(
-          {Object? moderationStage = sdkOmittedValue,
-          Object? categories = sdkOmittedValue}) =>
-      BetaImageGenToolCallModerationDetails(
-        moderationStage: identical(moderationStage, sdkOmittedValue)
-            ? this.moderationStage
-            : moderationStage
-                as BetaImageGenToolCallModerationDetailsModerationStage,
-        categories: identical(categories, sdkOmittedValue)
-            ? this.categories
-            : categories as List<String>,
-      );
+  BetaImageGenToolCallModerationDetails _copyWith({Object? moderationStage = sdkOmittedValue, Object? categories = sdkOmittedValue}) => BetaImageGenToolCallModerationDetails(
+    moderationStage: identical(moderationStage, sdkOmittedValue) ? this.moderationStage : moderationStage as BetaImageGenToolCallModerationDetailsModerationStage,
+    categories: identical(categories, sdkOmittedValue) ? this.categories : categories as List<String>,
+  );
 
-  factory BetaImageGenToolCallModerationDetails.fromJson(
-          Map<String, dynamic> json) =>
-      BetaImageGenToolCallModerationDetails(
-        moderationStage: (json['moderation_stage'] != null
-            ? BetaImageGenToolCallModerationDetailsModerationStage.fromJson(
-                json['moderation_stage'] as String)
-            : null)!,
-        categories:
-            ((json['categories'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory BetaImageGenToolCallModerationDetails.fromJson(Map<String, dynamic> json) => BetaImageGenToolCallModerationDetails(
+    moderationStage: (json['moderation_stage'] != null ? BetaImageGenToolCallModerationDetailsModerationStage.fromJson(json['moderation_stage'] as String) : null)!,
+    categories: ((json['categories'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'moderation_stage': moderationStage.toJson(),
-        'categories': categories,
-      };
+    'moderation_stage': moderationStage.toJson(),
+    'categories': categories,
+  };
 }

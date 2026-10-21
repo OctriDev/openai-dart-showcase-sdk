@@ -6,12 +6,12 @@ part of 'responses_beta_image.dart';
 // responses_beta_image domain models
 /// Typed representation of the `BetaImageGenActionEnum` API schema.
 final class BetaImageGenActionEnum {
+
   final String value;
 
   const BetaImageGenActionEnum._(this.value);
 
-  factory BetaImageGenActionEnum.fromJson(String value) =>
-      BetaImageGenActionEnum._(value);
+  factory BetaImageGenActionEnum.fromJson(String value) => BetaImageGenActionEnum._(value);
 
   static const generate = BetaImageGenActionEnum._('generate');
   static const edit = BetaImageGenActionEnum._('edit');
@@ -19,13 +19,10 @@ final class BetaImageGenActionEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaImageGenActionEnum && other.value == value;
+  @override bool operator ==(Object other) => other is BetaImageGenActionEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

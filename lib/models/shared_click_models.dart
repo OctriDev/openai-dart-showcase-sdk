@@ -6,6 +6,7 @@ part of 'shared_click.dart';
 // shared_click domain models
 /// Typed representation of the `ClickButtonType` API schema.
 final class ClickButtonType {
+
   final String value;
 
   const ClickButtonType._(this.value);
@@ -20,96 +21,57 @@ final class ClickButtonType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ClickButtonType && other.value == value;
+  @override bool operator ==(Object other) => other is ClickButtonType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A click action.
 class ClickParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a click action, this property is always `click`.
   final ClickParamType type_;
-
   /// Indicates which mouse button was pressed during the click. One of `left`, `right`, `wheel`, `back`, or `forward`.
   final ClickButtonType button;
-
   /// The x-coordinate where the click occurred.
   final int x;
-
   /// The y-coordinate where the click occurred.
   final int y;
-
   /// The keys being held while clicking.
   final SdkOptional<List<String>?> keys;
 
-  const ClickParam(
-      {required this.type_,
-      required this.button,
-      required this.x,
-      required this.y,
-      this.keys = const SdkOmitted()});
+  const ClickParam({required this.type_, required this.button, required this.x, required this.y, this.keys = const SdkOmitted()});
 
-  ClickParam Function(
-      {ClickParamType type_,
-      ClickButtonType button,
-      int x,
-      int y,
-      SdkOptional<List<String>?> keys}) get copyWith => _copyWith;
+  ClickParam Function({ClickParamType type_, ClickButtonType button, int x, int y, SdkOptional<List<String>?> keys}) get copyWith => _copyWith;
 
-  ClickParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? button = sdkOmittedValue,
-          Object? x = sdkOmittedValue,
-          Object? y = sdkOmittedValue,
-          Object? keys = sdkOmittedValue}) =>
-      ClickParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ClickParamType,
-        button: identical(button, sdkOmittedValue)
-            ? this.button
-            : button as ClickButtonType,
-        x: identical(x, sdkOmittedValue) ? this.x : x as int,
-        y: identical(y, sdkOmittedValue) ? this.y : y as int,
-        keys: identical(keys, sdkOmittedValue)
-            ? this.keys
-            : keys as SdkOptional<List<String>?>,
-      );
+  ClickParam _copyWith({Object? type_ = sdkOmittedValue, Object? button = sdkOmittedValue, Object? x = sdkOmittedValue, Object? y = sdkOmittedValue, Object? keys = sdkOmittedValue}) => ClickParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ClickParamType,
+    button: identical(button, sdkOmittedValue) ? this.button : button as ClickButtonType,
+    x: identical(x, sdkOmittedValue) ? this.x : x as int,
+    y: identical(y, sdkOmittedValue) ? this.y : y as int,
+    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as SdkOptional<List<String>?>,
+  );
 
   factory ClickParam.fromJson(Map<String, dynamic> json) => ClickParam(
-        type_: (json['type'] != null
-            ? ClickParamType.fromJson(json['type'] as String)
-            : null)!,
-        button: (json['button'] != null
-            ? ClickButtonType.fromJson(json['button'] as String)
-            : null)!,
-        x: ((json['x'] as num?)?.toInt())!,
-        y: ((json['y'] as num?)?.toInt())!,
-        keys: json.containsKey('keys')
-            ? SdkPresent(
-                (json['keys'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-      );
+    type_: (json['type'] != null ? ClickParamType.fromJson(json['type'] as String) : null)!,
+    button: (json['button'] != null ? ClickButtonType.fromJson(json['button'] as String) : null)!,
+    x: ((json['x'] as num?)?.toInt())!,
+    y: ((json['y'] as num?)?.toInt())!,
+    keys: json.containsKey('keys') ? SdkPresent((json['keys'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'button': button.toJson(),
-        'x': x,
-        'y': y,
-        ...switch (keys) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'keys': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'button': button.toJson(),
+    'x': x,
+    'y': y,
+    ...switch (keys) {
+      SdkPresent<List<String>?>(value: final value) => {'keys': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

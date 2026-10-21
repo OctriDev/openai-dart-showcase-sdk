@@ -8,42 +8,32 @@ part of 'audio.dart';
 class TranscriptionWord {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The text content of the word.
   final String word;
-
   /// Start time of the word in seconds.
   final double start;
-
   /// End time of the word in seconds.
   final double end;
 
-  const TranscriptionWord(
-      {required this.word, required this.start, required this.end});
+  const TranscriptionWord({required this.word, required this.start, required this.end});
 
-  TranscriptionWord Function({String word, double start, double end})
-      get copyWith => _copyWith;
+  TranscriptionWord Function({String word, double start, double end}) get copyWith => _copyWith;
 
-  TranscriptionWord _copyWith(
-          {Object? word = sdkOmittedValue,
-          Object? start = sdkOmittedValue,
-          Object? end = sdkOmittedValue}) =>
-      TranscriptionWord(
-        word: identical(word, sdkOmittedValue) ? this.word : word as String,
-        start: identical(start, sdkOmittedValue) ? this.start : start as double,
-        end: identical(end, sdkOmittedValue) ? this.end : end as double,
-      );
+  TranscriptionWord _copyWith({Object? word = sdkOmittedValue, Object? start = sdkOmittedValue, Object? end = sdkOmittedValue}) => TranscriptionWord(
+    word: identical(word, sdkOmittedValue) ? this.word : word as String,
+    start: identical(start, sdkOmittedValue) ? this.start : start as double,
+    end: identical(end, sdkOmittedValue) ? this.end : end as double,
+  );
 
-  factory TranscriptionWord.fromJson(Map<String, dynamic> json) =>
-      TranscriptionWord(
-        word: (json['word'] as String?)!,
-        start: ((json['start'] as num?)?.toDouble())!,
-        end: ((json['end'] as num?)?.toDouble())!,
-      );
+  factory TranscriptionWord.fromJson(Map<String, dynamic> json) => TranscriptionWord(
+    word: (json['word'] as String?)!,
+    start: ((json['start'] as num?)?.toDouble())!,
+    end: ((json['end'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'word': word,
-        'start': start,
-        'end': end,
-      };
+    'word': word,
+    'start': start,
+    'end': end,
+  };
 }

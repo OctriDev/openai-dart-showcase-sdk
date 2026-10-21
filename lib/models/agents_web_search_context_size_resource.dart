@@ -6,12 +6,12 @@ part of 'agents_web.dart';
 // agents_web domain models
 /// The amount of web search context made available to the model.
 final class WebSearchContextSizeResource {
+
   final String value;
 
   const WebSearchContextSizeResource._(this.value);
 
-  factory WebSearchContextSizeResource.fromJson(String value) =>
-      WebSearchContextSizeResource._(value);
+  factory WebSearchContextSizeResource.fromJson(String value) => WebSearchContextSizeResource._(value);
 
   static const low = WebSearchContextSizeResource._('low');
   static const medium = WebSearchContextSizeResource._('medium');
@@ -19,13 +19,10 @@ final class WebSearchContextSizeResource {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebSearchContextSizeResource && other.value == value;
+  @override bool operator ==(Object other) => other is WebSearchContextSizeResource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

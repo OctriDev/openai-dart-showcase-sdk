@@ -8,67 +8,37 @@ part of 'responses_beta_computer.dart';
 class BetaComputerUsePreviewTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the computer use tool. Always `computer_use_preview`.
   final BetaComputerUsePreviewToolType type_;
-
   /// The type of computer environment to control.
   final BetaComputerEnvironment environment;
-
   /// The width of the computer display.
   final int displayWidth;
-
   /// The height of the computer display.
   final int displayHeight;
 
-  const BetaComputerUsePreviewTool(
-      {required this.type_,
-      required this.environment,
-      required this.displayWidth,
-      required this.displayHeight});
+  const BetaComputerUsePreviewTool({required this.type_, required this.environment, required this.displayWidth, required this.displayHeight});
 
-  BetaComputerUsePreviewTool Function(
-      {BetaComputerUsePreviewToolType type_,
-      BetaComputerEnvironment environment,
-      int displayWidth,
-      int displayHeight}) get copyWith => _copyWith;
+  BetaComputerUsePreviewTool Function({BetaComputerUsePreviewToolType type_, BetaComputerEnvironment environment, int displayWidth, int displayHeight}) get copyWith => _copyWith;
 
-  BetaComputerUsePreviewTool _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? environment = sdkOmittedValue,
-          Object? displayWidth = sdkOmittedValue,
-          Object? displayHeight = sdkOmittedValue}) =>
-      BetaComputerUsePreviewTool(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaComputerUsePreviewToolType,
-        environment: identical(environment, sdkOmittedValue)
-            ? this.environment
-            : environment as BetaComputerEnvironment,
-        displayWidth: identical(displayWidth, sdkOmittedValue)
-            ? this.displayWidth
-            : displayWidth as int,
-        displayHeight: identical(displayHeight, sdkOmittedValue)
-            ? this.displayHeight
-            : displayHeight as int,
-      );
+  BetaComputerUsePreviewTool _copyWith({Object? type_ = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? displayWidth = sdkOmittedValue, Object? displayHeight = sdkOmittedValue}) => BetaComputerUsePreviewTool(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaComputerUsePreviewToolType,
+    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as BetaComputerEnvironment,
+    displayWidth: identical(displayWidth, sdkOmittedValue) ? this.displayWidth : displayWidth as int,
+    displayHeight: identical(displayHeight, sdkOmittedValue) ? this.displayHeight : displayHeight as int,
+  );
 
-  factory BetaComputerUsePreviewTool.fromJson(Map<String, dynamic> json) =>
-      BetaComputerUsePreviewTool(
-        type_: (json['type'] != null
-            ? BetaComputerUsePreviewToolType.fromJson(json['type'] as String)
-            : null)!,
-        environment: (json['environment'] != null
-            ? BetaComputerEnvironment.fromJson(json['environment'] as String)
-            : null)!,
-        displayWidth: ((json['display_width'] as num?)?.toInt())!,
-        displayHeight: ((json['display_height'] as num?)?.toInt())!,
-      );
+  factory BetaComputerUsePreviewTool.fromJson(Map<String, dynamic> json) => BetaComputerUsePreviewTool(
+    type_: (json['type'] != null ? BetaComputerUsePreviewToolType.fromJson(json['type'] as String) : null)!,
+    environment: (json['environment'] != null ? BetaComputerEnvironment.fromJson(json['environment'] as String) : null)!,
+    displayWidth: ((json['display_width'] as num?)?.toInt())!,
+    displayHeight: ((json['display_height'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'environment': environment.toJson(),
-        'display_width': displayWidth,
-        'display_height': displayHeight,
-      };
+    'type': type_.toJson(),
+    'environment': environment.toJson(),
+    'display_width': displayWidth,
+    'display_height': displayHeight,
+  };
 }

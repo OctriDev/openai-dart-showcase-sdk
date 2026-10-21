@@ -8,57 +8,32 @@ part of 'fine_tuning.dart';
 class ListPaginatedFineTuningJobsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `data` wire field.
   final List<FineTuningJob> data;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
-
   /// Required enumerated value serialized in the `object` wire field.
   final ListPaginatedFineTuningJobsResponseObject object;
 
-  const ListPaginatedFineTuningJobsResponse(
-      {required this.data, required this.hasMore, required this.object});
+  const ListPaginatedFineTuningJobsResponse({required this.data, required this.hasMore, required this.object});
 
-  ListPaginatedFineTuningJobsResponse Function(
-          {List<FineTuningJob> data,
-          bool hasMore,
-          ListPaginatedFineTuningJobsResponseObject object})
-      get copyWith => _copyWith;
+  ListPaginatedFineTuningJobsResponse Function({List<FineTuningJob> data, bool hasMore, ListPaginatedFineTuningJobsResponseObject object}) get copyWith => _copyWith;
 
-  ListPaginatedFineTuningJobsResponse _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? object = sdkOmittedValue}) =>
-      ListPaginatedFineTuningJobsResponse(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<FineTuningJob>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ListPaginatedFineTuningJobsResponseObject,
-      );
+  ListPaginatedFineTuningJobsResponse _copyWith({Object? data = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? object = sdkOmittedValue}) => ListPaginatedFineTuningJobsResponse(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<FineTuningJob>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+    object: identical(object, sdkOmittedValue) ? this.object : object as ListPaginatedFineTuningJobsResponseObject,
+  );
 
-  factory ListPaginatedFineTuningJobsResponse.fromJson(
-          Map<String, dynamic> json) =>
-      ListPaginatedFineTuningJobsResponse(
-        data: ((json['data'] as List?)
-            ?.map((e) => FineTuningJob.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        hasMore: (json['has_more'] as bool?)!,
-        object: (json['object'] != null
-            ? ListPaginatedFineTuningJobsResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-      );
+  factory ListPaginatedFineTuningJobsResponse.fromJson(Map<String, dynamic> json) => ListPaginatedFineTuningJobsResponse(
+    data: ((json['data'] as List?)?.map((e) => FineTuningJob.fromJson(e as Map<String, dynamic>)).toList())!,
+    hasMore: (json['has_more'] as bool?)!,
+    object: (json['object'] != null ? ListPaginatedFineTuningJobsResponseObject.fromJson(json['object'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'has_more': hasMore,
-        'object': object.toJson(),
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'has_more': hasMore,
+    'object': object.toJson(),
+  };
 }

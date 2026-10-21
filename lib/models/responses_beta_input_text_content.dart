@@ -8,64 +8,35 @@ part of 'responses_beta_input.dart';
 class BetaInputTextContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the input item. Always `input_text`.
   final BetaInputTextContentType type_;
-
   /// The text input to the model.
   final String text;
-
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
   final SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint;
 
-  const BetaInputTextContent(
-      {required this.type_,
-      required this.text,
-      this.promptCacheBreakpoint = const SdkOmitted()});
+  const BetaInputTextContent({required this.type_, required this.text, this.promptCacheBreakpoint = const SdkOmitted()});
 
-  BetaInputTextContent Function(
-          {BetaInputTextContentType type_,
-          String text,
-          SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint})
-      get copyWith => _copyWith;
+  BetaInputTextContent Function({BetaInputTextContentType type_, String text, SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint}) get copyWith => _copyWith;
 
-  BetaInputTextContent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
-      BetaInputTextContent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaInputTextContentType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
-            ? this.promptCacheBreakpoint
-            : promptCacheBreakpoint
-                as SdkOptional<BetaPromptCacheBreakpointConfig>,
-      );
+  BetaInputTextContent _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => BetaInputTextContent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaInputTextContentType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<BetaPromptCacheBreakpointConfig>,
+  );
 
-  factory BetaInputTextContent.fromJson(Map<String, dynamic> json) =>
-      BetaInputTextContent(
-        type_: (json['type'] != null
-            ? BetaInputTextContentType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-        promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null
-            ? SdkPresent((json['prompt_cache_breakpoint'] != null
-                ? BetaPromptCacheBreakpointConfig.fromJson(
-                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory BetaInputTextContent.fromJson(Map<String, dynamic> json) => BetaInputTextContent(
+    type_: (json['type'] != null ? BetaInputTextContentType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+    promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null ? SdkPresent((json['prompt_cache_breakpoint'] != null ? BetaPromptCacheBreakpointConfig.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-        ...switch (promptCacheBreakpoint) {
-          SdkPresent<BetaPromptCacheBreakpointConfig>(value: final value) => {
-              'prompt_cache_breakpoint': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'text': text,
+    ...switch (promptCacheBreakpoint) {
+      SdkPresent<BetaPromptCacheBreakpointConfig>(value: final value) => {'prompt_cache_breakpoint': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

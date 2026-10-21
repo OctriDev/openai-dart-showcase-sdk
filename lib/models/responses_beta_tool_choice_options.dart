@@ -6,12 +6,12 @@ part of 'responses_beta_tool.dart';
 // responses_beta_tool domain models
 /// Controls which (if any) tool is called by the model. `none` means the model will not call any tool and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools.
 final class BetaToolChoiceOptions {
+
   final String value;
 
   const BetaToolChoiceOptions._(this.value);
 
-  factory BetaToolChoiceOptions.fromJson(String value) =>
-      BetaToolChoiceOptions._(value);
+  factory BetaToolChoiceOptions.fromJson(String value) => BetaToolChoiceOptions._(value);
 
   static const none = BetaToolChoiceOptions._('none');
   static const auto = BetaToolChoiceOptions._('auto');
@@ -19,13 +19,10 @@ final class BetaToolChoiceOptions {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaToolChoiceOptions && other.value == value;
+  @override bool operator ==(Object other) => other is BetaToolChoiceOptions && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

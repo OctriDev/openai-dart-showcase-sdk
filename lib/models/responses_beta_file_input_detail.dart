@@ -6,12 +6,12 @@ part of 'responses_beta_file.dart';
 // responses_beta_file domain models
 /// Typed representation of the `BetaFileInputDetail` API schema.
 final class BetaFileInputDetail {
+
   final String value;
 
   const BetaFileInputDetail._(this.value);
 
-  factory BetaFileInputDetail.fromJson(String value) =>
-      BetaFileInputDetail._(value);
+  factory BetaFileInputDetail.fromJson(String value) => BetaFileInputDetail._(value);
 
   static const auto = BetaFileInputDetail._('auto');
   static const low = BetaFileInputDetail._('low');
@@ -19,13 +19,10 @@ final class BetaFileInputDetail {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaFileInputDetail && other.value == value;
+  @override bool operator ==(Object other) => other is BetaFileInputDetail && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

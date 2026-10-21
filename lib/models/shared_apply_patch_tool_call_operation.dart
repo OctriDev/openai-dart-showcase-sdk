@@ -10,80 +10,40 @@ sealed class ApplyPatchToolCallOperation {
   const ApplyPatchToolCallOperation();
   factory ApplyPatchToolCallOperation.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ApplyPatchCreateFileOperation.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ApplyPatchToolCallOperationApplyPatchCreateFileOperation(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = ApplyPatchDeleteFileOperation.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ApplyPatchToolCallOperationApplyPatchDeleteFileOperation(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = ApplyPatchUpdateFileOperation.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ApplyPatchToolCallOperationApplyPatchUpdateFileOperation(
-              value);
-        }
-      } catch (_) {}
+      try { final value = ApplyPatchCreateFileOperation.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ApplyPatchToolCallOperationApplyPatchCreateFileOperation(value); } } catch (_) {}
+      try { final value = ApplyPatchDeleteFileOperation.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ApplyPatchToolCallOperationApplyPatchDeleteFileOperation(value); } } catch (_) {}
+      try { final value = ApplyPatchUpdateFileOperation.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ApplyPatchToolCallOperationApplyPatchUpdateFileOperation(value); } } catch (_) {}
     }
-    try {
-      return ApplyPatchToolCallOperationApplyPatchCreateFileOperation(
-          ApplyPatchCreateFileOperation.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ApplyPatchToolCallOperationApplyPatchDeleteFileOperation(
-          ApplyPatchDeleteFileOperation.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ApplyPatchToolCallOperationApplyPatchUpdateFileOperation(
-          ApplyPatchUpdateFileOperation.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"create_file", "delete_file", "update_file"}
-            .contains(json["type"])) {
-      return UnknownApplyPatchToolCallOperation(json);
-    }
+    try { return ApplyPatchToolCallOperationApplyPatchCreateFileOperation(ApplyPatchCreateFileOperation.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ApplyPatchToolCallOperationApplyPatchDeleteFileOperation(ApplyPatchDeleteFileOperation.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ApplyPatchToolCallOperationApplyPatchUpdateFileOperation(ApplyPatchUpdateFileOperation.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"create_file", "delete_file", "update_file"}.contains(json["type"])) { return UnknownApplyPatchToolCallOperation(json); }
     throw FormatException("No variant matched for ApplyPatchToolCallOperation");
   }
   Object? toJson();
 }
 
-final class ApplyPatchToolCallOperationApplyPatchCreateFileOperation
-    extends ApplyPatchToolCallOperation {
+final class ApplyPatchToolCallOperationApplyPatchCreateFileOperation extends ApplyPatchToolCallOperation {
   final ApplyPatchCreateFileOperation value;
   const ApplyPatchToolCallOperationApplyPatchCreateFileOperation(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ApplyPatchToolCallOperationApplyPatchDeleteFileOperation
-    extends ApplyPatchToolCallOperation {
+final class ApplyPatchToolCallOperationApplyPatchDeleteFileOperation extends ApplyPatchToolCallOperation {
   final ApplyPatchDeleteFileOperation value;
   const ApplyPatchToolCallOperationApplyPatchDeleteFileOperation(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ApplyPatchToolCallOperationApplyPatchUpdateFileOperation
-    extends ApplyPatchToolCallOperation {
+final class ApplyPatchToolCallOperationApplyPatchUpdateFileOperation extends ApplyPatchToolCallOperation {
   final ApplyPatchUpdateFileOperation value;
   const ApplyPatchToolCallOperationApplyPatchUpdateFileOperation(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ApplyPatchToolCallOperation] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownApplyPatchToolCallOperation
-    extends ApplyPatchToolCallOperation {
+final class UnknownApplyPatchToolCallOperation extends ApplyPatchToolCallOperation {
   final Map<String, dynamic> raw;
   const UnknownApplyPatchToolCallOperation(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

@@ -8,46 +8,27 @@ part of 'shared_image.dart';
 class ImageGenToolCallModerationDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The stage where moderation blocked the image generation call.
   final ImageGenToolCallModerationDetailsModerationStage moderationStage;
-
   /// Public moderation categories. New category values may be added over time.
   final List<String> categories;
 
-  const ImageGenToolCallModerationDetails(
-      {required this.moderationStage, required this.categories});
+  const ImageGenToolCallModerationDetails({required this.moderationStage, required this.categories});
 
-  ImageGenToolCallModerationDetails Function(
-      {ImageGenToolCallModerationDetailsModerationStage moderationStage,
-      List<String> categories}) get copyWith => _copyWith;
+  ImageGenToolCallModerationDetails Function({ImageGenToolCallModerationDetailsModerationStage moderationStage, List<String> categories}) get copyWith => _copyWith;
 
-  ImageGenToolCallModerationDetails _copyWith(
-          {Object? moderationStage = sdkOmittedValue,
-          Object? categories = sdkOmittedValue}) =>
-      ImageGenToolCallModerationDetails(
-        moderationStage: identical(moderationStage, sdkOmittedValue)
-            ? this.moderationStage
-            : moderationStage
-                as ImageGenToolCallModerationDetailsModerationStage,
-        categories: identical(categories, sdkOmittedValue)
-            ? this.categories
-            : categories as List<String>,
-      );
+  ImageGenToolCallModerationDetails _copyWith({Object? moderationStage = sdkOmittedValue, Object? categories = sdkOmittedValue}) => ImageGenToolCallModerationDetails(
+    moderationStage: identical(moderationStage, sdkOmittedValue) ? this.moderationStage : moderationStage as ImageGenToolCallModerationDetailsModerationStage,
+    categories: identical(categories, sdkOmittedValue) ? this.categories : categories as List<String>,
+  );
 
-  factory ImageGenToolCallModerationDetails.fromJson(
-          Map<String, dynamic> json) =>
-      ImageGenToolCallModerationDetails(
-        moderationStage: (json['moderation_stage'] != null
-            ? ImageGenToolCallModerationDetailsModerationStage.fromJson(
-                json['moderation_stage'] as String)
-            : null)!,
-        categories:
-            ((json['categories'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory ImageGenToolCallModerationDetails.fromJson(Map<String, dynamic> json) => ImageGenToolCallModerationDetails(
+    moderationStage: (json['moderation_stage'] != null ? ImageGenToolCallModerationDetailsModerationStage.fromJson(json['moderation_stage'] as String) : null)!,
+    categories: ((json['categories'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'moderation_stage': moderationStage.toJson(),
-        'categories': categories,
-      };
+    'moderation_stage': moderationStage.toJson(),
+    'categories': categories,
+  };
 }

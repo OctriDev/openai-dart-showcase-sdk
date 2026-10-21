@@ -8,133 +8,67 @@ part of 'assistants_run.dart';
 class RunStepDetailsToolCallsFileSearchObjectFileSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ranking options for the file search.
-  final SdkOptional<RunStepDetailsToolCallsFileSearchRankingOptionsObject>
-      rankingOptions;
-
+  final SdkOptional<RunStepDetailsToolCallsFileSearchRankingOptionsObject> rankingOptions;
   /// The results of the file search.
-  final SdkOptional<List<RunStepDetailsToolCallsFileSearchResultObject>>
-      results;
+  final SdkOptional<List<RunStepDetailsToolCallsFileSearchResultObject>> results;
 
-  const RunStepDetailsToolCallsFileSearchObjectFileSearch(
-      {this.rankingOptions = const SdkOmitted(),
-      this.results = const SdkOmitted()});
+  const RunStepDetailsToolCallsFileSearchObjectFileSearch({this.rankingOptions = const SdkOmitted(), this.results = const SdkOmitted()});
 
-  RunStepDetailsToolCallsFileSearchObjectFileSearch Function(
-      {SdkOptional<RunStepDetailsToolCallsFileSearchRankingOptionsObject>
-          rankingOptions,
-      SdkOptional<List<RunStepDetailsToolCallsFileSearchResultObject>>
-          results}) get copyWith => _copyWith;
+  RunStepDetailsToolCallsFileSearchObjectFileSearch Function({SdkOptional<RunStepDetailsToolCallsFileSearchRankingOptionsObject> rankingOptions, SdkOptional<List<RunStepDetailsToolCallsFileSearchResultObject>> results}) get copyWith => _copyWith;
 
-  RunStepDetailsToolCallsFileSearchObjectFileSearch _copyWith(
-          {Object? rankingOptions = sdkOmittedValue,
-          Object? results = sdkOmittedValue}) =>
-      RunStepDetailsToolCallsFileSearchObjectFileSearch(
-        rankingOptions: identical(rankingOptions, sdkOmittedValue)
-            ? this.rankingOptions
-            : rankingOptions as SdkOptional<
-                RunStepDetailsToolCallsFileSearchRankingOptionsObject>,
-        results: identical(results, sdkOmittedValue)
-            ? this.results
-            : results as SdkOptional<
-                List<RunStepDetailsToolCallsFileSearchResultObject>>,
-      );
+  RunStepDetailsToolCallsFileSearchObjectFileSearch _copyWith({Object? rankingOptions = sdkOmittedValue, Object? results = sdkOmittedValue}) => RunStepDetailsToolCallsFileSearchObjectFileSearch(
+    rankingOptions: identical(rankingOptions, sdkOmittedValue) ? this.rankingOptions : rankingOptions as SdkOptional<RunStepDetailsToolCallsFileSearchRankingOptionsObject>,
+    results: identical(results, sdkOmittedValue) ? this.results : results as SdkOptional<List<RunStepDetailsToolCallsFileSearchResultObject>>,
+  );
 
-  factory RunStepDetailsToolCallsFileSearchObjectFileSearch.fromJson(
-          Map<String, dynamic> json) =>
-      RunStepDetailsToolCallsFileSearchObjectFileSearch(
-        rankingOptions: json['ranking_options'] != null
-            ? SdkPresent((json['ranking_options'] != null
-                ? RunStepDetailsToolCallsFileSearchRankingOptionsObject
-                    .fromJson(json['ranking_options'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        results: json['results'] != null
-            ? SdkPresent(((json['results'] as List?)
-                ?.map((e) =>
-                    RunStepDetailsToolCallsFileSearchResultObject.fromJson(
-                        e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory RunStepDetailsToolCallsFileSearchObjectFileSearch.fromJson(Map<String, dynamic> json) => RunStepDetailsToolCallsFileSearchObjectFileSearch(
+    rankingOptions: json['ranking_options'] != null ? SdkPresent((json['ranking_options'] != null ? RunStepDetailsToolCallsFileSearchRankingOptionsObject.fromJson(json['ranking_options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    results: json['results'] != null ? SdkPresent(((json['results'] as List?)?.map((e) => RunStepDetailsToolCallsFileSearchResultObject.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (rankingOptions) {
-          SdkPresent<RunStepDetailsToolCallsFileSearchRankingOptionsObject>(
-            value: final value
-          ) =>
-            {
-              'ranking_options': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (results) {
-          SdkPresent<List<RunStepDetailsToolCallsFileSearchResultObject>>(
-            value: final value
-          ) =>
-            {
-              'results': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (rankingOptions) {
+      SdkPresent<RunStepDetailsToolCallsFileSearchRankingOptionsObject>(value: final value) => {'ranking_options': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (results) {
+      SdkPresent<List<RunStepDetailsToolCallsFileSearchResultObject>>(value: final value) => {'results': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `RunStepDetailsToolCallsFileSearchObject` API schema.
 class RunStepDetailsToolCallsFileSearchObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the tool call object.
   final String id;
-
   /// The type of tool call. This is always going to be `file_search` for this type of tool call.
   final RunStepDetailsToolCallsFileSearchObjectType type_;
-
   /// For now, this is always going to be an empty object.
   final RunStepDetailsToolCallsFileSearchObjectFileSearch fileSearch;
 
-  const RunStepDetailsToolCallsFileSearchObject(
-      {required this.id, required this.type_, required this.fileSearch});
+  const RunStepDetailsToolCallsFileSearchObject({required this.id, required this.type_, required this.fileSearch});
 
-  RunStepDetailsToolCallsFileSearchObject Function(
-          {String id,
-          RunStepDetailsToolCallsFileSearchObjectType type_,
-          RunStepDetailsToolCallsFileSearchObjectFileSearch fileSearch})
-      get copyWith => _copyWith;
+  RunStepDetailsToolCallsFileSearchObject Function({String id, RunStepDetailsToolCallsFileSearchObjectType type_, RunStepDetailsToolCallsFileSearchObjectFileSearch fileSearch}) get copyWith => _copyWith;
 
-  RunStepDetailsToolCallsFileSearchObject _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? fileSearch = sdkOmittedValue}) =>
-      RunStepDetailsToolCallsFileSearchObject(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RunStepDetailsToolCallsFileSearchObjectType,
-        fileSearch: identical(fileSearch, sdkOmittedValue)
-            ? this.fileSearch
-            : fileSearch as RunStepDetailsToolCallsFileSearchObjectFileSearch,
-      );
+  RunStepDetailsToolCallsFileSearchObject _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? fileSearch = sdkOmittedValue}) => RunStepDetailsToolCallsFileSearchObject(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepDetailsToolCallsFileSearchObjectType,
+    fileSearch: identical(fileSearch, sdkOmittedValue) ? this.fileSearch : fileSearch as RunStepDetailsToolCallsFileSearchObjectFileSearch,
+  );
 
-  factory RunStepDetailsToolCallsFileSearchObject.fromJson(
-          Map<String, dynamic> json) =>
-      RunStepDetailsToolCallsFileSearchObject(
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? RunStepDetailsToolCallsFileSearchObjectType.fromJson(
-                json['type'] as String)
-            : null)!,
-        fileSearch: (json['file_search'] != null
-            ? RunStepDetailsToolCallsFileSearchObjectFileSearch.fromJson(
-                json['file_search'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory RunStepDetailsToolCallsFileSearchObject.fromJson(Map<String, dynamic> json) => RunStepDetailsToolCallsFileSearchObject(
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? RunStepDetailsToolCallsFileSearchObjectType.fromJson(json['type'] as String) : null)!,
+    fileSearch: (json['file_search'] != null ? RunStepDetailsToolCallsFileSearchObjectFileSearch.fromJson(json['file_search'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'type': type_.toJson(),
-        'file_search': fileSearch.toJson(),
-      };
+    'id': id,
+    'type': type_.toJson(),
+    'file_search': fileSearch.toJson(),
+  };
 }

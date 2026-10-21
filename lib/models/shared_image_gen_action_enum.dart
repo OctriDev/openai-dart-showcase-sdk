@@ -6,12 +6,12 @@ part of 'shared_image.dart';
 // shared_image domain models
 /// Typed representation of the `ImageGenActionEnum` API schema.
 final class ImageGenActionEnum {
+
   final String value;
 
   const ImageGenActionEnum._(this.value);
 
-  factory ImageGenActionEnum.fromJson(String value) =>
-      ImageGenActionEnum._(value);
+  factory ImageGenActionEnum.fromJson(String value) => ImageGenActionEnum._(value);
 
   static const generate = ImageGenActionEnum._('generate');
   static const edit = ImageGenActionEnum._('edit');
@@ -19,13 +19,10 @@ final class ImageGenActionEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageGenActionEnum && other.value == value;
+  @override bool operator ==(Object other) => other is ImageGenActionEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

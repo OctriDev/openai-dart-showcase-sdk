@@ -8,98 +8,52 @@ part of 'evals_eval.dart';
 class EvalRunOutputItemResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the grader.
   final String name;
-
   /// The grader type (for example, "string-check-grader").
   final SdkOptional<String> type_;
-
   /// The numeric score produced by the grader.
   final double score;
-
   /// Whether the grader considered the output a pass.
   final bool passed;
-
   /// Optional sample or intermediate data produced by the grader.
   final SdkOptional<Map<String, Object?>?> sample;
   final Map<String, dynamic> additionalProperties;
 
-  const EvalRunOutputItemResult(
-      {required this.name,
-      this.type_ = const SdkOmitted(),
-      required this.score,
-      required this.passed,
-      this.sample = const SdkOmitted(),
-      this.additionalProperties = const <String, dynamic>{}});
+  const EvalRunOutputItemResult({required this.name, this.type_ = const SdkOmitted(), required this.score, required this.passed, this.sample = const SdkOmitted(), this.additionalProperties = const <String, dynamic>{}});
 
-  EvalRunOutputItemResult Function(
-      {String name,
-      SdkOptional<String> type_,
-      double score,
-      bool passed,
-      SdkOptional<Map<String, Object?>?> sample}) get copyWith => _copyWith;
+  EvalRunOutputItemResult Function({String name, SdkOptional<String> type_, double score, bool passed, SdkOptional<Map<String, Object?>?> sample}) get copyWith => _copyWith;
 
-  EvalRunOutputItemResult _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? score = sdkOmittedValue,
-          Object? passed = sdkOmittedValue,
-          Object? sample = sdkOmittedValue}) =>
-      EvalRunOutputItemResult(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        score: identical(score, sdkOmittedValue) ? this.score : score as double,
-        passed:
-            identical(passed, sdkOmittedValue) ? this.passed : passed as bool,
-        sample: identical(sample, sdkOmittedValue)
-            ? this.sample
-            : sample as SdkOptional<Map<String, Object?>?>,
-        additionalProperties: additionalProperties,
-      );
+  EvalRunOutputItemResult _copyWith({Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? score = sdkOmittedValue, Object? passed = sdkOmittedValue, Object? sample = sdkOmittedValue}) => EvalRunOutputItemResult(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    score: identical(score, sdkOmittedValue) ? this.score : score as double,
+    passed: identical(passed, sdkOmittedValue) ? this.passed : passed as bool,
+    sample: identical(sample, sdkOmittedValue) ? this.sample : sample as SdkOptional<Map<String, Object?>?>,
+    additionalProperties: additionalProperties,
+  );
 
-  factory EvalRunOutputItemResult.fromJson(Map<String, dynamic> json) =>
-      EvalRunOutputItemResult(
-        name: (json['name'] as String?)!,
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        score: ((json['score'] as num?)?.toDouble())!,
-        passed: (json['passed'] as bool?)!,
-        sample: json.containsKey('sample')
-            ? SdkPresent(json['sample'] == null
-                ? null
-                : Map<String, dynamic>.from(json['sample'] as Map)
-                    .map((key, value) => MapEntry(key, value)))
-            : const SdkOmitted(),
-        additionalProperties: Map.of(json)
-          ..removeWhere((key, _) => const <String>{
-                'name',
-                'type',
-                'score',
-                'passed',
-                'sample'
-              }.contains(key)),
-      );
+  factory EvalRunOutputItemResult.fromJson(Map<String, dynamic> json) => EvalRunOutputItemResult(
+    name: (json['name'] as String?)!,
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    score: ((json['score'] as num?)?.toDouble())!,
+    passed: (json['passed'] as bool?)!,
+    sample: json.containsKey('sample') ? SdkPresent(json['sample'] == null ? null : Map<String, dynamic>.from(json['sample'] as Map).map((key, value) => MapEntry(key, value))) : const SdkOmitted(),
+    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{'name', 'type', 'score', 'passed', 'sample'}.contains(key)),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...additionalProperties,
-        'name': name,
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'score': score,
-        'passed': passed,
-        ...switch (sample) {
-          SdkPresent<Map<String, Object?>?>(value: final value) => {
-              'sample': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...additionalProperties,
+    'name': name,
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    'score': score,
+    'passed': passed,
+    ...switch (sample) {
+      SdkPresent<Map<String, Object?>?>(value: final value) => {'sample': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

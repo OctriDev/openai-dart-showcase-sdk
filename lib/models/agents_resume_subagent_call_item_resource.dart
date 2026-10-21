@@ -8,87 +8,47 @@ part of 'agents.dart';
 class ResumeSubagentCallItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The item type. Always `resume_subagent_call`.
   final ResumeSubagentCallItemResourceType type_;
-
   /// The ID of the tool call item.
   final String id;
-
   /// The ID of the turn that contains this item.
   final String turnId;
-
   /// The status of the tool call.
   final FunctionCallStatusResource status;
-
   /// The ID of the agent requesting the resume.
   final String senderAgentId;
-
   /// The ID of the agent to resume.
   final String recipientAgentId;
 
-  const ResumeSubagentCallItemResource(
-      {required this.type_,
-      required this.id,
-      required this.turnId,
-      required this.status,
-      required this.senderAgentId,
-      required this.recipientAgentId});
+  const ResumeSubagentCallItemResource({required this.type_, required this.id, required this.turnId, required this.status, required this.senderAgentId, required this.recipientAgentId});
 
-  ResumeSubagentCallItemResource Function(
-      {ResumeSubagentCallItemResourceType type_,
-      String id,
-      String turnId,
-      FunctionCallStatusResource status,
-      String senderAgentId,
-      String recipientAgentId}) get copyWith => _copyWith;
+  ResumeSubagentCallItemResource Function({ResumeSubagentCallItemResourceType type_, String id, String turnId, FunctionCallStatusResource status, String senderAgentId, String recipientAgentId}) get copyWith => _copyWith;
 
-  ResumeSubagentCallItemResource _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? turnId = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? senderAgentId = sdkOmittedValue,
-          Object? recipientAgentId = sdkOmittedValue}) =>
-      ResumeSubagentCallItemResource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResumeSubagentCallItemResourceType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        turnId:
-            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as FunctionCallStatusResource,
-        senderAgentId: identical(senderAgentId, sdkOmittedValue)
-            ? this.senderAgentId
-            : senderAgentId as String,
-        recipientAgentId: identical(recipientAgentId, sdkOmittedValue)
-            ? this.recipientAgentId
-            : recipientAgentId as String,
-      );
+  ResumeSubagentCallItemResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? senderAgentId = sdkOmittedValue, Object? recipientAgentId = sdkOmittedValue}) => ResumeSubagentCallItemResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResumeSubagentCallItemResourceType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as FunctionCallStatusResource,
+    senderAgentId: identical(senderAgentId, sdkOmittedValue) ? this.senderAgentId : senderAgentId as String,
+    recipientAgentId: identical(recipientAgentId, sdkOmittedValue) ? this.recipientAgentId : recipientAgentId as String,
+  );
 
-  factory ResumeSubagentCallItemResource.fromJson(Map<String, dynamic> json) =>
-      ResumeSubagentCallItemResource(
-        type_: (json['type'] != null
-            ? ResumeSubagentCallItemResourceType.fromJson(
-                json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        turnId: (json['turn_id'] as String?)!,
-        status: (json['status'] != null
-            ? FunctionCallStatusResource.fromJson(json['status'] as String)
-            : null)!,
-        senderAgentId: (json['sender_agent_id'] as String?)!,
-        recipientAgentId: (json['recipient_agent_id'] as String?)!,
-      );
+  factory ResumeSubagentCallItemResource.fromJson(Map<String, dynamic> json) => ResumeSubagentCallItemResource(
+    type_: (json['type'] != null ? ResumeSubagentCallItemResourceType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    turnId: (json['turn_id'] as String?)!,
+    status: (json['status'] != null ? FunctionCallStatusResource.fromJson(json['status'] as String) : null)!,
+    senderAgentId: (json['sender_agent_id'] as String?)!,
+    recipientAgentId: (json['recipient_agent_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'turn_id': turnId,
-        'status': status.toJson(),
-        'sender_agent_id': senderAgentId,
-        'recipient_agent_id': recipientAgentId,
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'turn_id': turnId,
+    'status': status.toJson(),
+    'sender_agent_id': senderAgentId,
+    'recipient_agent_id': recipientAgentId,
+  };
 }

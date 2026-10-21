@@ -9,70 +9,46 @@ sealed class LiveInputAudioMuteParamEventId {
   static const String constructionSurface = 'named';
   const LiveInputAudioMuteParamEventId();
   factory LiveInputAudioMuteParamEventId.fromJson(Object? json) {
-    if (json is String) {
-      return LiveInputAudioMuteParamEventIdString(json);
-    }
-    throw FormatException(
-        "No variant matched for LiveInputAudioMuteParamEventId");
+    if (json is String) { return LiveInputAudioMuteParamEventIdString(json); }
+    throw FormatException("No variant matched for LiveInputAudioMuteParamEventId");
   }
   Object? toJson();
 }
 
-final class LiveInputAudioMuteParamEventIdString
-    extends LiveInputAudioMuteParamEventId {
+final class LiveInputAudioMuteParamEventIdString extends LiveInputAudioMuteParamEventId {
   final String value;
   const LiveInputAudioMuteParamEventIdString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Mute audio input to the Live model without closing the session. The server acknowledges with `session.input_audio.muted`.
 class LiveInputAudioMuteParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `event_id` wire field.
   final SdkOptional<String?> eventId;
-
   /// The Live client event type. Always `session.input_audio.mute`.
   final LiveInputAudioMuteParamType type_;
 
-  const LiveInputAudioMuteParam(
-      {this.eventId = const SdkOmitted(), required this.type_});
+  const LiveInputAudioMuteParam({this.eventId = const SdkOmitted(), required this.type_});
 
-  LiveInputAudioMuteParam Function(
-      {SdkOptional<String?> eventId,
-      LiveInputAudioMuteParamType type_}) get copyWith => _copyWith;
+  LiveInputAudioMuteParam Function({SdkOptional<String?> eventId, LiveInputAudioMuteParamType type_}) get copyWith => _copyWith;
 
-  LiveInputAudioMuteParam _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      LiveInputAudioMuteParam(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveInputAudioMuteParamType,
-      );
+  LiveInputAudioMuteParam _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => LiveInputAudioMuteParam(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveInputAudioMuteParamType,
+  );
 
-  factory LiveInputAudioMuteParam.fromJson(Map<String, dynamic> json) =>
-      LiveInputAudioMuteParam(
-        eventId: json.containsKey('event_id')
-            ? SdkPresent(json['event_id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? LiveInputAudioMuteParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory LiveInputAudioMuteParam.fromJson(Map<String, dynamic> json) => LiveInputAudioMuteParam(
+    eventId: json.containsKey('event_id') ? SdkPresent(json['event_id'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? LiveInputAudioMuteParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String?>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-      };
+    ...switch (eventId) {
+      SdkPresent<String?>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+  };
 }

@@ -8,7 +8,6 @@ part of 'responses_beta_agent.dart';
 class BetaAgentTagParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The canonical name of the agent that produced this item.
   final String agentName;
 
@@ -16,19 +15,15 @@ class BetaAgentTagParam {
 
   BetaAgentTagParam Function({String agentName}) get copyWith => _copyWith;
 
-  BetaAgentTagParam _copyWith({Object? agentName = sdkOmittedValue}) =>
-      BetaAgentTagParam(
-        agentName: identical(agentName, sdkOmittedValue)
-            ? this.agentName
-            : agentName as String,
-      );
+  BetaAgentTagParam _copyWith({Object? agentName = sdkOmittedValue}) => BetaAgentTagParam(
+    agentName: identical(agentName, sdkOmittedValue) ? this.agentName : agentName as String,
+  );
 
-  factory BetaAgentTagParam.fromJson(Map<String, dynamic> json) =>
-      BetaAgentTagParam(
-        agentName: (json['agent_name'] as String?)!,
-      );
+  factory BetaAgentTagParam.fromJson(Map<String, dynamic> json) => BetaAgentTagParam(
+    agentName: (json['agent_name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'agent_name': agentName,
-      };
+    'agent_name': agentName,
+  };
 }

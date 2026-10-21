@@ -10,82 +10,40 @@ sealed class LiveSessionCreateParamsDelegation {
   const LiveSessionCreateParamsDelegation();
   factory LiveSessionCreateParamsDelegation.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = LiveClientDelegationParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveSessionCreateParamsDelegationLiveClientDelegationParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveResponsesDelegationParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = LiveDecisionsDelegationParam2.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(
-              value);
-        }
-      } catch (_) {}
+      try { final value = LiveClientDelegationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionCreateParamsDelegationLiveClientDelegationParam(value); } } catch (_) {}
+      try { final value = LiveResponsesDelegationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(value); } } catch (_) {}
+      try { final value = LiveDecisionsDelegationParam2.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(value); } } catch (_) {}
     }
-    try {
-      return LiveSessionCreateParamsDelegationLiveClientDelegationParam(
-          LiveClientDelegationParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(
-          LiveResponsesDelegationParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(
-          LiveDecisionsDelegationParam2.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"client", "responses", "decisions"}.contains(json["type"])) {
-      return UnknownLiveSessionCreateParamsDelegation(json);
-    }
-    throw FormatException(
-        "No variant matched for LiveSessionCreateParamsDelegation");
+    try { return LiveSessionCreateParamsDelegationLiveClientDelegationParam(LiveClientDelegationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(LiveResponsesDelegationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(LiveDecisionsDelegationParam2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"client", "responses", "decisions"}.contains(json["type"])) { return UnknownLiveSessionCreateParamsDelegation(json); }
+    throw FormatException("No variant matched for LiveSessionCreateParamsDelegation");
   }
   Object? toJson();
 }
 
-final class LiveSessionCreateParamsDelegationLiveClientDelegationParam
-    extends LiveSessionCreateParamsDelegation {
+final class LiveSessionCreateParamsDelegationLiveClientDelegationParam extends LiveSessionCreateParamsDelegation {
   final LiveClientDelegationParam value;
   const LiveSessionCreateParamsDelegationLiveClientDelegationParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveSessionCreateParamsDelegationLiveResponsesDelegationParam
-    extends LiveSessionCreateParamsDelegation {
+final class LiveSessionCreateParamsDelegationLiveResponsesDelegationParam extends LiveSessionCreateParamsDelegation {
   final LiveResponsesDelegationParam value;
-  const LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2
-    extends LiveSessionCreateParamsDelegation {
+final class LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2 extends LiveSessionCreateParamsDelegation {
   final LiveDecisionsDelegationParam2 value;
-  const LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [LiveSessionCreateParamsDelegation] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownLiveSessionCreateParamsDelegation
-    extends LiveSessionCreateParamsDelegation {
+final class UnknownLiveSessionCreateParamsDelegation extends LiveSessionCreateParamsDelegation {
   final Map<String, dynamic> raw;
   const UnknownLiveSessionCreateParamsDelegation(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

@@ -8,7 +8,6 @@ part of 'responses_input.dart';
 class InputMessageResourceVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the message input.
   final String id;
 
@@ -16,108 +15,64 @@ class InputMessageResourceVariant1 {
 
   InputMessageResourceVariant1 Function({String id}) get copyWith => _copyWith;
 
-  InputMessageResourceVariant1 _copyWith({Object? id = sdkOmittedValue}) =>
-      InputMessageResourceVariant1(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  InputMessageResourceVariant1 _copyWith({Object? id = sdkOmittedValue}) => InputMessageResourceVariant1(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory InputMessageResourceVariant1.fromJson(Map<String, dynamic> json) =>
-      InputMessageResourceVariant1(
-        id: (json['id'] as String?)!,
-      );
+  factory InputMessageResourceVariant1.fromJson(Map<String, dynamic> json) => InputMessageResourceVariant1(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }
 
 /// Typed representation of the `InputMessageResource` API schema.
 class InputMessageResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the message input. Always set to `message`.
   final InputMessageType type_;
-
   /// The role of the message input. One of `user`, `system`, or `developer`.
   final InputMessageRole role;
-
   /// The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final SdkOptional<InputMessageStatus> status;
-
   /// A list of one or many input items to the model, containing different content types.
   final List<InputContent> content;
-
   /// The unique ID of the message input.
   final String id;
 
-  const InputMessageResource(
-      {required this.type_,
-      required this.role,
-      this.status = const SdkOmitted(),
-      required this.content,
-      required this.id});
+  const InputMessageResource({required this.type_, required this.role, this.status = const SdkOmitted(), required this.content, required this.id});
 
-  InputMessageResource Function(
-      {InputMessageType type_,
-      InputMessageRole role,
-      SdkOptional<InputMessageStatus> status,
-      List<InputContent> content,
-      String id}) get copyWith => _copyWith;
+  InputMessageResource Function({InputMessageType type_, InputMessageRole role, SdkOptional<InputMessageStatus> status, List<InputContent> content, String id}) get copyWith => _copyWith;
 
-  InputMessageResource _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? content = sdkOmittedValue,
-          Object? id = sdkOmittedValue}) =>
-      InputMessageResource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InputMessageType,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as InputMessageRole,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<InputMessageStatus>,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as List<InputContent>,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  InputMessageResource _copyWith({Object? type_ = sdkOmittedValue, Object? role = sdkOmittedValue, Object? status = sdkOmittedValue, Object? content = sdkOmittedValue, Object? id = sdkOmittedValue}) => InputMessageResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InputMessageType,
+    role: identical(role, sdkOmittedValue) ? this.role : role as InputMessageRole,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<InputMessageStatus>,
+    content: identical(content, sdkOmittedValue) ? this.content : content as List<InputContent>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory InputMessageResource.fromJson(Map<String, dynamic> json) =>
-      InputMessageResource(
-        type_: (json['type'] != null
-            ? InputMessageType.fromJson(json['type'] as String)
-            : null)!,
-        role: (json['role'] != null
-            ? InputMessageRole.fromJson(json['role'] as String)
-            : null)!,
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? InputMessageStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        content: ((json['content'] as List?)
-            ?.map((e) => InputContent.fromJson(e))
-            .toList())!,
-        id: (json['id'] as String?)!,
-      );
+  factory InputMessageResource.fromJson(Map<String, dynamic> json) => InputMessageResource(
+    type_: (json['type'] != null ? InputMessageType.fromJson(json['type'] as String) : null)!,
+    role: (json['role'] != null ? InputMessageRole.fromJson(json['role'] as String) : null)!,
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? InputMessageStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    content: ((json['content'] as List?)?.map((e) => InputContent.fromJson(e)).toList())!,
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'role': role.toJson(),
-        ...switch (status) {
-          SdkPresent<InputMessageStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'content': content.map((item) => item.toJson()).toList(),
-        'id': id,
-      };
+    'type': type_.toJson(),
+    'role': role.toJson(),
+    ...switch (status) {
+      SdkPresent<InputMessageStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'content': content.map((item) => item.toJson()).toList(),
+    'id': id,
+  };
 }
 
 sealed class InputParam {
@@ -125,12 +80,8 @@ sealed class InputParam {
   static const String constructionSurface = 'named';
   const InputParam();
   factory InputParam.fromJson(Object? json) {
-    if (json is String) {
-      return InputParamString(json);
-    }
-    try {
-      return InputParamInputItem(InputItem.fromJson(json));
-    } catch (_) {}
+    if (json is String) { return InputParamString(json); }
+    try { return InputParamInputItem(InputItem.fromJson(json)); } catch (_) {}
     throw FormatException("No variant matched for InputParam");
   }
   Object? toJson();
@@ -139,13 +90,11 @@ sealed class InputParam {
 final class InputParamString extends InputParam {
   final String value;
   const InputParamString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class InputParamInputItem extends InputParam {
   final InputItem value;
   const InputParamInputItem(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

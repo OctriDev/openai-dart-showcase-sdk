@@ -8,56 +8,34 @@ part of 'videos.dart';
 class CreateVideoExtendJsonBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Reference to the completed video to extend.
   final VideoReferenceInputParam video;
-
   /// Updated text prompt that directs the extension generation.
   final String prompt;
-
   /// Length of the newly generated extension segment in seconds (allowed values: 4, 8, 12, 16, 20).
   final VideoSeconds seconds;
 
-  const CreateVideoExtendJsonBody(
-      {required this.video, required this.prompt, required this.seconds});
+  const CreateVideoExtendJsonBody({required this.video, required this.prompt, required this.seconds});
 
-  CreateVideoExtendJsonBody Function(
-      {VideoReferenceInputParam video,
-      String prompt,
-      VideoSeconds seconds}) get copyWith => _copyWith;
+  CreateVideoExtendJsonBody Function({VideoReferenceInputParam video, String prompt, VideoSeconds seconds}) get copyWith => _copyWith;
 
-  CreateVideoExtendJsonBody _copyWith(
-          {Object? video = sdkOmittedValue,
-          Object? prompt = sdkOmittedValue,
-          Object? seconds = sdkOmittedValue}) =>
-      CreateVideoExtendJsonBody(
-        video: identical(video, sdkOmittedValue)
-            ? this.video
-            : video as VideoReferenceInputParam,
-        prompt:
-            identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
-        seconds: identical(seconds, sdkOmittedValue)
-            ? this.seconds
-            : seconds as VideoSeconds,
-      );
+  CreateVideoExtendJsonBody _copyWith({Object? video = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? seconds = sdkOmittedValue}) => CreateVideoExtendJsonBody(
+    video: identical(video, sdkOmittedValue) ? this.video : video as VideoReferenceInputParam,
+    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
+    seconds: identical(seconds, sdkOmittedValue) ? this.seconds : seconds as VideoSeconds,
+  );
 
-  factory CreateVideoExtendJsonBody.fromJson(Map<String, dynamic> json) =>
-      CreateVideoExtendJsonBody(
-        video: (json['video'] != null
-            ? VideoReferenceInputParam.fromJson(
-                json['video'] as Map<String, dynamic>)
-            : null)!,
-        prompt: (json['prompt'] as String?)!,
-        seconds: (json['seconds'] != null
-            ? VideoSeconds.fromJson(json['seconds'] as String)
-            : null)!,
-      );
+  factory CreateVideoExtendJsonBody.fromJson(Map<String, dynamic> json) => CreateVideoExtendJsonBody(
+    video: (json['video'] != null ? VideoReferenceInputParam.fromJson(json['video'] as Map<String, dynamic>) : null)!,
+    prompt: (json['prompt'] as String?)!,
+    seconds: (json['seconds'] != null ? VideoSeconds.fromJson(json['seconds'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'video': video.toJson(),
-        'prompt': prompt,
-        'seconds': seconds.toJson(),
-      };
+    'video': video.toJson(),
+    'prompt': prompt,
+    'seconds': seconds.toJson(),
+  };
 }
 
 sealed class CreateVideoExtendMultipartBodyVideo {
@@ -65,85 +43,55 @@ sealed class CreateVideoExtendMultipartBodyVideo {
   static const String constructionSurface = 'named';
   const CreateVideoExtendMultipartBodyVideo();
   factory CreateVideoExtendMultipartBodyVideo.fromJson(Object? json) {
-    if (json is List) {
-      return CreateVideoExtendMultipartBodyVideoListint(
-          json.map((e) => (e as num).toInt()).toList().cast<int>());
-    }
-    try {
-      return CreateVideoExtendMultipartBodyVideoVideoReferenceInputParam(
-          VideoReferenceInputParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for CreateVideoExtendMultipartBodyVideo");
+    if (json is List) { return CreateVideoExtendMultipartBodyVideoListint(json.map((e) => (e as num).toInt()).toList().cast<int>()); }
+    try { return CreateVideoExtendMultipartBodyVideoVideoReferenceInputParam(VideoReferenceInputParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for CreateVideoExtendMultipartBodyVideo");
   }
   Object? toJson();
 }
 
-final class CreateVideoExtendMultipartBodyVideoVideoReferenceInputParam
-    extends CreateVideoExtendMultipartBodyVideo {
+final class CreateVideoExtendMultipartBodyVideoVideoReferenceInputParam extends CreateVideoExtendMultipartBodyVideo {
   final VideoReferenceInputParam value;
   const CreateVideoExtendMultipartBodyVideoVideoReferenceInputParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateVideoExtendMultipartBodyVideoListint
-    extends CreateVideoExtendMultipartBodyVideo {
+final class CreateVideoExtendMultipartBodyVideoListint extends CreateVideoExtendMultipartBodyVideo {
   final List<int> value;
   const CreateVideoExtendMultipartBodyVideoListint(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Multipart parameters for extending an existing generated video.
 class CreateVideoExtendMultipartBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required API value serialized in the `video` wire field.
   final dynamic video;
-
   /// Updated text prompt that directs the extension generation.
   final String prompt;
-
   /// Length of the newly generated extension segment in seconds (allowed values: 4, 8, 12, 16, 20).
   final VideoSeconds seconds;
 
-  const CreateVideoExtendMultipartBody(
-      {required this.video, required this.prompt, required this.seconds});
+  const CreateVideoExtendMultipartBody({required this.video, required this.prompt, required this.seconds});
 
-  CreateVideoExtendMultipartBody Function(
-      {dynamic video,
-      String prompt,
-      VideoSeconds seconds}) get copyWith => _copyWith;
+  CreateVideoExtendMultipartBody Function({dynamic video, String prompt, VideoSeconds seconds}) get copyWith => _copyWith;
 
-  CreateVideoExtendMultipartBody _copyWith(
-          {Object? video = sdkOmittedValue,
-          Object? prompt = sdkOmittedValue,
-          Object? seconds = sdkOmittedValue}) =>
-      CreateVideoExtendMultipartBody(
-        video:
-            identical(video, sdkOmittedValue) ? this.video : video as dynamic,
-        prompt:
-            identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
-        seconds: identical(seconds, sdkOmittedValue)
-            ? this.seconds
-            : seconds as VideoSeconds,
-      );
+  CreateVideoExtendMultipartBody _copyWith({Object? video = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? seconds = sdkOmittedValue}) => CreateVideoExtendMultipartBody(
+    video: identical(video, sdkOmittedValue) ? this.video : video as dynamic,
+    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
+    seconds: identical(seconds, sdkOmittedValue) ? this.seconds : seconds as VideoSeconds,
+  );
 
-  factory CreateVideoExtendMultipartBody.fromJson(Map<String, dynamic> json) =>
-      CreateVideoExtendMultipartBody(
-        video: (SdkUtils.unionBranch(
-            json['video'], [VideoReferenceInputParam.fromJson]))!,
-        prompt: (json['prompt'] as String?)!,
-        seconds: (json['seconds'] != null
-            ? VideoSeconds.fromJson(json['seconds'] as String)
-            : null)!,
-      );
+  factory CreateVideoExtendMultipartBody.fromJson(Map<String, dynamic> json) => CreateVideoExtendMultipartBody(
+    video: (SdkUtils.unionBranch(json['video'], [VideoReferenceInputParam.fromJson]))!,
+    prompt: (json['prompt'] as String?)!,
+    seconds: (json['seconds'] != null ? VideoSeconds.fromJson(json['seconds'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'video': video,
-        'prompt': prompt,
-        'seconds': seconds.toJson(),
-      };
+    'video': video,
+    'prompt': prompt,
+    'seconds': seconds.toJson(),
+  };
 }

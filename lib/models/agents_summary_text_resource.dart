@@ -8,37 +8,27 @@ part of 'agents.dart';
 class SummaryTextResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The content type. Always `summary_text`.
   final SummaryTextResourceType type_;
-
   /// The reasoning summary text.
   final String text;
 
   const SummaryTextResource({required this.type_, required this.text});
 
-  SummaryTextResource Function({SummaryTextResourceType type_, String text})
-      get copyWith => _copyWith;
+  SummaryTextResource Function({SummaryTextResourceType type_, String text}) get copyWith => _copyWith;
 
-  SummaryTextResource _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      SummaryTextResource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SummaryTextResourceType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  SummaryTextResource _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => SummaryTextResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SummaryTextResourceType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory SummaryTextResource.fromJson(Map<String, dynamic> json) =>
-      SummaryTextResource(
-        type_: (json['type'] != null
-            ? SummaryTextResourceType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory SummaryTextResource.fromJson(Map<String, dynamic> json) => SummaryTextResource(
+    type_: (json['type'] != null ? SummaryTextResourceType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }

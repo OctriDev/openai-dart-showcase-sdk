@@ -8,83 +8,46 @@ part of 'shared_function.dart';
 class FunctionObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A description of what the function does, used by the model to choose when and how to call the function.
   final SdkOptional<String> description;
-
   /// The name of the function to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64.
   final String name;
-
   /// The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://developers.openai.com/api/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. Omitting `parameters` defines a function with an empty parameter list.
   final SdkOptional<Map<String, dynamic>> parameters;
-
   /// Optional `boolean` value serialized in the `strict` wire field.
   final SdkOptional<bool?> strict;
 
-  const FunctionObject(
-      {this.description = const SdkOmitted(),
-      required this.name,
-      this.parameters = const SdkOmitted(),
-      this.strict = const SdkOmitted()});
+  const FunctionObject({this.description = const SdkOmitted(), required this.name, this.parameters = const SdkOmitted(), this.strict = const SdkOmitted()});
 
-  FunctionObject Function(
-      {SdkOptional<String> description,
-      String name,
-      SdkOptional<Map<String, dynamic>> parameters,
-      SdkOptional<bool?> strict}) get copyWith => _copyWith;
+  FunctionObject Function({SdkOptional<String> description, String name, SdkOptional<Map<String, dynamic>> parameters, SdkOptional<bool?> strict}) get copyWith => _copyWith;
 
-  FunctionObject _copyWith(
-          {Object? description = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? parameters = sdkOmittedValue,
-          Object? strict = sdkOmittedValue}) =>
-      FunctionObject(
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        parameters: identical(parameters, sdkOmittedValue)
-            ? this.parameters
-            : parameters as SdkOptional<Map<String, dynamic>>,
-        strict: identical(strict, sdkOmittedValue)
-            ? this.strict
-            : strict as SdkOptional<bool?>,
-      );
+  FunctionObject _copyWith({Object? description = sdkOmittedValue, Object? name = sdkOmittedValue, Object? parameters = sdkOmittedValue, Object? strict = sdkOmittedValue}) => FunctionObject(
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as SdkOptional<Map<String, dynamic>>,
+    strict: identical(strict, sdkOmittedValue) ? this.strict : strict as SdkOptional<bool?>,
+  );
 
   factory FunctionObject.fromJson(Map<String, dynamic> json) => FunctionObject(
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        name: (json['name'] as String?)!,
-        parameters: json['parameters'] != null
-            ? SdkPresent((json['parameters'] == null
-                ? null
-                : json['parameters'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        strict: json.containsKey('strict')
-            ? SdkPresent(json['strict'] as bool?)
-            : const SdkOmitted(),
-      );
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    name: (json['name'] as String?)!,
+    parameters: json['parameters'] != null ? SdkPresent((json['parameters'] == null ? null : json['parameters'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    strict: json.containsKey('strict') ? SdkPresent(json['strict'] as bool?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'name': name,
-        ...switch (parameters) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'parameters': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (strict) {
-          SdkPresent<bool?>(value: final value) => {
-              'strict': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    'name': name,
+    ...switch (parameters) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'parameters': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (strict) {
+      SdkPresent<bool?>(value: final value) => {'strict': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

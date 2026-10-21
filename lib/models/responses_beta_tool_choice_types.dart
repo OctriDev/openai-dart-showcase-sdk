@@ -8,30 +8,22 @@ part of 'responses_beta_tool.dart';
 class BetaToolChoiceTypes {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of hosted tool the model should to use. Learn more about [built-in tools](https://developers.openai.com/api/docs/guides/tools). Allowed values are: - `file_search` - `web_search_preview` - `computer` - `computer_use_preview` - `computer_use` - `code_interpreter` - `image_generation`
   final BetaToolChoiceTypesType type_;
 
   const BetaToolChoiceTypes({required this.type_});
 
-  BetaToolChoiceTypes Function({BetaToolChoiceTypesType type_}) get copyWith =>
-      _copyWith;
+  BetaToolChoiceTypes Function({BetaToolChoiceTypesType type_}) get copyWith => _copyWith;
 
-  BetaToolChoiceTypes _copyWith({Object? type_ = sdkOmittedValue}) =>
-      BetaToolChoiceTypes(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaToolChoiceTypesType,
-      );
+  BetaToolChoiceTypes _copyWith({Object? type_ = sdkOmittedValue}) => BetaToolChoiceTypes(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaToolChoiceTypesType,
+  );
 
-  factory BetaToolChoiceTypes.fromJson(Map<String, dynamic> json) =>
-      BetaToolChoiceTypes(
-        type_: (json['type'] != null
-            ? BetaToolChoiceTypesType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory BetaToolChoiceTypes.fromJson(Map<String, dynamic> json) => BetaToolChoiceTypes(
+    type_: (json['type'] != null ? BetaToolChoiceTypesType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

@@ -8,56 +8,33 @@ part of 'projects.dart';
 class UpdateProjectApiKeyBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Number of seconds from this request until the API key expires. Must comply with the organization and project expiry policies. Expired keys cannot be updated. Retrying resets the expiry relative to the new request. Omit to keep the current expiration.
   final SdkOptional<int> expiresInSeconds;
-
   /// Replace the API key scope restrictions. Omit to leave scopes unchanged. An empty array removes key restrictions (All permissions), subject to the owner's effective permissions. Use ["api.all.read"] for read-only access. Scopes do not change the owner's roles or grant administrative permissions.
   final SdkOptional<List<String>> scopes;
 
-  const UpdateProjectApiKeyBody(
-      {this.expiresInSeconds = const SdkOmitted(),
-      this.scopes = const SdkOmitted()});
+  const UpdateProjectApiKeyBody({this.expiresInSeconds = const SdkOmitted(), this.scopes = const SdkOmitted()});
 
-  UpdateProjectApiKeyBody Function(
-      {SdkOptional<int> expiresInSeconds,
-      SdkOptional<List<String>> scopes}) get copyWith => _copyWith;
+  UpdateProjectApiKeyBody Function({SdkOptional<int> expiresInSeconds, SdkOptional<List<String>> scopes}) get copyWith => _copyWith;
 
-  UpdateProjectApiKeyBody _copyWith(
-          {Object? expiresInSeconds = sdkOmittedValue,
-          Object? scopes = sdkOmittedValue}) =>
-      UpdateProjectApiKeyBody(
-        expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue)
-            ? this.expiresInSeconds
-            : expiresInSeconds as SdkOptional<int>,
-        scopes: identical(scopes, sdkOmittedValue)
-            ? this.scopes
-            : scopes as SdkOptional<List<String>>,
-      );
+  UpdateProjectApiKeyBody _copyWith({Object? expiresInSeconds = sdkOmittedValue, Object? scopes = sdkOmittedValue}) => UpdateProjectApiKeyBody(
+    expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue) ? this.expiresInSeconds : expiresInSeconds as SdkOptional<int>,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
+  );
 
-  factory UpdateProjectApiKeyBody.fromJson(Map<String, dynamic> json) =>
-      UpdateProjectApiKeyBody(
-        expiresInSeconds: json['expires_in_seconds'] != null
-            ? SdkPresent(((json['expires_in_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        scopes: json['scopes'] != null
-            ? SdkPresent(
-                ((json['scopes'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+  factory UpdateProjectApiKeyBody.fromJson(Map<String, dynamic> json) => UpdateProjectApiKeyBody(
+    expiresInSeconds: json['expires_in_seconds'] != null ? SdkPresent(((json['expires_in_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (expiresInSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'expires_in_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scopes) {
-          SdkPresent<List<String>>(value: final value) => {
-              'scopes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (expiresInSeconds) {
+      SdkPresent<int>(value: final value) => {'expires_in_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scopes) {
+      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

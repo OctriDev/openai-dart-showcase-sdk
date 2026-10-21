@@ -10,254 +10,135 @@ sealed class McpTransportConfigParam {
   const McpTransportConfigParam();
   factory McpTransportConfigParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = McpTransportConfigParamHttp.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return McpTransportConfigParamMcpTransportConfigParamHttp(value);
-        }
-      } catch (_) {}
-      try {
-        final value = McpTransportConfigParamStdio.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return McpTransportConfigParamMcpTransportConfigParamStdio(value);
-        }
-      } catch (_) {}
+      try { final value = McpTransportConfigParamHttp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return McpTransportConfigParamMcpTransportConfigParamHttp(value); } } catch (_) {}
+      try { final value = McpTransportConfigParamStdio.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return McpTransportConfigParamMcpTransportConfigParamStdio(value); } } catch (_) {}
     }
-    try {
-      return McpTransportConfigParamMcpTransportConfigParamHttp(
-          McpTransportConfigParamHttp.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return McpTransportConfigParamMcpTransportConfigParamStdio(
-          McpTransportConfigParamStdio.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"http", "stdio"}.contains(json["type"])) {
-      return UnknownMcpTransportConfigParam(json);
-    }
+    try { return McpTransportConfigParamMcpTransportConfigParamHttp(McpTransportConfigParamHttp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return McpTransportConfigParamMcpTransportConfigParamStdio(McpTransportConfigParamStdio.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"http", "stdio"}.contains(json["type"])) { return UnknownMcpTransportConfigParam(json); }
     throw FormatException("No variant matched for McpTransportConfigParam");
   }
   Object? toJson();
 }
 
-final class McpTransportConfigParamMcpTransportConfigParamHttp
-    extends McpTransportConfigParam {
+final class McpTransportConfigParamMcpTransportConfigParamHttp extends McpTransportConfigParam {
   final McpTransportConfigParamHttp value;
   const McpTransportConfigParamMcpTransportConfigParamHttp(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class McpTransportConfigParamMcpTransportConfigParamStdio
-    extends McpTransportConfigParam {
+final class McpTransportConfigParamMcpTransportConfigParamStdio extends McpTransportConfigParam {
   final McpTransportConfigParamStdio value;
   const McpTransportConfigParamMcpTransportConfigParamStdio(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [McpTransportConfigParam] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownMcpTransportConfigParam extends McpTransportConfigParam {
   final Map<String, dynamic> raw;
   const UnknownMcpTransportConfigParam(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// Connects to an MCP server over HTTP.
 class McpTransportConfigParamHttp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `http`.
   final McpTransportConfigParamHttpType type_;
-
   /// The URL of the MCP server.
   final String serverUrl;
-
   /// The authorization value sent to the MCP server, if any.
   final SdkOptional<String?> authorization;
-
   /// Additional HTTP headers sent to the MCP server.
   final SdkOptional<Map<String, String>?> headers;
 
-  const McpTransportConfigParamHttp(
-      {required this.type_,
-      required this.serverUrl,
-      this.authorization = const SdkOmitted(),
-      this.headers = const SdkOmitted()});
+  const McpTransportConfigParamHttp({required this.type_, required this.serverUrl, this.authorization = const SdkOmitted(), this.headers = const SdkOmitted()});
 
-  McpTransportConfigParamHttp Function(
-      {McpTransportConfigParamHttpType type_,
-      String serverUrl,
-      SdkOptional<String?> authorization,
-      SdkOptional<Map<String, String>?> headers}) get copyWith => _copyWith;
+  McpTransportConfigParamHttp Function({McpTransportConfigParamHttpType type_, String serverUrl, SdkOptional<String?> authorization, SdkOptional<Map<String, String>?> headers}) get copyWith => _copyWith;
 
-  McpTransportConfigParamHttp _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? serverUrl = sdkOmittedValue,
-          Object? authorization = sdkOmittedValue,
-          Object? headers = sdkOmittedValue}) =>
-      McpTransportConfigParamHttp(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as McpTransportConfigParamHttpType,
-        serverUrl: identical(serverUrl, sdkOmittedValue)
-            ? this.serverUrl
-            : serverUrl as String,
-        authorization: identical(authorization, sdkOmittedValue)
-            ? this.authorization
-            : authorization as SdkOptional<String?>,
-        headers: identical(headers, sdkOmittedValue)
-            ? this.headers
-            : headers as SdkOptional<Map<String, String>?>,
-      );
+  McpTransportConfigParamHttp _copyWith({Object? type_ = sdkOmittedValue, Object? serverUrl = sdkOmittedValue, Object? authorization = sdkOmittedValue, Object? headers = sdkOmittedValue}) => McpTransportConfigParamHttp(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as McpTransportConfigParamHttpType,
+    serverUrl: identical(serverUrl, sdkOmittedValue) ? this.serverUrl : serverUrl as String,
+    authorization: identical(authorization, sdkOmittedValue) ? this.authorization : authorization as SdkOptional<String?>,
+    headers: identical(headers, sdkOmittedValue) ? this.headers : headers as SdkOptional<Map<String, String>?>,
+  );
 
-  factory McpTransportConfigParamHttp.fromJson(Map<String, dynamic> json) =>
-      McpTransportConfigParamHttp(
-        type_: (json['type'] != null
-            ? McpTransportConfigParamHttpType.fromJson(json['type'] as String)
-            : null)!,
-        serverUrl: (json['server_url'] as String?)!,
-        authorization: json.containsKey('authorization')
-            ? SdkPresent(json['authorization'] as String?)
-            : const SdkOmitted(),
-        headers: json.containsKey('headers')
-            ? SdkPresent(json['headers'] == null
-                ? null
-                : Map<String, dynamic>.from(json['headers'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))
-            : const SdkOmitted(),
-      );
+  factory McpTransportConfigParamHttp.fromJson(Map<String, dynamic> json) => McpTransportConfigParamHttp(
+    type_: (json['type'] != null ? McpTransportConfigParamHttpType.fromJson(json['type'] as String) : null)!,
+    serverUrl: (json['server_url'] as String?)!,
+    authorization: json.containsKey('authorization') ? SdkPresent(json['authorization'] as String?) : const SdkOmitted(),
+    headers: json.containsKey('headers') ? SdkPresent(json['headers'] == null ? null : Map<String, dynamic>.from(json['headers'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'server_url': serverUrl,
-        ...switch (authorization) {
-          SdkPresent<String?>(value: final value) => {
-              'authorization': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (headers) {
-          SdkPresent<Map<String, String>?>(value: final value) => {
-              'headers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'server_url': serverUrl,
+    ...switch (authorization) {
+      SdkPresent<String?>(value: final value) => {'authorization': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (headers) {
+      SdkPresent<Map<String, String>?>(value: final value) => {'headers': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Starts an MCP server as a local process.
 class McpTransportConfigParamStdio {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `stdio`.
   final McpTransportConfigParamStdioType type_;
-
   /// The command used to start the MCP server.
   final String command;
-
   /// Arguments passed to the MCP server command.
   final SdkOptional<List<String>?> args;
-
   /// The working directory used to start the MCP server.
   final String cwd;
-
   /// Environment variables set for the MCP server process.
   final SdkOptional<Map<String, String>?> env;
-
   /// Environment variable names to inherit from the selected execution environment.
   final SdkOptional<List<String>?> envVars;
 
-  const McpTransportConfigParamStdio(
-      {required this.type_,
-      required this.command,
-      this.args = const SdkOmitted(),
-      required this.cwd,
-      this.env = const SdkOmitted(),
-      this.envVars = const SdkOmitted()});
+  const McpTransportConfigParamStdio({required this.type_, required this.command, this.args = const SdkOmitted(), required this.cwd, this.env = const SdkOmitted(), this.envVars = const SdkOmitted()});
 
-  McpTransportConfigParamStdio Function(
-      {McpTransportConfigParamStdioType type_,
-      String command,
-      SdkOptional<List<String>?> args,
-      String cwd,
-      SdkOptional<Map<String, String>?> env,
-      SdkOptional<List<String>?> envVars}) get copyWith => _copyWith;
+  McpTransportConfigParamStdio Function({McpTransportConfigParamStdioType type_, String command, SdkOptional<List<String>?> args, String cwd, SdkOptional<Map<String, String>?> env, SdkOptional<List<String>?> envVars}) get copyWith => _copyWith;
 
-  McpTransportConfigParamStdio _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? command = sdkOmittedValue,
-          Object? args = sdkOmittedValue,
-          Object? cwd = sdkOmittedValue,
-          Object? env = sdkOmittedValue,
-          Object? envVars = sdkOmittedValue}) =>
-      McpTransportConfigParamStdio(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as McpTransportConfigParamStdioType,
-        command: identical(command, sdkOmittedValue)
-            ? this.command
-            : command as String,
-        args: identical(args, sdkOmittedValue)
-            ? this.args
-            : args as SdkOptional<List<String>?>,
-        cwd: identical(cwd, sdkOmittedValue) ? this.cwd : cwd as String,
-        env: identical(env, sdkOmittedValue)
-            ? this.env
-            : env as SdkOptional<Map<String, String>?>,
-        envVars: identical(envVars, sdkOmittedValue)
-            ? this.envVars
-            : envVars as SdkOptional<List<String>?>,
-      );
+  McpTransportConfigParamStdio _copyWith({Object? type_ = sdkOmittedValue, Object? command = sdkOmittedValue, Object? args = sdkOmittedValue, Object? cwd = sdkOmittedValue, Object? env = sdkOmittedValue, Object? envVars = sdkOmittedValue}) => McpTransportConfigParamStdio(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as McpTransportConfigParamStdioType,
+    command: identical(command, sdkOmittedValue) ? this.command : command as String,
+    args: identical(args, sdkOmittedValue) ? this.args : args as SdkOptional<List<String>?>,
+    cwd: identical(cwd, sdkOmittedValue) ? this.cwd : cwd as String,
+    env: identical(env, sdkOmittedValue) ? this.env : env as SdkOptional<Map<String, String>?>,
+    envVars: identical(envVars, sdkOmittedValue) ? this.envVars : envVars as SdkOptional<List<String>?>,
+  );
 
-  factory McpTransportConfigParamStdio.fromJson(Map<String, dynamic> json) =>
-      McpTransportConfigParamStdio(
-        type_: (json['type'] != null
-            ? McpTransportConfigParamStdioType.fromJson(json['type'] as String)
-            : null)!,
-        command: (json['command'] as String?)!,
-        args: json.containsKey('args')
-            ? SdkPresent(
-                (json['args'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-        cwd: (json['cwd'] as String?)!,
-        env: json.containsKey('env')
-            ? SdkPresent(json['env'] == null
-                ? null
-                : Map<String, dynamic>.from(json['env'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))
-            : const SdkOmitted(),
-        envVars: json.containsKey('env_vars')
-            ? SdkPresent(
-                (json['env_vars'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-      );
+  factory McpTransportConfigParamStdio.fromJson(Map<String, dynamic> json) => McpTransportConfigParamStdio(
+    type_: (json['type'] != null ? McpTransportConfigParamStdioType.fromJson(json['type'] as String) : null)!,
+    command: (json['command'] as String?)!,
+    args: json.containsKey('args') ? SdkPresent((json['args'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    cwd: (json['cwd'] as String?)!,
+    env: json.containsKey('env') ? SdkPresent(json['env'] == null ? null : Map<String, dynamic>.from(json['env'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
+    envVars: json.containsKey('env_vars') ? SdkPresent((json['env_vars'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'command': command,
-        ...switch (args) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'args': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'cwd': cwd,
-        ...switch (env) {
-          SdkPresent<Map<String, String>?>(value: final value) => {
-              'env': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (envVars) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'env_vars': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'command': command,
+    ...switch (args) {
+      SdkPresent<List<String>?>(value: final value) => {'args': value,},
+      _ => const <String, dynamic>{},
+    },
+    'cwd': cwd,
+    ...switch (env) {
+      SdkPresent<Map<String, String>?>(value: final value) => {'env': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (envVars) {
+      SdkPresent<List<String>?>(value: final value) => {'env_vars': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

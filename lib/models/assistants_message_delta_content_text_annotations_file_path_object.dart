@@ -8,164 +8,86 @@ part of 'assistants_message.dart';
 class MessageDeltaContentTextAnnotationsFilePathObjectFilePath {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the file that was generated.
   final SdkOptional<String> fileId;
 
-  const MessageDeltaContentTextAnnotationsFilePathObjectFilePath(
-      {this.fileId = const SdkOmitted()});
+  const MessageDeltaContentTextAnnotationsFilePathObjectFilePath({this.fileId = const SdkOmitted()});
 
-  MessageDeltaContentTextAnnotationsFilePathObjectFilePath Function(
-      {SdkOptional<String> fileId}) get copyWith => _copyWith;
+  MessageDeltaContentTextAnnotationsFilePathObjectFilePath Function({SdkOptional<String> fileId}) get copyWith => _copyWith;
 
-  MessageDeltaContentTextAnnotationsFilePathObjectFilePath _copyWith(
-          {Object? fileId = sdkOmittedValue}) =>
-      MessageDeltaContentTextAnnotationsFilePathObjectFilePath(
-        fileId: identical(fileId, sdkOmittedValue)
-            ? this.fileId
-            : fileId as SdkOptional<String>,
-      );
+  MessageDeltaContentTextAnnotationsFilePathObjectFilePath _copyWith({Object? fileId = sdkOmittedValue}) => MessageDeltaContentTextAnnotationsFilePathObjectFilePath(
+    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
+  );
 
-  factory MessageDeltaContentTextAnnotationsFilePathObjectFilePath.fromJson(
-          Map<String, dynamic> json) =>
-      MessageDeltaContentTextAnnotationsFilePathObjectFilePath(
-        fileId: json['file_id'] != null
-            ? SdkPresent((json['file_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory MessageDeltaContentTextAnnotationsFilePathObjectFilePath.fromJson(Map<String, dynamic> json) => MessageDeltaContentTextAnnotationsFilePathObjectFilePath(
+    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (fileId) {
-          SdkPresent<String>(value: final value) => {
-              'file_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (fileId) {
+      SdkPresent<String>(value: final value) => {'file_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A URL for the file that's generated when the assistant used the `code_interpreter` tool to generate a file.
 class MessageDeltaContentTextAnnotationsFilePathObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The index of the annotation in the text content part.
   final int index;
-
   /// Always `file_path`.
   final MessageDeltaContentTextAnnotationsFilePathObjectType type_;
-
   /// The text in the message content that needs to be replaced.
   final SdkOptional<String> text;
-
   /// Optional object value serialized in the `file_path` wire field.
-  final SdkOptional<MessageDeltaContentTextAnnotationsFilePathObjectFilePath>
-      filePath;
-
+  final SdkOptional<MessageDeltaContentTextAnnotationsFilePathObjectFilePath> filePath;
   /// Optional `integer` value serialized in the `start_index` wire field.
   final SdkOptional<int> startIndex;
-
   /// Optional `integer` value serialized in the `end_index` wire field.
   final SdkOptional<int> endIndex;
 
-  const MessageDeltaContentTextAnnotationsFilePathObject(
-      {required this.index,
-      required this.type_,
-      this.text = const SdkOmitted(),
-      this.filePath = const SdkOmitted(),
-      this.startIndex = const SdkOmitted(),
-      this.endIndex = const SdkOmitted()});
+  const MessageDeltaContentTextAnnotationsFilePathObject({required this.index, required this.type_, this.text = const SdkOmitted(), this.filePath = const SdkOmitted(), this.startIndex = const SdkOmitted(), this.endIndex = const SdkOmitted()});
 
-  MessageDeltaContentTextAnnotationsFilePathObject Function(
-      {int index,
-      MessageDeltaContentTextAnnotationsFilePathObjectType type_,
-      SdkOptional<String> text,
-      SdkOptional<MessageDeltaContentTextAnnotationsFilePathObjectFilePath>
-          filePath,
-      SdkOptional<int> startIndex,
-      SdkOptional<int> endIndex}) get copyWith => _copyWith;
+  MessageDeltaContentTextAnnotationsFilePathObject Function({int index, MessageDeltaContentTextAnnotationsFilePathObjectType type_, SdkOptional<String> text, SdkOptional<MessageDeltaContentTextAnnotationsFilePathObjectFilePath> filePath, SdkOptional<int> startIndex, SdkOptional<int> endIndex}) get copyWith => _copyWith;
 
-  MessageDeltaContentTextAnnotationsFilePathObject _copyWith(
-          {Object? index = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? filePath = sdkOmittedValue,
-          Object? startIndex = sdkOmittedValue,
-          Object? endIndex = sdkOmittedValue}) =>
-      MessageDeltaContentTextAnnotationsFilePathObject(
-        index: identical(index, sdkOmittedValue) ? this.index : index as int,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MessageDeltaContentTextAnnotationsFilePathObjectType,
-        text: identical(text, sdkOmittedValue)
-            ? this.text
-            : text as SdkOptional<String>,
-        filePath: identical(filePath, sdkOmittedValue)
-            ? this.filePath
-            : filePath as SdkOptional<
-                MessageDeltaContentTextAnnotationsFilePathObjectFilePath>,
-        startIndex: identical(startIndex, sdkOmittedValue)
-            ? this.startIndex
-            : startIndex as SdkOptional<int>,
-        endIndex: identical(endIndex, sdkOmittedValue)
-            ? this.endIndex
-            : endIndex as SdkOptional<int>,
-      );
+  MessageDeltaContentTextAnnotationsFilePathObject _copyWith({Object? index = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? filePath = sdkOmittedValue, Object? startIndex = sdkOmittedValue, Object? endIndex = sdkOmittedValue}) => MessageDeltaContentTextAnnotationsFilePathObject(
+    index: identical(index, sdkOmittedValue) ? this.index : index as int,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageDeltaContentTextAnnotationsFilePathObjectType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
+    filePath: identical(filePath, sdkOmittedValue) ? this.filePath : filePath as SdkOptional<MessageDeltaContentTextAnnotationsFilePathObjectFilePath>,
+    startIndex: identical(startIndex, sdkOmittedValue) ? this.startIndex : startIndex as SdkOptional<int>,
+    endIndex: identical(endIndex, sdkOmittedValue) ? this.endIndex : endIndex as SdkOptional<int>,
+  );
 
-  factory MessageDeltaContentTextAnnotationsFilePathObject.fromJson(
-          Map<String, dynamic> json) =>
-      MessageDeltaContentTextAnnotationsFilePathObject(
-        index: ((json['index'] as num?)?.toInt())!,
-        type_: (json['type'] != null
-            ? MessageDeltaContentTextAnnotationsFilePathObjectType.fromJson(
-                json['type'] as String)
-            : null)!,
-        text: json['text'] != null
-            ? SdkPresent((json['text'] as String?)!)
-            : const SdkOmitted(),
-        filePath: json['file_path'] != null
-            ? SdkPresent((json['file_path'] != null
-                ? MessageDeltaContentTextAnnotationsFilePathObjectFilePath
-                    .fromJson(json['file_path'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        startIndex: json['start_index'] != null
-            ? SdkPresent(((json['start_index'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        endIndex: json['end_index'] != null
-            ? SdkPresent(((json['end_index'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory MessageDeltaContentTextAnnotationsFilePathObject.fromJson(Map<String, dynamic> json) => MessageDeltaContentTextAnnotationsFilePathObject(
+    index: ((json['index'] as num?)?.toInt())!,
+    type_: (json['type'] != null ? MessageDeltaContentTextAnnotationsFilePathObjectType.fromJson(json['type'] as String) : null)!,
+    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
+    filePath: json['file_path'] != null ? SdkPresent((json['file_path'] != null ? MessageDeltaContentTextAnnotationsFilePathObjectFilePath.fromJson(json['file_path'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    startIndex: json['start_index'] != null ? SdkPresent(((json['start_index'] as num?)?.toInt())!) : const SdkOmitted(),
+    endIndex: json['end_index'] != null ? SdkPresent(((json['end_index'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'index': index,
-        'type': type_.toJson(),
-        ...switch (text) {
-          SdkPresent<String>(value: final value) => {
-              'text': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (filePath) {
-          SdkPresent<MessageDeltaContentTextAnnotationsFilePathObjectFilePath>(
-            value: final value
-          ) =>
-            {
-              'file_path': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startIndex) {
-          SdkPresent<int>(value: final value) => {
-              'start_index': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (endIndex) {
-          SdkPresent<int>(value: final value) => {
-              'end_index': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'index': index,
+    'type': type_.toJson(),
+    ...switch (text) {
+      SdkPresent<String>(value: final value) => {'text': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (filePath) {
+      SdkPresent<MessageDeltaContentTextAnnotationsFilePathObjectFilePath>(value: final value) => {'file_path': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startIndex) {
+      SdkPresent<int>(value: final value) => {'start_index': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (endIndex) {
+      SdkPresent<int>(value: final value) => {'end_index': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

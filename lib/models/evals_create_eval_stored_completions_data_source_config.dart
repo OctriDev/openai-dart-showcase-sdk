@@ -8,54 +8,30 @@ part of 'evals_create.dart';
 class CreateEvalStoredCompletionsDataSourceConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of data source. Always `stored_completions`.
   final CreateEvalStoredCompletionsDataSourceConfigType type_;
-
   /// Metadata filters for the stored completions data source.
   final SdkOptional<Map<String, Object?>> metadata;
 
-  const CreateEvalStoredCompletionsDataSourceConfig(
-      {required this.type_, this.metadata = const SdkOmitted()});
+  const CreateEvalStoredCompletionsDataSourceConfig({required this.type_, this.metadata = const SdkOmitted()});
 
-  CreateEvalStoredCompletionsDataSourceConfig Function(
-      {CreateEvalStoredCompletionsDataSourceConfigType type_,
-      SdkOptional<Map<String, Object?>> metadata}) get copyWith => _copyWith;
+  CreateEvalStoredCompletionsDataSourceConfig Function({CreateEvalStoredCompletionsDataSourceConfigType type_, SdkOptional<Map<String, Object?>> metadata}) get copyWith => _copyWith;
 
-  CreateEvalStoredCompletionsDataSourceConfig _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue}) =>
-      CreateEvalStoredCompletionsDataSourceConfig(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CreateEvalStoredCompletionsDataSourceConfigType,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, Object?>>,
-      );
+  CreateEvalStoredCompletionsDataSourceConfig _copyWith({Object? type_ = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => CreateEvalStoredCompletionsDataSourceConfig(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalStoredCompletionsDataSourceConfigType,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, Object?>>,
+  );
 
-  factory CreateEvalStoredCompletionsDataSourceConfig.fromJson(
-          Map<String, dynamic> json) =>
-      CreateEvalStoredCompletionsDataSourceConfig(
-        type_: (json['type'] != null
-            ? CreateEvalStoredCompletionsDataSourceConfigType.fromJson(
-                json['type'] as String)
-            : null)!,
-        metadata: json['metadata'] != null
-            ? SdkPresent((json['metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-      );
+  factory CreateEvalStoredCompletionsDataSourceConfig.fromJson(Map<String, dynamic> json) => CreateEvalStoredCompletionsDataSourceConfig(
+    type_: (json['type'] != null ? CreateEvalStoredCompletionsDataSourceConfigType.fromJson(json['type'] as String) : null)!,
+    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (metadata) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (metadata) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

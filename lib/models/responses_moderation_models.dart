@@ -8,95 +8,63 @@ part of 'responses_moderation.dart';
 class Moderation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Moderation for the response input.
   final ModerationInput input;
-
   /// Moderation for the response output.
   final ModerationOutput output;
 
   const Moderation({required this.input, required this.output});
 
-  Moderation Function({ModerationInput input, ModerationOutput output})
-      get copyWith => _copyWith;
+  Moderation Function({ModerationInput input, ModerationOutput output}) get copyWith => _copyWith;
 
-  Moderation _copyWith(
-          {Object? input = sdkOmittedValue,
-          Object? output = sdkOmittedValue}) =>
-      Moderation(
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as ModerationInput,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as ModerationOutput,
-      );
+  Moderation _copyWith({Object? input = sdkOmittedValue, Object? output = sdkOmittedValue}) => Moderation(
+    input: identical(input, sdkOmittedValue) ? this.input : input as ModerationInput,
+    output: identical(output, sdkOmittedValue) ? this.output : output as ModerationOutput,
+  );
 
   factory Moderation.fromJson(Map<String, dynamic> json) => Moderation(
-        input: (json['input'] != null
-            ? ModerationInput.fromJson(json['input'])
-            : null)!,
-        output: (json['output'] != null
-            ? ModerationOutput.fromJson(json['output'])
-            : null)!,
-      );
+    input: (json['input'] != null ? ModerationInput.fromJson(json['input']) : null)!,
+    output: (json['output'] != null ? ModerationOutput.fromJson(json['output']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'input': input.toJson(),
-        'output': output.toJson(),
-      };
+    'input': input.toJson(),
+    'output': output.toJson(),
+  };
 }
 
 /// An error produced while attempting moderation for the response input or output.
 class ModerationErrorBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which was always `error` for moderation failures.
   final ModerationErrorBodyType type_;
-
   /// The error code.
   final String code;
-
   /// The error message.
   final String message;
 
-  const ModerationErrorBody(
-      {required this.type_, required this.code, required this.message});
+  const ModerationErrorBody({required this.type_, required this.code, required this.message});
 
-  ModerationErrorBody Function(
-      {ModerationErrorBodyType type_,
-      String code,
-      String message}) get copyWith => _copyWith;
+  ModerationErrorBody Function({ModerationErrorBodyType type_, String code, String message}) get copyWith => _copyWith;
 
-  ModerationErrorBody _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      ModerationErrorBody(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ModerationErrorBodyType,
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  ModerationErrorBody _copyWith({Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => ModerationErrorBody(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ModerationErrorBodyType,
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
-  factory ModerationErrorBody.fromJson(Map<String, dynamic> json) =>
-      ModerationErrorBody(
-        type_: (json['type'] != null
-            ? ModerationErrorBodyType.fromJson(json['type'] as String)
-            : null)!,
-        code: (json['code'] as String?)!,
-        message: (json['message'] as String?)!,
-      );
+  factory ModerationErrorBody.fromJson(Map<String, dynamic> json) => ModerationErrorBody(
+    type_: (json['type'] != null ? ModerationErrorBodyType.fromJson(json['type'] as String) : null)!,
+    code: (json['code'] as String?)!,
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'code': code,
-        'message': message,
-      };
+    'type': type_.toJson(),
+    'code': code,
+    'message': message,
+  };
 }
 
 sealed class ModerationInput {
@@ -105,32 +73,12 @@ sealed class ModerationInput {
   const ModerationInput();
   factory ModerationInput.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ModerationResultBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ModerationInputModerationResultBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ModerationErrorBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ModerationInputModerationErrorBody(value);
-        }
-      } catch (_) {}
+      try { final value = ModerationResultBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ModerationInputModerationResultBody(value); } } catch (_) {}
+      try { final value = ModerationErrorBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ModerationInputModerationErrorBody(value); } } catch (_) {}
     }
-    try {
-      return ModerationInputModerationResultBody(
-          ModerationResultBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ModerationInputModerationErrorBody(
-          ModerationErrorBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"moderation_result", "error"}.contains(json["type"])) {
-      return UnknownModerationInput(json);
-    }
+    try { return ModerationInputModerationResultBody(ModerationResultBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ModerationInputModerationErrorBody(ModerationErrorBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"moderation_result", "error"}.contains(json["type"])) { return UnknownModerationInput(json); }
     throw FormatException("No variant matched for ModerationInput");
   }
   Object? toJson();
@@ -139,23 +87,20 @@ sealed class ModerationInput {
 final class ModerationInputModerationResultBody extends ModerationInput {
   final ModerationResultBody value;
   const ModerationInputModerationResultBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ModerationInputModerationErrorBody extends ModerationInput {
   final ModerationErrorBody value;
   const ModerationInputModerationErrorBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ModerationInput] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownModerationInput extends ModerationInput {
   final Map<String, dynamic> raw;
   const UnknownModerationInput(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 sealed class ModerationOutput {
@@ -164,32 +109,12 @@ sealed class ModerationOutput {
   const ModerationOutput();
   factory ModerationOutput.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ModerationResultBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ModerationOutputModerationResultBody(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ModerationErrorBody.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ModerationOutputModerationErrorBody(value);
-        }
-      } catch (_) {}
+      try { final value = ModerationResultBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ModerationOutputModerationResultBody(value); } } catch (_) {}
+      try { final value = ModerationErrorBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ModerationOutputModerationErrorBody(value); } } catch (_) {}
     }
-    try {
-      return ModerationOutputModerationResultBody(
-          ModerationResultBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ModerationOutputModerationErrorBody(
-          ModerationErrorBody.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"moderation_result", "error"}.contains(json["type"])) {
-      return UnknownModerationOutput(json);
-    }
+    try { return ModerationOutputModerationResultBody(ModerationResultBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ModerationOutputModerationErrorBody(ModerationErrorBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"moderation_result", "error"}.contains(json["type"])) { return UnknownModerationOutput(json); }
     throw FormatException("No variant matched for ModerationOutput");
   }
   Object? toJson();
@@ -198,21 +123,18 @@ sealed class ModerationOutput {
 final class ModerationOutputModerationResultBody extends ModerationOutput {
   final ModerationResultBody value;
   const ModerationOutputModerationResultBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class ModerationOutputModerationErrorBody extends ModerationOutput {
   final ModerationErrorBody value;
   const ModerationOutputModerationErrorBody(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ModerationOutput] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownModerationOutput extends ModerationOutput {
   final Map<String, dynamic> raw;
   const UnknownModerationOutput(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

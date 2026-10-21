@@ -8,43 +8,27 @@ part of 'assistants_run.dart';
 class RunStepDetailsToolCallsFileSearchRankingOptionsObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ranker to use for the file search. If not specified will use the `auto` ranker.
   final FileSearchRanker ranker;
-
   /// The score threshold for the file search. All values must be a floating point number between 0 and 1.
   final double scoreThreshold;
 
-  const RunStepDetailsToolCallsFileSearchRankingOptionsObject(
-      {required this.ranker, required this.scoreThreshold});
+  const RunStepDetailsToolCallsFileSearchRankingOptionsObject({required this.ranker, required this.scoreThreshold});
 
-  RunStepDetailsToolCallsFileSearchRankingOptionsObject Function(
-      {FileSearchRanker ranker,
-      double scoreThreshold}) get copyWith => _copyWith;
+  RunStepDetailsToolCallsFileSearchRankingOptionsObject Function({FileSearchRanker ranker, double scoreThreshold}) get copyWith => _copyWith;
 
-  RunStepDetailsToolCallsFileSearchRankingOptionsObject _copyWith(
-          {Object? ranker = sdkOmittedValue,
-          Object? scoreThreshold = sdkOmittedValue}) =>
-      RunStepDetailsToolCallsFileSearchRankingOptionsObject(
-        ranker: identical(ranker, sdkOmittedValue)
-            ? this.ranker
-            : ranker as FileSearchRanker,
-        scoreThreshold: identical(scoreThreshold, sdkOmittedValue)
-            ? this.scoreThreshold
-            : scoreThreshold as double,
-      );
+  RunStepDetailsToolCallsFileSearchRankingOptionsObject _copyWith({Object? ranker = sdkOmittedValue, Object? scoreThreshold = sdkOmittedValue}) => RunStepDetailsToolCallsFileSearchRankingOptionsObject(
+    ranker: identical(ranker, sdkOmittedValue) ? this.ranker : ranker as FileSearchRanker,
+    scoreThreshold: identical(scoreThreshold, sdkOmittedValue) ? this.scoreThreshold : scoreThreshold as double,
+  );
 
-  factory RunStepDetailsToolCallsFileSearchRankingOptionsObject.fromJson(
-          Map<String, dynamic> json) =>
-      RunStepDetailsToolCallsFileSearchRankingOptionsObject(
-        ranker: (json['ranker'] != null
-            ? FileSearchRanker.fromJson(json['ranker'] as String)
-            : null)!,
-        scoreThreshold: ((json['score_threshold'] as num?)?.toDouble())!,
-      );
+  factory RunStepDetailsToolCallsFileSearchRankingOptionsObject.fromJson(Map<String, dynamic> json) => RunStepDetailsToolCallsFileSearchRankingOptionsObject(
+    ranker: (json['ranker'] != null ? FileSearchRanker.fromJson(json['ranker'] as String) : null)!,
+    scoreThreshold: ((json['score_threshold'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'ranker': ranker.toJson(),
-        'score_threshold': scoreThreshold,
-      };
+    'ranker': ranker.toJson(),
+    'score_threshold': scoreThreshold,
+  };
 }

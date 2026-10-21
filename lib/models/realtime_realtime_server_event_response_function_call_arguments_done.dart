@@ -8,107 +8,57 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventResponseFunctionCallArgumentsDone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `response.function_call_arguments.done`.
   final RealtimeServerEventResponseFunctionCallArgumentsDoneType type_;
-
   /// The ID of the response.
   final String responseId;
-
   /// The ID of the function call item.
   final String itemId;
-
   /// The index of the output item in the response.
   final int outputIndex;
-
   /// The ID of the function call.
   final String callId;
-
   /// The name of the function that was called.
   final String name;
-
   /// The final arguments as a JSON string.
   final String arguments;
 
-  const RealtimeServerEventResponseFunctionCallArgumentsDone(
-      {required this.eventId,
-      required this.type_,
-      required this.responseId,
-      required this.itemId,
-      required this.outputIndex,
-      required this.callId,
-      required this.name,
-      required this.arguments});
+  const RealtimeServerEventResponseFunctionCallArgumentsDone({required this.eventId, required this.type_, required this.responseId, required this.itemId, required this.outputIndex, required this.callId, required this.name, required this.arguments});
 
-  RealtimeServerEventResponseFunctionCallArgumentsDone Function(
-      {String eventId,
-      RealtimeServerEventResponseFunctionCallArgumentsDoneType type_,
-      String responseId,
-      String itemId,
-      int outputIndex,
-      String callId,
-      String name,
-      String arguments}) get copyWith => _copyWith;
+  RealtimeServerEventResponseFunctionCallArgumentsDone Function({String eventId, RealtimeServerEventResponseFunctionCallArgumentsDoneType type_, String responseId, String itemId, int outputIndex, String callId, String name, String arguments}) get copyWith => _copyWith;
 
-  RealtimeServerEventResponseFunctionCallArgumentsDone _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? responseId = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? arguments = sdkOmittedValue}) =>
-      RealtimeServerEventResponseFunctionCallArgumentsDone(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeServerEventResponseFunctionCallArgumentsDoneType,
-        responseId: identical(responseId, sdkOmittedValue)
-            ? this.responseId
-            : responseId as String,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        arguments: identical(arguments, sdkOmittedValue)
-            ? this.arguments
-            : arguments as String,
-      );
+  RealtimeServerEventResponseFunctionCallArgumentsDone _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? arguments = sdkOmittedValue}) => RealtimeServerEventResponseFunctionCallArgumentsDone(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventResponseFunctionCallArgumentsDoneType,
+    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as String,
+  );
 
-  factory RealtimeServerEventResponseFunctionCallArgumentsDone.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeServerEventResponseFunctionCallArgumentsDone(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeServerEventResponseFunctionCallArgumentsDoneType.fromJson(
-                json['type'] as String)
-            : null)!,
-        responseId: (json['response_id'] as String?)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        callId: (json['call_id'] as String?)!,
-        name: (json['name'] as String?)!,
-        arguments: (json['arguments'] as String?)!,
-      );
+  factory RealtimeServerEventResponseFunctionCallArgumentsDone.fromJson(Map<String, dynamic> json) => RealtimeServerEventResponseFunctionCallArgumentsDone(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeServerEventResponseFunctionCallArgumentsDoneType.fromJson(json['type'] as String) : null)!,
+    responseId: (json['response_id'] as String?)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    callId: (json['call_id'] as String?)!,
+    name: (json['name'] as String?)!,
+    arguments: (json['arguments'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'response_id': responseId,
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'call_id': callId,
-        'name': name,
-        'arguments': arguments,
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'response_id': responseId,
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'call_id': callId,
+    'name': name,
+    'arguments': arguments,
+  };
 }

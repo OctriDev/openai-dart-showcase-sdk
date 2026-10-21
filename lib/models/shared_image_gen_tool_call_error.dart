@@ -8,87 +8,45 @@ part of 'shared_image.dart';
 class ImageGenToolCallError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `code` wire field.
   final String? code;
-
   /// The error type.
   final String type_;
-
   /// A description of the error.
   final String message;
-
   /// Required `string` value serialized in the `param` wire field.
   final String? param;
-
   /// Public details for a `moderation_blocked` error, when available.
   final SdkOptional<ImageGenToolCallModerationDetails> moderationDetails;
 
-  const ImageGenToolCallError(
-      {required this.code,
-      required this.type_,
-      required this.message,
-      required this.param,
-      this.moderationDetails = const SdkOmitted()});
+  const ImageGenToolCallError({required this.code, required this.type_, required this.message, required this.param, this.moderationDetails = const SdkOmitted()});
 
-  ImageGenToolCallError Function(
-          {String? code,
-          String type_,
-          String message,
-          String? param,
-          SdkOptional<ImageGenToolCallModerationDetails> moderationDetails})
-      get copyWith => _copyWith;
+  ImageGenToolCallError Function({String? code, String type_, String message, String? param, SdkOptional<ImageGenToolCallModerationDetails> moderationDetails}) get copyWith => _copyWith;
 
-  ImageGenToolCallError _copyWith(
-          {Object? code = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? param = sdkOmittedValue,
-          Object? moderationDetails = sdkOmittedValue}) =>
-      ImageGenToolCallError(
-        code: identical(code, sdkOmittedValue) ? this.code : code as String?,
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-        param:
-            identical(param, sdkOmittedValue) ? this.param : param as String?,
-        moderationDetails: identical(moderationDetails, sdkOmittedValue)
-            ? this.moderationDetails
-            : moderationDetails
-                as SdkOptional<ImageGenToolCallModerationDetails>,
-      );
+  ImageGenToolCallError _copyWith({Object? code = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? message = sdkOmittedValue, Object? param = sdkOmittedValue, Object? moderationDetails = sdkOmittedValue}) => ImageGenToolCallError(
+    code: identical(code, sdkOmittedValue) ? this.code : code as String?,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+    param: identical(param, sdkOmittedValue) ? this.param : param as String?,
+    moderationDetails: identical(moderationDetails, sdkOmittedValue) ? this.moderationDetails : moderationDetails as SdkOptional<ImageGenToolCallModerationDetails>,
+  );
 
-  factory ImageGenToolCallError.fromJson(Map<String, dynamic> json) =>
-      ImageGenToolCallError(
-        code: json.containsKey('code')
-            ? json['code'] as String?
-            : throw ArgumentError.value(
-                null, 'code', 'Required property is missing'),
-        type_: (json['type'] as String?)!,
-        message: (json['message'] as String?)!,
-        param: json.containsKey('param')
-            ? json['param'] as String?
-            : throw ArgumentError.value(
-                null, 'param', 'Required property is missing'),
-        moderationDetails: json['moderation_details'] != null
-            ? SdkPresent((json['moderation_details'] != null
-                ? ImageGenToolCallModerationDetails.fromJson(
-                    json['moderation_details'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ImageGenToolCallError.fromJson(Map<String, dynamic> json) => ImageGenToolCallError(
+    code: json.containsKey('code') ? json['code'] as String? : throw ArgumentError.value(null, 'code', 'Required property is missing'),
+    type_: (json['type'] as String?)!,
+    message: (json['message'] as String?)!,
+    param: json.containsKey('param') ? json['param'] as String? : throw ArgumentError.value(null, 'param', 'Required property is missing'),
+    moderationDetails: json['moderation_details'] != null ? SdkPresent((json['moderation_details'] != null ? ImageGenToolCallModerationDetails.fromJson(json['moderation_details'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'code': code,
-        'type': type_,
-        'message': message,
-        'param': param,
-        ...switch (moderationDetails) {
-          SdkPresent<ImageGenToolCallModerationDetails>(value: final value) => {
-              'moderation_details': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'code': code,
+    'type': type_,
+    'message': message,
+    'param': param,
+    ...switch (moderationDetails) {
+      SdkPresent<ImageGenToolCallModerationDetails>(value: final value) => {'moderation_details': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -6,25 +6,22 @@ part of 'responses_beta_apply.dart';
 // responses_beta_apply domain models
 /// Typed representation of the `BetaApplyPatchCallStatus` API schema.
 final class BetaApplyPatchCallStatus {
+
   final String value;
 
   const BetaApplyPatchCallStatus._(this.value);
 
-  factory BetaApplyPatchCallStatus.fromJson(String value) =>
-      BetaApplyPatchCallStatus._(value);
+  factory BetaApplyPatchCallStatus.fromJson(String value) => BetaApplyPatchCallStatus._(value);
 
   static const inProgress = BetaApplyPatchCallStatus._('in_progress');
   static const completed = BetaApplyPatchCallStatus._('completed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaApplyPatchCallStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaApplyPatchCallStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

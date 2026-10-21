@@ -8,376 +8,172 @@ part of 'batch.dart';
 class Batch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// The object type, which is always `batch`.
   final BatchObject object;
-
   /// The OpenAI API endpoint used by the batch.
   final String endpoint;
-
   /// Model ID used to process the batch, like `gpt-6-astra`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models.
   final SdkOptional<String> model;
-
   /// Optional object value serialized in the `errors` wire field.
   final SdkOptional<BatchErrors?> errors;
-
   /// The ID of the input file for the batch.
   final String inputFileId;
-
   /// The time frame within which the batch should be processed.
   final String completionWindow;
-
   /// The current status of the batch.
   final BatchStatus status;
-
   /// The ID of the file containing the outputs of successfully executed requests.
   final SdkOptional<String?> outputFileId;
-
   /// The ID of the file containing the outputs of requests with errors.
   final SdkOptional<String?> errorFileId;
-
   /// The Unix timestamp (in seconds) for when the batch was created.
   final int createdAt;
-
   /// The Unix timestamp (in seconds) for when the batch started processing.
   final SdkOptional<int?> inProgressAt;
-
   /// The Unix timestamp (in seconds) for when the batch will expire.
   final SdkOptional<int?> expiresAt;
-
   /// The Unix timestamp (in seconds) for when the batch started finalizing.
   final SdkOptional<int?> finalizingAt;
-
   /// The Unix timestamp (in seconds) for when the batch was completed.
   final SdkOptional<int?> completedAt;
-
   /// The Unix timestamp (in seconds) for when the batch failed.
   final SdkOptional<int?> failedAt;
-
   /// The Unix timestamp (in seconds) for when the batch expired.
   final SdkOptional<int?> expiredAt;
-
   /// The Unix timestamp (in seconds) for when the batch started cancelling.
   final SdkOptional<int?> cancellingAt;
-
   /// The Unix timestamp (in seconds) for when the batch was cancelled.
   final SdkOptional<int?> cancelledAt;
-
   /// The request counts for different statuses within the batch.
   final SdkOptional<BatchRequestCounts> requestCounts;
-
   /// Represents token usage details including input tokens, output tokens, a breakdown of output tokens, and the total tokens used. Only populated on batches created after September 7, 2025.
   final SdkOptional<BatchUsage> usage;
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
 
-  const Batch(
-      {required this.id,
-      required this.object,
-      required this.endpoint,
-      this.model = const SdkOmitted(),
-      this.errors = const SdkOmitted(),
-      required this.inputFileId,
-      required this.completionWindow,
-      required this.status,
-      this.outputFileId = const SdkOmitted(),
-      this.errorFileId = const SdkOmitted(),
-      required this.createdAt,
-      this.inProgressAt = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted(),
-      this.finalizingAt = const SdkOmitted(),
-      this.completedAt = const SdkOmitted(),
-      this.failedAt = const SdkOmitted(),
-      this.expiredAt = const SdkOmitted(),
-      this.cancellingAt = const SdkOmitted(),
-      this.cancelledAt = const SdkOmitted(),
-      this.requestCounts = const SdkOmitted(),
-      this.usage = const SdkOmitted(),
-      this.metadata = const SdkOmitted()});
+  const Batch({required this.id, required this.object, required this.endpoint, this.model = const SdkOmitted(), this.errors = const SdkOmitted(), required this.inputFileId, required this.completionWindow, required this.status, this.outputFileId = const SdkOmitted(), this.errorFileId = const SdkOmitted(), required this.createdAt, this.inProgressAt = const SdkOmitted(), this.expiresAt = const SdkOmitted(), this.finalizingAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.failedAt = const SdkOmitted(), this.expiredAt = const SdkOmitted(), this.cancellingAt = const SdkOmitted(), this.cancelledAt = const SdkOmitted(), this.requestCounts = const SdkOmitted(), this.usage = const SdkOmitted(), this.metadata = const SdkOmitted()});
 
-  Batch Function(
-      {String id,
-      BatchObject object,
-      String endpoint,
-      SdkOptional<String> model,
-      SdkOptional<BatchErrors?> errors,
-      String inputFileId,
-      String completionWindow,
-      BatchStatus status,
-      SdkOptional<String?> outputFileId,
-      SdkOptional<String?> errorFileId,
-      int createdAt,
-      SdkOptional<int?> inProgressAt,
-      SdkOptional<int?> expiresAt,
-      SdkOptional<int?> finalizingAt,
-      SdkOptional<int?> completedAt,
-      SdkOptional<int?> failedAt,
-      SdkOptional<int?> expiredAt,
-      SdkOptional<int?> cancellingAt,
-      SdkOptional<int?> cancelledAt,
-      SdkOptional<BatchRequestCounts> requestCounts,
-      SdkOptional<BatchUsage> usage,
-      SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
+  Batch Function({String id, BatchObject object, String endpoint, SdkOptional<String> model, SdkOptional<BatchErrors?> errors, String inputFileId, String completionWindow, BatchStatus status, SdkOptional<String?> outputFileId, SdkOptional<String?> errorFileId, int createdAt, SdkOptional<int?> inProgressAt, SdkOptional<int?> expiresAt, SdkOptional<int?> finalizingAt, SdkOptional<int?> completedAt, SdkOptional<int?> failedAt, SdkOptional<int?> expiredAt, SdkOptional<int?> cancellingAt, SdkOptional<int?> cancelledAt, SdkOptional<BatchRequestCounts> requestCounts, SdkOptional<BatchUsage> usage, SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
 
-  Batch _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? endpoint = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? errors = sdkOmittedValue,
-          Object? inputFileId = sdkOmittedValue,
-          Object? completionWindow = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? outputFileId = sdkOmittedValue,
-          Object? errorFileId = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? inProgressAt = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue,
-          Object? finalizingAt = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? failedAt = sdkOmittedValue,
-          Object? expiredAt = sdkOmittedValue,
-          Object? cancellingAt = sdkOmittedValue,
-          Object? cancelledAt = sdkOmittedValue,
-          Object? requestCounts = sdkOmittedValue,
-          Object? usage = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue}) =>
-      Batch(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as BatchObject,
-        endpoint: identical(endpoint, sdkOmittedValue)
-            ? this.endpoint
-            : endpoint as String,
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<String>,
-        errors: identical(errors, sdkOmittedValue)
-            ? this.errors
-            : errors as SdkOptional<BatchErrors?>,
-        inputFileId: identical(inputFileId, sdkOmittedValue)
-            ? this.inputFileId
-            : inputFileId as String,
-        completionWindow: identical(completionWindow, sdkOmittedValue)
-            ? this.completionWindow
-            : completionWindow as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as BatchStatus,
-        outputFileId: identical(outputFileId, sdkOmittedValue)
-            ? this.outputFileId
-            : outputFileId as SdkOptional<String?>,
-        errorFileId: identical(errorFileId, sdkOmittedValue)
-            ? this.errorFileId
-            : errorFileId as SdkOptional<String?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        inProgressAt: identical(inProgressAt, sdkOmittedValue)
-            ? this.inProgressAt
-            : inProgressAt as SdkOptional<int?>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<int?>,
-        finalizingAt: identical(finalizingAt, sdkOmittedValue)
-            ? this.finalizingAt
-            : finalizingAt as SdkOptional<int?>,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as SdkOptional<int?>,
-        failedAt: identical(failedAt, sdkOmittedValue)
-            ? this.failedAt
-            : failedAt as SdkOptional<int?>,
-        expiredAt: identical(expiredAt, sdkOmittedValue)
-            ? this.expiredAt
-            : expiredAt as SdkOptional<int?>,
-        cancellingAt: identical(cancellingAt, sdkOmittedValue)
-            ? this.cancellingAt
-            : cancellingAt as SdkOptional<int?>,
-        cancelledAt: identical(cancelledAt, sdkOmittedValue)
-            ? this.cancelledAt
-            : cancelledAt as SdkOptional<int?>,
-        requestCounts: identical(requestCounts, sdkOmittedValue)
-            ? this.requestCounts
-            : requestCounts as SdkOptional<BatchRequestCounts>,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as SdkOptional<BatchUsage>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>?>,
-      );
+  Batch _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? endpoint = sdkOmittedValue, Object? model = sdkOmittedValue, Object? errors = sdkOmittedValue, Object? inputFileId = sdkOmittedValue, Object? completionWindow = sdkOmittedValue, Object? status = sdkOmittedValue, Object? outputFileId = sdkOmittedValue, Object? errorFileId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? inProgressAt = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? finalizingAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? failedAt = sdkOmittedValue, Object? expiredAt = sdkOmittedValue, Object? cancellingAt = sdkOmittedValue, Object? cancelledAt = sdkOmittedValue, Object? requestCounts = sdkOmittedValue, Object? usage = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => Batch(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as BatchObject,
+    endpoint: identical(endpoint, sdkOmittedValue) ? this.endpoint : endpoint as String,
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
+    errors: identical(errors, sdkOmittedValue) ? this.errors : errors as SdkOptional<BatchErrors?>,
+    inputFileId: identical(inputFileId, sdkOmittedValue) ? this.inputFileId : inputFileId as String,
+    completionWindow: identical(completionWindow, sdkOmittedValue) ? this.completionWindow : completionWindow as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as BatchStatus,
+    outputFileId: identical(outputFileId, sdkOmittedValue) ? this.outputFileId : outputFileId as SdkOptional<String?>,
+    errorFileId: identical(errorFileId, sdkOmittedValue) ? this.errorFileId : errorFileId as SdkOptional<String?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    inProgressAt: identical(inProgressAt, sdkOmittedValue) ? this.inProgressAt : inProgressAt as SdkOptional<int?>,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int?>,
+    finalizingAt: identical(finalizingAt, sdkOmittedValue) ? this.finalizingAt : finalizingAt as SdkOptional<int?>,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<int?>,
+    failedAt: identical(failedAt, sdkOmittedValue) ? this.failedAt : failedAt as SdkOptional<int?>,
+    expiredAt: identical(expiredAt, sdkOmittedValue) ? this.expiredAt : expiredAt as SdkOptional<int?>,
+    cancellingAt: identical(cancellingAt, sdkOmittedValue) ? this.cancellingAt : cancellingAt as SdkOptional<int?>,
+    cancelledAt: identical(cancelledAt, sdkOmittedValue) ? this.cancelledAt : cancelledAt as SdkOptional<int?>,
+    requestCounts: identical(requestCounts, sdkOmittedValue) ? this.requestCounts : requestCounts as SdkOptional<BatchRequestCounts>,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<BatchUsage>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
+  );
 
   factory Batch.fromJson(Map<String, dynamic> json) => Batch(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? BatchObject.fromJson(json['object'] as String)
-            : null)!,
-        endpoint: (json['endpoint'] as String?)!,
-        model: json['model'] != null
-            ? SdkPresent((json['model'] as String?)!)
-            : const SdkOmitted(),
-        errors: json.containsKey('errors')
-            ? SdkPresent(json['errors'] != null
-                ? BatchErrors.fromJson(json['errors'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        inputFileId: (json['input_file_id'] as String?)!,
-        completionWindow: (json['completion_window'] as String?)!,
-        status: (json['status'] != null
-            ? BatchStatus.fromJson(json['status'] as String)
-            : null)!,
-        outputFileId: json.containsKey('output_file_id')
-            ? SdkPresent(json['output_file_id'] as String?)
-            : const SdkOmitted(),
-        errorFileId: json.containsKey('error_file_id')
-            ? SdkPresent(json['error_file_id'] as String?)
-            : const SdkOmitted(),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        inProgressAt: json.containsKey('in_progress_at')
-            ? SdkPresent((json['in_progress_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        expiresAt: json.containsKey('expires_at')
-            ? SdkPresent((json['expires_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        finalizingAt: json.containsKey('finalizing_at')
-            ? SdkPresent((json['finalizing_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        completedAt: json.containsKey('completed_at')
-            ? SdkPresent((json['completed_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        failedAt: json.containsKey('failed_at')
-            ? SdkPresent((json['failed_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        expiredAt: json.containsKey('expired_at')
-            ? SdkPresent((json['expired_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        cancellingAt: json.containsKey('cancelling_at')
-            ? SdkPresent((json['cancelling_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        cancelledAt: json.containsKey('cancelled_at')
-            ? SdkPresent((json['cancelled_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        requestCounts: json['request_counts'] != null
-            ? SdkPresent((json['request_counts'] != null
-                ? BatchRequestCounts.fromJson(
-                    json['request_counts'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        usage: json['usage'] != null
-            ? SdkPresent((json['usage'] != null
-                ? BatchUsage.fromJson(json['usage'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? BatchObject.fromJson(json['object'] as String) : null)!,
+    endpoint: (json['endpoint'] as String?)!,
+    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
+    errors: json.containsKey('errors') ? SdkPresent(json['errors'] != null ? BatchErrors.fromJson(json['errors'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    inputFileId: (json['input_file_id'] as String?)!,
+    completionWindow: (json['completion_window'] as String?)!,
+    status: (json['status'] != null ? BatchStatus.fromJson(json['status'] as String) : null)!,
+    outputFileId: json.containsKey('output_file_id') ? SdkPresent(json['output_file_id'] as String?) : const SdkOmitted(),
+    errorFileId: json.containsKey('error_file_id') ? SdkPresent(json['error_file_id'] as String?) : const SdkOmitted(),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    inProgressAt: json.containsKey('in_progress_at') ? SdkPresent((json['in_progress_at'] as num?)?.toInt()) : const SdkOmitted(),
+    expiresAt: json.containsKey('expires_at') ? SdkPresent((json['expires_at'] as num?)?.toInt()) : const SdkOmitted(),
+    finalizingAt: json.containsKey('finalizing_at') ? SdkPresent((json['finalizing_at'] as num?)?.toInt()) : const SdkOmitted(),
+    completedAt: json.containsKey('completed_at') ? SdkPresent((json['completed_at'] as num?)?.toInt()) : const SdkOmitted(),
+    failedAt: json.containsKey('failed_at') ? SdkPresent((json['failed_at'] as num?)?.toInt()) : const SdkOmitted(),
+    expiredAt: json.containsKey('expired_at') ? SdkPresent((json['expired_at'] as num?)?.toInt()) : const SdkOmitted(),
+    cancellingAt: json.containsKey('cancelling_at') ? SdkPresent((json['cancelling_at'] as num?)?.toInt()) : const SdkOmitted(),
+    cancelledAt: json.containsKey('cancelled_at') ? SdkPresent((json['cancelled_at'] as num?)?.toInt()) : const SdkOmitted(),
+    requestCounts: json['request_counts'] != null ? SdkPresent((json['request_counts'] != null ? BatchRequestCounts.fromJson(json['request_counts'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    usage: json['usage'] != null ? SdkPresent((json['usage'] != null ? BatchUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'endpoint': endpoint,
-        ...switch (model) {
-          SdkPresent<String>(value: final value) => {
-              'model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (errors) {
-          SdkPresent<BatchErrors?>(value: final value) => {
-              'errors': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'input_file_id': inputFileId,
-        'completion_window': completionWindow,
-        'status': status.toJson(),
-        ...switch (outputFileId) {
-          SdkPresent<String?>(value: final value) => {
-              'output_file_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (errorFileId) {
-          SdkPresent<String?>(value: final value) => {
-              'error_file_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'created_at': createdAt,
-        ...switch (inProgressAt) {
-          SdkPresent<int?>(value: final value) => {
-              'in_progress_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<int?>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (finalizingAt) {
-          SdkPresent<int?>(value: final value) => {
-              'finalizing_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (completedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'completed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (failedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'failed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiredAt) {
-          SdkPresent<int?>(value: final value) => {
-              'expired_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cancellingAt) {
-          SdkPresent<int?>(value: final value) => {
-              'cancelling_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cancelledAt) {
-          SdkPresent<int?>(value: final value) => {
-              'cancelled_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (requestCounts) {
-          SdkPresent<BatchRequestCounts>(value: final value) => {
-              'request_counts': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (usage) {
-          SdkPresent<BatchUsage>(value: final value) => {
-              'usage': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    'object': object.toJson(),
+    'endpoint': endpoint,
+    ...switch (model) {
+      SdkPresent<String>(value: final value) => {'model': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (errors) {
+      SdkPresent<BatchErrors?>(value: final value) => {'errors': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'input_file_id': inputFileId,
+    'completion_window': completionWindow,
+    'status': status.toJson(),
+    ...switch (outputFileId) {
+      SdkPresent<String?>(value: final value) => {'output_file_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (errorFileId) {
+      SdkPresent<String?>(value: final value) => {'error_file_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'created_at': createdAt,
+    ...switch (inProgressAt) {
+      SdkPresent<int?>(value: final value) => {'in_progress_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAt) {
+      SdkPresent<int?>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (finalizingAt) {
+      SdkPresent<int?>(value: final value) => {'finalizing_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (completedAt) {
+      SdkPresent<int?>(value: final value) => {'completed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (failedAt) {
+      SdkPresent<int?>(value: final value) => {'failed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiredAt) {
+      SdkPresent<int?>(value: final value) => {'expired_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cancellingAt) {
+      SdkPresent<int?>(value: final value) => {'cancelling_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cancelledAt) {
+      SdkPresent<int?>(value: final value) => {'cancelled_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (requestCounts) {
+      SdkPresent<BatchRequestCounts>(value: final value) => {'request_counts': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (usage) {
+      SdkPresent<BatchUsage>(value: final value) => {'usage': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

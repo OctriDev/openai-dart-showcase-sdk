@@ -8,93 +8,48 @@ part of 'audio.dart';
 class VoiceConsentListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final VoiceConsentListResourceObject object;
-
   /// Required array value serialized in the `data` wire field.
   final List<VoiceConsentResource> data;
-
   /// Optional `string` value serialized in the `first_id` wire field.
   final SdkOptional<String?> firstId;
-
   /// Optional `string` value serialized in the `last_id` wire field.
   final SdkOptional<String?> lastId;
-
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const VoiceConsentListResource(
-      {required this.object,
-      required this.data,
-      this.firstId = const SdkOmitted(),
-      this.lastId = const SdkOmitted(),
-      required this.hasMore});
+  const VoiceConsentListResource({required this.object, required this.data, this.firstId = const SdkOmitted(), this.lastId = const SdkOmitted(), required this.hasMore});
 
-  VoiceConsentListResource Function(
-      {VoiceConsentListResourceObject object,
-      List<VoiceConsentResource> data,
-      SdkOptional<String?> firstId,
-      SdkOptional<String?> lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  VoiceConsentListResource Function({VoiceConsentListResourceObject object, List<VoiceConsentResource> data, SdkOptional<String?> firstId, SdkOptional<String?> lastId, bool hasMore}) get copyWith => _copyWith;
 
-  VoiceConsentListResource _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      VoiceConsentListResource(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as VoiceConsentListResourceObject,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<VoiceConsentResource>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as SdkOptional<String?>,
-        lastId: identical(lastId, sdkOmittedValue)
-            ? this.lastId
-            : lastId as SdkOptional<String?>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  VoiceConsentListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => VoiceConsentListResource(
+    object: identical(object, sdkOmittedValue) ? this.object : object as VoiceConsentListResourceObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<VoiceConsentResource>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as SdkOptional<String?>,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as SdkOptional<String?>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory VoiceConsentListResource.fromJson(Map<String, dynamic> json) =>
-      VoiceConsentListResource(
-        object: (json['object'] != null
-            ? VoiceConsentListResourceObject.fromJson(json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map(
-                (e) => VoiceConsentResource.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: json.containsKey('first_id')
-            ? SdkPresent(json['first_id'] as String?)
-            : const SdkOmitted(),
-        lastId: json.containsKey('last_id')
-            ? SdkPresent(json['last_id'] as String?)
-            : const SdkOmitted(),
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory VoiceConsentListResource.fromJson(Map<String, dynamic> json) => VoiceConsentListResource(
+    object: (json['object'] != null ? VoiceConsentListResourceObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => VoiceConsentResource.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: json.containsKey('first_id') ? SdkPresent(json['first_id'] as String?) : const SdkOmitted(),
+    lastId: json.containsKey('last_id') ? SdkPresent(json['last_id'] as String?) : const SdkOmitted(),
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        ...switch (firstId) {
-          SdkPresent<String?>(value: final value) => {
-              'first_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastId) {
-          SdkPresent<String?>(value: final value) => {
-              'last_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'has_more': hasMore,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    ...switch (firstId) {
+      SdkPresent<String?>(value: final value) => {'first_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastId) {
+      SdkPresent<String?>(value: final value) => {'last_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'has_more': hasMore,
+  };
 }

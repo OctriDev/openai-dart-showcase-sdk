@@ -6,6 +6,7 @@ part of 'shared.dart';
 // shared domain models
 /// Typed representation of the `DetailEnum` API schema.
 final class DetailEnum {
+
   final String value;
 
   const DetailEnum._(this.value);
@@ -19,12 +20,10 @@ final class DetailEnum {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is DetailEnum && other.value == value;
+  @override bool operator ==(Object other) => other is DetailEnum && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

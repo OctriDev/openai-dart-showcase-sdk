@@ -6,12 +6,12 @@ part of 'responses_beta_function.dart';
 // responses_beta_function domain models
 /// Status values reported for shell tool calls.
 final class BetaFunctionShellCallItemStatus {
+
   final String value;
 
   const BetaFunctionShellCallItemStatus._(this.value);
 
-  factory BetaFunctionShellCallItemStatus.fromJson(String value) =>
-      BetaFunctionShellCallItemStatus._(value);
+  factory BetaFunctionShellCallItemStatus.fromJson(String value) => BetaFunctionShellCallItemStatus._(value);
 
   static const inProgress = BetaFunctionShellCallItemStatus._('in_progress');
   static const completed = BetaFunctionShellCallItemStatus._('completed');
@@ -19,13 +19,10 @@ final class BetaFunctionShellCallItemStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaFunctionShellCallItemStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaFunctionShellCallItemStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

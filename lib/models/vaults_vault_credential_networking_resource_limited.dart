@@ -8,46 +8,27 @@ part of 'vaults_vault.dart';
 class VaultCredentialNetworkingResourceLimited {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `limited`.
   final VaultCredentialNetworkingResourceLimitedType type_;
-
   /// The 1 to 16 distinct allowed hostnames or IPv4 addresses, normalized to lowercase. Entries contain no scheme, path, port, or wildcard. IPv6 addresses are not supported.
   final List<String> allowedHosts;
 
-  const VaultCredentialNetworkingResourceLimited(
-      {required this.type_, required this.allowedHosts});
+  const VaultCredentialNetworkingResourceLimited({required this.type_, required this.allowedHosts});
 
-  VaultCredentialNetworkingResourceLimited Function(
-      {VaultCredentialNetworkingResourceLimitedType type_,
-      List<String> allowedHosts}) get copyWith => _copyWith;
+  VaultCredentialNetworkingResourceLimited Function({VaultCredentialNetworkingResourceLimitedType type_, List<String> allowedHosts}) get copyWith => _copyWith;
 
-  VaultCredentialNetworkingResourceLimited _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? allowedHosts = sdkOmittedValue}) =>
-      VaultCredentialNetworkingResourceLimited(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as VaultCredentialNetworkingResourceLimitedType,
-        allowedHosts: identical(allowedHosts, sdkOmittedValue)
-            ? this.allowedHosts
-            : allowedHosts as List<String>,
-      );
+  VaultCredentialNetworkingResourceLimited _copyWith({Object? type_ = sdkOmittedValue, Object? allowedHosts = sdkOmittedValue}) => VaultCredentialNetworkingResourceLimited(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VaultCredentialNetworkingResourceLimitedType,
+    allowedHosts: identical(allowedHosts, sdkOmittedValue) ? this.allowedHosts : allowedHosts as List<String>,
+  );
 
-  factory VaultCredentialNetworkingResourceLimited.fromJson(
-          Map<String, dynamic> json) =>
-      VaultCredentialNetworkingResourceLimited(
-        type_: (json['type'] != null
-            ? VaultCredentialNetworkingResourceLimitedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        allowedHosts: ((json['allowed_hosts'] as List?)
-            ?.map((e) => e as String)
-            .toList())!,
-      );
+  factory VaultCredentialNetworkingResourceLimited.fromJson(Map<String, dynamic> json) => VaultCredentialNetworkingResourceLimited(
+    type_: (json['type'] != null ? VaultCredentialNetworkingResourceLimitedType.fromJson(json['type'] as String) : null)!,
+    allowedHosts: ((json['allowed_hosts'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'allowed_hosts': allowedHosts,
-      };
+    'type': type_.toJson(),
+    'allowed_hosts': allowedHosts,
+  };
 }

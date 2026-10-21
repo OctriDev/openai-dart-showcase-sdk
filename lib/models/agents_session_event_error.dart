@@ -8,68 +8,37 @@ part of 'agents_session_event.dart';
 class SessionEventError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `error`.
   final SessionEventErrorType type_;
-
   /// The unique ID of the event.
   final String eventId;
-
   /// The ID of the session associated with the event.
   final String sessionId;
-
   /// The error that occurred.
   final SessionErrorResource error;
 
-  const SessionEventError(
-      {required this.type_,
-      required this.eventId,
-      required this.sessionId,
-      required this.error});
+  const SessionEventError({required this.type_, required this.eventId, required this.sessionId, required this.error});
 
-  SessionEventError Function(
-      {SessionEventErrorType type_,
-      String eventId,
-      String sessionId,
-      SessionErrorResource error}) get copyWith => _copyWith;
+  SessionEventError Function({SessionEventErrorType type_, String eventId, String sessionId, SessionErrorResource error}) get copyWith => _copyWith;
 
-  SessionEventError _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? eventId = sdkOmittedValue,
-          Object? sessionId = sdkOmittedValue,
-          Object? error = sdkOmittedValue}) =>
-      SessionEventError(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SessionEventErrorType,
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        sessionId: identical(sessionId, sdkOmittedValue)
-            ? this.sessionId
-            : sessionId as String,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as SessionErrorResource,
-      );
+  SessionEventError _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? error = sdkOmittedValue}) => SessionEventError(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventErrorType,
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
+    error: identical(error, sdkOmittedValue) ? this.error : error as SessionErrorResource,
+  );
 
-  factory SessionEventError.fromJson(Map<String, dynamic> json) =>
-      SessionEventError(
-        type_: (json['type'] != null
-            ? SessionEventErrorType.fromJson(json['type'] as String)
-            : null)!,
-        eventId: (json['event_id'] as String?)!,
-        sessionId: (json['session_id'] as String?)!,
-        error: (json['error'] != null
-            ? SessionErrorResource.fromJson(
-                json['error'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory SessionEventError.fromJson(Map<String, dynamic> json) => SessionEventError(
+    type_: (json['type'] != null ? SessionEventErrorType.fromJson(json['type'] as String) : null)!,
+    eventId: (json['event_id'] as String?)!,
+    sessionId: (json['session_id'] as String?)!,
+    error: (json['error'] != null ? SessionErrorResource.fromJson(json['error'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event_id': eventId,
-        'session_id': sessionId,
-        'error': error.toJson(),
-      };
+    'type': type_.toJson(),
+    'event_id': eventId,
+    'session_id': sessionId,
+    'error': error.toJson(),
+  };
 }

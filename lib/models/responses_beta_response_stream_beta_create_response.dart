@@ -8,37 +8,25 @@ part of 'responses_beta_response_stream.dart';
 class BetaResponseStreamOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// When true, stream obfuscation will be enabled. Stream obfuscation adds random characters to an `obfuscation` field on streaming delta events to normalize payload sizes as a mitigation to certain side-channel attacks. These obfuscation fields are included by default, but add a small amount of overhead to the data stream. You can set `include_obfuscation` to false to optimize for bandwidth if you trust the network links between your application and the OpenAI API.
   final SdkOptional<bool> includeObfuscation;
 
-  const BetaResponseStreamOptions(
-      {this.includeObfuscation = const SdkOmitted()});
+  const BetaResponseStreamOptions({this.includeObfuscation = const SdkOmitted()});
 
-  BetaResponseStreamOptions Function({SdkOptional<bool> includeObfuscation})
-      get copyWith => _copyWith;
+  BetaResponseStreamOptions Function({SdkOptional<bool> includeObfuscation}) get copyWith => _copyWith;
 
-  BetaResponseStreamOptions _copyWith(
-          {Object? includeObfuscation = sdkOmittedValue}) =>
-      BetaResponseStreamOptions(
-        includeObfuscation: identical(includeObfuscation, sdkOmittedValue)
-            ? this.includeObfuscation
-            : includeObfuscation as SdkOptional<bool>,
-      );
+  BetaResponseStreamOptions _copyWith({Object? includeObfuscation = sdkOmittedValue}) => BetaResponseStreamOptions(
+    includeObfuscation: identical(includeObfuscation, sdkOmittedValue) ? this.includeObfuscation : includeObfuscation as SdkOptional<bool>,
+  );
 
-  factory BetaResponseStreamOptions.fromJson(Map<String, dynamic> json) =>
-      BetaResponseStreamOptions(
-        includeObfuscation: json['include_obfuscation'] != null
-            ? SdkPresent((json['include_obfuscation'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory BetaResponseStreamOptions.fromJson(Map<String, dynamic> json) => BetaResponseStreamOptions(
+    includeObfuscation: json['include_obfuscation'] != null ? SdkPresent((json['include_obfuscation'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (includeObfuscation) {
-          SdkPresent<bool>(value: final value) => {
-              'include_obfuscation': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (includeObfuscation) {
+      SdkPresent<bool>(value: final value) => {'include_obfuscation': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

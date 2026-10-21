@@ -8,86 +8,47 @@ part of 'responses_response_reasoning.dart';
 class ResponseReasoningSummaryTextDeltaEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `response.reasoning_summary_text.delta`.
   final ResponseReasoningSummaryTextDeltaEventType type_;
-
   /// The ID of the item this summary text delta is associated with.
   final String itemId;
-
   /// The index of the output item this summary text delta is associated with.
   final int outputIndex;
-
   /// The index of the summary part within the reasoning summary.
   final int summaryIndex;
-
   /// The text delta that was added to the summary.
   final String delta;
-
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseReasoningSummaryTextDeltaEvent(
-      {required this.type_,
-      required this.itemId,
-      required this.outputIndex,
-      required this.summaryIndex,
-      required this.delta,
-      required this.sequenceNumber});
+  const ResponseReasoningSummaryTextDeltaEvent({required this.type_, required this.itemId, required this.outputIndex, required this.summaryIndex, required this.delta, required this.sequenceNumber});
 
-  ResponseReasoningSummaryTextDeltaEvent Function(
-      {ResponseReasoningSummaryTextDeltaEventType type_,
-      String itemId,
-      int outputIndex,
-      int summaryIndex,
-      String delta,
-      int sequenceNumber}) get copyWith => _copyWith;
+  ResponseReasoningSummaryTextDeltaEvent Function({ResponseReasoningSummaryTextDeltaEventType type_, String itemId, int outputIndex, int summaryIndex, String delta, int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseReasoningSummaryTextDeltaEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? itemId = sdkOmittedValue,
-          Object? outputIndex = sdkOmittedValue,
-          Object? summaryIndex = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? sequenceNumber = sdkOmittedValue}) =>
-      ResponseReasoningSummaryTextDeltaEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ResponseReasoningSummaryTextDeltaEventType,
-        itemId:
-            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-        outputIndex: identical(outputIndex, sdkOmittedValue)
-            ? this.outputIndex
-            : outputIndex as int,
-        summaryIndex: identical(summaryIndex, sdkOmittedValue)
-            ? this.summaryIndex
-            : summaryIndex as int,
-        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
-            ? this.sequenceNumber
-            : sequenceNumber as int,
-      );
+  ResponseReasoningSummaryTextDeltaEvent _copyWith({Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? summaryIndex = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseReasoningSummaryTextDeltaEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseReasoningSummaryTextDeltaEventType,
+    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
+    summaryIndex: identical(summaryIndex, sdkOmittedValue) ? this.summaryIndex : summaryIndex as int,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
+  );
 
-  factory ResponseReasoningSummaryTextDeltaEvent.fromJson(
-          Map<String, dynamic> json) =>
-      ResponseReasoningSummaryTextDeltaEvent(
-        type_: (json['type'] != null
-            ? ResponseReasoningSummaryTextDeltaEventType.fromJson(
-                json['type'] as String)
-            : null)!,
-        itemId: (json['item_id'] as String?)!,
-        outputIndex: ((json['output_index'] as num?)?.toInt())!,
-        summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
-        delta: (json['delta'] as String?)!,
-        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-      );
+  factory ResponseReasoningSummaryTextDeltaEvent.fromJson(Map<String, dynamic> json) => ResponseReasoningSummaryTextDeltaEvent(
+    type_: (json['type'] != null ? ResponseReasoningSummaryTextDeltaEventType.fromJson(json['type'] as String) : null)!,
+    itemId: (json['item_id'] as String?)!,
+    outputIndex: ((json['output_index'] as num?)?.toInt())!,
+    summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
+    delta: (json['delta'] as String?)!,
+    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'item_id': itemId,
-        'output_index': outputIndex,
-        'summary_index': summaryIndex,
-        'delta': delta,
-        'sequence_number': sequenceNumber,
-      };
+    'type': type_.toJson(),
+    'item_id': itemId,
+    'output_index': outputIndex,
+    'summary_index': summaryIndex,
+    'delta': delta,
+    'sequence_number': sequenceNumber,
+  };
 }

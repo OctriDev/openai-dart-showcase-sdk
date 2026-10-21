@@ -8,57 +8,32 @@ part of 'agents_hosted.dart';
 class HostedTemplateSkillResourceSkillReference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `skill_reference`.
   final HostedTemplateSkillResourceSkillReferenceType type_;
-
   /// The referenced skill ID.
   final String skillId;
-
   /// The requested version selector, including `latest`.
   final String? version;
 
-  const HostedTemplateSkillResourceSkillReference(
-      {required this.type_, required this.skillId, required this.version});
+  const HostedTemplateSkillResourceSkillReference({required this.type_, required this.skillId, required this.version});
 
-  HostedTemplateSkillResourceSkillReference Function(
-      {HostedTemplateSkillResourceSkillReferenceType type_,
-      String skillId,
-      String? version}) get copyWith => _copyWith;
+  HostedTemplateSkillResourceSkillReference Function({HostedTemplateSkillResourceSkillReferenceType type_, String skillId, String? version}) get copyWith => _copyWith;
 
-  HostedTemplateSkillResourceSkillReference _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? skillId = sdkOmittedValue,
-          Object? version = sdkOmittedValue}) =>
-      HostedTemplateSkillResourceSkillReference(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as HostedTemplateSkillResourceSkillReferenceType,
-        skillId: identical(skillId, sdkOmittedValue)
-            ? this.skillId
-            : skillId as String,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as String?,
-      );
+  HostedTemplateSkillResourceSkillReference _copyWith({Object? type_ = sdkOmittedValue, Object? skillId = sdkOmittedValue, Object? version = sdkOmittedValue}) => HostedTemplateSkillResourceSkillReference(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedTemplateSkillResourceSkillReferenceType,
+    skillId: identical(skillId, sdkOmittedValue) ? this.skillId : skillId as String,
+    version: identical(version, sdkOmittedValue) ? this.version : version as String?,
+  );
 
-  factory HostedTemplateSkillResourceSkillReference.fromJson(
-          Map<String, dynamic> json) =>
-      HostedTemplateSkillResourceSkillReference(
-        type_: (json['type'] != null
-            ? HostedTemplateSkillResourceSkillReferenceType.fromJson(
-                json['type'] as String)
-            : null)!,
-        skillId: (json['skill_id'] as String?)!,
-        version: json.containsKey('version')
-            ? json['version'] as String?
-            : throw ArgumentError.value(
-                null, 'version', 'Required property is missing'),
-      );
+  factory HostedTemplateSkillResourceSkillReference.fromJson(Map<String, dynamic> json) => HostedTemplateSkillResourceSkillReference(
+    type_: (json['type'] != null ? HostedTemplateSkillResourceSkillReferenceType.fromJson(json['type'] as String) : null)!,
+    skillId: (json['skill_id'] as String?)!,
+    version: json.containsKey('version') ? json['version'] as String? : throw ArgumentError.value(null, 'version', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'skill_id': skillId,
-        'version': version,
-      };
+    'type': type_.toJson(),
+    'skill_id': skillId,
+    'version': version,
+  };
 }

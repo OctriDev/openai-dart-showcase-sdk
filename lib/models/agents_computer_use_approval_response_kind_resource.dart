@@ -10,71 +10,32 @@ sealed class ComputerUseApprovalResponseKindResource {
   const ComputerUseApprovalResponseKindResource();
   factory ComputerUseApprovalResponseKindResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value =
-            ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource
-                .fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource
-                .fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
-              value);
-        }
-      } catch (_) {}
+      try { final value = ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(value); } } catch (_) {}
+      try { final value = ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(value); } } catch (_) {}
     }
-    try {
-      return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
-          ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource
-              .fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
-          ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource
-              .fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["action"] is String &&
-        !const {"submit", "cancel"}.contains(json["action"])) {
-      return UnknownComputerUseApprovalResponseKindResource(json);
-    }
-    throw FormatException(
-        "No variant matched for ComputerUseApprovalResponseKindResource");
+    try { return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["action"] is String && !const {"submit", "cancel"}.contains(json["action"])) { return UnknownComputerUseApprovalResponseKindResource(json); }
+    throw FormatException("No variant matched for ComputerUseApprovalResponseKindResource");
   }
   Object? toJson();
 }
 
-final class ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource
-    extends ComputerUseApprovalResponseKindResource {
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource
-      value;
-  const ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+final class ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource extends ComputerUseApprovalResponseKindResource {
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource value;
+  const ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource
-    extends ComputerUseApprovalResponseKindResource {
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource
-      value;
-  const ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+final class ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource extends ComputerUseApprovalResponseKindResource {
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource value;
+  const ComputerUseApprovalResponseKindResourceComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ComputerUseApprovalResponseKindResource] whose `action` names no branch this SDK knows, kept as received.
-final class UnknownComputerUseApprovalResponseKindResource
-    extends ComputerUseApprovalResponseKindResource {
+final class UnknownComputerUseApprovalResponseKindResource extends ComputerUseApprovalResponseKindResource {
   final Map<String, dynamic> raw;
   const UnknownComputerUseApprovalResponseKindResource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

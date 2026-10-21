@@ -8,105 +8,51 @@ part of 'sessions.dart';
 class CreateChatSessionBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Workflow that powers the session.
   final WorkflowParam workflow;
-
   /// A free-form string that identifies your end user; ensures this Session can access other objects that have the same `user` scope.
   final String user;
-
   /// Optional override for session expiration timing in seconds from creation. Defaults to 10 minutes.
   final SdkOptional<ExpiresAfterParam> expiresAfter;
-
   /// Optional override for per-minute request limits. When omitted, defaults to 10.
   final SdkOptional<RateLimitsParam> rateLimits;
-
   /// Optional overrides for ChatKit runtime configuration features
   final SdkOptional<ChatkitConfigurationParam> chatkitConfiguration;
 
-  const CreateChatSessionBody(
-      {required this.workflow,
-      required this.user,
-      this.expiresAfter = const SdkOmitted(),
-      this.rateLimits = const SdkOmitted(),
-      this.chatkitConfiguration = const SdkOmitted()});
+  const CreateChatSessionBody({required this.workflow, required this.user, this.expiresAfter = const SdkOmitted(), this.rateLimits = const SdkOmitted(), this.chatkitConfiguration = const SdkOmitted()});
 
-  CreateChatSessionBody Function(
-          {WorkflowParam workflow,
-          String user,
-          SdkOptional<ExpiresAfterParam> expiresAfter,
-          SdkOptional<RateLimitsParam> rateLimits,
-          SdkOptional<ChatkitConfigurationParam> chatkitConfiguration})
-      get copyWith => _copyWith;
+  CreateChatSessionBody Function({WorkflowParam workflow, String user, SdkOptional<ExpiresAfterParam> expiresAfter, SdkOptional<RateLimitsParam> rateLimits, SdkOptional<ChatkitConfigurationParam> chatkitConfiguration}) get copyWith => _copyWith;
 
-  CreateChatSessionBody _copyWith(
-          {Object? workflow = sdkOmittedValue,
-          Object? user = sdkOmittedValue,
-          Object? expiresAfter = sdkOmittedValue,
-          Object? rateLimits = sdkOmittedValue,
-          Object? chatkitConfiguration = sdkOmittedValue}) =>
-      CreateChatSessionBody(
-        workflow: identical(workflow, sdkOmittedValue)
-            ? this.workflow
-            : workflow as WorkflowParam,
-        user: identical(user, sdkOmittedValue) ? this.user : user as String,
-        expiresAfter: identical(expiresAfter, sdkOmittedValue)
-            ? this.expiresAfter
-            : expiresAfter as SdkOptional<ExpiresAfterParam>,
-        rateLimits: identical(rateLimits, sdkOmittedValue)
-            ? this.rateLimits
-            : rateLimits as SdkOptional<RateLimitsParam>,
-        chatkitConfiguration: identical(chatkitConfiguration, sdkOmittedValue)
-            ? this.chatkitConfiguration
-            : chatkitConfiguration as SdkOptional<ChatkitConfigurationParam>,
-      );
+  CreateChatSessionBody _copyWith({Object? workflow = sdkOmittedValue, Object? user = sdkOmittedValue, Object? expiresAfter = sdkOmittedValue, Object? rateLimits = sdkOmittedValue, Object? chatkitConfiguration = sdkOmittedValue}) => CreateChatSessionBody(
+    workflow: identical(workflow, sdkOmittedValue) ? this.workflow : workflow as WorkflowParam,
+    user: identical(user, sdkOmittedValue) ? this.user : user as String,
+    expiresAfter: identical(expiresAfter, sdkOmittedValue) ? this.expiresAfter : expiresAfter as SdkOptional<ExpiresAfterParam>,
+    rateLimits: identical(rateLimits, sdkOmittedValue) ? this.rateLimits : rateLimits as SdkOptional<RateLimitsParam>,
+    chatkitConfiguration: identical(chatkitConfiguration, sdkOmittedValue) ? this.chatkitConfiguration : chatkitConfiguration as SdkOptional<ChatkitConfigurationParam>,
+  );
 
-  factory CreateChatSessionBody.fromJson(Map<String, dynamic> json) =>
-      CreateChatSessionBody(
-        workflow: (json['workflow'] != null
-            ? WorkflowParam.fromJson(json['workflow'] as Map<String, dynamic>)
-            : null)!,
-        user: (json['user'] as String?)!,
-        expiresAfter: json['expires_after'] != null
-            ? SdkPresent((json['expires_after'] != null
-                ? ExpiresAfterParam.fromJson(
-                    json['expires_after'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        rateLimits: json['rate_limits'] != null
-            ? SdkPresent((json['rate_limits'] != null
-                ? RateLimitsParam.fromJson(
-                    json['rate_limits'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        chatkitConfiguration: json['chatkit_configuration'] != null
-            ? SdkPresent((json['chatkit_configuration'] != null
-                ? ChatkitConfigurationParam.fromJson(
-                    json['chatkit_configuration'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory CreateChatSessionBody.fromJson(Map<String, dynamic> json) => CreateChatSessionBody(
+    workflow: (json['workflow'] != null ? WorkflowParam.fromJson(json['workflow'] as Map<String, dynamic>) : null)!,
+    user: (json['user'] as String?)!,
+    expiresAfter: json['expires_after'] != null ? SdkPresent((json['expires_after'] != null ? ExpiresAfterParam.fromJson(json['expires_after'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    rateLimits: json['rate_limits'] != null ? SdkPresent((json['rate_limits'] != null ? RateLimitsParam.fromJson(json['rate_limits'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    chatkitConfiguration: json['chatkit_configuration'] != null ? SdkPresent((json['chatkit_configuration'] != null ? ChatkitConfigurationParam.fromJson(json['chatkit_configuration'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'workflow': workflow.toJson(),
-        'user': user,
-        ...switch (expiresAfter) {
-          SdkPresent<ExpiresAfterParam>(value: final value) => {
-              'expires_after': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rateLimits) {
-          SdkPresent<RateLimitsParam>(value: final value) => {
-              'rate_limits': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (chatkitConfiguration) {
-          SdkPresent<ChatkitConfigurationParam>(value: final value) => {
-              'chatkit_configuration': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'workflow': workflow.toJson(),
+    'user': user,
+    ...switch (expiresAfter) {
+      SdkPresent<ExpiresAfterParam>(value: final value) => {'expires_after': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rateLimits) {
+      SdkPresent<RateLimitsParam>(value: final value) => {'rate_limits': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (chatkitConfiguration) {
+      SdkPresent<ChatkitConfigurationParam>(value: final value) => {'chatkit_configuration': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

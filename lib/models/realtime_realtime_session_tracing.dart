@@ -8,77 +8,43 @@ part of 'realtime_realtime_session.dart';
 class RealtimeSessionTracingVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the workflow to attach to this trace. This is used to name the trace in the traces dashboard.
   final SdkOptional<String> workflowName;
-
   /// The group id to attach to this trace to enable filtering and grouping in the traces dashboard.
   final SdkOptional<String> groupId;
-
   /// The arbitrary metadata to attach to this trace to enable filtering in the traces dashboard.
   final SdkOptional<Map<String, dynamic>> metadata;
 
-  const RealtimeSessionTracingVariant1(
-      {this.workflowName = const SdkOmitted(),
-      this.groupId = const SdkOmitted(),
-      this.metadata = const SdkOmitted()});
+  const RealtimeSessionTracingVariant1({this.workflowName = const SdkOmitted(), this.groupId = const SdkOmitted(), this.metadata = const SdkOmitted()});
 
-  RealtimeSessionTracingVariant1 Function(
-      {SdkOptional<String> workflowName,
-      SdkOptional<String> groupId,
-      SdkOptional<Map<String, dynamic>> metadata}) get copyWith => _copyWith;
+  RealtimeSessionTracingVariant1 Function({SdkOptional<String> workflowName, SdkOptional<String> groupId, SdkOptional<Map<String, dynamic>> metadata}) get copyWith => _copyWith;
 
-  RealtimeSessionTracingVariant1 _copyWith(
-          {Object? workflowName = sdkOmittedValue,
-          Object? groupId = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue}) =>
-      RealtimeSessionTracingVariant1(
-        workflowName: identical(workflowName, sdkOmittedValue)
-            ? this.workflowName
-            : workflowName as SdkOptional<String>,
-        groupId: identical(groupId, sdkOmittedValue)
-            ? this.groupId
-            : groupId as SdkOptional<String>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>>,
-      );
+  RealtimeSessionTracingVariant1 _copyWith({Object? workflowName = sdkOmittedValue, Object? groupId = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => RealtimeSessionTracingVariant1(
+    workflowName: identical(workflowName, sdkOmittedValue) ? this.workflowName : workflowName as SdkOptional<String>,
+    groupId: identical(groupId, sdkOmittedValue) ? this.groupId : groupId as SdkOptional<String>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>>,
+  );
 
-  factory RealtimeSessionTracingVariant1.fromJson(Map<String, dynamic> json) =>
-      RealtimeSessionTracingVariant1(
-        workflowName: json['workflow_name'] != null
-            ? SdkPresent((json['workflow_name'] as String?)!)
-            : const SdkOmitted(),
-        groupId: json['group_id'] != null
-            ? SdkPresent((json['group_id'] as String?)!)
-            : const SdkOmitted(),
-        metadata: json['metadata'] != null
-            ? SdkPresent((json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-      );
+  factory RealtimeSessionTracingVariant1.fromJson(Map<String, dynamic> json) => RealtimeSessionTracingVariant1(
+    workflowName: json['workflow_name'] != null ? SdkPresent((json['workflow_name'] as String?)!) : const SdkOmitted(),
+    groupId: json['group_id'] != null ? SdkPresent((json['group_id'] as String?)!) : const SdkOmitted(),
+    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (workflowName) {
-          SdkPresent<String>(value: final value) => {
-              'workflow_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (groupId) {
-          SdkPresent<String>(value: final value) => {
-              'group_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (workflowName) {
+      SdkPresent<String>(value: final value) => {'workflow_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (groupId) {
+      SdkPresent<String>(value: final value) => {'group_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class RealtimeSessionTracing {
@@ -86,32 +52,21 @@ sealed class RealtimeSessionTracing {
   static const String constructionSurface = 'named';
   const RealtimeSessionTracing();
   factory RealtimeSessionTracing.fromJson(Object? json) {
-    try {
-      return RealtimeSessionTracingRealtimeSessionTracingVariant0(
-          RealtimeSessionTracingVariant0.fromJson(json as String));
-    } catch (_) {}
-    try {
-      return RealtimeSessionTracingRealtimeSessionTracingVariant1(
-          RealtimeSessionTracingVariant1.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return RealtimeSessionTracingRealtimeSessionTracingVariant0(RealtimeSessionTracingVariant0.fromJson(json as String)); } catch (_) {}
+    try { return RealtimeSessionTracingRealtimeSessionTracingVariant1(RealtimeSessionTracingVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for RealtimeSessionTracing");
   }
   Object? toJson();
 }
 
-final class RealtimeSessionTracingRealtimeSessionTracingVariant0
-    extends RealtimeSessionTracing {
+final class RealtimeSessionTracingRealtimeSessionTracingVariant0 extends RealtimeSessionTracing {
   final RealtimeSessionTracingVariant0 value;
   const RealtimeSessionTracingRealtimeSessionTracingVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RealtimeSessionTracingRealtimeSessionTracingVariant1
-    extends RealtimeSessionTracing {
+final class RealtimeSessionTracingRealtimeSessionTracingVariant1 extends RealtimeSessionTracing {
   final RealtimeSessionTracingVariant1 value;
   const RealtimeSessionTracingRealtimeSessionTracingVariant1(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

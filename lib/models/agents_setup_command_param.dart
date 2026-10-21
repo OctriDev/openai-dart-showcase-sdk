@@ -8,45 +8,30 @@ part of 'agents.dart';
 class SetupCommandParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The shell command to execute.
   final String command;
-
   /// The absolute working directory. Defaults to `/workspace`.
   final SdkOptional<String?> cwd;
 
-  const SetupCommandParam(
-      {required this.command, this.cwd = const SdkOmitted()});
+  const SetupCommandParam({required this.command, this.cwd = const SdkOmitted()});
 
-  SetupCommandParam Function({String command, SdkOptional<String?> cwd})
-      get copyWith => _copyWith;
+  SetupCommandParam Function({String command, SdkOptional<String?> cwd}) get copyWith => _copyWith;
 
-  SetupCommandParam _copyWith(
-          {Object? command = sdkOmittedValue, Object? cwd = sdkOmittedValue}) =>
-      SetupCommandParam(
-        command: identical(command, sdkOmittedValue)
-            ? this.command
-            : command as String,
-        cwd: identical(cwd, sdkOmittedValue)
-            ? this.cwd
-            : cwd as SdkOptional<String?>,
-      );
+  SetupCommandParam _copyWith({Object? command = sdkOmittedValue, Object? cwd = sdkOmittedValue}) => SetupCommandParam(
+    command: identical(command, sdkOmittedValue) ? this.command : command as String,
+    cwd: identical(cwd, sdkOmittedValue) ? this.cwd : cwd as SdkOptional<String?>,
+  );
 
-  factory SetupCommandParam.fromJson(Map<String, dynamic> json) =>
-      SetupCommandParam(
-        command: (json['command'] as String?)!,
-        cwd: json.containsKey('cwd')
-            ? SdkPresent(json['cwd'] as String?)
-            : const SdkOmitted(),
-      );
+  factory SetupCommandParam.fromJson(Map<String, dynamic> json) => SetupCommandParam(
+    command: (json['command'] as String?)!,
+    cwd: json.containsKey('cwd') ? SdkPresent(json['cwd'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'command': command,
-        ...switch (cwd) {
-          SdkPresent<String?>(value: final value) => {
-              'cwd': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'command': command,
+    ...switch (cwd) {
+      SdkPresent<String?>(value: final value) => {'cwd': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

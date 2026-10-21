@@ -8,50 +8,32 @@ part of 'responses_beta_apply.dart';
 class BetaApplyPatchUpdateFileOperationParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The operation type. Always `update_file`.
   final BetaApplyPatchUpdateFileOperationParamType type_;
-
   /// Path of the file to update relative to the workspace root.
   final String path;
-
   /// Unified diff content to apply to the existing file.
   final String diff;
 
-  const BetaApplyPatchUpdateFileOperationParam(
-      {required this.type_, required this.path, required this.diff});
+  const BetaApplyPatchUpdateFileOperationParam({required this.type_, required this.path, required this.diff});
 
-  BetaApplyPatchUpdateFileOperationParam Function(
-      {BetaApplyPatchUpdateFileOperationParamType type_,
-      String path,
-      String diff}) get copyWith => _copyWith;
+  BetaApplyPatchUpdateFileOperationParam Function({BetaApplyPatchUpdateFileOperationParamType type_, String path, String diff}) get copyWith => _copyWith;
 
-  BetaApplyPatchUpdateFileOperationParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? path = sdkOmittedValue,
-          Object? diff = sdkOmittedValue}) =>
-      BetaApplyPatchUpdateFileOperationParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaApplyPatchUpdateFileOperationParamType,
-        path: identical(path, sdkOmittedValue) ? this.path : path as String,
-        diff: identical(diff, sdkOmittedValue) ? this.diff : diff as String,
-      );
+  BetaApplyPatchUpdateFileOperationParam _copyWith({Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue, Object? diff = sdkOmittedValue}) => BetaApplyPatchUpdateFileOperationParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaApplyPatchUpdateFileOperationParamType,
+    path: identical(path, sdkOmittedValue) ? this.path : path as String,
+    diff: identical(diff, sdkOmittedValue) ? this.diff : diff as String,
+  );
 
-  factory BetaApplyPatchUpdateFileOperationParam.fromJson(
-          Map<String, dynamic> json) =>
-      BetaApplyPatchUpdateFileOperationParam(
-        type_: (json['type'] != null
-            ? BetaApplyPatchUpdateFileOperationParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        path: (json['path'] as String?)!,
-        diff: (json['diff'] as String?)!,
-      );
+  factory BetaApplyPatchUpdateFileOperationParam.fromJson(Map<String, dynamic> json) => BetaApplyPatchUpdateFileOperationParam(
+    type_: (json['type'] != null ? BetaApplyPatchUpdateFileOperationParamType.fromJson(json['type'] as String) : null)!,
+    path: (json['path'] as String?)!,
+    diff: (json['diff'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'path': path,
-        'diff': diff,
-      };
+    'type': type_.toJson(),
+    'path': path,
+    'diff': diff,
+  };
 }

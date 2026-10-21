@@ -8,30 +8,22 @@ part of 'assistants_assistant.dart';
 class AssistantToolsCode {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of tool being defined: `code_interpreter`
   final AssistantToolsCodeType type_;
 
   const AssistantToolsCode({required this.type_});
 
-  AssistantToolsCode Function({AssistantToolsCodeType type_}) get copyWith =>
-      _copyWith;
+  AssistantToolsCode Function({AssistantToolsCodeType type_}) get copyWith => _copyWith;
 
-  AssistantToolsCode _copyWith({Object? type_ = sdkOmittedValue}) =>
-      AssistantToolsCode(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AssistantToolsCodeType,
-      );
+  AssistantToolsCode _copyWith({Object? type_ = sdkOmittedValue}) => AssistantToolsCode(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AssistantToolsCodeType,
+  );
 
-  factory AssistantToolsCode.fromJson(Map<String, dynamic> json) =>
-      AssistantToolsCode(
-        type_: (json['type'] != null
-            ? AssistantToolsCodeType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory AssistantToolsCode.fromJson(Map<String, dynamic> json) => AssistantToolsCode(
+    type_: (json['type'] != null ? AssistantToolsCodeType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

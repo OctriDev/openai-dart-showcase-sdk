@@ -8,64 +8,37 @@ part of 'skills.dart';
 class DeletedSkillVersionResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final DeletedSkillVersionResourceObject object;
-
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// The deleted skill version.
   final String version;
 
-  const DeletedSkillVersionResource(
-      {required this.object,
-      required this.deleted,
-      required this.id,
-      required this.version});
+  const DeletedSkillVersionResource({required this.object, required this.deleted, required this.id, required this.version});
 
-  DeletedSkillVersionResource Function(
-      {DeletedSkillVersionResourceObject object,
-      bool deleted,
-      String id,
-      String version}) get copyWith => _copyWith;
+  DeletedSkillVersionResource Function({DeletedSkillVersionResourceObject object, bool deleted, String id, String version}) get copyWith => _copyWith;
 
-  DeletedSkillVersionResource _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? version = sdkOmittedValue}) =>
-      DeletedSkillVersionResource(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DeletedSkillVersionResourceObject,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as String,
-      );
+  DeletedSkillVersionResource _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? id = sdkOmittedValue, Object? version = sdkOmittedValue}) => DeletedSkillVersionResource(
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeletedSkillVersionResourceObject,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    version: identical(version, sdkOmittedValue) ? this.version : version as String,
+  );
 
-  factory DeletedSkillVersionResource.fromJson(Map<String, dynamic> json) =>
-      DeletedSkillVersionResource(
-        object: (json['object'] != null
-            ? DeletedSkillVersionResourceObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        deleted: (json['deleted'] as bool?)!,
-        id: (json['id'] as String?)!,
-        version: (json['version'] as String?)!,
-      );
+  factory DeletedSkillVersionResource.fromJson(Map<String, dynamic> json) => DeletedSkillVersionResource(
+    object: (json['object'] != null ? DeletedSkillVersionResourceObject.fromJson(json['object'] as String) : null)!,
+    deleted: (json['deleted'] as bool?)!,
+    id: (json['id'] as String?)!,
+    version: (json['version'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'deleted': deleted,
-        'id': id,
-        'version': version,
-      };
+    'object': object.toJson(),
+    'deleted': deleted,
+    'id': id,
+    'version': version,
+  };
 }

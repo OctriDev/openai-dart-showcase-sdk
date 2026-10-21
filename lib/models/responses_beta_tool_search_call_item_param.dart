@@ -9,165 +9,83 @@ sealed class BetaToolSearchCallItemParamCallId {
   static const String constructionSurface = 'named';
   const BetaToolSearchCallItemParamCallId();
   factory BetaToolSearchCallItemParamCallId.fromJson(Object? json) {
-    if (json is String) {
-      return BetaToolSearchCallItemParamCallIdString(json);
-    }
-    throw FormatException(
-        "No variant matched for BetaToolSearchCallItemParamCallId");
+    if (json is String) { return BetaToolSearchCallItemParamCallIdString(json); }
+    throw FormatException("No variant matched for BetaToolSearchCallItemParamCallId");
   }
   Object? toJson();
 }
 
-final class BetaToolSearchCallItemParamCallIdString
-    extends BetaToolSearchCallItemParamCallId {
+final class BetaToolSearchCallItemParamCallIdString extends BetaToolSearchCallItemParamCallId {
   final String value;
   const BetaToolSearchCallItemParamCallIdString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Typed representation of the `BetaToolSearchCallItemParam` API schema.
 class BetaToolSearchCallItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `agent` wire field.
   final SdkOptional<BetaAgentTagParam?> agent;
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
-
   /// Optional API value serialized in the `call_id` wire field.
   final SdkOptional<String?> callId;
-
   /// The item type. Always `tool_search_call`.
   final BetaToolSearchCallItemParamType type_;
-
   /// Whether tool search was executed by the server or by the client.
   final SdkOptional<BetaToolSearchExecutionType> execution;
-
   /// The arguments supplied to the tool search call.
   final Map<String, dynamic> arguments;
-
   /// Optional API value serialized in the `status` wire field.
   final SdkOptional<BetaFunctionCallItemStatus?> status;
 
-  const BetaToolSearchCallItemParam(
-      {this.agent = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.callId = const SdkOmitted(),
-      required this.type_,
-      this.execution = const SdkOmitted(),
-      required this.arguments,
-      this.status = const SdkOmitted()});
+  const BetaToolSearchCallItemParam({this.agent = const SdkOmitted(), this.id = const SdkOmitted(), this.callId = const SdkOmitted(), required this.type_, this.execution = const SdkOmitted(), required this.arguments, this.status = const SdkOmitted()});
 
-  BetaToolSearchCallItemParam Function(
-          {SdkOptional<BetaAgentTagParam?> agent,
-          SdkOptional<String?> id,
-          SdkOptional<String?> callId,
-          BetaToolSearchCallItemParamType type_,
-          SdkOptional<BetaToolSearchExecutionType> execution,
-          Map<String, dynamic> arguments,
-          SdkOptional<BetaFunctionCallItemStatus?> status})
-      get copyWith => _copyWith;
+  BetaToolSearchCallItemParam Function({SdkOptional<BetaAgentTagParam?> agent, SdkOptional<String?> id, SdkOptional<String?> callId, BetaToolSearchCallItemParamType type_, SdkOptional<BetaToolSearchExecutionType> execution, Map<String, dynamic> arguments, SdkOptional<BetaFunctionCallItemStatus?> status}) get copyWith => _copyWith;
 
-  BetaToolSearchCallItemParam _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? execution = sdkOmittedValue,
-          Object? arguments = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      BetaToolSearchCallItemParam(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<BetaAgentTagParam?>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String?>,
-        callId: identical(callId, sdkOmittedValue)
-            ? this.callId
-            : callId as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaToolSearchCallItemParamType,
-        execution: identical(execution, sdkOmittedValue)
-            ? this.execution
-            : execution as SdkOptional<BetaToolSearchExecutionType>,
-        arguments: identical(arguments, sdkOmittedValue)
-            ? this.arguments
-            : arguments as Map<String, dynamic>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<BetaFunctionCallItemStatus?>,
-      );
+  BetaToolSearchCallItemParam _copyWith({Object? agent = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? execution = sdkOmittedValue, Object? arguments = sdkOmittedValue, Object? status = sdkOmittedValue}) => BetaToolSearchCallItemParam(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTagParam?>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaToolSearchCallItemParamType,
+    execution: identical(execution, sdkOmittedValue) ? this.execution : execution as SdkOptional<BetaToolSearchExecutionType>,
+    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as Map<String, dynamic>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<BetaFunctionCallItemStatus?>,
+  );
 
-  factory BetaToolSearchCallItemParam.fromJson(Map<String, dynamic> json) =>
-      BetaToolSearchCallItemParam(
-        agent: json.containsKey('agent')
-            ? SdkPresent(json['agent'] != null
-                ? BetaAgentTagParam.fromJson(
-                    json['agent'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        id: json.containsKey('id')
-            ? SdkPresent(json['id'] as String?)
-            : const SdkOmitted(),
-        callId: json.containsKey('call_id')
-            ? SdkPresent(json['call_id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? BetaToolSearchCallItemParamType.fromJson(json['type'] as String)
-            : null)!,
-        execution: json['execution'] != null
-            ? SdkPresent((json['execution'] != null
-                ? BetaToolSearchExecutionType.fromJson(
-                    json['execution'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        arguments: (json['arguments'] == null
-            ? null
-            : json['arguments'] as Map<String, dynamic>)!,
-        status: json.containsKey('status')
-            ? SdkPresent(json['status'] != null
-                ? BetaFunctionCallItemStatus.fromJson(json['status'] as String)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory BetaToolSearchCallItemParam.fromJson(Map<String, dynamic> json) => BetaToolSearchCallItemParam(
+    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTagParam.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
+    callId: json.containsKey('call_id') ? SdkPresent(json['call_id'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? BetaToolSearchCallItemParamType.fromJson(json['type'] as String) : null)!,
+    execution: json['execution'] != null ? SdkPresent((json['execution'] != null ? BetaToolSearchExecutionType.fromJson(json['execution'] as String) : null)!) : const SdkOmitted(),
+    arguments: (json['arguments'] == null ? null : json['arguments'] as Map<String, dynamic>)!,
+    status: json.containsKey('status') ? SdkPresent(json['status'] != null ? BetaFunctionCallItemStatus.fromJson(json['status'] as String) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<BetaAgentTagParam?>(value: final value) => {
-              'agent': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String?>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (callId) {
-          SdkPresent<String?>(value: final value) => {
-              'call_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        ...switch (execution) {
-          SdkPresent<BetaToolSearchExecutionType>(value: final value) => {
-              'execution': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'arguments': arguments,
-        ...switch (status) {
-          SdkPresent<BetaFunctionCallItemStatus?>(value: final value) => {
-              'status': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<BetaAgentTagParam?>(value: final value) => {'agent': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String?>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (callId) {
+      SdkPresent<String?>(value: final value) => {'call_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    ...switch (execution) {
+      SdkPresent<BetaToolSearchExecutionType>(value: final value) => {'execution': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'arguments': arguments,
+    ...switch (status) {
+      SdkPresent<BetaFunctionCallItemStatus?>(value: final value) => {'status': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

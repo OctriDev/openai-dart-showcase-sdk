@@ -25,8 +25,7 @@ import 'methods/certificates.dart' as certificates_methods;
 import 'methods/usage.dart' as usage_methods;
 import 'methods/data_retention.dart' as data_retention_methods;
 import 'methods/groups.dart' as groups_methods;
-import 'methods/group_organization_role_assignments.dart'
-    as group_organization_role_assignments_methods;
+import 'methods/group_organization_role_assignments.dart' as group_organization_role_assignments_methods;
 import 'methods/group_users.dart' as group_users_methods;
 import 'methods/invites.dart' as invites_methods;
 import 'methods/projects.dart' as projects_methods;
@@ -35,12 +34,9 @@ import 'methods/hosted_tools.dart' as hosted_tools_methods;
 import 'methods/spend_alerts.dart' as spend_alerts_methods;
 import 'methods/roles.dart' as roles_methods;
 import 'methods/users.dart' as users_methods;
-import 'methods/user_organization_role_assignments.dart'
-    as user_organization_role_assignments_methods;
-import 'methods/project_group_role_assignments.dart'
-    as project_group_role_assignments_methods;
-import 'methods/project_user_role_assignments.dart'
-    as project_user_role_assignments_methods;
+import 'methods/user_organization_role_assignments.dart' as user_organization_role_assignments_methods;
+import 'methods/project_group_role_assignments.dart' as project_group_role_assignments_methods;
+import 'methods/project_user_role_assignments.dart' as project_user_role_assignments_methods;
 import 'methods/realtime.dart' as realtime_methods;
 import 'methods/responses.dart' as responses_methods;
 import 'methods/uploads.dart' as uploads_methods;
@@ -48,8 +44,7 @@ import 'methods/vector_stores.dart' as vector_stores_methods;
 import 'methods/safety.dart' as safety_methods;
 import 'methods/external_storage.dart' as external_storage_methods;
 import 'methods/spend_limits.dart' as spend_limits_methods;
-import 'methods/content_provenance_checks.dart'
-    as content_provenance_checks_methods;
+import 'methods/content_provenance_checks.dart' as content_provenance_checks_methods;
 import 'methods/videos.dart' as videos_methods;
 import 'methods/skills.dart' as skills_methods;
 import 'methods/chatkit.dart' as chatkit_methods;
@@ -62,7 +57,6 @@ import 'methods/webhook_event_types.dart' as webhook_event_types_methods;
 class AssistantsNamespace {
   final ClientConfig _config;
   AssistantsNamespace(ClientConfig config) : _config = config;
-
   /// Lists assistant configurations available to the authenticated user. Use `after` or `before` to navigate the list, and `limit` and `order` to control page size and sorting. This operation is closing down and will be removed on a date not specified here.
   ///
   /// Returns a list of assistants.
@@ -74,12 +68,7 @@ class AssistantsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.listAssistants(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return assistants_methods.listAssistants(_config, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Lists assistant configurations available to the authenticated user. Use `after` or `before` to navigate the list, and `limit` and `order` to control page size and sorting. This operation is closing down and will be removed on a date not specified here.
@@ -87,18 +76,8 @@ class AssistantsNamespace {
   /// Returns a list of assistants.
   ///
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
-  Stream<AssistantObject> listPaginated(
-      {int? limit,
-      ListAssistantsOrder? order,
-      String? after,
-      String? before,
-      RequestOptions? requestOptions}) async* {
-    yield* assistants_methods.listAssistantsPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+  Stream<AssistantObject> listPaginated({int? limit, ListAssistantsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+    yield* assistants_methods.listAssistantsPaginated(_config, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Creates an assistant configuration with a model and optional instructions, tools, and response settings. Supply `model` and add only the configuration fields you need; numeric sampling settings and text lengths have schema limits. This operation is closing down and will be removed on a date not specified here.
@@ -112,29 +91,14 @@ class AssistantsNamespace {
       SdkOptional<String?> description = const SdkOmitted(),
       SdkOptional<String?> instructions = const SdkOmitted(),
       SdkOptional<ReasoningEffort?> reasoningEffort = const SdkOmitted(),
-      SdkOptional<List<CreateAssistantRequestToolsItem>> tools =
-          const SdkOmitted(),
-      SdkOptional<CreateAssistantRequestToolResources?> toolResources =
-          const SdkOmitted(),
+      SdkOptional<List<CreateAssistantRequestToolsItem>> tools = const SdkOmitted(),
+      SdkOptional<CreateAssistantRequestToolResources?> toolResources = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       SdkOptional<double?> temperature = const SdkOmitted(),
       SdkOptional<double?> topP = const SdkOmitted(),
-      SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
-          const SdkOmitted(),
+      SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.createAssistant(_config,
-        model: model,
-        name: name,
-        description: description,
-        instructions: instructions,
-        reasoningEffort: reasoningEffort,
-        tools: tools,
-        toolResources: toolResources,
-        metadata: metadata,
-        temperature: temperature,
-        topP: topP,
-        responseFormat: responseFormat,
-        requestOptions: requestOptions);
+    return assistants_methods.createAssistant(_config, model: model, name: name, description: description, instructions: instructions, reasoningEffort: reasoningEffort, tools: tools, toolResources: toolResources, metadata: metadata, temperature: temperature, topP: topP, responseFormat: responseFormat, requestOptions: requestOptions);
   }
 
   /// Retrieves an assistant configuration by its identifier. Use `assistant_id` to select the assistant whose model, instructions, tools, and other settings you need to inspect. This operation is closing down and will be removed on a date not specified here.
@@ -144,8 +108,7 @@ class AssistantsNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<AssistantObject> get_(
       {required String assistantId, RequestOptions? requestOptions}) async {
-    return assistants_methods.getAssistant(_config,
-        assistantId: assistantId, requestOptions: requestOptions);
+    return assistants_methods.getAssistant(_config, assistantId: assistantId, requestOptions: requestOptions);
   }
 
   /// Updates an assistant's model, instructions, tools, or other configuration. Supply only the fields you want to change; fields not included in the request are not specified for update. This operation is closing down and will be removed on a date not specified here.
@@ -160,30 +123,14 @@ class AssistantsNamespace {
       SdkOptional<String?> name = const SdkOmitted(),
       SdkOptional<String?> description = const SdkOmitted(),
       SdkOptional<String?> instructions = const SdkOmitted(),
-      SdkOptional<List<ModifyAssistantRequestToolsItem>> tools =
-          const SdkOmitted(),
-      SdkOptional<ModifyAssistantRequestToolResources?> toolResources =
-          const SdkOmitted(),
+      SdkOptional<List<ModifyAssistantRequestToolsItem>> tools = const SdkOmitted(),
+      SdkOptional<ModifyAssistantRequestToolResources?> toolResources = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       SdkOptional<double?> temperature = const SdkOmitted(),
       SdkOptional<double?> topP = const SdkOmitted(),
-      SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
-          const SdkOmitted(),
+      SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.modifyAssistant(_config,
-        assistantId: assistantId,
-        model: model,
-        reasoningEffort: reasoningEffort,
-        name: name,
-        description: description,
-        instructions: instructions,
-        tools: tools,
-        toolResources: toolResources,
-        metadata: metadata,
-        temperature: temperature,
-        topP: topP,
-        responseFormat: responseFormat,
-        requestOptions: requestOptions);
+    return assistants_methods.modifyAssistant(_config, assistantId: assistantId, model: model, reasoningEffort: reasoningEffort, name: name, description: description, instructions: instructions, tools: tools, toolResources: toolResources, metadata: metadata, temperature: temperature, topP: topP, responseFormat: responseFormat, requestOptions: requestOptions);
   }
 
   /// Deletes an assistant configuration identified by `assistant_id`. Use this operation when the assistant is no longer needed; the response confirms the deletion. This operation is closing down and will be removed on a date not specified here.
@@ -193,8 +140,7 @@ class AssistantsNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<DeleteAssistantResponse> delete(
       {required String assistantId, RequestOptions? requestOptions}) async {
-    return assistants_methods.deleteAssistant(_config,
-        assistantId: assistantId, requestOptions: requestOptions);
+    return assistants_methods.deleteAssistant(_config, assistantId: assistantId, requestOptions: requestOptions);
   }
 
   /// Creates a thread that can contain messages and resources for assistant tools. Provide `messages` to seed the thread, or `tool_resources` to make files or vector stores available to tools. You can also attach structured `metadata` to the thread.
@@ -202,15 +148,10 @@ class AssistantsNamespace {
   /// Create a thread.
   Future<ThreadObject> createThread(
       {SdkOptional<List<CreateMessageRequest>> messages = const SdkOmitted(),
-      SdkOptional<CreateThreadRequestToolResources?> toolResources =
-          const SdkOmitted(),
+      SdkOptional<CreateThreadRequestToolResources?> toolResources = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.createThread(_config,
-        messages: messages,
-        toolResources: toolResources,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return assistants_methods.createThread(_config, messages: messages, toolResources: toolResources, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Creates a thread and starts an assistant run in one request. Supply `assistant_id` and optionally configure the thread, model, tools, sampling, and token limits; `stream` returns run events as server-sent events. The run can remain queued or in progress, so check its status to track completion.
@@ -221,10 +162,8 @@ class AssistantsNamespace {
       SdkOptional<CreateThreadRequest> thread = const SdkOmitted(),
       SdkOptional<String?> model = const SdkOmitted(),
       SdkOptional<String?> instructions = const SdkOmitted(),
-      SdkOptional<List<CreateThreadAndRunRequestToolsItem>?> tools =
-          const SdkOmitted(),
-      SdkOptional<CreateThreadAndRunRequestToolResources?> toolResources =
-          const SdkOmitted(),
+      SdkOptional<List<CreateThreadAndRunRequestToolsItem>?> tools = const SdkOmitted(),
+      SdkOptional<CreateThreadAndRunRequestToolResources?> toolResources = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       SdkOptional<double?> temperature = const SdkOmitted(),
       SdkOptional<double?> topP = const SdkOmitted(),
@@ -232,75 +171,18 @@ class AssistantsNamespace {
       SdkOptional<int?> maxPromptTokens = const SdkOmitted(),
       SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
       SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(),
-      SdkOptional<AssistantsApiToolChoiceOption> toolChoice =
-          const SdkOmitted(),
+      SdkOptional<AssistantsApiToolChoiceOption> toolChoice = const SdkOmitted(),
       SdkOptional<bool> parallelToolCalls = const SdkOmitted(),
-      SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
-          const SdkOmitted(),
+      SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.createThreadAndRun(_config,
-        assistantId: assistantId,
-        thread: thread,
-        model: model,
-        instructions: instructions,
-        tools: tools,
-        toolResources: toolResources,
-        metadata: metadata,
-        temperature: temperature,
-        topP: topP,
-        stream: stream,
-        maxPromptTokens: maxPromptTokens,
-        maxCompletionTokens: maxCompletionTokens,
-        truncationStrategy: truncationStrategy,
-        toolChoice: toolChoice,
-        parallelToolCalls: parallelToolCalls,
-        responseFormat: responseFormat,
-        requestOptions: requestOptions);
+    return assistants_methods.createThreadAndRun(_config, assistantId: assistantId, thread: thread, model: model, instructions: instructions, tools: tools, toolResources: toolResources, metadata: metadata, temperature: temperature, topP: topP, stream: stream, maxPromptTokens: maxPromptTokens, maxCompletionTokens: maxCompletionTokens, truncationStrategy: truncationStrategy, toolChoice: toolChoice, parallelToolCalls: parallelToolCalls, responseFormat: responseFormat, requestOptions: requestOptions);
   }
 
   /// Creates a thread and starts an assistant run in one request. Supply `assistant_id` and optionally configure the thread, model, tools, sampling, and token limits; `stream` returns run events as server-sent events. The run can remain queued or in progress, so check its status to track completion.
   ///
   /// Create a thread and run it in one request.
-  Stream<AssistantStreamEvent> createThreadAndRunStream(
-      {required String assistantId,
-      required bool? stream,
-      SdkOptional<CreateThreadRequest> thread = const SdkOmitted(),
-      SdkOptional<String?> model = const SdkOmitted(),
-      SdkOptional<String?> instructions = const SdkOmitted(),
-      SdkOptional<List<CreateThreadAndRunRequestToolsItem>?> tools =
-          const SdkOmitted(),
-      SdkOptional<CreateThreadAndRunRequestToolResources?> toolResources =
-          const SdkOmitted(),
-      SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
-      SdkOptional<double?> temperature = const SdkOmitted(),
-      SdkOptional<double?> topP = const SdkOmitted(),
-      SdkOptional<int?> maxPromptTokens = const SdkOmitted(),
-      SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
-      SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(),
-      SdkOptional<AssistantsApiToolChoiceOption> toolChoice =
-          const SdkOmitted(),
-      SdkOptional<bool> parallelToolCalls = const SdkOmitted(),
-      SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
-          const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* assistants_methods.createThreadAndRunStream(_config,
-        assistantId: assistantId,
-        stream: stream,
-        thread: thread,
-        model: model,
-        instructions: instructions,
-        tools: tools,
-        toolResources: toolResources,
-        metadata: metadata,
-        temperature: temperature,
-        topP: topP,
-        maxPromptTokens: maxPromptTokens,
-        maxCompletionTokens: maxCompletionTokens,
-        truncationStrategy: truncationStrategy,
-        toolChoice: toolChoice,
-        parallelToolCalls: parallelToolCalls,
-        responseFormat: responseFormat,
-        requestOptions: requestOptions);
+  Stream<AssistantStreamEvent> createThreadAndRunStream({required String assistantId, required bool? stream, SdkOptional<CreateThreadRequest> thread = const SdkOmitted(), SdkOptional<String?> model = const SdkOmitted(), SdkOptional<String?> instructions = const SdkOmitted(), SdkOptional<List<CreateThreadAndRunRequestToolsItem>?> tools = const SdkOmitted(), SdkOptional<CreateThreadAndRunRequestToolResources?> toolResources = const SdkOmitted(), SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<int?> maxPromptTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(), SdkOptional<AssistantsApiToolChoiceOption> toolChoice = const SdkOmitted(), SdkOptional<bool> parallelToolCalls = const SdkOmitted(), SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* assistants_methods.createThreadAndRunStream(_config, assistantId: assistantId, stream: stream, thread: thread, model: model, instructions: instructions, tools: tools, toolResources: toolResources, metadata: metadata, temperature: temperature, topP: topP, maxPromptTokens: maxPromptTokens, maxCompletionTokens: maxCompletionTokens, truncationStrategy: truncationStrategy, toolChoice: toolChoice, parallelToolCalls: parallelToolCalls, responseFormat: responseFormat, requestOptions: requestOptions);
   }
 
   /// Retrieves a thread and its associated details. Use the thread's identifier to fetch its creation timestamp, tool resources, and metadata.
@@ -308,8 +190,7 @@ class AssistantsNamespace {
   /// Retrieves a thread.
   Future<ThreadObject> getThread(
       {required String threadId, RequestOptions? requestOptions}) async {
-    return assistants_methods.getThread(_config,
-        threadId: threadId, requestOptions: requestOptions);
+    return assistants_methods.getThread(_config, threadId: threadId, requestOptions: requestOptions);
   }
 
   /// Updates the configurable details of a thread. Supply `metadata` to attach structured key-value pairs, or `tool_resources` to provide resources for the assistant's tools. The thread identifier selects which thread to update.
@@ -317,15 +198,10 @@ class AssistantsNamespace {
   /// Modifies a thread.
   Future<ThreadObject> modifyThread(
       {required String threadId,
-      SdkOptional<ModifyThreadRequestToolResources?> toolResources =
-          const SdkOmitted(),
+      SdkOptional<ModifyThreadRequestToolResources?> toolResources = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.modifyThread(_config,
-        threadId: threadId,
-        toolResources: toolResources,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return assistants_methods.modifyThread(_config, threadId: threadId, toolResources: toolResources, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Deletes a thread. Use the thread's identifier to select the thread to remove; the response confirms the deletion.
@@ -333,8 +209,7 @@ class AssistantsNamespace {
   /// Delete a thread.
   Future<DeleteThreadResponse> deleteThread(
       {required String threadId, RequestOptions? requestOptions}) async {
-    return assistants_methods.deleteThread(_config,
-        threadId: threadId, requestOptions: requestOptions);
+    return assistants_methods.deleteThread(_config, threadId: threadId, requestOptions: requestOptions);
   }
 
   /// Lists messages belonging to a thread. Use `run_id` to filter by the run that generated the messages and `order` to control their creation-time order. Use `after` or `before` cursors to navigate the results.
@@ -348,35 +223,14 @@ class AssistantsNamespace {
       SdkOptional<String> before = const SdkOmitted(),
       SdkOptional<String> runId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.listMessages(_config,
-        threadId: threadId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        runId: runId,
-        requestOptions: requestOptions);
+    return assistants_methods.listMessages(_config, threadId: threadId, limit: limit, order: order, after: after, before: before, runId: runId, requestOptions: requestOptions);
   }
 
   /// Lists messages belonging to a thread. Use `run_id` to filter by the run that generated the messages and `order` to control their creation-time order. Use `after` or `before` cursors to navigate the results.
   ///
   /// Returns a list of messages for a given thread.
-  Stream<MessageObject> listMessagesPaginated(
-      {required String threadId,
-      int? limit,
-      ListMessagesOrder? order,
-      String? after,
-      String? before,
-      String? runId,
-      RequestOptions? requestOptions}) async* {
-    yield* assistants_methods.listMessagesPaginated(_config,
-        threadId: threadId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        runId: runId,
-        requestOptions: requestOptions);
+  Stream<MessageObject> listMessagesPaginated({required String threadId, int? limit, ListMessagesOrder? order, String? after, String? before, String? runId, RequestOptions? requestOptions}) async* {
+    yield* assistants_methods.listMessagesPaginated(_config, threadId: threadId, limit: limit, order: order, after: after, before: before, runId: runId, requestOptions: requestOptions);
   }
 
   /// Creates a message in a thread. Provide the message `role` and `content`, and optionally include file attachments or metadata. Use this operation to add a user or assistant message to an existing conversation thread.
@@ -386,17 +240,10 @@ class AssistantsNamespace {
       {required String threadId,
       required CreateMessageRequestRole role,
       required dynamic content,
-      SdkOptional<List<CreateMessageRequestAttachmentsItem>?> attachments =
-          const SdkOmitted(),
+      SdkOptional<List<CreateMessageRequestAttachmentsItem>?> attachments = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.createMessage(_config,
-        threadId: threadId,
-        role: role,
-        content: content,
-        attachments: attachments,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return assistants_methods.createMessage(_config, threadId: threadId, role: role, content: content, attachments: attachments, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Retrieves a message from a thread. Provide both identifiers to select the thread and the message whose role, content, status, and associated details you need.
@@ -406,10 +253,7 @@ class AssistantsNamespace {
       {required String threadId,
       required String messageId,
       RequestOptions? requestOptions}) async {
-    return assistants_methods.getMessage(_config,
-        threadId: threadId,
-        messageId: messageId,
-        requestOptions: requestOptions);
+    return assistants_methods.getMessage(_config, threadId: threadId, messageId: messageId, requestOptions: requestOptions);
   }
 
   /// Updates the metadata attached to a message in a thread. Provide the thread and message identifiers to select the message, then supply metadata key-value pairs to change. Use this operation when you need to update message metadata without changing its content.
@@ -420,11 +264,7 @@ class AssistantsNamespace {
       required String messageId,
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.modifyMessage(_config,
-        threadId: threadId,
-        messageId: messageId,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return assistants_methods.modifyMessage(_config, threadId: threadId, messageId: messageId, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Deletes a message from a thread. Provide both identifiers to select the thread and the message to remove; the response confirms the deletion.
@@ -434,10 +274,7 @@ class AssistantsNamespace {
       {required String threadId,
       required String messageId,
       RequestOptions? requestOptions}) async {
-    return assistants_methods.deleteMessage(_config,
-        threadId: threadId,
-        messageId: messageId,
-        requestOptions: requestOptions);
+    return assistants_methods.deleteMessage(_config, threadId: threadId, messageId: messageId, requestOptions: requestOptions);
   }
 
   /// Lists runs belonging to a thread. Use `order` to sort runs by creation time and `after` or `before` to navigate through the results. The returned run statuses show whether each run is queued, active, completed, or in another state.
@@ -450,32 +287,14 @@ class AssistantsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.listRuns(_config,
-        threadId: threadId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return assistants_methods.listRuns(_config, threadId: threadId, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Lists runs belonging to a thread. Use `order` to sort runs by creation time and `after` or `before` to navigate through the results. The returned run statuses show whether each run is queued, active, completed, or in another state.
   ///
   /// Returns a list of runs belonging to a thread.
-  Stream<RunObject> listRunsPaginated(
-      {required String threadId,
-      int? limit,
-      ListRunsOrder? order,
-      String? after,
-      String? before,
-      RequestOptions? requestOptions}) async* {
-    yield* assistants_methods.listRunsPaginated(_config,
-        threadId: threadId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+  Stream<RunObject> listRunsPaginated({required String threadId, int? limit, ListRunsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+    yield* assistants_methods.listRunsPaginated(_config, threadId: threadId, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Creates a run on a thread using the specified assistant. Supply `assistant_id` and optionally override the assistant’s model, instructions, tools, or generation settings for this run. If the run requires tool outputs, submit them with POST /threads/{thread_id}/runs/{run_id}/submit_tool_outputs.
@@ -489,8 +308,7 @@ class AssistantsNamespace {
       SdkOptional<ReasoningEffort?> reasoningEffort = const SdkOmitted(),
       SdkOptional<String?> instructions = const SdkOmitted(),
       SdkOptional<String?> additionalInstructions = const SdkOmitted(),
-      SdkOptional<List<CreateMessageRequest>?> additionalMessages =
-          const SdkOmitted(),
+      SdkOptional<List<CreateMessageRequest>?> additionalMessages = const SdkOmitted(),
       SdkOptional<List<CreateRunRequestToolsItem>?> tools = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       SdkOptional<double?> temperature = const SdkOmitted(),
@@ -499,83 +317,18 @@ class AssistantsNamespace {
       SdkOptional<int?> maxPromptTokens = const SdkOmitted(),
       SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
       SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(),
-      SdkOptional<AssistantsApiToolChoiceOption> toolChoice =
-          const SdkOmitted(),
+      SdkOptional<AssistantsApiToolChoiceOption> toolChoice = const SdkOmitted(),
       SdkOptional<bool> parallelToolCalls = const SdkOmitted(),
-      SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
-          const SdkOmitted(),
+      SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.createRun(_config,
-        threadId: threadId,
-        assistantId: assistantId,
-        include: include,
-        model: model,
-        reasoningEffort: reasoningEffort,
-        instructions: instructions,
-        additionalInstructions: additionalInstructions,
-        additionalMessages: additionalMessages,
-        tools: tools,
-        metadata: metadata,
-        temperature: temperature,
-        topP: topP,
-        stream: stream,
-        maxPromptTokens: maxPromptTokens,
-        maxCompletionTokens: maxCompletionTokens,
-        truncationStrategy: truncationStrategy,
-        toolChoice: toolChoice,
-        parallelToolCalls: parallelToolCalls,
-        responseFormat: responseFormat,
-        requestOptions: requestOptions);
+    return assistants_methods.createRun(_config, threadId: threadId, assistantId: assistantId, include: include, model: model, reasoningEffort: reasoningEffort, instructions: instructions, additionalInstructions: additionalInstructions, additionalMessages: additionalMessages, tools: tools, metadata: metadata, temperature: temperature, topP: topP, stream: stream, maxPromptTokens: maxPromptTokens, maxCompletionTokens: maxCompletionTokens, truncationStrategy: truncationStrategy, toolChoice: toolChoice, parallelToolCalls: parallelToolCalls, responseFormat: responseFormat, requestOptions: requestOptions);
   }
 
   /// Creates a run on a thread using the specified assistant. Supply `assistant_id` and optionally override the assistant’s model, instructions, tools, or generation settings for this run. If the run requires tool outputs, submit them with POST /threads/{thread_id}/runs/{run_id}/submit_tool_outputs.
   ///
   /// Create a run.
-  Stream<AssistantStreamEvent> createRunStream(
-      {required String threadId,
-      required String assistantId,
-      required bool? stream,
-      SdkOptional<List<CreateRunIncludeItem>> include = const SdkOmitted(),
-      SdkOptional<String?> model = const SdkOmitted(),
-      SdkOptional<ReasoningEffort?> reasoningEffort = const SdkOmitted(),
-      SdkOptional<String?> instructions = const SdkOmitted(),
-      SdkOptional<String?> additionalInstructions = const SdkOmitted(),
-      SdkOptional<List<CreateMessageRequest>?> additionalMessages =
-          const SdkOmitted(),
-      SdkOptional<List<CreateRunRequestToolsItem>?> tools = const SdkOmitted(),
-      SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
-      SdkOptional<double?> temperature = const SdkOmitted(),
-      SdkOptional<double?> topP = const SdkOmitted(),
-      SdkOptional<int?> maxPromptTokens = const SdkOmitted(),
-      SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
-      SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(),
-      SdkOptional<AssistantsApiToolChoiceOption> toolChoice =
-          const SdkOmitted(),
-      SdkOptional<bool> parallelToolCalls = const SdkOmitted(),
-      SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
-          const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* assistants_methods.createRunStream(_config,
-        threadId: threadId,
-        assistantId: assistantId,
-        stream: stream,
-        include: include,
-        model: model,
-        reasoningEffort: reasoningEffort,
-        instructions: instructions,
-        additionalInstructions: additionalInstructions,
-        additionalMessages: additionalMessages,
-        tools: tools,
-        metadata: metadata,
-        temperature: temperature,
-        topP: topP,
-        maxPromptTokens: maxPromptTokens,
-        maxCompletionTokens: maxCompletionTokens,
-        truncationStrategy: truncationStrategy,
-        toolChoice: toolChoice,
-        parallelToolCalls: parallelToolCalls,
-        responseFormat: responseFormat,
-        requestOptions: requestOptions);
+  Stream<AssistantStreamEvent> createRunStream({required String threadId, required String assistantId, required bool? stream, SdkOptional<List<CreateRunIncludeItem>> include = const SdkOmitted(), SdkOptional<String?> model = const SdkOmitted(), SdkOptional<ReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<String?> instructions = const SdkOmitted(), SdkOptional<String?> additionalInstructions = const SdkOmitted(), SdkOptional<List<CreateMessageRequest>?> additionalMessages = const SdkOmitted(), SdkOptional<List<CreateRunRequestToolsItem>?> tools = const SdkOmitted(), SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<int?> maxPromptTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(), SdkOptional<AssistantsApiToolChoiceOption> toolChoice = const SdkOmitted(), SdkOptional<bool> parallelToolCalls = const SdkOmitted(), SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* assistants_methods.createRunStream(_config, threadId: threadId, assistantId: assistantId, stream: stream, include: include, model: model, reasoningEffort: reasoningEffort, instructions: instructions, additionalInstructions: additionalInstructions, additionalMessages: additionalMessages, tools: tools, metadata: metadata, temperature: temperature, topP: topP, maxPromptTokens: maxPromptTokens, maxCompletionTokens: maxCompletionTokens, truncationStrategy: truncationStrategy, toolChoice: toolChoice, parallelToolCalls: parallelToolCalls, responseFormat: responseFormat, requestOptions: requestOptions);
   }
 
   /// Retrieves a run associated with a thread. Use the thread and run IDs to inspect the run’s current status, timestamps, and any required action or error.
@@ -585,8 +338,7 @@ class AssistantsNamespace {
       {required String threadId,
       required String runId,
       RequestOptions? requestOptions}) async {
-    return assistants_methods.getRun(_config,
-        threadId: threadId, runId: runId, requestOptions: requestOptions);
+    return assistants_methods.getRun(_config, threadId: threadId, runId: runId, requestOptions: requestOptions);
   }
 
   /// Updates the metadata attached to a run. Send the key-value pairs you want associated with the run; the metadata object supports up to 16 pairs, with string values and keys of up to 64 characters.
@@ -597,11 +349,7 @@ class AssistantsNamespace {
       required String runId,
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.modifyRun(_config,
-        threadId: threadId,
-        runId: runId,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return assistants_methods.modifyRun(_config, threadId: threadId, runId: runId, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Cancels a run that is in progress on a thread. Use this operation when you need to stop the run before it completes; the returned run object reports its current status.
@@ -611,8 +359,7 @@ class AssistantsNamespace {
       {required String threadId,
       required String runId,
       RequestOptions? requestOptions}) async {
-    return assistants_methods.cancelRun(_config,
-        threadId: threadId, runId: runId, requestOptions: requestOptions);
+    return assistants_methods.cancelRun(_config, threadId: threadId, runId: runId, requestOptions: requestOptions);
   }
 
   /// Lists the steps belonging to a run on a thread. Use cursor parameters to page through the steps, and set `order` to control their order by creation time.
@@ -627,38 +374,14 @@ class AssistantsNamespace {
       SdkOptional<String> before = const SdkOmitted(),
       SdkOptional<List<ListRunStepsIncludeItem>> include = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.listRunSteps(_config,
-        threadId: threadId,
-        runId: runId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        include: include,
-        requestOptions: requestOptions);
+    return assistants_methods.listRunSteps(_config, threadId: threadId, runId: runId, limit: limit, order: order, after: after, before: before, include: include, requestOptions: requestOptions);
   }
 
   /// Lists the steps belonging to a run on a thread. Use cursor parameters to page through the steps, and set `order` to control their order by creation time.
   ///
   /// Returns a list of run steps belonging to a run.
-  Stream<RunStepObject> listRunStepsPaginated(
-      {required String threadId,
-      required String runId,
-      int? limit,
-      ListRunStepsOrder? order,
-      String? after,
-      String? before,
-      List<ListRunStepsIncludeItem>? include,
-      RequestOptions? requestOptions}) async* {
-    yield* assistants_methods.listRunStepsPaginated(_config,
-        threadId: threadId,
-        runId: runId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        include: include,
-        requestOptions: requestOptions);
+  Stream<RunStepObject> listRunStepsPaginated({required String threadId, required String runId, int? limit, ListRunStepsOrder? order, String? after, String? before, List<ListRunStepsIncludeItem>? include, RequestOptions? requestOptions}) async* {
+    yield* assistants_methods.listRunStepsPaginated(_config, threadId: threadId, runId: runId, limit: limit, order: order, after: after, before: before, include: include, requestOptions: requestOptions);
   }
 
   /// Retrieves a specific step from a run on a thread. Use `include[]` to request file search result content when the step contains file search tool calls.
@@ -670,12 +393,7 @@ class AssistantsNamespace {
       required String stepId,
       SdkOptional<List<GetRunStepIncludeItem>> include = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.getRunStep(_config,
-        threadId: threadId,
-        runId: runId,
-        stepId: stepId,
-        include: include,
-        requestOptions: requestOptions);
+    return assistants_methods.getRunStep(_config, threadId: threadId, runId: runId, stepId: stepId, include: include, requestOptions: requestOptions);
   }
 
   /// Submits tool outputs for a run that is waiting for tool results. Provide the outputs for all completed tool calls in one request so the run can continue. Set `stream` to receive run events as server-sent events.
@@ -687,36 +405,21 @@ class AssistantsNamespace {
       required List<SubmitToolOutputsRunRequestToolOutputsItem> toolOutputs,
       SdkOptional<bool?> stream = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return assistants_methods.submitAssistantsToolOutputsToRun(_config,
-        threadId: threadId,
-        runId: runId,
-        toolOutputs: toolOutputs,
-        stream: stream,
-        requestOptions: requestOptions);
+    return assistants_methods.submitAssistantsToolOutputsToRun(_config, threadId: threadId, runId: runId, toolOutputs: toolOutputs, stream: stream, requestOptions: requestOptions);
   }
 
   /// Submits tool outputs for a run that is waiting for tool results. Provide the outputs for all completed tool calls in one request so the run can continue. Set `stream` to receive run events as server-sent events.
   ///
   /// When a run has the `status: "requires_action"` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they're all completed. All outputs must be submitted in a single request.
-  Stream<AssistantStreamEvent> submitToolOutputsToRunStream(
-      {required String threadId,
-      required String runId,
-      required List<SubmitToolOutputsRunRequestToolOutputsItem> toolOutputs,
-      required bool? stream,
-      RequestOptions? requestOptions}) async* {
-    yield* assistants_methods.submitAssistantsToolOutputsToRunStream(_config,
-        threadId: threadId,
-        runId: runId,
-        toolOutputs: toolOutputs,
-        stream: stream,
-        requestOptions: requestOptions);
+  Stream<AssistantStreamEvent> submitToolOutputsToRunStream({required String threadId, required String runId, required List<SubmitToolOutputsRunRequestToolOutputsItem> toolOutputs, required bool? stream, RequestOptions? requestOptions}) async* {
+    yield* assistants_methods.submitAssistantsToolOutputsToRunStream(_config, threadId: threadId, runId: runId, toolOutputs: toolOutputs, stream: stream, requestOptions: requestOptions);
   }
+
 }
 
 class AudioNamespace {
   final ClientConfig _config;
   AudioNamespace(ClientConfig config) : _config = config;
-
   /// Generates audio from text using a selected text-to-speech model and voice. Provide `model`, `input`, and `voice`, then choose an output format or streaming mode as needed. The response contains audio data or streamed audio events.
   ///
   /// Generates audio from the input text. Returns the audio file content, or a stream of audio events.
@@ -725,46 +428,18 @@ class AudioNamespace {
       required String input,
       required CreateSpeechRequestVoice voice,
       SdkOptional<String> instructions = const SdkOmitted(),
-      SdkOptional<CreateSpeechRequestResponseFormat> responseFormat =
-          const SdkOmitted(),
+      SdkOptional<CreateSpeechRequestResponseFormat> responseFormat = const SdkOmitted(),
       SdkOptional<double> speed = const SdkOmitted(),
-      SdkOptional<CreateSpeechRequestStreamFormat> streamFormat =
-          const SdkOmitted(),
+      SdkOptional<CreateSpeechRequestStreamFormat> streamFormat = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return audio_methods.createSpeech(_config,
-        model: model,
-        input: input,
-        voice: voice,
-        instructions: instructions,
-        responseFormat: responseFormat,
-        speed: speed,
-        streamFormat: streamFormat,
-        requestOptions: requestOptions);
+    return audio_methods.createSpeech(_config, model: model, input: input, voice: voice, instructions: instructions, responseFormat: responseFormat, speed: speed, streamFormat: streamFormat, requestOptions: requestOptions);
   }
 
   /// Generates audio from text using a selected text-to-speech model and voice. Provide `model`, `input`, and `voice`, then choose an output format or streaming mode as needed. The response contains audio data or streamed audio events.
   ///
   /// Generates audio from the input text. Returns the audio file content, or a stream of audio events.
-  Stream<CreateSpeechResponseStreamEvent> createSpeechStream(
-      {required String model,
-      required String input,
-      required CreateSpeechRequestVoice voice,
-      SdkOptional<String> instructions = const SdkOmitted(),
-      SdkOptional<CreateSpeechRequestResponseFormat> responseFormat =
-          const SdkOmitted(),
-      SdkOptional<double> speed = const SdkOmitted(),
-      SdkOptional<CreateSpeechRequestStreamFormat> streamFormat =
-          const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* audio_methods.createSpeechStream(_config,
-        model: model,
-        input: input,
-        voice: voice,
-        instructions: instructions,
-        responseFormat: responseFormat,
-        speed: speed,
-        streamFormat: streamFormat,
-        requestOptions: requestOptions);
+  Stream<CreateSpeechResponseStreamEvent> createSpeechStream({required String model, required String input, required CreateSpeechRequestVoice voice, SdkOptional<String> instructions = const SdkOmitted(), SdkOptional<CreateSpeechRequestResponseFormat> responseFormat = const SdkOmitted(), SdkOptional<double> speed = const SdkOmitted(), SdkOptional<CreateSpeechRequestStreamFormat> streamFormat = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* audio_methods.createSpeechStream(_config, model: model, input: input, voice: voice, instructions: instructions, responseFormat: responseFormat, speed: speed, streamFormat: streamFormat, requestOptions: requestOptions);
   }
 
   /// Transcribes an audio file and returns the transcript in a selected format or as a stream of transcript events. Provide the audio `file` and `model`, then use options such as `language`, `prompt`, or `timestamp_granularities` to guide or shape the output. Use multipart form data and include enough file metadata for the audio format to be identified.
@@ -780,69 +455,20 @@ class AudioNamespace {
       SdkOptional<AudioResponseFormat> responseFormat = const SdkOmitted(),
       SdkOptional<double> temperature = const SdkOmitted(),
       SdkOptional<List<TranscriptionInclude>> include = const SdkOmitted(),
-      SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>>
-          timestampGranularities = const SdkOmitted(),
+      SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>> timestampGranularities = const SdkOmitted(),
       SdkOptional<bool?> stream = const SdkOmitted(),
-      SdkOptional<CreateTranscriptionRequestChunkingStrategy?>
-          chunkingStrategy = const SdkOmitted(),
+      SdkOptional<CreateTranscriptionRequestChunkingStrategy?> chunkingStrategy = const SdkOmitted(),
       SdkOptional<List<String>> knownSpeakerNames = const SdkOmitted(),
       SdkOptional<List<String>> knownSpeakerReferences = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return audio_methods.createTranscription(_config,
-        file: file,
-        model: model,
-        language: language,
-        languages: languages,
-        keywords: keywords,
-        prompt: prompt,
-        responseFormat: responseFormat,
-        temperature: temperature,
-        include: include,
-        timestampGranularities: timestampGranularities,
-        stream: stream,
-        chunkingStrategy: chunkingStrategy,
-        knownSpeakerNames: knownSpeakerNames,
-        knownSpeakerReferences: knownSpeakerReferences,
-        requestOptions: requestOptions);
+    return audio_methods.createTranscription(_config, file: file, model: model, language: language, languages: languages, keywords: keywords, prompt: prompt, responseFormat: responseFormat, temperature: temperature, include: include, timestampGranularities: timestampGranularities, stream: stream, chunkingStrategy: chunkingStrategy, knownSpeakerNames: knownSpeakerNames, knownSpeakerReferences: knownSpeakerReferences, requestOptions: requestOptions);
   }
 
   /// Transcribes an audio file and returns the transcript in a selected format or as a stream of transcript events. Provide the audio `file` and `model`, then use options such as `language`, `prompt`, or `timestamp_granularities` to guide or shape the output. Use multipart form data and include enough file metadata for the audio format to be identified.
   ///
   /// Transcribes audio into the input language. Returns a transcription object in `json`, `diarized_json`, or `verbose_json` format, plain text in `text`, `srt`, or `vtt` format, or a stream of transcript events. Supported formats depend on the model.
-  Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(
-      {required SdkUploadFile file,
-      required String model,
-      required bool? stream,
-      SdkOptional<String> language = const SdkOmitted(),
-      SdkOptional<List<String>> languages = const SdkOmitted(),
-      SdkOptional<List<String>> keywords = const SdkOmitted(),
-      SdkOptional<String> prompt = const SdkOmitted(),
-      SdkOptional<AudioResponseFormat> responseFormat = const SdkOmitted(),
-      SdkOptional<double> temperature = const SdkOmitted(),
-      SdkOptional<List<TranscriptionInclude>> include = const SdkOmitted(),
-      SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>>
-          timestampGranularities = const SdkOmitted(),
-      SdkOptional<CreateTranscriptionRequestChunkingStrategy?>
-          chunkingStrategy = const SdkOmitted(),
-      SdkOptional<List<String>> knownSpeakerNames = const SdkOmitted(),
-      SdkOptional<List<String>> knownSpeakerReferences = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* audio_methods.createTranscriptionStream(_config,
-        file: file,
-        model: model,
-        stream: stream,
-        language: language,
-        languages: languages,
-        keywords: keywords,
-        prompt: prompt,
-        responseFormat: responseFormat,
-        temperature: temperature,
-        include: include,
-        timestampGranularities: timestampGranularities,
-        chunkingStrategy: chunkingStrategy,
-        knownSpeakerNames: knownSpeakerNames,
-        knownSpeakerReferences: knownSpeakerReferences,
-        requestOptions: requestOptions);
+  Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream({required SdkUploadFile file, required String model, required bool? stream, SdkOptional<String> language = const SdkOmitted(), SdkOptional<List<String>> languages = const SdkOmitted(), SdkOptional<List<String>> keywords = const SdkOmitted(), SdkOptional<String> prompt = const SdkOmitted(), SdkOptional<AudioResponseFormat> responseFormat = const SdkOmitted(), SdkOptional<double> temperature = const SdkOmitted(), SdkOptional<List<TranscriptionInclude>> include = const SdkOmitted(), SdkOptional<List<CreateTranscriptionRequestTimestampGranularitiesItem>> timestampGranularities = const SdkOmitted(), SdkOptional<CreateTranscriptionRequestChunkingStrategy?> chunkingStrategy = const SdkOmitted(), SdkOptional<List<String>> knownSpeakerNames = const SdkOmitted(), SdkOptional<List<String>> knownSpeakerReferences = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* audio_methods.createTranscriptionStream(_config, file: file, model: model, stream: stream, language: language, languages: languages, keywords: keywords, prompt: prompt, responseFormat: responseFormat, temperature: temperature, include: include, timestampGranularities: timestampGranularities, chunkingStrategy: chunkingStrategy, knownSpeakerNames: knownSpeakerNames, knownSpeakerReferences: knownSpeakerReferences, requestOptions: requestOptions);
   }
 
   /// Translates an audio file into English and returns the result in a selected format. Provide the `file` and `model`, then optionally use `prompt` to guide the translation style. Send the file as multipart form data with metadata that lets the service identify its audio format.
@@ -852,17 +478,10 @@ class AudioNamespace {
       {required SdkUploadFile file,
       required String model,
       SdkOptional<String> prompt = const SdkOmitted(),
-      SdkOptional<CreateTranslationRequestResponseFormat> responseFormat =
-          const SdkOmitted(),
+      SdkOptional<CreateTranslationRequestResponseFormat> responseFormat = const SdkOmitted(),
       SdkOptional<double> temperature = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return audio_methods.createTranslation(_config,
-        file: file,
-        model: model,
-        prompt: prompt,
-        responseFormat: responseFormat,
-        temperature: temperature,
-        requestOptions: requestOptions);
+    return audio_methods.createTranslation(_config, file: file, model: model, prompt: prompt, responseFormat: responseFormat, temperature: temperature, requestOptions: requestOptions);
   }
 
   /// Creates a voice consent recording by uploading its audio file with a label and language tag. Provide `name`, `recording`, and `language`, and send the recording as multipart form data in a supported audio format. The response includes the new recording's identifier and creation timestamp.
@@ -873,11 +492,7 @@ class AudioNamespace {
       required SdkUploadFile recording,
       required String language,
       RequestOptions? requestOptions}) async {
-    return audio_methods.createVoiceConsent(_config,
-        name: name,
-        recording: recording,
-        language: language,
-        requestOptions: requestOptions);
+    return audio_methods.createVoiceConsent(_config, name: name, recording: recording, language: language, requestOptions: requestOptions);
   }
 
   /// Lists voice consent recordings used to authorize creation of custom voices. Use the `after` cursor to continue from a previous page and `limit` to control the number of records returned. The response includes pagination cursors and indicates whether more records are available.
@@ -887,17 +502,14 @@ class AudioNamespace {
       {SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return audio_methods.listVoiceConsents(_config,
-        after: after, limit: limit, requestOptions: requestOptions);
+    return audio_methods.listVoiceConsents(_config, after: after, limit: limit, requestOptions: requestOptions);
   }
 
   /// Lists voice consent recordings used to authorize creation of custom voices. Use the `after` cursor to continue from a previous page and `limit` to control the number of records returned. The response includes pagination cursors and indicates whether more records are available.
   ///
   /// Returns a list of voice consent recordings.
-  Stream<VoiceConsentResource> listVoiceConsentsPaginated(
-      {String? after, int? limit, RequestOptions? requestOptions}) async* {
-    yield* audio_methods.listVoiceConsentsPaginated(_config,
-        after: after, limit: limit, requestOptions: requestOptions);
+  Stream<VoiceConsentResource> listVoiceConsentsPaginated({String? after, int? limit, RequestOptions? requestOptions}) async* {
+    yield* audio_methods.listVoiceConsentsPaginated(_config, after: after, limit: limit, requestOptions: requestOptions);
   }
 
   /// Retrieves a voice consent recording by its identifier. Use `consent_id` to select the recording whose metadata you need.
@@ -905,8 +517,7 @@ class AudioNamespace {
   /// Retrieves a voice consent recording.
   Future<VoiceConsentResource> getVoiceConsent(
       {required String consentId, RequestOptions? requestOptions}) async {
-    return audio_methods.getVoiceConsent(_config,
-        consentId: consentId, requestOptions: requestOptions);
+    return audio_methods.getVoiceConsent(_config, consentId: consentId, requestOptions: requestOptions);
   }
 
   /// Updates the metadata for a voice consent recording. Supply the required `name` field to change its label; this operation does not update the recording itself.
@@ -916,8 +527,7 @@ class AudioNamespace {
       {required String consentId,
       required String name,
       RequestOptions? requestOptions}) async {
-    return audio_methods.updateVoiceConsent(_config,
-        consentId: consentId, name: name, requestOptions: requestOptions);
+    return audio_methods.updateVoiceConsent(_config, consentId: consentId, name: name, requestOptions: requestOptions);
   }
 
   /// Deletes a voice consent recording. Use `consent_id` to identify the recording to remove.
@@ -925,8 +535,7 @@ class AudioNamespace {
   /// Deletes a voice consent recording.
   Future<VoiceConsentDeletedResource> deleteVoiceConsent(
       {required String consentId, RequestOptions? requestOptions}) async {
-    return audio_methods.deleteVoiceConsent(_config,
-        consentId: consentId, requestOptions: requestOptions);
+    return audio_methods.deleteVoiceConsent(_config, consentId: consentId, requestOptions: requestOptions);
   }
 
   /// Creates a custom voice for audio output from an audio sample and a previously uploaded consent recording. Send `name`, `audio_sample`, and `consent` as multipart form data; `type` defaults to `audio_sample` when omitted. Custom voices are limited to eligible customers.
@@ -935,15 +544,14 @@ class AudioNamespace {
   Future<VoiceResource> createVoice(
       {required CreateVoiceRequest body,
       RequestOptions? requestOptions}) async {
-    return audio_methods.createVoice(_config,
-        body: body, requestOptions: requestOptions);
+    return audio_methods.createVoice(_config, body: body, requestOptions: requestOptions);
   }
+
 }
 
 class BatchNamespace {
   final ClientConfig _config;
   BatchNamespace(ClientConfig config) : _config = config;
-
   /// Creates and executes a batch from an uploaded file of requests. Supply the required `input_file_id`, `endpoint`, and `completion_window`; the batch endpoint must be one of the supported API paths, and the only supported completion window is `24h`. The response includes the batch status so you can track processing.
   ///
   /// Creates and executes a batch from an uploaded file of requests
@@ -952,16 +560,9 @@ class BatchNamespace {
       required CreateBatchRequestEndpoint endpoint,
       required CreateBatchRequestCompletionWindow completionWindow,
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
-      SdkOptional<BatchFileExpirationAfter> outputExpiresAfter =
-          const SdkOmitted(),
+      SdkOptional<BatchFileExpirationAfter> outputExpiresAfter = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return batch_methods.createBatch(_config,
-        inputFileId: inputFileId,
-        endpoint: endpoint,
-        completionWindow: completionWindow,
-        metadata: metadata,
-        outputExpiresAfter: outputExpiresAfter,
-        requestOptions: requestOptions);
+    return batch_methods.createBatch(_config, inputFileId: inputFileId, endpoint: endpoint, completionWindow: completionWindow, metadata: metadata, outputExpiresAfter: outputExpiresAfter, requestOptions: requestOptions);
   }
 
   /// Lists batches created by your organization. Use `after` to continue from a batch ID and `limit` to set the number of results, from 1 to 100.
@@ -971,17 +572,14 @@ class BatchNamespace {
       {SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return batch_methods.listBatch(_config,
-        after: after, limit: limit, requestOptions: requestOptions);
+    return batch_methods.listBatch(_config, after: after, limit: limit, requestOptions: requestOptions);
   }
 
   /// Lists batches created by your organization. Use `after` to continue from a batch ID and `limit` to set the number of results, from 1 to 100.
   ///
   /// List your organization's batches.
-  Stream<Batch> listPaginated(
-      {String? after, int? limit, RequestOptions? requestOptions}) async* {
-    yield* batch_methods.listBatchPaginated(_config,
-        after: after, limit: limit, requestOptions: requestOptions);
+  Stream<Batch> listPaginated({String? after, int? limit, RequestOptions? requestOptions}) async* {
+    yield* batch_methods.listBatchPaginated(_config, after: after, limit: limit, requestOptions: requestOptions);
   }
 
   /// Retrieves a batch by its identifier. Use `batch_id` to inspect the batch configuration, status, and available output or error file references.
@@ -989,22 +587,20 @@ class BatchNamespace {
   /// Retrieves a batch.
   Future<Batch> retrieve(
       {required String batchId, RequestOptions? requestOptions}) async {
-    return batch_methods.retrieveBatch(_config,
-        batchId: batchId, requestOptions: requestOptions);
+    return batch_methods.retrieveBatch(_config, batchId: batchId, requestOptions: requestOptions);
   }
 
   /// Cancels an in-progress batch. The batch will be in status `cancelling` for up to 10 minutes, before changing to `cancelled`, where it will have partial results (if any) available in the output file.
   Future<Batch> cancel(
       {required String batchId, RequestOptions? requestOptions}) async {
-    return batch_methods.cancelBatch(_config,
-        batchId: batchId, requestOptions: requestOptions);
+    return batch_methods.cancelBatch(_config, batchId: batchId, requestOptions: requestOptions);
   }
+
 }
 
 class ChatNamespace {
   final ClientConfig _config;
   ChatNamespace(ClientConfig config) : _config = config;
-
   /// List stored Chat Completions. Only Chat Completions that have been stored with the `store` parameter set to `true` will be returned.
   Future<ChatCompletionList> listCompletions(
       {SdkOptional<String> model = const SdkOmitted(),
@@ -1013,30 +609,12 @@ class ChatNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<ListChatCompletionsOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return chat_methods.listChatCompletions(_config,
-        model: model,
-        metadata: metadata,
-        after: after,
-        limit: limit,
-        order: order,
-        requestOptions: requestOptions);
+    return chat_methods.listChatCompletions(_config, model: model, metadata: metadata, after: after, limit: limit, order: order, requestOptions: requestOptions);
   }
 
   /// List stored Chat Completions. Only Chat Completions that have been stored with the `store` parameter set to `true` will be returned.
-  Stream<CreateChatCompletionResponse> listCompletionsPaginated(
-      {String? model,
-      Map<String, dynamic>? metadata,
-      String? after,
-      int? limit,
-      ListChatCompletionsOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* chat_methods.listChatCompletionsPaginated(_config,
-        model: model,
-        metadata: metadata,
-        after: after,
-        limit: limit,
-        order: order,
-        requestOptions: requestOptions);
+  Stream<CreateChatCompletionResponse> listCompletionsPaginated({String? model, Map<String, dynamic>? metadata, String? after, int? limit, ListChatCompletionsOrder? order, RequestOptions? requestOptions}) async* {
+    yield* chat_methods.listChatCompletionsPaginated(_config, model: model, metadata: metadata, after: after, limit: limit, order: order, requestOptions: requestOptions);
   }
 
   /// Creates a model response for a chat conversation. Supply `model` and at least one item in `messages`; set `stream` to receive server-sent events instead of a single response object. The response contains completion choices and usage information when available.
@@ -1045,25 +623,20 @@ class ChatNamespace {
   Future<CreateChatCompletionResponse> createCompletion(
       {required CreateChatCompletionRequest body,
       RequestOptions? requestOptions}) async {
-    return chat_methods.createChatCompletion(_config,
-        body: body, requestOptions: requestOptions);
+    return chat_methods.createChatCompletion(_config, body: body, requestOptions: requestOptions);
   }
 
   /// Creates a model response for a chat conversation. Supply `model` and at least one item in `messages`; set `stream` to receive server-sent events instead of a single response object. The response contains completion choices and usage information when available.
   ///
   /// **Starting a new project?** We recommend trying [Responses](https://developers.openai.com/api/reference/resources/responses) to take advantage of the latest OpenAI platform features. Compare [Chat Completions with Responses](https://developers.openai.com/api/docs/guides/migrate-to-responses?api-mode=responses). --- Creates a model response for the given chat conversation. Learn more in the [text generation](https://developers.openai.com/api/docs/guides/text), [vision](https://developers.openai.com/api/docs/guides/images-vision), and [audio](https://developers.openai.com/api/docs/guides/audio) guides. Parameter support can differ depending on the model used to generate the response, particularly for newer reasoning models. Parameters that are only supported for reasoning models are noted below. For the current state of unsupported parameters in reasoning models, [refer to the reasoning guide](https://developers.openai.com/api/docs/guides/reasoning). Returns a chat completion object, or a streamed sequence of chat completion chunk objects if the request is streamed.
-  Stream<CreateChatCompletionStreamResponse> createCompletionStream(
-      {required CreateChatCompletionRequest body,
-      RequestOptions? requestOptions}) async* {
-    yield* chat_methods.createChatCompletionStream(_config,
-        body: body, requestOptions: requestOptions);
+  Stream<CreateChatCompletionStreamResponse> createCompletionStream({required CreateChatCompletionRequest body, RequestOptions? requestOptions}) async* {
+    yield* chat_methods.createChatCompletionStream(_config, body: body, requestOptions: requestOptions);
   }
 
   /// Get a stored chat completion. Only Chat Completions that have been created with the `store` parameter set to `true` will be returned.
   Future<CreateChatCompletionResponse> getCompletion(
       {required String completionId, RequestOptions? requestOptions}) async {
-    return chat_methods.getChatCompletion(_config,
-        completionId: completionId, requestOptions: requestOptions);
+    return chat_methods.getChatCompletion(_config, completionId: completionId, requestOptions: requestOptions);
   }
 
   /// Updates the metadata on a stored chat completion. The completion must have been created with `store` set to `true`, and metadata is the only supported modification. Use this operation to attach or replace structured key-value metadata on the completion.
@@ -1073,17 +646,13 @@ class ChatNamespace {
       {required String completionId,
       required Map<String, dynamic>? metadata,
       RequestOptions? requestOptions}) async {
-    return chat_methods.updateChatCompletion(_config,
-        completionId: completionId,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return chat_methods.updateChatCompletion(_config, completionId: completionId, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Delete a stored chat completion. Only Chat Completions that have been created with the `store` parameter set to `true` can be deleted.
   Future<ChatCompletionDeleted> deleteCompletion(
       {required String completionId, RequestOptions? requestOptions}) async {
-    return chat_methods.deleteChatCompletion(_config,
-        completionId: completionId, requestOptions: requestOptions);
+    return chat_methods.deleteChatCompletion(_config, completionId: completionId, requestOptions: requestOptions);
   }
 
   /// Get the messages in a stored chat completion. Only Chat Completions that have been created with the `store` parameter set to `true` will be returned.
@@ -1093,34 +662,19 @@ class ChatNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<GetChatCompletionMessagesOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return chat_methods.getChatCompletionMessages(_config,
-        completionId: completionId,
-        after: after,
-        limit: limit,
-        order: order,
-        requestOptions: requestOptions);
+    return chat_methods.getChatCompletionMessages(_config, completionId: completionId, after: after, limit: limit, order: order, requestOptions: requestOptions);
   }
 
   /// Get the messages in a stored chat completion. Only Chat Completions that have been created with the `store` parameter set to `true` will be returned.
-  Stream<ChatCompletionMessageListDataItem> getCompletionMessagesPaginated(
-      {required String completionId,
-      String? after,
-      int? limit,
-      GetChatCompletionMessagesOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* chat_methods.getChatCompletionMessagesPaginated(_config,
-        completionId: completionId,
-        after: after,
-        limit: limit,
-        order: order,
-        requestOptions: requestOptions);
+  Stream<ChatCompletionMessageListDataItem> getCompletionMessagesPaginated({required String completionId, String? after, int? limit, GetChatCompletionMessagesOrder? order, RequestOptions? requestOptions}) async* {
+    yield* chat_methods.getChatCompletionMessagesPaginated(_config, completionId: completionId, after: after, limit: limit, order: order, requestOptions: requestOptions);
   }
+
 }
 
 class CompletionsNamespace {
   final ClientConfig _config;
   CompletionsNamespace(ClientConfig config) : _config = config;
-
   /// Creates a completion from a prompt using the specified model and generation parameters. Supply `model` and `prompt`; use `stream` to receive partial results as server-sent events instead of a single response. The response contains generated text choices and usage statistics.
   ///
   /// Creates a completion for the provided prompt and parameters. Returns a completion object, or a sequence of completion objects if the request is streamed.
@@ -1138,86 +692,27 @@ class CompletionsNamespace {
       SdkOptional<int?> seed = const SdkOmitted(),
       SdkOptional<StopConfiguration?> stop = const SdkOmitted(),
       SdkOptional<bool?> stream = const SdkOmitted(),
-      SdkOptional<ChatCompletionStreamOptions?> streamOptions =
-          const SdkOmitted(),
+      SdkOptional<ChatCompletionStreamOptions?> streamOptions = const SdkOmitted(),
       SdkOptional<String?> suffix = const SdkOmitted(),
       SdkOptional<double?> temperature = const SdkOmitted(),
       SdkOptional<double?> topP = const SdkOmitted(),
       SdkOptional<String> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return completions_methods.createCompletion(_config,
-        model: model,
-        prompt: prompt,
-        bestOf: bestOf,
-        echo: echo,
-        frequencyPenalty: frequencyPenalty,
-        logitBias: logitBias,
-        logprobs: logprobs,
-        maxTokens: maxTokens,
-        n: n,
-        presencePenalty: presencePenalty,
-        seed: seed,
-        stop: stop,
-        stream: stream,
-        streamOptions: streamOptions,
-        suffix: suffix,
-        temperature: temperature,
-        topP: topP,
-        user: user,
-        requestOptions: requestOptions);
+    return completions_methods.createCompletion(_config, model: model, prompt: prompt, bestOf: bestOf, echo: echo, frequencyPenalty: frequencyPenalty, logitBias: logitBias, logprobs: logprobs, maxTokens: maxTokens, n: n, presencePenalty: presencePenalty, seed: seed, stop: stop, stream: stream, streamOptions: streamOptions, suffix: suffix, temperature: temperature, topP: topP, user: user, requestOptions: requestOptions);
   }
 
   /// Creates a completion from a prompt using the specified model and generation parameters. Supply `model` and `prompt`; use `stream` to receive partial results as server-sent events instead of a single response. The response contains generated text choices and usage statistics.
   ///
   /// Creates a completion for the provided prompt and parameters. Returns a completion object, or a sequence of completion objects if the request is streamed.
-  Stream<CreateCompletionResponse> createStream(
-      {required String model,
-      required dynamic prompt,
-      required bool? stream,
-      SdkOptional<int?> bestOf = const SdkOmitted(),
-      SdkOptional<bool?> echo = const SdkOmitted(),
-      SdkOptional<double?> frequencyPenalty = const SdkOmitted(),
-      SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
-      SdkOptional<int?> logprobs = const SdkOmitted(),
-      SdkOptional<int?> maxTokens = const SdkOmitted(),
-      SdkOptional<int?> n = const SdkOmitted(),
-      SdkOptional<double?> presencePenalty = const SdkOmitted(),
-      SdkOptional<int?> seed = const SdkOmitted(),
-      SdkOptional<StopConfiguration?> stop = const SdkOmitted(),
-      SdkOptional<ChatCompletionStreamOptions?> streamOptions =
-          const SdkOmitted(),
-      SdkOptional<String?> suffix = const SdkOmitted(),
-      SdkOptional<double?> temperature = const SdkOmitted(),
-      SdkOptional<double?> topP = const SdkOmitted(),
-      SdkOptional<String> user = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* completions_methods.createCompletionStream(_config,
-        model: model,
-        prompt: prompt,
-        stream: stream,
-        bestOf: bestOf,
-        echo: echo,
-        frequencyPenalty: frequencyPenalty,
-        logitBias: logitBias,
-        logprobs: logprobs,
-        maxTokens: maxTokens,
-        n: n,
-        presencePenalty: presencePenalty,
-        seed: seed,
-        stop: stop,
-        streamOptions: streamOptions,
-        suffix: suffix,
-        temperature: temperature,
-        topP: topP,
-        user: user,
-        requestOptions: requestOptions);
+  Stream<CreateCompletionResponse> createStream({required String model, required dynamic prompt, required bool? stream, SdkOptional<int?> bestOf = const SdkOmitted(), SdkOptional<bool?> echo = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<int?> logprobs = const SdkOmitted(), SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<StopConfiguration?> stop = const SdkOmitted(), SdkOptional<ChatCompletionStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<String?> suffix = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* completions_methods.createCompletionStream(_config, model: model, prompt: prompt, stream: stream, bestOf: bestOf, echo: echo, frequencyPenalty: frequencyPenalty, logitBias: logitBias, logprobs: logprobs, maxTokens: maxTokens, n: n, presencePenalty: presencePenalty, seed: seed, stop: stop, streamOptions: streamOptions, suffix: suffix, temperature: temperature, topP: topP, user: user, requestOptions: requestOptions);
   }
+
 }
 
 class ContainersNamespace {
   final ClientConfig _config;
   ContainersNamespace(ClientConfig config) : _config = config;
-
   /// Lists containers available to the authenticated user. Filter the results by `name` and use `after` to continue from a container ID returned in a previous page. Results are ordered by creation time, descending by default.
   ///
   /// List Containers
@@ -1227,29 +722,14 @@ class ContainersNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return containers_methods.listContainers(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        name: name,
-        requestOptions: requestOptions);
+    return containers_methods.listContainers(_config, limit: limit, order: order, after: after, name: name, requestOptions: requestOptions);
   }
 
   /// Lists containers available to the authenticated user. Filter the results by `name` and use `after` to continue from a container ID returned in a previous page. Results are ordered by creation time, descending by default.
   ///
   /// List Containers
-  Stream<ContainerResource> listPaginated(
-      {int? limit,
-      ListContainersOrder? order,
-      String? after,
-      String? name,
-      RequestOptions? requestOptions}) async* {
-    yield* containers_methods.listContainersPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        name: name,
-        requestOptions: requestOptions);
+  Stream<ContainerResource> listPaginated({int? limit, ListContainersOrder? order, String? after, String? name, RequestOptions? requestOptions}) async* {
+    yield* containers_methods.listContainersPaginated(_config, limit: limit, order: order, after: after, name: name, requestOptions: requestOptions);
   }
 
   /// Creates a container with the specified name and optional configuration. Use `file_ids` to copy files into the container and configure expiration, memory, network access, or skills as needed. The memory limit defaults to `1g` when omitted.
@@ -1258,23 +738,12 @@ class ContainersNamespace {
   Future<ContainerResource> create(
       {required String name,
       SdkOptional<List<String>> fileIds = const SdkOmitted(),
-      SdkOptional<CreateContainerBodyExpiresAfter> expiresAfter =
-          const SdkOmitted(),
-      SdkOptional<List<CreateContainerBodySkillsItem>> skills =
-          const SdkOmitted(),
-      SdkOptional<CreateContainerBodyMemoryLimit> memoryLimit =
-          const SdkOmitted(),
-      SdkOptional<CreateContainerBodyNetworkPolicy> networkPolicy =
-          const SdkOmitted(),
+      SdkOptional<CreateContainerBodyExpiresAfter> expiresAfter = const SdkOmitted(),
+      SdkOptional<List<CreateContainerBodySkillsItem>> skills = const SdkOmitted(),
+      SdkOptional<CreateContainerBodyMemoryLimit> memoryLimit = const SdkOmitted(),
+      SdkOptional<CreateContainerBodyNetworkPolicy> networkPolicy = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return containers_methods.createContainer(_config,
-        name: name,
-        fileIds: fileIds,
-        expiresAfter: expiresAfter,
-        skills: skills,
-        memoryLimit: memoryLimit,
-        networkPolicy: networkPolicy,
-        requestOptions: requestOptions);
+    return containers_methods.createContainer(_config, name: name, fileIds: fileIds, expiresAfter: expiresAfter, skills: skills, memoryLimit: memoryLimit, networkPolicy: networkPolicy, requestOptions: requestOptions);
   }
 
   /// Retrieves a container by its unique identifier. Use this operation to inspect the container's status and configuration, including its expiration, memory limit, and network policy.
@@ -1282,8 +751,7 @@ class ContainersNamespace {
   /// Retrieve Container
   Future<ContainerResource> retrieve(
       {required String containerId, RequestOptions? requestOptions}) async {
-    return containers_methods.retrieveContainer(_config,
-        containerId: containerId, requestOptions: requestOptions);
+    return containers_methods.retrieveContainer(_config, containerId: containerId, requestOptions: requestOptions);
   }
 
   /// Deletes a container by its unique identifier. Use this operation when the container is no longer needed; the response confirms whether the container was deleted.
@@ -1291,8 +759,7 @@ class ContainersNamespace {
   /// Delete Container
   Future<DeleteContainerResponse> delete(
       {required String containerId, RequestOptions? requestOptions}) async {
-    return containers_methods.deleteContainer(_config,
-        containerId: containerId, requestOptions: requestOptions);
+    return containers_methods.deleteContainer(_config, containerId: containerId, requestOptions: requestOptions);
   }
 
   /// Creates a file in a container from raw multipart file content or a file ID supplied in a JSON request. Choose the request format based on whether you are uploading file content or referencing a file, and use `container_id` to identify the destination container.
@@ -1304,12 +771,7 @@ class ContainersNamespace {
       SdkOptional<List<int>> file = const SdkOmitted(),
       SdkOptional<String> contentType = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return containers_methods.createContainerFile(_config,
-        containerId: containerId,
-        fileId: fileId,
-        file: file,
-        contentType: contentType,
-        requestOptions: requestOptions);
+    return containers_methods.createContainerFile(_config, containerId: containerId, fileId: fileId, file: file, contentType: contentType, requestOptions: requestOptions);
   }
 
   /// Lists files associated with a container. Use `after` to continue from a file ID returned in a previous page, and `limit` and `order` to control the result page. The container must exist and must not have expired.
@@ -1321,29 +783,14 @@ class ContainersNamespace {
       SdkOptional<ListContainerFilesOrder> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return containers_methods.listContainerFiles(_config,
-        containerId: containerId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return containers_methods.listContainerFiles(_config, containerId: containerId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists files associated with a container. Use `after` to continue from a file ID returned in a previous page, and `limit` and `order` to control the result page. The container must exist and must not have expired.
   ///
   /// List Container files
-  Stream<ContainerFileResource> listFilesPaginated(
-      {required String containerId,
-      int? limit,
-      ListContainerFilesOrder? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* containers_methods.listContainerFilesPaginated(_config,
-        containerId: containerId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<ContainerFileResource> listFilesPaginated({required String containerId, int? limit, ListContainerFilesOrder? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* containers_methods.listContainerFilesPaginated(_config, containerId: containerId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Retrieves a file's metadata from a container. Use `container_id` and `file_id` to identify the container and file whose details you need.
@@ -1353,10 +800,7 @@ class ContainersNamespace {
       {required String containerId,
       required String fileId,
       RequestOptions? requestOptions}) async {
-    return containers_methods.retrieveContainerFile(_config,
-        containerId: containerId,
-        fileId: fileId,
-        requestOptions: requestOptions);
+    return containers_methods.retrieveContainerFile(_config, containerId: containerId, fileId: fileId, requestOptions: requestOptions);
   }
 
   /// Deletes a file from a container. Use `container_id` and `file_id` to identify the file to remove.
@@ -1366,10 +810,7 @@ class ContainersNamespace {
       {required String containerId,
       required String fileId,
       RequestOptions? requestOptions}) async {
-    return containers_methods.deleteContainerFile(_config,
-        containerId: containerId,
-        fileId: fileId,
-        requestOptions: requestOptions);
+    return containers_methods.deleteContainerFile(_config, containerId: containerId, fileId: fileId, requestOptions: requestOptions);
   }
 
   /// Retrieves the raw content of a file in a container. Use `container_id` and `file_id` to identify the file whose content you want to download.
@@ -1379,17 +820,14 @@ class ContainersNamespace {
       {required String containerId,
       required String fileId,
       RequestOptions? requestOptions}) async {
-    return containers_methods.retrieveContainerFileContent(_config,
-        containerId: containerId,
-        fileId: fileId,
-        requestOptions: requestOptions);
+    return containers_methods.retrieveContainerFileContent(_config, containerId: containerId, fileId: fileId, requestOptions: requestOptions);
   }
+
 }
 
 class ConversationsNamespace {
   final ClientConfig _config;
   ConversationsNamespace(ClientConfig config) : _config = config;
-
   /// Adds items to a conversation. Supply up to 20 items in `items`; a compaction trigger, if included, must be the final item in the request.
   ///
   /// Create items in a conversation with the given ID.
@@ -1398,11 +836,7 @@ class ConversationsNamespace {
       required List<InputItem> items,
       SdkOptional<List<IncludeEnum>> include = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.createConversationItems(_config,
-        conversationId: conversationId,
-        items: items,
-        include: include,
-        requestOptions: requestOptions);
+    return conversations_methods.createConversationItems(_config, conversationId: conversationId, items: items, include: include, requestOptions: requestOptions);
   }
 
   /// Lists the items in a conversation. Use `after` to continue from an item ID, `limit` to control the number of results, and `order` to choose the direction of the results.
@@ -1415,32 +849,14 @@ class ConversationsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<List<IncludeEnum>> include = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.listConversationItems(_config,
-        conversationId: conversationId,
-        limit: limit,
-        order: order,
-        after: after,
-        include: include,
-        requestOptions: requestOptions);
+    return conversations_methods.listConversationItems(_config, conversationId: conversationId, limit: limit, order: order, after: after, include: include, requestOptions: requestOptions);
   }
 
   /// Lists the items in a conversation. Use `after` to continue from an item ID, `limit` to control the number of results, and `order` to choose the direction of the results.
   ///
   /// List all items for a conversation with the given ID.
-  Stream<ConversationItem> listItemsPaginated(
-      {required String conversationId,
-      int? limit,
-      ListConversationItemsOrder? order,
-      String? after,
-      List<IncludeEnum>? include,
-      RequestOptions? requestOptions}) async* {
-    yield* conversations_methods.listConversationItemsPaginated(_config,
-        conversationId: conversationId,
-        limit: limit,
-        order: order,
-        after: after,
-        include: include,
-        requestOptions: requestOptions);
+  Stream<ConversationItem> listItemsPaginated({required String conversationId, int? limit, ListConversationItemsOrder? order, String? after, List<IncludeEnum>? include, RequestOptions? requestOptions}) async* {
+    yield* conversations_methods.listConversationItemsPaginated(_config, conversationId: conversationId, limit: limit, order: order, after: after, include: include, requestOptions: requestOptions);
   }
 
   /// Retrieves a single item from a conversation. Use `conversation_id` and `item_id` to identify the conversation and the item you want to inspect.
@@ -1451,11 +867,7 @@ class ConversationsNamespace {
       required String itemId,
       SdkOptional<List<IncludeEnum>> include = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.getConversationItem(_config,
-        conversationId: conversationId,
-        itemId: itemId,
-        include: include,
-        requestOptions: requestOptions);
+    return conversations_methods.getConversationItem(_config, conversationId: conversationId, itemId: itemId, include: include, requestOptions: requestOptions);
   }
 
   /// Deletes an item from a conversation. Use `conversation_id` and `item_id` to identify the item to remove.
@@ -1465,10 +877,7 @@ class ConversationsNamespace {
       {required String conversationId,
       required String itemId,
       RequestOptions? requestOptions}) async {
-    return conversations_methods.deleteConversationItem(_config,
-        conversationId: conversationId,
-        itemId: itemId,
-        requestOptions: requestOptions);
+    return conversations_methods.deleteConversationItem(_config, conversationId: conversationId, itemId: itemId, requestOptions: requestOptions);
   }
 
   /// Creates a conversation that can include metadata and initial context items. Use `items` to seed the conversation with up to 20 items; metadata can store additional key-value information.
@@ -1478,8 +887,7 @@ class ConversationsNamespace {
       {SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       SdkOptional<List<InputItem>?> items = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.createConversation(_config,
-        metadata: metadata, items: items, requestOptions: requestOptions);
+    return conversations_methods.createConversation(_config, metadata: metadata, items: items, requestOptions: requestOptions);
   }
 
   /// Retrieves a conversation by its identifier. Use `conversation_id` to get the conversation's metadata and creation time.
@@ -1487,15 +895,13 @@ class ConversationsNamespace {
   /// Get a conversation
   Future<ConversationResource> get_(
       {required String conversationId, RequestOptions? requestOptions}) async {
-    return conversations_methods.getConversation(_config,
-        conversationId: conversationId, requestOptions: requestOptions);
+    return conversations_methods.getConversation(_config, conversationId: conversationId, requestOptions: requestOptions);
   }
 
   /// Delete a conversation. Items in the conversation will not be deleted.
   Future<DeletedConversationResource> delete(
       {required String conversationId, RequestOptions? requestOptions}) async {
-    return conversations_methods.deleteConversation(_config,
-        conversationId: conversationId, requestOptions: requestOptions);
+    return conversations_methods.deleteConversation(_config, conversationId: conversationId, requestOptions: requestOptions);
   }
 
   /// Updates the metadata associated with a conversation. Supply the complete `metadata` value to replace the conversation's existing metadata, or use `null` to clear it.
@@ -1505,42 +911,32 @@ class ConversationsNamespace {
       {required String conversationId,
       required Map<String, dynamic>? metadata,
       RequestOptions? requestOptions}) async {
-    return conversations_methods.updateConversation(_config,
-        conversationId: conversationId,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return conversations_methods.updateConversation(_config, conversationId: conversationId, metadata: metadata, requestOptions: requestOptions);
   }
+
 }
 
 class EmbeddingsNamespace {
   final ClientConfig _config;
   EmbeddingsNamespace(ClientConfig config) : _config = config;
-
   /// Creates embedding vectors for the supplied text or token input. Provide `model` and `input`, and use `encoding_format` or `dimensions` to control the returned vectors when the selected model supports those options.
   ///
   /// Creates an embedding vector representing the input text.
   Future<CreateEmbeddingResponse> create(
       {required dynamic input,
       required String model,
-      SdkOptional<CreateEmbeddingRequestEncodingFormat> encodingFormat =
-          const SdkOmitted(),
+      SdkOptional<CreateEmbeddingRequestEncodingFormat> encodingFormat = const SdkOmitted(),
       SdkOptional<int> dimensions = const SdkOmitted(),
       SdkOptional<String> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return embeddings_methods.createEmbedding(_config,
-        input: input,
-        model: model,
-        encodingFormat: encodingFormat,
-        dimensions: dimensions,
-        user: user,
-        requestOptions: requestOptions);
+    return embeddings_methods.createEmbedding(_config, input: input, model: model, encodingFormat: encodingFormat, dimensions: dimensions, user: user, requestOptions: requestOptions);
   }
+
 }
 
 class EvalsNamespace {
   final ClientConfig _config;
   EvalsNamespace(ClientConfig config) : _config = config;
-
   /// Lists evaluations for a project. Use `after` to continue from a previous result and set `order` and `order_by` to control how evaluations are sorted.
   ///
   /// List evaluations for a project.
@@ -1550,29 +946,14 @@ class EvalsNamespace {
       SdkOptional<ListEvalsOrder> order = const SdkOmitted(),
       SdkOptional<ListEvalsOrderBy> orderBy = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return evals_methods.listEvals(_config,
-        after: after,
-        limit: limit,
-        order: order,
-        orderBy: orderBy,
-        requestOptions: requestOptions);
+    return evals_methods.listEvals(_config, after: after, limit: limit, order: order, orderBy: orderBy, requestOptions: requestOptions);
   }
 
   /// Lists evaluations for a project. Use `after` to continue from a previous result and set `order` and `order_by` to control how evaluations are sorted.
   ///
   /// List evaluations for a project.
-  Stream<Eval> listPaginated(
-      {String? after,
-      int? limit,
-      ListEvalsOrder? order,
-      ListEvalsOrderBy? orderBy,
-      RequestOptions? requestOptions}) async* {
-    yield* evals_methods.listEvalsPaginated(_config,
-        after: after,
-        limit: limit,
-        order: order,
-        orderBy: orderBy,
-        requestOptions: requestOptions);
+  Stream<Eval> listPaginated({String? after, int? limit, ListEvalsOrder? order, ListEvalsOrderBy? orderBy, RequestOptions? requestOptions}) async* {
+    yield* evals_methods.listEvalsPaginated(_config, after: after, limit: limit, order: order, orderBy: orderBy, requestOptions: requestOptions);
   }
 
   /// Creates an evaluation with a data source configuration and testing criteria for assessing model performance. Supply `data_source_config` to define the evaluation data and `testing_criteria` to specify the graders; `name` and `metadata` are optional. Run the evaluation against models and model configurations by creating an evaluation run.
@@ -1584,12 +965,7 @@ class EvalsNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return evals_methods.createEval(_config,
-        dataSourceConfig: dataSourceConfig,
-        testingCriteria: testingCriteria,
-        name: name,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return evals_methods.createEval(_config, dataSourceConfig: dataSourceConfig, testingCriteria: testingCriteria, name: name, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Retrieves an evaluation by its identifier. Use this endpoint to inspect the evaluation's name, data source configuration, and testing criteria before creating a run or updating the evaluation.
@@ -1597,8 +973,7 @@ class EvalsNamespace {
   /// Get an evaluation by ID.
   Future<Eval> get_(
       {required String evalId, RequestOptions? requestOptions}) async {
-    return evals_methods.getEval(_config,
-        evalId: evalId, requestOptions: requestOptions);
+    return evals_methods.getEval(_config, evalId: evalId, requestOptions: requestOptions);
   }
 
   /// Updates an evaluation's name or metadata. Supply either or both fields to change the corresponding evaluation properties; the request does not replace the data source configuration or testing criteria.
@@ -1609,11 +984,7 @@ class EvalsNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return evals_methods.updateEval(_config,
-        evalId: evalId,
-        name: name,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return evals_methods.updateEval(_config, evalId: evalId, name: name, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Deletes an evaluation. Use this operation to remove an evaluation that you no longer need; deletion is unavailable while the evaluation has unfinished runs.
@@ -1621,8 +992,7 @@ class EvalsNamespace {
   /// Delete an evaluation.
   Future<DeleteEvalResponse> delete(
       {required String evalId, RequestOptions? requestOptions}) async {
-    return evals_methods.deleteEval(_config,
-        evalId: evalId, requestOptions: requestOptions);
+    return evals_methods.deleteEval(_config, evalId: evalId, requestOptions: requestOptions);
   }
 
   /// Lists runs for a specified evaluation, with optional cursor pagination, ordering, and status filtering. Use `after` to continue from a run in a previous response, and use `status` to limit results to runs in a particular state.
@@ -1635,32 +1005,14 @@ class EvalsNamespace {
       SdkOptional<GetEvalRunsOrder> order = const SdkOmitted(),
       SdkOptional<GetEvalRunsStatus> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return evals_methods.getEvalRuns(_config,
-        evalId: evalId,
-        after: after,
-        limit: limit,
-        order: order,
-        status: status,
-        requestOptions: requestOptions);
+    return evals_methods.getEvalRuns(_config, evalId: evalId, after: after, limit: limit, order: order, status: status, requestOptions: requestOptions);
   }
 
   /// Lists runs for a specified evaluation, with optional cursor pagination, ordering, and status filtering. Use `after` to continue from a run in a previous response, and use `status` to limit results to runs in a particular state.
   ///
   /// Get a list of runs for an evaluation.
-  Stream<EvalRun> getRunsPaginated(
-      {required String evalId,
-      String? after,
-      int? limit,
-      GetEvalRunsOrder? order,
-      GetEvalRunsStatus? status,
-      RequestOptions? requestOptions}) async* {
-    yield* evals_methods.getEvalRunsPaginated(_config,
-        evalId: evalId,
-        after: after,
-        limit: limit,
-        order: order,
-        status: status,
-        requestOptions: requestOptions);
+  Stream<EvalRun> getRunsPaginated({required String evalId, String? after, int? limit, GetEvalRunsOrder? order, GetEvalRunsStatus? status, RequestOptions? requestOptions}) async* {
+    yield* evals_methods.getEvalRunsPaginated(_config, evalId: evalId, after: after, limit: limit, order: order, status: status, requestOptions: requestOptions);
   }
 
   /// Creates and starts a run for an evaluation using a specified data source and model configuration. The run's data source is validated against the schema defined by the evaluation; provide `data_source` in one of the supported formats. Use the returned run identifier to monitor the evaluation run.
@@ -1672,12 +1024,7 @@ class EvalsNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return evals_methods.createEvalRun(_config,
-        evalId: evalId,
-        dataSource: dataSource,
-        name: name,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return evals_methods.createEvalRun(_config, evalId: evalId, dataSource: dataSource, name: name, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Retrieves a specific run for an evaluation. Use this endpoint to inspect the run's status, results, report URL, and usage details after creating or canceling a run.
@@ -1687,8 +1034,7 @@ class EvalsNamespace {
       {required String evalId,
       required String runId,
       RequestOptions? requestOptions}) async {
-    return evals_methods.getEvalRun(_config,
-        evalId: evalId, runId: runId, requestOptions: requestOptions);
+    return evals_methods.getEvalRun(_config, evalId: evalId, runId: runId, requestOptions: requestOptions);
   }
 
   /// Deletes a run from an evaluation. Use this endpoint to remove a finished run; a run cannot be deleted while it is still in progress.
@@ -1698,8 +1044,7 @@ class EvalsNamespace {
       {required String evalId,
       required String runId,
       RequestOptions? requestOptions}) async {
-    return evals_methods.deleteEvalRun(_config,
-        evalId: evalId, runId: runId, requestOptions: requestOptions);
+    return evals_methods.deleteEvalRun(_config, evalId: evalId, runId: runId, requestOptions: requestOptions);
   }
 
   /// Cancels an ongoing evaluation run. Use this endpoint to stop a run that is still in progress; the response contains the canceled run object.
@@ -1709,8 +1054,7 @@ class EvalsNamespace {
       {required String evalId,
       required String runId,
       RequestOptions? requestOptions}) async {
-    return evals_methods.cancelEvalRun(_config,
-        evalId: evalId, runId: runId, requestOptions: requestOptions);
+    return evals_methods.cancelEvalRun(_config, evalId: evalId, runId: runId, requestOptions: requestOptions);
   }
 
   /// Lists output items for a specific evaluation run, with optional cursor pagination, status filtering, and timestamp ordering. Use `after` to continue from a previous response and `status` to view only passing or failing output items.
@@ -1724,35 +1068,14 @@ class EvalsNamespace {
       SdkOptional<GetEvalRunOutputItemsStatus> status = const SdkOmitted(),
       SdkOptional<GetEvalRunOutputItemsOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return evals_methods.getEvalRunOutputItems(_config,
-        evalId: evalId,
-        runId: runId,
-        after: after,
-        limit: limit,
-        status: status,
-        order: order,
-        requestOptions: requestOptions);
+    return evals_methods.getEvalRunOutputItems(_config, evalId: evalId, runId: runId, after: after, limit: limit, status: status, order: order, requestOptions: requestOptions);
   }
 
   /// Lists output items for a specific evaluation run, with optional cursor pagination, status filtering, and timestamp ordering. Use `after` to continue from a previous response and `status` to view only passing or failing output items.
   ///
   /// Get a list of output items for an evaluation run.
-  Stream<EvalRunOutputItem> getRunOutputItemsPaginated(
-      {required String evalId,
-      required String runId,
-      String? after,
-      int? limit,
-      GetEvalRunOutputItemsStatus? status,
-      GetEvalRunOutputItemsOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* evals_methods.getEvalRunOutputItemsPaginated(_config,
-        evalId: evalId,
-        runId: runId,
-        after: after,
-        limit: limit,
-        status: status,
-        order: order,
-        requestOptions: requestOptions);
+  Stream<EvalRunOutputItem> getRunOutputItemsPaginated({required String evalId, required String runId, String? after, int? limit, GetEvalRunOutputItemsStatus? status, GetEvalRunOutputItemsOrder? order, RequestOptions? requestOptions}) async* {
+    yield* evals_methods.getEvalRunOutputItemsPaginated(_config, evalId: evalId, runId: runId, after: after, limit: limit, status: status, order: order, requestOptions: requestOptions);
   }
 
   /// Retrieves a specific output item from an evaluation run. Use `eval_id`, `run_id`, and `output_item_id` to identify the evaluation, run, and item whose grader results and sample you need.
@@ -1763,18 +1086,14 @@ class EvalsNamespace {
       required String runId,
       required String outputItemId,
       RequestOptions? requestOptions}) async {
-    return evals_methods.getEvalRunOutputItem(_config,
-        evalId: evalId,
-        runId: runId,
-        outputItemId: outputItemId,
-        requestOptions: requestOptions);
+    return evals_methods.getEvalRunOutputItem(_config, evalId: evalId, runId: runId, outputItemId: outputItemId, requestOptions: requestOptions);
   }
+
 }
 
 class FilesNamespace {
   final ClientConfig _config;
   FilesNamespace(ClientConfig config) : _config = config;
-
   /// Lists uploaded files, with optional filtering, sorting, and cursor-based pagination. Use `purpose` to filter the results, and use `after` with the last file ID from a page to retrieve the next page.
   ///
   /// Returns a list of files.
@@ -1784,29 +1103,14 @@ class FilesNamespace {
       SdkOptional<ListFilesOrder> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return files_methods.listFiles(_config,
-        purpose: purpose,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return files_methods.listFiles(_config, purpose: purpose, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists uploaded files, with optional filtering, sorting, and cursor-based pagination. Use `purpose` to filter the results, and use `after` with the last file ID from a page to retrieve the next page.
   ///
   /// Returns a list of files.
-  Stream<OpenAIFile> listPaginated(
-      {String? purpose,
-      int? limit,
-      ListFilesOrder? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* files_methods.listFilesPaginated(_config,
-        purpose: purpose,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<OpenAIFile> listPaginated({String? purpose, int? limit, ListFilesOrder? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* files_methods.listFilesPaginated(_config, purpose: purpose, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Uploads a file for use across supported API endpoints. Send the file and its `purpose` as multipart form data, and use `expires_after` when you want to set an expiration policy. File uploads are limited to 512 MB per file and 2.5 TB of storage per project.
@@ -1817,11 +1121,7 @@ class FilesNamespace {
       required CreateFileRequestPurpose purpose,
       SdkOptional<FileExpirationAfter> expiresAfter = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return files_methods.createFile(_config,
-        file: file,
-        purpose: purpose,
-        expiresAfter: expiresAfter,
-        requestOptions: requestOptions);
+    return files_methods.createFile(_config, file: file, purpose: purpose, expiresAfter: expiresAfter, requestOptions: requestOptions);
   }
 
   /// Deletes a file and removes it from all vector stores. Use `file_id` to identify the file to remove.
@@ -1829,8 +1129,7 @@ class FilesNamespace {
   /// Delete a file and remove it from all vector stores.
   Future<DeleteFileResponse> delete(
       {required String fileId, RequestOptions? requestOptions}) async {
-    return files_methods.deleteFile(_config,
-        fileId: fileId, requestOptions: requestOptions);
+    return files_methods.deleteFile(_config, fileId: fileId, requestOptions: requestOptions);
   }
 
   /// Retrieves metadata for a specific uploaded file. Use `file_id` to identify the file whose purpose, size, status, and timestamps you need.
@@ -1838,8 +1137,7 @@ class FilesNamespace {
   /// Returns information about a specific file.
   Future<OpenAIFile> retrieve(
       {required String fileId, RequestOptions? requestOptions}) async {
-    return files_methods.retrieveFile(_config,
-        fileId: fileId, requestOptions: requestOptions);
+    return files_methods.retrieveFile(_config, fileId: fileId, requestOptions: requestOptions);
   }
 
   /// Retrieves the contents of a specific uploaded file. Use `file_id` to identify the file, and note that some file purposes or account permissions do not allow downloads.
@@ -1847,15 +1145,14 @@ class FilesNamespace {
   /// Returns a response containing the contents of the specified file.
   Future<List<int>> download(
       {required String fileId, RequestOptions? requestOptions}) async {
-    return files_methods.downloadFile(_config,
-        fileId: fileId, requestOptions: requestOptions);
+    return files_methods.downloadFile(_config, fileId: fileId, requestOptions: requestOptions);
   }
+
 }
 
 class FineTuningNamespace {
   final ClientConfig _config;
   FineTuningNamespace(ClientConfig config) : _config = config;
-
   /// Runs a grader against a model sample and, optionally, a data source item. Supply a grader definition and `model_sample` to receive the overall reward, grader metadata, and any sub-rewards.
   ///
   /// Run a grader.
@@ -1864,11 +1161,7 @@ class FineTuningNamespace {
       required String modelSample,
       SdkOptional<Map<String, dynamic>> item = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.runGrader(_config,
-        grader: grader,
-        modelSample: modelSample,
-        item: item,
-        requestOptions: requestOptions);
+    return fine_tuning_methods.runGrader(_config, grader: grader, modelSample: modelSample, item: item, requestOptions: requestOptions);
   }
 
   /// Validates a grader definition without running it against a model sample. Supply a `grader` that matches one of the supported grader types to receive the validated definition.
@@ -1877,61 +1170,39 @@ class FineTuningNamespace {
   Future<ValidateGraderResponse> validateGrader(
       {required ValidateGraderRequestGrader grader,
       RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.validateGrader(_config,
-        grader: grader, requestOptions: requestOptions);
+    return fine_tuning_methods.validateGrader(_config, grader: grader, requestOptions: requestOptions);
   }
 
   /// Lists permissions for a fine-tuned model checkpoint. Use `project_id` to filter permissions by project and `after` to continue from a permission ID; this endpoint requires an admin API key.
   ///
   /// **NOTE:** This endpoint requires an [admin API key](https://developers.openai.com/api/reference/resources/admin/subresources/organization/subresources/admin_api_keys). Organization owners can use this endpoint to view all permissions for a fine-tuned model checkpoint.
-  Future<ListFineTuningCheckpointPermissionResponse> listCheckpointPermissions(
-      {required String fineTunedModelCheckpoint,
-      SdkOptional<String> projectId = const SdkOmitted(),
-      SdkOptional<String> after = const SdkOmitted(),
-      SdkOptional<int> limit = const SdkOmitted(),
-      SdkOptional<ListFineTuningCheckpointPermissionsOrder> order =
-          const SdkOmitted(),
-      RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.listFineTuningCheckpointPermissions(_config,
-        fineTunedModelCheckpoint: fineTunedModelCheckpoint,
-        projectId: projectId,
-        after: after,
-        limit: limit,
-        order: order,
-        requestOptions: requestOptions);
+  Future<ListFineTuningCheckpointPermissionResponse>
+      listCheckpointPermissions(
+          {required String fineTunedModelCheckpoint,
+          SdkOptional<String> projectId = const SdkOmitted(),
+          SdkOptional<String> after = const SdkOmitted(),
+          SdkOptional<int> limit = const SdkOmitted(),
+          SdkOptional<ListFineTuningCheckpointPermissionsOrder> order = const SdkOmitted(),
+          RequestOptions? requestOptions}) async {
+    return fine_tuning_methods.listFineTuningCheckpointPermissions(_config, fineTunedModelCheckpoint: fineTunedModelCheckpoint, projectId: projectId, after: after, limit: limit, order: order, requestOptions: requestOptions);
   }
 
   /// Lists permissions for a fine-tuned model checkpoint. Use `project_id` to filter permissions by project and `after` to continue from a permission ID; this endpoint requires an admin API key.
   ///
   /// **NOTE:** This endpoint requires an [admin API key](https://developers.openai.com/api/reference/resources/admin/subresources/organization/subresources/admin_api_keys). Organization owners can use this endpoint to view all permissions for a fine-tuned model checkpoint.
-  Stream<FineTuningCheckpointPermission> listCheckpointPermissionsPaginated(
-      {required String fineTunedModelCheckpoint,
-      String? projectId,
-      String? after,
-      int? limit,
-      ListFineTuningCheckpointPermissionsOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* fine_tuning_methods.listFineTuningCheckpointPermissionsPaginated(
-        _config,
-        fineTunedModelCheckpoint: fineTunedModelCheckpoint,
-        projectId: projectId,
-        after: after,
-        limit: limit,
-        order: order,
-        requestOptions: requestOptions);
+  Stream<FineTuningCheckpointPermission> listCheckpointPermissionsPaginated({required String fineTunedModelCheckpoint, String? projectId, String? after, int? limit, ListFineTuningCheckpointPermissionsOrder? order, RequestOptions? requestOptions}) async* {
+    yield* fine_tuning_methods.listFineTuningCheckpointPermissionsPaginated(_config, fineTunedModelCheckpoint: fineTunedModelCheckpoint, projectId: projectId, after: after, limit: limit, order: order, requestOptions: requestOptions);
   }
 
   /// Creates permissions that let other projects in the organization access a fine-tuned model checkpoint. Supply the target project IDs in `project_ids`; this operation requires an admin API key.
   ///
   /// **NOTE:** Calling this endpoint requires an [admin API key](https://developers.openai.com/api/reference/resources/admin/subresources/organization/subresources/admin_api_keys). This enables organization owners to share fine-tuned models with other projects in their organization.
-  Future<ListFineTuningCheckpointPermissionResponse> createCheckpointPermission(
-      {required String fineTunedModelCheckpoint,
-      required List<String> projectIds,
-      RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.createFineTuningCheckpointPermission(_config,
-        fineTunedModelCheckpoint: fineTunedModelCheckpoint,
-        projectIds: projectIds,
-        requestOptions: requestOptions);
+  Future<ListFineTuningCheckpointPermissionResponse>
+      createCheckpointPermission(
+          {required String fineTunedModelCheckpoint,
+          required List<String> projectIds,
+          RequestOptions? requestOptions}) async {
+    return fine_tuning_methods.createFineTuningCheckpointPermission(_config, fineTunedModelCheckpoint: fineTunedModelCheckpoint, projectIds: projectIds, requestOptions: requestOptions);
   }
 
   /// Deletes a permission for a fine-tuned model checkpoint. Use an admin API key as an organization owner, and provide both identifiers to target the permission. The response confirms whether the permission was deleted.
@@ -1942,10 +1213,7 @@ class FineTuningNamespace {
           {required String fineTunedModelCheckpoint,
           required String permissionId,
           RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.deleteFineTuningCheckpointPermission(_config,
-        fineTunedModelCheckpoint: fineTunedModelCheckpoint,
-        permissionId: permissionId,
-        requestOptions: requestOptions);
+    return fine_tuning_methods.deleteFineTuningCheckpointPermission(_config, fineTunedModelCheckpoint: fineTunedModelCheckpoint, permissionId: permissionId, requestOptions: requestOptions);
   }
 
   /// Creates and queues a fine-tuning job to train a model on a dataset. Supply `model` and `training_file`, and optionally configure the training method, validation data, integrations, and metadata. The job runs asynchronously; retrieve it with GET /fine_tuning/jobs/{fine_tuning_job_id} to check its status.
@@ -1954,27 +1222,15 @@ class FineTuningNamespace {
   Future<FineTuningJob> createJob(
       {required String model,
       required String trainingFile,
-      SdkOptional<CreateFineTuningJobRequestHyperparameters> hyperparameters =
-          const SdkOmitted(),
+      SdkOptional<CreateFineTuningJobRequestHyperparameters> hyperparameters = const SdkOmitted(),
       SdkOptional<String?> suffix = const SdkOmitted(),
       SdkOptional<String?> validationFile = const SdkOmitted(),
-      SdkOptional<List<CreateFineTuningJobRequestIntegrationsItem>?>
-          integrations = const SdkOmitted(),
+      SdkOptional<List<CreateFineTuningJobRequestIntegrationsItem>?> integrations = const SdkOmitted(),
       SdkOptional<int?> seed = const SdkOmitted(),
       SdkOptional<FineTuneMethod> method = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.createFineTuningJob(_config,
-        model: model,
-        trainingFile: trainingFile,
-        hyperparameters: hyperparameters,
-        suffix: suffix,
-        validationFile: validationFile,
-        integrations: integrations,
-        seed: seed,
-        method: method,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return fine_tuning_methods.createFineTuningJob(_config, model: model, trainingFile: trainingFile, hyperparameters: hyperparameters, suffix: suffix, validationFile: validationFile, integrations: integrations, seed: seed, method: method, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Lists fine-tuning jobs belonging to your organization. Use `after` to continue from the last job in a previous page, and use `limit` to control how many jobs to retrieve. You can filter jobs by metadata using the `metadata[k]=v` query syntax.
@@ -1985,11 +1241,7 @@ class FineTuningNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.listFineTuningJobs(_config,
-        after: after,
-        limit: limit,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return fine_tuning_methods.listFineTuningJobs(_config, after: after, limit: limit, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Retrieves details for a fine-tuning job. Use `fine_tuning_job_id` to identify the job whose status, model, and training details you need. The response includes result file IDs when they are available.
@@ -1997,8 +1249,7 @@ class FineTuningNamespace {
   /// Get info about a fine-tuning job. [Learn more about fine-tuning](https://developers.openai.com/api/docs/guides/model-optimization)
   Future<FineTuningJob> retrieveJob(
       {required String fineTuningJobId, RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.retrieveFineTuningJob(_config,
-        fineTuningJobId: fineTuningJobId, requestOptions: requestOptions);
+    return fine_tuning_methods.retrieveFineTuningJob(_config, fineTuningJobId: fineTuningJobId, requestOptions: requestOptions);
   }
 
   /// Cancels a fine-tuning job immediately. Use `fine_tuning_job_id` to identify the job you want to stop. The response returns the job object with its current status.
@@ -2006,8 +1257,7 @@ class FineTuningNamespace {
   /// Immediately cancel a fine-tune job.
   Future<FineTuningJob> cancelJob(
       {required String fineTuningJobId, RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.cancelFineTuningJob(_config,
-        fineTuningJobId: fineTuningJobId, requestOptions: requestOptions);
+    return fine_tuning_methods.cancelFineTuningJob(_config, fineTuningJobId: fineTuningJobId, requestOptions: requestOptions);
   }
 
   /// Lists checkpoints produced by a fine-tuning job. Use `fine_tuning_job_id` to select the job, and use `after` to continue from a checkpoint on a previous page. Set `limit` to control the number of checkpoints retrieved.
@@ -2018,26 +1268,14 @@ class FineTuningNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.listFineTuningJobCheckpoints(_config,
-        fineTuningJobId: fineTuningJobId,
-        after: after,
-        limit: limit,
-        requestOptions: requestOptions);
+    return fine_tuning_methods.listFineTuningJobCheckpoints(_config, fineTuningJobId: fineTuningJobId, after: after, limit: limit, requestOptions: requestOptions);
   }
 
   /// Lists checkpoints produced by a fine-tuning job. Use `fine_tuning_job_id` to select the job, and use `after` to continue from a checkpoint on a previous page. Set `limit` to control the number of checkpoints retrieved.
   ///
   /// List checkpoints for a fine-tuning job.
-  Stream<FineTuningJobCheckpoint> listJobCheckpointsPaginated(
-      {required String fineTuningJobId,
-      String? after,
-      int? limit,
-      RequestOptions? requestOptions}) async* {
-    yield* fine_tuning_methods.listFineTuningJobCheckpointsPaginated(_config,
-        fineTuningJobId: fineTuningJobId,
-        after: after,
-        limit: limit,
-        requestOptions: requestOptions);
+  Stream<FineTuningJobCheckpoint> listJobCheckpointsPaginated({required String fineTuningJobId, String? after, int? limit, RequestOptions? requestOptions}) async* {
+    yield* fine_tuning_methods.listFineTuningJobCheckpointsPaginated(_config, fineTuningJobId: fineTuningJobId, after: after, limit: limit, requestOptions: requestOptions);
   }
 
   /// Lists status-update events for a fine-tuning job. Use `fine_tuning_job_id` to select the job, and use `after` to continue from an event on a previous page. Set `limit` to control the number of events retrieved.
@@ -2048,11 +1286,7 @@ class FineTuningNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.listFineTuningEvents(_config,
-        fineTuningJobId: fineTuningJobId,
-        after: after,
-        limit: limit,
-        requestOptions: requestOptions);
+    return fine_tuning_methods.listFineTuningEvents(_config, fineTuningJobId: fineTuningJobId, after: after, limit: limit, requestOptions: requestOptions);
   }
 
   /// Pauses a fine-tuning job that supports pausing. Use `fine_tuning_job_id` to identify the job you want to pause. The response returns the job object and its current status.
@@ -2060,8 +1294,7 @@ class FineTuningNamespace {
   /// Pause a fine-tune job.
   Future<FineTuningJob> pauseJob(
       {required String fineTuningJobId, RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.pauseFineTuningJob(_config,
-        fineTuningJobId: fineTuningJobId, requestOptions: requestOptions);
+    return fine_tuning_methods.pauseFineTuningJob(_config, fineTuningJobId: fineTuningJobId, requestOptions: requestOptions);
   }
 
   /// Resumes a paused fine-tuning job that supports resuming. Use `fine_tuning_job_id` to identify the job you want to resume. The response returns the job object and its current status.
@@ -2069,15 +1302,14 @@ class FineTuningNamespace {
   /// Resume a fine-tune job.
   Future<FineTuningJob> resumeJob(
       {required String fineTuningJobId, RequestOptions? requestOptions}) async {
-    return fine_tuning_methods.resumeFineTuningJob(_config,
-        fineTuningJobId: fineTuningJobId, requestOptions: requestOptions);
+    return fine_tuning_methods.resumeFineTuningJob(_config, fineTuningJobId: fineTuningJobId, requestOptions: requestOptions);
   }
+
 }
 
 class ImagesNamespace {
   final ClientConfig _config;
   ImagesNamespace(ClientConfig config) : _config = config;
-
   /// Creates an edited image from one or more source images and a text prompt. Send multipart form data with uploaded image files, or JSON with image references; use `mask` to limit edits to designated areas. You can choose the output format, size, and quality, and optionally stream partial image results.
   ///
   /// Creates an edited or extended image given one or more source images and a prompt. This endpoint supports GPT Image models.
@@ -2085,19 +1317,14 @@ class ImagesNamespace {
       {required CreateImageEditBody body,
       SdkOptional<String> contentType = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return images_methods.createImageEdit(_config,
-        body: body, contentType: contentType, requestOptions: requestOptions);
+    return images_methods.createImageEdit(_config, body: body, contentType: contentType, requestOptions: requestOptions);
   }
 
   /// Creates an edited image from one or more source images and a text prompt. Send multipart form data with uploaded image files, or JSON with image references; use `mask` to limit edits to designated areas. You can choose the output format, size, and quality, and optionally stream partial image results.
   ///
   /// Creates an edited or extended image given one or more source images and a prompt. This endpoint supports GPT Image models.
-  Stream<ImageEditStreamEvent> createEditStream(
-      {required CreateImageEditStreamBody body,
-      SdkOptional<String> contentType = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* images_methods.createImageEditStream(_config,
-        body: body, contentType: contentType, requestOptions: requestOptions);
+  Stream<ImageEditStreamEvent> createEditStream({required CreateImageEditStreamBody body, SdkOptional<String> contentType = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* images_methods.createImageEditStream(_config, body: body, contentType: contentType, requestOptions: requestOptions);
   }
 
   /// Creates one or more images from a text prompt using the specified image model. Provide `model` and `prompt`; `n` defaults to 1, and you can enable streaming with `stream`. Use `size`, `quality`, and `output_format` to control the generated images.
@@ -2108,8 +1335,7 @@ class ImagesNamespace {
       required String model,
       SdkOptional<int?> n = const SdkOmitted(),
       SdkOptional<String?> quality = const SdkOmitted(),
-      SdkOptional<CreateImageRequestResponseFormat?> responseFormat =
-          const SdkOmitted(),
+      SdkOptional<CreateImageRequestResponseFormat?> responseFormat = const SdkOmitted(),
       SdkOptional<String?> outputFormat = const SdkOmitted(),
       SdkOptional<int?> outputCompression = const SdkOmitted(),
       SdkOptional<bool?> stream = const SdkOmitted(),
@@ -2121,63 +1347,14 @@ class ImagesNamespace {
       SdkOptional<String?> safetyIdentifier = const SdkOmitted(),
       SdkOptional<String> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return images_methods.createImage(_config,
-        prompt: prompt,
-        model: model,
-        n: n,
-        quality: quality,
-        responseFormat: responseFormat,
-        outputFormat: outputFormat,
-        outputCompression: outputCompression,
-        stream: stream,
-        partialImages: partialImages,
-        size: size,
-        moderation: moderation,
-        background: background,
-        style: style,
-        safetyIdentifier: safetyIdentifier,
-        user: user,
-        requestOptions: requestOptions);
+    return images_methods.createImage(_config, prompt: prompt, model: model, n: n, quality: quality, responseFormat: responseFormat, outputFormat: outputFormat, outputCompression: outputCompression, stream: stream, partialImages: partialImages, size: size, moderation: moderation, background: background, style: style, safetyIdentifier: safetyIdentifier, user: user, requestOptions: requestOptions);
   }
 
   /// Creates one or more images from a text prompt using the specified image model. Provide `model` and `prompt`; `n` defaults to 1, and you can enable streaming with `stream`. Use `size`, `quality`, and `output_format` to control the generated images.
   ///
   /// Creates an image given a prompt using a GPT Image model. [Learn more](https://developers.openai.com/api/docs/guides/images-vision).
-  Stream<ImageGenStreamEvent> createStream(
-      {required String prompt,
-      required String model,
-      required bool? stream,
-      SdkOptional<int?> n = const SdkOmitted(),
-      SdkOptional<String?> quality = const SdkOmitted(),
-      SdkOptional<CreateImageRequestResponseFormat?> responseFormat =
-          const SdkOmitted(),
-      SdkOptional<String?> outputFormat = const SdkOmitted(),
-      SdkOptional<int?> outputCompression = const SdkOmitted(),
-      SdkOptional<PartialImages?> partialImages = const SdkOmitted(),
-      SdkOptional<String?> size = const SdkOmitted(),
-      SdkOptional<String?> moderation = const SdkOmitted(),
-      SdkOptional<String?> background = const SdkOmitted(),
-      SdkOptional<CreateImageRequestStyle?> style = const SdkOmitted(),
-      SdkOptional<String?> safetyIdentifier = const SdkOmitted(),
-      SdkOptional<String> user = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* images_methods.createImageStream(_config,
-        prompt: prompt,
-        model: model,
-        stream: stream,
-        n: n,
-        quality: quality,
-        responseFormat: responseFormat,
-        outputFormat: outputFormat,
-        outputCompression: outputCompression,
-        partialImages: partialImages,
-        size: size,
-        moderation: moderation,
-        background: background,
-        style: style,
-        safetyIdentifier: safetyIdentifier,
-        user: user,
-        requestOptions: requestOptions);
+  Stream<ImageGenStreamEvent> createStream({required String prompt, required String model, required bool? stream, SdkOptional<int?> n = const SdkOmitted(), SdkOptional<String?> quality = const SdkOmitted(), SdkOptional<CreateImageRequestResponseFormat?> responseFormat = const SdkOmitted(), SdkOptional<String?> outputFormat = const SdkOmitted(), SdkOptional<int?> outputCompression = const SdkOmitted(), SdkOptional<PartialImages?> partialImages = const SdkOmitted(), SdkOptional<String?> size = const SdkOmitted(), SdkOptional<String?> moderation = const SdkOmitted(), SdkOptional<String?> background = const SdkOmitted(), SdkOptional<CreateImageRequestStyle?> style = const SdkOmitted(), SdkOptional<String?> safetyIdentifier = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* images_methods.createImageStream(_config, prompt: prompt, model: model, stream: stream, n: n, quality: quality, responseFormat: responseFormat, outputFormat: outputFormat, outputCompression: outputCompression, partialImages: partialImages, size: size, moderation: moderation, background: background, style: style, safetyIdentifier: safetyIdentifier, user: user, requestOptions: requestOptions);
   }
 
   /// Creates image variations based on an uploaded image using the legacy image variations contract. This operation is retired and no longer available; use the image edits endpoint with a GPT Image model and a prompt to create a variation. The legacy request schema requires a square PNG image smaller than 4 MB.
@@ -2189,33 +1366,24 @@ class ImagesNamespace {
       {required SdkUploadFile image,
       SdkOptional<String?> model = const SdkOmitted(),
       SdkOptional<int?> n = const SdkOmitted(),
-      SdkOptional<CreateImageVariationRequestResponseFormat?> responseFormat =
-          const SdkOmitted(),
+      SdkOptional<CreateImageVariationRequestResponseFormat?> responseFormat = const SdkOmitted(),
       SdkOptional<CreateImageVariationRequestSize?> size = const SdkOmitted(),
       SdkOptional<String> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return images_methods.createImageVariation(_config,
-        image: image,
-        model: model,
-        n: n,
-        responseFormat: responseFormat,
-        size: size,
-        user: user,
-        requestOptions: requestOptions);
+    return images_methods.createImageVariation(_config, image: image, model: model, n: n, responseFormat: responseFormat, size: size, user: user, requestOptions: requestOptions);
   }
+
 }
 
 class LiveNamespace {
   final ClientConfig _config;
   LiveNamespace(ClientConfig config) : _config = config;
-
   /// Create a Live WebRTC session or place an outbound SIP call. Start with the [Live prompting guide](https://developers.openai.com/api/docs/guides/live-prompting) for session configuration and [Telephony and SIP](https://developers.openai.com/api/docs/guides/voice-sip?api=live#place-an-outbound-call) for trunk setup and call monitoring. Set transport.type to `webrtc` and supply an SDP offer, or set it to `sip` and supply an E.164 destination and trunk credentials. Outbound SIP calling must be enabled for your organization. Ringing is limited to 3 minutes and connected calls to 2 hours; these limits are not configurable in the request. Returns `201 Created` after session initialization. WebRTC responses include an SDP answer. SIP responses do not wait for the callee to answer. Attach a sideband connection using session.id to monitor SIP call progress. Each SIP request creates a new call. If a request times out or the connection fails, retry with caution: the original request may have succeeded, and a retry can place another call.
   Future<LiveSessionCreateResponse> create(
       {required LiveMediaSessionCreateParams session,
       required LiveSessionCreateRequestTransportRequest transport,
       RequestOptions? requestOptions}) async {
-    return live_methods.createLive(_config,
-        session: session, transport: transport, requestOptions: requestOptions);
+    return live_methods.createLive(_config, session: session, transport: transport, requestOptions: requestOptions);
   }
 
   /// Accept an incoming SIP call. Supply session with type live, the model, and startup configuration. Before accepting calls, follow the [Live prompting guide](https://developers.openai.com/api/docs/guides/live-prompting) to write frontend conversation instructions and a separate backend prompt. SIP media format is negotiated; omit audio.format.
@@ -2223,8 +1391,7 @@ class LiveNamespace {
       {required String sessionId,
       required LiveCallAcceptSession session,
       RequestOptions? requestOptions}) async {
-    return live_methods.acceptLiveSession(_config,
-        sessionId: sessionId, session: session, requestOptions: requestOptions);
+    return live_methods.acceptLiveSession(_config, sessionId: sessionId, session: session, requestOptions: requestOptions);
   }
 
   /// Fork a stored Live session onto a new WebRTC connection.
@@ -2233,11 +1400,7 @@ class LiveNamespace {
       required LiveWebRTCTransport transport,
       SdkOptional<LiveMediaSessionForkParams> session = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return live_methods.forkLiveSession(_config,
-        sessionId: sessionId,
-        transport: transport,
-        session: session,
-        requestOptions: requestOptions);
+    return live_methods.forkLiveSession(_config, sessionId: sessionId, transport: transport, session: session, requestOptions: requestOptions);
   }
 
   /// Ends a SIP call associated with a Live session by submitting a hangup request. Use the opaque `session_id` returned when the session was created or supplied in an incoming-call webhook, preserving its prefix and value unchanged. A 200 response confirms that the hangup request was accepted.
@@ -2245,8 +1408,7 @@ class LiveNamespace {
   /// End a SIP call identified by session_id.
   Future<void> hangupSession(
       {required String sessionId, RequestOptions? requestOptions}) async {
-    return live_methods.hangupLiveSession(_config,
-        sessionId: sessionId, requestOptions: requestOptions);
+    return live_methods.hangupLiveSession(_config, sessionId: sessionId, requestOptions: requestOptions);
   }
 
   /// Transfer a SIP call to another destination. Supply a nonblank target_uri for the SIP Refer-To header.
@@ -2254,10 +1416,7 @@ class LiveNamespace {
       {required String sessionId,
       required String targetUri,
       RequestOptions? requestOptions}) async {
-    return live_methods.referLiveSession(_config,
-        sessionId: sessionId,
-        targetUri: targetUri,
-        requestOptions: requestOptions);
+    return live_methods.referLiveSession(_config, sessionId: sessionId, targetUri: targetUri, requestOptions: requestOptions);
   }
 
   /// Reject an incoming SIP call. Send a required SIP rejection status_code between 300 and 699.
@@ -2265,10 +1424,7 @@ class LiveNamespace {
       {required String sessionId,
       required int statusCode,
       RequestOptions? requestOptions}) async {
-    return live_methods.rejectLiveSession(_config,
-        sessionId: sessionId,
-        statusCode: statusCode,
-        requestOptions: requestOptions);
+    return live_methods.rejectLiveSession(_config, sessionId: sessionId, statusCode: statusCode, requestOptions: requestOptions);
   }
 
   /// Downloads the stored audio recording for a Live session. Use the `session_id` returned when the session started with storage enabled. The recording is a stereo WAV file, with input audio in the left channel and output audio in the right channel.
@@ -2276,19 +1432,19 @@ class LiveNamespace {
   /// Get Live session content
   Future<List<int>> downloadRecording(
       {required String sessionId, RequestOptions? requestOptions}) async {
-    return live_methods.downloadLiveRecording(_config,
-        sessionId: sessionId, requestOptions: requestOptions);
+    return live_methods.downloadLiveRecording(_config, sessionId: sessionId, requestOptions: requestOptions);
   }
+
 }
 
 class ModelsNamespace {
   final ClientConfig _config;
   ModelsNamespace(ClientConfig config) : _config = config;
-
   /// Lists currently available models and basic information about each one, including its owner and availability. Use the list to inspect model identifiers and ownership before selecting a model for another request.
   ///
   /// Lists the currently available models, and provides basic information about each one such as the owner and availability.
-  Future<ListModelsResponse> list({RequestOptions? requestOptions}) async {
+  Future<ListModelsResponse> list(
+      {RequestOptions? requestOptions}) async {
     return models_methods.listModels(_config, requestOptions: requestOptions);
   }
 
@@ -2297,8 +1453,7 @@ class ModelsNamespace {
   /// Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
   Future<Model> retrieve(
       {required String model, RequestOptions? requestOptions}) async {
-    return models_methods.retrieveModel(_config,
-        model: model, requestOptions: requestOptions);
+    return models_methods.retrieveModel(_config, model: model, requestOptions: requestOptions);
   }
 
   /// Deletes a fine-tuned model. The authenticated user must have the Owner role in the organization and a credential that permits model deletion. Use `model` to identify the fine-tuned model to remove.
@@ -2306,15 +1461,14 @@ class ModelsNamespace {
   /// Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
   Future<DeleteModelResponse> delete(
       {required String model, RequestOptions? requestOptions}) async {
-    return models_methods.deleteModel(_config,
-        model: model, requestOptions: requestOptions);
+    return models_methods.deleteModel(_config, model: model, requestOptions: requestOptions);
   }
+
 }
 
 class ModerationsNamespace {
   final ClientConfig _config;
   ModerationsNamespace(ClientConfig config) : _config = config;
-
   /// Classifies text and image inputs for potentially harmful content. Supply `input` as a string, an array of strings, or supported multimodal input; `model` defaults to `omni-moderation-latest`. Use the returned results to review moderation flags, categories, and category scores.
   ///
   /// Classifies if text and/or image inputs are potentially harmful. Learn more in the [moderation guide](https://developers.openai.com/api/docs/guides/moderation).
@@ -2322,15 +1476,14 @@ class ModerationsNamespace {
       {required dynamic input,
       SdkOptional<String> model = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return moderations_methods.createModeration(_config,
-        input: input, model: model, requestOptions: requestOptions);
+    return moderations_methods.createModeration(_config, input: input, model: model, requestOptions: requestOptions);
   }
+
 }
 
 class AdminApiKeysNamespace {
   final ClientConfig _config;
   AdminApiKeysNamespace(ClientConfig config) : _config = config;
-
   /// Lists organization API keys, including keys associated with projects. Use `after` to continue from a key ID and `order` to control creation-time sorting. The response includes pagination metadata to help you determine whether more keys are available.
   ///
   /// List organization API keys
@@ -2339,26 +1492,14 @@ class AdminApiKeysNamespace {
       SdkOptional<ListAdminApiKeysOrder> order = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return admin_api_keys_methods.listAdminApiKeys(_config,
-        after: after,
-        order: order,
-        limit: limit,
-        requestOptions: requestOptions);
+    return admin_api_keys_methods.listAdminApiKeys(_config, after: after, order: order, limit: limit, requestOptions: requestOptions);
   }
 
   /// Lists organization API keys, including keys associated with projects. Use `after` to continue from a key ID and `order` to control creation-time sorting. The response includes pagination metadata to help you determine whether more keys are available.
   ///
   /// List organization API keys
-  Stream<AdminApiKey> listPaginated(
-      {String? after,
-      ListAdminApiKeysOrder? order,
-      int? limit,
-      RequestOptions? requestOptions}) async* {
-    yield* admin_api_keys_methods.listAdminApiKeysPaginated(_config,
-        after: after,
-        order: order,
-        limit: limit,
-        requestOptions: requestOptions);
+  Stream<AdminApiKey> listPaginated({String? after, ListAdminApiKeysOrder? order, int? limit, RequestOptions? requestOptions}) async* {
+    yield* admin_api_keys_methods.listAdminApiKeysPaginated(_config, after: after, order: order, limit: limit, requestOptions: requestOptions);
   }
 
   /// Creates an organization admin API key. Provide a `name` and, optionally, `expires_in_seconds` to set the key's lifetime. The response includes the key value, which is returned only once when the key is created.
@@ -2368,10 +1509,7 @@ class AdminApiKeysNamespace {
       {required String name,
       SdkOptional<int> expiresInSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return admin_api_keys_methods.createAdminApiKeys(_config,
-        name: name,
-        expiresInSeconds: expiresInSeconds,
-        requestOptions: requestOptions);
+    return admin_api_keys_methods.createAdminApiKeys(_config, name: name, expiresInSeconds: expiresInSeconds, requestOptions: requestOptions);
   }
 
   /// Retrieves details for an organization API key. Use `key_id` to identify the key whose metadata you need. The response includes the redacted key value, creation and expiration timestamps, last-use time, and owner details.
@@ -2379,8 +1517,7 @@ class AdminApiKeysNamespace {
   /// Retrieve a single organization API key
   Future<AdminApiKey> retrieve(
       {required String keyId, RequestOptions? requestOptions}) async {
-    return admin_api_keys_methods.retrieveAdminApiKeys(_config,
-        keyId: keyId, requestOptions: requestOptions);
+    return admin_api_keys_methods.retrieveAdminApiKeys(_config, keyId: keyId, requestOptions: requestOptions);
   }
 
   /// Deletes an organization admin API key. Use `key_id` to identify the key to remove. The response confirms deletion with the key identifier and a `deleted` flag.
@@ -2388,15 +1525,14 @@ class AdminApiKeysNamespace {
   /// Delete an organization admin API key
   Future<DeleteAdminApiKeysResponse> delete(
       {required String keyId, RequestOptions? requestOptions}) async {
-    return admin_api_keys_methods.deleteAdminApiKeys(_config,
-        keyId: keyId, requestOptions: requestOptions);
+    return admin_api_keys_methods.deleteAdminApiKeys(_config, keyId: keyId, requestOptions: requestOptions);
   }
+
 }
 
 class AuditLogsNamespace {
   final ClientConfig _config;
   AuditLogsNamespace(ClientConfig config) : _config = config;
-
   /// List user actions and configuration changes within this organization.
   Future<ListAuditLogsResponse> list(
       {SdkOptional<ListAuditLogsEffectiveAt> effectiveAt = const SdkOmitted(),
@@ -2410,82 +1546,35 @@ class AuditLogsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return audit_logs_methods.listAuditLogs(_config,
-        effectiveAt: effectiveAt,
-        projectIds: projectIds,
-        eventTypes: eventTypes,
-        actorIds: actorIds,
-        actorEmails: actorEmails,
-        resourceIds: resourceIds,
-        tenantOnly: tenantOnly,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return audit_logs_methods.listAuditLogs(_config, effectiveAt: effectiveAt, projectIds: projectIds, eventTypes: eventTypes, actorIds: actorIds, actorEmails: actorEmails, resourceIds: resourceIds, tenantOnly: tenantOnly, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// List user actions and configuration changes within this organization.
-  Stream<AuditLog> listPaginated(
-      {ListAuditLogsEffectiveAt? effectiveAt,
-      List<String>? projectIds,
-      List<AuditLogEventType>? eventTypes,
-      List<String>? actorIds,
-      List<String>? actorEmails,
-      List<String>? resourceIds,
-      bool? tenantOnly,
-      int? limit,
-      String? after,
-      String? before,
-      RequestOptions? requestOptions}) async* {
-    yield* audit_logs_methods.listAuditLogsPaginated(_config,
-        effectiveAt: effectiveAt,
-        projectIds: projectIds,
-        eventTypes: eventTypes,
-        actorIds: actorIds,
-        actorEmails: actorEmails,
-        resourceIds: resourceIds,
-        tenantOnly: tenantOnly,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+  Stream<AuditLog> listPaginated({ListAuditLogsEffectiveAt? effectiveAt, List<String>? projectIds, List<AuditLogEventType>? eventTypes, List<String>? actorIds, List<String>? actorEmails, List<String>? resourceIds, bool? tenantOnly, int? limit, String? after, String? before, RequestOptions? requestOptions}) async* {
+    yield* audit_logs_methods.listAuditLogsPaginated(_config, effectiveAt: effectiveAt, projectIds: projectIds, eventTypes: eventTypes, actorIds: actorIds, actorEmails: actorEmails, resourceIds: resourceIds, tenantOnly: tenantOnly, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
+
 }
 
 class CertificatesNamespace {
   final ClientConfig _config;
   CertificatesNamespace(ClientConfig config) : _config = config;
-
   /// Lists certificates uploaded for the organization. Use `after` to continue from a certificate ID, and set `order` to sort by creation time. The response includes pagination metadata and whether more certificates are available.
   ///
   /// List uploaded certificates for this organization.
   Future<ListCertificatesResponse> listForOrganization(
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
-      SdkOptional<ListCertificatesForOrganizationOrder> order =
-          const SdkOmitted(),
+      SdkOptional<ListCertificatesForOrganizationOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return certificates_methods.listCertificatesForOrganization(_config,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+    return certificates_methods.listCertificatesForOrganization(_config, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Lists certificates uploaded for the organization. Use `after` to continue from a certificate ID, and set `order` to sort by creation time. The response includes pagination metadata and whether more certificates are available.
   ///
   /// List uploaded certificates for this organization.
-  Stream<OrganizationCertificate> listForOrganizationPaginated(
-      {int? limit,
-      String? after,
-      ListCertificatesForOrganizationOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* certificates_methods.listCertificatesForOrganizationPaginated(
-        _config,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+  Stream<OrganizationCertificate> listForOrganizationPaginated({int? limit, String? after, ListCertificatesForOrganizationOrder? order, RequestOptions? requestOptions}) async* {
+    yield* certificates_methods.listCertificatesForOrganizationPaginated(_config, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Upload a certificate to the organization. This does **not** automatically activate the certificate. Organizations can upload up to 50 certificates.
@@ -2493,28 +1582,27 @@ class CertificatesNamespace {
       {required String certificate,
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return certificates_methods.uploadCertificate(_config,
-        certificate: certificate, name: name, requestOptions: requestOptions);
+    return certificates_methods.uploadCertificate(_config, certificate: certificate, name: name, requestOptions: requestOptions);
   }
 
   /// Activates certificates at the organization level. Provide the certificate IDs in `certificate_ids`; the operation activates them atomically and idempotently. You can activate up to 10 certificates in a single request.
   ///
   /// Activate certificates at the organization level. You can atomically and idempotently activate up to 10 certificates at a time.
-  Future<OrganizationCertificateActivationResponse> activateForOrganization(
-      {required List<String> certificateIds,
-      RequestOptions? requestOptions}) async {
-    return certificates_methods.activateCertificatesForOrganization(_config,
-        certificateIds: certificateIds, requestOptions: requestOptions);
+  Future<OrganizationCertificateActivationResponse>
+      activateForOrganization(
+          {required List<String> certificateIds,
+          RequestOptions? requestOptions}) async {
+    return certificates_methods.activateCertificatesForOrganization(_config, certificateIds: certificateIds, requestOptions: requestOptions);
   }
 
   /// Deactivates organization-level certificates in a single request. Supply between 1 and 10 certificate IDs; the operation is atomic and idempotent.
   ///
   /// Deactivate certificates at the organization level. You can atomically and idempotently deactivate up to 10 certificates at a time.
-  Future<OrganizationCertificateDeactivationResponse> deactivateForOrganization(
-      {required List<String> certificateIds,
-      RequestOptions? requestOptions}) async {
-    return certificates_methods.deactivateCertificatesForOrganization(_config,
-        certificateIds: certificateIds, requestOptions: requestOptions);
+  Future<OrganizationCertificateDeactivationResponse>
+      deactivateForOrganization(
+          {required List<String> certificateIds,
+          RequestOptions? requestOptions}) async {
+    return certificates_methods.deactivateCertificatesForOrganization(_config, certificateIds: certificateIds, requestOptions: requestOptions);
   }
 
   /// Get a certificate that has been uploaded to the organization. You can get a certificate regardless of whether it is active or not.
@@ -2522,10 +1610,7 @@ class CertificatesNamespace {
       {required String certificateId,
       SdkOptional<List<GetCertificateIncludeItem>> include = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return certificates_methods.getCertificate(_config,
-        certificateId: certificateId,
-        include: include,
-        requestOptions: requestOptions);
+    return certificates_methods.getCertificate(_config, certificateId: certificateId, include: include, requestOptions: requestOptions);
   }
 
   /// Modify a certificate. Note that only the name can be modified.
@@ -2533,17 +1618,13 @@ class CertificatesNamespace {
       {required String certificateId,
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return certificates_methods.modifyCertificate(_config,
-        certificateId: certificateId,
-        name: name,
-        requestOptions: requestOptions);
+    return certificates_methods.modifyCertificate(_config, certificateId: certificateId, name: name, requestOptions: requestOptions);
   }
 
   /// Delete a certificate from the organization. The certificate must be inactive for the organization and all projects.
   Future<DeleteCertificateResponse> delete(
       {required String certificateId, RequestOptions? requestOptions}) async {
-    return certificates_methods.deleteCertificate(_config,
-        certificateId: certificateId, requestOptions: requestOptions);
+    return certificates_methods.deleteCertificate(_config, certificateId: certificateId, requestOptions: requestOptions);
   }
 
   /// Lists certificates configured for a project. Use `after` to continue from a certificate ID in a previous response, and set `limit` and `order` to control the page size and sort direction.
@@ -2555,42 +1636,25 @@ class CertificatesNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<ListCertificatesForProjectOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return certificates_methods.listCertificatesForProject(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+    return certificates_methods.listCertificatesForProject(_config, projectId: projectId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Lists certificates configured for a project. Use `after` to continue from a certificate ID in a previous response, and set `limit` and `order` to control the page size and sort direction.
   ///
   /// List certificates for this project.
-  Stream<OrganizationProjectCertificate> listForProjectPaginated(
-      {required String projectId,
-      int? limit,
-      String? after,
-      ListCertificatesForProjectOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* certificates_methods.listCertificatesForProjectPaginated(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+  Stream<OrganizationProjectCertificate> listForProjectPaginated({required String projectId, int? limit, String? after, ListCertificatesForProjectOrder? order, RequestOptions? requestOptions}) async* {
+    yield* certificates_methods.listCertificatesForProjectPaginated(_config, projectId: projectId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Activates certificates for a project. Supply between 1 and 10 certificate IDs; the operation is atomic and idempotent. The response contains the certificates with their updated activation state.
   ///
   /// Activate certificates at the project level. You can atomically and idempotently activate up to 10 certificates at a time.
-  Future<OrganizationProjectCertificateActivationResponse> activateForProject(
-      {required String projectId,
-      required List<String> certificateIds,
-      RequestOptions? requestOptions}) async {
-    return certificates_methods.activateCertificatesForProject(_config,
-        projectId: projectId,
-        certificateIds: certificateIds,
-        requestOptions: requestOptions);
+  Future<OrganizationProjectCertificateActivationResponse>
+      activateForProject(
+          {required String projectId,
+          required List<String> certificateIds,
+          RequestOptions? requestOptions}) async {
+    return certificates_methods.activateCertificatesForProject(_config, projectId: projectId, certificateIds: certificateIds, requestOptions: requestOptions);
   }
 
   /// Deactivates certificates for a project. Supply between 1 and 10 certificate IDs; the operation is atomic and idempotent. The response contains the certificates with their updated activation state.
@@ -2601,17 +1665,14 @@ class CertificatesNamespace {
           {required String projectId,
           required List<String> certificateIds,
           RequestOptions? requestOptions}) async {
-    return certificates_methods.deactivateCertificatesForProject(_config,
-        projectId: projectId,
-        certificateIds: certificateIds,
-        requestOptions: requestOptions);
+    return certificates_methods.deactivateCertificatesForProject(_config, projectId: projectId, certificateIds: certificateIds, requestOptions: requestOptions);
   }
+
 }
 
 class UsageNamespace {
   final ClientConfig _config;
   UsageNamespace(ClientConfig config) : _config = config;
-
   /// Retrieves cost data for the organization over a specified time range. Set `start_time` and optionally use project, API key, line item, or grouping filters to narrow the results; use the returned cursor to fetch additional pages.
   ///
   /// Get costs details for the organization.
@@ -2626,200 +1687,74 @@ class UsageNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.usageCosts(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        apiKeyIds: apiKeyIds,
-        lineItems: lineItems,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+    return usage_methods.usageCosts(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, apiKeyIds: apiKeyIds, lineItems: lineItems, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Retrieves cost data for the organization over a specified time range. Set `start_time` and optionally use project, API key, line item, or grouping filters to narrow the results; use the returned cursor to fetch additional pages.
   ///
   /// Get costs details for the organization.
-  Stream<UsageTimeBucket> costsPaginated(
-      {required int startTime,
-      int? endTime,
-      UsageCostsBucketWidth? bucketWidth,
-      List<String>? projectIds,
-      List<String>? apiKeyIds,
-      List<String>? lineItems,
-      List<UsageCostsGroupByItem>? groupBy,
-      int? limit,
-      String? page,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.usageCostsPaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        apiKeyIds: apiKeyIds,
-        lineItems: lineItems,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<UsageTimeBucket> costsPaginated({required int startTime, int? endTime, UsageCostsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? apiKeyIds, List<String>? lineItems, List<UsageCostsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.usageCostsPaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, apiKeyIds: apiKeyIds, lineItems: lineItems, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get audio speeches usage details for the organization.
   Future<UsageResponse> audioSpeeches(
       {required int startTime,
       SdkOptional<int> endTime = const SdkOmitted(),
-      SdkOptional<UsageAudioSpeechesBucketWidth> bucketWidth =
-          const SdkOmitted(),
+      SdkOptional<UsageAudioSpeechesBucketWidth> bucketWidth = const SdkOmitted(),
       SdkOptional<List<String>> projectIds = const SdkOmitted(),
       SdkOptional<List<String>> userIds = const SdkOmitted(),
       SdkOptional<List<String>> apiKeyIds = const SdkOmitted(),
       SdkOptional<List<String>> models = const SdkOmitted(),
-      SdkOptional<List<UsageAudioSpeechesGroupByItem>> groupBy =
-          const SdkOmitted(),
+      SdkOptional<List<UsageAudioSpeechesGroupByItem>> groupBy = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.usageAudioSpeeches(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+    return usage_methods.usageAudioSpeeches(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get audio speeches usage details for the organization.
-  Stream<UsageTimeBucket> audioSpeechesPaginated(
-      {required int startTime,
-      int? endTime,
-      UsageAudioSpeechesBucketWidth? bucketWidth,
-      List<String>? projectIds,
-      List<String>? userIds,
-      List<String>? apiKeyIds,
-      List<String>? models,
-      List<UsageAudioSpeechesGroupByItem>? groupBy,
-      int? limit,
-      String? page,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.usageAudioSpeechesPaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<UsageTimeBucket> audioSpeechesPaginated({required int startTime, int? endTime, UsageAudioSpeechesBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageAudioSpeechesGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.usageAudioSpeechesPaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get audio transcriptions usage details for the organization.
   Future<UsageResponse> audioTranscriptions(
       {required int startTime,
       SdkOptional<int> endTime = const SdkOmitted(),
-      SdkOptional<UsageAudioTranscriptionsBucketWidth> bucketWidth =
-          const SdkOmitted(),
+      SdkOptional<UsageAudioTranscriptionsBucketWidth> bucketWidth = const SdkOmitted(),
       SdkOptional<List<String>> projectIds = const SdkOmitted(),
       SdkOptional<List<String>> userIds = const SdkOmitted(),
       SdkOptional<List<String>> apiKeyIds = const SdkOmitted(),
       SdkOptional<List<String>> models = const SdkOmitted(),
-      SdkOptional<List<UsageAudioTranscriptionsGroupByItem>> groupBy =
-          const SdkOmitted(),
+      SdkOptional<List<UsageAudioTranscriptionsGroupByItem>> groupBy = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.usageAudioTranscriptions(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+    return usage_methods.usageAudioTranscriptions(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get audio transcriptions usage details for the organization.
-  Stream<UsageTimeBucket> audioTranscriptionsPaginated(
-      {required int startTime,
-      int? endTime,
-      UsageAudioTranscriptionsBucketWidth? bucketWidth,
-      List<String>? projectIds,
-      List<String>? userIds,
-      List<String>? apiKeyIds,
-      List<String>? models,
-      List<UsageAudioTranscriptionsGroupByItem>? groupBy,
-      int? limit,
-      String? page,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.usageAudioTranscriptionsPaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<UsageTimeBucket> audioTranscriptionsPaginated({required int startTime, int? endTime, UsageAudioTranscriptionsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageAudioTranscriptionsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.usageAudioTranscriptionsPaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get code interpreter sessions usage details for the organization.
   Future<UsageResponse> codeInterpreterSessions(
       {required int startTime,
       SdkOptional<int> endTime = const SdkOmitted(),
-      SdkOptional<UsageCodeInterpreterSessionsBucketWidth> bucketWidth =
-          const SdkOmitted(),
+      SdkOptional<UsageCodeInterpreterSessionsBucketWidth> bucketWidth = const SdkOmitted(),
       SdkOptional<List<String>> projectIds = const SdkOmitted(),
-      SdkOptional<List<UsageCodeInterpreterSessionsGroupByItem>> groupBy =
-          const SdkOmitted(),
+      SdkOptional<List<UsageCodeInterpreterSessionsGroupByItem>> groupBy = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.usageCodeInterpreterSessions(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+    return usage_methods.usageCodeInterpreterSessions(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get code interpreter sessions usage details for the organization.
-  Stream<UsageTimeBucket> codeInterpreterSessionsPaginated(
-      {required int startTime,
-      int? endTime,
-      UsageCodeInterpreterSessionsBucketWidth? bucketWidth,
-      List<String>? projectIds,
-      List<UsageCodeInterpreterSessionsGroupByItem>? groupBy,
-      int? limit,
-      String? page,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.usageCodeInterpreterSessionsPaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<UsageTimeBucket> codeInterpreterSessionsPaginated({required int startTime, int? endTime, UsageCodeInterpreterSessionsBucketWidth? bucketWidth, List<String>? projectIds, List<UsageCodeInterpreterSessionsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.usageCodeInterpreterSessionsPaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get completions usage details for the organization.
@@ -2832,53 +1767,16 @@ class UsageNamespace {
       SdkOptional<List<String>> apiKeyIds = const SdkOmitted(),
       SdkOptional<List<String>> models = const SdkOmitted(),
       SdkOptional<bool> batch = const SdkOmitted(),
-      SdkOptional<List<UsageCompletionsGroupByItem>> groupBy =
-          const SdkOmitted(),
+      SdkOptional<List<UsageCompletionsGroupByItem>> groupBy = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.usageCompletions(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        batch: batch,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+    return usage_methods.usageCompletions(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, batch: batch, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get completions usage details for the organization.
-  Stream<UsageTimeBucket> completionsPaginated(
-      {required int startTime,
-      int? endTime,
-      UsageCompletionsBucketWidth? bucketWidth,
-      List<String>? projectIds,
-      List<String>? userIds,
-      List<String>? apiKeyIds,
-      List<String>? models,
-      bool? batch,
-      List<UsageCompletionsGroupByItem>? groupBy,
-      int? limit,
-      String? page,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.usageCompletionsPaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        batch: batch,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<UsageTimeBucket> completionsPaginated({required int startTime, int? endTime, UsageCompletionsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, bool? batch, List<UsageCompletionsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.usageCompletionsPaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, batch: batch, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get embeddings usage details for the organization.
@@ -2890,106 +1788,37 @@ class UsageNamespace {
       SdkOptional<List<String>> userIds = const SdkOmitted(),
       SdkOptional<List<String>> apiKeyIds = const SdkOmitted(),
       SdkOptional<List<String>> models = const SdkOmitted(),
-      SdkOptional<List<UsageEmbeddingsGroupByItem>> groupBy =
-          const SdkOmitted(),
+      SdkOptional<List<UsageEmbeddingsGroupByItem>> groupBy = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.usageEmbeddings(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+    return usage_methods.usageEmbeddings(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get embeddings usage details for the organization.
-  Stream<UsageTimeBucket> embeddingsPaginated(
-      {required int startTime,
-      int? endTime,
-      UsageEmbeddingsBucketWidth? bucketWidth,
-      List<String>? projectIds,
-      List<String>? userIds,
-      List<String>? apiKeyIds,
-      List<String>? models,
-      List<UsageEmbeddingsGroupByItem>? groupBy,
-      int? limit,
-      String? page,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.usageEmbeddingsPaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<UsageTimeBucket> embeddingsPaginated({required int startTime, int? endTime, UsageEmbeddingsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageEmbeddingsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.usageEmbeddingsPaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get file search calls usage details for the organization.
   Future<UsageResponse> fileSearchCalls(
       {required int startTime,
       SdkOptional<int> endTime = const SdkOmitted(),
-      SdkOptional<UsageFileSearchCallsBucketWidth> bucketWidth =
-          const SdkOmitted(),
+      SdkOptional<UsageFileSearchCallsBucketWidth> bucketWidth = const SdkOmitted(),
       SdkOptional<List<String>> projectIds = const SdkOmitted(),
       SdkOptional<List<String>> userIds = const SdkOmitted(),
       SdkOptional<List<String>> apiKeyIds = const SdkOmitted(),
       SdkOptional<List<String>> vectorStoreIds = const SdkOmitted(),
-      SdkOptional<List<UsageFileSearchCallsGroupByItem>> groupBy =
-          const SdkOmitted(),
+      SdkOptional<List<UsageFileSearchCallsGroupByItem>> groupBy = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.usageFileSearchCalls(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        vectorStoreIds: vectorStoreIds,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+    return usage_methods.usageFileSearchCalls(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, vectorStoreIds: vectorStoreIds, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get file search calls usage details for the organization.
-  Stream<UsageTimeBucket> fileSearchCallsPaginated(
-      {required int startTime,
-      int? endTime,
-      UsageFileSearchCallsBucketWidth? bucketWidth,
-      List<String>? projectIds,
-      List<String>? userIds,
-      List<String>? apiKeyIds,
-      List<String>? vectorStoreIds,
-      List<UsageFileSearchCallsGroupByItem>? groupBy,
-      int? limit,
-      String? page,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.usageFileSearchCallsPaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        vectorStoreIds: vectorStoreIds,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<UsageTimeBucket> fileSearchCallsPaginated({required int startTime, int? endTime, UsageFileSearchCallsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? vectorStoreIds, List<UsageFileSearchCallsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.usageFileSearchCallsPaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, vectorStoreIds: vectorStoreIds, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Lists image usage for the organization in time buckets. Use `start_time` to set the inclusive start of the range, and filter by sources, image sizes, projects, users, API keys, or models as needed. Use the `next_page` value to retrieve the next page of results.
@@ -3009,53 +1838,14 @@ class UsageNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.usageImages(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        sources: sources,
-        sizes: sizes,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+    return usage_methods.usageImages(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, sources: sources, sizes: sizes, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Lists image usage for the organization in time buckets. Use `start_time` to set the inclusive start of the range, and filter by sources, image sizes, projects, users, API keys, or models as needed. Use the `next_page` value to retrieve the next page of results.
   ///
   /// Get images usage details for the organization.
-  Stream<UsageTimeBucket> imagesPaginated(
-      {required int startTime,
-      int? endTime,
-      UsageImagesBucketWidth? bucketWidth,
-      List<UsageImagesSourcesItem>? sources,
-      List<UsageImagesSizesItem>? sizes,
-      List<String>? projectIds,
-      List<String>? userIds,
-      List<String>? apiKeyIds,
-      List<String>? models,
-      List<UsageImagesGroupByItem>? groupBy,
-      int? limit,
-      String? page,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.usageImagesPaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        sources: sources,
-        sizes: sizes,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<UsageTimeBucket> imagesPaginated({required int startTime, int? endTime, UsageImagesBucketWidth? bucketWidth, List<UsageImagesSourcesItem>? sources, List<UsageImagesSizesItem>? sizes, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageImagesGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.usageImagesPaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, sources: sources, sizes: sizes, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get moderations usage details for the organization.
@@ -3067,155 +1857,56 @@ class UsageNamespace {
       SdkOptional<List<String>> userIds = const SdkOmitted(),
       SdkOptional<List<String>> apiKeyIds = const SdkOmitted(),
       SdkOptional<List<String>> models = const SdkOmitted(),
-      SdkOptional<List<UsageModerationsGroupByItem>> groupBy =
-          const SdkOmitted(),
+      SdkOptional<List<UsageModerationsGroupByItem>> groupBy = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.usageModerations(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+    return usage_methods.usageModerations(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get moderations usage details for the organization.
-  Stream<UsageTimeBucket> moderationsPaginated(
-      {required int startTime,
-      int? endTime,
-      UsageModerationsBucketWidth? bucketWidth,
-      List<String>? projectIds,
-      List<String>? userIds,
-      List<String>? apiKeyIds,
-      List<String>? models,
-      List<UsageModerationsGroupByItem>? groupBy,
-      int? limit,
-      String? page,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.usageModerationsPaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<UsageTimeBucket> moderationsPaginated({required int startTime, int? endTime, UsageModerationsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageModerationsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.usageModerationsPaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get vector stores usage details for the organization.
   Future<UsageResponse> vectorStores(
       {required int startTime,
       SdkOptional<int> endTime = const SdkOmitted(),
-      SdkOptional<UsageVectorStoresBucketWidth> bucketWidth =
-          const SdkOmitted(),
+      SdkOptional<UsageVectorStoresBucketWidth> bucketWidth = const SdkOmitted(),
       SdkOptional<List<String>> projectIds = const SdkOmitted(),
-      SdkOptional<List<UsageVectorStoresGroupByItem>> groupBy =
-          const SdkOmitted(),
+      SdkOptional<List<UsageVectorStoresGroupByItem>> groupBy = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.usageVectorStores(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+    return usage_methods.usageVectorStores(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get vector stores usage details for the organization.
-  Stream<UsageTimeBucket> vectorStoresPaginated(
-      {required int startTime,
-      int? endTime,
-      UsageVectorStoresBucketWidth? bucketWidth,
-      List<String>? projectIds,
-      List<UsageVectorStoresGroupByItem>? groupBy,
-      int? limit,
-      String? page,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.usageVectorStoresPaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<UsageTimeBucket> vectorStoresPaginated({required int startTime, int? endTime, UsageVectorStoresBucketWidth? bucketWidth, List<String>? projectIds, List<UsageVectorStoresGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.usageVectorStoresPaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get web search calls usage details for the organization.
   Future<UsageResponse> webSearchCalls(
       {required int startTime,
       SdkOptional<int> endTime = const SdkOmitted(),
-      SdkOptional<UsageWebSearchCallsBucketWidth> bucketWidth =
-          const SdkOmitted(),
+      SdkOptional<UsageWebSearchCallsBucketWidth> bucketWidth = const SdkOmitted(),
       SdkOptional<List<String>> projectIds = const SdkOmitted(),
       SdkOptional<List<String>> userIds = const SdkOmitted(),
       SdkOptional<List<String>> apiKeyIds = const SdkOmitted(),
       SdkOptional<List<String>> models = const SdkOmitted(),
-      SdkOptional<List<UsageWebSearchCallsContextLevelsItem>> contextLevels =
-          const SdkOmitted(),
-      SdkOptional<List<UsageWebSearchCallsGroupByItem>> groupBy =
-          const SdkOmitted(),
+      SdkOptional<List<UsageWebSearchCallsContextLevelsItem>> contextLevels = const SdkOmitted(),
+      SdkOptional<List<UsageWebSearchCallsGroupByItem>> groupBy = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.usageWebSearchCalls(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        contextLevels: contextLevels,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+    return usage_methods.usageWebSearchCalls(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, contextLevels: contextLevels, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get web search calls usage details for the organization.
-  Stream<UsageTimeBucket> webSearchCallsPaginated(
-      {required int startTime,
-      int? endTime,
-      UsageWebSearchCallsBucketWidth? bucketWidth,
-      List<String>? projectIds,
-      List<String>? userIds,
-      List<String>? apiKeyIds,
-      List<String>? models,
-      List<UsageWebSearchCallsContextLevelsItem>? contextLevels,
-      List<UsageWebSearchCallsGroupByItem>? groupBy,
-      int? limit,
-      String? page,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.usageWebSearchCallsPaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        projectIds: projectIds,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        contextLevels: contextLevels,
-        groupBy: groupBy,
-        limit: limit,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<UsageTimeBucket> webSearchCallsPaginated({required int startTime, int? endTime, UsageWebSearchCallsBucketWidth? bucketWidth, List<String>? projectIds, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, List<UsageWebSearchCallsContextLevelsItem>? contextLevels, List<UsageWebSearchCallsGroupByItem>? groupBy, int? limit, String? page, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.usageWebSearchCallsPaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, projectIds: projectIds, userIds: userIds, apiKeyIds: apiKeyIds, models: models, contextLevels: contextLevels, groupBy: groupBy, limit: limit, page: page, requestOptions: requestOptions);
   }
 
   /// Get Decisions API usage details for the organization.
@@ -3232,62 +1923,25 @@ class UsageNamespace {
       SdkOptional<List<String>?> models = const SdkOmitted(),
       SdkOptional<bool?> batch = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return usage_methods.decisionsUsage(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        limit: limit,
-        page: page,
-        projectIds: projectIds,
-        groupBy: groupBy,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        batch: batch,
-        requestOptions: requestOptions);
+    return usage_methods.decisionsUsage(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, limit: limit, page: page, projectIds: projectIds, groupBy: groupBy, userIds: userIds, apiKeyIds: apiKeyIds, models: models, batch: batch, requestOptions: requestOptions);
   }
 
   /// Get Decisions API usage details for the organization.
-  Stream<DecisionsUsageBucket> decisionsPaginated(
-      {required int startTime,
-      int? endTime,
-      String? bucketWidth,
-      int? limit,
-      String? page,
-      List<String>? projectIds,
-      List<DecisionsUsageGroupBy>? groupBy,
-      List<String>? userIds,
-      List<String>? apiKeyIds,
-      List<String>? models,
-      bool? batch,
-      RequestOptions? requestOptions}) async* {
-    yield* usage_methods.decisionsUsagePaginated(_config,
-        startTime: startTime,
-        endTime: endTime,
-        bucketWidth: bucketWidth,
-        limit: limit,
-        page: page,
-        projectIds: projectIds,
-        groupBy: groupBy,
-        userIds: userIds,
-        apiKeyIds: apiKeyIds,
-        models: models,
-        batch: batch,
-        requestOptions: requestOptions);
+  Stream<DecisionsUsageBucket> decisionsPaginated({required int startTime, int? endTime, String? bucketWidth, int? limit, String? page, List<String>? projectIds, List<DecisionsUsageGroupBy>? groupBy, List<String>? userIds, List<String>? apiKeyIds, List<String>? models, bool? batch, RequestOptions? requestOptions}) async* {
+    yield* usage_methods.decisionsUsagePaginated(_config, startTime: startTime, endTime: endTime, bucketWidth: bucketWidth, limit: limit, page: page, projectIds: projectIds, groupBy: groupBy, userIds: userIds, apiKeyIds: apiKeyIds, models: models, batch: batch, requestOptions: requestOptions);
   }
+
 }
 
 class DataRetentionNamespace {
   final ClientConfig _config;
   DataRetentionNamespace(ClientConfig config) : _config = config;
-
   /// Retrieves the organization's data retention controls. Use this endpoint to inspect the configured retention type, such as zero data retention or modified abuse monitoring.
   ///
   /// Retrieves organization data retention controls.
   Future<OrganizationDataRetention> retrieveOrganization(
       {RequestOptions? requestOptions}) async {
-    return data_retention_methods.retrieveOrganizationDataRetention(_config,
-        requestOptions: requestOptions);
+    return data_retention_methods.retrieveOrganizationDataRetention(_config, requestOptions: requestOptions);
   }
 
   /// Updates the organization's data retention controls. Set `retention_type` to one of the supported retention modes; the requested setting or transition must be valid for the organization.
@@ -3296,8 +1950,7 @@ class DataRetentionNamespace {
   Future<OrganizationDataRetention> updateOrganization(
       {required UpdateOrganizationDataRetentionBodyRetentionType retentionType,
       RequestOptions? requestOptions}) async {
-    return data_retention_methods.updateOrganizationDataRetention(_config,
-        retentionType: retentionType, requestOptions: requestOptions);
+    return data_retention_methods.updateOrganizationDataRetention(_config, retentionType: retentionType, requestOptions: requestOptions);
   }
 
   /// Retrieves the data retention controls configured for a project. Use this operation to inspect the project's current retention type before changing its settings.
@@ -3305,8 +1958,7 @@ class DataRetentionNamespace {
   /// Retrieves project data retention controls.
   Future<ProjectDataRetention> retrieve(
       {required String projectId, RequestOptions? requestOptions}) async {
-    return data_retention_methods.retrieveProjectDataRetention(_config,
-        projectId: projectId, requestOptions: requestOptions);
+    return data_retention_methods.retrieveProjectDataRetention(_config, projectId: projectId, requestOptions: requestOptions);
   }
 
   /// Updates the data retention controls for a project. Set `retention_type` to one of the supported retention settings to configure the project.
@@ -3316,17 +1968,14 @@ class DataRetentionNamespace {
       {required String projectId,
       required UpdateProjectDataRetentionBodyRetentionType retentionType,
       RequestOptions? requestOptions}) async {
-    return data_retention_methods.updateProjectDataRetention(_config,
-        projectId: projectId,
-        retentionType: retentionType,
-        requestOptions: requestOptions);
+    return data_retention_methods.updateProjectDataRetention(_config, projectId: projectId, retentionType: retentionType, requestOptions: requestOptions);
   }
+
 }
 
 class GroupsNamespace {
   final ClientConfig _config;
   GroupsNamespace(ClientConfig config) : _config = config;
-
   /// Lists groups in the organization, with controls for page size, cursor position, and sort order. Use `after` with a group ID from the previous page to continue through the results.
   ///
   /// Lists all groups in the organization.
@@ -3335,26 +1984,14 @@ class GroupsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<ListGroupsOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return groups_methods.listGroups(_config,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+    return groups_methods.listGroups(_config, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Lists groups in the organization, with controls for page size, cursor position, and sort order. Use `after` with a group ID from the previous page to continue through the results.
   ///
   /// Lists all groups in the organization.
-  Stream<GroupResponse> listPaginated(
-      {int? limit,
-      String? after,
-      ListGroupsOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* groups_methods.listGroupsPaginated(_config,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+  Stream<GroupResponse> listPaginated({int? limit, String? after, ListGroupsOrder? order, RequestOptions? requestOptions}) async* {
+    yield* groups_methods.listGroupsPaginated(_config, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Creates a new group in the organization. Provide a human-readable `name` between 1 and 255 characters; the response includes the group's generated ID and management details.
@@ -3362,8 +1999,7 @@ class GroupsNamespace {
   /// Creates a new group in the organization.
   Future<GroupResponse> create(
       {required String name, RequestOptions? requestOptions}) async {
-    return groups_methods.createGroup(_config,
-        name: name, requestOptions: requestOptions);
+    return groups_methods.createGroup(_config, name: name, requestOptions: requestOptions);
   }
 
   /// Retrieves a group from the organization by its ID. Use `group_id` to identify the group whose name, creation time, management status, and type you need.
@@ -3371,8 +2007,7 @@ class GroupsNamespace {
   /// Retrieves a group.
   Future<GroupResponse> retrieve(
       {required String groupId, RequestOptions? requestOptions}) async {
-    return groups_methods.retrieveGroup(_config,
-        groupId: groupId, requestOptions: requestOptions);
+    return groups_methods.retrieveGroup(_config, groupId: groupId, requestOptions: requestOptions);
   }
 
   /// Updates a group's display name in the organization. Supply `name` as a string between 1 and 255 characters. The response includes the group's identifier, updated name, creation timestamp, and SCIM management status.
@@ -3382,8 +2017,7 @@ class GroupsNamespace {
       {required String groupId,
       required String name,
       RequestOptions? requestOptions}) async {
-    return groups_methods.updateGroup(_config,
-        groupId: groupId, name: name, requestOptions: requestOptions);
+    return groups_methods.updateGroup(_config, groupId: groupId, name: name, requestOptions: requestOptions);
   }
 
   /// Deletes a group from the organization. Use the group's identifier to select which group to remove. The response confirms the deleted group by its identifier and deletion status.
@@ -3391,16 +2025,14 @@ class GroupsNamespace {
   /// Deletes a group from the organization.
   Future<GroupDeletedResource> delete(
       {required String groupId, RequestOptions? requestOptions}) async {
-    return groups_methods.deleteGroup(_config,
-        groupId: groupId, requestOptions: requestOptions);
+    return groups_methods.deleteGroup(_config, groupId: groupId, requestOptions: requestOptions);
   }
+
 }
 
 class GroupOrganizationRoleAssignmentsNamespace {
   final ClientConfig _config;
-  GroupOrganizationRoleAssignmentsNamespace(ClientConfig config)
-      : _config = config;
-
+  GroupOrganizationRoleAssignmentsNamespace(ClientConfig config) : _config = config;
   /// Lists the organization roles assigned to a group within the organization.
   Future<RoleListResource> listGroupRoleAssignments(
       {required String groupId,
@@ -3408,29 +2040,12 @@ class GroupOrganizationRoleAssignmentsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<ListGroupRoleAssignmentsOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return group_organization_role_assignments_methods.listGroupRoleAssignments(
-        _config,
-        groupId: groupId,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+    return group_organization_role_assignments_methods.listGroupRoleAssignments(_config, groupId: groupId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Lists the organization roles assigned to a group within the organization.
-  Stream<AssignedRoleDetails> listGroupRoleAssignmentsPaginated(
-      {required String groupId,
-      int? limit,
-      String? after,
-      ListGroupRoleAssignmentsOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* group_organization_role_assignments_methods
-        .listGroupRoleAssignmentsPaginated(_config,
-            groupId: groupId,
-            limit: limit,
-            after: after,
-            order: order,
-            requestOptions: requestOptions);
+  Stream<AssignedRoleDetails> listGroupRoleAssignmentsPaginated({required String groupId, int? limit, String? after, ListGroupRoleAssignmentsOrder? order, RequestOptions? requestOptions}) async* {
+    yield* group_organization_role_assignments_methods.listGroupRoleAssignmentsPaginated(_config, groupId: groupId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Assigns an organization role to a group within the organization.
@@ -3438,8 +2053,7 @@ class GroupOrganizationRoleAssignmentsNamespace {
       {required String groupId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return group_organization_role_assignments_methods.assignGroupRole(_config,
-        groupId: groupId, roleId: roleId, requestOptions: requestOptions);
+    return group_organization_role_assignments_methods.assignGroupRole(_config, groupId: groupId, roleId: roleId, requestOptions: requestOptions);
   }
 
   /// Retrieves an organization role assigned to a group.
@@ -3447,11 +2061,7 @@ class GroupOrganizationRoleAssignmentsNamespace {
       {required String groupId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return group_organization_role_assignments_methods.retrieveGroupRole(
-        _config,
-        groupId: groupId,
-        roleId: roleId,
-        requestOptions: requestOptions);
+    return group_organization_role_assignments_methods.retrieveGroupRole(_config, groupId: groupId, roleId: roleId, requestOptions: requestOptions);
   }
 
   /// Unassigns an organization role from a group within the organization.
@@ -3459,18 +2069,14 @@ class GroupOrganizationRoleAssignmentsNamespace {
       {required String groupId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return group_organization_role_assignments_methods.unassignGroupRole(
-        _config,
-        groupId: groupId,
-        roleId: roleId,
-        requestOptions: requestOptions);
+    return group_organization_role_assignments_methods.unassignGroupRole(_config, groupId: groupId, roleId: roleId, requestOptions: requestOptions);
   }
+
 }
 
 class GroupUsersNamespace {
   final ClientConfig _config;
   GroupUsersNamespace(ClientConfig config) : _config = config;
-
   /// Lists the users assigned to a group. Use `after` to continue from the last user's identifier in a previous response, and use `limit` and `order` to control the page size and sort order. The response indicates whether more users are available and provides the cursor for the next page.
   ///
   /// Lists the users assigned to a group.
@@ -3480,29 +2086,14 @@ class GroupUsersNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<ListGroupUsersOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return group_users_methods.listGroupUsers(_config,
-        groupId: groupId,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+    return group_users_methods.listGroupUsers(_config, groupId: groupId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Lists the users assigned to a group. Use `after` to continue from the last user's identifier in a previous response, and use `limit` and `order` to control the page size and sort order. The response indicates whether more users are available and provides the cursor for the next page.
   ///
   /// Lists the users assigned to a group.
-  Stream<GroupUser> listPaginated(
-      {required String groupId,
-      int? limit,
-      String? after,
-      ListGroupUsersOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* group_users_methods.listGroupUsersPaginated(_config,
-        groupId: groupId,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+  Stream<GroupUser> listPaginated({required String groupId, int? limit, String? after, ListGroupUsersOrder? order, RequestOptions? requestOptions}) async* {
+    yield* group_users_methods.listGroupUsersPaginated(_config, groupId: groupId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Adds a user to a group in the organization. Supply the user's identifier in `user_id` to specify the membership to create. The response confirms the added user and the group they were added to.
@@ -3512,8 +2103,7 @@ class GroupUsersNamespace {
       {required String groupId,
       required String userId,
       RequestOptions? requestOptions}) async {
-    return group_users_methods.addGroupUser(_config,
-        groupId: groupId, userId: userId, requestOptions: requestOptions);
+    return group_users_methods.addGroupUser(_config, groupId: groupId, userId: userId, requestOptions: requestOptions);
   }
 
   /// Retrieves a user's membership details for a group. Provide both `group_id` and `user_id` to identify the membership to inspect. The response includes the user's name, email, profile picture, account type, and service-account status.
@@ -3523,8 +2113,7 @@ class GroupUsersNamespace {
       {required String groupId,
       required String userId,
       RequestOptions? requestOptions}) async {
-    return group_users_methods.retrieveGroupUser(_config,
-        groupId: groupId, userId: userId, requestOptions: requestOptions);
+    return group_users_methods.retrieveGroupUser(_config, groupId: groupId, userId: userId, requestOptions: requestOptions);
   }
 
   /// Removes a user's membership from a group. Supply `group_id` and `user_id` to identify the group membership to remove. The response confirms whether the membership was deleted.
@@ -3534,15 +2123,14 @@ class GroupUsersNamespace {
       {required String groupId,
       required String userId,
       RequestOptions? requestOptions}) async {
-    return group_users_methods.removeGroupUser(_config,
-        groupId: groupId, userId: userId, requestOptions: requestOptions);
+    return group_users_methods.removeGroupUser(_config, groupId: groupId, userId: userId, requestOptions: requestOptions);
   }
+
 }
 
 class InvitesNamespace {
   final ClientConfig _config;
   InvitesNamespace(ClientConfig config) : _config = config;
-
   /// Lists organization invites and their status, role, and project access details. Use `limit` to control the number of results and `after` to continue from an invite ID. The response includes `has_more` and cursor IDs to help you paginate.
   ///
   /// Returns a list of invites in the organization.
@@ -3550,31 +2138,23 @@ class InvitesNamespace {
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return invites_methods.listInvites(_config,
-        limit: limit, after: after, requestOptions: requestOptions);
+    return invites_methods.listInvites(_config, limit: limit, after: after, requestOptions: requestOptions);
   }
 
   /// Lists organization invites and their status, role, and project access details. Use `limit` to control the number of results and `after` to continue from an invite ID. The response includes `has_more` and cursor IDs to help you paginate.
   ///
   /// Returns a list of invites in the organization.
-  Stream<Invite> listPaginated(
-      {int? limit, String? after, RequestOptions? requestOptions}) async* {
-    yield* invites_methods.listInvitesPaginated(_config,
-        limit: limit, after: after, requestOptions: requestOptions);
+  Stream<Invite> listPaginated({int? limit, String? after, RequestOptions? requestOptions}) async* {
+    yield* invites_methods.listInvitesPaginated(_config, limit: limit, after: after, requestOptions: requestOptions);
   }
 
   /// Create an invite for a user to the organization. The invite must be accepted by the user before they have access to the organization.
   Future<Invite> create(
       {required String email,
       required InviteRequestRole role,
-      SdkOptional<List<InviteRequestProjectsItem>> projects =
-          const SdkOmitted(),
+      SdkOptional<List<InviteRequestProjectsItem>> projects = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return invites_methods.createInvites(_config,
-        email: email,
-        role: role,
-        projects: projects,
-        requestOptions: requestOptions);
+    return invites_methods.createInvites(_config, email: email, role: role, projects: projects, requestOptions: requestOptions);
   }
 
   /// Retrieves an organization invite by its identifier. Use `invite_id` to select the invite whose email address, role, status, and project access you need to inspect.
@@ -3582,22 +2162,20 @@ class InvitesNamespace {
   /// Retrieves an invite.
   Future<Invite> retrieve(
       {required String inviteId, RequestOptions? requestOptions}) async {
-    return invites_methods.retrieveInvite(_config,
-        inviteId: inviteId, requestOptions: requestOptions);
+    return invites_methods.retrieveInvite(_config, inviteId: inviteId, requestOptions: requestOptions);
   }
 
   /// Delete an invite. If the invite has already been accepted, it cannot be deleted.
   Future<InviteDeleteResponse> delete(
       {required String inviteId, RequestOptions? requestOptions}) async {
-    return invites_methods.deleteInvite(_config,
-        inviteId: inviteId, requestOptions: requestOptions);
+    return invites_methods.deleteInvite(_config, inviteId: inviteId, requestOptions: requestOptions);
   }
+
 }
 
 class ProjectsNamespace {
   final ClientConfig _config;
   ProjectsNamespace(ClientConfig config) : _config = config;
-
   /// Lists projects in the organization. Use `include_archived` to include archived projects and `limit` and `after` to control and continue through the results. The response includes a `has_more` flag and cursor IDs for pagination.
   ///
   /// Returns a list of projects.
@@ -3606,26 +2184,14 @@ class ProjectsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<bool> includeArchived = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.listProjects(_config,
-        limit: limit,
-        after: after,
-        includeArchived: includeArchived,
-        requestOptions: requestOptions);
+    return projects_methods.listProjects(_config, limit: limit, after: after, includeArchived: includeArchived, requestOptions: requestOptions);
   }
 
   /// Lists projects in the organization. Use `include_archived` to include archived projects and `limit` and `after` to control and continue through the results. The response includes a `has_more` flag and cursor IDs for pagination.
   ///
   /// Returns a list of projects.
-  Stream<Project> listPaginated(
-      {int? limit,
-      String? after,
-      bool? includeArchived,
-      RequestOptions? requestOptions}) async* {
-    yield* projects_methods.listProjectsPaginated(_config,
-        limit: limit,
-        after: after,
-        includeArchived: includeArchived,
-        requestOptions: requestOptions);
+  Stream<Project> listPaginated({int? limit, String? after, bool? includeArchived, RequestOptions? requestOptions}) async* {
+    yield* projects_methods.listProjectsPaginated(_config, limit: limit, after: after, includeArchived: includeArchived, requestOptions: requestOptions);
   }
 
   /// Create a new project in the organization. Projects can be created and archived, but cannot be deleted.
@@ -3635,12 +2201,7 @@ class ProjectsNamespace {
       SdkOptional<PublicProjectResidency?> residency = const SdkOmitted(),
       SdkOptional<String?> externalKeyId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.createProject(_config,
-        name: name,
-        geography: geography,
-        residency: residency,
-        externalKeyId: externalKeyId,
-        requestOptions: requestOptions);
+    return projects_methods.createProject(_config, name: name, geography: geography, residency: residency, externalKeyId: externalKeyId, requestOptions: requestOptions);
   }
 
   /// Retrieves a project in the organization by its identifier. Use `project_id` to select the project whose name, status, and residency configuration you need to inspect.
@@ -3648,8 +2209,7 @@ class ProjectsNamespace {
   /// Retrieves a project.
   Future<Project> retrieve(
       {required String projectId, RequestOptions? requestOptions}) async {
-    return projects_methods.retrieveProject(_config,
-        projectId: projectId, requestOptions: requestOptions);
+    return projects_methods.retrieveProject(_config, projectId: projectId, requestOptions: requestOptions);
   }
 
   /// Updates a project in the organization. Supply any of `name`, `external_key_id`, or `geography` to change the corresponding project value; omitted fields are not specified for update. The `geography` field is retained for backward compatibility, while data residency is configured with `residency` when creating a project.
@@ -3661,12 +2221,7 @@ class ProjectsNamespace {
       SdkOptional<String?> externalKeyId = const SdkOmitted(),
       SdkOptional<String?> geography = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.modifyProject(_config,
-        projectId: projectId,
-        name: name,
-        externalKeyId: externalKeyId,
-        geography: geography,
-        requestOptions: requestOptions);
+    return projects_methods.modifyProject(_config, projectId: projectId, name: name, externalKeyId: externalKeyId, geography: geography, requestOptions: requestOptions);
   }
 
   /// Lists API keys in an organization project. Use `owner_project_access` to filter keys by their owner's effective project access, and `limit` and `after` to control and continue through the results. The response includes redacted key values, owner details, and a `has_more` flag for pagination.
@@ -3676,32 +2231,16 @@ class ProjectsNamespace {
       {required String projectId,
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
-      SdkOptional<ListProjectApiKeysOwnerProjectAccess> ownerProjectAccess =
-          const SdkOmitted(),
+      SdkOptional<ListProjectApiKeysOwnerProjectAccess> ownerProjectAccess = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.listProjectApiKeys(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        ownerProjectAccess: ownerProjectAccess,
-        requestOptions: requestOptions);
+    return projects_methods.listProjectApiKeys(_config, projectId: projectId, limit: limit, after: after, ownerProjectAccess: ownerProjectAccess, requestOptions: requestOptions);
   }
 
   /// Lists API keys in an organization project. Use `owner_project_access` to filter keys by their owner's effective project access, and `limit` and `after` to control and continue through the results. The response includes redacted key values, owner details, and a `has_more` flag for pagination.
   ///
   /// Returns a list of API keys in the project.
-  Stream<ProjectApiKey> listApiKeysPaginated(
-      {required String projectId,
-      int? limit,
-      String? after,
-      ListProjectApiKeysOwnerProjectAccess? ownerProjectAccess,
-      RequestOptions? requestOptions}) async* {
-    yield* projects_methods.listProjectApiKeysPaginated(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        ownerProjectAccess: ownerProjectAccess,
-        requestOptions: requestOptions);
+  Stream<ProjectApiKey> listApiKeysPaginated({required String projectId, int? limit, String? after, ListProjectApiKeysOwnerProjectAccess? ownerProjectAccess, RequestOptions? requestOptions}) async* {
+    yield* projects_methods.listProjectApiKeysPaginated(_config, projectId: projectId, limit: limit, after: after, ownerProjectAccess: ownerProjectAccess, requestOptions: requestOptions);
   }
 
   /// Retrieves an API key in an organization project by its identifier. Use `project_id` and `api_key_id` to select the project and key whose redacted value, owner access, and usage timestamps you need to inspect.
@@ -3711,10 +2250,7 @@ class ProjectsNamespace {
       {required String projectId,
       required String apiKeyId,
       RequestOptions? requestOptions}) async {
-    return projects_methods.retrieveProjectApiKey(_config,
-        projectId: projectId,
-        apiKeyId: apiKeyId,
-        requestOptions: requestOptions);
+    return projects_methods.retrieveProjectApiKey(_config, projectId: projectId, apiKeyId: apiKeyId, requestOptions: requestOptions);
   }
 
   /// Deletes an API key from the project. Returns confirmation of the key deletion, or an error if the key belonged to a service account.
@@ -3722,10 +2258,7 @@ class ProjectsNamespace {
       {required String projectId,
       required String apiKeyId,
       RequestOptions? requestOptions}) async {
-    return projects_methods.deleteProjectApiKey(_config,
-        projectId: projectId,
-        apiKeyId: apiKeyId,
-        requestOptions: requestOptions);
+    return projects_methods.deleteProjectApiKey(_config, projectId: projectId, apiKeyId: apiKeyId, requestOptions: requestOptions);
   }
 
   /// Updates the scopes and/or expiration of an existing API key in the project, including a service-account-owned key. Requires permission to write project API keys. Provide at least one of `scopes` or `expires_in_seconds`. Omitted fields stay unchanged; neither field accepts `null`. Both changes are saved together. `scopes` replaces the key's scope restrictions using the same scope identifiers as the dashboard. An empty array means All permissions, subject to the owner's effective access; it does not mean no access. Use `["api.all.read"]` for read-only access or specific scopes such as `["api.files.read"]` for restricted access. This does not change user or service-account roles or grant admin permissions. Scope changes follow the same authentication-cache propagation as dashboard edits. Provide `expires_in_seconds` to set the expiration relative to this request. The value must satisfy the organization's and project's expiry policies. Expired keys cannot be updated. Retrying resets the expiration relative to the new request. The response contains only the redacted key, not its secret.
@@ -3735,19 +2268,13 @@ class ProjectsNamespace {
       SdkOptional<int> expiresInSeconds = const SdkOmitted(),
       SdkOptional<List<String>> scopes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.updateProjectApiKey(_config,
-        projectId: projectId,
-        apiKeyId: apiKeyId,
-        expiresInSeconds: expiresInSeconds,
-        scopes: scopes,
-        requestOptions: requestOptions);
+    return projects_methods.updateProjectApiKey(_config, projectId: projectId, apiKeyId: apiKeyId, expiresInSeconds: expiresInSeconds, scopes: scopes, requestOptions: requestOptions);
   }
 
   /// Archives a project in the organization. Archived projects cannot be used or updated.
   Future<Project> archive(
       {required String projectId, RequestOptions? requestOptions}) async {
-    return projects_methods.archiveProject(_config,
-        projectId: projectId, requestOptions: requestOptions);
+    return projects_methods.archiveProject(_config, projectId: projectId, requestOptions: requestOptions);
   }
 
   /// Retrieves the model permission policy for a project. Use `project_id` to identify the project whose model access policy you want to inspect. The response includes the policy mode and the model IDs it applies to.
@@ -3755,8 +2282,7 @@ class ProjectsNamespace {
   /// Returns model permissions for a project.
   Future<ProjectModelPermissions> retrieveModelPermissions(
       {required String projectId, RequestOptions? requestOptions}) async {
-    return projects_methods.retrieveProjectModelPermissions(_config,
-        projectId: projectId, requestOptions: requestOptions);
+    return projects_methods.retrieveProjectModelPermissions(_config, projectId: projectId, requestOptions: requestOptions);
   }
 
   /// Updates a project's model permission policy. Provide `mode` and `model_ids` to specify whether the listed models are allowed or denied. The response returns the updated policy.
@@ -3767,11 +2293,7 @@ class ProjectsNamespace {
       required ProjectModelPermissionsUpdateRequestMode mode,
       required List<String> modelIds,
       RequestOptions? requestOptions}) async {
-    return projects_methods.updateProjectModelPermissions(_config,
-        projectId: projectId,
-        mode: mode,
-        modelIds: modelIds,
-        requestOptions: requestOptions);
+    return projects_methods.updateProjectModelPermissions(_config, projectId: projectId, mode: mode, modelIds: modelIds, requestOptions: requestOptions);
   }
 
   /// Deletes the model permission policy for a project. Use `project_id` to identify the project whose policy you want to remove. The response confirms whether the permissions were deleted.
@@ -3779,8 +2301,7 @@ class ProjectsNamespace {
   /// Deletes model permissions for a project.
   Future<ProjectModelPermissionsDeleteResponse> deleteModelPermissions(
       {required String projectId, RequestOptions? requestOptions}) async {
-    return projects_methods.deleteProjectModelPermissions(_config,
-        projectId: projectId, requestOptions: requestOptions);
+    return projects_methods.deleteProjectModelPermissions(_config, projectId: projectId, requestOptions: requestOptions);
   }
 
   /// Lists the rate limits configured for a project, with each result describing limits for a model. Use `limit` to set the number of results and `after` or `before` to navigate the list using cursors.
@@ -3792,29 +2313,14 @@ class ProjectsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.listProjectRateLimits(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return projects_methods.listProjectRateLimits(_config, projectId: projectId, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Lists the rate limits configured for a project, with each result describing limits for a model. Use `limit` to set the number of results and `after` or `before` to navigate the list using cursors.
   ///
   /// Returns the rate limits per model for a project.
-  Stream<ProjectRateLimit> listRateLimitsPaginated(
-      {required String projectId,
-      int? limit,
-      String? after,
-      String? before,
-      RequestOptions? requestOptions}) async* {
-    yield* projects_methods.listProjectRateLimitsPaginated(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+  Stream<ProjectRateLimit> listRateLimitsPaginated({required String projectId, int? limit, String? after, String? before, RequestOptions? requestOptions}) async* {
+    yield* projects_methods.listProjectRateLimitsPaginated(_config, projectId: projectId, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Updates a rate limit configuration for a project. Use `project_id` and `rate_limit_id` to identify the project and rate limit, then provide the limit values to change. The response returns the updated rate limit configuration.
@@ -3830,16 +2336,7 @@ class ProjectsNamespace {
       SdkOptional<int> maxRequestsPer1Day = const SdkOmitted(),
       SdkOptional<int> batch1DayMaxInputTokens = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.updateProjectRateLimits(_config,
-        projectId: projectId,
-        rateLimitId: rateLimitId,
-        maxRequestsPer1Minute: maxRequestsPer1Minute,
-        maxTokensPer1Minute: maxTokensPer1Minute,
-        maxImagesPer1Minute: maxImagesPer1Minute,
-        maxAudioMegabytesPer1Minute: maxAudioMegabytesPer1Minute,
-        maxRequestsPer1Day: maxRequestsPer1Day,
-        batch1DayMaxInputTokens: batch1DayMaxInputTokens,
-        requestOptions: requestOptions);
+    return projects_methods.updateProjectRateLimits(_config, projectId: projectId, rateLimitId: rateLimitId, maxRequestsPer1Minute: maxRequestsPer1Minute, maxTokensPer1Minute: maxTokensPer1Minute, maxImagesPer1Minute: maxImagesPer1Minute, maxAudioMegabytesPer1Minute: maxAudioMegabytesPer1Minute, maxRequestsPer1Day: maxRequestsPer1Day, batch1DayMaxInputTokens: batch1DayMaxInputTokens, requestOptions: requestOptions);
   }
 
   /// Returns a list of service accounts in the project.
@@ -3848,24 +2345,12 @@ class ProjectsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.listProjectServiceAccounts(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        requestOptions: requestOptions);
+    return projects_methods.listProjectServiceAccounts(_config, projectId: projectId, limit: limit, after: after, requestOptions: requestOptions);
   }
 
   /// Returns a list of service accounts in the project.
-  Stream<ProjectServiceAccount> listServiceAccountsPaginated(
-      {required String projectId,
-      int? limit,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* projects_methods.listProjectServiceAccountsPaginated(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<ProjectServiceAccount> listServiceAccountsPaginated({required String projectId, int? limit, String? after, RequestOptions? requestOptions}) async* {
+    yield* projects_methods.listProjectServiceAccountsPaginated(_config, projectId: projectId, limit: limit, after: after, requestOptions: requestOptions);
   }
 
   /// Creates a service account in a project and, by default, returns an unredacted API key for it. Supply a `name`; set `create_service_account_only` to create the account without default roles or an API key, and use `expires_in_seconds` to configure the initial key's lifetime.
@@ -3877,12 +2362,7 @@ class ProjectsNamespace {
       SdkOptional<bool?> createServiceAccountOnly = const SdkOmitted(),
       SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.createProjectServiceAccount(_config,
-        projectId: projectId,
-        name: name,
-        createServiceAccountOnly: createServiceAccountOnly,
-        expiresInSeconds: expiresInSeconds,
-        requestOptions: requestOptions);
+    return projects_methods.createProjectServiceAccount(_config, projectId: projectId, name: name, createServiceAccountOnly: createServiceAccountOnly, expiresInSeconds: expiresInSeconds, requestOptions: requestOptions);
   }
 
   /// Retrieves a service account in a project. Use the project and service account identifiers to inspect the account's name, role, and creation timestamp.
@@ -3892,10 +2372,7 @@ class ProjectsNamespace {
       {required String projectId,
       required String serviceAccountId,
       RequestOptions? requestOptions}) async {
-    return projects_methods.retrieveProjectServiceAccount(_config,
-        projectId: projectId,
-        serviceAccountId: serviceAccountId,
-        requestOptions: requestOptions);
+    return projects_methods.retrieveProjectServiceAccount(_config, projectId: projectId, serviceAccountId: serviceAccountId, requestOptions: requestOptions);
   }
 
   /// Updates a service account in a project. Supply `name` or `role` to change the corresponding account property; the role must be `member` or `owner`.
@@ -3905,15 +2382,9 @@ class ProjectsNamespace {
       {required String projectId,
       required String serviceAccountId,
       SdkOptional<String> name = const SdkOmitted(),
-      SdkOptional<UpdateProjectServiceAccountBodyRole> role =
-          const SdkOmitted(),
+      SdkOptional<UpdateProjectServiceAccountBodyRole> role = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.updateProjectServiceAccount(_config,
-        projectId: projectId,
-        serviceAccountId: serviceAccountId,
-        name: name,
-        role: role,
-        requestOptions: requestOptions);
+    return projects_methods.updateProjectServiceAccount(_config, projectId: projectId, serviceAccountId: serviceAccountId, name: name, role: role, requestOptions: requestOptions);
   }
 
   /// Deletes a service account from the project. Returns confirmation of service account deletion, or an error if the project is archived (archived projects have no service accounts).
@@ -3921,10 +2392,7 @@ class ProjectsNamespace {
       {required String projectId,
       required String serviceAccountId,
       RequestOptions? requestOptions}) async {
-    return projects_methods.deleteProjectServiceAccount(_config,
-        projectId: projectId,
-        serviceAccountId: serviceAccountId,
-        requestOptions: requestOptions);
+    return projects_methods.deleteProjectServiceAccount(_config, projectId: projectId, serviceAccountId: serviceAccountId, requestOptions: requestOptions);
   }
 
   /// Lists users in a project using cursor-based pagination. Set `limit` to control the number of results and pass an `after` cursor from a previous response to continue through the list.
@@ -3935,26 +2403,14 @@ class ProjectsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.listProjectUsers(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        requestOptions: requestOptions);
+    return projects_methods.listProjectUsers(_config, projectId: projectId, limit: limit, after: after, requestOptions: requestOptions);
   }
 
   /// Lists users in a project using cursor-based pagination. Set `limit` to control the number of results and pass an `after` cursor from a previous response to continue through the list.
   ///
   /// Returns a list of users in the project.
-  Stream<ProjectUser> listUsersPaginated(
-      {required String projectId,
-      int? limit,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* projects_methods.listProjectUsersPaginated(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<ProjectUser> listUsersPaginated({required String projectId, int? limit, String? after, RequestOptions? requestOptions}) async* {
+    yield* projects_methods.listProjectUsersPaginated(_config, projectId: projectId, limit: limit, after: after, requestOptions: requestOptions);
   }
 
   /// Adds a user to the project. Users must already be members of the organization to be added to a project.
@@ -3964,12 +2420,7 @@ class ProjectsNamespace {
       SdkOptional<String?> userId = const SdkOmitted(),
       SdkOptional<String?> email = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.createProjectUser(_config,
-        projectId: projectId,
-        role: role,
-        userId: userId,
-        email: email,
-        requestOptions: requestOptions);
+    return projects_methods.createProjectUser(_config, projectId: projectId, role: role, userId: userId, email: email, requestOptions: requestOptions);
   }
 
   /// Retrieves a user's membership details for a project. Use `project_id` and `user_id` to identify the project and user, and review the returned role and membership timestamp.
@@ -3979,8 +2430,7 @@ class ProjectsNamespace {
       {required String projectId,
       required String userId,
       RequestOptions? requestOptions}) async {
-    return projects_methods.retrieveProjectUser(_config,
-        projectId: projectId, userId: userId, requestOptions: requestOptions);
+    return projects_methods.retrieveProjectUser(_config, projectId: projectId, userId: userId, requestOptions: requestOptions);
   }
 
   /// Updates a user's role in a project. Use `project_id` and `user_id` to identify the project membership, and set `role` to `owner` or `member` when changing the role.
@@ -3991,11 +2441,7 @@ class ProjectsNamespace {
       required String userId,
       SdkOptional<String?> role = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.modifyProjectUser(_config,
-        projectId: projectId,
-        userId: userId,
-        role: role,
-        requestOptions: requestOptions);
+    return projects_methods.modifyProjectUser(_config, projectId: projectId, userId: userId, role: role, requestOptions: requestOptions);
   }
 
   /// Deletes a user from the project. Returns confirmation of project user deletion, or an error if the project is archived (archived projects have no users).
@@ -4003,8 +2449,7 @@ class ProjectsNamespace {
       {required String projectId,
       required String userId,
       RequestOptions? requestOptions}) async {
-    return projects_methods.deleteProjectUser(_config,
-        projectId: projectId, userId: userId, requestOptions: requestOptions);
+    return projects_methods.deleteProjectUser(_config, projectId: projectId, userId: userId, requestOptions: requestOptions);
   }
 
   /// Creates an API key for a service account in a project. Use `name` and `scopes` to set the key's label and scopes, and `expires_in_seconds` to configure its lifetime. The response includes the unredacted key value and its identifier.
@@ -4017,20 +2462,14 @@ class ProjectsNamespace {
       SdkOptional<List<String>> scopes = const SdkOmitted(),
       SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.createProjectsServiceAccountApiKey(_config,
-        projectId: projectId,
-        serviceAccountId: serviceAccountId,
-        name: name,
-        scopes: scopes,
-        expiresInSeconds: expiresInSeconds,
-        requestOptions: requestOptions);
+    return projects_methods.createProjectsServiceAccountApiKey(_config, projectId: projectId, serviceAccountId: serviceAccountId, name: name, scopes: scopes, expiresInSeconds: expiresInSeconds, requestOptions: requestOptions);
   }
+
 }
 
 class ProjectGroupsNamespace {
   final ClientConfig _config;
   ProjectGroupsNamespace(ClientConfig config) : _config = config;
-
   /// Lists the groups that have access to a project. Use `after` to continue from the last group in a previous response, and set `limit` and `order` to control the page size and sort order.
   ///
   /// Lists the groups that have access to a project.
@@ -4040,29 +2479,14 @@ class ProjectGroupsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<ListProjectGroupsOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return project_groups_methods.listProjectGroups(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+    return project_groups_methods.listProjectGroups(_config, projectId: projectId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Lists the groups that have access to a project. Use `after` to continue from the last group in a previous response, and set `limit` and `order` to control the page size and sort order.
   ///
   /// Lists the groups that have access to a project.
-  Stream<ProjectGroup> listPaginated(
-      {required String projectId,
-      int? limit,
-      String? after,
-      ListProjectGroupsOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* project_groups_methods.listProjectGroupsPaginated(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+  Stream<ProjectGroup> listPaginated({required String projectId, int? limit, String? after, ListProjectGroupsOrder? order, RequestOptions? requestOptions}) async* {
+    yield* project_groups_methods.listProjectGroupsPaginated(_config, projectId: projectId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Grants a group access to a project with a specified project role. Supply the group ID and role identifier to create the group’s project membership.
@@ -4073,11 +2497,7 @@ class ProjectGroupsNamespace {
       required String groupId,
       required String role,
       RequestOptions? requestOptions}) async {
-    return project_groups_methods.addProjectGroup(_config,
-        projectId: projectId,
-        groupId: groupId,
-        role: role,
-        requestOptions: requestOptions);
+    return project_groups_methods.addProjectGroup(_config, projectId: projectId, groupId: groupId, role: role, requestOptions: requestOptions);
   }
 
   /// Retrieves a group's membership details for a project. Use `project_id` and `group_id` to identify the project and group, and `group_type` to select a group type; it defaults to `group` when omitted.
@@ -4088,11 +2508,7 @@ class ProjectGroupsNamespace {
       required String groupId,
       SdkOptional<RetrieveProjectGroupGroupType> groupType = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return project_groups_methods.retrieveProjectGroup(_config,
-        projectId: projectId,
-        groupId: groupId,
-        groupType: groupType,
-        requestOptions: requestOptions);
+    return project_groups_methods.retrieveProjectGroup(_config, projectId: projectId, groupId: groupId, groupType: groupType, requestOptions: requestOptions);
   }
 
   /// Removes a group's access to a project. Use `project_id` and `group_id` to identify the project membership to revoke. The response confirms whether the membership was removed.
@@ -4102,22 +2518,20 @@ class ProjectGroupsNamespace {
       {required String projectId,
       required String groupId,
       RequestOptions? requestOptions}) async {
-    return project_groups_methods.removeProjectGroup(_config,
-        projectId: projectId, groupId: groupId, requestOptions: requestOptions);
+    return project_groups_methods.removeProjectGroup(_config, projectId: projectId, groupId: groupId, requestOptions: requestOptions);
   }
+
 }
 
 class HostedToolsNamespace {
   final ClientConfig _config;
   HostedToolsNamespace(ClientConfig config) : _config = config;
-
   /// Retrieves the hosted tool permission settings for a project. Use `project_id` to identify the project whose permissions you want to inspect. The response includes an enabled state for each hosted tool.
   ///
   /// Returns hosted tool permissions for a project.
   Future<ProjectHostedToolPermissions> retrievePermissions(
       {required String projectId, RequestOptions? requestOptions}) async {
-    return hosted_tools_methods.retrieveProjectHostedToolPermissions(_config,
-        projectId: projectId, requestOptions: requestOptions);
+    return hosted_tools_methods.retrieveProjectHostedToolPermissions(_config, projectId: projectId, requestOptions: requestOptions);
   }
 
   /// Updates the hosted tool permissions for a project. Supply settings for the tools you want to change using `file_search`, `web_search`, `image_generation`, `mcp`, or `code_interpreter`. The response returns the project's resulting permission states.
@@ -4127,27 +2541,18 @@ class HostedToolsNamespace {
       {required String projectId,
       SdkOptional<HostedToolPermissionUpdate?> fileSearch = const SdkOmitted(),
       SdkOptional<HostedToolPermissionUpdate?> webSearch = const SdkOmitted(),
-      SdkOptional<HostedToolPermissionUpdate?> imageGeneration =
-          const SdkOmitted(),
+      SdkOptional<HostedToolPermissionUpdate?> imageGeneration = const SdkOmitted(),
       SdkOptional<HostedToolPermissionUpdate?> mcp = const SdkOmitted(),
-      SdkOptional<HostedToolPermissionUpdate?> codeInterpreter =
-          const SdkOmitted(),
+      SdkOptional<HostedToolPermissionUpdate?> codeInterpreter = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return hosted_tools_methods.updateProjectHostedToolPermissions(_config,
-        projectId: projectId,
-        fileSearch: fileSearch,
-        webSearch: webSearch,
-        imageGeneration: imageGeneration,
-        mcp: mcp,
-        codeInterpreter: codeInterpreter,
-        requestOptions: requestOptions);
+    return hosted_tools_methods.updateProjectHostedToolPermissions(_config, projectId: projectId, fileSearch: fileSearch, webSearch: webSearch, imageGeneration: imageGeneration, mcp: mcp, codeInterpreter: codeInterpreter, requestOptions: requestOptions);
   }
+
 }
 
 class SpendAlertsNamespace {
   final ClientConfig _config;
   SpendAlertsNamespace(ClientConfig config) : _config = config;
-
   /// Lists spend alerts configured for a project, with cursor-based pagination. Use `limit` to set the page size, `order` to choose the sort direction, and `after` or `before` to move through the results.
   ///
   /// Lists project spend alerts.
@@ -4158,32 +2563,14 @@ class SpendAlertsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return spend_alerts_methods.listProjectSpendAlerts(_config,
-        projectId: projectId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return spend_alerts_methods.listProjectSpendAlerts(_config, projectId: projectId, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Lists spend alerts configured for a project, with cursor-based pagination. Use `limit` to set the page size, `order` to choose the sort direction, and `after` or `before` to move through the results.
   ///
   /// Lists project spend alerts.
-  Stream<ProjectSpendAlert> listPaginated(
-      {required String projectId,
-      int? limit,
-      ListProjectSpendAlertsOrder? order,
-      String? after,
-      String? before,
-      RequestOptions? requestOptions}) async* {
-    yield* spend_alerts_methods.listProjectSpendAlertsPaginated(_config,
-        projectId: projectId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+  Stream<ProjectSpendAlert> listPaginated({required String projectId, int? limit, ListProjectSpendAlertsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+    yield* spend_alerts_methods.listProjectSpendAlertsPaginated(_config, projectId: projectId, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Creates a spend alert for a project to notify recipients when spending reaches a threshold. Provide the threshold in cents, the currency and evaluation interval, and email notification settings.
@@ -4196,13 +2583,7 @@ class SpendAlertsNamespace {
       required CreateSpendAlertBodyInterval interval,
       required SpendAlertNotificationChannel notificationChannel,
       RequestOptions? requestOptions}) async {
-    return spend_alerts_methods.createProjectSpendAlert(_config,
-        projectId: projectId,
-        thresholdAmount: thresholdAmount,
-        currency: currency,
-        interval: interval,
-        notificationChannel: notificationChannel,
-        requestOptions: requestOptions);
+    return spend_alerts_methods.createProjectSpendAlert(_config, projectId: projectId, thresholdAmount: thresholdAmount, currency: currency, interval: interval, notificationChannel: notificationChannel, requestOptions: requestOptions);
   }
 
   /// Retrieves a spend alert configured for a project. Use the project and alert identifiers to inspect its threshold, currency, evaluation interval, and notification channel.
@@ -4212,8 +2593,7 @@ class SpendAlertsNamespace {
       {required String projectId,
       required String alertId,
       RequestOptions? requestOptions}) async {
-    return spend_alerts_methods.retrieveProjectSpendAlert(_config,
-        projectId: projectId, alertId: alertId, requestOptions: requestOptions);
+    return spend_alerts_methods.retrieveProjectSpendAlert(_config, projectId: projectId, alertId: alertId, requestOptions: requestOptions);
   }
 
   /// Updates a spend alert configured for a project. Provide the alert's threshold, currency, evaluation interval, and notification channel in the request body.
@@ -4227,14 +2607,7 @@ class SpendAlertsNamespace {
       required CreateSpendAlertBodyInterval interval,
       required SpendAlertNotificationChannel notificationChannel,
       RequestOptions? requestOptions}) async {
-    return spend_alerts_methods.updateProjectSpendAlert(_config,
-        projectId: projectId,
-        alertId: alertId,
-        thresholdAmount: thresholdAmount,
-        currency: currency,
-        interval: interval,
-        notificationChannel: notificationChannel,
-        requestOptions: requestOptions);
+    return spend_alerts_methods.updateProjectSpendAlert(_config, projectId: projectId, alertId: alertId, thresholdAmount: thresholdAmount, currency: currency, interval: interval, notificationChannel: notificationChannel, requestOptions: requestOptions);
   }
 
   /// Deletes a spend alert from a project. Use the project and alert identifiers to select the alert to remove, then check the deletion confirmation in the response.
@@ -4244,8 +2617,7 @@ class SpendAlertsNamespace {
       {required String projectId,
       required String alertId,
       RequestOptions? requestOptions}) async {
-    return spend_alerts_methods.deleteProjectSpendAlert(_config,
-        projectId: projectId, alertId: alertId, requestOptions: requestOptions);
+    return spend_alerts_methods.deleteProjectSpendAlert(_config, projectId: projectId, alertId: alertId, requestOptions: requestOptions);
   }
 
   /// Lists spend alerts configured for the organization. Use `limit` and `order` to control the result page, and use `after` or `before` to navigate from a spend alert in a previous response. The response includes cursor IDs and a `has_more` flag for pagination.
@@ -4257,29 +2629,14 @@ class SpendAlertsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return spend_alerts_methods.listOrganizationSpendAlerts(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return spend_alerts_methods.listOrganizationSpendAlerts(_config, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Lists spend alerts configured for the organization. Use `limit` and `order` to control the result page, and use `after` or `before` to navigate from a spend alert in a previous response. The response includes cursor IDs and a `has_more` flag for pagination.
   ///
   /// Lists organization spend alerts.
-  Stream<OrganizationSpendAlert> listOrganizationPaginated(
-      {int? limit,
-      ListOrganizationSpendAlertsOrder? order,
-      String? after,
-      String? before,
-      RequestOptions? requestOptions}) async* {
-    yield* spend_alerts_methods.listOrganizationSpendAlertsPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+  Stream<OrganizationSpendAlert> listOrganizationPaginated({int? limit, ListOrganizationSpendAlertsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+    yield* spend_alerts_methods.listOrganizationSpendAlertsPaginated(_config, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Creates a spend alert at the organization level. Set `threshold_amount` in cents and configure the monthly evaluation interval and email notification recipients. The response includes the created alert and its identifier.
@@ -4291,12 +2648,7 @@ class SpendAlertsNamespace {
       required CreateSpendAlertBodyInterval interval,
       required SpendAlertNotificationChannel notificationChannel,
       RequestOptions? requestOptions}) async {
-    return spend_alerts_methods.createOrganizationSpendAlert(_config,
-        thresholdAmount: thresholdAmount,
-        currency: currency,
-        interval: interval,
-        notificationChannel: notificationChannel,
-        requestOptions: requestOptions);
+    return spend_alerts_methods.createOrganizationSpendAlert(_config, thresholdAmount: thresholdAmount, currency: currency, interval: interval, notificationChannel: notificationChannel, requestOptions: requestOptions);
   }
 
   /// Retrieves a spend alert configured at the organization level. Use `alert_id` to identify the alert whose threshold and notification settings you want to view.
@@ -4304,8 +2656,7 @@ class SpendAlertsNamespace {
   /// Retrieves an organization spend alert.
   Future<OrganizationSpendAlert> retrieveOrganization(
       {required String alertId, RequestOptions? requestOptions}) async {
-    return spend_alerts_methods.retrieveOrganizationSpendAlert(_config,
-        alertId: alertId, requestOptions: requestOptions);
+    return spend_alerts_methods.retrieveOrganizationSpendAlert(_config, alertId: alertId, requestOptions: requestOptions);
   }
 
   /// Updates a spend alert configured at the organization level. Provide the threshold, currency, evaluation interval, and email notification settings for the alert. The response contains the updated alert configuration.
@@ -4318,13 +2669,7 @@ class SpendAlertsNamespace {
       required CreateSpendAlertBodyInterval interval,
       required SpendAlertNotificationChannel notificationChannel,
       RequestOptions? requestOptions}) async {
-    return spend_alerts_methods.updateOrganizationSpendAlert(_config,
-        alertId: alertId,
-        thresholdAmount: thresholdAmount,
-        currency: currency,
-        interval: interval,
-        notificationChannel: notificationChannel,
-        requestOptions: requestOptions);
+    return spend_alerts_methods.updateOrganizationSpendAlert(_config, alertId: alertId, thresholdAmount: thresholdAmount, currency: currency, interval: interval, notificationChannel: notificationChannel, requestOptions: requestOptions);
   }
 
   /// Deletes a spend alert configured at the organization level. Use `alert_id` to identify the alert to remove; the response confirms whether it was deleted.
@@ -4332,15 +2677,14 @@ class SpendAlertsNamespace {
   /// Deletes an organization spend alert.
   Future<OrganizationSpendAlertDeletedResource> deleteOrganization(
       {required String alertId, RequestOptions? requestOptions}) async {
-    return spend_alerts_methods.deleteOrganizationSpendAlert(_config,
-        alertId: alertId, requestOptions: requestOptions);
+    return spend_alerts_methods.deleteOrganizationSpendAlert(_config, alertId: alertId, requestOptions: requestOptions);
   }
+
 }
 
 class RolesNamespace {
   final ClientConfig _config;
   RolesNamespace(ClientConfig config) : _config = config;
-
   /// Lists roles configured for the organization. Use `limit` to control the number of roles returned and `order` to choose the sort direction. Continue through the results with the `after` cursor from the previous response's `next` field.
   ///
   /// Lists the roles configured for the organization.
@@ -4349,26 +2693,14 @@ class RolesNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<ListRolesOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return roles_methods.listRoles(_config,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+    return roles_methods.listRoles(_config, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Lists roles configured for the organization. Use `limit` to control the number of roles returned and `order` to choose the sort direction. Continue through the results with the `after` cursor from the previous response's `next` field.
   ///
   /// Lists the roles configured for the organization.
-  Stream<Role> listPaginated(
-      {int? limit,
-      String? after,
-      ListRolesOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* roles_methods.listRolesPaginated(_config,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+  Stream<Role> listPaginated({int? limit, String? after, ListRolesOrder? order, RequestOptions? requestOptions}) async* {
+    yield* roles_methods.listRolesPaginated(_config, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Creates a custom role for the organization. Provide `role_name` and `permissions`; you can also include an optional `description`. The response includes the new role's identifier, permissions, and resource type.
@@ -4379,11 +2711,7 @@ class RolesNamespace {
       required List<String> permissions,
       SdkOptional<String?> description = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return roles_methods.createRole(_config,
-        roleName: roleName,
-        permissions: permissions,
-        description: description,
-        requestOptions: requestOptions);
+    return roles_methods.createRole(_config, roleName: roleName, permissions: permissions, description: description, requestOptions: requestOptions);
   }
 
   /// Retrieves a role configured for the organization. Use `role_id` to identify the role and review its name, permissions, and resource type.
@@ -4391,8 +2719,7 @@ class RolesNamespace {
   /// Retrieves an organization role.
   Future<Role> retrieve(
       {required String roleId, RequestOptions? requestOptions}) async {
-    return roles_methods.retrieveRole(_config,
-        roleId: roleId, requestOptions: requestOptions);
+    return roles_methods.retrieveRole(_config, roleId: roleId, requestOptions: requestOptions);
   }
 
   /// Updates an existing organization role. Use `role_id` to identify the role and provide any of `permissions`, `description`, or `role_name` to change those values. The response contains the updated role details.
@@ -4404,12 +2731,7 @@ class RolesNamespace {
       SdkOptional<String?> description = const SdkOmitted(),
       SdkOptional<String?> roleName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return roles_methods.updateRole(_config,
-        roleId: roleId,
-        permissions: permissions,
-        description: description,
-        roleName: roleName,
-        requestOptions: requestOptions);
+    return roles_methods.updateRole(_config, roleId: roleId, permissions: permissions, description: description, roleName: roleName, requestOptions: requestOptions);
   }
 
   /// Deletes a custom role from the organization. Use `role_id` to identify the role to remove. The response confirms whether the role was deleted and includes its identifier.
@@ -4417,8 +2739,7 @@ class RolesNamespace {
   /// Deletes a custom role from the organization.
   Future<RoleDeletedResource> delete(
       {required String roleId, RequestOptions? requestOptions}) async {
-    return roles_methods.deleteRole(_config,
-        roleId: roleId, requestOptions: requestOptions);
+    return roles_methods.deleteRole(_config, roleId: roleId, requestOptions: requestOptions);
   }
 
   /// Lists the roles configured for a project in a paginated response. Use `limit` to set the page size, `after` to continue from a cursor, and `order` to choose the sort direction.
@@ -4430,29 +2751,14 @@ class RolesNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<ListRolesProjectRolesOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return roles_methods.listRolesProjectRoles(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+    return roles_methods.listRolesProjectRoles(_config, projectId: projectId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Lists the roles configured for a project in a paginated response. Use `limit` to set the page size, `after` to continue from a cursor, and `order` to choose the sort direction.
   ///
   /// Lists the roles configured for a project.
-  Stream<Role> listProjectRolesPaginated(
-      {required String projectId,
-      int? limit,
-      String? after,
-      ListRolesProjectRolesOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* roles_methods.listRolesProjectRolesPaginated(_config,
-        projectId: projectId,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+  Stream<Role> listProjectRolesPaginated({required String projectId, int? limit, String? after, ListRolesProjectRolesOrder? order, RequestOptions? requestOptions}) async* {
+    yield* roles_methods.listRolesProjectRolesPaginated(_config, projectId: projectId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Creates a custom role for a project with a unique name and a set of permissions. Supply `role_name` and `permissions`; you can also provide a description for the role.
@@ -4464,12 +2770,7 @@ class RolesNamespace {
       required List<String> permissions,
       SdkOptional<String?> description = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return roles_methods.createRolesProjectRole(_config,
-        projectId: projectId,
-        roleName: roleName,
-        permissions: permissions,
-        description: description,
-        requestOptions: requestOptions);
+    return roles_methods.createRolesProjectRole(_config, projectId: projectId, roleName: roleName, permissions: permissions, description: description, requestOptions: requestOptions);
   }
 
   /// Retrieves a project role by its identifier. Use `project_id` and `role_id` to identify the project and role whose details you need.
@@ -4479,8 +2780,7 @@ class RolesNamespace {
       {required String projectId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return roles_methods.retrieveRolesProjectRole(_config,
-        projectId: projectId, roleId: roleId, requestOptions: requestOptions);
+    return roles_methods.retrieveRolesProjectRole(_config, projectId: projectId, roleId: roleId, requestOptions: requestOptions);
   }
 
   /// Updates an existing project role's name, permissions, or description. Provide the fields you want to change; each body field can be omitted or set to null when it does not need an update.
@@ -4493,13 +2793,7 @@ class RolesNamespace {
       SdkOptional<String?> description = const SdkOmitted(),
       SdkOptional<String?> roleName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return roles_methods.updateRolesProjectRole(_config,
-        projectId: projectId,
-        roleId: roleId,
-        permissions: permissions,
-        description: description,
-        roleName: roleName,
-        requestOptions: requestOptions);
+    return roles_methods.updateRolesProjectRole(_config, projectId: projectId, roleId: roleId, permissions: permissions, description: description, roleName: roleName, requestOptions: requestOptions);
   }
 
   /// Deletes a custom role from a project. Use `project_id` and `role_id` to identify the project role to remove. A 200 response confirms deletion and identifies the deleted role.
@@ -4509,15 +2803,14 @@ class RolesNamespace {
       {required String projectId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return roles_methods.deleteRolesProjectRole(_config,
-        projectId: projectId, roleId: roleId, requestOptions: requestOptions);
+    return roles_methods.deleteRolesProjectRole(_config, projectId: projectId, roleId: roleId, requestOptions: requestOptions);
   }
+
 }
 
 class UsersNamespace {
   final ClientConfig _config;
   UsersNamespace(ClientConfig config) : _config = config;
-
   /// Lists users in the organization. Use `emails` to filter the list by email address and `limit` and `after` to control the page of results. The response includes pagination fields to help you retrieve additional users.
   ///
   /// Lists all of the users in the organization.
@@ -4526,26 +2819,14 @@ class UsersNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<List<String>> emails = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.listUsers(_config,
-        limit: limit,
-        after: after,
-        emails: emails,
-        requestOptions: requestOptions);
+    return users_methods.listUsers(_config, limit: limit, after: after, emails: emails, requestOptions: requestOptions);
   }
 
   /// Lists users in the organization. Use `emails` to filter the list by email address and `limit` and `after` to control the page of results. The response includes pagination fields to help you retrieve additional users.
   ///
   /// Lists all of the users in the organization.
-  Stream<User> listPaginated(
-      {int? limit,
-      String? after,
-      List<String>? emails,
-      RequestOptions? requestOptions}) async* {
-    yield* users_methods.listUsersPaginated(_config,
-        limit: limit,
-        after: after,
-        emails: emails,
-        requestOptions: requestOptions);
+  Stream<User> listPaginated({int? limit, String? after, List<String>? emails, RequestOptions? requestOptions}) async* {
+    yield* users_methods.listUsersPaginated(_config, limit: limit, after: after, emails: emails, requestOptions: requestOptions);
   }
 
   /// Retrieves a user from the organization by their identifier. Use this operation to view the user's organization role, account details, and associated user metadata.
@@ -4553,8 +2834,7 @@ class UsersNamespace {
   /// Retrieves a user by their identifier.
   Future<User> retrieve(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.retrieveUser(_config,
-        userId: userId, requestOptions: requestOptions);
+    return users_methods.retrieveUser(_config, userId: userId, requestOptions: requestOptions);
   }
 
   /// Updates a user's role or metadata in the organization. Supply the body fields you want to change, such as `role`, `role_id`, `technical_level`, or `developer_persona`. The response contains the updated organization user.
@@ -4567,13 +2847,7 @@ class UsersNamespace {
       SdkOptional<String?> technicalLevel = const SdkOmitted(),
       SdkOptional<String?> developerPersona = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.modifyUser(_config,
-        userId: userId,
-        role: role,
-        roleId: roleId,
-        technicalLevel: technicalLevel,
-        developerPersona: developerPersona,
-        requestOptions: requestOptions);
+    return users_methods.modifyUser(_config, userId: userId, role: role, roleId: roleId, technicalLevel: technicalLevel, developerPersona: developerPersona, requestOptions: requestOptions);
   }
 
   /// Deletes a user from the organization. Use this operation to remove a user who is no longer part of the organization. The response confirms deletion and includes the user's ID.
@@ -4581,16 +2855,14 @@ class UsersNamespace {
   /// Deletes a user from the organization.
   Future<UserDeleteResponse> delete(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.deleteUser(_config,
-        userId: userId, requestOptions: requestOptions);
+    return users_methods.deleteUser(_config, userId: userId, requestOptions: requestOptions);
   }
+
 }
 
 class UserOrganizationRoleAssignmentsNamespace {
   final ClientConfig _config;
-  UserOrganizationRoleAssignmentsNamespace(ClientConfig config)
-      : _config = config;
-
+  UserOrganizationRoleAssignmentsNamespace(ClientConfig config) : _config = config;
   /// Lists the organization roles assigned to a user within the organization.
   Future<RoleListResource> listUserRoleAssignments(
       {required String userId,
@@ -4598,29 +2870,12 @@ class UserOrganizationRoleAssignmentsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<ListUserRoleAssignmentsOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return user_organization_role_assignments_methods.listUserRoleAssignments(
-        _config,
-        userId: userId,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+    return user_organization_role_assignments_methods.listUserRoleAssignments(_config, userId: userId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Lists the organization roles assigned to a user within the organization.
-  Stream<AssignedRoleDetails> listUserRoleAssignmentsPaginated(
-      {required String userId,
-      int? limit,
-      String? after,
-      ListUserRoleAssignmentsOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* user_organization_role_assignments_methods
-        .listUserRoleAssignmentsPaginated(_config,
-            userId: userId,
-            limit: limit,
-            after: after,
-            order: order,
-            requestOptions: requestOptions);
+  Stream<AssignedRoleDetails> listUserRoleAssignmentsPaginated({required String userId, int? limit, String? after, ListUserRoleAssignmentsOrder? order, RequestOptions? requestOptions}) async* {
+    yield* user_organization_role_assignments_methods.listUserRoleAssignmentsPaginated(_config, userId: userId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Assigns an organization role to a user within the organization.
@@ -4628,8 +2883,7 @@ class UserOrganizationRoleAssignmentsNamespace {
       {required String userId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return user_organization_role_assignments_methods.assignUserRole(_config,
-        userId: userId, roleId: roleId, requestOptions: requestOptions);
+    return user_organization_role_assignments_methods.assignUserRole(_config, userId: userId, roleId: roleId, requestOptions: requestOptions);
   }
 
   /// Retrieves an organization role assigned to a user.
@@ -4637,8 +2891,7 @@ class UserOrganizationRoleAssignmentsNamespace {
       {required String userId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return user_organization_role_assignments_methods.retrieveUserRole(_config,
-        userId: userId, roleId: roleId, requestOptions: requestOptions);
+    return user_organization_role_assignments_methods.retrieveUserRole(_config, userId: userId, roleId: roleId, requestOptions: requestOptions);
   }
 
   /// Unassigns an organization role from a user within the organization.
@@ -4646,50 +2899,28 @@ class UserOrganizationRoleAssignmentsNamespace {
       {required String userId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return user_organization_role_assignments_methods.unassignUserRole(_config,
-        userId: userId, roleId: roleId, requestOptions: requestOptions);
+    return user_organization_role_assignments_methods.unassignUserRole(_config, userId: userId, roleId: roleId, requestOptions: requestOptions);
   }
+
 }
 
 class ProjectGroupRoleAssignmentsNamespace {
   final ClientConfig _config;
   ProjectGroupRoleAssignmentsNamespace(ClientConfig config) : _config = config;
-
   /// Lists the project roles assigned to a group within a project.
   Future<RoleListResource> list(
       {required String projectId,
       required String groupId,
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
-      SdkOptional<ListProjectGroupRoleAssignmentsOrder> order =
-          const SdkOmitted(),
+      SdkOptional<ListProjectGroupRoleAssignmentsOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return project_group_role_assignments_methods
-        .listProjectGroupRoleAssignments(_config,
-            projectId: projectId,
-            groupId: groupId,
-            limit: limit,
-            after: after,
-            order: order,
-            requestOptions: requestOptions);
+    return project_group_role_assignments_methods.listProjectGroupRoleAssignments(_config, projectId: projectId, groupId: groupId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Lists the project roles assigned to a group within a project.
-  Stream<AssignedRoleDetails> listPaginated(
-      {required String projectId,
-      required String groupId,
-      int? limit,
-      String? after,
-      ListProjectGroupRoleAssignmentsOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* project_group_role_assignments_methods
-        .listProjectGroupRoleAssignmentsPaginated(_config,
-            projectId: projectId,
-            groupId: groupId,
-            limit: limit,
-            after: after,
-            order: order,
-            requestOptions: requestOptions);
+  Stream<AssignedRoleDetails> listPaginated({required String projectId, required String groupId, int? limit, String? after, ListProjectGroupRoleAssignmentsOrder? order, RequestOptions? requestOptions}) async* {
+    yield* project_group_role_assignments_methods.listProjectGroupRoleAssignmentsPaginated(_config, projectId: projectId, groupId: groupId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Assigns a project role to a group within a project.
@@ -4698,12 +2929,7 @@ class ProjectGroupRoleAssignmentsNamespace {
       required String groupId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return project_group_role_assignments_methods.assignProjectGroupRole(
-        _config,
-        projectId: projectId,
-        groupId: groupId,
-        roleId: roleId,
-        requestOptions: requestOptions);
+    return project_group_role_assignments_methods.assignProjectGroupRole(_config, projectId: projectId, groupId: groupId, roleId: roleId, requestOptions: requestOptions);
   }
 
   /// Retrieves a role assigned to a group within a project. Use the project, group, and role identifiers to locate the assignment and inspect its permissions and assignment details.
@@ -4714,12 +2940,7 @@ class ProjectGroupRoleAssignmentsNamespace {
       required String groupId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return project_group_role_assignments_methods.retrieveProjectGroupRole(
-        _config,
-        projectId: projectId,
-        groupId: groupId,
-        roleId: roleId,
-        requestOptions: requestOptions);
+    return project_group_role_assignments_methods.retrieveProjectGroupRole(_config, projectId: projectId, groupId: groupId, roleId: roleId, requestOptions: requestOptions);
   }
 
   /// Unassigns a project role from a group within a project.
@@ -4728,54 +2949,28 @@ class ProjectGroupRoleAssignmentsNamespace {
       required String groupId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return project_group_role_assignments_methods.unassignProjectGroupRole(
-        _config,
-        projectId: projectId,
-        groupId: groupId,
-        roleId: roleId,
-        requestOptions: requestOptions);
+    return project_group_role_assignments_methods.unassignProjectGroupRole(_config, projectId: projectId, groupId: groupId, roleId: roleId, requestOptions: requestOptions);
   }
+
 }
 
 class ProjectUserRoleAssignmentsNamespace {
   final ClientConfig _config;
   ProjectUserRoleAssignmentsNamespace(ClientConfig config) : _config = config;
-
   /// Lists the project roles assigned to a user within a project.
   Future<RoleListResource> list(
       {required String projectId,
       required String userId,
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
-      SdkOptional<ListProjectUserRoleAssignmentsOrder> order =
-          const SdkOmitted(),
+      SdkOptional<ListProjectUserRoleAssignmentsOrder> order = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return project_user_role_assignments_methods.listProjectUserRoleAssignments(
-        _config,
-        projectId: projectId,
-        userId: userId,
-        limit: limit,
-        after: after,
-        order: order,
-        requestOptions: requestOptions);
+    return project_user_role_assignments_methods.listProjectUserRoleAssignments(_config, projectId: projectId, userId: userId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Lists the project roles assigned to a user within a project.
-  Stream<AssignedRoleDetails> listPaginated(
-      {required String projectId,
-      required String userId,
-      int? limit,
-      String? after,
-      ListProjectUserRoleAssignmentsOrder? order,
-      RequestOptions? requestOptions}) async* {
-    yield* project_user_role_assignments_methods
-        .listProjectUserRoleAssignmentsPaginated(_config,
-            projectId: projectId,
-            userId: userId,
-            limit: limit,
-            after: after,
-            order: order,
-            requestOptions: requestOptions);
+  Stream<AssignedRoleDetails> listPaginated({required String projectId, required String userId, int? limit, String? after, ListProjectUserRoleAssignmentsOrder? order, RequestOptions? requestOptions}) async* {
+    yield* project_user_role_assignments_methods.listProjectUserRoleAssignmentsPaginated(_config, projectId: projectId, userId: userId, limit: limit, after: after, order: order, requestOptions: requestOptions);
   }
 
   /// Assigns a project role to a user within a project.
@@ -4784,11 +2979,7 @@ class ProjectUserRoleAssignmentsNamespace {
       required String userId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return project_user_role_assignments_methods.assignProjectUserRole(_config,
-        projectId: projectId,
-        userId: userId,
-        roleId: roleId,
-        requestOptions: requestOptions);
+    return project_user_role_assignments_methods.assignProjectUserRole(_config, projectId: projectId, userId: userId, roleId: roleId, requestOptions: requestOptions);
   }
 
   /// Retrieves a project role assigned to a user. Use `project_id`, `user_id`, and `role_id` to identify the role assignment and its project context.
@@ -4799,12 +2990,7 @@ class ProjectUserRoleAssignmentsNamespace {
       required String userId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return project_user_role_assignments_methods.retrieveProjectUserRole(
-        _config,
-        projectId: projectId,
-        userId: userId,
-        roleId: roleId,
-        requestOptions: requestOptions);
+    return project_user_role_assignments_methods.retrieveProjectUserRole(_config, projectId: projectId, userId: userId, roleId: roleId, requestOptions: requestOptions);
   }
 
   /// Unassigns a project role from a user within a project.
@@ -4813,25 +2999,19 @@ class ProjectUserRoleAssignmentsNamespace {
       required String userId,
       required String roleId,
       RequestOptions? requestOptions}) async {
-    return project_user_role_assignments_methods.unassignProjectUserRole(
-        _config,
-        projectId: projectId,
-        userId: userId,
-        roleId: roleId,
-        requestOptions: requestOptions);
+    return project_user_role_assignments_methods.unassignProjectUserRole(_config, projectId: projectId, userId: userId, roleId: roleId, requestOptions: requestOptions);
   }
+
 }
 
 class RealtimeNamespace {
   final ClientConfig _config;
   RealtimeNamespace(ClientConfig config) : _config = config;
-
   /// Create a new Realtime API call over WebRTC and receive the SDP answer needed to complete the peer connection.
   Future<String> createCall(
       {required CreateRealtimeCallBody body,
       RequestOptions? requestOptions}) async {
-    return realtime_methods.createRealtimeCall(_config,
-        body: body, requestOptions: requestOptions);
+    return realtime_methods.createRealtimeCall(_config, body: body, requestOptions: requestOptions);
   }
 
   /// Accepts an incoming SIP call and configures the Realtime session that handles it. Set `type` to `realtime` and configure session behavior through fields such as `model`, `audio`, and `tools`; `output_modalities` supports text or audio, but not both. The caller is bridged to the model after the session configuration is applied.
@@ -4840,49 +3020,27 @@ class RealtimeNamespace {
   Future<void> acceptCall(
       {required String callId,
       required RealtimeSessionCreateRequestGAType type_,
-      SdkOptional<List<RealtimeSessionCreateRequestGAOutputModalitiesItem>>
-          outputModalities = const SdkOmitted(),
+      SdkOptional<List<RealtimeSessionCreateRequestGAOutputModalitiesItem>> outputModalities = const SdkOmitted(),
       SdkOptional<String> model = const SdkOmitted(),
       SdkOptional<String> instructions = const SdkOmitted(),
-      SdkOptional<RealtimeSessionCreateRequestGAAudio> audio =
-          const SdkOmitted(),
-      SdkOptional<List<RealtimeSessionCreateRequestGAIncludeItem>> include =
-          const SdkOmitted(),
+      SdkOptional<RealtimeSessionCreateRequestGAAudio> audio = const SdkOmitted(),
+      SdkOptional<List<RealtimeSessionCreateRequestGAIncludeItem>> include = const SdkOmitted(),
       SdkOptional<dynamic> tracing = const SdkOmitted(),
-      SdkOptional<List<RealtimeSessionCreateRequestGAToolsItem>> tools =
-          const SdkOmitted(),
-      SdkOptional<RealtimeSessionCreateRequestGAToolChoice> toolChoice =
-          const SdkOmitted(),
+      SdkOptional<List<RealtimeSessionCreateRequestGAToolsItem>> tools = const SdkOmitted(),
+      SdkOptional<RealtimeSessionCreateRequestGAToolChoice> toolChoice = const SdkOmitted(),
       SdkOptional<bool> parallelToolCalls = const SdkOmitted(),
       SdkOptional<RealtimeReasoning> reasoning = const SdkOmitted(),
       SdkOptional<dynamic> maxOutputTokens = const SdkOmitted(),
       SdkOptional<RealtimeTruncation> truncation = const SdkOmitted(),
       SdkOptional<Prompt?> prompt = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return realtime_methods.acceptRealtimeCall(_config,
-        callId: callId,
-        type_: type_,
-        outputModalities: outputModalities,
-        model: model,
-        instructions: instructions,
-        audio: audio,
-        include: include,
-        tracing: tracing,
-        tools: tools,
-        toolChoice: toolChoice,
-        parallelToolCalls: parallelToolCalls,
-        reasoning: reasoning,
-        maxOutputTokens: maxOutputTokens,
-        truncation: truncation,
-        prompt: prompt,
-        requestOptions: requestOptions);
+    return realtime_methods.acceptRealtimeCall(_config, callId: callId, type_: type_, outputModalities: outputModalities, model: model, instructions: instructions, audio: audio, include: include, tracing: tracing, tools: tools, toolChoice: toolChoice, parallelToolCalls: parallelToolCalls, reasoning: reasoning, maxOutputTokens: maxOutputTokens, truncation: truncation, prompt: prompt, requestOptions: requestOptions);
   }
 
   /// End an active Realtime API call, whether it was initiated over SIP or WebRTC.
   Future<void> hangupCall(
       {required String callId, RequestOptions? requestOptions}) async {
-    return realtime_methods.hangupRealtimeCall(_config,
-        callId: callId, requestOptions: requestOptions);
+    return realtime_methods.hangupRealtimeCall(_config, callId: callId, requestOptions: requestOptions);
   }
 
   /// Transfer an active SIP call to a new destination using the SIP REFER verb.
@@ -4890,8 +3048,7 @@ class RealtimeNamespace {
       {required String callId,
       required String targetUri,
       RequestOptions? requestOptions}) async {
-    return realtime_methods.referRealtimeCall(_config,
-        callId: callId, targetUri: targetUri, requestOptions: requestOptions);
+    return realtime_methods.referRealtimeCall(_config, callId: callId, targetUri: targetUri, requestOptions: requestOptions);
   }
 
   /// Decline an incoming SIP call by returning a SIP status code to the caller.
@@ -4899,21 +3056,15 @@ class RealtimeNamespace {
       {required String callId,
       SdkOptional<int> statusCode = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return realtime_methods.rejectRealtimeCall(_config,
-        callId: callId, statusCode: statusCode, requestOptions: requestOptions);
+    return realtime_methods.rejectRealtimeCall(_config, callId: callId, statusCode: statusCode, requestOptions: requestOptions);
   }
 
   /// Create a Realtime client secret with an associated session configuration. Client secrets are short-lived tokens that can be passed to a client app, such as a web frontend or mobile client, which grants access to the Realtime API without leaking your main API key. You can configure a custom TTL for each client secret. You can also attach session configuration options to the client secret, which will be applied to any sessions created using that client secret, but these can also be overridden by the client connection. [Learn more about authentication with client secrets over WebRTC](https://developers.openai.com/api/docs/guides/realtime-webrtc). Returns the created client secret and the effective session object. The client secret is a string that looks like `ek_1234`.
   Future<RealtimeCreateClientSecretResponse> createClientSecret(
-      {SdkOptional<RealtimeCreateClientSecretRequestExpiresAfter> expiresAfter =
-          const SdkOmitted(),
-      SdkOptional<RealtimeCreateClientSecretRequestSession> session =
-          const SdkOmitted(),
+      {SdkOptional<RealtimeCreateClientSecretRequestExpiresAfter> expiresAfter = const SdkOmitted(),
+      SdkOptional<RealtimeCreateClientSecretRequestSession> session = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return realtime_methods.createRealtimeClientSecret(_config,
-        expiresAfter: expiresAfter,
-        session: session,
-        requestOptions: requestOptions);
+    return realtime_methods.createRealtimeClientSecret(_config, expiresAfter: expiresAfter, session: session, requestOptions: requestOptions);
   }
 
   /// Creates a Realtime session and an ephemeral API key for authenticating client-side connections. Configure the session with fields such as `modalities`, `instructions`, and `tools`; the key expires after one minute. Use the returned `client_secret.value` in client environments instead of a standard API token.
@@ -4921,104 +3072,64 @@ class RealtimeNamespace {
   /// Create an ephemeral API token for use in client-side applications with the Realtime API. Can be configured with the same session parameters as the `session.update` client event. It responds with a session object, plus a `client_secret` key which contains a usable ephemeral API token that can be used to authenticate browser clients for the Realtime API. Returns the created Realtime session object, plus an ephemeral key.
   Future<RealtimeSessionCreateResponse> createSession(
       {required RealtimeSessionCreateRequestClientSecret clientSecret,
-      SdkOptional<List<RealtimeSessionCreateRequestModalitiesItem>> modalities =
-          const SdkOmitted(),
+      SdkOptional<List<RealtimeSessionCreateRequestModalitiesItem>> modalities = const SdkOmitted(),
       SdkOptional<String> instructions = const SdkOmitted(),
       SdkOptional<VoiceIdsOrCustomVoice> voice = const SdkOmitted(),
       SdkOptional<String> inputAudioFormat = const SdkOmitted(),
       SdkOptional<String> outputAudioFormat = const SdkOmitted(),
-      SdkOptional<RealtimeSessionCreateRequestInputAudioTranscription>
-          inputAudioTranscription = const SdkOmitted(),
+      SdkOptional<RealtimeSessionCreateRequestInputAudioTranscription> inputAudioTranscription = const SdkOmitted(),
       SdkOptional<double> speed = const SdkOmitted(),
-      SdkOptional<RealtimeSessionCreateRequestTracing>
-          tracing = const SdkOmitted(),
-      SdkOptional<RealtimeSessionCreateRequestTurnDetection> turnDetection =
-          const SdkOmitted(),
-      SdkOptional<List<RealtimeSessionCreateRequestToolsItem>> tools =
-          const SdkOmitted(),
+      SdkOptional<RealtimeSessionCreateRequestTracing> tracing = const SdkOmitted(),
+      SdkOptional<RealtimeSessionCreateRequestTurnDetection> turnDetection = const SdkOmitted(),
+      SdkOptional<List<RealtimeSessionCreateRequestToolsItem>> tools = const SdkOmitted(),
       SdkOptional<String> toolChoice = const SdkOmitted(),
       SdkOptional<double> temperature = const SdkOmitted(),
       SdkOptional<dynamic> maxResponseOutputTokens = const SdkOmitted(),
       SdkOptional<RealtimeTruncation> truncation = const SdkOmitted(),
       SdkOptional<Prompt?> prompt = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return realtime_methods.createRealtimeSession(_config,
-        clientSecret: clientSecret,
-        modalities: modalities,
-        instructions: instructions,
-        voice: voice,
-        inputAudioFormat: inputAudioFormat,
-        outputAudioFormat: outputAudioFormat,
-        inputAudioTranscription: inputAudioTranscription,
-        speed: speed,
-        tracing: tracing,
-        turnDetection: turnDetection,
-        tools: tools,
-        toolChoice: toolChoice,
-        temperature: temperature,
-        maxResponseOutputTokens: maxResponseOutputTokens,
-        truncation: truncation,
-        prompt: prompt,
-        requestOptions: requestOptions);
+    return realtime_methods.createRealtimeSession(_config, clientSecret: clientSecret, modalities: modalities, instructions: instructions, voice: voice, inputAudioFormat: inputAudioFormat, outputAudioFormat: outputAudioFormat, inputAudioTranscription: inputAudioTranscription, speed: speed, tracing: tracing, turnDetection: turnDetection, tools: tools, toolChoice: toolChoice, temperature: temperature, maxResponseOutputTokens: maxResponseOutputTokens, truncation: truncation, prompt: prompt, requestOptions: requestOptions);
   }
 
   /// Create an ephemeral API token for use in client-side applications with the Realtime API specifically for realtime transcriptions. Can be configured with the same session parameters as the `transcription_session.update` client event. It responds with a session object, plus a `client_secret` key which contains a usable ephemeral API token that can be used to authenticate browser clients for the Realtime API. Returns the created Realtime transcription session object, plus an ephemeral key.
-  Future<RealtimeTranscriptionSessionCreateResponse> createTranscriptionSession(
-      {SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection>
-          turnDetection = const SdkOmitted(),
-      SdkOptional<
-              RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>
-          inputAudioNoiseReduction = const SdkOmitted(),
-      SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat>
-          inputAudioFormat = const SdkOmitted(),
-      SdkOptional<AudioTranscription> inputAudioTranscription =
-          const SdkOmitted(),
-      SdkOptional<List<RealtimeTranscriptionSessionCreateRequestIncludeItem>>
-          include = const SdkOmitted(),
-      RequestOptions? requestOptions}) async {
-    return realtime_methods.createRealtimeTranscriptionSession(_config,
-        turnDetection: turnDetection,
-        inputAudioNoiseReduction: inputAudioNoiseReduction,
-        inputAudioFormat: inputAudioFormat,
-        inputAudioTranscription: inputAudioTranscription,
-        include: include,
-        requestOptions: requestOptions);
+  Future<RealtimeTranscriptionSessionCreateResponse>
+      createTranscriptionSession(
+          {SdkOptional<RealtimeTranscriptionSessionCreateRequestTurnDetection> turnDetection = const SdkOmitted(),
+          SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction> inputAudioNoiseReduction = const SdkOmitted(),
+          SdkOptional<RealtimeTranscriptionSessionCreateRequestInputAudioFormat> inputAudioFormat = const SdkOmitted(),
+          SdkOptional<AudioTranscription> inputAudioTranscription = const SdkOmitted(),
+          SdkOptional<List<RealtimeTranscriptionSessionCreateRequestIncludeItem>> include = const SdkOmitted(),
+          RequestOptions? requestOptions}) async {
+    return realtime_methods.createRealtimeTranscriptionSession(_config, turnDetection: turnDetection, inputAudioNoiseReduction: inputAudioNoiseReduction, inputAudioFormat: inputAudioFormat, inputAudioTranscription: inputAudioTranscription, include: include, requestOptions: requestOptions);
   }
 
   /// Create a Realtime translation client secret with an associated translation session configuration. Client secrets are short-lived tokens that can be passed to a client app, such as a web frontend or mobile client, which grants access to the Realtime Translation API without leaking your main API key. You can configure a custom TTL for each client secret. Returns the created client secret and the effective translation session object. The client secret is a string that looks like `ek_1234`.
   Future<RealtimeTranslationClientSecretCreateResponse>
       createTranslationClientSecret(
           {required RealtimeTranslationSessionCreateRequest session,
-          SdkOptional<RealtimeTranslationClientSecretCreateRequestExpiresAfter>
-              expiresAfter = const SdkOmitted(),
+          SdkOptional<RealtimeTranslationClientSecretCreateRequestExpiresAfter> expiresAfter = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return realtime_methods.createRealtimeTranslationClientSecret(_config,
-        session: session,
-        expiresAfter: expiresAfter,
-        requestOptions: requestOptions);
+    return realtime_methods.createRealtimeTranslationClientSecret(_config, session: session, expiresAfter: expiresAfter, requestOptions: requestOptions);
   }
+
 }
 
 class ResponsesNamespace {
   final ClientConfig _config;
   ResponsesNamespace(ClientConfig config) : _config = config;
-
   /// Creates a model response from text, image, or file input and can produce text or JSON output. Provide `input` and `model`, and configure `tools` and `tool_choice` when you want the model to use custom code or built-in tools. Set `background` to run the response asynchronously or `stream` to receive generated events as they are produced.
   ///
   /// Creates a model response. Provide [text](https://developers.openai.com/api/docs/guides/text) or [image](https://developers.openai.com/api/docs/guides/images-vision) inputs to generate [text](https://developers.openai.com/api/docs/guides/text) or [JSON](https://developers.openai.com/api/docs/guides/structured-outputs) outputs. Have the model call your own [custom code](https://developers.openai.com/api/docs/guides/function-calling) or use built-in [tools](https://developers.openai.com/api/docs/guides/tools) like [web search](https://developers.openai.com/api/docs/guides/tools-web-search) or [file search](https://developers.openai.com/api/docs/guides/tools-file-search) to use your own data as input for the model's response.
   Future<Response> create(
       {required CreateResponse body, RequestOptions? requestOptions}) async {
-    return responses_methods.createResponse(_config,
-        body: body, requestOptions: requestOptions);
+    return responses_methods.createResponse(_config, body: body, requestOptions: requestOptions);
   }
 
   /// Creates a model response from text, image, or file input and can produce text or JSON output. Provide `input` and `model`, and configure `tools` and `tool_choice` when you want the model to use custom code or built-in tools. Set `background` to run the response asynchronously or `stream` to receive generated events as they are produced.
   ///
   /// Creates a model response. Provide [text](https://developers.openai.com/api/docs/guides/text) or [image](https://developers.openai.com/api/docs/guides/images-vision) inputs to generate [text](https://developers.openai.com/api/docs/guides/text) or [JSON](https://developers.openai.com/api/docs/guides/structured-outputs) outputs. Have the model call your own [custom code](https://developers.openai.com/api/docs/guides/function-calling) or use built-in [tools](https://developers.openai.com/api/docs/guides/tools) like [web search](https://developers.openai.com/api/docs/guides/tools-web-search) or [file search](https://developers.openai.com/api/docs/guides/tools-file-search) to use your own data as input for the model's response.
-  Stream<ResponseStreamEvent> createStream(
-      {required CreateResponse body, RequestOptions? requestOptions}) async* {
-    yield* responses_methods.createResponseStream(_config,
-        body: body, requestOptions: requestOptions);
+  Stream<ResponseStreamEvent> createStream({required CreateResponse body, RequestOptions? requestOptions}) async* {
+    yield* responses_methods.createResponseStream(_config, body: body, requestOptions: requestOptions);
   }
 
   /// Retrieves a model response by its identifier. Use `include` to request additional response data, or set `stream` to receive server-sent events. When streaming, use `starting_after` to resume from an event sequence number.
@@ -5031,32 +3142,14 @@ class ResponsesNamespace {
       SdkOptional<int> startingAfter = const SdkOmitted(),
       SdkOptional<bool> includeObfuscation = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return responses_methods.getResponse(_config,
-        responseId: responseId,
-        include: include,
-        stream: stream,
-        startingAfter: startingAfter,
-        includeObfuscation: includeObfuscation,
-        requestOptions: requestOptions);
+    return responses_methods.getResponse(_config, responseId: responseId, include: include, stream: stream, startingAfter: startingAfter, includeObfuscation: includeObfuscation, requestOptions: requestOptions);
   }
 
   /// Retrieves a model response by its identifier. Use `include` to request additional response data, or set `stream` to receive server-sent events. When streaming, use `starting_after` to resume from an event sequence number.
   ///
   /// Retrieves a model response with the given ID.
-  Stream<ResponseStreamEvent> getStream(
-      {required String responseId,
-      SdkOptional<List<IncludeEnum>> include = const SdkOmitted(),
-      SdkOptional<bool> stream = const SdkOmitted(),
-      SdkOptional<int> startingAfter = const SdkOmitted(),
-      SdkOptional<bool> includeObfuscation = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* responses_methods.getResponseStream(_config,
-        responseId: responseId,
-        include: include,
-        stream: stream,
-        startingAfter: startingAfter,
-        includeObfuscation: includeObfuscation,
-        requestOptions: requestOptions);
+  Stream<ResponseStreamEvent> getStream({required String responseId, SdkOptional<List<IncludeEnum>> include = const SdkOmitted(), SdkOptional<bool> stream = const SdkOmitted(), SdkOptional<int> startingAfter = const SdkOmitted(), SdkOptional<bool> includeObfuscation = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* responses_methods.getResponseStream(_config, responseId: responseId, include: include, stream: stream, startingAfter: startingAfter, includeObfuscation: includeObfuscation, requestOptions: requestOptions);
   }
 
   /// Deletes a model response by its identifier. Use this operation when you no longer need to retain the response. The successful result confirms deletion and includes the response identifier.
@@ -5064,8 +3157,7 @@ class ResponsesNamespace {
   /// Deletes a model response with the given ID.
   Future<DeleteResponseResponse> delete(
       {required String responseId, RequestOptions? requestOptions}) async {
-    return responses_methods.deleteResponse(_config,
-        responseId: responseId, requestOptions: requestOptions);
+    return responses_methods.deleteResponse(_config, responseId: responseId, requestOptions: requestOptions);
   }
 
   /// Cancels a model response that is running in the background. Use this operation when you need to stop background generation before it completes. Only responses created with `background` set to `true` can be cancelled.
@@ -5073,8 +3165,7 @@ class ResponsesNamespace {
   /// Cancels a model response with the given ID. Only responses created with the `background` parameter set to `true` can be cancelled. [Learn more](https://developers.openai.com/api/docs/guides/background).
   Future<Response> cancel(
       {required String responseId, RequestOptions? requestOptions}) async {
-    return responses_methods.cancelResponse(_config,
-        responseId: responseId, requestOptions: requestOptions);
+    return responses_methods.cancelResponse(_config, responseId: responseId, requestOptions: requestOptions);
   }
 
   /// Lists the input items used to generate a model response. Use `limit` to set the page size and `order` to choose the item order. Use `after` with an item identifier to continue through the results; check `has_more` to determine whether additional items are available.
@@ -5087,32 +3178,14 @@ class ResponsesNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<List<IncludeEnum>> include = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return responses_methods.listInputItems(_config,
-        responseId: responseId,
-        limit: limit,
-        order: order,
-        after: after,
-        include: include,
-        requestOptions: requestOptions);
+    return responses_methods.listInputItems(_config, responseId: responseId, limit: limit, order: order, after: after, include: include, requestOptions: requestOptions);
   }
 
   /// Lists the input items used to generate a model response. Use `limit` to set the page size and `order` to choose the item order. Use `after` with an item identifier to continue through the results; check `has_more` to determine whether additional items are available.
   ///
   /// Returns a list of input items for a given response.
-  Stream<ItemResource> listInputItemsPaginated(
-      {required String responseId,
-      int? limit,
-      ListInputItemsOrder? order,
-      String? after,
-      List<IncludeEnum>? include,
-      RequestOptions? requestOptions}) async* {
-    yield* responses_methods.listInputItemsPaginated(_config,
-        responseId: responseId,
-        limit: limit,
-        order: order,
-        after: after,
-        include: include,
-        requestOptions: requestOptions);
+  Stream<ItemResource> listInputItemsPaginated({required String responseId, int? limit, ListInputItemsOrder? order, String? after, List<IncludeEnum>? include, RequestOptions? requestOptions}) async* {
+    yield* responses_methods.listInputItemsPaginated(_config, responseId: responseId, limit: limit, order: order, after: after, include: include, requestOptions: requestOptions);
   }
 
   /// Counts the input tokens for a response request. Provide the model and any input or conversation context to count, and use `input_tokens` in the result to inspect the count. Do not combine `previous_response_id` with `conversation`.
@@ -5132,20 +3205,7 @@ class ResponsesNamespace {
       SdkOptional<ToolChoiceParam?> toolChoice = const SdkOmitted(),
       SdkOptional<bool?> parallelToolCalls = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return responses_methods.countResponsesInputTokens(_config,
-        model: model,
-        input: input,
-        previousResponseId: previousResponseId,
-        tools: tools,
-        text: text,
-        reasoning: reasoning,
-        truncation: truncation,
-        instructions: instructions,
-        personality: personality,
-        conversation: conversation,
-        toolChoice: toolChoice,
-        parallelToolCalls: parallelToolCalls,
-        requestOptions: requestOptions);
+    return responses_methods.countResponsesInputTokens(_config, model: model, input: input, previousResponseId: previousResponseId, tools: tools, text: text, reasoning: reasoning, truncation: truncation, instructions: instructions, personality: personality, conversation: conversation, toolChoice: toolChoice, parallelToolCalls: parallelToolCalls, requestOptions: requestOptions);
   }
 
   /// Compacts conversation input and returns a compacted response object with output items and token usage. Provide the required `model` and any input or conversation context to compact. Do not combine `previous_response_id` with `conversation`.
@@ -5157,22 +3217,11 @@ class ResponsesNamespace {
       SdkOptional<String?> previousResponseId = const SdkOmitted(),
       SdkOptional<String?> instructions = const SdkOmitted(),
       SdkOptional<String?> promptCacheKey = const SdkOmitted(),
-      SdkOptional<PromptCacheRetentionEnum?> promptCacheRetention =
-          const SdkOmitted(),
-      SdkOptional<PromptCacheOptionsParam?> promptCacheOptions =
-          const SdkOmitted(),
+      SdkOptional<PromptCacheRetentionEnum?> promptCacheRetention = const SdkOmitted(),
+      SdkOptional<PromptCacheOptionsParam?> promptCacheOptions = const SdkOmitted(),
       SdkOptional<ServiceTierEnum?> serviceTier = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return responses_methods.compactResponses(_config,
-        model: model,
-        input: input,
-        previousResponseId: previousResponseId,
-        instructions: instructions,
-        promptCacheKey: promptCacheKey,
-        promptCacheRetention: promptCacheRetention,
-        promptCacheOptions: promptCacheOptions,
-        serviceTier: serviceTier,
-        requestOptions: requestOptions);
+    return responses_methods.compactResponses(_config, model: model, input: input, previousResponseId: previousResponseId, instructions: instructions, promptCacheKey: promptCacheKey, promptCacheRetention: promptCacheRetention, promptCacheOptions: promptCacheOptions, serviceTier: serviceTier, requestOptions: requestOptions);
   }
 
   /// Creates a model response from text, image, or file input, with optional tools and output configuration. Use `input`, `model`, and `tools` to control what the model processes and how it generates the response. Set `background` to true if you need to cancel the response later.
@@ -5180,23 +3229,16 @@ class ResponsesNamespace {
   /// Creates a model response. Provide [text](https://developers.openai.com/api/docs/guides/text) or [image](https://developers.openai.com/api/docs/guides/images-vision) inputs to generate [text](https://developers.openai.com/api/docs/guides/text) or [JSON](https://developers.openai.com/api/docs/guides/structured-outputs) outputs. Have the model call your own [custom code](https://developers.openai.com/api/docs/guides/function-calling) or use built-in [tools](https://developers.openai.com/api/docs/guides/tools) like [web search](https://developers.openai.com/api/docs/guides/tools-web-search) or [file search](https://developers.openai.com/api/docs/guides/tools-file-search) to use your own data as input for the model's response.
   Future<BetaResponse> betaCreate(
       {required BetaCreateResponse body,
-      SdkOptional<List<BetaCreateResponseOpenaiBetaItem>> openaiBeta =
-          const SdkOmitted(),
+      SdkOptional<List<BetaCreateResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return responses_methods.betaCreateResponse(_config,
-        body: body, openaiBeta: openaiBeta, requestOptions: requestOptions);
+    return responses_methods.betaCreateResponse(_config, body: body, openaiBeta: openaiBeta, requestOptions: requestOptions);
   }
 
   /// Creates a model response from text, image, or file input, with optional tools and output configuration. Use `input`, `model`, and `tools` to control what the model processes and how it generates the response. Set `background` to true if you need to cancel the response later.
   ///
   /// Creates a model response. Provide [text](https://developers.openai.com/api/docs/guides/text) or [image](https://developers.openai.com/api/docs/guides/images-vision) inputs to generate [text](https://developers.openai.com/api/docs/guides/text) or [JSON](https://developers.openai.com/api/docs/guides/structured-outputs) outputs. Have the model call your own [custom code](https://developers.openai.com/api/docs/guides/function-calling) or use built-in [tools](https://developers.openai.com/api/docs/guides/tools) like [web search](https://developers.openai.com/api/docs/guides/tools-web-search) or [file search](https://developers.openai.com/api/docs/guides/tools-file-search) to use your own data as input for the model's response.
-  Stream<BetaResponseStreamEvent> betaCreateStream(
-      {required BetaCreateResponse body,
-      SdkOptional<List<BetaCreateResponseOpenaiBetaItem>> openaiBeta =
-          const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* responses_methods.betaCreateResponseStream(_config,
-        body: body, openaiBeta: openaiBeta, requestOptions: requestOptions);
+  Stream<BetaResponseStreamEvent> betaCreateStream({required BetaCreateResponse body, SdkOptional<List<BetaCreateResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* responses_methods.betaCreateResponseStream(_config, body: body, openaiBeta: openaiBeta, requestOptions: requestOptions);
   }
 
   /// Retrieves a model response by its identifier. Use `include` to request additional response data, or set `stream` to receive response events as server-sent events. Use `starting_after` to begin streaming after a particular event sequence number.
@@ -5208,39 +3250,16 @@ class ResponsesNamespace {
       SdkOptional<bool> stream = const SdkOmitted(),
       SdkOptional<int> startingAfter = const SdkOmitted(),
       SdkOptional<bool> includeObfuscation = const SdkOmitted(),
-      SdkOptional<List<BetaGetResponseOpenaiBetaItem>> openaiBeta =
-          const SdkOmitted(),
+      SdkOptional<List<BetaGetResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return responses_methods.betaGetResponse(_config,
-        responseId: responseId,
-        include: include,
-        stream: stream,
-        startingAfter: startingAfter,
-        includeObfuscation: includeObfuscation,
-        openaiBeta: openaiBeta,
-        requestOptions: requestOptions);
+    return responses_methods.betaGetResponse(_config, responseId: responseId, include: include, stream: stream, startingAfter: startingAfter, includeObfuscation: includeObfuscation, openaiBeta: openaiBeta, requestOptions: requestOptions);
   }
 
   /// Retrieves a model response by its identifier. Use `include` to request additional response data, or set `stream` to receive response events as server-sent events. Use `starting_after` to begin streaming after a particular event sequence number.
   ///
   /// Retrieves a model response with the given ID.
-  Stream<BetaResponseStreamEvent> betaGetStream(
-      {required String responseId,
-      SdkOptional<List<BetaIncludeEnum>> include = const SdkOmitted(),
-      SdkOptional<bool> stream = const SdkOmitted(),
-      SdkOptional<int> startingAfter = const SdkOmitted(),
-      SdkOptional<bool> includeObfuscation = const SdkOmitted(),
-      SdkOptional<List<BetaGetResponseOpenaiBetaItem>> openaiBeta =
-          const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* responses_methods.betaGetResponseStream(_config,
-        responseId: responseId,
-        include: include,
-        stream: stream,
-        startingAfter: startingAfter,
-        includeObfuscation: includeObfuscation,
-        openaiBeta: openaiBeta,
-        requestOptions: requestOptions);
+  Stream<BetaResponseStreamEvent> betaGetStream({required String responseId, SdkOptional<List<BetaIncludeEnum>> include = const SdkOmitted(), SdkOptional<bool> stream = const SdkOmitted(), SdkOptional<int> startingAfter = const SdkOmitted(), SdkOptional<bool> includeObfuscation = const SdkOmitted(), SdkOptional<List<BetaGetResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* responses_methods.betaGetResponseStream(_config, responseId: responseId, include: include, stream: stream, startingAfter: startingAfter, includeObfuscation: includeObfuscation, openaiBeta: openaiBeta, requestOptions: requestOptions);
   }
 
   /// Deletes a model response by its identifier. Use this operation when you no longer need the response to remain available. The response identifies the deleted object and indicates that deletion occurred.
@@ -5248,13 +3267,9 @@ class ResponsesNamespace {
   /// Deletes a model response with the given ID.
   Future<BetaDeleteResponseResponse> betaDelete(
       {required String responseId,
-      SdkOptional<List<BetaDeleteResponseOpenaiBetaItem>> openaiBeta =
-          const SdkOmitted(),
+      SdkOptional<List<BetaDeleteResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return responses_methods.betaDeleteResponse(_config,
-        responseId: responseId,
-        openaiBeta: openaiBeta,
-        requestOptions: requestOptions);
+    return responses_methods.betaDeleteResponse(_config, responseId: responseId, openaiBeta: openaiBeta, requestOptions: requestOptions);
   }
 
   /// Cancels a background model response by its identifier. Use this operation only for responses created with `background` set to true; responses created without background processing cannot be cancelled. The response includes the model response object and its current status.
@@ -5262,13 +3277,9 @@ class ResponsesNamespace {
   /// Cancels a model response with the given ID. Only responses created with the `background` parameter set to `true` can be cancelled. [Learn more](https://developers.openai.com/api/docs/guides/background).
   Future<BetaResponse> betaCancel(
       {required String responseId,
-      SdkOptional<List<BetaCancelResponseOpenaiBetaItem>> openaiBeta =
-          const SdkOmitted(),
+      SdkOptional<List<BetaCancelResponseOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return responses_methods.betaCancelResponse(_config,
-        responseId: responseId,
-        openaiBeta: openaiBeta,
-        requestOptions: requestOptions);
+    return responses_methods.betaCancelResponse(_config, responseId: responseId, openaiBeta: openaiBeta, requestOptions: requestOptions);
   }
 
   /// Compacts a conversation and returns a compacted response object. Provide the required `model` and conversation content through `input` or `previous_response_id` to produce a compacted representation. Use the result to manage the context window in a long-running conversation.
@@ -5276,29 +3287,16 @@ class ResponsesNamespace {
   /// Compact a conversation. Returns a compacted response object. Learn when and how to compact long-running conversations in the [conversation state guide](https://developers.openai.com/api/docs/guides/conversation-state#managing-the-context-window). For ZDR-compatible compaction details, see [Compaction (advanced)](https://developers.openai.com/api/docs/guides/conversation-state#compaction-advanced).
   Future<BetaCompactResource> betaCompact(
       {required BetaModelIdsCompaction? model,
-      SdkOptional<List<BetaResponsesCompactOpenaiBetaItem>> openaiBeta =
-          const SdkOmitted(),
+      SdkOptional<List<BetaResponsesCompactOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
       SdkOptional<dynamic> input = const SdkOmitted(),
       SdkOptional<String?> previousResponseId = const SdkOmitted(),
       SdkOptional<String?> instructions = const SdkOmitted(),
       SdkOptional<String?> promptCacheKey = const SdkOmitted(),
-      SdkOptional<BetaPromptCacheRetentionEnum?> promptCacheRetention =
-          const SdkOmitted(),
-      SdkOptional<BetaPromptCacheOptionsParam?> promptCacheOptions =
-          const SdkOmitted(),
+      SdkOptional<BetaPromptCacheRetentionEnum?> promptCacheRetention = const SdkOmitted(),
+      SdkOptional<BetaPromptCacheOptionsParam?> promptCacheOptions = const SdkOmitted(),
       SdkOptional<BetaServiceTierEnum?> serviceTier = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return responses_methods.betaResponsesCompact(_config,
-        model: model,
-        openaiBeta: openaiBeta,
-        input: input,
-        previousResponseId: previousResponseId,
-        instructions: instructions,
-        promptCacheKey: promptCacheKey,
-        promptCacheRetention: promptCacheRetention,
-        promptCacheOptions: promptCacheOptions,
-        serviceTier: serviceTier,
-        requestOptions: requestOptions);
+    return responses_methods.betaResponsesCompact(_config, model: model, openaiBeta: openaiBeta, input: input, previousResponseId: previousResponseId, instructions: instructions, promptCacheKey: promptCacheKey, promptCacheRetention: promptCacheRetention, promptCacheOptions: promptCacheOptions, serviceTier: serviceTier, requestOptions: requestOptions);
   }
 
   /// Lists the input items used to generate a model response. Use `limit` to control the number of returned items and `order` to choose their sequence. Pass `after` with an item ID from a previous page to continue through the list.
@@ -5310,46 +3308,23 @@ class ResponsesNamespace {
       SdkOptional<BetaListInputItemsOrder> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<List<BetaIncludeEnum>> include = const SdkOmitted(),
-      SdkOptional<List<BetaListInputItemsOpenaiBetaItem>> openaiBeta =
-          const SdkOmitted(),
+      SdkOptional<List<BetaListInputItemsOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return responses_methods.betaListInputItems(_config,
-        responseId: responseId,
-        limit: limit,
-        order: order,
-        after: after,
-        include: include,
-        openaiBeta: openaiBeta,
-        requestOptions: requestOptions);
+    return responses_methods.betaListInputItems(_config, responseId: responseId, limit: limit, order: order, after: after, include: include, openaiBeta: openaiBeta, requestOptions: requestOptions);
   }
 
   /// Lists the input items used to generate a model response. Use `limit` to control the number of returned items and `order` to choose their sequence. Pass `after` with an item ID from a previous page to continue through the list.
   ///
   /// Returns a list of input items for a given response.
-  Stream<BetaItemResource> betaListInputItemsPaginated(
-      {required String responseId,
-      int? limit,
-      BetaListInputItemsOrder? order,
-      String? after,
-      List<BetaIncludeEnum>? include,
-      List<BetaListInputItemsOpenaiBetaItem>? openaiBeta,
-      RequestOptions? requestOptions}) async* {
-    yield* responses_methods.betaListInputItemsPaginated(_config,
-        responseId: responseId,
-        limit: limit,
-        order: order,
-        after: after,
-        include: include,
-        openaiBeta: openaiBeta,
-        requestOptions: requestOptions);
+  Stream<BetaItemResource> betaListInputItemsPaginated({required String responseId, int? limit, BetaListInputItemsOrder? order, String? after, List<BetaIncludeEnum>? include, List<BetaListInputItemsOpenaiBetaItem>? openaiBeta, RequestOptions? requestOptions}) async* {
+    yield* responses_methods.betaListInputItemsPaginated(_config, responseId: responseId, limit: limit, order: order, after: after, include: include, openaiBeta: openaiBeta, requestOptions: requestOptions);
   }
 
   /// Counts the input tokens for a prospective model request. Supply the model and any input, tool, text, reasoning, or conversation settings whose token contribution you want counted. Use the returned count to assess the request's input size before generating a response.
   ///
   /// Returns input token counts of the request. Returns an object with `object` set to `response.input_tokens` and an `input_tokens` count.
   Future<BetaTokenCountsResource> betaCountInputTokens(
-      {SdkOptional<List<BetaResponsesCountInputTokensOpenaiBetaItem>>
-          openaiBeta = const SdkOmitted(),
+      {SdkOptional<List<BetaResponsesCountInputTokensOpenaiBetaItem>> openaiBeta = const SdkOmitted(),
       SdkOptional<String?> model = const SdkOmitted(),
       SdkOptional<dynamic> input = const SdkOmitted(),
       SdkOptional<String?> previousResponseId = const SdkOmitted(),
@@ -5363,28 +3338,14 @@ class ResponsesNamespace {
       SdkOptional<BetaToolChoiceParam?> toolChoice = const SdkOmitted(),
       SdkOptional<bool?> parallelToolCalls = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return responses_methods.betaResponsesCountInputTokens(_config,
-        openaiBeta: openaiBeta,
-        model: model,
-        input: input,
-        previousResponseId: previousResponseId,
-        tools: tools,
-        text: text,
-        reasoning: reasoning,
-        truncation: truncation,
-        instructions: instructions,
-        personality: personality,
-        conversation: conversation,
-        toolChoice: toolChoice,
-        parallelToolCalls: parallelToolCalls,
-        requestOptions: requestOptions);
+    return responses_methods.betaResponsesCountInputTokens(_config, openaiBeta: openaiBeta, model: model, input: input, previousResponseId: previousResponseId, tools: tools, text: text, reasoning: reasoning, truncation: truncation, instructions: instructions, personality: personality, conversation: conversation, toolChoice: toolChoice, parallelToolCalls: parallelToolCalls, requestOptions: requestOptions);
   }
+
 }
 
 class UploadsNamespace {
   final ClientConfig _config;
   UploadsNamespace(ClientConfig config) : _config = config;
-
   /// Creates an upload that accepts file parts before they are assembled into a usable file. Provide the filename, purpose, byte count, and MIME type; uploads can contain up to 8 GB and expire after one hour. Add parts to the upload, then complete it to create the file.
   ///
   /// Creates an intermediate [Upload](https://developers.openai.com/api/reference/resources/uploads) object that you can add [Parts](https://developers.openai.com/api/reference/resources/uploads/subresources/parts) to. Currently, an Upload can accept at most 8 GB in total and expires after an hour after you create it. Once you complete the Upload, we will create a [File](https://developers.openai.com/api/reference/resources/files) object that contains all the parts you uploaded. This File is usable in the rest of our platform as a regular File object. For certain `purpose` values, the correct `mime_type` must be specified. Please refer to documentation for the [supported MIME types for your use case](https://developers.openai.com/api/docs/guides/tools-file-search#supported-files). For guidance on the proper filename extensions for each purpose, please follow the documentation on [creating a File](https://developers.openai.com/api/reference/resources/files/methods/create). Returns the Upload object with status `pending`.
@@ -5395,13 +3356,7 @@ class UploadsNamespace {
       required String mimeType,
       SdkOptional<FileExpirationAfter> expiresAfter = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return uploads_methods.createUpload(_config,
-        filename: filename,
-        purpose: purpose,
-        bytes: bytes,
-        mimeType: mimeType,
-        expiresAfter: expiresAfter,
-        requestOptions: requestOptions);
+    return uploads_methods.createUpload(_config, filename: filename, purpose: purpose, bytes: bytes, mimeType: mimeType, expiresAfter: expiresAfter, requestOptions: requestOptions);
   }
 
   /// Cancels a pending upload so that no more parts can be added. Use this operation when you no longer intend to complete the upload; the returned upload object has status `cancelled`.
@@ -5409,8 +3364,7 @@ class UploadsNamespace {
   /// Cancels the Upload. No Parts may be added after an Upload is cancelled. Returns the Upload object with status `cancelled`.
   Future<Upload> cancel(
       {required String uploadId, RequestOptions? requestOptions}) async {
-    return uploads_methods.cancelUpload(_config,
-        uploadId: uploadId, requestOptions: requestOptions);
+    return uploads_methods.cancelUpload(_config, uploadId: uploadId, requestOptions: requestOptions);
   }
 
   /// Completes an upload by assembling its parts into a file that can be used on the platform. Supply the ordered part IDs and optionally an MD5 checksum; the total uploaded bytes must match the byte count specified when creating the upload. No more parts can be added after completion.
@@ -5421,11 +3375,7 @@ class UploadsNamespace {
       required List<String> partIds,
       SdkOptional<String> md5 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return uploads_methods.completeUpload(_config,
-        uploadId: uploadId,
-        partIds: partIds,
-        md5: md5,
-        requestOptions: requestOptions);
+    return uploads_methods.completeUpload(_config, uploadId: uploadId, partIds: partIds, md5: md5, requestOptions: requestOptions);
   }
 
   /// Adds a chunk of file bytes as a part of an existing upload. Send the chunk in the `data` field; each part can be at most 64 MB, and the upload can contain up to 8 GB in total. You can add parts in parallel and specify their order when you complete the upload.
@@ -5435,15 +3385,14 @@ class UploadsNamespace {
       {required String uploadId,
       required SdkUploadFile data,
       RequestOptions? requestOptions}) async {
-    return uploads_methods.addUploadPart(_config,
-        uploadId: uploadId, data: data, requestOptions: requestOptions);
+    return uploads_methods.addUploadPart(_config, uploadId: uploadId, data: data, requestOptions: requestOptions);
   }
+
 }
 
 class VectorStoresNamespace {
   final ClientConfig _config;
   VectorStoresNamespace(ClientConfig config) : _config = config;
-
   /// Lists vector stores, which are collections of processed files that you can use with the `file_search` tool. Use the cursor parameters to move forward or backward through the results, and set `order` to control sorting by creation time.
   ///
   /// Returns a list of vector stores.
@@ -5453,29 +3402,14 @@ class VectorStoresNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.listVectorStores(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return vector_stores_methods.listVectorStores(_config, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Lists vector stores, which are collections of processed files that you can use with the `file_search` tool. Use the cursor parameters to move forward or backward through the results, and set `order` to control sorting by creation time.
   ///
   /// Returns a list of vector stores.
-  Stream<VectorStoreObject> listPaginated(
-      {int? limit,
-      ListVectorStoresOrder? order,
-      String? after,
-      String? before,
-      RequestOptions? requestOptions}) async* {
-    yield* vector_stores_methods.listVectorStoresPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+  Stream<VectorStoreObject> listPaginated({int? limit, ListVectorStoresOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+    yield* vector_stores_methods.listVectorStoresPaginated(_config, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Creates a vector store to collect processed files for use with the `file_search` tool. Supply `file_ids` to add files at creation, and optionally set a name, description, expiration policy, chunking strategy, or metadata.
@@ -5486,18 +3420,10 @@ class VectorStoresNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
       SdkOptional<VectorStoreExpirationAfter> expiresAfter = const SdkOmitted(),
-      SdkOptional<CreateVectorStoreRequestChunkingStrategy> chunkingStrategy =
-          const SdkOmitted(),
+      SdkOptional<CreateVectorStoreRequestChunkingStrategy> chunkingStrategy = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.createVectorStore(_config,
-        fileIds: fileIds,
-        name: name,
-        description: description,
-        expiresAfter: expiresAfter,
-        chunkingStrategy: chunkingStrategy,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return vector_stores_methods.createVectorStore(_config, fileIds: fileIds, name: name, description: description, expiresAfter: expiresAfter, chunkingStrategy: chunkingStrategy, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Retrieves a vector store by its ID. Use this operation to inspect the store's status, file counts, usage, expiration details, and metadata.
@@ -5505,8 +3431,7 @@ class VectorStoresNamespace {
   /// Retrieves a vector store.
   Future<VectorStoreObject> get_(
       {required String vectorStoreId, RequestOptions? requestOptions}) async {
-    return vector_stores_methods.getVectorStore(_config,
-        vectorStoreId: vectorStoreId, requestOptions: requestOptions);
+    return vector_stores_methods.getVectorStore(_config, vectorStoreId: vectorStoreId, requestOptions: requestOptions);
   }
 
   /// Updates a vector store's name, expiration policy, or metadata. Provide only the properties you want to change; omitted properties are not part of the update.
@@ -5518,12 +3443,7 @@ class VectorStoresNamespace {
       SdkOptional<VectorStoreExpirationAfter> expiresAfter = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.modifyVectorStore(_config,
-        vectorStoreId: vectorStoreId,
-        name: name,
-        expiresAfter: expiresAfter,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return vector_stores_methods.modifyVectorStore(_config, vectorStoreId: vectorStoreId, name: name, expiresAfter: expiresAfter, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Deletes a vector store. Use this operation when you no longer need the store or its associated collection of processed files.
@@ -5531,8 +3451,7 @@ class VectorStoresNamespace {
   /// Delete a vector store.
   Future<DeleteVectorStoreResponse> delete(
       {required String vectorStoreId, RequestOptions? requestOptions}) async {
-    return vector_stores_methods.deleteVectorStore(_config,
-        vectorStoreId: vectorStoreId, requestOptions: requestOptions);
+    return vector_stores_methods.deleteVectorStore(_config, vectorStoreId: vectorStoreId, requestOptions: requestOptions);
   }
 
   /// Creates a batch to attach files to a vector store for processing. Provide `file_ids` or `files`, and optionally set a shared chunking strategy or shared attributes when using `file_ids`. Use per-file settings in `files` when different files need different attributes or chunking strategies.
@@ -5541,19 +3460,11 @@ class VectorStoresNamespace {
   Future<VectorStoreFileBatchObject> createFileBatch(
       {required String vectorStoreId,
       SdkOptional<List<String>> fileIds = const SdkOmitted(),
-      SdkOptional<List<CreateVectorStoreFileRequest>> files =
-          const SdkOmitted(),
-      SdkOptional<ChunkingStrategyRequestParam> chunkingStrategy =
-          const SdkOmitted(),
+      SdkOptional<List<CreateVectorStoreFileRequest>> files = const SdkOmitted(),
+      SdkOptional<ChunkingStrategyRequestParam> chunkingStrategy = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> attributes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.createVectorStoreFileBatch(_config,
-        vectorStoreId: vectorStoreId,
-        fileIds: fileIds,
-        files: files,
-        chunkingStrategy: chunkingStrategy,
-        attributes: attributes,
-        requestOptions: requestOptions);
+    return vector_stores_methods.createVectorStoreFileBatch(_config, vectorStoreId: vectorStoreId, fileIds: fileIds, files: files, chunkingStrategy: chunkingStrategy, attributes: attributes, requestOptions: requestOptions);
   }
 
   /// Retrieves a file batch associated with a vector store. Use the batch status and file counts to check the progress and outcome of file processing.
@@ -5563,10 +3474,7 @@ class VectorStoresNamespace {
       {required String vectorStoreId,
       required String batchId,
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.getVectorStoreFileBatch(_config,
-        vectorStoreId: vectorStoreId,
-        batchId: batchId,
-        requestOptions: requestOptions);
+    return vector_stores_methods.getVectorStoreFileBatch(_config, vectorStoreId: vectorStoreId, batchId: batchId, requestOptions: requestOptions);
   }
 
   /// Attempts to stop processing files in a vector store file batch as soon as possible. Check the returned batch status to see whether processing has been cancelled.
@@ -5576,10 +3484,7 @@ class VectorStoresNamespace {
       {required String vectorStoreId,
       required String batchId,
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.cancelVectorStoreFileBatch(_config,
-        vectorStoreId: vectorStoreId,
-        batchId: batchId,
-        requestOptions: requestOptions);
+    return vector_stores_methods.cancelVectorStoreFileBatch(_config, vectorStoreId: vectorStoreId, batchId: batchId, requestOptions: requestOptions);
   }
 
   /// Lists the files in a vector store file batch. Use `filter` to limit results by processing status and the cursor parameters to navigate through the batch's files.
@@ -5592,41 +3497,16 @@ class VectorStoresNamespace {
       SdkOptional<ListFilesInVectorStoreBatchOrder> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
-      SdkOptional<ListFilesInVectorStoreBatchFilter> filter =
-          const SdkOmitted(),
+      SdkOptional<ListFilesInVectorStoreBatchFilter> filter = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.listFilesInVectorStoreBatch(_config,
-        vectorStoreId: vectorStoreId,
-        batchId: batchId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        filter: filter,
-        requestOptions: requestOptions);
+    return vector_stores_methods.listFilesInVectorStoreBatch(_config, vectorStoreId: vectorStoreId, batchId: batchId, limit: limit, order: order, after: after, before: before, filter: filter, requestOptions: requestOptions);
   }
 
   /// Lists the files in a vector store file batch. Use `filter` to limit results by processing status and the cursor parameters to navigate through the batch's files.
   ///
   /// Returns a list of vector store files in a batch.
-  Stream<VectorStoreFileObject> listFilesInBatchPaginated(
-      {required String vectorStoreId,
-      required String batchId,
-      int? limit,
-      ListFilesInVectorStoreBatchOrder? order,
-      String? after,
-      String? before,
-      ListFilesInVectorStoreBatchFilter? filter,
-      RequestOptions? requestOptions}) async* {
-    yield* vector_stores_methods.listFilesInVectorStoreBatchPaginated(_config,
-        vectorStoreId: vectorStoreId,
-        batchId: batchId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        filter: filter,
-        requestOptions: requestOptions);
+  Stream<VectorStoreFileObject> listFilesInBatchPaginated({required String vectorStoreId, required String batchId, int? limit, ListFilesInVectorStoreBatchOrder? order, String? after, String? before, ListFilesInVectorStoreBatchFilter? filter, RequestOptions? requestOptions}) async* {
+    yield* vector_stores_methods.listFilesInVectorStoreBatchPaginated(_config, vectorStoreId: vectorStoreId, batchId: batchId, limit: limit, order: order, after: after, before: before, filter: filter, requestOptions: requestOptions);
   }
 
   /// Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
@@ -5640,35 +3520,14 @@ class VectorStoresNamespace {
       SdkOptional<String> before = const SdkOmitted(),
       SdkOptional<ListVectorStoreFilesFilter> filter = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.listVectorStoreFiles(_config,
-        vectorStoreId: vectorStoreId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        filter: filter,
-        requestOptions: requestOptions);
+    return vector_stores_methods.listVectorStoreFiles(_config, vectorStoreId: vectorStoreId, limit: limit, order: order, after: after, before: before, filter: filter, requestOptions: requestOptions);
   }
 
   /// Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
   ///
   /// Returns a list of vector store files.
-  Stream<VectorStoreFileObject> listFilesPaginated(
-      {required String vectorStoreId,
-      int? limit,
-      ListVectorStoreFilesOrder? order,
-      String? after,
-      String? before,
-      ListVectorStoreFilesFilter? filter,
-      RequestOptions? requestOptions}) async* {
-    yield* vector_stores_methods.listVectorStoreFilesPaginated(_config,
-        vectorStoreId: vectorStoreId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        filter: filter,
-        requestOptions: requestOptions);
+  Stream<VectorStoreFileObject> listFilesPaginated({required String vectorStoreId, int? limit, ListVectorStoreFilesOrder? order, String? after, String? before, ListVectorStoreFilesFilter? filter, RequestOptions? requestOptions}) async* {
+    yield* vector_stores_methods.listVectorStoreFilesPaginated(_config, vectorStoreId: vectorStoreId, limit: limit, order: order, after: after, before: before, filter: filter, requestOptions: requestOptions);
   }
 
   /// Creates an attachment between a file and a vector store. Supply the file's `file_id` and optionally configure `chunking_strategy` or attach `attributes`; use file batches for multi-file ingestion. The response includes the attached file's processing status.
@@ -5677,16 +3536,10 @@ class VectorStoresNamespace {
   Future<VectorStoreFileObject> createFile(
       {required String vectorStoreId,
       required String fileId,
-      SdkOptional<ChunkingStrategyRequestParam> chunkingStrategy =
-          const SdkOmitted(),
+      SdkOptional<ChunkingStrategyRequestParam> chunkingStrategy = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> attributes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.createVectorStoreFile(_config,
-        vectorStoreId: vectorStoreId,
-        fileId: fileId,
-        chunkingStrategy: chunkingStrategy,
-        attributes: attributes,
-        requestOptions: requestOptions);
+    return vector_stores_methods.createVectorStoreFile(_config, vectorStoreId: vectorStoreId, fileId: fileId, chunkingStrategy: chunkingStrategy, attributes: attributes, requestOptions: requestOptions);
   }
 
   /// Retrieves a file attachment and its processing details from a vector store. Use `vector_store_id` and `file_id` to identify the attachment whose status and configuration you need.
@@ -5696,10 +3549,7 @@ class VectorStoresNamespace {
       {required String vectorStoreId,
       required String fileId,
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.getVectorStoreFile(_config,
-        vectorStoreId: vectorStoreId,
-        fileId: fileId,
-        requestOptions: requestOptions);
+    return vector_stores_methods.getVectorStoreFile(_config, vectorStoreId: vectorStoreId, fileId: fileId, requestOptions: requestOptions);
   }
 
   /// Deletes a file attachment from a vector store without deleting the underlying file. Use the file deletion operation separately if you also need to delete the file itself.
@@ -5709,10 +3559,7 @@ class VectorStoresNamespace {
       {required String vectorStoreId,
       required String fileId,
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.deleteVectorStoreFile(_config,
-        vectorStoreId: vectorStoreId,
-        fileId: fileId,
-        requestOptions: requestOptions);
+    return vector_stores_methods.deleteVectorStoreFile(_config, vectorStoreId: vectorStoreId, fileId: fileId, requestOptions: requestOptions);
   }
 
   /// Updates the attributes attached to a file in a vector store. Supply `attributes` to replace the file's attribute set, or use `null` to clear it.
@@ -5723,11 +3570,7 @@ class VectorStoresNamespace {
       required String fileId,
       required Map<String, dynamic>? attributes,
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.updateVectorStoreFileAttributes(_config,
-        vectorStoreId: vectorStoreId,
-        fileId: fileId,
-        attributes: attributes,
-        requestOptions: requestOptions);
+    return vector_stores_methods.updateVectorStoreFileAttributes(_config, vectorStoreId: vectorStoreId, fileId: fileId, attributes: attributes, requestOptions: requestOptions);
   }
 
   /// Retrieves parsed content from a file attached to a vector store. Use `vector_store_id` and `file_id` to identify the file, then follow `next_page` when `has_more` indicates that additional content pages are available.
@@ -5737,10 +3580,7 @@ class VectorStoresNamespace {
       {required String vectorStoreId,
       required String fileId,
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.retrieveVectorStoreFileContent(_config,
-        vectorStoreId: vectorStoreId,
-        fileId: fileId,
-        requestOptions: requestOptions);
+    return vector_stores_methods.retrieveVectorStoreFileContent(_config, vectorStoreId: vectorStoreId, fileId: fileId, requestOptions: requestOptions);
   }
 
   /// Searches a vector store for relevant file chunks using one or more queries and optional file-attribute filters. Set `max_num_results` to control the result count and `ranking_options` to configure ranking; use `next_page` to continue when more results are available.
@@ -5752,45 +3592,35 @@ class VectorStoresNamespace {
       SdkOptional<bool> rewriteQuery = const SdkOmitted(),
       SdkOptional<int> maxNumResults = const SdkOmitted(),
       SdkOptional<VectorStoreSearchRequestFilters> filters = const SdkOmitted(),
-      SdkOptional<VectorStoreSearchRequestRankingOptions> rankingOptions =
-          const SdkOmitted(),
+      SdkOptional<VectorStoreSearchRequestRankingOptions> rankingOptions = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_stores_methods.searchVectorStore(_config,
-        vectorStoreId: vectorStoreId,
-        query: query,
-        rewriteQuery: rewriteQuery,
-        maxNumResults: maxNumResults,
-        filters: filters,
-        rankingOptions: rankingOptions,
-        requestOptions: requestOptions);
+    return vector_stores_methods.searchVectorStore(_config, vectorStoreId: vectorStoreId, query: query, rewriteQuery: rewriteQuery, maxNumResults: maxNumResults, filters: filters, rankingOptions: rankingOptions, requestOptions: requestOptions);
   }
+
 }
 
 class SafetyNamespace {
   final ClientConfig _config;
   SafetyNamespace(ClientConfig config) : _config = config;
-
   /// Retrieves a safety case by its identifier. Use `id` to specify the safety case you want to inspect; it can contain at most 128 characters.
   ///
   /// Get a safety case by ID.
   Future<SafetyCaseResource> retrieveCase(
       {required String id, RequestOptions? requestOptions}) async {
-    return safety_methods.retrieveSafetyCase(_config,
-        id: id, requestOptions: requestOptions);
+    return safety_methods.retrieveSafetyCase(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Get a safety alert belonging to the authenticated API project.
   Future<SafetyAlertResource> retrieveAlert(
       {required String id, RequestOptions? requestOptions}) async {
-    return safety_methods.retrieveSafetyAlert(_config,
-        id: id, requestOptions: requestOptions);
+    return safety_methods.retrieveSafetyAlert(_config, id: id, requestOptions: requestOptions);
   }
+
 }
 
 class ExternalStorageNamespace {
   final ClientConfig _config;
   ExternalStorageNamespace(ClientConfig config) : _config = config;
-
   /// Lists the organization's customer-managed external storage configurations. Use `project_id` to scope the results to a project, and `after` and `limit` to navigate the list. Set `order` to control the sort direction.
   ///
   /// List the organization's customer-managed external storage configurations.
@@ -5800,29 +3630,14 @@ class ExternalStorageNamespace {
       SdkOptional<ExternalStorageOrder> order = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return external_storage_methods.listExternalStorage(_config,
-        projectId: projectId,
-        after: after,
-        order: order,
-        limit: limit,
-        requestOptions: requestOptions);
+    return external_storage_methods.listExternalStorage(_config, projectId: projectId, after: after, order: order, limit: limit, requestOptions: requestOptions);
   }
 
   /// Lists the organization's customer-managed external storage configurations. Use `project_id` to scope the results to a project, and `after` and `limit` to navigate the list. Set `order` to control the sort direction.
   ///
   /// List the organization's customer-managed external storage configurations.
-  Stream<ExternalStorageResponse> listPaginated(
-      {String? projectId,
-      String? after,
-      ExternalStorageOrder? order,
-      int? limit,
-      RequestOptions? requestOptions}) async* {
-    yield* external_storage_methods.listExternalStoragePaginated(_config,
-        projectId: projectId,
-        after: after,
-        order: order,
-        limit: limit,
-        requestOptions: requestOptions);
+  Stream<ExternalStorageResponse> listPaginated({String? projectId, String? after, ExternalStorageOrder? order, int? limit, RequestOptions? requestOptions}) async* {
+    yield* external_storage_methods.listExternalStoragePaginated(_config, projectId: projectId, after: after, order: order, limit: limit, requestOptions: requestOptions);
   }
 
   /// Creates a customer-managed external storage configuration for a project. Supply `project_id` and a `provider` object containing the configuration fields required by the selected storage provider. The response includes the configuration's identifier, geography, and status.
@@ -5832,10 +3647,7 @@ class ExternalStorageNamespace {
       {required String projectId,
       required CreateExternalStorageBodyProvider provider,
       RequestOptions? requestOptions}) async {
-    return external_storage_methods.createExternalStorage(_config,
-        projectId: projectId,
-        provider: provider,
-        requestOptions: requestOptions);
+    return external_storage_methods.createExternalStorage(_config, projectId: projectId, provider: provider, requestOptions: requestOptions);
   }
 
   /// Retrieves one customer-managed external storage configuration. Use `external_storage_id` to identify the configuration you want to inspect.
@@ -5844,8 +3656,7 @@ class ExternalStorageNamespace {
   Future<ExternalStorageResponse> retrieve(
       {required String externalStorageId,
       RequestOptions? requestOptions}) async {
-    return external_storage_methods.retrieveExternalStorage(_config,
-        externalStorageId: externalStorageId, requestOptions: requestOptions);
+    return external_storage_methods.retrieveExternalStorage(_config, externalStorageId: externalStorageId, requestOptions: requestOptions);
   }
 
   /// Deletes a customer-managed external storage configuration. Use `external_storage_id` to identify the configuration to disconnect. Deleting a project's last configuration restores organization-default retention if customer-managed retention was active; cloud storage is unchanged.
@@ -5854,8 +3665,7 @@ class ExternalStorageNamespace {
   Future<ExternalStorageDeletedResource> delete(
       {required String externalStorageId,
       RequestOptions? requestOptions}) async {
-    return external_storage_methods.deleteExternalStorage(_config,
-        externalStorageId: externalStorageId, requestOptions: requestOptions);
+    return external_storage_methods.deleteExternalStorage(_config, externalStorageId: externalStorageId, requestOptions: requestOptions);
   }
 
   /// Validates a customer-managed external storage configuration. Use `external_storage_id` to select the configuration whose provider setup you want to validate. The response returns the configuration and its status.
@@ -5864,22 +3674,20 @@ class ExternalStorageNamespace {
   Future<ExternalStorageResponse> validate(
       {required String externalStorageId,
       RequestOptions? requestOptions}) async {
-    return external_storage_methods.validateExternalStorage(_config,
-        externalStorageId: externalStorageId, requestOptions: requestOptions);
+    return external_storage_methods.validateExternalStorage(_config, externalStorageId: externalStorageId, requestOptions: requestOptions);
   }
+
 }
 
 class SpendLimitsNamespace {
   final ClientConfig _config;
   SpendLimitsNamespace(ClientConfig config) : _config = config;
-
   /// Retrieves the hard spend limit configured for the organization. Use this operation to check the limit amount, currency, evaluation interval, and enforcement state.
   ///
   /// Get the organization's hard spend limit.
   Future<OrganizationSpendLimitResource> retrieveOrganization(
       {RequestOptions? requestOptions}) async {
-    return spend_limits_methods.retrieveSpendLimitsOrganization(_config,
-        requestOptions: requestOptions);
+    return spend_limits_methods.retrieveSpendLimitsOrganization(_config, requestOptions: requestOptions);
   }
 
   /// Create or replace the organization's hard spend limit.
@@ -5888,11 +3696,7 @@ class SpendLimitsNamespace {
       required UpdateOrganizationSpendLimitBodyCurrency currency,
       required UpdateOrganizationSpendLimitBodyInterval interval,
       RequestOptions? requestOptions}) async {
-    return spend_limits_methods.updateSpendLimitsOrganization(_config,
-        thresholdAmount: thresholdAmount,
-        currency: currency,
-        interval: interval,
-        requestOptions: requestOptions);
+    return spend_limits_methods.updateSpendLimitsOrganization(_config, thresholdAmount: thresholdAmount, currency: currency, interval: interval, requestOptions: requestOptions);
   }
 
   /// Deletes the hard spend limit configured for the organization. Use this operation when the organization should no longer enforce its configured spending threshold. The response confirms whether the limit was deleted.
@@ -5900,8 +3704,7 @@ class SpendLimitsNamespace {
   /// Delete the organization's hard spend limit.
   Future<OrganizationSpendLimitDeletedResource> deleteOrganization(
       {RequestOptions? requestOptions}) async {
-    return spend_limits_methods.deleteSpendLimitsOrganization(_config,
-        requestOptions: requestOptions);
+    return spend_limits_methods.deleteSpendLimitsOrganization(_config, requestOptions: requestOptions);
   }
 
   /// Retrieves the hard spend limit configured for a project. Use `project_id` to identify the project whose limit and enforcement state you want to inspect.
@@ -5909,8 +3712,7 @@ class SpendLimitsNamespace {
   /// Get a project's hard spend limit.
   Future<ProjectSpendLimitResource> retrieveProject(
       {required String projectId, RequestOptions? requestOptions}) async {
-    return spend_limits_methods.retrieveSpendLimitsProject(_config,
-        projectId: projectId, requestOptions: requestOptions);
+    return spend_limits_methods.retrieveSpendLimitsProject(_config, projectId: projectId, requestOptions: requestOptions);
   }
 
   /// Deletes a project's hard spend limit. Use `project_id` to identify the project whose configured spending threshold you want to remove. The response confirms whether the limit was deleted.
@@ -5918,8 +3720,7 @@ class SpendLimitsNamespace {
   /// Delete a project's hard spend limit.
   Future<ProjectSpendLimitDeletedResource> deleteProject(
       {required String projectId, RequestOptions? requestOptions}) async {
-    return spend_limits_methods.deleteSpendLimitsProject(_config,
-        projectId: projectId, requestOptions: requestOptions);
+    return spend_limits_methods.deleteSpendLimitsProject(_config, projectId: projectId, requestOptions: requestOptions);
   }
 
   /// Creates or replaces a project's hard spend limit. Supply `threshold_amount`, `currency`, and `interval` to set the spending threshold and the period used to evaluate it. The response includes the resulting limit and its enforcement state.
@@ -5931,33 +3732,25 @@ class SpendLimitsNamespace {
       required UpdateProjectSpendLimitBodyCurrency currency,
       required UpdateProjectSpendLimitBodyInterval interval,
       RequestOptions? requestOptions}) async {
-    return spend_limits_methods.updateProjectSpendLimit(_config,
-        projectId: projectId,
-        thresholdAmount: thresholdAmount,
-        currency: currency,
-        interval: interval,
-        requestOptions: requestOptions);
+    return spend_limits_methods.updateProjectSpendLimit(_config, projectId: projectId, thresholdAmount: thresholdAmount, currency: currency, interval: interval, requestOptions: requestOptions);
   }
+
 }
 
 class ContentProvenanceChecksNamespace {
   final ClientConfig _config;
   ContentProvenanceChecksNamespace(ClientConfig config) : _config = config;
-
   /// Check whether an image or audio file contains known OpenAI provenance signals. [Learn more about content provenance](https://developers.openai.com/api/docs/guides/content-provenance). If `not_detected`, it means the tool did not find supported signals in the uploaded file. The content could still have been generated by OpenAI if the metadata was stripped or has evidence of tampering, the watermark was degraded, it comes from a legacy generation model, or it was created before provenance signals were available. Content could also still be AI-generated by another company's model, which the tool currently does not detect.
   Future<ProvenanceResource> create(
       {required SdkUploadFile file, RequestOptions? requestOptions}) async {
-    return content_provenance_checks_methods.createContentProvenanceChecks(
-        _config,
-        file: file,
-        requestOptions: requestOptions);
+    return content_provenance_checks_methods.createContentProvenanceChecks(_config, file: file, requestOptions: requestOptions);
   }
+
 }
 
 class VideosNamespace {
   final ClientConfig _config;
   VideosNamespace(ClientConfig config) : _config = config;
-
   /// Create a new video generation job from a prompt and optional reference assets.
   ///
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
@@ -5965,8 +3758,7 @@ class VideosNamespace {
       {SdkOptional<String> contentType = const SdkOmitted(),
       SdkOptional<CreateVideoBody> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return videos_methods.createVideo(_config,
-        contentType: contentType, body: body, requestOptions: requestOptions);
+    return videos_methods.createVideo(_config, contentType: contentType, body: body, requestOptions: requestOptions);
   }
 
   /// List recently generated videos for the current project.
@@ -5977,26 +3769,14 @@ class VideosNamespace {
       SdkOptional<OrderEnum> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return videos_methods.listVideos(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return videos_methods.listVideos(_config, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// List recently generated videos for the current project.
   ///
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
-  Stream<VideoResource> listPaginated(
-      {int? limit,
-      OrderEnum? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* videos_methods.listVideosPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<VideoResource> listPaginated({int? limit, OrderEnum? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* videos_methods.listVideosPaginated(_config, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Creates a character from an uploaded video. Send the video in `video` and provide a `name` of 1 to 80 characters. This operation is closing down and will be removed on a date not specified in the API definition.
@@ -6008,8 +3788,7 @@ class VideosNamespace {
       {required SdkUploadFile video,
       required String name,
       RequestOptions? requestOptions}) async {
-    return videos_methods.createVideoCharacter(_config,
-        video: video, name: name, requestOptions: requestOptions);
+    return videos_methods.createVideoCharacter(_config, video: video, name: name, requestOptions: requestOptions);
   }
 
   /// Retrieves metadata for a video character. Use `character_id` to identify the character whose details you need. This operation is closing down and will be removed on a date not specified in the API definition.
@@ -6019,8 +3798,7 @@ class VideosNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<VideoCharacterResource> getCharacter(
       {required String characterId, RequestOptions? requestOptions}) async {
-    return videos_methods.getVideoCharacter(_config,
-        characterId: characterId, requestOptions: requestOptions);
+    return videos_methods.getVideoCharacter(_config, characterId: characterId, requestOptions: requestOptions);
   }
 
   /// Create a new video generation job by editing a source video or existing generated video.
@@ -6030,8 +3808,7 @@ class VideosNamespace {
       {SdkOptional<String> contentType = const SdkOmitted(),
       SdkOptional<CreateVideoEditBody> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return videos_methods.createVideoEdit(_config,
-        contentType: contentType, body: body, requestOptions: requestOptions);
+    return videos_methods.createVideoEdit(_config, contentType: contentType, body: body, requestOptions: requestOptions);
   }
 
   /// Creates an extension of a completed video and returns a video generation job. Provide the source video, an updated `prompt`, and `seconds` set to an accepted duration. This operation is closing down and will be removed on a date not specified in the API definition.
@@ -6043,8 +3820,7 @@ class VideosNamespace {
       {SdkOptional<String> contentType = const SdkOmitted(),
       SdkOptional<CreateVideoExtendBody> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return videos_methods.createVideoExtend(_config,
-        contentType: contentType, body: body, requestOptions: requestOptions);
+    return videos_methods.createVideoExtend(_config, contentType: contentType, body: body, requestOptions: requestOptions);
   }
 
   /// Retrieves the latest metadata for a generated video. Use `video_id` to identify the video job and check its current status, progress, and other job details.
@@ -6054,8 +3830,7 @@ class VideosNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<VideoResource> get_(
       {required String videoId, RequestOptions? requestOptions}) async {
-    return videos_methods.getVideo(_config,
-        videoId: videoId, requestOptions: requestOptions);
+    return videos_methods.getVideo(_config, videoId: videoId, requestOptions: requestOptions);
   }
 
   /// Permanently delete a completed or failed video and its stored assets.
@@ -6063,8 +3838,7 @@ class VideosNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<DeletedVideoResource> delete(
       {required String videoId, RequestOptions? requestOptions}) async {
-    return videos_methods.deleteVideo(_config,
-        videoId: videoId, requestOptions: requestOptions);
+    return videos_methods.deleteVideo(_config, videoId: videoId, requestOptions: requestOptions);
   }
 
   /// Download the generated video bytes or a derived preview asset. Streams the rendered video content for the specified video job.
@@ -6074,8 +3848,7 @@ class VideosNamespace {
       {required String videoId,
       SdkOptional<VideoContentVariant> variant = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return videos_methods.retrieveVideoContent(_config,
-        videoId: videoId, variant: variant, requestOptions: requestOptions);
+    return videos_methods.retrieveVideoContent(_config, videoId: videoId, variant: variant, requestOptions: requestOptions);
   }
 
   /// Create a remix of a completed video using a refreshed prompt.
@@ -6086,18 +3859,14 @@ class VideosNamespace {
       required String prompt,
       SdkOptional<String> contentType = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return videos_methods.createVideoRemix(_config,
-        videoId: videoId,
-        prompt: prompt,
-        contentType: contentType,
-        requestOptions: requestOptions);
+    return videos_methods.createVideoRemix(_config, videoId: videoId, prompt: prompt, contentType: contentType, requestOptions: requestOptions);
   }
+
 }
 
 class SkillsNamespace {
   final ClientConfig _config;
   SkillsNamespace(ClientConfig config) : _config = config;
-
   /// Creates a new skill from uploaded files or a ZIP archive. Include `files` with the skill contents, either as a directory upload or a single ZIP file. The response includes the created skill and its version identifiers.
   ///
   /// Create a new skill.
@@ -6105,8 +3874,7 @@ class SkillsNamespace {
       {required List<List<int>> files,
       SdkOptional<String> contentType = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return skills_methods.createSkill(_config,
-        files: files, contentType: contentType, requestOptions: requestOptions);
+    return skills_methods.createSkill(_config, files: files, contentType: contentType, requestOptions: requestOptions);
   }
 
   /// Lists skills available in the current project. Use `limit` to control the number of results, `order` to sort them, and `after` to continue from a previous result.
@@ -6117,26 +3885,14 @@ class SkillsNamespace {
       SdkOptional<OrderEnum> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return skills_methods.listSkills(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return skills_methods.listSkills(_config, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists skills available in the current project. Use `limit` to control the number of results, `order` to sort them, and `after` to continue from a previous result.
   ///
   /// List all skills for the current project.
-  Stream<SkillResource> listPaginated(
-      {int? limit,
-      OrderEnum? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* skills_methods.listSkillsPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<SkillResource> listPaginated({int? limit, OrderEnum? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* skills_methods.listSkillsPaginated(_config, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Deletes a skill by its identifier. Use `skill_id` to select the skill to remove. The response confirms whether the skill was deleted and includes its identifier.
@@ -6144,8 +3900,7 @@ class SkillsNamespace {
   /// Delete a skill by its ID.
   Future<DeletedSkillResource> delete(
       {required String skillId, RequestOptions? requestOptions}) async {
-    return skills_methods.deleteSkill(_config,
-        skillId: skillId, requestOptions: requestOptions);
+    return skills_methods.deleteSkill(_config, skillId: skillId, requestOptions: requestOptions);
   }
 
   /// Retrieves a skill by its identifier. Use `skill_id` to select the skill whose details you need.
@@ -6153,8 +3908,7 @@ class SkillsNamespace {
   /// Get a skill by its ID.
   Future<SkillResource> get_(
       {required String skillId, RequestOptions? requestOptions}) async {
-    return skills_methods.getSkill(_config,
-        skillId: skillId, requestOptions: requestOptions);
+    return skills_methods.getSkill(_config, skillId: skillId, requestOptions: requestOptions);
   }
 
   /// Updates the default version pointer for a skill. Provide `default_version` to select the version that should be the skill's default. The response contains the updated skill details.
@@ -6164,10 +3918,7 @@ class SkillsNamespace {
       {required String skillId,
       required String defaultVersion,
       RequestOptions? requestOptions}) async {
-    return skills_methods.updateSkillDefaultVersion(_config,
-        skillId: skillId,
-        defaultVersion: defaultVersion,
-        requestOptions: requestOptions);
+    return skills_methods.updateSkillDefaultVersion(_config, skillId: skillId, defaultVersion: defaultVersion, requestOptions: requestOptions);
   }
 
   /// Retrieves the ZIP bundle for a skill. Use `skill_id` to select the skill whose files you want to download.
@@ -6175,8 +3926,7 @@ class SkillsNamespace {
   /// Download a skill zip bundle by its ID.
   Future<List<int>> getContent(
       {required String skillId, RequestOptions? requestOptions}) async {
-    return skills_methods.getSkillContent(_config,
-        skillId: skillId, requestOptions: requestOptions);
+    return skills_methods.getSkillContent(_config, skillId: skillId, requestOptions: requestOptions);
   }
 
   /// Creates a new immutable version of a skill from uploaded files or a ZIP archive. Include `files` with the version contents and optionally set `default` to make the new version the default. The response contains the created version details.
@@ -6188,12 +3938,7 @@ class SkillsNamespace {
       SdkOptional<bool> default_ = const SdkOmitted(),
       SdkOptional<String> contentType = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return skills_methods.createSkillVersion(_config,
-        skillId: skillId,
-        files: files,
-        default_: default_,
-        contentType: contentType,
-        requestOptions: requestOptions);
+    return skills_methods.createSkillVersion(_config, skillId: skillId, files: files, default_: default_, contentType: contentType, requestOptions: requestOptions);
   }
 
   /// Lists versions for a skill. Use `after` to continue from a skill version ID, `limit` to control the number of results, and `order` to sort by version number.
@@ -6205,29 +3950,14 @@ class SkillsNamespace {
       SdkOptional<OrderEnum> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return skills_methods.listSkillVersions(_config,
-        skillId: skillId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return skills_methods.listSkillVersions(_config, skillId: skillId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists versions for a skill. Use `after` to continue from a skill version ID, `limit` to control the number of results, and `order` to sort by version number.
   ///
   /// List skill versions for a skill.
-  Stream<SkillVersionResource> listVersionsPaginated(
-      {required String skillId,
-      int? limit,
-      OrderEnum? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* skills_methods.listSkillVersionsPaginated(_config,
-        skillId: skillId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<SkillVersionResource> listVersionsPaginated({required String skillId, int? limit, OrderEnum? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* skills_methods.listSkillVersionsPaginated(_config, skillId: skillId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Retrieves a specific version of a skill. Provide `skill_id` to identify the skill and `version` to select the version to retrieve.
@@ -6237,8 +3967,7 @@ class SkillsNamespace {
       {required String skillId,
       required String version,
       RequestOptions? requestOptions}) async {
-    return skills_methods.getSkillVersion(_config,
-        skillId: skillId, version: version, requestOptions: requestOptions);
+    return skills_methods.getSkillVersion(_config, skillId: skillId, version: version, requestOptions: requestOptions);
   }
 
   /// Deletes a version of a skill. Use `skill_id` and `version` to select the version to remove. You cannot delete the default version while other versions remain.
@@ -6248,8 +3977,7 @@ class SkillsNamespace {
       {required String skillId,
       required String version,
       RequestOptions? requestOptions}) async {
-    return skills_methods.deleteSkillVersion(_config,
-        skillId: skillId, version: version, requestOptions: requestOptions);
+    return skills_methods.deleteSkillVersion(_config, skillId: skillId, version: version, requestOptions: requestOptions);
   }
 
   /// Retrieves the ZIP bundle for a specific skill version. Use `skill_id` and `version` to identify the skill and version whose content you need. The response provides the bundle as a downloadable binary file.
@@ -6259,20 +3987,18 @@ class SkillsNamespace {
       {required String skillId,
       required String version,
       RequestOptions? requestOptions}) async {
-    return skills_methods.getSkillVersionContent(_config,
-        skillId: skillId, version: version, requestOptions: requestOptions);
+    return skills_methods.getSkillVersionContent(_config, skillId: skillId, version: version, requestOptions: requestOptions);
   }
+
 }
 
 class ChatkitNamespace {
   final ClientConfig _config;
   ChatkitNamespace(ClientConfig config) : _config = config;
-
   /// Cancel an active ChatKit session and return its most recent metadata. Cancelling prevents new requests from using the issued client secret.
   Future<ChatSessionResource> cancelSession(
       {required String sessionId, RequestOptions? requestOptions}) async {
-    return chatkit_methods.cancelChatkitSession(_config,
-        sessionId: sessionId, requestOptions: requestOptions);
+    return chatkit_methods.cancelChatkitSession(_config, sessionId: sessionId, requestOptions: requestOptions);
   }
 
   /// Creates a ChatKit session powered by a specified workflow. Supply `workflow` with its required `id` and a non-empty `user` identifier; optionally configure expiration, rate limits, tracing, and ChatKit features. The response includes the session's client secret, expiration time, and resolved configuration.
@@ -6283,16 +4009,9 @@ class ChatkitNamespace {
       required String user,
       SdkOptional<ExpiresAfterParam> expiresAfter = const SdkOmitted(),
       SdkOptional<RateLimitsParam> rateLimits = const SdkOmitted(),
-      SdkOptional<ChatkitConfigurationParam> chatkitConfiguration =
-          const SdkOmitted(),
+      SdkOptional<ChatkitConfigurationParam> chatkitConfiguration = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return chatkit_methods.createChatkitSession(_config,
-        workflow: workflow,
-        user: user,
-        expiresAfter: expiresAfter,
-        rateLimits: rateLimits,
-        chatkitConfiguration: chatkitConfiguration,
-        requestOptions: requestOptions);
+    return chatkit_methods.createChatkitSession(_config, workflow: workflow, user: user, expiresAfter: expiresAfter, rateLimits: rateLimits, chatkitConfiguration: chatkitConfiguration, requestOptions: requestOptions);
   }
 
   /// Lists items belonging to a ChatKit thread. Use `after` or `before` to select items relative to a thread item ID, and use `limit` and `order` to control the result set. The response includes pagination identifiers and a `has_more` flag.
@@ -6305,32 +4024,14 @@ class ChatkitNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return chatkit_methods.listChatkitThreadItems(_config,
-        threadId: threadId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return chatkit_methods.listChatkitThreadItems(_config, threadId: threadId, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Lists items belonging to a ChatKit thread. Use `after` or `before` to select items relative to a thread item ID, and use `limit` and `order` to control the result set. The response includes pagination identifiers and a `has_more` flag.
   ///
   /// List items that belong to a ChatKit thread.
-  Stream<ThreadItem> listThreadItemsPaginated(
-      {required String threadId,
-      int? limit,
-      OrderEnum? order,
-      String? after,
-      String? before,
-      RequestOptions? requestOptions}) async* {
-    yield* chatkit_methods.listChatkitThreadItemsPaginated(_config,
-        threadId: threadId,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+  Stream<ThreadItem> listThreadItemsPaginated({required String threadId, int? limit, OrderEnum? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+    yield* chatkit_methods.listChatkitThreadItemsPaginated(_config, threadId: threadId, limit: limit, order: order, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a ChatKit thread by its identifier. Use `thread_id` to select the thread whose status and metadata you need.
@@ -6338,15 +4039,13 @@ class ChatkitNamespace {
   /// Retrieve a ChatKit thread by its identifier.
   Future<ThreadResource> retrieveThread(
       {required String threadId, RequestOptions? requestOptions}) async {
-    return chatkit_methods.retrieveChatkitThread(_config,
-        threadId: threadId, requestOptions: requestOptions);
+    return chatkit_methods.retrieveChatkitThread(_config, threadId: threadId, requestOptions: requestOptions);
   }
 
   /// Delete a ChatKit thread along with its items and stored attachments.
   Future<DeletedThreadResource> deleteThread(
       {required String threadId, RequestOptions? requestOptions}) async {
-    return chatkit_methods.deleteChatkitThread(_config,
-        threadId: threadId, requestOptions: requestOptions);
+    return chatkit_methods.deleteChatkitThread(_config, threadId: threadId, requestOptions: requestOptions);
   }
 
   /// List ChatKit threads with optional pagination and user filters.
@@ -6357,37 +4056,19 @@ class ChatkitNamespace {
       SdkOptional<String> before = const SdkOmitted(),
       SdkOptional<String> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return chatkit_methods.listChatkitThreads(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        user: user,
-        requestOptions: requestOptions);
+    return chatkit_methods.listChatkitThreads(_config, limit: limit, order: order, after: after, before: before, user: user, requestOptions: requestOptions);
   }
 
   /// List ChatKit threads with optional pagination and user filters.
-  Stream<ThreadResource> listThreadsPaginated(
-      {int? limit,
-      OrderEnum? order,
-      String? after,
-      String? before,
-      String? user,
-      RequestOptions? requestOptions}) async* {
-    yield* chatkit_methods.listChatkitThreadsPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        before: before,
-        user: user,
-        requestOptions: requestOptions);
+  Stream<ThreadResource> listThreadsPaginated({int? limit, OrderEnum? order, String? after, String? before, String? user, RequestOptions? requestOptions}) async* {
+    yield* chatkit_methods.listChatkitThreadsPaginated(_config, limit: limit, order: order, after: after, before: before, user: user, requestOptions: requestOptions);
   }
+
 }
 
 class DecisionsNamespace {
   final ClientConfig _config;
   DecisionsNamespace(ClientConfig config) : _config = config;
-
   /// Use this endpoint to quickly answer classification or scoring questions about some input. You can ask multiple questions in one request.
   Future<DecisionResponse> create(
       {required String model,
@@ -6395,24 +4076,16 @@ class DecisionsNamespace {
       required List<QuestionParam> questions,
       SdkOptional<String?> safetyIdentifier = const SdkOmitted(),
       SdkOptional<String?> promptCacheKey = const SdkOmitted(),
-      SdkOptional<DecisionRequestPromptCacheOptions?> promptCacheOptions =
-          const SdkOmitted(),
+      SdkOptional<DecisionRequestPromptCacheOptions?> promptCacheOptions = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return decisions_methods.createDecision(_config,
-        model: model,
-        input: input,
-        questions: questions,
-        safetyIdentifier: safetyIdentifier,
-        promptCacheKey: promptCacheKey,
-        promptCacheOptions: promptCacheOptions,
-        requestOptions: requestOptions);
+    return decisions_methods.createDecision(_config, model: model, input: input, questions: questions, safetyIdentifier: safetyIdentifier, promptCacheKey: promptCacheKey, promptCacheOptions: promptCacheOptions, requestOptions: requestOptions);
   }
+
 }
 
 class AgentsNamespace {
   final ClientConfig _config;
   AgentsNamespace(ClientConfig config) : _config = config;
-
   /// Lists OpenAI-hosted environments owned by the authenticated principal. Requires access to the prewarming beta.
   Future<AgentEnvironmentListResource> listEnvironments(
       {SdkOptional<int> limit = const SdkOmitted(),
@@ -6420,27 +4093,12 @@ class AgentsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<EnvironmentTypeParam> type_ = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentEnvironments(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        type_: type_,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentEnvironments(_config, limit: limit, order: order, after: after, type_: type_, requestOptions: requestOptions);
   }
 
   /// Lists OpenAI-hosted environments owned by the authenticated principal. Requires access to the prewarming beta.
-  Stream<PublicEnvironmentResource> listEnvironmentsPaginated(
-      {int? limit,
-      ListOrderParam? order,
-      String? after,
-      EnvironmentTypeParam? type_,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentEnvironmentsPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        type_: type_,
-        requestOptions: requestOptions);
+  Stream<PublicEnvironmentResource> listEnvironmentsPaginated({int? limit, ListOrderParam? order, String? after, EnvironmentTypeParam? type_, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentEnvironmentsPaginated(_config, limit: limit, order: order, after: after, type_: type_, requestOptions: requestOptions);
   }
 
   /// Creates an OpenAI-hosted environment before creating a session. Requires access to the prewarming beta.
@@ -6449,18 +4107,13 @@ class AgentsNamespace {
       SdkOptional<String> idempotencyKey = const SdkOmitted(),
       SdkOptional<List<String>?> vaultIds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.createAgentEnvironment(_config,
-        environment: environment,
-        idempotencyKey: idempotencyKey,
-        vaultIds: vaultIds,
-        requestOptions: requestOptions);
+    return agents_methods.createAgentEnvironment(_config, environment: environment, idempotencyKey: idempotencyKey, vaultIds: vaultIds, requestOptions: requestOptions);
   }
 
   /// Retrieves an execution environment's connection status and safe installed metadata. See [environment lifecycle](https://developers.openai.com/api/docs/guides/agents-api/environments/lifecycle).
   Future<PublicEnvironmentResource> retrieveEnvironment(
       {required String environmentId, RequestOptions? requestOptions}) async {
-    return agents_methods.retrieveAgentEnvironment(_config,
-        environmentId: environmentId, requestOptions: requestOptions);
+    return agents_methods.retrieveAgentEnvironment(_config, environmentId: environmentId, requestOptions: requestOptions);
   }
 
   /// Lists live files on a connected execution environment with optional directory filtering and opaque cursor pagination. See [environment files](https://developers.openai.com/api/docs/guides/agents-api/environments/files).
@@ -6471,13 +4124,7 @@ class AgentsNamespace {
       SdkOptional<ListOrderParam> order = const SdkOmitted(),
       SdkOptional<String> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentEnvironmentFiles(_config,
-        environmentId: environmentId,
-        path: path,
-        limit: limit,
-        order: order,
-        page: page,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentEnvironmentFiles(_config, environmentId: environmentId, path: path, limit: limit, order: order, page: page, requestOptions: requestOptions);
   }
 
   /// Writes a file to a connected agent execution environment, using either inline base64 data or a file uploaded through the Files API. Choose the `inline` or `file_id` body variant and provide the absolute destination `path`; writing to an existing regular file at that path replaces it. Upload the file between turns and wait for success before starting the next turn.
@@ -6487,10 +4134,7 @@ class AgentsNamespace {
       {required String environmentId,
       SdkOptional<HostedEnvironmentFileParam> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.createAgentEnvironmentFile(_config,
-        environmentId: environmentId,
-        body: body,
-        requestOptions: requestOptions);
+    return agents_methods.createAgentEnvironmentFile(_config, environmentId: environmentId, body: body, requestOptions: requestOptions);
   }
 
   /// Lists subagents in a session, including nested and closed subagents. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
@@ -6500,27 +4144,12 @@ class AgentsNamespace {
       SdkOptional<ListOrderParam> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentSessionSubagents(_config,
-        sessionId: sessionId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentSessionSubagents(_config, sessionId: sessionId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists subagents in a session, including nested and closed subagents. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
-  Stream<SubagentResource> listSessionSubagentsPaginated(
-      {required String sessionId,
-      int? limit,
-      ListOrderParam? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentSessionSubagentsPaginated(_config,
-        sessionId: sessionId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<SubagentResource> listSessionSubagentsPaginated({required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentSessionSubagentsPaginated(_config, sessionId: sessionId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Retrieves a subagent belonging to this session. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
@@ -6528,10 +4157,7 @@ class AgentsNamespace {
       {required String sessionId,
       required String subagentId,
       RequestOptions? requestOptions}) async {
-    return agents_methods.retrieveAgentSessionSubagent(_config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        requestOptions: requestOptions);
+    return agents_methods.retrieveAgentSessionSubagent(_config, sessionId: sessionId, subagentId: subagentId, requestOptions: requestOptions);
   }
 
   /// Lists this subagent's own items across all of its turns. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
@@ -6542,30 +4168,12 @@ class AgentsNamespace {
       SdkOptional<ListOrderParam> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentSessionSubagentItems(_config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentSessionSubagentItems(_config, sessionId: sessionId, subagentId: subagentId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists this subagent's own items across all of its turns. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
-  Stream<SessionTurnItemResource> listSessionSubagentItemsPaginated(
-      {required String sessionId,
-      required String subagentId,
-      int? limit,
-      ListOrderParam? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentSessionSubagentItemsPaginated(_config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<SessionTurnItemResource> listSessionSubagentItemsPaginated({required String sessionId, required String subagentId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentSessionSubagentItemsPaginated(_config, sessionId: sessionId, subagentId: subagentId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists all turns of this subagent, including turns after a resume. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
@@ -6576,30 +4184,12 @@ class AgentsNamespace {
       SdkOptional<ListOrderParam> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentSessionSubagentTurns(_config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentSessionSubagentTurns(_config, sessionId: sessionId, subagentId: subagentId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists all turns of this subagent, including turns after a resume. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
-  Stream<TurnResource> listSessionSubagentTurnsPaginated(
-      {required String sessionId,
-      required String subagentId,
-      int? limit,
-      ListOrderParam? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentSessionSubagentTurnsPaginated(_config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<TurnResource> listSessionSubagentTurnsPaginated({required String sessionId, required String subagentId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentSessionSubagentTurnsPaginated(_config, sessionId: sessionId, subagentId: subagentId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Retrieves a turn belonging to this subagent. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
@@ -6608,11 +4198,7 @@ class AgentsNamespace {
       required String subagentId,
       required String turnId,
       RequestOptions? requestOptions}) async {
-    return agents_methods.retrieveAgentSessionSubagentTurn(_config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        turnId: turnId,
-        requestOptions: requestOptions);
+    return agents_methods.retrieveAgentSessionSubagentTurn(_config, sessionId: sessionId, subagentId: subagentId, turnId: turnId, requestOptions: requestOptions);
   }
 
   /// Lists items belonging to one turn of this subagent. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
@@ -6624,33 +4210,12 @@ class AgentsNamespace {
       SdkOptional<ListOrderParam> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentSessionSubagentTurnItems(_config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        turnId: turnId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentSessionSubagentTurnItems(_config, sessionId: sessionId, subagentId: subagentId, turnId: turnId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists items belonging to one turn of this subagent. See [subagent workflows](https://developers.openai.com/api/docs/guides/agents-api/multi-agent).
-  Stream<SessionTurnItemResource> listSessionSubagentTurnItemsPaginated(
-      {required String sessionId,
-      required String subagentId,
-      required String turnId,
-      int? limit,
-      ListOrderParam? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentSessionSubagentTurnItemsPaginated(_config,
-        sessionId: sessionId,
-        subagentId: subagentId,
-        turnId: turnId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<SessionTurnItemResource> listSessionSubagentTurnItemsPaginated({required String sessionId, required String subagentId, required String turnId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentSessionSubagentTurnItemsPaginated(_config, sessionId: sessionId, subagentId: subagentId, turnId: turnId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists reusable agents in the current project. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
@@ -6659,24 +4224,12 @@ class AgentsNamespace {
       SdkOptional<ListOrderParam> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgents(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return agents_methods.listAgents(_config, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists reusable agents in the current project. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
-  Stream<AgentResource> listPaginated(
-      {int? limit,
-      ListOrderParam? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentsPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<AgentResource> listPaginated({int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentsPaginated(_config, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Creates a reusable agent without storing credentials. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
@@ -6688,29 +4241,16 @@ class AgentsNamespace {
       SdkOptional<TextParam?> text = const SdkOmitted(),
       SdkOptional<ServiceTierParam?> serviceTier = const SdkOmitted(),
       SdkOptional<String?> instructions = const SdkOmitted(),
-      SdkOptional<List<PersistedAgentToolConfigParam>?> tools =
-          const SdkOmitted(),
-      SdkOptional<MultiAgentConfigCurrentParam?> multiAgent =
-          const SdkOmitted(),
+      SdkOptional<List<PersistedAgentToolConfigParam>?> tools = const SdkOmitted(),
+      SdkOptional<MultiAgentConfigCurrentParam?> multiAgent = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.createAgent(_config,
-        model: model,
-        metadata: metadata,
-        name: name,
-        reasoning: reasoning,
-        text: text,
-        serviceTier: serviceTier,
-        instructions: instructions,
-        tools: tools,
-        multiAgent: multiAgent,
-        requestOptions: requestOptions);
+    return agents_methods.createAgent(_config, model: model, metadata: metadata, name: name, reasoning: reasoning, text: text, serviceTier: serviceTier, instructions: instructions, tools: tools, multiAgent: multiAgent, requestOptions: requestOptions);
   }
 
   /// Retrieves a reusable agent by ID. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
   Future<AgentResource> retrieve(
       {required String agentId, RequestOptions? requestOptions}) async {
-    return agents_methods.retrieveAgent(_config,
-        agentId: agentId, requestOptions: requestOptions);
+    return agents_methods.retrieveAgent(_config, agentId: agentId, requestOptions: requestOptions);
   }
 
   /// Updates a reusable agent. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
@@ -6721,32 +4261,18 @@ class AgentsNamespace {
       SdkOptional<TextParam?> text = const SdkOmitted(),
       SdkOptional<ServiceTierParam?> serviceTier = const SdkOmitted(),
       SdkOptional<String?> instructions = const SdkOmitted(),
-      SdkOptional<MultiAgentConfigCurrentParam?> multiAgent =
-          const SdkOmitted(),
+      SdkOptional<MultiAgentConfigCurrentParam?> multiAgent = const SdkOmitted(),
       SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
       SdkOptional<String?> name = const SdkOmitted(),
-      SdkOptional<List<PersistedAgentToolConfigParam>?> tools =
-          const SdkOmitted(),
+      SdkOptional<List<PersistedAgentToolConfigParam>?> tools = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.updateAgent(_config,
-        agentId: agentId,
-        model: model,
-        reasoning: reasoning,
-        text: text,
-        serviceTier: serviceTier,
-        instructions: instructions,
-        multiAgent: multiAgent,
-        metadata: metadata,
-        name: name,
-        tools: tools,
-        requestOptions: requestOptions);
+    return agents_methods.updateAgent(_config, agentId: agentId, model: model, reasoning: reasoning, text: text, serviceTier: serviceTier, instructions: instructions, multiAgent: multiAgent, metadata: metadata, name: name, tools: tools, requestOptions: requestOptions);
   }
 
   /// Deletes a reusable agent. See [agent configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration).
   Future<DeletedAgentResource> delete(
       {required String agentId, RequestOptions? requestOptions}) async {
-    return agents_methods.deleteAgent(_config,
-        agentId: agentId, requestOptions: requestOptions);
+    return agents_methods.deleteAgent(_config, agentId: agentId, requestOptions: requestOptions);
   }
 
   /// Lists reusable environment templates without returning confidential values. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
@@ -6755,24 +4281,12 @@ class AgentsNamespace {
       SdkOptional<ListOrderParam> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentEnvironmentTemplates(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentEnvironmentTemplates(_config, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists reusable environment templates without returning confidential values. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
-  Stream<EnvironmentTemplateResource> listEnvironmentTemplatesPaginated(
-      {int? limit,
-      ListOrderParam? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentEnvironmentTemplatesPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<EnvironmentTemplateResource> listEnvironmentTemplatesPaginated({int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentEnvironmentTemplatesPaginated(_config, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Creates reusable environment configuration without returning confidential setup commands or environment values. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
@@ -6788,27 +4302,14 @@ class AgentsNamespace {
       SdkOptional<List<HostedEnvironmentFileParam>?> files = const SdkOmitted(),
       SdkOptional<String?> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.createAgentEnvironmentTemplate(_config,
-        packages: packages,
-        setupCommands: setupCommands,
-        network: network,
-        desktop: desktop,
-        env: env,
-        capabilityDirectories: capabilityDirectories,
-        skills: skills,
-        plugins: plugins,
-        files: files,
-        name: name,
-        requestOptions: requestOptions);
+    return agents_methods.createAgentEnvironmentTemplate(_config, packages: packages, setupCommands: setupCommands, network: network, desktop: desktop, env: env, capabilityDirectories: capabilityDirectories, skills: skills, plugins: plugins, files: files, name: name, requestOptions: requestOptions);
   }
 
   /// Retrieves reusable environment configuration without returning confidential values. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
   Future<EnvironmentTemplateResource> retrieveEnvironmentTemplate(
       {required String environmentTemplateId,
       RequestOptions? requestOptions}) async {
-    return agents_methods.retrieveAgentEnvironmentTemplate(_config,
-        environmentTemplateId: environmentTemplateId,
-        requestOptions: requestOptions);
+    return agents_methods.retrieveAgentEnvironmentTemplate(_config, environmentTemplateId: environmentTemplateId, requestOptions: requestOptions);
   }
 
   /// Updates reusable environment configuration without returning confidential values. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
@@ -6825,28 +4326,14 @@ class AgentsNamespace {
       SdkOptional<List<HostedPluginParam>?> plugins = const SdkOmitted(),
       SdkOptional<List<HostedEnvironmentFileParam>?> files = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.updateAgentEnvironmentTemplate(_config,
-        environmentTemplateId: environmentTemplateId,
-        name: name,
-        packages: packages,
-        setupCommands: setupCommands,
-        network: network,
-        desktop: desktop,
-        env: env,
-        capabilityDirectories: capabilityDirectories,
-        skills: skills,
-        plugins: plugins,
-        files: files,
-        requestOptions: requestOptions);
+    return agents_methods.updateAgentEnvironmentTemplate(_config, environmentTemplateId: environmentTemplateId, name: name, packages: packages, setupCommands: setupCommands, network: network, desktop: desktop, env: env, capabilityDirectories: capabilityDirectories, skills: skills, plugins: plugins, files: files, requestOptions: requestOptions);
   }
 
   /// Deletes reusable environment configuration and all confidential template inputs. See [reusing a hosted setup](https://developers.openai.com/api/docs/guides/agents-api/tools#reuse-a-hosted-plugin-setup).
   Future<DeletedEnvironmentTemplateResource> deleteEnvironmentTemplate(
       {required String environmentTemplateId,
       RequestOptions? requestOptions}) async {
-    return agents_methods.deleteAgentEnvironmentTemplate(_config,
-        environmentTemplateId: environmentTemplateId,
-        requestOptions: requestOptions);
+    return agents_methods.deleteAgentEnvironmentTemplate(_config, environmentTemplateId: environmentTemplateId, requestOptions: requestOptions);
   }
 
   /// Lists managed agent sessions using ID-based pagination and the requested sort order. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
@@ -6856,27 +4343,12 @@ class AgentsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> agentId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentSessions(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        agentId: agentId,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentSessions(_config, limit: limit, order: order, after: after, agentId: agentId, requestOptions: requestOptions);
   }
 
   /// Lists managed agent sessions using ID-based pagination and the requested sort order. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
-  Stream<SessionResource> listSessionsPaginated(
-      {int? limit,
-      ListOrderParam? order,
-      String? after,
-      String? agentId,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentSessionsPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        agentId: agentId,
-        requestOptions: requestOptions);
+  Stream<SessionResource> listSessionsPaginated({int? limit, ListOrderParam? order, String? after, String? agentId, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentSessionsPaginated(_config, limit: limit, order: order, after: after, agentId: agentId, requestOptions: requestOptions);
   }
 
   /// Creates a managed agent session, optionally submits initial input, and returns the session or streams its events when stream is true. See [running sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions).
@@ -6890,46 +4362,18 @@ class AgentsNamespace {
       SdkOptional<CreateSessionInputParam?> input = const SdkOmitted(),
       SdkOptional<bool> stream = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.createAgentSession(_config,
-        environment: environment,
-        spendControl: spendControl,
-        metadata: metadata,
-        agent: agent,
-        agentId: agentId,
-        vaultIds: vaultIds,
-        input: input,
-        stream: stream,
-        requestOptions: requestOptions);
+    return agents_methods.createAgentSession(_config, environment: environment, spendControl: spendControl, metadata: metadata, agent: agent, agentId: agentId, vaultIds: vaultIds, input: input, stream: stream, requestOptions: requestOptions);
   }
 
   /// Creates a managed agent session, optionally submits initial input, and returns the session or streams its events when stream is true. See [running sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions).
-  Stream<SessionEvent> createSessionStream(
-      {required EnvironmentParam environment,
-      required bool stream,
-      SdkOptional<SessionSpendControlParam?> spendControl = const SdkOmitted(),
-      SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
-      SdkOptional<SessionAgentConfigParam> agent = const SdkOmitted(),
-      SdkOptional<String> agentId = const SdkOmitted(),
-      SdkOptional<List<String>?> vaultIds = const SdkOmitted(),
-      SdkOptional<CreateSessionInputParam?> input = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.createAgentSessionStream(_config,
-        environment: environment,
-        stream: stream,
-        spendControl: spendControl,
-        metadata: metadata,
-        agent: agent,
-        agentId: agentId,
-        vaultIds: vaultIds,
-        input: input,
-        requestOptions: requestOptions);
+  Stream<SessionEvent> createSessionStream({required EnvironmentParam environment, required bool stream, SdkOptional<SessionSpendControlParam?> spendControl = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<SessionAgentConfigParam> agent = const SdkOmitted(), SdkOptional<String> agentId = const SdkOmitted(), SdkOptional<List<String>?> vaultIds = const SdkOmitted(), SdkOptional<CreateSessionInputParam?> input = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* agents_methods.createAgentSessionStream(_config, environment: environment, stream: stream, spendControl: spendControl, metadata: metadata, agent: agent, agentId: agentId, vaultIds: vaultIds, input: input, requestOptions: requestOptions);
   }
 
   /// Retrieves the current state of a managed agent session. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
   Future<SessionResource> retrieveSession(
       {required String sessionId, RequestOptions? requestOptions}) async {
-    return agents_methods.retrieveAgentSession(_config,
-        sessionId: sessionId, requestOptions: requestOptions);
+    return agents_methods.retrieveAgentSession(_config, sessionId: sessionId, requestOptions: requestOptions);
   }
 
   /// Updates session metadata, model, reasoning effort, or service tier. Model settings apply to subsequent turns. Omitted fields are unchanged. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
@@ -6939,19 +4383,13 @@ class AgentsNamespace {
       SdkOptional<UpdateSessionAgentParam> agent = const SdkOmitted(),
       SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.updateAgentSession(_config,
-        sessionId: sessionId,
-        spendControl: spendControl,
-        agent: agent,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return agents_methods.updateAgentSession(_config, sessionId: sessionId, spendControl: spendControl, agent: agent, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Removes a managed agent session from the public API and returns a deletion confirmation. If backend execution has ended, deletion can cancel a still-open public turn and abandon unpublished outputs. Running execution must be cancelled first. Physical cleanup may continue asynchronously. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
   Future<DeletedSessionResource> deleteSession(
       {required String sessionId, RequestOptions? requestOptions}) async {
-    return agents_methods.deleteAgentSession(_config,
-        sessionId: sessionId, requestOptions: requestOptions);
+    return agents_methods.deleteAgentSession(_config, sessionId: sessionId, requestOptions: requestOptions);
   }
 
   /// Lists immutable artifacts published by completed hosted session turns. See [session artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files#openai-hosted-artifacts).
@@ -6962,30 +4400,12 @@ class AgentsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String?> environmentId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentSessionArtifacts(_config,
-        sessionId: sessionId,
-        limit: limit,
-        order: order,
-        after: after,
-        environmentId: environmentId,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentSessionArtifacts(_config, sessionId: sessionId, limit: limit, order: order, after: after, environmentId: environmentId, requestOptions: requestOptions);
   }
 
   /// Lists immutable artifacts published by completed hosted session turns. See [session artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files#openai-hosted-artifacts).
-  Stream<SessionArtifactResource> listSessionArtifactsPaginated(
-      {required String sessionId,
-      int? limit,
-      ListOrderParam? order,
-      String? after,
-      String? environmentId,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentSessionArtifactsPaginated(_config,
-        sessionId: sessionId,
-        limit: limit,
-        order: order,
-        after: after,
-        environmentId: environmentId,
-        requestOptions: requestOptions);
+  Stream<SessionArtifactResource> listSessionArtifactsPaginated({required String sessionId, int? limit, ListOrderParam? order, String? after, String? environmentId, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentSessionArtifactsPaginated(_config, sessionId: sessionId, limit: limit, order: order, after: after, environmentId: environmentId, requestOptions: requestOptions);
   }
 
   /// Retrieves immutable metadata for one durable session artifact. See [session artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files#openai-hosted-artifacts).
@@ -6993,10 +4413,7 @@ class AgentsNamespace {
       {required String sessionId,
       required String artifactId,
       RequestOptions? requestOptions}) async {
-    return agents_methods.retrieveAgentSessionArtifact(_config,
-        sessionId: sessionId,
-        artifactId: artifactId,
-        requestOptions: requestOptions);
+    return agents_methods.retrieveAgentSessionArtifact(_config, sessionId: sessionId, artifactId: artifactId, requestOptions: requestOptions);
   }
 
   /// Deletes an immutable session artifact without deleting its live environment file or original Files API object. See [session artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files#openai-hosted-artifacts).
@@ -7004,10 +4421,7 @@ class AgentsNamespace {
       {required String sessionId,
       required String artifactId,
       RequestOptions? requestOptions}) async {
-    return agents_methods.deleteAgentSessionArtifact(_config,
-        sessionId: sessionId,
-        artifactId: artifactId,
-        requestOptions: requestOptions);
+    return agents_methods.deleteAgentSessionArtifact(_config, sessionId: sessionId, artifactId: artifactId, requestOptions: requestOptions);
   }
 
   /// Downloads immutable session artifact bytes after the execution environment expires. See [session artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files#openai-hosted-artifacts).
@@ -7015,17 +4429,12 @@ class AgentsNamespace {
       {required String sessionId,
       required String artifactId,
       RequestOptions? requestOptions}) async {
-    return agents_methods.retrieveAgentSessionArtifactContent(_config,
-        sessionId: sessionId,
-        artifactId: artifactId,
-        requestOptions: requestOptions);
+    return agents_methods.retrieveAgentSessionArtifactContent(_config, sessionId: sessionId, artifactId: artifactId, requestOptions: requestOptions);
   }
 
   /// Streams live events for an agent session. See [session events](https://developers.openai.com/api/docs/guides/agents-api/sessions/events).
-  Stream<SessionEvent> listSessionEvents(
-      {required String sessionId, RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentSessionEvents(_config,
-        sessionId: sessionId, requestOptions: requestOptions);
+  Stream<SessionEvent> listSessionEvents({required String sessionId, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentSessionEvents(_config, sessionId: sessionId, requestOptions: requestOptions);
   }
 
   /// Submits message, cancellation, tool-result, or computer-use approval-response events to a managed agent session. Cancellation can recover a still-open turn whose backend execution has ended by marking it cancelled and abandoning unpublished outputs. Saved results, published files, and existing terminal outcomes are preserved. HTTP 202 confirms acceptance, not durable completion. See [session events](https://developers.openai.com/api/docs/guides/agents-api/sessions/events).
@@ -7034,11 +4443,7 @@ class AgentsNamespace {
       required List<SessionInputParam> events,
       SdkOptional<String> idempotencyKey = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.createAgentSessionEvents(_config,
-        sessionId: sessionId,
-        events: events,
-        idempotencyKey: idempotencyKey,
-        requestOptions: requestOptions);
+    return agents_methods.createAgentSessionEvents(_config, sessionId: sessionId, events: events, idempotencyKey: idempotencyKey, requestOptions: requestOptions);
   }
 
   /// Lists items produced by the session's root agent, including its interactions with subagents. Each subagent has its own item history. See [inspecting agent output](https://developers.openai.com/api/docs/guides/agents-api/observability).
@@ -7048,27 +4453,12 @@ class AgentsNamespace {
       SdkOptional<ListOrderParam> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentSessionItems(_config,
-        sessionId: sessionId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentSessionItems(_config, sessionId: sessionId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists items produced by the session's root agent, including its interactions with subagents. Each subagent has its own item history. See [inspecting agent output](https://developers.openai.com/api/docs/guides/agents-api/observability).
-  Stream<SessionTurnItemResource> listSessionItemsPaginated(
-      {required String sessionId,
-      int? limit,
-      ListOrderParam? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentSessionItemsPaginated(_config,
-        sessionId: sessionId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<SessionTurnItemResource> listSessionItemsPaginated({required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentSessionItemsPaginated(_config, sessionId: sessionId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists published root-turn traces as OTLP JSON, ordered by turn creation time and ID. Unpublished traces are skipped. Each page returns data available when read; it does not wait for late traces. Trace reads and the JSON response are limited to 16 MiB per request. If the limit is exceeded, request fewer traces.
@@ -7078,27 +4468,12 @@ class AgentsNamespace {
       SdkOptional<ListOrderParam> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentSessionTraces(_config,
-        sessionId: sessionId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentSessionTraces(_config, sessionId: sessionId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists published root-turn traces as OTLP JSON, ordered by turn creation time and ID. Unpublished traces are skipped. Each page returns data available when read; it does not wait for late traces. Trace reads and the JSON response are limited to 16 MiB per request. If the limit is exceeded, request fewer traces.
-  Stream<SessionTurnTraceResource> listSessionTracesPaginated(
-      {required String sessionId,
-      int? limit,
-      ListOrderParam? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentSessionTracesPaginated(_config,
-        sessionId: sessionId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<SessionTurnTraceResource> listSessionTracesPaginated({required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentSessionTracesPaginated(_config, sessionId: sessionId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists turns by creation time and turn ID. The after cursor is exclusive in the selected order. See [session turns](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage#inspect-session-turns).
@@ -7108,27 +4483,12 @@ class AgentsNamespace {
       SdkOptional<ListOrderParam> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentSessionTurns(_config,
-        sessionId: sessionId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentSessionTurns(_config, sessionId: sessionId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists turns by creation time and turn ID. The after cursor is exclusive in the selected order. See [session turns](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage#inspect-session-turns).
-  Stream<TurnResource> listSessionTurnsPaginated(
-      {required String sessionId,
-      int? limit,
-      ListOrderParam? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentSessionTurnsPaginated(_config,
-        sessionId: sessionId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<TurnResource> listSessionTurnsPaginated({required String sessionId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentSessionTurnsPaginated(_config, sessionId: sessionId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Retrieves a turn's current status, timestamps, usage, and error. Returns 404 if the turn does not belong to the session. See [session turns](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage#inspect-session-turns).
@@ -7136,8 +4496,7 @@ class AgentsNamespace {
       {required String sessionId,
       required String turnId,
       RequestOptions? requestOptions}) async {
-    return agents_methods.retrieveAgentSessionTurn(_config,
-        sessionId: sessionId, turnId: turnId, requestOptions: requestOptions);
+    return agents_methods.retrieveAgentSessionTurn(_config, sessionId: sessionId, turnId: turnId, requestOptions: requestOptions);
   }
 
   /// Lists items belonging to one root-agent turn, including its interactions with subagents. See [inspecting agent output](https://developers.openai.com/api/docs/guides/agents-api/observability).
@@ -7148,37 +4507,19 @@ class AgentsNamespace {
       SdkOptional<ListOrderParam> order = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agents_methods.listAgentSessionTurnItems(_config,
-        sessionId: sessionId,
-        turnId: turnId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+    return agents_methods.listAgentSessionTurnItems(_config, sessionId: sessionId, turnId: turnId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
 
   /// Lists items belonging to one root-agent turn, including its interactions with subagents. See [inspecting agent output](https://developers.openai.com/api/docs/guides/agents-api/observability).
-  Stream<SessionTurnItemResource> listSessionTurnItemsPaginated(
-      {required String sessionId,
-      required String turnId,
-      int? limit,
-      ListOrderParam? order,
-      String? after,
-      RequestOptions? requestOptions}) async* {
-    yield* agents_methods.listAgentSessionTurnItemsPaginated(_config,
-        sessionId: sessionId,
-        turnId: turnId,
-        limit: limit,
-        order: order,
-        after: after,
-        requestOptions: requestOptions);
+  Stream<SessionTurnItemResource> listSessionTurnItemsPaginated({required String sessionId, required String turnId, int? limit, ListOrderParam? order, String? after, RequestOptions? requestOptions}) async* {
+    yield* agents_methods.listAgentSessionTurnItemsPaginated(_config, sessionId: sessionId, turnId: turnId, limit: limit, order: order, after: after, requestOptions: requestOptions);
   }
+
 }
 
 class VaultsNamespace {
   final ClientConfig _config;
   VaultsNamespace(ClientConfig config) : _config = config;
-
   /// Lists vaults using ID-based pagination. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
   Future<VaultListResource> list(
       {SdkOptional<int> limit = const SdkOmitted(),
@@ -7187,30 +4528,12 @@ class VaultsNamespace {
       SdkOptional<Map<String, String>> metadata = const SdkOmitted(),
       SdkOptional<VaultStatusFilterParam> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vaults_methods.listVaults(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        metadata: metadata,
-        status: status,
-        requestOptions: requestOptions);
+    return vaults_methods.listVaults(_config, limit: limit, order: order, after: after, metadata: metadata, status: status, requestOptions: requestOptions);
   }
 
   /// Lists vaults using ID-based pagination. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
-  Stream<VaultResource> listPaginated(
-      {int? limit,
-      ListOrderParam? order,
-      String? after,
-      Map<String, String>? metadata,
-      VaultStatusFilterParam? status,
-      RequestOptions? requestOptions}) async* {
-    yield* vaults_methods.listVaultsPaginated(_config,
-        limit: limit,
-        order: order,
-        after: after,
-        metadata: metadata,
-        status: status,
-        requestOptions: requestOptions);
+  Stream<VaultResource> listPaginated({int? limit, ListOrderParam? order, String? after, Map<String, String>? metadata, VaultStatusFilterParam? status, RequestOptions? requestOptions}) async* {
+    yield* vaults_methods.listVaultsPaginated(_config, limit: limit, order: order, after: after, metadata: metadata, status: status, requestOptions: requestOptions);
   }
 
   /// Creates a vault for the current project. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
@@ -7218,15 +4541,13 @@ class VaultsNamespace {
       {SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vaults_methods.createVault(_config,
-        name: name, metadata: metadata, requestOptions: requestOptions);
+    return vaults_methods.createVault(_config, name: name, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Retrieves a vault by its ID. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
   Future<VaultResource> retrieve(
       {required String vaultId, RequestOptions? requestOptions}) async {
-    return vaults_methods.retrieveVault(_config,
-        vaultId: vaultId, requestOptions: requestOptions);
+    return vaults_methods.retrieveVault(_config, vaultId: vaultId, requestOptions: requestOptions);
   }
 
   /// Updates the name or metadata of an active vault. Omitted fields remain unchanged. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
@@ -7235,18 +4556,13 @@ class VaultsNamespace {
       SdkOptional<Map<String, String>> metadata = const SdkOmitted(),
       SdkOptional<String?> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vaults_methods.updateVault(_config,
-        vaultId: vaultId,
-        metadata: metadata,
-        name: name,
-        requestOptions: requestOptions);
+    return vaults_methods.updateVault(_config, vaultId: vaultId, metadata: metadata, name: name, requestOptions: requestOptions);
   }
 
   /// Deletes a vault and all its credentials. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
   Future<DeletedVaultResource> delete(
       {required String vaultId, RequestOptions? requestOptions}) async {
-    return vaults_methods.deleteVault(_config,
-        vaultId: vaultId, requestOptions: requestOptions);
+    return vaults_methods.deleteVault(_config, vaultId: vaultId, requestOptions: requestOptions);
   }
 
   /// Lists a vault's credentials using ID-based pagination without returning secret values. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
@@ -7258,33 +4574,12 @@ class VaultsNamespace {
       SdkOptional<Map<String, String>> metadata = const SdkOmitted(),
       SdkOptional<VaultStatusFilterParam> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vaults_methods.listVaultCredentials(_config,
-        vaultId: vaultId,
-        limit: limit,
-        order: order,
-        after: after,
-        metadata: metadata,
-        status: status,
-        requestOptions: requestOptions);
+    return vaults_methods.listVaultCredentials(_config, vaultId: vaultId, limit: limit, order: order, after: after, metadata: metadata, status: status, requestOptions: requestOptions);
   }
 
   /// Lists a vault's credentials using ID-based pagination without returning secret values. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
-  Stream<VaultCredentialResource> listCredentialsPaginated(
-      {required String vaultId,
-      int? limit,
-      ListOrderParam? order,
-      String? after,
-      Map<String, String>? metadata,
-      VaultStatusFilterParam? status,
-      RequestOptions? requestOptions}) async* {
-    yield* vaults_methods.listVaultCredentialsPaginated(_config,
-        vaultId: vaultId,
-        limit: limit,
-        order: order,
-        after: after,
-        metadata: metadata,
-        status: status,
-        requestOptions: requestOptions);
+  Stream<VaultCredentialResource> listCredentialsPaginated({required String vaultId, int? limit, ListOrderParam? order, String? after, Map<String, String>? metadata, VaultStatusFilterParam? status, RequestOptions? requestOptions}) async* {
+    yield* vaults_methods.listVaultCredentialsPaginated(_config, vaultId: vaultId, limit: limit, order: order, after: after, metadata: metadata, status: status, requestOptions: requestOptions);
   }
 
   /// Creates a vault credential. Secret values are write-only and are never returned. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
@@ -7294,12 +4589,7 @@ class VaultsNamespace {
       required CreateVaultCredentialAuthParam auth,
       SdkOptional<Map<String, String>> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vaults_methods.createVaultCredential(_config,
-        vaultId: vaultId,
-        name: name,
-        auth: auth,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return vaults_methods.createVaultCredential(_config, vaultId: vaultId, name: name, auth: auth, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Retrieves vault credential metadata without returning secret values. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
@@ -7307,10 +4597,7 @@ class VaultsNamespace {
       {required String vaultId,
       required String credentialId,
       RequestOptions? requestOptions}) async {
-    return vaults_methods.retrieveVaultCredential(_config,
-        vaultId: vaultId,
-        credentialId: credentialId,
-        requestOptions: requestOptions);
+    return vaults_methods.retrieveVaultCredential(_config, vaultId: vaultId, credentialId: credentialId, requestOptions: requestOptions);
   }
 
   /// Updates credential metadata or rotates its write-only secret. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
@@ -7320,12 +4607,7 @@ class VaultsNamespace {
       SdkOptional<RotateVaultCredentialAuthParam> auth = const SdkOmitted(),
       SdkOptional<Map<String, String>> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vaults_methods.rotateVaultCredential(_config,
-        vaultId: vaultId,
-        credentialId: credentialId,
-        auth: auth,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return vaults_methods.rotateVaultCredential(_config, vaultId: vaultId, credentialId: credentialId, auth: auth, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Deletes a vault credential. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
@@ -7333,31 +4615,25 @@ class VaultsNamespace {
       {required String vaultId,
       required String credentialId,
       RequestOptions? requestOptions}) async {
-    return vaults_methods.deleteVaultCredential(_config,
-        vaultId: vaultId,
-        credentialId: credentialId,
-        requestOptions: requestOptions);
+    return vaults_methods.deleteVaultCredential(_config, vaultId: vaultId, credentialId: credentialId, requestOptions: requestOptions);
   }
+
 }
 
 class WebhookEndpointsNamespace {
   final ClientConfig _config;
   WebhookEndpointsNamespace(ClientConfig config) : _config = config;
-
   /// Returns webhook endpoints for the authenticated project in newest-first order.
   Future<WebhookEndpointListResource> list(
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String?> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return webhook_endpoints_methods.listWebhookEndpoints(_config,
-        limit: limit, after: after, requestOptions: requestOptions);
+    return webhook_endpoints_methods.listWebhookEndpoints(_config, limit: limit, after: after, requestOptions: requestOptions);
   }
 
   /// Returns webhook endpoints for the authenticated project in newest-first order.
-  Stream<WebhookEndpointBody> listPaginated(
-      {int? limit, String? after, RequestOptions? requestOptions}) async* {
-    yield* webhook_endpoints_methods.listWebhookEndpointsPaginated(_config,
-        limit: limit, after: after, requestOptions: requestOptions);
+  Stream<WebhookEndpointBody> listPaginated({int? limit, String? after, RequestOptions? requestOptions}) async* {
+    yield* webhook_endpoints_methods.listWebhookEndpointsPaginated(_config, limit: limit, after: after, requestOptions: requestOptions);
   }
 
   /// Creates a webhook endpoint for the authenticated project.
@@ -7366,19 +4642,14 @@ class WebhookEndpointsNamespace {
       required String url,
       required List<ProjectEventTypeEnum> eventTypes,
       RequestOptions? requestOptions}) async {
-    return webhook_endpoints_methods.createWebhookEndpoint(_config,
-        name: name,
-        url: url,
-        eventTypes: eventTypes,
-        requestOptions: requestOptions);
+    return webhook_endpoints_methods.createWebhookEndpoint(_config, name: name, url: url, eventTypes: eventTypes, requestOptions: requestOptions);
   }
 
   /// Retrieves a webhook endpoint for the authenticated project.
   Future<WebhookEndpointBody> retrieve(
       {required String webhookEndpointId,
       RequestOptions? requestOptions}) async {
-    return webhook_endpoints_methods.retrieveWebhookEndpoint(_config,
-        webhookEndpointId: webhookEndpointId, requestOptions: requestOptions);
+    return webhook_endpoints_methods.retrieveWebhookEndpoint(_config, webhookEndpointId: webhookEndpointId, requestOptions: requestOptions);
   }
 
   /// Updates a webhook endpoint for the authenticated project.
@@ -7388,20 +4659,14 @@ class WebhookEndpointsNamespace {
       SdkOptional<String> url = const SdkOmitted(),
       SdkOptional<List<ProjectEventTypeEnum>> eventTypes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return webhook_endpoints_methods.updateWebhookEndpoint(_config,
-        webhookEndpointId: webhookEndpointId,
-        name: name,
-        url: url,
-        eventTypes: eventTypes,
-        requestOptions: requestOptions);
+    return webhook_endpoints_methods.updateWebhookEndpoint(_config, webhookEndpointId: webhookEndpointId, name: name, url: url, eventTypes: eventTypes, requestOptions: requestOptions);
   }
 
   /// Deletes a webhook endpoint for the authenticated project.
   Future<DeletedWebhookEndpointResource> delete(
       {required String webhookEndpointId,
       RequestOptions? requestOptions}) async {
-    return webhook_endpoints_methods.deleteWebhookEndpoint(_config,
-        webhookEndpointId: webhookEndpointId, requestOptions: requestOptions);
+    return webhook_endpoints_methods.deleteWebhookEndpoint(_config, webhookEndpointId: webhookEndpointId, requestOptions: requestOptions);
   }
 
   /// Rotates the signing secret for a webhook endpoint in the authenticated project.
@@ -7409,10 +4674,7 @@ class WebhookEndpointsNamespace {
       {required String webhookEndpointId,
       SdkOptional<bool> keepOldSecretActiveFor24Hours = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return webhook_endpoints_methods.rotateWebhookEndpointSigningSecret(_config,
-        webhookEndpointId: webhookEndpointId,
-        keepOldSecretActiveFor24Hours: keepOldSecretActiveFor24Hours,
-        requestOptions: requestOptions);
+    return webhook_endpoints_methods.rotateWebhookEndpointSigningSecret(_config, webhookEndpointId: webhookEndpointId, keepOldSecretActiveFor24Hours: keepOldSecretActiveFor24Hours, requestOptions: requestOptions);
   }
 
   /// Sends a sample event to a webhook endpoint for the authenticated project.
@@ -7420,23 +4682,20 @@ class WebhookEndpointsNamespace {
       {required String webhookEndpointId,
       required ProjectEventTypeEnum eventType,
       RequestOptions? requestOptions}) async {
-    return webhook_endpoints_methods.testWebhookEndpoint(_config,
-        webhookEndpointId: webhookEndpointId,
-        eventType: eventType,
-        requestOptions: requestOptions);
+    return webhook_endpoints_methods.testWebhookEndpoint(_config, webhookEndpointId: webhookEndpointId, eventType: eventType, requestOptions: requestOptions);
   }
+
 }
 
 class WebhookEventTypesNamespace {
   final ClientConfig _config;
   WebhookEventTypesNamespace(ClientConfig config) : _config = config;
-
   /// Returns webhook event types visible to the authenticated project.
   Future<WebhookEventTypeListResource> list(
       {RequestOptions? requestOptions}) async {
-    return webhook_event_types_methods.listWebhookEventTypes(_config,
-        requestOptions: requestOptions);
+    return webhook_event_types_methods.listWebhookEventTypes(_config, requestOptions: requestOptions);
   }
+
 }
 
 class OpenAI {
@@ -7462,8 +4721,7 @@ class OpenAI {
   late final UsageNamespace usage;
   late final DataRetentionNamespace dataRetention;
   late final GroupsNamespace groups;
-  late final GroupOrganizationRoleAssignmentsNamespace
-      groupOrganizationRoleAssignments;
+  late final GroupOrganizationRoleAssignmentsNamespace groupOrganizationRoleAssignments;
   late final GroupUsersNamespace groupUsers;
   late final InvitesNamespace invites;
   late final ProjectsNamespace projects;
@@ -7472,8 +4730,7 @@ class OpenAI {
   late final SpendAlertsNamespace spendAlerts;
   late final RolesNamespace roles;
   late final UsersNamespace users;
-  late final UserOrganizationRoleAssignmentsNamespace
-      userOrganizationRoleAssignments;
+  late final UserOrganizationRoleAssignmentsNamespace userOrganizationRoleAssignments;
   late final ProjectGroupRoleAssignmentsNamespace projectGroupRoleAssignments;
   late final ProjectUserRoleAssignmentsNamespace projectUserRoleAssignments;
   late final RealtimeNamespace realtime;
@@ -7514,8 +4771,7 @@ class OpenAI {
     usage = UsageNamespace(config);
     dataRetention = DataRetentionNamespace(config);
     groups = GroupsNamespace(config);
-    groupOrganizationRoleAssignments =
-        GroupOrganizationRoleAssignmentsNamespace(config);
+    groupOrganizationRoleAssignments = GroupOrganizationRoleAssignmentsNamespace(config);
     groupUsers = GroupUsersNamespace(config);
     invites = InvitesNamespace(config);
     projects = ProjectsNamespace(config);
@@ -7524,8 +4780,7 @@ class OpenAI {
     spendAlerts = SpendAlertsNamespace(config);
     roles = RolesNamespace(config);
     users = UsersNamespace(config);
-    userOrganizationRoleAssignments =
-        UserOrganizationRoleAssignmentsNamespace(config);
+    userOrganizationRoleAssignments = UserOrganizationRoleAssignmentsNamespace(config);
     projectGroupRoleAssignments = ProjectGroupRoleAssignmentsNamespace(config);
     projectUserRoleAssignments = ProjectUserRoleAssignmentsNamespace(config);
     realtime = RealtimeNamespace(config);
@@ -7572,4 +4827,5 @@ class OpenAI {
     logging.enabled = enabled ?? true;
     return logging;
   }
+
 }

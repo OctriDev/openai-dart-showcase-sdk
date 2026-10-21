@@ -8,63 +8,37 @@ part of 'agents_environment.dart';
 class EnvironmentFileResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type. Always `agent.environment.file`.
   final EnvironmentFileResourceObject object;
-
   /// The ID of the environment containing this file.
   final String environmentId;
-
   /// The absolute file path inside the environment's workspace.
   final String path;
-
   /// The file size in bytes.
   final int sizeBytes;
 
-  const EnvironmentFileResource(
-      {required this.object,
-      required this.environmentId,
-      required this.path,
-      required this.sizeBytes});
+  const EnvironmentFileResource({required this.object, required this.environmentId, required this.path, required this.sizeBytes});
 
-  EnvironmentFileResource Function(
-      {EnvironmentFileResourceObject object,
-      String environmentId,
-      String path,
-      int sizeBytes}) get copyWith => _copyWith;
+  EnvironmentFileResource Function({EnvironmentFileResourceObject object, String environmentId, String path, int sizeBytes}) get copyWith => _copyWith;
 
-  EnvironmentFileResource _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? environmentId = sdkOmittedValue,
-          Object? path = sdkOmittedValue,
-          Object? sizeBytes = sdkOmittedValue}) =>
-      EnvironmentFileResource(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as EnvironmentFileResourceObject,
-        environmentId: identical(environmentId, sdkOmittedValue)
-            ? this.environmentId
-            : environmentId as String,
-        path: identical(path, sdkOmittedValue) ? this.path : path as String,
-        sizeBytes: identical(sizeBytes, sdkOmittedValue)
-            ? this.sizeBytes
-            : sizeBytes as int,
-      );
+  EnvironmentFileResource _copyWith({Object? object = sdkOmittedValue, Object? environmentId = sdkOmittedValue, Object? path = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue}) => EnvironmentFileResource(
+    object: identical(object, sdkOmittedValue) ? this.object : object as EnvironmentFileResourceObject,
+    environmentId: identical(environmentId, sdkOmittedValue) ? this.environmentId : environmentId as String,
+    path: identical(path, sdkOmittedValue) ? this.path : path as String,
+    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as int,
+  );
 
-  factory EnvironmentFileResource.fromJson(Map<String, dynamic> json) =>
-      EnvironmentFileResource(
-        object: (json['object'] != null
-            ? EnvironmentFileResourceObject.fromJson(json['object'] as String)
-            : null)!,
-        environmentId: (json['environment_id'] as String?)!,
-        path: (json['path'] as String?)!,
-        sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
-      );
+  factory EnvironmentFileResource.fromJson(Map<String, dynamic> json) => EnvironmentFileResource(
+    object: (json['object'] != null ? EnvironmentFileResourceObject.fromJson(json['object'] as String) : null)!,
+    environmentId: (json['environment_id'] as String?)!,
+    path: (json['path'] as String?)!,
+    sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'environment_id': environmentId,
-        'path': path,
-        'size_bytes': sizeBytes,
-      };
+    'object': object.toJson(),
+    'environment_id': environmentId,
+    'path': path,
+    'size_bytes': sizeBytes,
+  };
 }

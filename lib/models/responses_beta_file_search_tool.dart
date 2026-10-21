@@ -8,104 +8,51 @@ part of 'responses_beta_file.dart';
 class BetaFileSearchTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the file search tool. Always `file_search`.
   final BetaFileSearchToolType type_;
-
   /// The IDs of the vector stores to search.
   final List<String> vectorStoreIds;
-
   /// The maximum number of results to return. This number should be between 1 and 50 inclusive.
   final SdkOptional<int> maxNumResults;
-
   /// Ranking options for search.
   final SdkOptional<BetaRankingOptions> rankingOptions;
-
   /// Optional API value serialized in the `filters` wire field.
   final SdkOptional<BetaFilters?> filters;
 
-  const BetaFileSearchTool(
-      {required this.type_,
-      required this.vectorStoreIds,
-      this.maxNumResults = const SdkOmitted(),
-      this.rankingOptions = const SdkOmitted(),
-      this.filters = const SdkOmitted()});
+  const BetaFileSearchTool({required this.type_, required this.vectorStoreIds, this.maxNumResults = const SdkOmitted(), this.rankingOptions = const SdkOmitted(), this.filters = const SdkOmitted()});
 
-  BetaFileSearchTool Function(
-      {BetaFileSearchToolType type_,
-      List<String> vectorStoreIds,
-      SdkOptional<int> maxNumResults,
-      SdkOptional<BetaRankingOptions> rankingOptions,
-      SdkOptional<BetaFilters?> filters}) get copyWith => _copyWith;
+  BetaFileSearchTool Function({BetaFileSearchToolType type_, List<String> vectorStoreIds, SdkOptional<int> maxNumResults, SdkOptional<BetaRankingOptions> rankingOptions, SdkOptional<BetaFilters?> filters}) get copyWith => _copyWith;
 
-  BetaFileSearchTool _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? vectorStoreIds = sdkOmittedValue,
-          Object? maxNumResults = sdkOmittedValue,
-          Object? rankingOptions = sdkOmittedValue,
-          Object? filters = sdkOmittedValue}) =>
-      BetaFileSearchTool(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaFileSearchToolType,
-        vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue)
-            ? this.vectorStoreIds
-            : vectorStoreIds as List<String>,
-        maxNumResults: identical(maxNumResults, sdkOmittedValue)
-            ? this.maxNumResults
-            : maxNumResults as SdkOptional<int>,
-        rankingOptions: identical(rankingOptions, sdkOmittedValue)
-            ? this.rankingOptions
-            : rankingOptions as SdkOptional<BetaRankingOptions>,
-        filters: identical(filters, sdkOmittedValue)
-            ? this.filters
-            : filters as SdkOptional<BetaFilters?>,
-      );
+  BetaFileSearchTool _copyWith({Object? type_ = sdkOmittedValue, Object? vectorStoreIds = sdkOmittedValue, Object? maxNumResults = sdkOmittedValue, Object? rankingOptions = sdkOmittedValue, Object? filters = sdkOmittedValue}) => BetaFileSearchTool(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFileSearchToolType,
+    vectorStoreIds: identical(vectorStoreIds, sdkOmittedValue) ? this.vectorStoreIds : vectorStoreIds as List<String>,
+    maxNumResults: identical(maxNumResults, sdkOmittedValue) ? this.maxNumResults : maxNumResults as SdkOptional<int>,
+    rankingOptions: identical(rankingOptions, sdkOmittedValue) ? this.rankingOptions : rankingOptions as SdkOptional<BetaRankingOptions>,
+    filters: identical(filters, sdkOmittedValue) ? this.filters : filters as SdkOptional<BetaFilters?>,
+  );
 
-  factory BetaFileSearchTool.fromJson(Map<String, dynamic> json) =>
-      BetaFileSearchTool(
-        type_: (json['type'] != null
-            ? BetaFileSearchToolType.fromJson(json['type'] as String)
-            : null)!,
-        vectorStoreIds: ((json['vector_store_ids'] as List?)
-            ?.map((e) => e as String)
-            .toList())!,
-        maxNumResults: json['max_num_results'] != null
-            ? SdkPresent(((json['max_num_results'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        rankingOptions: json['ranking_options'] != null
-            ? SdkPresent((json['ranking_options'] != null
-                ? BetaRankingOptions.fromJson(
-                    json['ranking_options'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        filters: json.containsKey('filters')
-            ? SdkPresent(json['filters'] != null
-                ? BetaFilters.fromJson(json['filters'])
-                : null)
-            : const SdkOmitted(),
-      );
+  factory BetaFileSearchTool.fromJson(Map<String, dynamic> json) => BetaFileSearchTool(
+    type_: (json['type'] != null ? BetaFileSearchToolType.fromJson(json['type'] as String) : null)!,
+    vectorStoreIds: ((json['vector_store_ids'] as List?)?.map((e) => e as String).toList())!,
+    maxNumResults: json['max_num_results'] != null ? SdkPresent(((json['max_num_results'] as num?)?.toInt())!) : const SdkOmitted(),
+    rankingOptions: json['ranking_options'] != null ? SdkPresent((json['ranking_options'] != null ? BetaRankingOptions.fromJson(json['ranking_options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    filters: json.containsKey('filters') ? SdkPresent(json['filters'] != null ? BetaFilters.fromJson(json['filters']) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'vector_store_ids': vectorStoreIds,
-        ...switch (maxNumResults) {
-          SdkPresent<int>(value: final value) => {
-              'max_num_results': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rankingOptions) {
-          SdkPresent<BetaRankingOptions>(value: final value) => {
-              'ranking_options': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (filters) {
-          SdkPresent<BetaFilters?>(value: final value) => {
-              'filters': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'vector_store_ids': vectorStoreIds,
+    ...switch (maxNumResults) {
+      SdkPresent<int>(value: final value) => {'max_num_results': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rankingOptions) {
+      SdkPresent<BetaRankingOptions>(value: final value) => {'ranking_options': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (filters) {
+      SdkPresent<BetaFilters?>(value: final value) => {'filters': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

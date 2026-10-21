@@ -8,54 +8,32 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventOutputAudioBufferCleared {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the server event.
   final String eventId;
-
   /// The event type, must be `output_audio_buffer.cleared`.
   final RealtimeServerEventOutputAudioBufferClearedType type_;
-
   /// The unique ID of the response that produced the audio.
   final String responseId;
 
-  const RealtimeServerEventOutputAudioBufferCleared(
-      {required this.eventId, required this.type_, required this.responseId});
+  const RealtimeServerEventOutputAudioBufferCleared({required this.eventId, required this.type_, required this.responseId});
 
-  RealtimeServerEventOutputAudioBufferCleared Function(
-      {String eventId,
-      RealtimeServerEventOutputAudioBufferClearedType type_,
-      String responseId}) get copyWith => _copyWith;
+  RealtimeServerEventOutputAudioBufferCleared Function({String eventId, RealtimeServerEventOutputAudioBufferClearedType type_, String responseId}) get copyWith => _copyWith;
 
-  RealtimeServerEventOutputAudioBufferCleared _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? responseId = sdkOmittedValue}) =>
-      RealtimeServerEventOutputAudioBufferCleared(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeServerEventOutputAudioBufferClearedType,
-        responseId: identical(responseId, sdkOmittedValue)
-            ? this.responseId
-            : responseId as String,
-      );
+  RealtimeServerEventOutputAudioBufferCleared _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue}) => RealtimeServerEventOutputAudioBufferCleared(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventOutputAudioBufferClearedType,
+    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
+  );
 
-  factory RealtimeServerEventOutputAudioBufferCleared.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeServerEventOutputAudioBufferCleared(
-        eventId: (json['event_id'] as String?)!,
-        type_: (json['type'] != null
-            ? RealtimeServerEventOutputAudioBufferClearedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        responseId: (json['response_id'] as String?)!,
-      );
+  factory RealtimeServerEventOutputAudioBufferCleared.fromJson(Map<String, dynamic> json) => RealtimeServerEventOutputAudioBufferCleared(
+    eventId: (json['event_id'] as String?)!,
+    type_: (json['type'] != null ? RealtimeServerEventOutputAudioBufferClearedType.fromJson(json['type'] as String) : null)!,
+    responseId: (json['response_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'event_id': eventId,
-        'type': type_.toJson(),
-        'response_id': responseId,
-      };
+    'event_id': eventId,
+    'type': type_.toJson(),
+    'response_id': responseId,
+  };
 }

@@ -8,47 +8,32 @@ part of 'misc.dart';
 class OutputAudio {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the output audio. Always `output_audio`.
   final OutputAudioType type_;
-
   /// Base64-encoded audio data from the model.
   final String data;
-
   /// The transcript of the audio data from the model.
   final String transcript;
 
-  const OutputAudio(
-      {required this.type_, required this.data, required this.transcript});
+  const OutputAudio({required this.type_, required this.data, required this.transcript});
 
-  OutputAudio Function({OutputAudioType type_, String data, String transcript})
-      get copyWith => _copyWith;
+  OutputAudio Function({OutputAudioType type_, String data, String transcript}) get copyWith => _copyWith;
 
-  OutputAudio _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? transcript = sdkOmittedValue}) =>
-      OutputAudio(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as OutputAudioType,
-        data: identical(data, sdkOmittedValue) ? this.data : data as String,
-        transcript: identical(transcript, sdkOmittedValue)
-            ? this.transcript
-            : transcript as String,
-      );
+  OutputAudio _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? transcript = sdkOmittedValue}) => OutputAudio(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as OutputAudioType,
+    data: identical(data, sdkOmittedValue) ? this.data : data as String,
+    transcript: identical(transcript, sdkOmittedValue) ? this.transcript : transcript as String,
+  );
 
   factory OutputAudio.fromJson(Map<String, dynamic> json) => OutputAudio(
-        type_: (json['type'] != null
-            ? OutputAudioType.fromJson(json['type'] as String)
-            : null)!,
-        data: (json['data'] as String?)!,
-        transcript: (json['transcript'] as String?)!,
-      );
+    type_: (json['type'] != null ? OutputAudioType.fromJson(json['type'] as String) : null)!,
+    data: (json['data'] as String?)!,
+    transcript: (json['transcript'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'data': data,
-        'transcript': transcript,
-      };
+    'type': type_.toJson(),
+    'data': data,
+    'transcript': transcript,
+  };
 }

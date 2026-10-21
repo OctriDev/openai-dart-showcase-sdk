@@ -9,22 +9,14 @@ sealed class ChatCompletionRequestSystemMessageContentPart {
   static const String constructionSurface = 'named';
   const ChatCompletionRequestSystemMessageContentPart();
   factory ChatCompletionRequestSystemMessageContentPart.fromJson(Object? json) {
-    try {
-      return ChatCompletionRequestSystemMessageContentPartChatCompletionRequestMessageContentPartText(
-          ChatCompletionRequestMessageContentPartText.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for ChatCompletionRequestSystemMessageContentPart");
+    try { return ChatCompletionRequestSystemMessageContentPartChatCompletionRequestMessageContentPartText(ChatCompletionRequestMessageContentPartText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for ChatCompletionRequestSystemMessageContentPart");
   }
   Object? toJson();
 }
 
-final class ChatCompletionRequestSystemMessageContentPartChatCompletionRequestMessageContentPartText
-    extends ChatCompletionRequestSystemMessageContentPart {
+final class ChatCompletionRequestSystemMessageContentPartChatCompletionRequestMessageContentPartText extends ChatCompletionRequestSystemMessageContentPart {
   final ChatCompletionRequestMessageContentPartText value;
-  const ChatCompletionRequestSystemMessageContentPartChatCompletionRequestMessageContentPartText(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ChatCompletionRequestSystemMessageContentPartChatCompletionRequestMessageContentPartText(this.value);
+  @override Object? toJson() => value.toJson();
 }

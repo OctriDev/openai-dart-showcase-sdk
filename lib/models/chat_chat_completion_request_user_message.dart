@@ -9,97 +9,58 @@ sealed class ChatCompletionRequestUserMessageContent {
   static const String constructionSurface = 'named';
   const ChatCompletionRequestUserMessageContent();
   factory ChatCompletionRequestUserMessageContent.fromJson(Object? json) {
-    if (json is String) {
-      return ChatCompletionRequestUserMessageContentString(json);
-    }
-    try {
-      return ChatCompletionRequestUserMessageContentChatCompletionRequestUserMessageContentPart(
-          ChatCompletionRequestUserMessageContentPart.fromJson(json));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for ChatCompletionRequestUserMessageContent");
+    if (json is String) { return ChatCompletionRequestUserMessageContentString(json); }
+    try { return ChatCompletionRequestUserMessageContentChatCompletionRequestUserMessageContentPart(ChatCompletionRequestUserMessageContentPart.fromJson(json)); } catch (_) {}
+    throw FormatException("No variant matched for ChatCompletionRequestUserMessageContent");
   }
   Object? toJson();
 }
 
-final class ChatCompletionRequestUserMessageContentString
-    extends ChatCompletionRequestUserMessageContent {
+final class ChatCompletionRequestUserMessageContentString extends ChatCompletionRequestUserMessageContent {
   final String value;
   const ChatCompletionRequestUserMessageContentString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class ChatCompletionRequestUserMessageContentChatCompletionRequestUserMessageContentPart
-    extends ChatCompletionRequestUserMessageContent {
+final class ChatCompletionRequestUserMessageContentChatCompletionRequestUserMessageContentPart extends ChatCompletionRequestUserMessageContent {
   final ChatCompletionRequestUserMessageContentPart value;
-  const ChatCompletionRequestUserMessageContentChatCompletionRequestUserMessageContentPart(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ChatCompletionRequestUserMessageContentChatCompletionRequestUserMessageContentPart(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// Messages sent by an end user, containing prompts or additional context information.
 class ChatCompletionRequestUserMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The contents of the user message.
   final dynamic content;
-
   /// The role of the messages author, in this case `user`.
   final ChatCompletionRequestUserMessageRole role;
-
   /// An optional name for the participant. Provides the model information to differentiate between participants of the same role.
   final SdkOptional<String> name;
 
-  const ChatCompletionRequestUserMessage(
-      {required this.content,
-      required this.role,
-      this.name = const SdkOmitted()});
+  const ChatCompletionRequestUserMessage({required this.content, required this.role, this.name = const SdkOmitted()});
 
-  ChatCompletionRequestUserMessage Function(
-      {dynamic content,
-      ChatCompletionRequestUserMessageRole role,
-      SdkOptional<String> name}) get copyWith => _copyWith;
+  ChatCompletionRequestUserMessage Function({dynamic content, ChatCompletionRequestUserMessageRole role, SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ChatCompletionRequestUserMessage _copyWith(
-          {Object? content = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? name = sdkOmittedValue}) =>
-      ChatCompletionRequestUserMessage(
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as dynamic,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as ChatCompletionRequestUserMessageRole,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  ChatCompletionRequestUserMessage _copyWith({Object? content = sdkOmittedValue, Object? role = sdkOmittedValue, Object? name = sdkOmittedValue}) => ChatCompletionRequestUserMessage(
+    content: identical(content, sdkOmittedValue) ? this.content : content as dynamic,
+    role: identical(role, sdkOmittedValue) ? this.role : role as ChatCompletionRequestUserMessageRole,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory ChatCompletionRequestUserMessage.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionRequestUserMessage(
-        content: (json['content'])!,
-        role: (json['role'] != null
-            ? ChatCompletionRequestUserMessageRole.fromJson(
-                json['role'] as String)
-            : null)!,
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ChatCompletionRequestUserMessage.fromJson(Map<String, dynamic> json) => ChatCompletionRequestUserMessage(
+    content: (json['content'])!,
+    role: (json['role'] != null ? ChatCompletionRequestUserMessageRole.fromJson(json['role'] as String) : null)!,
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'content': content,
-        'role': role.toJson(),
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'content': content,
+    'role': role.toJson(),
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

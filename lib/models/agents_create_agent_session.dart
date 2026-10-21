@@ -8,172 +8,80 @@ part of 'agents_create.dart';
 class CreateAgentSessionParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional spending limit in USD cents. Omission or null creates an unlimited session.
   final SdkOptional<SessionSpendControlParam?> spendControl;
-
   /// Up to 16 string key-value pairs, with keys up to 64 and values up to 512 characters. Omission or null defaults to an empty map.
   final SdkOptional<Map<String, String>?> metadata;
-
   /// Agent configuration. With `agent_id`, supplied fields override the saved agent for this session. Without `agent_id`, `model` is required.
   final SdkOptional<SessionAgentConfigParam> agent;
-
   /// The ID of a saved reusable agent. Omit `agent` to use its configuration unchanged.
   final SdkOptional<String> agentId;
-
   /// An inline execution environment or a reference to an environment template.
   final EnvironmentParam environment;
-
   /// The IDs of vaults made available to the session.
   final SdkOptional<List<String>?> vaultIds;
-
   /// Initial input to submit when the session is created. A string is shorthand for a single user message. Required when `environment.type` is `none`, or when `stream` is `true` for an environment that is not `self_hosted`; optional for self-hosted and non-streaming execution environments.
   final SdkOptional<CreateSessionInputParam?> input;
-
   /// Whether to stream session events as server-sent events. Defaults to `false`.
   final SdkOptional<bool> stream;
 
-  const CreateAgentSessionParams(
-      {this.spendControl = const SdkOmitted(),
-      this.metadata = const SdkOmitted(),
-      this.agent = const SdkOmitted(),
-      this.agentId = const SdkOmitted(),
-      required this.environment,
-      this.vaultIds = const SdkOmitted(),
-      this.input = const SdkOmitted(),
-      this.stream = const SdkOmitted()});
+  const CreateAgentSessionParams({this.spendControl = const SdkOmitted(), this.metadata = const SdkOmitted(), this.agent = const SdkOmitted(), this.agentId = const SdkOmitted(), required this.environment, this.vaultIds = const SdkOmitted(), this.input = const SdkOmitted(), this.stream = const SdkOmitted()});
 
-  CreateAgentSessionParams Function(
-      {SdkOptional<SessionSpendControlParam?> spendControl,
-      SdkOptional<Map<String, String>?> metadata,
-      SdkOptional<SessionAgentConfigParam> agent,
-      SdkOptional<String> agentId,
-      EnvironmentParam environment,
-      SdkOptional<List<String>?> vaultIds,
-      SdkOptional<CreateSessionInputParam?> input,
-      SdkOptional<bool> stream}) get copyWith => _copyWith;
+  CreateAgentSessionParams Function({SdkOptional<SessionSpendControlParam?> spendControl, SdkOptional<Map<String, String>?> metadata, SdkOptional<SessionAgentConfigParam> agent, SdkOptional<String> agentId, EnvironmentParam environment, SdkOptional<List<String>?> vaultIds, SdkOptional<CreateSessionInputParam?> input, SdkOptional<bool> stream}) get copyWith => _copyWith;
 
-  CreateAgentSessionParams _copyWith(
-          {Object? spendControl = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue,
-          Object? agent = sdkOmittedValue,
-          Object? agentId = sdkOmittedValue,
-          Object? environment = sdkOmittedValue,
-          Object? vaultIds = sdkOmittedValue,
-          Object? input = sdkOmittedValue,
-          Object? stream = sdkOmittedValue}) =>
-      CreateAgentSessionParams(
-        spendControl: identical(spendControl, sdkOmittedValue)
-            ? this.spendControl
-            : spendControl as SdkOptional<SessionSpendControlParam?>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, String>?>,
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<SessionAgentConfigParam>,
-        agentId: identical(agentId, sdkOmittedValue)
-            ? this.agentId
-            : agentId as SdkOptional<String>,
-        environment: identical(environment, sdkOmittedValue)
-            ? this.environment
-            : environment as EnvironmentParam,
-        vaultIds: identical(vaultIds, sdkOmittedValue)
-            ? this.vaultIds
-            : vaultIds as SdkOptional<List<String>?>,
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as SdkOptional<CreateSessionInputParam?>,
-        stream: identical(stream, sdkOmittedValue)
-            ? this.stream
-            : stream as SdkOptional<bool>,
-      );
+  CreateAgentSessionParams _copyWith({Object? spendControl = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? agent = sdkOmittedValue, Object? agentId = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? vaultIds = sdkOmittedValue, Object? input = sdkOmittedValue, Object? stream = sdkOmittedValue}) => CreateAgentSessionParams(
+    spendControl: identical(spendControl, sdkOmittedValue) ? this.spendControl : spendControl as SdkOptional<SessionSpendControlParam?>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, String>?>,
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<SessionAgentConfigParam>,
+    agentId: identical(agentId, sdkOmittedValue) ? this.agentId : agentId as SdkOptional<String>,
+    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as EnvironmentParam,
+    vaultIds: identical(vaultIds, sdkOmittedValue) ? this.vaultIds : vaultIds as SdkOptional<List<String>?>,
+    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<CreateSessionInputParam?>,
+    stream: identical(stream, sdkOmittedValue) ? this.stream : stream as SdkOptional<bool>,
+  );
 
-  factory CreateAgentSessionParams.fromJson(Map<String, dynamic> json) =>
-      CreateAgentSessionParams(
-        spendControl: json.containsKey('spend_control')
-            ? SdkPresent(json['spend_control'] != null
-                ? SessionSpendControlParam.fromJson(
-                    json['spend_control'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))
-            : const SdkOmitted(),
-        agent: json['agent'] != null
-            ? SdkPresent((json['agent'] != null
-                ? SessionAgentConfigParam.fromJson(
-                    json['agent'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        agentId: json['agent_id'] != null
-            ? SdkPresent((json['agent_id'] as String?)!)
-            : const SdkOmitted(),
-        environment: (json['environment'] != null
-            ? EnvironmentParam.fromJson(json['environment'])
-            : null)!,
-        vaultIds: json.containsKey('vault_ids')
-            ? SdkPresent(
-                (json['vault_ids'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-        input: json.containsKey('input')
-            ? SdkPresent(json['input'] != null
-                ? CreateSessionInputParam.fromJson(json['input'])
-                : null)
-            : const SdkOmitted(),
-        stream: json['stream'] != null
-            ? SdkPresent((json['stream'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateAgentSessionParams.fromJson(Map<String, dynamic> json) => CreateAgentSessionParams(
+    spendControl: json.containsKey('spend_control') ? SdkPresent(json['spend_control'] != null ? SessionSpendControlParam.fromJson(json['spend_control'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
+    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? SessionAgentConfigParam.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    agentId: json['agent_id'] != null ? SdkPresent((json['agent_id'] as String?)!) : const SdkOmitted(),
+    environment: (json['environment'] != null ? EnvironmentParam.fromJson(json['environment']) : null)!,
+    vaultIds: json.containsKey('vault_ids') ? SdkPresent((json['vault_ids'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    input: json.containsKey('input') ? SdkPresent(json['input'] != null ? CreateSessionInputParam.fromJson(json['input']) : null) : const SdkOmitted(),
+    stream: json['stream'] != null ? SdkPresent((json['stream'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (spendControl) {
-          SdkPresent<SessionSpendControlParam?>(value: final value) => {
-              'spend_control': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, String>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (agent) {
-          SdkPresent<SessionAgentConfigParam>(value: final value) => {
-              'agent': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (agentId) {
-          SdkPresent<String>(value: final value) => {
-              'agent_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'environment': environment.toJson(),
-        ...switch (vaultIds) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'vault_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (input) {
-          SdkPresent<CreateSessionInputParam?>(value: final value) => {
-              'input': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (stream) {
-          SdkPresent<bool>(value: final value) => {
-              'stream': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (spendControl) {
+      SdkPresent<SessionSpendControlParam?>(value: final value) => {'spend_control': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, String>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (agent) {
+      SdkPresent<SessionAgentConfigParam>(value: final value) => {'agent': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (agentId) {
+      SdkPresent<String>(value: final value) => {'agent_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'environment': environment.toJson(),
+    ...switch (vaultIds) {
+      SdkPresent<List<String>?>(value: final value) => {'vault_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (input) {
+      SdkPresent<CreateSessionInputParam?>(value: final value) => {'input': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (stream) {
+      SdkPresent<bool>(value: final value) => {'stream': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class CreateSessionInputParam {
@@ -181,13 +89,8 @@ sealed class CreateSessionInputParam {
   static const String constructionSurface = 'named';
   const CreateSessionInputParam();
   factory CreateSessionInputParam.fromJson(Object? json) {
-    if (json is String) {
-      return CreateSessionInputParamString(json);
-    }
-    try {
-      return CreateSessionInputParamInputMessageParam(
-          InputMessageParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    if (json is String) { return CreateSessionInputParamString(json); }
+    try { return CreateSessionInputParamInputMessageParam(InputMessageParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for CreateSessionInputParam");
   }
   Object? toJson();
@@ -196,14 +99,11 @@ sealed class CreateSessionInputParam {
 final class CreateSessionInputParamString extends CreateSessionInputParam {
   final String value;
   const CreateSessionInputParamString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateSessionInputParamInputMessageParam
-    extends CreateSessionInputParam {
+final class CreateSessionInputParamInputMessageParam extends CreateSessionInputParam {
   final InputMessageParam value;
   const CreateSessionInputParamInputMessageParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

@@ -8,69 +8,37 @@ part of 'shared_tool.dart';
 class ToolSearchOutputNamespaceToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the tool. Always `namespace`.
   final ToolSearchOutputNamespaceToolParamType type_;
-
   /// The namespace name used in tool calls (for example, `crm`).
   final String name;
-
   /// A description of the namespace shown to the model.
   final String description;
-
   /// The function/custom tools loaded inside this namespace.
   final List<ToolSearchOutputNamespaceToolParamToolsItem> tools;
 
-  const ToolSearchOutputNamespaceToolParam(
-      {required this.type_,
-      required this.name,
-      required this.description,
-      required this.tools});
+  const ToolSearchOutputNamespaceToolParam({required this.type_, required this.name, required this.description, required this.tools});
 
-  ToolSearchOutputNamespaceToolParam Function(
-          {ToolSearchOutputNamespaceToolParamType type_,
-          String name,
-          String description,
-          List<ToolSearchOutputNamespaceToolParamToolsItem> tools})
-      get copyWith => _copyWith;
+  ToolSearchOutputNamespaceToolParam Function({ToolSearchOutputNamespaceToolParamType type_, String name, String description, List<ToolSearchOutputNamespaceToolParamToolsItem> tools}) get copyWith => _copyWith;
 
-  ToolSearchOutputNamespaceToolParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? tools = sdkOmittedValue}) =>
-      ToolSearchOutputNamespaceToolParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ToolSearchOutputNamespaceToolParamType,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as String,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as List<ToolSearchOutputNamespaceToolParamToolsItem>,
-      );
+  ToolSearchOutputNamespaceToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? tools = sdkOmittedValue}) => ToolSearchOutputNamespaceToolParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ToolSearchOutputNamespaceToolParamType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as String,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<ToolSearchOutputNamespaceToolParamToolsItem>,
+  );
 
-  factory ToolSearchOutputNamespaceToolParam.fromJson(
-          Map<String, dynamic> json) =>
-      ToolSearchOutputNamespaceToolParam(
-        type_: (json['type'] != null
-            ? ToolSearchOutputNamespaceToolParamType.fromJson(
-                json['type'] as String)
-            : null)!,
-        name: (json['name'] as String?)!,
-        description: (json['description'] as String?)!,
-        tools: ((json['tools'] as List?)
-            ?.map(
-                (e) => ToolSearchOutputNamespaceToolParamToolsItem.fromJson(e))
-            .toList())!,
-      );
+  factory ToolSearchOutputNamespaceToolParam.fromJson(Map<String, dynamic> json) => ToolSearchOutputNamespaceToolParam(
+    type_: (json['type'] != null ? ToolSearchOutputNamespaceToolParamType.fromJson(json['type'] as String) : null)!,
+    name: (json['name'] as String?)!,
+    description: (json['description'] as String?)!,
+    tools: ((json['tools'] as List?)?.map((e) => ToolSearchOutputNamespaceToolParamToolsItem.fromJson(e)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'name': name,
-        'description': description,
-        'tools': tools.map((item) => item.toJson()).toList(),
-      };
+    'type': type_.toJson(),
+    'name': name,
+    'description': description,
+    'tools': tools.map((item) => item.toJson()).toList(),
+  };
 }

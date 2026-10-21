@@ -9,9 +9,7 @@ sealed class AttachmentPreviewUrl {
   static const String constructionSurface = 'named';
   const AttachmentPreviewUrl();
   factory AttachmentPreviewUrl.fromJson(Object? json) {
-    if (json is String) {
-      return AttachmentPreviewUrlString(json);
-    }
+    if (json is String) { return AttachmentPreviewUrlString(json); }
     throw FormatException("No variant matched for AttachmentPreviewUrl");
   }
   Object? toJson();
@@ -20,82 +18,49 @@ sealed class AttachmentPreviewUrl {
 final class AttachmentPreviewUrlString extends AttachmentPreviewUrl {
   final String value;
   const AttachmentPreviewUrlString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Attachment metadata included on thread items.
 class Attachment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Attachment discriminator.
   final AttachmentType type_;
-
   /// Identifier for the attachment.
   final String id;
-
   /// Original display name for the attachment.
   final String name;
-
   /// MIME type of the attachment.
   final String mimeType;
-
   /// Required API value serialized in the `preview_url` wire field.
   final String? previewUrl;
 
-  const Attachment(
-      {required this.type_,
-      required this.id,
-      required this.name,
-      required this.mimeType,
-      required this.previewUrl});
+  const Attachment({required this.type_, required this.id, required this.name, required this.mimeType, required this.previewUrl});
 
-  Attachment Function(
-      {AttachmentType type_,
-      String id,
-      String name,
-      String mimeType,
-      String? previewUrl}) get copyWith => _copyWith;
+  Attachment Function({AttachmentType type_, String id, String name, String mimeType, String? previewUrl}) get copyWith => _copyWith;
 
-  Attachment _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? mimeType = sdkOmittedValue,
-          Object? previewUrl = sdkOmittedValue}) =>
-      Attachment(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AttachmentType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        mimeType: identical(mimeType, sdkOmittedValue)
-            ? this.mimeType
-            : mimeType as String,
-        previewUrl: identical(previewUrl, sdkOmittedValue)
-            ? this.previewUrl
-            : previewUrl as String?,
-      );
+  Attachment _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? mimeType = sdkOmittedValue, Object? previewUrl = sdkOmittedValue}) => Attachment(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AttachmentType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    mimeType: identical(mimeType, sdkOmittedValue) ? this.mimeType : mimeType as String,
+    previewUrl: identical(previewUrl, sdkOmittedValue) ? this.previewUrl : previewUrl as String?,
+  );
 
   factory Attachment.fromJson(Map<String, dynamic> json) => Attachment(
-        type_: (json['type'] != null
-            ? AttachmentType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        mimeType: (json['mime_type'] as String?)!,
-        previewUrl: json.containsKey('preview_url')
-            ? json['preview_url'] as String?
-            : throw ArgumentError.value(
-                null, 'preview_url', 'Required property is missing'),
-      );
+    type_: (json['type'] != null ? AttachmentType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    mimeType: (json['mime_type'] as String?)!,
+    previewUrl: json.containsKey('preview_url') ? json['preview_url'] as String? : throw ArgumentError.value(null, 'preview_url', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'name': name,
-        'mime_type': mimeType,
-        'preview_url': previewUrl,
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'name': name,
+    'mime_type': mimeType,
+    'preview_url': previewUrl,
+  };
 }

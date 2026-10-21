@@ -9,90 +9,60 @@ sealed class CreateModerationRequestInput {
   static const String constructionSurface = 'named';
   const CreateModerationRequestInput();
   factory CreateModerationRequestInput.fromJson(Object? json) {
-    if (json is String) {
-      return CreateModerationRequestInputString(json);
-    }
-    if (json is List) {
-      return CreateModerationRequestInputListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
-    try {
-      return CreateModerationRequestInputCreateModerationRequestInputItem(
-          CreateModerationRequestInputItem.fromJson(json));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for CreateModerationRequestInput");
+    if (json is String) { return CreateModerationRequestInputString(json); }
+    if (json is List) { return CreateModerationRequestInputListString(json.map((e) => e as String).toList().cast<String>()); }
+    try { return CreateModerationRequestInputCreateModerationRequestInputItem(CreateModerationRequestInputItem.fromJson(json)); } catch (_) {}
+    throw FormatException("No variant matched for CreateModerationRequestInput");
   }
   Object? toJson();
 }
 
-final class CreateModerationRequestInputString
-    extends CreateModerationRequestInput {
+final class CreateModerationRequestInputString extends CreateModerationRequestInput {
   final String value;
   const CreateModerationRequestInputString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateModerationRequestInputListString
-    extends CreateModerationRequestInput {
+final class CreateModerationRequestInputListString extends CreateModerationRequestInput {
   final List<String> value;
   const CreateModerationRequestInputListString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateModerationRequestInputCreateModerationRequestInputItem
-    extends CreateModerationRequestInput {
+final class CreateModerationRequestInputCreateModerationRequestInputItem extends CreateModerationRequestInput {
   final CreateModerationRequestInputItem value;
-  const CreateModerationRequestInputCreateModerationRequestInputItem(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const CreateModerationRequestInputCreateModerationRequestInputItem(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `CreateModerationRequest` API schema.
 class CreateModerationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Input (or inputs) to classify. Can be a single string, an array of strings, or an array of multi-modal input objects similar to other models.
   final dynamic input;
-
   /// The content moderation model you would like to use. Learn more in [the moderation guide](https://developers.openai.com/api/docs/guides/moderation), and learn about available models [here](https://developers.openai.com/api/docs/guides/moderation).
   final SdkOptional<String> model;
 
-  const CreateModerationRequest(
-      {required this.input, this.model = const SdkOmitted()});
+  const CreateModerationRequest({required this.input, this.model = const SdkOmitted()});
 
-  CreateModerationRequest Function({dynamic input, SdkOptional<String> model})
-      get copyWith => _copyWith;
+  CreateModerationRequest Function({dynamic input, SdkOptional<String> model}) get copyWith => _copyWith;
 
-  CreateModerationRequest _copyWith(
-          {Object? input = sdkOmittedValue, Object? model = sdkOmittedValue}) =>
-      CreateModerationRequest(
-        input:
-            identical(input, sdkOmittedValue) ? this.input : input as dynamic,
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<String>,
-      );
+  CreateModerationRequest _copyWith({Object? input = sdkOmittedValue, Object? model = sdkOmittedValue}) => CreateModerationRequest(
+    input: identical(input, sdkOmittedValue) ? this.input : input as dynamic,
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
+  );
 
-  factory CreateModerationRequest.fromJson(Map<String, dynamic> json) =>
-      CreateModerationRequest(
-        input: (json['input'])!,
-        model: json['model'] != null
-            ? SdkPresent((json['model'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateModerationRequest.fromJson(Map<String, dynamic> json) => CreateModerationRequest(
+    input: (json['input'])!,
+    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'input': input,
-        ...switch (model) {
-          SdkPresent<String>(value: final value) => {
-              'model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'input': input,
+    ...switch (model) {
+      SdkPresent<String>(value: final value) => {'model': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,280 +8,158 @@ part of 'shared_local.dart';
 class LocalEnvironmentParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Use a local computer environment.
   final LocalEnvironmentParamType type_;
-
   /// An optional list of skills.
   final SdkOptional<List<LocalSkillParam>> skills;
 
-  const LocalEnvironmentParam(
-      {required this.type_, this.skills = const SdkOmitted()});
+  const LocalEnvironmentParam({required this.type_, this.skills = const SdkOmitted()});
 
-  LocalEnvironmentParam Function(
-      {LocalEnvironmentParamType type_,
-      SdkOptional<List<LocalSkillParam>> skills}) get copyWith => _copyWith;
+  LocalEnvironmentParam Function({LocalEnvironmentParamType type_, SdkOptional<List<LocalSkillParam>> skills}) get copyWith => _copyWith;
 
-  LocalEnvironmentParam _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? skills = sdkOmittedValue}) =>
-      LocalEnvironmentParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LocalEnvironmentParamType,
-        skills: identical(skills, sdkOmittedValue)
-            ? this.skills
-            : skills as SdkOptional<List<LocalSkillParam>>,
-      );
+  LocalEnvironmentParam _copyWith({Object? type_ = sdkOmittedValue, Object? skills = sdkOmittedValue}) => LocalEnvironmentParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LocalEnvironmentParamType,
+    skills: identical(skills, sdkOmittedValue) ? this.skills : skills as SdkOptional<List<LocalSkillParam>>,
+  );
 
-  factory LocalEnvironmentParam.fromJson(Map<String, dynamic> json) =>
-      LocalEnvironmentParam(
-        type_: (json['type'] != null
-            ? LocalEnvironmentParamType.fromJson(json['type'] as String)
-            : null)!,
-        skills: json['skills'] != null
-            ? SdkPresent(((json['skills'] as List?)
-                ?.map(
-                    (e) => LocalSkillParam.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory LocalEnvironmentParam.fromJson(Map<String, dynamic> json) => LocalEnvironmentParam(
+    type_: (json['type'] != null ? LocalEnvironmentParamType.fromJson(json['type'] as String) : null)!,
+    skills: json['skills'] != null ? SdkPresent(((json['skills'] as List?)?.map((e) => LocalSkillParam.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (skills) {
-          SdkPresent<List<LocalSkillParam>>(value: final value) => {
-              'skills': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (skills) {
+      SdkPresent<List<LocalSkillParam>>(value: final value) => {'skills': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Represents the use of a local environment to perform shell actions.
 class LocalEnvironmentResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The environment type. Always `local`.
   final LocalEnvironmentResourceType type_;
 
   const LocalEnvironmentResource({required this.type_});
 
-  LocalEnvironmentResource Function({LocalEnvironmentResourceType type_})
-      get copyWith => _copyWith;
+  LocalEnvironmentResource Function({LocalEnvironmentResourceType type_}) get copyWith => _copyWith;
 
-  LocalEnvironmentResource _copyWith({Object? type_ = sdkOmittedValue}) =>
-      LocalEnvironmentResource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LocalEnvironmentResourceType,
-      );
+  LocalEnvironmentResource _copyWith({Object? type_ = sdkOmittedValue}) => LocalEnvironmentResource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LocalEnvironmentResourceType,
+  );
 
-  factory LocalEnvironmentResource.fromJson(Map<String, dynamic> json) =>
-      LocalEnvironmentResource(
-        type_: (json['type'] != null
-            ? LocalEnvironmentResourceType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory LocalEnvironmentResource.fromJson(Map<String, dynamic> json) => LocalEnvironmentResource(
+    type_: (json['type'] != null ? LocalEnvironmentResourceType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Execute a shell command on the server.
 class LocalShellExecAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the local shell action. Always `exec`.
   final LocalShellExecActionType type_;
-
   /// The command to run.
   final List<String> command;
-
   /// Optional `integer` value serialized in the `timeout_ms` wire field.
   final SdkOptional<int?> timeoutMs;
-
   /// Optional `string` value serialized in the `working_directory` wire field.
   final SdkOptional<String?> workingDirectory;
-
   /// Environment variables to set for the command.
   final Map<String, String> env;
-
   /// Optional `string` value serialized in the `user` wire field.
   final SdkOptional<String?> user;
 
-  const LocalShellExecAction(
-      {required this.type_,
-      required this.command,
-      this.timeoutMs = const SdkOmitted(),
-      this.workingDirectory = const SdkOmitted(),
-      required this.env,
-      this.user = const SdkOmitted()});
+  const LocalShellExecAction({required this.type_, required this.command, this.timeoutMs = const SdkOmitted(), this.workingDirectory = const SdkOmitted(), required this.env, this.user = const SdkOmitted()});
 
-  LocalShellExecAction Function(
-      {LocalShellExecActionType type_,
-      List<String> command,
-      SdkOptional<int?> timeoutMs,
-      SdkOptional<String?> workingDirectory,
-      Map<String, String> env,
-      SdkOptional<String?> user}) get copyWith => _copyWith;
+  LocalShellExecAction Function({LocalShellExecActionType type_, List<String> command, SdkOptional<int?> timeoutMs, SdkOptional<String?> workingDirectory, Map<String, String> env, SdkOptional<String?> user}) get copyWith => _copyWith;
 
-  LocalShellExecAction _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? command = sdkOmittedValue,
-          Object? timeoutMs = sdkOmittedValue,
-          Object? workingDirectory = sdkOmittedValue,
-          Object? env = sdkOmittedValue,
-          Object? user = sdkOmittedValue}) =>
-      LocalShellExecAction(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LocalShellExecActionType,
-        command: identical(command, sdkOmittedValue)
-            ? this.command
-            : command as List<String>,
-        timeoutMs: identical(timeoutMs, sdkOmittedValue)
-            ? this.timeoutMs
-            : timeoutMs as SdkOptional<int?>,
-        workingDirectory: identical(workingDirectory, sdkOmittedValue)
-            ? this.workingDirectory
-            : workingDirectory as SdkOptional<String?>,
-        env: identical(env, sdkOmittedValue)
-            ? this.env
-            : env as Map<String, String>,
-        user: identical(user, sdkOmittedValue)
-            ? this.user
-            : user as SdkOptional<String?>,
-      );
+  LocalShellExecAction _copyWith({Object? type_ = sdkOmittedValue, Object? command = sdkOmittedValue, Object? timeoutMs = sdkOmittedValue, Object? workingDirectory = sdkOmittedValue, Object? env = sdkOmittedValue, Object? user = sdkOmittedValue}) => LocalShellExecAction(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LocalShellExecActionType,
+    command: identical(command, sdkOmittedValue) ? this.command : command as List<String>,
+    timeoutMs: identical(timeoutMs, sdkOmittedValue) ? this.timeoutMs : timeoutMs as SdkOptional<int?>,
+    workingDirectory: identical(workingDirectory, sdkOmittedValue) ? this.workingDirectory : workingDirectory as SdkOptional<String?>,
+    env: identical(env, sdkOmittedValue) ? this.env : env as Map<String, String>,
+    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String?>,
+  );
 
-  factory LocalShellExecAction.fromJson(Map<String, dynamic> json) =>
-      LocalShellExecAction(
-        type_: (json['type'] != null
-            ? LocalShellExecActionType.fromJson(json['type'] as String)
-            : null)!,
-        command:
-            ((json['command'] as List?)?.map((e) => e as String).toList())!,
-        timeoutMs: json.containsKey('timeout_ms')
-            ? SdkPresent((json['timeout_ms'] as num?)?.toInt())
-            : const SdkOmitted(),
-        workingDirectory: json.containsKey('working_directory')
-            ? SdkPresent(json['working_directory'] as String?)
-            : const SdkOmitted(),
-        env: (json['env'] == null
-            ? null
-            : Map<String, dynamic>.from(json['env'] as Map)
-                .map((key, value) => MapEntry(key, value as String)))!,
-        user: json.containsKey('user')
-            ? SdkPresent(json['user'] as String?)
-            : const SdkOmitted(),
-      );
+  factory LocalShellExecAction.fromJson(Map<String, dynamic> json) => LocalShellExecAction(
+    type_: (json['type'] != null ? LocalShellExecActionType.fromJson(json['type'] as String) : null)!,
+    command: ((json['command'] as List?)?.map((e) => e as String).toList())!,
+    timeoutMs: json.containsKey('timeout_ms') ? SdkPresent((json['timeout_ms'] as num?)?.toInt()) : const SdkOmitted(),
+    workingDirectory: json.containsKey('working_directory') ? SdkPresent(json['working_directory'] as String?) : const SdkOmitted(),
+    env: (json['env'] == null ? null : Map<String, dynamic>.from(json['env'] as Map).map((key, value) => MapEntry(key, value as String)))!,
+    user: json.containsKey('user') ? SdkPresent(json['user'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'command': command,
-        ...switch (timeoutMs) {
-          SdkPresent<int?>(value: final value) => {
-              'timeout_ms': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workingDirectory) {
-          SdkPresent<String?>(value: final value) => {
-              'working_directory': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'env': env,
-        ...switch (user) {
-          SdkPresent<String?>(value: final value) => {
-              'user': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'command': command,
+    ...switch (timeoutMs) {
+      SdkPresent<int?>(value: final value) => {'timeout_ms': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workingDirectory) {
+      SdkPresent<String?>(value: final value) => {'working_directory': value,},
+      _ => const <String, dynamic>{},
+    },
+    'env': env,
+    ...switch (user) {
+      SdkPresent<String?>(value: final value) => {'user': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A tool call to run a command on the local shell.
 class LocalShellToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the local shell call. Always `local_shell_call`.
   final LocalShellToolCallType type_;
-
   /// The unique ID of the local shell call.
   final String id;
-
   /// The unique ID of the local shell tool call generated by the model.
   final String callId;
-
   /// Execute a shell command on the server.
   final LocalShellExecAction action;
-
   /// The status of the local shell call.
   final LocalShellToolCallStatus status;
 
-  const LocalShellToolCall(
-      {required this.type_,
-      required this.id,
-      required this.callId,
-      required this.action,
-      required this.status});
+  const LocalShellToolCall({required this.type_, required this.id, required this.callId, required this.action, required this.status});
 
-  LocalShellToolCall Function(
-      {LocalShellToolCallType type_,
-      String id,
-      String callId,
-      LocalShellExecAction action,
-      LocalShellToolCallStatus status}) get copyWith => _copyWith;
+  LocalShellToolCall Function({LocalShellToolCallType type_, String id, String callId, LocalShellExecAction action, LocalShellToolCallStatus status}) get copyWith => _copyWith;
 
-  LocalShellToolCall _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? action = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      LocalShellToolCall(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LocalShellToolCallType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as LocalShellExecAction,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as LocalShellToolCallStatus,
-      );
+  LocalShellToolCall _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? action = sdkOmittedValue, Object? status = sdkOmittedValue}) => LocalShellToolCall(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LocalShellToolCallType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    action: identical(action, sdkOmittedValue) ? this.action : action as LocalShellExecAction,
+    status: identical(status, sdkOmittedValue) ? this.status : status as LocalShellToolCallStatus,
+  );
 
-  factory LocalShellToolCall.fromJson(Map<String, dynamic> json) =>
-      LocalShellToolCall(
-        type_: (json['type'] != null
-            ? LocalShellToolCallType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        callId: (json['call_id'] as String?)!,
-        action: (json['action'] != null
-            ? LocalShellExecAction.fromJson(
-                json['action'] as Map<String, dynamic>)
-            : null)!,
-        status: (json['status'] != null
-            ? LocalShellToolCallStatus.fromJson(json['status'] as String)
-            : null)!,
-      );
+  factory LocalShellToolCall.fromJson(Map<String, dynamic> json) => LocalShellToolCall(
+    type_: (json['type'] != null ? LocalShellToolCallType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    callId: (json['call_id'] as String?)!,
+    action: (json['action'] != null ? LocalShellExecAction.fromJson(json['action'] as Map<String, dynamic>) : null)!,
+    status: (json['status'] != null ? LocalShellToolCallStatus.fromJson(json['status'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'call_id': callId,
-        'action': action.toJson(),
-        'status': status.toJson(),
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'call_id': callId,
+    'action': action.toJson(),
+    'status': status.toJson(),
+  };
 }
 
 sealed class LocalShellToolCallOutputStatus {
@@ -289,177 +167,114 @@ sealed class LocalShellToolCallOutputStatus {
   static const String constructionSurface = 'named';
   const LocalShellToolCallOutputStatus();
   factory LocalShellToolCallOutputStatus.fromJson(Object? json) {
-    try {
-      return LocalShellToolCallOutputStatusLocalShellToolCallOutputStatusVariant0(
-          LocalShellToolCallOutputStatusVariant0.fromJson(json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for LocalShellToolCallOutputStatus");
+    try { return LocalShellToolCallOutputStatusLocalShellToolCallOutputStatusVariant0(LocalShellToolCallOutputStatusVariant0.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for LocalShellToolCallOutputStatus");
   }
   Object? toJson();
 }
 
-final class LocalShellToolCallOutputStatusLocalShellToolCallOutputStatusVariant0
-    extends LocalShellToolCallOutputStatus {
+final class LocalShellToolCallOutputStatusLocalShellToolCallOutputStatusVariant0 extends LocalShellToolCallOutputStatus {
   final LocalShellToolCallOutputStatusVariant0 value;
-  const LocalShellToolCallOutputStatusLocalShellToolCallOutputStatusVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const LocalShellToolCallOutputStatusLocalShellToolCallOutputStatusVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// The output of a local shell tool call.
 class LocalShellToolCallOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the local shell tool call output. Always `local_shell_call_output`.
   final LocalShellToolCallOutputType type_;
-
   /// The unique ID of the local shell tool call generated by the model.
   final String id;
-
   /// A JSON string of the output of the local shell tool call.
   final String output;
-
   /// Optional API value serialized in the `status` wire field.
   final SdkOptional<LocalShellToolCallOutputStatusVariant0?> status;
 
-  const LocalShellToolCallOutput(
-      {required this.type_,
-      required this.id,
-      required this.output,
-      this.status = const SdkOmitted()});
+  const LocalShellToolCallOutput({required this.type_, required this.id, required this.output, this.status = const SdkOmitted()});
 
-  LocalShellToolCallOutput Function(
-          {LocalShellToolCallOutputType type_,
-          String id,
-          String output,
-          SdkOptional<LocalShellToolCallOutputStatusVariant0?> status})
-      get copyWith => _copyWith;
+  LocalShellToolCallOutput Function({LocalShellToolCallOutputType type_, String id, String output, SdkOptional<LocalShellToolCallOutputStatusVariant0?> status}) get copyWith => _copyWith;
 
-  LocalShellToolCallOutput _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      LocalShellToolCallOutput(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LocalShellToolCallOutputType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        output:
-            identical(output, sdkOmittedValue) ? this.output : output as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<LocalShellToolCallOutputStatusVariant0?>,
-      );
+  LocalShellToolCallOutput _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? output = sdkOmittedValue, Object? status = sdkOmittedValue}) => LocalShellToolCallOutput(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LocalShellToolCallOutputType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    output: identical(output, sdkOmittedValue) ? this.output : output as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<LocalShellToolCallOutputStatusVariant0?>,
+  );
 
-  factory LocalShellToolCallOutput.fromJson(Map<String, dynamic> json) =>
-      LocalShellToolCallOutput(
-        type_: (json['type'] != null
-            ? LocalShellToolCallOutputType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        output: (json['output'] as String?)!,
-        status: json.containsKey('status')
-            ? SdkPresent(json['status'] != null
-                ? LocalShellToolCallOutputStatusVariant0.fromJson(
-                    json['status'] as String)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory LocalShellToolCallOutput.fromJson(Map<String, dynamic> json) => LocalShellToolCallOutput(
+    type_: (json['type'] != null ? LocalShellToolCallOutputType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    output: (json['output'] as String?)!,
+    status: json.containsKey('status') ? SdkPresent(json['status'] != null ? LocalShellToolCallOutputStatusVariant0.fromJson(json['status'] as String) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'output': output,
-        ...switch (status) {
-          SdkPresent<LocalShellToolCallOutputStatusVariant0?>(
-            value: final value
-          ) =>
-            {
-              'status': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'output': output,
+    ...switch (status) {
+      SdkPresent<LocalShellToolCallOutputStatusVariant0?>(value: final value) => {'status': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A tool that allows the model to execute shell commands in a local environment.
 class LocalShellToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the local shell tool. Always `local_shell`.
   final LocalShellToolParamType type_;
 
   const LocalShellToolParam({required this.type_});
 
-  LocalShellToolParam Function({LocalShellToolParamType type_}) get copyWith =>
-      _copyWith;
+  LocalShellToolParam Function({LocalShellToolParamType type_}) get copyWith => _copyWith;
 
-  LocalShellToolParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      LocalShellToolParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LocalShellToolParamType,
-      );
+  LocalShellToolParam _copyWith({Object? type_ = sdkOmittedValue}) => LocalShellToolParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LocalShellToolParamType,
+  );
 
-  factory LocalShellToolParam.fromJson(Map<String, dynamic> json) =>
-      LocalShellToolParam(
-        type_: (json['type'] != null
-            ? LocalShellToolParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory LocalShellToolParam.fromJson(Map<String, dynamic> json) => LocalShellToolParam(
+    type_: (json['type'] != null ? LocalShellToolParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `LocalSkillParam` API schema.
 class LocalSkillParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the skill.
   final String name;
-
   /// The description of the skill.
   final String description;
-
   /// The path to the directory containing the skill.
   final String path;
 
-  const LocalSkillParam(
-      {required this.name, required this.description, required this.path});
+  const LocalSkillParam({required this.name, required this.description, required this.path});
 
-  LocalSkillParam Function({String name, String description, String path})
-      get copyWith => _copyWith;
+  LocalSkillParam Function({String name, String description, String path}) get copyWith => _copyWith;
 
-  LocalSkillParam _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? path = sdkOmittedValue}) =>
-      LocalSkillParam(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as String,
-        path: identical(path, sdkOmittedValue) ? this.path : path as String,
-      );
+  LocalSkillParam _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? path = sdkOmittedValue}) => LocalSkillParam(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as String,
+    path: identical(path, sdkOmittedValue) ? this.path : path as String,
+  );
 
-  factory LocalSkillParam.fromJson(Map<String, dynamic> json) =>
-      LocalSkillParam(
-        name: (json['name'] as String?)!,
-        description: (json['description'] as String?)!,
-        path: (json['path'] as String?)!,
-      );
+  factory LocalSkillParam.fromJson(Map<String, dynamic> json) => LocalSkillParam(
+    name: (json['name'] as String?)!,
+    description: (json['description'] as String?)!,
+    path: (json['path'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'description': description,
-        'path': path,
-      };
+    'name': name,
+    'description': description,
+    'path': path,
+  };
 }

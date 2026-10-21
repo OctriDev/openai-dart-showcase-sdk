@@ -10,59 +10,32 @@ sealed class ResponseOutputTextAnnotationsItem {
   const ResponseOutputTextAnnotationsItem();
   factory ResponseOutputTextAnnotationsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = FileAnnotation.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ResponseOutputTextAnnotationsItemFileAnnotation(value);
-        }
-      } catch (_) {}
-      try {
-        final value = UrlAnnotation.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ResponseOutputTextAnnotationsItemUrlAnnotation(value);
-        }
-      } catch (_) {}
+      try { final value = FileAnnotation.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponseOutputTextAnnotationsItemFileAnnotation(value); } } catch (_) {}
+      try { final value = UrlAnnotation.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponseOutputTextAnnotationsItemUrlAnnotation(value); } } catch (_) {}
     }
-    try {
-      return ResponseOutputTextAnnotationsItemFileAnnotation(
-          FileAnnotation.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ResponseOutputTextAnnotationsItemUrlAnnotation(
-          UrlAnnotation.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"file", "url"}.contains(json["type"])) {
-      return UnknownResponseOutputTextAnnotationsItem(json);
-    }
-    throw FormatException(
-        "No variant matched for ResponseOutputTextAnnotationsItem");
+    try { return ResponseOutputTextAnnotationsItemFileAnnotation(FileAnnotation.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ResponseOutputTextAnnotationsItemUrlAnnotation(UrlAnnotation.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"file", "url"}.contains(json["type"])) { return UnknownResponseOutputTextAnnotationsItem(json); }
+    throw FormatException("No variant matched for ResponseOutputTextAnnotationsItem");
   }
   Object? toJson();
 }
 
-final class ResponseOutputTextAnnotationsItemFileAnnotation
-    extends ResponseOutputTextAnnotationsItem {
+final class ResponseOutputTextAnnotationsItemFileAnnotation extends ResponseOutputTextAnnotationsItem {
   final FileAnnotation value;
   const ResponseOutputTextAnnotationsItemFileAnnotation(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ResponseOutputTextAnnotationsItemUrlAnnotation
-    extends ResponseOutputTextAnnotationsItem {
+final class ResponseOutputTextAnnotationsItemUrlAnnotation extends ResponseOutputTextAnnotationsItem {
   final UrlAnnotation value;
   const ResponseOutputTextAnnotationsItemUrlAnnotation(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ResponseOutputTextAnnotationsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownResponseOutputTextAnnotationsItem
-    extends ResponseOutputTextAnnotationsItem {
+final class UnknownResponseOutputTextAnnotationsItem extends ResponseOutputTextAnnotationsItem {
   final Map<String, dynamic> raw;
   const UnknownResponseOutputTextAnnotationsItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

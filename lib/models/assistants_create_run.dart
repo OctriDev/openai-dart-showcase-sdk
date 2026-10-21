@@ -9,13 +9,8 @@ sealed class CreateRunRequestModel {
   static const String constructionSurface = 'named';
   const CreateRunRequestModel();
   factory CreateRunRequestModel.fromJson(Object? json) {
-    if (json is String) {
-      return CreateRunRequestModelString(json);
-    }
-    try {
-      return CreateRunRequestModelAssistantSupportedModels(
-          AssistantSupportedModels.fromJson(json as String));
-    } catch (_) {}
+    if (json is String) { return CreateRunRequestModelString(json); }
+    try { return CreateRunRequestModelAssistantSupportedModels(AssistantSupportedModels.fromJson(json as String)); } catch (_) {}
     throw FormatException("No variant matched for CreateRunRequestModel");
   }
   Object? toJson();
@@ -24,16 +19,13 @@ sealed class CreateRunRequestModel {
 final class CreateRunRequestModelString extends CreateRunRequestModel {
   final String value;
   const CreateRunRequestModelString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateRunRequestModelAssistantSupportedModels
-    extends CreateRunRequestModel {
+final class CreateRunRequestModelAssistantSupportedModels extends CreateRunRequestModel {
   final AssistantSupportedModels value;
   const CreateRunRequestModelAssistantSupportedModels(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 sealed class TruncationObjectLastMessages {
@@ -41,414 +33,200 @@ sealed class TruncationObjectLastMessages {
   static const String constructionSurface = 'named';
   const TruncationObjectLastMessages();
   factory TruncationObjectLastMessages.fromJson(Object? json) {
-    if (json is num) {
-      return TruncationObjectLastMessagesInt(json.toInt());
-    }
-    throw FormatException(
-        "No variant matched for TruncationObjectLastMessages");
+    if (json is num) { return TruncationObjectLastMessagesInt(json.toInt()); }
+    throw FormatException("No variant matched for TruncationObjectLastMessages");
   }
   Object? toJson();
 }
 
-final class TruncationObjectLastMessagesInt
-    extends TruncationObjectLastMessages {
+final class TruncationObjectLastMessagesInt extends TruncationObjectLastMessages {
   final int value;
   const TruncationObjectLastMessagesInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Optional API value serialized in the `truncation_strategy` wire field.
 class CreateRunRequestTruncationStrategy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The truncation strategy to use for the thread. The default is `auto`. If set to `last_messages`, the thread will be truncated to the n most recent messages in the thread. When set to `auto`, messages in the middle of the thread will be dropped to fit the context length of the model, `max_prompt_tokens`.
   final TruncationObjectType type_;
-
   /// Optional API value serialized in the `last_messages` wire field.
   final SdkOptional<int?> lastMessages;
 
-  const CreateRunRequestTruncationStrategy(
-      {required this.type_, this.lastMessages = const SdkOmitted()});
+  const CreateRunRequestTruncationStrategy({required this.type_, this.lastMessages = const SdkOmitted()});
 
-  CreateRunRequestTruncationStrategy Function(
-      {TruncationObjectType type_,
-      SdkOptional<int?> lastMessages}) get copyWith => _copyWith;
+  CreateRunRequestTruncationStrategy Function({TruncationObjectType type_, SdkOptional<int?> lastMessages}) get copyWith => _copyWith;
 
-  CreateRunRequestTruncationStrategy _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? lastMessages = sdkOmittedValue}) =>
-      CreateRunRequestTruncationStrategy(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as TruncationObjectType,
-        lastMessages: identical(lastMessages, sdkOmittedValue)
-            ? this.lastMessages
-            : lastMessages as SdkOptional<int?>,
-      );
+  CreateRunRequestTruncationStrategy _copyWith({Object? type_ = sdkOmittedValue, Object? lastMessages = sdkOmittedValue}) => CreateRunRequestTruncationStrategy(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TruncationObjectType,
+    lastMessages: identical(lastMessages, sdkOmittedValue) ? this.lastMessages : lastMessages as SdkOptional<int?>,
+  );
 
-  factory CreateRunRequestTruncationStrategy.fromJson(
-          Map<String, dynamic> json) =>
-      CreateRunRequestTruncationStrategy(
-        type_: (json['type'] != null
-            ? TruncationObjectType.fromJson(json['type'] as String)
-            : null)!,
-        lastMessages: json.containsKey('last_messages')
-            ? SdkPresent((json['last_messages'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory CreateRunRequestTruncationStrategy.fromJson(Map<String, dynamic> json) => CreateRunRequestTruncationStrategy(
+    type_: (json['type'] != null ? TruncationObjectType.fromJson(json['type'] as String) : null)!,
+    lastMessages: json.containsKey('last_messages') ? SdkPresent((json['last_messages'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (lastMessages) {
-          SdkPresent<int?>(value: final value) => {
-              'last_messages': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (lastMessages) {
+      SdkPresent<int?>(value: final value) => {'last_messages': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `CreateRunRequest` API schema.
 class CreateRunRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the [assistant](https://developers.openai.com/api/docs/assistants/migration) to use to execute this run.
   final String assistantId;
-
   /// The ID of the [Model](https://developers.openai.com/api/reference/resources/models) to be used to execute this run. If a value is provided here, it will override the model associated with the assistant. If not, the model associated with the assistant will be used.
   final SdkOptional<String?> model;
-
   /// Optional API value serialized in the `reasoning_effort` wire field.
   final SdkOptional<ReasoningEffort?> reasoningEffort;
-
   /// Overrides the [instructions](https://developers.openai.com/api/docs/assistants/migration) of the assistant. This is useful for modifying the behavior on a per-run basis.
   final SdkOptional<String?> instructions;
-
   /// Appends additional instructions at the end of the instructions for the run. This is useful for modifying the behavior on a per-run basis without overriding other instructions.
   final SdkOptional<String?> additionalInstructions;
-
   /// Adds additional messages to the thread before creating the run.
   final SdkOptional<List<CreateMessageRequest>?> additionalMessages;
-
   /// Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis.
   final SdkOptional<List<CreateRunRequestToolsItem>?> tools;
-
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
-
   /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
   final SdkOptional<double?> temperature;
-
   /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both.
   final SdkOptional<double?> topP;
-
   /// If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.
   final SdkOptional<bool?> stream;
-
   /// The maximum number of prompt tokens that may be used over the course of the run. The run will make a best effort to use only the number of prompt tokens specified, across multiple turns of the run. If the run exceeds the number of prompt tokens specified, the run will end with status `incomplete`. See `incomplete_details` for more info.
   final SdkOptional<int?> maxPromptTokens;
-
   /// The maximum number of completion tokens that may be used over the course of the run. The run will make a best effort to use only the number of completion tokens specified, across multiple turns of the run. If the run exceeds the number of completion tokens specified, the run will end with status `incomplete`. See `incomplete_details` for more info.
   final SdkOptional<int?> maxCompletionTokens;
-
   /// Optional API value serialized in the `truncation_strategy` wire field.
   final SdkOptional<TruncationObject> truncationStrategy;
-
   /// Optional API value serialized in the `tool_choice` wire field.
   final SdkOptional<AssistantsApiToolChoiceOption> toolChoice;
-
   /// Whether to enable [parallel function calling](https://developers.openai.com/api/docs/guides/function-calling#parallel-function-calling) during tool use.
   final SdkOptional<bool> parallelToolCalls;
-
   /// Specifies the format that the model must output. Compatible with [GPT-4o](https://developers.openai.com/api/docs/models/gpt-4o), [GPT-4 Turbo](https://developers.openai.com/api/docs/models/gpt-4-turbo), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`. Setting to `{ "type": "json_schema", "json_schema": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs). Setting to `{ "type": "json_object" }` enables JSON mode, which ensures the message the model generates is valid JSON. **Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly "stuck" request. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
   final SdkOptional<AssistantsApiResponseFormatOption?> responseFormat;
 
-  const CreateRunRequest(
-      {required this.assistantId,
-      this.model = const SdkOmitted(),
-      this.reasoningEffort = const SdkOmitted(),
-      this.instructions = const SdkOmitted(),
-      this.additionalInstructions = const SdkOmitted(),
-      this.additionalMessages = const SdkOmitted(),
-      this.tools = const SdkOmitted(),
-      this.metadata = const SdkOmitted(),
-      this.temperature = const SdkOmitted(),
-      this.topP = const SdkOmitted(),
-      this.stream = const SdkOmitted(),
-      this.maxPromptTokens = const SdkOmitted(),
-      this.maxCompletionTokens = const SdkOmitted(),
-      this.truncationStrategy = const SdkOmitted(),
-      this.toolChoice = const SdkOmitted(),
-      this.parallelToolCalls = const SdkOmitted(),
-      this.responseFormat = const SdkOmitted()});
+  const CreateRunRequest({required this.assistantId, this.model = const SdkOmitted(), this.reasoningEffort = const SdkOmitted(), this.instructions = const SdkOmitted(), this.additionalInstructions = const SdkOmitted(), this.additionalMessages = const SdkOmitted(), this.tools = const SdkOmitted(), this.metadata = const SdkOmitted(), this.temperature = const SdkOmitted(), this.topP = const SdkOmitted(), this.stream = const SdkOmitted(), this.maxPromptTokens = const SdkOmitted(), this.maxCompletionTokens = const SdkOmitted(), this.truncationStrategy = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.parallelToolCalls = const SdkOmitted(), this.responseFormat = const SdkOmitted()});
 
-  CreateRunRequest Function(
-          {String assistantId,
-          SdkOptional<String?> model,
-          SdkOptional<ReasoningEffort?> reasoningEffort,
-          SdkOptional<String?> instructions,
-          SdkOptional<String?> additionalInstructions,
-          SdkOptional<List<CreateMessageRequest>?> additionalMessages,
-          SdkOptional<List<CreateRunRequestToolsItem>?> tools,
-          SdkOptional<Map<String, dynamic>?> metadata,
-          SdkOptional<double?> temperature,
-          SdkOptional<double?> topP,
-          SdkOptional<bool?> stream,
-          SdkOptional<int?> maxPromptTokens,
-          SdkOptional<int?> maxCompletionTokens,
-          SdkOptional<TruncationObject> truncationStrategy,
-          SdkOptional<AssistantsApiToolChoiceOption> toolChoice,
-          SdkOptional<bool> parallelToolCalls,
-          SdkOptional<AssistantsApiResponseFormatOption?> responseFormat})
-      get copyWith => _copyWith;
+  CreateRunRequest Function({String assistantId, SdkOptional<String?> model, SdkOptional<ReasoningEffort?> reasoningEffort, SdkOptional<String?> instructions, SdkOptional<String?> additionalInstructions, SdkOptional<List<CreateMessageRequest>?> additionalMessages, SdkOptional<List<CreateRunRequestToolsItem>?> tools, SdkOptional<Map<String, dynamic>?> metadata, SdkOptional<double?> temperature, SdkOptional<double?> topP, SdkOptional<bool?> stream, SdkOptional<int?> maxPromptTokens, SdkOptional<int?> maxCompletionTokens, SdkOptional<TruncationObject> truncationStrategy, SdkOptional<AssistantsApiToolChoiceOption> toolChoice, SdkOptional<bool> parallelToolCalls, SdkOptional<AssistantsApiResponseFormatOption?> responseFormat}) get copyWith => _copyWith;
 
-  CreateRunRequest _copyWith(
-          {Object? assistantId = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? reasoningEffort = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue,
-          Object? additionalInstructions = sdkOmittedValue,
-          Object? additionalMessages = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue,
-          Object? temperature = sdkOmittedValue,
-          Object? topP = sdkOmittedValue,
-          Object? stream = sdkOmittedValue,
-          Object? maxPromptTokens = sdkOmittedValue,
-          Object? maxCompletionTokens = sdkOmittedValue,
-          Object? truncationStrategy = sdkOmittedValue,
-          Object? toolChoice = sdkOmittedValue,
-          Object? parallelToolCalls = sdkOmittedValue,
-          Object? responseFormat = sdkOmittedValue}) =>
-      CreateRunRequest(
-        assistantId: identical(assistantId, sdkOmittedValue)
-            ? this.assistantId
-            : assistantId as String,
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<String?>,
-        reasoningEffort: identical(reasoningEffort, sdkOmittedValue)
-            ? this.reasoningEffort
-            : reasoningEffort as SdkOptional<ReasoningEffort?>,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as SdkOptional<String?>,
-        additionalInstructions:
-            identical(additionalInstructions, sdkOmittedValue)
-                ? this.additionalInstructions
-                : additionalInstructions as SdkOptional<String?>,
-        additionalMessages: identical(additionalMessages, sdkOmittedValue)
-            ? this.additionalMessages
-            : additionalMessages as SdkOptional<List<CreateMessageRequest>?>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<CreateRunRequestToolsItem>?>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>?>,
-        temperature: identical(temperature, sdkOmittedValue)
-            ? this.temperature
-            : temperature as SdkOptional<double?>,
-        topP: identical(topP, sdkOmittedValue)
-            ? this.topP
-            : topP as SdkOptional<double?>,
-        stream: identical(stream, sdkOmittedValue)
-            ? this.stream
-            : stream as SdkOptional<bool?>,
-        maxPromptTokens: identical(maxPromptTokens, sdkOmittedValue)
-            ? this.maxPromptTokens
-            : maxPromptTokens as SdkOptional<int?>,
-        maxCompletionTokens: identical(maxCompletionTokens, sdkOmittedValue)
-            ? this.maxCompletionTokens
-            : maxCompletionTokens as SdkOptional<int?>,
-        truncationStrategy: identical(truncationStrategy, sdkOmittedValue)
-            ? this.truncationStrategy
-            : truncationStrategy as SdkOptional<TruncationObject>,
-        toolChoice: identical(toolChoice, sdkOmittedValue)
-            ? this.toolChoice
-            : toolChoice as SdkOptional<AssistantsApiToolChoiceOption>,
-        parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue)
-            ? this.parallelToolCalls
-            : parallelToolCalls as SdkOptional<bool>,
-        responseFormat: identical(responseFormat, sdkOmittedValue)
-            ? this.responseFormat
-            : responseFormat as SdkOptional<AssistantsApiResponseFormatOption?>,
-      );
+  CreateRunRequest _copyWith({Object? assistantId = sdkOmittedValue, Object? model = sdkOmittedValue, Object? reasoningEffort = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? additionalInstructions = sdkOmittedValue, Object? additionalMessages = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? stream = sdkOmittedValue, Object? maxPromptTokens = sdkOmittedValue, Object? maxCompletionTokens = sdkOmittedValue, Object? truncationStrategy = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? parallelToolCalls = sdkOmittedValue, Object? responseFormat = sdkOmittedValue}) => CreateRunRequest(
+    assistantId: identical(assistantId, sdkOmittedValue) ? this.assistantId : assistantId as String,
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String?>,
+    reasoningEffort: identical(reasoningEffort, sdkOmittedValue) ? this.reasoningEffort : reasoningEffort as SdkOptional<ReasoningEffort?>,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String?>,
+    additionalInstructions: identical(additionalInstructions, sdkOmittedValue) ? this.additionalInstructions : additionalInstructions as SdkOptional<String?>,
+    additionalMessages: identical(additionalMessages, sdkOmittedValue) ? this.additionalMessages : additionalMessages as SdkOptional<List<CreateMessageRequest>?>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<CreateRunRequestToolsItem>?>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
+    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double?>,
+    topP: identical(topP, sdkOmittedValue) ? this.topP : topP as SdkOptional<double?>,
+    stream: identical(stream, sdkOmittedValue) ? this.stream : stream as SdkOptional<bool?>,
+    maxPromptTokens: identical(maxPromptTokens, sdkOmittedValue) ? this.maxPromptTokens : maxPromptTokens as SdkOptional<int?>,
+    maxCompletionTokens: identical(maxCompletionTokens, sdkOmittedValue) ? this.maxCompletionTokens : maxCompletionTokens as SdkOptional<int?>,
+    truncationStrategy: identical(truncationStrategy, sdkOmittedValue) ? this.truncationStrategy : truncationStrategy as SdkOptional<TruncationObject>,
+    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<AssistantsApiToolChoiceOption>,
+    parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue) ? this.parallelToolCalls : parallelToolCalls as SdkOptional<bool>,
+    responseFormat: identical(responseFormat, sdkOmittedValue) ? this.responseFormat : responseFormat as SdkOptional<AssistantsApiResponseFormatOption?>,
+  );
 
-  factory CreateRunRequest.fromJson(Map<String, dynamic> json) =>
-      CreateRunRequest(
-        assistantId: (json['assistant_id'] as String?)!,
-        model: json.containsKey('model')
-            ? SdkPresent(json['model'] as String?)
-            : const SdkOmitted(),
-        reasoningEffort: json.containsKey('reasoning_effort')
-            ? SdkPresent(json['reasoning_effort'] != null
-                ? ReasoningEffort.fromJson(json['reasoning_effort'])
-                : null)
-            : const SdkOmitted(),
-        instructions: json.containsKey('instructions')
-            ? SdkPresent(json['instructions'] as String?)
-            : const SdkOmitted(),
-        additionalInstructions: json.containsKey('additional_instructions')
-            ? SdkPresent(json['additional_instructions'] as String?)
-            : const SdkOmitted(),
-        additionalMessages: json.containsKey('additional_messages')
-            ? SdkPresent((json['additional_messages'] as List?)
-                ?.map((e) =>
-                    CreateMessageRequest.fromJson(e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        tools: json.containsKey('tools')
-            ? SdkPresent((json['tools'] as List?)
-                ?.map((e) => CreateRunRequestToolsItem.fromJson(e))
-                .toList())
-            : const SdkOmitted(),
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-        temperature: json.containsKey('temperature')
-            ? SdkPresent((json['temperature'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        topP: json.containsKey('top_p')
-            ? SdkPresent((json['top_p'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        stream: json.containsKey('stream')
-            ? SdkPresent(json['stream'] as bool?)
-            : const SdkOmitted(),
-        maxPromptTokens: json.containsKey('max_prompt_tokens')
-            ? SdkPresent((json['max_prompt_tokens'] as num?)?.toInt())
-            : const SdkOmitted(),
-        maxCompletionTokens: json.containsKey('max_completion_tokens')
-            ? SdkPresent((json['max_completion_tokens'] as num?)?.toInt())
-            : const SdkOmitted(),
-        truncationStrategy: json['truncation_strategy'] != null
-            ? SdkPresent((json['truncation_strategy'] != null
-                ? TruncationObject.fromJson(
-                    json['truncation_strategy'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        toolChoice: json['tool_choice'] != null
-            ? SdkPresent((json['tool_choice'] != null
-                ? AssistantsApiToolChoiceOption.fromJson(json['tool_choice'])
-                : null)!)
-            : const SdkOmitted(),
-        parallelToolCalls: json['parallel_tool_calls'] != null
-            ? SdkPresent((json['parallel_tool_calls'] as bool?)!)
-            : const SdkOmitted(),
-        responseFormat: json.containsKey('response_format')
-            ? SdkPresent(json['response_format'] != null
-                ? AssistantsApiResponseFormatOption.fromJson(
-                    json['response_format'])
-                : null)
-            : const SdkOmitted(),
-      );
+  factory CreateRunRequest.fromJson(Map<String, dynamic> json) => CreateRunRequest(
+    assistantId: (json['assistant_id'] as String?)!,
+    model: json.containsKey('model') ? SdkPresent(json['model'] as String?) : const SdkOmitted(),
+    reasoningEffort: json.containsKey('reasoning_effort') ? SdkPresent(json['reasoning_effort'] != null ? ReasoningEffort.fromJson(json['reasoning_effort']) : null) : const SdkOmitted(),
+    instructions: json.containsKey('instructions') ? SdkPresent(json['instructions'] as String?) : const SdkOmitted(),
+    additionalInstructions: json.containsKey('additional_instructions') ? SdkPresent(json['additional_instructions'] as String?) : const SdkOmitted(),
+    additionalMessages: json.containsKey('additional_messages') ? SdkPresent((json['additional_messages'] as List?)?.map((e) => CreateMessageRequest.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    tools: json.containsKey('tools') ? SdkPresent((json['tools'] as List?)?.map((e) => CreateRunRequestToolsItem.fromJson(e)).toList()) : const SdkOmitted(),
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
+    temperature: json.containsKey('temperature') ? SdkPresent((json['temperature'] as num?)?.toDouble()) : const SdkOmitted(),
+    topP: json.containsKey('top_p') ? SdkPresent((json['top_p'] as num?)?.toDouble()) : const SdkOmitted(),
+    stream: json.containsKey('stream') ? SdkPresent(json['stream'] as bool?) : const SdkOmitted(),
+    maxPromptTokens: json.containsKey('max_prompt_tokens') ? SdkPresent((json['max_prompt_tokens'] as num?)?.toInt()) : const SdkOmitted(),
+    maxCompletionTokens: json.containsKey('max_completion_tokens') ? SdkPresent((json['max_completion_tokens'] as num?)?.toInt()) : const SdkOmitted(),
+    truncationStrategy: json['truncation_strategy'] != null ? SdkPresent((json['truncation_strategy'] != null ? TruncationObject.fromJson(json['truncation_strategy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] != null ? AssistantsApiToolChoiceOption.fromJson(json['tool_choice']) : null)!) : const SdkOmitted(),
+    parallelToolCalls: json['parallel_tool_calls'] != null ? SdkPresent((json['parallel_tool_calls'] as bool?)!) : const SdkOmitted(),
+    responseFormat: json.containsKey('response_format') ? SdkPresent(json['response_format'] != null ? AssistantsApiResponseFormatOption.fromJson(json['response_format']) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'assistant_id': assistantId,
-        ...switch (model) {
-          SdkPresent<String?>(value: final value) => {
-              'model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reasoningEffort) {
-          SdkPresent<ReasoningEffort?>(value: final value) => {
-              'reasoning_effort': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (instructions) {
-          SdkPresent<String?>(value: final value) => {
-              'instructions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (additionalInstructions) {
-          SdkPresent<String?>(value: final value) => {
-              'additional_instructions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (additionalMessages) {
-          SdkPresent<List<CreateMessageRequest>?>(value: final value) => {
-              'additional_messages':
-                  value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<CreateRunRequestToolsItem>?>(value: final value) => {
-              'tools': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (temperature) {
-          SdkPresent<double?>(value: final value) => {
-              'temperature': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (topP) {
-          SdkPresent<double?>(value: final value) => {
-              'top_p': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (stream) {
-          SdkPresent<bool?>(value: final value) => {
-              'stream': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxPromptTokens) {
-          SdkPresent<int?>(value: final value) => {
-              'max_prompt_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxCompletionTokens) {
-          SdkPresent<int?>(value: final value) => {
-              'max_completion_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (truncationStrategy) {
-          SdkPresent<TruncationObject>(value: final value) => {
-              'truncation_strategy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolChoice) {
-          SdkPresent<AssistantsApiToolChoiceOption>(value: final value) => {
-              'tool_choice': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parallelToolCalls) {
-          SdkPresent<bool>(value: final value) => {
-              'parallel_tool_calls': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (responseFormat) {
-          SdkPresent<AssistantsApiResponseFormatOption?>(value: final value) =>
-            {
-              'response_format': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'assistant_id': assistantId,
+    ...switch (model) {
+      SdkPresent<String?>(value: final value) => {'model': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reasoningEffort) {
+      SdkPresent<ReasoningEffort?>(value: final value) => {'reasoning_effort': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (instructions) {
+      SdkPresent<String?>(value: final value) => {'instructions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (additionalInstructions) {
+      SdkPresent<String?>(value: final value) => {'additional_instructions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (additionalMessages) {
+      SdkPresent<List<CreateMessageRequest>?>(value: final value) => {'additional_messages': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<CreateRunRequestToolsItem>?>(value: final value) => {'tools': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (temperature) {
+      SdkPresent<double?>(value: final value) => {'temperature': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (topP) {
+      SdkPresent<double?>(value: final value) => {'top_p': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (stream) {
+      SdkPresent<bool?>(value: final value) => {'stream': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxPromptTokens) {
+      SdkPresent<int?>(value: final value) => {'max_prompt_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxCompletionTokens) {
+      SdkPresent<int?>(value: final value) => {'max_completion_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (truncationStrategy) {
+      SdkPresent<TruncationObject>(value: final value) => {'truncation_strategy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolChoice) {
+      SdkPresent<AssistantsApiToolChoiceOption>(value: final value) => {'tool_choice': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parallelToolCalls) {
+      SdkPresent<bool>(value: final value) => {'parallel_tool_calls': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (responseFormat) {
+      SdkPresent<AssistantsApiResponseFormatOption?>(value: final value) => {'response_format': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class CreateRunRequestToolsItem {
@@ -457,76 +235,40 @@ sealed class CreateRunRequestToolsItem {
   const CreateRunRequestToolsItem();
   factory CreateRunRequestToolsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = AssistantToolsCode.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateRunRequestToolsItemAssistantToolsCode(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AssistantToolsFileSearch.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateRunRequestToolsItemAssistantToolsFileSearch(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AssistantToolsFunction.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CreateRunRequestToolsItemAssistantToolsFunction(value);
-        }
-      } catch (_) {}
+      try { final value = AssistantToolsCode.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateRunRequestToolsItemAssistantToolsCode(value); } } catch (_) {}
+      try { final value = AssistantToolsFileSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateRunRequestToolsItemAssistantToolsFileSearch(value); } } catch (_) {}
+      try { final value = AssistantToolsFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateRunRequestToolsItemAssistantToolsFunction(value); } } catch (_) {}
     }
-    try {
-      return CreateRunRequestToolsItemAssistantToolsCode(
-          AssistantToolsCode.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateRunRequestToolsItemAssistantToolsFileSearch(
-          AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CreateRunRequestToolsItemAssistantToolsFunction(
-          AssistantToolsFunction.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"code_interpreter", "file_search", "function"}
-            .contains(json["type"])) {
-      return UnknownCreateRunRequestToolsItem(json);
-    }
+    try { return CreateRunRequestToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateRunRequestToolsItemAssistantToolsFileSearch(AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CreateRunRequestToolsItemAssistantToolsFunction(AssistantToolsFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"code_interpreter", "file_search", "function"}.contains(json["type"])) { return UnknownCreateRunRequestToolsItem(json); }
     throw FormatException("No variant matched for CreateRunRequestToolsItem");
   }
   Object? toJson();
 }
 
-final class CreateRunRequestToolsItemAssistantToolsCode
-    extends CreateRunRequestToolsItem {
+final class CreateRunRequestToolsItemAssistantToolsCode extends CreateRunRequestToolsItem {
   final AssistantToolsCode value;
   const CreateRunRequestToolsItemAssistantToolsCode(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateRunRequestToolsItemAssistantToolsFileSearch
-    extends CreateRunRequestToolsItem {
+final class CreateRunRequestToolsItemAssistantToolsFileSearch extends CreateRunRequestToolsItem {
   final AssistantToolsFileSearch value;
   const CreateRunRequestToolsItemAssistantToolsFileSearch(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class CreateRunRequestToolsItemAssistantToolsFunction
-    extends CreateRunRequestToolsItem {
+final class CreateRunRequestToolsItemAssistantToolsFunction extends CreateRunRequestToolsItem {
   final AssistantToolsFunction value;
   const CreateRunRequestToolsItemAssistantToolsFunction(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [CreateRunRequestToolsItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownCreateRunRequestToolsItem extends CreateRunRequestToolsItem {
   final Map<String, dynamic> raw;
   const UnknownCreateRunRequestToolsItem(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

@@ -6,12 +6,12 @@ part of 'responses_beta_mcptool.dart';
 // responses_beta_mcptool domain models
 /// Typed representation of the `BetaMCPToolCallStatus` API schema.
 final class BetaMCPToolCallStatus {
+
   final String value;
 
   const BetaMCPToolCallStatus._(this.value);
 
-  factory BetaMCPToolCallStatus.fromJson(String value) =>
-      BetaMCPToolCallStatus._(value);
+  factory BetaMCPToolCallStatus.fromJson(String value) => BetaMCPToolCallStatus._(value);
 
   static const inProgress = BetaMCPToolCallStatus._('in_progress');
   static const completed = BetaMCPToolCallStatus._('completed');
@@ -21,13 +21,10 @@ final class BetaMCPToolCallStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaMCPToolCallStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BetaMCPToolCallStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

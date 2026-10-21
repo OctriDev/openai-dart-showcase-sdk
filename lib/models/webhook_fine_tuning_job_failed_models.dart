@@ -8,115 +8,69 @@ part of 'webhook_fine_tuning_job_failed.dart';
 class WebhookFineTuningJobFailedData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique ID of the fine-tuning job.
   final String id;
 
   const WebhookFineTuningJobFailedData({required this.id});
 
-  WebhookFineTuningJobFailedData Function({String id}) get copyWith =>
-      _copyWith;
+  WebhookFineTuningJobFailedData Function({String id}) get copyWith => _copyWith;
 
-  WebhookFineTuningJobFailedData _copyWith({Object? id = sdkOmittedValue}) =>
-      WebhookFineTuningJobFailedData(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  WebhookFineTuningJobFailedData _copyWith({Object? id = sdkOmittedValue}) => WebhookFineTuningJobFailedData(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory WebhookFineTuningJobFailedData.fromJson(Map<String, dynamic> json) =>
-      WebhookFineTuningJobFailedData(
-        id: (json['id'] as String?)!,
-      );
+  factory WebhookFineTuningJobFailedData.fromJson(Map<String, dynamic> json) => WebhookFineTuningJobFailedData(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }
 
 /// Sent when a fine-tuning job has failed.
 class WebhookFineTuningJobFailed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The Unix timestamp (in seconds) of when the fine-tuning job failed.
   final int createdAt;
-
   /// The unique ID of the event.
   final String id;
-
   /// Event data payload.
   final WebhookFineTuningJobFailedData data;
-
   /// The object of the event. Always `event`.
   final SdkOptional<WebhookFineTuningJobFailedObject> object;
-
   /// The type of the event. Always `fine_tuning.job.failed`.
   final WebhookFineTuningJobFailedType type_;
 
-  const WebhookFineTuningJobFailed(
-      {required this.createdAt,
-      required this.id,
-      required this.data,
-      this.object = const SdkOmitted(),
-      required this.type_});
+  const WebhookFineTuningJobFailed({required this.createdAt, required this.id, required this.data, this.object = const SdkOmitted(), required this.type_});
 
-  WebhookFineTuningJobFailed Function(
-      {int createdAt,
-      String id,
-      WebhookFineTuningJobFailedData data,
-      SdkOptional<WebhookFineTuningJobFailedObject> object,
-      WebhookFineTuningJobFailedType type_}) get copyWith => _copyWith;
+  WebhookFineTuningJobFailed Function({int createdAt, String id, WebhookFineTuningJobFailedData data, SdkOptional<WebhookFineTuningJobFailedObject> object, WebhookFineTuningJobFailedType type_}) get copyWith => _copyWith;
 
-  WebhookFineTuningJobFailed _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      WebhookFineTuningJobFailed(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as WebhookFineTuningJobFailedData,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<WebhookFineTuningJobFailedObject>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebhookFineTuningJobFailedType,
-      );
+  WebhookFineTuningJobFailed _copyWith({Object? createdAt = sdkOmittedValue, Object? id = sdkOmittedValue, Object? data = sdkOmittedValue, Object? object = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => WebhookFineTuningJobFailed(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as WebhookFineTuningJobFailedData,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<WebhookFineTuningJobFailedObject>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookFineTuningJobFailedType,
+  );
 
-  factory WebhookFineTuningJobFailed.fromJson(Map<String, dynamic> json) =>
-      WebhookFineTuningJobFailed(
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        id: (json['id'] as String?)!,
-        data: (json['data'] != null
-            ? WebhookFineTuningJobFailedData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-        object: json['object'] != null
-            ? SdkPresent((json['object'] != null
-                ? WebhookFineTuningJobFailedObject.fromJson(
-                    json['object'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? WebhookFineTuningJobFailedType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory WebhookFineTuningJobFailed.fromJson(Map<String, dynamic> json) => WebhookFineTuningJobFailed(
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    id: (json['id'] as String?)!,
+    data: (json['data'] != null ? WebhookFineTuningJobFailedData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+    object: json['object'] != null ? SdkPresent((json['object'] != null ? WebhookFineTuningJobFailedObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? WebhookFineTuningJobFailedType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'created_at': createdAt,
-        'id': id,
-        'data': data.toJson(),
-        ...switch (object) {
-          SdkPresent<WebhookFineTuningJobFailedObject>(value: final value) => {
-              'object': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-      };
+    'created_at': createdAt,
+    'id': id,
+    'data': data.toJson(),
+    ...switch (object) {
+      SdkPresent<WebhookFineTuningJobFailedObject>(value: final value) => {'object': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+  };
 }

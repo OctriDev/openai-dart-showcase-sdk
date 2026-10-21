@@ -10,115 +10,56 @@ sealed class RunGraderRequestGrader {
   const RunGraderRequestGrader();
   factory RunGraderRequestGrader.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = GraderStringCheck.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RunGraderRequestGraderGraderStringCheck(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderTextSimilarity.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RunGraderRequestGraderGraderTextSimilarity(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderPython.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RunGraderRequestGraderGraderPython(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderScoreModel.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RunGraderRequestGraderGraderScoreModel(value);
-        }
-      } catch (_) {}
-      try {
-        final value = GraderMulti.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RunGraderRequestGraderGraderMulti(value);
-        }
-      } catch (_) {}
+      try { final value = GraderStringCheck.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunGraderRequestGraderGraderStringCheck(value); } } catch (_) {}
+      try { final value = GraderTextSimilarity.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunGraderRequestGraderGraderTextSimilarity(value); } } catch (_) {}
+      try { final value = GraderPython.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunGraderRequestGraderGraderPython(value); } } catch (_) {}
+      try { final value = GraderScoreModel.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunGraderRequestGraderGraderScoreModel(value); } } catch (_) {}
+      try { final value = GraderMulti.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunGraderRequestGraderGraderMulti(value); } } catch (_) {}
     }
-    try {
-      return RunGraderRequestGraderGraderStringCheck(
-          GraderStringCheck.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RunGraderRequestGraderGraderTextSimilarity(
-          GraderTextSimilarity.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RunGraderRequestGraderGraderPython(
-          GraderPython.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RunGraderRequestGraderGraderScoreModel(
-          GraderScoreModel.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RunGraderRequestGraderGraderMulti(
-          GraderMulti.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {
-          "string_check",
-          "text_similarity",
-          "python",
-          "score_model",
-          "multi"
-        }.contains(json["type"])) {
-      return UnknownRunGraderRequestGrader(json);
-    }
+    try { return RunGraderRequestGraderGraderStringCheck(GraderStringCheck.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RunGraderRequestGraderGraderTextSimilarity(GraderTextSimilarity.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RunGraderRequestGraderGraderPython(GraderPython.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RunGraderRequestGraderGraderScoreModel(GraderScoreModel.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RunGraderRequestGraderGraderMulti(GraderMulti.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"string_check", "text_similarity", "python", "score_model", "multi"}.contains(json["type"])) { return UnknownRunGraderRequestGrader(json); }
     throw FormatException("No variant matched for RunGraderRequestGrader");
   }
   Object? toJson();
 }
 
-final class RunGraderRequestGraderGraderStringCheck
-    extends RunGraderRequestGrader {
+final class RunGraderRequestGraderGraderStringCheck extends RunGraderRequestGrader {
   final GraderStringCheck value;
   const RunGraderRequestGraderGraderStringCheck(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RunGraderRequestGraderGraderTextSimilarity
-    extends RunGraderRequestGrader {
+final class RunGraderRequestGraderGraderTextSimilarity extends RunGraderRequestGrader {
   final GraderTextSimilarity value;
   const RunGraderRequestGraderGraderTextSimilarity(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class RunGraderRequestGraderGraderPython extends RunGraderRequestGrader {
   final GraderPython value;
   const RunGraderRequestGraderGraderPython(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RunGraderRequestGraderGraderScoreModel
-    extends RunGraderRequestGrader {
+final class RunGraderRequestGraderGraderScoreModel extends RunGraderRequestGrader {
   final GraderScoreModel value;
   const RunGraderRequestGraderGraderScoreModel(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class RunGraderRequestGraderGraderMulti extends RunGraderRequestGrader {
   final GraderMulti value;
   const RunGraderRequestGraderGraderMulti(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [RunGraderRequestGrader] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownRunGraderRequestGrader extends RunGraderRequestGrader {
   final Map<String, dynamic> raw;
   const UnknownRunGraderRequestGrader(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

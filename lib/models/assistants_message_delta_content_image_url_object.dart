@@ -8,133 +8,70 @@ part of 'assistants_message.dart';
 class MessageDeltaContentImageUrlObjectImageUrl {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The URL of the image, must be a supported image types: jpeg, jpg, png, gif, webp.
   final SdkOptional<String> url;
-
   /// Specifies the detail level of the image. `low` uses fewer tokens, you can opt in to high resolution using `high`.
   final SdkOptional<MessageDeltaContentImageUrlObjectImageUrlDetail> detail;
 
-  const MessageDeltaContentImageUrlObjectImageUrl(
-      {this.url = const SdkOmitted(), this.detail = const SdkOmitted()});
+  const MessageDeltaContentImageUrlObjectImageUrl({this.url = const SdkOmitted(), this.detail = const SdkOmitted()});
 
-  MessageDeltaContentImageUrlObjectImageUrl Function(
-          {SdkOptional<String> url,
-          SdkOptional<MessageDeltaContentImageUrlObjectImageUrlDetail> detail})
-      get copyWith => _copyWith;
+  MessageDeltaContentImageUrlObjectImageUrl Function({SdkOptional<String> url, SdkOptional<MessageDeltaContentImageUrlObjectImageUrlDetail> detail}) get copyWith => _copyWith;
 
-  MessageDeltaContentImageUrlObjectImageUrl _copyWith(
-          {Object? url = sdkOmittedValue, Object? detail = sdkOmittedValue}) =>
-      MessageDeltaContentImageUrlObjectImageUrl(
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        detail: identical(detail, sdkOmittedValue)
-            ? this.detail
-            : detail
-                as SdkOptional<MessageDeltaContentImageUrlObjectImageUrlDetail>,
-      );
+  MessageDeltaContentImageUrlObjectImageUrl _copyWith({Object? url = sdkOmittedValue, Object? detail = sdkOmittedValue}) => MessageDeltaContentImageUrlObjectImageUrl(
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as SdkOptional<MessageDeltaContentImageUrlObjectImageUrlDetail>,
+  );
 
-  factory MessageDeltaContentImageUrlObjectImageUrl.fromJson(
-          Map<String, dynamic> json) =>
-      MessageDeltaContentImageUrlObjectImageUrl(
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        detail: json['detail'] != null
-            ? SdkPresent((json['detail'] != null
-                ? MessageDeltaContentImageUrlObjectImageUrlDetail.fromJson(
-                    json['detail'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory MessageDeltaContentImageUrlObjectImageUrl.fromJson(Map<String, dynamic> json) => MessageDeltaContentImageUrlObjectImageUrl(
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+    detail: json['detail'] != null ? SdkPresent((json['detail'] != null ? MessageDeltaContentImageUrlObjectImageUrlDetail.fromJson(json['detail'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (detail) {
-          SdkPresent<MessageDeltaContentImageUrlObjectImageUrlDetail>(
-            value: final value
-          ) =>
-            {
-              'detail': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (detail) {
+      SdkPresent<MessageDeltaContentImageUrlObjectImageUrlDetail>(value: final value) => {'detail': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// References an image URL in the content of a message.
 class MessageDeltaContentImageUrlObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The index of the content part in the message.
   final int index;
-
   /// Always `image_url`.
   final MessageDeltaContentImageUrlObjectType type_;
-
   /// Optional object value serialized in the `image_url` wire field.
   final SdkOptional<MessageDeltaContentImageUrlObjectImageUrl> imageUrl;
 
-  const MessageDeltaContentImageUrlObject(
-      {required this.index,
-      required this.type_,
-      this.imageUrl = const SdkOmitted()});
+  const MessageDeltaContentImageUrlObject({required this.index, required this.type_, this.imageUrl = const SdkOmitted()});
 
-  MessageDeltaContentImageUrlObject Function(
-          {int index,
-          MessageDeltaContentImageUrlObjectType type_,
-          SdkOptional<MessageDeltaContentImageUrlObjectImageUrl> imageUrl})
-      get copyWith => _copyWith;
+  MessageDeltaContentImageUrlObject Function({int index, MessageDeltaContentImageUrlObjectType type_, SdkOptional<MessageDeltaContentImageUrlObjectImageUrl> imageUrl}) get copyWith => _copyWith;
 
-  MessageDeltaContentImageUrlObject _copyWith(
-          {Object? index = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue}) =>
-      MessageDeltaContentImageUrlObject(
-        index: identical(index, sdkOmittedValue) ? this.index : index as int,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MessageDeltaContentImageUrlObjectType,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl
-                as SdkOptional<MessageDeltaContentImageUrlObjectImageUrl>,
-      );
+  MessageDeltaContentImageUrlObject _copyWith({Object? index = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue}) => MessageDeltaContentImageUrlObject(
+    index: identical(index, sdkOmittedValue) ? this.index : index as int,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageDeltaContentImageUrlObjectType,
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<MessageDeltaContentImageUrlObjectImageUrl>,
+  );
 
-  factory MessageDeltaContentImageUrlObject.fromJson(
-          Map<String, dynamic> json) =>
-      MessageDeltaContentImageUrlObject(
-        index: ((json['index'] as num?)?.toInt())!,
-        type_: (json['type'] != null
-            ? MessageDeltaContentImageUrlObjectType.fromJson(
-                json['type'] as String)
-            : null)!,
-        imageUrl: json['image_url'] != null
-            ? SdkPresent((json['image_url'] != null
-                ? MessageDeltaContentImageUrlObjectImageUrl.fromJson(
-                    json['image_url'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory MessageDeltaContentImageUrlObject.fromJson(Map<String, dynamic> json) => MessageDeltaContentImageUrlObject(
+    index: ((json['index'] as num?)?.toInt())!,
+    type_: (json['type'] != null ? MessageDeltaContentImageUrlObjectType.fromJson(json['type'] as String) : null)!,
+    imageUrl: json['image_url'] != null ? SdkPresent((json['image_url'] != null ? MessageDeltaContentImageUrlObjectImageUrl.fromJson(json['image_url'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'index': index,
-        'type': type_.toJson(),
-        ...switch (imageUrl) {
-          SdkPresent<MessageDeltaContentImageUrlObjectImageUrl>(
-            value: final value
-          ) =>
-            {
-              'image_url': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'index': index,
+    'type': type_.toJson(),
+    ...switch (imageUrl) {
+      SdkPresent<MessageDeltaContentImageUrlObjectImageUrl>(value: final value) => {'image_url': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

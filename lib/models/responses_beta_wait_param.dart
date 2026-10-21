@@ -8,7 +8,6 @@ part of 'responses_beta.dart';
 class BetaWaitParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the event type. For a wait action, this property is always set to `wait`.
   final BetaWaitParamType type_;
 
@@ -17,18 +16,14 @@ class BetaWaitParam {
   BetaWaitParam Function({BetaWaitParamType type_}) get copyWith => _copyWith;
 
   BetaWaitParam _copyWith({Object? type_ = sdkOmittedValue}) => BetaWaitParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as BetaWaitParamType,
-      );
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaWaitParamType,
+  );
 
   factory BetaWaitParam.fromJson(Map<String, dynamic> json) => BetaWaitParam(
-        type_: (json['type'] != null
-            ? BetaWaitParamType.fromJson(json['type'] as String)
-            : null)!,
-      );
+    type_: (json['type'] != null ? BetaWaitParamType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

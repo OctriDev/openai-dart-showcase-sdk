@@ -10,65 +10,32 @@ sealed class PersistedMcpTransportResource {
   const PersistedMcpTransportResource();
   factory PersistedMcpTransportResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = PersistedMcpTransportResourceHttp.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return PersistedMcpTransportResourcePersistedMcpTransportResourceHttp(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = PersistedMcpTransportResourceStdio.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return PersistedMcpTransportResourcePersistedMcpTransportResourceStdio(
-              value);
-        }
-      } catch (_) {}
+      try { final value = PersistedMcpTransportResourceHttp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedMcpTransportResourcePersistedMcpTransportResourceHttp(value); } } catch (_) {}
+      try { final value = PersistedMcpTransportResourceStdio.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedMcpTransportResourcePersistedMcpTransportResourceStdio(value); } } catch (_) {}
     }
-    try {
-      return PersistedMcpTransportResourcePersistedMcpTransportResourceHttp(
-          PersistedMcpTransportResourceHttp.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return PersistedMcpTransportResourcePersistedMcpTransportResourceStdio(
-          PersistedMcpTransportResourceStdio.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"http", "stdio"}.contains(json["type"])) {
-      return UnknownPersistedMcpTransportResource(json);
-    }
-    throw FormatException(
-        "No variant matched for PersistedMcpTransportResource");
+    try { return PersistedMcpTransportResourcePersistedMcpTransportResourceHttp(PersistedMcpTransportResourceHttp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return PersistedMcpTransportResourcePersistedMcpTransportResourceStdio(PersistedMcpTransportResourceStdio.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"http", "stdio"}.contains(json["type"])) { return UnknownPersistedMcpTransportResource(json); }
+    throw FormatException("No variant matched for PersistedMcpTransportResource");
   }
   Object? toJson();
 }
 
-final class PersistedMcpTransportResourcePersistedMcpTransportResourceHttp
-    extends PersistedMcpTransportResource {
+final class PersistedMcpTransportResourcePersistedMcpTransportResourceHttp extends PersistedMcpTransportResource {
   final PersistedMcpTransportResourceHttp value;
-  const PersistedMcpTransportResourcePersistedMcpTransportResourceHttp(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const PersistedMcpTransportResourcePersistedMcpTransportResourceHttp(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class PersistedMcpTransportResourcePersistedMcpTransportResourceStdio
-    extends PersistedMcpTransportResource {
+final class PersistedMcpTransportResourcePersistedMcpTransportResourceStdio extends PersistedMcpTransportResource {
   final PersistedMcpTransportResourceStdio value;
-  const PersistedMcpTransportResourcePersistedMcpTransportResourceStdio(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const PersistedMcpTransportResourcePersistedMcpTransportResourceStdio(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [PersistedMcpTransportResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownPersistedMcpTransportResource
-    extends PersistedMcpTransportResource {
+final class UnknownPersistedMcpTransportResource extends PersistedMcpTransportResource {
   final Map<String, dynamic> raw;
   const UnknownPersistedMcpTransportResource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

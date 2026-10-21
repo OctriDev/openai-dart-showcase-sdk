@@ -6,304 +6,244 @@ part of 'inline.dart';
 // Inline operation models
 /// The event type, must be `input_audio_buffer.append`.
 final class RealtimeBetaClientEventInputAudioBufferAppendType {
+
   final String value;
 
   const RealtimeBetaClientEventInputAudioBufferAppendType._(this.value);
 
-  factory RealtimeBetaClientEventInputAudioBufferAppendType.fromJson(
-          String value) =>
-      RealtimeBetaClientEventInputAudioBufferAppendType._(value);
+  factory RealtimeBetaClientEventInputAudioBufferAppendType.fromJson(String value) => RealtimeBetaClientEventInputAudioBufferAppendType._(value);
 
-  static const inputAudioBufferAppend =
-      RealtimeBetaClientEventInputAudioBufferAppendType._(
-          'input_audio_buffer.append');
+  static const inputAudioBufferAppend = RealtimeBetaClientEventInputAudioBufferAppendType._('input_audio_buffer.append');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventInputAudioBufferAppendType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventInputAudioBufferAppendType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type, must be `input_audio_buffer.clear`.
 final class RealtimeBetaClientEventInputAudioBufferClearType {
+
   final String value;
 
   const RealtimeBetaClientEventInputAudioBufferClearType._(this.value);
 
-  factory RealtimeBetaClientEventInputAudioBufferClearType.fromJson(
-          String value) =>
-      RealtimeBetaClientEventInputAudioBufferClearType._(value);
+  factory RealtimeBetaClientEventInputAudioBufferClearType.fromJson(String value) => RealtimeBetaClientEventInputAudioBufferClearType._(value);
 
-  static const inputAudioBufferClear =
-      RealtimeBetaClientEventInputAudioBufferClearType._(
-          'input_audio_buffer.clear');
+  static const inputAudioBufferClear = RealtimeBetaClientEventInputAudioBufferClearType._('input_audio_buffer.clear');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventInputAudioBufferClearType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventInputAudioBufferClearType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type, must be `input_audio_buffer.commit`.
 final class RealtimeBetaClientEventInputAudioBufferCommitType {
+
   final String value;
 
   const RealtimeBetaClientEventInputAudioBufferCommitType._(this.value);
 
-  factory RealtimeBetaClientEventInputAudioBufferCommitType.fromJson(
-          String value) =>
-      RealtimeBetaClientEventInputAudioBufferCommitType._(value);
+  factory RealtimeBetaClientEventInputAudioBufferCommitType.fromJson(String value) => RealtimeBetaClientEventInputAudioBufferCommitType._(value);
 
-  static const inputAudioBufferCommit =
-      RealtimeBetaClientEventInputAudioBufferCommitType._(
-          'input_audio_buffer.commit');
+  static const inputAudioBufferCommit = RealtimeBetaClientEventInputAudioBufferCommitType._('input_audio_buffer.commit');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventInputAudioBufferCommitType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventInputAudioBufferCommitType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type, must be `output_audio_buffer.clear`.
 final class RealtimeBetaClientEventOutputAudioBufferClearType {
+
   final String value;
 
   const RealtimeBetaClientEventOutputAudioBufferClearType._(this.value);
 
-  factory RealtimeBetaClientEventOutputAudioBufferClearType.fromJson(
-          String value) =>
-      RealtimeBetaClientEventOutputAudioBufferClearType._(value);
+  factory RealtimeBetaClientEventOutputAudioBufferClearType.fromJson(String value) => RealtimeBetaClientEventOutputAudioBufferClearType._(value);
 
-  static const outputAudioBufferClear =
-      RealtimeBetaClientEventOutputAudioBufferClearType._(
-          'output_audio_buffer.clear');
+  static const outputAudioBufferClear = RealtimeBetaClientEventOutputAudioBufferClearType._('output_audio_buffer.clear');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventOutputAudioBufferClearType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventOutputAudioBufferClearType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type, must be `response.cancel`.
 final class RealtimeBetaClientEventResponseCancelType {
+
   final String value;
 
   const RealtimeBetaClientEventResponseCancelType._(this.value);
 
-  factory RealtimeBetaClientEventResponseCancelType.fromJson(String value) =>
-      RealtimeBetaClientEventResponseCancelType._(value);
+  factory RealtimeBetaClientEventResponseCancelType.fromJson(String value) => RealtimeBetaClientEventResponseCancelType._(value);
 
-  static const responseCancel =
-      RealtimeBetaClientEventResponseCancelType._('response.cancel');
+  static const responseCancel = RealtimeBetaClientEventResponseCancelType._('response.cancel');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventResponseCancelType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventResponseCancelType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type, must be `response.create`.
 final class RealtimeBetaClientEventResponseCreateType {
+
   final String value;
 
   const RealtimeBetaClientEventResponseCreateType._(this.value);
 
-  factory RealtimeBetaClientEventResponseCreateType.fromJson(String value) =>
-      RealtimeBetaClientEventResponseCreateType._(value);
+  factory RealtimeBetaClientEventResponseCreateType.fromJson(String value) => RealtimeBetaClientEventResponseCreateType._(value);
 
-  static const responseCreate =
-      RealtimeBetaClientEventResponseCreateType._('response.create');
+  static const responseCreate = RealtimeBetaClientEventResponseCreateType._('response.create');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventResponseCreateType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventResponseCreateType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type, must be `session.update`.
 final class RealtimeBetaClientEventSessionUpdateType {
+
   final String value;
 
   const RealtimeBetaClientEventSessionUpdateType._(this.value);
 
-  factory RealtimeBetaClientEventSessionUpdateType.fromJson(String value) =>
-      RealtimeBetaClientEventSessionUpdateType._(value);
+  factory RealtimeBetaClientEventSessionUpdateType.fromJson(String value) => RealtimeBetaClientEventSessionUpdateType._(value);
 
-  static const sessionUpdate =
-      RealtimeBetaClientEventSessionUpdateType._('session.update');
+  static const sessionUpdate = RealtimeBetaClientEventSessionUpdateType._('session.update');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventSessionUpdateType && other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventSessionUpdateType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type, must be `transcription_session.update`.
 final class RealtimeBetaClientEventTranscriptionSessionUpdateType {
+
   final String value;
 
   const RealtimeBetaClientEventTranscriptionSessionUpdateType._(this.value);
 
-  factory RealtimeBetaClientEventTranscriptionSessionUpdateType.fromJson(
-          String value) =>
-      RealtimeBetaClientEventTranscriptionSessionUpdateType._(value);
+  factory RealtimeBetaClientEventTranscriptionSessionUpdateType.fromJson(String value) => RealtimeBetaClientEventTranscriptionSessionUpdateType._(value);
 
-  static const transcriptionSessionUpdate =
-      RealtimeBetaClientEventTranscriptionSessionUpdateType._(
-          'transcription_session.update');
+  static const transcriptionSessionUpdate = RealtimeBetaClientEventTranscriptionSessionUpdateType._('transcription_session.update');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaClientEventTranscriptionSessionUpdateType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaClientEventTranscriptionSessionUpdateType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `max_output_tokens` wire field.
 final class RealtimeBetaResponseMaxOutputTokensVariant1 {
+
   final String value;
 
   const RealtimeBetaResponseMaxOutputTokensVariant1._(this.value);
 
-  factory RealtimeBetaResponseMaxOutputTokensVariant1.fromJson(String value) =>
-      RealtimeBetaResponseMaxOutputTokensVariant1._(value);
+  factory RealtimeBetaResponseMaxOutputTokensVariant1.fromJson(String value) => RealtimeBetaResponseMaxOutputTokensVariant1._(value);
 
   static const inf = RealtimeBetaResponseMaxOutputTokensVariant1._('inf');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaResponseMaxOutputTokensVariant1 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaResponseMaxOutputTokensVariant1 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `modalities[]` wire field.
 final class RealtimeBetaResponseModalitiesItem {
+
   final String value;
 
   const RealtimeBetaResponseModalitiesItem._(this.value);
 
-  factory RealtimeBetaResponseModalitiesItem.fromJson(String value) =>
-      RealtimeBetaResponseModalitiesItem._(value);
+  factory RealtimeBetaResponseModalitiesItem.fromJson(String value) => RealtimeBetaResponseModalitiesItem._(value);
 
   static const text = RealtimeBetaResponseModalitiesItem._('text');
   static const audio = RealtimeBetaResponseModalitiesItem._('audio');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaResponseModalitiesItem && other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaResponseModalitiesItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, must be `realtime.response`.
 final class RealtimeBetaResponseObject {
+
   final String value;
 
   const RealtimeBetaResponseObject._(this.value);
 
-  factory RealtimeBetaResponseObject.fromJson(String value) =>
-      RealtimeBetaResponseObject._(value);
+  factory RealtimeBetaResponseObject.fromJson(String value) => RealtimeBetaResponseObject._(value);
 
-  static const realtimeResponse =
-      RealtimeBetaResponseObject._('realtime.response');
+  static const realtimeResponse = RealtimeBetaResponseObject._('realtime.response');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The format of output audio. Options are `pcm16`, `g711_ulaw`, or `g711_alaw`.
 final class RealtimeBetaResponseOutputAudioFormat {
+
   final String value;
 
   const RealtimeBetaResponseOutputAudioFormat._(this.value);
 
-  factory RealtimeBetaResponseOutputAudioFormat.fromJson(String value) =>
-      RealtimeBetaResponseOutputAudioFormat._(value);
+  factory RealtimeBetaResponseOutputAudioFormat.fromJson(String value) => RealtimeBetaResponseOutputAudioFormat._(value);
 
   static const pcm16 = RealtimeBetaResponseOutputAudioFormat._('pcm16');
   static const g711Ulaw = RealtimeBetaResponseOutputAudioFormat._('g711_ulaw');
@@ -311,25 +251,22 @@ final class RealtimeBetaResponseOutputAudioFormat {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaResponseOutputAudioFormat && other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaResponseOutputAudioFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The final status of the response (`completed`, `cancelled`, `failed`, or `incomplete`, `in_progress`).
 final class RealtimeBetaResponseStatus {
+
   final String value;
 
   const RealtimeBetaResponseStatus._(this.value);
 
-  factory RealtimeBetaResponseStatus.fromJson(String value) =>
-      RealtimeBetaResponseStatus._(value);
+  factory RealtimeBetaResponseStatus.fromJson(String value) => RealtimeBetaResponseStatus._(value);
 
   static const completed = RealtimeBetaResponseStatus._('completed');
   static const cancelled = RealtimeBetaResponseStatus._('cancelled');
@@ -339,13 +276,10 @@ final class RealtimeBetaResponseStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RealtimeBetaResponseStatus && other.value == value;
+  @override bool operator ==(Object other) => other is RealtimeBetaResponseStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

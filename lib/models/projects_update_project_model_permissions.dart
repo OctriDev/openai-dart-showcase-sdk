@@ -8,45 +8,27 @@ part of 'projects.dart';
 class ProjectModelPermissionsUpdateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The model permissions mode to apply.
   final ProjectModelPermissionsUpdateRequestMode mode;
-
   /// The model IDs included in this permissions policy.
   final List<String> modelIds;
 
-  const ProjectModelPermissionsUpdateRequest(
-      {required this.mode, required this.modelIds});
+  const ProjectModelPermissionsUpdateRequest({required this.mode, required this.modelIds});
 
-  ProjectModelPermissionsUpdateRequest Function(
-      {ProjectModelPermissionsUpdateRequestMode mode,
-      List<String> modelIds}) get copyWith => _copyWith;
+  ProjectModelPermissionsUpdateRequest Function({ProjectModelPermissionsUpdateRequestMode mode, List<String> modelIds}) get copyWith => _copyWith;
 
-  ProjectModelPermissionsUpdateRequest _copyWith(
-          {Object? mode = sdkOmittedValue,
-          Object? modelIds = sdkOmittedValue}) =>
-      ProjectModelPermissionsUpdateRequest(
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as ProjectModelPermissionsUpdateRequestMode,
-        modelIds: identical(modelIds, sdkOmittedValue)
-            ? this.modelIds
-            : modelIds as List<String>,
-      );
+  ProjectModelPermissionsUpdateRequest _copyWith({Object? mode = sdkOmittedValue, Object? modelIds = sdkOmittedValue}) => ProjectModelPermissionsUpdateRequest(
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as ProjectModelPermissionsUpdateRequestMode,
+    modelIds: identical(modelIds, sdkOmittedValue) ? this.modelIds : modelIds as List<String>,
+  );
 
-  factory ProjectModelPermissionsUpdateRequest.fromJson(
-          Map<String, dynamic> json) =>
-      ProjectModelPermissionsUpdateRequest(
-        mode: (json['mode'] != null
-            ? ProjectModelPermissionsUpdateRequestMode.fromJson(
-                json['mode'] as String)
-            : null)!,
-        modelIds:
-            ((json['model_ids'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory ProjectModelPermissionsUpdateRequest.fromJson(Map<String, dynamic> json) => ProjectModelPermissionsUpdateRequest(
+    mode: (json['mode'] != null ? ProjectModelPermissionsUpdateRequestMode.fromJson(json['mode'] as String) : null)!,
+    modelIds: ((json['model_ids'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'mode': mode.toJson(),
-        'model_ids': modelIds,
-      };
+    'mode': mode.toJson(),
+    'model_ids': modelIds,
+  };
 }

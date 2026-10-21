@@ -8,136 +8,68 @@ part of 'shared.dart';
 class OpenAIFile {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The file identifier, which can be referenced in the API endpoints.
   final String id;
-
   /// The size of the file, in bytes. In a completed file upload response, this can be null when the file size is not yet available.
   final int? bytes;
-
   /// The Unix timestamp (in seconds) for when the file was created.
   final int createdAt;
-
   /// The Unix timestamp (in seconds) for when the file will expire. In a completed file upload response, this can be null when no expiry is set.
   final SdkOptional<int> expiresAt;
-
   /// The name of the file.
   final String filename;
-
   /// The object type, which is always `file`.
   final OpenAIFileObject object;
-
   /// The intended purpose of the file. Supported values are `assistants`, `assistants_output`, `batch`, `batch_output`, `fine-tune`, `fine-tune-results`, `vision`, and `user_data`.
   final OpenAIFilePurpose purpose;
-
   /// Deprecated. The current status of the file, which can be either `uploaded`, `processed`, or `error`.
   final OpenAIFileStatus status;
-
   /// Deprecated. For details on why a fine-tuning training file failed validation, see the `error` field on `fine_tuning.job`. Completed file upload responses can return null when these details are unset.
   final SdkOptional<String> statusDetails;
 
-  const OpenAIFile(
-      {required this.id,
-      required this.bytes,
-      required this.createdAt,
-      this.expiresAt = const SdkOmitted(),
-      required this.filename,
-      required this.object,
-      required this.purpose,
-      required this.status,
-      this.statusDetails = const SdkOmitted()});
+  const OpenAIFile({required this.id, required this.bytes, required this.createdAt, this.expiresAt = const SdkOmitted(), required this.filename, required this.object, required this.purpose, required this.status, this.statusDetails = const SdkOmitted()});
 
-  OpenAIFile Function(
-      {String id,
-      int? bytes,
-      int createdAt,
-      SdkOptional<int> expiresAt,
-      String filename,
-      OpenAIFileObject object,
-      OpenAIFilePurpose purpose,
-      OpenAIFileStatus status,
-      SdkOptional<String> statusDetails}) get copyWith => _copyWith;
+  OpenAIFile Function({String id, int? bytes, int createdAt, SdkOptional<int> expiresAt, String filename, OpenAIFileObject object, OpenAIFilePurpose purpose, OpenAIFileStatus status, SdkOptional<String> statusDetails}) get copyWith => _copyWith;
 
-  OpenAIFile _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? bytes = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue,
-          Object? filename = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? purpose = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? statusDetails = sdkOmittedValue}) =>
-      OpenAIFile(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as int?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<int>,
-        filename: identical(filename, sdkOmittedValue)
-            ? this.filename
-            : filename as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as OpenAIFileObject,
-        purpose: identical(purpose, sdkOmittedValue)
-            ? this.purpose
-            : purpose as OpenAIFilePurpose,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as OpenAIFileStatus,
-        statusDetails: identical(statusDetails, sdkOmittedValue)
-            ? this.statusDetails
-            : statusDetails as SdkOptional<String>,
-      );
+  OpenAIFile _copyWith({Object? id = sdkOmittedValue, Object? bytes = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? object = sdkOmittedValue, Object? purpose = sdkOmittedValue, Object? status = sdkOmittedValue, Object? statusDetails = sdkOmittedValue}) => OpenAIFile(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as int?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int>,
+    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as OpenAIFileObject,
+    purpose: identical(purpose, sdkOmittedValue) ? this.purpose : purpose as OpenAIFilePurpose,
+    status: identical(status, sdkOmittedValue) ? this.status : status as OpenAIFileStatus,
+    statusDetails: identical(statusDetails, sdkOmittedValue) ? this.statusDetails : statusDetails as SdkOptional<String>,
+  );
 
   factory OpenAIFile.fromJson(Map<String, dynamic> json) => OpenAIFile(
-        id: (json['id'] as String?)!,
-        bytes: json.containsKey('bytes')
-            ? (json['bytes'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'bytes', 'Required property is missing'),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        expiresAt: json['expires_at'] != null
-            ? SdkPresent(((json['expires_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        filename: (json['filename'] as String?)!,
-        object: (json['object'] != null
-            ? OpenAIFileObject.fromJson(json['object'] as String)
-            : null)!,
-        purpose: (json['purpose'] != null
-            ? OpenAIFilePurpose.fromJson(json['purpose'] as String)
-            : null)!,
-        status: (json['status'] != null
-            ? OpenAIFileStatus.fromJson(json['status'] as String)
-            : null)!,
-        statusDetails: json['status_details'] != null
-            ? SdkPresent((json['status_details'] as String?)!)
-            : const SdkOmitted(),
-      );
+    id: (json['id'] as String?)!,
+    bytes: json.containsKey('bytes') ? (json['bytes'] as num?)?.toInt() : throw ArgumentError.value(null, 'bytes', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    expiresAt: json['expires_at'] != null ? SdkPresent(((json['expires_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    filename: (json['filename'] as String?)!,
+    object: (json['object'] != null ? OpenAIFileObject.fromJson(json['object'] as String) : null)!,
+    purpose: (json['purpose'] != null ? OpenAIFilePurpose.fromJson(json['purpose'] as String) : null)!,
+    status: (json['status'] != null ? OpenAIFileStatus.fromJson(json['status'] as String) : null)!,
+    statusDetails: json['status_details'] != null ? SdkPresent((json['status_details'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'bytes': bytes,
-        'created_at': createdAt,
-        ...switch (expiresAt) {
-          SdkPresent<int>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'filename': filename,
-        'object': object.toJson(),
-        'purpose': purpose.toJson(),
-        'status': status.toJson(),
-        ...switch (statusDetails) {
-          SdkPresent<String>(value: final value) => {
-              'status_details': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    'bytes': bytes,
+    'created_at': createdAt,
+    ...switch (expiresAt) {
+      SdkPresent<int>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    'filename': filename,
+    'object': object.toJson(),
+    'purpose': purpose.toJson(),
+    'status': status.toJson(),
+    ...switch (statusDetails) {
+      SdkPresent<String>(value: final value) => {'status_details': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

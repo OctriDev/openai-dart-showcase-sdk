@@ -8,64 +8,38 @@ part of 'projects.dart';
 class ProjectUserCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the user.
   final SdkOptional<String?> userId;
-
   /// Email of the user to add.
   final SdkOptional<String?> email;
-
   /// `owner` or `member`
   final String role;
 
-  const ProjectUserCreateRequest(
-      {this.userId = const SdkOmitted(),
-      this.email = const SdkOmitted(),
-      required this.role});
+  const ProjectUserCreateRequest({this.userId = const SdkOmitted(), this.email = const SdkOmitted(), required this.role});
 
-  ProjectUserCreateRequest Function(
-      {SdkOptional<String?> userId,
-      SdkOptional<String?> email,
-      String role}) get copyWith => _copyWith;
+  ProjectUserCreateRequest Function({SdkOptional<String?> userId, SdkOptional<String?> email, String role}) get copyWith => _copyWith;
 
-  ProjectUserCreateRequest _copyWith(
-          {Object? userId = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? role = sdkOmittedValue}) =>
-      ProjectUserCreateRequest(
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String?>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String?>,
-        role: identical(role, sdkOmittedValue) ? this.role : role as String,
-      );
+  ProjectUserCreateRequest _copyWith({Object? userId = sdkOmittedValue, Object? email = sdkOmittedValue, Object? role = sdkOmittedValue}) => ProjectUserCreateRequest(
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String?>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String?>,
+    role: identical(role, sdkOmittedValue) ? this.role : role as String,
+  );
 
-  factory ProjectUserCreateRequest.fromJson(Map<String, dynamic> json) =>
-      ProjectUserCreateRequest(
-        userId: json.containsKey('user_id')
-            ? SdkPresent(json['user_id'] as String?)
-            : const SdkOmitted(),
-        email: json.containsKey('email')
-            ? SdkPresent(json['email'] as String?)
-            : const SdkOmitted(),
-        role: (json['role'] as String?)!,
-      );
+  factory ProjectUserCreateRequest.fromJson(Map<String, dynamic> json) => ProjectUserCreateRequest(
+    userId: json.containsKey('user_id') ? SdkPresent(json['user_id'] as String?) : const SdkOmitted(),
+    email: json.containsKey('email') ? SdkPresent(json['email'] as String?) : const SdkOmitted(),
+    role: (json['role'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (userId) {
-          SdkPresent<String?>(value: final value) => {
-              'user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<String?>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'role': role,
-      };
+    ...switch (userId) {
+      SdkPresent<String?>(value: final value) => {'user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<String?>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+    'role': role,
+  };
 }

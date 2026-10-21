@@ -8,52 +8,32 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventInputAudioBufferDtmfEventReceived {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type, must be `input_audio_buffer.dtmf_event_received`.
   final RealtimeServerEventInputAudioBufferDtmfEventReceivedType type_;
-
   /// The telephone keypad that was pressed by the user.
   final String event;
-
   /// UTC Unix Timestamp when DTMF Event was received by server.
   final int receivedAt;
 
-  const RealtimeServerEventInputAudioBufferDtmfEventReceived(
-      {required this.type_, required this.event, required this.receivedAt});
+  const RealtimeServerEventInputAudioBufferDtmfEventReceived({required this.type_, required this.event, required this.receivedAt});
 
-  RealtimeServerEventInputAudioBufferDtmfEventReceived Function(
-      {RealtimeServerEventInputAudioBufferDtmfEventReceivedType type_,
-      String event,
-      int receivedAt}) get copyWith => _copyWith;
+  RealtimeServerEventInputAudioBufferDtmfEventReceived Function({RealtimeServerEventInputAudioBufferDtmfEventReceivedType type_, String event, int receivedAt}) get copyWith => _copyWith;
 
-  RealtimeServerEventInputAudioBufferDtmfEventReceived _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? event = sdkOmittedValue,
-          Object? receivedAt = sdkOmittedValue}) =>
-      RealtimeServerEventInputAudioBufferDtmfEventReceived(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RealtimeServerEventInputAudioBufferDtmfEventReceivedType,
-        event: identical(event, sdkOmittedValue) ? this.event : event as String,
-        receivedAt: identical(receivedAt, sdkOmittedValue)
-            ? this.receivedAt
-            : receivedAt as int,
-      );
+  RealtimeServerEventInputAudioBufferDtmfEventReceived _copyWith({Object? type_ = sdkOmittedValue, Object? event = sdkOmittedValue, Object? receivedAt = sdkOmittedValue}) => RealtimeServerEventInputAudioBufferDtmfEventReceived(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventInputAudioBufferDtmfEventReceivedType,
+    event: identical(event, sdkOmittedValue) ? this.event : event as String,
+    receivedAt: identical(receivedAt, sdkOmittedValue) ? this.receivedAt : receivedAt as int,
+  );
 
-  factory RealtimeServerEventInputAudioBufferDtmfEventReceived.fromJson(
-          Map<String, dynamic> json) =>
-      RealtimeServerEventInputAudioBufferDtmfEventReceived(
-        type_: (json['type'] != null
-            ? RealtimeServerEventInputAudioBufferDtmfEventReceivedType.fromJson(
-                json['type'] as String)
-            : null)!,
-        event: (json['event'] as String?)!,
-        receivedAt: ((json['received_at'] as num?)?.toInt())!,
-      );
+  factory RealtimeServerEventInputAudioBufferDtmfEventReceived.fromJson(Map<String, dynamic> json) => RealtimeServerEventInputAudioBufferDtmfEventReceived(
+    type_: (json['type'] != null ? RealtimeServerEventInputAudioBufferDtmfEventReceivedType.fromJson(json['type'] as String) : null)!,
+    event: (json['event'] as String?)!,
+    receivedAt: ((json['received_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'event': event,
-        'received_at': receivedAt,
-      };
+    'type': type_.toJson(),
+    'event': event,
+    'received_at': receivedAt,
+  };
 }

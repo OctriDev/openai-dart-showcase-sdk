@@ -9,94 +9,56 @@ sealed class LiveDataChannelConfigParamAllowedServerEvents {
   static const String constructionSurface = 'named';
   const LiveDataChannelConfigParamAllowedServerEvents();
   factory LiveDataChannelConfigParamAllowedServerEvents.fromJson(Object? json) {
-    try {
-      return LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0(
-          LiveDataChannelConfigParamAllowedServerEventsVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    try {
-      return LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam(
-          LiveAllowedServerEventParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for LiveDataChannelConfigParamAllowedServerEvents");
+    try { return LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0(LiveDataChannelConfigParamAllowedServerEventsVariant0.fromJson(json as String)); } catch (_) {}
+    try { return LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam(LiveAllowedServerEventParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for LiveDataChannelConfigParamAllowedServerEvents");
   }
   Object? toJson();
 }
 
-final class LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0
-    extends LiveDataChannelConfigParamAllowedServerEvents {
+final class LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0 extends LiveDataChannelConfigParamAllowedServerEvents {
   final LiveDataChannelConfigParamAllowedServerEventsVariant0 value;
-  const LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const LiveDataChannelConfigParamAllowedServerEventsLiveDataChannelConfigParamAllowedServerEventsVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam
-    extends LiveDataChannelConfigParamAllowedServerEvents {
+final class LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam extends LiveDataChannelConfigParamAllowedServerEvents {
   final LiveAllowedServerEventParam value;
-  const LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const LiveDataChannelConfigParamAllowedServerEventsLiveAllowedServerEventParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// Control which Live events an untrusted WebRTC frontend can send and receive over its data channel. These restrictions do not apply to trusted sideband connections.
 class LiveDataChannelConfigParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Client event types that the frontend data channel may send. Use 'all' to allow every client event; an empty array allows none. Omission preserves the existing allow-all behavior.
   final SdkOptional<List<String>> allowedClientEvents;
-
   /// Server events that may be sent to the frontend data channel. Use 'all' to allow every server event; an empty array allows none. Omission preserves the existing allow-all behavior. Responses events use an object with type 'response.event' and a response_event selector.
   final SdkOptional<dynamic> allowedServerEvents;
 
-  const LiveDataChannelConfigParam(
-      {this.allowedClientEvents = const SdkOmitted(),
-      this.allowedServerEvents = const SdkOmitted()});
+  const LiveDataChannelConfigParam({this.allowedClientEvents = const SdkOmitted(), this.allowedServerEvents = const SdkOmitted()});
 
-  LiveDataChannelConfigParam Function(
-      {SdkOptional<List<String>> allowedClientEvents,
-      SdkOptional<dynamic> allowedServerEvents}) get copyWith => _copyWith;
+  LiveDataChannelConfigParam Function({SdkOptional<List<String>> allowedClientEvents, SdkOptional<dynamic> allowedServerEvents}) get copyWith => _copyWith;
 
-  LiveDataChannelConfigParam _copyWith(
-          {Object? allowedClientEvents = sdkOmittedValue,
-          Object? allowedServerEvents = sdkOmittedValue}) =>
-      LiveDataChannelConfigParam(
-        allowedClientEvents: identical(allowedClientEvents, sdkOmittedValue)
-            ? this.allowedClientEvents
-            : allowedClientEvents as SdkOptional<List<String>>,
-        allowedServerEvents: identical(allowedServerEvents, sdkOmittedValue)
-            ? this.allowedServerEvents
-            : allowedServerEvents as SdkOptional<dynamic>,
-      );
+  LiveDataChannelConfigParam _copyWith({Object? allowedClientEvents = sdkOmittedValue, Object? allowedServerEvents = sdkOmittedValue}) => LiveDataChannelConfigParam(
+    allowedClientEvents: identical(allowedClientEvents, sdkOmittedValue) ? this.allowedClientEvents : allowedClientEvents as SdkOptional<List<String>>,
+    allowedServerEvents: identical(allowedServerEvents, sdkOmittedValue) ? this.allowedServerEvents : allowedServerEvents as SdkOptional<dynamic>,
+  );
 
-  factory LiveDataChannelConfigParam.fromJson(Map<String, dynamic> json) =>
-      LiveDataChannelConfigParam(
-        allowedClientEvents: json['allowed_client_events'] != null
-            ? SdkPresent(((json['allowed_client_events'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        allowedServerEvents: json['allowed_server_events'] != null
-            ? SdkPresent((json['allowed_server_events'])!)
-            : const SdkOmitted(),
-      );
+  factory LiveDataChannelConfigParam.fromJson(Map<String, dynamic> json) => LiveDataChannelConfigParam(
+    allowedClientEvents: json['allowed_client_events'] != null ? SdkPresent(((json['allowed_client_events'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    allowedServerEvents: json['allowed_server_events'] != null ? SdkPresent((json['allowed_server_events'])!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (allowedClientEvents) {
-          SdkPresent<List<String>>(value: final value) => {
-              'allowed_client_events': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedServerEvents) {
-          SdkPresent<dynamic>(value: final value) => {
-              'allowed_server_events': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (allowedClientEvents) {
+      SdkPresent<List<String>>(value: final value) => {'allowed_client_events': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedServerEvents) {
+      SdkPresent<dynamic>(value: final value) => {'allowed_server_events': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

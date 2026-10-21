@@ -8,51 +8,32 @@ part of 'vector_stores.dart';
 class DeleteVectorStoreFileResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
-
   /// Required enumerated value serialized in the `object` wire field.
   final DeleteVectorStoreFileResponseObject object;
 
-  const DeleteVectorStoreFileResponse(
-      {required this.id, required this.deleted, required this.object});
+  const DeleteVectorStoreFileResponse({required this.id, required this.deleted, required this.object});
 
-  DeleteVectorStoreFileResponse Function(
-      {String id,
-      bool deleted,
-      DeleteVectorStoreFileResponseObject object}) get copyWith => _copyWith;
+  DeleteVectorStoreFileResponse Function({String id, bool deleted, DeleteVectorStoreFileResponseObject object}) get copyWith => _copyWith;
 
-  DeleteVectorStoreFileResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue,
-          Object? object = sdkOmittedValue}) =>
-      DeleteVectorStoreFileResponse(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as bool,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as DeleteVectorStoreFileResponseObject,
-      );
+  DeleteVectorStoreFileResponse _copyWith({Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? object = sdkOmittedValue}) => DeleteVectorStoreFileResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteVectorStoreFileResponseObject,
+  );
 
-  factory DeleteVectorStoreFileResponse.fromJson(Map<String, dynamic> json) =>
-      DeleteVectorStoreFileResponse(
-        id: (json['id'] as String?)!,
-        deleted: (json['deleted'] as bool?)!,
-        object: (json['object'] != null
-            ? DeleteVectorStoreFileResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-      );
+  factory DeleteVectorStoreFileResponse.fromJson(Map<String, dynamic> json) => DeleteVectorStoreFileResponse(
+    id: (json['id'] as String?)!,
+    deleted: (json['deleted'] as bool?)!,
+    object: (json['object'] != null ? DeleteVectorStoreFileResponseObject.fromJson(json['object'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'deleted': deleted,
-        'object': object.toJson(),
-      };
+    'id': id,
+    'deleted': deleted,
+    'object': object.toJson(),
+  };
 }

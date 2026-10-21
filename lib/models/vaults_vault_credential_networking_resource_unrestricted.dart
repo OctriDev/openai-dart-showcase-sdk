@@ -8,34 +8,22 @@ part of 'vaults_vault.dart';
 class VaultCredentialNetworkingResourceUnrestricted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object. Always `unrestricted`.
   final VaultCredentialNetworkingResourceUnrestrictedType type_;
 
   const VaultCredentialNetworkingResourceUnrestricted({required this.type_});
 
-  VaultCredentialNetworkingResourceUnrestricted Function(
-          {VaultCredentialNetworkingResourceUnrestrictedType type_})
-      get copyWith => _copyWith;
+  VaultCredentialNetworkingResourceUnrestricted Function({VaultCredentialNetworkingResourceUnrestrictedType type_}) get copyWith => _copyWith;
 
-  VaultCredentialNetworkingResourceUnrestricted _copyWith(
-          {Object? type_ = sdkOmittedValue}) =>
-      VaultCredentialNetworkingResourceUnrestricted(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as VaultCredentialNetworkingResourceUnrestrictedType,
-      );
+  VaultCredentialNetworkingResourceUnrestricted _copyWith({Object? type_ = sdkOmittedValue}) => VaultCredentialNetworkingResourceUnrestricted(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VaultCredentialNetworkingResourceUnrestrictedType,
+  );
 
-  factory VaultCredentialNetworkingResourceUnrestricted.fromJson(
-          Map<String, dynamic> json) =>
-      VaultCredentialNetworkingResourceUnrestricted(
-        type_: (json['type'] != null
-            ? VaultCredentialNetworkingResourceUnrestrictedType.fromJson(
-                json['type'] as String)
-            : null)!,
-      );
+  factory VaultCredentialNetworkingResourceUnrestricted.fromJson(Map<String, dynamic> json) => VaultCredentialNetworkingResourceUnrestricted(
+    type_: (json['type'] != null ? VaultCredentialNetworkingResourceUnrestrictedType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }

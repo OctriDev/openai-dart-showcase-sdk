@@ -10,64 +10,32 @@ sealed class HostedTemplateSkillResource {
   const HostedTemplateSkillResource();
   factory HostedTemplateSkillResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = HostedTemplateSkillResourceSkillReference.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = HostedTemplateSkillResourceInline.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return HostedTemplateSkillResourceHostedTemplateSkillResourceInline(
-              value);
-        }
-      } catch (_) {}
+      try { final value = HostedTemplateSkillResourceSkillReference.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(value); } } catch (_) {}
+      try { final value = HostedTemplateSkillResourceInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedTemplateSkillResourceHostedTemplateSkillResourceInline(value); } } catch (_) {}
     }
-    try {
-      return HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(
-          HostedTemplateSkillResourceSkillReference.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return HostedTemplateSkillResourceHostedTemplateSkillResourceInline(
-          HostedTemplateSkillResourceInline.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"skill_reference", "inline"}.contains(json["type"])) {
-      return UnknownHostedTemplateSkillResource(json);
-    }
+    try { return HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(HostedTemplateSkillResourceSkillReference.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return HostedTemplateSkillResourceHostedTemplateSkillResourceInline(HostedTemplateSkillResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"skill_reference", "inline"}.contains(json["type"])) { return UnknownHostedTemplateSkillResource(json); }
     throw FormatException("No variant matched for HostedTemplateSkillResource");
   }
   Object? toJson();
 }
 
-final class HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference
-    extends HostedTemplateSkillResource {
+final class HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference extends HostedTemplateSkillResource {
   final HostedTemplateSkillResourceSkillReference value;
-  const HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const HostedTemplateSkillResourceHostedTemplateSkillResourceSkillReference(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class HostedTemplateSkillResourceHostedTemplateSkillResourceInline
-    extends HostedTemplateSkillResource {
+final class HostedTemplateSkillResourceHostedTemplateSkillResourceInline extends HostedTemplateSkillResource {
   final HostedTemplateSkillResourceInline value;
-  const HostedTemplateSkillResourceHostedTemplateSkillResourceInline(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const HostedTemplateSkillResourceHostedTemplateSkillResourceInline(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [HostedTemplateSkillResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownHostedTemplateSkillResource
-    extends HostedTemplateSkillResource {
+final class UnknownHostedTemplateSkillResource extends HostedTemplateSkillResource {
   final Map<String, dynamic> raw;
   const UnknownHostedTemplateSkillResource(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

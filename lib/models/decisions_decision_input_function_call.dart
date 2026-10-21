@@ -8,118 +8,61 @@ part of 'decisions_decision.dart';
 class DecisionInputFunctionCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
-
   /// Required `string` value serialized in the `call_id` wire field.
   final String callId;
-
   /// Optional `string` value serialized in the `namespace` wire field.
   final SdkOptional<String?> namespace;
-
   /// Required `string` value serialized in the `name` wire field.
   final String name;
-
   /// Required `string` value serialized in the `arguments` wire field.
   final String arguments;
-
   /// Optional API value serialized in the `status` wire field.
   final SdkOptional<FunctionCallStatusParam?> status;
-
   /// Required enumerated value serialized in the `type` wire field.
   final DecisionInputFunctionCallType type_;
 
-  const DecisionInputFunctionCall(
-      {this.id = const SdkOmitted(),
-      required this.callId,
-      this.namespace = const SdkOmitted(),
-      required this.name,
-      required this.arguments,
-      this.status = const SdkOmitted(),
-      required this.type_});
+  const DecisionInputFunctionCall({this.id = const SdkOmitted(), required this.callId, this.namespace = const SdkOmitted(), required this.name, required this.arguments, this.status = const SdkOmitted(), required this.type_});
 
-  DecisionInputFunctionCall Function(
-      {SdkOptional<String?> id,
-      String callId,
-      SdkOptional<String?> namespace,
-      String name,
-      String arguments,
-      SdkOptional<FunctionCallStatusParam?> status,
-      DecisionInputFunctionCallType type_}) get copyWith => _copyWith;
+  DecisionInputFunctionCall Function({SdkOptional<String?> id, String callId, SdkOptional<String?> namespace, String name, String arguments, SdkOptional<FunctionCallStatusParam?> status, DecisionInputFunctionCallType type_}) get copyWith => _copyWith;
 
-  DecisionInputFunctionCall _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? namespace = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? arguments = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      DecisionInputFunctionCall(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String?>,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        namespace: identical(namespace, sdkOmittedValue)
-            ? this.namespace
-            : namespace as SdkOptional<String?>,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        arguments: identical(arguments, sdkOmittedValue)
-            ? this.arguments
-            : arguments as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<FunctionCallStatusParam?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as DecisionInputFunctionCallType,
-      );
+  DecisionInputFunctionCall _copyWith({Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? namespace = sdkOmittedValue, Object? name = sdkOmittedValue, Object? arguments = sdkOmittedValue, Object? status = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => DecisionInputFunctionCall(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    namespace: identical(namespace, sdkOmittedValue) ? this.namespace : namespace as SdkOptional<String?>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<FunctionCallStatusParam?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DecisionInputFunctionCallType,
+  );
 
-  factory DecisionInputFunctionCall.fromJson(Map<String, dynamic> json) =>
-      DecisionInputFunctionCall(
-        id: json.containsKey('id')
-            ? SdkPresent(json['id'] as String?)
-            : const SdkOmitted(),
-        callId: (json['call_id'] as String?)!,
-        namespace: json.containsKey('namespace')
-            ? SdkPresent(json['namespace'] as String?)
-            : const SdkOmitted(),
-        name: (json['name'] as String?)!,
-        arguments: (json['arguments'] as String?)!,
-        status: json.containsKey('status')
-            ? SdkPresent(json['status'] != null
-                ? FunctionCallStatusParam.fromJson(json['status'] as String)
-                : null)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? DecisionInputFunctionCallType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory DecisionInputFunctionCall.fromJson(Map<String, dynamic> json) => DecisionInputFunctionCall(
+    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
+    callId: (json['call_id'] as String?)!,
+    namespace: json.containsKey('namespace') ? SdkPresent(json['namespace'] as String?) : const SdkOmitted(),
+    name: (json['name'] as String?)!,
+    arguments: (json['arguments'] as String?)!,
+    status: json.containsKey('status') ? SdkPresent(json['status'] != null ? FunctionCallStatusParam.fromJson(json['status'] as String) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? DecisionInputFunctionCallType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String?>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'call_id': callId,
-        ...switch (namespace) {
-          SdkPresent<String?>(value: final value) => {
-              'namespace': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'name': name,
-        'arguments': arguments,
-        ...switch (status) {
-          SdkPresent<FunctionCallStatusParam?>(value: final value) => {
-              'status': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-      };
+    ...switch (id) {
+      SdkPresent<String?>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'call_id': callId,
+    ...switch (namespace) {
+      SdkPresent<String?>(value: final value) => {'namespace': value,},
+      _ => const <String, dynamic>{},
+    },
+    'name': name,
+    'arguments': arguments,
+    ...switch (status) {
+      SdkPresent<FunctionCallStatusParam?>(value: final value) => {'status': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+  };
 }

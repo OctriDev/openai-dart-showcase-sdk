@@ -6,6 +6,7 @@ part of 'vaults_vault.dart';
 // vaults_vault domain models
 /// Whether a vault or credential is active or archived.
 final class VaultStatusParam {
+
   final String value;
 
   const VaultStatusParam._(this.value);
@@ -17,13 +18,10 @@ final class VaultStatusParam {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VaultStatusParam && other.value == value;
+  @override bool operator ==(Object other) => other is VaultStatusParam && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

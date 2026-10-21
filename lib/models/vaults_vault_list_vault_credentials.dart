@@ -8,86 +8,42 @@ part of 'vaults_vault.dart';
 class VaultCredentialListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always `list`.
   final VaultCredentialListResourceObject object;
-
   /// The resources returned in this page, in the requested sort order.
   final List<VaultCredentialResource> data;
-
   /// The ID of the first resource in `data`, or `null` if the page is empty.
   final String? firstId;
-
   /// The ID of the last resource in `data`, or `null` if the page is empty. Pass this as `after` with the same order and filters.
   final String? lastId;
-
   /// Whether there are more resources to retrieve after this page.
   final bool hasMore;
 
-  const VaultCredentialListResource(
-      {required this.object,
-      required this.data,
-      required this.firstId,
-      required this.lastId,
-      required this.hasMore});
+  const VaultCredentialListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
 
-  VaultCredentialListResource Function(
-      {VaultCredentialListResourceObject object,
-      List<VaultCredentialResource> data,
-      String? firstId,
-      String? lastId,
-      bool hasMore}) get copyWith => _copyWith;
+  VaultCredentialListResource Function({VaultCredentialListResourceObject object, List<VaultCredentialResource> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
 
-  VaultCredentialListResource _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? firstId = sdkOmittedValue,
-          Object? lastId = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      VaultCredentialListResource(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as VaultCredentialListResourceObject,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<VaultCredentialResource>,
-        firstId: identical(firstId, sdkOmittedValue)
-            ? this.firstId
-            : firstId as String?,
-        lastId: identical(lastId, sdkOmittedValue)
-            ? this.lastId
-            : lastId as String?,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as bool,
-      );
+  VaultCredentialListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => VaultCredentialListResource(
+    object: identical(object, sdkOmittedValue) ? this.object : object as VaultCredentialListResourceObject,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<VaultCredentialResource>,
+    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
+    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
+  );
 
-  factory VaultCredentialListResource.fromJson(Map<String, dynamic> json) =>
-      VaultCredentialListResource(
-        object: (json['object'] != null
-            ? VaultCredentialListResourceObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        data: ((json['data'] as List?)
-            ?.map((e) =>
-                VaultCredentialResource.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        firstId: json.containsKey('first_id')
-            ? json['first_id'] as String?
-            : throw ArgumentError.value(
-                null, 'first_id', 'Required property is missing'),
-        lastId: json.containsKey('last_id')
-            ? json['last_id'] as String?
-            : throw ArgumentError.value(
-                null, 'last_id', 'Required property is missing'),
-        hasMore: (json['has_more'] as bool?)!,
-      );
+  factory VaultCredentialListResource.fromJson(Map<String, dynamic> json) => VaultCredentialListResource(
+    object: (json['object'] != null ? VaultCredentialListResourceObject.fromJson(json['object'] as String) : null)!,
+    data: ((json['data'] as List?)?.map((e) => VaultCredentialResource.fromJson(e as Map<String, dynamic>)).toList())!,
+    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
+    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
+    hasMore: (json['has_more'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'data': data.map((item) => item.toJson()).toList(),
-        'first_id': firstId,
-        'last_id': lastId,
-        'has_more': hasMore,
-      };
+    'object': object.toJson(),
+    'data': data.map((item) => item.toJson()).toList(),
+    'first_id': firstId,
+    'last_id': lastId,
+    'has_more': hasMore,
+  };
 }

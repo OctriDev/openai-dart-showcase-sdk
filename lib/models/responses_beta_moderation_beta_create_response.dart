@@ -8,168 +8,111 @@ part of 'responses_beta_moderation.dart';
 class BetaModerationConfigParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `mode` wire field.
   final BetaModerationMode mode;
 
   const BetaModerationConfigParam({required this.mode});
 
-  BetaModerationConfigParam Function({BetaModerationMode mode}) get copyWith =>
-      _copyWith;
+  BetaModerationConfigParam Function({BetaModerationMode mode}) get copyWith => _copyWith;
 
-  BetaModerationConfigParam _copyWith({Object? mode = sdkOmittedValue}) =>
-      BetaModerationConfigParam(
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as BetaModerationMode,
-      );
+  BetaModerationConfigParam _copyWith({Object? mode = sdkOmittedValue}) => BetaModerationConfigParam(
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as BetaModerationMode,
+  );
 
-  factory BetaModerationConfigParam.fromJson(Map<String, dynamic> json) =>
-      BetaModerationConfigParam(
-        mode: (json['mode'] != null
-            ? BetaModerationMode.fromJson(json['mode'] as String)
-            : null)!,
-      );
+  factory BetaModerationConfigParam.fromJson(Map<String, dynamic> json) => BetaModerationConfigParam(
+    mode: (json['mode'] != null ? BetaModerationMode.fromJson(json['mode'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'mode': mode.toJson(),
-      };
+    'mode': mode.toJson(),
+  };
 }
 
 /// Typed representation of the `BetaModerationMode` API schema.
 final class BetaModerationMode {
+
   final String value;
 
   const BetaModerationMode._(this.value);
 
-  factory BetaModerationMode.fromJson(String value) =>
-      BetaModerationMode._(value);
+  factory BetaModerationMode.fromJson(String value) => BetaModerationMode._(value);
 
   static const score = BetaModerationMode._('score');
   static const block = BetaModerationMode._('block');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaModerationMode && other.value == value;
+  @override bool operator ==(Object other) => other is BetaModerationMode && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Configuration for running moderation on the input and output of this response.
 class BetaModerationParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The moderation model to use for moderated completions, e.g. 'omni-moderation-latest'.
   final String model;
-
   /// Optional API value serialized in the `policy` wire field.
   final SdkOptional<BetaModerationPolicyParam?> policy;
 
-  const BetaModerationParam(
-      {required this.model, this.policy = const SdkOmitted()});
+  const BetaModerationParam({required this.model, this.policy = const SdkOmitted()});
 
-  BetaModerationParam Function(
-          {String model, SdkOptional<BetaModerationPolicyParam?> policy})
-      get copyWith => _copyWith;
+  BetaModerationParam Function({String model, SdkOptional<BetaModerationPolicyParam?> policy}) get copyWith => _copyWith;
 
-  BetaModerationParam _copyWith(
-          {Object? model = sdkOmittedValue,
-          Object? policy = sdkOmittedValue}) =>
-      BetaModerationParam(
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        policy: identical(policy, sdkOmittedValue)
-            ? this.policy
-            : policy as SdkOptional<BetaModerationPolicyParam?>,
-      );
+  BetaModerationParam _copyWith({Object? model = sdkOmittedValue, Object? policy = sdkOmittedValue}) => BetaModerationParam(
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    policy: identical(policy, sdkOmittedValue) ? this.policy : policy as SdkOptional<BetaModerationPolicyParam?>,
+  );
 
-  factory BetaModerationParam.fromJson(Map<String, dynamic> json) =>
-      BetaModerationParam(
-        model: (json['model'] as String?)!,
-        policy: json.containsKey('policy')
-            ? SdkPresent(json['policy'] != null
-                ? BetaModerationPolicyParam.fromJson(
-                    json['policy'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory BetaModerationParam.fromJson(Map<String, dynamic> json) => BetaModerationParam(
+    model: (json['model'] as String?)!,
+    policy: json.containsKey('policy') ? SdkPresent(json['policy'] != null ? BetaModerationPolicyParam.fromJson(json['policy'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'model': model,
-        ...switch (policy) {
-          SdkPresent<BetaModerationPolicyParam?>(value: final value) => {
-              'policy': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'model': model,
+    ...switch (policy) {
+      SdkPresent<BetaModerationPolicyParam?>(value: final value) => {'policy': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The policy to apply to moderated response input and output.
 class BetaModerationPolicyParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `input` wire field.
   final SdkOptional<BetaModerationConfigParam?> input;
-
   /// Optional API value serialized in the `output` wire field.
   final SdkOptional<BetaModerationConfigParam?> output;
 
-  const BetaModerationPolicyParam(
-      {this.input = const SdkOmitted(), this.output = const SdkOmitted()});
+  const BetaModerationPolicyParam({this.input = const SdkOmitted(), this.output = const SdkOmitted()});
 
-  BetaModerationPolicyParam Function(
-          {SdkOptional<BetaModerationConfigParam?> input,
-          SdkOptional<BetaModerationConfigParam?> output})
-      get copyWith => _copyWith;
+  BetaModerationPolicyParam Function({SdkOptional<BetaModerationConfigParam?> input, SdkOptional<BetaModerationConfigParam?> output}) get copyWith => _copyWith;
 
-  BetaModerationPolicyParam _copyWith(
-          {Object? input = sdkOmittedValue,
-          Object? output = sdkOmittedValue}) =>
-      BetaModerationPolicyParam(
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as SdkOptional<BetaModerationConfigParam?>,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as SdkOptional<BetaModerationConfigParam?>,
-      );
+  BetaModerationPolicyParam _copyWith({Object? input = sdkOmittedValue, Object? output = sdkOmittedValue}) => BetaModerationPolicyParam(
+    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<BetaModerationConfigParam?>,
+    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<BetaModerationConfigParam?>,
+  );
 
-  factory BetaModerationPolicyParam.fromJson(Map<String, dynamic> json) =>
-      BetaModerationPolicyParam(
-        input: json.containsKey('input')
-            ? SdkPresent(json['input'] != null
-                ? BetaModerationConfigParam.fromJson(
-                    json['input'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        output: json.containsKey('output')
-            ? SdkPresent(json['output'] != null
-                ? BetaModerationConfigParam.fromJson(
-                    json['output'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory BetaModerationPolicyParam.fromJson(Map<String, dynamic> json) => BetaModerationPolicyParam(
+    input: json.containsKey('input') ? SdkPresent(json['input'] != null ? BetaModerationConfigParam.fromJson(json['input'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    output: json.containsKey('output') ? SdkPresent(json['output'] != null ? BetaModerationConfigParam.fromJson(json['output'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (input) {
-          SdkPresent<BetaModerationConfigParam?>(value: final value) => {
-              'input': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (output) {
-          SdkPresent<BetaModerationConfigParam?>(value: final value) => {
-              'output': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (input) {
+      SdkPresent<BetaModerationConfigParam?>(value: final value) => {'input': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (output) {
+      SdkPresent<BetaModerationConfigParam?>(value: final value) => {'output': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

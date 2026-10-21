@@ -9,85 +9,51 @@ sealed class LiveForkSessionStartEventEventId {
   static const String constructionSurface = 'named';
   const LiveForkSessionStartEventEventId();
   factory LiveForkSessionStartEventEventId.fromJson(Object? json) {
-    if (json is String) {
-      return LiveForkSessionStartEventEventIdString(json);
-    }
-    throw FormatException(
-        "No variant matched for LiveForkSessionStartEventEventId");
+    if (json is String) { return LiveForkSessionStartEventEventIdString(json); }
+    throw FormatException("No variant matched for LiveForkSessionStartEventEventId");
   }
   Object? toJson();
 }
 
-final class LiveForkSessionStartEventEventIdString
-    extends LiveForkSessionStartEventEventId {
+final class LiveForkSessionStartEventEventIdString extends LiveForkSessionStartEventEventId {
   final String value;
   const LiveForkSessionStartEventEventIdString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Start a Live session after connecting to a stored session’s fork WebSocket. Send an empty `session` object to use the stored configuration.
 class LiveForkSessionStartEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `event_id` wire field.
   final SdkOptional<String?> eventId;
-
   /// The Live client event type. Always `session.start`.
   final LiveForkSessionStartEventType type_;
-
   /// Overrides for a stored session after connecting to the fork WebSocket. An empty object inherits the stored configuration; do not supply a new model. audio.format applies only to the new WebSocket connection. client overrides are only supported for WebRTC forks.
   final LiveForkSessionConfigParam session;
 
-  const LiveForkSessionStartEvent(
-      {this.eventId = const SdkOmitted(),
-      required this.type_,
-      required this.session});
+  const LiveForkSessionStartEvent({this.eventId = const SdkOmitted(), required this.type_, required this.session});
 
-  LiveForkSessionStartEvent Function(
-      {SdkOptional<String?> eventId,
-      LiveForkSessionStartEventType type_,
-      LiveForkSessionConfigParam session}) get copyWith => _copyWith;
+  LiveForkSessionStartEvent Function({SdkOptional<String?> eventId, LiveForkSessionStartEventType type_, LiveForkSessionConfigParam session}) get copyWith => _copyWith;
 
-  LiveForkSessionStartEvent _copyWith(
-          {Object? eventId = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? session = sdkOmittedValue}) =>
-      LiveForkSessionStartEvent(
-        eventId: identical(eventId, sdkOmittedValue)
-            ? this.eventId
-            : eventId as SdkOptional<String?>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as LiveForkSessionStartEventType,
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as LiveForkSessionConfigParam,
-      );
+  LiveForkSessionStartEvent _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => LiveForkSessionStartEvent(
+    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveForkSessionStartEventType,
+    session: identical(session, sdkOmittedValue) ? this.session : session as LiveForkSessionConfigParam,
+  );
 
-  factory LiveForkSessionStartEvent.fromJson(Map<String, dynamic> json) =>
-      LiveForkSessionStartEvent(
-        eventId: json.containsKey('event_id')
-            ? SdkPresent(json['event_id'] as String?)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? LiveForkSessionStartEventType.fromJson(json['type'] as String)
-            : null)!,
-        session: (json['session'] != null
-            ? LiveForkSessionConfigParam.fromJson(
-                json['session'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory LiveForkSessionStartEvent.fromJson(Map<String, dynamic> json) => LiveForkSessionStartEvent(
+    eventId: json.containsKey('event_id') ? SdkPresent(json['event_id'] as String?) : const SdkOmitted(),
+    type_: (json['type'] != null ? LiveForkSessionStartEventType.fromJson(json['type'] as String) : null)!,
+    session: (json['session'] != null ? LiveForkSessionConfigParam.fromJson(json['session'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (eventId) {
-          SdkPresent<String?>(value: final value) => {
-              'event_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'session': session.toJson(),
-      };
+    ...switch (eventId) {
+      SdkPresent<String?>(value: final value) => {'event_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'session': session.toJson(),
+  };
 }

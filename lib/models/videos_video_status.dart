@@ -6,6 +6,7 @@ part of 'videos.dart';
 // videos domain models
 /// Typed representation of the `VideoStatus` API schema.
 final class VideoStatus {
+
   final String value;
 
   const VideoStatus._(this.value);
@@ -19,13 +20,10 @@ final class VideoStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VideoStatus && other.value == value;
+  @override bool operator ==(Object other) => other is VideoStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

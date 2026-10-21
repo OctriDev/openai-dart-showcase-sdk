@@ -10,17 +10,14 @@ enum BetaUserMessageItemParamType {
 
   static BetaUserMessageItemParamType fromJson(String value) {
     switch (value) {
-      case 'message':
-        return BetaUserMessageItemParamType.message;
-      default:
-        throw ArgumentError('Unknown BetaUserMessageItemParamType: $value');
+      case 'message': return BetaUserMessageItemParamType.message;
+      default: throw ArgumentError('Unknown BetaUserMessageItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaUserMessageItemParamType.message:
-        return 'message';
+      case BetaUserMessageItemParamType.message: return 'message';
     }
   }
 
@@ -30,12 +27,12 @@ enum BetaUserMessageItemParamType {
 
 /// Constrains the verbosity of the model's response. Lower values will result in more concise responses, while higher values will result in more verbose responses. Currently supported values are `low`, `medium`, and `high`. The default is `medium`.
 final class BetaVerbosityVariant0 {
+
   final String value;
 
   const BetaVerbosityVariant0._(this.value);
 
-  factory BetaVerbosityVariant0.fromJson(String value) =>
-      BetaVerbosityVariant0._(value);
+  factory BetaVerbosityVariant0.fromJson(String value) => BetaVerbosityVariant0._(value);
 
   static const low = BetaVerbosityVariant0._('low');
   static const medium = BetaVerbosityVariant0._('medium');
@@ -43,15 +40,12 @@ final class BetaVerbosityVariant0 {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaVerbosityVariant0 && other.value == value;
+  @override bool operator ==(Object other) => other is BetaVerbosityVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Specifies the event type. For a wait action, this property is always set to `wait`.
@@ -60,17 +54,14 @@ enum BetaWaitParamType {
 
   static BetaWaitParamType fromJson(String value) {
     switch (value) {
-      case 'wait':
-        return BetaWaitParamType.wait;
-      default:
-        throw ArgumentError('Unknown BetaWaitParamType: $value');
+      case 'wait': return BetaWaitParamType.wait;
+      default: throw ArgumentError('Unknown BetaWaitParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaWaitParamType.wait:
-        return 'wait';
+      case BetaWaitParamType.wait: return 'wait';
     }
   }
 
@@ -84,17 +75,14 @@ enum BetaWebSearchActionFindType {
 
   static BetaWebSearchActionFindType fromJson(String value) {
     switch (value) {
-      case 'find_in_page':
-        return BetaWebSearchActionFindType.findInPage;
-      default:
-        throw ArgumentError('Unknown BetaWebSearchActionFindType: $value');
+      case 'find_in_page': return BetaWebSearchActionFindType.findInPage;
+      default: throw ArgumentError('Unknown BetaWebSearchActionFindType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaWebSearchActionFindType.findInPage:
-        return 'find_in_page';
+      case BetaWebSearchActionFindType.findInPage: return 'find_in_page';
     }
   }
 
@@ -108,17 +96,14 @@ enum BetaWebSearchActionOpenPageType {
 
   static BetaWebSearchActionOpenPageType fromJson(String value) {
     switch (value) {
-      case 'open_page':
-        return BetaWebSearchActionOpenPageType.openPage;
-      default:
-        throw ArgumentError('Unknown BetaWebSearchActionOpenPageType: $value');
+      case 'open_page': return BetaWebSearchActionOpenPageType.openPage;
+      default: throw ArgumentError('Unknown BetaWebSearchActionOpenPageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaWebSearchActionOpenPageType.openPage:
-        return 'open_page';
+      case BetaWebSearchActionOpenPageType.openPage: return 'open_page';
     }
   }
 
@@ -128,26 +113,23 @@ enum BetaWebSearchActionOpenPageType {
 
 /// The type of source. Always `url`.
 final class BetaWebSearchActionSearchSourcesItemType {
+
   final String value;
 
   const BetaWebSearchActionSearchSourcesItemType._(this.value);
 
-  factory BetaWebSearchActionSearchSourcesItemType.fromJson(String value) =>
-      BetaWebSearchActionSearchSourcesItemType._(value);
+  factory BetaWebSearchActionSearchSourcesItemType.fromJson(String value) => BetaWebSearchActionSearchSourcesItemType._(value);
 
   static const url = BetaWebSearchActionSearchSourcesItemType._('url');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaWebSearchActionSearchSourcesItemType && other.value == value;
+  @override bool operator ==(Object other) => other is BetaWebSearchActionSearchSourcesItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The action type.
@@ -156,17 +138,14 @@ enum BetaWebSearchActionSearchType {
 
   static BetaWebSearchActionSearchType fromJson(String value) {
     switch (value) {
-      case 'search':
-        return BetaWebSearchActionSearchType.search;
-      default:
-        throw ArgumentError('Unknown BetaWebSearchActionSearchType: $value');
+      case 'search': return BetaWebSearchActionSearchType.search;
+      default: throw ArgumentError('Unknown BetaWebSearchActionSearchType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaWebSearchActionSearchType.search:
-        return 'search';
+      case BetaWebSearchActionSearchType.search: return 'search';
     }
   }
 
@@ -176,27 +155,23 @@ enum BetaWebSearchActionSearchType {
 
 /// The type of location approximation. Always `approximate`.
 final class BetaWebSearchApproximateLocationType {
+
   final String value;
 
   const BetaWebSearchApproximateLocationType._(this.value);
 
-  factory BetaWebSearchApproximateLocationType.fromJson(String value) =>
-      BetaWebSearchApproximateLocationType._(value);
+  factory BetaWebSearchApproximateLocationType.fromJson(String value) => BetaWebSearchApproximateLocationType._(value);
 
-  static const approximate =
-      BetaWebSearchApproximateLocationType._('approximate');
+  static const approximate = BetaWebSearchApproximateLocationType._('approximate');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaWebSearchApproximateLocationType && other.value == value;
+  @override bool operator ==(Object other) => other is BetaWebSearchApproximateLocationType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the web search tool. One of `web_search_preview` or `web_search_preview_2025_03_11`.
@@ -206,21 +181,16 @@ enum BetaWebSearchPreviewToolType {
 
   static BetaWebSearchPreviewToolType fromJson(String value) {
     switch (value) {
-      case 'web_search_preview':
-        return BetaWebSearchPreviewToolType.webSearchPreview;
-      case 'web_search_preview_2025_03_11':
-        return BetaWebSearchPreviewToolType.webSearchPreview20250311;
-      default:
-        throw ArgumentError('Unknown BetaWebSearchPreviewToolType: $value');
+      case 'web_search_preview': return BetaWebSearchPreviewToolType.webSearchPreview;
+      case 'web_search_preview_2025_03_11': return BetaWebSearchPreviewToolType.webSearchPreview20250311;
+      default: throw ArgumentError('Unknown BetaWebSearchPreviewToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaWebSearchPreviewToolType.webSearchPreview:
-        return 'web_search_preview';
-      case BetaWebSearchPreviewToolType.webSearchPreview20250311:
-        return 'web_search_preview_2025_03_11';
+      case BetaWebSearchPreviewToolType.webSearchPreview: return 'web_search_preview';
+      case BetaWebSearchPreviewToolType.webSearchPreview20250311: return 'web_search_preview_2025_03_11';
     }
   }
 
@@ -230,12 +200,12 @@ enum BetaWebSearchPreviewToolType {
 
 /// High level guidance for the amount of context window space to use for the search. One of `low`, `medium`, or `high`. `medium` is the default.
 final class BetaWebSearchToolSearchContextSize {
+
   final String value;
 
   const BetaWebSearchToolSearchContextSize._(this.value);
 
-  factory BetaWebSearchToolSearchContextSize.fromJson(String value) =>
-      BetaWebSearchToolSearchContextSize._(value);
+  factory BetaWebSearchToolSearchContextSize.fromJson(String value) => BetaWebSearchToolSearchContextSize._(value);
 
   static const low = BetaWebSearchToolSearchContextSize._('low');
   static const medium = BetaWebSearchToolSearchContextSize._('medium');
@@ -243,15 +213,12 @@ final class BetaWebSearchToolSearchContextSize {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BetaWebSearchToolSearchContextSize && other.value == value;
+  @override bool operator ==(Object other) => other is BetaWebSearchToolSearchContextSize && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the web search tool. One of `web_search` or `web_search_2025_08_26`.
@@ -261,21 +228,16 @@ enum BetaWebSearchToolType {
 
   static BetaWebSearchToolType fromJson(String value) {
     switch (value) {
-      case 'web_search':
-        return BetaWebSearchToolType.webSearch;
-      case 'web_search_2025_08_26':
-        return BetaWebSearchToolType.webSearch20250826;
-      default:
-        throw ArgumentError('Unknown BetaWebSearchToolType: $value');
+      case 'web_search': return BetaWebSearchToolType.webSearch;
+      case 'web_search_2025_08_26': return BetaWebSearchToolType.webSearch20250826;
+      default: throw ArgumentError('Unknown BetaWebSearchToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaWebSearchToolType.webSearch:
-        return 'web_search';
-      case BetaWebSearchToolType.webSearch20250826:
-        return 'web_search_2025_08_26';
+      case BetaWebSearchToolType.webSearch: return 'web_search';
+      case BetaWebSearchToolType.webSearch20250826: return 'web_search_2025_08_26';
     }
   }
 
@@ -289,17 +251,14 @@ enum BetaWebSearchToolCallType {
 
   static BetaWebSearchToolCallType fromJson(String value) {
     switch (value) {
-      case 'web_search_call':
-        return BetaWebSearchToolCallType.webSearchCall;
-      default:
-        throw ArgumentError('Unknown BetaWebSearchToolCallType: $value');
+      case 'web_search_call': return BetaWebSearchToolCallType.webSearchCall;
+      default: throw ArgumentError('Unknown BetaWebSearchToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaWebSearchToolCallType.webSearchCall:
-        return 'web_search_call';
+      case BetaWebSearchToolCallType.webSearchCall: return 'web_search_call';
     }
   }
 
@@ -311,23 +270,16 @@ enum BetaWebSearchToolCallType {
 enum BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType {
   browserAuthentication;
 
-  static BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType
-      fromJson(String value) {
+  static BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType fromJson(String value) {
     switch (value) {
-      case 'browser_authentication':
-        return BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType
-            .browserAuthentication;
-      default:
-        throw ArgumentError(
-            'Unknown BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType: $value');
+      case 'browser_authentication': return BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType.browserAuthentication;
+      default: throw ArgumentError('Unknown BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType
-            .browserAuthentication:
-        return 'browser_authentication';
+      case BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType.browserAuthentication: return 'browser_authentication';
     }
   }
 
