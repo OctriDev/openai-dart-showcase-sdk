@@ -6,22 +6,25 @@ part of 'responses_beta.dart';
 // responses_beta domain models
 /// Typed representation of the `BetaCallableToolAllowedCaller` API schema.
 final class BetaCallableToolAllowedCaller {
-
   final String value;
 
   const BetaCallableToolAllowedCaller._(this.value);
 
-  factory BetaCallableToolAllowedCaller.fromJson(String value) => BetaCallableToolAllowedCaller._(value);
+  factory BetaCallableToolAllowedCaller.fromJson(String value) =>
+      BetaCallableToolAllowedCaller._(value);
 
   static const direct = BetaCallableToolAllowedCaller._('direct');
   static const programmatic = BetaCallableToolAllowedCaller._('programmatic');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaCallableToolAllowedCaller && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaCallableToolAllowedCaller && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

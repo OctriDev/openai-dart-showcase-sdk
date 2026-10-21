@@ -8,30 +8,52 @@ part of 'realtime_realtime_beta_client.dart';
 class RealtimeBetaClientEventInputAudioBufferCommit {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `input_audio_buffer.commit`.
   final RealtimeBetaClientEventInputAudioBufferCommitType type_;
 
-  const RealtimeBetaClientEventInputAudioBufferCommit({this.eventId = const SdkOmitted(), required this.type_});
+  const RealtimeBetaClientEventInputAudioBufferCommit(
+      {this.eventId = const SdkOmitted(), required this.type_});
 
-  RealtimeBetaClientEventInputAudioBufferCommit Function({SdkOptional<String> eventId, RealtimeBetaClientEventInputAudioBufferCommitType type_}) get copyWith => _copyWith;
+  RealtimeBetaClientEventInputAudioBufferCommit Function(
+          {SdkOptional<String> eventId,
+          RealtimeBetaClientEventInputAudioBufferCommitType type_})
+      get copyWith => _copyWith;
 
-  RealtimeBetaClientEventInputAudioBufferCommit _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeBetaClientEventInputAudioBufferCommit(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaClientEventInputAudioBufferCommitType,
-  );
+  RealtimeBetaClientEventInputAudioBufferCommit _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      RealtimeBetaClientEventInputAudioBufferCommit(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaClientEventInputAudioBufferCommitType,
+      );
 
-  factory RealtimeBetaClientEventInputAudioBufferCommit.fromJson(Map<String, dynamic> json) => RealtimeBetaClientEventInputAudioBufferCommit(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeBetaClientEventInputAudioBufferCommitType.fromJson(json['type'] as String) : null)!,
-  );
+  factory RealtimeBetaClientEventInputAudioBufferCommit.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaClientEventInputAudioBufferCommit(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeBetaClientEventInputAudioBufferCommitType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+      };
 }

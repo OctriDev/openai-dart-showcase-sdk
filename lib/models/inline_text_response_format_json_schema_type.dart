@@ -10,14 +10,17 @@ enum TextResponseFormatJsonSchemaType {
 
   static TextResponseFormatJsonSchemaType fromJson(String value) {
     switch (value) {
-      case 'json_schema': return TextResponseFormatJsonSchemaType.jsonSchema;
-      default: throw ArgumentError('Unknown TextResponseFormatJsonSchemaType: $value');
+      case 'json_schema':
+        return TextResponseFormatJsonSchemaType.jsonSchema;
+      default:
+        throw ArgumentError('Unknown TextResponseFormatJsonSchemaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TextResponseFormatJsonSchemaType.jsonSchema: return 'json_schema';
+      case TextResponseFormatJsonSchemaType.jsonSchema:
+        return 'json_schema';
     }
   }
 
@@ -27,86 +30,98 @@ enum TextResponseFormatJsonSchemaType {
 
 /// The type of object returned, must be `list`.
 final class ThreadItemListResourceObject {
-
   final String value;
 
   const ThreadItemListResourceObject._(this.value);
 
-  factory ThreadItemListResourceObject.fromJson(String value) => ThreadItemListResourceObject._(value);
+  factory ThreadItemListResourceObject.fromJson(String value) =>
+      ThreadItemListResourceObject._(value);
 
   static const list = ThreadItemListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ThreadItemListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ThreadItemListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of object returned, must be `list`.
 final class ThreadListResourceObject {
-
   final String value;
 
   const ThreadListResourceObject._(this.value);
 
-  factory ThreadListResourceObject.fromJson(String value) => ThreadListResourceObject._(value);
+  factory ThreadListResourceObject.fromJson(String value) =>
+      ThreadListResourceObject._(value);
 
   static const list = ThreadListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ThreadListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ThreadListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `thread`.
 final class ThreadObjectObject {
-
   final String value;
 
   const ThreadObjectObject._(this.value);
 
-  factory ThreadObjectObject.fromJson(String value) => ThreadObjectObject._(value);
+  factory ThreadObjectObject.fromJson(String value) =>
+      ThreadObjectObject._(value);
 
   static const thread = ThreadObjectObject._('thread');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ThreadObjectObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ThreadObjectObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Type discriminator that is always `chatkit.thread`.
 final class ThreadResourceObject {
-
   final String value;
 
   const ThreadResourceObject._(this.value);
 
-  factory ThreadResourceObject.fromJson(String value) => ThreadResourceObject._(value);
+  factory ThreadResourceObject.fromJson(String value) =>
+      ThreadResourceObject._(value);
 
   static const chatkitThread = ThreadResourceObject._('chatkit.thread');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ThreadResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ThreadResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `event` wire field.
@@ -115,14 +130,17 @@ enum ThreadStreamEventEvent {
 
   static ThreadStreamEventEvent fromJson(String value) {
     switch (value) {
-      case 'thread.created': return ThreadStreamEventEvent.threadCreated;
-      default: throw ArgumentError('Unknown ThreadStreamEventEvent: $value');
+      case 'thread.created':
+        return ThreadStreamEventEvent.threadCreated;
+      default:
+        throw ArgumentError('Unknown ThreadStreamEventEvent: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ThreadStreamEventEvent.threadCreated: return 'thread.created';
+      case ThreadStreamEventEvent.threadCreated:
+        return 'thread.created';
     }
   }
 
@@ -132,45 +150,52 @@ enum ThreadStreamEventEvent {
 
 /// Required enumerated value serialized in the `object` wire field.
 final class TokenCountsResourceObject {
-
   final String value;
 
   const TokenCountsResourceObject._(this.value);
 
-  factory TokenCountsResourceObject.fromJson(String value) => TokenCountsResourceObject._(value);
+  factory TokenCountsResourceObject.fromJson(String value) =>
+      TokenCountsResourceObject._(value);
 
-  static const responseInputTokens = TokenCountsResourceObject._('response.input_tokens');
+  static const responseInputTokens =
+      TokenCountsResourceObject._('response.input_tokens');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TokenCountsResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TokenCountsResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Constrains the tools available to the model to a pre-defined set. `auto` allows the model to pick from among the allowed tools and generate a message. `required` requires the model to call one or more of the allowed tools.
 final class ToolChoiceAllowedMode {
-
   final String value;
 
   const ToolChoiceAllowedMode._(this.value);
 
-  factory ToolChoiceAllowedMode.fromJson(String value) => ToolChoiceAllowedMode._(value);
+  factory ToolChoiceAllowedMode.fromJson(String value) =>
+      ToolChoiceAllowedMode._(value);
 
   static const auto = ToolChoiceAllowedMode._('auto');
   static const required_ = ToolChoiceAllowedMode._('required');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ToolChoiceAllowedMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ToolChoiceAllowedMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Allowed tool configuration type. Always `allowed_tools`.
@@ -179,14 +204,17 @@ enum ToolChoiceAllowedType {
 
   static ToolChoiceAllowedType fromJson(String value) {
     switch (value) {
-      case 'allowed_tools': return ToolChoiceAllowedType.allowedTools;
-      default: throw ArgumentError('Unknown ToolChoiceAllowedType: $value');
+      case 'allowed_tools':
+        return ToolChoiceAllowedType.allowedTools;
+      default:
+        throw ArgumentError('Unknown ToolChoiceAllowedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolChoiceAllowedType.allowedTools: return 'allowed_tools';
+      case ToolChoiceAllowedType.allowedTools:
+        return 'allowed_tools';
     }
   }
 
@@ -200,14 +228,17 @@ enum ToolChoiceCustomType {
 
   static ToolChoiceCustomType fromJson(String value) {
     switch (value) {
-      case 'custom': return ToolChoiceCustomType.custom;
-      default: throw ArgumentError('Unknown ToolChoiceCustomType: $value');
+      case 'custom':
+        return ToolChoiceCustomType.custom;
+      default:
+        throw ArgumentError('Unknown ToolChoiceCustomType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolChoiceCustomType.custom: return 'custom';
+      case ToolChoiceCustomType.custom:
+        return 'custom';
     }
   }
 
@@ -221,14 +252,17 @@ enum ToolChoiceFunctionType {
 
   static ToolChoiceFunctionType fromJson(String value) {
     switch (value) {
-      case 'function': return ToolChoiceFunctionType.function_;
-      default: throw ArgumentError('Unknown ToolChoiceFunctionType: $value');
+      case 'function':
+        return ToolChoiceFunctionType.function_;
+      default:
+        throw ArgumentError('Unknown ToolChoiceFunctionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolChoiceFunctionType.function_: return 'function';
+      case ToolChoiceFunctionType.function_:
+        return 'function';
     }
   }
 
@@ -242,14 +276,17 @@ enum ToolChoiceMCPType {
 
   static ToolChoiceMCPType fromJson(String value) {
     switch (value) {
-      case 'mcp': return ToolChoiceMCPType.mcp;
-      default: throw ArgumentError('Unknown ToolChoiceMCPType: $value');
+      case 'mcp':
+        return ToolChoiceMCPType.mcp;
+      default:
+        throw ArgumentError('Unknown ToolChoiceMCPType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ToolChoiceMCPType.mcp: return 'mcp';
+      case ToolChoiceMCPType.mcp:
+        return 'mcp';
     }
   }
 

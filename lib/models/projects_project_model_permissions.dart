@@ -8,32 +8,55 @@ part of 'projects.dart';
 class ProjectModelPermissions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always `project.model_permissions`.
   final ProjectModelPermissionsObject object;
+
   /// Whether the project uses an allowlist or a denylist.
   final ProjectModelPermissionsMode mode;
+
   /// The model IDs included in the model permissions policy.
   final List<String> modelIds;
 
-  const ProjectModelPermissions({required this.object, required this.mode, required this.modelIds});
+  const ProjectModelPermissions(
+      {required this.object, required this.mode, required this.modelIds});
 
-  ProjectModelPermissions Function({ProjectModelPermissionsObject object, ProjectModelPermissionsMode mode, List<String> modelIds}) get copyWith => _copyWith;
+  ProjectModelPermissions Function(
+      {ProjectModelPermissionsObject object,
+      ProjectModelPermissionsMode mode,
+      List<String> modelIds}) get copyWith => _copyWith;
 
-  ProjectModelPermissions _copyWith({Object? object = sdkOmittedValue, Object? mode = sdkOmittedValue, Object? modelIds = sdkOmittedValue}) => ProjectModelPermissions(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectModelPermissionsObject,
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as ProjectModelPermissionsMode,
-    modelIds: identical(modelIds, sdkOmittedValue) ? this.modelIds : modelIds as List<String>,
-  );
+  ProjectModelPermissions _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? mode = sdkOmittedValue,
+          Object? modelIds = sdkOmittedValue}) =>
+      ProjectModelPermissions(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ProjectModelPermissionsObject,
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as ProjectModelPermissionsMode,
+        modelIds: identical(modelIds, sdkOmittedValue)
+            ? this.modelIds
+            : modelIds as List<String>,
+      );
 
-  factory ProjectModelPermissions.fromJson(Map<String, dynamic> json) => ProjectModelPermissions(
-    object: (json['object'] != null ? ProjectModelPermissionsObject.fromJson(json['object'] as String) : null)!,
-    mode: (json['mode'] != null ? ProjectModelPermissionsMode.fromJson(json['mode'] as String) : null)!,
-    modelIds: ((json['model_ids'] as List?)?.map((e) => e as String).toList())!,
-  );
+  factory ProjectModelPermissions.fromJson(Map<String, dynamic> json) =>
+      ProjectModelPermissions(
+        object: (json['object'] != null
+            ? ProjectModelPermissionsObject.fromJson(json['object'] as String)
+            : null)!,
+        mode: (json['mode'] != null
+            ? ProjectModelPermissionsMode.fromJson(json['mode'] as String)
+            : null)!,
+        modelIds:
+            ((json['model_ids'] as List?)?.map((e) => e as String).toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'mode': mode.toJson(),
-    'model_ids': modelIds,
-  };
+        'object': object.toJson(),
+        'mode': mode.toJson(),
+        'model_ids': modelIds,
+      };
 }

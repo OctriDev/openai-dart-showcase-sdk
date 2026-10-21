@@ -10,32 +10,66 @@ sealed class RunStepDeltaObjectDeltaStepDetails {
   const RunStepDeltaObjectDeltaStepDetails();
   factory RunStepDeltaObjectDeltaStepDetails.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RunStepDeltaStepDetailsMessageCreationObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject(value); } } catch (_) {}
-      try { final value = RunStepDeltaStepDetailsToolCallsObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsToolCallsObject(value); } } catch (_) {}
+      try {
+        final value =
+            RunStepDeltaStepDetailsMessageCreationObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStepDeltaStepDetailsToolCallsObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsToolCallsObject(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject(RunStepDeltaStepDetailsMessageCreationObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsToolCallsObject(RunStepDeltaStepDetailsToolCallsObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"message_creation", "tool_calls"}.contains(json["type"])) { return UnknownRunStepDeltaObjectDeltaStepDetails(json); }
-    throw FormatException("No variant matched for RunStepDeltaObjectDeltaStepDetails");
+    try {
+      return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject(
+          RunStepDeltaStepDetailsMessageCreationObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsToolCallsObject(
+          RunStepDeltaStepDetailsToolCallsObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"message_creation", "tool_calls"}.contains(json["type"])) {
+      return UnknownRunStepDeltaObjectDeltaStepDetails(json);
+    }
+    throw FormatException(
+        "No variant matched for RunStepDeltaObjectDeltaStepDetails");
   }
   Object? toJson();
 }
 
-final class RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject extends RunStepDeltaObjectDeltaStepDetails {
+final class RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject
+    extends RunStepDeltaObjectDeltaStepDetails {
   final RunStepDeltaStepDetailsMessageCreationObject value;
-  const RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsMessageCreationObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsToolCallsObject extends RunStepDeltaObjectDeltaStepDetails {
+final class RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsToolCallsObject
+    extends RunStepDeltaObjectDeltaStepDetails {
   final RunStepDeltaStepDetailsToolCallsObject value;
-  const RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsToolCallsObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const RunStepDeltaObjectDeltaStepDetailsRunStepDeltaStepDetailsToolCallsObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RunStepDeltaObjectDeltaStepDetails] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRunStepDeltaObjectDeltaStepDetails extends RunStepDeltaObjectDeltaStepDetails {
+final class UnknownRunStepDeltaObjectDeltaStepDetails
+    extends RunStepDeltaObjectDeltaStepDetails {
   final Map<String, dynamic> raw;
   const UnknownRunStepDeltaObjectDeltaStepDetails(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

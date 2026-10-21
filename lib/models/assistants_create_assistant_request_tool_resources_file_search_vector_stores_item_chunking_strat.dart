@@ -8,108 +8,199 @@ part of 'assistants_create.dart';
 class CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `auto`.
-  final CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type type_;
+  final CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
+      type_;
 
-  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0({required this.type_});
+  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
+      {required this.type_});
 
-  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 Function({CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type type_}) get copyWith => _copyWith;
+  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 Function(
+      {CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
+          type_}) get copyWith => _copyWith;
 
-  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 _copyWith({Object? type_ = sdkOmittedValue}) => CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type,
-  );
+  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0
+      _copyWith({Object? type_ = sdkOmittedValue}) =>
+          CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
+            type_: identical(type_, sdkOmittedValue)
+                ? this.type_
+                : type_
+                    as CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type,
+          );
 
-  factory CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(Map<String, dynamic> json) => CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
-    type_: (json['type'] != null ? CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type.fromJson(json['type'] as String) : null)!,
-  );
+  factory CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
+        type_: (json['type'] != null
+            ? CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
+                .fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Required object value serialized in the `static` wire field.
 class CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The maximum number of tokens in each chunk. The default value is `800`. The minimum value is `100` and the maximum value is `4096`.
   final int maxChunkSizeTokens;
+
   /// The number of tokens that overlap between chunks. The default value is `400`. Note that the overlap must not exceed half of `max_chunk_size_tokens`.
   final int chunkOverlapTokens;
 
-  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static({required this.maxChunkSizeTokens, required this.chunkOverlapTokens});
+  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static(
+      {required this.maxChunkSizeTokens, required this.chunkOverlapTokens});
 
-  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static Function({int maxChunkSizeTokens, int chunkOverlapTokens}) get copyWith => _copyWith;
+  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static
+          Function({int maxChunkSizeTokens, int chunkOverlapTokens})
+      get copyWith => _copyWith;
 
-  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static _copyWith({Object? maxChunkSizeTokens = sdkOmittedValue, Object? chunkOverlapTokens = sdkOmittedValue}) => CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static(
-    maxChunkSizeTokens: identical(maxChunkSizeTokens, sdkOmittedValue) ? this.maxChunkSizeTokens : maxChunkSizeTokens as int,
-    chunkOverlapTokens: identical(chunkOverlapTokens, sdkOmittedValue) ? this.chunkOverlapTokens : chunkOverlapTokens as int,
-  );
+  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static
+      _copyWith(
+              {Object? maxChunkSizeTokens = sdkOmittedValue,
+              Object? chunkOverlapTokens = sdkOmittedValue}) =>
+          CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static(
+            maxChunkSizeTokens: identical(maxChunkSizeTokens, sdkOmittedValue)
+                ? this.maxChunkSizeTokens
+                : maxChunkSizeTokens as int,
+            chunkOverlapTokens: identical(chunkOverlapTokens, sdkOmittedValue)
+                ? this.chunkOverlapTokens
+                : chunkOverlapTokens as int,
+          );
 
-  factory CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static.fromJson(Map<String, dynamic> json) => CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static(
-    maxChunkSizeTokens: ((json['max_chunk_size_tokens'] as num?)?.toInt())!,
-    chunkOverlapTokens: ((json['chunk_overlap_tokens'] as num?)?.toInt())!,
-  );
+  factory CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static.fromJson(
+          Map<String, dynamic> json) =>
+      CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static(
+        maxChunkSizeTokens: ((json['max_chunk_size_tokens'] as num?)?.toInt())!,
+        chunkOverlapTokens: ((json['chunk_overlap_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'max_chunk_size_tokens': maxChunkSizeTokens,
-    'chunk_overlap_tokens': chunkOverlapTokens,
-  };
+        'max_chunk_size_tokens': maxChunkSizeTokens,
+        'chunk_overlap_tokens': chunkOverlapTokens,
+      };
 }
 
 /// Optional object value serialized in the `chunking_strategy` wire field.
 class CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `static`.
-  final CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type type_;
+  final CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
+      type_;
+
   /// Required object value serialized in the `static` wire field.
-  final CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static static_;
+  final CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static
+      static_;
 
-  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1({required this.type_, required this.static_});
+  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
+      {required this.type_, required this.static_});
 
-  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 Function({CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type type_, CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static static_}) get copyWith => _copyWith;
+  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 Function(
+      {CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
+          type_,
+      CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static
+          static_}) get copyWith => _copyWith;
 
-  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? static_ = sdkOmittedValue}) => CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type,
-    static_: identical(static_, sdkOmittedValue) ? this.static_ : static_ as CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static,
-  );
+  CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1
+      _copyWith(
+              {Object? type_ = sdkOmittedValue,
+              Object? static_ = sdkOmittedValue}) =>
+          CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
+            type_: identical(type_, sdkOmittedValue)
+                ? this.type_
+                : type_
+                    as CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type,
+            static_: identical(static_, sdkOmittedValue)
+                ? this.static_
+                : static_
+                    as CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static,
+          );
 
-  factory CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(Map<String, dynamic> json) => CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
-    type_: (json['type'] != null ? CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type.fromJson(json['type'] as String) : null)!,
-    static_: (json['static'] != null ? CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static.fromJson(json['static'] as Map<String, dynamic>) : null)!,
-  );
+  factory CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
+        type_: (json['type'] != null
+            ? CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
+                .fromJson(json['type'] as String)
+            : null)!,
+        static_: (json['static'] != null
+            ? CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Static
+                .fromJson(json['static'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'static': static_.toJson(),
-  };
+        'type': type_.toJson(),
+        'static': static_.toJson(),
+      };
 }
 
 sealed class CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy();
-  factory CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy.fromJson(Object? json) {
+  factory CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy.fromJson(
+      Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(value); } } catch (_) {}
-      try { final value = CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(value); } } catch (_) {}
+      try {
+        final value =
+            CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1
+                .fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy");
+    try {
+      return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
+          CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0
+              .fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
+          CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1
+              .fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy");
   }
   Object? toJson();
 }
 
-final class CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 extends CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy {
-  final CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0 value;
-  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+final class CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0
+    extends CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy {
+  final CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0
+      value;
+  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 extends CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy {
-  final CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1 value;
-  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+final class CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1
+    extends CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy {
+  final CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1
+      value;
+  const CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }

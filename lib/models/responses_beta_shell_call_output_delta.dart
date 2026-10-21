@@ -8,33 +8,54 @@ part of 'responses_beta.dart';
 class BetaShellCallOutputDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The stdout delta that was emitted.
   final SdkOptional<String> stdout;
+
   /// The stderr delta that was emitted.
   final SdkOptional<String> stderr;
 
-  const BetaShellCallOutputDelta({this.stdout = const SdkOmitted(), this.stderr = const SdkOmitted()});
+  const BetaShellCallOutputDelta(
+      {this.stdout = const SdkOmitted(), this.stderr = const SdkOmitted()});
 
-  BetaShellCallOutputDelta Function({SdkOptional<String> stdout, SdkOptional<String> stderr}) get copyWith => _copyWith;
+  BetaShellCallOutputDelta Function(
+      {SdkOptional<String> stdout,
+      SdkOptional<String> stderr}) get copyWith => _copyWith;
 
-  BetaShellCallOutputDelta _copyWith({Object? stdout = sdkOmittedValue, Object? stderr = sdkOmittedValue}) => BetaShellCallOutputDelta(
-    stdout: identical(stdout, sdkOmittedValue) ? this.stdout : stdout as SdkOptional<String>,
-    stderr: identical(stderr, sdkOmittedValue) ? this.stderr : stderr as SdkOptional<String>,
-  );
+  BetaShellCallOutputDelta _copyWith(
+          {Object? stdout = sdkOmittedValue,
+          Object? stderr = sdkOmittedValue}) =>
+      BetaShellCallOutputDelta(
+        stdout: identical(stdout, sdkOmittedValue)
+            ? this.stdout
+            : stdout as SdkOptional<String>,
+        stderr: identical(stderr, sdkOmittedValue)
+            ? this.stderr
+            : stderr as SdkOptional<String>,
+      );
 
-  factory BetaShellCallOutputDelta.fromJson(Map<String, dynamic> json) => BetaShellCallOutputDelta(
-    stdout: json['stdout'] != null ? SdkPresent((json['stdout'] as String?)!) : const SdkOmitted(),
-    stderr: json['stderr'] != null ? SdkPresent((json['stderr'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaShellCallOutputDelta.fromJson(Map<String, dynamic> json) =>
+      BetaShellCallOutputDelta(
+        stdout: json['stdout'] != null
+            ? SdkPresent((json['stdout'] as String?)!)
+            : const SdkOmitted(),
+        stderr: json['stderr'] != null
+            ? SdkPresent((json['stderr'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (stdout) {
-      SdkPresent<String>(value: final value) => {'stdout': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (stderr) {
-      SdkPresent<String>(value: final value) => {'stderr': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (stdout) {
+          SdkPresent<String>(value: final value) => {
+              'stdout': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (stderr) {
+          SdkPresent<String>(value: final value) => {
+              'stderr': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

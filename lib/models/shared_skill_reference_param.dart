@@ -8,35 +8,61 @@ part of 'shared.dart';
 class SkillReferenceParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// References a skill created with the /v1/skills endpoint.
   final SkillReferenceParamType type_;
+
   /// The ID of the referenced skill.
   final String skillId;
+
   /// Optional skill version. Use a positive integer or 'latest'. Omit for default.
   final SdkOptional<String> version;
 
-  const SkillReferenceParam({required this.type_, required this.skillId, this.version = const SdkOmitted()});
+  const SkillReferenceParam(
+      {required this.type_,
+      required this.skillId,
+      this.version = const SdkOmitted()});
 
-  SkillReferenceParam Function({SkillReferenceParamType type_, String skillId, SdkOptional<String> version}) get copyWith => _copyWith;
+  SkillReferenceParam Function(
+      {SkillReferenceParamType type_,
+      String skillId,
+      SdkOptional<String> version}) get copyWith => _copyWith;
 
-  SkillReferenceParam _copyWith({Object? type_ = sdkOmittedValue, Object? skillId = sdkOmittedValue, Object? version = sdkOmittedValue}) => SkillReferenceParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SkillReferenceParamType,
-    skillId: identical(skillId, sdkOmittedValue) ? this.skillId : skillId as String,
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
-  );
+  SkillReferenceParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? skillId = sdkOmittedValue,
+          Object? version = sdkOmittedValue}) =>
+      SkillReferenceParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SkillReferenceParamType,
+        skillId: identical(skillId, sdkOmittedValue)
+            ? this.skillId
+            : skillId as String,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<String>,
+      );
 
-  factory SkillReferenceParam.fromJson(Map<String, dynamic> json) => SkillReferenceParam(
-    type_: (json['type'] != null ? SkillReferenceParamType.fromJson(json['type'] as String) : null)!,
-    skillId: (json['skill_id'] as String?)!,
-    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
-  );
+  factory SkillReferenceParam.fromJson(Map<String, dynamic> json) =>
+      SkillReferenceParam(
+        type_: (json['type'] != null
+            ? SkillReferenceParamType.fromJson(json['type'] as String)
+            : null)!,
+        skillId: (json['skill_id'] as String?)!,
+        version: json['version'] != null
+            ? SdkPresent((json['version'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'skill_id': skillId,
-    ...switch (version) {
-      SdkPresent<String>(value: final value) => {'version': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'skill_id': skillId,
+        ...switch (version) {
+          SdkPresent<String>(value: final value) => {
+              'version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

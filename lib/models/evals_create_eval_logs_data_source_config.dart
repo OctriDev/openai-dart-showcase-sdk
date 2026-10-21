@@ -8,30 +8,53 @@ part of 'evals_create.dart';
 class CreateEvalLogsDataSourceConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of data source. Always `logs`.
   final CreateEvalLogsDataSourceConfigType type_;
+
   /// Metadata filters for the logs data source.
   final SdkOptional<Map<String, Object?>> metadata;
 
-  const CreateEvalLogsDataSourceConfig({required this.type_, this.metadata = const SdkOmitted()});
+  const CreateEvalLogsDataSourceConfig(
+      {required this.type_, this.metadata = const SdkOmitted()});
 
-  CreateEvalLogsDataSourceConfig Function({CreateEvalLogsDataSourceConfigType type_, SdkOptional<Map<String, Object?>> metadata}) get copyWith => _copyWith;
+  CreateEvalLogsDataSourceConfig Function(
+      {CreateEvalLogsDataSourceConfigType type_,
+      SdkOptional<Map<String, Object?>> metadata}) get copyWith => _copyWith;
 
-  CreateEvalLogsDataSourceConfig _copyWith({Object? type_ = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => CreateEvalLogsDataSourceConfig(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateEvalLogsDataSourceConfigType,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, Object?>>,
-  );
+  CreateEvalLogsDataSourceConfig _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      CreateEvalLogsDataSourceConfig(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateEvalLogsDataSourceConfigType,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, Object?>>,
+      );
 
-  factory CreateEvalLogsDataSourceConfig.fromJson(Map<String, dynamic> json) => CreateEvalLogsDataSourceConfig(
-    type_: (json['type'] != null ? CreateEvalLogsDataSourceConfigType.fromJson(json['type'] as String) : null)!,
-    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-  );
+  factory CreateEvalLogsDataSourceConfig.fromJson(Map<String, dynamic> json) =>
+      CreateEvalLogsDataSourceConfig(
+        type_: (json['type'] != null
+            ? CreateEvalLogsDataSourceConfigType.fromJson(
+                json['type'] as String)
+            : null)!,
+        metadata: json['metadata'] != null
+            ? SdkPresent((json['metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (metadata) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (metadata) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

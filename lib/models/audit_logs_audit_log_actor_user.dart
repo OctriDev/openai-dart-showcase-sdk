@@ -8,33 +8,53 @@ part of 'audit_logs.dart';
 class AuditLogActorUser {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The user id.
   final SdkOptional<String> id;
+
   /// The user email.
   final SdkOptional<String> email;
 
-  const AuditLogActorUser({this.id = const SdkOmitted(), this.email = const SdkOmitted()});
+  const AuditLogActorUser(
+      {this.id = const SdkOmitted(), this.email = const SdkOmitted()});
 
-  AuditLogActorUser Function({SdkOptional<String> id, SdkOptional<String> email}) get copyWith => _copyWith;
+  AuditLogActorUser Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> email}) get copyWith => _copyWith;
 
-  AuditLogActorUser _copyWith({Object? id = sdkOmittedValue, Object? email = sdkOmittedValue}) => AuditLogActorUser(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
-  );
+  AuditLogActorUser _copyWith(
+          {Object? id = sdkOmittedValue, Object? email = sdkOmittedValue}) =>
+      AuditLogActorUser(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as SdkOptional<String>,
+      );
 
-  factory AuditLogActorUser.fromJson(Map<String, dynamic> json) => AuditLogActorUser(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
-  );
+  factory AuditLogActorUser.fromJson(Map<String, dynamic> json) =>
+      AuditLogActorUser(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        email: json['email'] != null
+            ? SdkPresent((json['email'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (email) {
-      SdkPresent<String>(value: final value) => {'email': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (email) {
+          SdkPresent<String>(value: final value) => {
+              'email': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

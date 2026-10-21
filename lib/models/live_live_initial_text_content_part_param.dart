@@ -8,30 +8,48 @@ part of 'live_live_initial.dart';
 class LiveInitialTextContentPartParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The text content type. Always `text`.
   final SdkOptional<LiveInitialTextContentPartParamType> type_;
+
   /// The message text to include in the Live session’s initial conversation history.
   final String text;
 
-  const LiveInitialTextContentPartParam({this.type_ = const SdkOmitted(), required this.text});
+  const LiveInitialTextContentPartParam(
+      {this.type_ = const SdkOmitted(), required this.text});
 
-  LiveInitialTextContentPartParam Function({SdkOptional<LiveInitialTextContentPartParamType> type_, String text}) get copyWith => _copyWith;
+  LiveInitialTextContentPartParam Function(
+      {SdkOptional<LiveInitialTextContentPartParamType> type_,
+      String text}) get copyWith => _copyWith;
 
-  LiveInitialTextContentPartParam _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => LiveInitialTextContentPartParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<LiveInitialTextContentPartParamType>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  LiveInitialTextContentPartParam _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      LiveInitialTextContentPartParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<LiveInitialTextContentPartParamType>,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory LiveInitialTextContentPartParam.fromJson(Map<String, dynamic> json) => LiveInitialTextContentPartParam(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? LiveInitialTextContentPartParamType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    text: (json['text'] as String?)!,
-  );
+  factory LiveInitialTextContentPartParam.fromJson(Map<String, dynamic> json) =>
+      LiveInitialTextContentPartParam(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? LiveInitialTextContentPartParamType.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<LiveInitialTextContentPartParamType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'text': text,
-  };
+        ...switch (type_) {
+          SdkPresent<LiveInitialTextContentPartParamType>(value: final value) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'text': text,
+      };
 }

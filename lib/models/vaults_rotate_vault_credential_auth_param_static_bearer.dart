@@ -8,27 +8,41 @@ part of 'vaults_rotate.dart';
 class RotateVaultCredentialAuthParamStaticBearer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `static_bearer`.
   final RotateVaultCredentialAuthParamStaticBearerType type_;
+
   /// The replacement bearer token. This secret is never returned in credential resources.
   final String token;
 
-  const RotateVaultCredentialAuthParamStaticBearer({required this.type_, required this.token});
+  const RotateVaultCredentialAuthParamStaticBearer(
+      {required this.type_, required this.token});
 
-  RotateVaultCredentialAuthParamStaticBearer Function({RotateVaultCredentialAuthParamStaticBearerType type_, String token}) get copyWith => _copyWith;
+  RotateVaultCredentialAuthParamStaticBearer Function(
+      {RotateVaultCredentialAuthParamStaticBearerType type_,
+      String token}) get copyWith => _copyWith;
 
-  RotateVaultCredentialAuthParamStaticBearer _copyWith({Object? type_ = sdkOmittedValue, Object? token = sdkOmittedValue}) => RotateVaultCredentialAuthParamStaticBearer(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RotateVaultCredentialAuthParamStaticBearerType,
-    token: identical(token, sdkOmittedValue) ? this.token : token as String,
-  );
+  RotateVaultCredentialAuthParamStaticBearer _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? token = sdkOmittedValue}) =>
+      RotateVaultCredentialAuthParamStaticBearer(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RotateVaultCredentialAuthParamStaticBearerType,
+        token: identical(token, sdkOmittedValue) ? this.token : token as String,
+      );
 
-  factory RotateVaultCredentialAuthParamStaticBearer.fromJson(Map<String, dynamic> json) => RotateVaultCredentialAuthParamStaticBearer(
-    type_: (json['type'] != null ? RotateVaultCredentialAuthParamStaticBearerType.fromJson(json['type'] as String) : null)!,
-    token: (json['token'] as String?)!,
-  );
+  factory RotateVaultCredentialAuthParamStaticBearer.fromJson(
+          Map<String, dynamic> json) =>
+      RotateVaultCredentialAuthParamStaticBearer(
+        type_: (json['type'] != null
+            ? RotateVaultCredentialAuthParamStaticBearerType.fromJson(
+                json['type'] as String)
+            : null)!,
+        token: (json['token'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'token': token,
-  };
+        'type': type_.toJson(),
+        'token': token,
+      };
 }

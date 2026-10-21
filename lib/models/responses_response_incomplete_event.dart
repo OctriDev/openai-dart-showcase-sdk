@@ -8,32 +8,56 @@ part of 'responses_response.dart';
 class ResponseIncompleteEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always `response.incomplete`.
   final ResponseIncompleteEventType type_;
+
   /// The response that was incomplete.
   final Response response;
+
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseIncompleteEvent({required this.type_, required this.response, required this.sequenceNumber});
+  const ResponseIncompleteEvent(
+      {required this.type_,
+      required this.response,
+      required this.sequenceNumber});
 
-  ResponseIncompleteEvent Function({ResponseIncompleteEventType type_, Response response, int sequenceNumber}) get copyWith => _copyWith;
+  ResponseIncompleteEvent Function(
+      {ResponseIncompleteEventType type_,
+      Response response,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseIncompleteEvent _copyWith({Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseIncompleteEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseIncompleteEventType,
-    response: identical(response, sdkOmittedValue) ? this.response : response as Response,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  ResponseIncompleteEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? response = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      ResponseIncompleteEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseIncompleteEventType,
+        response: identical(response, sdkOmittedValue)
+            ? this.response
+            : response as Response,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory ResponseIncompleteEvent.fromJson(Map<String, dynamic> json) => ResponseIncompleteEvent(
-    type_: (json['type'] != null ? ResponseIncompleteEventType.fromJson(json['type'] as String) : null)!,
-    response: (json['response'] != null ? Response.fromJson(json['response'] as Map<String, dynamic>) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory ResponseIncompleteEvent.fromJson(Map<String, dynamic> json) =>
+      ResponseIncompleteEvent(
+        type_: (json['type'] != null
+            ? ResponseIncompleteEventType.fromJson(json['type'] as String)
+            : null)!,
+        response: (json['response'] != null
+            ? Response.fromJson(json['response'] as Map<String, dynamic>)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'response': response.toJson(),
-    'sequence_number': sequenceNumber,
-  };
+        'type': type_.toJson(),
+        'response': response.toJson(),
+        'sequence_number': sequenceNumber,
+      };
 }

@@ -8,207 +8,353 @@ sealed class CreateFineTuningJobRequestHyperparametersBatchSize {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const CreateFineTuningJobRequestHyperparametersBatchSize();
-  factory CreateFineTuningJobRequestHyperparametersBatchSize.fromJson(Object? json) {
-    if (json is num) { return CreateFineTuningJobRequestHyperparametersBatchSizeInt(json.toInt()); }
-    try { return CreateFineTuningJobRequestHyperparametersBatchSizeCreateFineTuningJobRequestHyperparametersBatchSizeVariant0(CreateFineTuningJobRequestHyperparametersBatchSizeVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for CreateFineTuningJobRequestHyperparametersBatchSize");
+  factory CreateFineTuningJobRequestHyperparametersBatchSize.fromJson(
+      Object? json) {
+    if (json is num) {
+      return CreateFineTuningJobRequestHyperparametersBatchSizeInt(
+          json.toInt());
+    }
+    try {
+      return CreateFineTuningJobRequestHyperparametersBatchSizeCreateFineTuningJobRequestHyperparametersBatchSizeVariant0(
+          CreateFineTuningJobRequestHyperparametersBatchSizeVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateFineTuningJobRequestHyperparametersBatchSize");
   }
   Object? toJson();
 }
 
-final class CreateFineTuningJobRequestHyperparametersBatchSizeCreateFineTuningJobRequestHyperparametersBatchSizeVariant0 extends CreateFineTuningJobRequestHyperparametersBatchSize {
+final class CreateFineTuningJobRequestHyperparametersBatchSizeCreateFineTuningJobRequestHyperparametersBatchSizeVariant0
+    extends CreateFineTuningJobRequestHyperparametersBatchSize {
   final CreateFineTuningJobRequestHyperparametersBatchSizeVariant0 value;
-  const CreateFineTuningJobRequestHyperparametersBatchSizeCreateFineTuningJobRequestHyperparametersBatchSizeVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateFineTuningJobRequestHyperparametersBatchSizeCreateFineTuningJobRequestHyperparametersBatchSizeVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateFineTuningJobRequestHyperparametersBatchSizeInt extends CreateFineTuningJobRequestHyperparametersBatchSize {
+final class CreateFineTuningJobRequestHyperparametersBatchSizeInt
+    extends CreateFineTuningJobRequestHyperparametersBatchSize {
   final int value;
   const CreateFineTuningJobRequestHyperparametersBatchSizeInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class CreateFineTuningJobRequestHyperparametersLearningRateMultiplier {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const CreateFineTuningJobRequestHyperparametersLearningRateMultiplier();
-  factory CreateFineTuningJobRequestHyperparametersLearningRateMultiplier.fromJson(Object? json) {
-    if (json is num) { return CreateFineTuningJobRequestHyperparametersLearningRateMultiplierDouble(json.toDouble()); }
-    try { return CreateFineTuningJobRequestHyperparametersLearningRateMultiplierCreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0(CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for CreateFineTuningJobRequestHyperparametersLearningRateMultiplier");
+  factory CreateFineTuningJobRequestHyperparametersLearningRateMultiplier.fromJson(
+      Object? json) {
+    if (json is num) {
+      return CreateFineTuningJobRequestHyperparametersLearningRateMultiplierDouble(
+          json.toDouble());
+    }
+    try {
+      return CreateFineTuningJobRequestHyperparametersLearningRateMultiplierCreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0(
+          CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0
+              .fromJson(json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateFineTuningJobRequestHyperparametersLearningRateMultiplier");
   }
   Object? toJson();
 }
 
-final class CreateFineTuningJobRequestHyperparametersLearningRateMultiplierCreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0 extends CreateFineTuningJobRequestHyperparametersLearningRateMultiplier {
-  final CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0 value;
-  const CreateFineTuningJobRequestHyperparametersLearningRateMultiplierCreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+final class CreateFineTuningJobRequestHyperparametersLearningRateMultiplierCreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0
+    extends CreateFineTuningJobRequestHyperparametersLearningRateMultiplier {
+  final CreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0
+      value;
+  const CreateFineTuningJobRequestHyperparametersLearningRateMultiplierCreateFineTuningJobRequestHyperparametersLearningRateMultiplierVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateFineTuningJobRequestHyperparametersLearningRateMultiplierDouble extends CreateFineTuningJobRequestHyperparametersLearningRateMultiplier {
+final class CreateFineTuningJobRequestHyperparametersLearningRateMultiplierDouble
+    extends CreateFineTuningJobRequestHyperparametersLearningRateMultiplier {
   final double value;
-  const CreateFineTuningJobRequestHyperparametersLearningRateMultiplierDouble(this.value);
-  @override Object? toJson() => value;
+  const CreateFineTuningJobRequestHyperparametersLearningRateMultiplierDouble(
+      this.value);
+  @override
+  Object? toJson() => value;
 }
 
 sealed class CreateFineTuningJobRequestHyperparametersNEpochs {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const CreateFineTuningJobRequestHyperparametersNEpochs();
-  factory CreateFineTuningJobRequestHyperparametersNEpochs.fromJson(Object? json) {
-    if (json is num) { return CreateFineTuningJobRequestHyperparametersNEpochsInt(json.toInt()); }
-    try { return CreateFineTuningJobRequestHyperparametersNEpochsCreateFineTuningJobRequestHyperparametersNEpochsVariant0(CreateFineTuningJobRequestHyperparametersNEpochsVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for CreateFineTuningJobRequestHyperparametersNEpochs");
+  factory CreateFineTuningJobRequestHyperparametersNEpochs.fromJson(
+      Object? json) {
+    if (json is num) {
+      return CreateFineTuningJobRequestHyperparametersNEpochsInt(json.toInt());
+    }
+    try {
+      return CreateFineTuningJobRequestHyperparametersNEpochsCreateFineTuningJobRequestHyperparametersNEpochsVariant0(
+          CreateFineTuningJobRequestHyperparametersNEpochsVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateFineTuningJobRequestHyperparametersNEpochs");
   }
   Object? toJson();
 }
 
-final class CreateFineTuningJobRequestHyperparametersNEpochsCreateFineTuningJobRequestHyperparametersNEpochsVariant0 extends CreateFineTuningJobRequestHyperparametersNEpochs {
+final class CreateFineTuningJobRequestHyperparametersNEpochsCreateFineTuningJobRequestHyperparametersNEpochsVariant0
+    extends CreateFineTuningJobRequestHyperparametersNEpochs {
   final CreateFineTuningJobRequestHyperparametersNEpochsVariant0 value;
-  const CreateFineTuningJobRequestHyperparametersNEpochsCreateFineTuningJobRequestHyperparametersNEpochsVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateFineTuningJobRequestHyperparametersNEpochsCreateFineTuningJobRequestHyperparametersNEpochsVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateFineTuningJobRequestHyperparametersNEpochsInt extends CreateFineTuningJobRequestHyperparametersNEpochs {
+final class CreateFineTuningJobRequestHyperparametersNEpochsInt
+    extends CreateFineTuningJobRequestHyperparametersNEpochs {
   final int value;
   const CreateFineTuningJobRequestHyperparametersNEpochsInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// The hyperparameters used for the fine-tuning job. This value is now deprecated in favor of `method`, and should be passed in under the `method` parameter.
 class CreateFineTuningJobRequestHyperparameters {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Number of examples in each batch. A larger batch size means that model parameters are updated less frequently, but with lower variance.
   final SdkOptional<dynamic> batchSize;
+
   /// Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting.
   final SdkOptional<dynamic> learningRateMultiplier;
+
   /// The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
   final SdkOptional<dynamic> nEpochs;
 
-  const CreateFineTuningJobRequestHyperparameters({this.batchSize = const SdkOmitted(), this.learningRateMultiplier = const SdkOmitted(), this.nEpochs = const SdkOmitted()});
+  const CreateFineTuningJobRequestHyperparameters(
+      {this.batchSize = const SdkOmitted(),
+      this.learningRateMultiplier = const SdkOmitted(),
+      this.nEpochs = const SdkOmitted()});
 
-  CreateFineTuningJobRequestHyperparameters Function({SdkOptional<dynamic> batchSize, SdkOptional<dynamic> learningRateMultiplier, SdkOptional<dynamic> nEpochs}) get copyWith => _copyWith;
+  CreateFineTuningJobRequestHyperparameters Function(
+      {SdkOptional<dynamic> batchSize,
+      SdkOptional<dynamic> learningRateMultiplier,
+      SdkOptional<dynamic> nEpochs}) get copyWith => _copyWith;
 
-  CreateFineTuningJobRequestHyperparameters _copyWith({Object? batchSize = sdkOmittedValue, Object? learningRateMultiplier = sdkOmittedValue, Object? nEpochs = sdkOmittedValue}) => CreateFineTuningJobRequestHyperparameters(
-    batchSize: identical(batchSize, sdkOmittedValue) ? this.batchSize : batchSize as SdkOptional<dynamic>,
-    learningRateMultiplier: identical(learningRateMultiplier, sdkOmittedValue) ? this.learningRateMultiplier : learningRateMultiplier as SdkOptional<dynamic>,
-    nEpochs: identical(nEpochs, sdkOmittedValue) ? this.nEpochs : nEpochs as SdkOptional<dynamic>,
-  );
+  CreateFineTuningJobRequestHyperparameters _copyWith(
+          {Object? batchSize = sdkOmittedValue,
+          Object? learningRateMultiplier = sdkOmittedValue,
+          Object? nEpochs = sdkOmittedValue}) =>
+      CreateFineTuningJobRequestHyperparameters(
+        batchSize: identical(batchSize, sdkOmittedValue)
+            ? this.batchSize
+            : batchSize as SdkOptional<dynamic>,
+        learningRateMultiplier:
+            identical(learningRateMultiplier, sdkOmittedValue)
+                ? this.learningRateMultiplier
+                : learningRateMultiplier as SdkOptional<dynamic>,
+        nEpochs: identical(nEpochs, sdkOmittedValue)
+            ? this.nEpochs
+            : nEpochs as SdkOptional<dynamic>,
+      );
 
-  factory CreateFineTuningJobRequestHyperparameters.fromJson(Map<String, dynamic> json) => CreateFineTuningJobRequestHyperparameters(
-    batchSize: json['batch_size'] != null ? SdkPresent((json['batch_size'])!) : const SdkOmitted(),
-    learningRateMultiplier: json['learning_rate_multiplier'] != null ? SdkPresent((json['learning_rate_multiplier'])!) : const SdkOmitted(),
-    nEpochs: json['n_epochs'] != null ? SdkPresent((json['n_epochs'])!) : const SdkOmitted(),
-  );
+  factory CreateFineTuningJobRequestHyperparameters.fromJson(
+          Map<String, dynamic> json) =>
+      CreateFineTuningJobRequestHyperparameters(
+        batchSize: json['batch_size'] != null
+            ? SdkPresent((json['batch_size'])!)
+            : const SdkOmitted(),
+        learningRateMultiplier: json['learning_rate_multiplier'] != null
+            ? SdkPresent((json['learning_rate_multiplier'])!)
+            : const SdkOmitted(),
+        nEpochs: json['n_epochs'] != null
+            ? SdkPresent((json['n_epochs'])!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (batchSize) {
-      SdkPresent<dynamic>(value: final value) => {'batch_size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (learningRateMultiplier) {
-      SdkPresent<dynamic>(value: final value) => {'learning_rate_multiplier': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nEpochs) {
-      SdkPresent<dynamic>(value: final value) => {'n_epochs': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (batchSize) {
+          SdkPresent<dynamic>(value: final value) => {
+              'batch_size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (learningRateMultiplier) {
+          SdkPresent<dynamic>(value: final value) => {
+              'learning_rate_multiplier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nEpochs) {
+          SdkPresent<dynamic>(value: final value) => {
+              'n_epochs': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class CreateFineTuningJobRequestIntegrationsItemType {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const CreateFineTuningJobRequestIntegrationsItemType();
-  factory CreateFineTuningJobRequestIntegrationsItemType.fromJson(Object? json) {
-    try { return CreateFineTuningJobRequestIntegrationsItemTypeCreateFineTuningJobRequestIntegrationsItemTypeVariant0(CreateFineTuningJobRequestIntegrationsItemTypeVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for CreateFineTuningJobRequestIntegrationsItemType");
+  factory CreateFineTuningJobRequestIntegrationsItemType.fromJson(
+      Object? json) {
+    try {
+      return CreateFineTuningJobRequestIntegrationsItemTypeCreateFineTuningJobRequestIntegrationsItemTypeVariant0(
+          CreateFineTuningJobRequestIntegrationsItemTypeVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateFineTuningJobRequestIntegrationsItemType");
   }
   Object? toJson();
 }
 
-final class CreateFineTuningJobRequestIntegrationsItemTypeCreateFineTuningJobRequestIntegrationsItemTypeVariant0 extends CreateFineTuningJobRequestIntegrationsItemType {
+final class CreateFineTuningJobRequestIntegrationsItemTypeCreateFineTuningJobRequestIntegrationsItemTypeVariant0
+    extends CreateFineTuningJobRequestIntegrationsItemType {
   final CreateFineTuningJobRequestIntegrationsItemTypeVariant0 value;
-  const CreateFineTuningJobRequestIntegrationsItemTypeCreateFineTuningJobRequestIntegrationsItemTypeVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateFineTuningJobRequestIntegrationsItemTypeCreateFineTuningJobRequestIntegrationsItemTypeVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// The settings for your integration with Weights and Biases. This payload specifies the project that metrics will be sent to. Optionally, you can set an explicit display name for your run, add tags to your run, and set a default entity (team, username, etc) to be associated with your run.
 class CreateFineTuningJobRequestIntegrationsItemWandb {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the project that the new run will be created under.
   final String project;
+
   /// A display name to set for the run. If not set, we will use the Job ID as the name.
   final SdkOptional<String?> name;
+
   /// The entity to use for the run. This allows you to set the team or username of the WandB user that you would like associated with the run. If not set, the default entity for the registered WandB API key is used.
   final SdkOptional<String?> entity;
+
   /// A list of tags to be attached to the newly created run. These tags are passed through directly to WandB. Some default tags are generated by OpenAI: "openai/finetune", "openai/{base-model}", "openai/{ftjob-abcdef}".
   final SdkOptional<List<String>> tags;
 
-  const CreateFineTuningJobRequestIntegrationsItemWandb({required this.project, this.name = const SdkOmitted(), this.entity = const SdkOmitted(), this.tags = const SdkOmitted()});
+  const CreateFineTuningJobRequestIntegrationsItemWandb(
+      {required this.project,
+      this.name = const SdkOmitted(),
+      this.entity = const SdkOmitted(),
+      this.tags = const SdkOmitted()});
 
-  CreateFineTuningJobRequestIntegrationsItemWandb Function({String project, SdkOptional<String?> name, SdkOptional<String?> entity, SdkOptional<List<String>> tags}) get copyWith => _copyWith;
+  CreateFineTuningJobRequestIntegrationsItemWandb Function(
+      {String project,
+      SdkOptional<String?> name,
+      SdkOptional<String?> entity,
+      SdkOptional<List<String>> tags}) get copyWith => _copyWith;
 
-  CreateFineTuningJobRequestIntegrationsItemWandb _copyWith({Object? project = sdkOmittedValue, Object? name = sdkOmittedValue, Object? entity = sdkOmittedValue, Object? tags = sdkOmittedValue}) => CreateFineTuningJobRequestIntegrationsItemWandb(
-    project: identical(project, sdkOmittedValue) ? this.project : project as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
-    entity: identical(entity, sdkOmittedValue) ? this.entity : entity as SdkOptional<String?>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-  );
+  CreateFineTuningJobRequestIntegrationsItemWandb _copyWith(
+          {Object? project = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? entity = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      CreateFineTuningJobRequestIntegrationsItemWandb(
+        project: identical(project, sdkOmittedValue)
+            ? this.project
+            : project as String,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String?>,
+        entity: identical(entity, sdkOmittedValue)
+            ? this.entity
+            : entity as SdkOptional<String?>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+      );
 
-  factory CreateFineTuningJobRequestIntegrationsItemWandb.fromJson(Map<String, dynamic> json) => CreateFineTuningJobRequestIntegrationsItemWandb(
-    project: (json['project'] as String?)!,
-    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
-    entity: json.containsKey('entity') ? SdkPresent(json['entity'] as String?) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory CreateFineTuningJobRequestIntegrationsItemWandb.fromJson(
+          Map<String, dynamic> json) =>
+      CreateFineTuningJobRequestIntegrationsItemWandb(
+        project: (json['project'] as String?)!,
+        name: json.containsKey('name')
+            ? SdkPresent(json['name'] as String?)
+            : const SdkOmitted(),
+        entity: json.containsKey('entity')
+            ? SdkPresent(json['entity'] as String?)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'project': project,
-    ...switch (name) {
-      SdkPresent<String?>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (entity) {
-      SdkPresent<String?>(value: final value) => {'entity': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'project': project,
+        ...switch (name) {
+          SdkPresent<String?>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (entity) {
+          SdkPresent<String?>(value: final value) => {
+              'entity': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `integrations[]` wire field.
 class CreateFineTuningJobRequestIntegrationsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of integration to enable. Currently, only "wandb" (Weights and Biases) is supported.
   final CreateFineTuningJobRequestIntegrationsItemTypeVariant0 type_;
+
   /// The settings for your integration with Weights and Biases. This payload specifies the project that metrics will be sent to. Optionally, you can set an explicit display name for your run, add tags to your run, and set a default entity (team, username, etc) to be associated with your run.
   final CreateFineTuningJobRequestIntegrationsItemWandb wandb;
 
-  const CreateFineTuningJobRequestIntegrationsItem({required this.type_, required this.wandb});
+  const CreateFineTuningJobRequestIntegrationsItem(
+      {required this.type_, required this.wandb});
 
-  CreateFineTuningJobRequestIntegrationsItem Function({CreateFineTuningJobRequestIntegrationsItemTypeVariant0 type_, CreateFineTuningJobRequestIntegrationsItemWandb wandb}) get copyWith => _copyWith;
+  CreateFineTuningJobRequestIntegrationsItem Function(
+          {CreateFineTuningJobRequestIntegrationsItemTypeVariant0 type_,
+          CreateFineTuningJobRequestIntegrationsItemWandb wandb})
+      get copyWith => _copyWith;
 
-  CreateFineTuningJobRequestIntegrationsItem _copyWith({Object? type_ = sdkOmittedValue, Object? wandb = sdkOmittedValue}) => CreateFineTuningJobRequestIntegrationsItem(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateFineTuningJobRequestIntegrationsItemTypeVariant0,
-    wandb: identical(wandb, sdkOmittedValue) ? this.wandb : wandb as CreateFineTuningJobRequestIntegrationsItemWandb,
-  );
+  CreateFineTuningJobRequestIntegrationsItem _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? wandb = sdkOmittedValue}) =>
+      CreateFineTuningJobRequestIntegrationsItem(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateFineTuningJobRequestIntegrationsItemTypeVariant0,
+        wandb: identical(wandb, sdkOmittedValue)
+            ? this.wandb
+            : wandb as CreateFineTuningJobRequestIntegrationsItemWandb,
+      );
 
-  factory CreateFineTuningJobRequestIntegrationsItem.fromJson(Map<String, dynamic> json) => CreateFineTuningJobRequestIntegrationsItem(
-    type_: (json['type'] != null ? CreateFineTuningJobRequestIntegrationsItemTypeVariant0.fromJson(json['type'] as String) : null)!,
-    wandb: (json['wandb'] != null ? CreateFineTuningJobRequestIntegrationsItemWandb.fromJson(json['wandb'] as Map<String, dynamic>) : null)!,
-  );
+  factory CreateFineTuningJobRequestIntegrationsItem.fromJson(
+          Map<String, dynamic> json) =>
+      CreateFineTuningJobRequestIntegrationsItem(
+        type_: (json['type'] != null
+            ? CreateFineTuningJobRequestIntegrationsItemTypeVariant0.fromJson(
+                json['type'] as String)
+            : null)!,
+        wandb: (json['wandb'] != null
+            ? CreateFineTuningJobRequestIntegrationsItemWandb.fromJson(
+                json['wandb'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'wandb': wandb.toJson(),
-  };
+        'type': type_.toJson(),
+        'wandb': wandb.toJson(),
+      };
 }

@@ -8,47 +8,87 @@ part of 'evals_eval.dart';
 class EvalGraderLabelModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always `label_model`.
   final GraderLabelModelType type_;
+
   /// The name of the grader.
   final String name;
+
   /// The model to use for the evaluation. Must support structured outputs.
   final String model;
+
   /// Required array value serialized in the `input` wire field.
   final List<EvalItem> input;
+
   /// The labels to assign to each item in the evaluation.
   final List<String> labels;
+
   /// The labels that indicate a passing result. Must be a subset of labels.
   final List<String> passingLabels;
 
-  const EvalGraderLabelModel({required this.type_, required this.name, required this.model, required this.input, required this.labels, required this.passingLabels});
+  const EvalGraderLabelModel(
+      {required this.type_,
+      required this.name,
+      required this.model,
+      required this.input,
+      required this.labels,
+      required this.passingLabels});
 
-  EvalGraderLabelModel Function({GraderLabelModelType type_, String name, String model, List<EvalItem> input, List<String> labels, List<String> passingLabels}) get copyWith => _copyWith;
+  EvalGraderLabelModel Function(
+      {GraderLabelModelType type_,
+      String name,
+      String model,
+      List<EvalItem> input,
+      List<String> labels,
+      List<String> passingLabels}) get copyWith => _copyWith;
 
-  EvalGraderLabelModel _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? model = sdkOmittedValue, Object? input = sdkOmittedValue, Object? labels = sdkOmittedValue, Object? passingLabels = sdkOmittedValue}) => EvalGraderLabelModel(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as GraderLabelModelType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as List<EvalItem>,
-    labels: identical(labels, sdkOmittedValue) ? this.labels : labels as List<String>,
-    passingLabels: identical(passingLabels, sdkOmittedValue) ? this.passingLabels : passingLabels as List<String>,
-  );
+  EvalGraderLabelModel _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? labels = sdkOmittedValue,
+          Object? passingLabels = sdkOmittedValue}) =>
+      EvalGraderLabelModel(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as GraderLabelModelType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as List<EvalItem>,
+        labels: identical(labels, sdkOmittedValue)
+            ? this.labels
+            : labels as List<String>,
+        passingLabels: identical(passingLabels, sdkOmittedValue)
+            ? this.passingLabels
+            : passingLabels as List<String>,
+      );
 
-  factory EvalGraderLabelModel.fromJson(Map<String, dynamic> json) => EvalGraderLabelModel(
-    type_: (json['type'] != null ? GraderLabelModelType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    model: (json['model'] as String?)!,
-    input: ((json['input'] as List?)?.map((e) => EvalItem.fromJson(e as Map<String, dynamic>)).toList())!,
-    labels: ((json['labels'] as List?)?.map((e) => e as String).toList())!,
-    passingLabels: ((json['passing_labels'] as List?)?.map((e) => e as String).toList())!,
-  );
+  factory EvalGraderLabelModel.fromJson(Map<String, dynamic> json) =>
+      EvalGraderLabelModel(
+        type_: (json['type'] != null
+            ? GraderLabelModelType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        model: (json['model'] as String?)!,
+        input: ((json['input'] as List?)
+            ?.map((e) => EvalItem.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        labels: ((json['labels'] as List?)?.map((e) => e as String).toList())!,
+        passingLabels: ((json['passing_labels'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'model': model,
-    'input': input.map((item) => item.toJson()).toList(),
-    'labels': labels,
-    'passing_labels': passingLabels,
-  };
+        'type': type_.toJson(),
+        'name': name,
+        'model': model,
+        'input': input.map((item) => item.toJson()).toList(),
+        'labels': labels,
+        'passing_labels': passingLabels,
+      };
 }

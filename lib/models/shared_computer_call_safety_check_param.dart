@@ -8,38 +8,64 @@ part of 'shared_computer.dart';
 class ComputerCallSafetyCheckParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the pending safety check.
   final String id;
+
   /// Optional `string` value serialized in the `code` wire field.
   final SdkOptional<String?> code;
+
   /// Optional `string` value serialized in the `message` wire field.
   final SdkOptional<String?> message;
 
-  const ComputerCallSafetyCheckParam({required this.id, this.code = const SdkOmitted(), this.message = const SdkOmitted()});
+  const ComputerCallSafetyCheckParam(
+      {required this.id,
+      this.code = const SdkOmitted(),
+      this.message = const SdkOmitted()});
 
-  ComputerCallSafetyCheckParam Function({String id, SdkOptional<String?> code, SdkOptional<String?> message}) get copyWith => _copyWith;
+  ComputerCallSafetyCheckParam Function(
+      {String id,
+      SdkOptional<String?> code,
+      SdkOptional<String?> message}) get copyWith => _copyWith;
 
-  ComputerCallSafetyCheckParam _copyWith({Object? id = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => ComputerCallSafetyCheckParam(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    code: identical(code, sdkOmittedValue) ? this.code : code as SdkOptional<String?>,
-    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String?>,
-  );
+  ComputerCallSafetyCheckParam _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? code = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      ComputerCallSafetyCheckParam(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        code: identical(code, sdkOmittedValue)
+            ? this.code
+            : code as SdkOptional<String?>,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as SdkOptional<String?>,
+      );
 
-  factory ComputerCallSafetyCheckParam.fromJson(Map<String, dynamic> json) => ComputerCallSafetyCheckParam(
-    id: (json['id'] as String?)!,
-    code: json.containsKey('code') ? SdkPresent(json['code'] as String?) : const SdkOmitted(),
-    message: json.containsKey('message') ? SdkPresent(json['message'] as String?) : const SdkOmitted(),
-  );
+  factory ComputerCallSafetyCheckParam.fromJson(Map<String, dynamic> json) =>
+      ComputerCallSafetyCheckParam(
+        id: (json['id'] as String?)!,
+        code: json.containsKey('code')
+            ? SdkPresent(json['code'] as String?)
+            : const SdkOmitted(),
+        message: json.containsKey('message')
+            ? SdkPresent(json['message'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    ...switch (code) {
-      SdkPresent<String?>(value: final value) => {'code': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (message) {
-      SdkPresent<String?>(value: final value) => {'message': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        ...switch (code) {
+          SdkPresent<String?>(value: final value) => {
+              'code': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (message) {
+          SdkPresent<String?>(value: final value) => {
+              'message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

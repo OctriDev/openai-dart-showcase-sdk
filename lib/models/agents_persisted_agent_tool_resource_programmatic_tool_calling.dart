@@ -8,27 +8,44 @@ part of 'agents_persisted.dart';
 class PersistedAgentToolResourceProgrammaticToolCalling {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `programmatic_tool_calling`.
   final PersistedAgentToolResourceProgrammaticToolCallingType type_;
+
   /// Whether tools can be called from model-generated code.
   final bool enabled;
 
-  const PersistedAgentToolResourceProgrammaticToolCalling({required this.type_, required this.enabled});
+  const PersistedAgentToolResourceProgrammaticToolCalling(
+      {required this.type_, required this.enabled});
 
-  PersistedAgentToolResourceProgrammaticToolCalling Function({PersistedAgentToolResourceProgrammaticToolCallingType type_, bool enabled}) get copyWith => _copyWith;
+  PersistedAgentToolResourceProgrammaticToolCalling Function(
+      {PersistedAgentToolResourceProgrammaticToolCallingType type_,
+      bool enabled}) get copyWith => _copyWith;
 
-  PersistedAgentToolResourceProgrammaticToolCalling _copyWith({Object? type_ = sdkOmittedValue, Object? enabled = sdkOmittedValue}) => PersistedAgentToolResourceProgrammaticToolCalling(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as PersistedAgentToolResourceProgrammaticToolCallingType,
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
-  );
+  PersistedAgentToolResourceProgrammaticToolCalling _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? enabled = sdkOmittedValue}) =>
+      PersistedAgentToolResourceProgrammaticToolCalling(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as PersistedAgentToolResourceProgrammaticToolCallingType,
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as bool,
+      );
 
-  factory PersistedAgentToolResourceProgrammaticToolCalling.fromJson(Map<String, dynamic> json) => PersistedAgentToolResourceProgrammaticToolCalling(
-    type_: (json['type'] != null ? PersistedAgentToolResourceProgrammaticToolCallingType.fromJson(json['type'] as String) : null)!,
-    enabled: (json['enabled'] as bool?)!,
-  );
+  factory PersistedAgentToolResourceProgrammaticToolCalling.fromJson(
+          Map<String, dynamic> json) =>
+      PersistedAgentToolResourceProgrammaticToolCalling(
+        type_: (json['type'] != null
+            ? PersistedAgentToolResourceProgrammaticToolCallingType.fromJson(
+                json['type'] as String)
+            : null)!,
+        enabled: (json['enabled'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'enabled': enabled,
-  };
+        'type': type_.toJson(),
+        'enabled': enabled,
+      };
 }

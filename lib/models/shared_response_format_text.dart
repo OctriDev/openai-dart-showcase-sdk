@@ -8,22 +8,30 @@ part of 'shared_response.dart';
 class ResponseFormatText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of response format being defined. Always `text`.
   final ResponseFormatTextType type_;
 
   const ResponseFormatText({required this.type_});
 
-  ResponseFormatText Function({ResponseFormatTextType type_}) get copyWith => _copyWith;
+  ResponseFormatText Function({ResponseFormatTextType type_}) get copyWith =>
+      _copyWith;
 
-  ResponseFormatText _copyWith({Object? type_ = sdkOmittedValue}) => ResponseFormatText(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseFormatTextType,
-  );
+  ResponseFormatText _copyWith({Object? type_ = sdkOmittedValue}) =>
+      ResponseFormatText(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseFormatTextType,
+      );
 
-  factory ResponseFormatText.fromJson(Map<String, dynamic> json) => ResponseFormatText(
-    type_: (json['type'] != null ? ResponseFormatTextType.fromJson(json['type'] as String) : null)!,
-  );
+  factory ResponseFormatText.fromJson(Map<String, dynamic> json) =>
+      ResponseFormatText(
+        type_: (json['type'] != null
+            ? ResponseFormatTextType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

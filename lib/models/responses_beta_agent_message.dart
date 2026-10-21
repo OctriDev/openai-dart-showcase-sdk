@@ -8,50 +8,95 @@ part of 'responses_beta_agent.dart';
 class BetaAgentMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag> agent;
+
   /// The type of the item. Always `agent_message`.
   final BetaAgentMessageType type_;
+
   /// The unique ID of the agent message.
   final String id;
+
   /// The sending agent identity.
   final String author;
+
   /// The destination agent identity.
   final String recipient;
+
   /// Encrypted content sent between agents.
   final List<BetaAgentMessageContentItem> content;
 
-  const BetaAgentMessage({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.author, required this.recipient, required this.content});
+  const BetaAgentMessage(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.id,
+      required this.author,
+      required this.recipient,
+      required this.content});
 
-  BetaAgentMessage Function({SdkOptional<BetaAgentTag> agent, BetaAgentMessageType type_, String id, String author, String recipient, List<BetaAgentMessageContentItem> content}) get copyWith => _copyWith;
+  BetaAgentMessage Function(
+      {SdkOptional<BetaAgentTag> agent,
+      BetaAgentMessageType type_,
+      String id,
+      String author,
+      String recipient,
+      List<BetaAgentMessageContentItem> content}) get copyWith => _copyWith;
 
-  BetaAgentMessage _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? author = sdkOmittedValue, Object? recipient = sdkOmittedValue, Object? content = sdkOmittedValue}) => BetaAgentMessage(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaAgentMessageType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    author: identical(author, sdkOmittedValue) ? this.author : author as String,
-    recipient: identical(recipient, sdkOmittedValue) ? this.recipient : recipient as String,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<BetaAgentMessageContentItem>,
-  );
+  BetaAgentMessage _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? author = sdkOmittedValue,
+          Object? recipient = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      BetaAgentMessage(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaAgentMessageType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        author:
+            identical(author, sdkOmittedValue) ? this.author : author as String,
+        recipient: identical(recipient, sdkOmittedValue)
+            ? this.recipient
+            : recipient as String,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<BetaAgentMessageContentItem>,
+      );
 
-  factory BetaAgentMessage.fromJson(Map<String, dynamic> json) => BetaAgentMessage(
-    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaAgentMessageType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    author: (json['author'] as String?)!,
-    recipient: (json['recipient'] as String?)!,
-    content: ((json['content'] as List?)?.map((e) => BetaAgentMessageContentItem.fromJson(e)).toList())!,
-  );
+  factory BetaAgentMessage.fromJson(Map<String, dynamic> json) =>
+      BetaAgentMessage(
+        agent: json['agent'] != null
+            ? SdkPresent((json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaAgentMessageType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        author: (json['author'] as String?)!,
+        recipient: (json['recipient'] as String?)!,
+        content: ((json['content'] as List?)
+            ?.map((e) => BetaAgentMessageContentItem.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag>(value: final value) => {'agent': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'id': id,
-    'author': author,
-    'recipient': recipient,
-    'content': content.map((item) => item.toJson()).toList(),
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag>(value: final value) => {
+              'agent': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'id': id,
+        'author': author,
+        'recipient': recipient,
+        'content': content.map((item) => item.toJson()).toList(),
+      };
 }

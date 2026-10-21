@@ -8,32 +8,57 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventResponseDone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `response.done`.
   final RealtimeBetaServerEventResponseDoneType type_;
+
   /// The response resource.
   final RealtimeBetaResponse response;
 
-  const RealtimeBetaServerEventResponseDone({required this.eventId, required this.type_, required this.response});
+  const RealtimeBetaServerEventResponseDone(
+      {required this.eventId, required this.type_, required this.response});
 
-  RealtimeBetaServerEventResponseDone Function({String eventId, RealtimeBetaServerEventResponseDoneType type_, RealtimeBetaResponse response}) get copyWith => _copyWith;
+  RealtimeBetaServerEventResponseDone Function(
+      {String eventId,
+      RealtimeBetaServerEventResponseDoneType type_,
+      RealtimeBetaResponse response}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventResponseDone _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue}) => RealtimeBetaServerEventResponseDone(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventResponseDoneType,
-    response: identical(response, sdkOmittedValue) ? this.response : response as RealtimeBetaResponse,
-  );
+  RealtimeBetaServerEventResponseDone _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? response = sdkOmittedValue}) =>
+      RealtimeBetaServerEventResponseDone(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaServerEventResponseDoneType,
+        response: identical(response, sdkOmittedValue)
+            ? this.response
+            : response as RealtimeBetaResponse,
+      );
 
-  factory RealtimeBetaServerEventResponseDone.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventResponseDone(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeBetaServerEventResponseDoneType.fromJson(json['type'] as String) : null)!,
-    response: (json['response'] != null ? RealtimeBetaResponse.fromJson(json['response'] as Map<String, dynamic>) : null)!,
-  );
+  factory RealtimeBetaServerEventResponseDone.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventResponseDone(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeBetaServerEventResponseDoneType.fromJson(
+                json['type'] as String)
+            : null)!,
+        response: (json['response'] != null
+            ? RealtimeBetaResponse.fromJson(
+                json['response'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'response': response.toJson(),
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'response': response.toJson(),
+      };
 }

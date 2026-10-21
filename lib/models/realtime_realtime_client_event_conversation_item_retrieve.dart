@@ -8,35 +8,62 @@ part of 'realtime_realtime_client.dart';
 class RealtimeClientEventConversationItemRetrieve {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `conversation.item.retrieve`.
   final RealtimeClientEventConversationItemRetrieveType type_;
+
   /// The ID of the item to retrieve.
   final String itemId;
 
-  const RealtimeClientEventConversationItemRetrieve({this.eventId = const SdkOmitted(), required this.type_, required this.itemId});
+  const RealtimeClientEventConversationItemRetrieve(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      required this.itemId});
 
-  RealtimeClientEventConversationItemRetrieve Function({SdkOptional<String> eventId, RealtimeClientEventConversationItemRetrieveType type_, String itemId}) get copyWith => _copyWith;
+  RealtimeClientEventConversationItemRetrieve Function(
+      {SdkOptional<String> eventId,
+      RealtimeClientEventConversationItemRetrieveType type_,
+      String itemId}) get copyWith => _copyWith;
 
-  RealtimeClientEventConversationItemRetrieve _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeClientEventConversationItemRetrieve(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventConversationItemRetrieveType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
+  RealtimeClientEventConversationItemRetrieve _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue}) =>
+      RealtimeClientEventConversationItemRetrieve(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeClientEventConversationItemRetrieveType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+      );
 
-  factory RealtimeClientEventConversationItemRetrieve.fromJson(Map<String, dynamic> json) => RealtimeClientEventConversationItemRetrieve(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeClientEventConversationItemRetrieveType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-  );
+  factory RealtimeClientEventConversationItemRetrieve.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeClientEventConversationItemRetrieve(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeClientEventConversationItemRetrieveType.fromJson(
+                json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'item_id': itemId,
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'item_id': itemId,
+      };
 }

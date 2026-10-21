@@ -8,27 +8,44 @@ part of 'live_live_decision.dart';
 class LiveDecisionCompleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final LiveDecisionCompletedType type_;
+
   /// The native Decision API response, including its model, ordered answers, and token usage.
   final DecisionResponse decision;
 
   const LiveDecisionCompleted({required this.type_, required this.decision});
 
-  LiveDecisionCompleted Function({LiveDecisionCompletedType type_, DecisionResponse decision}) get copyWith => _copyWith;
+  LiveDecisionCompleted Function(
+      {LiveDecisionCompletedType type_,
+      DecisionResponse decision}) get copyWith => _copyWith;
 
-  LiveDecisionCompleted _copyWith({Object? type_ = sdkOmittedValue, Object? decision = sdkOmittedValue}) => LiveDecisionCompleted(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveDecisionCompletedType,
-    decision: identical(decision, sdkOmittedValue) ? this.decision : decision as DecisionResponse,
-  );
+  LiveDecisionCompleted _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? decision = sdkOmittedValue}) =>
+      LiveDecisionCompleted(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveDecisionCompletedType,
+        decision: identical(decision, sdkOmittedValue)
+            ? this.decision
+            : decision as DecisionResponse,
+      );
 
-  factory LiveDecisionCompleted.fromJson(Map<String, dynamic> json) => LiveDecisionCompleted(
-    type_: (json['type'] != null ? LiveDecisionCompletedType.fromJson(json['type'] as String) : null)!,
-    decision: (json['decision'] != null ? DecisionResponse.fromJson(json['decision'] as Map<String, dynamic>) : null)!,
-  );
+  factory LiveDecisionCompleted.fromJson(Map<String, dynamic> json) =>
+      LiveDecisionCompleted(
+        type_: (json['type'] != null
+            ? LiveDecisionCompletedType.fromJson(json['type'] as String)
+            : null)!,
+        decision: (json['decision'] != null
+            ? DecisionResponse.fromJson(
+                json['decision'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'decision': decision.toJson(),
-  };
+        'type': type_.toJson(),
+        'decision': decision.toJson(),
+      };
 }

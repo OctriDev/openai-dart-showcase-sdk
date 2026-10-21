@@ -8,51 +8,79 @@ part of 'assistants_run.dart';
 class RunStepDetailsToolCallsCodeOutputImageObjectImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The [file](https://developers.openai.com/api/reference/resources/files) ID of the image.
   final String fileId;
 
-  const RunStepDetailsToolCallsCodeOutputImageObjectImage({required this.fileId});
+  const RunStepDetailsToolCallsCodeOutputImageObjectImage(
+      {required this.fileId});
 
-  RunStepDetailsToolCallsCodeOutputImageObjectImage Function({String fileId}) get copyWith => _copyWith;
+  RunStepDetailsToolCallsCodeOutputImageObjectImage Function({String fileId})
+      get copyWith => _copyWith;
 
-  RunStepDetailsToolCallsCodeOutputImageObjectImage _copyWith({Object? fileId = sdkOmittedValue}) => RunStepDetailsToolCallsCodeOutputImageObjectImage(
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-  );
+  RunStepDetailsToolCallsCodeOutputImageObjectImage _copyWith(
+          {Object? fileId = sdkOmittedValue}) =>
+      RunStepDetailsToolCallsCodeOutputImageObjectImage(
+        fileId:
+            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+      );
 
-  factory RunStepDetailsToolCallsCodeOutputImageObjectImage.fromJson(Map<String, dynamic> json) => RunStepDetailsToolCallsCodeOutputImageObjectImage(
-    fileId: (json['file_id'] as String?)!,
-  );
+  factory RunStepDetailsToolCallsCodeOutputImageObjectImage.fromJson(
+          Map<String, dynamic> json) =>
+      RunStepDetailsToolCallsCodeOutputImageObjectImage(
+        fileId: (json['file_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'file_id': fileId,
-  };
+        'file_id': fileId,
+      };
 }
 
 /// Typed representation of the `RunStepDetailsToolCallsCodeOutputImageObject` API schema.
 class RunStepDetailsToolCallsCodeOutputImageObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `image`.
   final RunStepDetailsToolCallsCodeOutputImageObjectType type_;
+
   /// Required object value serialized in the `image` wire field.
   final RunStepDetailsToolCallsCodeOutputImageObjectImage image;
 
-  const RunStepDetailsToolCallsCodeOutputImageObject({required this.type_, required this.image});
+  const RunStepDetailsToolCallsCodeOutputImageObject(
+      {required this.type_, required this.image});
 
-  RunStepDetailsToolCallsCodeOutputImageObject Function({RunStepDetailsToolCallsCodeOutputImageObjectType type_, RunStepDetailsToolCallsCodeOutputImageObjectImage image}) get copyWith => _copyWith;
+  RunStepDetailsToolCallsCodeOutputImageObject Function(
+          {RunStepDetailsToolCallsCodeOutputImageObjectType type_,
+          RunStepDetailsToolCallsCodeOutputImageObjectImage image})
+      get copyWith => _copyWith;
 
-  RunStepDetailsToolCallsCodeOutputImageObject _copyWith({Object? type_ = sdkOmittedValue, Object? image = sdkOmittedValue}) => RunStepDetailsToolCallsCodeOutputImageObject(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepDetailsToolCallsCodeOutputImageObjectType,
-    image: identical(image, sdkOmittedValue) ? this.image : image as RunStepDetailsToolCallsCodeOutputImageObjectImage,
-  );
+  RunStepDetailsToolCallsCodeOutputImageObject _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? image = sdkOmittedValue}) =>
+      RunStepDetailsToolCallsCodeOutputImageObject(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RunStepDetailsToolCallsCodeOutputImageObjectType,
+        image: identical(image, sdkOmittedValue)
+            ? this.image
+            : image as RunStepDetailsToolCallsCodeOutputImageObjectImage,
+      );
 
-  factory RunStepDetailsToolCallsCodeOutputImageObject.fromJson(Map<String, dynamic> json) => RunStepDetailsToolCallsCodeOutputImageObject(
-    type_: (json['type'] != null ? RunStepDetailsToolCallsCodeOutputImageObjectType.fromJson(json['type'] as String) : null)!,
-    image: (json['image'] != null ? RunStepDetailsToolCallsCodeOutputImageObjectImage.fromJson(json['image'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStepDetailsToolCallsCodeOutputImageObject.fromJson(
+          Map<String, dynamic> json) =>
+      RunStepDetailsToolCallsCodeOutputImageObject(
+        type_: (json['type'] != null
+            ? RunStepDetailsToolCallsCodeOutputImageObjectType.fromJson(
+                json['type'] as String)
+            : null)!,
+        image: (json['image'] != null
+            ? RunStepDetailsToolCallsCodeOutputImageObjectImage.fromJson(
+                json['image'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'image': image.toJson(),
-  };
+        'type': type_.toJson(),
+        'image': image.toJson(),
+      };
 }

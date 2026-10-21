@@ -8,32 +8,58 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventTranscriptionSessionUpdated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `transcription_session.updated`.
   final RealtimeServerEventTranscriptionSessionUpdatedType type_;
+
   /// A new Realtime transcription session configuration. When a session is created on the server via REST API, the session object also contains an ephemeral key. Default TTL for keys is 10 minutes. This property is not present when a session is updated via the WebSocket API.
   final RealtimeTranscriptionSessionCreateResponse session;
 
-  const RealtimeServerEventTranscriptionSessionUpdated({required this.eventId, required this.type_, required this.session});
+  const RealtimeServerEventTranscriptionSessionUpdated(
+      {required this.eventId, required this.type_, required this.session});
 
-  RealtimeServerEventTranscriptionSessionUpdated Function({String eventId, RealtimeServerEventTranscriptionSessionUpdatedType type_, RealtimeTranscriptionSessionCreateResponse session}) get copyWith => _copyWith;
+  RealtimeServerEventTranscriptionSessionUpdated Function(
+          {String eventId,
+          RealtimeServerEventTranscriptionSessionUpdatedType type_,
+          RealtimeTranscriptionSessionCreateResponse session})
+      get copyWith => _copyWith;
 
-  RealtimeServerEventTranscriptionSessionUpdated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeServerEventTranscriptionSessionUpdated(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventTranscriptionSessionUpdatedType,
-    session: identical(session, sdkOmittedValue) ? this.session : session as RealtimeTranscriptionSessionCreateResponse,
-  );
+  RealtimeServerEventTranscriptionSessionUpdated _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? session = sdkOmittedValue}) =>
+      RealtimeServerEventTranscriptionSessionUpdated(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeServerEventTranscriptionSessionUpdatedType,
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as RealtimeTranscriptionSessionCreateResponse,
+      );
 
-  factory RealtimeServerEventTranscriptionSessionUpdated.fromJson(Map<String, dynamic> json) => RealtimeServerEventTranscriptionSessionUpdated(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventTranscriptionSessionUpdatedType.fromJson(json['type'] as String) : null)!,
-    session: (json['session'] != null ? RealtimeTranscriptionSessionCreateResponse.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-  );
+  factory RealtimeServerEventTranscriptionSessionUpdated.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeServerEventTranscriptionSessionUpdated(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeServerEventTranscriptionSessionUpdatedType.fromJson(
+                json['type'] as String)
+            : null)!,
+        session: (json['session'] != null
+            ? RealtimeTranscriptionSessionCreateResponse.fromJson(
+                json['session'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'session': session.toJson(),
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'session': session.toJson(),
+      };
 }

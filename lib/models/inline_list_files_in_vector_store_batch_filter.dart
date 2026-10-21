@@ -5,12 +5,12 @@ part of 'inline.dart';
 
 // Inline operation models
 final class ListFilesInVectorStoreBatchFilter {
-
   final String value;
 
   const ListFilesInVectorStoreBatchFilter._(this.value);
 
-  factory ListFilesInVectorStoreBatchFilter.fromJson(String value) => ListFilesInVectorStoreBatchFilter._(value);
+  factory ListFilesInVectorStoreBatchFilter.fromJson(String value) =>
+      ListFilesInVectorStoreBatchFilter._(value);
 
   static const inProgress = ListFilesInVectorStoreBatchFilter._('in_progress');
   static const completed = ListFilesInVectorStoreBatchFilter._('completed');
@@ -19,42 +19,48 @@ final class ListFilesInVectorStoreBatchFilter {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListFilesInVectorStoreBatchFilter && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListFilesInVectorStoreBatchFilter && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListVectorStoreFilesOrder {
-
   final String value;
 
   const ListVectorStoreFilesOrder._(this.value);
 
-  factory ListVectorStoreFilesOrder.fromJson(String value) => ListVectorStoreFilesOrder._(value);
+  factory ListVectorStoreFilesOrder.fromJson(String value) =>
+      ListVectorStoreFilesOrder._(value);
 
   static const asc = ListVectorStoreFilesOrder._('asc');
   static const desc = ListVectorStoreFilesOrder._('desc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListVectorStoreFilesOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListVectorStoreFilesOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListVectorStoreFilesFilter {
-
   final String value;
 
   const ListVectorStoreFilesFilter._(this.value);
 
-  factory ListVectorStoreFilesFilter.fromJson(String value) => ListVectorStoreFilesFilter._(value);
+  factory ListVectorStoreFilesFilter.fromJson(String value) =>
+      ListVectorStoreFilesFilter._(value);
 
   static const inProgress = ListVectorStoreFilesFilter._('in_progress');
   static const completed = ListVectorStoreFilesFilter._('completed');
@@ -63,35 +69,50 @@ final class ListVectorStoreFilesFilter {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListVectorStoreFilesFilter && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListVectorStoreFilesFilter && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 class UpdateChatCompletionRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final Map<String, dynamic>? metadata;
 
   const UpdateChatCompletionRequestBody({required this.metadata});
 
-  UpdateChatCompletionRequestBody Function({Map<String, dynamic>? metadata}) get copyWith => _copyWith;
+  UpdateChatCompletionRequestBody Function({Map<String, dynamic>? metadata})
+      get copyWith => _copyWith;
 
-  UpdateChatCompletionRequestBody _copyWith({Object? metadata = sdkOmittedValue}) => UpdateChatCompletionRequestBody(
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, dynamic>?,
-  );
+  UpdateChatCompletionRequestBody _copyWith(
+          {Object? metadata = sdkOmittedValue}) =>
+      UpdateChatCompletionRequestBody(
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as Map<String, dynamic>?,
+      );
 
-  factory UpdateChatCompletionRequestBody.fromJson(Map<String, dynamic> json) => UpdateChatCompletionRequestBody(
-    metadata: json.containsKey('metadata') ? json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic> : throw ArgumentError.value(null, 'metadata', 'Required property is missing'),
-  );
+  factory UpdateChatCompletionRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpdateChatCompletionRequestBody(
+        metadata: json.containsKey('metadata')
+            ? json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>
+            : throw ArgumentError.value(
+                null, 'metadata', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'metadata': metadata,
-  };
+        'metadata': metadata,
+      };
 }
 
 class DeleteContainerResponse {
@@ -101,27 +122,42 @@ class DeleteContainerResponse {
   final bool deleted;
   final String id;
 
-  const DeleteContainerResponse({required this.object, required this.deleted, required this.id});
+  const DeleteContainerResponse(
+      {required this.object, required this.deleted, required this.id});
 
-  DeleteContainerResponse Function({DeleteContainerResponseObject object, bool deleted, String id}) get copyWith => _copyWith;
+  DeleteContainerResponse Function(
+      {DeleteContainerResponseObject object,
+      bool deleted,
+      String id}) get copyWith => _copyWith;
 
-  DeleteContainerResponse _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? id = sdkOmittedValue}) => DeleteContainerResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteContainerResponseObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  DeleteContainerResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue,
+          Object? id = sdkOmittedValue}) =>
+      DeleteContainerResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as DeleteContainerResponseObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory DeleteContainerResponse.fromJson(Map<String, dynamic> json) => DeleteContainerResponse(
-    object: (json['object'] != null ? DeleteContainerResponseObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-    id: (json['id'] as String?)!,
-  );
+  factory DeleteContainerResponse.fromJson(Map<String, dynamic> json) =>
+      DeleteContainerResponse(
+        object: (json['object'] != null
+            ? DeleteContainerResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        deleted: (json['deleted'] as bool?)!,
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'deleted': deleted,
-    'id': id,
-  };
+        'object': object.toJson(),
+        'deleted': deleted,
+        'id': id,
+      };
 }
 
 class DeleteContainerFileResponse {
@@ -131,84 +167,133 @@ class DeleteContainerFileResponse {
   final bool deleted;
   final String id;
 
-  const DeleteContainerFileResponse({required this.object, required this.deleted, required this.id});
+  const DeleteContainerFileResponse(
+      {required this.object, required this.deleted, required this.id});
 
-  DeleteContainerFileResponse Function({DeleteContainerFileResponseObject object, bool deleted, String id}) get copyWith => _copyWith;
+  DeleteContainerFileResponse Function(
+      {DeleteContainerFileResponseObject object,
+      bool deleted,
+      String id}) get copyWith => _copyWith;
 
-  DeleteContainerFileResponse _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? id = sdkOmittedValue}) => DeleteContainerFileResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteContainerFileResponseObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  DeleteContainerFileResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue,
+          Object? id = sdkOmittedValue}) =>
+      DeleteContainerFileResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as DeleteContainerFileResponseObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory DeleteContainerFileResponse.fromJson(Map<String, dynamic> json) => DeleteContainerFileResponse(
-    object: (json['object'] != null ? DeleteContainerFileResponseObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-    id: (json['id'] as String?)!,
-  );
+  factory DeleteContainerFileResponse.fromJson(Map<String, dynamic> json) =>
+      DeleteContainerFileResponse(
+        object: (json['object'] != null
+            ? DeleteContainerFileResponseObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        deleted: (json['deleted'] as bool?)!,
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'deleted': deleted,
-    'id': id,
-  };
+        'object': object.toJson(),
+        'deleted': deleted,
+        'id': id,
+      };
 }
 
 class CreateConversationItemsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The items to add to the conversation. You may add up to 20 items at a time.
   final List<InputItem> items;
 
   const CreateConversationItemsRequestBody({required this.items});
 
-  CreateConversationItemsRequestBody Function({List<InputItem> items}) get copyWith => _copyWith;
+  CreateConversationItemsRequestBody Function({List<InputItem> items})
+      get copyWith => _copyWith;
 
-  CreateConversationItemsRequestBody _copyWith({Object? items = sdkOmittedValue}) => CreateConversationItemsRequestBody(
-    items: identical(items, sdkOmittedValue) ? this.items : items as List<InputItem>,
-  );
+  CreateConversationItemsRequestBody _copyWith(
+          {Object? items = sdkOmittedValue}) =>
+      CreateConversationItemsRequestBody(
+        items: identical(items, sdkOmittedValue)
+            ? this.items
+            : items as List<InputItem>,
+      );
 
-  factory CreateConversationItemsRequestBody.fromJson(Map<String, dynamic> json) => CreateConversationItemsRequestBody(
-    items: ((json['items'] as List?)?.map((e) => InputItem.fromJson(e)).toList())!,
-  );
+  factory CreateConversationItemsRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      CreateConversationItemsRequestBody(
+        items: ((json['items'] as List?)
+            ?.map((e) => InputItem.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'items': items.map((item) => item.toJson()).toList(),
-  };
+        'items': items.map((item) => item.toJson()).toList(),
+      };
 }
 
 class UpdateEvalRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Rename the evaluation.
   final SdkOptional<String> name;
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
 
-  const UpdateEvalRequestBody({this.name = const SdkOmitted(), this.metadata = const SdkOmitted()});
+  const UpdateEvalRequestBody(
+      {this.name = const SdkOmitted(), this.metadata = const SdkOmitted()});
 
-  UpdateEvalRequestBody Function({SdkOptional<String> name, SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
+  UpdateEvalRequestBody Function(
+      {SdkOptional<String> name,
+      SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
 
-  UpdateEvalRequestBody _copyWith({Object? name = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => UpdateEvalRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
-  );
+  UpdateEvalRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      UpdateEvalRequestBody(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, dynamic>?>,
+      );
 
-  factory UpdateEvalRequestBody.fromJson(Map<String, dynamic> json) => UpdateEvalRequestBody(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
-  );
+  factory UpdateEvalRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpdateEvalRequestBody(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        metadata: json.containsKey('metadata')
+            ? SdkPresent(json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metadata) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metadata) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DeleteEvalResponse {
@@ -218,27 +303,38 @@ class DeleteEvalResponse {
   final bool deleted;
   final String evalId;
 
-  const DeleteEvalResponse({required this.object, required this.deleted, required this.evalId});
+  const DeleteEvalResponse(
+      {required this.object, required this.deleted, required this.evalId});
 
-  DeleteEvalResponse Function({String object, bool deleted, String evalId}) get copyWith => _copyWith;
+  DeleteEvalResponse Function({String object, bool deleted, String evalId})
+      get copyWith => _copyWith;
 
-  DeleteEvalResponse _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? evalId = sdkOmittedValue}) => DeleteEvalResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-    evalId: identical(evalId, sdkOmittedValue) ? this.evalId : evalId as String,
-  );
+  DeleteEvalResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue,
+          Object? evalId = sdkOmittedValue}) =>
+      DeleteEvalResponse(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+        evalId:
+            identical(evalId, sdkOmittedValue) ? this.evalId : evalId as String,
+      );
 
-  factory DeleteEvalResponse.fromJson(Map<String, dynamic> json) => DeleteEvalResponse(
-    object: (json['object'] as String?)!,
-    deleted: (json['deleted'] as bool?)!,
-    evalId: (json['eval_id'] as String?)!,
-  );
+  factory DeleteEvalResponse.fromJson(Map<String, dynamic> json) =>
+      DeleteEvalResponse(
+        object: (json['object'] as String?)!,
+        deleted: (json['deleted'] as bool?)!,
+        evalId: (json['eval_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object,
-    'deleted': deleted,
-    'eval_id': evalId,
-  };
+        'object': object,
+        'deleted': deleted,
+        'eval_id': evalId,
+      };
 }
 
 class DeleteEvalRunResponse {
@@ -248,34 +344,63 @@ class DeleteEvalRunResponse {
   final SdkOptional<bool> deleted;
   final SdkOptional<String> runId;
 
-  const DeleteEvalRunResponse({this.object = const SdkOmitted(), this.deleted = const SdkOmitted(), this.runId = const SdkOmitted()});
+  const DeleteEvalRunResponse(
+      {this.object = const SdkOmitted(),
+      this.deleted = const SdkOmitted(),
+      this.runId = const SdkOmitted()});
 
-  DeleteEvalRunResponse Function({SdkOptional<String> object, SdkOptional<bool> deleted, SdkOptional<String> runId}) get copyWith => _copyWith;
+  DeleteEvalRunResponse Function(
+      {SdkOptional<String> object,
+      SdkOptional<bool> deleted,
+      SdkOptional<String> runId}) get copyWith => _copyWith;
 
-  DeleteEvalRunResponse _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? runId = sdkOmittedValue}) => DeleteEvalRunResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
-    runId: identical(runId, sdkOmittedValue) ? this.runId : runId as SdkOptional<String>,
-  );
+  DeleteEvalRunResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue,
+          Object? runId = sdkOmittedValue}) =>
+      DeleteEvalRunResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as SdkOptional<bool>,
+        runId: identical(runId, sdkOmittedValue)
+            ? this.runId
+            : runId as SdkOptional<String>,
+      );
 
-  factory DeleteEvalRunResponse.fromJson(Map<String, dynamic> json) => DeleteEvalRunResponse(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
-    runId: json['run_id'] != null ? SdkPresent((json['run_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory DeleteEvalRunResponse.fromJson(Map<String, dynamic> json) =>
+      DeleteEvalRunResponse(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        deleted: json['deleted'] != null
+            ? SdkPresent((json['deleted'] as bool?)!)
+            : const SdkOmitted(),
+        runId: json['run_id'] != null
+            ? SdkPresent((json['run_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deleted) {
-      SdkPresent<bool>(value: final value) => {'deleted': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (runId) {
-      SdkPresent<String>(value: final value) => {'run_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deleted) {
+          SdkPresent<bool>(value: final value) => {
+              'deleted': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (runId) {
+          SdkPresent<String>(value: final value) => {
+              'run_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

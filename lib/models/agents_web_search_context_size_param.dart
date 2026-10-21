@@ -6,12 +6,12 @@ part of 'agents_web.dart';
 // agents_web domain models
 /// The amount of web search context made available to the model.
 final class WebSearchContextSizeParam {
-
   final String value;
 
   const WebSearchContextSizeParam._(this.value);
 
-  factory WebSearchContextSizeParam.fromJson(String value) => WebSearchContextSizeParam._(value);
+  factory WebSearchContextSizeParam.fromJson(String value) =>
+      WebSearchContextSizeParam._(value);
 
   static const low = WebSearchContextSizeParam._('low');
   static const medium = WebSearchContextSizeParam._('medium');
@@ -19,10 +19,13 @@ final class WebSearchContextSizeParam {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebSearchContextSizeParam && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebSearchContextSizeParam && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

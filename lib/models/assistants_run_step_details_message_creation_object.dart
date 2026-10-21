@@ -8,51 +8,82 @@ part of 'assistants_run.dart';
 class RunStepDetailsMessageCreationObjectMessageCreation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the message that was created by this run step.
   final String messageId;
 
-  const RunStepDetailsMessageCreationObjectMessageCreation({required this.messageId});
+  const RunStepDetailsMessageCreationObjectMessageCreation(
+      {required this.messageId});
 
-  RunStepDetailsMessageCreationObjectMessageCreation Function({String messageId}) get copyWith => _copyWith;
+  RunStepDetailsMessageCreationObjectMessageCreation Function(
+      {String messageId}) get copyWith => _copyWith;
 
-  RunStepDetailsMessageCreationObjectMessageCreation _copyWith({Object? messageId = sdkOmittedValue}) => RunStepDetailsMessageCreationObjectMessageCreation(
-    messageId: identical(messageId, sdkOmittedValue) ? this.messageId : messageId as String,
-  );
+  RunStepDetailsMessageCreationObjectMessageCreation _copyWith(
+          {Object? messageId = sdkOmittedValue}) =>
+      RunStepDetailsMessageCreationObjectMessageCreation(
+        messageId: identical(messageId, sdkOmittedValue)
+            ? this.messageId
+            : messageId as String,
+      );
 
-  factory RunStepDetailsMessageCreationObjectMessageCreation.fromJson(Map<String, dynamic> json) => RunStepDetailsMessageCreationObjectMessageCreation(
-    messageId: (json['message_id'] as String?)!,
-  );
+  factory RunStepDetailsMessageCreationObjectMessageCreation.fromJson(
+          Map<String, dynamic> json) =>
+      RunStepDetailsMessageCreationObjectMessageCreation(
+        messageId: (json['message_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'message_id': messageId,
-  };
+        'message_id': messageId,
+      };
 }
 
 /// Details of the message creation by the run step.
 class RunStepDetailsMessageCreationObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `message_creation`.
   final RunStepDetailsMessageCreationObjectType type_;
+
   /// Required object value serialized in the `message_creation` wire field.
   final RunStepDetailsMessageCreationObjectMessageCreation messageCreation;
 
-  const RunStepDetailsMessageCreationObject({required this.type_, required this.messageCreation});
+  const RunStepDetailsMessageCreationObject(
+      {required this.type_, required this.messageCreation});
 
-  RunStepDetailsMessageCreationObject Function({RunStepDetailsMessageCreationObjectType type_, RunStepDetailsMessageCreationObjectMessageCreation messageCreation}) get copyWith => _copyWith;
+  RunStepDetailsMessageCreationObject Function(
+          {RunStepDetailsMessageCreationObjectType type_,
+          RunStepDetailsMessageCreationObjectMessageCreation messageCreation})
+      get copyWith => _copyWith;
 
-  RunStepDetailsMessageCreationObject _copyWith({Object? type_ = sdkOmittedValue, Object? messageCreation = sdkOmittedValue}) => RunStepDetailsMessageCreationObject(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepDetailsMessageCreationObjectType,
-    messageCreation: identical(messageCreation, sdkOmittedValue) ? this.messageCreation : messageCreation as RunStepDetailsMessageCreationObjectMessageCreation,
-  );
+  RunStepDetailsMessageCreationObject _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? messageCreation = sdkOmittedValue}) =>
+      RunStepDetailsMessageCreationObject(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RunStepDetailsMessageCreationObjectType,
+        messageCreation: identical(messageCreation, sdkOmittedValue)
+            ? this.messageCreation
+            : messageCreation
+                as RunStepDetailsMessageCreationObjectMessageCreation,
+      );
 
-  factory RunStepDetailsMessageCreationObject.fromJson(Map<String, dynamic> json) => RunStepDetailsMessageCreationObject(
-    type_: (json['type'] != null ? RunStepDetailsMessageCreationObjectType.fromJson(json['type'] as String) : null)!,
-    messageCreation: (json['message_creation'] != null ? RunStepDetailsMessageCreationObjectMessageCreation.fromJson(json['message_creation'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStepDetailsMessageCreationObject.fromJson(
+          Map<String, dynamic> json) =>
+      RunStepDetailsMessageCreationObject(
+        type_: (json['type'] != null
+            ? RunStepDetailsMessageCreationObjectType.fromJson(
+                json['type'] as String)
+            : null)!,
+        messageCreation: (json['message_creation'] != null
+            ? RunStepDetailsMessageCreationObjectMessageCreation.fromJson(
+                json['message_creation'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'message_creation': messageCreation.toJson(),
-  };
+        'type': type_.toJson(),
+        'message_creation': messageCreation.toJson(),
+      };
 }

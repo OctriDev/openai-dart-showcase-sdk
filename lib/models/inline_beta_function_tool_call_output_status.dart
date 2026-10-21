@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 final class BetaFunctionToolCallOutputStatus {
-
   final String value;
 
   const BetaFunctionToolCallOutputStatus._(this.value);
 
-  factory BetaFunctionToolCallOutputStatus.fromJson(String value) => BetaFunctionToolCallOutputStatus._(value);
+  factory BetaFunctionToolCallOutputStatus.fromJson(String value) =>
+      BetaFunctionToolCallOutputStatus._(value);
 
   static const inProgress = BetaFunctionToolCallOutputStatus._('in_progress');
   static const completed = BetaFunctionToolCallOutputStatus._('completed');
@@ -19,12 +19,15 @@ final class BetaFunctionToolCallOutputStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaFunctionToolCallOutputStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaFunctionToolCallOutputStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the function tool call output. Always `function_call_output`.
@@ -33,14 +36,17 @@ enum BetaFunctionToolCallOutputType {
 
   static BetaFunctionToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'function_call_output': return BetaFunctionToolCallOutputType.functionCallOutput;
-      default: throw ArgumentError('Unknown BetaFunctionToolCallOutputType: $value');
+      case 'function_call_output':
+        return BetaFunctionToolCallOutputType.functionCallOutput;
+      default:
+        throw ArgumentError('Unknown BetaFunctionToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionToolCallOutputType.functionCallOutput: return 'function_call_output';
+      case BetaFunctionToolCallOutputType.functionCallOutput:
+        return 'function_call_output';
     }
   }
 
@@ -54,14 +60,17 @@ enum BetaFunctionToolParamType {
 
   static BetaFunctionToolParamType fromJson(String value) {
     switch (value) {
-      case 'function': return BetaFunctionToolParamType.function_;
-      default: throw ArgumentError('Unknown BetaFunctionToolParamType: $value');
+      case 'function':
+        return BetaFunctionToolParamType.function_;
+      default:
+        throw ArgumentError('Unknown BetaFunctionToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionToolParamType.function_: return 'function';
+      case BetaFunctionToolParamType.function_:
+        return 'function';
     }
   }
 
@@ -75,14 +84,17 @@ enum BetaHTTPErrorType {
 
   static BetaHTTPErrorType fromJson(String value) {
     switch (value) {
-      case 'http_error': return BetaHTTPErrorType.httpError;
-      default: throw ArgumentError('Unknown BetaHTTPErrorType: $value');
+      case 'http_error':
+        return BetaHTTPErrorType.httpError;
+      default:
+        throw ArgumentError('Unknown BetaHTTPErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaHTTPErrorType.httpError: return 'http_error';
+      case BetaHTTPErrorType.httpError:
+        return 'http_error';
     }
   }
 
@@ -92,12 +104,12 @@ enum BetaHTTPErrorType {
 
 /// Set the background of the generated image. One of `transparent`, `opaque`, or `auto`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, support `opaque` and `transparent` backgrounds. Transparent backgrounds are available for supported GPT Image models. For `gpt-image-2` and `gpt-image-2-2026-04-21`, this support is in preview. When using `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 final class BetaImageGenToolBackground {
-
   final String value;
 
   const BetaImageGenToolBackground._(this.value);
 
-  factory BetaImageGenToolBackground.fromJson(String value) => BetaImageGenToolBackground._(value);
+  factory BetaImageGenToolBackground.fromJson(String value) =>
+      BetaImageGenToolBackground._(value);
 
   static const transparent = BetaImageGenToolBackground._('transparent');
   static const opaque = BetaImageGenToolBackground._('opaque');
@@ -105,44 +117,50 @@ final class BetaImageGenToolBackground {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaImageGenToolBackground && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaImageGenToolBackground && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Moderation level for the generated image. Default: `auto`.
 final class BetaImageGenToolModeration {
-
   final String value;
 
   const BetaImageGenToolModeration._(this.value);
 
-  factory BetaImageGenToolModeration.fromJson(String value) => BetaImageGenToolModeration._(value);
+  factory BetaImageGenToolModeration.fromJson(String value) =>
+      BetaImageGenToolModeration._(value);
 
   static const auto = BetaImageGenToolModeration._('auto');
   static const low = BetaImageGenToolModeration._('low');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaImageGenToolModeration && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaImageGenToolModeration && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The output format of the generated image. One of `png`, `webp`, or `jpeg`. Default: `png`.
 final class BetaImageGenToolOutputFormat {
-
   final String value;
 
   const BetaImageGenToolOutputFormat._(this.value);
 
-  factory BetaImageGenToolOutputFormat.fromJson(String value) => BetaImageGenToolOutputFormat._(value);
+  factory BetaImageGenToolOutputFormat.fromJson(String value) =>
+      BetaImageGenToolOutputFormat._(value);
 
   static const png = BetaImageGenToolOutputFormat._('png');
   static const webp = BetaImageGenToolOutputFormat._('webp');
@@ -150,22 +168,25 @@ final class BetaImageGenToolOutputFormat {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaImageGenToolOutputFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaImageGenToolOutputFormat && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The quality of the generated image. The GPT image models support `low`, `medium`, and `high`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, also support `xhigh` and `max`. Default: `auto`.
 final class BetaImageGenToolQuality {
-
   final String value;
 
   const BetaImageGenToolQuality._(this.value);
 
-  factory BetaImageGenToolQuality.fromJson(String value) => BetaImageGenToolQuality._(value);
+  factory BetaImageGenToolQuality.fromJson(String value) =>
+      BetaImageGenToolQuality._(value);
 
   static const low = BetaImageGenToolQuality._('low');
   static const medium = BetaImageGenToolQuality._('medium');
@@ -176,12 +197,15 @@ final class BetaImageGenToolQuality {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaImageGenToolQuality && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaImageGenToolQuality && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the image generation tool. Always `image_generation`.
@@ -190,14 +214,17 @@ enum BetaImageGenToolType {
 
   static BetaImageGenToolType fromJson(String value) {
     switch (value) {
-      case 'image_generation': return BetaImageGenToolType.imageGeneration;
-      default: throw ArgumentError('Unknown BetaImageGenToolType: $value');
+      case 'image_generation':
+        return BetaImageGenToolType.imageGeneration;
+      default:
+        throw ArgumentError('Unknown BetaImageGenToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaImageGenToolType.imageGeneration: return 'image_generation';
+      case BetaImageGenToolType.imageGeneration:
+        return 'image_generation';
     }
   }
 
@@ -207,12 +234,12 @@ enum BetaImageGenToolType {
 
 /// The quality of the image generated by the image generation tool call. One of `low`, `medium`, `high`, `xhigh`, `max`, or `auto`.
 final class BetaImageGenToolCallQualityVariant0 {
-
   final String value;
 
   const BetaImageGenToolCallQualityVariant0._(this.value);
 
-  factory BetaImageGenToolCallQualityVariant0.fromJson(String value) => BetaImageGenToolCallQualityVariant0._(value);
+  factory BetaImageGenToolCallQualityVariant0.fromJson(String value) =>
+      BetaImageGenToolCallQualityVariant0._(value);
 
   static const low = BetaImageGenToolCallQualityVariant0._('low');
   static const medium = BetaImageGenToolCallQualityVariant0._('medium');
@@ -223,22 +250,25 @@ final class BetaImageGenToolCallQualityVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaImageGenToolCallQualityVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaImageGenToolCallQualityVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the image generation call.
 final class BetaImageGenToolCallStatus {
-
   final String value;
 
   const BetaImageGenToolCallStatus._(this.value);
 
-  factory BetaImageGenToolCallStatus.fromJson(String value) => BetaImageGenToolCallStatus._(value);
+  factory BetaImageGenToolCallStatus.fromJson(String value) =>
+      BetaImageGenToolCallStatus._(value);
 
   static const inProgress = BetaImageGenToolCallStatus._('in_progress');
   static const completed = BetaImageGenToolCallStatus._('completed');
@@ -247,12 +277,15 @@ final class BetaImageGenToolCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaImageGenToolCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaImageGenToolCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the image generation call. Always `image_generation_call`.
@@ -261,14 +294,17 @@ enum BetaImageGenToolCallType {
 
   static BetaImageGenToolCallType fromJson(String value) {
     switch (value) {
-      case 'image_generation_call': return BetaImageGenToolCallType.imageGenerationCall;
-      default: throw ArgumentError('Unknown BetaImageGenToolCallType: $value');
+      case 'image_generation_call':
+        return BetaImageGenToolCallType.imageGenerationCall;
+      default:
+        throw ArgumentError('Unknown BetaImageGenToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaImageGenToolCallType.imageGenerationCall: return 'image_generation_call';
+      case BetaImageGenToolCallType.imageGenerationCall:
+        return 'image_generation_call';
     }
   }
 

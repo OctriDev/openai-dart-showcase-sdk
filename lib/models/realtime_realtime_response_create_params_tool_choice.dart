@@ -10,39 +10,72 @@ sealed class RealtimeResponseCreateParamsToolChoice {
   const RealtimeResponseCreateParamsToolChoice();
   factory RealtimeResponseCreateParamsToolChoice.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ToolChoiceFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(value); } } catch (_) {}
-      try { final value = ToolChoiceMCP.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(value); } } catch (_) {}
+      try {
+        final value = ToolChoiceFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolChoiceMCP.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(value);
+        }
+      } catch (_) {}
     }
-    try { return RealtimeResponseCreateParamsToolChoiceToolChoiceOptions(ToolChoiceOptions.fromJson(json as String)); } catch (_) {}
-    try { return RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(ToolChoiceFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(ToolChoiceMCP.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "mcp"}.contains(json["type"])) { return UnknownRealtimeResponseCreateParamsToolChoice(json); }
-    throw FormatException("No variant matched for RealtimeResponseCreateParamsToolChoice");
+    try {
+      return RealtimeResponseCreateParamsToolChoiceToolChoiceOptions(
+          ToolChoiceOptions.fromJson(json as String));
+    } catch (_) {}
+    try {
+      return RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(
+          ToolChoiceFunction.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(
+          ToolChoiceMCP.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"function", "mcp"}.contains(json["type"])) {
+      return UnknownRealtimeResponseCreateParamsToolChoice(json);
+    }
+    throw FormatException(
+        "No variant matched for RealtimeResponseCreateParamsToolChoice");
   }
   Object? toJson();
 }
 
-final class RealtimeResponseCreateParamsToolChoiceToolChoiceOptions extends RealtimeResponseCreateParamsToolChoice {
+final class RealtimeResponseCreateParamsToolChoiceToolChoiceOptions
+    extends RealtimeResponseCreateParamsToolChoice {
   final ToolChoiceOptions value;
   const RealtimeResponseCreateParamsToolChoiceToolChoiceOptions(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeResponseCreateParamsToolChoiceToolChoiceFunction extends RealtimeResponseCreateParamsToolChoice {
+final class RealtimeResponseCreateParamsToolChoiceToolChoiceFunction
+    extends RealtimeResponseCreateParamsToolChoice {
   final ToolChoiceFunction value;
   const RealtimeResponseCreateParamsToolChoiceToolChoiceFunction(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeResponseCreateParamsToolChoiceToolChoiceMCP extends RealtimeResponseCreateParamsToolChoice {
+final class RealtimeResponseCreateParamsToolChoiceToolChoiceMCP
+    extends RealtimeResponseCreateParamsToolChoice {
   final ToolChoiceMCP value;
   const RealtimeResponseCreateParamsToolChoiceToolChoiceMCP(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeResponseCreateParamsToolChoice] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeResponseCreateParamsToolChoice extends RealtimeResponseCreateParamsToolChoice {
+final class UnknownRealtimeResponseCreateParamsToolChoice
+    extends RealtimeResponseCreateParamsToolChoice {
   final Map<String, dynamic> raw;
   const UnknownRealtimeResponseCreateParamsToolChoice(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

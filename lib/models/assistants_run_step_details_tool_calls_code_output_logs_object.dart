@@ -8,27 +8,41 @@ part of 'assistants_run.dart';
 class RunStepDetailsToolCallsCodeOutputLogsObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `logs`.
   final RunStepDetailsToolCallsCodeOutputLogsObjectType type_;
+
   /// The text output from the Code Interpreter tool call.
   final String logs;
 
-  const RunStepDetailsToolCallsCodeOutputLogsObject({required this.type_, required this.logs});
+  const RunStepDetailsToolCallsCodeOutputLogsObject(
+      {required this.type_, required this.logs});
 
-  RunStepDetailsToolCallsCodeOutputLogsObject Function({RunStepDetailsToolCallsCodeOutputLogsObjectType type_, String logs}) get copyWith => _copyWith;
+  RunStepDetailsToolCallsCodeOutputLogsObject Function(
+      {RunStepDetailsToolCallsCodeOutputLogsObjectType type_,
+      String logs}) get copyWith => _copyWith;
 
-  RunStepDetailsToolCallsCodeOutputLogsObject _copyWith({Object? type_ = sdkOmittedValue, Object? logs = sdkOmittedValue}) => RunStepDetailsToolCallsCodeOutputLogsObject(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepDetailsToolCallsCodeOutputLogsObjectType,
-    logs: identical(logs, sdkOmittedValue) ? this.logs : logs as String,
-  );
+  RunStepDetailsToolCallsCodeOutputLogsObject _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? logs = sdkOmittedValue}) =>
+      RunStepDetailsToolCallsCodeOutputLogsObject(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RunStepDetailsToolCallsCodeOutputLogsObjectType,
+        logs: identical(logs, sdkOmittedValue) ? this.logs : logs as String,
+      );
 
-  factory RunStepDetailsToolCallsCodeOutputLogsObject.fromJson(Map<String, dynamic> json) => RunStepDetailsToolCallsCodeOutputLogsObject(
-    type_: (json['type'] != null ? RunStepDetailsToolCallsCodeOutputLogsObjectType.fromJson(json['type'] as String) : null)!,
-    logs: (json['logs'] as String?)!,
-  );
+  factory RunStepDetailsToolCallsCodeOutputLogsObject.fromJson(
+          Map<String, dynamic> json) =>
+      RunStepDetailsToolCallsCodeOutputLogsObject(
+        type_: (json['type'] != null
+            ? RunStepDetailsToolCallsCodeOutputLogsObjectType.fromJson(
+                json['type'] as String)
+            : null)!,
+        logs: (json['logs'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'logs': logs,
-  };
+        'type': type_.toJson(),
+        'logs': logs,
+      };
 }

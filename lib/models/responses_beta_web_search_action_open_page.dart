@@ -9,46 +9,69 @@ sealed class BetaWebSearchActionOpenPageUrl {
   static const String constructionSurface = 'named';
   const BetaWebSearchActionOpenPageUrl();
   factory BetaWebSearchActionOpenPageUrl.fromJson(Object? json) {
-    if (json is String) { return BetaWebSearchActionOpenPageUrlString(json); }
-    throw FormatException("No variant matched for BetaWebSearchActionOpenPageUrl");
+    if (json is String) {
+      return BetaWebSearchActionOpenPageUrlString(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaWebSearchActionOpenPageUrl");
   }
   Object? toJson();
 }
 
-final class BetaWebSearchActionOpenPageUrlString extends BetaWebSearchActionOpenPageUrl {
+final class BetaWebSearchActionOpenPageUrlString
+    extends BetaWebSearchActionOpenPageUrl {
   final String value;
   const BetaWebSearchActionOpenPageUrlString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Action type "open_page" - Opens a specific URL from search results.
 class BetaWebSearchActionOpenPage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The action type.
   final BetaWebSearchActionOpenPageType type_;
+
   /// The URL opened by the model.
   final SdkOptional<String?> url;
 
-  const BetaWebSearchActionOpenPage({required this.type_, this.url = const SdkOmitted()});
+  const BetaWebSearchActionOpenPage(
+      {required this.type_, this.url = const SdkOmitted()});
 
-  BetaWebSearchActionOpenPage Function({BetaWebSearchActionOpenPageType type_, SdkOptional<String?> url}) get copyWith => _copyWith;
+  BetaWebSearchActionOpenPage Function(
+      {BetaWebSearchActionOpenPageType type_,
+      SdkOptional<String?> url}) get copyWith => _copyWith;
 
-  BetaWebSearchActionOpenPage _copyWith({Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) => BetaWebSearchActionOpenPage(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaWebSearchActionOpenPageType,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String?>,
-  );
+  BetaWebSearchActionOpenPage _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) =>
+      BetaWebSearchActionOpenPage(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaWebSearchActionOpenPageType,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String?>,
+      );
 
-  factory BetaWebSearchActionOpenPage.fromJson(Map<String, dynamic> json) => BetaWebSearchActionOpenPage(
-    type_: (json['type'] != null ? BetaWebSearchActionOpenPageType.fromJson(json['type'] as String) : null)!,
-    url: json.containsKey('url') ? SdkPresent(json['url'] as String?) : const SdkOmitted(),
-  );
+  factory BetaWebSearchActionOpenPage.fromJson(Map<String, dynamic> json) =>
+      BetaWebSearchActionOpenPage(
+        type_: (json['type'] != null
+            ? BetaWebSearchActionOpenPageType.fromJson(json['type'] as String)
+            : null)!,
+        url: json.containsKey('url')
+            ? SdkPresent(json['url'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (url) {
-      SdkPresent<String?>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (url) {
+          SdkPresent<String?>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

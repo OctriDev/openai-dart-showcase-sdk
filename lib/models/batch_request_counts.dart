@@ -8,32 +8,45 @@ part of 'batch.dart';
 class BatchRequestCounts {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Total number of requests in the batch.
   final int total;
+
   /// Number of requests that have been completed successfully.
   final int completed;
+
   /// Number of requests that have failed.
   final int failed;
 
-  const BatchRequestCounts({required this.total, required this.completed, required this.failed});
+  const BatchRequestCounts(
+      {required this.total, required this.completed, required this.failed});
 
-  BatchRequestCounts Function({int total, int completed, int failed}) get copyWith => _copyWith;
+  BatchRequestCounts Function({int total, int completed, int failed})
+      get copyWith => _copyWith;
 
-  BatchRequestCounts _copyWith({Object? total = sdkOmittedValue, Object? completed = sdkOmittedValue, Object? failed = sdkOmittedValue}) => BatchRequestCounts(
-    total: identical(total, sdkOmittedValue) ? this.total : total as int,
-    completed: identical(completed, sdkOmittedValue) ? this.completed : completed as int,
-    failed: identical(failed, sdkOmittedValue) ? this.failed : failed as int,
-  );
+  BatchRequestCounts _copyWith(
+          {Object? total = sdkOmittedValue,
+          Object? completed = sdkOmittedValue,
+          Object? failed = sdkOmittedValue}) =>
+      BatchRequestCounts(
+        total: identical(total, sdkOmittedValue) ? this.total : total as int,
+        completed: identical(completed, sdkOmittedValue)
+            ? this.completed
+            : completed as int,
+        failed:
+            identical(failed, sdkOmittedValue) ? this.failed : failed as int,
+      );
 
-  factory BatchRequestCounts.fromJson(Map<String, dynamic> json) => BatchRequestCounts(
-    total: ((json['total'] as num?)?.toInt())!,
-    completed: ((json['completed'] as num?)?.toInt())!,
-    failed: ((json['failed'] as num?)?.toInt())!,
-  );
+  factory BatchRequestCounts.fromJson(Map<String, dynamic> json) =>
+      BatchRequestCounts(
+        total: ((json['total'] as num?)?.toInt())!,
+        completed: ((json['completed'] as num?)?.toInt())!,
+        failed: ((json['failed'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'total': total,
-    'completed': completed,
-    'failed': failed,
-  };
+        'total': total,
+        'completed': completed,
+        'failed': failed,
+      };
 }

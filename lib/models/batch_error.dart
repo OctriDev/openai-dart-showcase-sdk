@@ -8,49 +8,90 @@ part of 'batch.dart';
 class BatchError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An error code identifying the error type.
   final SdkOptional<String> code;
+
   /// A human-readable message providing more details about the error.
   final SdkOptional<String> message;
+
   /// Optional `string` value serialized in the `param` wire field.
   final SdkOptional<String?> param;
+
   /// Optional `integer` value serialized in the `line` wire field.
   final SdkOptional<int?> line;
 
-  const BatchError({this.code = const SdkOmitted(), this.message = const SdkOmitted(), this.param = const SdkOmitted(), this.line = const SdkOmitted()});
+  const BatchError(
+      {this.code = const SdkOmitted(),
+      this.message = const SdkOmitted(),
+      this.param = const SdkOmitted(),
+      this.line = const SdkOmitted()});
 
-  BatchError Function({SdkOptional<String> code, SdkOptional<String> message, SdkOptional<String?> param, SdkOptional<int?> line}) get copyWith => _copyWith;
+  BatchError Function(
+      {SdkOptional<String> code,
+      SdkOptional<String> message,
+      SdkOptional<String?> param,
+      SdkOptional<int?> line}) get copyWith => _copyWith;
 
-  BatchError _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue, Object? param = sdkOmittedValue, Object? line = sdkOmittedValue}) => BatchError(
-    code: identical(code, sdkOmittedValue) ? this.code : code as SdkOptional<String>,
-    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
-    param: identical(param, sdkOmittedValue) ? this.param : param as SdkOptional<String?>,
-    line: identical(line, sdkOmittedValue) ? this.line : line as SdkOptional<int?>,
-  );
+  BatchError _copyWith(
+          {Object? code = sdkOmittedValue,
+          Object? message = sdkOmittedValue,
+          Object? param = sdkOmittedValue,
+          Object? line = sdkOmittedValue}) =>
+      BatchError(
+        code: identical(code, sdkOmittedValue)
+            ? this.code
+            : code as SdkOptional<String>,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as SdkOptional<String>,
+        param: identical(param, sdkOmittedValue)
+            ? this.param
+            : param as SdkOptional<String?>,
+        line: identical(line, sdkOmittedValue)
+            ? this.line
+            : line as SdkOptional<int?>,
+      );
 
   factory BatchError.fromJson(Map<String, dynamic> json) => BatchError(
-    code: json['code'] != null ? SdkPresent((json['code'] as String?)!) : const SdkOmitted(),
-    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
-    param: json.containsKey('param') ? SdkPresent(json['param'] as String?) : const SdkOmitted(),
-    line: json.containsKey('line') ? SdkPresent((json['line'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+        code: json['code'] != null
+            ? SdkPresent((json['code'] as String?)!)
+            : const SdkOmitted(),
+        message: json['message'] != null
+            ? SdkPresent((json['message'] as String?)!)
+            : const SdkOmitted(),
+        param: json.containsKey('param')
+            ? SdkPresent(json['param'] as String?)
+            : const SdkOmitted(),
+        line: json.containsKey('line')
+            ? SdkPresent((json['line'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (code) {
-      SdkPresent<String>(value: final value) => {'code': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (message) {
-      SdkPresent<String>(value: final value) => {'message': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (param) {
-      SdkPresent<String?>(value: final value) => {'param': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (line) {
-      SdkPresent<int?>(value: final value) => {'line': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (code) {
+          SdkPresent<String>(value: final value) => {
+              'code': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (message) {
+          SdkPresent<String>(value: final value) => {
+              'message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (param) {
+          SdkPresent<String?>(value: final value) => {
+              'param': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (line) {
+          SdkPresent<int?>(value: final value) => {
+              'line': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

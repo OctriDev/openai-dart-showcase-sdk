@@ -8,22 +8,30 @@ part of 'live_live.dart';
 class LiveApplyPatchToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final LiveApplyPatchToolInputParamType type_;
 
   const LiveApplyPatchToolInputParam({required this.type_});
 
-  LiveApplyPatchToolInputParam Function({LiveApplyPatchToolInputParamType type_}) get copyWith => _copyWith;
+  LiveApplyPatchToolInputParam Function(
+      {LiveApplyPatchToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveApplyPatchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveApplyPatchToolInputParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveApplyPatchToolInputParamType,
-  );
+  LiveApplyPatchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      LiveApplyPatchToolInputParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveApplyPatchToolInputParamType,
+      );
 
-  factory LiveApplyPatchToolInputParam.fromJson(Map<String, dynamic> json) => LiveApplyPatchToolInputParam(
-    type_: (json['type'] != null ? LiveApplyPatchToolInputParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory LiveApplyPatchToolInputParam.fromJson(Map<String, dynamic> json) =>
+      LiveApplyPatchToolInputParam(
+        type_: (json['type'] != null
+            ? LiveApplyPatchToolInputParamType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

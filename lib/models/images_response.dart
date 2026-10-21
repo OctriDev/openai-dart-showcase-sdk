@@ -8,78 +8,166 @@ part of 'images.dart';
 class ImagesResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The effective safety identifier used for safety monitoring and abuse detection. This is the non-empty `safety_identifier` from the request, or the deprecated `user` value when `safety_identifier` is omitted, null, or empty.
   final SdkOptional<String?> safetyIdentifier;
+
   /// The Unix timestamp (in seconds) of when the image was created.
   final int created;
+
   /// The list of generated images.
   final SdkOptional<List<Image>> data;
+
   /// The background parameter used for the image generation. Either `transparent` or `opaque`.
   final SdkOptional<ImagesResponseBackground> background;
+
   /// The output format of the image generation. Either `png`, `webp`, or `jpeg`.
   final SdkOptional<ImagesResponseOutputFormat> outputFormat;
+
   /// The image dimensions as a `WIDTHxHEIGHT` string, for example `1536x864`.
   final SdkOptional<String> size;
+
   /// The quality of the image generated. One of `low`, `medium`, `high`, `xhigh`, or `max`.
   final SdkOptional<ImagesResponseQuality> quality;
+
   /// For `gpt-image-1` only, the token usage information for the image generation.
   final SdkOptional<ImageGenUsage> usage;
 
-  const ImagesResponse({this.safetyIdentifier = const SdkOmitted(), required this.created, this.data = const SdkOmitted(), this.background = const SdkOmitted(), this.outputFormat = const SdkOmitted(), this.size = const SdkOmitted(), this.quality = const SdkOmitted(), this.usage = const SdkOmitted()});
+  const ImagesResponse(
+      {this.safetyIdentifier = const SdkOmitted(),
+      required this.created,
+      this.data = const SdkOmitted(),
+      this.background = const SdkOmitted(),
+      this.outputFormat = const SdkOmitted(),
+      this.size = const SdkOmitted(),
+      this.quality = const SdkOmitted(),
+      this.usage = const SdkOmitted()});
 
-  ImagesResponse Function({SdkOptional<String?> safetyIdentifier, int created, SdkOptional<List<Image>> data, SdkOptional<ImagesResponseBackground> background, SdkOptional<ImagesResponseOutputFormat> outputFormat, SdkOptional<String> size, SdkOptional<ImagesResponseQuality> quality, SdkOptional<ImageGenUsage> usage}) get copyWith => _copyWith;
+  ImagesResponse Function(
+      {SdkOptional<String?> safetyIdentifier,
+      int created,
+      SdkOptional<List<Image>> data,
+      SdkOptional<ImagesResponseBackground> background,
+      SdkOptional<ImagesResponseOutputFormat> outputFormat,
+      SdkOptional<String> size,
+      SdkOptional<ImagesResponseQuality> quality,
+      SdkOptional<ImageGenUsage> usage}) get copyWith => _copyWith;
 
-  ImagesResponse _copyWith({Object? safetyIdentifier = sdkOmittedValue, Object? created = sdkOmittedValue, Object? data = sdkOmittedValue, Object? background = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? size = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? usage = sdkOmittedValue}) => ImagesResponse(
-    safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue) ? this.safetyIdentifier : safetyIdentifier as SdkOptional<String?>,
-    created: identical(created, sdkOmittedValue) ? this.created : created as int,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<Image>>,
-    background: identical(background, sdkOmittedValue) ? this.background : background as SdkOptional<ImagesResponseBackground>,
-    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as SdkOptional<ImagesResponseOutputFormat>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String>,
-    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as SdkOptional<ImagesResponseQuality>,
-    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<ImageGenUsage>,
-  );
+  ImagesResponse _copyWith(
+          {Object? safetyIdentifier = sdkOmittedValue,
+          Object? created = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? background = sdkOmittedValue,
+          Object? outputFormat = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? quality = sdkOmittedValue,
+          Object? usage = sdkOmittedValue}) =>
+      ImagesResponse(
+        safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue)
+            ? this.safetyIdentifier
+            : safetyIdentifier as SdkOptional<String?>,
+        created:
+            identical(created, sdkOmittedValue) ? this.created : created as int,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<Image>>,
+        background: identical(background, sdkOmittedValue)
+            ? this.background
+            : background as SdkOptional<ImagesResponseBackground>,
+        outputFormat: identical(outputFormat, sdkOmittedValue)
+            ? this.outputFormat
+            : outputFormat as SdkOptional<ImagesResponseOutputFormat>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<String>,
+        quality: identical(quality, sdkOmittedValue)
+            ? this.quality
+            : quality as SdkOptional<ImagesResponseQuality>,
+        usage: identical(usage, sdkOmittedValue)
+            ? this.usage
+            : usage as SdkOptional<ImageGenUsage>,
+      );
 
   factory ImagesResponse.fromJson(Map<String, dynamic> json) => ImagesResponse(
-    safetyIdentifier: json.containsKey('safety_identifier') ? SdkPresent(json['safety_identifier'] as String?) : const SdkOmitted(),
-    created: ((json['created'] as num?)?.toInt())!,
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => Image.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    background: json['background'] != null ? SdkPresent((json['background'] != null ? ImagesResponseBackground.fromJson(json['background'] as String) : null)!) : const SdkOmitted(),
-    outputFormat: json['output_format'] != null ? SdkPresent((json['output_format'] != null ? ImagesResponseOutputFormat.fromJson(json['output_format'] as String) : null)!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent((json['size'] as String?)!) : const SdkOmitted(),
-    quality: json['quality'] != null ? SdkPresent((json['quality'] != null ? ImagesResponseQuality.fromJson(json['quality'] as String) : null)!) : const SdkOmitted(),
-    usage: json['usage'] != null ? SdkPresent((json['usage'] != null ? ImageGenUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        safetyIdentifier: json.containsKey('safety_identifier')
+            ? SdkPresent(json['safety_identifier'] as String?)
+            : const SdkOmitted(),
+        created: ((json['created'] as num?)?.toInt())!,
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => Image.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        background: json['background'] != null
+            ? SdkPresent((json['background'] != null
+                ? ImagesResponseBackground.fromJson(
+                    json['background'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        outputFormat: json['output_format'] != null
+            ? SdkPresent((json['output_format'] != null
+                ? ImagesResponseOutputFormat.fromJson(
+                    json['output_format'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent((json['size'] as String?)!)
+            : const SdkOmitted(),
+        quality: json['quality'] != null
+            ? SdkPresent((json['quality'] != null
+                ? ImagesResponseQuality.fromJson(json['quality'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        usage: json['usage'] != null
+            ? SdkPresent((json['usage'] != null
+                ? ImageGenUsage.fromJson(json['usage'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (safetyIdentifier) {
-      SdkPresent<String?>(value: final value) => {'safety_identifier': value,},
-      _ => const <String, dynamic>{},
-    },
-    'created': created,
-    ...switch (data) {
-      SdkPresent<List<Image>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (background) {
-      SdkPresent<ImagesResponseBackground>(value: final value) => {'background': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputFormat) {
-      SdkPresent<ImagesResponseOutputFormat>(value: final value) => {'output_format': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<String>(value: final value) => {'size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (quality) {
-      SdkPresent<ImagesResponseQuality>(value: final value) => {'quality': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (usage) {
-      SdkPresent<ImageGenUsage>(value: final value) => {'usage': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (safetyIdentifier) {
+          SdkPresent<String?>(value: final value) => {
+              'safety_identifier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created': created,
+        ...switch (data) {
+          SdkPresent<List<Image>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (background) {
+          SdkPresent<ImagesResponseBackground>(value: final value) => {
+              'background': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputFormat) {
+          SdkPresent<ImagesResponseOutputFormat>(value: final value) => {
+              'output_format': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<String>(value: final value) => {
+              'size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (quality) {
+          SdkPresent<ImagesResponseQuality>(value: final value) => {
+              'quality': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (usage) {
+          SdkPresent<ImageGenUsage>(value: final value) => {
+              'usage': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

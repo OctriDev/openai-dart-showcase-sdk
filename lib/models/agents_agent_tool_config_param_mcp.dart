@@ -8,72 +8,154 @@ part of 'agents_agent.dart';
 class AgentToolConfigParamMcp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `mcp`.
   final AgentToolConfigParamMcpType type_;
+
   /// A label used to identify the MCP server in tool calls.
   final String serverLabel;
+
   /// The attached vault credential used to authenticate this MCP server. Optional when exactly one attached credential matches the server URL.
   final SdkOptional<String?> credentialId;
+
   /// The transport used to connect to the MCP server.
   final McpTransportConfigParam transport;
+
   /// Metadata included with requests to this MCP server.
   final SdkOptional<Map<String, dynamic>?> requestMetadata;
+
   /// The MCP tools the agent may call. All server tools are allowed when omitted.
   final SdkOptional<List<String>?> allowedTools;
+
   /// Whether this MCP server must initialize before the first turn. Defaults to `false`.
   final SdkOptional<bool> required_;
+
   /// Selects where outbound MCP HTTP connections originate. Omitted or `service` uses the Managed Agents service network; `environment` uses the session's selected environment.
   final SdkOptional<McpConnectionOriginParam?> connectionOrigin;
 
-  const AgentToolConfigParamMcp({required this.type_, required this.serverLabel, this.credentialId = const SdkOmitted(), required this.transport, this.requestMetadata = const SdkOmitted(), this.allowedTools = const SdkOmitted(), this.required_ = const SdkOmitted(), this.connectionOrigin = const SdkOmitted()});
+  const AgentToolConfigParamMcp(
+      {required this.type_,
+      required this.serverLabel,
+      this.credentialId = const SdkOmitted(),
+      required this.transport,
+      this.requestMetadata = const SdkOmitted(),
+      this.allowedTools = const SdkOmitted(),
+      this.required_ = const SdkOmitted(),
+      this.connectionOrigin = const SdkOmitted()});
 
-  AgentToolConfigParamMcp Function({AgentToolConfigParamMcpType type_, String serverLabel, SdkOptional<String?> credentialId, McpTransportConfigParam transport, SdkOptional<Map<String, dynamic>?> requestMetadata, SdkOptional<List<String>?> allowedTools, SdkOptional<bool> required_, SdkOptional<McpConnectionOriginParam?> connectionOrigin}) get copyWith => _copyWith;
+  AgentToolConfigParamMcp Function(
+          {AgentToolConfigParamMcpType type_,
+          String serverLabel,
+          SdkOptional<String?> credentialId,
+          McpTransportConfigParam transport,
+          SdkOptional<Map<String, dynamic>?> requestMetadata,
+          SdkOptional<List<String>?> allowedTools,
+          SdkOptional<bool> required_,
+          SdkOptional<McpConnectionOriginParam?> connectionOrigin})
+      get copyWith => _copyWith;
 
-  AgentToolConfigParamMcp _copyWith({Object? type_ = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? credentialId = sdkOmittedValue, Object? transport = sdkOmittedValue, Object? requestMetadata = sdkOmittedValue, Object? allowedTools = sdkOmittedValue, Object? required_ = sdkOmittedValue, Object? connectionOrigin = sdkOmittedValue}) => AgentToolConfigParamMcp(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolConfigParamMcpType,
-    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
-    credentialId: identical(credentialId, sdkOmittedValue) ? this.credentialId : credentialId as SdkOptional<String?>,
-    transport: identical(transport, sdkOmittedValue) ? this.transport : transport as McpTransportConfigParam,
-    requestMetadata: identical(requestMetadata, sdkOmittedValue) ? this.requestMetadata : requestMetadata as SdkOptional<Map<String, dynamic>?>,
-    allowedTools: identical(allowedTools, sdkOmittedValue) ? this.allowedTools : allowedTools as SdkOptional<List<String>?>,
-    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as SdkOptional<bool>,
-    connectionOrigin: identical(connectionOrigin, sdkOmittedValue) ? this.connectionOrigin : connectionOrigin as SdkOptional<McpConnectionOriginParam?>,
-  );
+  AgentToolConfigParamMcp _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? serverLabel = sdkOmittedValue,
+          Object? credentialId = sdkOmittedValue,
+          Object? transport = sdkOmittedValue,
+          Object? requestMetadata = sdkOmittedValue,
+          Object? allowedTools = sdkOmittedValue,
+          Object? required_ = sdkOmittedValue,
+          Object? connectionOrigin = sdkOmittedValue}) =>
+      AgentToolConfigParamMcp(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AgentToolConfigParamMcpType,
+        serverLabel: identical(serverLabel, sdkOmittedValue)
+            ? this.serverLabel
+            : serverLabel as String,
+        credentialId: identical(credentialId, sdkOmittedValue)
+            ? this.credentialId
+            : credentialId as SdkOptional<String?>,
+        transport: identical(transport, sdkOmittedValue)
+            ? this.transport
+            : transport as McpTransportConfigParam,
+        requestMetadata: identical(requestMetadata, sdkOmittedValue)
+            ? this.requestMetadata
+            : requestMetadata as SdkOptional<Map<String, dynamic>?>,
+        allowedTools: identical(allowedTools, sdkOmittedValue)
+            ? this.allowedTools
+            : allowedTools as SdkOptional<List<String>?>,
+        required_: identical(required_, sdkOmittedValue)
+            ? this.required_
+            : required_ as SdkOptional<bool>,
+        connectionOrigin: identical(connectionOrigin, sdkOmittedValue)
+            ? this.connectionOrigin
+            : connectionOrigin as SdkOptional<McpConnectionOriginParam?>,
+      );
 
-  factory AgentToolConfigParamMcp.fromJson(Map<String, dynamic> json) => AgentToolConfigParamMcp(
-    type_: (json['type'] != null ? AgentToolConfigParamMcpType.fromJson(json['type'] as String) : null)!,
-    serverLabel: (json['server_label'] as String?)!,
-    credentialId: json.containsKey('credential_id') ? SdkPresent(json['credential_id'] as String?) : const SdkOmitted(),
-    transport: (json['transport'] != null ? McpTransportConfigParam.fromJson(json['transport']) : null)!,
-    requestMetadata: json.containsKey('request_metadata') ? SdkPresent(json['request_metadata'] == null ? null : json['request_metadata'] as Map<String, dynamic>) : const SdkOmitted(),
-    allowedTools: json.containsKey('allowed_tools') ? SdkPresent((json['allowed_tools'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    required_: json['required'] != null ? SdkPresent((json['required'] as bool?)!) : const SdkOmitted(),
-    connectionOrigin: json.containsKey('connection_origin') ? SdkPresent(json['connection_origin'] != null ? McpConnectionOriginParam.fromJson(json['connection_origin'] as String) : null) : const SdkOmitted(),
-  );
+  factory AgentToolConfigParamMcp.fromJson(Map<String, dynamic> json) =>
+      AgentToolConfigParamMcp(
+        type_: (json['type'] != null
+            ? AgentToolConfigParamMcpType.fromJson(json['type'] as String)
+            : null)!,
+        serverLabel: (json['server_label'] as String?)!,
+        credentialId: json.containsKey('credential_id')
+            ? SdkPresent(json['credential_id'] as String?)
+            : const SdkOmitted(),
+        transport: (json['transport'] != null
+            ? McpTransportConfigParam.fromJson(json['transport'])
+            : null)!,
+        requestMetadata: json.containsKey('request_metadata')
+            ? SdkPresent(json['request_metadata'] == null
+                ? null
+                : json['request_metadata'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        allowedTools: json.containsKey('allowed_tools')
+            ? SdkPresent((json['allowed_tools'] as List?)
+                ?.map((e) => e as String)
+                .toList())
+            : const SdkOmitted(),
+        required_: json['required'] != null
+            ? SdkPresent((json['required'] as bool?)!)
+            : const SdkOmitted(),
+        connectionOrigin: json.containsKey('connection_origin')
+            ? SdkPresent(json['connection_origin'] != null
+                ? McpConnectionOriginParam.fromJson(
+                    json['connection_origin'] as String)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'server_label': serverLabel,
-    ...switch (credentialId) {
-      SdkPresent<String?>(value: final value) => {'credential_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'transport': transport.toJson(),
-    ...switch (requestMetadata) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'request_metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowedTools) {
-      SdkPresent<List<String>?>(value: final value) => {'allowed_tools': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (required_) {
-      SdkPresent<bool>(value: final value) => {'required': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (connectionOrigin) {
-      SdkPresent<McpConnectionOriginParam?>(value: final value) => {'connection_origin': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'server_label': serverLabel,
+        ...switch (credentialId) {
+          SdkPresent<String?>(value: final value) => {
+              'credential_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'transport': transport.toJson(),
+        ...switch (requestMetadata) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'request_metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowedTools) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'allowed_tools': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (required_) {
+          SdkPresent<bool>(value: final value) => {
+              'required': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (connectionOrigin) {
+          SdkPresent<McpConnectionOriginParam?>(value: final value) => {
+              'connection_origin': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

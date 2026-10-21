@@ -8,243 +8,456 @@ part of 'responses_beta_response_code.dart';
 class BetaResponseCodeInterpreterCallCodeDeltaEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `response.code_interpreter_call_code.delta`.
   final BetaResponseCodeInterpreterCallCodeDeltaEventType type_;
+
   /// The index of the output item in the response for which the code is being streamed.
   final int outputIndex;
+
   /// The unique identifier of the code interpreter tool call item.
   final String itemId;
+
   /// The partial code snippet being streamed by the code interpreter.
   final String delta;
+
   /// The sequence number of this event, used to order streaming events.
   final int sequenceNumber;
 
-  const BetaResponseCodeInterpreterCallCodeDeltaEvent({this.agent = const SdkOmitted(), required this.type_, required this.outputIndex, required this.itemId, required this.delta, required this.sequenceNumber});
+  const BetaResponseCodeInterpreterCallCodeDeltaEvent(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.outputIndex,
+      required this.itemId,
+      required this.delta,
+      required this.sequenceNumber});
 
-  BetaResponseCodeInterpreterCallCodeDeltaEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseCodeInterpreterCallCodeDeltaEventType type_, int outputIndex, String itemId, String delta, int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseCodeInterpreterCallCodeDeltaEvent Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseCodeInterpreterCallCodeDeltaEventType type_,
+      int outputIndex,
+      String itemId,
+      String delta,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseCodeInterpreterCallCodeDeltaEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseCodeInterpreterCallCodeDeltaEvent(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseCodeInterpreterCallCodeDeltaEventType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  BetaResponseCodeInterpreterCallCodeDeltaEvent _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? delta = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      BetaResponseCodeInterpreterCallCodeDeltaEvent(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseCodeInterpreterCallCodeDeltaEventType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory BetaResponseCodeInterpreterCallCodeDeltaEvent.fromJson(Map<String, dynamic> json) => BetaResponseCodeInterpreterCallCodeDeltaEvent(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseCodeInterpreterCallCodeDeltaEventType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    delta: (json['delta'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory BetaResponseCodeInterpreterCallCodeDeltaEvent.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseCodeInterpreterCallCodeDeltaEvent(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseCodeInterpreterCallCodeDeltaEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        delta: (json['delta'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'delta': delta,
-    'sequence_number': sequenceNumber,
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'delta': delta,
+        'sequence_number': sequenceNumber,
+      };
 }
 
 /// Emitted when the code snippet is finalized by the code interpreter.
 class BetaResponseCodeInterpreterCallCodeDoneEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `response.code_interpreter_call_code.done`.
   final BetaResponseCodeInterpreterCallCodeDoneEventType type_;
+
   /// The index of the output item in the response for which the code is finalized.
   final int outputIndex;
+
   /// The unique identifier of the code interpreter tool call item.
   final String itemId;
+
   /// The final code snippet output by the code interpreter.
   final String code;
+
   /// The sequence number of this event, used to order streaming events.
   final int sequenceNumber;
 
-  const BetaResponseCodeInterpreterCallCodeDoneEvent({this.agent = const SdkOmitted(), required this.type_, required this.outputIndex, required this.itemId, required this.code, required this.sequenceNumber});
+  const BetaResponseCodeInterpreterCallCodeDoneEvent(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.outputIndex,
+      required this.itemId,
+      required this.code,
+      required this.sequenceNumber});
 
-  BetaResponseCodeInterpreterCallCodeDoneEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseCodeInterpreterCallCodeDoneEventType type_, int outputIndex, String itemId, String code, int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseCodeInterpreterCallCodeDoneEvent Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseCodeInterpreterCallCodeDoneEventType type_,
+      int outputIndex,
+      String itemId,
+      String code,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseCodeInterpreterCallCodeDoneEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? code = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseCodeInterpreterCallCodeDoneEvent(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseCodeInterpreterCallCodeDoneEventType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    code: identical(code, sdkOmittedValue) ? this.code : code as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  BetaResponseCodeInterpreterCallCodeDoneEvent _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? code = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      BetaResponseCodeInterpreterCallCodeDoneEvent(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseCodeInterpreterCallCodeDoneEventType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        code: identical(code, sdkOmittedValue) ? this.code : code as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory BetaResponseCodeInterpreterCallCodeDoneEvent.fromJson(Map<String, dynamic> json) => BetaResponseCodeInterpreterCallCodeDoneEvent(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseCodeInterpreterCallCodeDoneEventType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    code: (json['code'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory BetaResponseCodeInterpreterCallCodeDoneEvent.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseCodeInterpreterCallCodeDoneEvent(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseCodeInterpreterCallCodeDoneEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        code: (json['code'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'code': code,
-    'sequence_number': sequenceNumber,
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'code': code,
+        'sequence_number': sequenceNumber,
+      };
 }
 
 /// Emitted when the code interpreter call is completed.
 class BetaResponseCodeInterpreterCallCompletedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `response.code_interpreter_call.completed`.
   final BetaResponseCodeInterpreterCallCompletedEventType type_;
+
   /// The index of the output item in the response for which the code interpreter call is completed.
   final int outputIndex;
+
   /// The unique identifier of the code interpreter tool call item.
   final String itemId;
+
   /// The sequence number of this event, used to order streaming events.
   final int sequenceNumber;
 
-  const BetaResponseCodeInterpreterCallCompletedEvent({this.agent = const SdkOmitted(), required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber});
+  const BetaResponseCodeInterpreterCallCompletedEvent(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.outputIndex,
+      required this.itemId,
+      required this.sequenceNumber});
 
-  BetaResponseCodeInterpreterCallCompletedEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseCodeInterpreterCallCompletedEventType type_, int outputIndex, String itemId, int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseCodeInterpreterCallCompletedEvent Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseCodeInterpreterCallCompletedEventType type_,
+      int outputIndex,
+      String itemId,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseCodeInterpreterCallCompletedEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseCodeInterpreterCallCompletedEvent(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseCodeInterpreterCallCompletedEventType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  BetaResponseCodeInterpreterCallCompletedEvent _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      BetaResponseCodeInterpreterCallCompletedEvent(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseCodeInterpreterCallCompletedEventType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory BetaResponseCodeInterpreterCallCompletedEvent.fromJson(Map<String, dynamic> json) => BetaResponseCodeInterpreterCallCompletedEvent(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseCodeInterpreterCallCompletedEventType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory BetaResponseCodeInterpreterCallCompletedEvent.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseCodeInterpreterCallCompletedEvent(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseCodeInterpreterCallCompletedEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'sequence_number': sequenceNumber,
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'sequence_number': sequenceNumber,
+      };
 }
 
 /// Emitted when a code interpreter call is in progress.
 class BetaResponseCodeInterpreterCallInProgressEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `response.code_interpreter_call.in_progress`.
   final BetaResponseCodeInterpreterCallInProgressEventType type_;
+
   /// The index of the output item in the response for which the code interpreter call is in progress.
   final int outputIndex;
+
   /// The unique identifier of the code interpreter tool call item.
   final String itemId;
+
   /// The sequence number of this event, used to order streaming events.
   final int sequenceNumber;
 
-  const BetaResponseCodeInterpreterCallInProgressEvent({this.agent = const SdkOmitted(), required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber});
+  const BetaResponseCodeInterpreterCallInProgressEvent(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.outputIndex,
+      required this.itemId,
+      required this.sequenceNumber});
 
-  BetaResponseCodeInterpreterCallInProgressEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseCodeInterpreterCallInProgressEventType type_, int outputIndex, String itemId, int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseCodeInterpreterCallInProgressEvent Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseCodeInterpreterCallInProgressEventType type_,
+      int outputIndex,
+      String itemId,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseCodeInterpreterCallInProgressEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseCodeInterpreterCallInProgressEvent(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseCodeInterpreterCallInProgressEventType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  BetaResponseCodeInterpreterCallInProgressEvent _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      BetaResponseCodeInterpreterCallInProgressEvent(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseCodeInterpreterCallInProgressEventType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory BetaResponseCodeInterpreterCallInProgressEvent.fromJson(Map<String, dynamic> json) => BetaResponseCodeInterpreterCallInProgressEvent(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseCodeInterpreterCallInProgressEventType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory BetaResponseCodeInterpreterCallInProgressEvent.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseCodeInterpreterCallInProgressEvent(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseCodeInterpreterCallInProgressEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'sequence_number': sequenceNumber,
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'sequence_number': sequenceNumber,
+      };
 }
 
 /// Emitted when the code interpreter is actively interpreting the code snippet.
 class BetaResponseCodeInterpreterCallInterpretingEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `response.code_interpreter_call.interpreting`.
   final BetaResponseCodeInterpreterCallInterpretingEventType type_;
+
   /// The index of the output item in the response for which the code interpreter is interpreting code.
   final int outputIndex;
+
   /// The unique identifier of the code interpreter tool call item.
   final String itemId;
+
   /// The sequence number of this event, used to order streaming events.
   final int sequenceNumber;
 
-  const BetaResponseCodeInterpreterCallInterpretingEvent({this.agent = const SdkOmitted(), required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber});
+  const BetaResponseCodeInterpreterCallInterpretingEvent(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.outputIndex,
+      required this.itemId,
+      required this.sequenceNumber});
 
-  BetaResponseCodeInterpreterCallInterpretingEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseCodeInterpreterCallInterpretingEventType type_, int outputIndex, String itemId, int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseCodeInterpreterCallInterpretingEvent Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseCodeInterpreterCallInterpretingEventType type_,
+      int outputIndex,
+      String itemId,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseCodeInterpreterCallInterpretingEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseCodeInterpreterCallInterpretingEvent(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseCodeInterpreterCallInterpretingEventType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  BetaResponseCodeInterpreterCallInterpretingEvent _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      BetaResponseCodeInterpreterCallInterpretingEvent(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseCodeInterpreterCallInterpretingEventType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory BetaResponseCodeInterpreterCallInterpretingEvent.fromJson(Map<String, dynamic> json) => BetaResponseCodeInterpreterCallInterpretingEvent(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseCodeInterpreterCallInterpretingEventType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory BetaResponseCodeInterpreterCallInterpretingEvent.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseCodeInterpreterCallInterpretingEvent(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseCodeInterpreterCallInterpretingEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'sequence_number': sequenceNumber,
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'sequence_number': sequenceNumber,
+      };
 }

@@ -8,66 +8,139 @@ part of 'responses_beta_computer.dart';
 class BetaComputerToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the computer call. Always `computer_call`.
   final BetaComputerToolCallType type_;
+
   /// The unique ID of the computer call.
   final String id;
+
   /// An identifier used when responding to the tool call with output.
   final String callId;
+
   /// Optional API value serialized in the `action` wire field.
   final SdkOptional<BetaComputerAction> action;
+
   /// Flattened batched actions for `computer_use`. Each action includes an `type` discriminator and action-specific fields.
   final SdkOptional<List<BetaComputerAction>> actions;
+
   /// The pending safety checks for the computer call.
   final List<BetaComputerCallSafetyCheckParam> pendingSafetyChecks;
+
   /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final BetaComputerToolCallStatus status;
 
-  const BetaComputerToolCall({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.callId, this.action = const SdkOmitted(), this.actions = const SdkOmitted(), required this.pendingSafetyChecks, required this.status});
+  const BetaComputerToolCall(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.id,
+      required this.callId,
+      this.action = const SdkOmitted(),
+      this.actions = const SdkOmitted(),
+      required this.pendingSafetyChecks,
+      required this.status});
 
-  BetaComputerToolCall Function({SdkOptional<BetaAgentTag?> agent, BetaComputerToolCallType type_, String id, String callId, SdkOptional<BetaComputerAction> action, SdkOptional<List<BetaComputerAction>> actions, List<BetaComputerCallSafetyCheckParam> pendingSafetyChecks, BetaComputerToolCallStatus status}) get copyWith => _copyWith;
+  BetaComputerToolCall Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaComputerToolCallType type_,
+      String id,
+      String callId,
+      SdkOptional<BetaComputerAction> action,
+      SdkOptional<List<BetaComputerAction>> actions,
+      List<BetaComputerCallSafetyCheckParam> pendingSafetyChecks,
+      BetaComputerToolCallStatus status}) get copyWith => _copyWith;
 
-  BetaComputerToolCall _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? action = sdkOmittedValue, Object? actions = sdkOmittedValue, Object? pendingSafetyChecks = sdkOmittedValue, Object? status = sdkOmittedValue}) => BetaComputerToolCall(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaComputerToolCallType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<BetaComputerAction>,
-    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<BetaComputerAction>>,
-    pendingSafetyChecks: identical(pendingSafetyChecks, sdkOmittedValue) ? this.pendingSafetyChecks : pendingSafetyChecks as List<BetaComputerCallSafetyCheckParam>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as BetaComputerToolCallStatus,
-  );
+  BetaComputerToolCall _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? action = sdkOmittedValue,
+          Object? actions = sdkOmittedValue,
+          Object? pendingSafetyChecks = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      BetaComputerToolCall(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaComputerToolCallType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as SdkOptional<BetaComputerAction>,
+        actions: identical(actions, sdkOmittedValue)
+            ? this.actions
+            : actions as SdkOptional<List<BetaComputerAction>>,
+        pendingSafetyChecks: identical(pendingSafetyChecks, sdkOmittedValue)
+            ? this.pendingSafetyChecks
+            : pendingSafetyChecks as List<BetaComputerCallSafetyCheckParam>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as BetaComputerToolCallStatus,
+      );
 
-  factory BetaComputerToolCall.fromJson(Map<String, dynamic> json) => BetaComputerToolCall(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaComputerToolCallType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    callId: (json['call_id'] as String?)!,
-    action: json['action'] != null ? SdkPresent((json['action'] != null ? BetaComputerAction.fromJson(json['action']) : null)!) : const SdkOmitted(),
-    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => BetaComputerAction.fromJson(e)).toList())!) : const SdkOmitted(),
-    pendingSafetyChecks: ((json['pending_safety_checks'] as List?)?.map((e) => BetaComputerCallSafetyCheckParam.fromJson(e as Map<String, dynamic>)).toList())!,
-    status: (json['status'] != null ? BetaComputerToolCallStatus.fromJson(json['status'] as String) : null)!,
-  );
+  factory BetaComputerToolCall.fromJson(Map<String, dynamic> json) =>
+      BetaComputerToolCall(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaComputerToolCallType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        callId: (json['call_id'] as String?)!,
+        action: json['action'] != null
+            ? SdkPresent((json['action'] != null
+                ? BetaComputerAction.fromJson(json['action'])
+                : null)!)
+            : const SdkOmitted(),
+        actions: json['actions'] != null
+            ? SdkPresent(((json['actions'] as List?)
+                ?.map((e) => BetaComputerAction.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+        pendingSafetyChecks: ((json['pending_safety_checks'] as List?)
+            ?.map((e) => BetaComputerCallSafetyCheckParam.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        status: (json['status'] != null
+            ? BetaComputerToolCallStatus.fromJson(json['status'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'id': id,
-    'call_id': callId,
-    ...switch (action) {
-      SdkPresent<BetaComputerAction>(value: final value) => {'action': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (actions) {
-      SdkPresent<List<BetaComputerAction>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    'pending_safety_checks': pendingSafetyChecks.map((item) => item.toJson()).toList(),
-    'status': status.toJson(),
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'id': id,
+        'call_id': callId,
+        ...switch (action) {
+          SdkPresent<BetaComputerAction>(value: final value) => {
+              'action': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (actions) {
+          SdkPresent<List<BetaComputerAction>>(value: final value) => {
+              'actions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'pending_safety_checks':
+            pendingSafetyChecks.map((item) => item.toJson()).toList(),
+        'status': status.toJson(),
+      };
 }

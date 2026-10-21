@@ -8,24 +8,32 @@ part of 'responses_beta_response_format.dart';
 class BetaResponseFormatJsonObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of response format being defined. Always `json_object`.
   final BetaResponseFormatJsonObjectType type_;
 
   const BetaResponseFormatJsonObject({required this.type_});
 
-  BetaResponseFormatJsonObject Function({BetaResponseFormatJsonObjectType type_}) get copyWith => _copyWith;
+  BetaResponseFormatJsonObject Function(
+      {BetaResponseFormatJsonObjectType type_}) get copyWith => _copyWith;
 
-  BetaResponseFormatJsonObject _copyWith({Object? type_ = sdkOmittedValue}) => BetaResponseFormatJsonObject(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseFormatJsonObjectType,
-  );
+  BetaResponseFormatJsonObject _copyWith({Object? type_ = sdkOmittedValue}) =>
+      BetaResponseFormatJsonObject(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseFormatJsonObjectType,
+      );
 
-  factory BetaResponseFormatJsonObject.fromJson(Map<String, dynamic> json) => BetaResponseFormatJsonObject(
-    type_: (json['type'] != null ? BetaResponseFormatJsonObjectType.fromJson(json['type'] as String) : null)!,
-  );
+  factory BetaResponseFormatJsonObject.fromJson(Map<String, dynamic> json) =>
+      BetaResponseFormatJsonObject(
+        type_: (json['type'] != null
+            ? BetaResponseFormatJsonObjectType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// The schema for the response format, described as a JSON Schema object. Learn how to build JSON schemas [here](https://json-schema.org/).
@@ -34,15 +42,18 @@ class BetaResponseFormatJsonSchemaSchema {
   static const String constructionSurface = 'named';
   final Map<String, dynamic> value;
 
-  const BetaResponseFormatJsonSchemaSchema({this.value = const <String, dynamic>{}});
+  const BetaResponseFormatJsonSchemaSchema(
+      {this.value = const <String, dynamic>{}});
 
-  factory BetaResponseFormatJsonSchemaSchema.fromJson(Map<String, dynamic> json) => BetaResponseFormatJsonSchemaSchema(
-    value: json.map((key, value) => MapEntry(key, value)),
-  );
+  factory BetaResponseFormatJsonSchemaSchema.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseFormatJsonSchemaSchema(
+        value: json.map((key, value) => MapEntry(key, value)),
+      );
 
   Map<String, dynamic> toJson() => value.map(
-    (key, value) => MapEntry(key, value),
-  );
+        (key, value) => MapEntry(key, value),
+      );
 
   dynamic operator [](String key) => value[key];
   Iterable<String> get keys => value.keys;
@@ -52,22 +63,30 @@ class BetaResponseFormatJsonSchemaSchema {
 class BetaResponseFormatText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of response format being defined. Always `text`.
   final BetaResponseFormatTextType type_;
 
   const BetaResponseFormatText({required this.type_});
 
-  BetaResponseFormatText Function({BetaResponseFormatTextType type_}) get copyWith => _copyWith;
+  BetaResponseFormatText Function({BetaResponseFormatTextType type_})
+      get copyWith => _copyWith;
 
-  BetaResponseFormatText _copyWith({Object? type_ = sdkOmittedValue}) => BetaResponseFormatText(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseFormatTextType,
-  );
+  BetaResponseFormatText _copyWith({Object? type_ = sdkOmittedValue}) =>
+      BetaResponseFormatText(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseFormatTextType,
+      );
 
-  factory BetaResponseFormatText.fromJson(Map<String, dynamic> json) => BetaResponseFormatText(
-    type_: (json['type'] != null ? BetaResponseFormatTextType.fromJson(json['type'] as String) : null)!,
-  );
+  factory BetaResponseFormatText.fromJson(Map<String, dynamic> json) =>
+      BetaResponseFormatText(
+        type_: (json['type'] != null
+            ? BetaResponseFormatTextType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

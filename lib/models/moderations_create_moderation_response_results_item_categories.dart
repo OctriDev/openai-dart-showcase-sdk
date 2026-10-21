@@ -8,289 +8,685 @@ part of 'moderations.dart';
 class CreateModerationResponseResultsItemCategories {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. Hateful content aimed at non-protected groups (e.g., chess players) is harassment.
   final bool hate;
+
   /// Hateful content that also includes violence or serious harm towards the targeted group based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste.
   final bool hateThreatening;
+
   /// Content that expresses, incites, or promotes harassing language towards any target.
   final bool harassment;
+
   /// Harassment content that also includes violence or serious harm towards any target.
   final bool harassmentThreatening;
+
   /// Required `boolean` value serialized in the `illicit` wire field.
   final bool? illicit;
+
   /// Required `boolean` value serialized in the `illicit/violent` wire field.
   final bool? illicitViolent;
+
   /// Content that promotes, encourages, or depicts acts of self-harm, such as suicide, cutting, and eating disorders.
   final bool selfHarm;
+
   /// Content where the speaker expresses that they are engaging or intend to engage in acts of self-harm, such as suicide, cutting, and eating disorders.
   final bool selfHarmIntent;
+
   /// Content that encourages performing acts of self-harm, such as suicide, cutting, and eating disorders, or that gives instructions or advice on how to commit such acts.
   final bool selfHarmInstructions;
+
   /// Content meant to arouse sexual excitement, such as the description of sexual activity, or that promotes sexual services (excluding sex education and wellness).
   final bool sexual;
+
   /// Sexual content that includes an individual who is under 18 years old.
   final bool sexualMinors;
+
   /// Content that depicts death, violence, or physical injury.
   final bool violence;
+
   /// Content that depicts death, violence, or physical injury in graphic detail.
   final bool violenceGraphic;
 
-  const CreateModerationResponseResultsItemCategories({required this.hate, required this.hateThreatening, required this.harassment, required this.harassmentThreatening, required this.illicit, required this.illicitViolent, required this.selfHarm, required this.selfHarmIntent, required this.selfHarmInstructions, required this.sexual, required this.sexualMinors, required this.violence, required this.violenceGraphic});
+  const CreateModerationResponseResultsItemCategories(
+      {required this.hate,
+      required this.hateThreatening,
+      required this.harassment,
+      required this.harassmentThreatening,
+      required this.illicit,
+      required this.illicitViolent,
+      required this.selfHarm,
+      required this.selfHarmIntent,
+      required this.selfHarmInstructions,
+      required this.sexual,
+      required this.sexualMinors,
+      required this.violence,
+      required this.violenceGraphic});
 
-  CreateModerationResponseResultsItemCategories Function({bool hate, bool hateThreatening, bool harassment, bool harassmentThreatening, bool? illicit, bool? illicitViolent, bool selfHarm, bool selfHarmIntent, bool selfHarmInstructions, bool sexual, bool sexualMinors, bool violence, bool violenceGraphic}) get copyWith => _copyWith;
+  CreateModerationResponseResultsItemCategories Function(
+      {bool hate,
+      bool hateThreatening,
+      bool harassment,
+      bool harassmentThreatening,
+      bool? illicit,
+      bool? illicitViolent,
+      bool selfHarm,
+      bool selfHarmIntent,
+      bool selfHarmInstructions,
+      bool sexual,
+      bool sexualMinors,
+      bool violence,
+      bool violenceGraphic}) get copyWith => _copyWith;
 
-  CreateModerationResponseResultsItemCategories _copyWith({Object? hate = sdkOmittedValue, Object? hateThreatening = sdkOmittedValue, Object? harassment = sdkOmittedValue, Object? harassmentThreatening = sdkOmittedValue, Object? illicit = sdkOmittedValue, Object? illicitViolent = sdkOmittedValue, Object? selfHarm = sdkOmittedValue, Object? selfHarmIntent = sdkOmittedValue, Object? selfHarmInstructions = sdkOmittedValue, Object? sexual = sdkOmittedValue, Object? sexualMinors = sdkOmittedValue, Object? violence = sdkOmittedValue, Object? violenceGraphic = sdkOmittedValue}) => CreateModerationResponseResultsItemCategories(
-    hate: identical(hate, sdkOmittedValue) ? this.hate : hate as bool,
-    hateThreatening: identical(hateThreatening, sdkOmittedValue) ? this.hateThreatening : hateThreatening as bool,
-    harassment: identical(harassment, sdkOmittedValue) ? this.harassment : harassment as bool,
-    harassmentThreatening: identical(harassmentThreatening, sdkOmittedValue) ? this.harassmentThreatening : harassmentThreatening as bool,
-    illicit: identical(illicit, sdkOmittedValue) ? this.illicit : illicit as bool?,
-    illicitViolent: identical(illicitViolent, sdkOmittedValue) ? this.illicitViolent : illicitViolent as bool?,
-    selfHarm: identical(selfHarm, sdkOmittedValue) ? this.selfHarm : selfHarm as bool,
-    selfHarmIntent: identical(selfHarmIntent, sdkOmittedValue) ? this.selfHarmIntent : selfHarmIntent as bool,
-    selfHarmInstructions: identical(selfHarmInstructions, sdkOmittedValue) ? this.selfHarmInstructions : selfHarmInstructions as bool,
-    sexual: identical(sexual, sdkOmittedValue) ? this.sexual : sexual as bool,
-    sexualMinors: identical(sexualMinors, sdkOmittedValue) ? this.sexualMinors : sexualMinors as bool,
-    violence: identical(violence, sdkOmittedValue) ? this.violence : violence as bool,
-    violenceGraphic: identical(violenceGraphic, sdkOmittedValue) ? this.violenceGraphic : violenceGraphic as bool,
-  );
+  CreateModerationResponseResultsItemCategories _copyWith(
+          {Object? hate = sdkOmittedValue,
+          Object? hateThreatening = sdkOmittedValue,
+          Object? harassment = sdkOmittedValue,
+          Object? harassmentThreatening = sdkOmittedValue,
+          Object? illicit = sdkOmittedValue,
+          Object? illicitViolent = sdkOmittedValue,
+          Object? selfHarm = sdkOmittedValue,
+          Object? selfHarmIntent = sdkOmittedValue,
+          Object? selfHarmInstructions = sdkOmittedValue,
+          Object? sexual = sdkOmittedValue,
+          Object? sexualMinors = sdkOmittedValue,
+          Object? violence = sdkOmittedValue,
+          Object? violenceGraphic = sdkOmittedValue}) =>
+      CreateModerationResponseResultsItemCategories(
+        hate: identical(hate, sdkOmittedValue) ? this.hate : hate as bool,
+        hateThreatening: identical(hateThreatening, sdkOmittedValue)
+            ? this.hateThreatening
+            : hateThreatening as bool,
+        harassment: identical(harassment, sdkOmittedValue)
+            ? this.harassment
+            : harassment as bool,
+        harassmentThreatening: identical(harassmentThreatening, sdkOmittedValue)
+            ? this.harassmentThreatening
+            : harassmentThreatening as bool,
+        illicit: identical(illicit, sdkOmittedValue)
+            ? this.illicit
+            : illicit as bool?,
+        illicitViolent: identical(illicitViolent, sdkOmittedValue)
+            ? this.illicitViolent
+            : illicitViolent as bool?,
+        selfHarm: identical(selfHarm, sdkOmittedValue)
+            ? this.selfHarm
+            : selfHarm as bool,
+        selfHarmIntent: identical(selfHarmIntent, sdkOmittedValue)
+            ? this.selfHarmIntent
+            : selfHarmIntent as bool,
+        selfHarmInstructions: identical(selfHarmInstructions, sdkOmittedValue)
+            ? this.selfHarmInstructions
+            : selfHarmInstructions as bool,
+        sexual:
+            identical(sexual, sdkOmittedValue) ? this.sexual : sexual as bool,
+        sexualMinors: identical(sexualMinors, sdkOmittedValue)
+            ? this.sexualMinors
+            : sexualMinors as bool,
+        violence: identical(violence, sdkOmittedValue)
+            ? this.violence
+            : violence as bool,
+        violenceGraphic: identical(violenceGraphic, sdkOmittedValue)
+            ? this.violenceGraphic
+            : violenceGraphic as bool,
+      );
 
-  factory CreateModerationResponseResultsItemCategories.fromJson(Map<String, dynamic> json) => CreateModerationResponseResultsItemCategories(
-    hate: (json['hate'] as bool?)!,
-    hateThreatening: (json['hate/threatening'] as bool?)!,
-    harassment: (json['harassment'] as bool?)!,
-    harassmentThreatening: (json['harassment/threatening'] as bool?)!,
-    illicit: json.containsKey('illicit') ? json['illicit'] as bool? : throw ArgumentError.value(null, 'illicit', 'Required property is missing'),
-    illicitViolent: json.containsKey('illicit/violent') ? json['illicit/violent'] as bool? : throw ArgumentError.value(null, 'illicit/violent', 'Required property is missing'),
-    selfHarm: (json['self-harm'] as bool?)!,
-    selfHarmIntent: (json['self-harm/intent'] as bool?)!,
-    selfHarmInstructions: (json['self-harm/instructions'] as bool?)!,
-    sexual: (json['sexual'] as bool?)!,
-    sexualMinors: (json['sexual/minors'] as bool?)!,
-    violence: (json['violence'] as bool?)!,
-    violenceGraphic: (json['violence/graphic'] as bool?)!,
-  );
+  factory CreateModerationResponseResultsItemCategories.fromJson(
+          Map<String, dynamic> json) =>
+      CreateModerationResponseResultsItemCategories(
+        hate: (json['hate'] as bool?)!,
+        hateThreatening: (json['hate/threatening'] as bool?)!,
+        harassment: (json['harassment'] as bool?)!,
+        harassmentThreatening: (json['harassment/threatening'] as bool?)!,
+        illicit: json.containsKey('illicit')
+            ? json['illicit'] as bool?
+            : throw ArgumentError.value(
+                null, 'illicit', 'Required property is missing'),
+        illicitViolent: json.containsKey('illicit/violent')
+            ? json['illicit/violent'] as bool?
+            : throw ArgumentError.value(
+                null, 'illicit/violent', 'Required property is missing'),
+        selfHarm: (json['self-harm'] as bool?)!,
+        selfHarmIntent: (json['self-harm/intent'] as bool?)!,
+        selfHarmInstructions: (json['self-harm/instructions'] as bool?)!,
+        sexual: (json['sexual'] as bool?)!,
+        sexualMinors: (json['sexual/minors'] as bool?)!,
+        violence: (json['violence'] as bool?)!,
+        violenceGraphic: (json['violence/graphic'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'hate': hate,
-    'hate/threatening': hateThreatening,
-    'harassment': harassment,
-    'harassment/threatening': harassmentThreatening,
-    'illicit': illicit,
-    'illicit/violent': illicitViolent,
-    'self-harm': selfHarm,
-    'self-harm/intent': selfHarmIntent,
-    'self-harm/instructions': selfHarmInstructions,
-    'sexual': sexual,
-    'sexual/minors': sexualMinors,
-    'violence': violence,
-    'violence/graphic': violenceGraphic,
-  };
+        'hate': hate,
+        'hate/threatening': hateThreatening,
+        'harassment': harassment,
+        'harassment/threatening': harassmentThreatening,
+        'illicit': illicit,
+        'illicit/violent': illicitViolent,
+        'self-harm': selfHarm,
+        'self-harm/intent': selfHarmIntent,
+        'self-harm/instructions': selfHarmInstructions,
+        'sexual': sexual,
+        'sexual/minors': sexualMinors,
+        'violence': violence,
+        'violence/graphic': violenceGraphic,
+      };
 }
 
 /// A list of the categories along with their scores as predicted by model.
 class CreateModerationResponseResultsItemCategoryScores {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The score for the category 'hate'.
   final double hate;
+
   /// The score for the category 'hate/threatening'.
   final double hateThreatening;
+
   /// The score for the category 'harassment'.
   final double harassment;
+
   /// The score for the category 'harassment/threatening'.
   final double harassmentThreatening;
+
   /// The score for the category 'illicit'.
   final double illicit;
+
   /// The score for the category 'illicit/violent'.
   final double illicitViolent;
+
   /// The score for the category 'self-harm'.
   final double selfHarm;
+
   /// The score for the category 'self-harm/intent'.
   final double selfHarmIntent;
+
   /// The score for the category 'self-harm/instructions'.
   final double selfHarmInstructions;
+
   /// The score for the category 'sexual'.
   final double sexual;
+
   /// The score for the category 'sexual/minors'.
   final double sexualMinors;
+
   /// The score for the category 'violence'.
   final double violence;
+
   /// The score for the category 'violence/graphic'.
   final double violenceGraphic;
 
-  const CreateModerationResponseResultsItemCategoryScores({required this.hate, required this.hateThreatening, required this.harassment, required this.harassmentThreatening, required this.illicit, required this.illicitViolent, required this.selfHarm, required this.selfHarmIntent, required this.selfHarmInstructions, required this.sexual, required this.sexualMinors, required this.violence, required this.violenceGraphic});
+  const CreateModerationResponseResultsItemCategoryScores(
+      {required this.hate,
+      required this.hateThreatening,
+      required this.harassment,
+      required this.harassmentThreatening,
+      required this.illicit,
+      required this.illicitViolent,
+      required this.selfHarm,
+      required this.selfHarmIntent,
+      required this.selfHarmInstructions,
+      required this.sexual,
+      required this.sexualMinors,
+      required this.violence,
+      required this.violenceGraphic});
 
-  CreateModerationResponseResultsItemCategoryScores Function({double hate, double hateThreatening, double harassment, double harassmentThreatening, double illicit, double illicitViolent, double selfHarm, double selfHarmIntent, double selfHarmInstructions, double sexual, double sexualMinors, double violence, double violenceGraphic}) get copyWith => _copyWith;
+  CreateModerationResponseResultsItemCategoryScores Function(
+      {double hate,
+      double hateThreatening,
+      double harassment,
+      double harassmentThreatening,
+      double illicit,
+      double illicitViolent,
+      double selfHarm,
+      double selfHarmIntent,
+      double selfHarmInstructions,
+      double sexual,
+      double sexualMinors,
+      double violence,
+      double violenceGraphic}) get copyWith => _copyWith;
 
-  CreateModerationResponseResultsItemCategoryScores _copyWith({Object? hate = sdkOmittedValue, Object? hateThreatening = sdkOmittedValue, Object? harassment = sdkOmittedValue, Object? harassmentThreatening = sdkOmittedValue, Object? illicit = sdkOmittedValue, Object? illicitViolent = sdkOmittedValue, Object? selfHarm = sdkOmittedValue, Object? selfHarmIntent = sdkOmittedValue, Object? selfHarmInstructions = sdkOmittedValue, Object? sexual = sdkOmittedValue, Object? sexualMinors = sdkOmittedValue, Object? violence = sdkOmittedValue, Object? violenceGraphic = sdkOmittedValue}) => CreateModerationResponseResultsItemCategoryScores(
-    hate: identical(hate, sdkOmittedValue) ? this.hate : hate as double,
-    hateThreatening: identical(hateThreatening, sdkOmittedValue) ? this.hateThreatening : hateThreatening as double,
-    harassment: identical(harassment, sdkOmittedValue) ? this.harassment : harassment as double,
-    harassmentThreatening: identical(harassmentThreatening, sdkOmittedValue) ? this.harassmentThreatening : harassmentThreatening as double,
-    illicit: identical(illicit, sdkOmittedValue) ? this.illicit : illicit as double,
-    illicitViolent: identical(illicitViolent, sdkOmittedValue) ? this.illicitViolent : illicitViolent as double,
-    selfHarm: identical(selfHarm, sdkOmittedValue) ? this.selfHarm : selfHarm as double,
-    selfHarmIntent: identical(selfHarmIntent, sdkOmittedValue) ? this.selfHarmIntent : selfHarmIntent as double,
-    selfHarmInstructions: identical(selfHarmInstructions, sdkOmittedValue) ? this.selfHarmInstructions : selfHarmInstructions as double,
-    sexual: identical(sexual, sdkOmittedValue) ? this.sexual : sexual as double,
-    sexualMinors: identical(sexualMinors, sdkOmittedValue) ? this.sexualMinors : sexualMinors as double,
-    violence: identical(violence, sdkOmittedValue) ? this.violence : violence as double,
-    violenceGraphic: identical(violenceGraphic, sdkOmittedValue) ? this.violenceGraphic : violenceGraphic as double,
-  );
+  CreateModerationResponseResultsItemCategoryScores _copyWith(
+          {Object? hate = sdkOmittedValue,
+          Object? hateThreatening = sdkOmittedValue,
+          Object? harassment = sdkOmittedValue,
+          Object? harassmentThreatening = sdkOmittedValue,
+          Object? illicit = sdkOmittedValue,
+          Object? illicitViolent = sdkOmittedValue,
+          Object? selfHarm = sdkOmittedValue,
+          Object? selfHarmIntent = sdkOmittedValue,
+          Object? selfHarmInstructions = sdkOmittedValue,
+          Object? sexual = sdkOmittedValue,
+          Object? sexualMinors = sdkOmittedValue,
+          Object? violence = sdkOmittedValue,
+          Object? violenceGraphic = sdkOmittedValue}) =>
+      CreateModerationResponseResultsItemCategoryScores(
+        hate: identical(hate, sdkOmittedValue) ? this.hate : hate as double,
+        hateThreatening: identical(hateThreatening, sdkOmittedValue)
+            ? this.hateThreatening
+            : hateThreatening as double,
+        harassment: identical(harassment, sdkOmittedValue)
+            ? this.harassment
+            : harassment as double,
+        harassmentThreatening: identical(harassmentThreatening, sdkOmittedValue)
+            ? this.harassmentThreatening
+            : harassmentThreatening as double,
+        illicit: identical(illicit, sdkOmittedValue)
+            ? this.illicit
+            : illicit as double,
+        illicitViolent: identical(illicitViolent, sdkOmittedValue)
+            ? this.illicitViolent
+            : illicitViolent as double,
+        selfHarm: identical(selfHarm, sdkOmittedValue)
+            ? this.selfHarm
+            : selfHarm as double,
+        selfHarmIntent: identical(selfHarmIntent, sdkOmittedValue)
+            ? this.selfHarmIntent
+            : selfHarmIntent as double,
+        selfHarmInstructions: identical(selfHarmInstructions, sdkOmittedValue)
+            ? this.selfHarmInstructions
+            : selfHarmInstructions as double,
+        sexual:
+            identical(sexual, sdkOmittedValue) ? this.sexual : sexual as double,
+        sexualMinors: identical(sexualMinors, sdkOmittedValue)
+            ? this.sexualMinors
+            : sexualMinors as double,
+        violence: identical(violence, sdkOmittedValue)
+            ? this.violence
+            : violence as double,
+        violenceGraphic: identical(violenceGraphic, sdkOmittedValue)
+            ? this.violenceGraphic
+            : violenceGraphic as double,
+      );
 
-  factory CreateModerationResponseResultsItemCategoryScores.fromJson(Map<String, dynamic> json) => CreateModerationResponseResultsItemCategoryScores(
-    hate: ((json['hate'] as num?)?.toDouble())!,
-    hateThreatening: ((json['hate/threatening'] as num?)?.toDouble())!,
-    harassment: ((json['harassment'] as num?)?.toDouble())!,
-    harassmentThreatening: ((json['harassment/threatening'] as num?)?.toDouble())!,
-    illicit: ((json['illicit'] as num?)?.toDouble())!,
-    illicitViolent: ((json['illicit/violent'] as num?)?.toDouble())!,
-    selfHarm: ((json['self-harm'] as num?)?.toDouble())!,
-    selfHarmIntent: ((json['self-harm/intent'] as num?)?.toDouble())!,
-    selfHarmInstructions: ((json['self-harm/instructions'] as num?)?.toDouble())!,
-    sexual: ((json['sexual'] as num?)?.toDouble())!,
-    sexualMinors: ((json['sexual/minors'] as num?)?.toDouble())!,
-    violence: ((json['violence'] as num?)?.toDouble())!,
-    violenceGraphic: ((json['violence/graphic'] as num?)?.toDouble())!,
-  );
+  factory CreateModerationResponseResultsItemCategoryScores.fromJson(
+          Map<String, dynamic> json) =>
+      CreateModerationResponseResultsItemCategoryScores(
+        hate: ((json['hate'] as num?)?.toDouble())!,
+        hateThreatening: ((json['hate/threatening'] as num?)?.toDouble())!,
+        harassment: ((json['harassment'] as num?)?.toDouble())!,
+        harassmentThreatening:
+            ((json['harassment/threatening'] as num?)?.toDouble())!,
+        illicit: ((json['illicit'] as num?)?.toDouble())!,
+        illicitViolent: ((json['illicit/violent'] as num?)?.toDouble())!,
+        selfHarm: ((json['self-harm'] as num?)?.toDouble())!,
+        selfHarmIntent: ((json['self-harm/intent'] as num?)?.toDouble())!,
+        selfHarmInstructions:
+            ((json['self-harm/instructions'] as num?)?.toDouble())!,
+        sexual: ((json['sexual'] as num?)?.toDouble())!,
+        sexualMinors: ((json['sexual/minors'] as num?)?.toDouble())!,
+        violence: ((json['violence'] as num?)?.toDouble())!,
+        violenceGraphic: ((json['violence/graphic'] as num?)?.toDouble())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'hate': hate,
-    'hate/threatening': hateThreatening,
-    'harassment': harassment,
-    'harassment/threatening': harassmentThreatening,
-    'illicit': illicit,
-    'illicit/violent': illicitViolent,
-    'self-harm': selfHarm,
-    'self-harm/intent': selfHarmIntent,
-    'self-harm/instructions': selfHarmInstructions,
-    'sexual': sexual,
-    'sexual/minors': sexualMinors,
-    'violence': violence,
-    'violence/graphic': violenceGraphic,
-  };
+        'hate': hate,
+        'hate/threatening': hateThreatening,
+        'harassment': harassment,
+        'harassment/threatening': harassmentThreatening,
+        'illicit': illicit,
+        'illicit/violent': illicitViolent,
+        'self-harm': selfHarm,
+        'self-harm/intent': selfHarmIntent,
+        'self-harm/instructions': selfHarmInstructions,
+        'sexual': sexual,
+        'sexual/minors': sexualMinors,
+        'violence': violence,
+        'violence/graphic': violenceGraphic,
+      };
 }
 
 /// A list of the categories along with the input type(s) that the score applies to.
 class CreateModerationResponseResultsItemCategoryAppliedInputTypes {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The applied input type(s) for the category 'hate'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem> hate;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem>
+      hate;
+
   /// The applied input type(s) for the category 'hate/threatening'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem> hateThreatening;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem>
+      hateThreatening;
+
   /// The applied input type(s) for the category 'harassment'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem> harassment;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem>
+      harassment;
+
   /// The applied input type(s) for the category 'harassment/threatening'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem> harassmentThreatening;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem>
+      harassmentThreatening;
+
   /// The applied input type(s) for the category 'illicit'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem> illicit;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem>
+      illicit;
+
   /// The applied input type(s) for the category 'illicit/violent'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem> illicitViolent;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem>
+      illicitViolent;
+
   /// The applied input type(s) for the category 'self-harm'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem> selfHarm;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem>
+      selfHarm;
+
   /// The applied input type(s) for the category 'self-harm/intent'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem> selfHarmIntent;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem>
+      selfHarmIntent;
+
   /// The applied input type(s) for the category 'self-harm/instructions'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem> selfHarmInstructions;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem>
+      selfHarmInstructions;
+
   /// The applied input type(s) for the category 'sexual'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem> sexual;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem>
+      sexual;
+
   /// The applied input type(s) for the category 'sexual/minors'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem> sexualMinors;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem>
+      sexualMinors;
+
   /// The applied input type(s) for the category 'violence'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem> violence;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem>
+      violence;
+
   /// The applied input type(s) for the category 'violence/graphic'.
-  final List<CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem> violenceGraphic;
+  final List<
+          CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem>
+      violenceGraphic;
 
-  const CreateModerationResponseResultsItemCategoryAppliedInputTypes({required this.hate, required this.hateThreatening, required this.harassment, required this.harassmentThreatening, required this.illicit, required this.illicitViolent, required this.selfHarm, required this.selfHarmIntent, required this.selfHarmInstructions, required this.sexual, required this.sexualMinors, required this.violence, required this.violenceGraphic});
+  const CreateModerationResponseResultsItemCategoryAppliedInputTypes(
+      {required this.hate,
+      required this.hateThreatening,
+      required this.harassment,
+      required this.harassmentThreatening,
+      required this.illicit,
+      required this.illicitViolent,
+      required this.selfHarm,
+      required this.selfHarmIntent,
+      required this.selfHarmInstructions,
+      required this.sexual,
+      required this.sexualMinors,
+      required this.violence,
+      required this.violenceGraphic});
 
-  CreateModerationResponseResultsItemCategoryAppliedInputTypes Function({List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem> hate, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem> hateThreatening, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem> harassment, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem> harassmentThreatening, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem> illicit, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem> illicitViolent, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem> selfHarm, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem> selfHarmIntent, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem> selfHarmInstructions, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem> sexual, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem> sexualMinors, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem> violence, List<CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem> violenceGraphic}) get copyWith => _copyWith;
+  CreateModerationResponseResultsItemCategoryAppliedInputTypes Function(
+      {List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem>
+          hate,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem>
+          hateThreatening,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem>
+          harassment,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem>
+          harassmentThreatening,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem>
+          illicit,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem>
+          illicitViolent,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem>
+          selfHarm,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem>
+          selfHarmIntent,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem>
+          selfHarmInstructions,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem>
+          sexual,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem>
+          sexualMinors,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem>
+          violence,
+      List<CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem>
+          violenceGraphic}) get copyWith => _copyWith;
 
-  CreateModerationResponseResultsItemCategoryAppliedInputTypes _copyWith({Object? hate = sdkOmittedValue, Object? hateThreatening = sdkOmittedValue, Object? harassment = sdkOmittedValue, Object? harassmentThreatening = sdkOmittedValue, Object? illicit = sdkOmittedValue, Object? illicitViolent = sdkOmittedValue, Object? selfHarm = sdkOmittedValue, Object? selfHarmIntent = sdkOmittedValue, Object? selfHarmInstructions = sdkOmittedValue, Object? sexual = sdkOmittedValue, Object? sexualMinors = sdkOmittedValue, Object? violence = sdkOmittedValue, Object? violenceGraphic = sdkOmittedValue}) => CreateModerationResponseResultsItemCategoryAppliedInputTypes(
-    hate: identical(hate, sdkOmittedValue) ? this.hate : hate as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem>,
-    hateThreatening: identical(hateThreatening, sdkOmittedValue) ? this.hateThreatening : hateThreatening as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem>,
-    harassment: identical(harassment, sdkOmittedValue) ? this.harassment : harassment as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem>,
-    harassmentThreatening: identical(harassmentThreatening, sdkOmittedValue) ? this.harassmentThreatening : harassmentThreatening as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem>,
-    illicit: identical(illicit, sdkOmittedValue) ? this.illicit : illicit as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem>,
-    illicitViolent: identical(illicitViolent, sdkOmittedValue) ? this.illicitViolent : illicitViolent as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem>,
-    selfHarm: identical(selfHarm, sdkOmittedValue) ? this.selfHarm : selfHarm as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem>,
-    selfHarmIntent: identical(selfHarmIntent, sdkOmittedValue) ? this.selfHarmIntent : selfHarmIntent as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem>,
-    selfHarmInstructions: identical(selfHarmInstructions, sdkOmittedValue) ? this.selfHarmInstructions : selfHarmInstructions as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem>,
-    sexual: identical(sexual, sdkOmittedValue) ? this.sexual : sexual as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem>,
-    sexualMinors: identical(sexualMinors, sdkOmittedValue) ? this.sexualMinors : sexualMinors as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem>,
-    violence: identical(violence, sdkOmittedValue) ? this.violence : violence as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem>,
-    violenceGraphic: identical(violenceGraphic, sdkOmittedValue) ? this.violenceGraphic : violenceGraphic as List<CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem>,
-  );
+  CreateModerationResponseResultsItemCategoryAppliedInputTypes _copyWith(
+          {Object? hate = sdkOmittedValue,
+          Object? hateThreatening = sdkOmittedValue,
+          Object? harassment = sdkOmittedValue,
+          Object? harassmentThreatening = sdkOmittedValue,
+          Object? illicit = sdkOmittedValue,
+          Object? illicitViolent = sdkOmittedValue,
+          Object? selfHarm = sdkOmittedValue,
+          Object? selfHarmIntent = sdkOmittedValue,
+          Object? selfHarmInstructions = sdkOmittedValue,
+          Object? sexual = sdkOmittedValue,
+          Object? sexualMinors = sdkOmittedValue,
+          Object? violence = sdkOmittedValue,
+          Object? violenceGraphic = sdkOmittedValue}) =>
+      CreateModerationResponseResultsItemCategoryAppliedInputTypes(
+        hate: identical(hate, sdkOmittedValue)
+            ? this.hate
+            : hate as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem>,
+        hateThreatening: identical(hateThreatening, sdkOmittedValue)
+            ? this.hateThreatening
+            : hateThreatening as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem>,
+        harassment: identical(harassment, sdkOmittedValue)
+            ? this.harassment
+            : harassment as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem>,
+        harassmentThreatening: identical(harassmentThreatening, sdkOmittedValue)
+            ? this.harassmentThreatening
+            : harassmentThreatening as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem>,
+        illicit: identical(illicit, sdkOmittedValue)
+            ? this.illicit
+            : illicit as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem>,
+        illicitViolent: identical(illicitViolent, sdkOmittedValue)
+            ? this.illicitViolent
+            : illicitViolent as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem>,
+        selfHarm: identical(selfHarm, sdkOmittedValue)
+            ? this.selfHarm
+            : selfHarm as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem>,
+        selfHarmIntent: identical(selfHarmIntent, sdkOmittedValue)
+            ? this.selfHarmIntent
+            : selfHarmIntent as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem>,
+        selfHarmInstructions: identical(selfHarmInstructions, sdkOmittedValue)
+            ? this.selfHarmInstructions
+            : selfHarmInstructions as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem>,
+        sexual: identical(sexual, sdkOmittedValue)
+            ? this.sexual
+            : sexual as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem>,
+        sexualMinors: identical(sexualMinors, sdkOmittedValue)
+            ? this.sexualMinors
+            : sexualMinors as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem>,
+        violence: identical(violence, sdkOmittedValue)
+            ? this.violence
+            : violence as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem>,
+        violenceGraphic: identical(violenceGraphic, sdkOmittedValue)
+            ? this.violenceGraphic
+            : violenceGraphic as List<
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem>,
+      );
 
-  factory CreateModerationResponseResultsItemCategoryAppliedInputTypes.fromJson(Map<String, dynamic> json) => CreateModerationResponseResultsItemCategoryAppliedInputTypes(
-    hate: ((json['hate'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem.fromJson(e as String)).toList())!,
-    hateThreatening: ((json['hate/threatening'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem.fromJson(e as String)).toList())!,
-    harassment: ((json['harassment'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem.fromJson(e as String)).toList())!,
-    harassmentThreatening: ((json['harassment/threatening'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem.fromJson(e as String)).toList())!,
-    illicit: ((json['illicit'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem.fromJson(e as String)).toList())!,
-    illicitViolent: ((json['illicit/violent'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem.fromJson(e as String)).toList())!,
-    selfHarm: ((json['self-harm'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem.fromJson(e as String)).toList())!,
-    selfHarmIntent: ((json['self-harm/intent'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem.fromJson(e as String)).toList())!,
-    selfHarmInstructions: ((json['self-harm/instructions'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem.fromJson(e as String)).toList())!,
-    sexual: ((json['sexual'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem.fromJson(e as String)).toList())!,
-    sexualMinors: ((json['sexual/minors'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem.fromJson(e as String)).toList())!,
-    violence: ((json['violence'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem.fromJson(e as String)).toList())!,
-    violenceGraphic: ((json['violence/graphic'] as List?)?.map((e) => CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem.fromJson(e as String)).toList())!,
-  );
+  factory CreateModerationResponseResultsItemCategoryAppliedInputTypes.fromJson(
+          Map<String, dynamic> json) =>
+      CreateModerationResponseResultsItemCategoryAppliedInputTypes(
+        hate: ((json['hate'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem
+                    .fromJson(e as String))
+            .toList())!,
+        hateThreatening: ((json['hate/threatening'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem
+                    .fromJson(e as String))
+            .toList())!,
+        harassment: ((json['harassment'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem
+                    .fromJson(e as String))
+            .toList())!,
+        harassmentThreatening: ((json['harassment/threatening'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem
+                    .fromJson(e as String))
+            .toList())!,
+        illicit: ((json['illicit'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem
+                    .fromJson(e as String))
+            .toList())!,
+        illicitViolent: ((json['illicit/violent'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem
+                    .fromJson(e as String))
+            .toList())!,
+        selfHarm: ((json['self-harm'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem
+                    .fromJson(e as String))
+            .toList())!,
+        selfHarmIntent: ((json['self-harm/intent'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem
+                    .fromJson(e as String))
+            .toList())!,
+        selfHarmInstructions: ((json['self-harm/instructions'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem
+                    .fromJson(e as String))
+            .toList())!,
+        sexual: ((json['sexual'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem
+                    .fromJson(e as String))
+            .toList())!,
+        sexualMinors: ((json['sexual/minors'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem
+                    .fromJson(e as String))
+            .toList())!,
+        violence: ((json['violence'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem
+                    .fromJson(e as String))
+            .toList())!,
+        violenceGraphic: ((json['violence/graphic'] as List?)
+            ?.map((e) =>
+                CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem
+                    .fromJson(e as String))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'hate': hate.map((item) => item.toJson()).toList(),
-    'hate/threatening': hateThreatening.map((item) => item.toJson()).toList(),
-    'harassment': harassment.map((item) => item.toJson()).toList(),
-    'harassment/threatening': harassmentThreatening.map((item) => item.toJson()).toList(),
-    'illicit': illicit.map((item) => item.toJson()).toList(),
-    'illicit/violent': illicitViolent.map((item) => item.toJson()).toList(),
-    'self-harm': selfHarm.map((item) => item.toJson()).toList(),
-    'self-harm/intent': selfHarmIntent.map((item) => item.toJson()).toList(),
-    'self-harm/instructions': selfHarmInstructions.map((item) => item.toJson()).toList(),
-    'sexual': sexual.map((item) => item.toJson()).toList(),
-    'sexual/minors': sexualMinors.map((item) => item.toJson()).toList(),
-    'violence': violence.map((item) => item.toJson()).toList(),
-    'violence/graphic': violenceGraphic.map((item) => item.toJson()).toList(),
-  };
+        'hate': hate.map((item) => item.toJson()).toList(),
+        'hate/threatening':
+            hateThreatening.map((item) => item.toJson()).toList(),
+        'harassment': harassment.map((item) => item.toJson()).toList(),
+        'harassment/threatening':
+            harassmentThreatening.map((item) => item.toJson()).toList(),
+        'illicit': illicit.map((item) => item.toJson()).toList(),
+        'illicit/violent': illicitViolent.map((item) => item.toJson()).toList(),
+        'self-harm': selfHarm.map((item) => item.toJson()).toList(),
+        'self-harm/intent':
+            selfHarmIntent.map((item) => item.toJson()).toList(),
+        'self-harm/instructions':
+            selfHarmInstructions.map((item) => item.toJson()).toList(),
+        'sexual': sexual.map((item) => item.toJson()).toList(),
+        'sexual/minors': sexualMinors.map((item) => item.toJson()).toList(),
+        'violence': violence.map((item) => item.toJson()).toList(),
+        'violence/graphic':
+            violenceGraphic.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Required object value serialized in the `results[]` wire field.
 class CreateModerationResponseResultsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether any of the below categories are flagged.
   final bool flagged;
+
   /// A list of the categories, and whether they are flagged or not.
   final CreateModerationResponseResultsItemCategories categories;
+
   /// A list of the categories along with their scores as predicted by model.
   final CreateModerationResponseResultsItemCategoryScores categoryScores;
+
   /// A list of the categories along with the input type(s) that the score applies to.
-  final CreateModerationResponseResultsItemCategoryAppliedInputTypes categoryAppliedInputTypes;
+  final CreateModerationResponseResultsItemCategoryAppliedInputTypes
+      categoryAppliedInputTypes;
 
-  const CreateModerationResponseResultsItem({required this.flagged, required this.categories, required this.categoryScores, required this.categoryAppliedInputTypes});
+  const CreateModerationResponseResultsItem(
+      {required this.flagged,
+      required this.categories,
+      required this.categoryScores,
+      required this.categoryAppliedInputTypes});
 
-  CreateModerationResponseResultsItem Function({bool flagged, CreateModerationResponseResultsItemCategories categories, CreateModerationResponseResultsItemCategoryScores categoryScores, CreateModerationResponseResultsItemCategoryAppliedInputTypes categoryAppliedInputTypes}) get copyWith => _copyWith;
+  CreateModerationResponseResultsItem Function(
+      {bool flagged,
+      CreateModerationResponseResultsItemCategories categories,
+      CreateModerationResponseResultsItemCategoryScores categoryScores,
+      CreateModerationResponseResultsItemCategoryAppliedInputTypes
+          categoryAppliedInputTypes}) get copyWith => _copyWith;
 
-  CreateModerationResponseResultsItem _copyWith({Object? flagged = sdkOmittedValue, Object? categories = sdkOmittedValue, Object? categoryScores = sdkOmittedValue, Object? categoryAppliedInputTypes = sdkOmittedValue}) => CreateModerationResponseResultsItem(
-    flagged: identical(flagged, sdkOmittedValue) ? this.flagged : flagged as bool,
-    categories: identical(categories, sdkOmittedValue) ? this.categories : categories as CreateModerationResponseResultsItemCategories,
-    categoryScores: identical(categoryScores, sdkOmittedValue) ? this.categoryScores : categoryScores as CreateModerationResponseResultsItemCategoryScores,
-    categoryAppliedInputTypes: identical(categoryAppliedInputTypes, sdkOmittedValue) ? this.categoryAppliedInputTypes : categoryAppliedInputTypes as CreateModerationResponseResultsItemCategoryAppliedInputTypes,
-  );
+  CreateModerationResponseResultsItem _copyWith(
+          {Object? flagged = sdkOmittedValue,
+          Object? categories = sdkOmittedValue,
+          Object? categoryScores = sdkOmittedValue,
+          Object? categoryAppliedInputTypes = sdkOmittedValue}) =>
+      CreateModerationResponseResultsItem(
+        flagged: identical(flagged, sdkOmittedValue)
+            ? this.flagged
+            : flagged as bool,
+        categories: identical(categories, sdkOmittedValue)
+            ? this.categories
+            : categories as CreateModerationResponseResultsItemCategories,
+        categoryScores: identical(categoryScores, sdkOmittedValue)
+            ? this.categoryScores
+            : categoryScores
+                as CreateModerationResponseResultsItemCategoryScores,
+        categoryAppliedInputTypes: identical(
+                categoryAppliedInputTypes, sdkOmittedValue)
+            ? this.categoryAppliedInputTypes
+            : categoryAppliedInputTypes
+                as CreateModerationResponseResultsItemCategoryAppliedInputTypes,
+      );
 
-  factory CreateModerationResponseResultsItem.fromJson(Map<String, dynamic> json) => CreateModerationResponseResultsItem(
-    flagged: (json['flagged'] as bool?)!,
-    categories: (json['categories'] != null ? CreateModerationResponseResultsItemCategories.fromJson(json['categories'] as Map<String, dynamic>) : null)!,
-    categoryScores: (json['category_scores'] != null ? CreateModerationResponseResultsItemCategoryScores.fromJson(json['category_scores'] as Map<String, dynamic>) : null)!,
-    categoryAppliedInputTypes: (json['category_applied_input_types'] != null ? CreateModerationResponseResultsItemCategoryAppliedInputTypes.fromJson(json['category_applied_input_types'] as Map<String, dynamic>) : null)!,
-  );
+  factory CreateModerationResponseResultsItem.fromJson(
+          Map<String, dynamic> json) =>
+      CreateModerationResponseResultsItem(
+        flagged: (json['flagged'] as bool?)!,
+        categories: (json['categories'] != null
+            ? CreateModerationResponseResultsItemCategories.fromJson(
+                json['categories'] as Map<String, dynamic>)
+            : null)!,
+        categoryScores: (json['category_scores'] != null
+            ? CreateModerationResponseResultsItemCategoryScores.fromJson(
+                json['category_scores'] as Map<String, dynamic>)
+            : null)!,
+        categoryAppliedInputTypes: (json['category_applied_input_types'] != null
+            ? CreateModerationResponseResultsItemCategoryAppliedInputTypes
+                .fromJson(json['category_applied_input_types']
+                    as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'flagged': flagged,
-    'categories': categories.toJson(),
-    'category_scores': categoryScores.toJson(),
-    'category_applied_input_types': categoryAppliedInputTypes.toJson(),
-  };
+        'flagged': flagged,
+        'categories': categories.toJson(),
+        'category_scores': categoryScores.toJson(),
+        'category_applied_input_types': categoryAppliedInputTypes.toJson(),
+      };
 }

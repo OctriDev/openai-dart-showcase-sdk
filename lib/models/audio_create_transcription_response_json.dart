@@ -8,89 +8,177 @@ part of 'audio.dart';
 class CreateTranscriptionResponseJsonLogprobsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The token in the transcription.
   final SdkOptional<String> token;
+
   /// The log probability of the token.
   final SdkOptional<double> logprob;
+
   /// The bytes of the token.
   final SdkOptional<List<double>> bytes;
 
-  const CreateTranscriptionResponseJsonLogprobsItem({this.token = const SdkOmitted(), this.logprob = const SdkOmitted(), this.bytes = const SdkOmitted()});
+  const CreateTranscriptionResponseJsonLogprobsItem(
+      {this.token = const SdkOmitted(),
+      this.logprob = const SdkOmitted(),
+      this.bytes = const SdkOmitted()});
 
-  CreateTranscriptionResponseJsonLogprobsItem Function({SdkOptional<String> token, SdkOptional<double> logprob, SdkOptional<List<double>> bytes}) get copyWith => _copyWith;
+  CreateTranscriptionResponseJsonLogprobsItem Function(
+      {SdkOptional<String> token,
+      SdkOptional<double> logprob,
+      SdkOptional<List<double>> bytes}) get copyWith => _copyWith;
 
-  CreateTranscriptionResponseJsonLogprobsItem _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? bytes = sdkOmittedValue}) => CreateTranscriptionResponseJsonLogprobsItem(
-    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
-    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as SdkOptional<double>,
-    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as SdkOptional<List<double>>,
-  );
+  CreateTranscriptionResponseJsonLogprobsItem _copyWith(
+          {Object? token = sdkOmittedValue,
+          Object? logprob = sdkOmittedValue,
+          Object? bytes = sdkOmittedValue}) =>
+      CreateTranscriptionResponseJsonLogprobsItem(
+        token: identical(token, sdkOmittedValue)
+            ? this.token
+            : token as SdkOptional<String>,
+        logprob: identical(logprob, sdkOmittedValue)
+            ? this.logprob
+            : logprob as SdkOptional<double>,
+        bytes: identical(bytes, sdkOmittedValue)
+            ? this.bytes
+            : bytes as SdkOptional<List<double>>,
+      );
 
-  factory CreateTranscriptionResponseJsonLogprobsItem.fromJson(Map<String, dynamic> json) => CreateTranscriptionResponseJsonLogprobsItem(
-    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
-    logprob: json['logprob'] != null ? SdkPresent(((json['logprob'] as num?)?.toDouble())!) : const SdkOmitted(),
-    bytes: json['bytes'] != null ? SdkPresent(((json['bytes'] as List?)?.map((e) => (e as num).toDouble()).toList())!) : const SdkOmitted(),
-  );
+  factory CreateTranscriptionResponseJsonLogprobsItem.fromJson(
+          Map<String, dynamic> json) =>
+      CreateTranscriptionResponseJsonLogprobsItem(
+        token: json['token'] != null
+            ? SdkPresent((json['token'] as String?)!)
+            : const SdkOmitted(),
+        logprob: json['logprob'] != null
+            ? SdkPresent(((json['logprob'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        bytes: json['bytes'] != null
+            ? SdkPresent(((json['bytes'] as List?)
+                ?.map((e) => (e as num).toDouble())
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (token) {
-      SdkPresent<String>(value: final value) => {'token': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (logprob) {
-      SdkPresent<double>(value: final value) => {'logprob': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (bytes) {
-      SdkPresent<List<double>>(value: final value) => {'bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (token) {
+          SdkPresent<String>(value: final value) => {
+              'token': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (logprob) {
+          SdkPresent<double>(value: final value) => {
+              'logprob': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (bytes) {
+          SdkPresent<List<double>>(value: final value) => {
+              'bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Represents a transcription response returned by model, based on the provided input.
 class CreateTranscriptionResponseJson {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The transcribed text.
   final String text;
+
   /// The languages detected in the audio. Returned by `gpt-transcribe`. An empty array indicates that no language could be reliably detected.
   final SdkOptional<List<TranscriptionLanguage>> languages;
+
   /// The log probabilities of the tokens in the transcription. Only returned with the models `gpt-4o-transcribe` and `gpt-4o-mini-transcribe` if `logprobs` is added to the `include` array.
   final SdkOptional<List<CreateTranscriptionResponseJsonLogprobsItem>> logprobs;
+
   /// Token usage statistics for the request.
   final SdkOptional<CreateTranscriptionResponseJsonUsage> usage;
 
-  const CreateTranscriptionResponseJson({required this.text, this.languages = const SdkOmitted(), this.logprobs = const SdkOmitted(), this.usage = const SdkOmitted()});
+  const CreateTranscriptionResponseJson(
+      {required this.text,
+      this.languages = const SdkOmitted(),
+      this.logprobs = const SdkOmitted(),
+      this.usage = const SdkOmitted()});
 
-  CreateTranscriptionResponseJson Function({String text, SdkOptional<List<TranscriptionLanguage>> languages, SdkOptional<List<CreateTranscriptionResponseJsonLogprobsItem>> logprobs, SdkOptional<CreateTranscriptionResponseJsonUsage> usage}) get copyWith => _copyWith;
+  CreateTranscriptionResponseJson Function(
+      {String text,
+      SdkOptional<List<TranscriptionLanguage>> languages,
+      SdkOptional<List<CreateTranscriptionResponseJsonLogprobsItem>> logprobs,
+      SdkOptional<CreateTranscriptionResponseJsonUsage>
+          usage}) get copyWith => _copyWith;
 
-  CreateTranscriptionResponseJson _copyWith({Object? text = sdkOmittedValue, Object? languages = sdkOmittedValue, Object? logprobs = sdkOmittedValue, Object? usage = sdkOmittedValue}) => CreateTranscriptionResponseJson(
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    languages: identical(languages, sdkOmittedValue) ? this.languages : languages as SdkOptional<List<TranscriptionLanguage>>,
-    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as SdkOptional<List<CreateTranscriptionResponseJsonLogprobsItem>>,
-    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<CreateTranscriptionResponseJsonUsage>,
-  );
+  CreateTranscriptionResponseJson _copyWith(
+          {Object? text = sdkOmittedValue,
+          Object? languages = sdkOmittedValue,
+          Object? logprobs = sdkOmittedValue,
+          Object? usage = sdkOmittedValue}) =>
+      CreateTranscriptionResponseJson(
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        languages: identical(languages, sdkOmittedValue)
+            ? this.languages
+            : languages as SdkOptional<List<TranscriptionLanguage>>,
+        logprobs: identical(logprobs, sdkOmittedValue)
+            ? this.logprobs
+            : logprobs as SdkOptional<
+                List<CreateTranscriptionResponseJsonLogprobsItem>>,
+        usage: identical(usage, sdkOmittedValue)
+            ? this.usage
+            : usage as SdkOptional<CreateTranscriptionResponseJsonUsage>,
+      );
 
-  factory CreateTranscriptionResponseJson.fromJson(Map<String, dynamic> json) => CreateTranscriptionResponseJson(
-    text: (json['text'] as String?)!,
-    languages: json['languages'] != null ? SdkPresent(((json['languages'] as List?)?.map((e) => TranscriptionLanguage.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    logprobs: json['logprobs'] != null ? SdkPresent(((json['logprobs'] as List?)?.map((e) => CreateTranscriptionResponseJsonLogprobsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    usage: json['usage'] != null ? SdkPresent((json['usage'] != null ? CreateTranscriptionResponseJsonUsage.fromJson(json['usage']) : null)!) : const SdkOmitted(),
-  );
+  factory CreateTranscriptionResponseJson.fromJson(Map<String, dynamic> json) =>
+      CreateTranscriptionResponseJson(
+        text: (json['text'] as String?)!,
+        languages: json['languages'] != null
+            ? SdkPresent(((json['languages'] as List?)
+                ?.map((e) =>
+                    TranscriptionLanguage.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        logprobs: json['logprobs'] != null
+            ? SdkPresent(((json['logprobs'] as List?)
+                ?.map((e) =>
+                    CreateTranscriptionResponseJsonLogprobsItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        usage: json['usage'] != null
+            ? SdkPresent((json['usage'] != null
+                ? CreateTranscriptionResponseJsonUsage.fromJson(json['usage'])
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'text': text,
-    ...switch (languages) {
-      SdkPresent<List<TranscriptionLanguage>>(value: final value) => {'languages': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (logprobs) {
-      SdkPresent<List<CreateTranscriptionResponseJsonLogprobsItem>>(value: final value) => {'logprobs': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (usage) {
-      SdkPresent<CreateTranscriptionResponseJsonUsage>(value: final value) => {'usage': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'text': text,
+        ...switch (languages) {
+          SdkPresent<List<TranscriptionLanguage>>(value: final value) => {
+              'languages': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (logprobs) {
+          SdkPresent<List<CreateTranscriptionResponseJsonLogprobsItem>>(
+            value: final value
+          ) =>
+            {
+              'logprobs': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (usage) {
+          SdkPresent<CreateTranscriptionResponseJsonUsage>(
+            value: final value
+          ) =>
+            {
+              'usage': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

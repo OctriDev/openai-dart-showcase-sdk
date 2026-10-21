@@ -8,22 +8,34 @@ part of 'responses_beta_function.dart';
 class BetaFunctionShellCallOutputTimeoutOutcome {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The outcome type. Always `timeout`.
   final BetaFunctionShellCallOutputTimeoutOutcomeType type_;
 
   const BetaFunctionShellCallOutputTimeoutOutcome({required this.type_});
 
-  BetaFunctionShellCallOutputTimeoutOutcome Function({BetaFunctionShellCallOutputTimeoutOutcomeType type_}) get copyWith => _copyWith;
+  BetaFunctionShellCallOutputTimeoutOutcome Function(
+          {BetaFunctionShellCallOutputTimeoutOutcomeType type_})
+      get copyWith => _copyWith;
 
-  BetaFunctionShellCallOutputTimeoutOutcome _copyWith({Object? type_ = sdkOmittedValue}) => BetaFunctionShellCallOutputTimeoutOutcome(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFunctionShellCallOutputTimeoutOutcomeType,
-  );
+  BetaFunctionShellCallOutputTimeoutOutcome _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      BetaFunctionShellCallOutputTimeoutOutcome(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaFunctionShellCallOutputTimeoutOutcomeType,
+      );
 
-  factory BetaFunctionShellCallOutputTimeoutOutcome.fromJson(Map<String, dynamic> json) => BetaFunctionShellCallOutputTimeoutOutcome(
-    type_: (json['type'] != null ? BetaFunctionShellCallOutputTimeoutOutcomeType.fromJson(json['type'] as String) : null)!,
-  );
+  factory BetaFunctionShellCallOutputTimeoutOutcome.fromJson(
+          Map<String, dynamic> json) =>
+      BetaFunctionShellCallOutputTimeoutOutcome(
+        type_: (json['type'] != null
+            ? BetaFunctionShellCallOutputTimeoutOutcomeType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

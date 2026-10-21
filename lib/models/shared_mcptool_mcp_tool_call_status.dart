@@ -6,12 +6,12 @@ part of 'shared_mcptool.dart';
 // shared_mcptool domain models
 /// Typed representation of the `MCPToolCallStatus` API schema.
 final class MCPToolCallStatus {
-
   final String value;
 
   const MCPToolCallStatus._(this.value);
 
-  factory MCPToolCallStatus.fromJson(String value) => MCPToolCallStatus._(value);
+  factory MCPToolCallStatus.fromJson(String value) =>
+      MCPToolCallStatus._(value);
 
   static const inProgress = MCPToolCallStatus._('in_progress');
   static const completed = MCPToolCallStatus._('completed');
@@ -21,10 +21,13 @@ final class MCPToolCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MCPToolCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MCPToolCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

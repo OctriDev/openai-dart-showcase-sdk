@@ -8,35 +8,63 @@ part of 'responses_beta_mcptool.dart';
 class BetaMCPToolRequireApprovalVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A filter object to specify which tools are allowed.
   final SdkOptional<BetaMCPToolFilter> always;
+
   /// A filter object to specify which tools are allowed.
   final SdkOptional<BetaMCPToolFilter> never;
 
-  const BetaMCPToolRequireApprovalVariant0({this.always = const SdkOmitted(), this.never = const SdkOmitted()});
+  const BetaMCPToolRequireApprovalVariant0(
+      {this.always = const SdkOmitted(), this.never = const SdkOmitted()});
 
-  BetaMCPToolRequireApprovalVariant0 Function({SdkOptional<BetaMCPToolFilter> always, SdkOptional<BetaMCPToolFilter> never}) get copyWith => _copyWith;
+  BetaMCPToolRequireApprovalVariant0 Function(
+      {SdkOptional<BetaMCPToolFilter> always,
+      SdkOptional<BetaMCPToolFilter> never}) get copyWith => _copyWith;
 
-  BetaMCPToolRequireApprovalVariant0 _copyWith({Object? always = sdkOmittedValue, Object? never = sdkOmittedValue}) => BetaMCPToolRequireApprovalVariant0(
-    always: identical(always, sdkOmittedValue) ? this.always : always as SdkOptional<BetaMCPToolFilter>,
-    never: identical(never, sdkOmittedValue) ? this.never : never as SdkOptional<BetaMCPToolFilter>,
-  );
+  BetaMCPToolRequireApprovalVariant0 _copyWith(
+          {Object? always = sdkOmittedValue,
+          Object? never = sdkOmittedValue}) =>
+      BetaMCPToolRequireApprovalVariant0(
+        always: identical(always, sdkOmittedValue)
+            ? this.always
+            : always as SdkOptional<BetaMCPToolFilter>,
+        never: identical(never, sdkOmittedValue)
+            ? this.never
+            : never as SdkOptional<BetaMCPToolFilter>,
+      );
 
-  factory BetaMCPToolRequireApprovalVariant0.fromJson(Map<String, dynamic> json) => BetaMCPToolRequireApprovalVariant0(
-    always: json['always'] != null ? SdkPresent((json['always'] != null ? BetaMCPToolFilter.fromJson(json['always'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    never: json['never'] != null ? SdkPresent((json['never'] != null ? BetaMCPToolFilter.fromJson(json['never'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory BetaMCPToolRequireApprovalVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      BetaMCPToolRequireApprovalVariant0(
+        always: json['always'] != null
+            ? SdkPresent((json['always'] != null
+                ? BetaMCPToolFilter.fromJson(
+                    json['always'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        never: json['never'] != null
+            ? SdkPresent((json['never'] != null
+                ? BetaMCPToolFilter.fromJson(
+                    json['never'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (always) {
-      SdkPresent<BetaMCPToolFilter>(value: final value) => {'always': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (never) {
-      SdkPresent<BetaMCPToolFilter>(value: final value) => {'never': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (always) {
+          SdkPresent<BetaMCPToolFilter>(value: final value) => {
+              'always': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (never) {
+          SdkPresent<BetaMCPToolFilter>(value: final value) => {
+              'never': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class BetaMCPToolRequireApproval {
@@ -44,21 +72,34 @@ sealed class BetaMCPToolRequireApproval {
   static const String constructionSurface = 'named';
   const BetaMCPToolRequireApproval();
   factory BetaMCPToolRequireApproval.fromJson(Object? json) {
-    try { return BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0(BetaMCPToolRequireApprovalVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1(BetaMCPToolRequireApprovalVariant1.fromJson(json as String)); } catch (_) {}
+    try {
+      return BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0(
+          BetaMCPToolRequireApprovalVariant0.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1(
+          BetaMCPToolRequireApprovalVariant1.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for BetaMCPToolRequireApproval");
   }
   Object? toJson();
 }
 
-final class BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0 extends BetaMCPToolRequireApproval {
+final class BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0
+    extends BetaMCPToolRequireApproval {
   final BetaMCPToolRequireApprovalVariant0 value;
-  const BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1 extends BetaMCPToolRequireApproval {
+final class BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1
+    extends BetaMCPToolRequireApproval {
   final BetaMCPToolRequireApprovalVariant1 value;
-  const BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaMCPToolRequireApprovalBetaMCPToolRequireApprovalVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }

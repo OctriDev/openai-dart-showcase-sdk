@@ -8,32 +8,50 @@ part of 'moderations.dart';
 class CreateModerationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the moderation request.
   final String id;
+
   /// The model used to generate the moderation results.
   final String model;
+
   /// A list of moderation objects.
   final List<CreateModerationResponseResultsItem> results;
 
-  const CreateModerationResponse({required this.id, required this.model, required this.results});
+  const CreateModerationResponse(
+      {required this.id, required this.model, required this.results});
 
-  CreateModerationResponse Function({String id, String model, List<CreateModerationResponseResultsItem> results}) get copyWith => _copyWith;
+  CreateModerationResponse Function(
+          {String id,
+          String model,
+          List<CreateModerationResponseResultsItem> results})
+      get copyWith => _copyWith;
 
-  CreateModerationResponse _copyWith({Object? id = sdkOmittedValue, Object? model = sdkOmittedValue, Object? results = sdkOmittedValue}) => CreateModerationResponse(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    results: identical(results, sdkOmittedValue) ? this.results : results as List<CreateModerationResponseResultsItem>,
-  );
+  CreateModerationResponse _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? results = sdkOmittedValue}) =>
+      CreateModerationResponse(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        results: identical(results, sdkOmittedValue)
+            ? this.results
+            : results as List<CreateModerationResponseResultsItem>,
+      );
 
-  factory CreateModerationResponse.fromJson(Map<String, dynamic> json) => CreateModerationResponse(
-    id: (json['id'] as String?)!,
-    model: (json['model'] as String?)!,
-    results: ((json['results'] as List?)?.map((e) => CreateModerationResponseResultsItem.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory CreateModerationResponse.fromJson(Map<String, dynamic> json) =>
+      CreateModerationResponse(
+        id: (json['id'] as String?)!,
+        model: (json['model'] as String?)!,
+        results: ((json['results'] as List?)
+            ?.map((e) => CreateModerationResponseResultsItem.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'model': model,
-    'results': results.map((item) => item.toJson()).toList(),
-  };
+        'id': id,
+        'model': model,
+        'results': results.map((item) => item.toJson()).toList(),
+      };
 }

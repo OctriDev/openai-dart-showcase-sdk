@@ -8,22 +8,28 @@ part of 'live_live.dart';
 class LiveContextWindowUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The latest active context token count divided by the Live model context limit. Can decrease after compaction and may lag between measured audio frames.
   final double usageRatio;
 
   const LiveContextWindowUsage({required this.usageRatio});
 
-  LiveContextWindowUsage Function({double usageRatio}) get copyWith => _copyWith;
+  LiveContextWindowUsage Function({double usageRatio}) get copyWith =>
+      _copyWith;
 
-  LiveContextWindowUsage _copyWith({Object? usageRatio = sdkOmittedValue}) => LiveContextWindowUsage(
-    usageRatio: identical(usageRatio, sdkOmittedValue) ? this.usageRatio : usageRatio as double,
-  );
+  LiveContextWindowUsage _copyWith({Object? usageRatio = sdkOmittedValue}) =>
+      LiveContextWindowUsage(
+        usageRatio: identical(usageRatio, sdkOmittedValue)
+            ? this.usageRatio
+            : usageRatio as double,
+      );
 
-  factory LiveContextWindowUsage.fromJson(Map<String, dynamic> json) => LiveContextWindowUsage(
-    usageRatio: ((json['usage_ratio'] as num?)?.toDouble())!,
-  );
+  factory LiveContextWindowUsage.fromJson(Map<String, dynamic> json) =>
+      LiveContextWindowUsage(
+        usageRatio: ((json['usage_ratio'] as num?)?.toDouble())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'usage_ratio': usageRatio,
-  };
+        'usage_ratio': usageRatio,
+      };
 }

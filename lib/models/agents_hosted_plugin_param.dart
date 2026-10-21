@@ -9,8 +9,15 @@ sealed class HostedPluginParam {
   static const String constructionSurface = 'named';
   const HostedPluginParam();
   factory HostedPluginParam.fromJson(Object? json) {
-    try { return HostedPluginParamHostedPluginParamInline(HostedPluginParamInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"inline"}.contains(json["type"])) { return UnknownHostedPluginParam(json); }
+    try {
+      return HostedPluginParamHostedPluginParamInline(
+          HostedPluginParamInline.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"inline"}.contains(json["type"])) {
+      return UnknownHostedPluginParam(json);
+    }
     throw FormatException("No variant matched for HostedPluginParam");
   }
   Object? toJson();
@@ -19,12 +26,14 @@ sealed class HostedPluginParam {
 final class HostedPluginParamHostedPluginParamInline extends HostedPluginParam {
   final HostedPluginParamInline value;
   const HostedPluginParamHostedPluginParamInline(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedPluginParam] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownHostedPluginParam extends HostedPluginParam {
   final Map<String, dynamic> raw;
   const UnknownHostedPluginParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

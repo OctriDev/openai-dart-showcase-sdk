@@ -8,32 +8,52 @@ part of 'agents_hosted.dart';
 class HostedTemplateFileResourceInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `inline`.
   final HostedTemplateFileResourceInlineType type_;
+
   /// The file's absolute path inside the environment.
   final String path;
+
   /// The decoded size of the inline file in bytes.
   final int sizeBytes;
 
-  const HostedTemplateFileResourceInline({required this.type_, required this.path, required this.sizeBytes});
+  const HostedTemplateFileResourceInline(
+      {required this.type_, required this.path, required this.sizeBytes});
 
-  HostedTemplateFileResourceInline Function({HostedTemplateFileResourceInlineType type_, String path, int sizeBytes}) get copyWith => _copyWith;
+  HostedTemplateFileResourceInline Function(
+      {HostedTemplateFileResourceInlineType type_,
+      String path,
+      int sizeBytes}) get copyWith => _copyWith;
 
-  HostedTemplateFileResourceInline _copyWith({Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue}) => HostedTemplateFileResourceInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedTemplateFileResourceInlineType,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as int,
-  );
+  HostedTemplateFileResourceInline _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? path = sdkOmittedValue,
+          Object? sizeBytes = sdkOmittedValue}) =>
+      HostedTemplateFileResourceInline(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedTemplateFileResourceInlineType,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+        sizeBytes: identical(sizeBytes, sdkOmittedValue)
+            ? this.sizeBytes
+            : sizeBytes as int,
+      );
 
-  factory HostedTemplateFileResourceInline.fromJson(Map<String, dynamic> json) => HostedTemplateFileResourceInline(
-    type_: (json['type'] != null ? HostedTemplateFileResourceInlineType.fromJson(json['type'] as String) : null)!,
-    path: (json['path'] as String?)!,
-    sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
-  );
+  factory HostedTemplateFileResourceInline.fromJson(
+          Map<String, dynamic> json) =>
+      HostedTemplateFileResourceInline(
+        type_: (json['type'] != null
+            ? HostedTemplateFileResourceInlineType.fromJson(
+                json['type'] as String)
+            : null)!,
+        path: (json['path'] as String?)!,
+        sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'path': path,
-    'size_bytes': sizeBytes,
-  };
+        'type': type_.toJson(),
+        'path': path,
+        'size_bytes': sizeBytes,
+      };
 }

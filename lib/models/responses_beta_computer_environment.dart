@@ -6,12 +6,12 @@ part of 'responses_beta_computer.dart';
 // responses_beta_computer domain models
 /// Typed representation of the `BetaComputerEnvironment` API schema.
 final class BetaComputerEnvironment {
-
   final String value;
 
   const BetaComputerEnvironment._(this.value);
 
-  factory BetaComputerEnvironment.fromJson(String value) => BetaComputerEnvironment._(value);
+  factory BetaComputerEnvironment.fromJson(String value) =>
+      BetaComputerEnvironment._(value);
 
   static const windows = BetaComputerEnvironment._('windows');
   static const mac = BetaComputerEnvironment._('mac');
@@ -21,10 +21,13 @@ final class BetaComputerEnvironment {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaComputerEnvironment && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaComputerEnvironment && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

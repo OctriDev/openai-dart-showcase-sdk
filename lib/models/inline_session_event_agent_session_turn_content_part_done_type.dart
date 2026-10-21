@@ -8,16 +8,23 @@ part of 'inline.dart';
 enum SessionEventAgentSessionTurnContentPartDoneType {
   agentSessionTurnContentPartDone;
 
-  static SessionEventAgentSessionTurnContentPartDoneType fromJson(String value) {
+  static SessionEventAgentSessionTurnContentPartDoneType fromJson(
+      String value) {
     switch (value) {
-      case 'agent.session.turn.content_part.done': return SessionEventAgentSessionTurnContentPartDoneType.agentSessionTurnContentPartDone;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnContentPartDoneType: $value');
+      case 'agent.session.turn.content_part.done':
+        return SessionEventAgentSessionTurnContentPartDoneType
+            .agentSessionTurnContentPartDone;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnContentPartDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnContentPartDoneType.agentSessionTurnContentPartDone: return 'agent.session.turn.content_part.done';
+      case SessionEventAgentSessionTurnContentPartDoneType
+            .agentSessionTurnContentPartDone:
+        return 'agent.session.turn.content_part.done';
     }
   }
 
@@ -31,14 +38,18 @@ enum SessionEventAgentSessionTurnCreatedType {
 
   static SessionEventAgentSessionTurnCreatedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.turn.created': return SessionEventAgentSessionTurnCreatedType.agentSessionTurnCreated;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnCreatedType: $value');
+      case 'agent.session.turn.created':
+        return SessionEventAgentSessionTurnCreatedType.agentSessionTurnCreated;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnCreatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnCreatedType.agentSessionTurnCreated: return 'agent.session.turn.created';
+      case SessionEventAgentSessionTurnCreatedType.agentSessionTurnCreated:
+        return 'agent.session.turn.created';
     }
   }
 
@@ -52,14 +63,18 @@ enum SessionEventAgentSessionTurnFailedType {
 
   static SessionEventAgentSessionTurnFailedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.turn.failed': return SessionEventAgentSessionTurnFailedType.agentSessionTurnFailed;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnFailedType: $value');
+      case 'agent.session.turn.failed':
+        return SessionEventAgentSessionTurnFailedType.agentSessionTurnFailed;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnFailedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnFailedType.agentSessionTurnFailed: return 'agent.session.turn.failed';
+      case SessionEventAgentSessionTurnFailedType.agentSessionTurnFailed:
+        return 'agent.session.turn.failed';
     }
   }
 
@@ -73,14 +88,20 @@ enum SessionEventAgentSessionTurnInProgressType {
 
   static SessionEventAgentSessionTurnInProgressType fromJson(String value) {
     switch (value) {
-      case 'agent.session.turn.in_progress': return SessionEventAgentSessionTurnInProgressType.agentSessionTurnInProgress;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnInProgressType: $value');
+      case 'agent.session.turn.in_progress':
+        return SessionEventAgentSessionTurnInProgressType
+            .agentSessionTurnInProgress;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnInProgressType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnInProgressType.agentSessionTurnInProgress: return 'agent.session.turn.in_progress';
+      case SessionEventAgentSessionTurnInProgressType
+            .agentSessionTurnInProgress:
+        return 'agent.session.turn.in_progress';
     }
   }
 
@@ -94,14 +115,19 @@ enum SessionEventAgentSessionTurnItemAddedType {
 
   static SessionEventAgentSessionTurnItemAddedType fromJson(String value) {
     switch (value) {
-      case 'agent.session.turn.item.added': return SessionEventAgentSessionTurnItemAddedType.agentSessionTurnItemAdded;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnItemAddedType: $value');
+      case 'agent.session.turn.item.added':
+        return SessionEventAgentSessionTurnItemAddedType
+            .agentSessionTurnItemAdded;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnItemAddedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnItemAddedType.agentSessionTurnItemAdded: return 'agent.session.turn.item.added';
+      case SessionEventAgentSessionTurnItemAddedType.agentSessionTurnItemAdded:
+        return 'agent.session.turn.item.added';
     }
   }
 
@@ -115,14 +141,19 @@ enum SessionEventAgentSessionTurnItemDoneType {
 
   static SessionEventAgentSessionTurnItemDoneType fromJson(String value) {
     switch (value) {
-      case 'agent.session.turn.item.done': return SessionEventAgentSessionTurnItemDoneType.agentSessionTurnItemDone;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnItemDoneType: $value');
+      case 'agent.session.turn.item.done':
+        return SessionEventAgentSessionTurnItemDoneType
+            .agentSessionTurnItemDone;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnItemDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnItemDoneType.agentSessionTurnItemDone: return 'agent.session.turn.item.done';
+      case SessionEventAgentSessionTurnItemDoneType.agentSessionTurnItemDone:
+        return 'agent.session.turn.item.done';
     }
   }
 
@@ -134,16 +165,23 @@ enum SessionEventAgentSessionTurnItemDoneType {
 enum SessionEventAgentSessionTurnOutputTextDeltaType {
   agentSessionTurnOutputTextDelta;
 
-  static SessionEventAgentSessionTurnOutputTextDeltaType fromJson(String value) {
+  static SessionEventAgentSessionTurnOutputTextDeltaType fromJson(
+      String value) {
     switch (value) {
-      case 'agent.session.turn.output_text.delta': return SessionEventAgentSessionTurnOutputTextDeltaType.agentSessionTurnOutputTextDelta;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnOutputTextDeltaType: $value');
+      case 'agent.session.turn.output_text.delta':
+        return SessionEventAgentSessionTurnOutputTextDeltaType
+            .agentSessionTurnOutputTextDelta;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnOutputTextDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnOutputTextDeltaType.agentSessionTurnOutputTextDelta: return 'agent.session.turn.output_text.delta';
+      case SessionEventAgentSessionTurnOutputTextDeltaType
+            .agentSessionTurnOutputTextDelta:
+        return 'agent.session.turn.output_text.delta';
     }
   }
 
@@ -157,14 +195,20 @@ enum SessionEventAgentSessionTurnOutputTextDoneType {
 
   static SessionEventAgentSessionTurnOutputTextDoneType fromJson(String value) {
     switch (value) {
-      case 'agent.session.turn.output_text.done': return SessionEventAgentSessionTurnOutputTextDoneType.agentSessionTurnOutputTextDone;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnOutputTextDoneType: $value');
+      case 'agent.session.turn.output_text.done':
+        return SessionEventAgentSessionTurnOutputTextDoneType
+            .agentSessionTurnOutputTextDone;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnOutputTextDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnOutputTextDoneType.agentSessionTurnOutputTextDone: return 'agent.session.turn.output_text.done';
+      case SessionEventAgentSessionTurnOutputTextDoneType
+            .agentSessionTurnOutputTextDone:
+        return 'agent.session.turn.output_text.done';
     }
   }
 
@@ -176,16 +220,23 @@ enum SessionEventAgentSessionTurnOutputTextDoneType {
 enum SessionEventAgentSessionTurnReasoningSummaryPartAddedType {
   agentSessionTurnReasoningSummaryPartAdded;
 
-  static SessionEventAgentSessionTurnReasoningSummaryPartAddedType fromJson(String value) {
+  static SessionEventAgentSessionTurnReasoningSummaryPartAddedType fromJson(
+      String value) {
     switch (value) {
-      case 'agent.session.turn.reasoning_summary_part.added': return SessionEventAgentSessionTurnReasoningSummaryPartAddedType.agentSessionTurnReasoningSummaryPartAdded;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnReasoningSummaryPartAddedType: $value');
+      case 'agent.session.turn.reasoning_summary_part.added':
+        return SessionEventAgentSessionTurnReasoningSummaryPartAddedType
+            .agentSessionTurnReasoningSummaryPartAdded;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnReasoningSummaryPartAddedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnReasoningSummaryPartAddedType.agentSessionTurnReasoningSummaryPartAdded: return 'agent.session.turn.reasoning_summary_part.added';
+      case SessionEventAgentSessionTurnReasoningSummaryPartAddedType
+            .agentSessionTurnReasoningSummaryPartAdded:
+        return 'agent.session.turn.reasoning_summary_part.added';
     }
   }
 
@@ -195,39 +246,54 @@ enum SessionEventAgentSessionTurnReasoningSummaryPartAddedType {
 
 /// Present as `incomplete` when summary generation was interrupted.
 final class SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus {
-
   final String value;
 
-  const SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus._(this.value);
+  const SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus._(
+      this.value);
 
-  factory SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus.fromJson(String value) => SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus._(value);
+  factory SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus.fromJson(
+          String value) =>
+      SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus._(value);
 
-  static const incomplete = SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus._('incomplete');
+  static const incomplete =
+      SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus._(
+          'incomplete');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object. Always `agent.session.turn.reasoning_summary_part.done`.
 enum SessionEventAgentSessionTurnReasoningSummaryPartDoneType {
   agentSessionTurnReasoningSummaryPartDone;
 
-  static SessionEventAgentSessionTurnReasoningSummaryPartDoneType fromJson(String value) {
+  static SessionEventAgentSessionTurnReasoningSummaryPartDoneType fromJson(
+      String value) {
     switch (value) {
-      case 'agent.session.turn.reasoning_summary_part.done': return SessionEventAgentSessionTurnReasoningSummaryPartDoneType.agentSessionTurnReasoningSummaryPartDone;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnReasoningSummaryPartDoneType: $value');
+      case 'agent.session.turn.reasoning_summary_part.done':
+        return SessionEventAgentSessionTurnReasoningSummaryPartDoneType
+            .agentSessionTurnReasoningSummaryPartDone;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnReasoningSummaryPartDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnReasoningSummaryPartDoneType.agentSessionTurnReasoningSummaryPartDone: return 'agent.session.turn.reasoning_summary_part.done';
+      case SessionEventAgentSessionTurnReasoningSummaryPartDoneType
+            .agentSessionTurnReasoningSummaryPartDone:
+        return 'agent.session.turn.reasoning_summary_part.done';
     }
   }
 
@@ -239,16 +305,23 @@ enum SessionEventAgentSessionTurnReasoningSummaryPartDoneType {
 enum SessionEventAgentSessionTurnReasoningSummaryTextDeltaType {
   agentSessionTurnReasoningSummaryTextDelta;
 
-  static SessionEventAgentSessionTurnReasoningSummaryTextDeltaType fromJson(String value) {
+  static SessionEventAgentSessionTurnReasoningSummaryTextDeltaType fromJson(
+      String value) {
     switch (value) {
-      case 'agent.session.turn.reasoning_summary_text.delta': return SessionEventAgentSessionTurnReasoningSummaryTextDeltaType.agentSessionTurnReasoningSummaryTextDelta;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnReasoningSummaryTextDeltaType: $value');
+      case 'agent.session.turn.reasoning_summary_text.delta':
+        return SessionEventAgentSessionTurnReasoningSummaryTextDeltaType
+            .agentSessionTurnReasoningSummaryTextDelta;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnReasoningSummaryTextDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnReasoningSummaryTextDeltaType.agentSessionTurnReasoningSummaryTextDelta: return 'agent.session.turn.reasoning_summary_text.delta';
+      case SessionEventAgentSessionTurnReasoningSummaryTextDeltaType
+            .agentSessionTurnReasoningSummaryTextDelta:
+        return 'agent.session.turn.reasoning_summary_text.delta';
     }
   }
 
@@ -260,16 +333,23 @@ enum SessionEventAgentSessionTurnReasoningSummaryTextDeltaType {
 enum SessionEventAgentSessionTurnReasoningSummaryTextDoneType {
   agentSessionTurnReasoningSummaryTextDone;
 
-  static SessionEventAgentSessionTurnReasoningSummaryTextDoneType fromJson(String value) {
+  static SessionEventAgentSessionTurnReasoningSummaryTextDoneType fromJson(
+      String value) {
     switch (value) {
-      case 'agent.session.turn.reasoning_summary_text.done': return SessionEventAgentSessionTurnReasoningSummaryTextDoneType.agentSessionTurnReasoningSummaryTextDone;
-      default: throw ArgumentError('Unknown SessionEventAgentSessionTurnReasoningSummaryTextDoneType: $value');
+      case 'agent.session.turn.reasoning_summary_text.done':
+        return SessionEventAgentSessionTurnReasoningSummaryTextDoneType
+            .agentSessionTurnReasoningSummaryTextDone;
+      default:
+        throw ArgumentError(
+            'Unknown SessionEventAgentSessionTurnReasoningSummaryTextDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventAgentSessionTurnReasoningSummaryTextDoneType.agentSessionTurnReasoningSummaryTextDone: return 'agent.session.turn.reasoning_summary_text.done';
+      case SessionEventAgentSessionTurnReasoningSummaryTextDoneType
+            .agentSessionTurnReasoningSummaryTextDone:
+        return 'agent.session.turn.reasoning_summary_text.done';
     }
   }
 

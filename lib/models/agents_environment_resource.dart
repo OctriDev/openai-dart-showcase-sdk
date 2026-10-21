@@ -10,40 +10,77 @@ sealed class EnvironmentResource {
   const EnvironmentResource();
   factory EnvironmentResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = EnvironmentResourceNone.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnvironmentResourceEnvironmentResourceNone(value); } } catch (_) {}
-      try { final value = EnvironmentResourceOpenaiHosted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnvironmentResourceEnvironmentResourceOpenaiHosted(value); } } catch (_) {}
-      try { final value = EnvironmentResourceSelfHosted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnvironmentResourceEnvironmentResourceSelfHosted(value); } } catch (_) {}
+      try {
+        final value = EnvironmentResourceNone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnvironmentResourceEnvironmentResourceNone(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EnvironmentResourceOpenaiHosted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnvironmentResourceEnvironmentResourceOpenaiHosted(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EnvironmentResourceSelfHosted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnvironmentResourceEnvironmentResourceSelfHosted(value);
+        }
+      } catch (_) {}
     }
-    try { return EnvironmentResourceEnvironmentResourceNone(EnvironmentResourceNone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EnvironmentResourceEnvironmentResourceOpenaiHosted(EnvironmentResourceOpenaiHosted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EnvironmentResourceEnvironmentResourceSelfHosted(EnvironmentResourceSelfHosted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"none", "openai_hosted", "self_hosted"}.contains(json["type"])) { return UnknownEnvironmentResource(json); }
+    try {
+      return EnvironmentResourceEnvironmentResourceNone(
+          EnvironmentResourceNone.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EnvironmentResourceEnvironmentResourceOpenaiHosted(
+          EnvironmentResourceOpenaiHosted.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EnvironmentResourceEnvironmentResourceSelfHosted(
+          EnvironmentResourceSelfHosted.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"none", "openai_hosted", "self_hosted"}
+            .contains(json["type"])) {
+      return UnknownEnvironmentResource(json);
+    }
     throw FormatException("No variant matched for EnvironmentResource");
   }
   Object? toJson();
 }
 
-final class EnvironmentResourceEnvironmentResourceNone extends EnvironmentResource {
+final class EnvironmentResourceEnvironmentResourceNone
+    extends EnvironmentResource {
   final EnvironmentResourceNone value;
   const EnvironmentResourceEnvironmentResourceNone(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EnvironmentResourceEnvironmentResourceOpenaiHosted extends EnvironmentResource {
+final class EnvironmentResourceEnvironmentResourceOpenaiHosted
+    extends EnvironmentResource {
   final EnvironmentResourceOpenaiHosted value;
   const EnvironmentResourceEnvironmentResourceOpenaiHosted(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EnvironmentResourceEnvironmentResourceSelfHosted extends EnvironmentResource {
+final class EnvironmentResourceEnvironmentResourceSelfHosted
+    extends EnvironmentResource {
   final EnvironmentResourceSelfHosted value;
   const EnvironmentResourceEnvironmentResourceSelfHosted(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [EnvironmentResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownEnvironmentResource extends EnvironmentResource {
   final Map<String, dynamic> raw;
   const UnknownEnvironmentResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

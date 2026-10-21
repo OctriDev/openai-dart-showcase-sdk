@@ -8,82 +8,168 @@ part of 'responses_beta_mcptool.dart';
 class BetaMCPToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the item. Always `mcp_call`.
   final BetaMCPToolCallType type_;
+
   /// The unique ID of the tool call.
   final String id;
+
   /// The label of the MCP server running the tool.
   final String serverLabel;
+
   /// The name of the tool that was run.
   final String name;
+
   /// A JSON string of the arguments passed to the tool.
   final String arguments;
+
   /// Optional `string` value serialized in the `output` wire field.
   final SdkOptional<String?> output;
+
   /// The error from the tool call, if any.
   final SdkOptional<BetaMCPToolCallError?> error;
+
   /// The status of the tool call. One of `in_progress`, `completed`, `incomplete`, `calling`, or `failed`.
   final SdkOptional<BetaMCPToolCallStatus> status;
+
   /// Optional `string` value serialized in the `approval_request_id` wire field.
   final SdkOptional<String?> approvalRequestId;
 
-  const BetaMCPToolCall({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.serverLabel, required this.name, required this.arguments, this.output = const SdkOmitted(), this.error = const SdkOmitted(), this.status = const SdkOmitted(), this.approvalRequestId = const SdkOmitted()});
+  const BetaMCPToolCall(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.id,
+      required this.serverLabel,
+      required this.name,
+      required this.arguments,
+      this.output = const SdkOmitted(),
+      this.error = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.approvalRequestId = const SdkOmitted()});
 
-  BetaMCPToolCall Function({SdkOptional<BetaAgentTag?> agent, BetaMCPToolCallType type_, String id, String serverLabel, String name, String arguments, SdkOptional<String?> output, SdkOptional<BetaMCPToolCallError?> error, SdkOptional<BetaMCPToolCallStatus> status, SdkOptional<String?> approvalRequestId}) get copyWith => _copyWith;
+  BetaMCPToolCall Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaMCPToolCallType type_,
+      String id,
+      String serverLabel,
+      String name,
+      String arguments,
+      SdkOptional<String?> output,
+      SdkOptional<BetaMCPToolCallError?> error,
+      SdkOptional<BetaMCPToolCallStatus> status,
+      SdkOptional<String?> approvalRequestId}) get copyWith => _copyWith;
 
-  BetaMCPToolCall _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? name = sdkOmittedValue, Object? arguments = sdkOmittedValue, Object? output = sdkOmittedValue, Object? error = sdkOmittedValue, Object? status = sdkOmittedValue, Object? approvalRequestId = sdkOmittedValue}) => BetaMCPToolCall(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaMCPToolCallType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as String,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<String?>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<BetaMCPToolCallError?>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<BetaMCPToolCallStatus>,
-    approvalRequestId: identical(approvalRequestId, sdkOmittedValue) ? this.approvalRequestId : approvalRequestId as SdkOptional<String?>,
-  );
+  BetaMCPToolCall _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? serverLabel = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? arguments = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? error = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? approvalRequestId = sdkOmittedValue}) =>
+      BetaMCPToolCall(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaMCPToolCallType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        serverLabel: identical(serverLabel, sdkOmittedValue)
+            ? this.serverLabel
+            : serverLabel as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        arguments: identical(arguments, sdkOmittedValue)
+            ? this.arguments
+            : arguments as String,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<String?>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as SdkOptional<BetaMCPToolCallError?>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<BetaMCPToolCallStatus>,
+        approvalRequestId: identical(approvalRequestId, sdkOmittedValue)
+            ? this.approvalRequestId
+            : approvalRequestId as SdkOptional<String?>,
+      );
 
-  factory BetaMCPToolCall.fromJson(Map<String, dynamic> json) => BetaMCPToolCall(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaMCPToolCallType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    serverLabel: (json['server_label'] as String?)!,
-    name: (json['name'] as String?)!,
-    arguments: (json['arguments'] as String?)!,
-    output: json.containsKey('output') ? SdkPresent(json['output'] as String?) : const SdkOmitted(),
-    error: json.containsKey('error') ? SdkPresent(json['error'] != null ? BetaMCPToolCallError.fromJson(json['error']) : null) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? BetaMCPToolCallStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    approvalRequestId: json.containsKey('approval_request_id') ? SdkPresent(json['approval_request_id'] as String?) : const SdkOmitted(),
-  );
+  factory BetaMCPToolCall.fromJson(Map<String, dynamic> json) =>
+      BetaMCPToolCall(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaMCPToolCallType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        serverLabel: (json['server_label'] as String?)!,
+        name: (json['name'] as String?)!,
+        arguments: (json['arguments'] as String?)!,
+        output: json.containsKey('output')
+            ? SdkPresent(json['output'] as String?)
+            : const SdkOmitted(),
+        error: json.containsKey('error')
+            ? SdkPresent(json['error'] != null
+                ? BetaMCPToolCallError.fromJson(json['error'])
+                : null)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? BetaMCPToolCallStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        approvalRequestId: json.containsKey('approval_request_id')
+            ? SdkPresent(json['approval_request_id'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'id': id,
-    'server_label': serverLabel,
-    'name': name,
-    'arguments': arguments,
-    ...switch (output) {
-      SdkPresent<String?>(value: final value) => {'output': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (error) {
-      SdkPresent<BetaMCPToolCallError?>(value: final value) => {'error': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<BetaMCPToolCallStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (approvalRequestId) {
-      SdkPresent<String?>(value: final value) => {'approval_request_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'id': id,
+        'server_label': serverLabel,
+        'name': name,
+        'arguments': arguments,
+        ...switch (output) {
+          SdkPresent<String?>(value: final value) => {
+              'output': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (error) {
+          SdkPresent<BetaMCPToolCallError?>(value: final value) => {
+              'error': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<BetaMCPToolCallStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (approvalRequestId) {
+          SdkPresent<String?>(value: final value) => {
+              'approval_request_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

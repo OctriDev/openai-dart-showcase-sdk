@@ -10,40 +10,83 @@ sealed class FunctionCallOutputItemParamOutputItem {
   const FunctionCallOutputItemParamOutputItem();
   factory FunctionCallOutputItemParamOutputItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = InputTextContentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionCallOutputItemParamOutputItemInputTextContentParam(value); } } catch (_) {}
-      try { final value = InputImageContentParamAutoParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionCallOutputItemParamOutputItemInputImageContentParamAutoParam(value); } } catch (_) {}
-      try { final value = InputFileContentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionCallOutputItemParamOutputItemInputFileContentParam(value); } } catch (_) {}
+      try {
+        final value = InputTextContentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionCallOutputItemParamOutputItemInputTextContentParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputImageContentParamAutoParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionCallOutputItemParamOutputItemInputImageContentParamAutoParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = InputFileContentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionCallOutputItemParamOutputItemInputFileContentParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return FunctionCallOutputItemParamOutputItemInputTextContentParam(InputTextContentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return FunctionCallOutputItemParamOutputItemInputImageContentParamAutoParam(InputImageContentParamAutoParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return FunctionCallOutputItemParamOutputItemInputFileContentParam(InputFileContentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image", "input_file"}.contains(json["type"])) { return UnknownFunctionCallOutputItemParamOutputItem(json); }
-    throw FormatException("No variant matched for FunctionCallOutputItemParamOutputItem");
+    try {
+      return FunctionCallOutputItemParamOutputItemInputTextContentParam(
+          InputTextContentParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return FunctionCallOutputItemParamOutputItemInputImageContentParamAutoParam(
+          InputImageContentParamAutoParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return FunctionCallOutputItemParamOutputItemInputFileContentParam(
+          InputFileContentParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"input_text", "input_image", "input_file"}
+            .contains(json["type"])) {
+      return UnknownFunctionCallOutputItemParamOutputItem(json);
+    }
+    throw FormatException(
+        "No variant matched for FunctionCallOutputItemParamOutputItem");
   }
   Object? toJson();
 }
 
-final class FunctionCallOutputItemParamOutputItemInputTextContentParam extends FunctionCallOutputItemParamOutputItem {
+final class FunctionCallOutputItemParamOutputItemInputTextContentParam
+    extends FunctionCallOutputItemParamOutputItem {
   final InputTextContentParam value;
   const FunctionCallOutputItemParamOutputItemInputTextContentParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class FunctionCallOutputItemParamOutputItemInputImageContentParamAutoParam extends FunctionCallOutputItemParamOutputItem {
+final class FunctionCallOutputItemParamOutputItemInputImageContentParamAutoParam
+    extends FunctionCallOutputItemParamOutputItem {
   final InputImageContentParamAutoParam value;
-  const FunctionCallOutputItemParamOutputItemInputImageContentParamAutoParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const FunctionCallOutputItemParamOutputItemInputImageContentParamAutoParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class FunctionCallOutputItemParamOutputItemInputFileContentParam extends FunctionCallOutputItemParamOutputItem {
+final class FunctionCallOutputItemParamOutputItemInputFileContentParam
+    extends FunctionCallOutputItemParamOutputItem {
   final InputFileContentParam value;
   const FunctionCallOutputItemParamOutputItemInputFileContentParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [FunctionCallOutputItemParamOutputItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownFunctionCallOutputItemParamOutputItem extends FunctionCallOutputItemParamOutputItem {
+final class UnknownFunctionCallOutputItemParamOutputItem
+    extends FunctionCallOutputItemParamOutputItem {
   final Map<String, dynamic> raw;
   const UnknownFunctionCallOutputItemParamOutputItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

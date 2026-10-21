@@ -10,40 +10,85 @@ sealed class BetaAgentMessageItemParamContentItem {
   const BetaAgentMessageItemParamContentItem();
   factory BetaAgentMessageItemParamContentItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaInputTextContentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageItemParamContentItemBetaInputTextContentParam(value); } } catch (_) {}
-      try { final value = BetaInputImageContentParamAutoParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(value); } } catch (_) {}
-      try { final value = BetaEncryptedContentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(value); } } catch (_) {}
+      try {
+        final value = BetaInputTextContentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaAgentMessageItemParamContentItemBetaInputTextContentParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaInputImageContentParamAutoParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaEncryptedContentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return BetaAgentMessageItemParamContentItemBetaInputTextContentParam(BetaInputTextContentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(BetaInputImageContentParamAutoParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(BetaEncryptedContentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image", "encrypted_content"}.contains(json["type"])) { return UnknownBetaAgentMessageItemParamContentItem(json); }
-    throw FormatException("No variant matched for BetaAgentMessageItemParamContentItem");
+    try {
+      return BetaAgentMessageItemParamContentItemBetaInputTextContentParam(
+          BetaInputTextContentParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(
+          BetaInputImageContentParamAutoParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(
+          BetaEncryptedContentParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"input_text", "input_image", "encrypted_content"}
+            .contains(json["type"])) {
+      return UnknownBetaAgentMessageItemParamContentItem(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaAgentMessageItemParamContentItem");
   }
   Object? toJson();
 }
 
-final class BetaAgentMessageItemParamContentItemBetaInputTextContentParam extends BetaAgentMessageItemParamContentItem {
+final class BetaAgentMessageItemParamContentItemBetaInputTextContentParam
+    extends BetaAgentMessageItemParamContentItem {
   final BetaInputTextContentParam value;
-  const BetaAgentMessageItemParamContentItemBetaInputTextContentParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaAgentMessageItemParamContentItemBetaInputTextContentParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam extends BetaAgentMessageItemParamContentItem {
+final class BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam
+    extends BetaAgentMessageItemParamContentItem {
   final BetaInputImageContentParamAutoParam value;
-  const BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaAgentMessageItemParamContentItemBetaInputImageContentParamAutoParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaAgentMessageItemParamContentItemBetaEncryptedContentParam extends BetaAgentMessageItemParamContentItem {
+final class BetaAgentMessageItemParamContentItemBetaEncryptedContentParam
+    extends BetaAgentMessageItemParamContentItem {
   final BetaEncryptedContentParam value;
-  const BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaAgentMessageItemParamContentItemBetaEncryptedContentParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaAgentMessageItemParamContentItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaAgentMessageItemParamContentItem extends BetaAgentMessageItemParamContentItem {
+final class UnknownBetaAgentMessageItemParamContentItem
+    extends BetaAgentMessageItemParamContentItem {
   final Map<String, dynamic> raw;
   const UnknownBetaAgentMessageItemParamContentItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

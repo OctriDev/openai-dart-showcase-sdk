@@ -6,26 +6,30 @@ part of 'live_live_responses.dart';
 // live_live_responses domain models
 /// Typed representation of the `LiveResponsesServiceTier` API schema.
 final class LiveResponsesServiceTier {
-
   final String value;
 
   const LiveResponsesServiceTier._(this.value);
 
-  factory LiveResponsesServiceTier.fromJson(String value) => LiveResponsesServiceTier._(value);
+  factory LiveResponsesServiceTier.fromJson(String value) =>
+      LiveResponsesServiceTier._(value);
 
   static const auto = LiveResponsesServiceTier._('auto');
   static const default_ = LiveResponsesServiceTier._('default');
-  static const fastTierTempPilot = LiveResponsesServiceTier._('fast_tier_temp_pilot');
+  static const fastTierTempPilot =
+      LiveResponsesServiceTier._('fast_tier_temp_pilot');
   static const flex = LiveResponsesServiceTier._('flex');
   static const priority = LiveResponsesServiceTier._('priority');
   static const ultrafast = LiveResponsesServiceTier._('ultrafast');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveResponsesServiceTier && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveResponsesServiceTier && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

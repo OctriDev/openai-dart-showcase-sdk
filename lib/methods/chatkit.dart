@@ -17,12 +17,16 @@ Future<ChatSessionResource> cancelChatkitSession(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'cancelChatkitSession',
-          fromJsonRaw: (value) => ChatSessionResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ChatSessionResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a ChatKit session powered by a specified workflow. Supply `workflow` with its required `id` and a non-empty `user` identifier; optionally configure expiration, rate limits, tracing, and ChatKit features. The response includes the session's client secret, expiration time, and resolved configuration.
 ///
@@ -42,7 +46,8 @@ Future<ChatSessionResource> createChatkitSession(ClientConfig config,
     required String user,
     SdkOptional<ExpiresAfterParam> expiresAfter = const SdkOmitted(),
     SdkOptional<RateLimitsParam> rateLimits = const SdkOmitted(),
-    SdkOptional<ChatkitConfigurationParam> chatkitConfiguration = const SdkOmitted(),
+    SdkOptional<ChatkitConfigurationParam> chatkitConfiguration =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   validateLength('user', user, min: 1);
 
@@ -53,16 +58,24 @@ Future<ChatSessionResource> createChatkitSession(ClientConfig config,
             'user': user,
             'expires_after': SdkUtils.unwrapOptional(expiresAfter),
             'rate_limits': SdkUtils.unwrapOptional(rateLimits),
-            'chatkit_configuration': SdkUtils.unwrapOptional(chatkitConfiguration)
+            'chatkit_configuration':
+                SdkUtils.unwrapOptional(chatkitConfiguration)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createChatkitSession',
-          fromJsonRaw: (value) => ChatSessionResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ChatSessionResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists items belonging to a ChatKit thread. Use `after` or `before` to select items relative to a thread item ID, and use `limit` and `order` to control the result set. The response includes pagination identifiers and a `has_more` flag.
 ///
@@ -90,20 +103,30 @@ Future<ThreadItemListResource> listChatkitThreadItems(ClientConfig config,
           '/chatkit/threads/${Uri.encodeComponent(threadId.toString())}/items',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listChatkitThreadItems',
-          fromJsonRaw: (value) => ThreadItemListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ThreadItemListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists items belonging to a ChatKit thread. Use `after` or `before` to select items relative to a thread item ID, and use `limit` and `order` to control the result set. The response includes pagination identifiers and a `has_more` flag.
 ///
@@ -116,13 +139,33 @@ Future<ThreadItemListResource> listChatkitThreadItems(ClientConfig config,
 ///   the first page.
 /// [before] List items created before this thread item ID. Defaults to null for
 ///   the newest results.
-Stream<ThreadItem> listChatkitThreadItemsPaginated(ClientConfig config, {required String threadId, int? limit, OrderEnum? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+Stream<ThreadItem> listChatkitThreadItemsPaginated(ClientConfig config,
+    {required String threadId,
+    int? limit,
+    OrderEnum? order,
+    String? after,
+    String? before,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listChatkitThreadItems(config, threadId: threadId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<OrderEnum>() : SdkPresent<OrderEnum>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkPage = await listChatkitThreadItems(config,
+        threadId: threadId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<OrderEnum>()
+            : SdkPresent<OrderEnum>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -130,10 +173,29 @@ Stream<ThreadItem> listChatkitThreadItemsPaginated(ClientConfig config, {require
   }
 }
 
-Stream<SdkPage<ThreadItemListResource, ThreadItem>> listChatkitThreadItemsPages(ClientConfig config, {required String threadId, int? limit, OrderEnum? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ThreadItemListResource, ThreadItem>> listChatkitThreadItemsPages(
+    ClientConfig config,
+    {required String threadId,
+    int? limit,
+    OrderEnum? order,
+    String? after,
+    String? before,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listChatkitThreadItems(config, threadId: threadId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<OrderEnum>() : SdkPresent<OrderEnum>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkPage = await listChatkitThreadItems(config,
+        threadId: threadId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<OrderEnum>()
+            : SdkPresent<OrderEnum>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -143,7 +205,6 @@ Stream<SdkPage<ThreadItemListResource, ThreadItem>> listChatkitThreadItemsPages(
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Retrieves a ChatKit thread by its identifier. Use `thread_id` to select the thread whose status and metadata you need.
 ///
@@ -157,12 +218,16 @@ Future<ThreadResource> retrieveChatkitThread(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveChatkitThread',
-          fromJsonRaw: (value) => ThreadResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ThreadResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Delete a ChatKit thread along with its items and stored attachments.
 ///
@@ -174,12 +239,16 @@ Future<DeletedThreadResource> deleteChatkitThread(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteChatkitThread',
-          fromJsonRaw: (value) => DeletedThreadResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedThreadResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// List ChatKit threads with optional pagination and user filters.
 ///
@@ -208,21 +277,32 @@ Future<ThreadListResource> listChatkitThreads(ClientConfig config,
   return (await sdkRequest<ThreadListResource>('GET', '/chatkit/threads',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true),
-            'user': SdkQueryValue(SdkUtils.unwrapOptional(user), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true),
+            'user': SdkQueryValue(SdkUtils.unwrapOptional(user),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listChatkitThreads',
-          fromJsonRaw: (value) => ThreadListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ThreadListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// List ChatKit threads with optional pagination and user filters.
 ///
@@ -234,13 +314,35 @@ Future<ThreadListResource> listChatkitThreads(ClientConfig config,
 ///   the newest results.
 /// [user] Filter threads that belong to this user identifier. Defaults to null
 ///   to return all users.
-Stream<ThreadResource> listChatkitThreadsPaginated(ClientConfig config, {int? limit, OrderEnum? order, String? after, String? before, String? user, RequestOptions? requestOptions}) async* {
+Stream<ThreadResource> listChatkitThreadsPaginated(ClientConfig config,
+    {int? limit,
+    OrderEnum? order,
+    String? after,
+    String? before,
+    String? user,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listChatkitThreads(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<OrderEnum>() : SdkPresent<OrderEnum>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), user: user == null ? const SdkOmitted<String>() : SdkPresent<String>(user), requestOptions: requestOptions);
+    final sdkPage = await listChatkitThreads(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<OrderEnum>()
+            : SdkPresent<OrderEnum>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        user: user == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(user),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -248,10 +350,31 @@ Stream<ThreadResource> listChatkitThreadsPaginated(ClientConfig config, {int? li
   }
 }
 
-Stream<SdkPage<ThreadListResource, ThreadResource>> listChatkitThreadsPages(ClientConfig config, {int? limit, OrderEnum? order, String? after, String? before, String? user, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ThreadListResource, ThreadResource>> listChatkitThreadsPages(
+    ClientConfig config,
+    {int? limit,
+    OrderEnum? order,
+    String? after,
+    String? before,
+    String? user,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listChatkitThreads(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<OrderEnum>() : SdkPresent<OrderEnum>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), user: user == null ? const SdkOmitted<String>() : SdkPresent<String>(user), requestOptions: requestOptions);
+    final sdkPage = await listChatkitThreads(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<OrderEnum>()
+            : SdkPresent<OrderEnum>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        user: user == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(user),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;

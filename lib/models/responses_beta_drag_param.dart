@@ -8,35 +8,63 @@ part of 'responses_beta.dart';
 class BetaDragParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Specifies the event type. For a drag action, this property is always set to `drag`.
   final BetaDragParamType type_;
+
   /// An array of coordinates representing the path of the drag action. Coordinates will appear as an array of objects, eg ``` [ { x: 100, y: 200 }, { x: 200, y: 300 } ] ```
   final List<BetaCoordParam> path;
+
   /// The keys being held while dragging the mouse.
   final SdkOptional<List<String>?> keys;
 
-  const BetaDragParam({required this.type_, required this.path, this.keys = const SdkOmitted()});
+  const BetaDragParam(
+      {required this.type_,
+      required this.path,
+      this.keys = const SdkOmitted()});
 
-  BetaDragParam Function({BetaDragParamType type_, List<BetaCoordParam> path, SdkOptional<List<String>?> keys}) get copyWith => _copyWith;
+  BetaDragParam Function(
+      {BetaDragParamType type_,
+      List<BetaCoordParam> path,
+      SdkOptional<List<String>?> keys}) get copyWith => _copyWith;
 
-  BetaDragParam _copyWith({Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue, Object? keys = sdkOmittedValue}) => BetaDragParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaDragParamType,
-    path: identical(path, sdkOmittedValue) ? this.path : path as List<BetaCoordParam>,
-    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as SdkOptional<List<String>?>,
-  );
+  BetaDragParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? path = sdkOmittedValue,
+          Object? keys = sdkOmittedValue}) =>
+      BetaDragParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaDragParamType,
+        path: identical(path, sdkOmittedValue)
+            ? this.path
+            : path as List<BetaCoordParam>,
+        keys: identical(keys, sdkOmittedValue)
+            ? this.keys
+            : keys as SdkOptional<List<String>?>,
+      );
 
   factory BetaDragParam.fromJson(Map<String, dynamic> json) => BetaDragParam(
-    type_: (json['type'] != null ? BetaDragParamType.fromJson(json['type'] as String) : null)!,
-    path: ((json['path'] as List?)?.map((e) => BetaCoordParam.fromJson(e as Map<String, dynamic>)).toList())!,
-    keys: json.containsKey('keys') ? SdkPresent((json['keys'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-  );
+        type_: (json['type'] != null
+            ? BetaDragParamType.fromJson(json['type'] as String)
+            : null)!,
+        path: ((json['path'] as List?)
+            ?.map((e) => BetaCoordParam.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        keys: json.containsKey('keys')
+            ? SdkPresent(
+                (json['keys'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'path': path.map((item) => item.toJson()).toList(),
-    ...switch (keys) {
-      SdkPresent<List<String>?>(value: final value) => {'keys': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'path': path.map((item) => item.toJson()).toList(),
+        ...switch (keys) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'keys': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

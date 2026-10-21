@@ -8,81 +8,156 @@ part of 'responses_beta_web.dart';
 class BetaWebSearchToolFilters {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Allowed domains for the search. If not provided, all domains are allowed. Subdomains of the provided domains are allowed as well. Example: `["pubmed.ncbi.nlm.nih.gov"]`
   final SdkOptional<List<String>?> allowedDomains;
 
   const BetaWebSearchToolFilters({this.allowedDomains = const SdkOmitted()});
 
-  BetaWebSearchToolFilters Function({SdkOptional<List<String>?> allowedDomains}) get copyWith => _copyWith;
+  BetaWebSearchToolFilters Function({SdkOptional<List<String>?> allowedDomains})
+      get copyWith => _copyWith;
 
-  BetaWebSearchToolFilters _copyWith({Object? allowedDomains = sdkOmittedValue}) => BetaWebSearchToolFilters(
-    allowedDomains: identical(allowedDomains, sdkOmittedValue) ? this.allowedDomains : allowedDomains as SdkOptional<List<String>?>,
-  );
+  BetaWebSearchToolFilters _copyWith(
+          {Object? allowedDomains = sdkOmittedValue}) =>
+      BetaWebSearchToolFilters(
+        allowedDomains: identical(allowedDomains, sdkOmittedValue)
+            ? this.allowedDomains
+            : allowedDomains as SdkOptional<List<String>?>,
+      );
 
-  factory BetaWebSearchToolFilters.fromJson(Map<String, dynamic> json) => BetaWebSearchToolFilters(
-    allowedDomains: json.containsKey('allowed_domains') ? SdkPresent((json['allowed_domains'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-  );
+  factory BetaWebSearchToolFilters.fromJson(Map<String, dynamic> json) =>
+      BetaWebSearchToolFilters(
+        allowedDomains: json.containsKey('allowed_domains')
+            ? SdkPresent((json['allowed_domains'] as List?)
+                ?.map((e) => e as String)
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (allowedDomains) {
-      SdkPresent<List<String>?>(value: final value) => {'allowed_domains': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (allowedDomains) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'allowed_domains': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Search the Internet for sources related to the prompt. Learn more about the [web search tool](https://developers.openai.com/api/docs/guides/tools-web-search).
 class BetaWebSearchTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the web search tool. One of `web_search` or `web_search_2025_08_26`.
   final BetaWebSearchToolType type_;
+
   /// Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
   final SdkOptional<bool> externalWebAccess;
+
   /// Filters for the search.
   final SdkOptional<BetaWebSearchToolFilters?> filters;
+
   /// The approximate location of the user. If omitted or null, defaults to the United States. To avoid this fallback, pass `{"type": "approximate"}` without location fields. To localize results, provide the relevant location fields.
   final SdkOptional<BetaWebSearchApproximateLocation?> userLocation;
+
   /// High level guidance for the amount of context window space to use for the search. One of `low`, `medium`, or `high`. `medium` is the default.
   final SdkOptional<BetaWebSearchToolSearchContextSize> searchContextSize;
 
-  const BetaWebSearchTool({required this.type_, this.externalWebAccess = const SdkOmitted(), this.filters = const SdkOmitted(), this.userLocation = const SdkOmitted(), this.searchContextSize = const SdkOmitted()});
+  const BetaWebSearchTool(
+      {required this.type_,
+      this.externalWebAccess = const SdkOmitted(),
+      this.filters = const SdkOmitted(),
+      this.userLocation = const SdkOmitted(),
+      this.searchContextSize = const SdkOmitted()});
 
-  BetaWebSearchTool Function({BetaWebSearchToolType type_, SdkOptional<bool> externalWebAccess, SdkOptional<BetaWebSearchToolFilters?> filters, SdkOptional<BetaWebSearchApproximateLocation?> userLocation, SdkOptional<BetaWebSearchToolSearchContextSize> searchContextSize}) get copyWith => _copyWith;
+  BetaWebSearchTool Function(
+          {BetaWebSearchToolType type_,
+          SdkOptional<bool> externalWebAccess,
+          SdkOptional<BetaWebSearchToolFilters?> filters,
+          SdkOptional<BetaWebSearchApproximateLocation?> userLocation,
+          SdkOptional<BetaWebSearchToolSearchContextSize> searchContextSize})
+      get copyWith => _copyWith;
 
-  BetaWebSearchTool _copyWith({Object? type_ = sdkOmittedValue, Object? externalWebAccess = sdkOmittedValue, Object? filters = sdkOmittedValue, Object? userLocation = sdkOmittedValue, Object? searchContextSize = sdkOmittedValue}) => BetaWebSearchTool(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaWebSearchToolType,
-    externalWebAccess: identical(externalWebAccess, sdkOmittedValue) ? this.externalWebAccess : externalWebAccess as SdkOptional<bool>,
-    filters: identical(filters, sdkOmittedValue) ? this.filters : filters as SdkOptional<BetaWebSearchToolFilters?>,
-    userLocation: identical(userLocation, sdkOmittedValue) ? this.userLocation : userLocation as SdkOptional<BetaWebSearchApproximateLocation?>,
-    searchContextSize: identical(searchContextSize, sdkOmittedValue) ? this.searchContextSize : searchContextSize as SdkOptional<BetaWebSearchToolSearchContextSize>,
-  );
+  BetaWebSearchTool _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? externalWebAccess = sdkOmittedValue,
+          Object? filters = sdkOmittedValue,
+          Object? userLocation = sdkOmittedValue,
+          Object? searchContextSize = sdkOmittedValue}) =>
+      BetaWebSearchTool(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaWebSearchToolType,
+        externalWebAccess: identical(externalWebAccess, sdkOmittedValue)
+            ? this.externalWebAccess
+            : externalWebAccess as SdkOptional<bool>,
+        filters: identical(filters, sdkOmittedValue)
+            ? this.filters
+            : filters as SdkOptional<BetaWebSearchToolFilters?>,
+        userLocation: identical(userLocation, sdkOmittedValue)
+            ? this.userLocation
+            : userLocation as SdkOptional<BetaWebSearchApproximateLocation?>,
+        searchContextSize: identical(searchContextSize, sdkOmittedValue)
+            ? this.searchContextSize
+            : searchContextSize
+                as SdkOptional<BetaWebSearchToolSearchContextSize>,
+      );
 
-  factory BetaWebSearchTool.fromJson(Map<String, dynamic> json) => BetaWebSearchTool(
-    type_: (json['type'] != null ? BetaWebSearchToolType.fromJson(json['type'] as String) : null)!,
-    externalWebAccess: json['external_web_access'] != null ? SdkPresent((json['external_web_access'] as bool?)!) : const SdkOmitted(),
-    filters: json.containsKey('filters') ? SdkPresent(json['filters'] != null ? BetaWebSearchToolFilters.fromJson(json['filters'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    userLocation: json.containsKey('user_location') ? SdkPresent(json['user_location'] != null ? BetaWebSearchApproximateLocation.fromJson(json['user_location'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    searchContextSize: json['search_context_size'] != null ? SdkPresent((json['search_context_size'] != null ? BetaWebSearchToolSearchContextSize.fromJson(json['search_context_size'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory BetaWebSearchTool.fromJson(Map<String, dynamic> json) =>
+      BetaWebSearchTool(
+        type_: (json['type'] != null
+            ? BetaWebSearchToolType.fromJson(json['type'] as String)
+            : null)!,
+        externalWebAccess: json['external_web_access'] != null
+            ? SdkPresent((json['external_web_access'] as bool?)!)
+            : const SdkOmitted(),
+        filters: json.containsKey('filters')
+            ? SdkPresent(json['filters'] != null
+                ? BetaWebSearchToolFilters.fromJson(
+                    json['filters'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        userLocation: json.containsKey('user_location')
+            ? SdkPresent(json['user_location'] != null
+                ? BetaWebSearchApproximateLocation.fromJson(
+                    json['user_location'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        searchContextSize: json['search_context_size'] != null
+            ? SdkPresent((json['search_context_size'] != null
+                ? BetaWebSearchToolSearchContextSize.fromJson(
+                    json['search_context_size'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (externalWebAccess) {
-      SdkPresent<bool>(value: final value) => {'external_web_access': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (filters) {
-      SdkPresent<BetaWebSearchToolFilters?>(value: final value) => {'filters': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userLocation) {
-      SdkPresent<BetaWebSearchApproximateLocation?>(value: final value) => {'user_location': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (searchContextSize) {
-      SdkPresent<BetaWebSearchToolSearchContextSize>(value: final value) => {'search_context_size': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (externalWebAccess) {
+          SdkPresent<bool>(value: final value) => {
+              'external_web_access': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (filters) {
+          SdkPresent<BetaWebSearchToolFilters?>(value: final value) => {
+              'filters': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userLocation) {
+          SdkPresent<BetaWebSearchApproximateLocation?>(value: final value) => {
+              'user_location': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (searchContextSize) {
+          SdkPresent<BetaWebSearchToolSearchContextSize>(value: final value) =>
+            {
+              'search_context_size': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

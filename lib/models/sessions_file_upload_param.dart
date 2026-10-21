@@ -8,41 +8,73 @@ part of 'sessions.dart';
 class FileUploadParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Enable uploads for this session. Defaults to false.
   final SdkOptional<bool> enabled;
+
   /// Maximum size in megabytes for each uploaded file. Defaults to 512 MB, which is the maximum allowable size.
   final SdkOptional<int> maxFileSize;
+
   /// Maximum number of files that can be uploaded to the session. Defaults to 10.
   final SdkOptional<int> maxFiles;
 
-  const FileUploadParam({this.enabled = const SdkOmitted(), this.maxFileSize = const SdkOmitted(), this.maxFiles = const SdkOmitted()});
+  const FileUploadParam(
+      {this.enabled = const SdkOmitted(),
+      this.maxFileSize = const SdkOmitted(),
+      this.maxFiles = const SdkOmitted()});
 
-  FileUploadParam Function({SdkOptional<bool> enabled, SdkOptional<int> maxFileSize, SdkOptional<int> maxFiles}) get copyWith => _copyWith;
+  FileUploadParam Function(
+      {SdkOptional<bool> enabled,
+      SdkOptional<int> maxFileSize,
+      SdkOptional<int> maxFiles}) get copyWith => _copyWith;
 
-  FileUploadParam _copyWith({Object? enabled = sdkOmittedValue, Object? maxFileSize = sdkOmittedValue, Object? maxFiles = sdkOmittedValue}) => FileUploadParam(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-    maxFileSize: identical(maxFileSize, sdkOmittedValue) ? this.maxFileSize : maxFileSize as SdkOptional<int>,
-    maxFiles: identical(maxFiles, sdkOmittedValue) ? this.maxFiles : maxFiles as SdkOptional<int>,
-  );
+  FileUploadParam _copyWith(
+          {Object? enabled = sdkOmittedValue,
+          Object? maxFileSize = sdkOmittedValue,
+          Object? maxFiles = sdkOmittedValue}) =>
+      FileUploadParam(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+        maxFileSize: identical(maxFileSize, sdkOmittedValue)
+            ? this.maxFileSize
+            : maxFileSize as SdkOptional<int>,
+        maxFiles: identical(maxFiles, sdkOmittedValue)
+            ? this.maxFiles
+            : maxFiles as SdkOptional<int>,
+      );
 
-  factory FileUploadParam.fromJson(Map<String, dynamic> json) => FileUploadParam(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-    maxFileSize: json['max_file_size'] != null ? SdkPresent(((json['max_file_size'] as num?)?.toInt())!) : const SdkOmitted(),
-    maxFiles: json['max_files'] != null ? SdkPresent(((json['max_files'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory FileUploadParam.fromJson(Map<String, dynamic> json) =>
+      FileUploadParam(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+        maxFileSize: json['max_file_size'] != null
+            ? SdkPresent(((json['max_file_size'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        maxFiles: json['max_files'] != null
+            ? SdkPresent(((json['max_files'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxFileSize) {
-      SdkPresent<int>(value: final value) => {'max_file_size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxFiles) {
-      SdkPresent<int>(value: final value) => {'max_files': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxFileSize) {
+          SdkPresent<int>(value: final value) => {
+              'max_file_size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxFiles) {
+          SdkPresent<int>(value: final value) => {
+              'max_files': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

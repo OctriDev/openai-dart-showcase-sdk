@@ -8,70 +8,134 @@ part of 'assistants_message.dart';
 class MessageDeltaContentImageFileObjectImageFile {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The [File](https://developers.openai.com/api/reference/resources/files) ID of the image in the message content. Set `purpose="vision"` when uploading the File if you need to later display the file content.
   final SdkOptional<String> fileId;
+
   /// Specifies the detail level of the image if specified by the user. `low` uses fewer tokens, you can opt in to high resolution using `high`.
   final SdkOptional<MessageDeltaContentImageFileObjectImageFileDetail> detail;
 
-  const MessageDeltaContentImageFileObjectImageFile({this.fileId = const SdkOmitted(), this.detail = const SdkOmitted()});
+  const MessageDeltaContentImageFileObjectImageFile(
+      {this.fileId = const SdkOmitted(), this.detail = const SdkOmitted()});
 
-  MessageDeltaContentImageFileObjectImageFile Function({SdkOptional<String> fileId, SdkOptional<MessageDeltaContentImageFileObjectImageFileDetail> detail}) get copyWith => _copyWith;
+  MessageDeltaContentImageFileObjectImageFile Function(
+      {SdkOptional<String> fileId,
+      SdkOptional<MessageDeltaContentImageFileObjectImageFileDetail>
+          detail}) get copyWith => _copyWith;
 
-  MessageDeltaContentImageFileObjectImageFile _copyWith({Object? fileId = sdkOmittedValue, Object? detail = sdkOmittedValue}) => MessageDeltaContentImageFileObjectImageFile(
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
-    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as SdkOptional<MessageDeltaContentImageFileObjectImageFileDetail>,
-  );
+  MessageDeltaContentImageFileObjectImageFile _copyWith(
+          {Object? fileId = sdkOmittedValue,
+          Object? detail = sdkOmittedValue}) =>
+      MessageDeltaContentImageFileObjectImageFile(
+        fileId: identical(fileId, sdkOmittedValue)
+            ? this.fileId
+            : fileId as SdkOptional<String>,
+        detail: identical(detail, sdkOmittedValue)
+            ? this.detail
+            : detail as SdkOptional<
+                MessageDeltaContentImageFileObjectImageFileDetail>,
+      );
 
-  factory MessageDeltaContentImageFileObjectImageFile.fromJson(Map<String, dynamic> json) => MessageDeltaContentImageFileObjectImageFile(
-    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
-    detail: json['detail'] != null ? SdkPresent((json['detail'] != null ? MessageDeltaContentImageFileObjectImageFileDetail.fromJson(json['detail'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory MessageDeltaContentImageFileObjectImageFile.fromJson(
+          Map<String, dynamic> json) =>
+      MessageDeltaContentImageFileObjectImageFile(
+        fileId: json['file_id'] != null
+            ? SdkPresent((json['file_id'] as String?)!)
+            : const SdkOmitted(),
+        detail: json['detail'] != null
+            ? SdkPresent((json['detail'] != null
+                ? MessageDeltaContentImageFileObjectImageFileDetail.fromJson(
+                    json['detail'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (fileId) {
-      SdkPresent<String>(value: final value) => {'file_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (detail) {
-      SdkPresent<MessageDeltaContentImageFileObjectImageFileDetail>(value: final value) => {'detail': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (fileId) {
+          SdkPresent<String>(value: final value) => {
+              'file_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (detail) {
+          SdkPresent<MessageDeltaContentImageFileObjectImageFileDetail>(
+            value: final value
+          ) =>
+            {
+              'detail': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// References an image [File](https://developers.openai.com/api/reference/resources/files) in the content of a message.
 class MessageDeltaContentImageFileObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The index of the content part in the message.
   final int index;
+
   /// Always `image_file`.
   final MessageDeltaContentImageFileObjectType type_;
+
   /// Optional object value serialized in the `image_file` wire field.
   final SdkOptional<MessageDeltaContentImageFileObjectImageFile> imageFile;
 
-  const MessageDeltaContentImageFileObject({required this.index, required this.type_, this.imageFile = const SdkOmitted()});
+  const MessageDeltaContentImageFileObject(
+      {required this.index,
+      required this.type_,
+      this.imageFile = const SdkOmitted()});
 
-  MessageDeltaContentImageFileObject Function({int index, MessageDeltaContentImageFileObjectType type_, SdkOptional<MessageDeltaContentImageFileObjectImageFile> imageFile}) get copyWith => _copyWith;
+  MessageDeltaContentImageFileObject Function(
+          {int index,
+          MessageDeltaContentImageFileObjectType type_,
+          SdkOptional<MessageDeltaContentImageFileObjectImageFile> imageFile})
+      get copyWith => _copyWith;
 
-  MessageDeltaContentImageFileObject _copyWith({Object? index = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? imageFile = sdkOmittedValue}) => MessageDeltaContentImageFileObject(
-    index: identical(index, sdkOmittedValue) ? this.index : index as int,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageDeltaContentImageFileObjectType,
-    imageFile: identical(imageFile, sdkOmittedValue) ? this.imageFile : imageFile as SdkOptional<MessageDeltaContentImageFileObjectImageFile>,
-  );
+  MessageDeltaContentImageFileObject _copyWith(
+          {Object? index = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? imageFile = sdkOmittedValue}) =>
+      MessageDeltaContentImageFileObject(
+        index: identical(index, sdkOmittedValue) ? this.index : index as int,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessageDeltaContentImageFileObjectType,
+        imageFile: identical(imageFile, sdkOmittedValue)
+            ? this.imageFile
+            : imageFile
+                as SdkOptional<MessageDeltaContentImageFileObjectImageFile>,
+      );
 
-  factory MessageDeltaContentImageFileObject.fromJson(Map<String, dynamic> json) => MessageDeltaContentImageFileObject(
-    index: ((json['index'] as num?)?.toInt())!,
-    type_: (json['type'] != null ? MessageDeltaContentImageFileObjectType.fromJson(json['type'] as String) : null)!,
-    imageFile: json['image_file'] != null ? SdkPresent((json['image_file'] != null ? MessageDeltaContentImageFileObjectImageFile.fromJson(json['image_file'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory MessageDeltaContentImageFileObject.fromJson(
+          Map<String, dynamic> json) =>
+      MessageDeltaContentImageFileObject(
+        index: ((json['index'] as num?)?.toInt())!,
+        type_: (json['type'] != null
+            ? MessageDeltaContentImageFileObjectType.fromJson(
+                json['type'] as String)
+            : null)!,
+        imageFile: json['image_file'] != null
+            ? SdkPresent((json['image_file'] != null
+                ? MessageDeltaContentImageFileObjectImageFile.fromJson(
+                    json['image_file'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'index': index,
-    'type': type_.toJson(),
-    ...switch (imageFile) {
-      SdkPresent<MessageDeltaContentImageFileObjectImageFile>(value: final value) => {'image_file': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'index': index,
+        'type': type_.toJson(),
+        ...switch (imageFile) {
+          SdkPresent<MessageDeltaContentImageFileObjectImageFile>(
+            value: final value
+          ) =>
+            {
+              'image_file': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

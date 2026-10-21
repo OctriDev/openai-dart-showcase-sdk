@@ -8,32 +8,56 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventSessionUpdated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `session.updated`.
   final RealtimeBetaServerEventSessionUpdatedType type_;
+
   /// Realtime session object for the beta interface.
   final RealtimeSession session;
 
-  const RealtimeBetaServerEventSessionUpdated({required this.eventId, required this.type_, required this.session});
+  const RealtimeBetaServerEventSessionUpdated(
+      {required this.eventId, required this.type_, required this.session});
 
-  RealtimeBetaServerEventSessionUpdated Function({String eventId, RealtimeBetaServerEventSessionUpdatedType type_, RealtimeSession session}) get copyWith => _copyWith;
+  RealtimeBetaServerEventSessionUpdated Function(
+      {String eventId,
+      RealtimeBetaServerEventSessionUpdatedType type_,
+      RealtimeSession session}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventSessionUpdated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeBetaServerEventSessionUpdated(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventSessionUpdatedType,
-    session: identical(session, sdkOmittedValue) ? this.session : session as RealtimeSession,
-  );
+  RealtimeBetaServerEventSessionUpdated _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? session = sdkOmittedValue}) =>
+      RealtimeBetaServerEventSessionUpdated(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaServerEventSessionUpdatedType,
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as RealtimeSession,
+      );
 
-  factory RealtimeBetaServerEventSessionUpdated.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventSessionUpdated(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeBetaServerEventSessionUpdatedType.fromJson(json['type'] as String) : null)!,
-    session: (json['session'] != null ? RealtimeSession.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-  );
+  factory RealtimeBetaServerEventSessionUpdated.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventSessionUpdated(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeBetaServerEventSessionUpdatedType.fromJson(
+                json['type'] as String)
+            : null)!,
+        session: (json['session'] != null
+            ? RealtimeSession.fromJson(json['session'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'session': session.toJson(),
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'session': session.toJson(),
+      };
 }

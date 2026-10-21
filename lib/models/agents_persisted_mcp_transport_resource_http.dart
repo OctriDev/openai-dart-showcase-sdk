@@ -8,32 +8,57 @@ part of 'agents_persisted.dart';
 class PersistedMcpTransportResourceHttp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `http`.
   final PersistedMcpTransportResourceHttpType type_;
+
   /// The URL of the MCP server.
   final String serverUrl;
+
   /// Non-secret HTTP headers sent to the MCP server.
   final Map<String, String> headers;
 
-  const PersistedMcpTransportResourceHttp({required this.type_, required this.serverUrl, required this.headers});
+  const PersistedMcpTransportResourceHttp(
+      {required this.type_, required this.serverUrl, required this.headers});
 
-  PersistedMcpTransportResourceHttp Function({PersistedMcpTransportResourceHttpType type_, String serverUrl, Map<String, String> headers}) get copyWith => _copyWith;
+  PersistedMcpTransportResourceHttp Function(
+      {PersistedMcpTransportResourceHttpType type_,
+      String serverUrl,
+      Map<String, String> headers}) get copyWith => _copyWith;
 
-  PersistedMcpTransportResourceHttp _copyWith({Object? type_ = sdkOmittedValue, Object? serverUrl = sdkOmittedValue, Object? headers = sdkOmittedValue}) => PersistedMcpTransportResourceHttp(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as PersistedMcpTransportResourceHttpType,
-    serverUrl: identical(serverUrl, sdkOmittedValue) ? this.serverUrl : serverUrl as String,
-    headers: identical(headers, sdkOmittedValue) ? this.headers : headers as Map<String, String>,
-  );
+  PersistedMcpTransportResourceHttp _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? serverUrl = sdkOmittedValue,
+          Object? headers = sdkOmittedValue}) =>
+      PersistedMcpTransportResourceHttp(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as PersistedMcpTransportResourceHttpType,
+        serverUrl: identical(serverUrl, sdkOmittedValue)
+            ? this.serverUrl
+            : serverUrl as String,
+        headers: identical(headers, sdkOmittedValue)
+            ? this.headers
+            : headers as Map<String, String>,
+      );
 
-  factory PersistedMcpTransportResourceHttp.fromJson(Map<String, dynamic> json) => PersistedMcpTransportResourceHttp(
-    type_: (json['type'] != null ? PersistedMcpTransportResourceHttpType.fromJson(json['type'] as String) : null)!,
-    serverUrl: (json['server_url'] as String?)!,
-    headers: (json['headers'] == null ? null : Map<String, dynamic>.from(json['headers'] as Map).map((key, value) => MapEntry(key, value as String)))!,
-  );
+  factory PersistedMcpTransportResourceHttp.fromJson(
+          Map<String, dynamic> json) =>
+      PersistedMcpTransportResourceHttp(
+        type_: (json['type'] != null
+            ? PersistedMcpTransportResourceHttpType.fromJson(
+                json['type'] as String)
+            : null)!,
+        serverUrl: (json['server_url'] as String?)!,
+        headers: (json['headers'] == null
+            ? null
+            : Map<String, dynamic>.from(json['headers'] as Map)
+                .map((key, value) => MapEntry(key, value as String)))!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'server_url': serverUrl,
-    'headers': headers,
-  };
+        'type': type_.toJson(),
+        'server_url': serverUrl,
+        'headers': headers,
+      };
 }

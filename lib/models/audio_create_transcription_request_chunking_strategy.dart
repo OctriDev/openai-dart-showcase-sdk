@@ -9,21 +9,34 @@ sealed class CreateTranscriptionRequestChunkingStrategy {
   static const String constructionSurface = 'named';
   const CreateTranscriptionRequestChunkingStrategy();
   factory CreateTranscriptionRequestChunkingStrategy.fromJson(Object? json) {
-    try { return CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0(CreateTranscriptionRequestChunkingStrategyVariant0.fromJson(json as String)); } catch (_) {}
-    try { return CreateTranscriptionRequestChunkingStrategyVadConfig(VadConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for CreateTranscriptionRequestChunkingStrategy");
+    try {
+      return CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0(
+          CreateTranscriptionRequestChunkingStrategyVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    try {
+      return CreateTranscriptionRequestChunkingStrategyVadConfig(
+          VadConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateTranscriptionRequestChunkingStrategy");
   }
   Object? toJson();
 }
 
-final class CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0 extends CreateTranscriptionRequestChunkingStrategy {
+final class CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0
+    extends CreateTranscriptionRequestChunkingStrategy {
   final CreateTranscriptionRequestChunkingStrategyVariant0 value;
-  const CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateTranscriptionRequestChunkingStrategyCreateTranscriptionRequestChunkingStrategyVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateTranscriptionRequestChunkingStrategyVadConfig extends CreateTranscriptionRequestChunkingStrategy {
+final class CreateTranscriptionRequestChunkingStrategyVadConfig
+    extends CreateTranscriptionRequestChunkingStrategy {
   final VadConfig value;
   const CreateTranscriptionRequestChunkingStrategyVadConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

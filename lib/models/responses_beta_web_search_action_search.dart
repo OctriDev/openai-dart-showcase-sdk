@@ -8,75 +8,138 @@ part of 'responses_beta_web.dart';
 class BetaWebSearchActionSearchSourcesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of source. Always `url`.
   final BetaWebSearchActionSearchSourcesItemType type_;
+
   /// The URL of the source.
   final String url;
 
-  const BetaWebSearchActionSearchSourcesItem({required this.type_, required this.url});
+  const BetaWebSearchActionSearchSourcesItem(
+      {required this.type_, required this.url});
 
-  BetaWebSearchActionSearchSourcesItem Function({BetaWebSearchActionSearchSourcesItemType type_, String url}) get copyWith => _copyWith;
+  BetaWebSearchActionSearchSourcesItem Function(
+      {BetaWebSearchActionSearchSourcesItemType type_,
+      String url}) get copyWith => _copyWith;
 
-  BetaWebSearchActionSearchSourcesItem _copyWith({Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) => BetaWebSearchActionSearchSourcesItem(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaWebSearchActionSearchSourcesItemType,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-  );
+  BetaWebSearchActionSearchSourcesItem _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) =>
+      BetaWebSearchActionSearchSourcesItem(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaWebSearchActionSearchSourcesItemType,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+      );
 
-  factory BetaWebSearchActionSearchSourcesItem.fromJson(Map<String, dynamic> json) => BetaWebSearchActionSearchSourcesItem(
-    type_: (json['type'] != null ? BetaWebSearchActionSearchSourcesItemType.fromJson(json['type'] as String) : null)!,
-    url: (json['url'] as String?)!,
-  );
+  factory BetaWebSearchActionSearchSourcesItem.fromJson(
+          Map<String, dynamic> json) =>
+      BetaWebSearchActionSearchSourcesItem(
+        type_: (json['type'] != null
+            ? BetaWebSearchActionSearchSourcesItemType.fromJson(
+                json['type'] as String)
+            : null)!,
+        url: (json['url'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'url': url,
-  };
+        'type': type_.toJson(),
+        'url': url,
+      };
 }
 
 /// Action type "search" - Performs a web search query.
 class BetaWebSearchActionSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The action type.
   final BetaWebSearchActionSearchType type_;
+
   /// The search query.
   final SdkOptional<String> query;
+
   /// The search queries.
   final SdkOptional<List<String>> queries;
+
   /// The sources used in the search.
   final SdkOptional<List<BetaWebSearchActionSearchSourcesItem>> sources;
 
-  const BetaWebSearchActionSearch({required this.type_, this.query = const SdkOmitted(), this.queries = const SdkOmitted(), this.sources = const SdkOmitted()});
+  const BetaWebSearchActionSearch(
+      {required this.type_,
+      this.query = const SdkOmitted(),
+      this.queries = const SdkOmitted(),
+      this.sources = const SdkOmitted()});
 
-  BetaWebSearchActionSearch Function({BetaWebSearchActionSearchType type_, SdkOptional<String> query, SdkOptional<List<String>> queries, SdkOptional<List<BetaWebSearchActionSearchSourcesItem>> sources}) get copyWith => _copyWith;
+  BetaWebSearchActionSearch Function(
+          {BetaWebSearchActionSearchType type_,
+          SdkOptional<String> query,
+          SdkOptional<List<String>> queries,
+          SdkOptional<List<BetaWebSearchActionSearchSourcesItem>> sources})
+      get copyWith => _copyWith;
 
-  BetaWebSearchActionSearch _copyWith({Object? type_ = sdkOmittedValue, Object? query = sdkOmittedValue, Object? queries = sdkOmittedValue, Object? sources = sdkOmittedValue}) => BetaWebSearchActionSearch(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaWebSearchActionSearchType,
-    query: identical(query, sdkOmittedValue) ? this.query : query as SdkOptional<String>,
-    queries: identical(queries, sdkOmittedValue) ? this.queries : queries as SdkOptional<List<String>>,
-    sources: identical(sources, sdkOmittedValue) ? this.sources : sources as SdkOptional<List<BetaWebSearchActionSearchSourcesItem>>,
-  );
+  BetaWebSearchActionSearch _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? query = sdkOmittedValue,
+          Object? queries = sdkOmittedValue,
+          Object? sources = sdkOmittedValue}) =>
+      BetaWebSearchActionSearch(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaWebSearchActionSearchType,
+        query: identical(query, sdkOmittedValue)
+            ? this.query
+            : query as SdkOptional<String>,
+        queries: identical(queries, sdkOmittedValue)
+            ? this.queries
+            : queries as SdkOptional<List<String>>,
+        sources: identical(sources, sdkOmittedValue)
+            ? this.sources
+            : sources
+                as SdkOptional<List<BetaWebSearchActionSearchSourcesItem>>,
+      );
 
-  factory BetaWebSearchActionSearch.fromJson(Map<String, dynamic> json) => BetaWebSearchActionSearch(
-    type_: (json['type'] != null ? BetaWebSearchActionSearchType.fromJson(json['type'] as String) : null)!,
-    query: json['query'] != null ? SdkPresent((json['query'] as String?)!) : const SdkOmitted(),
-    queries: json['queries'] != null ? SdkPresent(((json['queries'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    sources: json['sources'] != null ? SdkPresent(((json['sources'] as List?)?.map((e) => BetaWebSearchActionSearchSourcesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory BetaWebSearchActionSearch.fromJson(Map<String, dynamic> json) =>
+      BetaWebSearchActionSearch(
+        type_: (json['type'] != null
+            ? BetaWebSearchActionSearchType.fromJson(json['type'] as String)
+            : null)!,
+        query: json['query'] != null
+            ? SdkPresent((json['query'] as String?)!)
+            : const SdkOmitted(),
+        queries: json['queries'] != null
+            ? SdkPresent(
+                ((json['queries'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        sources: json['sources'] != null
+            ? SdkPresent(((json['sources'] as List?)
+                ?.map((e) => BetaWebSearchActionSearchSourcesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (query) {
-      SdkPresent<String>(value: final value) => {'query': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (queries) {
-      SdkPresent<List<String>>(value: final value) => {'queries': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sources) {
-      SdkPresent<List<BetaWebSearchActionSearchSourcesItem>>(value: final value) => {'sources': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (query) {
+          SdkPresent<String>(value: final value) => {
+              'query': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (queries) {
+          SdkPresent<List<String>>(value: final value) => {
+              'queries': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sources) {
+          SdkPresent<List<BetaWebSearchActionSearchSourcesItem>>(
+            value: final value
+          ) =>
+            {
+              'sources': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

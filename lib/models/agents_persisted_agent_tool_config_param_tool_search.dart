@@ -8,22 +8,34 @@ part of 'agents_persisted.dart';
 class PersistedAgentToolConfigParamToolSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `tool_search`.
   final PersistedAgentToolConfigParamToolSearchType type_;
 
   const PersistedAgentToolConfigParamToolSearch({required this.type_});
 
-  PersistedAgentToolConfigParamToolSearch Function({PersistedAgentToolConfigParamToolSearchType type_}) get copyWith => _copyWith;
+  PersistedAgentToolConfigParamToolSearch Function(
+          {PersistedAgentToolConfigParamToolSearchType type_})
+      get copyWith => _copyWith;
 
-  PersistedAgentToolConfigParamToolSearch _copyWith({Object? type_ = sdkOmittedValue}) => PersistedAgentToolConfigParamToolSearch(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as PersistedAgentToolConfigParamToolSearchType,
-  );
+  PersistedAgentToolConfigParamToolSearch _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      PersistedAgentToolConfigParamToolSearch(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as PersistedAgentToolConfigParamToolSearchType,
+      );
 
-  factory PersistedAgentToolConfigParamToolSearch.fromJson(Map<String, dynamic> json) => PersistedAgentToolConfigParamToolSearch(
-    type_: (json['type'] != null ? PersistedAgentToolConfigParamToolSearchType.fromJson(json['type'] as String) : null)!,
-  );
+  factory PersistedAgentToolConfigParamToolSearch.fromJson(
+          Map<String, dynamic> json) =>
+      PersistedAgentToolConfigParamToolSearch(
+        type_: (json['type'] != null
+            ? PersistedAgentToolConfigParamToolSearchType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

@@ -8,46 +8,96 @@ part of 'shared_web.dart';
 class WebSearchPreviewTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the web search tool. One of `web_search_preview` or `web_search_preview_2025_03_11`.
   final WebSearchPreviewToolType type_;
+
   /// Optional API value serialized in the `user_location` wire field.
   final SdkOptional<ApproximateLocation?> userLocation;
+
   /// High level guidance for the amount of context window space to use for the search. One of `low`, `medium`, or `high`. `medium` is the default.
   final SdkOptional<SearchContextSize> searchContextSize;
+
   /// Optional array value serialized in the `search_content_types` wire field.
   final SdkOptional<List<SearchContentType>> searchContentTypes;
 
-  const WebSearchPreviewTool({required this.type_, this.userLocation = const SdkOmitted(), this.searchContextSize = const SdkOmitted(), this.searchContentTypes = const SdkOmitted()});
+  const WebSearchPreviewTool(
+      {required this.type_,
+      this.userLocation = const SdkOmitted(),
+      this.searchContextSize = const SdkOmitted(),
+      this.searchContentTypes = const SdkOmitted()});
 
-  WebSearchPreviewTool Function({WebSearchPreviewToolType type_, SdkOptional<ApproximateLocation?> userLocation, SdkOptional<SearchContextSize> searchContextSize, SdkOptional<List<SearchContentType>> searchContentTypes}) get copyWith => _copyWith;
+  WebSearchPreviewTool Function(
+          {WebSearchPreviewToolType type_,
+          SdkOptional<ApproximateLocation?> userLocation,
+          SdkOptional<SearchContextSize> searchContextSize,
+          SdkOptional<List<SearchContentType>> searchContentTypes})
+      get copyWith => _copyWith;
 
-  WebSearchPreviewTool _copyWith({Object? type_ = sdkOmittedValue, Object? userLocation = sdkOmittedValue, Object? searchContextSize = sdkOmittedValue, Object? searchContentTypes = sdkOmittedValue}) => WebSearchPreviewTool(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebSearchPreviewToolType,
-    userLocation: identical(userLocation, sdkOmittedValue) ? this.userLocation : userLocation as SdkOptional<ApproximateLocation?>,
-    searchContextSize: identical(searchContextSize, sdkOmittedValue) ? this.searchContextSize : searchContextSize as SdkOptional<SearchContextSize>,
-    searchContentTypes: identical(searchContentTypes, sdkOmittedValue) ? this.searchContentTypes : searchContentTypes as SdkOptional<List<SearchContentType>>,
-  );
+  WebSearchPreviewTool _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? userLocation = sdkOmittedValue,
+          Object? searchContextSize = sdkOmittedValue,
+          Object? searchContentTypes = sdkOmittedValue}) =>
+      WebSearchPreviewTool(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebSearchPreviewToolType,
+        userLocation: identical(userLocation, sdkOmittedValue)
+            ? this.userLocation
+            : userLocation as SdkOptional<ApproximateLocation?>,
+        searchContextSize: identical(searchContextSize, sdkOmittedValue)
+            ? this.searchContextSize
+            : searchContextSize as SdkOptional<SearchContextSize>,
+        searchContentTypes: identical(searchContentTypes, sdkOmittedValue)
+            ? this.searchContentTypes
+            : searchContentTypes as SdkOptional<List<SearchContentType>>,
+      );
 
-  factory WebSearchPreviewTool.fromJson(Map<String, dynamic> json) => WebSearchPreviewTool(
-    type_: (json['type'] != null ? WebSearchPreviewToolType.fromJson(json['type'] as String) : null)!,
-    userLocation: json.containsKey('user_location') ? SdkPresent(json['user_location'] != null ? ApproximateLocation.fromJson(json['user_location'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    searchContextSize: json['search_context_size'] != null ? SdkPresent((json['search_context_size'] != null ? SearchContextSize.fromJson(json['search_context_size'] as String) : null)!) : const SdkOmitted(),
-    searchContentTypes: json['search_content_types'] != null ? SdkPresent(((json['search_content_types'] as List?)?.map((e) => SearchContentType.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory WebSearchPreviewTool.fromJson(Map<String, dynamic> json) =>
+      WebSearchPreviewTool(
+        type_: (json['type'] != null
+            ? WebSearchPreviewToolType.fromJson(json['type'] as String)
+            : null)!,
+        userLocation: json.containsKey('user_location')
+            ? SdkPresent(json['user_location'] != null
+                ? ApproximateLocation.fromJson(
+                    json['user_location'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        searchContextSize: json['search_context_size'] != null
+            ? SdkPresent((json['search_context_size'] != null
+                ? SearchContextSize.fromJson(
+                    json['search_context_size'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        searchContentTypes: json['search_content_types'] != null
+            ? SdkPresent(((json['search_content_types'] as List?)
+                ?.map((e) => SearchContentType.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (userLocation) {
-      SdkPresent<ApproximateLocation?>(value: final value) => {'user_location': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (searchContextSize) {
-      SdkPresent<SearchContextSize>(value: final value) => {'search_context_size': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (searchContentTypes) {
-      SdkPresent<List<SearchContentType>>(value: final value) => {'search_content_types': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (userLocation) {
+          SdkPresent<ApproximateLocation?>(value: final value) => {
+              'user_location': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (searchContextSize) {
+          SdkPresent<SearchContextSize>(value: final value) => {
+              'search_context_size': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (searchContentTypes) {
+          SdkPresent<List<SearchContentType>>(value: final value) => {
+              'search_content_types':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

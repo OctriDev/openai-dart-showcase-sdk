@@ -8,25 +8,35 @@ part of 'audit_logs.dart';
 class AuditLogActorServiceAccount {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The service account id.
   final SdkOptional<String> id;
 
   const AuditLogActorServiceAccount({this.id = const SdkOmitted()});
 
-  AuditLogActorServiceAccount Function({SdkOptional<String> id}) get copyWith => _copyWith;
+  AuditLogActorServiceAccount Function({SdkOptional<String> id}) get copyWith =>
+      _copyWith;
 
-  AuditLogActorServiceAccount _copyWith({Object? id = sdkOmittedValue}) => AuditLogActorServiceAccount(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  AuditLogActorServiceAccount _copyWith({Object? id = sdkOmittedValue}) =>
+      AuditLogActorServiceAccount(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory AuditLogActorServiceAccount.fromJson(Map<String, dynamic> json) => AuditLogActorServiceAccount(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory AuditLogActorServiceAccount.fromJson(Map<String, dynamic> json) =>
+      AuditLogActorServiceAccount(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

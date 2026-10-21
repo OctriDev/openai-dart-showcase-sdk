@@ -8,27 +8,46 @@ part of 'certificates.dart';
 class OrganizationCertificateActivationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The organization certificate activation result type.
   final OrganizationCertificateActivationResponseObject object;
+
   /// Required array value serialized in the `data` wire field.
   final List<OrganizationCertificate> data;
 
-  const OrganizationCertificateActivationResponse({required this.object, required this.data});
+  const OrganizationCertificateActivationResponse(
+      {required this.object, required this.data});
 
-  OrganizationCertificateActivationResponse Function({OrganizationCertificateActivationResponseObject object, List<OrganizationCertificate> data}) get copyWith => _copyWith;
+  OrganizationCertificateActivationResponse Function(
+      {OrganizationCertificateActivationResponseObject object,
+      List<OrganizationCertificate> data}) get copyWith => _copyWith;
 
-  OrganizationCertificateActivationResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue}) => OrganizationCertificateActivationResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as OrganizationCertificateActivationResponseObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<OrganizationCertificate>,
-  );
+  OrganizationCertificateActivationResponse _copyWith(
+          {Object? object = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      OrganizationCertificateActivationResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as OrganizationCertificateActivationResponseObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<OrganizationCertificate>,
+      );
 
-  factory OrganizationCertificateActivationResponse.fromJson(Map<String, dynamic> json) => OrganizationCertificateActivationResponse(
-    object: (json['object'] != null ? OrganizationCertificateActivationResponseObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => OrganizationCertificate.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory OrganizationCertificateActivationResponse.fromJson(
+          Map<String, dynamic> json) =>
+      OrganizationCertificateActivationResponse(
+        object: (json['object'] != null
+            ? OrganizationCertificateActivationResponseObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                OrganizationCertificate.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+      };
 }

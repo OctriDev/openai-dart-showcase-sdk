@@ -8,32 +8,62 @@ part of 'shared_chat.dart';
 class ChatSessionChatkitConfiguration {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Automatic thread titling preferences.
   final ChatSessionAutomaticThreadTitling automaticThreadTitling;
+
   /// Upload settings for the session.
   final ChatSessionFileUpload fileUpload;
+
   /// History retention configuration.
   final ChatSessionHistory history;
 
-  const ChatSessionChatkitConfiguration({required this.automaticThreadTitling, required this.fileUpload, required this.history});
+  const ChatSessionChatkitConfiguration(
+      {required this.automaticThreadTitling,
+      required this.fileUpload,
+      required this.history});
 
-  ChatSessionChatkitConfiguration Function({ChatSessionAutomaticThreadTitling automaticThreadTitling, ChatSessionFileUpload fileUpload, ChatSessionHistory history}) get copyWith => _copyWith;
+  ChatSessionChatkitConfiguration Function(
+      {ChatSessionAutomaticThreadTitling automaticThreadTitling,
+      ChatSessionFileUpload fileUpload,
+      ChatSessionHistory history}) get copyWith => _copyWith;
 
-  ChatSessionChatkitConfiguration _copyWith({Object? automaticThreadTitling = sdkOmittedValue, Object? fileUpload = sdkOmittedValue, Object? history = sdkOmittedValue}) => ChatSessionChatkitConfiguration(
-    automaticThreadTitling: identical(automaticThreadTitling, sdkOmittedValue) ? this.automaticThreadTitling : automaticThreadTitling as ChatSessionAutomaticThreadTitling,
-    fileUpload: identical(fileUpload, sdkOmittedValue) ? this.fileUpload : fileUpload as ChatSessionFileUpload,
-    history: identical(history, sdkOmittedValue) ? this.history : history as ChatSessionHistory,
-  );
+  ChatSessionChatkitConfiguration _copyWith(
+          {Object? automaticThreadTitling = sdkOmittedValue,
+          Object? fileUpload = sdkOmittedValue,
+          Object? history = sdkOmittedValue}) =>
+      ChatSessionChatkitConfiguration(
+        automaticThreadTitling:
+            identical(automaticThreadTitling, sdkOmittedValue)
+                ? this.automaticThreadTitling
+                : automaticThreadTitling as ChatSessionAutomaticThreadTitling,
+        fileUpload: identical(fileUpload, sdkOmittedValue)
+            ? this.fileUpload
+            : fileUpload as ChatSessionFileUpload,
+        history: identical(history, sdkOmittedValue)
+            ? this.history
+            : history as ChatSessionHistory,
+      );
 
-  factory ChatSessionChatkitConfiguration.fromJson(Map<String, dynamic> json) => ChatSessionChatkitConfiguration(
-    automaticThreadTitling: (json['automatic_thread_titling'] != null ? ChatSessionAutomaticThreadTitling.fromJson(json['automatic_thread_titling'] as Map<String, dynamic>) : null)!,
-    fileUpload: (json['file_upload'] != null ? ChatSessionFileUpload.fromJson(json['file_upload'] as Map<String, dynamic>) : null)!,
-    history: (json['history'] != null ? ChatSessionHistory.fromJson(json['history'] as Map<String, dynamic>) : null)!,
-  );
+  factory ChatSessionChatkitConfiguration.fromJson(Map<String, dynamic> json) =>
+      ChatSessionChatkitConfiguration(
+        automaticThreadTitling: (json['automatic_thread_titling'] != null
+            ? ChatSessionAutomaticThreadTitling.fromJson(
+                json['automatic_thread_titling'] as Map<String, dynamic>)
+            : null)!,
+        fileUpload: (json['file_upload'] != null
+            ? ChatSessionFileUpload.fromJson(
+                json['file_upload'] as Map<String, dynamic>)
+            : null)!,
+        history: (json['history'] != null
+            ? ChatSessionHistory.fromJson(
+                json['history'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'automatic_thread_titling': automaticThreadTitling.toJson(),
-    'file_upload': fileUpload.toJson(),
-    'history': history.toJson(),
-  };
+        'automatic_thread_titling': automaticThreadTitling.toJson(),
+        'file_upload': fileUpload.toJson(),
+        'history': history.toJson(),
+      };
 }

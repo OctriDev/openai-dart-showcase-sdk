@@ -8,70 +8,146 @@ part of 'responses_beta_input.dart';
 class BetaInputFileContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the input item. Always `input_file`.
   final BetaInputFileContentType type_;
+
   /// Optional `string` value serialized in the `file_id` wire field.
   final SdkOptional<String?> fileId;
+
   /// The name of the file to be sent to the model.
   final SdkOptional<String> filename;
+
   /// The content of the file to be sent to the model.
   final SdkOptional<String> fileData;
+
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
   final SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint;
+
   /// The URL of the file to be sent to the model.
   final SdkOptional<String> fileUrl;
+
   /// The detail level of the file to be sent to the model. Use `auto` to let the system select the detail level; for GPT-5.6 and later models, `auto` uses high-quality rendering, which may increase input token usage. Use `low` for lower-cost rendering, or `high` to render the file at higher quality. Defaults to `auto`.
   final SdkOptional<BetaFileInputDetail> detail;
 
-  const BetaInputFileContent({required this.type_, this.fileId = const SdkOmitted(), this.filename = const SdkOmitted(), this.fileData = const SdkOmitted(), this.promptCacheBreakpoint = const SdkOmitted(), this.fileUrl = const SdkOmitted(), this.detail = const SdkOmitted()});
+  const BetaInputFileContent(
+      {required this.type_,
+      this.fileId = const SdkOmitted(),
+      this.filename = const SdkOmitted(),
+      this.fileData = const SdkOmitted(),
+      this.promptCacheBreakpoint = const SdkOmitted(),
+      this.fileUrl = const SdkOmitted(),
+      this.detail = const SdkOmitted()});
 
-  BetaInputFileContent Function({BetaInputFileContentType type_, SdkOptional<String?> fileId, SdkOptional<String> filename, SdkOptional<String> fileData, SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint, SdkOptional<String> fileUrl, SdkOptional<BetaFileInputDetail> detail}) get copyWith => _copyWith;
+  BetaInputFileContent Function(
+      {BetaInputFileContentType type_,
+      SdkOptional<String?> fileId,
+      SdkOptional<String> filename,
+      SdkOptional<String> fileData,
+      SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint,
+      SdkOptional<String> fileUrl,
+      SdkOptional<BetaFileInputDetail> detail}) get copyWith => _copyWith;
 
-  BetaInputFileContent _copyWith({Object? type_ = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? fileData = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue, Object? fileUrl = sdkOmittedValue, Object? detail = sdkOmittedValue}) => BetaInputFileContent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaInputFileContentType,
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String?>,
-    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as SdkOptional<String>,
-    fileData: identical(fileData, sdkOmittedValue) ? this.fileData : fileData as SdkOptional<String>,
-    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<BetaPromptCacheBreakpointConfig>,
-    fileUrl: identical(fileUrl, sdkOmittedValue) ? this.fileUrl : fileUrl as SdkOptional<String>,
-    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as SdkOptional<BetaFileInputDetail>,
-  );
+  BetaInputFileContent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? fileId = sdkOmittedValue,
+          Object? filename = sdkOmittedValue,
+          Object? fileData = sdkOmittedValue,
+          Object? promptCacheBreakpoint = sdkOmittedValue,
+          Object? fileUrl = sdkOmittedValue,
+          Object? detail = sdkOmittedValue}) =>
+      BetaInputFileContent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaInputFileContentType,
+        fileId: identical(fileId, sdkOmittedValue)
+            ? this.fileId
+            : fileId as SdkOptional<String?>,
+        filename: identical(filename, sdkOmittedValue)
+            ? this.filename
+            : filename as SdkOptional<String>,
+        fileData: identical(fileData, sdkOmittedValue)
+            ? this.fileData
+            : fileData as SdkOptional<String>,
+        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
+            ? this.promptCacheBreakpoint
+            : promptCacheBreakpoint
+                as SdkOptional<BetaPromptCacheBreakpointConfig>,
+        fileUrl: identical(fileUrl, sdkOmittedValue)
+            ? this.fileUrl
+            : fileUrl as SdkOptional<String>,
+        detail: identical(detail, sdkOmittedValue)
+            ? this.detail
+            : detail as SdkOptional<BetaFileInputDetail>,
+      );
 
-  factory BetaInputFileContent.fromJson(Map<String, dynamic> json) => BetaInputFileContent(
-    type_: (json['type'] != null ? BetaInputFileContentType.fromJson(json['type'] as String) : null)!,
-    fileId: json.containsKey('file_id') ? SdkPresent(json['file_id'] as String?) : const SdkOmitted(),
-    filename: json['filename'] != null ? SdkPresent((json['filename'] as String?)!) : const SdkOmitted(),
-    fileData: json['file_data'] != null ? SdkPresent((json['file_data'] as String?)!) : const SdkOmitted(),
-    promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null ? SdkPresent((json['prompt_cache_breakpoint'] != null ? BetaPromptCacheBreakpointConfig.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    fileUrl: json['file_url'] != null ? SdkPresent((json['file_url'] as String?)!) : const SdkOmitted(),
-    detail: json['detail'] != null ? SdkPresent((json['detail'] != null ? BetaFileInputDetail.fromJson(json['detail'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory BetaInputFileContent.fromJson(Map<String, dynamic> json) =>
+      BetaInputFileContent(
+        type_: (json['type'] != null
+            ? BetaInputFileContentType.fromJson(json['type'] as String)
+            : null)!,
+        fileId: json.containsKey('file_id')
+            ? SdkPresent(json['file_id'] as String?)
+            : const SdkOmitted(),
+        filename: json['filename'] != null
+            ? SdkPresent((json['filename'] as String?)!)
+            : const SdkOmitted(),
+        fileData: json['file_data'] != null
+            ? SdkPresent((json['file_data'] as String?)!)
+            : const SdkOmitted(),
+        promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null
+            ? SdkPresent((json['prompt_cache_breakpoint'] != null
+                ? BetaPromptCacheBreakpointConfig.fromJson(
+                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        fileUrl: json['file_url'] != null
+            ? SdkPresent((json['file_url'] as String?)!)
+            : const SdkOmitted(),
+        detail: json['detail'] != null
+            ? SdkPresent((json['detail'] != null
+                ? BetaFileInputDetail.fromJson(json['detail'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (fileId) {
-      SdkPresent<String?>(value: final value) => {'file_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (filename) {
-      SdkPresent<String>(value: final value) => {'filename': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fileData) {
-      SdkPresent<String>(value: final value) => {'file_data': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (promptCacheBreakpoint) {
-      SdkPresent<BetaPromptCacheBreakpointConfig>(value: final value) => {'prompt_cache_breakpoint': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fileUrl) {
-      SdkPresent<String>(value: final value) => {'file_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (detail) {
-      SdkPresent<BetaFileInputDetail>(value: final value) => {'detail': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (fileId) {
+          SdkPresent<String?>(value: final value) => {
+              'file_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (filename) {
+          SdkPresent<String>(value: final value) => {
+              'filename': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fileData) {
+          SdkPresent<String>(value: final value) => {
+              'file_data': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (promptCacheBreakpoint) {
+          SdkPresent<BetaPromptCacheBreakpointConfig>(value: final value) => {
+              'prompt_cache_breakpoint': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fileUrl) {
+          SdkPresent<String>(value: final value) => {
+              'file_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (detail) {
+          SdkPresent<BetaFileInputDetail>(value: final value) => {
+              'detail': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

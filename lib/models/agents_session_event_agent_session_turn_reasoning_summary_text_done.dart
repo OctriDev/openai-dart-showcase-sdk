@@ -8,57 +8,111 @@ part of 'agents_session_event.dart';
 class SessionEventAgentSessionTurnReasoningSummaryTextDone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `agent.session.turn.reasoning_summary_text.done`.
   final SessionEventAgentSessionTurnReasoningSummaryTextDoneType type_;
+
   /// The unique ID of the event.
   final String eventId;
+
   /// The ID of the session associated with the event.
   final String sessionId;
+
   /// The ID of the turn associated with the event, when applicable.
   final String? turnId;
+
   /// The ID of the reasoning item.
   final String itemId;
+
   /// The index of the item in the turn output.
   final int outputIndex;
+
   /// The index of the summary content part.
   final int summaryIndex;
+
   /// The complete reasoning summary text.
   final String text;
 
-  const SessionEventAgentSessionTurnReasoningSummaryTextDone({required this.type_, required this.eventId, required this.sessionId, required this.turnId, required this.itemId, required this.outputIndex, required this.summaryIndex, required this.text});
+  const SessionEventAgentSessionTurnReasoningSummaryTextDone(
+      {required this.type_,
+      required this.eventId,
+      required this.sessionId,
+      required this.turnId,
+      required this.itemId,
+      required this.outputIndex,
+      required this.summaryIndex,
+      required this.text});
 
-  SessionEventAgentSessionTurnReasoningSummaryTextDone Function({SessionEventAgentSessionTurnReasoningSummaryTextDoneType type_, String eventId, String sessionId, String? turnId, String itemId, int outputIndex, int summaryIndex, String text}) get copyWith => _copyWith;
+  SessionEventAgentSessionTurnReasoningSummaryTextDone Function(
+      {SessionEventAgentSessionTurnReasoningSummaryTextDoneType type_,
+      String eventId,
+      String sessionId,
+      String? turnId,
+      String itemId,
+      int outputIndex,
+      int summaryIndex,
+      String text}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionTurnReasoningSummaryTextDone _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? summaryIndex = sdkOmittedValue, Object? text = sdkOmittedValue}) => SessionEventAgentSessionTurnReasoningSummaryTextDone(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionTurnReasoningSummaryTextDoneType,
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String?,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    summaryIndex: identical(summaryIndex, sdkOmittedValue) ? this.summaryIndex : summaryIndex as int,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  SessionEventAgentSessionTurnReasoningSummaryTextDone _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? eventId = sdkOmittedValue,
+          Object? sessionId = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? summaryIndex = sdkOmittedValue,
+          Object? text = sdkOmittedValue}) =>
+      SessionEventAgentSessionTurnReasoningSummaryTextDone(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SessionEventAgentSessionTurnReasoningSummaryTextDoneType,
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        sessionId: identical(sessionId, sdkOmittedValue)
+            ? this.sessionId
+            : sessionId as String,
+        turnId: identical(turnId, sdkOmittedValue)
+            ? this.turnId
+            : turnId as String?,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        summaryIndex: identical(summaryIndex, sdkOmittedValue)
+            ? this.summaryIndex
+            : summaryIndex as int,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory SessionEventAgentSessionTurnReasoningSummaryTextDone.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionTurnReasoningSummaryTextDone(
-    type_: (json['type'] != null ? SessionEventAgentSessionTurnReasoningSummaryTextDoneType.fromJson(json['type'] as String) : null)!,
-    eventId: (json['event_id'] as String?)!,
-    sessionId: (json['session_id'] as String?)!,
-    turnId: json.containsKey('turn_id') ? json['turn_id'] as String? : throw ArgumentError.value(null, 'turn_id', 'Required property is missing'),
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
-    text: (json['text'] as String?)!,
-  );
+  factory SessionEventAgentSessionTurnReasoningSummaryTextDone.fromJson(
+          Map<String, dynamic> json) =>
+      SessionEventAgentSessionTurnReasoningSummaryTextDone(
+        type_: (json['type'] != null
+            ? SessionEventAgentSessionTurnReasoningSummaryTextDoneType.fromJson(
+                json['type'] as String)
+            : null)!,
+        eventId: (json['event_id'] as String?)!,
+        sessionId: (json['session_id'] as String?)!,
+        turnId: json.containsKey('turn_id')
+            ? json['turn_id'] as String?
+            : throw ArgumentError.value(
+                null, 'turn_id', 'Required property is missing'),
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'event_id': eventId,
-    'session_id': sessionId,
-    'turn_id': turnId,
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'summary_index': summaryIndex,
-    'text': text,
-  };
+        'type': type_.toJson(),
+        'event_id': eventId,
+        'session_id': sessionId,
+        'turn_id': turnId,
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'summary_index': summaryIndex,
+        'text': text,
+      };
 }

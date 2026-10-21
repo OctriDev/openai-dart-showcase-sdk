@@ -8,90 +8,160 @@ part of 'audio.dart';
 class CreateSpeechRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// One of the available [TTS models](https://developers.openai.com/api/docs/guides/text-to-speech): `tts-1`, `tts-1-hd`, `gpt-4o-mini-tts`, or `gpt-4o-mini-tts-2025-12-15`.
   final String model;
+
   /// The text to generate audio for. The maximum length is 4096 characters.
   final String input;
+
   /// Control the voice of your generated audio with additional instructions. Does not work with `tts-1` or `tts-1-hd`.
   final SdkOptional<String> instructions;
+
   /// The voice to use when generating the audio. Supported built-in voices are `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. You may also provide a custom voice object with an `id`, for example `{ "id": "voice_1234" }`. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples.
   final CreateSpeechRequestVoice voice;
+
   /// The format to audio in. Supported formats are `mp3`, `opus`, `aac`, `flac`, `wav`, and `pcm`.
   final SdkOptional<CreateSpeechRequestResponseFormat> responseFormat;
+
   /// The speed of the generated audio. Select a value from `0.25` to `4.0`. `1.0` is the default.
   final SdkOptional<double> speed;
+
   /// The format to stream the audio in. Supported formats are `sse` and `audio`. `sse` is not supported for `tts-1` or `tts-1-hd`.
   final SdkOptional<CreateSpeechRequestStreamFormat> streamFormat;
 
-  const CreateSpeechRequest({required this.model, required this.input, this.instructions = const SdkOmitted(), required this.voice, this.responseFormat = const SdkOmitted(), this.speed = const SdkOmitted(), this.streamFormat = const SdkOmitted()});
+  const CreateSpeechRequest(
+      {required this.model,
+      required this.input,
+      this.instructions = const SdkOmitted(),
+      required this.voice,
+      this.responseFormat = const SdkOmitted(),
+      this.speed = const SdkOmitted(),
+      this.streamFormat = const SdkOmitted()});
 
-  CreateSpeechRequest Function({String model, String input, SdkOptional<String> instructions, CreateSpeechRequestVoice voice, SdkOptional<CreateSpeechRequestResponseFormat> responseFormat, SdkOptional<double> speed, SdkOptional<CreateSpeechRequestStreamFormat> streamFormat}) get copyWith => _copyWith;
+  CreateSpeechRequest Function(
+          {String model,
+          String input,
+          SdkOptional<String> instructions,
+          CreateSpeechRequestVoice voice,
+          SdkOptional<CreateSpeechRequestResponseFormat> responseFormat,
+          SdkOptional<double> speed,
+          SdkOptional<CreateSpeechRequestStreamFormat> streamFormat})
+      get copyWith => _copyWith;
 
-  CreateSpeechRequest _copyWith({Object? model = sdkOmittedValue, Object? input = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? voice = sdkOmittedValue, Object? responseFormat = sdkOmittedValue, Object? speed = sdkOmittedValue, Object? streamFormat = sdkOmittedValue}) => CreateSpeechRequest(
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as String,
-    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String>,
-    voice: identical(voice, sdkOmittedValue) ? this.voice : voice as CreateSpeechRequestVoice,
-    responseFormat: identical(responseFormat, sdkOmittedValue) ? this.responseFormat : responseFormat as SdkOptional<CreateSpeechRequestResponseFormat>,
-    speed: identical(speed, sdkOmittedValue) ? this.speed : speed as SdkOptional<double>,
-    streamFormat: identical(streamFormat, sdkOmittedValue) ? this.streamFormat : streamFormat as SdkOptional<CreateSpeechRequestStreamFormat>,
-  );
+  CreateSpeechRequest _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? instructions = sdkOmittedValue,
+          Object? voice = sdkOmittedValue,
+          Object? responseFormat = sdkOmittedValue,
+          Object? speed = sdkOmittedValue,
+          Object? streamFormat = sdkOmittedValue}) =>
+      CreateSpeechRequest(
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        input: identical(input, sdkOmittedValue) ? this.input : input as String,
+        instructions: identical(instructions, sdkOmittedValue)
+            ? this.instructions
+            : instructions as SdkOptional<String>,
+        voice: identical(voice, sdkOmittedValue)
+            ? this.voice
+            : voice as CreateSpeechRequestVoice,
+        responseFormat: identical(responseFormat, sdkOmittedValue)
+            ? this.responseFormat
+            : responseFormat as SdkOptional<CreateSpeechRequestResponseFormat>,
+        speed: identical(speed, sdkOmittedValue)
+            ? this.speed
+            : speed as SdkOptional<double>,
+        streamFormat: identical(streamFormat, sdkOmittedValue)
+            ? this.streamFormat
+            : streamFormat as SdkOptional<CreateSpeechRequestStreamFormat>,
+      );
 
-  factory CreateSpeechRequest.fromJson(Map<String, dynamic> json) => CreateSpeechRequest(
-    model: (json['model'] as String?)!,
-    input: (json['input'] as String?)!,
-    instructions: json['instructions'] != null ? SdkPresent((json['instructions'] as String?)!) : const SdkOmitted(),
-    voice: (json['voice'] != null ? CreateSpeechRequestVoice.fromJson(json['voice']) : null)!,
-    responseFormat: json['response_format'] != null ? SdkPresent((json['response_format'] != null ? CreateSpeechRequestResponseFormat.fromJson(json['response_format'] as String) : null)!) : const SdkOmitted(),
-    speed: json['speed'] != null ? SdkPresent(((json['speed'] as num?)?.toDouble())!) : const SdkOmitted(),
-    streamFormat: json['stream_format'] != null ? SdkPresent((json['stream_format'] != null ? CreateSpeechRequestStreamFormat.fromJson(json['stream_format'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory CreateSpeechRequest.fromJson(Map<String, dynamic> json) =>
+      CreateSpeechRequest(
+        model: (json['model'] as String?)!,
+        input: (json['input'] as String?)!,
+        instructions: json['instructions'] != null
+            ? SdkPresent((json['instructions'] as String?)!)
+            : const SdkOmitted(),
+        voice: (json['voice'] != null
+            ? CreateSpeechRequestVoice.fromJson(json['voice'])
+            : null)!,
+        responseFormat: json['response_format'] != null
+            ? SdkPresent((json['response_format'] != null
+                ? CreateSpeechRequestResponseFormat.fromJson(
+                    json['response_format'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        speed: json['speed'] != null
+            ? SdkPresent(((json['speed'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        streamFormat: json['stream_format'] != null
+            ? SdkPresent((json['stream_format'] != null
+                ? CreateSpeechRequestStreamFormat.fromJson(
+                    json['stream_format'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'model': model,
-    'input': input,
-    ...switch (instructions) {
-      SdkPresent<String>(value: final value) => {'instructions': value,},
-      _ => const <String, dynamic>{},
-    },
-    'voice': voice.toJson(),
-    ...switch (responseFormat) {
-      SdkPresent<CreateSpeechRequestResponseFormat>(value: final value) => {'response_format': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (speed) {
-      SdkPresent<double>(value: final value) => {'speed': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (streamFormat) {
-      SdkPresent<CreateSpeechRequestStreamFormat>(value: final value) => {'stream_format': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'model': model,
+        'input': input,
+        ...switch (instructions) {
+          SdkPresent<String>(value: final value) => {
+              'instructions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'voice': voice.toJson(),
+        ...switch (responseFormat) {
+          SdkPresent<CreateSpeechRequestResponseFormat>(value: final value) => {
+              'response_format': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (speed) {
+          SdkPresent<double>(value: final value) => {
+              'speed': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (streamFormat) {
+          SdkPresent<CreateSpeechRequestStreamFormat>(value: final value) => {
+              'stream_format': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Custom voice reference.
 class CreateSpeechRequestVoiceVariant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The custom voice ID, e.g. `voice_1234`.
   final String id;
 
   const CreateSpeechRequestVoiceVariant2({required this.id});
 
-  CreateSpeechRequestVoiceVariant2 Function({String id}) get copyWith => _copyWith;
+  CreateSpeechRequestVoiceVariant2 Function({String id}) get copyWith =>
+      _copyWith;
 
-  CreateSpeechRequestVoiceVariant2 _copyWith({Object? id = sdkOmittedValue}) => CreateSpeechRequestVoiceVariant2(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  CreateSpeechRequestVoiceVariant2 _copyWith({Object? id = sdkOmittedValue}) =>
+      CreateSpeechRequestVoiceVariant2(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory CreateSpeechRequestVoiceVariant2.fromJson(Map<String, dynamic> json) => CreateSpeechRequestVoiceVariant2(
-    id: (json['id'] as String?)!,
-  );
+  factory CreateSpeechRequestVoiceVariant2.fromJson(
+          Map<String, dynamic> json) =>
+      CreateSpeechRequestVoiceVariant2(
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }
 
 sealed class CreateSpeechRequestVoice {
@@ -99,9 +169,18 @@ sealed class CreateSpeechRequestVoice {
   static const String constructionSurface = 'named';
   const CreateSpeechRequestVoice();
   factory CreateSpeechRequestVoice.fromJson(Object? json) {
-    if (json is String) { return CreateSpeechRequestVoiceString(json); }
-    try { return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1(CreateSpeechRequestVoiceVariant1.fromJson(json as String)); } catch (_) {}
-    try { return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant2(CreateSpeechRequestVoiceVariant2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is String) {
+      return CreateSpeechRequestVoiceString(json);
+    }
+    try {
+      return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1(
+          CreateSpeechRequestVoiceVariant1.fromJson(json as String));
+    } catch (_) {}
+    try {
+      return CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant2(
+          CreateSpeechRequestVoiceVariant2.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for CreateSpeechRequestVoice");
   }
   Object? toJson();
@@ -110,19 +189,24 @@ sealed class CreateSpeechRequestVoice {
 final class CreateSpeechRequestVoiceString extends CreateSpeechRequestVoice {
   final String value;
   const CreateSpeechRequestVoiceString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1 extends CreateSpeechRequestVoice {
+final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1
+    extends CreateSpeechRequestVoice {
   final CreateSpeechRequestVoiceVariant1 value;
   const CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant2 extends CreateSpeechRequestVoice {
+final class CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant2
+    extends CreateSpeechRequestVoice {
   final CreateSpeechRequestVoiceVariant2 value;
   const CreateSpeechRequestVoiceCreateSpeechRequestVoiceVariant2(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class CreateSpeechResponseStreamEvent {
@@ -131,124 +215,199 @@ sealed class CreateSpeechResponseStreamEvent {
   const CreateSpeechResponseStreamEvent();
   factory CreateSpeechResponseStreamEvent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = SpeechAudioDeltaEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateSpeechResponseStreamEventSpeechAudioDeltaEvent(value); } } catch (_) {}
-      try { final value = SpeechAudioDoneEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateSpeechResponseStreamEventSpeechAudioDoneEvent(value); } } catch (_) {}
+      try {
+        final value = SpeechAudioDeltaEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateSpeechResponseStreamEventSpeechAudioDeltaEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = SpeechAudioDoneEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateSpeechResponseStreamEventSpeechAudioDoneEvent(value);
+        }
+      } catch (_) {}
     }
-    try { return CreateSpeechResponseStreamEventSpeechAudioDeltaEvent(SpeechAudioDeltaEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateSpeechResponseStreamEventSpeechAudioDoneEvent(SpeechAudioDoneEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"speech.audio.delta", "speech.audio.done"}.contains(json["type"])) { return UnknownCreateSpeechResponseStreamEvent(json); }
-    throw FormatException("No variant matched for CreateSpeechResponseStreamEvent");
+    try {
+      return CreateSpeechResponseStreamEventSpeechAudioDeltaEvent(
+          SpeechAudioDeltaEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateSpeechResponseStreamEventSpeechAudioDoneEvent(
+          SpeechAudioDoneEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"speech.audio.delta", "speech.audio.done"}
+            .contains(json["type"])) {
+      return UnknownCreateSpeechResponseStreamEvent(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateSpeechResponseStreamEvent");
   }
   Object? toJson();
 }
 
-final class CreateSpeechResponseStreamEventSpeechAudioDeltaEvent extends CreateSpeechResponseStreamEvent {
+final class CreateSpeechResponseStreamEventSpeechAudioDeltaEvent
+    extends CreateSpeechResponseStreamEvent {
   final SpeechAudioDeltaEvent value;
   const CreateSpeechResponseStreamEventSpeechAudioDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateSpeechResponseStreamEventSpeechAudioDoneEvent extends CreateSpeechResponseStreamEvent {
+final class CreateSpeechResponseStreamEventSpeechAudioDoneEvent
+    extends CreateSpeechResponseStreamEvent {
   final SpeechAudioDoneEvent value;
   const CreateSpeechResponseStreamEventSpeechAudioDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateSpeechResponseStreamEvent] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateSpeechResponseStreamEvent extends CreateSpeechResponseStreamEvent {
+final class UnknownCreateSpeechResponseStreamEvent
+    extends CreateSpeechResponseStreamEvent {
   final Map<String, dynamic> raw;
   const UnknownCreateSpeechResponseStreamEvent(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Emitted for each chunk of audio data generated during speech synthesis.
 class SpeechAudioDeltaEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always `speech.audio.delta`.
   final SpeechAudioDeltaEventType type_;
+
   /// A chunk of Base64-encoded audio data.
   final String audio;
 
   const SpeechAudioDeltaEvent({required this.type_, required this.audio});
 
-  SpeechAudioDeltaEvent Function({SpeechAudioDeltaEventType type_, String audio}) get copyWith => _copyWith;
+  SpeechAudioDeltaEvent Function(
+      {SpeechAudioDeltaEventType type_,
+      String audio}) get copyWith => _copyWith;
 
-  SpeechAudioDeltaEvent _copyWith({Object? type_ = sdkOmittedValue, Object? audio = sdkOmittedValue}) => SpeechAudioDeltaEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SpeechAudioDeltaEventType,
-    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
-  );
+  SpeechAudioDeltaEvent _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? audio = sdkOmittedValue}) =>
+      SpeechAudioDeltaEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SpeechAudioDeltaEventType,
+        audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
+      );
 
-  factory SpeechAudioDeltaEvent.fromJson(Map<String, dynamic> json) => SpeechAudioDeltaEvent(
-    type_: (json['type'] != null ? SpeechAudioDeltaEventType.fromJson(json['type'] as String) : null)!,
-    audio: (json['audio'] as String?)!,
-  );
+  factory SpeechAudioDeltaEvent.fromJson(Map<String, dynamic> json) =>
+      SpeechAudioDeltaEvent(
+        type_: (json['type'] != null
+            ? SpeechAudioDeltaEventType.fromJson(json['type'] as String)
+            : null)!,
+        audio: (json['audio'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'audio': audio,
-  };
+        'type': type_.toJson(),
+        'audio': audio,
+      };
 }
 
 /// Token usage statistics for the request.
 class SpeechAudioDoneEventUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Number of input tokens in the prompt.
   final int inputTokens;
+
   /// Number of output tokens generated.
   final int outputTokens;
+
   /// Total number of tokens used (input + output).
   final int totalTokens;
 
-  const SpeechAudioDoneEventUsage({required this.inputTokens, required this.outputTokens, required this.totalTokens});
+  const SpeechAudioDoneEventUsage(
+      {required this.inputTokens,
+      required this.outputTokens,
+      required this.totalTokens});
 
-  SpeechAudioDoneEventUsage Function({int inputTokens, int outputTokens, int totalTokens}) get copyWith => _copyWith;
+  SpeechAudioDoneEventUsage Function(
+      {int inputTokens,
+      int outputTokens,
+      int totalTokens}) get copyWith => _copyWith;
 
-  SpeechAudioDoneEventUsage _copyWith({Object? inputTokens = sdkOmittedValue, Object? outputTokens = sdkOmittedValue, Object? totalTokens = sdkOmittedValue}) => SpeechAudioDoneEventUsage(
-    inputTokens: identical(inputTokens, sdkOmittedValue) ? this.inputTokens : inputTokens as int,
-    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as int,
-    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
-  );
+  SpeechAudioDoneEventUsage _copyWith(
+          {Object? inputTokens = sdkOmittedValue,
+          Object? outputTokens = sdkOmittedValue,
+          Object? totalTokens = sdkOmittedValue}) =>
+      SpeechAudioDoneEventUsage(
+        inputTokens: identical(inputTokens, sdkOmittedValue)
+            ? this.inputTokens
+            : inputTokens as int,
+        outputTokens: identical(outputTokens, sdkOmittedValue)
+            ? this.outputTokens
+            : outputTokens as int,
+        totalTokens: identical(totalTokens, sdkOmittedValue)
+            ? this.totalTokens
+            : totalTokens as int,
+      );
 
-  factory SpeechAudioDoneEventUsage.fromJson(Map<String, dynamic> json) => SpeechAudioDoneEventUsage(
-    inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
-    outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
-    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-  );
+  factory SpeechAudioDoneEventUsage.fromJson(Map<String, dynamic> json) =>
+      SpeechAudioDoneEventUsage(
+        inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
+        outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
+        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'input_tokens': inputTokens,
-    'output_tokens': outputTokens,
-    'total_tokens': totalTokens,
-  };
+        'input_tokens': inputTokens,
+        'output_tokens': outputTokens,
+        'total_tokens': totalTokens,
+      };
 }
 
 /// Emitted when the speech synthesis is complete and all audio has been streamed.
 class SpeechAudioDoneEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always `speech.audio.done`.
   final SpeechAudioDoneEventType type_;
+
   /// Token usage statistics for the request.
   final SpeechAudioDoneEventUsage usage;
 
   const SpeechAudioDoneEvent({required this.type_, required this.usage});
 
-  SpeechAudioDoneEvent Function({SpeechAudioDoneEventType type_, SpeechAudioDoneEventUsage usage}) get copyWith => _copyWith;
+  SpeechAudioDoneEvent Function(
+      {SpeechAudioDoneEventType type_,
+      SpeechAudioDoneEventUsage usage}) get copyWith => _copyWith;
 
-  SpeechAudioDoneEvent _copyWith({Object? type_ = sdkOmittedValue, Object? usage = sdkOmittedValue}) => SpeechAudioDoneEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SpeechAudioDoneEventType,
-    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SpeechAudioDoneEventUsage,
-  );
+  SpeechAudioDoneEvent _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? usage = sdkOmittedValue}) =>
+      SpeechAudioDoneEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SpeechAudioDoneEventType,
+        usage: identical(usage, sdkOmittedValue)
+            ? this.usage
+            : usage as SpeechAudioDoneEventUsage,
+      );
 
-  factory SpeechAudioDoneEvent.fromJson(Map<String, dynamic> json) => SpeechAudioDoneEvent(
-    type_: (json['type'] != null ? SpeechAudioDoneEventType.fromJson(json['type'] as String) : null)!,
-    usage: (json['usage'] != null ? SpeechAudioDoneEventUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!,
-  );
+  factory SpeechAudioDoneEvent.fromJson(Map<String, dynamic> json) =>
+      SpeechAudioDoneEvent(
+        type_: (json['type'] != null
+            ? SpeechAudioDoneEventType.fromJson(json['type'] as String)
+            : null)!,
+        usage: (json['usage'] != null
+            ? SpeechAudioDoneEventUsage.fromJson(
+                json['usage'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'usage': usage.toJson(),
-  };
+        'type': type_.toJson(),
+        'usage': usage.toJson(),
+      };
 }

@@ -8,40 +8,76 @@ part of 'live_live_decision.dart';
 class LiveDecisionChoiceQuestionParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final LiveDecisionChoiceQuestionParamType type_;
+
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
+
   /// Required `string` value serialized in the `instructions` wire field.
   final String instructions;
+
   /// Required array value serialized in the `choices` wire field.
   final List<LiveDecisionChoiceParam> choices;
 
-  const LiveDecisionChoiceQuestionParam({required this.type_, this.name = const SdkOmitted(), required this.instructions, required this.choices});
+  const LiveDecisionChoiceQuestionParam(
+      {required this.type_,
+      this.name = const SdkOmitted(),
+      required this.instructions,
+      required this.choices});
 
-  LiveDecisionChoiceQuestionParam Function({LiveDecisionChoiceQuestionParamType type_, SdkOptional<String> name, String instructions, List<LiveDecisionChoiceParam> choices}) get copyWith => _copyWith;
+  LiveDecisionChoiceQuestionParam Function(
+      {LiveDecisionChoiceQuestionParamType type_,
+      SdkOptional<String> name,
+      String instructions,
+      List<LiveDecisionChoiceParam> choices}) get copyWith => _copyWith;
 
-  LiveDecisionChoiceQuestionParam _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? choices = sdkOmittedValue}) => LiveDecisionChoiceQuestionParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveDecisionChoiceQuestionParamType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as String,
-    choices: identical(choices, sdkOmittedValue) ? this.choices : choices as List<LiveDecisionChoiceParam>,
-  );
+  LiveDecisionChoiceQuestionParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? instructions = sdkOmittedValue,
+          Object? choices = sdkOmittedValue}) =>
+      LiveDecisionChoiceQuestionParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveDecisionChoiceQuestionParamType,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        instructions: identical(instructions, sdkOmittedValue)
+            ? this.instructions
+            : instructions as String,
+        choices: identical(choices, sdkOmittedValue)
+            ? this.choices
+            : choices as List<LiveDecisionChoiceParam>,
+      );
 
-  factory LiveDecisionChoiceQuestionParam.fromJson(Map<String, dynamic> json) => LiveDecisionChoiceQuestionParam(
-    type_: (json['type'] != null ? LiveDecisionChoiceQuestionParamType.fromJson(json['type'] as String) : null)!,
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    instructions: (json['instructions'] as String?)!,
-    choices: ((json['choices'] as List?)?.map((e) => LiveDecisionChoiceParam.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory LiveDecisionChoiceQuestionParam.fromJson(Map<String, dynamic> json) =>
+      LiveDecisionChoiceQuestionParam(
+        type_: (json['type'] != null
+            ? LiveDecisionChoiceQuestionParamType.fromJson(
+                json['type'] as String)
+            : null)!,
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        instructions: (json['instructions'] as String?)!,
+        choices: ((json['choices'] as List?)
+            ?.map((e) =>
+                LiveDecisionChoiceParam.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    'instructions': instructions,
-    'choices': choices.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'instructions': instructions,
+        'choices': choices.map((item) => item.toJson()).toList(),
+      };
 }

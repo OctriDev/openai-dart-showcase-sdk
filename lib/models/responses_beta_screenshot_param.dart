@@ -8,22 +8,30 @@ part of 'responses_beta.dart';
 class BetaScreenshotParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Specifies the event type. For a screenshot action, this property is always set to `screenshot`.
   final BetaScreenshotParamType type_;
 
   const BetaScreenshotParam({required this.type_});
 
-  BetaScreenshotParam Function({BetaScreenshotParamType type_}) get copyWith => _copyWith;
+  BetaScreenshotParam Function({BetaScreenshotParamType type_}) get copyWith =>
+      _copyWith;
 
-  BetaScreenshotParam _copyWith({Object? type_ = sdkOmittedValue}) => BetaScreenshotParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaScreenshotParamType,
-  );
+  BetaScreenshotParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      BetaScreenshotParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaScreenshotParamType,
+      );
 
-  factory BetaScreenshotParam.fromJson(Map<String, dynamic> json) => BetaScreenshotParam(
-    type_: (json['type'] != null ? BetaScreenshotParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory BetaScreenshotParam.fromJson(Map<String, dynamic> json) =>
+      BetaScreenshotParam(
+        type_: (json['type'] != null
+            ? BetaScreenshotParamType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

@@ -10,40 +10,87 @@ sealed class BetaApplyPatchOperationParam {
   const BetaApplyPatchOperationParam();
   factory BetaApplyPatchOperationParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaApplyPatchCreateFileOperationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaApplyPatchOperationParamBetaApplyPatchCreateFileOperationParam(value); } } catch (_) {}
-      try { final value = BetaApplyPatchDeleteFileOperationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaApplyPatchOperationParamBetaApplyPatchDeleteFileOperationParam(value); } } catch (_) {}
-      try { final value = BetaApplyPatchUpdateFileOperationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaApplyPatchOperationParamBetaApplyPatchUpdateFileOperationParam(value); } } catch (_) {}
+      try {
+        final value = BetaApplyPatchCreateFileOperationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaApplyPatchOperationParamBetaApplyPatchCreateFileOperationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaApplyPatchDeleteFileOperationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaApplyPatchOperationParamBetaApplyPatchDeleteFileOperationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaApplyPatchUpdateFileOperationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaApplyPatchOperationParamBetaApplyPatchUpdateFileOperationParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return BetaApplyPatchOperationParamBetaApplyPatchCreateFileOperationParam(BetaApplyPatchCreateFileOperationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaApplyPatchOperationParamBetaApplyPatchDeleteFileOperationParam(BetaApplyPatchDeleteFileOperationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaApplyPatchOperationParamBetaApplyPatchUpdateFileOperationParam(BetaApplyPatchUpdateFileOperationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"create_file", "delete_file", "update_file"}.contains(json["type"])) { return UnknownBetaApplyPatchOperationParam(json); }
-    throw FormatException("No variant matched for BetaApplyPatchOperationParam");
+    try {
+      return BetaApplyPatchOperationParamBetaApplyPatchCreateFileOperationParam(
+          BetaApplyPatchCreateFileOperationParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaApplyPatchOperationParamBetaApplyPatchDeleteFileOperationParam(
+          BetaApplyPatchDeleteFileOperationParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaApplyPatchOperationParamBetaApplyPatchUpdateFileOperationParam(
+          BetaApplyPatchUpdateFileOperationParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"create_file", "delete_file", "update_file"}
+            .contains(json["type"])) {
+      return UnknownBetaApplyPatchOperationParam(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaApplyPatchOperationParam");
   }
   Object? toJson();
 }
 
-final class BetaApplyPatchOperationParamBetaApplyPatchCreateFileOperationParam extends BetaApplyPatchOperationParam {
+final class BetaApplyPatchOperationParamBetaApplyPatchCreateFileOperationParam
+    extends BetaApplyPatchOperationParam {
   final BetaApplyPatchCreateFileOperationParam value;
-  const BetaApplyPatchOperationParamBetaApplyPatchCreateFileOperationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaApplyPatchOperationParamBetaApplyPatchCreateFileOperationParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaApplyPatchOperationParamBetaApplyPatchDeleteFileOperationParam extends BetaApplyPatchOperationParam {
+final class BetaApplyPatchOperationParamBetaApplyPatchDeleteFileOperationParam
+    extends BetaApplyPatchOperationParam {
   final BetaApplyPatchDeleteFileOperationParam value;
-  const BetaApplyPatchOperationParamBetaApplyPatchDeleteFileOperationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaApplyPatchOperationParamBetaApplyPatchDeleteFileOperationParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaApplyPatchOperationParamBetaApplyPatchUpdateFileOperationParam extends BetaApplyPatchOperationParam {
+final class BetaApplyPatchOperationParamBetaApplyPatchUpdateFileOperationParam
+    extends BetaApplyPatchOperationParam {
   final BetaApplyPatchUpdateFileOperationParam value;
-  const BetaApplyPatchOperationParamBetaApplyPatchUpdateFileOperationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaApplyPatchOperationParamBetaApplyPatchUpdateFileOperationParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaApplyPatchOperationParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaApplyPatchOperationParam extends BetaApplyPatchOperationParam {
+final class UnknownBetaApplyPatchOperationParam
+    extends BetaApplyPatchOperationParam {
   final Map<String, dynamic> raw;
   const UnknownBetaApplyPatchOperationParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

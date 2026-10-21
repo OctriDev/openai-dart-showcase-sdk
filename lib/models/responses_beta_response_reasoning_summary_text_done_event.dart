@@ -8,55 +8,106 @@ part of 'responses_beta_response_reasoning.dart';
 class BetaResponseReasoningSummaryTextDoneEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `response.reasoning_summary_text.done`.
   final BetaResponseReasoningSummaryTextDoneEventType type_;
+
   /// The ID of the item this summary text is associated with.
   final String itemId;
+
   /// The index of the output item this summary text is associated with.
   final int outputIndex;
+
   /// The index of the summary part within the reasoning summary.
   final int summaryIndex;
+
   /// The full text of the completed reasoning summary.
   final String text;
+
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const BetaResponseReasoningSummaryTextDoneEvent({this.agent = const SdkOmitted(), required this.type_, required this.itemId, required this.outputIndex, required this.summaryIndex, required this.text, required this.sequenceNumber});
+  const BetaResponseReasoningSummaryTextDoneEvent(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.itemId,
+      required this.outputIndex,
+      required this.summaryIndex,
+      required this.text,
+      required this.sequenceNumber});
 
-  BetaResponseReasoningSummaryTextDoneEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseReasoningSummaryTextDoneEventType type_, String itemId, int outputIndex, int summaryIndex, String text, int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseReasoningSummaryTextDoneEvent Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseReasoningSummaryTextDoneEventType type_,
+      String itemId,
+      int outputIndex,
+      int summaryIndex,
+      String text,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseReasoningSummaryTextDoneEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? summaryIndex = sdkOmittedValue, Object? text = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseReasoningSummaryTextDoneEvent(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseReasoningSummaryTextDoneEventType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    summaryIndex: identical(summaryIndex, sdkOmittedValue) ? this.summaryIndex : summaryIndex as int,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  BetaResponseReasoningSummaryTextDoneEvent _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? summaryIndex = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      BetaResponseReasoningSummaryTextDoneEvent(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseReasoningSummaryTextDoneEventType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        summaryIndex: identical(summaryIndex, sdkOmittedValue)
+            ? this.summaryIndex
+            : summaryIndex as int,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory BetaResponseReasoningSummaryTextDoneEvent.fromJson(Map<String, dynamic> json) => BetaResponseReasoningSummaryTextDoneEvent(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseReasoningSummaryTextDoneEventType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
-    text: (json['text'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory BetaResponseReasoningSummaryTextDoneEvent.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseReasoningSummaryTextDoneEvent(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseReasoningSummaryTextDoneEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
+        text: (json['text'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'summary_index': summaryIndex,
-    'text': text,
-    'sequence_number': sequenceNumber,
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'summary_index': summaryIndex,
+        'text': text,
+        'sequence_number': sequenceNumber,
+      };
 }

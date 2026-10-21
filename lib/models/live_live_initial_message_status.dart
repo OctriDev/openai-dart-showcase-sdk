@@ -6,22 +6,25 @@ part of 'live_live_initial.dart';
 // live_live_initial domain models
 /// Typed representation of the `LiveInitialMessageStatus` API schema.
 final class LiveInitialMessageStatus {
-
   final String value;
 
   const LiveInitialMessageStatus._(this.value);
 
-  factory LiveInitialMessageStatus.fromJson(String value) => LiveInitialMessageStatus._(value);
+  factory LiveInitialMessageStatus.fromJson(String value) =>
+      LiveInitialMessageStatus._(value);
 
   static const incomplete = LiveInitialMessageStatus._('incomplete');
   static const completed = LiveInitialMessageStatus._('completed');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveInitialMessageStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveInitialMessageStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

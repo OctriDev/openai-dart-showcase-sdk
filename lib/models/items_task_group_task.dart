@@ -8,32 +8,54 @@ part of 'items.dart';
 class TaskGroupTask {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Subtype for the grouped task.
   final TaskType type_;
+
   /// Required `string` value serialized in the `heading` wire field.
   final String? heading;
+
   /// Required `string` value serialized in the `summary` wire field.
   final String? summary;
 
-  const TaskGroupTask({required this.type_, required this.heading, required this.summary});
+  const TaskGroupTask(
+      {required this.type_, required this.heading, required this.summary});
 
-  TaskGroupTask Function({TaskType type_, String? heading, String? summary}) get copyWith => _copyWith;
+  TaskGroupTask Function({TaskType type_, String? heading, String? summary})
+      get copyWith => _copyWith;
 
-  TaskGroupTask _copyWith({Object? type_ = sdkOmittedValue, Object? heading = sdkOmittedValue, Object? summary = sdkOmittedValue}) => TaskGroupTask(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TaskType,
-    heading: identical(heading, sdkOmittedValue) ? this.heading : heading as String?,
-    summary: identical(summary, sdkOmittedValue) ? this.summary : summary as String?,
-  );
+  TaskGroupTask _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? heading = sdkOmittedValue,
+          Object? summary = sdkOmittedValue}) =>
+      TaskGroupTask(
+        type_:
+            identical(type_, sdkOmittedValue) ? this.type_ : type_ as TaskType,
+        heading: identical(heading, sdkOmittedValue)
+            ? this.heading
+            : heading as String?,
+        summary: identical(summary, sdkOmittedValue)
+            ? this.summary
+            : summary as String?,
+      );
 
   factory TaskGroupTask.fromJson(Map<String, dynamic> json) => TaskGroupTask(
-    type_: (json['type'] != null ? TaskType.fromJson(json['type'] as String) : null)!,
-    heading: json.containsKey('heading') ? json['heading'] as String? : throw ArgumentError.value(null, 'heading', 'Required property is missing'),
-    summary: json.containsKey('summary') ? json['summary'] as String? : throw ArgumentError.value(null, 'summary', 'Required property is missing'),
-  );
+        type_: (json['type'] != null
+            ? TaskType.fromJson(json['type'] as String)
+            : null)!,
+        heading: json.containsKey('heading')
+            ? json['heading'] as String?
+            : throw ArgumentError.value(
+                null, 'heading', 'Required property is missing'),
+        summary: json.containsKey('summary')
+            ? json['summary'] as String?
+            : throw ArgumentError.value(
+                null, 'summary', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'heading': heading,
-    'summary': summary,
-  };
+        'type': type_.toJson(),
+        'heading': heading,
+        'summary': summary,
+      };
 }

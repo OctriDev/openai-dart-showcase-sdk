@@ -8,30 +8,60 @@ part of 'assistants_run.dart';
 class RunStepDeltaStepDetailsToolCallsObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `tool_calls`.
   final RunStepDeltaStepDetailsToolCallsObjectType type_;
+
   /// An array of tool calls the run step was involved in. These can be associated with one of three types of tools: `code_interpreter`, `file_search`, or `function`.
-  final SdkOptional<List<RunStepDeltaStepDetailsToolCallsObjectToolCallsItem>> toolCalls;
+  final SdkOptional<List<RunStepDeltaStepDetailsToolCallsObjectToolCallsItem>>
+      toolCalls;
 
-  const RunStepDeltaStepDetailsToolCallsObject({required this.type_, this.toolCalls = const SdkOmitted()});
+  const RunStepDeltaStepDetailsToolCallsObject(
+      {required this.type_, this.toolCalls = const SdkOmitted()});
 
-  RunStepDeltaStepDetailsToolCallsObject Function({RunStepDeltaStepDetailsToolCallsObjectType type_, SdkOptional<List<RunStepDeltaStepDetailsToolCallsObjectToolCallsItem>> toolCalls}) get copyWith => _copyWith;
+  RunStepDeltaStepDetailsToolCallsObject Function(
+      {RunStepDeltaStepDetailsToolCallsObjectType type_,
+      SdkOptional<List<RunStepDeltaStepDetailsToolCallsObjectToolCallsItem>>
+          toolCalls}) get copyWith => _copyWith;
 
-  RunStepDeltaStepDetailsToolCallsObject _copyWith({Object? type_ = sdkOmittedValue, Object? toolCalls = sdkOmittedValue}) => RunStepDeltaStepDetailsToolCallsObject(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepDeltaStepDetailsToolCallsObjectType,
-    toolCalls: identical(toolCalls, sdkOmittedValue) ? this.toolCalls : toolCalls as SdkOptional<List<RunStepDeltaStepDetailsToolCallsObjectToolCallsItem>>,
-  );
+  RunStepDeltaStepDetailsToolCallsObject _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? toolCalls = sdkOmittedValue}) =>
+      RunStepDeltaStepDetailsToolCallsObject(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RunStepDeltaStepDetailsToolCallsObjectType,
+        toolCalls: identical(toolCalls, sdkOmittedValue)
+            ? this.toolCalls
+            : toolCalls as SdkOptional<
+                List<RunStepDeltaStepDetailsToolCallsObjectToolCallsItem>>,
+      );
 
-  factory RunStepDeltaStepDetailsToolCallsObject.fromJson(Map<String, dynamic> json) => RunStepDeltaStepDetailsToolCallsObject(
-    type_: (json['type'] != null ? RunStepDeltaStepDetailsToolCallsObjectType.fromJson(json['type'] as String) : null)!,
-    toolCalls: json['tool_calls'] != null ? SdkPresent(((json['tool_calls'] as List?)?.map((e) => RunStepDeltaStepDetailsToolCallsObjectToolCallsItem.fromJson(e)).toList())!) : const SdkOmitted(),
-  );
+  factory RunStepDeltaStepDetailsToolCallsObject.fromJson(
+          Map<String, dynamic> json) =>
+      RunStepDeltaStepDetailsToolCallsObject(
+        type_: (json['type'] != null
+            ? RunStepDeltaStepDetailsToolCallsObjectType.fromJson(
+                json['type'] as String)
+            : null)!,
+        toolCalls: json['tool_calls'] != null
+            ? SdkPresent(((json['tool_calls'] as List?)
+                ?.map((e) => RunStepDeltaStepDetailsToolCallsObjectToolCallsItem
+                    .fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (toolCalls) {
-      SdkPresent<List<RunStepDeltaStepDetailsToolCallsObjectToolCallsItem>>(value: final value) => {'tool_calls': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (toolCalls) {
+          SdkPresent<List<RunStepDeltaStepDetailsToolCallsObjectToolCallsItem>>(
+            value: final value
+          ) =>
+            {
+              'tool_calls': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

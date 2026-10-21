@@ -8,41 +8,81 @@ part of 'vaults_rotate.dart';
 class RotateMcpOauthRefreshParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The replacement refresh token. Omit or pass `null` to keep the stored token. This secret is never returned in resources.
   final SdkOptional<String?> refreshToken;
+
   /// Replacement space-separated OAuth scopes for refresh requests. Omit to keep the scopes, or pass `null` to stop sending a scope parameter.
   final SdkOptional<String?> scope;
+
   /// Client-secret updates for the existing token endpoint authentication method.
   final SdkOptional<RotateMcpOauthTokenEndpointAuthParam?> tokenEndpointAuth;
 
-  const RotateMcpOauthRefreshParam({this.refreshToken = const SdkOmitted(), this.scope = const SdkOmitted(), this.tokenEndpointAuth = const SdkOmitted()});
+  const RotateMcpOauthRefreshParam(
+      {this.refreshToken = const SdkOmitted(),
+      this.scope = const SdkOmitted(),
+      this.tokenEndpointAuth = const SdkOmitted()});
 
-  RotateMcpOauthRefreshParam Function({SdkOptional<String?> refreshToken, SdkOptional<String?> scope, SdkOptional<RotateMcpOauthTokenEndpointAuthParam?> tokenEndpointAuth}) get copyWith => _copyWith;
+  RotateMcpOauthRefreshParam Function(
+          {SdkOptional<String?> refreshToken,
+          SdkOptional<String?> scope,
+          SdkOptional<RotateMcpOauthTokenEndpointAuthParam?> tokenEndpointAuth})
+      get copyWith => _copyWith;
 
-  RotateMcpOauthRefreshParam _copyWith({Object? refreshToken = sdkOmittedValue, Object? scope = sdkOmittedValue, Object? tokenEndpointAuth = sdkOmittedValue}) => RotateMcpOauthRefreshParam(
-    refreshToken: identical(refreshToken, sdkOmittedValue) ? this.refreshToken : refreshToken as SdkOptional<String?>,
-    scope: identical(scope, sdkOmittedValue) ? this.scope : scope as SdkOptional<String?>,
-    tokenEndpointAuth: identical(tokenEndpointAuth, sdkOmittedValue) ? this.tokenEndpointAuth : tokenEndpointAuth as SdkOptional<RotateMcpOauthTokenEndpointAuthParam?>,
-  );
+  RotateMcpOauthRefreshParam _copyWith(
+          {Object? refreshToken = sdkOmittedValue,
+          Object? scope = sdkOmittedValue,
+          Object? tokenEndpointAuth = sdkOmittedValue}) =>
+      RotateMcpOauthRefreshParam(
+        refreshToken: identical(refreshToken, sdkOmittedValue)
+            ? this.refreshToken
+            : refreshToken as SdkOptional<String?>,
+        scope: identical(scope, sdkOmittedValue)
+            ? this.scope
+            : scope as SdkOptional<String?>,
+        tokenEndpointAuth: identical(tokenEndpointAuth, sdkOmittedValue)
+            ? this.tokenEndpointAuth
+            : tokenEndpointAuth
+                as SdkOptional<RotateMcpOauthTokenEndpointAuthParam?>,
+      );
 
-  factory RotateMcpOauthRefreshParam.fromJson(Map<String, dynamic> json) => RotateMcpOauthRefreshParam(
-    refreshToken: json.containsKey('refresh_token') ? SdkPresent(json['refresh_token'] as String?) : const SdkOmitted(),
-    scope: json.containsKey('scope') ? SdkPresent(json['scope'] as String?) : const SdkOmitted(),
-    tokenEndpointAuth: json.containsKey('token_endpoint_auth') ? SdkPresent(json['token_endpoint_auth'] != null ? RotateMcpOauthTokenEndpointAuthParam.fromJson(json['token_endpoint_auth']) : null) : const SdkOmitted(),
-  );
+  factory RotateMcpOauthRefreshParam.fromJson(Map<String, dynamic> json) =>
+      RotateMcpOauthRefreshParam(
+        refreshToken: json.containsKey('refresh_token')
+            ? SdkPresent(json['refresh_token'] as String?)
+            : const SdkOmitted(),
+        scope: json.containsKey('scope')
+            ? SdkPresent(json['scope'] as String?)
+            : const SdkOmitted(),
+        tokenEndpointAuth: json.containsKey('token_endpoint_auth')
+            ? SdkPresent(json['token_endpoint_auth'] != null
+                ? RotateMcpOauthTokenEndpointAuthParam.fromJson(
+                    json['token_endpoint_auth'])
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (refreshToken) {
-      SdkPresent<String?>(value: final value) => {'refresh_token': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scope) {
-      SdkPresent<String?>(value: final value) => {'scope': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tokenEndpointAuth) {
-      SdkPresent<RotateMcpOauthTokenEndpointAuthParam?>(value: final value) => {'token_endpoint_auth': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (refreshToken) {
+          SdkPresent<String?>(value: final value) => {
+              'refresh_token': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scope) {
+          SdkPresent<String?>(value: final value) => {
+              'scope': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tokenEndpointAuth) {
+          SdkPresent<RotateMcpOauthTokenEndpointAuthParam?>(
+            value: final value
+          ) =>
+            {
+              'token_endpoint_auth': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

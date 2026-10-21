@@ -10,14 +10,17 @@ enum UsageImagesResultObject {
 
   static UsageImagesResultObject fromJson(String value) {
     switch (value) {
-      case 'organization.usage.images.result': return UsageImagesResultObject.organizationUsageImagesResult;
-      default: throw ArgumentError('Unknown UsageImagesResultObject: $value');
+      case 'organization.usage.images.result':
+        return UsageImagesResultObject.organizationUsageImagesResult;
+      default:
+        throw ArgumentError('Unknown UsageImagesResultObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UsageImagesResultObject.organizationUsageImagesResult: return 'organization.usage.images.result';
+      case UsageImagesResultObject.organizationUsageImagesResult:
+        return 'organization.usage.images.result';
     }
   }
 
@@ -31,14 +34,17 @@ enum UsageModerationsResultObject {
 
   static UsageModerationsResultObject fromJson(String value) {
     switch (value) {
-      case 'organization.usage.moderations.result': return UsageModerationsResultObject.organizationUsageModerationsResult;
-      default: throw ArgumentError('Unknown UsageModerationsResultObject: $value');
+      case 'organization.usage.moderations.result':
+        return UsageModerationsResultObject.organizationUsageModerationsResult;
+      default:
+        throw ArgumentError('Unknown UsageModerationsResultObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UsageModerationsResultObject.organizationUsageModerationsResult: return 'organization.usage.moderations.result';
+      case UsageModerationsResultObject.organizationUsageModerationsResult:
+        return 'organization.usage.moderations.result';
     }
   }
 
@@ -48,44 +54,50 @@ enum UsageModerationsResultObject {
 
 /// Required enumerated value serialized in the `object` wire field.
 final class UsageResponseObject {
-
   final String value;
 
   const UsageResponseObject._(this.value);
 
-  factory UsageResponseObject.fromJson(String value) => UsageResponseObject._(value);
+  factory UsageResponseObject.fromJson(String value) =>
+      UsageResponseObject._(value);
 
   static const page = UsageResponseObject._('page');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class UsageTimeBucketObject {
-
   final String value;
 
   const UsageTimeBucketObject._(this.value);
 
-  factory UsageTimeBucketObject.fromJson(String value) => UsageTimeBucketObject._(value);
+  factory UsageTimeBucketObject.fromJson(String value) =>
+      UsageTimeBucketObject._(value);
 
   static const bucket = UsageTimeBucketObject._('bucket');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageTimeBucketObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageTimeBucketObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
@@ -94,14 +106,18 @@ enum UsageVectorStoresResultObject {
 
   static UsageVectorStoresResultObject fromJson(String value) {
     switch (value) {
-      case 'organization.usage.vector_stores.result': return UsageVectorStoresResultObject.organizationUsageVectorStoresResult;
-      default: throw ArgumentError('Unknown UsageVectorStoresResultObject: $value');
+      case 'organization.usage.vector_stores.result':
+        return UsageVectorStoresResultObject
+            .organizationUsageVectorStoresResult;
+      default:
+        throw ArgumentError('Unknown UsageVectorStoresResultObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UsageVectorStoresResultObject.organizationUsageVectorStoresResult: return 'organization.usage.vector_stores.result';
+      case UsageVectorStoresResultObject.organizationUsageVectorStoresResult:
+        return 'organization.usage.vector_stores.result';
     }
   }
 
@@ -111,24 +127,30 @@ enum UsageVectorStoresResultObject {
 
 /// Optional enumerated value serialized in the `api_source` wire field.
 final class UsageWebSearchCallsResultApiSourceVariant0 {
-
   final String value;
 
   const UsageWebSearchCallsResultApiSourceVariant0._(this.value);
 
-  factory UsageWebSearchCallsResultApiSourceVariant0.fromJson(String value) => UsageWebSearchCallsResultApiSourceVariant0._(value);
+  factory UsageWebSearchCallsResultApiSourceVariant0.fromJson(String value) =>
+      UsageWebSearchCallsResultApiSourceVariant0._(value);
 
-  static const agentsApi = UsageWebSearchCallsResultApiSourceVariant0._('agents_api');
-  static const unlabeled = UsageWebSearchCallsResultApiSourceVariant0._('unlabeled');
+  static const agentsApi =
+      UsageWebSearchCallsResultApiSourceVariant0._('agents_api');
+  static const unlabeled =
+      UsageWebSearchCallsResultApiSourceVariant0._('unlabeled');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageWebSearchCallsResultApiSourceVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageWebSearchCallsResultApiSourceVariant0 &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
@@ -137,14 +159,18 @@ enum UsageWebSearchCallsResultObject {
 
   static UsageWebSearchCallsResultObject fromJson(String value) {
     switch (value) {
-      case 'organization.usage.web_searches.result': return UsageWebSearchCallsResultObject.organizationUsageWebSearchesResult;
-      default: throw ArgumentError('Unknown UsageWebSearchCallsResultObject: $value');
+      case 'organization.usage.web_searches.result':
+        return UsageWebSearchCallsResultObject
+            .organizationUsageWebSearchesResult;
+      default:
+        throw ArgumentError('Unknown UsageWebSearchCallsResultObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UsageWebSearchCallsResultObject.organizationUsageWebSearchesResult: return 'organization.usage.web_searches.result';
+      case UsageWebSearchCallsResultObject.organizationUsageWebSearchesResult:
+        return 'organization.usage.web_searches.result';
     }
   }
 
@@ -154,7 +180,6 @@ enum UsageWebSearchCallsResultObject {
 
 /// The object type, which is always `organization.user`
 final class UserObject {
-
   final String value;
 
   const UserObject._(this.value);
@@ -165,38 +190,42 @@ final class UserObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UserObject && other.value == value;
+  @override
+  bool operator ==(Object other) => other is UserObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class UserProjectsObject {
-
   final String value;
 
   const UserProjectsObject._(this.value);
 
-  factory UserProjectsObject.fromJson(String value) => UserProjectsObject._(value);
+  factory UserProjectsObject.fromJson(String value) =>
+      UserProjectsObject._(value);
 
   static const list = UserProjectsObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UserProjectsObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UserProjectsObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class UserUserObject {
-
   final String value;
 
   const UserUserObject._(this.value);
@@ -207,73 +236,86 @@ final class UserUserObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UserUserObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UserUserObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class UserDeleteResponseObject {
-
   final String value;
 
   const UserDeleteResponseObject._(this.value);
 
-  factory UserDeleteResponseObject.fromJson(String value) => UserDeleteResponseObject._(value);
+  factory UserDeleteResponseObject.fromJson(String value) =>
+      UserDeleteResponseObject._(value);
 
-  static const organizationUserDeleted = UserDeleteResponseObject._('organization.user.deleted');
+  static const organizationUserDeleted =
+      UserDeleteResponseObject._('organization.user.deleted');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UserDeleteResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UserDeleteResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `list`.
 final class UserListResourceObject {
-
   final String value;
 
   const UserListResourceObject._(this.value);
 
-  factory UserListResourceObject.fromJson(String value) => UserListResourceObject._(value);
+  factory UserListResourceObject.fromJson(String value) =>
+      UserListResourceObject._(value);
 
   static const list = UserListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UserListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UserListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class UserListResponseObject {
-
   final String value;
 
   const UserListResponseObject._(this.value);
 
-  factory UserListResponseObject.fromJson(String value) => UserListResponseObject._(value);
+  factory UserListResponseObject.fromJson(String value) =>
+      UserListResponseObject._(value);
 
   static const list = UserListResponseObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UserListResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UserListResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

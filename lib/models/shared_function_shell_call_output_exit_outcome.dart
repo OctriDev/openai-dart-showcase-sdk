@@ -8,27 +8,44 @@ part of 'shared_function.dart';
 class FunctionShellCallOutputExitOutcome {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The outcome type. Always `exit`.
   final FunctionShellCallOutputExitOutcomeType type_;
+
   /// Exit code from the shell process.
   final int exitCode;
 
-  const FunctionShellCallOutputExitOutcome({required this.type_, required this.exitCode});
+  const FunctionShellCallOutputExitOutcome(
+      {required this.type_, required this.exitCode});
 
-  FunctionShellCallOutputExitOutcome Function({FunctionShellCallOutputExitOutcomeType type_, int exitCode}) get copyWith => _copyWith;
+  FunctionShellCallOutputExitOutcome Function(
+      {FunctionShellCallOutputExitOutcomeType type_,
+      int exitCode}) get copyWith => _copyWith;
 
-  FunctionShellCallOutputExitOutcome _copyWith({Object? type_ = sdkOmittedValue, Object? exitCode = sdkOmittedValue}) => FunctionShellCallOutputExitOutcome(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FunctionShellCallOutputExitOutcomeType,
-    exitCode: identical(exitCode, sdkOmittedValue) ? this.exitCode : exitCode as int,
-  );
+  FunctionShellCallOutputExitOutcome _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? exitCode = sdkOmittedValue}) =>
+      FunctionShellCallOutputExitOutcome(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as FunctionShellCallOutputExitOutcomeType,
+        exitCode: identical(exitCode, sdkOmittedValue)
+            ? this.exitCode
+            : exitCode as int,
+      );
 
-  factory FunctionShellCallOutputExitOutcome.fromJson(Map<String, dynamic> json) => FunctionShellCallOutputExitOutcome(
-    type_: (json['type'] != null ? FunctionShellCallOutputExitOutcomeType.fromJson(json['type'] as String) : null)!,
-    exitCode: ((json['exit_code'] as num?)?.toInt())!,
-  );
+  factory FunctionShellCallOutputExitOutcome.fromJson(
+          Map<String, dynamic> json) =>
+      FunctionShellCallOutputExitOutcome(
+        type_: (json['type'] != null
+            ? FunctionShellCallOutputExitOutcomeType.fromJson(
+                json['type'] as String)
+            : null)!,
+        exitCode: ((json['exit_code'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'exit_code': exitCode,
-  };
+        'type': type_.toJson(),
+        'exit_code': exitCode,
+      };
 }

@@ -10,14 +10,17 @@ enum BetaSpecificApplyPatchParamType {
 
   static BetaSpecificApplyPatchParamType fromJson(String value) {
     switch (value) {
-      case 'apply_patch': return BetaSpecificApplyPatchParamType.applyPatch;
-      default: throw ArgumentError('Unknown BetaSpecificApplyPatchParamType: $value');
+      case 'apply_patch':
+        return BetaSpecificApplyPatchParamType.applyPatch;
+      default:
+        throw ArgumentError('Unknown BetaSpecificApplyPatchParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaSpecificApplyPatchParamType.applyPatch: return 'apply_patch';
+      case BetaSpecificApplyPatchParamType.applyPatch:
+        return 'apply_patch';
     }
   }
 
@@ -31,14 +34,18 @@ enum BetaSpecificFunctionShellParamType {
 
   static BetaSpecificFunctionShellParamType fromJson(String value) {
     switch (value) {
-      case 'shell': return BetaSpecificFunctionShellParamType.shell;
-      default: throw ArgumentError('Unknown BetaSpecificFunctionShellParamType: $value');
+      case 'shell':
+        return BetaSpecificFunctionShellParamType.shell;
+      default:
+        throw ArgumentError(
+            'Unknown BetaSpecificFunctionShellParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaSpecificFunctionShellParamType.shell: return 'shell';
+      case BetaSpecificFunctionShellParamType.shell:
+        return 'shell';
     }
   }
 
@@ -52,14 +59,19 @@ enum BetaSpecificProgrammaticToolCallingParamType {
 
   static BetaSpecificProgrammaticToolCallingParamType fromJson(String value) {
     switch (value) {
-      case 'programmatic_tool_calling': return BetaSpecificProgrammaticToolCallingParamType.programmaticToolCalling;
-      default: throw ArgumentError('Unknown BetaSpecificProgrammaticToolCallingParamType: $value');
+      case 'programmatic_tool_calling':
+        return BetaSpecificProgrammaticToolCallingParamType
+            .programmaticToolCalling;
+      default:
+        throw ArgumentError(
+            'Unknown BetaSpecificProgrammaticToolCallingParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaSpecificProgrammaticToolCallingParamType.programmaticToolCalling: return 'programmatic_tool_calling';
+      case BetaSpecificProgrammaticToolCallingParamType.programmaticToolCalling:
+        return 'programmatic_tool_calling';
     }
   }
 
@@ -73,14 +85,17 @@ enum BetaSummaryTextContentType {
 
   static BetaSummaryTextContentType fromJson(String value) {
     switch (value) {
-      case 'summary_text': return BetaSummaryTextContentType.summaryText;
-      default: throw ArgumentError('Unknown BetaSummaryTextContentType: $value');
+      case 'summary_text':
+        return BetaSummaryTextContentType.summaryText;
+      default:
+        throw ArgumentError('Unknown BetaSummaryTextContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaSummaryTextContentType.summaryText: return 'summary_text';
+      case BetaSummaryTextContentType.summaryText:
+        return 'summary_text';
     }
   }
 
@@ -94,14 +109,17 @@ enum BetaTextContentType {
 
   static BetaTextContentType fromJson(String value) {
     switch (value) {
-      case 'text': return BetaTextContentType.text;
-      default: throw ArgumentError('Unknown BetaTextContentType: $value');
+      case 'text':
+        return BetaTextContentType.text;
+      default:
+        throw ArgumentError('Unknown BetaTextContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaTextContentType.text: return 'text';
+      case BetaTextContentType.text:
+        return 'text';
     }
   }
 
@@ -115,14 +133,18 @@ enum BetaTextResponseFormatJsonSchemaType {
 
   static BetaTextResponseFormatJsonSchemaType fromJson(String value) {
     switch (value) {
-      case 'json_schema': return BetaTextResponseFormatJsonSchemaType.jsonSchema;
-      default: throw ArgumentError('Unknown BetaTextResponseFormatJsonSchemaType: $value');
+      case 'json_schema':
+        return BetaTextResponseFormatJsonSchemaType.jsonSchema;
+      default:
+        throw ArgumentError(
+            'Unknown BetaTextResponseFormatJsonSchemaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaTextResponseFormatJsonSchemaType.jsonSchema: return 'json_schema';
+      case BetaTextResponseFormatJsonSchemaType.jsonSchema:
+        return 'json_schema';
     }
   }
 
@@ -132,45 +154,52 @@ enum BetaTextResponseFormatJsonSchemaType {
 
 /// Required enumerated value serialized in the `object` wire field.
 final class BetaTokenCountsResourceObject {
-
   final String value;
 
   const BetaTokenCountsResourceObject._(this.value);
 
-  factory BetaTokenCountsResourceObject.fromJson(String value) => BetaTokenCountsResourceObject._(value);
+  factory BetaTokenCountsResourceObject.fromJson(String value) =>
+      BetaTokenCountsResourceObject._(value);
 
-  static const responseInputTokens = BetaTokenCountsResourceObject._('response.input_tokens');
+  static const responseInputTokens =
+      BetaTokenCountsResourceObject._('response.input_tokens');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaTokenCountsResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaTokenCountsResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Constrains the tools available to the model to a pre-defined set. `auto` allows the model to pick from among the allowed tools and generate a message. `required` requires the model to call one or more of the allowed tools.
 final class BetaToolChoiceAllowedMode {
-
   final String value;
 
   const BetaToolChoiceAllowedMode._(this.value);
 
-  factory BetaToolChoiceAllowedMode.fromJson(String value) => BetaToolChoiceAllowedMode._(value);
+  factory BetaToolChoiceAllowedMode.fromJson(String value) =>
+      BetaToolChoiceAllowedMode._(value);
 
   static const auto = BetaToolChoiceAllowedMode._('auto');
   static const required_ = BetaToolChoiceAllowedMode._('required');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaToolChoiceAllowedMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaToolChoiceAllowedMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Allowed tool configuration type. Always `allowed_tools`.
@@ -179,14 +208,17 @@ enum BetaToolChoiceAllowedType {
 
   static BetaToolChoiceAllowedType fromJson(String value) {
     switch (value) {
-      case 'allowed_tools': return BetaToolChoiceAllowedType.allowedTools;
-      default: throw ArgumentError('Unknown BetaToolChoiceAllowedType: $value');
+      case 'allowed_tools':
+        return BetaToolChoiceAllowedType.allowedTools;
+      default:
+        throw ArgumentError('Unknown BetaToolChoiceAllowedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaToolChoiceAllowedType.allowedTools: return 'allowed_tools';
+      case BetaToolChoiceAllowedType.allowedTools:
+        return 'allowed_tools';
     }
   }
 
@@ -200,14 +232,17 @@ enum BetaToolChoiceCustomType {
 
   static BetaToolChoiceCustomType fromJson(String value) {
     switch (value) {
-      case 'custom': return BetaToolChoiceCustomType.custom;
-      default: throw ArgumentError('Unknown BetaToolChoiceCustomType: $value');
+      case 'custom':
+        return BetaToolChoiceCustomType.custom;
+      default:
+        throw ArgumentError('Unknown BetaToolChoiceCustomType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaToolChoiceCustomType.custom: return 'custom';
+      case BetaToolChoiceCustomType.custom:
+        return 'custom';
     }
   }
 
@@ -221,14 +256,17 @@ enum BetaToolChoiceFunctionType {
 
   static BetaToolChoiceFunctionType fromJson(String value) {
     switch (value) {
-      case 'function': return BetaToolChoiceFunctionType.function_;
-      default: throw ArgumentError('Unknown BetaToolChoiceFunctionType: $value');
+      case 'function':
+        return BetaToolChoiceFunctionType.function_;
+      default:
+        throw ArgumentError('Unknown BetaToolChoiceFunctionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaToolChoiceFunctionType.function_: return 'function';
+      case BetaToolChoiceFunctionType.function_:
+        return 'function';
     }
   }
 
@@ -242,14 +280,17 @@ enum BetaToolChoiceMCPType {
 
   static BetaToolChoiceMCPType fromJson(String value) {
     switch (value) {
-      case 'mcp': return BetaToolChoiceMCPType.mcp;
-      default: throw ArgumentError('Unknown BetaToolChoiceMCPType: $value');
+      case 'mcp':
+        return BetaToolChoiceMCPType.mcp;
+      default:
+        throw ArgumentError('Unknown BetaToolChoiceMCPType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaToolChoiceMCPType.mcp: return 'mcp';
+      case BetaToolChoiceMCPType.mcp:
+        return 'mcp';
     }
   }
 

@@ -8,42 +8,74 @@ part of 'vector_stores.dart';
 class ListVectorStoresResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `object` wire field.
   final String object;
+
   /// Required array value serialized in the `data` wire field.
   final List<VectorStoreObject> data;
+
   /// Required `string` value serialized in the `first_id` wire field.
   final String firstId;
+
   /// Required `string` value serialized in the `last_id` wire field.
   final String lastId;
+
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
 
-  const ListVectorStoresResponse({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
+  const ListVectorStoresResponse(
+      {required this.object,
+      required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore});
 
-  ListVectorStoresResponse Function({String object, List<VectorStoreObject> data, String firstId, String lastId, bool hasMore}) get copyWith => _copyWith;
+  ListVectorStoresResponse Function(
+      {String object,
+      List<VectorStoreObject> data,
+      String firstId,
+      String lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  ListVectorStoresResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ListVectorStoresResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<VectorStoreObject>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  ListVectorStoresResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      ListVectorStoresResponse(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<VectorStoreObject>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String,
+        lastId:
+            identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory ListVectorStoresResponse.fromJson(Map<String, dynamic> json) => ListVectorStoresResponse(
-    object: (json['object'] as String?)!,
-    data: ((json['data'] as List?)?.map((e) => VectorStoreObject.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: (json['first_id'] as String?)!,
-    lastId: (json['last_id'] as String?)!,
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory ListVectorStoresResponse.fromJson(Map<String, dynamic> json) =>
+      ListVectorStoresResponse(
+        object: (json['object'] as String?)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => VectorStoreObject.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: (json['first_id'] as String?)!,
+        lastId: (json['last_id'] as String?)!,
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object,
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
+        'object': object,
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+      };
 }

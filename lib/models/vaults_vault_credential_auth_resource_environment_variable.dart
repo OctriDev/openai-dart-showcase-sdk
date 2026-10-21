@@ -8,32 +8,58 @@ part of 'vaults_vault.dart';
 class VaultCredentialAuthResourceEnvironmentVariable {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `environment_variable`.
   final VaultCredentialAuthResourceEnvironmentVariableType type_;
+
   /// The environment variable name that receives the placeholder in the sandbox.
   final String secretName;
+
   /// The destinations where the proxy can substitute the secret, subject to the environment network policy.
   final VaultCredentialNetworkingResource networking;
 
-  const VaultCredentialAuthResourceEnvironmentVariable({required this.type_, required this.secretName, required this.networking});
+  const VaultCredentialAuthResourceEnvironmentVariable(
+      {required this.type_,
+      required this.secretName,
+      required this.networking});
 
-  VaultCredentialAuthResourceEnvironmentVariable Function({VaultCredentialAuthResourceEnvironmentVariableType type_, String secretName, VaultCredentialNetworkingResource networking}) get copyWith => _copyWith;
+  VaultCredentialAuthResourceEnvironmentVariable Function(
+      {VaultCredentialAuthResourceEnvironmentVariableType type_,
+      String secretName,
+      VaultCredentialNetworkingResource networking}) get copyWith => _copyWith;
 
-  VaultCredentialAuthResourceEnvironmentVariable _copyWith({Object? type_ = sdkOmittedValue, Object? secretName = sdkOmittedValue, Object? networking = sdkOmittedValue}) => VaultCredentialAuthResourceEnvironmentVariable(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VaultCredentialAuthResourceEnvironmentVariableType,
-    secretName: identical(secretName, sdkOmittedValue) ? this.secretName : secretName as String,
-    networking: identical(networking, sdkOmittedValue) ? this.networking : networking as VaultCredentialNetworkingResource,
-  );
+  VaultCredentialAuthResourceEnvironmentVariable _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? secretName = sdkOmittedValue,
+          Object? networking = sdkOmittedValue}) =>
+      VaultCredentialAuthResourceEnvironmentVariable(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as VaultCredentialAuthResourceEnvironmentVariableType,
+        secretName: identical(secretName, sdkOmittedValue)
+            ? this.secretName
+            : secretName as String,
+        networking: identical(networking, sdkOmittedValue)
+            ? this.networking
+            : networking as VaultCredentialNetworkingResource,
+      );
 
-  factory VaultCredentialAuthResourceEnvironmentVariable.fromJson(Map<String, dynamic> json) => VaultCredentialAuthResourceEnvironmentVariable(
-    type_: (json['type'] != null ? VaultCredentialAuthResourceEnvironmentVariableType.fromJson(json['type'] as String) : null)!,
-    secretName: (json['secret_name'] as String?)!,
-    networking: (json['networking'] != null ? VaultCredentialNetworkingResource.fromJson(json['networking']) : null)!,
-  );
+  factory VaultCredentialAuthResourceEnvironmentVariable.fromJson(
+          Map<String, dynamic> json) =>
+      VaultCredentialAuthResourceEnvironmentVariable(
+        type_: (json['type'] != null
+            ? VaultCredentialAuthResourceEnvironmentVariableType.fromJson(
+                json['type'] as String)
+            : null)!,
+        secretName: (json['secret_name'] as String?)!,
+        networking: (json['networking'] != null
+            ? VaultCredentialNetworkingResource.fromJson(json['networking'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'secret_name': secretName,
-    'networking': networking.toJson(),
-  };
+        'type': type_.toJson(),
+        'secret_name': secretName,
+        'networking': networking.toJson(),
+      };
 }

@@ -9,16 +9,23 @@ sealed class CreateImageEditRequestBackground {
   static const String constructionSurface = 'named';
   const CreateImageEditRequestBackground();
   factory CreateImageEditRequestBackground.fromJson(Object? json) {
-    try { return CreateImageEditRequestBackgroundCreateImageEditRequestBackgroundVariant0(CreateImageEditRequestBackgroundVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for CreateImageEditRequestBackground");
+    try {
+      return CreateImageEditRequestBackgroundCreateImageEditRequestBackgroundVariant0(
+          CreateImageEditRequestBackgroundVariant0.fromJson(json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateImageEditRequestBackground");
   }
   Object? toJson();
 }
 
-final class CreateImageEditRequestBackgroundCreateImageEditRequestBackgroundVariant0 extends CreateImageEditRequestBackground {
+final class CreateImageEditRequestBackgroundCreateImageEditRequestBackgroundVariant0
+    extends CreateImageEditRequestBackground {
   final CreateImageEditRequestBackgroundVariant0 value;
-  const CreateImageEditRequestBackgroundCreateImageEditRequestBackgroundVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateImageEditRequestBackgroundCreateImageEditRequestBackgroundVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class CreateImageEditRequestOutputFormat {
@@ -26,16 +33,23 @@ sealed class CreateImageEditRequestOutputFormat {
   static const String constructionSurface = 'named';
   const CreateImageEditRequestOutputFormat();
   factory CreateImageEditRequestOutputFormat.fromJson(Object? json) {
-    try { return CreateImageEditRequestOutputFormatCreateImageEditRequestOutputFormatVariant0(CreateImageEditRequestOutputFormatVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for CreateImageEditRequestOutputFormat");
+    try {
+      return CreateImageEditRequestOutputFormatCreateImageEditRequestOutputFormatVariant0(
+          CreateImageEditRequestOutputFormatVariant0.fromJson(json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateImageEditRequestOutputFormat");
   }
   Object? toJson();
 }
 
-final class CreateImageEditRequestOutputFormatCreateImageEditRequestOutputFormatVariant0 extends CreateImageEditRequestOutputFormat {
+final class CreateImageEditRequestOutputFormatCreateImageEditRequestOutputFormatVariant0
+    extends CreateImageEditRequestOutputFormat {
   final CreateImageEditRequestOutputFormatVariant0 value;
-  const CreateImageEditRequestOutputFormatCreateImageEditRequestOutputFormatVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateImageEditRequestOutputFormatCreateImageEditRequestOutputFormatVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class CreateImageEditRequestQuality {
@@ -43,152 +57,340 @@ sealed class CreateImageEditRequestQuality {
   static const String constructionSurface = 'named';
   const CreateImageEditRequestQuality();
   factory CreateImageEditRequestQuality.fromJson(Object? json) {
-    try { return CreateImageEditRequestQualityCreateImageEditRequestQualityVariant0(CreateImageEditRequestQualityVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for CreateImageEditRequestQuality");
+    try {
+      return CreateImageEditRequestQualityCreateImageEditRequestQualityVariant0(
+          CreateImageEditRequestQualityVariant0.fromJson(json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateImageEditRequestQuality");
   }
   Object? toJson();
 }
 
-final class CreateImageEditRequestQualityCreateImageEditRequestQualityVariant0 extends CreateImageEditRequestQuality {
+final class CreateImageEditRequestQualityCreateImageEditRequestQualityVariant0
+    extends CreateImageEditRequestQuality {
   final CreateImageEditRequestQualityVariant0 value;
-  const CreateImageEditRequestQualityCreateImageEditRequestQualityVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateImageEditRequestQualityCreateImageEditRequestQualityVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `CreateImageEditRequest` API schema.
 class CreateImageEditRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The image(s) to edit. Must be a supported image file or an array of images. For the GPT image models (`gpt-image-1`, `gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and `gpt-image-2.5-flare-2026-09-08`), each image should be a `png`, `webp`, or `jpg` file less than 50MB. You can provide up to 16 images. `chatgpt-image-latest` follows the same input constraints as GPT image models.
   final List<List<int>> image;
+
   /// A text description of the desired image(s). The maximum length is 32000 characters for the GPT image models.
   final String prompt;
+
   /// An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. If there are multiple images provided, the mask will be applied on the first image. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.
   final SdkOptional<List<int>> mask;
+
   /// Set the background of the generated image(s). This parameter is only supported for the GPT image models. Must be one of `transparent`, `opaque`, or `auto` (default value). When `auto` is used, the model will automatically determine the best background for the image. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, support `opaque` and `transparent` backgrounds. Transparent backgrounds are available for supported GPT Image models. For `gpt-image-2` and `gpt-image-2-2026-04-21`, this support is in preview. When using `transparent`, set the output format to `png` or `webp`.
   final SdkOptional<CreateImageEditRequestBackgroundVariant0?> background;
+
   /// The GPT image model to use for image editing (`gpt-image-1`, `gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, `gpt-image-2.5-flare-2026-09-08`, or `chatgpt-image-latest`).
   final String model;
+
   /// The number of images to generate. Must be between 1 and 10.
   final SdkOptional<int?> n;
+
   /// The size of the generated images. Defaults to `auto`. For `gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and `gpt-image-2.5-flare-2026-09-08`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model's current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing.
   final SdkOptional<String?> size;
+
   /// Legacy response format parameter for retired image models. Unsupported for GPT image models, which always return base64-encoded images.
   final SdkOptional<CreateImageEditRequestResponseFormat?> responseFormat;
+
   /// The format in which the generated images are returned. This parameter is only supported for the GPT image models. Must be one of `png`, `jpeg`, or `webp`. The default value is `png`.
   final SdkOptional<CreateImageEditRequestOutputFormatVariant0?> outputFormat;
+
   /// The compression level (0-100%) for the generated images. This parameter is only supported for the GPT image models with the `webp` or `jpeg` output formats, and defaults to 100.
   final SdkOptional<int?> outputCompression;
+
   /// A stable identifier for an end user in your organization, used for safety monitoring and abuse detection. Hash a username or email address to avoid sending identifying information. A non-empty value takes precedence over the deprecated `user` parameter. If omitted, null, or empty, the API uses `user` when available. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).
   final SdkOptional<String?> safetyIdentifier;
+
   /// Deprecated: use `safety_identifier` instead. This parameter remains accepted for backward compatibility and is used when `safety_identifier` is omitted, null, or empty. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).
   final SdkOptional<String> user;
+
   /// Optional API value serialized in the `input_fidelity` wire field.
   final SdkOptional<InputFidelity?> inputFidelity;
+
   /// Edit the image in streaming mode. Defaults to `false`. See the [Image generation guide](https://developers.openai.com/api/docs/guides/image-generation) for more information.
   final SdkOptional<bool?> stream;
+
   /// Optional API value serialized in the `partial_images` wire field.
   final SdkOptional<PartialImages?> partialImages;
+
   /// The quality of the image that will be generated for GPT image models. The GPT image models support `low`, `medium`, and `high`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, also support `xhigh` and `max`. Defaults to `auto`.
   final SdkOptional<CreateImageEditRequestQualityVariant0?> quality;
 
-  const CreateImageEditRequest({required this.image, required this.prompt, this.mask = const SdkOmitted(), this.background = const SdkOmitted(), required this.model, this.n = const SdkOmitted(), this.size = const SdkOmitted(), this.responseFormat = const SdkOmitted(), this.outputFormat = const SdkOmitted(), this.outputCompression = const SdkOmitted(), this.safetyIdentifier = const SdkOmitted(), this.user = const SdkOmitted(), this.inputFidelity = const SdkOmitted(), this.stream = const SdkOmitted(), this.partialImages = const SdkOmitted(), this.quality = const SdkOmitted()});
+  const CreateImageEditRequest(
+      {required this.image,
+      required this.prompt,
+      this.mask = const SdkOmitted(),
+      this.background = const SdkOmitted(),
+      required this.model,
+      this.n = const SdkOmitted(),
+      this.size = const SdkOmitted(),
+      this.responseFormat = const SdkOmitted(),
+      this.outputFormat = const SdkOmitted(),
+      this.outputCompression = const SdkOmitted(),
+      this.safetyIdentifier = const SdkOmitted(),
+      this.user = const SdkOmitted(),
+      this.inputFidelity = const SdkOmitted(),
+      this.stream = const SdkOmitted(),
+      this.partialImages = const SdkOmitted(),
+      this.quality = const SdkOmitted()});
 
-  CreateImageEditRequest Function({List<List<int>> image, String prompt, SdkOptional<List<int>> mask, SdkOptional<CreateImageEditRequestBackgroundVariant0?> background, String model, SdkOptional<int?> n, SdkOptional<String?> size, SdkOptional<CreateImageEditRequestResponseFormat?> responseFormat, SdkOptional<CreateImageEditRequestOutputFormatVariant0?> outputFormat, SdkOptional<int?> outputCompression, SdkOptional<String?> safetyIdentifier, SdkOptional<String> user, SdkOptional<InputFidelity?> inputFidelity, SdkOptional<bool?> stream, SdkOptional<PartialImages?> partialImages, SdkOptional<CreateImageEditRequestQualityVariant0?> quality}) get copyWith => _copyWith;
+  CreateImageEditRequest Function(
+          {List<List<int>> image,
+          String prompt,
+          SdkOptional<List<int>> mask,
+          SdkOptional<CreateImageEditRequestBackgroundVariant0?> background,
+          String model,
+          SdkOptional<int?> n,
+          SdkOptional<String?> size,
+          SdkOptional<CreateImageEditRequestResponseFormat?> responseFormat,
+          SdkOptional<CreateImageEditRequestOutputFormatVariant0?> outputFormat,
+          SdkOptional<int?> outputCompression,
+          SdkOptional<String?> safetyIdentifier,
+          SdkOptional<String> user,
+          SdkOptional<InputFidelity?> inputFidelity,
+          SdkOptional<bool?> stream,
+          SdkOptional<PartialImages?> partialImages,
+          SdkOptional<CreateImageEditRequestQualityVariant0?> quality})
+      get copyWith => _copyWith;
 
-  CreateImageEditRequest _copyWith({Object? image = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? mask = sdkOmittedValue, Object? background = sdkOmittedValue, Object? model = sdkOmittedValue, Object? n = sdkOmittedValue, Object? size = sdkOmittedValue, Object? responseFormat = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? outputCompression = sdkOmittedValue, Object? safetyIdentifier = sdkOmittedValue, Object? user = sdkOmittedValue, Object? inputFidelity = sdkOmittedValue, Object? stream = sdkOmittedValue, Object? partialImages = sdkOmittedValue, Object? quality = sdkOmittedValue}) => CreateImageEditRequest(
-    image: identical(image, sdkOmittedValue) ? this.image : image as List<List<int>>,
-    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
-    mask: identical(mask, sdkOmittedValue) ? this.mask : mask as SdkOptional<List<int>>,
-    background: identical(background, sdkOmittedValue) ? this.background : background as SdkOptional<CreateImageEditRequestBackgroundVariant0?>,
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    n: identical(n, sdkOmittedValue) ? this.n : n as SdkOptional<int?>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String?>,
-    responseFormat: identical(responseFormat, sdkOmittedValue) ? this.responseFormat : responseFormat as SdkOptional<CreateImageEditRequestResponseFormat?>,
-    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as SdkOptional<CreateImageEditRequestOutputFormatVariant0?>,
-    outputCompression: identical(outputCompression, sdkOmittedValue) ? this.outputCompression : outputCompression as SdkOptional<int?>,
-    safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue) ? this.safetyIdentifier : safetyIdentifier as SdkOptional<String?>,
-    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String>,
-    inputFidelity: identical(inputFidelity, sdkOmittedValue) ? this.inputFidelity : inputFidelity as SdkOptional<InputFidelity?>,
-    stream: identical(stream, sdkOmittedValue) ? this.stream : stream as SdkOptional<bool?>,
-    partialImages: identical(partialImages, sdkOmittedValue) ? this.partialImages : partialImages as SdkOptional<PartialImages?>,
-    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as SdkOptional<CreateImageEditRequestQualityVariant0?>,
-  );
+  CreateImageEditRequest _copyWith(
+          {Object? image = sdkOmittedValue,
+          Object? prompt = sdkOmittedValue,
+          Object? mask = sdkOmittedValue,
+          Object? background = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? n = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? responseFormat = sdkOmittedValue,
+          Object? outputFormat = sdkOmittedValue,
+          Object? outputCompression = sdkOmittedValue,
+          Object? safetyIdentifier = sdkOmittedValue,
+          Object? user = sdkOmittedValue,
+          Object? inputFidelity = sdkOmittedValue,
+          Object? stream = sdkOmittedValue,
+          Object? partialImages = sdkOmittedValue,
+          Object? quality = sdkOmittedValue}) =>
+      CreateImageEditRequest(
+        image: identical(image, sdkOmittedValue)
+            ? this.image
+            : image as List<List<int>>,
+        prompt:
+            identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
+        mask: identical(mask, sdkOmittedValue)
+            ? this.mask
+            : mask as SdkOptional<List<int>>,
+        background: identical(background, sdkOmittedValue)
+            ? this.background
+            : background
+                as SdkOptional<CreateImageEditRequestBackgroundVariant0?>,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        n: identical(n, sdkOmittedValue) ? this.n : n as SdkOptional<int?>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<String?>,
+        responseFormat: identical(responseFormat, sdkOmittedValue)
+            ? this.responseFormat
+            : responseFormat
+                as SdkOptional<CreateImageEditRequestResponseFormat?>,
+        outputFormat: identical(outputFormat, sdkOmittedValue)
+            ? this.outputFormat
+            : outputFormat
+                as SdkOptional<CreateImageEditRequestOutputFormatVariant0?>,
+        outputCompression: identical(outputCompression, sdkOmittedValue)
+            ? this.outputCompression
+            : outputCompression as SdkOptional<int?>,
+        safetyIdentifier: identical(safetyIdentifier, sdkOmittedValue)
+            ? this.safetyIdentifier
+            : safetyIdentifier as SdkOptional<String?>,
+        user: identical(user, sdkOmittedValue)
+            ? this.user
+            : user as SdkOptional<String>,
+        inputFidelity: identical(inputFidelity, sdkOmittedValue)
+            ? this.inputFidelity
+            : inputFidelity as SdkOptional<InputFidelity?>,
+        stream: identical(stream, sdkOmittedValue)
+            ? this.stream
+            : stream as SdkOptional<bool?>,
+        partialImages: identical(partialImages, sdkOmittedValue)
+            ? this.partialImages
+            : partialImages as SdkOptional<PartialImages?>,
+        quality: identical(quality, sdkOmittedValue)
+            ? this.quality
+            : quality as SdkOptional<CreateImageEditRequestQualityVariant0?>,
+      );
 
-  factory CreateImageEditRequest.fromJson(Map<String, dynamic> json) => CreateImageEditRequest(
-    image: ((json['image'] as List?)?.map((e) => base64Decode(e as String)).toList())!,
-    prompt: (json['prompt'] as String?)!,
-    mask: json['mask'] != null ? SdkPresent((json['mask'] != null ? base64Decode(json['mask'] as String) : null)!) : const SdkOmitted(),
-    background: json.containsKey('background') ? SdkPresent(json['background'] != null ? CreateImageEditRequestBackgroundVariant0.fromJson(json['background'] as String) : null) : const SdkOmitted(),
-    model: (json['model'] as String?)!,
-    n: json.containsKey('n') ? SdkPresent((json['n'] as num?)?.toInt()) : const SdkOmitted(),
-    size: json.containsKey('size') ? SdkPresent(json['size'] as String?) : const SdkOmitted(),
-    responseFormat: json.containsKey('response_format') ? SdkPresent(json['response_format'] != null ? CreateImageEditRequestResponseFormat.fromJson(json['response_format'] as String) : null) : const SdkOmitted(),
-    outputFormat: json.containsKey('output_format') ? SdkPresent(json['output_format'] != null ? CreateImageEditRequestOutputFormatVariant0.fromJson(json['output_format'] as String) : null) : const SdkOmitted(),
-    outputCompression: json.containsKey('output_compression') ? SdkPresent((json['output_compression'] as num?)?.toInt()) : const SdkOmitted(),
-    safetyIdentifier: json.containsKey('safety_identifier') ? SdkPresent(json['safety_identifier'] as String?) : const SdkOmitted(),
-    user: json['user'] != null ? SdkPresent((json['user'] as String?)!) : const SdkOmitted(),
-    inputFidelity: json.containsKey('input_fidelity') ? SdkPresent(json['input_fidelity'] != null ? InputFidelity.fromJson(json['input_fidelity'] as String) : null) : const SdkOmitted(),
-    stream: json.containsKey('stream') ? SdkPresent(json['stream'] as bool?) : const SdkOmitted(),
-    partialImages: json.containsKey('partial_images') ? SdkPresent(json['partial_images'] != null ? PartialImages.fromJson(json['partial_images']) : null) : const SdkOmitted(),
-    quality: json.containsKey('quality') ? SdkPresent(json['quality'] != null ? CreateImageEditRequestQualityVariant0.fromJson(json['quality'] as String) : null) : const SdkOmitted(),
-  );
+  factory CreateImageEditRequest.fromJson(Map<String, dynamic> json) =>
+      CreateImageEditRequest(
+        image: ((json['image'] as List?)
+            ?.map((e) => base64Decode(e as String))
+            .toList())!,
+        prompt: (json['prompt'] as String?)!,
+        mask: json['mask'] != null
+            ? SdkPresent((json['mask'] != null
+                ? base64Decode(json['mask'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        background: json.containsKey('background')
+            ? SdkPresent(json['background'] != null
+                ? CreateImageEditRequestBackgroundVariant0.fromJson(
+                    json['background'] as String)
+                : null)
+            : const SdkOmitted(),
+        model: (json['model'] as String?)!,
+        n: json.containsKey('n')
+            ? SdkPresent((json['n'] as num?)?.toInt())
+            : const SdkOmitted(),
+        size: json.containsKey('size')
+            ? SdkPresent(json['size'] as String?)
+            : const SdkOmitted(),
+        responseFormat: json.containsKey('response_format')
+            ? SdkPresent(json['response_format'] != null
+                ? CreateImageEditRequestResponseFormat.fromJson(
+                    json['response_format'] as String)
+                : null)
+            : const SdkOmitted(),
+        outputFormat: json.containsKey('output_format')
+            ? SdkPresent(json['output_format'] != null
+                ? CreateImageEditRequestOutputFormatVariant0.fromJson(
+                    json['output_format'] as String)
+                : null)
+            : const SdkOmitted(),
+        outputCompression: json.containsKey('output_compression')
+            ? SdkPresent((json['output_compression'] as num?)?.toInt())
+            : const SdkOmitted(),
+        safetyIdentifier: json.containsKey('safety_identifier')
+            ? SdkPresent(json['safety_identifier'] as String?)
+            : const SdkOmitted(),
+        user: json['user'] != null
+            ? SdkPresent((json['user'] as String?)!)
+            : const SdkOmitted(),
+        inputFidelity: json.containsKey('input_fidelity')
+            ? SdkPresent(json['input_fidelity'] != null
+                ? InputFidelity.fromJson(json['input_fidelity'] as String)
+                : null)
+            : const SdkOmitted(),
+        stream: json.containsKey('stream')
+            ? SdkPresent(json['stream'] as bool?)
+            : const SdkOmitted(),
+        partialImages: json.containsKey('partial_images')
+            ? SdkPresent(json['partial_images'] != null
+                ? PartialImages.fromJson(json['partial_images'])
+                : null)
+            : const SdkOmitted(),
+        quality: json.containsKey('quality')
+            ? SdkPresent(json['quality'] != null
+                ? CreateImageEditRequestQualityVariant0.fromJson(
+                    json['quality'] as String)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'image': image.map(base64Encode).toList(),
-    'prompt': prompt,
-    ...switch (mask) {
-      SdkPresent<List<int>>(value: final value) => {'mask': base64Encode(value),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (background) {
-      SdkPresent<CreateImageEditRequestBackgroundVariant0?>(value: final value) => {'background': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'model': model,
-    ...switch (n) {
-      SdkPresent<int?>(value: final value) => {'n': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<String?>(value: final value) => {'size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (responseFormat) {
-      SdkPresent<CreateImageEditRequestResponseFormat?>(value: final value) => {'response_format': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputFormat) {
-      SdkPresent<CreateImageEditRequestOutputFormatVariant0?>(value: final value) => {'output_format': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputCompression) {
-      SdkPresent<int?>(value: final value) => {'output_compression': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (safetyIdentifier) {
-      SdkPresent<String?>(value: final value) => {'safety_identifier': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (user) {
-      SdkPresent<String>(value: final value) => {'user': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inputFidelity) {
-      SdkPresent<InputFidelity?>(value: final value) => {'input_fidelity': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (stream) {
-      SdkPresent<bool?>(value: final value) => {'stream': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (partialImages) {
-      SdkPresent<PartialImages?>(value: final value) => {'partial_images': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (quality) {
-      SdkPresent<CreateImageEditRequestQualityVariant0?>(value: final value) => {'quality': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'image': image.map(base64Encode).toList(),
+        'prompt': prompt,
+        ...switch (mask) {
+          SdkPresent<List<int>>(value: final value) => {
+              'mask': base64Encode(value),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (background) {
+          SdkPresent<CreateImageEditRequestBackgroundVariant0?>(
+            value: final value
+          ) =>
+            {
+              'background': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'model': model,
+        ...switch (n) {
+          SdkPresent<int?>(value: final value) => {
+              'n': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<String?>(value: final value) => {
+              'size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (responseFormat) {
+          SdkPresent<CreateImageEditRequestResponseFormat?>(
+            value: final value
+          ) =>
+            {
+              'response_format': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputFormat) {
+          SdkPresent<CreateImageEditRequestOutputFormatVariant0?>(
+            value: final value
+          ) =>
+            {
+              'output_format': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputCompression) {
+          SdkPresent<int?>(value: final value) => {
+              'output_compression': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (safetyIdentifier) {
+          SdkPresent<String?>(value: final value) => {
+              'safety_identifier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (user) {
+          SdkPresent<String>(value: final value) => {
+              'user': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inputFidelity) {
+          SdkPresent<InputFidelity?>(value: final value) => {
+              'input_fidelity': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (stream) {
+          SdkPresent<bool?>(value: final value) => {
+              'stream': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (partialImages) {
+          SdkPresent<PartialImages?>(value: final value) => {
+              'partial_images': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (quality) {
+          SdkPresent<CreateImageEditRequestQualityVariant0?>(
+            value: final value
+          ) =>
+            {
+              'quality': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

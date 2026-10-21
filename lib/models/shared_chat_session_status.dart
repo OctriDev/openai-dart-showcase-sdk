@@ -6,12 +6,12 @@ part of 'shared_chat.dart';
 // shared_chat domain models
 /// Typed representation of the `ChatSessionStatus` API schema.
 final class ChatSessionStatus {
-
   final String value;
 
   const ChatSessionStatus._(this.value);
 
-  factory ChatSessionStatus.fromJson(String value) => ChatSessionStatus._(value);
+  factory ChatSessionStatus.fromJson(String value) =>
+      ChatSessionStatus._(value);
 
   static const active = ChatSessionStatus._('active');
   static const expired = ChatSessionStatus._('expired');
@@ -19,10 +19,13 @@ final class ChatSessionStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatSessionStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatSessionStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

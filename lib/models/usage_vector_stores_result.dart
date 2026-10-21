@@ -8,35 +8,61 @@ part of 'usage.dart';
 class UsageVectorStoresResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final UsageVectorStoresResultObject object;
+
   /// The vector stores usage in bytes.
   final int usageBytes;
+
   /// Optional `string` value serialized in the `project_id` wire field.
   final SdkOptional<String?> projectId;
 
-  const UsageVectorStoresResult({required this.object, required this.usageBytes, this.projectId = const SdkOmitted()});
+  const UsageVectorStoresResult(
+      {required this.object,
+      required this.usageBytes,
+      this.projectId = const SdkOmitted()});
 
-  UsageVectorStoresResult Function({UsageVectorStoresResultObject object, int usageBytes, SdkOptional<String?> projectId}) get copyWith => _copyWith;
+  UsageVectorStoresResult Function(
+      {UsageVectorStoresResultObject object,
+      int usageBytes,
+      SdkOptional<String?> projectId}) get copyWith => _copyWith;
 
-  UsageVectorStoresResult _copyWith({Object? object = sdkOmittedValue, Object? usageBytes = sdkOmittedValue, Object? projectId = sdkOmittedValue}) => UsageVectorStoresResult(
-    object: identical(object, sdkOmittedValue) ? this.object : object as UsageVectorStoresResultObject,
-    usageBytes: identical(usageBytes, sdkOmittedValue) ? this.usageBytes : usageBytes as int,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String?>,
-  );
+  UsageVectorStoresResult _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? usageBytes = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue}) =>
+      UsageVectorStoresResult(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as UsageVectorStoresResultObject,
+        usageBytes: identical(usageBytes, sdkOmittedValue)
+            ? this.usageBytes
+            : usageBytes as int,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as SdkOptional<String?>,
+      );
 
-  factory UsageVectorStoresResult.fromJson(Map<String, dynamic> json) => UsageVectorStoresResult(
-    object: (json['object'] != null ? UsageVectorStoresResultObject.fromJson(json['object'] as String) : null)!,
-    usageBytes: ((json['usage_bytes'] as num?)?.toInt())!,
-    projectId: json.containsKey('project_id') ? SdkPresent(json['project_id'] as String?) : const SdkOmitted(),
-  );
+  factory UsageVectorStoresResult.fromJson(Map<String, dynamic> json) =>
+      UsageVectorStoresResult(
+        object: (json['object'] != null
+            ? UsageVectorStoresResultObject.fromJson(json['object'] as String)
+            : null)!,
+        usageBytes: ((json['usage_bytes'] as num?)?.toInt())!,
+        projectId: json.containsKey('project_id')
+            ? SdkPresent(json['project_id'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'usage_bytes': usageBytes,
-    ...switch (projectId) {
-      SdkPresent<String?>(value: final value) => {'project_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'object': object.toJson(),
+        'usage_bytes': usageBytes,
+        ...switch (projectId) {
+          SdkPresent<String?>(value: final value) => {
+              'project_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

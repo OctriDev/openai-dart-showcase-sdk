@@ -8,34 +8,70 @@ sealed class ChatCompletionRequestAssistantMessageContentPart {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const ChatCompletionRequestAssistantMessageContentPart();
-  factory ChatCompletionRequestAssistantMessageContentPart.fromJson(Object? json) {
+  factory ChatCompletionRequestAssistantMessageContentPart.fromJson(
+      Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ChatCompletionRequestMessageContentPartText.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText(value); } } catch (_) {}
-      try { final value = ChatCompletionRequestMessageContentPartRefusal.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartRefusal(value); } } catch (_) {}
+      try {
+        final value =
+            ChatCompletionRequestMessageContentPartText.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            ChatCompletionRequestMessageContentPartRefusal.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartRefusal(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText(ChatCompletionRequestMessageContentPartText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartRefusal(ChatCompletionRequestMessageContentPartRefusal.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "refusal"}.contains(json["type"])) { return UnknownChatCompletionRequestAssistantMessageContentPart(json); }
-    throw FormatException("No variant matched for ChatCompletionRequestAssistantMessageContentPart");
+    try {
+      return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText(
+          ChatCompletionRequestMessageContentPartText.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartRefusal(
+          ChatCompletionRequestMessageContentPartRefusal.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"text", "refusal"}.contains(json["type"])) {
+      return UnknownChatCompletionRequestAssistantMessageContentPart(json);
+    }
+    throw FormatException(
+        "No variant matched for ChatCompletionRequestAssistantMessageContentPart");
   }
   Object? toJson();
 }
 
-final class ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText extends ChatCompletionRequestAssistantMessageContentPart {
+final class ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText
+    extends ChatCompletionRequestAssistantMessageContentPart {
   final ChatCompletionRequestMessageContentPartText value;
-  const ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartText(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartRefusal extends ChatCompletionRequestAssistantMessageContentPart {
+final class ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartRefusal
+    extends ChatCompletionRequestAssistantMessageContentPart {
   final ChatCompletionRequestMessageContentPartRefusal value;
-  const ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartRefusal(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionRequestAssistantMessageContentPartChatCompletionRequestMessageContentPartRefusal(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ChatCompletionRequestAssistantMessageContentPart] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownChatCompletionRequestAssistantMessageContentPart extends ChatCompletionRequestAssistantMessageContentPart {
+final class UnknownChatCompletionRequestAssistantMessageContentPart
+    extends ChatCompletionRequestAssistantMessageContentPart {
   final Map<String, dynamic> raw;
   const UnknownChatCompletionRequestAssistantMessageContentPart(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

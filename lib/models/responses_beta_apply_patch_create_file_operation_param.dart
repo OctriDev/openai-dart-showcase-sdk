@@ -8,32 +8,50 @@ part of 'responses_beta_apply.dart';
 class BetaApplyPatchCreateFileOperationParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The operation type. Always `create_file`.
   final BetaApplyPatchCreateFileOperationParamType type_;
+
   /// Path of the file to create relative to the workspace root.
   final String path;
+
   /// Unified diff content to apply when creating the file.
   final String diff;
 
-  const BetaApplyPatchCreateFileOperationParam({required this.type_, required this.path, required this.diff});
+  const BetaApplyPatchCreateFileOperationParam(
+      {required this.type_, required this.path, required this.diff});
 
-  BetaApplyPatchCreateFileOperationParam Function({BetaApplyPatchCreateFileOperationParamType type_, String path, String diff}) get copyWith => _copyWith;
+  BetaApplyPatchCreateFileOperationParam Function(
+      {BetaApplyPatchCreateFileOperationParamType type_,
+      String path,
+      String diff}) get copyWith => _copyWith;
 
-  BetaApplyPatchCreateFileOperationParam _copyWith({Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue, Object? diff = sdkOmittedValue}) => BetaApplyPatchCreateFileOperationParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaApplyPatchCreateFileOperationParamType,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-    diff: identical(diff, sdkOmittedValue) ? this.diff : diff as String,
-  );
+  BetaApplyPatchCreateFileOperationParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? path = sdkOmittedValue,
+          Object? diff = sdkOmittedValue}) =>
+      BetaApplyPatchCreateFileOperationParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaApplyPatchCreateFileOperationParamType,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+        diff: identical(diff, sdkOmittedValue) ? this.diff : diff as String,
+      );
 
-  factory BetaApplyPatchCreateFileOperationParam.fromJson(Map<String, dynamic> json) => BetaApplyPatchCreateFileOperationParam(
-    type_: (json['type'] != null ? BetaApplyPatchCreateFileOperationParamType.fromJson(json['type'] as String) : null)!,
-    path: (json['path'] as String?)!,
-    diff: (json['diff'] as String?)!,
-  );
+  factory BetaApplyPatchCreateFileOperationParam.fromJson(
+          Map<String, dynamic> json) =>
+      BetaApplyPatchCreateFileOperationParam(
+        type_: (json['type'] != null
+            ? BetaApplyPatchCreateFileOperationParamType.fromJson(
+                json['type'] as String)
+            : null)!,
+        path: (json['path'] as String?)!,
+        diff: (json['diff'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'path': path,
-    'diff': diff,
-  };
+        'type': type_.toJson(),
+        'path': path,
+        'diff': diff,
+      };
 }

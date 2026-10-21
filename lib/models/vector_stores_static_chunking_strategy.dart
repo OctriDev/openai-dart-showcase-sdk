@@ -8,27 +8,40 @@ part of 'vector_stores.dart';
 class StaticChunkingStrategy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The maximum number of tokens in each chunk. The default value is `800`. The minimum value is `100` and the maximum value is `4096`.
   final int maxChunkSizeTokens;
+
   /// The number of tokens that overlap between chunks. The default value is `400`. Note that the overlap must not exceed half of `max_chunk_size_tokens`.
   final int chunkOverlapTokens;
 
-  const StaticChunkingStrategy({required this.maxChunkSizeTokens, required this.chunkOverlapTokens});
+  const StaticChunkingStrategy(
+      {required this.maxChunkSizeTokens, required this.chunkOverlapTokens});
 
-  StaticChunkingStrategy Function({int maxChunkSizeTokens, int chunkOverlapTokens}) get copyWith => _copyWith;
+  StaticChunkingStrategy Function(
+      {int maxChunkSizeTokens,
+      int chunkOverlapTokens}) get copyWith => _copyWith;
 
-  StaticChunkingStrategy _copyWith({Object? maxChunkSizeTokens = sdkOmittedValue, Object? chunkOverlapTokens = sdkOmittedValue}) => StaticChunkingStrategy(
-    maxChunkSizeTokens: identical(maxChunkSizeTokens, sdkOmittedValue) ? this.maxChunkSizeTokens : maxChunkSizeTokens as int,
-    chunkOverlapTokens: identical(chunkOverlapTokens, sdkOmittedValue) ? this.chunkOverlapTokens : chunkOverlapTokens as int,
-  );
+  StaticChunkingStrategy _copyWith(
+          {Object? maxChunkSizeTokens = sdkOmittedValue,
+          Object? chunkOverlapTokens = sdkOmittedValue}) =>
+      StaticChunkingStrategy(
+        maxChunkSizeTokens: identical(maxChunkSizeTokens, sdkOmittedValue)
+            ? this.maxChunkSizeTokens
+            : maxChunkSizeTokens as int,
+        chunkOverlapTokens: identical(chunkOverlapTokens, sdkOmittedValue)
+            ? this.chunkOverlapTokens
+            : chunkOverlapTokens as int,
+      );
 
-  factory StaticChunkingStrategy.fromJson(Map<String, dynamic> json) => StaticChunkingStrategy(
-    maxChunkSizeTokens: ((json['max_chunk_size_tokens'] as num?)?.toInt())!,
-    chunkOverlapTokens: ((json['chunk_overlap_tokens'] as num?)?.toInt())!,
-  );
+  factory StaticChunkingStrategy.fromJson(Map<String, dynamic> json) =>
+      StaticChunkingStrategy(
+        maxChunkSizeTokens: ((json['max_chunk_size_tokens'] as num?)?.toInt())!,
+        chunkOverlapTokens: ((json['chunk_overlap_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'max_chunk_size_tokens': maxChunkSizeTokens,
-    'chunk_overlap_tokens': chunkOverlapTokens,
-  };
+        'max_chunk_size_tokens': maxChunkSizeTokens,
+        'chunk_overlap_tokens': chunkOverlapTokens,
+      };
 }

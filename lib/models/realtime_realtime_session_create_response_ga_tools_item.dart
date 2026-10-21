@@ -10,24 +10,47 @@ sealed class RealtimeSessionCreateResponseGAToolsItem {
   const RealtimeSessionCreateResponseGAToolsItem();
   factory RealtimeSessionCreateResponseGAToolsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RealtimeFunctionTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeSessionCreateResponseGAToolsItemRealtimeFunctionTool(value); } } catch (_) {}
-      try { final value = MCPTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeSessionCreateResponseGAToolsItemMCPTool(value); } } catch (_) {}
+      try {
+        final value = RealtimeFunctionTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeSessionCreateResponseGAToolsItemRealtimeFunctionTool(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = MCPTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeSessionCreateResponseGAToolsItemMCPTool(value);
+        }
+      } catch (_) {}
     }
-    try { return RealtimeSessionCreateResponseGAToolsItemRealtimeFunctionTool(RealtimeFunctionTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeSessionCreateResponseGAToolsItemMCPTool(MCPTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for RealtimeSessionCreateResponseGAToolsItem");
+    try {
+      return RealtimeSessionCreateResponseGAToolsItemRealtimeFunctionTool(
+          RealtimeFunctionTool.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeSessionCreateResponseGAToolsItemMCPTool(
+          MCPTool.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for RealtimeSessionCreateResponseGAToolsItem");
   }
   Object? toJson();
 }
 
-final class RealtimeSessionCreateResponseGAToolsItemRealtimeFunctionTool extends RealtimeSessionCreateResponseGAToolsItem {
+final class RealtimeSessionCreateResponseGAToolsItemRealtimeFunctionTool
+    extends RealtimeSessionCreateResponseGAToolsItem {
   final RealtimeFunctionTool value;
-  const RealtimeSessionCreateResponseGAToolsItemRealtimeFunctionTool(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeSessionCreateResponseGAToolsItemRealtimeFunctionTool(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeSessionCreateResponseGAToolsItemMCPTool extends RealtimeSessionCreateResponseGAToolsItem {
+final class RealtimeSessionCreateResponseGAToolsItemMCPTool
+    extends RealtimeSessionCreateResponseGAToolsItem {
   final MCPTool value;
   const RealtimeSessionCreateResponseGAToolsItemMCPTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

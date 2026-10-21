@@ -8,34 +8,50 @@ part of 'fine_tuning.dart';
 class FineTuningJobErrorVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A machine-readable error code.
   final String code;
+
   /// A human-readable error message.
   final String message;
+
   /// Required `string` value serialized in the `param` wire field.
   final String? param;
 
-  const FineTuningJobErrorVariant0({required this.code, required this.message, required this.param});
+  const FineTuningJobErrorVariant0(
+      {required this.code, required this.message, required this.param});
 
-  FineTuningJobErrorVariant0 Function({String code, String message, String? param}) get copyWith => _copyWith;
+  FineTuningJobErrorVariant0 Function(
+      {String code, String message, String? param}) get copyWith => _copyWith;
 
-  FineTuningJobErrorVariant0 _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue, Object? param = sdkOmittedValue}) => FineTuningJobErrorVariant0(
-    code: identical(code, sdkOmittedValue) ? this.code : code as String,
-    message: identical(message, sdkOmittedValue) ? this.message : message as String,
-    param: identical(param, sdkOmittedValue) ? this.param : param as String?,
-  );
+  FineTuningJobErrorVariant0 _copyWith(
+          {Object? code = sdkOmittedValue,
+          Object? message = sdkOmittedValue,
+          Object? param = sdkOmittedValue}) =>
+      FineTuningJobErrorVariant0(
+        code: identical(code, sdkOmittedValue) ? this.code : code as String,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as String,
+        param:
+            identical(param, sdkOmittedValue) ? this.param : param as String?,
+      );
 
-  factory FineTuningJobErrorVariant0.fromJson(Map<String, dynamic> json) => FineTuningJobErrorVariant0(
-    code: (json['code'] as String?)!,
-    message: (json['message'] as String?)!,
-    param: json.containsKey('param') ? json['param'] as String? : throw ArgumentError.value(null, 'param', 'Required property is missing'),
-  );
+  factory FineTuningJobErrorVariant0.fromJson(Map<String, dynamic> json) =>
+      FineTuningJobErrorVariant0(
+        code: (json['code'] as String?)!,
+        message: (json['message'] as String?)!,
+        param: json.containsKey('param')
+            ? json['param'] as String?
+            : throw ArgumentError.value(
+                null, 'param', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'code': code,
-    'message': message,
-    'param': param,
-  };
+        'code': code,
+        'message': message,
+        'param': param,
+      };
 }
 
 sealed class FineTuningJobError {
@@ -43,23 +59,31 @@ sealed class FineTuningJobError {
   static const String constructionSurface = 'named';
   const FineTuningJobError();
   factory FineTuningJobError.fromJson(Object? json) {
-    if (json is Map) { return FineTuningJobErrorMap(Map<String, dynamic>.from(json)); }
-    try { return FineTuningJobErrorFineTuningJobErrorVariant0(FineTuningJobErrorVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map) {
+      return FineTuningJobErrorMap(Map<String, dynamic>.from(json));
+    }
+    try {
+      return FineTuningJobErrorFineTuningJobErrorVariant0(
+          FineTuningJobErrorVariant0.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for FineTuningJobError");
   }
   Object? toJson();
 }
 
-final class FineTuningJobErrorFineTuningJobErrorVariant0 extends FineTuningJobError {
+final class FineTuningJobErrorFineTuningJobErrorVariant0
+    extends FineTuningJobError {
   final FineTuningJobErrorVariant0 value;
   const FineTuningJobErrorFineTuningJobErrorVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class FineTuningJobErrorMap extends FineTuningJobError {
   final Map<String, dynamic> value;
   const FineTuningJobErrorMap(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class FineTuningJobFinishedAt {
@@ -67,7 +91,9 @@ sealed class FineTuningJobFinishedAt {
   static const String constructionSurface = 'named';
   const FineTuningJobFinishedAt();
   factory FineTuningJobFinishedAt.fromJson(Object? json) {
-    if (json is num) { return FineTuningJobFinishedAtInt(json.toInt()); }
+    if (json is num) {
+      return FineTuningJobFinishedAtInt(json.toInt());
+    }
     throw FormatException("No variant matched for FineTuningJobFinishedAt");
   }
   Object? toJson();
@@ -76,7 +102,8 @@ sealed class FineTuningJobFinishedAt {
 final class FineTuningJobFinishedAtInt extends FineTuningJobFinishedAt {
   final int value;
   const FineTuningJobFinishedAtInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class FineTuningJobHyperparametersBatchSize {
@@ -84,47 +111,73 @@ sealed class FineTuningJobHyperparametersBatchSize {
   static const String constructionSurface = 'named';
   const FineTuningJobHyperparametersBatchSize();
   factory FineTuningJobHyperparametersBatchSize.fromJson(Object? json) {
-    if (json is num) { return FineTuningJobHyperparametersBatchSizeInt(json.toInt()); }
-    try { return FineTuningJobHyperparametersBatchSizeFineTuningJobHyperparametersBatchSizeVariant0(FineTuningJobHyperparametersBatchSizeVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for FineTuningJobHyperparametersBatchSize");
+    if (json is num) {
+      return FineTuningJobHyperparametersBatchSizeInt(json.toInt());
+    }
+    try {
+      return FineTuningJobHyperparametersBatchSizeFineTuningJobHyperparametersBatchSizeVariant0(
+          FineTuningJobHyperparametersBatchSizeVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for FineTuningJobHyperparametersBatchSize");
   }
   Object? toJson();
 }
 
-final class FineTuningJobHyperparametersBatchSizeFineTuningJobHyperparametersBatchSizeVariant0 extends FineTuningJobHyperparametersBatchSize {
+final class FineTuningJobHyperparametersBatchSizeFineTuningJobHyperparametersBatchSizeVariant0
+    extends FineTuningJobHyperparametersBatchSize {
   final FineTuningJobHyperparametersBatchSizeVariant0 value;
-  const FineTuningJobHyperparametersBatchSizeFineTuningJobHyperparametersBatchSizeVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const FineTuningJobHyperparametersBatchSizeFineTuningJobHyperparametersBatchSizeVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class FineTuningJobHyperparametersBatchSizeInt extends FineTuningJobHyperparametersBatchSize {
+final class FineTuningJobHyperparametersBatchSizeInt
+    extends FineTuningJobHyperparametersBatchSize {
   final int value;
   const FineTuningJobHyperparametersBatchSizeInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class FineTuningJobHyperparametersLearningRateMultiplier {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const FineTuningJobHyperparametersLearningRateMultiplier();
-  factory FineTuningJobHyperparametersLearningRateMultiplier.fromJson(Object? json) {
-    if (json is num) { return FineTuningJobHyperparametersLearningRateMultiplierDouble(json.toDouble()); }
-    try { return FineTuningJobHyperparametersLearningRateMultiplierFineTuningJobHyperparametersLearningRateMultiplierVariant0(FineTuningJobHyperparametersLearningRateMultiplierVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for FineTuningJobHyperparametersLearningRateMultiplier");
+  factory FineTuningJobHyperparametersLearningRateMultiplier.fromJson(
+      Object? json) {
+    if (json is num) {
+      return FineTuningJobHyperparametersLearningRateMultiplierDouble(
+          json.toDouble());
+    }
+    try {
+      return FineTuningJobHyperparametersLearningRateMultiplierFineTuningJobHyperparametersLearningRateMultiplierVariant0(
+          FineTuningJobHyperparametersLearningRateMultiplierVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for FineTuningJobHyperparametersLearningRateMultiplier");
   }
   Object? toJson();
 }
 
-final class FineTuningJobHyperparametersLearningRateMultiplierFineTuningJobHyperparametersLearningRateMultiplierVariant0 extends FineTuningJobHyperparametersLearningRateMultiplier {
+final class FineTuningJobHyperparametersLearningRateMultiplierFineTuningJobHyperparametersLearningRateMultiplierVariant0
+    extends FineTuningJobHyperparametersLearningRateMultiplier {
   final FineTuningJobHyperparametersLearningRateMultiplierVariant0 value;
-  const FineTuningJobHyperparametersLearningRateMultiplierFineTuningJobHyperparametersLearningRateMultiplierVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const FineTuningJobHyperparametersLearningRateMultiplierFineTuningJobHyperparametersLearningRateMultiplierVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class FineTuningJobHyperparametersLearningRateMultiplierDouble extends FineTuningJobHyperparametersLearningRateMultiplier {
+final class FineTuningJobHyperparametersLearningRateMultiplierDouble
+    extends FineTuningJobHyperparametersLearningRateMultiplier {
   final double value;
   const FineTuningJobHyperparametersLearningRateMultiplierDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class FineTuningJobHyperparametersNEpochs {
@@ -132,66 +185,110 @@ sealed class FineTuningJobHyperparametersNEpochs {
   static const String constructionSurface = 'named';
   const FineTuningJobHyperparametersNEpochs();
   factory FineTuningJobHyperparametersNEpochs.fromJson(Object? json) {
-    if (json is num) { return FineTuningJobHyperparametersNEpochsInt(json.toInt()); }
-    try { return FineTuningJobHyperparametersNEpochsFineTuningJobHyperparametersNEpochsVariant0(FineTuningJobHyperparametersNEpochsVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for FineTuningJobHyperparametersNEpochs");
+    if (json is num) {
+      return FineTuningJobHyperparametersNEpochsInt(json.toInt());
+    }
+    try {
+      return FineTuningJobHyperparametersNEpochsFineTuningJobHyperparametersNEpochsVariant0(
+          FineTuningJobHyperparametersNEpochsVariant0.fromJson(json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for FineTuningJobHyperparametersNEpochs");
   }
   Object? toJson();
 }
 
-final class FineTuningJobHyperparametersNEpochsFineTuningJobHyperparametersNEpochsVariant0 extends FineTuningJobHyperparametersNEpochs {
+final class FineTuningJobHyperparametersNEpochsFineTuningJobHyperparametersNEpochsVariant0
+    extends FineTuningJobHyperparametersNEpochs {
   final FineTuningJobHyperparametersNEpochsVariant0 value;
-  const FineTuningJobHyperparametersNEpochsFineTuningJobHyperparametersNEpochsVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const FineTuningJobHyperparametersNEpochsFineTuningJobHyperparametersNEpochsVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class FineTuningJobHyperparametersNEpochsInt extends FineTuningJobHyperparametersNEpochs {
+final class FineTuningJobHyperparametersNEpochsInt
+    extends FineTuningJobHyperparametersNEpochs {
   final int value;
   const FineTuningJobHyperparametersNEpochsInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// The hyperparameters used for the fine-tuning job. This value will only be returned when running `supervised` jobs.
 class FineTuningJobHyperparameters {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Number of examples in each batch. A larger batch size means that model parameters are updated less frequently, but with lower variance.
   final SdkOptional<dynamic> batchSize;
+
   /// Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting.
   final SdkOptional<dynamic> learningRateMultiplier;
+
   /// The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
   final SdkOptional<dynamic> nEpochs;
 
-  const FineTuningJobHyperparameters({this.batchSize = const SdkOmitted(), this.learningRateMultiplier = const SdkOmitted(), this.nEpochs = const SdkOmitted()});
+  const FineTuningJobHyperparameters(
+      {this.batchSize = const SdkOmitted(),
+      this.learningRateMultiplier = const SdkOmitted(),
+      this.nEpochs = const SdkOmitted()});
 
-  FineTuningJobHyperparameters Function({SdkOptional<dynamic> batchSize, SdkOptional<dynamic> learningRateMultiplier, SdkOptional<dynamic> nEpochs}) get copyWith => _copyWith;
+  FineTuningJobHyperparameters Function(
+      {SdkOptional<dynamic> batchSize,
+      SdkOptional<dynamic> learningRateMultiplier,
+      SdkOptional<dynamic> nEpochs}) get copyWith => _copyWith;
 
-  FineTuningJobHyperparameters _copyWith({Object? batchSize = sdkOmittedValue, Object? learningRateMultiplier = sdkOmittedValue, Object? nEpochs = sdkOmittedValue}) => FineTuningJobHyperparameters(
-    batchSize: identical(batchSize, sdkOmittedValue) ? this.batchSize : batchSize as SdkOptional<dynamic>,
-    learningRateMultiplier: identical(learningRateMultiplier, sdkOmittedValue) ? this.learningRateMultiplier : learningRateMultiplier as SdkOptional<dynamic>,
-    nEpochs: identical(nEpochs, sdkOmittedValue) ? this.nEpochs : nEpochs as SdkOptional<dynamic>,
-  );
+  FineTuningJobHyperparameters _copyWith(
+          {Object? batchSize = sdkOmittedValue,
+          Object? learningRateMultiplier = sdkOmittedValue,
+          Object? nEpochs = sdkOmittedValue}) =>
+      FineTuningJobHyperparameters(
+        batchSize: identical(batchSize, sdkOmittedValue)
+            ? this.batchSize
+            : batchSize as SdkOptional<dynamic>,
+        learningRateMultiplier:
+            identical(learningRateMultiplier, sdkOmittedValue)
+                ? this.learningRateMultiplier
+                : learningRateMultiplier as SdkOptional<dynamic>,
+        nEpochs: identical(nEpochs, sdkOmittedValue)
+            ? this.nEpochs
+            : nEpochs as SdkOptional<dynamic>,
+      );
 
-  factory FineTuningJobHyperparameters.fromJson(Map<String, dynamic> json) => FineTuningJobHyperparameters(
-    batchSize: json.containsKey('batch_size') ? SdkPresent(json['batch_size']) : const SdkOmitted(),
-    learningRateMultiplier: json['learning_rate_multiplier'] != null ? SdkPresent((json['learning_rate_multiplier'])!) : const SdkOmitted(),
-    nEpochs: json['n_epochs'] != null ? SdkPresent((json['n_epochs'])!) : const SdkOmitted(),
-  );
+  factory FineTuningJobHyperparameters.fromJson(Map<String, dynamic> json) =>
+      FineTuningJobHyperparameters(
+        batchSize: json.containsKey('batch_size')
+            ? SdkPresent(json['batch_size'])
+            : const SdkOmitted(),
+        learningRateMultiplier: json['learning_rate_multiplier'] != null
+            ? SdkPresent((json['learning_rate_multiplier'])!)
+            : const SdkOmitted(),
+        nEpochs: json['n_epochs'] != null
+            ? SdkPresent((json['n_epochs'])!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (batchSize) {
-      SdkPresent<dynamic>(value: final value) => {'batch_size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (learningRateMultiplier) {
-      SdkPresent<dynamic>(value: final value) => {'learning_rate_multiplier': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nEpochs) {
-      SdkPresent<dynamic>(value: final value) => {'n_epochs': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (batchSize) {
+          SdkPresent<dynamic>(value: final value) => {
+              'batch_size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (learningRateMultiplier) {
+          SdkPresent<dynamic>(value: final value) => {
+              'learning_rate_multiplier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nEpochs) {
+          SdkPresent<dynamic>(value: final value) => {
+              'n_epochs': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class FineTuningJobEstimatedFinish {
@@ -199,14 +296,19 @@ sealed class FineTuningJobEstimatedFinish {
   static const String constructionSurface = 'named';
   const FineTuningJobEstimatedFinish();
   factory FineTuningJobEstimatedFinish.fromJson(Object? json) {
-    if (json is num) { return FineTuningJobEstimatedFinishInt(json.toInt()); }
-    throw FormatException("No variant matched for FineTuningJobEstimatedFinish");
+    if (json is num) {
+      return FineTuningJobEstimatedFinishInt(json.toInt());
+    }
+    throw FormatException(
+        "No variant matched for FineTuningJobEstimatedFinish");
   }
   Object? toJson();
 }
 
-final class FineTuningJobEstimatedFinishInt extends FineTuningJobEstimatedFinish {
+final class FineTuningJobEstimatedFinishInt
+    extends FineTuningJobEstimatedFinish {
   final int value;
   const FineTuningJobEstimatedFinishInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }

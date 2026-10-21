@@ -8,50 +8,94 @@ part of 'responses_beta_program.dart';
 class BetaProgramOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag> agent;
+
   /// The type of the item. Always `program_output`.
   final BetaProgramOutputType type_;
+
   /// The unique ID of the program output item.
   final String id;
+
   /// The call ID of the program item.
   final String callId;
+
   /// The result produced by the program item.
   final String result;
+
   /// The terminal status of the program output item.
   final BetaProgramOutputStatus status;
 
-  const BetaProgramOutput({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.callId, required this.result, required this.status});
+  const BetaProgramOutput(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.id,
+      required this.callId,
+      required this.result,
+      required this.status});
 
-  BetaProgramOutput Function({SdkOptional<BetaAgentTag> agent, BetaProgramOutputType type_, String id, String callId, String result, BetaProgramOutputStatus status}) get copyWith => _copyWith;
+  BetaProgramOutput Function(
+      {SdkOptional<BetaAgentTag> agent,
+      BetaProgramOutputType type_,
+      String id,
+      String callId,
+      String result,
+      BetaProgramOutputStatus status}) get copyWith => _copyWith;
 
-  BetaProgramOutput _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? result = sdkOmittedValue, Object? status = sdkOmittedValue}) => BetaProgramOutput(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaProgramOutputType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    result: identical(result, sdkOmittedValue) ? this.result : result as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as BetaProgramOutputStatus,
-  );
+  BetaProgramOutput _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? result = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      BetaProgramOutput(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaProgramOutputType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        result:
+            identical(result, sdkOmittedValue) ? this.result : result as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as BetaProgramOutputStatus,
+      );
 
-  factory BetaProgramOutput.fromJson(Map<String, dynamic> json) => BetaProgramOutput(
-    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaProgramOutputType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    callId: (json['call_id'] as String?)!,
-    result: (json['result'] as String?)!,
-    status: (json['status'] != null ? BetaProgramOutputStatus.fromJson(json['status'] as String) : null)!,
-  );
+  factory BetaProgramOutput.fromJson(Map<String, dynamic> json) =>
+      BetaProgramOutput(
+        agent: json['agent'] != null
+            ? SdkPresent((json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaProgramOutputType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        callId: (json['call_id'] as String?)!,
+        result: (json['result'] as String?)!,
+        status: (json['status'] != null
+            ? BetaProgramOutputStatus.fromJson(json['status'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag>(value: final value) => {'agent': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'id': id,
-    'call_id': callId,
-    'result': result,
-    'status': status.toJson(),
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag>(value: final value) => {
+              'agent': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'id': id,
+        'call_id': callId,
+        'result': result,
+        'status': status.toJson(),
+      };
 }

@@ -8,35 +8,66 @@ part of 'evals_eval.dart';
 class EvalLogsDataSourceConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of data source. Always `logs`.
   final EvalLogsDataSourceConfigType type_;
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
+
   /// The json schema for the run data source items. Learn how to build JSON schemas [here](https://json-schema.org/).
   final Map<String, Object?> schema;
 
-  const EvalLogsDataSourceConfig({required this.type_, this.metadata = const SdkOmitted(), required this.schema});
+  const EvalLogsDataSourceConfig(
+      {required this.type_,
+      this.metadata = const SdkOmitted(),
+      required this.schema});
 
-  EvalLogsDataSourceConfig Function({EvalLogsDataSourceConfigType type_, SdkOptional<Map<String, dynamic>?> metadata, Map<String, Object?> schema}) get copyWith => _copyWith;
+  EvalLogsDataSourceConfig Function(
+      {EvalLogsDataSourceConfigType type_,
+      SdkOptional<Map<String, dynamic>?> metadata,
+      Map<String, Object?> schema}) get copyWith => _copyWith;
 
-  EvalLogsDataSourceConfig _copyWith({Object? type_ = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? schema = sdkOmittedValue}) => EvalLogsDataSourceConfig(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EvalLogsDataSourceConfigType,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
-    schema: identical(schema, sdkOmittedValue) ? this.schema : schema as Map<String, Object?>,
-  );
+  EvalLogsDataSourceConfig _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? schema = sdkOmittedValue}) =>
+      EvalLogsDataSourceConfig(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EvalLogsDataSourceConfigType,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, dynamic>?>,
+        schema: identical(schema, sdkOmittedValue)
+            ? this.schema
+            : schema as Map<String, Object?>,
+      );
 
-  factory EvalLogsDataSourceConfig.fromJson(Map<String, dynamic> json) => EvalLogsDataSourceConfig(
-    type_: (json['type'] != null ? EvalLogsDataSourceConfigType.fromJson(json['type'] as String) : null)!,
-    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
-    schema: (json['schema'] == null ? null : Map<String, dynamic>.from(json['schema'] as Map).map((key, value) => MapEntry(key, value)))!,
-  );
+  factory EvalLogsDataSourceConfig.fromJson(Map<String, dynamic> json) =>
+      EvalLogsDataSourceConfig(
+        type_: (json['type'] != null
+            ? EvalLogsDataSourceConfigType.fromJson(json['type'] as String)
+            : null)!,
+        metadata: json.containsKey('metadata')
+            ? SdkPresent(json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        schema: (json['schema'] == null
+            ? null
+            : Map<String, dynamic>.from(json['schema'] as Map)
+                .map((key, value) => MapEntry(key, value)))!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (metadata) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-    'schema': schema,
-  };
+        'type': type_.toJson(),
+        ...switch (metadata) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'schema': schema,
+      };
 }

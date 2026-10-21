@@ -9,21 +9,35 @@ sealed class DecisionInputToolOutputContent {
   static const String constructionSurface = 'named';
   const DecisionInputToolOutputContent();
   factory DecisionInputToolOutputContent.fromJson(Object? json) {
-    if (json is String) { return DecisionInputToolOutputContentString(json); }
-    if (json is List) { return DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem(json.map((e) => DecisionInputToolOutputContentPartsItem.fromJson(e)).toList().cast<DecisionInputToolOutputContentPartsItem>()); }
-    throw FormatException("No variant matched for DecisionInputToolOutputContent");
+    if (json is String) {
+      return DecisionInputToolOutputContentString(json);
+    }
+    if (json is List) {
+      return DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem(
+          json
+              .map((e) => DecisionInputToolOutputContentPartsItem.fromJson(e))
+              .toList()
+              .cast<DecisionInputToolOutputContentPartsItem>());
+    }
+    throw FormatException(
+        "No variant matched for DecisionInputToolOutputContent");
   }
   Object? toJson();
 }
 
-final class DecisionInputToolOutputContentString extends DecisionInputToolOutputContent {
+final class DecisionInputToolOutputContentString
+    extends DecisionInputToolOutputContent {
   final String value;
   const DecisionInputToolOutputContentString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem extends DecisionInputToolOutputContent {
+final class DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem
+    extends DecisionInputToolOutputContent {
   final List<DecisionInputToolOutputContentPartsItem> value;
-  const DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem(this.value);
-  @override Object? toJson() => value.map((e) => e.toJson()).toList();
+  const DecisionInputToolOutputContentListDecisionInputToolOutputContentPartsItem(
+      this.value);
+  @override
+  Object? toJson() => value.map((e) => e.toJson()).toList();
 }

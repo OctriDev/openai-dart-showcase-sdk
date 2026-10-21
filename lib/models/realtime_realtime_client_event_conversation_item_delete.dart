@@ -8,35 +8,62 @@ part of 'realtime_realtime_client.dart';
 class RealtimeClientEventConversationItemDelete {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `conversation.item.delete`.
   final RealtimeClientEventConversationItemDeleteType type_;
+
   /// The ID of the item to delete.
   final String itemId;
 
-  const RealtimeClientEventConversationItemDelete({this.eventId = const SdkOmitted(), required this.type_, required this.itemId});
+  const RealtimeClientEventConversationItemDelete(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      required this.itemId});
 
-  RealtimeClientEventConversationItemDelete Function({SdkOptional<String> eventId, RealtimeClientEventConversationItemDeleteType type_, String itemId}) get copyWith => _copyWith;
+  RealtimeClientEventConversationItemDelete Function(
+      {SdkOptional<String> eventId,
+      RealtimeClientEventConversationItemDeleteType type_,
+      String itemId}) get copyWith => _copyWith;
 
-  RealtimeClientEventConversationItemDelete _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeClientEventConversationItemDelete(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventConversationItemDeleteType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
+  RealtimeClientEventConversationItemDelete _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue}) =>
+      RealtimeClientEventConversationItemDelete(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeClientEventConversationItemDeleteType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+      );
 
-  factory RealtimeClientEventConversationItemDelete.fromJson(Map<String, dynamic> json) => RealtimeClientEventConversationItemDelete(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeClientEventConversationItemDeleteType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-  );
+  factory RealtimeClientEventConversationItemDelete.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeClientEventConversationItemDelete(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeClientEventConversationItemDeleteType.fromJson(
+                json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'item_id': itemId,
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'item_id': itemId,
+      };
 }

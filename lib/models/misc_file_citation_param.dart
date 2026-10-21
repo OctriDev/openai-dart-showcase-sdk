@@ -8,37 +8,62 @@ part of 'misc.dart';
 class FileCitationParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The citation type. Always `file_citation`.
   final FileCitationParamType type_;
+
   /// The index of the file in the list of files.
   final int index;
+
   /// The ID of the file.
   final String fileId;
+
   /// The filename of the file cited.
   final String filename;
 
-  const FileCitationParam({required this.type_, required this.index, required this.fileId, required this.filename});
+  const FileCitationParam(
+      {required this.type_,
+      required this.index,
+      required this.fileId,
+      required this.filename});
 
-  FileCitationParam Function({FileCitationParamType type_, int index, String fileId, String filename}) get copyWith => _copyWith;
+  FileCitationParam Function(
+      {FileCitationParamType type_,
+      int index,
+      String fileId,
+      String filename}) get copyWith => _copyWith;
 
-  FileCitationParam _copyWith({Object? type_ = sdkOmittedValue, Object? index = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? filename = sdkOmittedValue}) => FileCitationParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FileCitationParamType,
-    index: identical(index, sdkOmittedValue) ? this.index : index as int,
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String,
-  );
+  FileCitationParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? index = sdkOmittedValue,
+          Object? fileId = sdkOmittedValue,
+          Object? filename = sdkOmittedValue}) =>
+      FileCitationParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as FileCitationParamType,
+        index: identical(index, sdkOmittedValue) ? this.index : index as int,
+        fileId:
+            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+        filename: identical(filename, sdkOmittedValue)
+            ? this.filename
+            : filename as String,
+      );
 
-  factory FileCitationParam.fromJson(Map<String, dynamic> json) => FileCitationParam(
-    type_: (json['type'] != null ? FileCitationParamType.fromJson(json['type'] as String) : null)!,
-    index: ((json['index'] as num?)?.toInt())!,
-    fileId: (json['file_id'] as String?)!,
-    filename: (json['filename'] as String?)!,
-  );
+  factory FileCitationParam.fromJson(Map<String, dynamic> json) =>
+      FileCitationParam(
+        type_: (json['type'] != null
+            ? FileCitationParamType.fromJson(json['type'] as String)
+            : null)!,
+        index: ((json['index'] as num?)?.toInt())!,
+        fileId: (json['file_id'] as String?)!,
+        filename: (json['filename'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'index': index,
-    'file_id': fileId,
-    'filename': filename,
-  };
+        'type': type_.toJson(),
+        'index': index,
+        'file_id': fileId,
+        'filename': filename,
+      };
 }

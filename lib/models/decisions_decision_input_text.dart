@@ -8,59 +8,104 @@ part of 'decisions_decision.dart';
 class DecisionInputTextPromptCacheBreakpoint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The breakpoint mode. Always `explicit`.
   final DecisionInputTextPromptCacheBreakpointMode mode;
 
   const DecisionInputTextPromptCacheBreakpoint({required this.mode});
 
-  DecisionInputTextPromptCacheBreakpoint Function({DecisionInputTextPromptCacheBreakpointMode mode}) get copyWith => _copyWith;
+  DecisionInputTextPromptCacheBreakpoint Function(
+          {DecisionInputTextPromptCacheBreakpointMode mode})
+      get copyWith => _copyWith;
 
-  DecisionInputTextPromptCacheBreakpoint _copyWith({Object? mode = sdkOmittedValue}) => DecisionInputTextPromptCacheBreakpoint(
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as DecisionInputTextPromptCacheBreakpointMode,
-  );
+  DecisionInputTextPromptCacheBreakpoint _copyWith(
+          {Object? mode = sdkOmittedValue}) =>
+      DecisionInputTextPromptCacheBreakpoint(
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as DecisionInputTextPromptCacheBreakpointMode,
+      );
 
-  factory DecisionInputTextPromptCacheBreakpoint.fromJson(Map<String, dynamic> json) => DecisionInputTextPromptCacheBreakpoint(
-    mode: (json['mode'] != null ? DecisionInputTextPromptCacheBreakpointMode.fromJson(json['mode'] as String) : null)!,
-  );
+  factory DecisionInputTextPromptCacheBreakpoint.fromJson(
+          Map<String, dynamic> json) =>
+      DecisionInputTextPromptCacheBreakpoint(
+        mode: (json['mode'] != null
+            ? DecisionInputTextPromptCacheBreakpointMode.fromJson(
+                json['mode'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'mode': mode.toJson(),
-  };
+        'mode': mode.toJson(),
+      };
 }
 
 /// Typed representation of the `DecisionInputText` API schema.
 class DecisionInputText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final DecisionInputTextType type_;
+
   /// Required `string` value serialized in the `text` wire field.
   final String text;
+
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
-  final SdkOptional<DecisionInputTextPromptCacheBreakpoint?> promptCacheBreakpoint;
+  final SdkOptional<DecisionInputTextPromptCacheBreakpoint?>
+      promptCacheBreakpoint;
 
-  const DecisionInputText({required this.type_, required this.text, this.promptCacheBreakpoint = const SdkOmitted()});
+  const DecisionInputText(
+      {required this.type_,
+      required this.text,
+      this.promptCacheBreakpoint = const SdkOmitted()});
 
-  DecisionInputText Function({DecisionInputTextType type_, String text, SdkOptional<DecisionInputTextPromptCacheBreakpoint?> promptCacheBreakpoint}) get copyWith => _copyWith;
+  DecisionInputText Function(
+      {DecisionInputTextType type_,
+      String text,
+      SdkOptional<DecisionInputTextPromptCacheBreakpoint?>
+          promptCacheBreakpoint}) get copyWith => _copyWith;
 
-  DecisionInputText _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => DecisionInputText(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DecisionInputTextType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<DecisionInputTextPromptCacheBreakpoint?>,
-  );
+  DecisionInputText _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
+      DecisionInputText(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DecisionInputTextType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
+            ? this.promptCacheBreakpoint
+            : promptCacheBreakpoint
+                as SdkOptional<DecisionInputTextPromptCacheBreakpoint?>,
+      );
 
-  factory DecisionInputText.fromJson(Map<String, dynamic> json) => DecisionInputText(
-    type_: (json['type'] != null ? DecisionInputTextType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-    promptCacheBreakpoint: json.containsKey('prompt_cache_breakpoint') ? SdkPresent(json['prompt_cache_breakpoint'] != null ? DecisionInputTextPromptCacheBreakpoint.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory DecisionInputText.fromJson(Map<String, dynamic> json) =>
+      DecisionInputText(
+        type_: (json['type'] != null
+            ? DecisionInputTextType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+        promptCacheBreakpoint: json.containsKey('prompt_cache_breakpoint')
+            ? SdkPresent(json['prompt_cache_breakpoint'] != null
+                ? DecisionInputTextPromptCacheBreakpoint.fromJson(
+                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-    ...switch (promptCacheBreakpoint) {
-      SdkPresent<DecisionInputTextPromptCacheBreakpoint?>(value: final value) => {'prompt_cache_breakpoint': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'text': text,
+        ...switch (promptCacheBreakpoint) {
+          SdkPresent<DecisionInputTextPromptCacheBreakpoint?>(
+            value: final value
+          ) =>
+            {
+              'prompt_cache_breakpoint': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

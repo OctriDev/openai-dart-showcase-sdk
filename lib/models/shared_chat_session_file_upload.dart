@@ -8,32 +8,58 @@ part of 'shared_chat.dart';
 class ChatSessionFileUpload {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates if uploads are enabled for the session.
   final bool enabled;
+
   /// Required `integer` value serialized in the `max_file_size` wire field.
   final int? maxFileSize;
+
   /// Required `integer` value serialized in the `max_files` wire field.
   final int? maxFiles;
 
-  const ChatSessionFileUpload({required this.enabled, required this.maxFileSize, required this.maxFiles});
+  const ChatSessionFileUpload(
+      {required this.enabled,
+      required this.maxFileSize,
+      required this.maxFiles});
 
-  ChatSessionFileUpload Function({bool enabled, int? maxFileSize, int? maxFiles}) get copyWith => _copyWith;
+  ChatSessionFileUpload Function(
+      {bool enabled,
+      int? maxFileSize,
+      int? maxFiles}) get copyWith => _copyWith;
 
-  ChatSessionFileUpload _copyWith({Object? enabled = sdkOmittedValue, Object? maxFileSize = sdkOmittedValue, Object? maxFiles = sdkOmittedValue}) => ChatSessionFileUpload(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
-    maxFileSize: identical(maxFileSize, sdkOmittedValue) ? this.maxFileSize : maxFileSize as int?,
-    maxFiles: identical(maxFiles, sdkOmittedValue) ? this.maxFiles : maxFiles as int?,
-  );
+  ChatSessionFileUpload _copyWith(
+          {Object? enabled = sdkOmittedValue,
+          Object? maxFileSize = sdkOmittedValue,
+          Object? maxFiles = sdkOmittedValue}) =>
+      ChatSessionFileUpload(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as bool,
+        maxFileSize: identical(maxFileSize, sdkOmittedValue)
+            ? this.maxFileSize
+            : maxFileSize as int?,
+        maxFiles: identical(maxFiles, sdkOmittedValue)
+            ? this.maxFiles
+            : maxFiles as int?,
+      );
 
-  factory ChatSessionFileUpload.fromJson(Map<String, dynamic> json) => ChatSessionFileUpload(
-    enabled: (json['enabled'] as bool?)!,
-    maxFileSize: json.containsKey('max_file_size') ? (json['max_file_size'] as num?)?.toInt() : throw ArgumentError.value(null, 'max_file_size', 'Required property is missing'),
-    maxFiles: json.containsKey('max_files') ? (json['max_files'] as num?)?.toInt() : throw ArgumentError.value(null, 'max_files', 'Required property is missing'),
-  );
+  factory ChatSessionFileUpload.fromJson(Map<String, dynamic> json) =>
+      ChatSessionFileUpload(
+        enabled: (json['enabled'] as bool?)!,
+        maxFileSize: json.containsKey('max_file_size')
+            ? (json['max_file_size'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'max_file_size', 'Required property is missing'),
+        maxFiles: json.containsKey('max_files')
+            ? (json['max_files'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'max_files', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'enabled': enabled,
-    'max_file_size': maxFileSize,
-    'max_files': maxFiles,
-  };
+        'enabled': enabled,
+        'max_file_size': maxFileSize,
+        'max_files': maxFiles,
+      };
 }

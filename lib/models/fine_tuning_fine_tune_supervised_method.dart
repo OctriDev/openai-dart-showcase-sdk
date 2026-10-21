@@ -8,25 +8,40 @@ part of 'fine_tuning.dart';
 class FineTuneSupervisedMethod {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The hyperparameters used for the fine-tuning job.
   final SdkOptional<FineTuneSupervisedHyperparameters> hyperparameters;
 
   const FineTuneSupervisedMethod({this.hyperparameters = const SdkOmitted()});
 
-  FineTuneSupervisedMethod Function({SdkOptional<FineTuneSupervisedHyperparameters> hyperparameters}) get copyWith => _copyWith;
+  FineTuneSupervisedMethod Function(
+          {SdkOptional<FineTuneSupervisedHyperparameters> hyperparameters})
+      get copyWith => _copyWith;
 
-  FineTuneSupervisedMethod _copyWith({Object? hyperparameters = sdkOmittedValue}) => FineTuneSupervisedMethod(
-    hyperparameters: identical(hyperparameters, sdkOmittedValue) ? this.hyperparameters : hyperparameters as SdkOptional<FineTuneSupervisedHyperparameters>,
-  );
+  FineTuneSupervisedMethod _copyWith(
+          {Object? hyperparameters = sdkOmittedValue}) =>
+      FineTuneSupervisedMethod(
+        hyperparameters: identical(hyperparameters, sdkOmittedValue)
+            ? this.hyperparameters
+            : hyperparameters as SdkOptional<FineTuneSupervisedHyperparameters>,
+      );
 
-  factory FineTuneSupervisedMethod.fromJson(Map<String, dynamic> json) => FineTuneSupervisedMethod(
-    hyperparameters: json['hyperparameters'] != null ? SdkPresent((json['hyperparameters'] != null ? FineTuneSupervisedHyperparameters.fromJson(json['hyperparameters'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory FineTuneSupervisedMethod.fromJson(Map<String, dynamic> json) =>
+      FineTuneSupervisedMethod(
+        hyperparameters: json['hyperparameters'] != null
+            ? SdkPresent((json['hyperparameters'] != null
+                ? FineTuneSupervisedHyperparameters.fromJson(
+                    json['hyperparameters'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (hyperparameters) {
-      SdkPresent<FineTuneSupervisedHyperparameters>(value: final value) => {'hyperparameters': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (hyperparameters) {
+          SdkPresent<FineTuneSupervisedHyperparameters>(value: final value) => {
+              'hyperparameters': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,34 +8,72 @@ sealed class RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem();
-  factory RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem.fromJson(Object? json) {
+  factory RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem.fromJson(
+      Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RunStepDetailsToolCallsCodeOutputLogsObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject(value); } } catch (_) {}
-      try { final value = RunStepDetailsToolCallsCodeOutputImageObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputImageObject(value); } } catch (_) {}
+      try {
+        final value =
+            RunStepDetailsToolCallsCodeOutputLogsObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RunStepDetailsToolCallsCodeOutputImageObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputImageObject(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject(RunStepDetailsToolCallsCodeOutputLogsObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputImageObject(RunStepDetailsToolCallsCodeOutputImageObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"logs", "image"}.contains(json["type"])) { return UnknownRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem(json); }
-    throw FormatException("No variant matched for RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem");
+    try {
+      return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject(
+          RunStepDetailsToolCallsCodeOutputLogsObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputImageObject(
+          RunStepDetailsToolCallsCodeOutputImageObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"logs", "image"}.contains(json["type"])) {
+      return UnknownRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem(
+          json);
+    }
+    throw FormatException(
+        "No variant matched for RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem");
   }
   Object? toJson();
 }
 
-final class RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject extends RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
+final class RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject
+    extends RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
   final RunStepDetailsToolCallsCodeOutputLogsObject value;
-  const RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputLogsObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputImageObject extends RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
+final class RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputImageObject
+    extends RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
   final RunStepDetailsToolCallsCodeOutputImageObject value;
-  const RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputImageObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDetailsToolCallsCodeOutputImageObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem extends RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
+final class UnknownRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem
+    extends RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
   final Map<String, dynamic> raw;
-  const UnknownRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem(this.raw);
-  @override Object? toJson() => raw;
+  const UnknownRunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem(
+      this.raw);
+  @override
+  Object? toJson() => raw;
 }

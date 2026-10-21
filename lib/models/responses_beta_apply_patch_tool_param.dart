@@ -8,30 +8,57 @@ part of 'responses_beta_apply.dart';
 class BetaApplyPatchToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the tool. Always `apply_patch`.
   final BetaApplyPatchToolParamType type_;
+
   /// The tool invocation context(s).
   final SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers;
 
-  const BetaApplyPatchToolParam({required this.type_, this.allowedCallers = const SdkOmitted()});
+  const BetaApplyPatchToolParam(
+      {required this.type_, this.allowedCallers = const SdkOmitted()});
 
-  BetaApplyPatchToolParam Function({BetaApplyPatchToolParamType type_, SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
+  BetaApplyPatchToolParam Function(
+          {BetaApplyPatchToolParamType type_,
+          SdkOptional<List<BetaCallableToolAllowedCaller>?> allowedCallers})
+      get copyWith => _copyWith;
 
-  BetaApplyPatchToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue}) => BetaApplyPatchToolParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaApplyPatchToolParamType,
-    allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
-  );
+  BetaApplyPatchToolParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? allowedCallers = sdkOmittedValue}) =>
+      BetaApplyPatchToolParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaApplyPatchToolParamType,
+        allowedCallers: identical(allowedCallers, sdkOmittedValue)
+            ? this.allowedCallers
+            : allowedCallers
+                as SdkOptional<List<BetaCallableToolAllowedCaller>?>,
+      );
 
-  factory BetaApplyPatchToolParam.fromJson(Map<String, dynamic> json) => BetaApplyPatchToolParam(
-    type_: (json['type'] != null ? BetaApplyPatchToolParamType.fromJson(json['type'] as String) : null)!,
-    allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => BetaCallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
-  );
+  factory BetaApplyPatchToolParam.fromJson(Map<String, dynamic> json) =>
+      BetaApplyPatchToolParam(
+        type_: (json['type'] != null
+            ? BetaApplyPatchToolParamType.fromJson(json['type'] as String)
+            : null)!,
+        allowedCallers: json.containsKey('allowed_callers')
+            ? SdkPresent((json['allowed_callers'] as List?)
+                ?.map(
+                    (e) => BetaCallableToolAllowedCaller.fromJson(e as String))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (allowedCallers) {
-      SdkPresent<List<BetaCallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (allowedCallers) {
+          SdkPresent<List<BetaCallableToolAllowedCaller>?>(
+            value: final value
+          ) =>
+            {
+              'allowed_callers': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

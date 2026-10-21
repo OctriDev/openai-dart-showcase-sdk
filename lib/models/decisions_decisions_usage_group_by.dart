@@ -6,12 +6,12 @@ part of 'decisions_decisions.dart';
 // decisions_decisions domain models
 /// Typed representation of the `DecisionsUsageGroupBy` API schema.
 final class DecisionsUsageGroupBy {
-
   final String value;
 
   const DecisionsUsageGroupBy._(this.value);
 
-  factory DecisionsUsageGroupBy.fromJson(String value) => DecisionsUsageGroupBy._(value);
+  factory DecisionsUsageGroupBy.fromJson(String value) =>
+      DecisionsUsageGroupBy._(value);
 
   static const projectId = DecisionsUsageGroupBy._('project_id');
   static const userId = DecisionsUsageGroupBy._('user_id');
@@ -23,10 +23,13 @@ final class DecisionsUsageGroupBy {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DecisionsUsageGroupBy && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DecisionsUsageGroupBy && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

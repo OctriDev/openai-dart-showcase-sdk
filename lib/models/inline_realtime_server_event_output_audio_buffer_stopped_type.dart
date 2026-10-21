@@ -8,16 +8,23 @@ part of 'inline.dart';
 enum RealtimeServerEventOutputAudioBufferStoppedType {
   outputAudioBufferStopped;
 
-  static RealtimeServerEventOutputAudioBufferStoppedType fromJson(String value) {
+  static RealtimeServerEventOutputAudioBufferStoppedType fromJson(
+      String value) {
     switch (value) {
-      case 'output_audio_buffer.stopped': return RealtimeServerEventOutputAudioBufferStoppedType.outputAudioBufferStopped;
-      default: throw ArgumentError('Unknown RealtimeServerEventOutputAudioBufferStoppedType: $value');
+      case 'output_audio_buffer.stopped':
+        return RealtimeServerEventOutputAudioBufferStoppedType
+            .outputAudioBufferStopped;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventOutputAudioBufferStoppedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventOutputAudioBufferStoppedType.outputAudioBufferStopped: return 'output_audio_buffer.stopped';
+      case RealtimeServerEventOutputAudioBufferStoppedType
+            .outputAudioBufferStopped:
+        return 'output_audio_buffer.stopped';
     }
   }
 
@@ -27,24 +34,31 @@ enum RealtimeServerEventOutputAudioBufferStoppedType {
 
 /// The name of the rate limit (`requests`, `tokens`).
 final class RealtimeServerEventRateLimitsUpdatedRateLimitsItemName {
-
   final String value;
 
   const RealtimeServerEventRateLimitsUpdatedRateLimitsItemName._(this.value);
 
-  factory RealtimeServerEventRateLimitsUpdatedRateLimitsItemName.fromJson(String value) => RealtimeServerEventRateLimitsUpdatedRateLimitsItemName._(value);
+  factory RealtimeServerEventRateLimitsUpdatedRateLimitsItemName.fromJson(
+          String value) =>
+      RealtimeServerEventRateLimitsUpdatedRateLimitsItemName._(value);
 
-  static const requests = RealtimeServerEventRateLimitsUpdatedRateLimitsItemName._('requests');
-  static const tokens = RealtimeServerEventRateLimitsUpdatedRateLimitsItemName._('tokens');
+  static const requests =
+      RealtimeServerEventRateLimitsUpdatedRateLimitsItemName._('requests');
+  static const tokens =
+      RealtimeServerEventRateLimitsUpdatedRateLimitsItemName._('tokens');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeServerEventRateLimitsUpdatedRateLimitsItemName && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeServerEventRateLimitsUpdatedRateLimitsItemName &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `rate_limits.updated`.
@@ -53,14 +67,18 @@ enum RealtimeServerEventRateLimitsUpdatedType {
 
   static RealtimeServerEventRateLimitsUpdatedType fromJson(String value) {
     switch (value) {
-      case 'rate_limits.updated': return RealtimeServerEventRateLimitsUpdatedType.rateLimitsUpdated;
-      default: throw ArgumentError('Unknown RealtimeServerEventRateLimitsUpdatedType: $value');
+      case 'rate_limits.updated':
+        return RealtimeServerEventRateLimitsUpdatedType.rateLimitsUpdated;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventRateLimitsUpdatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventRateLimitsUpdatedType.rateLimitsUpdated: return 'rate_limits.updated';
+      case RealtimeServerEventRateLimitsUpdatedType.rateLimitsUpdated:
+        return 'rate_limits.updated';
     }
   }
 
@@ -74,14 +92,19 @@ enum RealtimeServerEventResponseAudioDeltaType {
 
   static RealtimeServerEventResponseAudioDeltaType fromJson(String value) {
     switch (value) {
-      case 'response.output_audio.delta': return RealtimeServerEventResponseAudioDeltaType.responseOutputAudioDelta;
-      default: throw ArgumentError('Unknown RealtimeServerEventResponseAudioDeltaType: $value');
+      case 'response.output_audio.delta':
+        return RealtimeServerEventResponseAudioDeltaType
+            .responseOutputAudioDelta;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventResponseAudioDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseAudioDeltaType.responseOutputAudioDelta: return 'response.output_audio.delta';
+      case RealtimeServerEventResponseAudioDeltaType.responseOutputAudioDelta:
+        return 'response.output_audio.delta';
     }
   }
 
@@ -95,14 +118,18 @@ enum RealtimeServerEventResponseAudioDoneType {
 
   static RealtimeServerEventResponseAudioDoneType fromJson(String value) {
     switch (value) {
-      case 'response.output_audio.done': return RealtimeServerEventResponseAudioDoneType.responseOutputAudioDone;
-      default: throw ArgumentError('Unknown RealtimeServerEventResponseAudioDoneType: $value');
+      case 'response.output_audio.done':
+        return RealtimeServerEventResponseAudioDoneType.responseOutputAudioDone;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventResponseAudioDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseAudioDoneType.responseOutputAudioDone: return 'response.output_audio.done';
+      case RealtimeServerEventResponseAudioDoneType.responseOutputAudioDone:
+        return 'response.output_audio.done';
     }
   }
 
@@ -114,16 +141,23 @@ enum RealtimeServerEventResponseAudioDoneType {
 enum RealtimeServerEventResponseAudioTranscriptDeltaType {
   responseOutputAudioTranscriptDelta;
 
-  static RealtimeServerEventResponseAudioTranscriptDeltaType fromJson(String value) {
+  static RealtimeServerEventResponseAudioTranscriptDeltaType fromJson(
+      String value) {
     switch (value) {
-      case 'response.output_audio_transcript.delta': return RealtimeServerEventResponseAudioTranscriptDeltaType.responseOutputAudioTranscriptDelta;
-      default: throw ArgumentError('Unknown RealtimeServerEventResponseAudioTranscriptDeltaType: $value');
+      case 'response.output_audio_transcript.delta':
+        return RealtimeServerEventResponseAudioTranscriptDeltaType
+            .responseOutputAudioTranscriptDelta;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventResponseAudioTranscriptDeltaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseAudioTranscriptDeltaType.responseOutputAudioTranscriptDelta: return 'response.output_audio_transcript.delta';
+      case RealtimeServerEventResponseAudioTranscriptDeltaType
+            .responseOutputAudioTranscriptDelta:
+        return 'response.output_audio_transcript.delta';
     }
   }
 
@@ -135,16 +169,23 @@ enum RealtimeServerEventResponseAudioTranscriptDeltaType {
 enum RealtimeServerEventResponseAudioTranscriptDoneType {
   responseOutputAudioTranscriptDone;
 
-  static RealtimeServerEventResponseAudioTranscriptDoneType fromJson(String value) {
+  static RealtimeServerEventResponseAudioTranscriptDoneType fromJson(
+      String value) {
     switch (value) {
-      case 'response.output_audio_transcript.done': return RealtimeServerEventResponseAudioTranscriptDoneType.responseOutputAudioTranscriptDone;
-      default: throw ArgumentError('Unknown RealtimeServerEventResponseAudioTranscriptDoneType: $value');
+      case 'response.output_audio_transcript.done':
+        return RealtimeServerEventResponseAudioTranscriptDoneType
+            .responseOutputAudioTranscriptDone;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventResponseAudioTranscriptDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseAudioTranscriptDoneType.responseOutputAudioTranscriptDone: return 'response.output_audio_transcript.done';
+      case RealtimeServerEventResponseAudioTranscriptDoneType
+            .responseOutputAudioTranscriptDone:
+        return 'response.output_audio_transcript.done';
     }
   }
 
@@ -154,40 +195,54 @@ enum RealtimeServerEventResponseAudioTranscriptDoneType {
 
 /// The content type ("text", "audio").
 final class RealtimeServerEventResponseContentPartAddedPartType {
-
   final String value;
 
   const RealtimeServerEventResponseContentPartAddedPartType._(this.value);
 
-  factory RealtimeServerEventResponseContentPartAddedPartType.fromJson(String value) => RealtimeServerEventResponseContentPartAddedPartType._(value);
+  factory RealtimeServerEventResponseContentPartAddedPartType.fromJson(
+          String value) =>
+      RealtimeServerEventResponseContentPartAddedPartType._(value);
 
-  static const audio = RealtimeServerEventResponseContentPartAddedPartType._('audio');
-  static const text = RealtimeServerEventResponseContentPartAddedPartType._('text');
+  static const audio =
+      RealtimeServerEventResponseContentPartAddedPartType._('audio');
+  static const text =
+      RealtimeServerEventResponseContentPartAddedPartType._('text');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeServerEventResponseContentPartAddedPartType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeServerEventResponseContentPartAddedPartType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `response.content_part.added`.
 enum RealtimeServerEventResponseContentPartAddedType {
   responseContentPartAdded;
 
-  static RealtimeServerEventResponseContentPartAddedType fromJson(String value) {
+  static RealtimeServerEventResponseContentPartAddedType fromJson(
+      String value) {
     switch (value) {
-      case 'response.content_part.added': return RealtimeServerEventResponseContentPartAddedType.responseContentPartAdded;
-      default: throw ArgumentError('Unknown RealtimeServerEventResponseContentPartAddedType: $value');
+      case 'response.content_part.added':
+        return RealtimeServerEventResponseContentPartAddedType
+            .responseContentPartAdded;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventResponseContentPartAddedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseContentPartAddedType.responseContentPartAdded: return 'response.content_part.added';
+      case RealtimeServerEventResponseContentPartAddedType
+            .responseContentPartAdded:
+        return 'response.content_part.added';
     }
   }
 
@@ -197,24 +252,31 @@ enum RealtimeServerEventResponseContentPartAddedType {
 
 /// The content type ("text", "audio").
 final class RealtimeServerEventResponseContentPartDonePartType {
-
   final String value;
 
   const RealtimeServerEventResponseContentPartDonePartType._(this.value);
 
-  factory RealtimeServerEventResponseContentPartDonePartType.fromJson(String value) => RealtimeServerEventResponseContentPartDonePartType._(value);
+  factory RealtimeServerEventResponseContentPartDonePartType.fromJson(
+          String value) =>
+      RealtimeServerEventResponseContentPartDonePartType._(value);
 
-  static const audio = RealtimeServerEventResponseContentPartDonePartType._('audio');
-  static const text = RealtimeServerEventResponseContentPartDonePartType._('text');
+  static const audio =
+      RealtimeServerEventResponseContentPartDonePartType._('audio');
+  static const text =
+      RealtimeServerEventResponseContentPartDonePartType._('text');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeServerEventResponseContentPartDonePartType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeServerEventResponseContentPartDonePartType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `response.content_part.done`.
@@ -223,14 +285,20 @@ enum RealtimeServerEventResponseContentPartDoneType {
 
   static RealtimeServerEventResponseContentPartDoneType fromJson(String value) {
     switch (value) {
-      case 'response.content_part.done': return RealtimeServerEventResponseContentPartDoneType.responseContentPartDone;
-      default: throw ArgumentError('Unknown RealtimeServerEventResponseContentPartDoneType: $value');
+      case 'response.content_part.done':
+        return RealtimeServerEventResponseContentPartDoneType
+            .responseContentPartDone;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventResponseContentPartDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseContentPartDoneType.responseContentPartDone: return 'response.content_part.done';
+      case RealtimeServerEventResponseContentPartDoneType
+            .responseContentPartDone:
+        return 'response.content_part.done';
     }
   }
 
@@ -244,14 +312,18 @@ enum RealtimeServerEventResponseCreatedType {
 
   static RealtimeServerEventResponseCreatedType fromJson(String value) {
     switch (value) {
-      case 'response.created': return RealtimeServerEventResponseCreatedType.responseCreated;
-      default: throw ArgumentError('Unknown RealtimeServerEventResponseCreatedType: $value');
+      case 'response.created':
+        return RealtimeServerEventResponseCreatedType.responseCreated;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventResponseCreatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseCreatedType.responseCreated: return 'response.created';
+      case RealtimeServerEventResponseCreatedType.responseCreated:
+        return 'response.created';
     }
   }
 
@@ -265,14 +337,18 @@ enum RealtimeServerEventResponseDoneType {
 
   static RealtimeServerEventResponseDoneType fromJson(String value) {
     switch (value) {
-      case 'response.done': return RealtimeServerEventResponseDoneType.responseDone;
-      default: throw ArgumentError('Unknown RealtimeServerEventResponseDoneType: $value');
+      case 'response.done':
+        return RealtimeServerEventResponseDoneType.responseDone;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventResponseDoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventResponseDoneType.responseDone: return 'response.done';
+      case RealtimeServerEventResponseDoneType.responseDone:
+        return 'response.done';
     }
   }
 

@@ -8,34 +8,68 @@ sealed class LiveInitialAssistantMessageItemParamContentItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const LiveInitialAssistantMessageItemParamContentItem();
-  factory LiveInitialAssistantMessageItemParamContentItem.fromJson(Object? json) {
+  factory LiveInitialAssistantMessageItemParamContentItem.fromJson(
+      Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = LiveInitialTextContentPartParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveInitialAssistantMessageItemParamContentItemLiveInitialTextContentPartParam(value); } } catch (_) {}
-      try { final value = LiveInitialOutputTextContentPartParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveInitialAssistantMessageItemParamContentItemLiveInitialOutputTextContentPartParam(value); } } catch (_) {}
+      try {
+        final value = LiveInitialTextContentPartParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveInitialAssistantMessageItemParamContentItemLiveInitialTextContentPartParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInitialOutputTextContentPartParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveInitialAssistantMessageItemParamContentItemLiveInitialOutputTextContentPartParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return LiveInitialAssistantMessageItemParamContentItemLiveInitialTextContentPartParam(LiveInitialTextContentPartParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveInitialAssistantMessageItemParamContentItemLiveInitialOutputTextContentPartParam(LiveInitialOutputTextContentPartParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "output_text"}.contains(json["type"])) { return UnknownLiveInitialAssistantMessageItemParamContentItem(json); }
-    throw FormatException("No variant matched for LiveInitialAssistantMessageItemParamContentItem");
+    try {
+      return LiveInitialAssistantMessageItemParamContentItemLiveInitialTextContentPartParam(
+          LiveInitialTextContentPartParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveInitialAssistantMessageItemParamContentItemLiveInitialOutputTextContentPartParam(
+          LiveInitialOutputTextContentPartParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"text", "output_text"}.contains(json["type"])) {
+      return UnknownLiveInitialAssistantMessageItemParamContentItem(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveInitialAssistantMessageItemParamContentItem");
   }
   Object? toJson();
 }
 
-final class LiveInitialAssistantMessageItemParamContentItemLiveInitialTextContentPartParam extends LiveInitialAssistantMessageItemParamContentItem {
+final class LiveInitialAssistantMessageItemParamContentItemLiveInitialTextContentPartParam
+    extends LiveInitialAssistantMessageItemParamContentItem {
   final LiveInitialTextContentPartParam value;
-  const LiveInitialAssistantMessageItemParamContentItemLiveInitialTextContentPartParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveInitialAssistantMessageItemParamContentItemLiveInitialTextContentPartParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveInitialAssistantMessageItemParamContentItemLiveInitialOutputTextContentPartParam extends LiveInitialAssistantMessageItemParamContentItem {
+final class LiveInitialAssistantMessageItemParamContentItemLiveInitialOutputTextContentPartParam
+    extends LiveInitialAssistantMessageItemParamContentItem {
   final LiveInitialOutputTextContentPartParam value;
-  const LiveInitialAssistantMessageItemParamContentItemLiveInitialOutputTextContentPartParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveInitialAssistantMessageItemParamContentItemLiveInitialOutputTextContentPartParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [LiveInitialAssistantMessageItemParamContentItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownLiveInitialAssistantMessageItemParamContentItem extends LiveInitialAssistantMessageItemParamContentItem {
+final class UnknownLiveInitialAssistantMessageItemParamContentItem
+    extends LiveInitialAssistantMessageItemParamContentItem {
   final Map<String, dynamic> raw;
   const UnknownLiveInitialAssistantMessageItemParamContentItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -17,37 +17,58 @@ Future<ImagesResponse> createImageEdit(ClientConfig config,
   return (await sdkRequest<ImagesResponse>('POST', '/images/edits',
           config: config,
           body: body.value,
-          contentType: contentType is SdkPresent<String> ? contentType.value : body.mediaType,
+          contentType: contentType is SdkPresent<String>
+              ? contentType.value
+              : body.mediaType,
           decoder: SdkResponseDecoder.json,
           operationId: 'createImageEdit',
-          fromJsonRaw: (value) => ImagesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ImagesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates an edited image from one or more source images and a text prompt. Send multipart form data with uploaded image files, or JSON with image references; use `mask` to limit edits to designated areas. You can choose the output format, size, and quality, and optionally stream partial image results.
 ///
 /// Creates an edited or extended image given one or more source images and a prompt. This endpoint supports GPT Image models.
-Stream<ImageEditStreamEvent> createImageEditStream(ClientConfig config, {required CreateImageEditStreamBody body, SdkOptional<String> contentType = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<ImageEditStreamEvent> createImageEditStream(ClientConfig config,
+    {required CreateImageEditStreamBody body,
+    SdkOptional<String> contentType = const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/images/edits',
     config: config,
     body: body.value,
-    contentType: contentType is SdkPresent<String> ? contentType.value : body.mediaType,
+    contentType:
+        contentType is SdkPresent<String> ? contentType.value : body.mediaType,
     operationId: 'createImageEditStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => ImageEditStreamEvent.fromJson(event.data));
   }
 }
+
 /// Creates one or more images from a text prompt using the specified image model. Provide `model` and `prompt`; `n` defaults to 1, and you can enable streaming with `stream`. Use `size`, `quality`, and `output_format` to control the generated images.
 ///
 /// Creates an image given a prompt using a GPT Image model. [Learn more](https://developers.openai.com/api/docs/guides/images-vision).
@@ -122,7 +143,8 @@ Future<ImagesResponse> createImage(ClientConfig config,
     required String model,
     SdkOptional<int?> n = const SdkOmitted(),
     SdkOptional<String?> quality = const SdkOmitted(),
-    SdkOptional<CreateImageRequestResponseFormat?> responseFormat = const SdkOmitted(),
+    SdkOptional<CreateImageRequestResponseFormat?> responseFormat =
+        const SdkOmitted(),
     SdkOptional<String?> outputFormat = const SdkOmitted(),
     SdkOptional<int?> outputCompression = const SdkOmitted(),
     SdkOptional<bool?> stream = const SdkOmitted(),
@@ -168,12 +190,25 @@ Future<ImagesResponse> createImage(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createImage',
-          fromJsonRaw: (value) => ImagesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ImagesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '410': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates one or more images from a text prompt using the specified image model. Provide `model` and `prompt`; `n` defaults to 1, and you can enable streaming with `stream`. Use `size`, `quality`, and `output_format` to control the generated images.
 ///
@@ -244,39 +279,64 @@ Future<ImagesResponse> createImage(ClientConfig config,
 ///   omitted, null, or empty. [Learn
 ///   more](https://developers.openai.com/api/docs/guides/safety-best-practices#im
 ///   plement-safety-identifiers).
-Stream<ImageGenStreamEvent> createImageStream(ClientConfig config, {required String prompt, required String model, required bool? stream, SdkOptional<int?> n = const SdkOmitted(), SdkOptional<String?> quality = const SdkOmitted(), SdkOptional<CreateImageRequestResponseFormat?> responseFormat = const SdkOmitted(), SdkOptional<String?> outputFormat = const SdkOmitted(), SdkOptional<int?> outputCompression = const SdkOmitted(), SdkOptional<PartialImages?> partialImages = const SdkOmitted(), SdkOptional<String?> size = const SdkOmitted(), SdkOptional<String?> moderation = const SdkOmitted(), SdkOptional<String?> background = const SdkOmitted(), SdkOptional<CreateImageRequestStyle?> style = const SdkOmitted(), SdkOptional<String?> safetyIdentifier = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<ImageGenStreamEvent> createImageStream(ClientConfig config,
+    {required String prompt,
+    required String model,
+    required bool? stream,
+    SdkOptional<int?> n = const SdkOmitted(),
+    SdkOptional<String?> quality = const SdkOmitted(),
+    SdkOptional<CreateImageRequestResponseFormat?> responseFormat =
+        const SdkOmitted(),
+    SdkOptional<String?> outputFormat = const SdkOmitted(),
+    SdkOptional<int?> outputCompression = const SdkOmitted(),
+    SdkOptional<PartialImages?> partialImages = const SdkOmitted(),
+    SdkOptional<String?> size = const SdkOmitted(),
+    SdkOptional<String?> moderation = const SdkOmitted(),
+    SdkOptional<String?> background = const SdkOmitted(),
+    SdkOptional<CreateImageRequestStyle?> style = const SdkOmitted(),
+    SdkOptional<String?> safetyIdentifier = const SdkOmitted(),
+    SdkOptional<String> user = const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/images/generations',
     config: config,
     body: {
-    'prompt': prompt,
-    'model': model,
-    'stream': stream,
-    'n': SdkUtils.unwrapOptional(n),
-    'quality': SdkUtils.unwrapOptional(quality),
-    'response_format': SdkUtils.unwrapOptional(responseFormat),
-    'output_format': SdkUtils.unwrapOptional(outputFormat),
-    'output_compression': SdkUtils.unwrapOptional(outputCompression),
-    'partial_images': SdkUtils.unwrapOptional(partialImages),
-    'size': SdkUtils.unwrapOptional(size),
-    'moderation': SdkUtils.unwrapOptional(moderation),
-    'background': SdkUtils.unwrapOptional(background),
-    'style': SdkUtils.unwrapOptional(style),
-    'safety_identifier': SdkUtils.unwrapOptional(safetyIdentifier),
-    'user': SdkUtils.unwrapOptional(user),
-  },
+      'prompt': prompt,
+      'model': model,
+      'stream': stream,
+      'n': SdkUtils.unwrapOptional(n),
+      'quality': SdkUtils.unwrapOptional(quality),
+      'response_format': SdkUtils.unwrapOptional(responseFormat),
+      'output_format': SdkUtils.unwrapOptional(outputFormat),
+      'output_compression': SdkUtils.unwrapOptional(outputCompression),
+      'partial_images': SdkUtils.unwrapOptional(partialImages),
+      'size': SdkUtils.unwrapOptional(size),
+      'moderation': SdkUtils.unwrapOptional(moderation),
+      'background': SdkUtils.unwrapOptional(background),
+      'style': SdkUtils.unwrapOptional(style),
+      'safety_identifier': SdkUtils.unwrapOptional(safetyIdentifier),
+      'user': SdkUtils.unwrapOptional(user),
+    },
     operationId: 'createImageStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+      '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => ImageGenStreamEvent.fromJson(event.data));
   }
 }
+
 /// Creates image variations based on an uploaded image using the legacy image variations contract. This operation is retired and no longer available; use the image edits endpoint with a GPT Image model and a prompt to create a variation. The legacy request schema requires a square PNG image smaller than 4 MB.
 ///
 /// This endpoint is retired and no longer available. Use the image edits endpoint with a GPT Image model and a prompt to create a variation of an image. The request and response schemas below describe the legacy contract.
@@ -301,7 +361,8 @@ Future<ImagesResponse> createImageVariation(ClientConfig config,
     {required SdkUploadFile image,
     SdkOptional<String?> model = const SdkOmitted(),
     SdkOptional<int?> n = const SdkOmitted(),
-    SdkOptional<CreateImageVariationRequestResponseFormat?> responseFormat = const SdkOmitted(),
+    SdkOptional<CreateImageVariationRequestResponseFormat?> responseFormat =
+        const SdkOmitted(),
     SdkOptional<CreateImageVariationRequestSize?> size = const SdkOmitted(),
     SdkOptional<String> user = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -325,8 +386,20 @@ Future<ImagesResponse> createImageVariation(ClientConfig config,
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'createImageVariation',
-          fromJsonRaw: (value) => ImagesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ImagesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '410': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '410': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

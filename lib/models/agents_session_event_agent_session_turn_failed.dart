@@ -8,47 +8,95 @@ part of 'agents_session_event.dart';
 class SessionEventAgentSessionTurnFailed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `agent.session.turn.failed`.
   final SessionEventAgentSessionTurnFailedType type_;
+
   /// The unique ID of the event.
   final String eventId;
+
   /// The ID of the session associated with the event.
   final String sessionId;
+
   /// The ID of the turn associated with the event.
   final String turnId;
+
   /// The failed turn.
   final TurnResource turn;
+
   /// Token usage by the root agent during the turn, when available.
   final TokenUsageResource? usage;
 
-  const SessionEventAgentSessionTurnFailed({required this.type_, required this.eventId, required this.sessionId, required this.turnId, required this.turn, required this.usage});
+  const SessionEventAgentSessionTurnFailed(
+      {required this.type_,
+      required this.eventId,
+      required this.sessionId,
+      required this.turnId,
+      required this.turn,
+      required this.usage});
 
-  SessionEventAgentSessionTurnFailed Function({SessionEventAgentSessionTurnFailedType type_, String eventId, String sessionId, String turnId, TurnResource turn, TokenUsageResource? usage}) get copyWith => _copyWith;
+  SessionEventAgentSessionTurnFailed Function(
+      {SessionEventAgentSessionTurnFailedType type_,
+      String eventId,
+      String sessionId,
+      String turnId,
+      TurnResource turn,
+      TokenUsageResource? usage}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionTurnFailed _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? turn = sdkOmittedValue, Object? usage = sdkOmittedValue}) => SessionEventAgentSessionTurnFailed(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionTurnFailedType,
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-    turn: identical(turn, sdkOmittedValue) ? this.turn : turn as TurnResource,
-    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as TokenUsageResource?,
-  );
+  SessionEventAgentSessionTurnFailed _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? eventId = sdkOmittedValue,
+          Object? sessionId = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? turn = sdkOmittedValue,
+          Object? usage = sdkOmittedValue}) =>
+      SessionEventAgentSessionTurnFailed(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SessionEventAgentSessionTurnFailedType,
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        sessionId: identical(sessionId, sdkOmittedValue)
+            ? this.sessionId
+            : sessionId as String,
+        turnId:
+            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+        turn:
+            identical(turn, sdkOmittedValue) ? this.turn : turn as TurnResource,
+        usage: identical(usage, sdkOmittedValue)
+            ? this.usage
+            : usage as TokenUsageResource?,
+      );
 
-  factory SessionEventAgentSessionTurnFailed.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionTurnFailed(
-    type_: (json['type'] != null ? SessionEventAgentSessionTurnFailedType.fromJson(json['type'] as String) : null)!,
-    eventId: (json['event_id'] as String?)!,
-    sessionId: (json['session_id'] as String?)!,
-    turnId: (json['turn_id'] as String?)!,
-    turn: (json['turn'] != null ? TurnResource.fromJson(json['turn'] as Map<String, dynamic>) : null)!,
-    usage: json.containsKey('usage') ? json['usage'] != null ? TokenUsageResource.fromJson(json['usage'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'usage', 'Required property is missing'),
-  );
+  factory SessionEventAgentSessionTurnFailed.fromJson(
+          Map<String, dynamic> json) =>
+      SessionEventAgentSessionTurnFailed(
+        type_: (json['type'] != null
+            ? SessionEventAgentSessionTurnFailedType.fromJson(
+                json['type'] as String)
+            : null)!,
+        eventId: (json['event_id'] as String?)!,
+        sessionId: (json['session_id'] as String?)!,
+        turnId: (json['turn_id'] as String?)!,
+        turn: (json['turn'] != null
+            ? TurnResource.fromJson(json['turn'] as Map<String, dynamic>)
+            : null)!,
+        usage: json.containsKey('usage')
+            ? json['usage'] != null
+                ? TokenUsageResource.fromJson(
+                    json['usage'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'usage', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'event_id': eventId,
-    'session_id': sessionId,
-    'turn_id': turnId,
-    'turn': turn.toJson(),
-    'usage': usage?.toJson(),
-  };
+        'type': type_.toJson(),
+        'event_id': eventId,
+        'session_id': sessionId,
+        'turn_id': turnId,
+        'turn': turn.toJson(),
+        'usage': usage?.toJson(),
+      };
 }

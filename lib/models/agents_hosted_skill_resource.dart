@@ -10,32 +10,58 @@ sealed class HostedSkillResource {
   const HostedSkillResource();
   factory HostedSkillResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = HostedSkillResourceSkillReference.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedSkillResourceHostedSkillResourceSkillReference(value); } } catch (_) {}
-      try { final value = HostedSkillResourceInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedSkillResourceHostedSkillResourceInline(value); } } catch (_) {}
+      try {
+        final value = HostedSkillResourceSkillReference.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return HostedSkillResourceHostedSkillResourceSkillReference(value);
+        }
+      } catch (_) {}
+      try {
+        final value = HostedSkillResourceInline.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return HostedSkillResourceHostedSkillResourceInline(value);
+        }
+      } catch (_) {}
     }
-    try { return HostedSkillResourceHostedSkillResourceSkillReference(HostedSkillResourceSkillReference.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return HostedSkillResourceHostedSkillResourceInline(HostedSkillResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"skill_reference", "inline"}.contains(json["type"])) { return UnknownHostedSkillResource(json); }
+    try {
+      return HostedSkillResourceHostedSkillResourceSkillReference(
+          HostedSkillResourceSkillReference.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return HostedSkillResourceHostedSkillResourceInline(
+          HostedSkillResourceInline.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"skill_reference", "inline"}.contains(json["type"])) {
+      return UnknownHostedSkillResource(json);
+    }
     throw FormatException("No variant matched for HostedSkillResource");
   }
   Object? toJson();
 }
 
-final class HostedSkillResourceHostedSkillResourceSkillReference extends HostedSkillResource {
+final class HostedSkillResourceHostedSkillResourceSkillReference
+    extends HostedSkillResource {
   final HostedSkillResourceSkillReference value;
   const HostedSkillResourceHostedSkillResourceSkillReference(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class HostedSkillResourceHostedSkillResourceInline extends HostedSkillResource {
+final class HostedSkillResourceHostedSkillResourceInline
+    extends HostedSkillResource {
   final HostedSkillResourceInline value;
   const HostedSkillResourceHostedSkillResourceInline(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedSkillResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownHostedSkillResource extends HostedSkillResource {
   final Map<String, dynamic> raw;
   const UnknownHostedSkillResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -8,172 +8,327 @@ part of 'spend_alerts.dart';
 class CreateSpendAlertBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The alert threshold amount, in cents.
   final int thresholdAmount;
+
   /// The currency for the threshold amount.
   final CreateSpendAlertBodyCurrency currency;
+
   /// The time interval for evaluating spend against the threshold.
   final CreateSpendAlertBodyInterval interval;
+
   /// Email notification settings for a spend alert.
   final SpendAlertNotificationChannel notificationChannel;
 
-  const CreateSpendAlertBody({required this.thresholdAmount, required this.currency, required this.interval, required this.notificationChannel});
+  const CreateSpendAlertBody(
+      {required this.thresholdAmount,
+      required this.currency,
+      required this.interval,
+      required this.notificationChannel});
 
-  CreateSpendAlertBody Function({int thresholdAmount, CreateSpendAlertBodyCurrency currency, CreateSpendAlertBodyInterval interval, SpendAlertNotificationChannel notificationChannel}) get copyWith => _copyWith;
+  CreateSpendAlertBody Function(
+          {int thresholdAmount,
+          CreateSpendAlertBodyCurrency currency,
+          CreateSpendAlertBodyInterval interval,
+          SpendAlertNotificationChannel notificationChannel})
+      get copyWith => _copyWith;
 
-  CreateSpendAlertBody _copyWith({Object? thresholdAmount = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? interval = sdkOmittedValue, Object? notificationChannel = sdkOmittedValue}) => CreateSpendAlertBody(
-    thresholdAmount: identical(thresholdAmount, sdkOmittedValue) ? this.thresholdAmount : thresholdAmount as int,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as CreateSpendAlertBodyCurrency,
-    interval: identical(interval, sdkOmittedValue) ? this.interval : interval as CreateSpendAlertBodyInterval,
-    notificationChannel: identical(notificationChannel, sdkOmittedValue) ? this.notificationChannel : notificationChannel as SpendAlertNotificationChannel,
-  );
+  CreateSpendAlertBody _copyWith(
+          {Object? thresholdAmount = sdkOmittedValue,
+          Object? currency = sdkOmittedValue,
+          Object? interval = sdkOmittedValue,
+          Object? notificationChannel = sdkOmittedValue}) =>
+      CreateSpendAlertBody(
+        thresholdAmount: identical(thresholdAmount, sdkOmittedValue)
+            ? this.thresholdAmount
+            : thresholdAmount as int,
+        currency: identical(currency, sdkOmittedValue)
+            ? this.currency
+            : currency as CreateSpendAlertBodyCurrency,
+        interval: identical(interval, sdkOmittedValue)
+            ? this.interval
+            : interval as CreateSpendAlertBodyInterval,
+        notificationChannel: identical(notificationChannel, sdkOmittedValue)
+            ? this.notificationChannel
+            : notificationChannel as SpendAlertNotificationChannel,
+      );
 
-  factory CreateSpendAlertBody.fromJson(Map<String, dynamic> json) => CreateSpendAlertBody(
-    thresholdAmount: ((json['threshold_amount'] as num?)?.toInt())!,
-    currency: (json['currency'] != null ? CreateSpendAlertBodyCurrency.fromJson(json['currency'] as String) : null)!,
-    interval: (json['interval'] != null ? CreateSpendAlertBodyInterval.fromJson(json['interval'] as String) : null)!,
-    notificationChannel: (json['notification_channel'] != null ? SpendAlertNotificationChannel.fromJson(json['notification_channel'] as Map<String, dynamic>) : null)!,
-  );
+  factory CreateSpendAlertBody.fromJson(Map<String, dynamic> json) =>
+      CreateSpendAlertBody(
+        thresholdAmount: ((json['threshold_amount'] as num?)?.toInt())!,
+        currency: (json['currency'] != null
+            ? CreateSpendAlertBodyCurrency.fromJson(json['currency'] as String)
+            : null)!,
+        interval: (json['interval'] != null
+            ? CreateSpendAlertBodyInterval.fromJson(json['interval'] as String)
+            : null)!,
+        notificationChannel: (json['notification_channel'] != null
+            ? SpendAlertNotificationChannel.fromJson(
+                json['notification_channel'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'threshold_amount': thresholdAmount,
-    'currency': currency.toJson(),
-    'interval': interval.toJson(),
-    'notification_channel': notificationChannel.toJson(),
-  };
+        'threshold_amount': thresholdAmount,
+        'currency': currency.toJson(),
+        'interval': interval.toJson(),
+        'notification_channel': notificationChannel.toJson(),
+      };
 }
 
 /// Represents a spend alert configured at the organization level.
 class OrganizationSpendAlert {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The identifier, which can be referenced in API endpoints.
   final String id;
+
   /// The object type, which is always `organization.spend_alert`.
   final OrganizationSpendAlertObject object;
+
   /// The alert threshold amount, in cents.
   final int thresholdAmount;
+
   /// The currency for the threshold amount.
   final OrganizationSpendAlertCurrency currency;
+
   /// The time interval for evaluating spend against the threshold.
   final OrganizationSpendAlertInterval interval;
+
   /// Email notification settings for a spend alert.
   final SpendAlertNotificationChannel notificationChannel;
 
-  const OrganizationSpendAlert({required this.id, required this.object, required this.thresholdAmount, required this.currency, required this.interval, required this.notificationChannel});
+  const OrganizationSpendAlert(
+      {required this.id,
+      required this.object,
+      required this.thresholdAmount,
+      required this.currency,
+      required this.interval,
+      required this.notificationChannel});
 
-  OrganizationSpendAlert Function({String id, OrganizationSpendAlertObject object, int thresholdAmount, OrganizationSpendAlertCurrency currency, OrganizationSpendAlertInterval interval, SpendAlertNotificationChannel notificationChannel}) get copyWith => _copyWith;
+  OrganizationSpendAlert Function(
+          {String id,
+          OrganizationSpendAlertObject object,
+          int thresholdAmount,
+          OrganizationSpendAlertCurrency currency,
+          OrganizationSpendAlertInterval interval,
+          SpendAlertNotificationChannel notificationChannel})
+      get copyWith => _copyWith;
 
-  OrganizationSpendAlert _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? thresholdAmount = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? interval = sdkOmittedValue, Object? notificationChannel = sdkOmittedValue}) => OrganizationSpendAlert(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as OrganizationSpendAlertObject,
-    thresholdAmount: identical(thresholdAmount, sdkOmittedValue) ? this.thresholdAmount : thresholdAmount as int,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as OrganizationSpendAlertCurrency,
-    interval: identical(interval, sdkOmittedValue) ? this.interval : interval as OrganizationSpendAlertInterval,
-    notificationChannel: identical(notificationChannel, sdkOmittedValue) ? this.notificationChannel : notificationChannel as SpendAlertNotificationChannel,
-  );
+  OrganizationSpendAlert _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? thresholdAmount = sdkOmittedValue,
+          Object? currency = sdkOmittedValue,
+          Object? interval = sdkOmittedValue,
+          Object? notificationChannel = sdkOmittedValue}) =>
+      OrganizationSpendAlert(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as OrganizationSpendAlertObject,
+        thresholdAmount: identical(thresholdAmount, sdkOmittedValue)
+            ? this.thresholdAmount
+            : thresholdAmount as int,
+        currency: identical(currency, sdkOmittedValue)
+            ? this.currency
+            : currency as OrganizationSpendAlertCurrency,
+        interval: identical(interval, sdkOmittedValue)
+            ? this.interval
+            : interval as OrganizationSpendAlertInterval,
+        notificationChannel: identical(notificationChannel, sdkOmittedValue)
+            ? this.notificationChannel
+            : notificationChannel as SpendAlertNotificationChannel,
+      );
 
-  factory OrganizationSpendAlert.fromJson(Map<String, dynamic> json) => OrganizationSpendAlert(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? OrganizationSpendAlertObject.fromJson(json['object'] as String) : null)!,
-    thresholdAmount: ((json['threshold_amount'] as num?)?.toInt())!,
-    currency: (json['currency'] != null ? OrganizationSpendAlertCurrency.fromJson(json['currency'] as String) : null)!,
-    interval: (json['interval'] != null ? OrganizationSpendAlertInterval.fromJson(json['interval'] as String) : null)!,
-    notificationChannel: (json['notification_channel'] != null ? SpendAlertNotificationChannel.fromJson(json['notification_channel'] as Map<String, dynamic>) : null)!,
-  );
+  factory OrganizationSpendAlert.fromJson(Map<String, dynamic> json) =>
+      OrganizationSpendAlert(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? OrganizationSpendAlertObject.fromJson(json['object'] as String)
+            : null)!,
+        thresholdAmount: ((json['threshold_amount'] as num?)?.toInt())!,
+        currency: (json['currency'] != null
+            ? OrganizationSpendAlertCurrency.fromJson(
+                json['currency'] as String)
+            : null)!,
+        interval: (json['interval'] != null
+            ? OrganizationSpendAlertInterval.fromJson(
+                json['interval'] as String)
+            : null)!,
+        notificationChannel: (json['notification_channel'] != null
+            ? SpendAlertNotificationChannel.fromJson(
+                json['notification_channel'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'threshold_amount': thresholdAmount,
-    'currency': currency.toJson(),
-    'interval': interval.toJson(),
-    'notification_channel': notificationChannel.toJson(),
-  };
+        'id': id,
+        'object': object.toJson(),
+        'threshold_amount': thresholdAmount,
+        'currency': currency.toJson(),
+        'interval': interval.toJson(),
+        'notification_channel': notificationChannel.toJson(),
+      };
 }
 
 /// Represents a spend alert configured at the project level.
 class ProjectSpendAlert {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The identifier, which can be referenced in API endpoints.
   final String id;
+
   /// The object type, which is always `project.spend_alert`.
   final ProjectSpendAlertObject object;
+
   /// The alert threshold amount, in cents.
   final int thresholdAmount;
+
   /// The currency for the threshold amount.
   final ProjectSpendAlertCurrency currency;
+
   /// The time interval for evaluating spend against the threshold.
   final ProjectSpendAlertInterval interval;
+
   /// Email notification settings for a spend alert.
   final SpendAlertNotificationChannel notificationChannel;
 
-  const ProjectSpendAlert({required this.id, required this.object, required this.thresholdAmount, required this.currency, required this.interval, required this.notificationChannel});
+  const ProjectSpendAlert(
+      {required this.id,
+      required this.object,
+      required this.thresholdAmount,
+      required this.currency,
+      required this.interval,
+      required this.notificationChannel});
 
-  ProjectSpendAlert Function({String id, ProjectSpendAlertObject object, int thresholdAmount, ProjectSpendAlertCurrency currency, ProjectSpendAlertInterval interval, SpendAlertNotificationChannel notificationChannel}) get copyWith => _copyWith;
+  ProjectSpendAlert Function(
+          {String id,
+          ProjectSpendAlertObject object,
+          int thresholdAmount,
+          ProjectSpendAlertCurrency currency,
+          ProjectSpendAlertInterval interval,
+          SpendAlertNotificationChannel notificationChannel})
+      get copyWith => _copyWith;
 
-  ProjectSpendAlert _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? thresholdAmount = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? interval = sdkOmittedValue, Object? notificationChannel = sdkOmittedValue}) => ProjectSpendAlert(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectSpendAlertObject,
-    thresholdAmount: identical(thresholdAmount, sdkOmittedValue) ? this.thresholdAmount : thresholdAmount as int,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as ProjectSpendAlertCurrency,
-    interval: identical(interval, sdkOmittedValue) ? this.interval : interval as ProjectSpendAlertInterval,
-    notificationChannel: identical(notificationChannel, sdkOmittedValue) ? this.notificationChannel : notificationChannel as SpendAlertNotificationChannel,
-  );
+  ProjectSpendAlert _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? thresholdAmount = sdkOmittedValue,
+          Object? currency = sdkOmittedValue,
+          Object? interval = sdkOmittedValue,
+          Object? notificationChannel = sdkOmittedValue}) =>
+      ProjectSpendAlert(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ProjectSpendAlertObject,
+        thresholdAmount: identical(thresholdAmount, sdkOmittedValue)
+            ? this.thresholdAmount
+            : thresholdAmount as int,
+        currency: identical(currency, sdkOmittedValue)
+            ? this.currency
+            : currency as ProjectSpendAlertCurrency,
+        interval: identical(interval, sdkOmittedValue)
+            ? this.interval
+            : interval as ProjectSpendAlertInterval,
+        notificationChannel: identical(notificationChannel, sdkOmittedValue)
+            ? this.notificationChannel
+            : notificationChannel as SpendAlertNotificationChannel,
+      );
 
-  factory ProjectSpendAlert.fromJson(Map<String, dynamic> json) => ProjectSpendAlert(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? ProjectSpendAlertObject.fromJson(json['object'] as String) : null)!,
-    thresholdAmount: ((json['threshold_amount'] as num?)?.toInt())!,
-    currency: (json['currency'] != null ? ProjectSpendAlertCurrency.fromJson(json['currency'] as String) : null)!,
-    interval: (json['interval'] != null ? ProjectSpendAlertInterval.fromJson(json['interval'] as String) : null)!,
-    notificationChannel: (json['notification_channel'] != null ? SpendAlertNotificationChannel.fromJson(json['notification_channel'] as Map<String, dynamic>) : null)!,
-  );
+  factory ProjectSpendAlert.fromJson(Map<String, dynamic> json) =>
+      ProjectSpendAlert(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? ProjectSpendAlertObject.fromJson(json['object'] as String)
+            : null)!,
+        thresholdAmount: ((json['threshold_amount'] as num?)?.toInt())!,
+        currency: (json['currency'] != null
+            ? ProjectSpendAlertCurrency.fromJson(json['currency'] as String)
+            : null)!,
+        interval: (json['interval'] != null
+            ? ProjectSpendAlertInterval.fromJson(json['interval'] as String)
+            : null)!,
+        notificationChannel: (json['notification_channel'] != null
+            ? SpendAlertNotificationChannel.fromJson(
+                json['notification_channel'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'threshold_amount': thresholdAmount,
-    'currency': currency.toJson(),
-    'interval': interval.toJson(),
-    'notification_channel': notificationChannel.toJson(),
-  };
+        'id': id,
+        'object': object.toJson(),
+        'threshold_amount': thresholdAmount,
+        'currency': currency.toJson(),
+        'interval': interval.toJson(),
+        'notification_channel': notificationChannel.toJson(),
+      };
 }
 
 /// Email notification settings for a spend alert.
 class SpendAlertNotificationChannel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The notification channel type. Currently only `email` is supported.
   final SpendAlertNotificationChannelType type_;
+
   /// Email addresses that receive the spend alert notification.
   final List<String> recipients;
+
   /// Optional subject prefix for alert emails.
   final SdkOptional<String?> subjectPrefix;
 
-  const SpendAlertNotificationChannel({required this.type_, required this.recipients, this.subjectPrefix = const SdkOmitted()});
+  const SpendAlertNotificationChannel(
+      {required this.type_,
+      required this.recipients,
+      this.subjectPrefix = const SdkOmitted()});
 
-  SpendAlertNotificationChannel Function({SpendAlertNotificationChannelType type_, List<String> recipients, SdkOptional<String?> subjectPrefix}) get copyWith => _copyWith;
+  SpendAlertNotificationChannel Function(
+      {SpendAlertNotificationChannelType type_,
+      List<String> recipients,
+      SdkOptional<String?> subjectPrefix}) get copyWith => _copyWith;
 
-  SpendAlertNotificationChannel _copyWith({Object? type_ = sdkOmittedValue, Object? recipients = sdkOmittedValue, Object? subjectPrefix = sdkOmittedValue}) => SpendAlertNotificationChannel(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SpendAlertNotificationChannelType,
-    recipients: identical(recipients, sdkOmittedValue) ? this.recipients : recipients as List<String>,
-    subjectPrefix: identical(subjectPrefix, sdkOmittedValue) ? this.subjectPrefix : subjectPrefix as SdkOptional<String?>,
-  );
+  SpendAlertNotificationChannel _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? recipients = sdkOmittedValue,
+          Object? subjectPrefix = sdkOmittedValue}) =>
+      SpendAlertNotificationChannel(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SpendAlertNotificationChannelType,
+        recipients: identical(recipients, sdkOmittedValue)
+            ? this.recipients
+            : recipients as List<String>,
+        subjectPrefix: identical(subjectPrefix, sdkOmittedValue)
+            ? this.subjectPrefix
+            : subjectPrefix as SdkOptional<String?>,
+      );
 
-  factory SpendAlertNotificationChannel.fromJson(Map<String, dynamic> json) => SpendAlertNotificationChannel(
-    type_: (json['type'] != null ? SpendAlertNotificationChannelType.fromJson(json['type'] as String) : null)!,
-    recipients: ((json['recipients'] as List?)?.map((e) => e as String).toList())!,
-    subjectPrefix: json.containsKey('subject_prefix') ? SdkPresent(json['subject_prefix'] as String?) : const SdkOmitted(),
-  );
+  factory SpendAlertNotificationChannel.fromJson(Map<String, dynamic> json) =>
+      SpendAlertNotificationChannel(
+        type_: (json['type'] != null
+            ? SpendAlertNotificationChannelType.fromJson(json['type'] as String)
+            : null)!,
+        recipients:
+            ((json['recipients'] as List?)?.map((e) => e as String).toList())!,
+        subjectPrefix: json.containsKey('subject_prefix')
+            ? SdkPresent(json['subject_prefix'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'recipients': recipients,
-    ...switch (subjectPrefix) {
-      SdkPresent<String?>(value: final value) => {'subject_prefix': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'recipients': recipients,
+        ...switch (subjectPrefix) {
+          SdkPresent<String?>(value: final value) => {
+              'subject_prefix': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

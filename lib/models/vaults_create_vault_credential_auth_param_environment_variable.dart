@@ -8,37 +8,69 @@ part of 'vaults_create.dart';
 class CreateVaultCredentialAuthParamEnvironmentVariable {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `environment_variable`.
   final CreateVaultCredentialAuthParamEnvironmentVariableType type_;
+
   /// The environment variable name that receives the placeholder, such as `SERVICE_API_KEY`. Use ASCII letters, digits, and underscores, starting with a letter or underscore. Names starting with `CODEX_` and managed proxy or certificate variable names are reserved.
   final String secretName;
+
   /// The write-only secret to store. Never returned in credential resources or supplied directly to sandbox code. Must be nonempty and must not contain carriage returns, newlines, or NUL bytes.
   final String secretValue;
+
   /// The destinations where the proxy can substitute this secret. The environment network policy must also allow them.
   final VaultCredentialNetworkingParam networking;
 
-  const CreateVaultCredentialAuthParamEnvironmentVariable({required this.type_, required this.secretName, required this.secretValue, required this.networking});
+  const CreateVaultCredentialAuthParamEnvironmentVariable(
+      {required this.type_,
+      required this.secretName,
+      required this.secretValue,
+      required this.networking});
 
-  CreateVaultCredentialAuthParamEnvironmentVariable Function({CreateVaultCredentialAuthParamEnvironmentVariableType type_, String secretName, String secretValue, VaultCredentialNetworkingParam networking}) get copyWith => _copyWith;
+  CreateVaultCredentialAuthParamEnvironmentVariable Function(
+      {CreateVaultCredentialAuthParamEnvironmentVariableType type_,
+      String secretName,
+      String secretValue,
+      VaultCredentialNetworkingParam networking}) get copyWith => _copyWith;
 
-  CreateVaultCredentialAuthParamEnvironmentVariable _copyWith({Object? type_ = sdkOmittedValue, Object? secretName = sdkOmittedValue, Object? secretValue = sdkOmittedValue, Object? networking = sdkOmittedValue}) => CreateVaultCredentialAuthParamEnvironmentVariable(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateVaultCredentialAuthParamEnvironmentVariableType,
-    secretName: identical(secretName, sdkOmittedValue) ? this.secretName : secretName as String,
-    secretValue: identical(secretValue, sdkOmittedValue) ? this.secretValue : secretValue as String,
-    networking: identical(networking, sdkOmittedValue) ? this.networking : networking as VaultCredentialNetworkingParam,
-  );
+  CreateVaultCredentialAuthParamEnvironmentVariable _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? secretName = sdkOmittedValue,
+          Object? secretValue = sdkOmittedValue,
+          Object? networking = sdkOmittedValue}) =>
+      CreateVaultCredentialAuthParamEnvironmentVariable(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateVaultCredentialAuthParamEnvironmentVariableType,
+        secretName: identical(secretName, sdkOmittedValue)
+            ? this.secretName
+            : secretName as String,
+        secretValue: identical(secretValue, sdkOmittedValue)
+            ? this.secretValue
+            : secretValue as String,
+        networking: identical(networking, sdkOmittedValue)
+            ? this.networking
+            : networking as VaultCredentialNetworkingParam,
+      );
 
-  factory CreateVaultCredentialAuthParamEnvironmentVariable.fromJson(Map<String, dynamic> json) => CreateVaultCredentialAuthParamEnvironmentVariable(
-    type_: (json['type'] != null ? CreateVaultCredentialAuthParamEnvironmentVariableType.fromJson(json['type'] as String) : null)!,
-    secretName: (json['secret_name'] as String?)!,
-    secretValue: (json['secret_value'] as String?)!,
-    networking: (json['networking'] != null ? VaultCredentialNetworkingParam.fromJson(json['networking']) : null)!,
-  );
+  factory CreateVaultCredentialAuthParamEnvironmentVariable.fromJson(
+          Map<String, dynamic> json) =>
+      CreateVaultCredentialAuthParamEnvironmentVariable(
+        type_: (json['type'] != null
+            ? CreateVaultCredentialAuthParamEnvironmentVariableType.fromJson(
+                json['type'] as String)
+            : null)!,
+        secretName: (json['secret_name'] as String?)!,
+        secretValue: (json['secret_value'] as String?)!,
+        networking: (json['networking'] != null
+            ? VaultCredentialNetworkingParam.fromJson(json['networking'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'secret_name': secretName,
-    'secret_value': secretValue,
-    'networking': networking.toJson(),
-  };
+        'type': type_.toJson(),
+        'secret_name': secretName,
+        'secret_value': secretValue,
+        'networking': networking.toJson(),
+      };
 }

@@ -8,55 +8,106 @@ part of 'responses_beta_response_reasoning.dart';
 class BetaResponseReasoningSummaryTextDeltaEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `response.reasoning_summary_text.delta`.
   final BetaResponseReasoningSummaryTextDeltaEventType type_;
+
   /// The ID of the item this summary text delta is associated with.
   final String itemId;
+
   /// The index of the output item this summary text delta is associated with.
   final int outputIndex;
+
   /// The index of the summary part within the reasoning summary.
   final int summaryIndex;
+
   /// The text delta that was added to the summary.
   final String delta;
+
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const BetaResponseReasoningSummaryTextDeltaEvent({this.agent = const SdkOmitted(), required this.type_, required this.itemId, required this.outputIndex, required this.summaryIndex, required this.delta, required this.sequenceNumber});
+  const BetaResponseReasoningSummaryTextDeltaEvent(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.itemId,
+      required this.outputIndex,
+      required this.summaryIndex,
+      required this.delta,
+      required this.sequenceNumber});
 
-  BetaResponseReasoningSummaryTextDeltaEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseReasoningSummaryTextDeltaEventType type_, String itemId, int outputIndex, int summaryIndex, String delta, int sequenceNumber}) get copyWith => _copyWith;
+  BetaResponseReasoningSummaryTextDeltaEvent Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseReasoningSummaryTextDeltaEventType type_,
+      String itemId,
+      int outputIndex,
+      int summaryIndex,
+      String delta,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  BetaResponseReasoningSummaryTextDeltaEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? summaryIndex = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => BetaResponseReasoningSummaryTextDeltaEvent(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseReasoningSummaryTextDeltaEventType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    summaryIndex: identical(summaryIndex, sdkOmittedValue) ? this.summaryIndex : summaryIndex as int,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  BetaResponseReasoningSummaryTextDeltaEvent _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? summaryIndex = sdkOmittedValue,
+          Object? delta = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      BetaResponseReasoningSummaryTextDeltaEvent(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseReasoningSummaryTextDeltaEventType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        summaryIndex: identical(summaryIndex, sdkOmittedValue)
+            ? this.summaryIndex
+            : summaryIndex as int,
+        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory BetaResponseReasoningSummaryTextDeltaEvent.fromJson(Map<String, dynamic> json) => BetaResponseReasoningSummaryTextDeltaEvent(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseReasoningSummaryTextDeltaEventType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
-    delta: (json['delta'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory BetaResponseReasoningSummaryTextDeltaEvent.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseReasoningSummaryTextDeltaEvent(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseReasoningSummaryTextDeltaEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        summaryIndex: ((json['summary_index'] as num?)?.toInt())!,
+        delta: (json['delta'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'summary_index': summaryIndex,
-    'delta': delta,
-    'sequence_number': sequenceNumber,
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'summary_index': summaryIndex,
+        'delta': delta,
+        'sequence_number': sequenceNumber,
+      };
 }

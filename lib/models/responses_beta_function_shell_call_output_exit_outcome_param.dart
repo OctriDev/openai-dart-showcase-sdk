@@ -8,27 +8,44 @@ part of 'responses_beta_function.dart';
 class BetaFunctionShellCallOutputExitOutcomeParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The outcome type. Always `exit`.
   final BetaFunctionShellCallOutputExitOutcomeParamType type_;
+
   /// The exit code returned by the shell process.
   final int exitCode;
 
-  const BetaFunctionShellCallOutputExitOutcomeParam({required this.type_, required this.exitCode});
+  const BetaFunctionShellCallOutputExitOutcomeParam(
+      {required this.type_, required this.exitCode});
 
-  BetaFunctionShellCallOutputExitOutcomeParam Function({BetaFunctionShellCallOutputExitOutcomeParamType type_, int exitCode}) get copyWith => _copyWith;
+  BetaFunctionShellCallOutputExitOutcomeParam Function(
+      {BetaFunctionShellCallOutputExitOutcomeParamType type_,
+      int exitCode}) get copyWith => _copyWith;
 
-  BetaFunctionShellCallOutputExitOutcomeParam _copyWith({Object? type_ = sdkOmittedValue, Object? exitCode = sdkOmittedValue}) => BetaFunctionShellCallOutputExitOutcomeParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFunctionShellCallOutputExitOutcomeParamType,
-    exitCode: identical(exitCode, sdkOmittedValue) ? this.exitCode : exitCode as int,
-  );
+  BetaFunctionShellCallOutputExitOutcomeParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? exitCode = sdkOmittedValue}) =>
+      BetaFunctionShellCallOutputExitOutcomeParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaFunctionShellCallOutputExitOutcomeParamType,
+        exitCode: identical(exitCode, sdkOmittedValue)
+            ? this.exitCode
+            : exitCode as int,
+      );
 
-  factory BetaFunctionShellCallOutputExitOutcomeParam.fromJson(Map<String, dynamic> json) => BetaFunctionShellCallOutputExitOutcomeParam(
-    type_: (json['type'] != null ? BetaFunctionShellCallOutputExitOutcomeParamType.fromJson(json['type'] as String) : null)!,
-    exitCode: ((json['exit_code'] as num?)?.toInt())!,
-  );
+  factory BetaFunctionShellCallOutputExitOutcomeParam.fromJson(
+          Map<String, dynamic> json) =>
+      BetaFunctionShellCallOutputExitOutcomeParam(
+        type_: (json['type'] != null
+            ? BetaFunctionShellCallOutputExitOutcomeParamType.fromJson(
+                json['type'] as String)
+            : null)!,
+        exitCode: ((json['exit_code'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'exit_code': exitCode,
-  };
+        'type': type_.toJson(),
+        'exit_code': exitCode,
+      };
 }

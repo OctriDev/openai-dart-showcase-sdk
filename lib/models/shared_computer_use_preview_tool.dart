@@ -8,37 +8,67 @@ part of 'shared_computer.dart';
 class ComputerUsePreviewTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the computer use tool. Always `computer_use_preview`.
   final ComputerUsePreviewToolType type_;
+
   /// The type of computer environment to control.
   final ComputerEnvironment environment;
+
   /// The width of the computer display.
   final int displayWidth;
+
   /// The height of the computer display.
   final int displayHeight;
 
-  const ComputerUsePreviewTool({required this.type_, required this.environment, required this.displayWidth, required this.displayHeight});
+  const ComputerUsePreviewTool(
+      {required this.type_,
+      required this.environment,
+      required this.displayWidth,
+      required this.displayHeight});
 
-  ComputerUsePreviewTool Function({ComputerUsePreviewToolType type_, ComputerEnvironment environment, int displayWidth, int displayHeight}) get copyWith => _copyWith;
+  ComputerUsePreviewTool Function(
+      {ComputerUsePreviewToolType type_,
+      ComputerEnvironment environment,
+      int displayWidth,
+      int displayHeight}) get copyWith => _copyWith;
 
-  ComputerUsePreviewTool _copyWith({Object? type_ = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? displayWidth = sdkOmittedValue, Object? displayHeight = sdkOmittedValue}) => ComputerUsePreviewTool(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerUsePreviewToolType,
-    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as ComputerEnvironment,
-    displayWidth: identical(displayWidth, sdkOmittedValue) ? this.displayWidth : displayWidth as int,
-    displayHeight: identical(displayHeight, sdkOmittedValue) ? this.displayHeight : displayHeight as int,
-  );
+  ComputerUsePreviewTool _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? environment = sdkOmittedValue,
+          Object? displayWidth = sdkOmittedValue,
+          Object? displayHeight = sdkOmittedValue}) =>
+      ComputerUsePreviewTool(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ComputerUsePreviewToolType,
+        environment: identical(environment, sdkOmittedValue)
+            ? this.environment
+            : environment as ComputerEnvironment,
+        displayWidth: identical(displayWidth, sdkOmittedValue)
+            ? this.displayWidth
+            : displayWidth as int,
+        displayHeight: identical(displayHeight, sdkOmittedValue)
+            ? this.displayHeight
+            : displayHeight as int,
+      );
 
-  factory ComputerUsePreviewTool.fromJson(Map<String, dynamic> json) => ComputerUsePreviewTool(
-    type_: (json['type'] != null ? ComputerUsePreviewToolType.fromJson(json['type'] as String) : null)!,
-    environment: (json['environment'] != null ? ComputerEnvironment.fromJson(json['environment'] as String) : null)!,
-    displayWidth: ((json['display_width'] as num?)?.toInt())!,
-    displayHeight: ((json['display_height'] as num?)?.toInt())!,
-  );
+  factory ComputerUsePreviewTool.fromJson(Map<String, dynamic> json) =>
+      ComputerUsePreviewTool(
+        type_: (json['type'] != null
+            ? ComputerUsePreviewToolType.fromJson(json['type'] as String)
+            : null)!,
+        environment: (json['environment'] != null
+            ? ComputerEnvironment.fromJson(json['environment'] as String)
+            : null)!,
+        displayWidth: ((json['display_width'] as num?)?.toInt())!,
+        displayHeight: ((json['display_height'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'environment': environment.toJson(),
-    'display_width': displayWidth,
-    'display_height': displayHeight,
-  };
+        'type': type_.toJson(),
+        'environment': environment.toJson(),
+        'display_width': displayWidth,
+        'display_height': displayHeight,
+      };
 }

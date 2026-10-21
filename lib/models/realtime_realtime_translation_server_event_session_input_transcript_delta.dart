@@ -8,40 +8,73 @@ part of 'realtime_realtime_translation.dart';
 class RealtimeTranslationServerEventSessionInputTranscriptDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `session.input_transcript.delta`.
   final RealtimeTranslationServerEventSessionInputTranscriptDeltaType type_;
+
   /// Append-only source-language transcript text.
   final String delta;
+
   /// Optional `integer` value serialized in the `elapsed_ms` wire field.
   final SdkOptional<int?> elapsedMs;
 
-  const RealtimeTranslationServerEventSessionInputTranscriptDelta({required this.eventId, required this.type_, required this.delta, this.elapsedMs = const SdkOmitted()});
+  const RealtimeTranslationServerEventSessionInputTranscriptDelta(
+      {required this.eventId,
+      required this.type_,
+      required this.delta,
+      this.elapsedMs = const SdkOmitted()});
 
-  RealtimeTranslationServerEventSessionInputTranscriptDelta Function({String eventId, RealtimeTranslationServerEventSessionInputTranscriptDeltaType type_, String delta, SdkOptional<int?> elapsedMs}) get copyWith => _copyWith;
+  RealtimeTranslationServerEventSessionInputTranscriptDelta Function(
+      {String eventId,
+      RealtimeTranslationServerEventSessionInputTranscriptDeltaType type_,
+      String delta,
+      SdkOptional<int?> elapsedMs}) get copyWith => _copyWith;
 
-  RealtimeTranslationServerEventSessionInputTranscriptDelta _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? elapsedMs = sdkOmittedValue}) => RealtimeTranslationServerEventSessionInputTranscriptDelta(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTranslationServerEventSessionInputTranscriptDeltaType,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-    elapsedMs: identical(elapsedMs, sdkOmittedValue) ? this.elapsedMs : elapsedMs as SdkOptional<int?>,
-  );
+  RealtimeTranslationServerEventSessionInputTranscriptDelta _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? delta = sdkOmittedValue,
+          Object? elapsedMs = sdkOmittedValue}) =>
+      RealtimeTranslationServerEventSessionInputTranscriptDelta(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_
+                as RealtimeTranslationServerEventSessionInputTranscriptDeltaType,
+        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+        elapsedMs: identical(elapsedMs, sdkOmittedValue)
+            ? this.elapsedMs
+            : elapsedMs as SdkOptional<int?>,
+      );
 
-  factory RealtimeTranslationServerEventSessionInputTranscriptDelta.fromJson(Map<String, dynamic> json) => RealtimeTranslationServerEventSessionInputTranscriptDelta(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeTranslationServerEventSessionInputTranscriptDeltaType.fromJson(json['type'] as String) : null)!,
-    delta: (json['delta'] as String?)!,
-    elapsedMs: json.containsKey('elapsed_ms') ? SdkPresent((json['elapsed_ms'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory RealtimeTranslationServerEventSessionInputTranscriptDelta.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranslationServerEventSessionInputTranscriptDelta(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeTranslationServerEventSessionInputTranscriptDeltaType
+                .fromJson(json['type'] as String)
+            : null)!,
+        delta: (json['delta'] as String?)!,
+        elapsedMs: json.containsKey('elapsed_ms')
+            ? SdkPresent((json['elapsed_ms'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'delta': delta,
-    ...switch (elapsedMs) {
-      SdkPresent<int?>(value: final value) => {'elapsed_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'delta': delta,
+        ...switch (elapsedMs) {
+          SdkPresent<int?>(value: final value) => {
+              'elapsed_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

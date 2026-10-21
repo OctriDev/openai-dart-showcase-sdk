@@ -8,51 +8,69 @@ part of 'live_live_web.dart';
 class LiveWebRTCTransport {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The transport used for the Live session. Always `webrtc`.
   final LiveWebRTCTransportType type_;
+
   /// Session Description Protocol message for the WebRTC connection.
   final String sdp;
 
   const LiveWebRTCTransport({required this.type_, required this.sdp});
 
-  LiveWebRTCTransport Function({LiveWebRTCTransportType type_, String sdp}) get copyWith => _copyWith;
+  LiveWebRTCTransport Function({LiveWebRTCTransportType type_, String sdp})
+      get copyWith => _copyWith;
 
-  LiveWebRTCTransport _copyWith({Object? type_ = sdkOmittedValue, Object? sdp = sdkOmittedValue}) => LiveWebRTCTransport(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveWebRTCTransportType,
-    sdp: identical(sdp, sdkOmittedValue) ? this.sdp : sdp as String,
-  );
+  LiveWebRTCTransport _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? sdp = sdkOmittedValue}) =>
+      LiveWebRTCTransport(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveWebRTCTransportType,
+        sdp: identical(sdp, sdkOmittedValue) ? this.sdp : sdp as String,
+      );
 
-  factory LiveWebRTCTransport.fromJson(Map<String, dynamic> json) => LiveWebRTCTransport(
-    type_: (json['type'] != null ? LiveWebRTCTransportType.fromJson(json['type'] as String) : null)!,
-    sdp: (json['sdp'] as String?)!,
-  );
+  factory LiveWebRTCTransport.fromJson(Map<String, dynamic> json) =>
+      LiveWebRTCTransport(
+        type_: (json['type'] != null
+            ? LiveWebRTCTransportType.fromJson(json['type'] as String)
+            : null)!,
+        sdp: (json['sdp'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'sdp': sdp,
-  };
+        'type': type_.toJson(),
+        'sdp': sdp,
+      };
 }
 
 /// A web search tool available to the Live session’s Responses backend.
 class LiveWebSearchToolInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tool type. Always `web_search`.
   final LiveWebSearchToolInputParamType type_;
 
   const LiveWebSearchToolInputParam({required this.type_});
 
-  LiveWebSearchToolInputParam Function({LiveWebSearchToolInputParamType type_}) get copyWith => _copyWith;
+  LiveWebSearchToolInputParam Function({LiveWebSearchToolInputParamType type_})
+      get copyWith => _copyWith;
 
-  LiveWebSearchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveWebSearchToolInputParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveWebSearchToolInputParamType,
-  );
+  LiveWebSearchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      LiveWebSearchToolInputParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveWebSearchToolInputParamType,
+      );
 
-  factory LiveWebSearchToolInputParam.fromJson(Map<String, dynamic> json) => LiveWebSearchToolInputParam(
-    type_: (json['type'] != null ? LiveWebSearchToolInputParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory LiveWebSearchToolInputParam.fromJson(Map<String, dynamic> json) =>
+      LiveWebSearchToolInputParam(
+        type_: (json['type'] != null
+            ? LiveWebSearchToolInputParamType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

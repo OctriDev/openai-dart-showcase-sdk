@@ -8,98 +8,198 @@ part of 'responses_beta_computer.dart';
 class BetaComputerToolCallOutputResourceVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
   final BetaComputerCallOutputStatus status;
+
   /// The identifier of the actor that created the item.
   final SdkOptional<String> createdBy;
 
-  const BetaComputerToolCallOutputResourceVariant1({required this.status, this.createdBy = const SdkOmitted()});
+  const BetaComputerToolCallOutputResourceVariant1(
+      {required this.status, this.createdBy = const SdkOmitted()});
 
-  BetaComputerToolCallOutputResourceVariant1 Function({BetaComputerCallOutputStatus status, SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  BetaComputerToolCallOutputResourceVariant1 Function(
+      {BetaComputerCallOutputStatus status,
+      SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  BetaComputerToolCallOutputResourceVariant1 _copyWith({Object? status = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => BetaComputerToolCallOutputResourceVariant1(
-    status: identical(status, sdkOmittedValue) ? this.status : status as BetaComputerCallOutputStatus,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
-  );
+  BetaComputerToolCallOutputResourceVariant1 _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue}) =>
+      BetaComputerToolCallOutputResourceVariant1(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as BetaComputerCallOutputStatus,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as SdkOptional<String>,
+      );
 
-  factory BetaComputerToolCallOutputResourceVariant1.fromJson(Map<String, dynamic> json) => BetaComputerToolCallOutputResourceVariant1(
-    status: (json['status'] != null ? BetaComputerCallOutputStatus.fromJson(json['status'] as String) : null)!,
-    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaComputerToolCallOutputResourceVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      BetaComputerToolCallOutputResourceVariant1(
+        status: (json['status'] != null
+            ? BetaComputerCallOutputStatus.fromJson(json['status'] as String)
+            : null)!,
+        createdBy: json['created_by'] != null
+            ? SdkPresent((json['created_by'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'status': status.toJson(),
-    ...switch (createdBy) {
-      SdkPresent<String>(value: final value) => {'created_by': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'status': status.toJson(),
+        ...switch (createdBy) {
+          SdkPresent<String>(value: final value) => {
+              'created_by': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `BetaComputerToolCallOutputResource` API schema.
 class BetaComputerToolCallOutputResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the computer tool call output. Always `computer_call_output`.
   final BetaComputerToolCallOutputType type_;
+
   /// The ID of the computer tool call output.
   final String id;
+
   /// The ID of the computer tool call that produced the output.
   final String callId;
+
   /// The safety checks reported by the API that have been acknowledged by the developer.
-  final SdkOptional<List<BetaComputerCallSafetyCheckParam>> acknowledgedSafetyChecks;
+  final SdkOptional<List<BetaComputerCallSafetyCheckParam>>
+      acknowledgedSafetyChecks;
+
   /// A computer screenshot image used with the computer use tool.
   final BetaComputerScreenshotImage output;
+
   /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
   final BetaComputerCallOutputStatus status;
+
   /// The identifier of the actor that created the item.
   final SdkOptional<String> createdBy;
 
-  const BetaComputerToolCallOutputResource({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.callId, this.acknowledgedSafetyChecks = const SdkOmitted(), required this.output, required this.status, this.createdBy = const SdkOmitted()});
+  const BetaComputerToolCallOutputResource(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.id,
+      required this.callId,
+      this.acknowledgedSafetyChecks = const SdkOmitted(),
+      required this.output,
+      required this.status,
+      this.createdBy = const SdkOmitted()});
 
-  BetaComputerToolCallOutputResource Function({SdkOptional<BetaAgentTag?> agent, BetaComputerToolCallOutputType type_, String id, String callId, SdkOptional<List<BetaComputerCallSafetyCheckParam>> acknowledgedSafetyChecks, BetaComputerScreenshotImage output, BetaComputerCallOutputStatus status, SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  BetaComputerToolCallOutputResource Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaComputerToolCallOutputType type_,
+      String id,
+      String callId,
+      SdkOptional<List<BetaComputerCallSafetyCheckParam>>
+          acknowledgedSafetyChecks,
+      BetaComputerScreenshotImage output,
+      BetaComputerCallOutputStatus status,
+      SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  BetaComputerToolCallOutputResource _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? acknowledgedSafetyChecks = sdkOmittedValue, Object? output = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => BetaComputerToolCallOutputResource(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaComputerToolCallOutputType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    acknowledgedSafetyChecks: identical(acknowledgedSafetyChecks, sdkOmittedValue) ? this.acknowledgedSafetyChecks : acknowledgedSafetyChecks as SdkOptional<List<BetaComputerCallSafetyCheckParam>>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as BetaComputerScreenshotImage,
-    status: identical(status, sdkOmittedValue) ? this.status : status as BetaComputerCallOutputStatus,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
-  );
+  BetaComputerToolCallOutputResource _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? acknowledgedSafetyChecks = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue}) =>
+      BetaComputerToolCallOutputResource(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaComputerToolCallOutputType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        acknowledgedSafetyChecks:
+            identical(acknowledgedSafetyChecks, sdkOmittedValue)
+                ? this.acknowledgedSafetyChecks
+                : acknowledgedSafetyChecks
+                    as SdkOptional<List<BetaComputerCallSafetyCheckParam>>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as BetaComputerScreenshotImage,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as BetaComputerCallOutputStatus,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as SdkOptional<String>,
+      );
 
-  factory BetaComputerToolCallOutputResource.fromJson(Map<String, dynamic> json) => BetaComputerToolCallOutputResource(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaComputerToolCallOutputType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    callId: (json['call_id'] as String?)!,
-    acknowledgedSafetyChecks: json['acknowledged_safety_checks'] != null ? SdkPresent(((json['acknowledged_safety_checks'] as List?)?.map((e) => BetaComputerCallSafetyCheckParam.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    output: (json['output'] != null ? BetaComputerScreenshotImage.fromJson(json['output'] as Map<String, dynamic>) : null)!,
-    status: (json['status'] != null ? BetaComputerCallOutputStatus.fromJson(json['status'] as String) : null)!,
-    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaComputerToolCallOutputResource.fromJson(
+          Map<String, dynamic> json) =>
+      BetaComputerToolCallOutputResource(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaComputerToolCallOutputType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        callId: (json['call_id'] as String?)!,
+        acknowledgedSafetyChecks: json['acknowledged_safety_checks'] != null
+            ? SdkPresent(((json['acknowledged_safety_checks'] as List?)
+                ?.map((e) => BetaComputerCallSafetyCheckParam.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        output: (json['output'] != null
+            ? BetaComputerScreenshotImage.fromJson(
+                json['output'] as Map<String, dynamic>)
+            : null)!,
+        status: (json['status'] != null
+            ? BetaComputerCallOutputStatus.fromJson(json['status'] as String)
+            : null)!,
+        createdBy: json['created_by'] != null
+            ? SdkPresent((json['created_by'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'id': id,
-    'call_id': callId,
-    ...switch (acknowledgedSafetyChecks) {
-      SdkPresent<List<BetaComputerCallSafetyCheckParam>>(value: final value) => {'acknowledged_safety_checks': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    'output': output.toJson(),
-    'status': status.toJson(),
-    ...switch (createdBy) {
-      SdkPresent<String>(value: final value) => {'created_by': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'id': id,
+        'call_id': callId,
+        ...switch (acknowledgedSafetyChecks) {
+          SdkPresent<List<BetaComputerCallSafetyCheckParam>>(
+            value: final value
+          ) =>
+            {
+              'acknowledged_safety_checks':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'output': output.toJson(),
+        'status': status.toJson(),
+        ...switch (createdBy) {
+          SdkPresent<String>(value: final value) => {
+              'created_by': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,59 +8,101 @@ part of 'evals_eval.dart';
 class EvalJsonlFileContentSourceContentItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `item` wire field.
   final Map<String, Object?> item;
+
   /// Optional object value serialized in the `sample` wire field.
   final SdkOptional<Map<String, Object?>> sample;
 
-  const EvalJsonlFileContentSourceContentItem({required this.item, this.sample = const SdkOmitted()});
+  const EvalJsonlFileContentSourceContentItem(
+      {required this.item, this.sample = const SdkOmitted()});
 
-  EvalJsonlFileContentSourceContentItem Function({Map<String, Object?> item, SdkOptional<Map<String, Object?>> sample}) get copyWith => _copyWith;
+  EvalJsonlFileContentSourceContentItem Function(
+      {Map<String, Object?> item,
+      SdkOptional<Map<String, Object?>> sample}) get copyWith => _copyWith;
 
-  EvalJsonlFileContentSourceContentItem _copyWith({Object? item = sdkOmittedValue, Object? sample = sdkOmittedValue}) => EvalJsonlFileContentSourceContentItem(
-    item: identical(item, sdkOmittedValue) ? this.item : item as Map<String, Object?>,
-    sample: identical(sample, sdkOmittedValue) ? this.sample : sample as SdkOptional<Map<String, Object?>>,
-  );
+  EvalJsonlFileContentSourceContentItem _copyWith(
+          {Object? item = sdkOmittedValue, Object? sample = sdkOmittedValue}) =>
+      EvalJsonlFileContentSourceContentItem(
+        item: identical(item, sdkOmittedValue)
+            ? this.item
+            : item as Map<String, Object?>,
+        sample: identical(sample, sdkOmittedValue)
+            ? this.sample
+            : sample as SdkOptional<Map<String, Object?>>,
+      );
 
-  factory EvalJsonlFileContentSourceContentItem.fromJson(Map<String, dynamic> json) => EvalJsonlFileContentSourceContentItem(
-    item: (json['item'] == null ? null : Map<String, dynamic>.from(json['item'] as Map).map((key, value) => MapEntry(key, value)))!,
-    sample: json['sample'] != null ? SdkPresent((json['sample'] == null ? null : Map<String, dynamic>.from(json['sample'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-  );
+  factory EvalJsonlFileContentSourceContentItem.fromJson(
+          Map<String, dynamic> json) =>
+      EvalJsonlFileContentSourceContentItem(
+        item: (json['item'] == null
+            ? null
+            : Map<String, dynamic>.from(json['item'] as Map)
+                .map((key, value) => MapEntry(key, value)))!,
+        sample: json['sample'] != null
+            ? SdkPresent((json['sample'] == null
+                ? null
+                : Map<String, dynamic>.from(json['sample'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'item': item,
-    ...switch (sample) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'sample': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'item': item,
+        ...switch (sample) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'sample': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `EvalJsonlFileContentSource` API schema.
 class EvalJsonlFileContentSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of jsonl source. Always `file_content`.
   final EvalJsonlFileContentSourceType type_;
+
   /// The content of the jsonl file.
   final List<EvalJsonlFileContentSourceContentItem> content;
 
-  const EvalJsonlFileContentSource({required this.type_, required this.content});
+  const EvalJsonlFileContentSource(
+      {required this.type_, required this.content});
 
-  EvalJsonlFileContentSource Function({EvalJsonlFileContentSourceType type_, List<EvalJsonlFileContentSourceContentItem> content}) get copyWith => _copyWith;
+  EvalJsonlFileContentSource Function(
+          {EvalJsonlFileContentSourceType type_,
+          List<EvalJsonlFileContentSourceContentItem> content})
+      get copyWith => _copyWith;
 
-  EvalJsonlFileContentSource _copyWith({Object? type_ = sdkOmittedValue, Object? content = sdkOmittedValue}) => EvalJsonlFileContentSource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EvalJsonlFileContentSourceType,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<EvalJsonlFileContentSourceContentItem>,
-  );
+  EvalJsonlFileContentSource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      EvalJsonlFileContentSource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EvalJsonlFileContentSourceType,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<EvalJsonlFileContentSourceContentItem>,
+      );
 
-  factory EvalJsonlFileContentSource.fromJson(Map<String, dynamic> json) => EvalJsonlFileContentSource(
-    type_: (json['type'] != null ? EvalJsonlFileContentSourceType.fromJson(json['type'] as String) : null)!,
-    content: ((json['content'] as List?)?.map((e) => EvalJsonlFileContentSourceContentItem.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory EvalJsonlFileContentSource.fromJson(Map<String, dynamic> json) =>
+      EvalJsonlFileContentSource(
+        type_: (json['type'] != null
+            ? EvalJsonlFileContentSourceType.fromJson(json['type'] as String)
+            : null)!,
+        content: ((json['content'] as List?)
+            ?.map((e) => EvalJsonlFileContentSourceContentItem.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'content': content.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'content': content.map((item) => item.toJson()).toList(),
+      };
 }

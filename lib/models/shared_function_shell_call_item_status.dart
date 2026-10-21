@@ -6,12 +6,12 @@ part of 'shared_function.dart';
 // shared_function domain models
 /// Status values reported for shell tool calls.
 final class FunctionShellCallItemStatus {
-
   final String value;
 
   const FunctionShellCallItemStatus._(this.value);
 
-  factory FunctionShellCallItemStatus.fromJson(String value) => FunctionShellCallItemStatus._(value);
+  factory FunctionShellCallItemStatus.fromJson(String value) =>
+      FunctionShellCallItemStatus._(value);
 
   static const inProgress = FunctionShellCallItemStatus._('in_progress');
   static const completed = FunctionShellCallItemStatus._('completed');
@@ -19,10 +19,13 @@ final class FunctionShellCallItemStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FunctionShellCallItemStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FunctionShellCallItemStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

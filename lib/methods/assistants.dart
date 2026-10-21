@@ -34,20 +34,26 @@ Future<ListAssistantsResponse> listAssistants(ClientConfig config,
   return (await sdkRequest<ListAssistantsResponse>('GET', '/assistants',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAssistants',
-          fromJsonRaw: (value) => ListAssistantsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListAssistantsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists assistant configurations available to the authenticated user. Use `after` or `before` to navigate the list, and `limit` and `order` to control page size and sorting. This operation is closing down and will be removed on a date not specified here.
 ///
@@ -67,23 +73,58 @@ Future<ListAssistantsResponse> listAssistants(ClientConfig config,
 ///   before=obj_foo in order to fetch the previous page of the list.
 ///
 /// **Deprecated:** this operation is deprecated and may be removed in a future release.
-Stream<AssistantObject> listAssistantsPaginated(ClientConfig config, {int? limit, ListAssistantsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+Stream<AssistantObject> listAssistantsPaginated(ClientConfig config,
+    {int? limit,
+    ListAssistantsOrder? order,
+    String? after,
+    String? before,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAssistants(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListAssistantsOrder>() : SdkPresent<ListAssistantsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkPage = await listAssistants(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListAssistantsOrder>()
+            : SdkPresent<ListAssistantsOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListAssistantsResponse, AssistantObject>> listAssistantsPages(ClientConfig config, {int? limit, ListAssistantsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListAssistantsResponse, AssistantObject>> listAssistantsPages(
+    ClientConfig config,
+    {int? limit,
+    ListAssistantsOrder? order,
+    String? after,
+    String? before,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAssistants(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListAssistantsOrder>() : SdkPresent<ListAssistantsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkPage = await listAssistants(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListAssistantsOrder>()
+            : SdkPresent<ListAssistantsOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -93,7 +134,6 @@ Stream<SdkPage<ListAssistantsResponse, AssistantObject>> listAssistantsPages(Cli
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates an assistant configuration with a model and optional instructions, tools, and response settings. Supply `model` and add only the configuration fields you need; numeric sampling settings and text lengths have schema limits. This operation is closing down and will be removed on a date not specified here.
 ///
@@ -134,12 +174,15 @@ Future<AssistantObject> createAssistant(ClientConfig config,
     SdkOptional<String?> description = const SdkOmitted(),
     SdkOptional<String?> instructions = const SdkOmitted(),
     SdkOptional<ReasoningEffort?> reasoningEffort = const SdkOmitted(),
-    SdkOptional<List<CreateAssistantRequestToolsItem>> tools = const SdkOmitted(),
-    SdkOptional<CreateAssistantRequestToolResources?> toolResources = const SdkOmitted(),
+    SdkOptional<List<CreateAssistantRequestToolsItem>> tools =
+        const SdkOmitted(),
+    SdkOptional<CreateAssistantRequestToolResources?> toolResources =
+        const SdkOmitted(),
     SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
     SdkOptional<double?> temperature = const SdkOmitted(),
     SdkOptional<double?> topP = const SdkOmitted(),
-    SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(),
+    SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (tools is SdkPresent<List<CreateAssistantRequestToolsItem>>) {
     validateItems('tools', tools.value, max: 128);
@@ -162,12 +205,15 @@ Future<AssistantObject> createAssistant(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createAssistant',
-          fromJsonRaw: (value) => AssistantObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AssistantObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves an assistant configuration by its identifier. Use `assistant_id` to select the assistant whose model, instructions, tools, and other settings you need to inspect. This operation is closing down and will be removed on a date not specified here.
 ///
@@ -183,12 +229,14 @@ Future<AssistantObject> getAssistant(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getAssistant',
-          fromJsonRaw: (value) => AssistantObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AssistantObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates an assistant's model, instructions, tools, or other configuration. Supply only the fields you want to change; fields not included in the request are not specified for update. This operation is closing down and will be removed on a date not specified here.
 ///
@@ -231,12 +279,15 @@ Future<AssistantObject> modifyAssistant(ClientConfig config,
     SdkOptional<String?> name = const SdkOmitted(),
     SdkOptional<String?> description = const SdkOmitted(),
     SdkOptional<String?> instructions = const SdkOmitted(),
-    SdkOptional<List<ModifyAssistantRequestToolsItem>> tools = const SdkOmitted(),
-    SdkOptional<ModifyAssistantRequestToolResources?> toolResources = const SdkOmitted(),
+    SdkOptional<List<ModifyAssistantRequestToolsItem>> tools =
+        const SdkOmitted(),
+    SdkOptional<ModifyAssistantRequestToolResources?> toolResources =
+        const SdkOmitted(),
     SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
     SdkOptional<double?> temperature = const SdkOmitted(),
     SdkOptional<double?> topP = const SdkOmitted(),
-    SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(),
+    SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (tools is SdkPresent<List<ModifyAssistantRequestToolsItem>>) {
     validateItems('tools', tools.value, max: 128);
@@ -260,12 +311,15 @@ Future<AssistantObject> modifyAssistant(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'modifyAssistant',
-          fromJsonRaw: (value) => AssistantObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AssistantObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes an assistant configuration identified by `assistant_id`. Use this operation when the assistant is no longer needed; the response confirms the deletion. This operation is closing down and will be removed on a date not specified here.
 ///
@@ -281,12 +335,14 @@ Future<DeleteAssistantResponse> deleteAssistant(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteAssistant',
-          fromJsonRaw: (value) => DeleteAssistantResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteAssistantResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a thread that can contain messages and resources for assistant tools. Provide `messages` to seed the thread, or `tool_resources` to make files or vector stores available to tools. You can also attach structured `metadata` to the thread.
 ///
@@ -306,7 +362,8 @@ Future<DeleteAssistantResponse> deleteAssistant(ClientConfig config,
 ///   a maximum length of 512 characters.
 Future<ThreadObject> createThread(ClientConfig config,
     {SdkOptional<List<CreateMessageRequest>> messages = const SdkOmitted(),
-    SdkOptional<CreateThreadRequestToolResources?> toolResources = const SdkOmitted(),
+    SdkOptional<CreateThreadRequestToolResources?> toolResources =
+        const SdkOmitted(),
     SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ThreadObject>('POST', '/threads',
@@ -318,12 +375,15 @@ Future<ThreadObject> createThread(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createThread',
-          fromJsonRaw: (value) => ThreadObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ThreadObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a thread and starts an assistant run in one request. Supply `assistant_id` and optionally configure the thread, model, tools, sampling, and token limits; `stream` returns run events as server-sent events. The run can remain queued or in progress, so check its status to track completion.
 ///
@@ -401,8 +461,10 @@ Future<RunObject> createThreadAndRun(ClientConfig config,
     SdkOptional<CreateThreadRequest> thread = const SdkOmitted(),
     SdkOptional<String?> model = const SdkOmitted(),
     SdkOptional<String?> instructions = const SdkOmitted(),
-    SdkOptional<List<CreateThreadAndRunRequestToolsItem>?> tools = const SdkOmitted(),
-    SdkOptional<CreateThreadAndRunRequestToolResources?> toolResources = const SdkOmitted(),
+    SdkOptional<List<CreateThreadAndRunRequestToolsItem>?> tools =
+        const SdkOmitted(),
+    SdkOptional<CreateThreadAndRunRequestToolResources?> toolResources =
+        const SdkOmitted(),
     SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
     SdkOptional<double?> temperature = const SdkOmitted(),
     SdkOptional<double?> topP = const SdkOmitted(),
@@ -412,7 +474,8 @@ Future<RunObject> createThreadAndRun(ClientConfig config,
     SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(),
     SdkOptional<AssistantsApiToolChoiceOption> toolChoice = const SdkOmitted(),
     SdkOptional<bool> parallelToolCalls = const SdkOmitted(),
-    SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(),
+    SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (tools is SdkPresent<List<CreateThreadAndRunRequestToolsItem>?>) {
     final toolsValue = tools.value;
@@ -441,7 +504,8 @@ Future<RunObject> createThreadAndRun(ClientConfig config,
   if (maxCompletionTokens is SdkPresent<int?>) {
     final maxCompletionTokensValue = maxCompletionTokens.value;
     if (maxCompletionTokensValue != null) {
-      validateRange('max_completion_tokens', maxCompletionTokensValue, min: 256);
+      validateRange('max_completion_tokens', maxCompletionTokensValue,
+          min: 256);
     }
   }
 
@@ -459,7 +523,8 @@ Future<RunObject> createThreadAndRun(ClientConfig config,
             'top_p': SdkUtils.unwrapOptional(topP),
             'stream': SdkUtils.unwrapOptional(stream),
             'max_prompt_tokens': SdkUtils.unwrapOptional(maxPromptTokens),
-            'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
+            'max_completion_tokens':
+                SdkUtils.unwrapOptional(maxCompletionTokens),
             'truncation_strategy': SdkUtils.unwrapOptional(truncationStrategy),
             'tool_choice': SdkUtils.unwrapOptional(toolChoice),
             'parallel_tool_calls': SdkUtils.unwrapOptional(parallelToolCalls),
@@ -467,12 +532,15 @@ Future<RunObject> createThreadAndRun(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createThreadAndRun',
-          fromJsonRaw: (value) => RunObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RunObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a thread and starts an assistant run in one request. Supply `assistant_id` and optionally configure the thread, model, tools, sampling, and token limits; `stream` returns run events as server-sent events. The run can remain queued or in progress, so check its status to track completion.
 ///
@@ -545,40 +613,63 @@ Future<RunObject> createThreadAndRun(ClientConfig config,
 ///   content may be partially cut off if `finish_reason="length"`, which
 ///   indicates the generation exceeded `max_tokens` or the conversation exceeded
 ///   the max context length.
-Stream<AssistantStreamEvent> createThreadAndRunStream(ClientConfig config, {required String assistantId, required bool? stream, SdkOptional<CreateThreadRequest> thread = const SdkOmitted(), SdkOptional<String?> model = const SdkOmitted(), SdkOptional<String?> instructions = const SdkOmitted(), SdkOptional<List<CreateThreadAndRunRequestToolsItem>?> tools = const SdkOmitted(), SdkOptional<CreateThreadAndRunRequestToolResources?> toolResources = const SdkOmitted(), SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<int?> maxPromptTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(), SdkOptional<AssistantsApiToolChoiceOption> toolChoice = const SdkOmitted(), SdkOptional<bool> parallelToolCalls = const SdkOmitted(), SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<AssistantStreamEvent> createThreadAndRunStream(ClientConfig config,
+    {required String assistantId,
+    required bool? stream,
+    SdkOptional<CreateThreadRequest> thread = const SdkOmitted(),
+    SdkOptional<String?> model = const SdkOmitted(),
+    SdkOptional<String?> instructions = const SdkOmitted(),
+    SdkOptional<List<CreateThreadAndRunRequestToolsItem>?> tools =
+        const SdkOmitted(),
+    SdkOptional<CreateThreadAndRunRequestToolResources?> toolResources =
+        const SdkOmitted(),
+    SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
+    SdkOptional<double?> temperature = const SdkOmitted(),
+    SdkOptional<double?> topP = const SdkOmitted(),
+    SdkOptional<int?> maxPromptTokens = const SdkOmitted(),
+    SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
+    SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(),
+    SdkOptional<AssistantsApiToolChoiceOption> toolChoice = const SdkOmitted(),
+    SdkOptional<bool> parallelToolCalls = const SdkOmitted(),
+    SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
+        const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/threads/runs',
     config: config,
     body: {
-    'assistant_id': assistantId,
-    'stream': stream,
-    'thread': SdkUtils.unwrapOptional(thread),
-    'model': SdkUtils.unwrapOptional(model),
-    'instructions': SdkUtils.unwrapOptional(instructions),
-    'tools': SdkUtils.unwrapOptional(tools),
-    'tool_resources': SdkUtils.unwrapOptional(toolResources),
-    'metadata': SdkUtils.unwrapOptional(metadata),
-    'temperature': SdkUtils.unwrapOptional(temperature),
-    'top_p': SdkUtils.unwrapOptional(topP),
-    'max_prompt_tokens': SdkUtils.unwrapOptional(maxPromptTokens),
-    'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
-    'truncation_strategy': SdkUtils.unwrapOptional(truncationStrategy),
-    'tool_choice': SdkUtils.unwrapOptional(toolChoice),
-    'parallel_tool_calls': SdkUtils.unwrapOptional(parallelToolCalls),
-    'response_format': SdkUtils.unwrapOptional(responseFormat),
-  },
+      'assistant_id': assistantId,
+      'stream': stream,
+      'thread': SdkUtils.unwrapOptional(thread),
+      'model': SdkUtils.unwrapOptional(model),
+      'instructions': SdkUtils.unwrapOptional(instructions),
+      'tools': SdkUtils.unwrapOptional(tools),
+      'tool_resources': SdkUtils.unwrapOptional(toolResources),
+      'metadata': SdkUtils.unwrapOptional(metadata),
+      'temperature': SdkUtils.unwrapOptional(temperature),
+      'top_p': SdkUtils.unwrapOptional(topP),
+      'max_prompt_tokens': SdkUtils.unwrapOptional(maxPromptTokens),
+      'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
+      'truncation_strategy': SdkUtils.unwrapOptional(truncationStrategy),
+      'tool_choice': SdkUtils.unwrapOptional(toolChoice),
+      'parallel_tool_calls': SdkUtils.unwrapOptional(parallelToolCalls),
+      'response_format': SdkUtils.unwrapOptional(responseFormat),
+    },
     operationId: 'createThreadAndRunStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => AssistantStreamEvent.fromJson(event.data));
   }
 }
+
 /// Retrieves a thread and its associated details. Use the thread's identifier to fetch its creation timestamp, tool resources, and metadata.
 ///
 /// Retrieves a thread.
@@ -591,12 +682,14 @@ Future<ThreadObject> getThread(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getThread',
-          fromJsonRaw: (value) => ThreadObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ThreadObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the configurable details of a thread. Supply `metadata` to attach structured key-value pairs, or `tool_resources` to provide resources for the assistant's tools. The thread identifier selects which thread to update.
 ///
@@ -615,7 +708,8 @@ Future<ThreadObject> getThread(ClientConfig config,
 ///   a maximum length of 512 characters.
 Future<ThreadObject> modifyThread(ClientConfig config,
     {required String threadId,
-    SdkOptional<ModifyThreadRequestToolResources?> toolResources = const SdkOmitted(),
+    SdkOptional<ModifyThreadRequestToolResources?> toolResources =
+        const SdkOmitted(),
     SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ThreadObject>(
@@ -627,12 +721,15 @@ Future<ThreadObject> modifyThread(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'modifyThread',
-          fromJsonRaw: (value) => ThreadObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ThreadObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a thread. Use the thread's identifier to select the thread to remove; the response confirms the deletion.
 ///
@@ -646,12 +743,14 @@ Future<DeleteThreadResponse> deleteThread(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteThread',
-          fromJsonRaw: (value) => DeleteThreadResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteThreadResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists messages belonging to a thread. Use `run_id` to filter by the run that generated the messages and `order` to control their creation-time order. Use `after` or `before` cursors to navigate the results.
 ///
@@ -685,21 +784,28 @@ Future<ListMessagesResponse> listMessages(ClientConfig config,
           '/threads/${Uri.encodeComponent(threadId.toString())}/messages',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true),
-            'run_id': SdkQueryValue(SdkUtils.unwrapOptional(runId), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true),
+            'run_id': SdkQueryValue(SdkUtils.unwrapOptional(runId),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listMessages',
-          fromJsonRaw: (value) => ListMessagesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListMessagesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists messages belonging to a thread. Use `run_id` to filter by the run that generated the messages and `order` to control their creation-time order. Use `after` or `before` cursors to navigate the results.
 ///
@@ -721,23 +827,70 @@ Future<ListMessagesResponse> listMessages(ClientConfig config,
 ///   receive 100 objects, starting with obj_foo, your subsequent call can include
 ///   before=obj_foo in order to fetch the previous page of the list.
 /// [runId] Filter messages by the run ID that generated them.
-Stream<MessageObject> listMessagesPaginated(ClientConfig config, {required String threadId, int? limit, ListMessagesOrder? order, String? after, String? before, String? runId, RequestOptions? requestOptions}) async* {
+Stream<MessageObject> listMessagesPaginated(ClientConfig config,
+    {required String threadId,
+    int? limit,
+    ListMessagesOrder? order,
+    String? after,
+    String? before,
+    String? runId,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listMessages(config, threadId: threadId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListMessagesOrder>() : SdkPresent<ListMessagesOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), runId: runId == null ? const SdkOmitted<String>() : SdkPresent<String>(runId), requestOptions: requestOptions);
+    final sdkPage = await listMessages(config,
+        threadId: threadId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListMessagesOrder>()
+            : SdkPresent<ListMessagesOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        runId: runId == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(runId),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListMessagesResponse, MessageObject>> listMessagesPages(ClientConfig config, {required String threadId, int? limit, ListMessagesOrder? order, String? after, String? before, String? runId, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListMessagesResponse, MessageObject>> listMessagesPages(
+    ClientConfig config,
+    {required String threadId,
+    int? limit,
+    ListMessagesOrder? order,
+    String? after,
+    String? before,
+    String? runId,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listMessages(config, threadId: threadId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListMessagesOrder>() : SdkPresent<ListMessagesOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), runId: runId == null ? const SdkOmitted<String>() : SdkPresent<String>(runId), requestOptions: requestOptions);
+    final sdkPage = await listMessages(config,
+        threadId: threadId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListMessagesOrder>()
+            : SdkPresent<ListMessagesOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        runId: runId == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(runId),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -747,7 +900,6 @@ Stream<SdkPage<ListMessagesResponse, MessageObject>> listMessagesPages(ClientCon
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates a message in a thread. Provide the message `role` and `content`, and optionally include file attachments or metadata. Use this operation to add a user or assistant message to an existing conversation thread.
 ///
@@ -773,7 +925,8 @@ Future<MessageObject> createMessage(ClientConfig config,
     {required String threadId,
     required CreateMessageRequestRole role,
     required dynamic content,
-    SdkOptional<List<CreateMessageRequestAttachmentsItem>?> attachments = const SdkOmitted(),
+    SdkOptional<List<CreateMessageRequestAttachmentsItem>?> attachments =
+        const SdkOmitted(),
     SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<MessageObject>('POST',
@@ -787,12 +940,15 @@ Future<MessageObject> createMessage(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createMessage',
-          fromJsonRaw: (value) => MessageObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              MessageObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a message from a thread. Provide both identifiers to select the thread and the message whose role, content, status, and associated details you need.
 ///
@@ -813,10 +969,11 @@ Future<MessageObject> getMessage(ClientConfig config,
           operationId: 'getMessage',
           fromJsonRaw: (value) => MessageObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the metadata attached to a message in a thread. Provide the thread and message identifiers to select the message, then supply metadata key-value pairs to change. Use this operation when you need to update message metadata without changing its content.
 ///
@@ -840,12 +997,15 @@ Future<MessageObject> modifyMessage(ClientConfig config,
           body: {'metadata': SdkUtils.unwrapOptional(metadata)},
           decoder: SdkResponseDecoder.json,
           operationId: 'modifyMessage',
-          fromJsonRaw: (value) => MessageObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              MessageObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a message from a thread. Provide both identifiers to select the thread and the message to remove; the response confirms the deletion.
 ///
@@ -864,10 +1024,11 @@ Future<DeleteMessageResponse> deleteMessage(ClientConfig config,
           operationId: 'deleteMessage',
           fromJsonRaw: (value) => DeleteMessageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists runs belonging to a thread. Use `order` to sort runs by creation time and `after` or `before` to navigate through the results. The returned run statuses show whether each run is queued, active, completed, or in another state.
 ///
@@ -897,20 +1058,26 @@ Future<ListRunsResponse> listRuns(ClientConfig config,
           'GET', '/threads/${Uri.encodeComponent(threadId.toString())}/runs',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listRuns',
-          fromJsonRaw: (value) => ListRunsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListRunsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists runs belonging to a thread. Use `order` to sort runs by creation time and `after` or `before` to navigate through the results. The returned run statuses show whether each run is queued, active, completed, or in another state.
 ///
@@ -929,23 +1096,61 @@ Future<ListRunsResponse> listRuns(ClientConfig config,
 ///   defines your place in the list. For instance, if you make a list request and
 ///   receive 100 objects, starting with obj_foo, your subsequent call can include
 ///   before=obj_foo in order to fetch the previous page of the list.
-Stream<RunObject> listRunsPaginated(ClientConfig config, {required String threadId, int? limit, ListRunsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+Stream<RunObject> listRunsPaginated(ClientConfig config,
+    {required String threadId,
+    int? limit,
+    ListRunsOrder? order,
+    String? after,
+    String? before,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listRuns(config, threadId: threadId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListRunsOrder>() : SdkPresent<ListRunsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkPage = await listRuns(config,
+        threadId: threadId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListRunsOrder>()
+            : SdkPresent<ListRunsOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListRunsResponse, RunObject>> listRunsPages(ClientConfig config, {required String threadId, int? limit, ListRunsOrder? order, String? after, String? before, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListRunsResponse, RunObject>> listRunsPages(ClientConfig config,
+    {required String threadId,
+    int? limit,
+    ListRunsOrder? order,
+    String? after,
+    String? before,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listRuns(config, threadId: threadId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListRunsOrder>() : SdkPresent<ListRunsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkPage = await listRuns(config,
+        threadId: threadId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListRunsOrder>()
+            : SdkPresent<ListRunsOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -955,7 +1160,6 @@ Stream<SdkPage<ListRunsResponse, RunObject>> listRunsPages(ClientConfig config, 
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates a run on a thread using the specified assistant. Supply `assistant_id` and optionally override the assistant’s model, instructions, tools, or generation settings for this run. If the run requires tool outputs, submit them with POST /threads/{thread_id}/runs/{run_id}/submit_tool_outputs.
 ///
@@ -1046,7 +1250,8 @@ Future<RunObject> createRun(ClientConfig config,
     SdkOptional<ReasoningEffort?> reasoningEffort = const SdkOmitted(),
     SdkOptional<String?> instructions = const SdkOmitted(),
     SdkOptional<String?> additionalInstructions = const SdkOmitted(),
-    SdkOptional<List<CreateMessageRequest>?> additionalMessages = const SdkOmitted(),
+    SdkOptional<List<CreateMessageRequest>?> additionalMessages =
+        const SdkOmitted(),
     SdkOptional<List<CreateRunRequestToolsItem>?> tools = const SdkOmitted(),
     SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
     SdkOptional<double?> temperature = const SdkOmitted(),
@@ -1057,7 +1262,8 @@ Future<RunObject> createRun(ClientConfig config,
     SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(),
     SdkOptional<AssistantsApiToolChoiceOption> toolChoice = const SdkOmitted(),
     SdkOptional<bool> parallelToolCalls = const SdkOmitted(),
-    SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(),
+    SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (tools is SdkPresent<List<CreateRunRequestToolsItem>?>) {
     final toolsValue = tools.value;
@@ -1086,7 +1292,8 @@ Future<RunObject> createRun(ClientConfig config,
   if (maxCompletionTokens is SdkPresent<int?>) {
     final maxCompletionTokensValue = maxCompletionTokens.value;
     if (maxCompletionTokensValue != null) {
-      validateRange('max_completion_tokens', maxCompletionTokensValue, min: 256);
+      validateRange('max_completion_tokens', maxCompletionTokensValue,
+          min: 256);
     }
   }
 
@@ -1094,14 +1301,16 @@ Future<RunObject> createRun(ClientConfig config,
           'POST', '/threads/${Uri.encodeComponent(threadId.toString())}/runs',
           config: config,
           query: {
-            'include[]': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true)
+            'include[]': SdkQueryValue(SdkUtils.unwrapOptional(include),
+                style: 'form', explode: true)
           },
           body: {
             'assistant_id': assistantId,
             'model': SdkUtils.unwrapOptional(model),
             'reasoning_effort': SdkUtils.unwrapOptional(reasoningEffort),
             'instructions': SdkUtils.unwrapOptional(instructions),
-            'additional_instructions': SdkUtils.unwrapOptional(additionalInstructions),
+            'additional_instructions':
+                SdkUtils.unwrapOptional(additionalInstructions),
             'additional_messages': SdkUtils.unwrapOptional(additionalMessages),
             'tools': SdkUtils.unwrapOptional(tools),
             'metadata': SdkUtils.unwrapOptional(metadata),
@@ -1109,7 +1318,8 @@ Future<RunObject> createRun(ClientConfig config,
             'top_p': SdkUtils.unwrapOptional(topP),
             'stream': SdkUtils.unwrapOptional(stream),
             'max_prompt_tokens': SdkUtils.unwrapOptional(maxPromptTokens),
-            'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
+            'max_completion_tokens':
+                SdkUtils.unwrapOptional(maxCompletionTokens),
             'truncation_strategy': SdkUtils.unwrapOptional(truncationStrategy),
             'tool_choice': SdkUtils.unwrapOptional(toolChoice),
             'parallel_tool_calls': SdkUtils.unwrapOptional(parallelToolCalls),
@@ -1117,12 +1327,15 @@ Future<RunObject> createRun(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createRun',
-          fromJsonRaw: (value) => RunObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RunObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a run on a thread using the specified assistant. Supply `assistant_id` and optionally override the assistant’s model, instructions, tools, or generation settings for this run. If the run requires tool outputs, submit them with POST /threads/{thread_id}/runs/{run_id}/submit_tool_outputs.
 ///
@@ -1205,44 +1418,71 @@ Future<RunObject> createRun(ClientConfig config,
 ///   content may be partially cut off if `finish_reason="length"`, which
 ///   indicates the generation exceeded `max_tokens` or the conversation exceeded
 ///   the max context length.
-Stream<AssistantStreamEvent> createRunStream(ClientConfig config, {required String threadId, required String assistantId, required bool? stream, SdkOptional<List<CreateRunIncludeItem>> include = const SdkOmitted(), SdkOptional<String?> model = const SdkOmitted(), SdkOptional<ReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<String?> instructions = const SdkOmitted(), SdkOptional<String?> additionalInstructions = const SdkOmitted(), SdkOptional<List<CreateMessageRequest>?> additionalMessages = const SdkOmitted(), SdkOptional<List<CreateRunRequestToolsItem>?> tools = const SdkOmitted(), SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<int?> maxPromptTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(), SdkOptional<AssistantsApiToolChoiceOption> toolChoice = const SdkOmitted(), SdkOptional<bool> parallelToolCalls = const SdkOmitted(), SdkOptional<AssistantsApiResponseFormatOption?> responseFormat = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<AssistantStreamEvent> createRunStream(ClientConfig config,
+    {required String threadId,
+    required String assistantId,
+    required bool? stream,
+    SdkOptional<List<CreateRunIncludeItem>> include = const SdkOmitted(),
+    SdkOptional<String?> model = const SdkOmitted(),
+    SdkOptional<ReasoningEffort?> reasoningEffort = const SdkOmitted(),
+    SdkOptional<String?> instructions = const SdkOmitted(),
+    SdkOptional<String?> additionalInstructions = const SdkOmitted(),
+    SdkOptional<List<CreateMessageRequest>?> additionalMessages =
+        const SdkOmitted(),
+    SdkOptional<List<CreateRunRequestToolsItem>?> tools = const SdkOmitted(),
+    SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
+    SdkOptional<double?> temperature = const SdkOmitted(),
+    SdkOptional<double?> topP = const SdkOmitted(),
+    SdkOptional<int?> maxPromptTokens = const SdkOmitted(),
+    SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
+    SdkOptional<TruncationObject> truncationStrategy = const SdkOmitted(),
+    SdkOptional<AssistantsApiToolChoiceOption> toolChoice = const SdkOmitted(),
+    SdkOptional<bool> parallelToolCalls = const SdkOmitted(),
+    SdkOptional<AssistantsApiResponseFormatOption?> responseFormat =
+        const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/threads/${Uri.encodeComponent(threadId.toString())}/runs',
     query: {
-    'include[]': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true),
-  },
+      'include[]': SdkQueryValue(SdkUtils.unwrapOptional(include),
+          style: 'form', explode: true),
+    },
     config: config,
     body: {
-    'assistant_id': assistantId,
-    'stream': stream,
-    'model': SdkUtils.unwrapOptional(model),
-    'reasoning_effort': SdkUtils.unwrapOptional(reasoningEffort),
-    'instructions': SdkUtils.unwrapOptional(instructions),
-    'additional_instructions': SdkUtils.unwrapOptional(additionalInstructions),
-    'additional_messages': SdkUtils.unwrapOptional(additionalMessages),
-    'tools': SdkUtils.unwrapOptional(tools),
-    'metadata': SdkUtils.unwrapOptional(metadata),
-    'temperature': SdkUtils.unwrapOptional(temperature),
-    'top_p': SdkUtils.unwrapOptional(topP),
-    'max_prompt_tokens': SdkUtils.unwrapOptional(maxPromptTokens),
-    'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
-    'truncation_strategy': SdkUtils.unwrapOptional(truncationStrategy),
-    'tool_choice': SdkUtils.unwrapOptional(toolChoice),
-    'parallel_tool_calls': SdkUtils.unwrapOptional(parallelToolCalls),
-    'response_format': SdkUtils.unwrapOptional(responseFormat),
-  },
+      'assistant_id': assistantId,
+      'stream': stream,
+      'model': SdkUtils.unwrapOptional(model),
+      'reasoning_effort': SdkUtils.unwrapOptional(reasoningEffort),
+      'instructions': SdkUtils.unwrapOptional(instructions),
+      'additional_instructions':
+          SdkUtils.unwrapOptional(additionalInstructions),
+      'additional_messages': SdkUtils.unwrapOptional(additionalMessages),
+      'tools': SdkUtils.unwrapOptional(tools),
+      'metadata': SdkUtils.unwrapOptional(metadata),
+      'temperature': SdkUtils.unwrapOptional(temperature),
+      'top_p': SdkUtils.unwrapOptional(topP),
+      'max_prompt_tokens': SdkUtils.unwrapOptional(maxPromptTokens),
+      'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
+      'truncation_strategy': SdkUtils.unwrapOptional(truncationStrategy),
+      'tool_choice': SdkUtils.unwrapOptional(toolChoice),
+      'parallel_tool_calls': SdkUtils.unwrapOptional(parallelToolCalls),
+      'response_format': SdkUtils.unwrapOptional(responseFormat),
+    },
     operationId: 'createRunStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => AssistantStreamEvent.fromJson(event.data));
   }
 }
+
 /// Retrieves a run associated with a thread. Use the thread and run IDs to inspect the run’s current status, timestamps, and any required action or error.
 ///
 /// Retrieves a run.
@@ -1262,10 +1502,11 @@ Future<RunObject> getRun(ClientConfig config,
           operationId: 'getRun',
           fromJsonRaw: (value) => RunObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the metadata attached to a run. Send the key-value pairs you want associated with the run; the metadata object supports up to 16 pairs, with string values and keys of up to 64 characters.
 ///
@@ -1291,12 +1532,15 @@ Future<RunObject> modifyRun(ClientConfig config,
           body: {'metadata': SdkUtils.unwrapOptional(metadata)},
           decoder: SdkResponseDecoder.json,
           operationId: 'modifyRun',
-          fromJsonRaw: (value) => RunObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RunObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Cancels a run that is in progress on a thread. Use this operation when you need to stop the run before it completes; the returned run object reports its current status.
 ///
@@ -1315,10 +1559,11 @@ Future<RunObject> cancelRun(ClientConfig config,
           operationId: 'cancelRun',
           fromJsonRaw: (value) => RunObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the steps belonging to a run on a thread. Use cursor parameters to page through the steps, and set `order` to control their order by creation time.
 ///
@@ -1357,21 +1602,28 @@ Future<ListRunStepsResponse> listRunSteps(ClientConfig config,
           '/threads/${Uri.encodeComponent(threadId.toString())}/runs/${Uri.encodeComponent(runId.toString())}/steps',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true),
-            'include[]': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true),
+            'include[]': SdkQueryValue(SdkUtils.unwrapOptional(include),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listRunSteps',
-          fromJsonRaw: (value) => ListRunStepsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListRunStepsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists the steps belonging to a run on a thread. Use cursor parameters to page through the steps, and set `order` to control their order by creation time.
 ///
@@ -1397,23 +1649,74 @@ Future<ListRunStepsResponse> listRunSteps(ClientConfig config,
 ///   file search result content. See the [file search tool
 ///   documentation](https://developers.openai.com/api/docs/guides/tools-file-sear
 ///   ch#retrieval-customization) for more information.
-Stream<RunStepObject> listRunStepsPaginated(ClientConfig config, {required String threadId, required String runId, int? limit, ListRunStepsOrder? order, String? after, String? before, List<ListRunStepsIncludeItem>? include, RequestOptions? requestOptions}) async* {
+Stream<RunStepObject> listRunStepsPaginated(ClientConfig config,
+    {required String threadId,
+    required String runId,
+    int? limit,
+    ListRunStepsOrder? order,
+    String? after,
+    String? before,
+    List<ListRunStepsIncludeItem>? include,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listRunSteps(config, threadId: threadId, runId: runId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListRunStepsOrder>() : SdkPresent<ListRunStepsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), include: include == null ? const SdkOmitted<List<ListRunStepsIncludeItem>>() : SdkPresent<List<ListRunStepsIncludeItem>>(include), requestOptions: requestOptions);
+    final sdkPage = await listRunSteps(config,
+        threadId: threadId,
+        runId: runId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListRunStepsOrder>()
+            : SdkPresent<ListRunStepsOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        include: include == null
+            ? const SdkOmitted<List<ListRunStepsIncludeItem>>()
+            : SdkPresent<List<ListRunStepsIncludeItem>>(include),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListRunStepsResponse, RunStepObject>> listRunStepsPages(ClientConfig config, {required String threadId, required String runId, int? limit, ListRunStepsOrder? order, String? after, String? before, List<ListRunStepsIncludeItem>? include, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListRunStepsResponse, RunStepObject>> listRunStepsPages(
+    ClientConfig config,
+    {required String threadId,
+    required String runId,
+    int? limit,
+    ListRunStepsOrder? order,
+    String? after,
+    String? before,
+    List<ListRunStepsIncludeItem>? include,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listRunSteps(config, threadId: threadId, runId: runId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListRunStepsOrder>() : SdkPresent<ListRunStepsOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), include: include == null ? const SdkOmitted<List<ListRunStepsIncludeItem>>() : SdkPresent<List<ListRunStepsIncludeItem>>(include), requestOptions: requestOptions);
+    final sdkPage = await listRunSteps(config,
+        threadId: threadId,
+        runId: runId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListRunStepsOrder>()
+            : SdkPresent<ListRunStepsOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        include: include == null
+            ? const SdkOmitted<List<ListRunStepsIncludeItem>>()
+            : SdkPresent<List<ListRunStepsIncludeItem>>(include),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -1423,7 +1726,6 @@ Stream<SdkPage<ListRunStepsResponse, RunStepObject>> listRunStepsPages(ClientCon
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Retrieves a specific step from a run on a thread. Use `include[]` to request file search result content when the step contains file search tool calls.
 ///
@@ -1448,16 +1750,20 @@ Future<RunStepObject> getRunStep(ClientConfig config,
           '/threads/${Uri.encodeComponent(threadId.toString())}/runs/${Uri.encodeComponent(runId.toString())}/steps/${Uri.encodeComponent(stepId.toString())}',
           config: config,
           query: {
-            'include[]': SdkQueryValue(SdkUtils.unwrapOptional(include), style: 'form', explode: true)
+            'include[]': SdkQueryValue(SdkUtils.unwrapOptional(include),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getRunStep',
-          fromJsonRaw: (value) => RunStepObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RunStepObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Submits tool outputs for a run that is waiting for tool results. Provide the outputs for all completed tool calls in one request so the run can continue. Set `stream` to receive run events as server-sent events.
 ///
@@ -1484,12 +1790,15 @@ Future<RunObject> submitAssistantsToolOutputsToRun(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'submitAssistantsToolOutputsToRun',
-          fromJsonRaw: (value) => RunObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RunObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Submits tool outputs for a run that is waiting for tool results. Provide the outputs for all completed tool calls in one request so the run can continue. Set `stream` to receive run events as server-sent events.
 ///
@@ -1501,21 +1810,29 @@ Future<RunObject> submitAssistantsToolOutputsToRun(ClientConfig config,
 /// [runId] The ID of the run that requires the tool output submission.
 /// [toolOutputs] A list of tools for which the outputs are being submitted.
 /// [stream] Optional `boolean` value serialized in the `stream` wire field.
-Stream<AssistantStreamEvent> submitAssistantsToolOutputsToRunStream(ClientConfig config, {required String threadId, required String runId, required List<SubmitToolOutputsRunRequestToolOutputsItem> toolOutputs, required bool? stream, RequestOptions? requestOptions}) async* {
+Stream<AssistantStreamEvent> submitAssistantsToolOutputsToRunStream(
+    ClientConfig config,
+    {required String threadId,
+    required String runId,
+    required List<SubmitToolOutputsRunRequestToolOutputsItem> toolOutputs,
+    required bool? stream,
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/threads/${Uri.encodeComponent(threadId.toString())}/runs/${Uri.encodeComponent(runId.toString())}/submit_tool_outputs',
     config: config,
     body: {
-    'tool_outputs': toolOutputs,
-    'stream': stream,
-  },
+      'tool_outputs': toolOutputs,
+      'stream': stream,
+    },
     operationId: 'submitAssistantsToolOutputsToRunStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
     yield sdkDecode(() => AssistantStreamEvent.fromJson(event.data));

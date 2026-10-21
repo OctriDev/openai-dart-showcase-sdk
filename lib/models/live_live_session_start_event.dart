@@ -9,51 +9,85 @@ sealed class LiveSessionStartEventEventId {
   static const String constructionSurface = 'named';
   const LiveSessionStartEventEventId();
   factory LiveSessionStartEventEventId.fromJson(Object? json) {
-    if (json is String) { return LiveSessionStartEventEventIdString(json); }
-    throw FormatException("No variant matched for LiveSessionStartEventEventId");
+    if (json is String) {
+      return LiveSessionStartEventEventIdString(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveSessionStartEventEventId");
   }
   Object? toJson();
 }
 
-final class LiveSessionStartEventEventIdString extends LiveSessionStartEventEventId {
+final class LiveSessionStartEventEventIdString
+    extends LiveSessionStartEventEventId {
   final String value;
   const LiveSessionStartEventEventIdString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Start a Live session on a primary WebSocket. Send this event before other commands and wait for `session.started`.
 class LiveSessionStartEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `event_id` wire field.
   final SdkOptional<String?> eventId;
+
   /// The Live client event type. Always `session.start`.
   final LiveSessionStartEventType type_;
+
   /// Initial configuration for a primary WebSocket. Send session.start first and wait for session.started before application commands. WebRTC creation already starts the session; do not send this event again on its data channel.
   final LiveSessionCreateParams session;
 
-  const LiveSessionStartEvent({this.eventId = const SdkOmitted(), required this.type_, required this.session});
+  const LiveSessionStartEvent(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      required this.session});
 
-  LiveSessionStartEvent Function({SdkOptional<String?> eventId, LiveSessionStartEventType type_, LiveSessionCreateParams session}) get copyWith => _copyWith;
+  LiveSessionStartEvent Function(
+      {SdkOptional<String?> eventId,
+      LiveSessionStartEventType type_,
+      LiveSessionCreateParams session}) get copyWith => _copyWith;
 
-  LiveSessionStartEvent _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => LiveSessionStartEvent(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSessionStartEventType,
-    session: identical(session, sdkOmittedValue) ? this.session : session as LiveSessionCreateParams,
-  );
+  LiveSessionStartEvent _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? session = sdkOmittedValue}) =>
+      LiveSessionStartEvent(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSessionStartEventType,
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as LiveSessionCreateParams,
+      );
 
-  factory LiveSessionStartEvent.fromJson(Map<String, dynamic> json) => LiveSessionStartEvent(
-    eventId: json.containsKey('event_id') ? SdkPresent(json['event_id'] as String?) : const SdkOmitted(),
-    type_: (json['type'] != null ? LiveSessionStartEventType.fromJson(json['type'] as String) : null)!,
-    session: (json['session'] != null ? LiveSessionCreateParams.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-  );
+  factory LiveSessionStartEvent.fromJson(Map<String, dynamic> json) =>
+      LiveSessionStartEvent(
+        eventId: json.containsKey('event_id')
+            ? SdkPresent(json['event_id'] as String?)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? LiveSessionStartEventType.fromJson(json['type'] as String)
+            : null)!,
+        session: (json['session'] != null
+            ? LiveSessionCreateParams.fromJson(
+                json['session'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String?>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'session': session.toJson(),
-  };
+        ...switch (eventId) {
+          SdkPresent<String?>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'session': session.toJson(),
+      };
 }

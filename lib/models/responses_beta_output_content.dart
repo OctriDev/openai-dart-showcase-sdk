@@ -10,14 +10,43 @@ sealed class BetaOutputContent {
   const BetaOutputContent();
   factory BetaOutputContent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaOutputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaOutputContentBetaOutputTextContent(value); } } catch (_) {}
-      try { final value = BetaRefusalContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaOutputContentBetaRefusalContent(value); } } catch (_) {}
-      try { final value = BetaReasoningTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaOutputContentBetaReasoningTextContent(value); } } catch (_) {}
+      try {
+        final value = BetaOutputTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaOutputContentBetaOutputTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaRefusalContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaOutputContentBetaRefusalContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaReasoningTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaOutputContentBetaReasoningTextContent(value);
+        }
+      } catch (_) {}
     }
-    try { return BetaOutputContentBetaOutputTextContent(BetaOutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaOutputContentBetaRefusalContent(BetaRefusalContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaOutputContentBetaReasoningTextContent(BetaReasoningTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"output_text", "refusal", "reasoning_text"}.contains(json["type"])) { return UnknownBetaOutputContent(json); }
+    try {
+      return BetaOutputContentBetaOutputTextContent(
+          BetaOutputTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaOutputContentBetaRefusalContent(
+          BetaRefusalContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaOutputContentBetaReasoningTextContent(
+          BetaReasoningTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"output_text", "refusal", "reasoning_text"}
+            .contains(json["type"])) {
+      return UnknownBetaOutputContent(json);
+    }
     throw FormatException("No variant matched for BetaOutputContent");
   }
   Object? toJson();
@@ -26,24 +55,29 @@ sealed class BetaOutputContent {
 final class BetaOutputContentBetaOutputTextContent extends BetaOutputContent {
   final BetaOutputTextContent value;
   const BetaOutputContentBetaOutputTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaOutputContentBetaRefusalContent extends BetaOutputContent {
   final BetaRefusalContent value;
   const BetaOutputContentBetaRefusalContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaOutputContentBetaReasoningTextContent extends BetaOutputContent {
+final class BetaOutputContentBetaReasoningTextContent
+    extends BetaOutputContent {
   final BetaReasoningTextContent value;
   const BetaOutputContentBetaReasoningTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaOutputContent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaOutputContent extends BetaOutputContent {
   final Map<String, dynamic> raw;
   const UnknownBetaOutputContent(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

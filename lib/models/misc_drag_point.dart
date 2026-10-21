@@ -8,8 +8,10 @@ part of 'misc.dart';
 class DragPoint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The x-coordinate.
   final int x;
+
   /// The y-coordinate.
   final int y;
 
@@ -17,18 +19,20 @@ class DragPoint {
 
   DragPoint Function({int x, int y}) get copyWith => _copyWith;
 
-  DragPoint _copyWith({Object? x = sdkOmittedValue, Object? y = sdkOmittedValue}) => DragPoint(
-    x: identical(x, sdkOmittedValue) ? this.x : x as int,
-    y: identical(y, sdkOmittedValue) ? this.y : y as int,
-  );
+  DragPoint _copyWith(
+          {Object? x = sdkOmittedValue, Object? y = sdkOmittedValue}) =>
+      DragPoint(
+        x: identical(x, sdkOmittedValue) ? this.x : x as int,
+        y: identical(y, sdkOmittedValue) ? this.y : y as int,
+      );
 
   factory DragPoint.fromJson(Map<String, dynamic> json) => DragPoint(
-    x: ((json['x'] as num?)?.toInt())!,
-    y: ((json['y'] as num?)?.toInt())!,
-  );
+        x: ((json['x'] as num?)?.toInt())!,
+        y: ((json['y'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'x': x,
-    'y': y,
-  };
+        'x': x,
+        'y': y,
+      };
 }

@@ -8,47 +8,94 @@ part of 'agents_computer.dart';
 class ComputerUseCallItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The item type. Always `computer_use_call`.
   final ComputerUseCallItemResourceType type_;
+
   /// The ID of the activity item.
   final String id;
+
   /// The ID of the turn that contains this item.
   final String turnId;
+
   /// A model-generated description of the activity, when available.
   final String? title;
+
   /// The execution status of the activity.
   final FunctionCallStatusResource status;
+
   /// The last screenshot emitted by the model. Null when screenshot inclusion is disabled or the call emitted no screenshot.
   final ComputerScreenshotResource? output;
 
-  const ComputerUseCallItemResource({required this.type_, required this.id, required this.turnId, required this.title, required this.status, required this.output});
+  const ComputerUseCallItemResource(
+      {required this.type_,
+      required this.id,
+      required this.turnId,
+      required this.title,
+      required this.status,
+      required this.output});
 
-  ComputerUseCallItemResource Function({ComputerUseCallItemResourceType type_, String id, String turnId, String? title, FunctionCallStatusResource status, ComputerScreenshotResource? output}) get copyWith => _copyWith;
+  ComputerUseCallItemResource Function(
+      {ComputerUseCallItemResourceType type_,
+      String id,
+      String turnId,
+      String? title,
+      FunctionCallStatusResource status,
+      ComputerScreenshotResource? output}) get copyWith => _copyWith;
 
-  ComputerUseCallItemResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? title = sdkOmittedValue, Object? status = sdkOmittedValue, Object? output = sdkOmittedValue}) => ComputerUseCallItemResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerUseCallItemResourceType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-    title: identical(title, sdkOmittedValue) ? this.title : title as String?,
-    status: identical(status, sdkOmittedValue) ? this.status : status as FunctionCallStatusResource,
-    output: identical(output, sdkOmittedValue) ? this.output : output as ComputerScreenshotResource?,
-  );
+  ComputerUseCallItemResource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? title = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? output = sdkOmittedValue}) =>
+      ComputerUseCallItemResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ComputerUseCallItemResourceType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        turnId:
+            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+        title:
+            identical(title, sdkOmittedValue) ? this.title : title as String?,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as FunctionCallStatusResource,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as ComputerScreenshotResource?,
+      );
 
-  factory ComputerUseCallItemResource.fromJson(Map<String, dynamic> json) => ComputerUseCallItemResource(
-    type_: (json['type'] != null ? ComputerUseCallItemResourceType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    turnId: (json['turn_id'] as String?)!,
-    title: json.containsKey('title') ? json['title'] as String? : throw ArgumentError.value(null, 'title', 'Required property is missing'),
-    status: (json['status'] != null ? FunctionCallStatusResource.fromJson(json['status'] as String) : null)!,
-    output: json.containsKey('output') ? json['output'] != null ? ComputerScreenshotResource.fromJson(json['output'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'output', 'Required property is missing'),
-  );
+  factory ComputerUseCallItemResource.fromJson(Map<String, dynamic> json) =>
+      ComputerUseCallItemResource(
+        type_: (json['type'] != null
+            ? ComputerUseCallItemResourceType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        turnId: (json['turn_id'] as String?)!,
+        title: json.containsKey('title')
+            ? json['title'] as String?
+            : throw ArgumentError.value(
+                null, 'title', 'Required property is missing'),
+        status: (json['status'] != null
+            ? FunctionCallStatusResource.fromJson(json['status'] as String)
+            : null)!,
+        output: json.containsKey('output')
+            ? json['output'] != null
+                ? ComputerScreenshotResource.fromJson(
+                    json['output'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'output', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'turn_id': turnId,
-    'title': title,
-    'status': status.toJson(),
-    'output': output?.toJson(),
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'turn_id': turnId,
+        'title': title,
+        'status': status.toJson(),
+        'output': output?.toJson(),
+      };
 }

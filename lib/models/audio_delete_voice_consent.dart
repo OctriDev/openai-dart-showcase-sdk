@@ -8,32 +8,51 @@ part of 'audio.dart';
 class VoiceConsentDeletedResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The consent recording identifier.
   final String id;
+
   /// Required enumerated value serialized in the `object` wire field.
   final VoiceConsentDeletedResourceObject object;
+
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
 
-  const VoiceConsentDeletedResource({required this.id, required this.object, required this.deleted});
+  const VoiceConsentDeletedResource(
+      {required this.id, required this.object, required this.deleted});
 
-  VoiceConsentDeletedResource Function({String id, VoiceConsentDeletedResourceObject object, bool deleted}) get copyWith => _copyWith;
+  VoiceConsentDeletedResource Function(
+      {String id,
+      VoiceConsentDeletedResourceObject object,
+      bool deleted}) get copyWith => _copyWith;
 
-  VoiceConsentDeletedResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => VoiceConsentDeletedResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as VoiceConsentDeletedResourceObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  VoiceConsentDeletedResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      VoiceConsentDeletedResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as VoiceConsentDeletedResourceObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory VoiceConsentDeletedResource.fromJson(Map<String, dynamic> json) => VoiceConsentDeletedResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? VoiceConsentDeletedResourceObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-  );
+  factory VoiceConsentDeletedResource.fromJson(Map<String, dynamic> json) =>
+      VoiceConsentDeletedResource(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? VoiceConsentDeletedResourceObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        deleted: (json['deleted'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'deleted': deleted,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'deleted': deleted,
+      };
 }

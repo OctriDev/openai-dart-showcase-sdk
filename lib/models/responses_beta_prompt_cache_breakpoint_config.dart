@@ -8,22 +8,31 @@ part of 'responses_beta_prompt.dart';
 class BetaPromptCacheBreakpointConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The breakpoint mode. Always `explicit`.
   final BetaPromptCacheBreakpointConfigMode mode;
 
   const BetaPromptCacheBreakpointConfig({required this.mode});
 
-  BetaPromptCacheBreakpointConfig Function({BetaPromptCacheBreakpointConfigMode mode}) get copyWith => _copyWith;
+  BetaPromptCacheBreakpointConfig Function(
+      {BetaPromptCacheBreakpointConfigMode mode}) get copyWith => _copyWith;
 
-  BetaPromptCacheBreakpointConfig _copyWith({Object? mode = sdkOmittedValue}) => BetaPromptCacheBreakpointConfig(
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as BetaPromptCacheBreakpointConfigMode,
-  );
+  BetaPromptCacheBreakpointConfig _copyWith({Object? mode = sdkOmittedValue}) =>
+      BetaPromptCacheBreakpointConfig(
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as BetaPromptCacheBreakpointConfigMode,
+      );
 
-  factory BetaPromptCacheBreakpointConfig.fromJson(Map<String, dynamic> json) => BetaPromptCacheBreakpointConfig(
-    mode: (json['mode'] != null ? BetaPromptCacheBreakpointConfigMode.fromJson(json['mode'] as String) : null)!,
-  );
+  factory BetaPromptCacheBreakpointConfig.fromJson(Map<String, dynamic> json) =>
+      BetaPromptCacheBreakpointConfig(
+        mode: (json['mode'] != null
+            ? BetaPromptCacheBreakpointConfigMode.fromJson(
+                json['mode'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'mode': mode.toJson(),
-  };
+        'mode': mode.toJson(),
+      };
 }

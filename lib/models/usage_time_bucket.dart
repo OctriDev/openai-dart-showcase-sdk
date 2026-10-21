@@ -8,37 +8,66 @@ part of 'usage.dart';
 class UsageTimeBucket {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final UsageTimeBucketObject object;
+
   /// Required `integer` value serialized in the `start_time` wire field.
   final int startTime;
+
   /// Required `integer` value serialized in the `end_time` wire field.
   final int endTime;
+
   /// Required array value serialized in the `results` wire field.
   final List<UsageTimeBucketResultsItem> results;
 
-  const UsageTimeBucket({required this.object, required this.startTime, required this.endTime, required this.results});
+  const UsageTimeBucket(
+      {required this.object,
+      required this.startTime,
+      required this.endTime,
+      required this.results});
 
-  UsageTimeBucket Function({UsageTimeBucketObject object, int startTime, int endTime, List<UsageTimeBucketResultsItem> results}) get copyWith => _copyWith;
+  UsageTimeBucket Function(
+      {UsageTimeBucketObject object,
+      int startTime,
+      int endTime,
+      List<UsageTimeBucketResultsItem> results}) get copyWith => _copyWith;
 
-  UsageTimeBucket _copyWith({Object? object = sdkOmittedValue, Object? startTime = sdkOmittedValue, Object? endTime = sdkOmittedValue, Object? results = sdkOmittedValue}) => UsageTimeBucket(
-    object: identical(object, sdkOmittedValue) ? this.object : object as UsageTimeBucketObject,
-    startTime: identical(startTime, sdkOmittedValue) ? this.startTime : startTime as int,
-    endTime: identical(endTime, sdkOmittedValue) ? this.endTime : endTime as int,
-    results: identical(results, sdkOmittedValue) ? this.results : results as List<UsageTimeBucketResultsItem>,
-  );
+  UsageTimeBucket _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? startTime = sdkOmittedValue,
+          Object? endTime = sdkOmittedValue,
+          Object? results = sdkOmittedValue}) =>
+      UsageTimeBucket(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as UsageTimeBucketObject,
+        startTime: identical(startTime, sdkOmittedValue)
+            ? this.startTime
+            : startTime as int,
+        endTime:
+            identical(endTime, sdkOmittedValue) ? this.endTime : endTime as int,
+        results: identical(results, sdkOmittedValue)
+            ? this.results
+            : results as List<UsageTimeBucketResultsItem>,
+      );
 
-  factory UsageTimeBucket.fromJson(Map<String, dynamic> json) => UsageTimeBucket(
-    object: (json['object'] != null ? UsageTimeBucketObject.fromJson(json['object'] as String) : null)!,
-    startTime: ((json['start_time'] as num?)?.toInt())!,
-    endTime: ((json['end_time'] as num?)?.toInt())!,
-    results: ((json['results'] as List?)?.map((e) => UsageTimeBucketResultsItem.fromJson(e)).toList())!,
-  );
+  factory UsageTimeBucket.fromJson(Map<String, dynamic> json) =>
+      UsageTimeBucket(
+        object: (json['object'] != null
+            ? UsageTimeBucketObject.fromJson(json['object'] as String)
+            : null)!,
+        startTime: ((json['start_time'] as num?)?.toInt())!,
+        endTime: ((json['end_time'] as num?)?.toInt())!,
+        results: ((json['results'] as List?)
+            ?.map((e) => UsageTimeBucketResultsItem.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'start_time': startTime,
-    'end_time': endTime,
-    'results': results.map((item) => item.toJson()).toList(),
-  };
+        'object': object.toJson(),
+        'start_time': startTime,
+        'end_time': endTime,
+        'results': results.map((item) => item.toJson()).toList(),
+      };
 }

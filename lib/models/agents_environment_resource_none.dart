@@ -8,22 +8,30 @@ part of 'agents_environment.dart';
 class EnvironmentResourceNone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `none`.
   final EnvironmentResourceNoneType type_;
 
   const EnvironmentResourceNone({required this.type_});
 
-  EnvironmentResourceNone Function({EnvironmentResourceNoneType type_}) get copyWith => _copyWith;
+  EnvironmentResourceNone Function({EnvironmentResourceNoneType type_})
+      get copyWith => _copyWith;
 
-  EnvironmentResourceNone _copyWith({Object? type_ = sdkOmittedValue}) => EnvironmentResourceNone(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EnvironmentResourceNoneType,
-  );
+  EnvironmentResourceNone _copyWith({Object? type_ = sdkOmittedValue}) =>
+      EnvironmentResourceNone(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EnvironmentResourceNoneType,
+      );
 
-  factory EnvironmentResourceNone.fromJson(Map<String, dynamic> json) => EnvironmentResourceNone(
-    type_: (json['type'] != null ? EnvironmentResourceNoneType.fromJson(json['type'] as String) : null)!,
-  );
+  factory EnvironmentResourceNone.fromJson(Map<String, dynamic> json) =>
+      EnvironmentResourceNone(
+        type_: (json['type'] != null
+            ? EnvironmentResourceNoneType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

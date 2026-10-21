@@ -8,35 +8,62 @@ part of 'vaults_create.dart';
 class CreateVaultCredentialParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name is trimmed before storage. It must contain 1 to 256 UTF-8 bytes after trimming.
   final String name;
+
   /// The authentication method and write-only secret values to store.
   final CreateVaultCredentialAuthParam auth;
+
   /// Up to 16 string key-value pairs, with keys up to 64 and values up to 512 characters. Defaults to an empty map.
   final SdkOptional<Map<String, String>> metadata;
 
-  const CreateVaultCredentialParams({required this.name, required this.auth, this.metadata = const SdkOmitted()});
+  const CreateVaultCredentialParams(
+      {required this.name,
+      required this.auth,
+      this.metadata = const SdkOmitted()});
 
-  CreateVaultCredentialParams Function({String name, CreateVaultCredentialAuthParam auth, SdkOptional<Map<String, String>> metadata}) get copyWith => _copyWith;
+  CreateVaultCredentialParams Function(
+      {String name,
+      CreateVaultCredentialAuthParam auth,
+      SdkOptional<Map<String, String>> metadata}) get copyWith => _copyWith;
 
-  CreateVaultCredentialParams _copyWith({Object? name = sdkOmittedValue, Object? auth = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => CreateVaultCredentialParams(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    auth: identical(auth, sdkOmittedValue) ? this.auth : auth as CreateVaultCredentialAuthParam,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, String>>,
-  );
+  CreateVaultCredentialParams _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? auth = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      CreateVaultCredentialParams(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        auth: identical(auth, sdkOmittedValue)
+            ? this.auth
+            : auth as CreateVaultCredentialAuthParam,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, String>>,
+      );
 
-  factory CreateVaultCredentialParams.fromJson(Map<String, dynamic> json) => CreateVaultCredentialParams(
-    name: (json['name'] as String?)!,
-    auth: (json['auth'] != null ? CreateVaultCredentialAuthParam.fromJson(json['auth']) : null)!,
-    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-  );
+  factory CreateVaultCredentialParams.fromJson(Map<String, dynamic> json) =>
+      CreateVaultCredentialParams(
+        name: (json['name'] as String?)!,
+        auth: (json['auth'] != null
+            ? CreateVaultCredentialAuthParam.fromJson(json['auth'])
+            : null)!,
+        metadata: json['metadata'] != null
+            ? SdkPresent((json['metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'auth': auth.toJson(),
-    ...switch (metadata) {
-      SdkPresent<Map<String, String>>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'auth': auth.toJson(),
+        ...switch (metadata) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

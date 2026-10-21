@@ -8,67 +8,139 @@ part of 'shared_chat.dart';
 class ChatSessionResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier for the ChatKit session.
   final String id;
+
   /// Type discriminator that is always `chatkit.session`.
   final ChatSessionResourceObject object;
+
   /// Unix timestamp (in seconds) for when the session expires.
   final int expiresAt;
+
   /// Ephemeral client secret that authenticates session requests.
   final String clientSecret;
+
   /// Workflow metadata for the session.
   final ChatkitWorkflow workflow;
+
   /// User identifier associated with the session.
   final String user;
+
   /// Resolved rate limit values.
   final ChatSessionRateLimits rateLimits;
+
   /// Convenience copy of the per-minute request limit.
   final int maxRequestsPer1Minute;
+
   /// Current lifecycle state of the session.
   final ChatSessionStatus status;
+
   /// Resolved ChatKit feature configuration for the session.
   final ChatSessionChatkitConfiguration chatkitConfiguration;
 
-  const ChatSessionResource({required this.id, required this.object, required this.expiresAt, required this.clientSecret, required this.workflow, required this.user, required this.rateLimits, required this.maxRequestsPer1Minute, required this.status, required this.chatkitConfiguration});
+  const ChatSessionResource(
+      {required this.id,
+      required this.object,
+      required this.expiresAt,
+      required this.clientSecret,
+      required this.workflow,
+      required this.user,
+      required this.rateLimits,
+      required this.maxRequestsPer1Minute,
+      required this.status,
+      required this.chatkitConfiguration});
 
-  ChatSessionResource Function({String id, ChatSessionResourceObject object, int expiresAt, String clientSecret, ChatkitWorkflow workflow, String user, ChatSessionRateLimits rateLimits, int maxRequestsPer1Minute, ChatSessionStatus status, ChatSessionChatkitConfiguration chatkitConfiguration}) get copyWith => _copyWith;
+  ChatSessionResource Function(
+          {String id,
+          ChatSessionResourceObject object,
+          int expiresAt,
+          String clientSecret,
+          ChatkitWorkflow workflow,
+          String user,
+          ChatSessionRateLimits rateLimits,
+          int maxRequestsPer1Minute,
+          ChatSessionStatus status,
+          ChatSessionChatkitConfiguration chatkitConfiguration})
+      get copyWith => _copyWith;
 
-  ChatSessionResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? clientSecret = sdkOmittedValue, Object? workflow = sdkOmittedValue, Object? user = sdkOmittedValue, Object? rateLimits = sdkOmittedValue, Object? maxRequestsPer1Minute = sdkOmittedValue, Object? status = sdkOmittedValue, Object? chatkitConfiguration = sdkOmittedValue}) => ChatSessionResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as ChatSessionResourceObject,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as int,
-    clientSecret: identical(clientSecret, sdkOmittedValue) ? this.clientSecret : clientSecret as String,
-    workflow: identical(workflow, sdkOmittedValue) ? this.workflow : workflow as ChatkitWorkflow,
-    user: identical(user, sdkOmittedValue) ? this.user : user as String,
-    rateLimits: identical(rateLimits, sdkOmittedValue) ? this.rateLimits : rateLimits as ChatSessionRateLimits,
-    maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue) ? this.maxRequestsPer1Minute : maxRequestsPer1Minute as int,
-    status: identical(status, sdkOmittedValue) ? this.status : status as ChatSessionStatus,
-    chatkitConfiguration: identical(chatkitConfiguration, sdkOmittedValue) ? this.chatkitConfiguration : chatkitConfiguration as ChatSessionChatkitConfiguration,
-  );
+  ChatSessionResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue,
+          Object? clientSecret = sdkOmittedValue,
+          Object? workflow = sdkOmittedValue,
+          Object? user = sdkOmittedValue,
+          Object? rateLimits = sdkOmittedValue,
+          Object? maxRequestsPer1Minute = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? chatkitConfiguration = sdkOmittedValue}) =>
+      ChatSessionResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ChatSessionResourceObject,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as int,
+        clientSecret: identical(clientSecret, sdkOmittedValue)
+            ? this.clientSecret
+            : clientSecret as String,
+        workflow: identical(workflow, sdkOmittedValue)
+            ? this.workflow
+            : workflow as ChatkitWorkflow,
+        user: identical(user, sdkOmittedValue) ? this.user : user as String,
+        rateLimits: identical(rateLimits, sdkOmittedValue)
+            ? this.rateLimits
+            : rateLimits as ChatSessionRateLimits,
+        maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue)
+            ? this.maxRequestsPer1Minute
+            : maxRequestsPer1Minute as int,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ChatSessionStatus,
+        chatkitConfiguration: identical(chatkitConfiguration, sdkOmittedValue)
+            ? this.chatkitConfiguration
+            : chatkitConfiguration as ChatSessionChatkitConfiguration,
+      );
 
-  factory ChatSessionResource.fromJson(Map<String, dynamic> json) => ChatSessionResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? ChatSessionResourceObject.fromJson(json['object'] as String) : null)!,
-    expiresAt: ((json['expires_at'] as num?)?.toInt())!,
-    clientSecret: (json['client_secret'] as String?)!,
-    workflow: (json['workflow'] != null ? ChatkitWorkflow.fromJson(json['workflow'] as Map<String, dynamic>) : null)!,
-    user: (json['user'] as String?)!,
-    rateLimits: (json['rate_limits'] != null ? ChatSessionRateLimits.fromJson(json['rate_limits'] as Map<String, dynamic>) : null)!,
-    maxRequestsPer1Minute: ((json['max_requests_per_1_minute'] as num?)?.toInt())!,
-    status: (json['status'] != null ? ChatSessionStatus.fromJson(json['status'] as String) : null)!,
-    chatkitConfiguration: (json['chatkit_configuration'] != null ? ChatSessionChatkitConfiguration.fromJson(json['chatkit_configuration'] as Map<String, dynamic>) : null)!,
-  );
+  factory ChatSessionResource.fromJson(Map<String, dynamic> json) =>
+      ChatSessionResource(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? ChatSessionResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        expiresAt: ((json['expires_at'] as num?)?.toInt())!,
+        clientSecret: (json['client_secret'] as String?)!,
+        workflow: (json['workflow'] != null
+            ? ChatkitWorkflow.fromJson(json['workflow'] as Map<String, dynamic>)
+            : null)!,
+        user: (json['user'] as String?)!,
+        rateLimits: (json['rate_limits'] != null
+            ? ChatSessionRateLimits.fromJson(
+                json['rate_limits'] as Map<String, dynamic>)
+            : null)!,
+        maxRequestsPer1Minute:
+            ((json['max_requests_per_1_minute'] as num?)?.toInt())!,
+        status: (json['status'] != null
+            ? ChatSessionStatus.fromJson(json['status'] as String)
+            : null)!,
+        chatkitConfiguration: (json['chatkit_configuration'] != null
+            ? ChatSessionChatkitConfiguration.fromJson(
+                json['chatkit_configuration'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'expires_at': expiresAt,
-    'client_secret': clientSecret,
-    'workflow': workflow.toJson(),
-    'user': user,
-    'rate_limits': rateLimits.toJson(),
-    'max_requests_per_1_minute': maxRequestsPer1Minute,
-    'status': status.toJson(),
-    'chatkit_configuration': chatkitConfiguration.toJson(),
-  };
+        'id': id,
+        'object': object.toJson(),
+        'expires_at': expiresAt,
+        'client_secret': clientSecret,
+        'workflow': workflow.toJson(),
+        'user': user,
+        'rate_limits': rateLimits.toJson(),
+        'max_requests_per_1_minute': maxRequestsPer1Minute,
+        'status': status.toJson(),
+        'chatkit_configuration': chatkitConfiguration.toJson(),
+      };
 }

@@ -9,46 +9,66 @@ sealed class BetaContextManagementParamCompactThreshold {
   static const String constructionSurface = 'named';
   const BetaContextManagementParamCompactThreshold();
   factory BetaContextManagementParamCompactThreshold.fromJson(Object? json) {
-    if (json is num) { return BetaContextManagementParamCompactThresholdInt(json.toInt()); }
-    throw FormatException("No variant matched for BetaContextManagementParamCompactThreshold");
+    if (json is num) {
+      return BetaContextManagementParamCompactThresholdInt(json.toInt());
+    }
+    throw FormatException(
+        "No variant matched for BetaContextManagementParamCompactThreshold");
   }
   Object? toJson();
 }
 
-final class BetaContextManagementParamCompactThresholdInt extends BetaContextManagementParamCompactThreshold {
+final class BetaContextManagementParamCompactThresholdInt
+    extends BetaContextManagementParamCompactThreshold {
   final int value;
   const BetaContextManagementParamCompactThresholdInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Typed representation of the `BetaContextManagementParam` API schema.
 class BetaContextManagementParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The context management entry type. Currently only 'compaction' is supported.
   final String type_;
+
   /// Optional API value serialized in the `compact_threshold` wire field.
   final SdkOptional<int?> compactThreshold;
 
-  const BetaContextManagementParam({required this.type_, this.compactThreshold = const SdkOmitted()});
+  const BetaContextManagementParam(
+      {required this.type_, this.compactThreshold = const SdkOmitted()});
 
-  BetaContextManagementParam Function({String type_, SdkOptional<int?> compactThreshold}) get copyWith => _copyWith;
+  BetaContextManagementParam Function(
+      {String type_,
+      SdkOptional<int?> compactThreshold}) get copyWith => _copyWith;
 
-  BetaContextManagementParam _copyWith({Object? type_ = sdkOmittedValue, Object? compactThreshold = sdkOmittedValue}) => BetaContextManagementParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-    compactThreshold: identical(compactThreshold, sdkOmittedValue) ? this.compactThreshold : compactThreshold as SdkOptional<int?>,
-  );
+  BetaContextManagementParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? compactThreshold = sdkOmittedValue}) =>
+      BetaContextManagementParam(
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+        compactThreshold: identical(compactThreshold, sdkOmittedValue)
+            ? this.compactThreshold
+            : compactThreshold as SdkOptional<int?>,
+      );
 
-  factory BetaContextManagementParam.fromJson(Map<String, dynamic> json) => BetaContextManagementParam(
-    type_: (json['type'] as String?)!,
-    compactThreshold: json.containsKey('compact_threshold') ? SdkPresent((json['compact_threshold'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory BetaContextManagementParam.fromJson(Map<String, dynamic> json) =>
+      BetaContextManagementParam(
+        type_: (json['type'] as String?)!,
+        compactThreshold: json.containsKey('compact_threshold')
+            ? SdkPresent((json['compact_threshold'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_,
-    ...switch (compactThreshold) {
-      SdkPresent<int?>(value: final value) => {'compact_threshold': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_,
+        ...switch (compactThreshold) {
+          SdkPresent<int?>(value: final value) => {
+              'compact_threshold': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,32 +8,46 @@ part of 'shared_file.dart';
 class FilePath {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the file path. Always `file_path`.
   final FilePathType type_;
+
   /// The ID of the file.
   final String fileId;
+
   /// The index of the file in the list of files.
   final int index;
 
-  const FilePath({required this.type_, required this.fileId, required this.index});
+  const FilePath(
+      {required this.type_, required this.fileId, required this.index});
 
-  FilePath Function({FilePathType type_, String fileId, int index}) get copyWith => _copyWith;
+  FilePath Function({FilePathType type_, String fileId, int index})
+      get copyWith => _copyWith;
 
-  FilePath _copyWith({Object? type_ = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? index = sdkOmittedValue}) => FilePath(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FilePathType,
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-    index: identical(index, sdkOmittedValue) ? this.index : index as int,
-  );
+  FilePath _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? fileId = sdkOmittedValue,
+          Object? index = sdkOmittedValue}) =>
+      FilePath(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as FilePathType,
+        fileId:
+            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+        index: identical(index, sdkOmittedValue) ? this.index : index as int,
+      );
 
   factory FilePath.fromJson(Map<String, dynamic> json) => FilePath(
-    type_: (json['type'] != null ? FilePathType.fromJson(json['type'] as String) : null)!,
-    fileId: (json['file_id'] as String?)!,
-    index: ((json['index'] as num?)?.toInt())!,
-  );
+        type_: (json['type'] != null
+            ? FilePathType.fromJson(json['type'] as String)
+            : null)!,
+        fileId: (json['file_id'] as String?)!,
+        index: ((json['index'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'file_id': fileId,
-    'index': index,
-  };
+        'type': type_.toJson(),
+        'file_id': fileId,
+        'index': index,
+      };
 }

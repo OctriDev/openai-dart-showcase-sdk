@@ -8,47 +8,86 @@ part of 'misc.dart';
 class ContainerFileCitationParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The citation type. Always `container_file_citation`.
   final ContainerFileCitationParamType type_;
+
   /// The index of the first character of the citation in the message.
   final int startIndex;
+
   /// The index of the last character of the citation in the message.
   final int endIndex;
+
   /// The ID of the container.
   final String containerId;
+
   /// The ID of the container file.
   final String fileId;
+
   /// The filename of the container file cited.
   final String filename;
 
-  const ContainerFileCitationParam({required this.type_, required this.startIndex, required this.endIndex, required this.containerId, required this.fileId, required this.filename});
+  const ContainerFileCitationParam(
+      {required this.type_,
+      required this.startIndex,
+      required this.endIndex,
+      required this.containerId,
+      required this.fileId,
+      required this.filename});
 
-  ContainerFileCitationParam Function({ContainerFileCitationParamType type_, int startIndex, int endIndex, String containerId, String fileId, String filename}) get copyWith => _copyWith;
+  ContainerFileCitationParam Function(
+      {ContainerFileCitationParamType type_,
+      int startIndex,
+      int endIndex,
+      String containerId,
+      String fileId,
+      String filename}) get copyWith => _copyWith;
 
-  ContainerFileCitationParam _copyWith({Object? type_ = sdkOmittedValue, Object? startIndex = sdkOmittedValue, Object? endIndex = sdkOmittedValue, Object? containerId = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? filename = sdkOmittedValue}) => ContainerFileCitationParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContainerFileCitationParamType,
-    startIndex: identical(startIndex, sdkOmittedValue) ? this.startIndex : startIndex as int,
-    endIndex: identical(endIndex, sdkOmittedValue) ? this.endIndex : endIndex as int,
-    containerId: identical(containerId, sdkOmittedValue) ? this.containerId : containerId as String,
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String,
-  );
+  ContainerFileCitationParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? startIndex = sdkOmittedValue,
+          Object? endIndex = sdkOmittedValue,
+          Object? containerId = sdkOmittedValue,
+          Object? fileId = sdkOmittedValue,
+          Object? filename = sdkOmittedValue}) =>
+      ContainerFileCitationParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ContainerFileCitationParamType,
+        startIndex: identical(startIndex, sdkOmittedValue)
+            ? this.startIndex
+            : startIndex as int,
+        endIndex: identical(endIndex, sdkOmittedValue)
+            ? this.endIndex
+            : endIndex as int,
+        containerId: identical(containerId, sdkOmittedValue)
+            ? this.containerId
+            : containerId as String,
+        fileId:
+            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+        filename: identical(filename, sdkOmittedValue)
+            ? this.filename
+            : filename as String,
+      );
 
-  factory ContainerFileCitationParam.fromJson(Map<String, dynamic> json) => ContainerFileCitationParam(
-    type_: (json['type'] != null ? ContainerFileCitationParamType.fromJson(json['type'] as String) : null)!,
-    startIndex: ((json['start_index'] as num?)?.toInt())!,
-    endIndex: ((json['end_index'] as num?)?.toInt())!,
-    containerId: (json['container_id'] as String?)!,
-    fileId: (json['file_id'] as String?)!,
-    filename: (json['filename'] as String?)!,
-  );
+  factory ContainerFileCitationParam.fromJson(Map<String, dynamic> json) =>
+      ContainerFileCitationParam(
+        type_: (json['type'] != null
+            ? ContainerFileCitationParamType.fromJson(json['type'] as String)
+            : null)!,
+        startIndex: ((json['start_index'] as num?)?.toInt())!,
+        endIndex: ((json['end_index'] as num?)?.toInt())!,
+        containerId: (json['container_id'] as String?)!,
+        fileId: (json['file_id'] as String?)!,
+        filename: (json['filename'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'start_index': startIndex,
-    'end_index': endIndex,
-    'container_id': containerId,
-    'file_id': fileId,
-    'filename': filename,
-  };
+        'type': type_.toJson(),
+        'start_index': startIndex,
+        'end_index': endIndex,
+        'container_id': containerId,
+        'file_id': fileId,
+        'filename': filename,
+      };
 }

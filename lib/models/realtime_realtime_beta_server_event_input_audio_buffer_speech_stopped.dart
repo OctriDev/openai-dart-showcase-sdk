@@ -8,37 +8,66 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventInputAudioBufferSpeechStopped {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `input_audio_buffer.speech_stopped`.
   final RealtimeBetaServerEventInputAudioBufferSpeechStoppedType type_;
+
   /// Milliseconds since the session started when speech stopped. This will correspond to the end of audio sent to the model, and thus includes the `min_silence_duration_ms` configured in the Session.
   final int audioEndMs;
+
   /// The ID of the user message item that will be created.
   final String itemId;
 
-  const RealtimeBetaServerEventInputAudioBufferSpeechStopped({required this.eventId, required this.type_, required this.audioEndMs, required this.itemId});
+  const RealtimeBetaServerEventInputAudioBufferSpeechStopped(
+      {required this.eventId,
+      required this.type_,
+      required this.audioEndMs,
+      required this.itemId});
 
-  RealtimeBetaServerEventInputAudioBufferSpeechStopped Function({String eventId, RealtimeBetaServerEventInputAudioBufferSpeechStoppedType type_, int audioEndMs, String itemId}) get copyWith => _copyWith;
+  RealtimeBetaServerEventInputAudioBufferSpeechStopped Function(
+      {String eventId,
+      RealtimeBetaServerEventInputAudioBufferSpeechStoppedType type_,
+      int audioEndMs,
+      String itemId}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventInputAudioBufferSpeechStopped _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? audioEndMs = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeBetaServerEventInputAudioBufferSpeechStopped(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventInputAudioBufferSpeechStoppedType,
-    audioEndMs: identical(audioEndMs, sdkOmittedValue) ? this.audioEndMs : audioEndMs as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
+  RealtimeBetaServerEventInputAudioBufferSpeechStopped _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? audioEndMs = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue}) =>
+      RealtimeBetaServerEventInputAudioBufferSpeechStopped(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaServerEventInputAudioBufferSpeechStoppedType,
+        audioEndMs: identical(audioEndMs, sdkOmittedValue)
+            ? this.audioEndMs
+            : audioEndMs as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+      );
 
-  factory RealtimeBetaServerEventInputAudioBufferSpeechStopped.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventInputAudioBufferSpeechStopped(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeBetaServerEventInputAudioBufferSpeechStoppedType.fromJson(json['type'] as String) : null)!,
-    audioEndMs: ((json['audio_end_ms'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-  );
+  factory RealtimeBetaServerEventInputAudioBufferSpeechStopped.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventInputAudioBufferSpeechStopped(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeBetaServerEventInputAudioBufferSpeechStoppedType.fromJson(
+                json['type'] as String)
+            : null)!,
+        audioEndMs: ((json['audio_end_ms'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'audio_end_ms': audioEndMs,
-    'item_id': itemId,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'audio_end_ms': audioEndMs,
+        'item_id': itemId,
+      };
 }

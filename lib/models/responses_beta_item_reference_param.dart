@@ -9,54 +9,93 @@ sealed class BetaItemReferenceParamType {
   static const String constructionSurface = 'named';
   const BetaItemReferenceParamType();
   factory BetaItemReferenceParamType.fromJson(Object? json) {
-    try { return BetaItemReferenceParamTypeBetaItemReferenceParamTypeVariant0(BetaItemReferenceParamTypeVariant0.fromJson(json as String)); } catch (_) {}
+    try {
+      return BetaItemReferenceParamTypeBetaItemReferenceParamTypeVariant0(
+          BetaItemReferenceParamTypeVariant0.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for BetaItemReferenceParamType");
   }
   Object? toJson();
 }
 
-final class BetaItemReferenceParamTypeBetaItemReferenceParamTypeVariant0 extends BetaItemReferenceParamType {
+final class BetaItemReferenceParamTypeBetaItemReferenceParamTypeVariant0
+    extends BetaItemReferenceParamType {
   final BetaItemReferenceParamTypeVariant0 value;
-  const BetaItemReferenceParamTypeBetaItemReferenceParamTypeVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaItemReferenceParamTypeBetaItemReferenceParamTypeVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// An internal identifier for an item to reference.
 class BetaItemReferenceParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `agent` wire field.
   final SdkOptional<BetaAgentTagParam?> agent;
+
   /// Optional API value serialized in the `type` wire field.
   final SdkOptional<BetaItemReferenceParamTypeVariant0?> type_;
+
   /// The ID of the item to reference.
   final String id;
 
-  const BetaItemReferenceParam({this.agent = const SdkOmitted(), this.type_ = const SdkOmitted(), required this.id});
+  const BetaItemReferenceParam(
+      {this.agent = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      required this.id});
 
-  BetaItemReferenceParam Function({SdkOptional<BetaAgentTagParam?> agent, SdkOptional<BetaItemReferenceParamTypeVariant0?> type_, String id}) get copyWith => _copyWith;
+  BetaItemReferenceParam Function(
+      {SdkOptional<BetaAgentTagParam?> agent,
+      SdkOptional<BetaItemReferenceParamTypeVariant0?> type_,
+      String id}) get copyWith => _copyWith;
 
-  BetaItemReferenceParam _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => BetaItemReferenceParam(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTagParam?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<BetaItemReferenceParamTypeVariant0?>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  BetaItemReferenceParam _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue}) =>
+      BetaItemReferenceParam(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTagParam?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<BetaItemReferenceParamTypeVariant0?>,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory BetaItemReferenceParam.fromJson(Map<String, dynamic> json) => BetaItemReferenceParam(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTagParam.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: json.containsKey('type') ? SdkPresent(json['type'] != null ? BetaItemReferenceParamTypeVariant0.fromJson(json['type'] as String) : null) : const SdkOmitted(),
-    id: (json['id'] as String?)!,
-  );
+  factory BetaItemReferenceParam.fromJson(Map<String, dynamic> json) =>
+      BetaItemReferenceParam(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTagParam.fromJson(
+                    json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: json.containsKey('type')
+            ? SdkPresent(json['type'] != null
+                ? BetaItemReferenceParamTypeVariant0.fromJson(
+                    json['type'] as String)
+                : null)
+            : const SdkOmitted(),
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTagParam?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<BetaItemReferenceParamTypeVariant0?>(value: final value) => {'type': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'id': id,
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTagParam?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<BetaItemReferenceParamTypeVariant0?>(value: final value) =>
+            {
+              'type': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'id': id,
+      };
 }

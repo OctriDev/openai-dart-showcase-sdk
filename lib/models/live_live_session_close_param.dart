@@ -9,46 +9,70 @@ sealed class LiveSessionCloseParamEventId {
   static const String constructionSurface = 'named';
   const LiveSessionCloseParamEventId();
   factory LiveSessionCloseParamEventId.fromJson(Object? json) {
-    if (json is String) { return LiveSessionCloseParamEventIdString(json); }
-    throw FormatException("No variant matched for LiveSessionCloseParamEventId");
+    if (json is String) {
+      return LiveSessionCloseParamEventIdString(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveSessionCloseParamEventId");
   }
   Object? toJson();
 }
 
-final class LiveSessionCloseParamEventIdString extends LiveSessionCloseParamEventId {
+final class LiveSessionCloseParamEventIdString
+    extends LiveSessionCloseParamEventId {
   final String value;
   const LiveSessionCloseParamEventIdString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Request that the Live session close. The terminal `session.closed` event contains the close reason and final usage.
 class LiveSessionCloseParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `event_id` wire field.
   final SdkOptional<String?> eventId;
+
   /// The Live client event type. Always `session.close`.
   final LiveSessionCloseParamType type_;
 
-  const LiveSessionCloseParam({this.eventId = const SdkOmitted(), required this.type_});
+  const LiveSessionCloseParam(
+      {this.eventId = const SdkOmitted(), required this.type_});
 
-  LiveSessionCloseParam Function({SdkOptional<String?> eventId, LiveSessionCloseParamType type_}) get copyWith => _copyWith;
+  LiveSessionCloseParam Function(
+      {SdkOptional<String?> eventId,
+      LiveSessionCloseParamType type_}) get copyWith => _copyWith;
 
-  LiveSessionCloseParam _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => LiveSessionCloseParam(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSessionCloseParamType,
-  );
+  LiveSessionCloseParam _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      LiveSessionCloseParam(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSessionCloseParamType,
+      );
 
-  factory LiveSessionCloseParam.fromJson(Map<String, dynamic> json) => LiveSessionCloseParam(
-    eventId: json.containsKey('event_id') ? SdkPresent(json['event_id'] as String?) : const SdkOmitted(),
-    type_: (json['type'] != null ? LiveSessionCloseParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory LiveSessionCloseParam.fromJson(Map<String, dynamic> json) =>
+      LiveSessionCloseParam(
+        eventId: json.containsKey('event_id')
+            ? SdkPresent(json['event_id'] as String?)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? LiveSessionCloseParamType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String?>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-  };
+        ...switch (eventId) {
+          SdkPresent<String?>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+      };
 }

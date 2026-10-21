@@ -8,37 +8,63 @@ part of 'shared.dart';
 class LogProb {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `token` wire field.
   final String token;
+
   /// Required `number` value serialized in the `logprob` wire field.
   final double logprob;
+
   /// Required array value serialized in the `bytes` wire field.
   final List<int> bytes;
+
   /// Required array value serialized in the `top_logprobs` wire field.
   final List<TopLogProb> topLogprobs;
 
-  const LogProb({required this.token, required this.logprob, required this.bytes, required this.topLogprobs});
+  const LogProb(
+      {required this.token,
+      required this.logprob,
+      required this.bytes,
+      required this.topLogprobs});
 
-  LogProb Function({String token, double logprob, List<int> bytes, List<TopLogProb> topLogprobs}) get copyWith => _copyWith;
+  LogProb Function(
+      {String token,
+      double logprob,
+      List<int> bytes,
+      List<TopLogProb> topLogprobs}) get copyWith => _copyWith;
 
-  LogProb _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? bytes = sdkOmittedValue, Object? topLogprobs = sdkOmittedValue}) => LogProb(
-    token: identical(token, sdkOmittedValue) ? this.token : token as String,
-    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as double,
-    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as List<int>,
-    topLogprobs: identical(topLogprobs, sdkOmittedValue) ? this.topLogprobs : topLogprobs as List<TopLogProb>,
-  );
+  LogProb _copyWith(
+          {Object? token = sdkOmittedValue,
+          Object? logprob = sdkOmittedValue,
+          Object? bytes = sdkOmittedValue,
+          Object? topLogprobs = sdkOmittedValue}) =>
+      LogProb(
+        token: identical(token, sdkOmittedValue) ? this.token : token as String,
+        logprob: identical(logprob, sdkOmittedValue)
+            ? this.logprob
+            : logprob as double,
+        bytes:
+            identical(bytes, sdkOmittedValue) ? this.bytes : bytes as List<int>,
+        topLogprobs: identical(topLogprobs, sdkOmittedValue)
+            ? this.topLogprobs
+            : topLogprobs as List<TopLogProb>,
+      );
 
   factory LogProb.fromJson(Map<String, dynamic> json) => LogProb(
-    token: (json['token'] as String?)!,
-    logprob: ((json['logprob'] as num?)?.toDouble())!,
-    bytes: ((json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList())!,
-    topLogprobs: ((json['top_logprobs'] as List?)?.map((e) => TopLogProb.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+        token: (json['token'] as String?)!,
+        logprob: ((json['logprob'] as num?)?.toDouble())!,
+        bytes: ((json['bytes'] as List?)
+            ?.map((e) => (e as num).toInt())
+            .toList())!,
+        topLogprobs: ((json['top_logprobs'] as List?)
+            ?.map((e) => TopLogProb.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'token': token,
-    'logprob': logprob,
-    'bytes': bytes,
-    'top_logprobs': topLogprobs.map((item) => item.toJson()).toList(),
-  };
+        'token': token,
+        'logprob': logprob,
+        'bytes': bytes,
+        'top_logprobs': topLogprobs.map((item) => item.toJson()).toList(),
+      };
 }

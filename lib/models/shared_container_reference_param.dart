@@ -8,27 +8,42 @@ part of 'shared_container.dart';
 class ContainerReferenceParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// References a container created with the /v1/containers endpoint
   final ContainerReferenceParamType type_;
+
   /// The ID of the referenced container.
   final String containerId;
 
-  const ContainerReferenceParam({required this.type_, required this.containerId});
+  const ContainerReferenceParam(
+      {required this.type_, required this.containerId});
 
-  ContainerReferenceParam Function({ContainerReferenceParamType type_, String containerId}) get copyWith => _copyWith;
+  ContainerReferenceParam Function(
+      {ContainerReferenceParamType type_,
+      String containerId}) get copyWith => _copyWith;
 
-  ContainerReferenceParam _copyWith({Object? type_ = sdkOmittedValue, Object? containerId = sdkOmittedValue}) => ContainerReferenceParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContainerReferenceParamType,
-    containerId: identical(containerId, sdkOmittedValue) ? this.containerId : containerId as String,
-  );
+  ContainerReferenceParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? containerId = sdkOmittedValue}) =>
+      ContainerReferenceParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ContainerReferenceParamType,
+        containerId: identical(containerId, sdkOmittedValue)
+            ? this.containerId
+            : containerId as String,
+      );
 
-  factory ContainerReferenceParam.fromJson(Map<String, dynamic> json) => ContainerReferenceParam(
-    type_: (json['type'] != null ? ContainerReferenceParamType.fromJson(json['type'] as String) : null)!,
-    containerId: (json['container_id'] as String?)!,
-  );
+  factory ContainerReferenceParam.fromJson(Map<String, dynamic> json) =>
+      ContainerReferenceParam(
+        type_: (json['type'] != null
+            ? ContainerReferenceParamType.fromJson(json['type'] as String)
+            : null)!,
+        containerId: (json['container_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'container_id': containerId,
-  };
+        'type': type_.toJson(),
+        'container_id': containerId,
+      };
 }

@@ -8,25 +8,35 @@ part of 'sessions.dart';
 class WorkflowTracingParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether tracing is enabled during the session. Defaults to true.
   final SdkOptional<bool> enabled;
 
   const WorkflowTracingParam({this.enabled = const SdkOmitted()});
 
-  WorkflowTracingParam Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  WorkflowTracingParam Function({SdkOptional<bool> enabled}) get copyWith =>
+      _copyWith;
 
-  WorkflowTracingParam _copyWith({Object? enabled = sdkOmittedValue}) => WorkflowTracingParam(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  WorkflowTracingParam _copyWith({Object? enabled = sdkOmittedValue}) =>
+      WorkflowTracingParam(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory WorkflowTracingParam.fromJson(Map<String, dynamic> json) => WorkflowTracingParam(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory WorkflowTracingParam.fromJson(Map<String, dynamic> json) =>
+      WorkflowTracingParam(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,47 +8,79 @@ part of 'audio.dart';
 class TranscriptTextSegmentEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always `transcript.text.segment`.
   final TranscriptTextSegmentEventType type_;
+
   /// Unique identifier for the segment.
   final String id;
+
   /// Start timestamp of the segment in seconds.
   final double start;
+
   /// End timestamp of the segment in seconds.
   final double end;
+
   /// Transcript text for this segment.
   final String text;
+
   /// Speaker label for this segment.
   final String speaker;
 
-  const TranscriptTextSegmentEvent({required this.type_, required this.id, required this.start, required this.end, required this.text, required this.speaker});
+  const TranscriptTextSegmentEvent(
+      {required this.type_,
+      required this.id,
+      required this.start,
+      required this.end,
+      required this.text,
+      required this.speaker});
 
-  TranscriptTextSegmentEvent Function({TranscriptTextSegmentEventType type_, String id, double start, double end, String text, String speaker}) get copyWith => _copyWith;
+  TranscriptTextSegmentEvent Function(
+      {TranscriptTextSegmentEventType type_,
+      String id,
+      double start,
+      double end,
+      String text,
+      String speaker}) get copyWith => _copyWith;
 
-  TranscriptTextSegmentEvent _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? start = sdkOmittedValue, Object? end = sdkOmittedValue, Object? text = sdkOmittedValue, Object? speaker = sdkOmittedValue}) => TranscriptTextSegmentEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TranscriptTextSegmentEventType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    start: identical(start, sdkOmittedValue) ? this.start : start as double,
-    end: identical(end, sdkOmittedValue) ? this.end : end as double,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    speaker: identical(speaker, sdkOmittedValue) ? this.speaker : speaker as String,
-  );
+  TranscriptTextSegmentEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? start = sdkOmittedValue,
+          Object? end = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? speaker = sdkOmittedValue}) =>
+      TranscriptTextSegmentEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as TranscriptTextSegmentEventType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        start: identical(start, sdkOmittedValue) ? this.start : start as double,
+        end: identical(end, sdkOmittedValue) ? this.end : end as double,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        speaker: identical(speaker, sdkOmittedValue)
+            ? this.speaker
+            : speaker as String,
+      );
 
-  factory TranscriptTextSegmentEvent.fromJson(Map<String, dynamic> json) => TranscriptTextSegmentEvent(
-    type_: (json['type'] != null ? TranscriptTextSegmentEventType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    start: ((json['start'] as num?)?.toDouble())!,
-    end: ((json['end'] as num?)?.toDouble())!,
-    text: (json['text'] as String?)!,
-    speaker: (json['speaker'] as String?)!,
-  );
+  factory TranscriptTextSegmentEvent.fromJson(Map<String, dynamic> json) =>
+      TranscriptTextSegmentEvent(
+        type_: (json['type'] != null
+            ? TranscriptTextSegmentEventType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        start: ((json['start'] as num?)?.toDouble())!,
+        end: ((json['end'] as num?)?.toDouble())!,
+        text: (json['text'] as String?)!,
+        speaker: (json['speaker'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'start': start,
-    'end': end,
-    'text': text,
-    'speaker': speaker,
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'start': start,
+        'end': end,
+        'text': text,
+        'speaker': speaker,
+      };
 }

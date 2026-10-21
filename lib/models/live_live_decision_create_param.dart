@@ -8,27 +8,41 @@ part of 'live_live_decision.dart';
 class LiveDecisionCreateParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `event_id` wire field.
   final String eventId;
+
   /// Required enumerated value serialized in the `type` wire field.
   final LiveDecisionCreateParamType type_;
 
   const LiveDecisionCreateParam({required this.eventId, required this.type_});
 
-  LiveDecisionCreateParam Function({String eventId, LiveDecisionCreateParamType type_}) get copyWith => _copyWith;
+  LiveDecisionCreateParam Function(
+      {String eventId,
+      LiveDecisionCreateParamType type_}) get copyWith => _copyWith;
 
-  LiveDecisionCreateParam _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => LiveDecisionCreateParam(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveDecisionCreateParamType,
-  );
+  LiveDecisionCreateParam _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      LiveDecisionCreateParam(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveDecisionCreateParamType,
+      );
 
-  factory LiveDecisionCreateParam.fromJson(Map<String, dynamic> json) => LiveDecisionCreateParam(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? LiveDecisionCreateParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory LiveDecisionCreateParam.fromJson(Map<String, dynamic> json) =>
+      LiveDecisionCreateParam(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? LiveDecisionCreateParamType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+      };
 }

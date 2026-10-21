@@ -9,8 +9,15 @@ sealed class ResponseSteerInput {
   static const String constructionSurface = 'named';
   const ResponseSteerInput();
   factory ResponseSteerInput.fromJson(Object? json) {
-    if (json is String) { return ResponseSteerInputString(json); }
-    if (json is List) { return ResponseSteerInputListResponseSteerInputItem(json.map((e) => ResponseSteerInputItem.fromJson(e)).toList().cast<ResponseSteerInputItem>()); }
+    if (json is String) {
+      return ResponseSteerInputString(json);
+    }
+    if (json is List) {
+      return ResponseSteerInputListResponseSteerInputItem(json
+          .map((e) => ResponseSteerInputItem.fromJson(e))
+          .toList()
+          .cast<ResponseSteerInputItem>());
+    }
     throw FormatException("No variant matched for ResponseSteerInput");
   }
   Object? toJson();
@@ -19,11 +26,14 @@ sealed class ResponseSteerInput {
 final class ResponseSteerInputString extends ResponseSteerInput {
   final String value;
   const ResponseSteerInputString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class ResponseSteerInputListResponseSteerInputItem extends ResponseSteerInput {
+final class ResponseSteerInputListResponseSteerInputItem
+    extends ResponseSteerInput {
   final List<ResponseSteerInputItem> value;
   const ResponseSteerInputListResponseSteerInputItem(this.value);
-  @override Object? toJson() => value.map((e) => e.toJson()).toList();
+  @override
+  Object? toJson() => value.map((e) => e.toJson()).toList();
 }

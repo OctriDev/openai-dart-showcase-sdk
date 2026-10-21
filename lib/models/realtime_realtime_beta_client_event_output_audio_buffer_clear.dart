@@ -8,30 +8,52 @@ part of 'realtime_realtime_beta_client.dart';
 class RealtimeBetaClientEventOutputAudioBufferClear {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the client event used for error handling.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `output_audio_buffer.clear`.
   final RealtimeBetaClientEventOutputAudioBufferClearType type_;
 
-  const RealtimeBetaClientEventOutputAudioBufferClear({this.eventId = const SdkOmitted(), required this.type_});
+  const RealtimeBetaClientEventOutputAudioBufferClear(
+      {this.eventId = const SdkOmitted(), required this.type_});
 
-  RealtimeBetaClientEventOutputAudioBufferClear Function({SdkOptional<String> eventId, RealtimeBetaClientEventOutputAudioBufferClearType type_}) get copyWith => _copyWith;
+  RealtimeBetaClientEventOutputAudioBufferClear Function(
+          {SdkOptional<String> eventId,
+          RealtimeBetaClientEventOutputAudioBufferClearType type_})
+      get copyWith => _copyWith;
 
-  RealtimeBetaClientEventOutputAudioBufferClear _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeBetaClientEventOutputAudioBufferClear(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaClientEventOutputAudioBufferClearType,
-  );
+  RealtimeBetaClientEventOutputAudioBufferClear _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      RealtimeBetaClientEventOutputAudioBufferClear(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaClientEventOutputAudioBufferClearType,
+      );
 
-  factory RealtimeBetaClientEventOutputAudioBufferClear.fromJson(Map<String, dynamic> json) => RealtimeBetaClientEventOutputAudioBufferClear(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeBetaClientEventOutputAudioBufferClearType.fromJson(json['type'] as String) : null)!,
-  );
+  factory RealtimeBetaClientEventOutputAudioBufferClear.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaClientEventOutputAudioBufferClear(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeBetaClientEventOutputAudioBufferClearType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+      };
 }

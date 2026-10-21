@@ -8,34 +8,73 @@ sealed class RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsIte
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem();
-  factory RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem.fromJson(Object? json) {
+  factory RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem.fromJson(
+      Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(value); } } catch (_) {}
-      try { final value = RunStepDeltaStepDetailsToolCallsCodeOutputImageObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputImageObject(value); } } catch (_) {}
+      try {
+        final value =
+            RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RunStepDeltaStepDetailsToolCallsCodeOutputImageObject.fromJson(
+                json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputImageObject(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputImageObject(RunStepDeltaStepDetailsToolCallsCodeOutputImageObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"logs", "image"}.contains(json["type"])) { return UnknownRunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem(json); }
-    throw FormatException("No variant matched for RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem");
+    try {
+      return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(
+          RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputImageObject(
+          RunStepDeltaStepDetailsToolCallsCodeOutputImageObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"logs", "image"}.contains(json["type"])) {
+      return UnknownRunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem(
+          json);
+    }
+    throw FormatException(
+        "No variant matched for RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem");
   }
   Object? toJson();
 }
 
-final class RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject extends RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
+final class RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject
+    extends RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
   final RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject value;
-  const RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputImageObject extends RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
+final class RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputImageObject
+    extends RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
   final RunStepDeltaStepDetailsToolCallsCodeOutputImageObject value;
-  const RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputImageObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItemRunStepDeltaStepDetailsToolCallsCodeOutputImageObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem extends RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
+final class UnknownRunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem
+    extends RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem {
   final Map<String, dynamic> raw;
-  const UnknownRunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem(this.raw);
-  @override Object? toJson() => raw;
+  const UnknownRunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem(
+      this.raw);
+  @override
+  Object? toJson() => raw;
 }

@@ -10,14 +10,18 @@ enum ResponseConfigurationUpdateItemParamType {
 
   static ResponseConfigurationUpdateItemParamType fromJson(String value) {
     switch (value) {
-      case 'configuration_update': return ResponseConfigurationUpdateItemParamType.configurationUpdate;
-      default: throw ArgumentError('Unknown ResponseConfigurationUpdateItemParamType: $value');
+      case 'configuration_update':
+        return ResponseConfigurationUpdateItemParamType.configurationUpdate;
+      default:
+        throw ArgumentError(
+            'Unknown ResponseConfigurationUpdateItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseConfigurationUpdateItemParamType.configurationUpdate: return 'configuration_update';
+      case ResponseConfigurationUpdateItemParamType.configurationUpdate:
+        return 'configuration_update';
     }
   }
 
@@ -31,14 +35,18 @@ enum ResponseContentPartAddedEventType {
 
   static ResponseContentPartAddedEventType fromJson(String value) {
     switch (value) {
-      case 'response.content_part.added': return ResponseContentPartAddedEventType.responseContentPartAdded;
-      default: throw ArgumentError('Unknown ResponseContentPartAddedEventType: $value');
+      case 'response.content_part.added':
+        return ResponseContentPartAddedEventType.responseContentPartAdded;
+      default:
+        throw ArgumentError(
+            'Unknown ResponseContentPartAddedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseContentPartAddedEventType.responseContentPartAdded: return 'response.content_part.added';
+      case ResponseContentPartAddedEventType.responseContentPartAdded:
+        return 'response.content_part.added';
     }
   }
 
@@ -52,14 +60,17 @@ enum ResponseContentPartDoneEventType {
 
   static ResponseContentPartDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.content_part.done': return ResponseContentPartDoneEventType.responseContentPartDone;
-      default: throw ArgumentError('Unknown ResponseContentPartDoneEventType: $value');
+      case 'response.content_part.done':
+        return ResponseContentPartDoneEventType.responseContentPartDone;
+      default:
+        throw ArgumentError('Unknown ResponseContentPartDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseContentPartDoneEventType.responseContentPartDone: return 'response.content_part.done';
+      case ResponseContentPartDoneEventType.responseContentPartDone:
+        return 'response.content_part.done';
     }
   }
 
@@ -73,14 +84,17 @@ enum ResponseCreatedEventType {
 
   static ResponseCreatedEventType fromJson(String value) {
     switch (value) {
-      case 'response.created': return ResponseCreatedEventType.responseCreated;
-      default: throw ArgumentError('Unknown ResponseCreatedEventType: $value');
+      case 'response.created':
+        return ResponseCreatedEventType.responseCreated;
+      default:
+        throw ArgumentError('Unknown ResponseCreatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseCreatedEventType.responseCreated: return 'response.created';
+      case ResponseCreatedEventType.responseCreated:
+        return 'response.created';
     }
   }
 
@@ -94,14 +108,20 @@ enum ResponseCustomToolCallInputDeltaEventType {
 
   static ResponseCustomToolCallInputDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.custom_tool_call_input.delta': return ResponseCustomToolCallInputDeltaEventType.responseCustomToolCallInputDelta;
-      default: throw ArgumentError('Unknown ResponseCustomToolCallInputDeltaEventType: $value');
+      case 'response.custom_tool_call_input.delta':
+        return ResponseCustomToolCallInputDeltaEventType
+            .responseCustomToolCallInputDelta;
+      default:
+        throw ArgumentError(
+            'Unknown ResponseCustomToolCallInputDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseCustomToolCallInputDeltaEventType.responseCustomToolCallInputDelta: return 'response.custom_tool_call_input.delta';
+      case ResponseCustomToolCallInputDeltaEventType
+            .responseCustomToolCallInputDelta:
+        return 'response.custom_tool_call_input.delta';
     }
   }
 
@@ -115,14 +135,20 @@ enum ResponseCustomToolCallInputDoneEventType {
 
   static ResponseCustomToolCallInputDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.custom_tool_call_input.done': return ResponseCustomToolCallInputDoneEventType.responseCustomToolCallInputDone;
-      default: throw ArgumentError('Unknown ResponseCustomToolCallInputDoneEventType: $value');
+      case 'response.custom_tool_call_input.done':
+        return ResponseCustomToolCallInputDoneEventType
+            .responseCustomToolCallInputDone;
+      default:
+        throw ArgumentError(
+            'Unknown ResponseCustomToolCallInputDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseCustomToolCallInputDoneEventType.responseCustomToolCallInputDone: return 'response.custom_tool_call_input.done';
+      case ResponseCustomToolCallInputDoneEventType
+            .responseCustomToolCallInputDone:
+        return 'response.custom_tool_call_input.done';
     }
   }
 
@@ -136,14 +162,17 @@ enum ResponseErrorEventType {
 
   static ResponseErrorEventType fromJson(String value) {
     switch (value) {
-      case 'error': return ResponseErrorEventType.error;
-      default: throw ArgumentError('Unknown ResponseErrorEventType: $value');
+      case 'error':
+        return ResponseErrorEventType.error;
+      default:
+        throw ArgumentError('Unknown ResponseErrorEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseErrorEventType.error: return 'error';
+      case ResponseErrorEventType.error:
+        return 'error';
     }
   }
 
@@ -157,14 +186,17 @@ enum ResponseFailedEventType {
 
   static ResponseFailedEventType fromJson(String value) {
     switch (value) {
-      case 'response.failed': return ResponseFailedEventType.responseFailed;
-      default: throw ArgumentError('Unknown ResponseFailedEventType: $value');
+      case 'response.failed':
+        return ResponseFailedEventType.responseFailed;
+      default:
+        throw ArgumentError('Unknown ResponseFailedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseFailedEventType.responseFailed: return 'response.failed';
+      case ResponseFailedEventType.responseFailed:
+        return 'response.failed';
     }
   }
 
@@ -178,14 +210,20 @@ enum ResponseFileSearchCallCompletedEventType {
 
   static ResponseFileSearchCallCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.file_search_call.completed': return ResponseFileSearchCallCompletedEventType.responseFileSearchCallCompleted;
-      default: throw ArgumentError('Unknown ResponseFileSearchCallCompletedEventType: $value');
+      case 'response.file_search_call.completed':
+        return ResponseFileSearchCallCompletedEventType
+            .responseFileSearchCallCompleted;
+      default:
+        throw ArgumentError(
+            'Unknown ResponseFileSearchCallCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseFileSearchCallCompletedEventType.responseFileSearchCallCompleted: return 'response.file_search_call.completed';
+      case ResponseFileSearchCallCompletedEventType
+            .responseFileSearchCallCompleted:
+        return 'response.file_search_call.completed';
     }
   }
 
@@ -199,14 +237,20 @@ enum ResponseFileSearchCallInProgressEventType {
 
   static ResponseFileSearchCallInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.file_search_call.in_progress': return ResponseFileSearchCallInProgressEventType.responseFileSearchCallInProgress;
-      default: throw ArgumentError('Unknown ResponseFileSearchCallInProgressEventType: $value');
+      case 'response.file_search_call.in_progress':
+        return ResponseFileSearchCallInProgressEventType
+            .responseFileSearchCallInProgress;
+      default:
+        throw ArgumentError(
+            'Unknown ResponseFileSearchCallInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseFileSearchCallInProgressEventType.responseFileSearchCallInProgress: return 'response.file_search_call.in_progress';
+      case ResponseFileSearchCallInProgressEventType
+            .responseFileSearchCallInProgress:
+        return 'response.file_search_call.in_progress';
     }
   }
 
@@ -220,14 +264,20 @@ enum ResponseFileSearchCallSearchingEventType {
 
   static ResponseFileSearchCallSearchingEventType fromJson(String value) {
     switch (value) {
-      case 'response.file_search_call.searching': return ResponseFileSearchCallSearchingEventType.responseFileSearchCallSearching;
-      default: throw ArgumentError('Unknown ResponseFileSearchCallSearchingEventType: $value');
+      case 'response.file_search_call.searching':
+        return ResponseFileSearchCallSearchingEventType
+            .responseFileSearchCallSearching;
+      default:
+        throw ArgumentError(
+            'Unknown ResponseFileSearchCallSearchingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseFileSearchCallSearchingEventType.responseFileSearchCallSearching: return 'response.file_search_call.searching';
+      case ResponseFileSearchCallSearchingEventType
+            .responseFileSearchCallSearching:
+        return 'response.file_search_call.searching';
     }
   }
 
@@ -241,14 +291,17 @@ enum ResponseFormatJsonObjectType {
 
   static ResponseFormatJsonObjectType fromJson(String value) {
     switch (value) {
-      case 'json_object': return ResponseFormatJsonObjectType.jsonObject;
-      default: throw ArgumentError('Unknown ResponseFormatJsonObjectType: $value');
+      case 'json_object':
+        return ResponseFormatJsonObjectType.jsonObject;
+      default:
+        throw ArgumentError('Unknown ResponseFormatJsonObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseFormatJsonObjectType.jsonObject: return 'json_object';
+      case ResponseFormatJsonObjectType.jsonObject:
+        return 'json_object';
     }
   }
 
@@ -262,14 +315,17 @@ enum ResponseFormatJsonSchemaType {
 
   static ResponseFormatJsonSchemaType fromJson(String value) {
     switch (value) {
-      case 'json_schema': return ResponseFormatJsonSchemaType.jsonSchema;
-      default: throw ArgumentError('Unknown ResponseFormatJsonSchemaType: $value');
+      case 'json_schema':
+        return ResponseFormatJsonSchemaType.jsonSchema;
+      default:
+        throw ArgumentError('Unknown ResponseFormatJsonSchemaType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ResponseFormatJsonSchemaType.jsonSchema: return 'json_schema';
+      case ResponseFormatJsonSchemaType.jsonSchema:
+        return 'json_schema';
     }
   }
 

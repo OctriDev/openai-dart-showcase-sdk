@@ -8,42 +8,80 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventResponseOutputItemDone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `response.output_item.done`.
   final RealtimeServerEventResponseOutputItemDoneType type_;
+
   /// The ID of the Response to which the item belongs.
   final String responseId;
+
   /// The index of the output item in the Response.
   final int outputIndex;
+
   /// A single item within a Realtime conversation.
   final RealtimeConversationItem item;
 
-  const RealtimeServerEventResponseOutputItemDone({required this.eventId, required this.type_, required this.responseId, required this.outputIndex, required this.item});
+  const RealtimeServerEventResponseOutputItemDone(
+      {required this.eventId,
+      required this.type_,
+      required this.responseId,
+      required this.outputIndex,
+      required this.item});
 
-  RealtimeServerEventResponseOutputItemDone Function({String eventId, RealtimeServerEventResponseOutputItemDoneType type_, String responseId, int outputIndex, RealtimeConversationItem item}) get copyWith => _copyWith;
+  RealtimeServerEventResponseOutputItemDone Function(
+      {String eventId,
+      RealtimeServerEventResponseOutputItemDoneType type_,
+      String responseId,
+      int outputIndex,
+      RealtimeConversationItem item}) get copyWith => _copyWith;
 
-  RealtimeServerEventResponseOutputItemDone _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? item = sdkOmittedValue}) => RealtimeServerEventResponseOutputItemDone(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventResponseOutputItemDoneType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    item: identical(item, sdkOmittedValue) ? this.item : item as RealtimeConversationItem,
-  );
+  RealtimeServerEventResponseOutputItemDone _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? item = sdkOmittedValue}) =>
+      RealtimeServerEventResponseOutputItemDone(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeServerEventResponseOutputItemDoneType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        item: identical(item, sdkOmittedValue)
+            ? this.item
+            : item as RealtimeConversationItem,
+      );
 
-  factory RealtimeServerEventResponseOutputItemDone.fromJson(Map<String, dynamic> json) => RealtimeServerEventResponseOutputItemDone(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventResponseOutputItemDoneType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    item: (json['item'] != null ? RealtimeConversationItem.fromJson(json['item']) : null)!,
-  );
+  factory RealtimeServerEventResponseOutputItemDone.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeServerEventResponseOutputItemDone(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeServerEventResponseOutputItemDoneType.fromJson(
+                json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        item: (json['item'] != null
+            ? RealtimeConversationItem.fromJson(json['item'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'output_index': outputIndex,
-    'item': item.toJson(),
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'output_index': outputIndex,
+        'item': item.toJson(),
+      };
 }

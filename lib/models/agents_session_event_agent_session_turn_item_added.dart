@@ -8,47 +8,97 @@ part of 'agents_session_event.dart';
 class SessionEventAgentSessionTurnItemAdded {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `agent.session.turn.item.added`.
   final SessionEventAgentSessionTurnItemAddedType type_;
+
   /// The unique ID of the event.
   final String eventId;
+
   /// The ID of the session associated with the event.
   final String sessionId;
+
   /// The ID of the turn associated with the event, when applicable.
   final String? turnId;
+
   /// The index of the item in the turn output, when the item is agent output.
   final int? outputIndex;
+
   /// The item that was added.
   final SessionTurnItemResource item;
 
-  const SessionEventAgentSessionTurnItemAdded({required this.type_, required this.eventId, required this.sessionId, required this.turnId, required this.outputIndex, required this.item});
+  const SessionEventAgentSessionTurnItemAdded(
+      {required this.type_,
+      required this.eventId,
+      required this.sessionId,
+      required this.turnId,
+      required this.outputIndex,
+      required this.item});
 
-  SessionEventAgentSessionTurnItemAdded Function({SessionEventAgentSessionTurnItemAddedType type_, String eventId, String sessionId, String? turnId, int? outputIndex, SessionTurnItemResource item}) get copyWith => _copyWith;
+  SessionEventAgentSessionTurnItemAdded Function(
+      {SessionEventAgentSessionTurnItemAddedType type_,
+      String eventId,
+      String sessionId,
+      String? turnId,
+      int? outputIndex,
+      SessionTurnItemResource item}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionTurnItemAdded _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? item = sdkOmittedValue}) => SessionEventAgentSessionTurnItemAdded(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionTurnItemAddedType,
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String?,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int?,
-    item: identical(item, sdkOmittedValue) ? this.item : item as SessionTurnItemResource,
-  );
+  SessionEventAgentSessionTurnItemAdded _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? eventId = sdkOmittedValue,
+          Object? sessionId = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? item = sdkOmittedValue}) =>
+      SessionEventAgentSessionTurnItemAdded(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SessionEventAgentSessionTurnItemAddedType,
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        sessionId: identical(sessionId, sdkOmittedValue)
+            ? this.sessionId
+            : sessionId as String,
+        turnId: identical(turnId, sdkOmittedValue)
+            ? this.turnId
+            : turnId as String?,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int?,
+        item: identical(item, sdkOmittedValue)
+            ? this.item
+            : item as SessionTurnItemResource,
+      );
 
-  factory SessionEventAgentSessionTurnItemAdded.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionTurnItemAdded(
-    type_: (json['type'] != null ? SessionEventAgentSessionTurnItemAddedType.fromJson(json['type'] as String) : null)!,
-    eventId: (json['event_id'] as String?)!,
-    sessionId: (json['session_id'] as String?)!,
-    turnId: json.containsKey('turn_id') ? json['turn_id'] as String? : throw ArgumentError.value(null, 'turn_id', 'Required property is missing'),
-    outputIndex: json.containsKey('output_index') ? (json['output_index'] as num?)?.toInt() : throw ArgumentError.value(null, 'output_index', 'Required property is missing'),
-    item: (json['item'] != null ? SessionTurnItemResource.fromJson(json['item']) : null)!,
-  );
+  factory SessionEventAgentSessionTurnItemAdded.fromJson(
+          Map<String, dynamic> json) =>
+      SessionEventAgentSessionTurnItemAdded(
+        type_: (json['type'] != null
+            ? SessionEventAgentSessionTurnItemAddedType.fromJson(
+                json['type'] as String)
+            : null)!,
+        eventId: (json['event_id'] as String?)!,
+        sessionId: (json['session_id'] as String?)!,
+        turnId: json.containsKey('turn_id')
+            ? json['turn_id'] as String?
+            : throw ArgumentError.value(
+                null, 'turn_id', 'Required property is missing'),
+        outputIndex: json.containsKey('output_index')
+            ? (json['output_index'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'output_index', 'Required property is missing'),
+        item: (json['item'] != null
+            ? SessionTurnItemResource.fromJson(json['item'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'event_id': eventId,
-    'session_id': sessionId,
-    'turn_id': turnId,
-    'output_index': outputIndex,
-    'item': item.toJson(),
-  };
+        'type': type_.toJson(),
+        'event_id': eventId,
+        'session_id': sessionId,
+        'turn_id': turnId,
+        'output_index': outputIndex,
+        'item': item.toJson(),
+      };
 }

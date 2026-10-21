@@ -8,6 +8,7 @@ part of 'videos.dart';
 class VideoReferenceInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The identifier of the completed video.
   final String id;
 
@@ -15,15 +16,17 @@ class VideoReferenceInputParam {
 
   VideoReferenceInputParam Function({String id}) get copyWith => _copyWith;
 
-  VideoReferenceInputParam _copyWith({Object? id = sdkOmittedValue}) => VideoReferenceInputParam(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  VideoReferenceInputParam _copyWith({Object? id = sdkOmittedValue}) =>
+      VideoReferenceInputParam(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory VideoReferenceInputParam.fromJson(Map<String, dynamic> json) => VideoReferenceInputParam(
-    id: (json['id'] as String?)!,
-  );
+  factory VideoReferenceInputParam.fromJson(Map<String, dynamic> json) =>
+      VideoReferenceInputParam(
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }

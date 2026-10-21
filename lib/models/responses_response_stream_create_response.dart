@@ -8,25 +8,36 @@ part of 'responses_response_stream.dart';
 class ResponseStreamOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// When true, stream obfuscation will be enabled. Stream obfuscation adds random characters to an `obfuscation` field on streaming delta events to normalize payload sizes as a mitigation to certain side-channel attacks. These obfuscation fields are included by default, but add a small amount of overhead to the data stream. You can set `include_obfuscation` to false to optimize for bandwidth if you trust the network links between your application and the OpenAI API.
   final SdkOptional<bool> includeObfuscation;
 
   const ResponseStreamOptions({this.includeObfuscation = const SdkOmitted()});
 
-  ResponseStreamOptions Function({SdkOptional<bool> includeObfuscation}) get copyWith => _copyWith;
+  ResponseStreamOptions Function({SdkOptional<bool> includeObfuscation})
+      get copyWith => _copyWith;
 
-  ResponseStreamOptions _copyWith({Object? includeObfuscation = sdkOmittedValue}) => ResponseStreamOptions(
-    includeObfuscation: identical(includeObfuscation, sdkOmittedValue) ? this.includeObfuscation : includeObfuscation as SdkOptional<bool>,
-  );
+  ResponseStreamOptions _copyWith(
+          {Object? includeObfuscation = sdkOmittedValue}) =>
+      ResponseStreamOptions(
+        includeObfuscation: identical(includeObfuscation, sdkOmittedValue)
+            ? this.includeObfuscation
+            : includeObfuscation as SdkOptional<bool>,
+      );
 
-  factory ResponseStreamOptions.fromJson(Map<String, dynamic> json) => ResponseStreamOptions(
-    includeObfuscation: json['include_obfuscation'] != null ? SdkPresent((json['include_obfuscation'] as bool?)!) : const SdkOmitted(),
-  );
+  factory ResponseStreamOptions.fromJson(Map<String, dynamic> json) =>
+      ResponseStreamOptions(
+        includeObfuscation: json['include_obfuscation'] != null
+            ? SdkPresent((json['include_obfuscation'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (includeObfuscation) {
-      SdkPresent<bool>(value: final value) => {'include_obfuscation': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (includeObfuscation) {
+          SdkPresent<bool>(value: final value) => {
+              'include_obfuscation': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

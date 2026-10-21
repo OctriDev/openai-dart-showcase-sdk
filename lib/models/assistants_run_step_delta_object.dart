@@ -8,59 +8,95 @@ part of 'assistants_run.dart';
 class RunStepDeltaObjectDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The details of the run step.
   final SdkOptional<RunStepDeltaObjectDeltaStepDetails> stepDetails;
 
   const RunStepDeltaObjectDelta({this.stepDetails = const SdkOmitted()});
 
-  RunStepDeltaObjectDelta Function({SdkOptional<RunStepDeltaObjectDeltaStepDetails> stepDetails}) get copyWith => _copyWith;
+  RunStepDeltaObjectDelta Function(
+          {SdkOptional<RunStepDeltaObjectDeltaStepDetails> stepDetails})
+      get copyWith => _copyWith;
 
-  RunStepDeltaObjectDelta _copyWith({Object? stepDetails = sdkOmittedValue}) => RunStepDeltaObjectDelta(
-    stepDetails: identical(stepDetails, sdkOmittedValue) ? this.stepDetails : stepDetails as SdkOptional<RunStepDeltaObjectDeltaStepDetails>,
-  );
+  RunStepDeltaObjectDelta _copyWith({Object? stepDetails = sdkOmittedValue}) =>
+      RunStepDeltaObjectDelta(
+        stepDetails: identical(stepDetails, sdkOmittedValue)
+            ? this.stepDetails
+            : stepDetails as SdkOptional<RunStepDeltaObjectDeltaStepDetails>,
+      );
 
-  factory RunStepDeltaObjectDelta.fromJson(Map<String, dynamic> json) => RunStepDeltaObjectDelta(
-    stepDetails: json['step_details'] != null ? SdkPresent((json['step_details'] != null ? RunStepDeltaObjectDeltaStepDetails.fromJson(json['step_details']) : null)!) : const SdkOmitted(),
-  );
+  factory RunStepDeltaObjectDelta.fromJson(Map<String, dynamic> json) =>
+      RunStepDeltaObjectDelta(
+        stepDetails: json['step_details'] != null
+            ? SdkPresent((json['step_details'] != null
+                ? RunStepDeltaObjectDeltaStepDetails.fromJson(
+                    json['step_details'])
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (stepDetails) {
-      SdkPresent<RunStepDeltaObjectDeltaStepDetails>(value: final value) => {'step_details': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (stepDetails) {
+          SdkPresent<RunStepDeltaObjectDeltaStepDetails>(value: final value) =>
+            {
+              'step_details': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Represents a run step delta i.e. any changed fields on a run step during streaming.
 class RunStepDeltaObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The identifier of the run step, which can be referenced in API endpoints.
   final String id;
+
   /// The object type, which is always `thread.run.step.delta`.
   final RunStepDeltaObjectObject object;
+
   /// The delta containing the fields that have changed on the run step.
   final RunStepDeltaObjectDelta delta;
 
-  const RunStepDeltaObject({required this.id, required this.object, required this.delta});
+  const RunStepDeltaObject(
+      {required this.id, required this.object, required this.delta});
 
-  RunStepDeltaObject Function({String id, RunStepDeltaObjectObject object, RunStepDeltaObjectDelta delta}) get copyWith => _copyWith;
+  RunStepDeltaObject Function(
+      {String id,
+      RunStepDeltaObjectObject object,
+      RunStepDeltaObjectDelta delta}) get copyWith => _copyWith;
 
-  RunStepDeltaObject _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? delta = sdkOmittedValue}) => RunStepDeltaObject(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as RunStepDeltaObjectObject,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as RunStepDeltaObjectDelta,
-  );
+  RunStepDeltaObject _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? delta = sdkOmittedValue}) =>
+      RunStepDeltaObject(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as RunStepDeltaObjectObject,
+        delta: identical(delta, sdkOmittedValue)
+            ? this.delta
+            : delta as RunStepDeltaObjectDelta,
+      );
 
-  factory RunStepDeltaObject.fromJson(Map<String, dynamic> json) => RunStepDeltaObject(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? RunStepDeltaObjectObject.fromJson(json['object'] as String) : null)!,
-    delta: (json['delta'] != null ? RunStepDeltaObjectDelta.fromJson(json['delta'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStepDeltaObject.fromJson(Map<String, dynamic> json) =>
+      RunStepDeltaObject(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? RunStepDeltaObjectObject.fromJson(json['object'] as String)
+            : null)!,
+        delta: (json['delta'] != null
+            ? RunStepDeltaObjectDelta.fromJson(
+                json['delta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'delta': delta.toJson(),
-  };
+        'id': id,
+        'object': object.toJson(),
+        'delta': delta.toJson(),
+      };
 }

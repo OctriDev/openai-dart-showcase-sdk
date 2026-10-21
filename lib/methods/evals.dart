@@ -25,20 +25,26 @@ Future<EvalList> listEvals(ClientConfig config,
   return (await sdkRequest<EvalList>('GET', '/evals',
           config: config,
           query: {
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true)
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listEvals',
-          fromJsonRaw: (value) => EvalList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EvalList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists evaluations for a project. Use `after` to continue from a previous result and set `order` and `order_by` to control how evaluations are sorted.
 ///
@@ -50,23 +56,57 @@ Future<EvalList> listEvals(ClientConfig config,
 ///   `desc` for descending order.
 /// [orderBy] Evals can be ordered by creation time or last updated time. Use
 ///   `created_at` for creation time or `updated_at` for last updated time.
-Stream<Eval> listEvalsPaginated(ClientConfig config, {String? after, int? limit, ListEvalsOrder? order, ListEvalsOrderBy? orderBy, RequestOptions? requestOptions}) async* {
+Stream<Eval> listEvalsPaginated(ClientConfig config,
+    {String? after,
+    int? limit,
+    ListEvalsOrder? order,
+    ListEvalsOrderBy? orderBy,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listEvals(config, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListEvalsOrder>() : SdkPresent<ListEvalsOrder>(order), orderBy: orderBy == null ? const SdkOmitted<ListEvalsOrderBy>() : SdkPresent<ListEvalsOrderBy>(orderBy), requestOptions: requestOptions);
+    final sdkPage = await listEvals(config,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListEvalsOrder>()
+            : SdkPresent<ListEvalsOrder>(order),
+        orderBy: orderBy == null
+            ? const SdkOmitted<ListEvalsOrderBy>()
+            : SdkPresent<ListEvalsOrderBy>(orderBy),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<EvalList, Eval>> listEvalsPages(ClientConfig config, {String? after, int? limit, ListEvalsOrder? order, ListEvalsOrderBy? orderBy, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<EvalList, Eval>> listEvalsPages(ClientConfig config,
+    {String? after,
+    int? limit,
+    ListEvalsOrder? order,
+    ListEvalsOrderBy? orderBy,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listEvals(config, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListEvalsOrder>() : SdkPresent<ListEvalsOrder>(order), orderBy: orderBy == null ? const SdkOmitted<ListEvalsOrderBy>() : SdkPresent<ListEvalsOrderBy>(orderBy), requestOptions: requestOptions);
+    final sdkPage = await listEvals(config,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListEvalsOrder>()
+            : SdkPresent<ListEvalsOrder>(order),
+        orderBy: orderBy == null
+            ? const SdkOmitted<ListEvalsOrderBy>()
+            : SdkPresent<ListEvalsOrderBy>(orderBy),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -76,7 +116,6 @@ Stream<SdkPage<EvalList, Eval>> listEvalsPages(ClientConfig config, {String? aft
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates an evaluation with a data source configuration and testing criteria for assessing model performance. Supply `data_source_config` to define the evaluation data and `testing_criteria` to specify the graders; `name` and `metadata` are optional. Run the evaluation against models and model configurations by creating an evaluation run.
 ///
@@ -112,10 +151,14 @@ Future<Eval> createEval(ClientConfig config,
           operationId: 'createEval',
           fromJsonRaw: (value) => Eval.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves an evaluation by its identifier. Use this endpoint to inspect the evaluation's name, data source configuration, and testing criteria before creating a run or updating the evaluation.
 ///
@@ -131,10 +174,12 @@ Future<Eval> getEval(ClientConfig config,
           operationId: 'getEval',
           fromJsonRaw: (value) => Eval.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates an evaluation's name or metadata. Supply either or both fields to change the corresponding evaluation properties; the request does not replace the data source configuration or testing criteria.
 ///
@@ -163,10 +208,16 @@ Future<Eval> updateEval(ClientConfig config,
           operationId: 'updateEval',
           fromJsonRaw: (value) => Eval.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes an evaluation. Use this operation to remove an evaluation that you no longer need; deletion is unavailable while the evaluation has unfinished runs.
 ///
@@ -180,12 +231,16 @@ Future<DeleteEvalResponse> deleteEval(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteEval',
-          fromJsonRaw: (value) => DeleteEvalResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteEvalResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists runs for a specified evaluation, with optional cursor pagination, ordering, and status filtering. Use `after` to continue from a run in a previous response, and use `status` to limit results to runs in a particular state.
 ///
@@ -209,20 +264,30 @@ Future<EvalRunList> getEvalRuns(ClientConfig config,
           'GET', '/evals/${Uri.encodeComponent(evalId.toString())}/runs',
           config: config,
           query: {
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true)
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getEvalRuns',
-          fromJsonRaw: (value) => EvalRunList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EvalRunList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists runs for a specified evaluation, with optional cursor pagination, ordering, and status filtering. Use `after` to continue from a run in a previous response, and use `status` to limit results to runs in a particular state.
 ///
@@ -235,23 +300,61 @@ Future<EvalRunList> getEvalRuns(ClientConfig config,
 ///   `desc` for descending order. Defaults to `asc`.
 /// [status] Filter runs by status. One of `queued` | `in_progress` | `failed` |
 ///   `completed` | `canceled`.
-Stream<EvalRun> getEvalRunsPaginated(ClientConfig config, {required String evalId, String? after, int? limit, GetEvalRunsOrder? order, GetEvalRunsStatus? status, RequestOptions? requestOptions}) async* {
+Stream<EvalRun> getEvalRunsPaginated(ClientConfig config,
+    {required String evalId,
+    String? after,
+    int? limit,
+    GetEvalRunsOrder? order,
+    GetEvalRunsStatus? status,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await getEvalRuns(config, evalId: evalId, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<GetEvalRunsOrder>() : SdkPresent<GetEvalRunsOrder>(order), status: status == null ? const SdkOmitted<GetEvalRunsStatus>() : SdkPresent<GetEvalRunsStatus>(status), requestOptions: requestOptions);
+    final sdkPage = await getEvalRuns(config,
+        evalId: evalId,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<GetEvalRunsOrder>()
+            : SdkPresent<GetEvalRunsOrder>(order),
+        status: status == null
+            ? const SdkOmitted<GetEvalRunsStatus>()
+            : SdkPresent<GetEvalRunsStatus>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<EvalRunList, EvalRun>> getEvalRunsPages(ClientConfig config, {required String evalId, String? after, int? limit, GetEvalRunsOrder? order, GetEvalRunsStatus? status, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<EvalRunList, EvalRun>> getEvalRunsPages(ClientConfig config,
+    {required String evalId,
+    String? after,
+    int? limit,
+    GetEvalRunsOrder? order,
+    GetEvalRunsStatus? status,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await getEvalRuns(config, evalId: evalId, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<GetEvalRunsOrder>() : SdkPresent<GetEvalRunsOrder>(order), status: status == null ? const SdkOmitted<GetEvalRunsStatus>() : SdkPresent<GetEvalRunsStatus>(status), requestOptions: requestOptions);
+    final sdkPage = await getEvalRuns(config,
+        evalId: evalId,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<GetEvalRunsOrder>()
+            : SdkPresent<GetEvalRunsOrder>(order),
+        status: status == null
+            ? const SdkOmitted<GetEvalRunsStatus>()
+            : SdkPresent<GetEvalRunsStatus>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -261,7 +364,6 @@ Stream<SdkPage<EvalRunList, EvalRun>> getEvalRunsPages(ClientConfig config, {req
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates and starts a run for an evaluation using a specified data source and model configuration. The run's data source is validated against the schema defined by the evaluation; provide `data_source` in one of the supported formats. Use the returned run identifier to monitor the evaluation run.
 ///
@@ -291,12 +393,21 @@ Future<EvalRun> createEvalRun(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createEvalRun',
-          fromJsonRaw: (value) => EvalRun.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EvalRun.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a specific run for an evaluation. Use this endpoint to inspect the run's status, results, report URL, and usage details after creating or canceling a run.
 ///
@@ -313,12 +424,16 @@ Future<EvalRun> getEvalRun(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getEvalRun',
-          fromJsonRaw: (value) => EvalRun.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EvalRun.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Deletes a run from an evaluation. Use this endpoint to remove a finished run; a run cannot be deleted while it is still in progress.
 ///
@@ -335,12 +450,16 @@ Future<DeleteEvalRunResponse> deleteEvalRun(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteEvalRun',
-          fromJsonRaw: (value) => DeleteEvalRunResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteEvalRunResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Cancels an ongoing evaluation run. Use this endpoint to stop a run that is still in progress; the response contains the canceled run object.
 ///
@@ -359,10 +478,11 @@ Future<EvalRun> cancelEvalRun(ClientConfig config,
           operationId: 'cancelEvalRun',
           fromJsonRaw: (value) => EvalRun.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists output items for a specific evaluation run, with optional cursor pagination, status filtering, and timestamp ordering. Use `after` to continue from a previous response and `status` to view only passing or failing output items.
 ///
@@ -389,20 +509,30 @@ Future<EvalRunOutputItemList> getEvalRunOutputItems(ClientConfig config,
           '/evals/${Uri.encodeComponent(evalId.toString())}/runs/${Uri.encodeComponent(runId.toString())}/output_items',
           config: config,
           query: {
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getEvalRunOutputItems',
-          fromJsonRaw: (value) => EvalRunOutputItemList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EvalRunOutputItemList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists output items for a specific evaluation run, with optional cursor pagination, status filtering, and timestamp ordering. Use `after` to continue from a previous response and `status` to view only passing or failing output items.
 ///
@@ -417,23 +547,66 @@ Future<EvalRunOutputItemList> getEvalRunOutputItems(ClientConfig config,
 ///   output items or `pass` to filter by passed output items.
 /// [order] Sort order for output items by timestamp. Use `asc` for ascending
 ///   order or `desc` for descending order. Defaults to `asc`.
-Stream<EvalRunOutputItem> getEvalRunOutputItemsPaginated(ClientConfig config, {required String evalId, required String runId, String? after, int? limit, GetEvalRunOutputItemsStatus? status, GetEvalRunOutputItemsOrder? order, RequestOptions? requestOptions}) async* {
+Stream<EvalRunOutputItem> getEvalRunOutputItemsPaginated(ClientConfig config,
+    {required String evalId,
+    required String runId,
+    String? after,
+    int? limit,
+    GetEvalRunOutputItemsStatus? status,
+    GetEvalRunOutputItemsOrder? order,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await getEvalRunOutputItems(config, evalId: evalId, runId: runId, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), status: status == null ? const SdkOmitted<GetEvalRunOutputItemsStatus>() : SdkPresent<GetEvalRunOutputItemsStatus>(status), order: order == null ? const SdkOmitted<GetEvalRunOutputItemsOrder>() : SdkPresent<GetEvalRunOutputItemsOrder>(order), requestOptions: requestOptions);
+    final sdkPage = await getEvalRunOutputItems(config,
+        evalId: evalId,
+        runId: runId,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        status: status == null
+            ? const SdkOmitted<GetEvalRunOutputItemsStatus>()
+            : SdkPresent<GetEvalRunOutputItemsStatus>(status),
+        order: order == null
+            ? const SdkOmitted<GetEvalRunOutputItemsOrder>()
+            : SdkPresent<GetEvalRunOutputItemsOrder>(order),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<EvalRunOutputItemList, EvalRunOutputItem>> getEvalRunOutputItemsPages(ClientConfig config, {required String evalId, required String runId, String? after, int? limit, GetEvalRunOutputItemsStatus? status, GetEvalRunOutputItemsOrder? order, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<EvalRunOutputItemList, EvalRunOutputItem>>
+    getEvalRunOutputItemsPages(ClientConfig config,
+        {required String evalId,
+        required String runId,
+        String? after,
+        int? limit,
+        GetEvalRunOutputItemsStatus? status,
+        GetEvalRunOutputItemsOrder? order,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await getEvalRunOutputItems(config, evalId: evalId, runId: runId, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), status: status == null ? const SdkOmitted<GetEvalRunOutputItemsStatus>() : SdkPresent<GetEvalRunOutputItemsStatus>(status), order: order == null ? const SdkOmitted<GetEvalRunOutputItemsOrder>() : SdkPresent<GetEvalRunOutputItemsOrder>(order), requestOptions: requestOptions);
+    final sdkPage = await getEvalRunOutputItems(config,
+        evalId: evalId,
+        runId: runId,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        status: status == null
+            ? const SdkOmitted<GetEvalRunOutputItemsStatus>()
+            : SdkPresent<GetEvalRunOutputItemsStatus>(status),
+        order: order == null
+            ? const SdkOmitted<GetEvalRunOutputItemsOrder>()
+            : SdkPresent<GetEvalRunOutputItemsOrder>(order),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -443,7 +616,6 @@ Stream<SdkPage<EvalRunOutputItemList, EvalRunOutputItem>> getEvalRunOutputItemsP
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Retrieves a specific output item from an evaluation run. Use `eval_id`, `run_id`, and `output_item_id` to identify the evaluation, run, and item whose grader results and sample you need.
 ///
@@ -462,8 +634,13 @@ Future<EvalRunOutputItem> getEvalRunOutputItem(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getEvalRunOutputItem',
-          fromJsonRaw: (value) => EvalRunOutputItem.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EvalRunOutputItem.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

@@ -8,43 +8,84 @@ part of 'shared_input.dart';
 class InputMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the message input. Always set to `message`.
   final SdkOptional<InputMessageType> type_;
+
   /// The role of the message input. One of `user`, `system`, or `developer`.
   final InputMessageRole role;
+
   /// The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final SdkOptional<InputMessageStatus> status;
+
   /// A list of one or many input items to the model, containing different content types.
   final List<InputContent> content;
 
-  const InputMessage({this.type_ = const SdkOmitted(), required this.role, this.status = const SdkOmitted(), required this.content});
+  const InputMessage(
+      {this.type_ = const SdkOmitted(),
+      required this.role,
+      this.status = const SdkOmitted(),
+      required this.content});
 
-  InputMessage Function({SdkOptional<InputMessageType> type_, InputMessageRole role, SdkOptional<InputMessageStatus> status, List<InputContent> content}) get copyWith => _copyWith;
+  InputMessage Function(
+      {SdkOptional<InputMessageType> type_,
+      InputMessageRole role,
+      SdkOptional<InputMessageStatus> status,
+      List<InputContent> content}) get copyWith => _copyWith;
 
-  InputMessage _copyWith({Object? type_ = sdkOmittedValue, Object? role = sdkOmittedValue, Object? status = sdkOmittedValue, Object? content = sdkOmittedValue}) => InputMessage(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<InputMessageType>,
-    role: identical(role, sdkOmittedValue) ? this.role : role as InputMessageRole,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<InputMessageStatus>,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<InputContent>,
-  );
+  InputMessage _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      InputMessage(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<InputMessageType>,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as InputMessageRole,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<InputMessageStatus>,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<InputContent>,
+      );
 
   factory InputMessage.fromJson(Map<String, dynamic> json) => InputMessage(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? InputMessageType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    role: (json['role'] != null ? InputMessageRole.fromJson(json['role'] as String) : null)!,
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? InputMessageStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    content: ((json['content'] as List?)?.map((e) => InputContent.fromJson(e)).toList())!,
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? InputMessageType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        role: (json['role'] != null
+            ? InputMessageRole.fromJson(json['role'] as String)
+            : null)!,
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? InputMessageStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        content: ((json['content'] as List?)
+            ?.map((e) => InputContent.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<InputMessageType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'role': role.toJson(),
-    ...switch (status) {
-      SdkPresent<InputMessageStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'content': content.map((item) => item.toJson()).toList(),
-  };
+        ...switch (type_) {
+          SdkPresent<InputMessageType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'role': role.toJson(),
+        ...switch (status) {
+          SdkPresent<InputMessageStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'content': content.map((item) => item.toJson()).toList(),
+      };
 }

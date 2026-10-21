@@ -8,32 +8,57 @@ part of 'responses_beta_tool.dart';
 class BetaToolChoiceAllowed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Allowed tool configuration type. Always `allowed_tools`.
   final BetaToolChoiceAllowedType type_;
+
   /// Constrains the tools available to the model to a pre-defined set. `auto` allows the model to pick from among the allowed tools and generate a message. `required` requires the model to call one or more of the allowed tools.
   final BetaToolChoiceAllowedMode mode;
+
   /// A list of tool definitions that the model should be allowed to call. For the Responses API, the list of tool definitions might look like: ```json [ { "type": "function", "name": "get_weather" }, { "type": "mcp", "server_label": "deepwiki" }, { "type": "image_generation" } ] ```
   final List<Map<String, Object?>> tools;
 
-  const BetaToolChoiceAllowed({required this.type_, required this.mode, required this.tools});
+  const BetaToolChoiceAllowed(
+      {required this.type_, required this.mode, required this.tools});
 
-  BetaToolChoiceAllowed Function({BetaToolChoiceAllowedType type_, BetaToolChoiceAllowedMode mode, List<Map<String, Object?>> tools}) get copyWith => _copyWith;
+  BetaToolChoiceAllowed Function(
+      {BetaToolChoiceAllowedType type_,
+      BetaToolChoiceAllowedMode mode,
+      List<Map<String, Object?>> tools}) get copyWith => _copyWith;
 
-  BetaToolChoiceAllowed _copyWith({Object? type_ = sdkOmittedValue, Object? mode = sdkOmittedValue, Object? tools = sdkOmittedValue}) => BetaToolChoiceAllowed(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaToolChoiceAllowedType,
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as BetaToolChoiceAllowedMode,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<Map<String, Object?>>,
-  );
+  BetaToolChoiceAllowed _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? mode = sdkOmittedValue,
+          Object? tools = sdkOmittedValue}) =>
+      BetaToolChoiceAllowed(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaToolChoiceAllowedType,
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as BetaToolChoiceAllowedMode,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as List<Map<String, Object?>>,
+      );
 
-  factory BetaToolChoiceAllowed.fromJson(Map<String, dynamic> json) => BetaToolChoiceAllowed(
-    type_: (json['type'] != null ? BetaToolChoiceAllowedType.fromJson(json['type'] as String) : null)!,
-    mode: (json['mode'] != null ? BetaToolChoiceAllowedMode.fromJson(json['mode'] as String) : null)!,
-    tools: ((json['tools'] as List?)?.map((e) => Map<String, dynamic>.from(e as Map).map((key, value) => MapEntry(key, value))).toList())!,
-  );
+  factory BetaToolChoiceAllowed.fromJson(Map<String, dynamic> json) =>
+      BetaToolChoiceAllowed(
+        type_: (json['type'] != null
+            ? BetaToolChoiceAllowedType.fromJson(json['type'] as String)
+            : null)!,
+        mode: (json['mode'] != null
+            ? BetaToolChoiceAllowedMode.fromJson(json['mode'] as String)
+            : null)!,
+        tools: ((json['tools'] as List?)
+            ?.map((e) => Map<String, dynamic>.from(e as Map)
+                .map((key, value) => MapEntry(key, value)))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'mode': mode.toJson(),
-    'tools': tools,
-  };
+        'type': type_.toJson(),
+        'mode': mode.toJson(),
+        'tools': tools,
+      };
 }

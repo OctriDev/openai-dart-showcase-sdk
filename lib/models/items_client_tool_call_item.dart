@@ -8,67 +8,133 @@ part of 'items.dart';
 class ClientToolCallItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier of the thread item.
   final String id;
+
   /// Type discriminator that is always `chatkit.thread_item`.
   final ClientToolCallItemObject object;
+
   /// Unix timestamp (in seconds) for when the item was created.
   final int createdAt;
+
   /// Identifier of the parent thread.
   final String threadId;
+
   /// Type discriminator that is always `chatkit.client_tool_call`.
   final ClientToolCallItemType type_;
+
   /// Execution status for the tool call.
   final ClientToolCallStatus status;
+
   /// Identifier for the client tool call.
   final String callId;
+
   /// Tool name that was invoked.
   final String name;
+
   /// JSON-encoded arguments that were sent to the tool.
   final String arguments;
+
   /// Required `string` value serialized in the `output` wire field.
   final String? output;
 
-  const ClientToolCallItem({required this.id, required this.object, required this.createdAt, required this.threadId, required this.type_, required this.status, required this.callId, required this.name, required this.arguments, required this.output});
+  const ClientToolCallItem(
+      {required this.id,
+      required this.object,
+      required this.createdAt,
+      required this.threadId,
+      required this.type_,
+      required this.status,
+      required this.callId,
+      required this.name,
+      required this.arguments,
+      required this.output});
 
-  ClientToolCallItem Function({String id, ClientToolCallItemObject object, int createdAt, String threadId, ClientToolCallItemType type_, ClientToolCallStatus status, String callId, String name, String arguments, String? output}) get copyWith => _copyWith;
+  ClientToolCallItem Function(
+      {String id,
+      ClientToolCallItemObject object,
+      int createdAt,
+      String threadId,
+      ClientToolCallItemType type_,
+      ClientToolCallStatus status,
+      String callId,
+      String name,
+      String arguments,
+      String? output}) get copyWith => _copyWith;
 
-  ClientToolCallItem _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? status = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? arguments = sdkOmittedValue, Object? output = sdkOmittedValue}) => ClientToolCallItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as ClientToolCallItemObject,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ClientToolCallItemType,
-    status: identical(status, sdkOmittedValue) ? this.status : status as ClientToolCallStatus,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as String,
-    output: identical(output, sdkOmittedValue) ? this.output : output as String?,
-  );
+  ClientToolCallItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? threadId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? arguments = sdkOmittedValue,
+          Object? output = sdkOmittedValue}) =>
+      ClientToolCallItem(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ClientToolCallItemObject,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        threadId: identical(threadId, sdkOmittedValue)
+            ? this.threadId
+            : threadId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ClientToolCallItemType,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ClientToolCallStatus,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        arguments: identical(arguments, sdkOmittedValue)
+            ? this.arguments
+            : arguments as String,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as String?,
+      );
 
-  factory ClientToolCallItem.fromJson(Map<String, dynamic> json) => ClientToolCallItem(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? ClientToolCallItemObject.fromJson(json['object'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    threadId: (json['thread_id'] as String?)!,
-    type_: (json['type'] != null ? ClientToolCallItemType.fromJson(json['type'] as String) : null)!,
-    status: (json['status'] != null ? ClientToolCallStatus.fromJson(json['status'] as String) : null)!,
-    callId: (json['call_id'] as String?)!,
-    name: (json['name'] as String?)!,
-    arguments: (json['arguments'] as String?)!,
-    output: json.containsKey('output') ? json['output'] as String? : throw ArgumentError.value(null, 'output', 'Required property is missing'),
-  );
+  factory ClientToolCallItem.fromJson(Map<String, dynamic> json) =>
+      ClientToolCallItem(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? ClientToolCallItemObject.fromJson(json['object'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        threadId: (json['thread_id'] as String?)!,
+        type_: (json['type'] != null
+            ? ClientToolCallItemType.fromJson(json['type'] as String)
+            : null)!,
+        status: (json['status'] != null
+            ? ClientToolCallStatus.fromJson(json['status'] as String)
+            : null)!,
+        callId: (json['call_id'] as String?)!,
+        name: (json['name'] as String?)!,
+        arguments: (json['arguments'] as String?)!,
+        output: json.containsKey('output')
+            ? json['output'] as String?
+            : throw ArgumentError.value(
+                null, 'output', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'created_at': createdAt,
-    'thread_id': threadId,
-    'type': type_.toJson(),
-    'status': status.toJson(),
-    'call_id': callId,
-    'name': name,
-    'arguments': arguments,
-    'output': output,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'created_at': createdAt,
+        'thread_id': threadId,
+        'type': type_.toJson(),
+        'status': status.toJson(),
+        'call_id': callId,
+        'name': name,
+        'arguments': arguments,
+        'output': output,
+      };
 }

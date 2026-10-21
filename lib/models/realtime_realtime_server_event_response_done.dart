@@ -8,32 +8,56 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventResponseDone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `response.done`.
   final RealtimeServerEventResponseDoneType type_;
+
   /// The response resource.
   final RealtimeResponse response;
 
-  const RealtimeServerEventResponseDone({required this.eventId, required this.type_, required this.response});
+  const RealtimeServerEventResponseDone(
+      {required this.eventId, required this.type_, required this.response});
 
-  RealtimeServerEventResponseDone Function({String eventId, RealtimeServerEventResponseDoneType type_, RealtimeResponse response}) get copyWith => _copyWith;
+  RealtimeServerEventResponseDone Function(
+      {String eventId,
+      RealtimeServerEventResponseDoneType type_,
+      RealtimeResponse response}) get copyWith => _copyWith;
 
-  RealtimeServerEventResponseDone _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue}) => RealtimeServerEventResponseDone(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventResponseDoneType,
-    response: identical(response, sdkOmittedValue) ? this.response : response as RealtimeResponse,
-  );
+  RealtimeServerEventResponseDone _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? response = sdkOmittedValue}) =>
+      RealtimeServerEventResponseDone(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeServerEventResponseDoneType,
+        response: identical(response, sdkOmittedValue)
+            ? this.response
+            : response as RealtimeResponse,
+      );
 
-  factory RealtimeServerEventResponseDone.fromJson(Map<String, dynamic> json) => RealtimeServerEventResponseDone(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventResponseDoneType.fromJson(json['type'] as String) : null)!,
-    response: (json['response'] != null ? RealtimeResponse.fromJson(json['response'] as Map<String, dynamic>) : null)!,
-  );
+  factory RealtimeServerEventResponseDone.fromJson(Map<String, dynamic> json) =>
+      RealtimeServerEventResponseDone(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeServerEventResponseDoneType.fromJson(
+                json['type'] as String)
+            : null)!,
+        response: (json['response'] != null
+            ? RealtimeResponse.fromJson(
+                json['response'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'response': response.toJson(),
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'response': response.toJson(),
+      };
 }

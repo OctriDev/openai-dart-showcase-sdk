@@ -10,32 +10,58 @@ sealed class ImageEditStreamEvent {
   const ImageEditStreamEvent();
   factory ImageEditStreamEvent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ImageEditPartialImageEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ImageEditStreamEventImageEditPartialImageEvent(value); } } catch (_) {}
-      try { final value = ImageEditCompletedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ImageEditStreamEventImageEditCompletedEvent(value); } } catch (_) {}
+      try {
+        final value = ImageEditPartialImageEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ImageEditStreamEventImageEditPartialImageEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ImageEditCompletedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ImageEditStreamEventImageEditCompletedEvent(value);
+        }
+      } catch (_) {}
     }
-    try { return ImageEditStreamEventImageEditPartialImageEvent(ImageEditPartialImageEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ImageEditStreamEventImageEditCompletedEvent(ImageEditCompletedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"image_edit.partial_image", "image_edit.completed"}.contains(json["type"])) { return UnknownImageEditStreamEvent(json); }
+    try {
+      return ImageEditStreamEventImageEditPartialImageEvent(
+          ImageEditPartialImageEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ImageEditStreamEventImageEditCompletedEvent(
+          ImageEditCompletedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"image_edit.partial_image", "image_edit.completed"}
+            .contains(json["type"])) {
+      return UnknownImageEditStreamEvent(json);
+    }
     throw FormatException("No variant matched for ImageEditStreamEvent");
   }
   Object? toJson();
 }
 
-final class ImageEditStreamEventImageEditPartialImageEvent extends ImageEditStreamEvent {
+final class ImageEditStreamEventImageEditPartialImageEvent
+    extends ImageEditStreamEvent {
   final ImageEditPartialImageEvent value;
   const ImageEditStreamEventImageEditPartialImageEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ImageEditStreamEventImageEditCompletedEvent extends ImageEditStreamEvent {
+final class ImageEditStreamEventImageEditCompletedEvent
+    extends ImageEditStreamEvent {
   final ImageEditCompletedEvent value;
   const ImageEditStreamEventImageEditCompletedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ImageEditStreamEvent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownImageEditStreamEvent extends ImageEditStreamEvent {
   final Map<String, dynamic> raw;
   const UnknownImageEditStreamEvent(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

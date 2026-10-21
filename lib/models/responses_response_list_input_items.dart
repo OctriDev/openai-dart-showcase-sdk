@@ -8,42 +8,77 @@ part of 'responses_response.dart';
 class ResponseItemList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object returned, must be `list`.
   final ResponseItemListObject object;
+
   /// A list of items used to generate this response.
   final List<ItemResource> data;
+
   /// Whether there are more items available.
   final bool hasMore;
+
   /// The ID of the first item in the list.
   final String firstId;
+
   /// The ID of the last item in the list.
   final String lastId;
 
-  const ResponseItemList({required this.object, required this.data, required this.hasMore, required this.firstId, required this.lastId});
+  const ResponseItemList(
+      {required this.object,
+      required this.data,
+      required this.hasMore,
+      required this.firstId,
+      required this.lastId});
 
-  ResponseItemList Function({ResponseItemListObject object, List<ItemResource> data, bool hasMore, String firstId, String lastId}) get copyWith => _copyWith;
+  ResponseItemList Function(
+      {ResponseItemListObject object,
+      List<ItemResource> data,
+      bool hasMore,
+      String firstId,
+      String lastId}) get copyWith => _copyWith;
 
-  ResponseItemList _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue}) => ResponseItemList(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ResponseItemListObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<ItemResource>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
-  );
+  ResponseItemList _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue}) =>
+      ResponseItemList(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ResponseItemListObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<ItemResource>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String,
+        lastId:
+            identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String,
+      );
 
-  factory ResponseItemList.fromJson(Map<String, dynamic> json) => ResponseItemList(
-    object: (json['object'] != null ? ResponseItemListObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => ItemResource.fromJson(e)).toList())!,
-    hasMore: (json['has_more'] as bool?)!,
-    firstId: (json['first_id'] as String?)!,
-    lastId: (json['last_id'] as String?)!,
-  );
+  factory ResponseItemList.fromJson(Map<String, dynamic> json) =>
+      ResponseItemList(
+        object: (json['object'] != null
+            ? ResponseItemListObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => ItemResource.fromJson(e))
+            .toList())!,
+        hasMore: (json['has_more'] as bool?)!,
+        firstId: (json['first_id'] as String?)!,
+        lastId: (json['last_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'has_more': hasMore,
-    'first_id': firstId,
-    'last_id': lastId,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'has_more': hasMore,
+        'first_id': firstId,
+        'last_id': lastId,
+      };
 }

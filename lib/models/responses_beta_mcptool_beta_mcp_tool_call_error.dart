@@ -10,40 +10,75 @@ sealed class BetaMCPToolCallError {
   const BetaMCPToolCallError();
   factory BetaMCPToolCallError.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaMCPProtocolError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMCPToolCallErrorBetaMCPProtocolError(value); } } catch (_) {}
-      try { final value = BetaMCPToolExecutionError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMCPToolCallErrorBetaMCPToolExecutionError(value); } } catch (_) {}
-      try { final value = BetaHTTPError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaMCPToolCallErrorBetaHTTPError(value); } } catch (_) {}
+      try {
+        final value = BetaMCPProtocolError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaMCPToolCallErrorBetaMCPProtocolError(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaMCPToolExecutionError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaMCPToolCallErrorBetaMCPToolExecutionError(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaHTTPError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaMCPToolCallErrorBetaHTTPError(value);
+        }
+      } catch (_) {}
     }
-    try { return BetaMCPToolCallErrorBetaMCPProtocolError(BetaMCPProtocolError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaMCPToolCallErrorBetaMCPToolExecutionError(BetaMCPToolExecutionError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaMCPToolCallErrorBetaHTTPError(BetaHTTPError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"mcp_protocol_error", "mcp_tool_execution_error", "http_error"}.contains(json["type"])) { return UnknownBetaMCPToolCallError(json); }
+    try {
+      return BetaMCPToolCallErrorBetaMCPProtocolError(
+          BetaMCPProtocolError.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaMCPToolCallErrorBetaMCPToolExecutionError(
+          BetaMCPToolExecutionError.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaMCPToolCallErrorBetaHTTPError(
+          BetaHTTPError.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"mcp_protocol_error", "mcp_tool_execution_error", "http_error"}
+            .contains(json["type"])) {
+      return UnknownBetaMCPToolCallError(json);
+    }
     throw FormatException("No variant matched for BetaMCPToolCallError");
   }
   Object? toJson();
 }
 
-final class BetaMCPToolCallErrorBetaMCPProtocolError extends BetaMCPToolCallError {
+final class BetaMCPToolCallErrorBetaMCPProtocolError
+    extends BetaMCPToolCallError {
   final BetaMCPProtocolError value;
   const BetaMCPToolCallErrorBetaMCPProtocolError(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaMCPToolCallErrorBetaMCPToolExecutionError extends BetaMCPToolCallError {
+final class BetaMCPToolCallErrorBetaMCPToolExecutionError
+    extends BetaMCPToolCallError {
   final BetaMCPToolExecutionError value;
   const BetaMCPToolCallErrorBetaMCPToolExecutionError(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaMCPToolCallErrorBetaHTTPError extends BetaMCPToolCallError {
   final BetaHTTPError value;
   const BetaMCPToolCallErrorBetaHTTPError(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaMCPToolCallError] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaMCPToolCallError extends BetaMCPToolCallError {
   final Map<String, dynamic> raw;
   const UnknownBetaMCPToolCallError(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

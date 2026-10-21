@@ -6,22 +6,25 @@ part of 'shared_apply.dart';
 // shared_apply domain models
 /// Typed representation of the `ApplyPatchCallStatus` API schema.
 final class ApplyPatchCallStatus {
-
   final String value;
 
   const ApplyPatchCallStatus._(this.value);
 
-  factory ApplyPatchCallStatus.fromJson(String value) => ApplyPatchCallStatus._(value);
+  factory ApplyPatchCallStatus.fromJson(String value) =>
+      ApplyPatchCallStatus._(value);
 
   static const inProgress = ApplyPatchCallStatus._('in_progress');
   static const completed = ApplyPatchCallStatus._('completed');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApplyPatchCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApplyPatchCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
