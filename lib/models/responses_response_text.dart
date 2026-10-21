@@ -8,4 +8,4 @@ import 'responses_response.dart';
 import 'shared.dart';
 import 'shared_text.dart';
 
-part 'responses_response_text_part1.dart';
+part 'responses_response_text_models.dart';

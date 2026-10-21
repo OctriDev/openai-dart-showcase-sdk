@@ -6,5 +6,16 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'responses_beta.dart';
 
-part 'responses_beta_prompt_part1.dart';
-part 'responses_beta_prompt_part2.dart';
+part 'responses_beta_prompt2.dart';
+part 'responses_beta_prompt_cache_breakpoint_config.dart';
+part 'responses_beta_prompt_cache_breakpoint_param.dart';
+part 'responses_beta_prompt_cache_comparison_response_not_found_diagnostics_body.dart';
+part 'responses_beta_prompt_cache_diagnostics.dart';
+part 'responses_beta_prompt_cache_hit_diagnostics_body.dart';
+part 'responses_beta_prompt_cache_miss_diagnostics_body.dart';
+part 'responses_beta_prompt_cache_mode_enum.dart';
+part 'responses_beta_prompt_cache_options.dart';
+part 'responses_beta_prompt_cache_options_param.dart';
+part 'responses_beta_prompt_cache_ttl_enum.dart';
+part 'responses_beta_prompt_cache_unavailable_diagnostics_body.dart';
+part 'responses_beta_prompt_beta_responses_compact.dart';

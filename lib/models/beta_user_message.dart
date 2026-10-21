@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'responses_beta_agent.dart';
 import 'responses_beta_input.dart';
 
-part 'beta_user_message_part1.dart';
+part 'beta_user_message_models.dart';

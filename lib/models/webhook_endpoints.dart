@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'webhook_endpoints_part1.dart';
+part 'webhook_endpoints_models.dart';

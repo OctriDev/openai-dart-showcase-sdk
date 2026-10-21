@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'live_live_output_part1.dart';
+part 'live_live_output_models.dart';

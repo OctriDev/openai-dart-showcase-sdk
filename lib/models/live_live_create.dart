@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'live_live_media.dart';
 import 'live_live_web.dart';
 
-part 'live_live_create_part1.dart';
+part 'live_live_create_models.dart';

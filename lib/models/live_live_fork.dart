@@ -19,5 +19,10 @@ import 'live_live_session.dart';
 import 'live_live_thinking.dart';
 import 'live_live_web.dart';
 
-part 'live_live_fork_part1.dart';
-part 'live_live_fork_part2.dart';
+part 'live_live_fork_audio_param.dart';
+part 'live_live_fork_client_event.dart';
+part 'live_live_fork_path_params.dart';
+part 'live_live_fork_server_event.dart';
+part 'live_live_fork_session_config_param.dart';
+part 'live_live_fork_session_start_event.dart';
+part 'live_live_fork_live_session.dart';

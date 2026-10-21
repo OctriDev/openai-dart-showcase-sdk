@@ -15,5 +15,6 @@ import 'agents_service.dart';
 import 'agents_session_spend.dart';
 import 'agents_text.dart';
 
-part 'agents_update_part1.dart';
-part 'agents_update_part2.dart';
+part 'agents_update_agent.dart';
+part 'agents_update_agent_session.dart';
+part 'agents_update_agent_environment_template.dart';

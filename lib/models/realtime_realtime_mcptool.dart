@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'realtime_realtime.dart';
 
-part 'realtime_realtime_mcptool_part1.dart';
+part 'realtime_realtime_mcptool_models.dart';

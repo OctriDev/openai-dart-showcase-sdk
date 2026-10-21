@@ -2,4 +2,4 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // live_live_reasoning domain model library.
-part 'live_live_reasoning_part1.dart';
+part 'live_live_reasoning_models.dart';

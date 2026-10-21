@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'agents_computer.dart';
 import 'inline.dart';
 
-part 'agents_session_required_part1.dart';
+part 'agents_session_required_models.dart';

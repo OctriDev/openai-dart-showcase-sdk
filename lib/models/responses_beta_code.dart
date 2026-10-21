@@ -8,4 +8,4 @@ import 'responses_beta.dart';
 import 'responses_beta_agent.dart';
 import 'responses_beta_auto.dart';
 
-part 'responses_beta_code_part1.dart';
+part 'responses_beta_code_models.dart';

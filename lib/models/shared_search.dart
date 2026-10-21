@@ -2,4 +2,4 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // shared_search domain model library.
-part 'shared_search_part1.dart';
+part 'shared_search_models.dart';

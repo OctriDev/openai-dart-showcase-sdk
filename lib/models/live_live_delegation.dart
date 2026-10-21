@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'live_live.dart';
 import 'live_live_reasoning.dart';
 
-part 'live_live_delegation_part1.dart';
+part 'live_live_delegation_models.dart';

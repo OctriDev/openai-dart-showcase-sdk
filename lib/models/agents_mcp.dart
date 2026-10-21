@@ -6,5 +6,5 @@ import '../sdk_utils.dart';
 import 'agents_function.dart';
 import 'inline.dart';
 
-part 'agents_mcp_part1.dart';
-part 'agents_mcp_part2.dart';
+part 'agents_mcp_shared.dart';
+part 'agents_mcp_create_agent_session.dart';

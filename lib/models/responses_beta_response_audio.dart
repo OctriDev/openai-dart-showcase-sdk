@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'responses_beta_agent.dart';
 
-part 'responses_beta_response_audio_part1.dart';
+part 'responses_beta_response_audio_models.dart';

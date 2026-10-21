@@ -8,4 +8,4 @@ import 'responses_beta_input.dart';
 import 'responses_beta_misalignment.dart';
 import 'responses_beta_output.dart';
 
-part 'beta_part1.dart';
+part 'beta_models.dart';

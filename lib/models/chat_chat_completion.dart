@@ -9,6 +9,10 @@ import 'chat_chat_completion_named.dart';
 import 'chat_create.dart';
 import 'inline.dart';
 
-part 'chat_chat_completion_part1.dart';
-part 'chat_chat_completion_part2.dart';
-part 'chat_chat_completion_part3.dart';
+part 'chat_chat_completion_delete_chat_completion.dart';
+part 'chat_chat_completion_create_chat_completion.dart';
+part 'chat_chat_completion_list_chat_completions.dart';
+part 'chat_chat_completion_modalities.dart';
+part 'chat_chat_completion_response_message.dart';
+part 'chat_chat_completion_role.dart';
+part 'chat_chat_completion_token_logprob.dart';

@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_role.dart';
 
-part 'roles_part1.dart';
+part 'roles_models.dart';

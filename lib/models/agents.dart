@@ -12,6 +12,15 @@ import 'agents_message.dart';
 import 'agents_output.dart';
 import 'inline.dart';
 
-part 'agents_part1.dart';
-part 'agents_part2.dart';
-part 'agents_part3.dart';
+part 'agents_assistant_message_item_resource.dart';
+part 'agents_close_subagent_call_item_resource.dart';
+part 'agents_command_execution_item_resource.dart';
+part 'agents_encrypted_content_resource.dart';
+part 'agents_interrupt_subagent_call_item_resource.dart';
+part 'agents_public_environment_resource.dart';
+part 'agents_resume_subagent_call_item_resource.dart';
+part 'agents_send_subagent_input_call_item_resource.dart';
+part 'agents_setup_command_param.dart';
+part 'agents_summary_text_resource.dart';
+part 'agents_token_usage_resource.dart';
+part 'agents_wait_for_subagents_call_item_resource.dart';

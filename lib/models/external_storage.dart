@@ -6,5 +6,6 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_external.dart';
 
-part 'external_storage_part1.dart';
-part 'external_storage_part2.dart';
+part 'external_storage_create_external_storage.dart';
+part 'external_storage_delete_external_storage.dart';
+part 'external_storage_list_external_storage.dart';

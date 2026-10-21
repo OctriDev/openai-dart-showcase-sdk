@@ -17,9 +17,9 @@ import 'shared_reasoning.dart';
 import 'shared_response.dart';
 import 'shared_voice.dart';
 
-part 'chat_create_part1.dart';
-part 'chat_create_part2.dart';
-part 'chat_create_part3.dart';
-part 'chat_create_part4.dart';
-part 'chat_create_part5.dart';
-part 'chat_create_part6.dart';
+part 'chat_create_chat_completion_request_variant1_web_search_options_user_location.dart';
+part 'chat_create_chat_completion_request_variant1.dart';
+part 'chat_create_model_response_properties_prompt_cache_retention.dart';
+part 'chat_create_chat_completion_request.dart';
+part 'chat_create_chat_completion_stream_response.dart';
+part 'chat_create_shared.dart';

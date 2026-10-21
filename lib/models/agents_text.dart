@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'agents_verbosity.dart';
 import 'inline.dart';
 
-part 'agents_text_part1.dart';
+part 'agents_text_models.dart';

@@ -11,5 +11,6 @@ import 'agents_session_spend.dart';
 import 'agents_session_turn.dart';
 import 'inline.dart';
 
-part 'agents_session_part1.dart';
-part 'agents_session_part2.dart';
+part 'agents_session_shared.dart';
+part 'agents_session_list_agent_sessions.dart';
+part 'agents_session_list_agent_session_traces.dart';

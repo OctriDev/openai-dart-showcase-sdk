@@ -7,5 +7,12 @@ import 'inline.dart';
 import 'shared_chatkit.dart';
 import 'shared_function.dart';
 
-part 'shared_chat_part1.dart';
-part 'shared_chat_part2.dart';
+part 'shared_chat_completion_stream_options.dart';
+part 'shared_chat_completion_tool.dart';
+part 'shared_chat_session_automatic_thread_titling.dart';
+part 'shared_chat_session_chatkit_configuration.dart';
+part 'shared_chat_session_file_upload.dart';
+part 'shared_chat_session_history.dart';
+part 'shared_chat_session_rate_limits.dart';
+part 'shared_chat_session_resource.dart';
+part 'shared_chat_session_status.dart';

@@ -5,5 +5,12 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'sessions_part1.dart';
-part 'sessions_part2.dart';
+part 'sessions_automatic_thread_titling_param.dart';
+part 'sessions_chatkit_configuration_param.dart';
+part 'sessions_create_chat_session_body.dart';
+part 'sessions_expires_after_param.dart';
+part 'sessions_file_upload_param.dart';
+part 'sessions_history_param.dart';
+part 'sessions_rate_limits_param.dart';
+part 'sessions_workflow_param.dart';
+part 'sessions_workflow_tracing_param.dart';

@@ -8,5 +8,12 @@ import 'responses_beta.dart';
 import 'responses_beta_agent.dart';
 import 'responses_beta_search.dart';
 
-part 'responses_beta_web_part1.dart';
-part 'responses_beta_web_part2.dart';
+part 'responses_beta_web_search_action_find.dart';
+part 'responses_beta_web_search_action_open_page.dart';
+part 'responses_beta_web_search_action_search.dart';
+part 'responses_beta_web_search_approximate_location.dart';
+part 'responses_beta_web_search_call_status.dart';
+part 'responses_beta_web_search_preview_tool.dart';
+part 'responses_beta_web_search_tool.dart';
+part 'responses_beta_web_search_tool_call.dart';
+part 'responses_beta_web_search_tool_call_action.dart';

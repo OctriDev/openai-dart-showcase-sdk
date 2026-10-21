@@ -12,6 +12,11 @@ import 'assistants_thread.dart';
 import 'inline.dart';
 import 'shared_function.dart';
 
-part 'assistants_assistant_part1.dart';
-part 'assistants_assistant_part2.dart';
-part 'assistants_assistant_part3.dart';
+part 'assistants_assistant_object.dart';
+part 'assistants_assistant_object_tools_item.dart';
+part 'assistants_assistant_stream_event.dart';
+part 'assistants_assistant_supported_models.dart';
+part 'assistants_assistant_tools_code.dart';
+part 'assistants_assistant_tools_file_search.dart';
+part 'assistants_assistant_tools_file_search_type_only.dart';
+part 'assistants_assistant_tools_function.dart';

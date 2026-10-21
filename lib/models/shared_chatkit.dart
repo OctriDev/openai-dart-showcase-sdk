@@ -4,4 +4,4 @@
 // shared_chatkit domain model library.
 import '../sdk_utils.dart';
 
-part 'shared_chatkit_part1.dart';
+part 'shared_chatkit_models.dart';

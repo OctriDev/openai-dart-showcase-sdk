@@ -19,5 +19,6 @@ import 'responses_beta_response_text.dart';
 import 'responses_beta_service.dart';
 import 'responses_beta_tool.dart';
 
-part 'responses_beta_create_part1.dart';
-part 'responses_beta_create_part2.dart';
+part 'responses_beta_create_model_response_properties.dart';
+part 'responses_beta_create_response_variant2.dart';
+part 'responses_beta_create_response2.dart';

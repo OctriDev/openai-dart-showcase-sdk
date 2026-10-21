@@ -21,6 +21,9 @@ import 'agents_session_spend.dart';
 import 'agents_text.dart';
 import 'inline.dart';
 
-part 'agents_create_part1.dart';
-part 'agents_create_part2.dart';
-part 'agents_create_part3.dart';
+part 'agents_create_agent_environment.dart';
+part 'agents_create_agent.dart';
+part 'agents_create_agent_session.dart';
+part 'agents_create_agent_environment_template.dart';
+part 'agents_create_agent_session_events.dart';
+part 'agents_create_shared.dart';

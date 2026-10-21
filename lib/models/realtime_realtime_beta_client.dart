@@ -9,5 +9,15 @@ import 'realtime_realtime_conversation.dart';
 import 'realtime_realtime_session.dart';
 import 'realtime_realtime_transcription.dart';
 
-part 'realtime_realtime_beta_client_part1.dart';
-part 'realtime_realtime_beta_client_part2.dart';
+part 'realtime_realtime_beta_client_event_conversation_item_create.dart';
+part 'realtime_realtime_beta_client_event_conversation_item_delete.dart';
+part 'realtime_realtime_beta_client_event_conversation_item_retrieve.dart';
+part 'realtime_realtime_beta_client_event_conversation_item_truncate.dart';
+part 'realtime_realtime_beta_client_event_input_audio_buffer_append.dart';
+part 'realtime_realtime_beta_client_event_input_audio_buffer_clear.dart';
+part 'realtime_realtime_beta_client_event_input_audio_buffer_commit.dart';
+part 'realtime_realtime_beta_client_event_output_audio_buffer_clear.dart';
+part 'realtime_realtime_beta_client_event_response_cancel.dart';
+part 'realtime_realtime_beta_client_event_response_create.dart';
+part 'realtime_realtime_beta_client_event_session_update.dart';
+part 'realtime_realtime_beta_client_event_transcription_session_update.dart';

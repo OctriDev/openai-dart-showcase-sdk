@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'code_interpreter_part1.dart';
+part 'code_interpreter_models.dart';

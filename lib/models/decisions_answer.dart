@@ -7,4 +7,4 @@ import 'decisions_choice.dart';
 import 'decisions_score.dart';
 import 'inline.dart';
 
-part 'decisions_answer_part1.dart';
+part 'decisions_answer_models.dart';

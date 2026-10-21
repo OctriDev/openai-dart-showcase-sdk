@@ -7,5 +7,10 @@ import 'inline.dart';
 import 'responses_beta.dart';
 import 'responses_beta_agent.dart';
 
-part 'responses_beta_file_part1.dart';
-part 'responses_beta_file_part2.dart';
+part 'responses_beta_file_citation_body.dart';
+part 'responses_beta_file_citation_param.dart';
+part 'responses_beta_file_detail_enum.dart';
+part 'responses_beta_file_input_detail.dart';
+part 'responses_beta_file_path.dart';
+part 'responses_beta_file_search_tool.dart';
+part 'responses_beta_file_search_tool_call.dart';

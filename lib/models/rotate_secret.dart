@@ -4,4 +4,4 @@
 // rotate_secret domain model library.
 import '../sdk_utils.dart';
 
-part 'rotate_secret_part1.dart';
+part 'rotate_secret_models.dart';

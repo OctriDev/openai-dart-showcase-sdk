@@ -6,5 +6,10 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'shared_mcptool_part1.dart';
-part 'shared_mcptool_part2.dart';
+part 'shared_mcptool_mcp_tool.dart';
+part 'shared_mcptool_mcp_tool_call.dart';
+part 'shared_mcptool_mcp_tool_call_error.dart';
+part 'shared_mcptool_mcp_tool_call_status.dart';
+part 'shared_mcptool_mcp_tool_execution_error.dart';
+part 'shared_mcptool_mcp_tool_filter.dart';
+part 'shared_mcptool_mcp_tool_require_approval.dart';

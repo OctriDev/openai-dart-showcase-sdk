@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'embeddings_part1.dart';
+part 'embeddings_models.dart';

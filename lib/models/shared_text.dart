@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_response.dart';
 
-part 'shared_text_part1.dart';
+part 'shared_text_models.dart';

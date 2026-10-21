@@ -5,5 +5,6 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'chat_chat_completion_message_part1.dart';
-part 'chat_chat_completion_message_part2.dart';
+part 'chat_chat_completion_message_shared.dart';
+part 'chat_chat_completion_message_get_chat_completion_messages.dart';
+part 'chat_chat_completion_message_create_chat_completion.dart';

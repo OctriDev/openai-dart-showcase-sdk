@@ -7,4 +7,4 @@ import 'decisions_question.dart';
 import 'inline.dart';
 import 'live_live_decision.dart';
 
-part 'live_live_decisions_part1.dart';
+part 'live_live_decisions_models.dart';

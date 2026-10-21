@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'live_live_mcptool_part1.dart';
+part 'live_live_mcptool_models.dart';

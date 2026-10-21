@@ -12,4 +12,4 @@ import 'responses_service.dart';
 import 'shared_input.dart';
 import 'shared_prompt.dart';
 
-part 'responses_compact_part1.dart';
+part 'responses_compact_models.dart';

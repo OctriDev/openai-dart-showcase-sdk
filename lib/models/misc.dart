@@ -10,5 +10,14 @@ import 'inline.dart';
 import 'responses_model.dart';
 import 'shared_misalignment.dart';
 
-part 'misc_part1.dart';
-part 'misc_part2.dart';
+part 'misc_container_file_citation_param.dart';
+part 'misc_deleted_conversation.dart';
+part 'misc_drag_point.dart';
+part 'misc_error_payload.dart';
+part 'misc_file_citation_param.dart';
+part 'misc_fine_tune_chat_completion_request_assistant_message.dart';
+part 'misc_log_prob_properties.dart';
+part 'misc_model_ids.dart';
+part 'misc_output_audio.dart';
+part 'misc_transcription_chunking_strategy.dart';
+part 'misc_url_citation_param.dart';

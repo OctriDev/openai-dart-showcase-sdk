@@ -6,5 +6,6 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_role.dart';
 
-part 'shared_user_part1.dart';
-part 'shared_user_part2.dart';
+part 'shared_user_user_banned_at.dart';
+part 'shared_user2.dart';
+part 'shared_user_role_assignment.dart';

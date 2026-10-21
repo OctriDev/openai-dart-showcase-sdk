@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'realtime_audio_part1.dart';
+part 'realtime_audio_models.dart';

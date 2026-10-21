@@ -11,4 +11,4 @@ import 'responses_beta_prompt.dart';
 import 'responses_beta_response.dart';
 import 'responses_beta_service.dart';
 
-part 'responses_beta_compact_part1.dart';
+part 'responses_beta_compact_models.dart';

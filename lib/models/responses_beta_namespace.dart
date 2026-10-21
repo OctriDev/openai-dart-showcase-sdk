@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'responses_beta_custom.dart';
 import 'responses_beta_function.dart';
 
-part 'responses_beta_namespace_part1.dart';
+part 'responses_beta_namespace_models.dart';

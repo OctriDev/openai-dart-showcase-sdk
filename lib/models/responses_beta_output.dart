@@ -28,5 +28,10 @@ import 'responses_beta_tool.dart';
 import 'responses_beta_url.dart';
 import 'responses_beta_web.dart';
 
-part 'responses_beta_output_part1.dart';
-part 'responses_beta_output_part2.dart';
+part 'responses_beta_output_content.dart';
+part 'responses_beta_output_item.dart';
+part 'responses_beta_output_message.dart';
+part 'responses_beta_output_message_content.dart';
+part 'responses_beta_output_text_content.dart';
+part 'responses_beta_output_text_content_param.dart';
+part 'responses_beta_output_text_content_param_annotations_item.dart';

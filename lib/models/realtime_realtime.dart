@@ -6,5 +6,10 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_mcplist.dart';
 
-part 'realtime_realtime_part1.dart';
-part 'realtime_realtime_part2.dart';
+part 'realtime_realtime_audio_formats.dart';
+part 'realtime_realtime_function_tool.dart';
+part 'realtime_realtime_mcphttp_error.dart';
+part 'realtime_realtime_mcp_list_tools.dart';
+part 'realtime_realtime_mcp_protocol_error.dart';
+part 'realtime_realtime_truncation.dart';
+part 'realtime_realtime_turn_detection.dart';

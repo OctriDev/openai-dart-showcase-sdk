@@ -9,4 +9,4 @@ import 'responses_beta_agent.dart';
 import 'responses_beta_response.dart';
 import 'responses_beta_text.dart';
 
-part 'responses_beta_response_text_part1.dart';
+part 'responses_beta_response_text_models.dart';

@@ -24,5 +24,5 @@ import 'shared_reasoning.dart';
 import 'shared_tool.dart';
 import 'shared_web.dart';
 
-part 'responses_output_part1.dart';
-part 'responses_output_part2.dart';
+part 'responses_output_content.dart';
+part 'responses_output_item.dart';

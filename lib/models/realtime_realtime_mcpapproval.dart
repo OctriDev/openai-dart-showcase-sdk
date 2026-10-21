@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'realtime_realtime_mcpapproval_part1.dart';
+part 'realtime_realtime_mcpapproval_models.dart';

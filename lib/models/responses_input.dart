@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_input.dart';
 
-part 'responses_input_part1.dart';
+part 'responses_input_models.dart';

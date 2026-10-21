@@ -6,4 +6,4 @@ import 'dart:convert';
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'content_provenance_checks_part1.dart';
+part 'content_provenance_checks_models.dart';

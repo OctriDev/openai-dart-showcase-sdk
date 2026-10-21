@@ -7,5 +7,13 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_inline.dart';
 
-part 'shared_container_part1.dart';
-part 'shared_container_part2.dart';
+part 'shared_container_auto_param.dart';
+part 'shared_container_auto_param_network_policy.dart';
+part 'shared_container_auto_param_skills_item.dart';
+part 'shared_container_file_citation_body.dart';
+part 'shared_container_memory_limit.dart';
+part 'shared_container_network_policy_allowlist_param.dart';
+part 'shared_container_network_policy_disabled_param.dart';
+part 'shared_container_network_policy_domain_secret_param.dart';
+part 'shared_container_reference_param.dart';
+part 'shared_container_reference_resource.dart';

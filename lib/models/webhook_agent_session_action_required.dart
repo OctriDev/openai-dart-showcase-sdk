@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'agent_session.dart';
 import 'inline.dart';
 
-part 'webhook_agent_session_action_required_part1.dart';
+part 'webhook_agent_session_action_required_models.dart';

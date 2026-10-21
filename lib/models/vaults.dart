@@ -4,4 +4,4 @@
 // vaults domain model library.
 import '../sdk_utils.dart';
 
-part 'vaults_part1.dart';
+part 'vaults_models.dart';

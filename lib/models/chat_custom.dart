@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'chat_custom_part1.dart';
+part 'chat_custom_models.dart';

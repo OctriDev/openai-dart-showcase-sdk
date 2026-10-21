@@ -7,4 +7,4 @@ import 'evals_eval.dart';
 import 'inline.dart';
 import 'shared_eval.dart';
 
-part 'shared_grader_part1.dart';
+part 'shared_grader_models.dart';

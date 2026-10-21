@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'responses_beta_prompt.dart';
 
-part 'responses_beta_response_prompt_part1.dart';
+part 'responses_beta_response_prompt_models.dart';

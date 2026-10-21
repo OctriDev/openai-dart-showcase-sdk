@@ -7,5 +7,5 @@ import 'inline.dart';
 import 'responses_beta_agent.dart';
 import 'responses_beta_output.dart';
 
-part 'responses_beta_multi_part1.dart';
-part 'responses_beta_multi_part2.dart';
+part 'responses_beta_multi_shared.dart';
+part 'responses_beta_multi_beta_create_response.dart';

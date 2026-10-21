@@ -9,4 +9,4 @@ import 'live_live_container.dart';
 import 'live_live_inline.dart';
 import 'live_live_local.dart';
 
-part 'live_live_hosted_part1.dart';
+part 'live_live_hosted_models.dart';

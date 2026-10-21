@@ -16531,6 +16531,56 @@ void main() {
       );
     });
 
+    test("updateProjectSpendLimit reaches the mock and decodes its response",
+        () async {
+      final actual = await sdk_methods_42.updateProjectSpendLimit(
+        config,
+        projectId: (jsonDecode("\"proj_123\"") as String),
+        thresholdAmount: (jsonDecode("1") as num).toInt(),
+        currency: UpdateProjectSpendLimitBodyCurrency.fromJson(
+            jsonDecode("\"USD\"") as String),
+        interval: UpdateProjectSpendLimitBodyInterval.fromJson(
+            jsonDecode("\"month\"") as String),
+      );
+      expect(
+        mismatch(
+          normal(actual),
+          SdkUtils.decodeJson(
+              "{\"object\":\"project.spend_limit\",\"threshold_amount\":1,\"currency\":\"USD\",\"interval\":\"month\",\"enforcement\":{\"status\":\"active\"}}"),
+        ),
+        isNull,
+      );
+    });
+
+    test("updateProjectSpendLimit answers 400 with its declared error body",
+        () async {
+      SdkConfig.getConfig().baseUrl = '$baseUrl/__mockStatus/400';
+      addTearDown(() => SdkConfig.getConfig().baseUrl = baseUrl);
+      final SdkHttpError error;
+      try {
+        await sdk_methods_42.updateProjectSpendLimit(
+          config,
+          projectId: (jsonDecode("\"proj_123\"") as String),
+          thresholdAmount: (jsonDecode("1") as num).toInt(),
+          currency: UpdateProjectSpendLimitBodyCurrency.fromJson(
+              jsonDecode("\"USD\"") as String),
+          interval: UpdateProjectSpendLimitBodyInterval.fromJson(
+              jsonDecode("\"month\"") as String),
+        );
+        fail('did not raise its declared error');
+      } on SdkHttpError catch (caught) {
+        error = caught;
+      }
+      expect(error.statusCode, 400);
+      expect(
+        mismatch(
+            normal(error.data),
+            SdkUtils.decodeJson(
+                "{\"error\":{\"code\":\"code\",\"message\":\"example text\",\"param\":\"param\",\"type\":\"type\",\"misalignment\":{\"review_target\":\"a\",\"error_type\":\"error_type\",\"detailed_explanation\":\"detailed_explanation\",\"steer\":{\"message\":\"example text\"}}}}")),
+        isNull,
+      );
+    });
+
     test("updateRole reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_34.updateRole(
         config,
@@ -16719,56 +16769,6 @@ void main() {
           currency: UpdateOrganizationSpendLimitBodyCurrency.fromJson(
               jsonDecode("\"USD\"") as String),
           interval: UpdateOrganizationSpendLimitBodyInterval.fromJson(
-              jsonDecode("\"month\"") as String),
-        );
-        fail('did not raise its declared error');
-      } on SdkHttpError catch (caught) {
-        error = caught;
-      }
-      expect(error.statusCode, 400);
-      expect(
-        mismatch(
-            normal(error.data),
-            SdkUtils.decodeJson(
-                "{\"error\":{\"code\":\"code\",\"message\":\"example text\",\"param\":\"param\",\"type\":\"type\",\"misalignment\":{\"review_target\":\"a\",\"error_type\":\"error_type\",\"detailed_explanation\":\"detailed_explanation\",\"steer\":{\"message\":\"example text\"}}}}")),
-        isNull,
-      );
-    });
-
-    test("updateSpendLimitsProject reaches the mock and decodes its response",
-        () async {
-      final actual = await sdk_methods_42.updateSpendLimitsProject(
-        config,
-        projectId: (jsonDecode("\"proj_123\"") as String),
-        thresholdAmount: (jsonDecode("1") as num).toInt(),
-        currency: UpdateProjectSpendLimitBodyCurrency.fromJson(
-            jsonDecode("\"USD\"") as String),
-        interval: UpdateProjectSpendLimitBodyInterval.fromJson(
-            jsonDecode("\"month\"") as String),
-      );
-      expect(
-        mismatch(
-          normal(actual),
-          SdkUtils.decodeJson(
-              "{\"object\":\"project.spend_limit\",\"threshold_amount\":1,\"currency\":\"USD\",\"interval\":\"month\",\"enforcement\":{\"status\":\"active\"}}"),
-        ),
-        isNull,
-      );
-    });
-
-    test("updateSpendLimitsProject answers 400 with its declared error body",
-        () async {
-      SdkConfig.getConfig().baseUrl = '$baseUrl/__mockStatus/400';
-      addTearDown(() => SdkConfig.getConfig().baseUrl = baseUrl);
-      final SdkHttpError error;
-      try {
-        await sdk_methods_42.updateSpendLimitsProject(
-          config,
-          projectId: (jsonDecode("\"proj_123\"") as String),
-          thresholdAmount: (jsonDecode("1") as num).toInt(),
-          currency: UpdateProjectSpendLimitBodyCurrency.fromJson(
-              jsonDecode("\"USD\"") as String),
-          interval: UpdateProjectSpendLimitBodyInterval.fromJson(
               jsonDecode("\"month\"") as String),
         );
         fail('did not raise its declared error');

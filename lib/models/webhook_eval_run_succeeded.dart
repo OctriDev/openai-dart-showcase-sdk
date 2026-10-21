@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'webhook_eval_run_succeeded_part1.dart';
+part 'webhook_eval_run_succeeded_models.dart';

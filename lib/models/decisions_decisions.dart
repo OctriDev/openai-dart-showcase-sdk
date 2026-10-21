@@ -5,5 +5,12 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'decisions_decisions_part1.dart';
-part 'decisions_decisions_part2.dart';
+part 'decisions_decisions_usage_api_source.dart';
+part 'decisions_decisions_usage_bucket.dart';
+part 'decisions_decisions_usage_bucket_width.dart';
+part 'decisions_decisions_usage_error_details.dart';
+part 'decisions_decisions_usage_error_response.dart';
+part 'decisions_decisions_usage_group_by.dart';
+part 'decisions_decisions_usage_permission_error_response.dart';
+part 'decisions_decisions_usage_permission_error_response_error.dart';
+part 'decisions_decisions_usage_result.dart';

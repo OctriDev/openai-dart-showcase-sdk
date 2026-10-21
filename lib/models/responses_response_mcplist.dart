@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'responses_response_mcplist_part1.dart';
+part 'responses_response_mcplist_models.dart';

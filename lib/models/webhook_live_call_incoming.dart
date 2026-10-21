@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'webhook_live_call_incoming_part1.dart';
+part 'webhook_live_call_incoming_models.dart';

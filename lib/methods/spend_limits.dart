@@ -150,7 +150,7 @@ Future<ProjectSpendLimitDeletedResource> deleteSpendLimitsProject(
 ///   supported.
 /// [interval] The time interval for evaluating spend against the threshold.
 ///   Currently, only `month` is supported.
-Future<ProjectSpendLimitResource> updateSpendLimitsProject(ClientConfig config,
+Future<ProjectSpendLimitResource> updateProjectSpendLimit(ClientConfig config,
     {required String projectId,
     required int thresholdAmount,
     required UpdateProjectSpendLimitBodyCurrency currency,
@@ -167,7 +167,7 @@ Future<ProjectSpendLimitResource> updateSpendLimitsProject(ClientConfig config,
             'interval': interval
           },
           decoder: SdkResponseDecoder.json,
-          operationId: 'updateSpendLimitsProject',
+          operationId: 'updateProjectSpendLimit',
           fromJsonRaw: (value) =>
               ProjectSpendLimitResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,

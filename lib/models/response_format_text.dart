@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'response_format_text_part1.dart';
+part 'response_format_text_models.dart';

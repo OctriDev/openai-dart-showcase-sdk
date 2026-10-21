@@ -4,4 +4,4 @@
 // responses_beta_misalignment domain model library.
 import '../sdk_utils.dart';
 
-part 'responses_beta_misalignment_part1.dart';
+part 'responses_beta_misalignment_models.dart';

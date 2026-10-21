@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_reasoning.dart';
 
-part 'responses_reasoning_part1.dart';
+part 'responses_reasoning_models.dart';

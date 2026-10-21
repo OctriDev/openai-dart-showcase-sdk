@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'shared_message.dart';
 import 'shared_tool.dart';
 
-part 'shared_additional_part1.dart';
+part 'shared_additional_models.dart';

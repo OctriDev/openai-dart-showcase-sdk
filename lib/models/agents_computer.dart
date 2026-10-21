@@ -7,5 +7,13 @@ import 'agents_browser.dart';
 import 'agents_function.dart';
 import 'inline.dart';
 
-part 'agents_computer_part1.dart';
-part 'agents_computer_part2.dart';
+part 'agents_computer_screenshot_resource.dart';
+part 'agents_computer_use_approval_request_kind_resource.dart';
+part 'agents_computer_use_approval_request_kind_resource_browser_authentication.dart';
+part 'agents_computer_use_approval_request_kind_resource_browser_origin_access.dart';
+part 'agents_computer_use_approval_request_result_item_resource.dart';
+part 'agents_computer_use_approval_response_kind_resource.dart';
+part 'agents_computer_use_approval_response_kind_resource_browser_authentication_cancel_resource.dart';
+part 'agents_computer_use_approval_response_kind_resource_browser_authentication_submit_resource.dart';
+part 'agents_computer_use_call_item_resource.dart';
+part 'agents_computer_create_agent_session_events.dart';

@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'webhook_batch_completed_part1.dart';
+part 'webhook_batch_completed_models.dart';

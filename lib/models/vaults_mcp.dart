@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'vaults_mcp_part1.dart';
+part 'vaults_mcp_models.dart';

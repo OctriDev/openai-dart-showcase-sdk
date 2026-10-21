@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'webhook_safety_deactivation_issued_part1.dart';
+part 'webhook_safety_deactivation_issued_models.dart';

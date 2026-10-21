@@ -2,4 +2,4 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // agents_verbosity domain model library.
-part 'agents_verbosity_part1.dart';
+part 'agents_verbosity_models.dart';

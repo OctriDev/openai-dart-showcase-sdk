@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'webhook_safety_org_alert_created_part1.dart';
+part 'webhook_safety_org_alert_created_models.dart';

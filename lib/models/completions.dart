@@ -7,6 +7,5 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_chat.dart';
 
-part 'completions_part1.dart';
-part 'completions_part2.dart';
-part 'completions_part3.dart';
+part 'completions_create_completion_request.dart';
+part 'completions_create_completion_response.dart';

@@ -5925,13 +5925,13 @@ class SpendLimitsNamespace {
   /// Creates or replaces a project's hard spend limit. Supply `threshold_amount`, `currency`, and `interval` to set the spending threshold and the period used to evaluate it. The response includes the resulting limit and its enforcement state.
   ///
   /// Create or replace a project's hard spend limit.
-  Future<ProjectSpendLimitResource> updateProject(
+  Future<ProjectSpendLimitResource> update(
       {required String projectId,
       required int thresholdAmount,
       required UpdateProjectSpendLimitBodyCurrency currency,
       required UpdateProjectSpendLimitBodyInterval interval,
       RequestOptions? requestOptions}) async {
-    return spend_limits_methods.updateSpendLimitsProject(_config,
+    return spend_limits_methods.updateProjectSpendLimit(_config,
         projectId: projectId,
         thresholdAmount: thresholdAmount,
         currency: currency,

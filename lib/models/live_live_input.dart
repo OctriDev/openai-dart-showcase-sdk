@@ -5,5 +5,10 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'live_live_input_part1.dart';
-part 'live_live_input_part2.dart';
+part 'live_live_input_audio_append.dart';
+part 'live_live_input_audio_append_event.dart';
+part 'live_live_input_audio_muted.dart';
+part 'live_live_input_audio_mute_param.dart';
+part 'live_live_input_audio_unmuted.dart';
+part 'live_live_input_audio_unmute_param.dart';
+part 'live_live_input_transcript_delta.dart';

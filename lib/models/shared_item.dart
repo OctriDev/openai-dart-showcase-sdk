@@ -24,5 +24,5 @@ import 'shared_response.dart';
 import 'shared_tool.dart';
 import 'shared_web.dart';
 
-part 'shared_item_part1.dart';
-part 'shared_item_part2.dart';
+part 'shared_item2.dart';
+part 'shared_item_reference_param.dart';

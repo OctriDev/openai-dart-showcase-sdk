@@ -12,6 +12,15 @@ import 'shared_item.dart';
 import 'shared_program.dart';
 import 'shared_prompt.dart';
 
-part 'shared_input_part1.dart';
-part 'shared_input_part2.dart';
-part 'shared_input_part3.dart';
+part 'shared_input_audio.dart';
+part 'shared_input_content.dart';
+part 'shared_input_fidelity.dart';
+part 'shared_input_file_content.dart';
+part 'shared_input_file_content_param.dart';
+part 'shared_input_image_content.dart';
+part 'shared_input_image_content_param_auto_param.dart';
+part 'shared_input_item.dart';
+part 'shared_input_message.dart';
+part 'shared_input_message_content_list.dart';
+part 'shared_input_text_content.dart';
+part 'shared_input_text_content_param.dart';

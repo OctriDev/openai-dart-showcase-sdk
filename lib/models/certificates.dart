@@ -5,6 +5,13 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'certificates_part1.dart';
-part 'certificates_part2.dart';
-part 'certificates_part3.dart';
+part 'certificates_shared.dart';
+part 'certificates_delete_certificate.dart';
+part 'certificates_list_certificates_for_organization.dart';
+part 'certificates_list_certificates_for_project.dart';
+part 'certificates_modify_certificate.dart';
+part 'certificates_activate_certificates_for_organization.dart';
+part 'certificates_deactivate_certificates_for_organization.dart';
+part 'certificates_activate_certificates_for_project.dart';
+part 'certificates_deactivate_certificates_for_project.dart';
+part 'certificates_upload_certificate.dart';

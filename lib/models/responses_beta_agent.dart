@@ -12,5 +12,9 @@ import 'responses_beta_output.dart';
 import 'responses_beta_reasoning.dart';
 import 'responses_beta_text.dart';
 
-part 'responses_beta_agent_part1.dart';
-part 'responses_beta_agent_part2.dart';
+part 'responses_beta_agent_tag_param.dart';
+part 'responses_beta_agent_message.dart';
+part 'responses_beta_agent_message_content_item.dart';
+part 'responses_beta_agent_message_item_param.dart';
+part 'responses_beta_agent_message_item_param_content_item.dart';
+part 'responses_beta_agent_tag.dart';

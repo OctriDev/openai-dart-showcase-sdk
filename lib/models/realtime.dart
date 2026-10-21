@@ -2,4 +2,4 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // realtime domain model library.
-part 'realtime_part1.dart';
+part 'realtime_models.dart';

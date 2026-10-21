@@ -2,4 +2,4 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // responses_beta_search domain model library.
-part 'responses_beta_search_part1.dart';
+part 'responses_beta_search_models.dart';

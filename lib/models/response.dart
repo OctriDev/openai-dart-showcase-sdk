@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'misc.dart';
 
-part 'response_part1.dart';
+part 'response_models.dart';

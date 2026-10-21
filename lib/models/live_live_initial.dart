@@ -7,5 +7,15 @@ import 'inline.dart';
 import 'live_live.dart';
 import 'live_live_custom.dart';
 
-part 'live_live_initial_part1.dart';
-part 'live_live_initial_part2.dart';
+part 'live_live_initial_assistant_message_item_param.dart';
+part 'live_live_initial_assistant_message_item_param_content_item.dart';
+part 'live_live_initial_developer_message_item_param.dart';
+part 'live_live_initial_input_text_content_part_param.dart';
+part 'live_live_initial_item.dart';
+part 'live_live_initial_message_status.dart';
+part 'live_live_initial_output_text_content_part_param.dart';
+part 'live_live_initial_session_audio_output_param.dart';
+part 'live_live_initial_session_audio_output_param_voice.dart';
+part 'live_live_initial_session_audio_param.dart';
+part 'live_live_initial_text_content_part_param.dart';
+part 'live_live_initial_user_message_item_param.dart';

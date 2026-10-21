@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_response.dart';
 
-part 'assistants_assistants_part1.dart';
+part 'assistants_assistants_models.dart';

@@ -4,4 +4,4 @@
 // agents_session_environment domain model library.
 import '../sdk_utils.dart';
 
-part 'agents_session_environment_part1.dart';
+part 'agents_session_environment_models.dart';
